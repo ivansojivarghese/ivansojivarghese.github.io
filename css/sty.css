@@ -1,0 +1,360 @@
+
+/*main (common) styling*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
+
+*  {
+    user-select: none;
+}
+
+html { /*root element*/
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100vw; /*takes full dimensions*/
+    font-family: "Raleway", "Segoe UI", sans-serif; /*Google Font, installed (offline) font, fallback font*/
+    overflow-y: hidden;
+    overflow-x: hidden;
+    color: #303030; /*alternatively: rgb(48,48,48)*/
+}
+
+html, body {
+    max-width: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1em;
+}
+
+h2 {
+    font-size: 2.6rem;
+    margin-bottom: 0.8em;
+}
+
+h3 {
+    font-size: 2.4rem;
+    margin-bottom: 0.7em;
+}
+
+h4, h6 {
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 1.2em;
+}
+
+h5 {
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+h6 {
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.6em;
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+h3, h5, h6, p {
+    font-family: "Poppins", "Roboto", sans-serif;
+}
+
+div {
+    width: 100%;
+}
+
+.o-img {
+    opacity: 0.1;
+}
+
+.img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    background-origin: border-box;
+    z-index: 0;
+    height: 100%;
+}
+
+.trs {
+    transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+}
+
+.in-col {
+    background-color: #303030;
+    padding: 2.5rem 0;
+    color: #FFF;
+}
+
+.rv-in-col {
+    background-color: #FFF;
+    color: #303030;
+}
+
+a.md, span.md {
+    padding: 0.3em;
+    border-radius: 0.2em;
+}
+
+.bt:active, a.md_a:active .bt {
+    background-color: #E4E4E4;
+}
+
+.bt {
+    background-color: #F2F2F2;
+}
+
+/* ------------- */
+
+#error h4, p {
+    line-height: 1.5em;
+}
+
+#error h4 {
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+}
+
+#error div.content {
+    transform: translateY(-50%);
+}
+
+/* -------------- */
+
+.link, .hook {
+    margin: 3rem 0;
+}
+
+.ex-link {
+    margin: 5rem 0;
+}
+
+.hook {
+    margin-bottom: 6rem;
+}
+
+/* ------------- */
+
+#disCon, #error, #error > div, .phablet, .desktop { /*display control*/
+    display: none;
+}
+
+.mobile {
+    display: block;
+}
+
+#error, h4, h6 {
+    text-align: center;
+}
+
+#loader, #loader div, #error .content {
+    position: absolute;
+}
+
+div.locator_img {
+    position: static;
+}
+
+a, .sp-dot {
+    display: inline-block;
+}
+
+#loader .content, div.circle_h {
+    left: 50%
+}
+
+#loader .content, #error .content {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#loader {
+    transition-property: opacity;
+}
+
+#error p {
+    font-size: 1.8rem;
+    margin-bottom: 0.4em;
+}
+
+/* -------------- */
+
+#loader {
+    height: 100vh;
+    z-index: 1000;
+    background: #FFF;
+}
+
+#loader .content {
+    width: 8rem;
+    height: 12rem;
+    top: 50%;
+}
+
+#loader .logo {
+    height: 8rem;
+}
+
+div.circle_h {
+    width: 2rem;
+    height: 2rem;
+    bottom: 0;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+div.circle {
+    height: calc(100% - 0.4rem);
+    width: calc(100% - 0.4rem);
+    border: 0.2rem solid #FFF;
+    border-top-color: #303030;
+    border-radius: 50%;
+    animation-name: load_circle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes load_circle {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.em, h5.md {
+    font-weight: bold;
+}
+
+.em a {
+    border-bottom: 0.18em solid #303030;
+    line-height: 0.9em;
+    cursor: pointer;
+}
+
+.em a:active {
+    color: #B4B4B4;
+    border-color: #B4B4B4;
+}
+
+.dots {
+    background-image: url("../ext/svg/dots.svg");
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img_icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.locator_img {
+    background-image: url("../svg/locater.svg");
+    width: 1.2rem;
+    height: 1.2rem !important;
+}
+
+.lead_arrow_img {
+    background-image: url("../svg/lead_arrow_down.svg");
+}
+
+.lead_arrow_forward_img {
+    background-image: url("../svg/lead_arrow_forward.svg");
+}
+
+.lead_arrow_down_w_img {
+    background-image: url("../svg/lead_arrow_down_white.svg");
+}
+
+.chevron_right_white_img {
+    background-image: url("../svg/chevron_right_white.svg");
+}
+
+.addition_img {
+    background-image: url("../svg/addition.svg");
+}
+
+/* -------------- */
+
+.footer {
+    border-top: 0.01rem solid #EEE;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 1.25rem;
+}
+
+.footer p {
+    margin-right: 5%;
+}
+
+.footer .logo {
+    width: 4.5em;
+    height: 4.5em;
+}
+
+.footer .logo, .footer .text {
+    margin-top: 1.25em;
+}
+
+.footer .text {
+    font-size: 1em;
+}
+
+.footer .copy {
+    margin-top: 0.6em;
+    font-size: 0.88em;
+}
+
+.footer .attr {
+    font-size: 0.8em;
+    margin-top: 0.4em;
+}
+
+.footer .attr.md {
+    margin-bottom: 1em;
+}
+
+.footer a {
+    text-decoration: underline;
+}
+
+.footer a.logo, .footer p {
+    margin-left: 10%;
+}
+
+/* -------------- */
+
+.logo {
+    background-image: url("../svg/logo/favicon.png");
+}
+
+.logo-hybrid {
+    background-image: url("../svg/logo/logo_hybrid.png");
+}
+
+.logo-hybrid-inverse {
+    background-image: url("../svg/logo/logo_hybrid_inverse.png");
+}

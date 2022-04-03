@@ -1,0 +1,314 @@
+
+
+.c_wd {
+    width: 80%;
+}
+
+/* ------------ */
+
+#vs_cnt > div {
+    background-color: #FFF;
+}
+
+.html-lg {
+    color: #FFF;
+}
+
+#intro_sc {
+    height: 100vh;
+}
+
+#scroll_arrow {
+    position: absolute;
+}
+
+#intro_p, #loc_sc .content, .stats .wrap, .link, .hook.md, .gears {
+    text-align: center;
+}
+
+.rg_p div.md p, .link.md, .link.md_a {
+    text-align: left;
+}
+
+.rg_p p, .hook, .link.md h5, h3.md  {
+    text-align: right;
+}
+
+.rg_p div, .link.md span.ky, .gears .img.mobile {
+    display: inline-block;
+}
+
+#sc_arrow {
+    transition-timing-function:  cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+}
+
+.stats h3, .stats div.img, .link p.md, .stat_h, .stat_h + div.img {
+    margin-bottom: 1rem;
+}
+
+.c_wd, #profile_img, .img_icon, #loc_sc .img {
+    margin: 0 auto;
+}
+
+a.vw .img_icon, .hook.md p {
+    margin: 0;
+}
+
+.hook p, .link.md h5, .link.md h3.md {
+    margin-right: 15%;
+}
+
+.abt_p, #ptf_sc h2, .link.md {
+    margin-left: 10%;
+}
+
+.rg_p div, .lg_p div {
+    width: 50%;
+    left: 0;
+}
+
+/* ------------ */
+
+#intro_p {
+    margin-top: 5vh;
+}
+
+#profile_img {
+    background-image: url("../../jpg/ivan_profile.jpg");
+    background-position: center;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+}
+
+#scroll_arrow {
+    bottom: 5vh;
+    z-index: 100;
+    left: 50%;
+    transform: translateX(-50%);
+    transition-property: opacity;
+}
+
+#scroll_arrow .img {
+    background-image: url("../../svg/arrow_down.svg");
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* ------------ */
+
+.rg_p {
+    width: 14rem;
+    height: 11rem;
+    margin-top: 5rem;
+    margin-left: calc(100% - 16.5rem);
+}
+
+.rg_p p {
+    min-height: 1.5em;
+}
+
+.rg_p div {
+    width: 45%;
+}
+
+.rg_p div.md {
+    width: 50%;
+}
+
+.rg_p div.md p {
+    font-weight: bold;
+    padding-left: 0.3em;
+}
+
+#lead_sc .text {
+    margin-top: 4rem;
+}
+
+#lead_sc .text p.md {
+    margin-top: 5rem;
+}
+
+#lead_sc .in-col {
+    padding-top: 6rem;
+}
+
+/* ------------- */
+
+#loc_sc .img {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#loc_weather_temp {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+/* ------------ */
+
+#ptf_sc h2 {
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+}
+
+#ptf_sc .link.r {
+    margin-top: 0;
+}
+
+span.img_icon {
+    width: 1.2em;
+    height: 1em;
+}
+
+a.vw {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+/* ----------- */
+
+.stat_h {
+    font-size: 9rem;
+    font-weight: normal;
+}
+
+.stats .img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.stats div.img_icon.md {
+    margin-bottom: 2rem;
+}
+
+.map_img {
+    background-image: url("../svg/map_white.svg");
+}
+
+.walk_img {
+    background-image: url("../svg/walk.svg");
+}
+
+.walk_white_img {
+    background-image: url("../svg/walk_white.svg");
+}
+
+.clock_img {
+    background-image: url("../svg/clock.svg");
+}
+
+.clock_white_img {
+    background-image: url("../svg/clock_white.svg")
+}
+
+/* ----------- */
+
+.link.md {
+    width: calc(100% - 10%);
+}
+
+.link.md h3 {
+    margin-bottom: 1.2em;
+    margin-right: 5%;
+}
+
+.link.md span.ky {
+    padding: 0.2em;
+}
+
+.hook.md, .hook.md_a {
+    margin-bottom: 3rem;
+}
+
+.wrap.rg {
+    padding-top: 1.5rem;
+}
+
+/* ----------- */
+
+.gears { /*animating gears*/
+    height: 12rem;
+}
+
+.gears .img {
+    background-image: url("../svg/gear.svg");
+    width: 10rem;
+    height: 10rem;
+    opacity: 0.1;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: relative;
+}
+
+.gears .img.gL {
+    left: 1rem;
+    animation-duration: 4s;
+    animation-name: rt_C;
+}
+
+.gears .img.gR {
+    width: 5rem;
+    height: 5rem;
+    left: -2rem;
+    top: 2rem;
+    animation-duration: 2s;
+    animation-name: rt_A;
+}
+
+.gears .img.gE {
+    width: 7rem;
+    height: 7rem;
+    left: -3.8rem;
+    top: 0.5rem;
+    animation-name: rt_C;
+    animation-duration: 2.5s;
+}
+
+@keyframes rt_C { /*rotate clockwise*/
+    0% {
+        transform: none;
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rt_A { /*rotate anti-clockwise*/
+    0% {
+        transform: none;
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/*------------ */
+
+.abt_p {
+    padding-right: 5%;
+    font-size: 1.25rem;
+}
+
+/* ---------- logo colors ----- */
+
+.html-lg {
+    background-color: #E34C26;
+}
+
+.css-lg {
+    background-color: #264DE4;
+    color: #EBEBEB;
+}
+
+.js-lg {
+    background-color: #F0DB4F;
+    color: #323330;
+}
+

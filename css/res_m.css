@@ -1,0 +1,276 @@
+
+/* min size parameters : 240px width, 440px height */
+
+/* max size parameters : 3000px width, 2000px height */
+
+
+/* responsive - mobile */
+@media screen and (min-width: 220px) and (orientation: portrait) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 300px) and (orientation: portrait) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 300px) and (min-height: 600px) and (orientation: portrait) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 330px) and (orientation: portrait) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 330px) and (min-height: 700px) and (orientation: portrait) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 360px) and (orientation: portrait) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 380px) and (orientation: portrait) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 360px) and (min-height: 650px) and (orientation: portrait) {
+    html {
+        font-size: 16.5px;
+    }
+}
+
+@media screen and (min-width: 360px) and (min-height: 700px) and (orientation: portrait) {
+    html {
+        font-size: 16.5px;
+    }
+}
+
+@media screen and (min-width: 360px) and (min-height: 800px) and (orientation: portrait) {
+    html {
+        font-size: 17px;
+    }
+}
+
+@media screen and (min-width: 410px) and (orientation: portrait) {
+    html {
+        font-size: 17px; 
+    }
+}
+
+@media screen and (min-width: 400px) and (min-height: 800px) and (orientation: portrait) {
+    html {
+        font-size: 18px; 
+    }
+}
+
+@media screen and (min-width: 425px) and (orientation: portrait) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 450px) and (min-height: 850px) and (orientation: portrait) {
+    html {
+        font-size: 20px;
+    }
+}
+
+/* to display error message - use of landscape view in mobile phone viewports*/
+
+@media screen and (max-height: 300px) and (orientation: landscape) { 
+    html {
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-height: 300px) and (max-height: 400px) and (orientation: landscape) { 
+    html {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-height: 400px) and (max-height: 500px) and (orientation: landscape) { 
+    html {
+        font-size: 15px;
+    }
+}
+
+/* ---------- tablet/phablet ---- */ 
+
+@media screen and (min-width: 500px) and (orientation: portrait), (min-height: 500px) and (orientation: landscape) {
+    .footer {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (min-height: 500px) and (orientation: landscape) {
+    .footer {
+        font-size: 0.95rem;
+    }
+
+    .footer div {
+        display: inline-block;
+    }
+    
+    .footer, .footer .lf {
+        width: auto;
+    }
+
+    .footer a.logo {
+        margin: 1.25em 0 1.25em 6vw;
+    }
+
+    .footer .rg {
+        width: calc(100% - 6vw - 4.5em);
+        float: right;
+    }
+
+    .footer p {
+        margin-left: 2.5vw;
+    }
+
+    .footer .copy {
+        margin-top: 0.4em;
+    }
+
+    .footer .attr {
+        margin-top: 0.2em;
+    }
+}
+
+@media screen and (min-width: 500px) and (orientation: portrait) {
+    html {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-height: 500px) and (orientation: landscape) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 590px) and (orientation: portrait) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-height: 590px) and (orientation: landscape) {
+    html {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 700px) and (orientation: portrait) {
+    html {
+        font-size: 26px;
+    }
+}
+
+@media screen and (min-height: 700px) and (orientation: landscape) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 760px) and (orientation: portrait) {
+    html {
+        font-size: 28px;
+    }
+}
+
+@media screen and (min-height: 760px) and (orientation: landscape) {
+    html {
+        font-size: 26px;
+    }
+}
+
+@media screen and (min-width: 800px) and (orientation: portrait) {
+    html {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-height: 800px) and (orientation: landscape) {
+    html {
+        font-size: 28px;
+    }
+}
+
+/*iPad Pro*/
+@media screen and (min-width: 1000px) and (min-height: 1300px) and (orientation: portrait), (min-width: 1300px) and (min-height: 1000px) and (orientation: landscape) {
+    html {
+        font-size: 35px;
+    }
+}
+
+/* ----- laptops (desktop) ----------- */
+
+/* 1280px by 800px / 1366px by 768px */
+@media screen and (min-width: 1250px) and (min-height: 700px) and (pointer: fine) {
+    html {
+        font-size: 26px;
+    }
+}
+
+/*1440px by 900px / 1536px by 864px */
+@media screen and (min-width: 1400px) and (min-height: 850px) {
+    html {
+        font-size: 28px;
+    }
+}
+
+/*1600px by 900px / 1680px by 1080px */
+@media screen and (min-width: 1600px) and (min-height: 900px) {
+    html {
+        font-size: 30px;
+    }
+}
+
+/*1920px by 1080px */
+@media screen and (min-width: 1900px) and (min-height: 1000px) {
+    html {
+        font-size: 32px;
+    }
+}
+
+/*1920px by 1200px */
+@media screen and (min-width: 1900px) and (min-height: 1200px) {
+    html {
+        font-size: 34px;
+    }
+}
+
+/*2560px by 1440px */
+@media screen and (min-width: 2500px) and (min-height: 1400px) {
+    html {
+        font-size: 42px;
+    }
+}
+
+@media screen and (min-width: 2700px) {
+    html {
+        font-size: 44px;
+    }
+}
+
+@media screen and (min-width: 2900px) {
+    html {
+        font-size: 46px;
+    }
+}

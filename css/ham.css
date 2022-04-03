@@ -1,0 +1,111 @@
+
+.head, .logo_h {
+    height: 6rem;
+}
+
+#ham_sc .wrap, div.h_icon span {
+    display: block;
+}
+
+.head > div, h5.md, div.logo_h .img {
+    display: inline-block;
+}
+
+#ham_sc .container, .head .bt_c {
+    position: absolute;
+}
+
+div.logo_h .img, h5.md {
+    margin-left: 10%;
+}
+
+h5.md, #ham_sc .h_icon {
+    padding: 1.8rem 0;
+}
+
+#ham_sc .wrap, #ham_sc .content {
+    border-width: 0;
+    border-style: solid;
+    border-color: #3C3C3C;
+}
+
+.logo_h {
+    width: 80%;
+}
+
+div.logo_h .img {
+    width: calc(100% - 10%);
+    background-size: contain;
+}
+
+.logo_h .img, .bt_c {
+    height: 2.2rem;
+    margin: 1.9rem 0;
+}
+
+.head .bt_c { 
+    width: 20%;
+    right: 0;
+}
+
+.bt_h {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0.35rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.bt_h:active {
+    background-color: #E4E4E4;
+}
+
+.bt_h.md:active, #ham_sc .wrap:active {
+    background-color: #565656;
+}
+
+#vs_cnt #ham_sc {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    z-index: 200;
+    background-color: #303030;
+    color: #FFF;
+    height: 100vh;
+}
+
+#ham_sc .wrap {
+    border-bottom-width: 0.01rem;
+}
+
+#ham_sc .content {
+    border-top-width: 0.01rem;
+}
+
+h5.md {
+    font-size: 1.6rem;
+    padding: 1.8rem 0;
+    width: 70%;
+}
+
+#ham_sc .h_icon {
+    width: 20%;
+    float: right;
+    height: 1.6rem;
+}
+
+div.h_icon span {
+    width: 1.6rem;
+    height: 100%;
+}
+
+/* -------- */
+
+#ham_img {
+    background-image: url("../svg/menu.svg");
+}
+
+#ham_c_img {
+    background-image: url("../svg/menu_close_white.svg");
+}
