@@ -26,7 +26,10 @@ function h_mTg(e) { // ham. menu toggle
 }
 
 window.addEventListener("resize", function() {
-    wH = window.innerHeight; // update on window size variables
-    wD = window.innerWidth; 
-    reL(); // reload page
+    if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values
+        wH = window.innerHeight; // update on window size variables
+        wD = window.innerWidth; 
+        cH = document.documentElement.clientHeight;
+        reL(); // reload page
+    }
 });
