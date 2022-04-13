@@ -331,10 +331,11 @@ div.circle {
 .footer .attr {
     font-size: 0.8em;
     margin-top: 0.4em;
+    margin-bottom: 1em;
 }
 
 .footer .attr.md {
-    margin-bottom: 1em;
+    font-size: 0.75em;
 }
 
 .footer a {

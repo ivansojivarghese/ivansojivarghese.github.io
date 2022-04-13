@@ -143,6 +143,10 @@
         margin-left: 2.5vw;
     }
 
+    .footer .copy, .footer .attr {
+        margin-bottom: 0.6em;
+    }
+
     .footer .copy {
         margin-top: 0.4em;
     }
