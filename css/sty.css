@@ -319,6 +319,10 @@ div.circle {
     margin-top: 1.25em;
 }
 
+.footer .copy, .footer .attr {
+    margin-bottom: 1em;
+}
+
 .footer .text {
     font-size: 1em;
 }
@@ -331,7 +335,6 @@ div.circle {
 .footer .attr {
     font-size: 0.8em;
     margin-top: 0.4em;
-    margin-bottom: 1em;
 }
 
 .footer .attr.md {
