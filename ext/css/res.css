@@ -120,6 +120,10 @@
         bottom: 1rem;
     }
 
+    #intro_sc .phablet .p-wrap {
+        bottom: 2rem;
+    }
+
     #lead_sc .in-col {
         padding-top: 0;
         color: #303030;
