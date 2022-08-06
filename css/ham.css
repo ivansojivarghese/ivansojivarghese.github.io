@@ -1,54 +1,58 @@
 
-.head, .logo_h {
+:root { /*stored CSS variables - global*/
+    --mw: 8em; /*menu [button] width*/
+}
+
+.head {
     height: 6rem;
 }
 
-#ham_sc .wrap, div.h_icon span {
-    display: block;
-}
-
-.head > div, h5.md, div.logo_h .img {
-    display: inline-block;
-}
-
-#ham_sc .container, .head .bt_c {
-    position: absolute;
-}
-
-div.logo_h .img, h5.md {
-    margin-left: 10%;
-}
-
-h5.md, #ham_sc .h_icon {
-    padding: 1.8rem 0;
-}
-
-#ham_sc .wrap, #ham_sc .content {
-    border-width: 0;
-    border-style: solid;
-    border-color: #3C3C3C;
-}
-
-.logo_h {
-    width: 80%;
+.hm, .tint {
+    position: fixed;
+    z-index: -100;
 }
 
 div.logo_h .img {
-    width: calc(100% - 10%);
     background-size: contain;
 }
 
-.logo_h .img, .bt_c {
+.logo_h .img, .logo_h.sLd::before, .bt_c {
     height: 2.2rem;
-    margin: 1.9rem 0;
+    margin-top: 1.9rem;
+    margin-bottom: 1.9rem;
 }
 
-.head .bt_c { 
-    width: 20%;
+.logo_h.sLd::before {
+    margin-left: 8%;
+}
+
+.stroke { /* hamburger-menu button stroke */
+    height: 0.12rem;
+    margin-bottom: calc((0.85rem - 0.36rem) / 2);
+}
+
+.stroke:last-child {
+    margin: 0;
+}
+
+.bt_c {
+    width: 20vw;
     right: 0;
+    z-index: 300;
 }
 
-.bt_h {
+#ham_button { /*hamburger-menu button*/
+    height: 0.85rem;
+    width: 1.25rem;
+    padding: 0.675rem 0.475rem;
+}
+
+#ham_button.md_a { /*activated on open menu*/
+    height: 1.25rem;
+    padding: 0.475rem;
+}
+
+.bt_h { /*button container*/
     height: 1.5rem;
     width: 1.5rem;
     padding: 0.35rem;
@@ -61,51 +65,71 @@ div.logo_h .img {
     background-color: #E4E4E4;
 }
 
-.bt_h.md:active, #ham_sc .wrap:active {
+#ham_button.md_a:active, .hm a:active, #ham-tB_sc a::before {
     background-color: #565656;
 }
 
-#vs_cnt #ham_sc {
-    display: none;
-    opacity: 0;
-    position: fixed;
-    z-index: 200;
-    background-color: #303030;
-    color: #FFF;
-    height: 100vh;
+.hm a {
+    width: var(--mw, 8em);
+    display: block;
 }
 
-#ham_sc .wrap {
-    border-bottom-width: 0.01rem;
+#ham_sc a {
+    margin: 0 auto;
+}
+
+#ham-tB_sc a {
+    padding-left: 5%;
+}
+
+#ham-tB_sc a::before {
+    content: "";
+    position: absolute;
+    height: 1.65rem;
+    margin-top: 1.85rem;
+    z-index: -1;
+    left: 10%;
+    width: 0;
+}
+
+@media (hover: hover) { /* additional rules with desktops, with attached cursor pointers */
+    #ham-tB_sc a:hover::before {
+        width: calc(var(--mw, 8em) / 2); /* half of width */
+    }
+
+    #ham-tB_sc a:active {
+        background-color: inherit;
+    }
+
+    .bt_h.md:hover {
+        transition-duration: 0.2s;
+        background-color: #565656;
+    }
 }
 
 #ham_sc .content {
-    border-top-width: 0.01rem;
+    margin-top: calc((100vh - 7rem) / 2);
 }
 
-h5.md {
-    font-size: 1.6rem;
-    padding: 1.8rem 0;
-    width: 70%;
+#ham-tB_sc {
+    width: 30%;
+    min-width: 15rem;
+    right: 0;
 }
 
-#ham_sc .h_icon {
-    width: 20%;
-    float: right;
-    height: 1.6rem;
+#ham-tB_sc .content {
+    margin-top: 6rem;
 }
 
-div.h_icon span {
-    width: 1.6rem;
-    height: 100%;
+.hm h5 {
+    font-size: 2rem;
+    line-height: 1.75em;
 }
 
-/* -------- */
-
-#ham_img {
-    background-image: url("../svg/menu.svg");
+#ham-tB_sc h5 {
+    text-align: left;
 }
 
-#ham_c_img {
-    background-image: url("../svg/menu_close_white.svg");
+#ham_sc h5 {
+    text-align: center;
 }

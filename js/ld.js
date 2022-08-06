@@ -3,59 +3,55 @@
 var wH = window.innerHeight, 
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
     wD = window.innerWidth, 
-    Ldr = document.getElementById("loader"), 
-    cir_L = document.getElementById("cir1"), // loading (animated) circle
     dsC = document.getElementById("disCon"), // display control
-    eR = {
+    vsct = document.getElementById("vs_cnt"), // visual content
+    rL = { // loader
+        el : document.getElementById("loader"), // parent el.
+        r : document.getElementsByClassName("load_r"), // loading rings
+        g : document.getElementById("load_logo"), // loading logo
+        e : false, // code-execution boolean
+        i : false // int_Load status
+    },
+    hD = { // head
+        g : document.getElementById("Lg_h"), // container
+        g_i : document.getElementById("Lg_h-img") // logo image
+    },
+    eR = { // error categories
         m : document.getElementById("error"), // main
+        e : false, // code-execution boolean
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd") // landscape
     },
-    cE_L = true, // code-execution boolean
-    b_Dim, // ham. menu 'bubbling' dimensions
+    bC_d = "#303030", // contrast colour - dark
+    bC_L = "#FFF", // contrast colour - light
+    bC_t = "transparent",
+    trD = 200, // transition duration - default (in ms.)
+    trD_a = 500, // transition duration - for animation (in ms.)
+    sV_a = 0.8, // user viewport threshold - for scroll-based functions
+    
     _Ld, // loop
-
+    up = { // [user] input
+        t : undefined, // type
+        id : 0 // unique id (for reference)
+    },
     Rd = [], // load-ready? - conditions
     r, // before-load parameters
-    h,
-    w,
-    vw;
+    vw; // viewport variables
 
     
 function docRead() {
-    switch (document.readyState) {
+    switch (document.readyState) { // check 'ready state' of document
         case "complete": // if DOM, styles, images and scripts all loaded
-            h = window.innerHeight;
-            w = window.innerWidth;
-            r = pgOr(w, h); // get screen orientation
-            vw = vwP(w, h, r); // set device size/orientation params
-
-            if (cE_L) { // execute following code block once only
-                loadUp(); 
-                b_Dim = r.n * 2.5; // largest dimension to 'bubble' out + 150% extra
-                cE_L = false;
+            r = pgOr(wD, wH); // get screen orientation (using dimensions)
+            vw = vwP(wD, wH, r); // set device size/orientation params
+            if (!rL.e) { 
+                loadUp();  // activate 'loadUp' function - unique to each webpage
+                rL.e = true; // execute following code block once only
             }
-            if (rdS(Rd)) {
-                Ldr.style.opacity = 0; // hide loader
-                setTimeout(function() {
-                    Ldr.style.display = "none";
-                }, 200);
-                if (vw.z_S) { // if viewport size is too small
-                    eR.m.style.display = "block";
-                    eR.vs.style.display = "block"; // activate error page
-                } else if (vw.z_L) { // if viewport size is too large
-                    eR.m.style.display = "block";
-                    eR.vL.style.display = "block";
-                } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
-                    eR.m.style.display = "block";
-                    eR.ld.style.display = "block"; // activate [mobile] landscape-mode error
-                } else {    
-                    dsC.style.display = "block";
-                    document.body.style.overflowY = "scroll"; // activate page
-                    cir_L.style.animationPlayState = "paused"; // pause loading 
-                    clearInterval(_Ld);
-                }
+            if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
+                load_e(); // end loading sequence
+                clearInterval(_Ld); // stop ready-check loop
             }
         break;
     }
@@ -117,6 +113,83 @@ function pgOr(w, h) { // check device orientation
         s.n = w; // largest side is the width
     }
     return s;
+}
+
+function load_e() { // page load end
+    var i = 0,
+        _L = rL.r.length - 1,
+        _A = ["L_fb-c", "L_pa", "L_z-br", "bC_d", "L_fs", "c-xy", "z_O"], // respective CSS style rules to be added to loading ring elements
+        _AL = _A.length - 1,
+        d = function() { // function expression
+            for (j = 0; j <= _L; j++) { // loop through the 2 loading rings
+                rL.r[j].classList.add(_A[i]);  // add each class above to them
+            }
+            i++; // increment index
+        };
+    setTimeout(function() { // add remaining classes
+        d();
+        setTimeout(function() {
+            while (i < _AL) {
+                d();
+            }
+            setTimeout(function() {
+                d(); // remove rings from display (through adding of 'z_O')
+                e_Fd(rL.g, false); // fade in logo
+                setTimeout(function() {
+                    e_Fd(rL.el, true) // fade out
+                    er_C();
+                }, (trD_a * 2)); // maximise on-screen visibility of logo
+            }, trD_a);
+        }, trD_a); // other classes at no delay - instantaneous
+    }, trD_a);  // first class with .trs.md delay
+}
+
+function er_C() { // check for errors
+    if (vw.z_S) { // if viewport size is too small
+        erPg_D("vs");
+    } else if (vw.z_L) { // if viewport size is too large
+        erPg_D("vL");
+    } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
+        erPg_D("ld");
+    } else if (!eR.e) { // if no errors detected (and block not executed yet)
+        eR.e = true;
+        dsC.classList.remove("d_n"); // show display (webpage)
+        setTimeout(function() {
+            e_Fd(dsC, false); // fade in body
+            rL.el.classList.add("d_n"); 
+            setTimeout(function() {
+                intro_L(); // load up 'landing' area
+            }, trD_a + trD);
+        }, trD);
+    }
+}
+
+function intro_L() { // load up the landing page (#intro_sc)
+    var a = getBd(hD.g_i, "height"), // get height of 'logo_hybrid.png'
+        b = (a / 192) * 1181, // obtaining display width (px) of logo: (a / h) * w - in reference to logo_hybrid.png
+        c = (b / wD) * 100; // obtain percetile (of display width) against viewport width
+
+    e_Sd(hD.g, hD.g_i, c, (92 - c), null, null); // 'slide-in/out' logo at head - [variable percentile]% width, [100vw - 8% - percentile]% right
+
+    /*
+    if (vw.tB) { // tablet or desktop
+        e_Sd(hD.g, hD.g_i, 40, 52, null, null); // 'slide-in/out' logo at head - 40% width, 52% right
+    } else { // mobile or phablet
+        e_Sd(hD.g, hD.g_i, 70, 22, null, null); // 'slide-in/out' logo at head - 70% width, 22% right
+    }*/
+
+    setTimeout(function() {
+        int_LoadUp(); // perform load-up for other elements in landing zone (differs by page - refer to respective lds.js)
+    }, (trD_a * 2));
+}
+
+function erPg_D(p) { // error page display
+    var el = eR[p];
+    eR.m.classList.remove("d_n"); // display
+    el.classList.remove("d_n");
+    setTimeout(function() {
+        e_Fd(el, false); // fade in
+    }, trD)
 }
 
 

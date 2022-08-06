@@ -5,11 +5,14 @@ var LOC = enLoc("c", "Singapore"), // ENTER CURRENT (residing) LOCATION - Proper
     c_Loc = { // CURRENT (residing) Location object
         p : {}, // location
         w : {}, // weather
+        c : function() {}, // coords increment (method - definition TBA)
+        m : "loc", // identifier (for naming purposes)
+        L : "", // temp. class name (for individual span elements)
         el : {
             cty : document.getElementById("loc_city"), // location city
             cds : document.getElementById("loc_coords"), // location coords
             wi : document.getElementById("loc_weather_icon"), // location weather icon
-            ws : document.getElementById("loc_weather_status"), // location weather status
+            // ws : document.getElementById("loc_weather_status"), // location weather status
             wt : document.getElementById("loc_weather_temp") // location weather temp.
         }
     },
@@ -17,10 +20,12 @@ var LOC = enLoc("c", "Singapore"), // ENTER CURRENT (residing) LOCATION - Proper
         ip : {}, // IP address details
         p : {}, 
         w : {},
+        m : "us",
+        L : "",
         el : {
             tme : document.getElementById("us_loc_time"), // location time
             wi : document.getElementById("us_loc_weather_icon"), // weather icon
-            ws : document.getElementById("us_loc_weather_status"), // weather status
+            // ws : document.getElementById("us_loc_weather_status"), // weather status
             wt : document.getElementById("us_loc_weather_temp") // weather temp
         }
     };
@@ -38,7 +43,6 @@ async function geoFch(c, obj, y, x) { // geocoding/geolocation API
         lat_A,
         lng,
         lng_A,
-        s = obj.el,
         r_i;
     
     Rd[Rd.length] = undefined; // set ready-condition boolean [array] space
@@ -58,17 +62,57 @@ async function geoFch(c, obj, y, x) { // geocoding/geolocation API
     lng_A = (lng > 0) ? "°E" : "°W";
 
     weaFch(lat, lng, obj[y].address.country, obj[y].address.country_code, c_Loc, x, r_i, true); // get weather info using coords
-    
-    s.cds.innerHTML = lat.toFixed(4) + lat_A + ", " + lng.toFixed(4) + lng_A; // place coords to HTML
+
+    if (obj.c) { 
+        obj.c = function() { // proceed to define function if method exists (loc coords 'incrementing' effect)
+            var lat_R = lat.toFixed(loc_cds_D), // lat. (round off to 4 decimal places)
+                lng_R = lng.toFixed(loc_cds_D), // lng. ""
+                a = { // lat. details obj
+                    f : lat_R, // full form lat.
+                    d : lat_A.slice(1, lat_A.length), // lat. direction (only extract Latin alphabet - no other symbols)
+                    c : num_E(lat_R) // digit category detailing (object)
+                },
+                b = { // .lng details in obj
+                    f : lng_R, // full form lng.
+                    d : lng_A.slice(1, lng_A.length), // lng. direction
+                    c : num_E(lng_R) 
+                },
+                _A = [loc_lat_i, loc_lng_i], // add to array (for easier looping purpose)
+                _AL = _A.length - 1,
+                _L = loc_cds_D + 1; // number of digits to loop (+1 for directional character)
+
+            // lat.
+            loc_lat_i.n = a.c; // add (get) digits (final count) - add to main object
+            loc_lat_i.d = a.d; // add direction to main object
+            // lng.
+            loc_lng_i.n = b.c;
+            loc_lng_i.d = b.d;
+
+            for (i = 0; i <= _AL; i++) { // loop through lat./lng. objects
+                for (j = 0; j <= _L; j++) { // loop through individual digits of each object
+                    if (j < _L) { // integer/decimal placement
+                        e_Ic(_A[i], j, i_Sp(_A[i].n[j])); // conduct - digit iteration effect
+                    } else { // direction
+                        _A[i].e[j].innerHTML = _A[i].d; // concatenate direction to visible HTML string
+                    }
+                } 
+            }
+        }
+    }
 }
 
 async function weaFch(lat, lon, con, con_cd, obj, x, d, rte) { // weather API
     var u = checkImpF(con, con_cd, f_countries), // attach appropriate unit based on location
         s = obj.el,
+        // c = obj.m, // return object identifier
+        c_s = obj.m + "_tR", // return object modifier + class modifier
+        c_e = " trs c_t'", // class extra  + with single quotation for concat to double quotation string (HTML classList)
         w_icon,
         w_status,
         w_temp,
         w_reading;
+
+    obj.L = c_s; // add class name to object 
 
     if (rte) { // primary route (API)
         const promise = await fetch("https://api.weatherbit.io/v2.0/current?lat=" + lat + "&lon=" + lon + "&key=fb71a575c33f447a977fd0ff8038c068&units=" + u.s)
@@ -89,8 +133,11 @@ async function weaFch(lat, lon, con, con_cd, obj, x, d, rte) { // weather API
         w_reading = obj[x].unit;
 
         s.wi.style.backgroundImage = "url(png/weather/" + w_icon + ".png)"; // set image
-        s.wt.innerHTML = w_temp  + w_reading;
-
+        if (s.cds) { // if 'coords' is a defined element in object (referring to only 'c_Loc' object)
+            s.wt.innerHTML = num_S(w_temp, ("'" + c_s), c_e) + "<span class=" + ("'" + c_s) + c_e + ">" + w_reading + "</span>"; // add text with 'span' elements and CSS classes
+        } else {
+            s.wt.innerHTML = w_temp + w_reading; // define normally
+        }
     } else { // secondary route (API - if primary fails)
         var temp_u = (u.s === "M") ? "metric" : "imperial", // set temp units based on user location
             i_url;
@@ -110,13 +157,17 @@ async function weaFch(lat, lon, con, con_cd, obj, x, d, rte) { // weather API
         w_temp = obj[x].main.temp.toFixed(); // weather temp.
         w_reading = obj[x].unit;
 
-        s.wi.style.backgroundImage = "url(" + w_icon + ")"; // concatenate
-        s.wt.innerHTML = w_temp + w_reading;
+        s.wi.style.backgroundImage = "url(" + w_icon + ")"; // concatenate icon and reading
+        if (s.cds) {
+            s.wt.innerHTML = num_S(w_temp, ("'" + c_s), c_e) + "<span class=" + ("'" + c_s) + c_e + ">" + w_reading + "</span>";
+        } else {
+            s.wt.innerHTML = w_temp + w_reading;
+        }
     }
-
+    /*
     if (s.ws) { // if element defined
         s.ws.innerHTML = w_status; // add info
-    }
+    }*/
     if (s.wt.innerHTML !== "") { // set condition if data has been inserted
         Rd[d] = true; // set ready-condition
     }
@@ -161,9 +212,6 @@ async function tmFch(tz, obj, y) { // time zone to time API
         .then((d) => d) // 30,000 calls per month - 1000 per day
         .then((o) => {
             obj[y] = o;
-        })
-        .catch((e) => {
-            console.log(e);
         });
 
     if (obj[y].time_24) { // if property is defined (exists as per normal)

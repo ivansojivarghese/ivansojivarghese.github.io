@@ -1,76 +1,71 @@
 
 /*responsive styling*/
 
-#intro_sc .phablet > div, #intro_sc .container > div, .vw span {
+.vw span {
     display: inline-block;
 }
 
-#intro_sc .phablet .wrap, #intro_sc .phablet .p-wrap, #intro_sc .text, h6.sp-dot, #ptf_sc .wrap.md {
+#ptf_sc .wrap.md {
     float: right;
 }
 
-#intro_sc .phablet .p-wrap, .vw span.img_icon {
+.vw span.img_icon {
     position: relative;
 }
 
 /* --------------- */
-
-#intro_sc .phablet .img.p {
-    width: 55%;
-    margin-top: 5vh;
-    height: 60vh;
+/*
+#profile_img_p {
     background-image: url("../../jpg/ivan_profile_phablet.jpg");
-    background-position: center;
-}
+    background-position: top;
+    width: 70%;
+    margin-top: 3vh;
+    height: 65vh;
+}*/
 
-#intro_sc .phablet .img.md {
-    width: 3.5rem;
-    height: 3.5rem;
-    margin: 0;
-}
-
-#intro_sc .phablet .wrap {
+#intscP_c {
     width: 30%;
-    text-align: right;
 }
 
-#intro_sc .phablet .p-wrap {
-    bottom: 1.5rem;
-    width: 40%;
-    padding: 1rem 0 1rem 5%;
+#intscP_p {
+    margin-top: calc(12.5rem + 5vh);
+    margin-left: 2.5rem;
 }
 
-#intro_sc .container {
+#intsc_d {
+    width: calc(85vw - 15rem);
+}
+
+#intsc_w {
     margin-top: 0.5rem;
 }
 
-#intro_sc .text {
-    width: calc(100% - 3.5rem);
+#intsc_n {
+    width: 3.5rem;
 }
 
-#intro_sc .text h6 {
-    margin: 1.25rem 0;
+#us_loc_weather_icon {
+    height: 3.5rem;
+}
+
+#us_loc_weather_temp {
+    font-size: 1rem;
+    line-height: 1.3em;
+    margin: 0.2rem 0 1.25rem;
     letter-spacing: normal;
 }
 
-#intro_sc .align {
-    margin-top: 3.7rem;
+#ldsc_t {
+    margin-left: calc(15% + 15rem);
+    margin-bottom: 2.5rem;
+    width: 10em;
+    transform: translateY(-2.5rem);
+    padding: 5rem 1.5rem 2.5rem 2.5rem;
 }
 
-.phablet .wrap {
-    margin-right: 10%;
-}
-
-#us_loc_weather_status {
-    width: 90%;
-}
-
-#intro_text {
-    margin-top: 6rem;
-}
-
-#intro_text .sp-dot {
-    margin: 0 1%;
+#ldsc_g {
+    margin-top: 3rem;
+    margin-left: calc(15% + 25rem);
 }
 
 .vw.desktop {
@@ -82,25 +77,31 @@
     margin-right: 0.1em;
 }
 
+
+
 /* ----------------- tablet (portrait - phablet) ---------- */
 
 @media screen and (min-width: 500px) and (orientation: portrait) {
-    #intro_sc .content, .rg_p, #lead_sc .text, #lead_sc .text p.md {
-        margin-top: 0;
+    #loc_img {
+        background-position: 80% -35vh;
     }
-    
-    .mobile, #ptf_sc div.wrap.desktop {
+
+    #intscP_c {
+        /* display: none; */
+    }
+
+    #ptf_sc div.wrap.desktop {
         display: none;
     }
 
-    .phablet, #lead_sc .phablet, .cpt_h.mobile {
+    .cpt_h.mobile {
         display: block;
     }
 
     .gears .img.phablet {
         display: inline-block;
     }
-
+    /*
     #loc_coords, #loc_city {
         width: 80%;
         text-align: left;
@@ -110,19 +111,15 @@
     #loc_coords, #loc_city, #ptf_sc h2.m {
         margin-left: auto;
         margin-right: auto;
-    }
+    }*/
 
     #ptf_sc h2.m, .hook.vw {
         text-align: center;
     }
-
+    /*
     #scroll_arrow {
         bottom: 1rem;
-    }
-
-    #intro_sc .phablet .p-wrap {
-        bottom: 2rem;
-    }
+    }*/
 
     #lead_sc .in-col {
         padding-top: 0;
@@ -175,61 +172,72 @@
     }
 }   
 
+@media screen and (min-width: 750px) and (orientation: portrait)  {
+    /*
+    #intscP_p {
+        width: auto;
+        padding-left: 2em;
+        padding-right: 2em;
+        right: 10%;
+    }
+
+    #intscP_c {
+        display: block;
+        width: 25%;
+    }
+
+    #intsc_w {
+        display: none;
+    }*/
+    /*
+    #profile_img_p {
+        width: 60%;
+        margin-top: 0;
+    }*/
+}
+
+@media screen and (min-height: 1100px) and (orientation: portrait)  {
+    /*
+    #profile_img_p {
+        width: 65%;
+    }
+    
+    #intscP_p {
+        bottom: 2rem;
+    }*/
+}
+
 /* ---------------- phablet (portrait) / tablet (landscape) | common weather-info styling ------------------------- */
 
 @media screen and (min-width: 500px) and (orientation: portrait), (min-height: 500px) and (orientation: landscape) {
-    p, .abt_p {
-        font-size: 1.1rem;
+    .rg_p {
+        height: auto;
     }
 
-    #intro_sc .content, #intro_sc .container {
+    .abt_p {
+        font-size: 1.2rem;
+    }
+
+    #intro_sc .content {
         margin-top: 0;
     }
-    
-    .mobile {
-        display: none;
-    }
 
-    #intro_sc .container > div, #intro_sc .phablet {
+    #intro_sc .container > div {
         display: block;
     }
 
-    #intro_sc .space .container, #intro_sc .desktop h6, #ptf_sc .in-col .wrap {
+    #profile_img {
+        width: 15rem;
+        height: 15rem;
+        margin-top: 5vh;
+    }
+
+    #ptf_sc .in-col .wrap {
         display: inline-block;
     }
 
-    #intro_sc h6, h4.m {
+    h4.m {
         font-size: 1rem;
-    }
-
-    #intro_sc .space {
-        margin-top: 0.5rem;
-    }
-
-    #intro_sc .desktop {
-        width: calc(100% - 3.5rem);
-    }
-
-    #intro_sc .desktop h6 {
-        text-align: right;
-    }
-
-    #intro_sc .container {
-        width: 3.5rem;
-        float: right;
-    }
-
-    #intro_sc h6 {
-        line-height: 1.3em;
-    }
-
-    #intro_sc .text {
-        width: 100%;
-        float: none;
-    }
-
-    #intro_sc .text h6 {
-        margin-top: 0.2rem;
     }
 
     #loc_sc .content {
@@ -256,15 +264,15 @@
 /* ----------------- tablet (landscape) ------------------- */
 
 @media screen and (min-height: 500px) and (orientation: landscape) {
-    #lead_sc .desktop, #ptf_sc .phablet, #ptf_sc .desktop, .hook.vw.desktop {
-        display: block;
-    }
-
-    #scroll_arrow, #lead_sc .phablet, #loc_city, .stats, .hook.vw, .gears, .lr, .ph {
+    #scroll_arrow, #loc_sc, .stats, .hook.vw, .gears, .lr, .ph {
         display: none;
     }
 
-    #lead_sc h3, #loc_coords, #ptf_sc h3.md {
+    #ptf_sc .phablet, #ptf_sc .desktop, .hook.vw.desktop {
+        display: block;
+    }
+
+    #ptf_sc h3.md {
         margin-bottom: 0;
     }
 
@@ -272,11 +280,16 @@
         margin-left: 0;
     }
 
-    #lead_sc h3, .cpt_h.desktop h3 {
+    .cpt_h.desktop h3 {
         line-height: 1.1em;
     }
 
-    #intro_sc .phablet .img.p, .link.md.cd .wrap.lf {
+    #lead_sc .desktop .rg_p {
+        margin-left: calc(100% - (10vw + 15rem));
+        padding-top: 8rem;
+    }
+
+    .link.md.cd .wrap.lf {
         width: 45%;
         margin-left: 10%;
     }
@@ -285,48 +298,40 @@
         text-align: center;
     }
 
-    #vs_cnt #ham_sc { /*remove the menu 'bubbling' effect in tablet (landscape) and desktop modes*/
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-        left: 0;
-        top: 0;
-        opacity: 0;
-        transition-property: opacity;
-    }
-
     #ham_sc .container {
         opacity: 1;
     }
 
     .cd .wrap {
-        display: inline-block;
+        display: block;
         float: left;
     }
 
-    #intro_sc .phablet .p-wrap {
-        width: auto;
-    }
-
     #intro_sc {
-        height: calc(100vh + 6rem);
+        /* height: calc(135vh + 6rem); */
     }
 
-    #intro_sc .phablet .img.p {
-        height: 95vh;
-        background-position: 0px -1.5rem;
+    #profile_img {
+        display: inline-block;
     }
+    /*
+    #profile_img_p {
+        width: 60%;
+        height: 130vh;
+        background-position: 0px -1rem;
+        margin-left: 10%;
+    }*/
 
-    #intro_sc .phablet .p-wrap {
-        bottom: calc(5vh + 12rem);
-        margin-right: calc(45vw);
+    #intscP_c {
+        /* width: 20%; */
+    }
+    /*
+    #intscP_p {
+        bottom: calc(45vh + 12rem);
+        margin-right: 10vw;
         padding: 1rem 5%;
-        transform: translateX(100%);
-    }
-
-    #lead_sc h3 {
-        font-weight: normal;
-    }
+        width: auto;
+    }*/
 
     #loc_sc .content {
         width: 65%;
@@ -334,9 +339,28 @@
         margin-left: calc(30% - 2rem);
         background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../jpg/location.jpg");
     }
-
+    /*
+    #loc_sc-info {
+        margin-top: 1rem;
+        margin-left: calc(10% + 8rem);
+        padding: 0;
+        height: 12rem;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("../jpg/location_landscape.jpg");
+        background-position: -25vw 65%;
+        background: red;
+    }
+    
     #loc_coords {
-        text-align: left;
+        padding: 1rem;
+        font-size: 1rem;
+    }*/
+
+    #hd_cnt {
+        margin-top: 10rem;
+    }
+
+    #grt_sc {
+        padding-top: calc(50vh - 3.5rem);
     }
 
     #ptf_sc .in-col .wrap {
@@ -365,7 +389,7 @@
         margin-right: 10%;
         width: 35%;
         float: none;
-    }
+    display: inline-block;}
 
     .cd h3, .link.md.cd h5 {
         margin-right: 0;
@@ -387,11 +411,33 @@
     }
 }
 
-@media screen and (min-width: 1250px) and (min-height: 650px) and (pointer: fine) {
-    #intro_sc .desktop {
-        display: inline-block;
+/*iPad Pro - landscape*/
+@media screen and (min-width: 1300px) and (min-height: 1000px) and (orientation: landscape) {
+    #profile_img {
+        margin-left: 10%;
     }
 
+    #intsc_d {
+        width: calc(90vw - 15rem);
+    }
+
+    #ldsc_t {
+        margin-left: calc(10% + 15rem);
+        transform: translateY(-2rem);
+        padding: 4rem 1rem 2rem 2.5rem;
+    }
+
+    #ldsc_p {
+        /* margin-bottom: 2rem; */
+    }
+
+    #ldsc_g {
+        margin-top: 4rem;
+        margin-left: calc(15% + 20rem);
+    }
+}
+
+@media screen and (min-width: 1250px) and (min-height: 650px) and (pointer: fine) {
     #ptf_sc .phablet .wrap {
         width: 70%;
         margin-left: 20%;
@@ -416,6 +462,12 @@
     .link.md.cd .wrap.lf {
         width: 40%;
         margin-left: 15%;
+    }
+}
+
+@media screen and (min-width: 1900px) and (min-height: 1000px) {
+    #lead_sc .desktop .rg_p {
+        margin-left: calc(100% - (15vw + 15rem));
     }
 }
 
