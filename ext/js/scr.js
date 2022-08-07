@@ -193,7 +193,9 @@ function sL() { // scroll loop - main
                     e_Fd(hdcnt.wi, true); // hide (fade-out) weather icon
                     hdcnt.sw = true; // set true to code-ex status
                 } */
-                lcsc.w.style.transform = "translateY(" + ((yP - lcsc.w_r) * lcsc.wtR) + "px)"; // parallax scroll 'wea_sc'
+
+                // lcsc.w.style.transform = "translateY(" + ((yP - lcsc.w_r) * lcsc.wtR) + "px)"; // parallax scroll 'wea_sc'
+                
                 lcsc.i.style.transform = "translateY(" + (yP * -0.1) + "px)";  // parallax scroll loc_img
             } else if (lcsc.b > wH) { // if user scrolls up above section 
 
