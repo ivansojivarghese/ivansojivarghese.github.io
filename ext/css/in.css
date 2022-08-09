@@ -21,16 +21,19 @@
     margin-bottom: .4rem;
 }
 
+#profile_image, #intro_sc .content {
+    margin-top: calc((100vh - 27.5rem) / 5);
+}
+
 #profile_image {
     width: 18rem;
     height: 18rem;
     background-image: url("../jpg/ivan_profile.jpg");
-    margin-top: calc((100vh - 32rem) / 5);
 }
-
+/*
 #intro_sc .content {
     margin-top: calc((100vh - 32rem) / 3);
-}
+}*/
 
 #intro_sc .logo-hybrid {
     height: 2.8rem;
