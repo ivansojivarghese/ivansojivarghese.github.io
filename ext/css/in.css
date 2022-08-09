@@ -1,323 +1,37 @@
 
-.html-lg {
-    color: #FFF;
+/* file-specific styling */
+
+#intro_sc .head {
+    height: 5rem; 
+    padding-top: 2rem;
 }
 
-.stats .wrap, .link, .hook.md, .gears {
-    text-align: center;
+#hamburger_button {
+    width: 2.5rem;
+    height: 1.85rem;
+    padding: 1.575rem 1.25rem; /* adds to 5rem of width/height dimensions */
+    margin-left: calc(100vw - (5rem + 1.5rem)); /*marginalised to the right - within 1.5rem of viewport edge */
+    z-index: 500;
 }
 
-.rg_p div.md p, .link.md, .link.md_a {
-    text-align: left;
+#hamburger_button .stroke {
+    width: 2.5rem;
+    height: 0.35rem;
+    background: #303030;
+    margin-bottom: .4rem;
 }
 
-.rg_p p, .hook, .link.md h5 {
-    text-align: right;
-}
-
-.link.md span.ky, .gears .img.mobile {
-    display: inline-block;
-}   
-
-.stats h3, .stats div.img, .link p.md, .stat_h, .stat_h + div.img {
-    margin-bottom: 1rem;
-}
-/*
-#loc_sc .img {
-    margin: 0 auto;
-}*/
-
-a.vw .img_icon, .hook.md p {
-    margin: 0;
-}
-
-.hook p, .link.md h5, .link.md h3.md {
-    margin-right: 15%;
-}
-
-.abt_p, #ptf_sc h2, #cls_sc h2, .link.md {
-    margin-left: 10%;
-}
-
-/* ------------ */
-
-#intsc_p {
-    margin-top: 5vh;
-}
-
-#profile_img {
-    background-image: url("../../jpg/ivan_profile.jpg");
-    background-position: center;
+#profile_image {
     width: 18rem;
     height: 18rem;
+    background-image: url("../jpg/ivan_profile.jpg");
+    margin-top: calc((100vh - 32rem) / 5);
 }
 
-#scroll_arrow {
-    height: 1.5rem;
-    width: 1.5rem;
-    padding: 0.35rem;
-    bottom: 5vh;
-    z-index: 100;
+#intro_sc .content {
+    margin-top: calc((100vh - 32rem) / 3);
 }
 
-#scroll_arrow .img {
-    background-image: url("../../svg/arrow_down.svg");
+#intro_sc .logo-hybrid {
+    height: 2.8rem;
 }
-
-/* ------------ */
-
-.rg_p {
-    width: 14rem;
-    height: 11rem;
-    margin-left: calc(100% - 16.5rem);
-}
-
-.rg_p p {
-    min-height: 1.5em;
-}
-
-.rg_p div {
-    width: 45%;
-}
-
-.rg_p div.md {
-    width: 50%;
-}
-
-.rg_p .md p {
-    font-weight: bold;
-    padding-left: 0.3em;
-}
-
-/* ------------- */
-
-#loc_img {
-    position: fixed;
-    height: 160vh;
-    width: 130vw;
-    background-image: linear-gradient(rgba(255, 255, 255, 1),rgba(255, 255, 255, 1)), url("../jpg/location_portrait.jpg");
-    z-index: -100;
-    background-position: 80% -30vh; /*positioning depends image used (and subject of focus in frame)*/
-}
-/*
-#loc_sc .img {
-    width: 5rem;
-    height: 5rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-#loc_sc, #loc_img {
-    transition-property: background;
-}
-
-#loc_city {
-    /* background: transparent; 
-}*/
-
-#loc_city::before { 
-    height: 1.3em;
-}
-
-#loc_weather_temp {
-    margin-top: 3rem;
-}
-
-#loc_weather_icon { 
-    height: 4rem;
-    width: 4rem;
-    margin-top: 2.8rem;
-}
-
-/* ------------ */
-
-#thw_e {
-    font-size: 11.85rem;
-    line-height: 0.8em;
-}
-
-.thw_h2 {
-    font-size: 3rem;
-}
-
-#thw_n::before {
-    height: 3.5em;
-}
-
-#thw_d {
-    margin-left: 15em;
-}
-
-/* ------------ */
-
-#sts_sc h3 {
-    margin-bottom: 0.2em;
-}
-
-#sts_sc h3.md {
-    margin-left: 0.2em;
-}
-
-/* ------------ */
-/*
-#ptf_sc h2, #cls_sc h2 {
-    /* margin-top: 0.8em; 
-    /* margin-bottom: 0.4em; 
-}*/
-
-#ptf_sc .link.r {
-    margin-top: 0;
-}
-
-span.img_icon {
-    width: 1.2em;
-    height: 1em;
-}
-
-a.vw {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-}
-
-/* ----------- */
-
-.stat_h {
-    font-size: 9rem;
-    font-weight: normal;
-}
-
-.stats .img {
-    width: 2rem;
-    height: 2rem;
-}
-
-.stats div.img_icon.md {
-    margin-bottom: 2rem;
-}
-
-.map_img {
-    background-image: url("../svg/map_white.svg");
-}
-
-.walk_img {
-    background-image: url("../svg/walk.svg");
-}
-
-.walk_white_img {
-    background-image: url("../svg/walk_white.svg");
-}
-
-.clock_img {
-    background-image: url("../svg/clock.svg");
-}
-
-.clock_white_img {
-    background-image: url("../svg/clock_white.svg")
-}
-
-/* ----------- */
-
-.link.md {
-    width: calc(100% - 10%);
-}
-
-.link.md h3 {
-    margin-bottom: 1.2em;
-    margin-right: 5%;
-}
-
-.link.md span.ky {
-    padding: 0.2em;
-}
-
-.hook.md, .hook.md_a {
-    margin-bottom: 3rem;
-}
-
-.wrap.rg {
-    padding-top: 1.5rem;
-}
-
-/* ----------- */
-
-.gears { /*animating gears*/
-    height: 12rem;
-}
-
-.gears .img {
-    background-image: url("../svg/gear.svg");
-    width: 10rem;
-    height: 10rem;
-    opacity: 0.1;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    position: relative;
-}
-
-.gears .img.gL {
-    left: 1rem;
-    animation-duration: 4s;
-    animation-name: rt_C;
-}
-
-.gears .img.gR {
-    width: 5rem;
-    height: 5rem;
-    left: -2rem;
-    top: 2rem;
-    animation-duration: 2s;
-    animation-name: rt_A;
-}
-
-.gears .img.gE {
-    width: 7rem;
-    height: 7rem;
-    left: -3.8rem;
-    top: 0.5rem;
-    animation-name: rt_C;
-    animation-duration: 2.5s;
-}
-
-@keyframes rt_C { /*rotate clockwise*/
-    0% {
-        transform: none;
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes rt_A { /*rotate anti-clockwise*/
-    0% {
-        transform: none;
-    }
-
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-/*------------ */
-
-.abt_p {
-    padding-right: 5%;
-    font-size: 1.25rem;
-}
-
-/* ---------- logo colors ----- */
-
-.html-lg {
-    background-color: #E34C26;
-}
-
-.css-lg {
-    background-color: #264DE4;
-    color: #EBEBEB;
-}
-
-.js-lg {
-    background-color: #F0DB4F;
-    color: #323330;
-}
-

@@ -98,7 +98,7 @@ h1, h2, h3, h5, h6, p {
     font-family: "Poppins", "Roboto", sans-serif;
 }
 
-.h-f {
+.h-f, #display > div {
     height: 100vh;
 }
 
@@ -595,14 +595,18 @@ div.locator_img {
 
 /* -------------- */
 
+.logo-hybrid, .logo-hybrid-inverse {
+    background-size: contain;
+}
+
 .logo {
-    background-image: url("../svg/logo/favicon.png");
+    background-image: url("../logo/favicon.png");
 }
 
 .logo-hybrid {
-    background-image: url("../svg/logo/logo_hybrid.png");
+    background-image: url("../logo/logo_hybrid.png");
 }
 
 .logo-hybrid-inverse {
-    background-image: url("../svg/logo/logo_hybrid_inverse.png");
+    background-image: url("../logo/logo_hybrid_inverse.png");
 }
