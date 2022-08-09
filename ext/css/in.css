@@ -22,7 +22,7 @@
 }
 
 #profile_image, #intro_sc .content {
-    margin-top: calc((100vh - 27.5rem) / 5);
+    margin-top: calc((100vh - 27.5rem) / 5); /* 27.5rem is approx. height of .head, #profile_image & .content */
 }
 
 #profile_image {
