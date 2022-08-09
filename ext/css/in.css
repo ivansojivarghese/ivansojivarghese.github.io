@@ -30,10 +30,6 @@
     height: 18rem;
     background-image: url("../jpg/ivan_profile.jpg");
 }
-/*
-#intro_sc .content {
-    margin-top: calc((100vh - 32rem) / 3);
-}*/
 
 #intro_sc .logo-hybrid {
     height: 2.8rem;
