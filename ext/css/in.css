@@ -1,24 +1,28 @@
 
 /* file-specific styling */
 
-#intro_sc .head {
-    height: 5rem; 
-    padding-top: 2rem;
+#ham_sc {
+    position: fixed;
+    z-index: 400;
 }
 
 #hamburger_button {
     width: 2.5rem;
     height: 1.85rem;
     padding: 1.575rem 1.25rem; /* adds to 5rem of width/height dimensions */
-    margin-left: calc(100vw - (5rem + 1.5rem)); /*marginalised to the right - within 1.5rem of viewport edge */
+    margin-left: calc(100vw - (5rem + 2rem)); /*marginalised to the right - within 2rem of viewport edge */
     z-index: 500;
 }
 
 #hamburger_button .stroke {
     width: 2.5rem;
     height: 0.35rem;
-    background: #303030;
     margin-bottom: .4rem;
+}
+
+#intro_sc .head {
+    height: 5rem; 
+    padding-top: 2rem;
 }
 
 #profile_image, #intro_sc .content {
