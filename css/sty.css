@@ -61,6 +61,7 @@ h1 {
 
 h2 {
     font-size: 3.5rem;
+    margin-bottom: 0.4em;
 }
 
 h3 {
@@ -99,7 +100,7 @@ h1, h2, h3, h5, h6, p {
     font-family: "Poppins", "Roboto", sans-serif;
 }
 
-.h-f, #display > div {
+.h-f {
     height: 100vh;
 }
 
@@ -150,6 +151,10 @@ div {
 
 .o_wd { /*optimal width*/
     width: 80%;
+}
+
+.m_wd-15 { /*marginalised width - accounting 15% of margin*/
+    width: 85%;
 }
 
 .m_wd { /*marginalised width - to account for 10% left margin*/
