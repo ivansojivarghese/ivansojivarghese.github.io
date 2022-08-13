@@ -331,6 +331,10 @@ a.md, span.md {
     margin-top: 1rem;
 }
 
+.m_T.ex {
+    margin-top: 2rem;
+}
+
 .m_B {
     margin-bottom: 1rem;
 }
