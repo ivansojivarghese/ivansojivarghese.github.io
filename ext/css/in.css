@@ -38,3 +38,12 @@
 #intro_sc .logo-hybrid {
     height: 2.8rem;
 }
+
+#lead_sc h5.d_i {
+    border-bottom: 0.2rem solid #FFF;
+}
+
+#lead_sc .lead_arrow_forward_w_img {
+    top: 0.3rem;
+    transform: rotate(315deg);
+}

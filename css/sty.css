@@ -517,10 +517,15 @@ div.locator_img {
 }
 
 .img_icon {
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
 }
 
+.lead_arrow_forward_w_img {
+    background-image: url("../svg/lead_arrow_forward_white.svg");
+}
+
+/*
 .locator_img {
     background-image: url("../svg/locater.svg");
     width: 1.2rem;
@@ -545,7 +550,7 @@ div.locator_img {
 
 .addition_img {
     background-image: url("../svg/addition.svg");
-}
+}*/
 
 /* -------------- */
 
