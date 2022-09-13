@@ -39,9 +39,12 @@
     height: 2.8rem;
 }
 
+#lead_sc h5 {
+    line-height: 0.9em;
+}
+
 #lead_sc h5.d_i {
     border-bottom: 0.2rem solid #FFF;
-    line-height: 0.9em;
 }
 
 #lead_sc .lead_arrow_forward_w_img {
