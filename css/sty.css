@@ -50,7 +50,11 @@ a {
     cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
+a.n-link {
+    border-bottom: 2px solid;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
     line-height: 1em;
 }
 
@@ -97,7 +101,8 @@ h4, h6 {
 }
 
 p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    padding-bottom: 0.75em;
 }
 
 h1, h2, h3, h5, h6, p {
@@ -181,6 +186,10 @@ div {
 
 .o-img {
     opacity: 0.1;
+}
+
+.lh-ex {
+    line-height: 1.5em;
 }
 
 .f_wg-n {
@@ -273,7 +282,7 @@ a.md, span.md {
 
 /* ------------- */
 
-#error h4, p {
+#error h4 {
     line-height: 1.5em;
 }
 
@@ -348,7 +357,7 @@ a.md, span.md {
 }
 
 .p_B {
-    padding-bottom: 1rem;
+    padding-bottom: 1rem !important;
 }
 
 /* ------------- */
@@ -569,6 +578,25 @@ div.locator_img {
 }*/
 
 /* -------------- */
+
+.footer_sc {
+    background-color: #303030;
+    color: #FFF;
+}
+
+.footer_sc p {
+    padding-right: 1.5rem;
+}
+
+.footer_sc .copy {
+    font-size: 1.1rem;
+}
+
+.footer_sc .attr {
+    font-size: 0.85rem;
+}
+
+/* ------------- */
 
 .footer {
     border-top: 0.01rem solid #EEE;
