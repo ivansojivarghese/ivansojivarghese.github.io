@@ -356,6 +356,10 @@ a.md, span.md {
     padding-left: 10% !important;
 }
 
+.p_T {
+    padding-top: 1rem !important;
+}
+
 .p_B {
     padding-bottom: 1rem !important;
 }
