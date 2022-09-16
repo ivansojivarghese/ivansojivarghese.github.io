@@ -360,6 +360,10 @@ a.md, span.md {
     padding-bottom: 1rem !important;
 }
 
+.p_Bh {
+    padding-bottom: 0.5em !important;
+}
+
 /* ------------- */
 
 .d_n, .phablet, .desktop { /*display control*/
@@ -594,6 +598,16 @@ div.locator_img {
 
 .footer_sc .attr {
     font-size: 0.85rem;
+}
+
+.footer_sc .wrap {
+    position: relative;
+    left: 7.35em;
+    width: calc(100% - 7.35em);
+}
+
+.footer_sc .wrap p {
+    padding-bottom: 0.5em !important;
 }
 
 /* ------------- */
