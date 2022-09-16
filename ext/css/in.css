@@ -39,7 +39,7 @@
     height: 2.8rem;
 }
 
-#lead_sc h5 {
+.c_Info h5 {
     line-height: 0.9em;
 }
 
@@ -50,4 +50,20 @@
 #lead_sc .lead_arrow_forward_w_img {
     top: 0.3rem;
     transform: rotate(315deg);
+}
+
+.q_Info h5 {
+    display: inline-block;
+    position: relative;
+    top: -0.15em;
+    margin-left: 0.5em;
+}
+
+.q_Info h6 {
+    font-size: 0.9rem;
+    margin-left: 3rem;
+}
+
+.q_Info > div {
+    margin-bottom: 1.5rem;
 }
