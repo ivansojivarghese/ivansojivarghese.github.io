@@ -602,8 +602,8 @@ div.locator_img {
 
 .footer_sc .wrap {
     position: relative;
-    left: 7.35em;
-    width: calc(100% - 7.35em);
+    left: 7.35rem;
+    width: calc(100% - 7.35rem);
 }
 
 .footer_sc .wrap p {
