@@ -587,30 +587,30 @@ div.locator_img {
 
 /* -------------- */
 
-.footer_sc {
+#footer_sc {
     background-color: #303030;
     color: #FFF;
 }
 
-.footer_sc p {
+#footer_sc p {
     padding-right: 1.5rem;
 }
 
-.footer_sc .copy {
+#footer_sc .copy {
     font-size: 1.1rem;
 }
 
-.footer_sc .attr {
+#footer_sc .attr {
     font-size: 0.85rem;
 }
 
-.footer_sc .wrap {
+#footer_sc .wrap {
     position: relative;
     left: 7.35rem;
     width: calc(100% - 7.35rem);
 }
 
-.footer_sc .wrap p {
+#footer_sc .wrap p {
     padding-bottom: 0.5em !important;
 }
 
