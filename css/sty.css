@@ -320,6 +320,10 @@ a.md, span.md {
     margin: 0 auto;
 }
 
+.m_L-1 {
+    margin-left: 1em !important;
+}
+
 .m_L-10 {
     margin-left: 10% !important;
 }
@@ -587,11 +591,6 @@ div.locator_img {
 
 /* -------------- */
 
-#footer_sc {
-    background-color: #303030;
-    color: #FFF;
-}
-
 #footer_sc p {
     padding-right: 1.5rem;
 }
@@ -678,6 +677,12 @@ div.locator_img {
 
 .logo {
     background-image: url("../logo/favicon.png");
+}
+
+.logo-inverse {
+    background-image: url("../logo/favicon_inverse.png");
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .logo-hybrid {
