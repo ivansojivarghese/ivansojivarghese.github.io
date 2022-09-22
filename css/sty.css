@@ -51,7 +51,7 @@ a {
 }
 
 a.n-link {
-    border-bottom: 2px solid;
+    border-bottom: 0.15em solid;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -107,6 +107,10 @@ p {
 
 h1, h2, h3, h5, h6, p {
     font-family: "Poppins", "Roboto", sans-serif;
+}
+
+.t-u {
+    text-decoration: underline;
 }
 
 .h-f {
@@ -398,7 +402,7 @@ a.md, span.md {
     text-align: right;
 }
 
-.p-a, .sLd::before {
+#tnc_sc, .p-a, .sLd::before {
     position: absolute;
 }
 
@@ -591,6 +595,10 @@ div.locator_img {
 
 /* -------------- */
 
+
+
+/* -------------- */
+
 #footer_sc p {
     padding-right: 1.5rem;
 }
@@ -614,7 +622,7 @@ div.locator_img {
 }
 
 /* ------------- */
-
+/*
 .footer {
     border-top: 0.01rem solid #EEE;
     margin-bottom: 0;
@@ -667,7 +675,7 @@ div.locator_img {
 
 .footer a.logo, .footer p {
     margin-left: 10%;
-}
+}*/
 
 /* -------------- */
 
