@@ -7,13 +7,27 @@ var wH = window.innerHeight,
     dsC = document.getElementById("disCon"), // display control
     vsct = document.getElementById("vs_cnt"), // visual content*/
     
+
     rL = { // loader
         el : document.getElementById("loader"), // parent el.
+
         r : document.getElementsByClassName("load_r"), // loading rings
+
+        rP : document.getElementById("loadR-p"), // loading ring - primary
+        rS : document.getElementById("loadR-s"), // loading ring - secondary
+
         g : document.getElementById("load_logo"), // loading logo
+        t : document.getElementById("load_temP"), // loading logo/ring - 'template'
+
         e : false, // code-execution boolean
-        i : false // int_Load status
+        i : false, // int_Load status
+
+        /*
+        pD : 0.8, // duration - primary ring (sec.)
+        sD : 1.2 // "" secondary ring*/
     },
+
+
     hD = { // head
         g : document.getElementById("Lg_h"), // container
         g_i : document.getElementById("Lg_h-img") // logo image
@@ -41,16 +55,45 @@ var wH = window.innerHeight,
     r, // before-load parameters
     vw; // viewport variables
 
+/*
+function loadRingDur(p, s) { // set default animation durations to primary & secondary rings
+    var n = p < s ? p : s; // choose the lower duration
+
+    rL.rP.style.animationDuration = p + "s"; // primary
+    // rL.rS.style.animationDuration = s + "s"; // secondary
+
+    setTimeout(function() {
+        loadRingDur(s, p) // inverse the durations in the rings
+    }, (n * 1000)); // convert to ms.
+}*/
     
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "complete": // if DOM, styles, images and scripts all loaded
             r = pgOr(wD, wH); // get screen orientation (using dimensions)
             vw = vwP(wD, wH, r); // set device size/orientation params
+
             if (!rL.e) { 
-                loadUp();  // activate 'loadUp' function - unique to each webpage
+                // loadUp();  // activate 'loadUp' function - unique to each webpage
+                // loadRingDur(rL.pD, rL.sD);
+
+                setTimeout(function() {
+                    
+                    rL.t.classList.add("template");
+                    rL.g.style.opacity = 0;
+                    // rL.t.style.opacity = 0;
+                    
+                    setTimeout(function() {
+                        // rL.t.classList.add("z_O");
+                        rL.t.style.opacity = 0; 
+
+                    }, 200); // same duration as .trs transition duration property
+                    
+                }, 800); // total duration to be 1sec
+
                 rL.e = true; // execute following code block once only
             }
+
             if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
                 load_e(); // end loading sequence
                 clearInterval(_Ld); // stop ready-check loop
@@ -167,11 +210,12 @@ function er_C() { // check for errors
 }
 
 function intro_L() { // load up the landing page (#intro_sc)
+    /*
     var a = getBd(hD.g_i, "height"), // get height of 'logo_hybrid.png'
         b = (a / 192) * 1181, // obtaining display width (px) of logo: (a / h) * w - in reference to logo_hybrid.png
         c = (b / wD) * 100; // obtain percetile (of display width) against viewport width
 
-    e_Sd(hD.g, hD.g_i, c, (92 - c), null, null); // 'slide-in/out' logo at head - [variable percentile]% width, [100vw - 8% - percentile]% right
+    e_Sd(hD.g, hD.g_i, c, (92 - c), null, null); // 'slide-in/out' logo at head - [variable percentile]% width, [100vw - 8% - percentile]% right*/
 
     /*
     if (vw.tB) { // tablet or desktop
