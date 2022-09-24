@@ -76,7 +76,8 @@ function docRead() {
 
                 // load_e(); // end loading sequence
 
-                
+                // show the page
+                    // set scroll 
 
                 console.log("loaded");
 
