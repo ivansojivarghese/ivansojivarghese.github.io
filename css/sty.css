@@ -289,22 +289,6 @@ a.md, span.md {
     cursor: pointer;
 }
 
-/* ------------- */
-
-#error h4 {
-    line-height: 1.5em;
-}
-
-#error h4 {
-    font-size: 1.1rem;
-    letter-spacing: 0.15em;
-}
-
-#error p {
-    font-size: 1.8rem;
-    margin-bottom: 0.4em;
-}
-
 /* -------------- */
 
 .link, .hook {
@@ -549,6 +533,21 @@ div.locator_img {
 }*/
 
 
+/* ------------- */
+
+#error_sc h4 {
+    line-height: 1.5em;
+}
+
+#error_sc h4 {
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+}
+
+#error_sc p {
+    font-size: 1.8rem;
+    margin-bottom: 0.4em;
+}
 
 /* -------------- */
 
@@ -829,10 +828,10 @@ div.locator_img {
     width: 2.5rem;
     height: 2.5rem;
 }
-
+/*
 .logo-hybrid {
     background-image: url("../logo/logo_hybrid.png");
-}
+}*/
 
 .logo-hybrid-inverse {
     background-image: url("../logo/logo_hybrid_inverse.png");

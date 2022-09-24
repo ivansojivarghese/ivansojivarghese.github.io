@@ -2,24 +2,54 @@
 // misc.
 
 var hm = { // hamburger menu object
-    b : document.getElementById("ham_button"), // button
-    c : document.getElementById("ham_button-c"), // button strokes container
-    k : document.getElementsByClassName("stroke"), // button strokes
-    sc : document.getElementById("ham_sc"), // menu screen
-    sc_t : document.getElementById("ham-tB_sc"), // menu screen - tablet/desktop
-    t : document.getElementById("b_Tint"), // background tint
-    z : true, // ready status (ready to be opened?)
-    zh : true, // ready status (button hover effect)
-    m : false, // mouse-move status (within button)
-    a : false, // click activity (from open menu - close menu)
-    id : 0 // input id
-};
+        b : document.getElementById("ham_button"), // button
+        c : document.getElementById("ham_button-c"), // button strokes container
+        k : document.getElementsByClassName("stroke"), // button strokes
+        sc : document.getElementById("ham_sc"), // menu screen
+        sc_t : document.getElementById("ham-tB_sc"), // menu screen - tablet/desktop
+        t : document.getElementById("b_Tint"), // background tint
+        z : true, // ready status (ready to be opened?)
+        zh : true, // ready status (button hover effect)
+        m : false, // mouse-move status (within button)
+        a : false, // click activity (from open menu - close menu)
+        id : 0 // input id
+    },
+    Rd = []; // load-ready - boolean statuses for loading resource elements
 
+///////////////////////////////////////
 
 function reL() { // reload page
     this.location.reload();
     window.location.assign(window.location.href); // FIREFOX support
 }
+
+async function resLoad(el, src) { // load a resource to element (img)
+    var id = this.location.href, // obtain site URL
+        g = (el.length > 1) ? true : false, // grouped elements if length > 1
+        i = Rd.length; // GET current index
+    if (g) {
+        for (var j = i; j <= (i + (el.length - 1)); j++) { 
+            Rd[j] = false // loop through (create new) 'Rd' booleans to address group resources 
+        }
+    } else {
+        Rd[i] = false; // apply normally
+    }
+    const promise = await fetch(id + src) // fetch resource (relatively)
+        .then((p) => { // WAIT for result
+            const res = p.url; // obtain url 
+            if (g) { 
+                for (var k = 0; k <= (el.length - 1); k++) {
+                    el[k].style.backgroundImage = "url(" + res + ")"; // style
+                    Rd[i + k] = true; // verify resource(s) ha(s/ve) been loaded
+                }
+            } else {
+                el.style.backgroundImage = "url(" + res + ")"; // style
+                Rd[i] = true;
+            }
+        })
+}
+
+//////////////////////////////////////////
 
 function i_ty(e) { // input type - touch, pen or mouse
     var t = e.pointerType; // obtain pointerType property of PointerEvent interface
