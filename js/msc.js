@@ -1,7 +1,11 @@
 
 // misc.
 
-var hm = { // hamburger menu object
+var dev = {
+        mode : true,  // FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
+        url : "https://ivansojivarghese.github.io/" // FOR TESTING PURPOSE - CHANGE WHEN NEEDED
+    },
+    hm = { // hamburger menu object
         b : document.getElementById("ham_button"), // button
         c : document.getElementById("ham_button-c"), // button strokes container
         k : document.getElementsByClassName("stroke"), // button strokes
@@ -24,7 +28,7 @@ function reL() { // reload page
 }
 
 async function resLoad(el, src) { // load a resource to element (img)
-    var id = this.location.href, // obtain site URL
+    var id = dev.mode ? dev.url : this.location.href, // obtain site URL
         g = (el.length > 1) ? true : false, // grouped elements if length > 1
         i = Rd.length; // GET current index
     if (g) {
@@ -43,7 +47,11 @@ async function resLoad(el, src) { // load a resource to element (img)
                     Rd[i + k] = true; // verify resource(s) ha(s/ve) been loaded
                 }
             } else {
-                el.style.backgroundImage = "url(" + res + ")"; // style
+                if (el[0]) { // support for class elements ('el') with only 1 element
+                    el[0].style.backgroundImage = "url(" + res + ")"; // style
+                } else {
+                    el.style.backgroundImage = "url(" + res + ")"; // style
+                }
                 Rd[i] = true;
             }
         })

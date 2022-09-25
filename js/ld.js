@@ -6,6 +6,7 @@ var wH = window.innerHeight,
     /*
     dsC = document.getElementById("disCon"), // display control
     vsct = document.getElementById("vs_cnt"), // visual content*/
+
     
     rL = { // page loader
         /*
@@ -14,8 +15,13 @@ var wH = window.innerHeight,
         // rP : document.getElementById("loadR-p"), // loading ring - primary
         // rS : document.getElementById("loadR-s"), // loading ring - secondary
 
+        f : { // - favicon/logo
+            el : document.getElementsByClassName("logo"),
+            u : 'logo/favicon.png'
+        },
         g : document.getElementById("load_logo"), // loading logo
         t : document.getElementById("load_temP"), // loading logo/ring - 'template'
+        r : document.getElementById("loadR"), // loading rings (container)
         e : false, // code-execution boolean
 
         i : false, // int_Load status
@@ -58,21 +64,41 @@ var wH = window.innerHeight,
     
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
+        case "interactive":
+
+            resLoad(rL.f.el, rL.f.u);
+
         case "complete": // if DOM, styles, images and scripts all loaded
             r = pgOr(wD, wH); // get screen orientation (using dimensions)
             vw = vwP(wD, wH, r); // set device size/orientation params
             if (!rL.e) { 
-                setTimeout(function() { // run loading animation
-                    rL.t.classList.add("template");
-                    rL.g.classList.add("z_O"); 
-                    setTimeout(function() { // hide the logo and show the rings
-                        rL.t.classList.add("z_O");
-                        loadUp();  // trigger ALL PROMISES (fetching of resources)
-                    }, 200); // same duration as .trs transition duration property
-                }, 800); // total duration to be 1sec
-                rL.e = true; // execute following code block once only
-            }
-            if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
+
+                // resLoad(rL.logo.el, rL.logo.u);
+
+                if (rdS(Rd)) {
+
+                    rL.g.classList.remove("z_O");
+                    setTimeout(function() {
+                        rL.t.classList.remove("z_O");
+                        rL.r.classList.remove("z_O");
+                    }, 200);
+
+                    setTimeout(function() { // run loading animation
+                        rL.t.classList.add("template");
+                        rL.g.classList.add("z_O"); 
+
+                        rL.e = true; // execute following code block once only
+
+                        setTimeout(function() { // hide the logo and show the rings
+                            rL.t.classList.add("z_O");
+                            loadUp();  // trigger ALL PROMISES (fetching of resources)
+                        }, 200); // same duration as .trs transition duration property
+                    }, 800); // total duration to be 1sec
+
+                    // rL.e = true; // execute following code block once only
+                }
+                
+            } else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
                 // load_e(); // end loading sequence
 

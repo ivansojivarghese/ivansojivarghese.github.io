@@ -818,10 +818,10 @@ div.locator_img {
 .logo-hybrid, .logo-hybrid-inverse {
     background-size: contain;
 }
-
+/*
 .logo {
     background-image: url("../logo/favicon.png");
-}
+}*/
 
 .logo-inverse {
     background-image: url("../logo/favicon_inverse.png");
