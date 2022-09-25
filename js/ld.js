@@ -89,7 +89,7 @@ function docRead() {
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
                             rL.e = true; // execute following code block once only
                         }, 200); 
-                    }, 600); // total loading duration to be min. 1sec
+                    }, 800); // total loading duration to be min. 1.2sec
                 }
             }  else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
