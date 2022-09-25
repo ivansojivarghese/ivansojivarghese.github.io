@@ -2,8 +2,8 @@
 // misc.
 
 var dev = {
-        mode : true,  // FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
-        url : "https://ivansojivarghese.github.io/" // FOR TESTING PURPOSE - CHANGE WHEN NEEDED
+        mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
+        url : "https://ivansojivarghese.github.io/" // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
     },
     hm = { // hamburger menu object
         b : document.getElementById("ham_button"), // button
