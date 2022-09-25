@@ -16,13 +16,15 @@ var wH = window.innerHeight,
         // rS : document.getElementById("loadR-s"), // loading ring - secondary
 
         f : { // - favicon/logo
-            el : document.getElementsByClassName("logo"),
-            u : 'logo/favicon.png'
+            el : document.getElementsByClassName("logo"), // element
+            u : 'logo/favicon.png' // relative path
         },
         g : document.getElementById("load_logo"), // loading logo
         t : document.getElementById("load_temP"), // loading logo/ring - 'template'
         r : document.getElementById("loadR"), // loading rings (container)
         e : false, // code-execution boolean
+        e2 : false, // ""
+        e3 : false, 
 
         i : false, // int_Load status
     },/*
@@ -64,43 +66,31 @@ var wH = window.innerHeight,
     
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
-        case "interactive":
-
-            resLoad(rL.f.el, rL.f.u);
-
         case "complete": // if DOM, styles, images and scripts all loaded
             r = pgOr(wD, wH); // get screen orientation (using dimensions)
             vw = vwP(wD, wH, r); // set device size/orientation params
-            if (!rL.e) { 
-
-                // resLoad(rL.logo.el, rL.logo.u);
-
-                if (rdS(Rd)) {
-
-                    rL.g.classList.remove("z_O");
+            if (!rL.e) { // ensure once execution
+                if (!rL.e2) {
+                    rL.e2 = true;
+                    resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+                }
+                if (rdS(Rd) && !rL.e3) { // when favicon has loaded
+                    rL.e3 = true; 
+                    rL.g.classList.remove("z_O"); // show logo
                     setTimeout(function() {
-                        rL.t.classList.remove("z_O");
+                        rL.t.classList.remove("z_O"); // standby loading rings
                         rL.r.classList.remove("z_O");
-                    }, 200);
-
+                    }, 200); // same duration as .trs transition duration property
                     setTimeout(function() { // run loading animation
-                        rL.t.classList.add("template");
                         rL.g.classList.add("z_O"); 
-
-                        // rL.e = true; // execute following code block once only
-
+                        rL.t.classList.add("template");
                         setTimeout(function() { // hide the logo and show the rings
                             rL.t.classList.add("z_O");
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
-
                             rL.e = true; // execute following code block once only
-
-                        }, 200); // same duration as .trs transition duration property
-                    }, 800); // total duration to be 1sec
-
-                    // rL.e = true; // execute following code block once only
+                        }, 200); 
+                    }, 600); // total loading duration to be min. 1sec
                 }
-                
             }  else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
                 // load_e(); // end loading sequence
