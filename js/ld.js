@@ -87,18 +87,21 @@ function docRead() {
                         rL.t.classList.add("template");
                         rL.g.classList.add("z_O"); 
 
-                        rL.e = true; // execute following code block once only
+                        // rL.e = true; // execute following code block once only
 
                         setTimeout(function() { // hide the logo and show the rings
                             rL.t.classList.add("z_O");
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
+
+                            rL.e = true; // execute following code block once only
+
                         }, 200); // same duration as .trs transition duration property
                     }, 800); // total duration to be 1sec
 
                     // rL.e = true; // execute following code block once only
                 }
                 
-            } else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
+            }  else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
                 // load_e(); // end loading sequence
 
