@@ -3,9 +3,6 @@
 var wH = window.innerHeight, 
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
     wD = window.innerWidth, 
-    /*
-    dsC = document.getElementById("disCon"), // display control
-    vsct = document.getElementById("vs_cnt"), // visual content*/
     
     disp = document.getElementById("display_sc"), // display   
     rL = { // page loader
@@ -25,17 +22,6 @@ var wH = window.innerHeight,
         e3 : false,
         s : false, // int_Load status
     },
-    
-    /*
-    eL = { // loading elements
-        imgS : document.getElementsByClassName("img"),
-    },
-    /*
-    hD = { // head
-        g : document.getElementById("Lg_h"), // container
-        g_i : document.getElementById("Lg_h-img") // logo image
-    },*/
-
     eR = { // error categories
         m : document.getElementById("error_sc"), // main
         e : false, // code-execution boolean
@@ -48,8 +34,6 @@ var wH = window.innerHeight,
     bC_d = "#303030", // contrast colour - dark
     bC_L = "#FFF", // contrast colour - light
     bC_t = "transparent",
-
-    trD = 200, // transition duration - default (in ms.)
     trD_a = 500, // transition duration - for animation (in ms.)
     sV_a = 0.8, // user viewport threshold - for scroll-based functions
 
@@ -63,6 +47,8 @@ var wH = window.innerHeight,
     vw; // viewport variables
 
     
+
+
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "complete": // if DOM, styles, images and scripts all loaded
@@ -71,6 +57,7 @@ function docRead() {
             if (!rL.e) { // ensure once execution
                 if (!rL.e2) {
                     rL.e2 = true;
+                    load_css(); // apply CSS (common)
                     resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded
@@ -79,7 +66,7 @@ function docRead() {
                     setTimeout(function() {
                         rL.t.classList.remove("z_O"); // standby loading rings
                         rL.r.classList.remove("z_O");
-                    }, 200); // same duration as .trs transition duration property
+                    }, op.t); // same duration as .trs transition duration property
                     setTimeout(function() { // run loading animation
                         rL.g.classList.add("z_O"); 
                         rL.t.classList.add("template");
@@ -87,7 +74,7 @@ function docRead() {
                             rL.t.classList.add("z_O");
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
                             rL.e = true; // execute following code block once only
-                        }, 200); 
+                        }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
                 }
             }  else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
@@ -131,10 +118,15 @@ function load_e() { // end the loading sequence
 
                 disp.classList.remove("z_O"); // show the page
                 document.body.classList.add("ovy-s"); // enable scrolling
-            }, 200); // give time for opacity .trs to completely hide element
-        }, 300);
+            }, op.t); // give time for opacity .trs to completely hide element
+        }, op.te - op.t);
         rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
     }
+}
+
+function load_css() { // load up CSS (common)
+    c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
+    c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
 }
 
 function vwP(w, h, r) { // check device[viewport] size/orientation parameters

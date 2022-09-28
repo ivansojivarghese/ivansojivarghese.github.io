@@ -216,16 +216,11 @@ div {
     z-index: 0;
 }
 
-.trs, .trs-p::before, .trs-p::after {
+.trs {
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
     transition-delay: 0s;
     transition-property: all;
-    transition-duration: 0.2s;
 }
-/*
-.trs.md {
-    transition-duration: .2s;
-}*/
 
 .c_w {
     color: #FFF;
@@ -556,6 +551,10 @@ div.locator_img {
     animation-timing-function: linear;
 }
 
+.aniM-f {
+    animation-iteration-count: 1;
+}
+
 .aniM-p {
     animation-play-state: paused;
 }
@@ -604,11 +603,6 @@ div.locator_img {
 
 .load_r:last-child { /*loading ring - secondary*/
     animation-name: loadR_transverse_rev;
-}
-
-#loadR-e { /*loading ring - end*/
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
 }
 
 @keyframes loadR_transverse { /*linked to #loadR-p*/

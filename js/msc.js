@@ -5,6 +5,10 @@ var dev = {
         mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
         url : "https://ivansojivarghese.github.io/" // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
     },
+    op = { // site 'options'
+        t : 200, // transition duration - default (in ms.)
+        te : 500 // transition duration (extended)
+    }
     hm = { // hamburger menu object
         b : document.getElementById("ham_button"), // button
         c : document.getElementById("ham_button-c"), // button strokes container
@@ -217,7 +221,7 @@ function chkVL(n, s) { // numeral - check for positive/non-zero value
 function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
     var style = document.createElement("STYLE"); // create 'style' tag
     style.type = "text/css"; 
-    style.innerHTML = n + " " + r; // combine name + rule(s)
+    style.innerHTML = n + " { " + r + " }"; // combine name + rule(s)
     document.head.appendChild(style); // append to head
     if (e) { // if to-expiry is active
         setTimeout(function() {
