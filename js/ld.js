@@ -125,7 +125,7 @@ function load_e() { // end the loading sequence
 }
 
 function load_css() { // load up CSS (common)
-    c_css("#load_C", "margin-top: calc((" + cH + "px - 8rem) / 2);", false, null);
+    c_css("#load_C", "margin-top: calc((" + cH + "px - 8rem) / 2);", false, null); // align loader to centre of viewport
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
 }
