@@ -274,7 +274,7 @@ function erPg_D(p) { // error page display
 }
 
 
-rL.p.addEventListener("animationiteration", load_e); // read a function upon every iteration (transversing)
+rL.p.addEventListener("animationiteration", load_e); // read a function upon every loading ring iteration (transversing)
 
 history.scrollRestoration = "manual"; // prevent automatic scroll rendering from browser (in memory)
 
