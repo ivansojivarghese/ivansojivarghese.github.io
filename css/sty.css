@@ -391,7 +391,7 @@ a.md, span.md {
     text-align: right;
 }
 
-.p-a, .sLd::before, #tnc_sc, .load_r, .loader .wrap {
+.p-a, #load_sc, #error_sc, #display_sc, #tnc_sc, .load_r, .loader .wrap {
     position: absolute;
 }
 
@@ -556,6 +556,10 @@ div.locator_img {
     animation-timing-function: linear;
 }
 
+.aniM-p {
+    animation-play-state: paused;
+}
+
 #load_sc .container {
     width: 8rem;
     height: 8rem;
@@ -602,7 +606,12 @@ div.locator_img {
     animation-name: loadR_transverse_rev;
 }
 
-@keyframes loadR_transverse {
+#loadR-e { /*loading ring - end*/
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes loadR_transverse { /*linked to #loadR-p*/
     0% {
         transform: rotate(0deg);
     }
@@ -614,7 +623,7 @@ div.locator_img {
     }
 }
 
-@keyframes loadR_transverse_rev {
+@keyframes loadR_transverse_rev { /*linked to #loadR-s*/
     0% {
         transform: rotate(0deg);
     }
@@ -625,6 +634,17 @@ div.locator_img {
         transform: rotate(0deg);
     }
 }
+
+@keyframes loadR_end { /*linked to #loadR-e*/
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+
 
 
 

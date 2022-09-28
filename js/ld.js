@@ -6,28 +6,27 @@ var wH = window.innerHeight,
     /*
     dsC = document.getElementById("disCon"), // display control
     vsct = document.getElementById("vs_cnt"), // visual content*/
-
     
+    disp = document.getElementById("display_sc"), // display   
     rL = { // page loader
-        /*
-        el : document.getElementById("loader"), // parent el.
-        r : document.getElementsByClassName("load_r"), // loading rings*/
-        // rP : document.getElementById("loadR-p"), // loading ring - primary
-        // rS : document.getElementById("loadR-s"), // loading ring - secondary
-
         f : { // - favicon/logo
             el : document.getElementsByClassName("logo"), // element
             u : 'logo/favicon.png' // relative path
         },
+        el : document.getElementById("load_sc"), // load_sc
         g : document.getElementById("load_logo"), // loading logo
         t : document.getElementById("load_temP"), // loading logo/ring - 'template'
         r : document.getElementById("loadR"), // loading rings (container)
+        p : document.getElementById("loadR-p"), // loading ring (primary)
+        d : document.getElementById("loadR-e"), // loading ring (end)
+        c : document.getElementById("loadR-s"), // loading ring (secondary)
         e : false, // code-execution boolean
         e2 : false, // ""
-        e3 : false, 
-
-        i : false, // int_Load status
-    },/*
+        e3 : false,
+        s : false, // int_Load status
+    },
+    
+    /*
     eL = { // loading elements
         imgS : document.getElementsByClassName("img"),
     },
@@ -38,7 +37,7 @@ var wH = window.innerHeight,
     },*/
 
     eR = { // error categories
-        m : document.getElementById("error"), // main
+        m : document.getElementById("error_sc"), // main
         e : false, // code-execution boolean
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
@@ -93,12 +92,18 @@ function docRead() {
                 }
             }  else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
-                // load_e(); // end loading sequence
+                rL.s = true; // set load status to true
+
+                    /// loadR-e to complete the ring
+                        // activate animation when ring is untransversed (animationiteration event)
+                            // set a variable to true to activate
+                        // .5s later: pause all animations (rings)
+                        // trs to display page
 
                 // show the page
                     // set scroll 
 
-                console.log("loaded");
+                // console.log("loaded");
 
                 clearInterval(_Ld); // stop ready-check loop
             }
@@ -106,28 +111,31 @@ function docRead() {
     }
 }
 
-//////////////////// - load - //////////////////// 
-/*
-async function img_load(el, src) {
-    const promise = await fetch(src)
-        .then((p) => {
-            el.style.backgroundImage = "url(" + src + ")";
-        })
-}*/
-/*
-    return new Promise((resolve, reject) => {
-        const image = new Image();
-        image.addEventListener('load', resolve);
-        image.addEventListener('error', reject);
-        image.src = src;
-    });*/
-/*
-const image = '../jpg/ivan_profile.jpg';
-load(image).then(() => {
-   body.style.backgroundImage = "url(" + image + ")";
-});*/
+function load_e() { // end the loading sequence
+    if (rL.s) { // only if status is true
 
-///////////////////////////////////////////////////
+        // CHECK HERE: If error or normal?
+
+        // if error
+
+        // if normal
+        rL.d.style.animationName = "loadR_end"; // set ending animation detail
+        setTimeout(function() {
+            rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
+            setTimeout(function() {
+                rL.el.classList.add("d_n"); // remove loader from display
+
+                rL.r.classList.add("aniM-p"); // stop animation in the rings
+                rL.p.classList.add("aniM-p");
+                rL.c.classList.add("aniM-p");
+
+                disp.classList.remove("z_O"); // show the page
+                document.body.classList.add("ovy-s"); // enable scrolling
+            }, 200); // give time for opacity .trs to completely hide element
+        }, 300);
+        rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
+    }
+}
 
 function vwP(w, h, r) { // check device[viewport] size/orientation parameters
     var v = {
@@ -265,6 +273,8 @@ function erPg_D(p) { // error page display
     }, trD)
 }
 
+
+rL.p.addEventListener("animationiteration", load_e); // read a function upon every iteration (transversing)
 
 history.scrollRestoration = "manual"; // prevent automatic scroll rendering from browser (in memory)
 
