@@ -88,10 +88,21 @@ function h_mTg() { // ham. menu toggle
     var s = vw.tB, // get viewport resolution type (check for tablet/desktop)
         h = s ? hm.sc_t : hm.sc, // select mobile or tablet/desktop versions depending on viewport variables
         c = hm.z; 
-    window.scrollTo(0,0); // scroll to top (to allow full view)
     if (c) { // open menu
         hm.z = false; // change status
-        c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling
+
+
+        //////////////////////////////
+        // FIND A WAY TO DETECT WHEN PAGE IS LIVE 'SCROLLING' - FOR FIREFOX SUPPORT
+
+        if (window.scrollY !== 0) {
+            window.scrollTo(0,0); // scroll to top (to allow full view)
+            c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling
+        }
+
+        /////////////////////////////
+
+        // c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling
         h_mBs(c); // perform button [stroke] dynamisms
         c_rep(h, "z-G", "z-F"); // bring forward in visibility
 
