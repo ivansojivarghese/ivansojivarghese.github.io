@@ -562,7 +562,6 @@ div.locator_img {
 #load_sc .container {
     width: 8rem;
     height: 8rem;
-    margin: calc((100vh - 8rem) / 2) calc((100vw - 8rem) / 2); /* centralised margin */
 }
 
 #load_sc .wrap {
