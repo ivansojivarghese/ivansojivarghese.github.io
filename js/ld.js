@@ -1,9 +1,9 @@
 
 
-var wH = window.innerHeight, 
+var /*wH = window.innerHeight, 
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
     wD = window.innerWidth, 
-    
+    */
     disp = document.getElementById("display_sc"), // display   
     rL = { // page loader
         f : { // - favicon/logo
@@ -72,6 +72,7 @@ function docRead() {
                         rL.t.classList.add("template");
                         setTimeout(function() { // hide the logo and show the rings
                             rL.t.classList.add("z_O");
+                            load_css_e(); // load css styles to 'head' (indiv.)
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
                             rL.e = true; // execute following code block once only
                         }, op.t); 

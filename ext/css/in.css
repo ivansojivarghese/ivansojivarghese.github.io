@@ -25,10 +25,10 @@
     height: 5rem; 
     padding-top: 2rem;
 }
-
+/*
 #profile_image, #intro_sc .content {
-    margin-top: calc((100vh - 27.5rem) / 5); /* 27.5rem is approx. height of .head, #profile_image & .content */
-}
+    margin-top: calc((100vh - 27.5rem) / 5); /* 27.5rem is approx. height of .head, #profile_image & .content 
+}*/
 
 #profile_image {
     width: 18rem;

@@ -1,5 +1,5 @@
 
-// locally run JS fetching
+// locally run JS fetching (respective of each page)
 
 var fchL = {
     1 : { // #intro_sc profile image
@@ -20,4 +20,9 @@ function loadUp() {
         b = fchL[f].u;
         resLoad(a, b); // start fetching with target element and relative path
     }
+}
+
+function load_css_e() {
+    c_css("#intro_sc", "height: " + cH + "px;", false, null);
+    c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null);
 }

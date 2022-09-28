@@ -8,7 +8,10 @@ var dev = {
     op = { // site 'options'
         t : 200, // transition duration - default (in ms.)
         te : 500 // transition duration (extended)
-    }
+    },
+    wH = window.innerHeight, // height
+    cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
+    wD = window.innerWidth, // width 
     hm = { // hamburger menu object
         b : document.getElementById("ham_button"), // button
         c : document.getElementById("ham_button-c"), // button strokes container
