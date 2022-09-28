@@ -3,32 +3,49 @@
 
 #ham_sc {
     position: fixed;
-    z-index: 400;
+    background-color: #303030;
+    color: #FFF;
+}
+
+#ham_C {
+    width: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ham_sc a {
+    display: block;
+    padding: 1rem 0;
+    text-align: center;
 }
 
 #hamburger_button {
     width: 2.5rem;
     height: 1.85rem;
+    border-radius: 50%;
     padding: 1.575rem 1.25rem; /* adds to 5rem of width/height dimensions */
     margin-left: calc(100vw - (5rem + 1.5rem)); /*marginalised to the right - within 1.5rem of viewport edge */
-    z-index: 500;
 }
+/*
+#hamburger_button:active {
+    background-color: #E4E4E4;
+}*/
 
 #hamburger_button .stroke {
     width: 2.5rem;
     height: 0.35rem;
     margin-bottom: .4rem;
-    background-color: #303030;
 }
 
-#intro_sc .head {
+#intro_sc {
+    padding-top: 7rem;
+}
+
+#int_head {
+    position: absolute;
     height: 5rem; 
     padding-top: 2rem;
 }
-/*
-#profile_image, #intro_sc .content {
-    margin-top: calc((100vh - 27.5rem) / 5); /* 27.5rem is approx. height of .head, #profile_image & .content 
-}*/
 
 #profile_image {
     width: 18rem;

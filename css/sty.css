@@ -20,7 +20,6 @@ html { /*root element*/
 body {
     width: 100vw; /*takes full dimensions*/
     font-family: "Raleway", "Segoe UI", sans-serif; /*Google Font, installed (offline) font, fallback font*/
-    overflow-y: hidden;
 }
 
 .ovx-h {
@@ -84,6 +83,10 @@ h5 {
     font-size: 1.8rem;
     font-weight: normal;
     margin-bottom: 0.4em;
+}
+
+.hm h5 {
+    font-size: 2rem;
 }
 
 h6 {
@@ -242,11 +245,11 @@ div {
     background-color: transparent;
 }
 
-.bC_d, .in-col, .sLd::before, .cnt.md {
+.bC_d, .in-col, .cnt.md {
     background-color: #303030;
 }
 
-.bC_L, .rv-in-col, .sLd.inC::before, .cnt {
+.bC_L, .rv-in-col, .cnt {
     background-color: #FFF;
 }
 
@@ -258,19 +261,23 @@ div {
 .rv-in-col {
     color: #303030;
 }
-
+/*
 a.md, span.md {
     padding: 0.3em;
     border-radius: 0.2em;
-}
+}*/
 
-.bt:active, a.md_a:active .bt {
+.bt:active {
     background-color: #E4E4E4;
 }
 
+.bt.md:active {
+    background-color: #565656;
+}
+/*
 .bt {
     background-color: #F2F2F2;
-}
+}*/
 
 .z_rg { /* zero right offset */
     right: 0;
@@ -300,7 +307,7 @@ a.md, span.md {
 
 /* --------------- */
 
-.m_z, .text {
+.m_z, .text, .hm h5 {
     margin: 0;
 }
 
@@ -418,8 +425,16 @@ div.locator_img {
     transform: translateX(-50%);
 }
 
+.z-G {
+    z-index: -10;
+}
+
 .z-N {
     z-index: 10;
+}
+
+.z-F {
+    z-index: 500;
 }
 
 .z-K {

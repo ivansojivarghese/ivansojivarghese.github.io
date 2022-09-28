@@ -1,10 +1,6 @@
 
 
-var /*wH = window.innerHeight, 
-    cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
-    wD = window.innerWidth, 
-    */
-    disp = document.getElementById("display_sc"), // display   
+var disp = document.getElementById("display_sc"), // display   
     rL = { // page loader
         f : { // - favicon/logo
             el : document.getElementsByClassName("logo"), // element
@@ -22,6 +18,8 @@ var /*wH = window.innerHeight,
         e3 : false,
         s : false, // int_Load status
     },
+
+
     eR = { // error categories
         m : document.getElementById("error_sc"), // main
         e : false, // code-execution boolean
@@ -38,10 +36,6 @@ var /*wH = window.innerHeight,
     sV_a = 0.8, // user viewport threshold - for scroll-based functions
 
     _Ld, // loop
-    up = { // [user] input
-        t : undefined, // type
-        id : 0 // unique id (for reference)
-    },
 
     r, // before-load parameters
     vw; // viewport variables
@@ -59,13 +53,16 @@ function docRead() {
                     rL.e2 = true;
                     load_css(); // apply CSS (common)
                     resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+
+                    // WHAT IF LOADING ERROR?? - DISPLAY MESSAGE!
+
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded
                     rL.e3 = true; 
-                    rL.g.classList.remove("z_O"); // show logo
+                    e_Fd(rL.g, false); // show logo
                     setTimeout(function() {
-                        rL.t.classList.remove("z_O"); // standby loading rings
-                        rL.r.classList.remove("z_O");
+                        e_Fd(rL.t, false); // standby loading rings
+                        e_Fd(rL.r, false);
                     }, op.t); // same duration as .trs transition duration property
                     setTimeout(function() { // run loading animation
                         rL.g.classList.add("z_O"); 
@@ -117,8 +114,8 @@ function load_e() { // end the loading sequence
                 rL.p.classList.add("aniM-p");
                 rL.c.classList.add("aniM-p");
 
-                disp.classList.remove("z_O"); // show the page
-                document.body.classList.add("ovy-s"); // enable scrolling
+                e_Fd(disp, false);  // show the page
+                c_rep(document.body, "ovy-h", "ovy-s"); // enable scrolling
             }, op.t); // give time for opacity .trs to completely hide element
         }, op.te - op.t);
         rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
