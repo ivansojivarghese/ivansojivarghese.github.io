@@ -52,11 +52,11 @@ function h_mBv() { // ham. menu button hover stroke(s) dynamics
 }
 
 function h_mBs(s) { // ham. menu stroke(s) dynamics
-    if (s) {
+    if (s) { // if opening
         hm.zh = false;
 
-        c_rep(hm.k[0], "bC_d", "bC_L"); // change to light contrast (white) base colours
-        hm.k[1].style.opacity = 0;
+        c_rep(hm.k[0], "bC_d", "bC_L"); // change (upper/lower) strokes to light contrast (white) base colours
+        e_Fd(hm.k[1], true); // hide middle stroke from view
         c_rep(hm.k[2], "bC_d", "bC_L");
 
         hm.b.classList.add("md"); // add a modifier (addition of bkCol change on :active)
@@ -64,23 +64,23 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         hm.k[0].style.transform = "translateY(0.75rem) rotate(45deg)"; // rotate to form a cross (closing icon)
         hm.k[2].style.transform = "translateY(-0.75rem) rotate(-45deg)";
 
-        // 
+        /*
         hm.b.removeEventListener("mouseover", h_mBv); // remove hover feature
         hm.b.removeEventListener("mouseout", h_mBv);
-        //
-    } else {
+        */
+    } else { // if closing
         c_rep(hm.k[0], "bC_L", "bC_d"); // reverse effect
-        hm.k[1].style.opacity = 1;
+        e_Fd(hm.k[1], false);
         c_rep(hm.k[2], "bC_L", "bC_d");
 
         hm.b.classList.remove("md");
 
         hm.k[0].style.transform = "";
         hm.k[2].style.transform = "";
-        //
+        /*
         hm.b.addEventListener("mouseover", h_mBv); // add hover feature - default
         hm.b.addEventListener("mouseout", h_mBv);
-        //
+        */
     }   
 }
 
@@ -91,20 +91,19 @@ function h_mTg() { // ham. menu toggle
     if (c) { // open menu
         hm.z = false; // change status
 
-
-        //////////////////////////////
-        // FIND A WAY TO DETECT WHEN PAGE IS LIVE 'SCROLLING' - FOR FIREFOX SUPPORT
-
-        if (window.scrollY !== 0) {
-            window.scrollTo(0,0); // scroll to top (to allow full view)
-            c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling
+        if (pos.y !== 0) { // if page has been scrolled (offset) from original
+            window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
+            setTimeout(function() {
+                console.log(pos.c);
+                if (!pos.c) { // if page not scrolling (in movement)
+                    c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling
+                }
+            }, (op.Ls * pos.a.length)); // delay function to allow 'pos.c' variable to update (if necessary)
         }
 
-        /////////////////////////////
-
-        // c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling
         h_mBs(c); // perform button [stroke] dynamisms
         c_rep(h, "z-G", "z-F"); // bring forward in visibility
+
 
         if (s) { // if tablet/desktop viewport
             e_Xt(h, "h", true); // reveal menu (slide in)
@@ -115,6 +114,7 @@ function h_mTg() { // ham. menu toggle
         }
 
     } else { // close menu
+
         hm.a = true; // set click activity to true
         hm.z = true;
         hm.m = false; // hover effect requires add. 'mouse' [trigger]movement from user
@@ -134,13 +134,13 @@ function h_mTg() { // ham. menu toggle
 }
 
 
-hm.b.addEventListener("mouseover", h_mBv); // hover effect (with cursor only)
-hm.b.addEventListener("mouseout", h_mBv);
-
+// hm.b.addEventListener("mouseover", h_mBv); // hover effect (with cursor only)
+// hm.b.addEventListener("mouseout", h_mBv);
+/*
 hm.b.addEventListener("mousemove", function(event) { 
     hm.m = true; // user mouse movement detected (within element [hamburger-menu button] space)
     event.stopPropagation(); // avoid 'rippling' the event to parents (esp. window)
-});
+});*/
 
 hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
 

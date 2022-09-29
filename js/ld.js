@@ -269,4 +269,4 @@ rL.p.addEventListener("animationiteration", load_e); // read a function upon eve
 
 history.scrollRestoration = "manual"; // prevent automatic scroll rendering from browser (in memory)
 
-_Ld = setInterval(docRead, 1000/60); // run 'load' scripts upon startup
+_Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup

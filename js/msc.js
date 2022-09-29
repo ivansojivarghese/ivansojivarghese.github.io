@@ -7,7 +7,18 @@ var dev = {
     },
     op = { // site 'options'
         t : 200, // transition duration - default (in ms.)
-        te : 500 // transition duration (extended)
+        te : 500, // transition duration (extended)
+        Ls : 1000/60 // loop (live) speed - sec./rev.
+    },
+    pos = { // scroll pos.
+        y : 0, // y-pos
+        a : [0, 0, 0, 0, 0], // comparison array (between consecutive 'n' y-pos values) 
+        m : 0, // no. of comparison matches (count)
+        i : 0, // loop iterator (for comparison array)  
+        c : false, // scrolling change/activity status
+        k : null, // at null state = 0
+        L : null, // loop variables
+        Lc : null
     },
     wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
@@ -52,6 +63,35 @@ async function resLoad(el, src) { // load a resource to element (img)
         .catch((e) => {
             console.log(e);
         })*/
+}
+
+//////////////////////////////////////////
+
+function sL() { // scroll pos. loop
+    pos.y = window.scrollY; // update
+}
+
+function c_Sr() { // check for scrolling activity (in live)
+    var _L = pos.a.length - 1;
+    if (!pos.k) { // if not defined
+        pos.k = nwCiArr(pos.a); // define - y-pos (previous 'n' iterations as array - for comparison with live y-pos)  
+    }
+    if (pos.y !== pos.a[pos.k[pos.i]]) { // if live value is not same as previous
+        pos.c = true; // set scrolling to true
+        pos.m = 0; // reset no. of matches - reset counter
+    } else {
+        if (pos.m < (_L - 1)) { 
+            pos.m++; // increment no. of positive matches (to reach required threshold)
+        } else {
+            pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
+        }
+    }
+    pos.a[pos.i] = pos.y; // update
+    if (pos.i < _L) {
+        pos.i++; // increment array index accordingly
+    } else {
+        pos.i = 0;
+    }
 }
 
 //////////////////////////////////////////
@@ -127,6 +167,20 @@ function getBd(el, p) { // retrieve getBoundingClientRect (bounding rectangle)
     return elBp;
 }
 
+function nwCiArr(ar) { // create a comparison [previous index] array
+    var a = [],
+        _L = ar.length - 1;
+    for (i = 0, j = -1; i <= _L; i++, j++) {
+        if (i > 0) {
+            a[i] = j; // first element = last index of 'ar' array
+        }
+        else {
+            a[i] = _L; // subsequent elements iterate the index, starting from 0
+        }
+    }
+    return a;
+}
+
 //////////////////////////////////////////
 
 function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
@@ -155,3 +209,6 @@ window.addEventListener("resize", function() {
         reL(); // reload page
     }
 });
+
+pos.L = setInterval(sL, op.Ls); // check live scroll pos.
+pos.Lc = setInterval(c_Sr, (op.Ls * 2)); // check scroll parameters (at shorter intervals)
