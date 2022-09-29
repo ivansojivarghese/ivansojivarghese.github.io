@@ -211,4 +211,4 @@ window.addEventListener("resize", function() {
 });
 
 pos.L = setInterval(sL, op.Ls); // check live scroll pos.
-pos.Lc = setInterval(c_Sr, (op.Ls * 2)); // check scroll parameters (at shorter intervals)
+pos.Lc = setInterval(c_Sr, (op.Ls * 2)); // check scroll parameters (at half intervals)
