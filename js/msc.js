@@ -68,10 +68,10 @@ async function resLoad(el, src) { // load a resource to element (img)
                 }
                 Rd[i] = true;
             }
-        })/*
+        })
         .catch((e) => {
-            
-        })*/
+            document.body.innerHTML = e;
+        })
 }
 
 //////////////////////////////////////////
