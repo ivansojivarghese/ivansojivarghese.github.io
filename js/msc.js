@@ -9,7 +9,15 @@ var dev = {
         s : false, // check boolean - 'force' disable scroll
         t : 200, // transition duration - default (in ms.)
         te : 500, // transition duration (extended)
-        Ls : 1000/60 // loop (interval) speed - sec./rev.
+        Ls : 1000/60, // loop (interval) speed - sec./rev.
+        b : { // browser check (major platforms)
+            i : false, // samsung internet
+            c : false, // chrome
+            f : false, // firefox
+            s : false, // safari
+            o : false, // opera
+            e : false // edge
+        }
     },
     pos = { // scroll pos.
         y : 0, // y-pos

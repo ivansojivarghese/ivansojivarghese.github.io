@@ -51,7 +51,8 @@ function docRead() {
             if (!rL.e) { // ensure once execution
                 if (!rL.e2) {
                     rL.e2 = true;
-                    load_css(); // apply CSS (common)
+                    load_js(); // load JS (common)
+                    load_css(); // apply CSS styling (common)
                     resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
                     // WHAT IF LOADING ERROR?? - DISPLAY MESSAGE!
@@ -69,8 +70,8 @@ function docRead() {
                         rL.t.classList.add("template");
                         setTimeout(function() { // hide the logo and show the rings
                             rL.t.classList.add("z_O");
-                            load_css_e(); // load css styles to 'head' (indiv.)
                             load_js_e(); // load js (indiv.)
+                            load_css_e(); // load css styles to 'head' (indiv.)
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
                             rL.e = true; // execute following code block once only
                         }, op.t); 
@@ -127,6 +128,35 @@ function load_css() { // load up CSS (common)
     c_css("#load_C", "margin-top: calc((" + cH + "px - 8rem) / 2);", false, null); // align loader to centre of viewport
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
+    if (!op.b.f) {
+        document.documentElement.classList.add("scB");
+    }
+}
+
+function load_js() { // [compatibility/variables] load
+    browserCheck();
+}
+
+function browserCheck() { // detect browser (platform)
+    var userAgent = navigator.userAgent;
+    if (userAgent.match(/samsungbrowser/i)) { // Samsung Internet
+        ob.b.i = true; // set respective property to true
+    } else if (userAgent.match(/chrome|chromium|crios/i)){ // Chrome
+        op.b.c = true; 
+    } else if (userAgent.match(/firefox|fxios/i)){ // Firefox
+        op.b.f = true;
+    } else if (userAgent.match(/safari/i)){ // Safari
+        op.b.s = true;
+    } 
+    if (userAgent.match(/opr\//i)){ // Opera
+        op.b.o = true;
+        op.b.c = false; // revoke true status(es) of other browsers - since userAgent contains them (matching elements) as well
+        op.b.s = false;
+    } else if (userAgent.match(/edg/i)){ // Edge
+        op.b.e = true;
+        op.b.c = false;
+        op.b.s = false;
+    }
 }
 
 function vwP(w, h, r) { // check device[viewport] size/orientation parameters

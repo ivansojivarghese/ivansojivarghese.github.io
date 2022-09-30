@@ -14,12 +14,16 @@
 
 html { /*root element*/
     font-size: 10px;
-    scroll-behavior: smooth;
+    /*scroll-behavior: smooth;*/
 }
 
 body {
     width: 100vw; /*takes full dimensions*/
     font-family: "Raleway", "Segoe UI", sans-serif; /*Google Font, installed (offline) font, fallback font*/
+}
+
+.scB {
+    scroll-behavior: smooth;
 }
 
 .ovx-h {
