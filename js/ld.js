@@ -70,6 +70,7 @@ function docRead() {
                         setTimeout(function() { // hide the logo and show the rings
                             rL.t.classList.add("z_O");
                             load_css_e(); // load css styles to 'head' (indiv.)
+                            load_js_e(); // load js (indiv.)
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
                             rL.e = true; // execute following code block once only
                         }, op.t); 

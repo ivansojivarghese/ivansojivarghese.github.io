@@ -26,10 +26,6 @@
     padding: 1.575rem 1.25rem; /* adds to 5rem of width/height dimensions */
     margin-left: calc(100vw - (5rem + 1.5rem)); /*marginalised to the right - within 1.5rem of viewport edge */
 }
-/*
-#hamburger_button:active {
-    background-color: #E4E4E4;
-}*/
 
 #hamburger_button .stroke {
     width: 2.5rem;
@@ -43,8 +39,8 @@
 
 #int_head {
     position: absolute;
-    height: 5rem; 
-    padding-top: 2rem;
+    height: 5rem;
+    margin-top: 2rem;
 }
 
 #profile_image {

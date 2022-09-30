@@ -6,9 +6,10 @@ var dev = {
         url : "https://ivansojivarghese.github.io/" // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
     },
     op = { // site 'options'
+        s : false, // check boolean - 'force' disable scroll
         t : 200, // transition duration - default (in ms.)
         te : 500, // transition duration (extended)
-        Ls : 1000/60 // loop (live) speed - sec./rev.
+        Ls : 1000/60 // loop (interval) speed - sec./rev.
     },
     pos = { // scroll pos.
         y : 0, // y-pos
@@ -91,6 +92,11 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.i++; // increment array index accordingly
     } else {
         pos.i = 0;
+    }
+    if (op.s) { // 'force' enable/disable scroll when required
+        document.body.style.overflowY = "hidden";
+    } else {
+        document.body.style.overflowY = "";
     }
 }
 

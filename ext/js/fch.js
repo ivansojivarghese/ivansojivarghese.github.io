@@ -1,5 +1,5 @@
 
-// locally run JS fetching (respective of each page)
+// locally run JS fetching (respective to each page)
 
 var fchL = {
     1 : { // #intro_sc profile image
@@ -26,4 +26,12 @@ function load_css_e() { // load CSS styles (page specific)
     c_css("#intro_sc", "height: calc(" + cH + "px - 7rem);", false, null); // set landing page to full height (exclusive of url bar on mobile/tablet devices)
     c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
     c_css("#ham_C", "margin-top: calc((" + cH + "px - 16rem) / 2);", false, null);
+}
+
+function load_js_e() { // load JS (page specific)
+    var b = getBd(hm.b, "bottom"), // obtain 'bottom' bound of ham. button
+        t = Math.ceil(((b - 1) / 10) * 2), // obtain approx. no. of max iterations (in 1000/30 ms. intervals) - round up for an inclusive value
+        m = (op.Ls * 2) * t; // calculate max time (ms.) for button offset alignment
+    hm.f = b; // update the hamburger menu object properties
+    hm.ft = m;
 }

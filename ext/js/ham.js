@@ -3,6 +3,10 @@
 
 var hm = { // hamburger menu object
         b : document.getElementById("hamburger_button"), // button
+        f : 0, // button offset
+        ft : 0, // "" offset (alignment/scroll) time
+
+        /////
 
         c : document.getElementById("ham_button-c"), // button strokes container
         k : document.getElementsByClassName("stroke"), // button strokes
@@ -87,23 +91,28 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
 function h_mTg() { // ham. menu toggle
     var s = vw.tB, // get viewport resolution type (check for tablet/desktop)
         h = s ? hm.sc_t : hm.sc, // select mobile or tablet/desktop versions depending on viewport variables
-        c = hm.z; 
+        y = pos.y, // get current y-pos
+        f = hm.f, // get button offset
+        t = hm.ft, // get button offset alignment time (max)
+        c = hm.z;  // open/close status
     if (c) { // open menu
         hm.z = false; // change status
 
-        if (pos.y !== 0) { // if page has been scrolled (offset) from original
+        if (y !== 0) { // if page has been scrolled (offset) from original
+            op.s = true; // 'force' disable scroll (secondary)
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
             setTimeout(function() {
-                console.log(pos.c);
-                if (!pos.c) { // if page not scrolling (in movement)
-                    c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling
-                }
-            }, (op.Ls * pos.a.length)); // delay function to allow 'pos.c' variable to update (if necessary)
+                op.s = false; // 'force' enable scroll (secondary)
+                c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling after a delay
+            }, (y / f) * t); // delay function to allow 'pos.c' variable to update
+        } else {
+            c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling normally
         }
 
         h_mBs(c); // perform button [stroke] dynamisms
         c_rep(h, "z-G", "z-F"); // bring forward in visibility
 
+        ////// 
 
         if (s) { // if tablet/desktop viewport
             e_Xt(h, "h", true); // reveal menu (slide in)
@@ -112,6 +121,8 @@ function h_mTg() { // ham. menu toggle
         } else {
             e_Fd(h, false); // reveal menu (fade in)
         }
+
+        //////
 
     } else { // close menu
 
