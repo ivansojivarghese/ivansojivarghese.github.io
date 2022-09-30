@@ -102,8 +102,10 @@ function h_mTg() { // ham. menu toggle
             op.s = true; // 'force' disable scroll (secondary)
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
             setTimeout(function() {
-                op.s = false; // 'force' enable scroll (secondary)
-                c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling after a delay
+                // if (!pos.c) {
+                    op.s = false; // 'force' enable scroll (secondary)
+                    c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling after a delay
+                // }
             }, (y / f) * t); // delay function to allow 'pos.c' variable to update
         } else {
             c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling normally

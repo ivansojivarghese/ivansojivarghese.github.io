@@ -128,8 +128,8 @@ function load_css() { // load up CSS (common)
     c_css("#load_C", "margin-top: calc((" + cH + "px - 8rem) / 2);", false, null); // align loader to centre of viewport
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
-    if (!op.b.f) {
-        document.documentElement.classList.add("scB");
+    if (!op.b.f) { // if browser platform is NOT Firefox
+        document.documentElement.classList.add("scB"); // add smooth scroll behaviour
     }
 }
 
@@ -139,9 +139,9 @@ function load_js() { // [compatibility/variables] load
 
 function browserCheck() { // detect browser (platform)
     var userAgent = navigator.userAgent;
-    if (userAgent.match(/samsungbrowser/i)) { // Samsung Internet
+    if /*(userAgent.match(/samsungbrowser/i)) { // Samsung Internet
         ob.b.i = true; // set respective property to true
-    } else if (userAgent.match(/chrome|chromium|crios/i)){ // Chrome
+    } else if */(userAgent.match(/chrome|chromium|crios/i)){ // Chrome
         op.b.c = true; 
     } else if (userAgent.match(/firefox|fxios/i)){ // Firefox
         op.b.f = true;

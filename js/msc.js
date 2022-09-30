@@ -70,7 +70,7 @@ async function resLoad(el, src) { // load a resource to element (img)
             }
         })/*
         .catch((e) => {
-            console.log(e);
+            
         })*/
 }
 
