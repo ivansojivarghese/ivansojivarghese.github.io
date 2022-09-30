@@ -139,9 +139,9 @@ function load_js() { // [compatibility/variables] load
 
 function browserCheck() { // detect browser (platform)
     var userAgent = navigator.userAgent;
-    if /*(userAgent.match(/samsungbrowser/i)) { // Samsung Internet
+    if (userAgent.match(/samsungbrowser/i)) { // Samsung Internet
         ob.b.i = true; // set respective property to true
-    } else if */(userAgent.match(/chrome|chromium|crios/i)){ // Chrome
+    } else if (userAgent.match(/chrome|chromium|crios/i)){ // Chrome
         op.b.c = true; 
     } else if (userAgent.match(/firefox|fxios/i)){ // Firefox
         op.b.f = true;
