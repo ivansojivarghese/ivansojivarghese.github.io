@@ -93,6 +93,7 @@ function h_mTg() { // ham. menu toggle
         h = s ? hm.sc_t : hm.sc, // select mobile or tablet/desktop versions depending on viewport variables
         y = pos.y, // get current y-pos
         f = hm.f, // get button offset
+        p = y / f, // offset percentile
         t = hm.ft, // get button offset alignment time (max)
         c = hm.z;  // open/close status
     if (c) { // open menu
@@ -102,11 +103,14 @@ function h_mTg() { // ham. menu toggle
             op.s = true; // 'force' disable scroll (secondary)
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
             setTimeout(function() {
-                // if (!pos.c) {
+                if (p >= 0.55 && !pos.c) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
                     op.s = false; // 'force' enable scroll (secondary)
                     c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling after a delay
-                // }
-            }, (y / f) * t); // delay function to allow 'pos.c' variable to update
+                } else {
+                    op.s = false; // 'force' enable scroll (secondary)
+                    c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling after a delay
+                }
+            }, (p * t)); // delay function to allow 'pos.c' variable to update
         } else {
             c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling normally
         }
