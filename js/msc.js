@@ -106,6 +106,9 @@ function c_Sr() { // check for scrolling activity (in live)
     } else {
         document.body.style.overflowY = "";
     }
+    if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
+        document.documentElement.classList.remove("scB"); // smooth scrolling is always disabled
+    }
 }
 
 //////////////////////////////////////////

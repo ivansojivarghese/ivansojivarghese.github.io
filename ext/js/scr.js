@@ -29,12 +29,13 @@ function sc_L() { // functions (live on scroll)
             ldsc.s = false;
         }, 10);
     }
-
-    // ENSURE SCROLLING SMOOTH FOR FIREFOX
 }
 
 
 pK.el.addEventListener("click", function() {
+    if (op.b.f) {
+        document.documentElement.classList.add("scB"); // add the smooth scrolling class for FireFox platform users
+    }
     window.scrollTo(0, pK.t); // peek to target - 40% of following section
 });
 
