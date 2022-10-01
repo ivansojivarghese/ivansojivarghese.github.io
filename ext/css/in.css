@@ -1,16 +1,13 @@
 
 /* file-specific styling */
 
-#ham_sc, #peekAr {
-    background-color: #303030;
-}
-
 #hamburger_button, #peekAr {
     border-radius: 50%;
 }
 
 #ham_sc {
     position: fixed;
+    background-color: #303030;
     color: #FFF;
 }
 
