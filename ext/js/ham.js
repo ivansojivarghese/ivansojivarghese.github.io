@@ -3,15 +3,14 @@
 
 var hm = { // hamburger menu object
         b : document.getElementById("hamburger_button"), // button
+        k : document.getElementsByClassName("st"), // button strokes
+        sc : document.getElementById("ham_sc"), // menu screen
         f : 0, // button offset
         ft : 0, // "" offset (alignment/scroll) time
 
         /////
 
         c : document.getElementById("ham_button-c"), // button strokes container
-        k : document.getElementsByClassName("stroke"), // button strokes
-
-        sc : document.getElementById("ham_sc"), // menu screen
         sc_t : document.getElementById("ham-tB_sc"), // menu screen - tablet/desktop
 
         t : document.getElementById("b_Tint"), // background tint
