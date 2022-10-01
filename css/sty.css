@@ -286,7 +286,7 @@ a.md, span.md {
     right: 0;
 }
 
-.b-r, .e-dt {
+.b-r, #load_sc .load_r, #load_sc .template, .e-dt {
     border-radius: 50%;
 }
 
@@ -502,6 +502,10 @@ div.locator_img {
     height: 1.8rem;
 }
 
+.lead_arrow_downward_img {
+    background-image: url("../svg/lead_arrow_downward.svg");
+}
+
 .lead_arrow_forward_w_img {
     background-image: url("../svg/lead_arrow_forward_white.svg");
 }
@@ -591,7 +595,7 @@ div.locator_img {
     height: 3.2rem;
     border-width: 0.4rem;
     border-style: solid;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
 }
 
 .loader .wrap {

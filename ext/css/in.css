@@ -22,8 +22,8 @@
 #hamburger_button {
     width: 2.5rem;
     height: 1.85rem;
-    border-radius: 50%;
     padding: 1.575rem 1.25rem; /* adds to 5rem of width/height dimensions */
+    border-radius: 50%;
     margin-left: calc(100vw - (5rem + 1.5rem)); /*marginalised to the right - within 1.5rem of viewport edge */
 }
 
