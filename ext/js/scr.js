@@ -15,14 +15,14 @@ var pK = { // peeking chevron
 function sc_L() { // functions (live on scroll)
     ldsc.b = getBd(ldsc.el, "top");
 
-    if (ldsc.b < (wH * 0.9) && chkVL(ldsc.b, false) && !ldsc.s && rL.i) {
+    if (ldsc.b < (wH * 0.9) && chkVL(ldsc.b, false) && !ldsc.s && rL.i) { // if following section at 90% mark of viewport (when scrolled)
         e_Fd(pK.el, true);
         setTimeout(function() {
-            pK.el.classList.add("d_n")
+            pK.el.classList.add("d_n") // hide chevron
         }, op.t);
         ldsc.s = true; 
     } else if (ldsc.b >= (wH * 0.99)) {
-        pK.el.classList.remove("d_n")
+        pK.el.classList.remove("d_n") // show chevron when scrolling back
         setTimeout(function() {
             e_Fd(pK.el, false);
             ldsc.s = false;
@@ -33,7 +33,7 @@ function sc_L() { // functions (live on scroll)
 
 pK.el.addEventListener("click", function() {
     var t = wH * 0.4;
-    window.scrollTo(0, t);
+    window.scrollTo(0, t); // peek to target - 40% of following section
 });
 
-s_L = setInterval(sc_L, op.Ls);
+s_L = setInterval(sc_L, op.Ls); // live loop
