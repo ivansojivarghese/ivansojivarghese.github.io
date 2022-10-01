@@ -1,8 +1,8 @@
 
 // scroll-based loops/functions (local)
 
-var pK = { // peeking arrow
-        el : document.getElementById("peekAr"), // element
+var pK = { // peeking chevron
+        el : document.getElementById("peekCh"), // element
         b : 0, // bounding
         s : false, // execution
         t : 0.4 // window target (percentile)
