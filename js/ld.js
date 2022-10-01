@@ -17,6 +17,7 @@ var disp = document.getElementById("display_sc"), // display
         e2 : false, // ""
         e3 : false,
         s : false, // int_Load status
+        i : false // full load status
     },
 
 
@@ -118,6 +119,8 @@ function load_e() { // end the loading sequence
 
                 e_Fd(disp, false);  // show the page
                 c_rep(document.body, "ovy-h", "ovy-s"); // enable scrolling
+
+                rL.i = true; // page fully loaded
             }, op.t); // give time for opacity .trs to completely hide element
         }, op.te - op.t);
         rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring

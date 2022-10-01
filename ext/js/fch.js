@@ -10,8 +10,7 @@ var fchL = {
             el : document.getElementsByClassName("logo-hybrid"),
             u : 'logo/logo_hybrid.png'
         }
-    },
-    pk = document.getElementById("peekArrow");
+    };
 
 
 function loadUp() {
@@ -36,15 +35,3 @@ function load_js_e() { // load JS (page specific)
     hm.f = b; // update the hamburger menu object properties
     hm.ft = m;
 }
-
-function peek() { // scroll (hidden part of page) into view
-    var tg = wH * 0.5;
-    /*
-    if (op.b.f) {
-        c_css("html", "scroll-behaviour: smooth;", true, )
-    }*/
-    window.scrollTo(0, tg);
-}
-
-
-pk.addEventListener("click", peek);

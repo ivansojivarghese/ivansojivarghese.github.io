@@ -1,9 +1,16 @@
 
 /* file-specific styling */
 
+#ham_sc, #peekAr {
+    background-color: #303030;
+}
+
+#hamburger_button, #peekAr {
+    border-radius: 50%;
+}
+
 #ham_sc {
     position: fixed;
-    background-color: #303030;
     color: #FFF;
 }
 
@@ -23,7 +30,6 @@
     width: 2.5rem;
     height: 1.85rem;
     padding: 1.575rem 1.25rem; /* adds to 5rem of width/height dimensions */
-    border-radius: 50%;
     margin-left: calc(100vw - (5rem + 1.5rem)); /*marginalised to the right - within 1.5rem of viewport edge */
 }
 
@@ -52,11 +58,10 @@
     height: 2.8rem;
 }
 
-#peekArrow {
-    position: relative;
-    left: 0.5rem;
-    margin-top: 1.5rem;
-    border-radius: 50%;
+#peekAr {
+    margin-top: 1.1rem;
+    padding: 0.2rem;
+    transform: rotate(90deg);
 }
 
 .c_Info h5 {
@@ -69,8 +74,8 @@
 }
 
 .q_Info h5 {
-    display: inline-block;
     position: relative;
+    display: inline-block;
     top: -0.15em;
     margin-left: 0.5em;
 }

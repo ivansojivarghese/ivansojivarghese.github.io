@@ -501,10 +501,10 @@ div.locator_img {
     width: 1.8rem;
     height: 1.8rem;
 }
-
+/*
 .lead_arrow_downward_img {
     background-image: url("../svg/lead_arrow_downward.svg");
-}
+}*/
 
 .lead_arrow_forward_w_img {
     background-image: url("../svg/lead_arrow_forward_white.svg");
