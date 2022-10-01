@@ -52,6 +52,13 @@
     height: 2.8rem;
 }
 
+#peekArrow {
+    position: relative;
+    left: 0.5rem;
+    margin-top: 1.5rem;
+    border-radius: 50%;
+}
+
 .c_Info h5 {
     line-height: 0.9em;
 }
