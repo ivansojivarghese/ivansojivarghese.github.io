@@ -3,6 +3,7 @@
 
 var pK = { // peeking chevron
         el : document.getElementById("peekCh"), // element
+        t : wH * 0.4 // target
     },
     ldsc = { // #lead_sc
         el : document.getElementById("lead_sc"),
@@ -28,12 +29,13 @@ function sc_L() { // functions (live on scroll)
             ldsc.s = false;
         }, 10);
     }
+
+    // ENSURE SCROLLING SMOOTH FOR FIREFOX
 }
 
 
 pK.el.addEventListener("click", function() {
-    var t = wH * 0.4;
-    window.scrollTo(0, t); // peek to target - 40% of following section
+    window.scrollTo(0, pK.t); // peek to target - 40% of following section
 });
 
 s_L = setInterval(sc_L, op.Ls); // live loop
