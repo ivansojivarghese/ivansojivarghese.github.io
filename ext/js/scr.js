@@ -22,7 +22,7 @@ function sc_L() { // functions (live on scroll)
             pK.el.classList.add("d_n") // hide chevron
         }, op.t);
         ldsc.s = true; 
-    } else if (ldsc.b >= (wH * 0.99)) {
+    } else if (ldsc.b >= (wH * 0.95)) {
         pK.el.classList.remove("d_n") // show chevron when scrolling back
         setTimeout(function() {
             e_Fd(pK.el, false);
