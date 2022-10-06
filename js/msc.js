@@ -102,8 +102,8 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.i = 0;
     }
     if (op.s) { // 'force' enable/disable scroll when required
-        document.documentElement.style.overflowY = "hidden";
-        document.body.style.overflowY = "hidden";
+        document.documentElement.style.overflowY = "hidden"; // html
+        document.body.style.overflowY = "hidden"; // body
     } else {
         document.documentElement.style.overflowY = "";
         document.body.style.overflowY = "";
