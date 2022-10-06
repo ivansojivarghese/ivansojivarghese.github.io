@@ -118,7 +118,7 @@ function load_e() { // end the loading sequence
                 rL.c.classList.add("aniM-p");
 
                 e_Fd(disp, false);  // show the page
-                c_rep(document.body, "ovy-h", "ovy-s"); // enable scrolling
+                scr_t(true); // enable scrolling
 
                 rL.i = true; // page fully loaded
             }, op.t); // give time for opacity .trs to completely hide element

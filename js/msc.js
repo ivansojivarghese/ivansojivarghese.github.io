@@ -102,8 +102,10 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.i = 0;
     }
     if (op.s) { // 'force' enable/disable scroll when required
+        document.documentElement.style.overflowY = "hidden";
         document.body.style.overflowY = "hidden";
     } else {
+        document.documentElement.style.overflowY = "";
         document.body.style.overflowY = "";
     }
     if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
@@ -148,6 +150,12 @@ function num_S(n, c, a) { // convert any value to string format + divide into in
     return res;
 }
 
+function s_Rep(s, p, n) { // extract/replace [string] character at indiv. pos. with new value
+    var a = s.split(''); // split string to indiv. characters
+    a[p] = n; // replace with new character
+    return a.join(''); // join up characters
+}
+
 function chkVL(n, s) { // numeral - check for positive/non-zero value
     var res = false;
     if (s) { // check for positive numeral
@@ -163,12 +171,6 @@ function chkVL(n, s) { // numeral - check for positive/non-zero value
 }
 
 //////////////////////////////////////////
-
-function s_Rep(s, p, n) { // extract/replace [string] character at indiv. pos. with new value
-    var a = s.split(''); // split string to indiv. characters
-    a[p] = n; // replace with new character
-    return a.join(''); // join up characters
-}
 
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
     if (s) { // check if class is present before removing
@@ -214,6 +216,20 @@ function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
 
 function c_rep(el, d, n) { // replace CSS classes in elements
     el.classList.replace(d, n);
+}
+
+//////////////////////////////////////////
+
+function scr_t(s) { // scroll toggle
+    var h = document.documentElement,
+        b = document.body;
+    if (s) {
+        c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
+        c_rep(b, "ovy-h", "ovy-s"); // body
+    } else {
+        c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
+        c_rep(b, "ovy-s", "ovy-h"); // body
+    }
 }
 
 //////////////////////////////////////////

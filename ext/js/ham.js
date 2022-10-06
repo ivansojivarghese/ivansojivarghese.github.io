@@ -104,14 +104,16 @@ function h_mTg() { // ham. menu toggle
             setTimeout(function() {
                 if (p >= 0.55 && !pos.c) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
                     op.s = false; // 'force' enable scroll (secondary)
-                    c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling after a delay
+
+                    scr_t(false);
                 } else {
                     op.s = false; // 'force' enable scroll (secondary)
-                    c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling after a delay
+
+                    scr_t(false);
                 }
             }, (p * t)); // delay function to allow 'pos.c' variable to update
         } else {
-            c_rep(document.body, "ovy-s", "ovy-h"); // disable scrolling normally
+            scr_t(false);
         }
 
         h_mBs(c); // perform button [stroke] dynamisms
@@ -145,7 +147,7 @@ function h_mTg() { // ham. menu toggle
             e_Fd(h, true); // hide menu
         }
 
-        c_rep(document.body, "ovy-h", "ovy-s"); // enable scrolling
+        scr_t(true);
     }
 }
 
