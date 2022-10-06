@@ -5,6 +5,7 @@
 
 *  {
     user-select: none;
+    -webkit-user-select: none; /* Safari support */
     scrollbar-width: none; /*remove browser scroll bar from display - Firefox support*/
 }
 
