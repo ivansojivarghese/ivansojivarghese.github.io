@@ -29,6 +29,7 @@ var dev = {
         L : null, // loop variables
         Lc : null
     },
+    wR = document.getElementById("wrapper"), // body wrap
     wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
     wD = window.innerWidth, // width 
@@ -102,11 +103,15 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.i = 0;
     }
     if (op.s) { // 'force' enable/disable scroll when required
+        
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
+        // wR.style.overflowY = "hidden"; 
     } else {
+        
         document.documentElement.style.overflowY = "";
         document.body.style.overflowY = "";
+        // wR.style.overflowY = ""; 
     }
     if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
         document.documentElement.classList.remove("scB"); // smooth scrolling is always disabled
@@ -221,14 +226,31 @@ function c_rep(el, d, n) { // replace CSS classes in elements
 //////////////////////////////////////////
 
 function scr_t(s) { // scroll toggle
+    
     var h = document.documentElement,
         b = document.body;
     if (s) {
+        
         c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
         c_rep(b, "ovy-h", "ovy-s"); // body
+
+        if (op.b.s) { // if safari
+            h.style.position = ""; 
+            b.style.position = "";
+        }
+        
+       // c_rep(wR, "ovy-h", "ovy-s");
     } else {
+        
         c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
         c_rep(b, "ovy-s", "ovy-h"); // body
+
+        if (op.b.s) { // if safari
+            h.style.position = "fixed"; 
+            b.style.position = "fixed";
+        }
+        
+        // c_rep(wR, "ovy-s", "ovy-h");
     }
 }
 
