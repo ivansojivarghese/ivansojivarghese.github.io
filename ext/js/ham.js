@@ -104,11 +104,9 @@ function h_mTg() { // ham. menu toggle
             setTimeout(function() {
                 if (p >= 0.55 && !pos.c) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
                     op.s = false; // 'force' enable scroll (secondary)
-
                     scr_t(false);
                 } else {
                     op.s = false; // 'force' enable scroll (secondary)
-
                     scr_t(false);
                 }
             }, (p * t)); // delay function to allow 'pos.c' variable to update

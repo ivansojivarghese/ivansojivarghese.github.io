@@ -229,19 +229,19 @@ function scr_t(s) { // scroll toggle
     var h = document.documentElement,
         b = document.body;
     if (s) { // enable
-        c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
-        c_rep(b, "ovy-h", "ovy-s"); // body
         if (op.b.s) { // safari compatibility
             h.classList.remove("p-f");
             b.classList.remove("p-f");
         }
+        c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
+        c_rep(b, "ovy-h", "ovy-s"); // body
     } else { // disable
-        c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
-        c_rep(b, "ovy-s", "ovy-h"); // body
         if (op.b.s) { // safari compatibility
             h.classList.add("p-f");
             b.classList.add("p-f");
         }
+        c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
+        c_rep(b, "ovy-s", "ovy-h"); // body
     }
 }
 
