@@ -402,6 +402,10 @@ a.md, span.md {
     position: absolute;
 }
 
+.p-f {
+    position: fixed;
+}
+
 .p-r {
     position: relative;
 }
@@ -409,10 +413,10 @@ a.md, span.md {
 .p-s {
     position: static;
 }
-
+/*
 div.locator_img {
     position: static;
-}
+}*/
 
 .c-xy {
     top: 50%;

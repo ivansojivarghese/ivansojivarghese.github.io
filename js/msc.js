@@ -226,31 +226,28 @@ function c_rep(el, d, n) { // replace CSS classes in elements
 //////////////////////////////////////////
 
 function scr_t(s) { // scroll toggle
-    
     var h = document.documentElement,
         b = document.body;
-    if (s) {
-        
+    if (s) { // enable
         c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
         c_rep(b, "ovy-h", "ovy-s"); // body
-
-        if (op.b.s) { // if safari
+        if (op.b.s) { // safari compatibility
+            h.classList.remove("p-f");
+            b.classList.remove("p-f");
+            /*
             h.style.position = ""; 
-            b.style.position = "";
+            b.style.position = "";*/
         }
-        
-       // c_rep(wR, "ovy-h", "ovy-s");
-    } else {
-        
+    } else { // disable
         c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
         c_rep(b, "ovy-s", "ovy-h"); // body
-
-        if (op.b.s) { // if safari
+        if (op.b.s) { // safari compatibility
+            h.classList.add("p-f");
+            b.classList.add("p-f");
+            /*
             h.style.position = "fixed"; 
-            b.style.position = "fixed";
+            b.style.position = "fixed";*/
         }
-        
-        // c_rep(wR, "ovy-s", "ovy-h");
     }
 }
 
