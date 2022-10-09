@@ -106,12 +106,12 @@ function c_Sr() { // check for scrolling activity (in live)
         
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
-        // wR.style.overflowY = "hidden"; 
+
     } else {
         
         document.documentElement.style.overflowY = "";
         document.body.style.overflowY = "";
-        // wR.style.overflowY = ""; 
+
     }
     if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
         document.documentElement.classList.remove("scB"); // smooth scrolling is always disabled
