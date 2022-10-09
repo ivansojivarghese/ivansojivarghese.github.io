@@ -270,7 +270,7 @@ div {
 a.md, span.md {
     padding: 0.3em;
     border-radius: 0.2em;
-}*/
+}
 
 .bt:active {
     background-color: #E4E4E4;
@@ -279,7 +279,7 @@ a.md, span.md {
 .bt.md:active {
     background-color: #565656;
 }
-/*
+
 .bt {
     background-color: #F2F2F2;
 }*/
