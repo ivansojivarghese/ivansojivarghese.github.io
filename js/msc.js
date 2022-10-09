@@ -103,15 +103,19 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.i = 0;
     }
     if (op.s) { // 'force' enable/disable scroll when required
-        
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
-
+        if (op.b.s) { // Safari compatibility
+            document.documentElement.style.position = "fixed"; 
+            document.body.style.position = "fixed";
+        }
     } else {
-        
         document.documentElement.style.overflowY = "";
         document.body.style.overflowY = "";
-
+        if (op.b.s) {
+            document.documentElement.style.position = "";
+            document.body.style.position = "";
+        }
     }
     if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
         document.documentElement.classList.remove("scB"); // smooth scrolling is always disabled
