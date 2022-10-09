@@ -16,7 +16,7 @@ var pK = { // peeking chevron
 function sc_L() { // functions (live on scroll)
     ldsc.b = getBd(ldsc.el, "top");
 
-    if (ldsc.b < (cH * 0.9) && chkVL(ldsc.b, false) && !ldsc.s && rL.i) { // if following section at 90% mark of viewport (when scrolled)
+    if (ldsc.b < (cH * 0.95) && chkVL(ldsc.b, false) && !ldsc.s && rL.i) { // if following section at 95% mark of viewport (when scrolled)
         e_Fd(pK.el, true);
         setTimeout(function() {
             pK.el.classList.add("d_n") // hide chevron
