@@ -234,9 +234,6 @@ function scr_t(s) { // scroll toggle
         if (op.b.s) { // safari compatibility
             h.classList.remove("p-f");
             b.classList.remove("p-f");
-            /*
-            h.style.position = ""; 
-            b.style.position = "";*/
         }
     } else { // disable
         c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
@@ -244,9 +241,6 @@ function scr_t(s) { // scroll toggle
         if (op.b.s) { // safari compatibility
             h.classList.add("p-f");
             b.classList.add("p-f");
-            /*
-            h.style.position = "fixed"; 
-            b.style.position = "fixed";*/
         }
     }
 }
