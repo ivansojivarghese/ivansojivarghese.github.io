@@ -356,6 +356,10 @@ a.md, span.md {
     margin-bottom: 1rem;
 }
 
+.p_TBh {
+    padding: 0.5em 0;
+}
+
 .p_L-10 {
     padding-left: 10% !important;
 }
@@ -366,6 +370,10 @@ a.md, span.md {
 
 .p_B {
     padding-bottom: 1rem !important;
+}
+
+.p_Bd {
+    padding-bottom: 2rem !important;
 }
 
 .p_Bh {
