@@ -357,7 +357,7 @@ a.md, span.md {
 }
 
 .p_TBh {
-    padding: 0.5em 0;
+    padding: 0.45em 0;
 }
 
 .p_L-10 {
@@ -538,6 +538,10 @@ div.locator_img {
 
 .location_w_img {
     background-image: url("../svg/location_white.svg");
+}
+
+.love_w_img {
+    background-image: url("../svg/love_white.svg");
 }
 
 /*
@@ -839,6 +843,12 @@ div.locator_img {
 
 #footer_sc .wrap p {
     padding-bottom: 0.5em !important;
+}
+
+#footer_sc .love_w_img {
+    top: 0.1em;
+    width: 1em;
+    height: 1em;
 }
 
 /* ------------- */
