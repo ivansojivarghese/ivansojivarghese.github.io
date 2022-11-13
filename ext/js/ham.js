@@ -147,6 +147,8 @@ function h_mTg() { // ham. menu toggle
         h_mBs(c); // perform button [stroke] dynamisms
         c_rep(h, "z-F", "z-G"); // bring forward in visibility
 
+        int_H.classList.remove("h-fx");
+
         if (s) {
             e_Xt(h, "h", false); // hide menu
             hm.t.style.zIndex = "";
