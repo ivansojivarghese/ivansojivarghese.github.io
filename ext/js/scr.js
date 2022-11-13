@@ -22,7 +22,7 @@ function sc_L() { // functions (live on scroll)
     if (op.s) {
         // int_H.style.transform = "none";
     } else {
-        int_H.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
+        int_H.style.transform = "translateY(" + (pos.y * hm.p) + "px)";
     }
 
     // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
