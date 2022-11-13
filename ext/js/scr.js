@@ -1,19 +1,26 @@
 
 // scroll-based loops/functions (local)
 
-var /*pK = { // peeking chevron
+var int_H = document.getElementById("intro_hold"),
+    s_L = null; // loop variable
+
+/*pK = { // peeking chevron
         el : document.getElementById("peekCh"), // element
         t : cH * 0.4 // target
-    },*/
+    },
     ldsc = { // #lead_sc
         el : document.getElementById("lead_sc"),
         b : 0, // bounding
         s : false // execution
     }, 
-    s_L = null; // loop variable
+    s_L = null; // loop variable*/
 
-/*
+
 function sc_L() { // functions (live on scroll)
+
+    int_H.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
+
+    /*
     ldsc.b = getBd(ldsc.el, "top");
 
     if (ldsc.b < (cH * 0.95) && chkVL(ldsc.b, false) && !ldsc.s && rL.i) { // if following section at 95% mark of viewport (when scrolled)
@@ -28,15 +35,15 @@ function sc_L() { // functions (live on scroll)
             e_Fd(pK.el, false);
             ldsc.s = false;
         }, 10);
-    }
+    }*/
 }
 
-
+/*
 pK.el.addEventListener("click", function() {
     if (op.b.f) {
         document.documentElement.classList.add("scB"); // add the smooth scrolling class for FireFox platform users
     }
     window.scrollTo(0, pK.t); // peek to target - 40% of following section
-});
+});*/
 
-s_L = setInterval(sc_L, op.Ls); // live loop*/
+s_L = setInterval(sc_L, op.Ls); // live loop
