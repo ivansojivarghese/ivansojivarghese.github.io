@@ -106,7 +106,7 @@ function h_mTg() { // ham. menu toggle
 
             // document.body.style.position = "fixed";
 
-            
+            document.documentElement.classList.remove("scB");
 
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
 
@@ -122,6 +122,9 @@ function h_mTg() { // ham. menu toggle
                 } else {
                     op.s = false;
                 }
+
+                document.documentElement.classList.add("scB");
+
             }, (p * t)); // delay function to allow 'pos.c' variable to update
         } else {
             scr_t(false);
