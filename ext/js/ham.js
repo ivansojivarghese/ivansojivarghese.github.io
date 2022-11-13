@@ -103,6 +103,10 @@ function h_mTg() { // ham. menu toggle
 
             int_H.style.transform = "none";
 
+            // document.body.style.position = "fixed";
+
+            int_H.classList.add("h-fx");
+
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
 
             
