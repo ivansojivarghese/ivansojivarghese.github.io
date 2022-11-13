@@ -58,10 +58,10 @@
 }*/
 
 #tpZ {
-    border-Top: 2rem solid transparent;
+    border-top: 3rem solid transparent;
     border-right: 100vw solid #303030;
     height: 2rem;
-    top: -3rem;
+    top: -4rem;
 }
 
 .c_Info h5 {
