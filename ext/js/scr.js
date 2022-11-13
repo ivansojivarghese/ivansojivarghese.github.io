@@ -19,7 +19,12 @@ var int_H = document.getElementById("intro_hold"),
 
 function sc_L() { // functions (live on scroll)
 
-    int_H.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
+    if (op.s) {
+        // int_H.style.transform = "none";
+    } else {
+        int_H.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
+    }
+
     // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
 
     /*

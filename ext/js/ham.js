@@ -100,7 +100,13 @@ function h_mTg() { // ham. menu toggle
 
         if (y !== 0) { // if page has been scrolled (offset) from original
             op.s = true; // 'force' disable scroll (secondary)
+
+            int_H.style.transform = "none";
+
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
+
+            
+
             setTimeout(function() {
                 if (p >= 0.55 && !pos.c) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
                     op.s = false; // 'force' enable scroll (secondary)
