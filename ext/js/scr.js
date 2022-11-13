@@ -1,10 +1,10 @@
 
 // scroll-based loops/functions (local)
 
-var pK = { // peeking chevron
+var /*pK = { // peeking chevron
         el : document.getElementById("peekCh"), // element
         t : cH * 0.4 // target
-    },
+    },*/
     ldsc = { // #lead_sc
         el : document.getElementById("lead_sc"),
         b : 0, // bounding
@@ -12,7 +12,7 @@ var pK = { // peeking chevron
     }, 
     s_L = null; // loop variable
 
-
+/*
 function sc_L() { // functions (live on scroll)
     ldsc.b = getBd(ldsc.el, "top");
 
@@ -39,4 +39,4 @@ pK.el.addEventListener("click", function() {
     window.scrollTo(0, pK.t); // peek to target - 40% of following section
 });
 
-s_L = setInterval(sc_L, op.Ls); // live loop
+s_L = setInterval(sc_L, op.Ls); // live loop*/

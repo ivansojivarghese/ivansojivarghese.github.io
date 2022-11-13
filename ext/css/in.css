@@ -50,11 +50,18 @@
 #intro_sc .logo-hybrid {
     height: 2.8rem;
 }
-
+/*
 #peekCh {
     margin-top: 1.5rem;
     padding: 0.2rem;
     border-radius: 50%;
+}*/
+
+#tpZ {
+    border-Top: 2rem solid transparent;
+    border-right: 100vw solid #303030;
+    height: 2rem;
+    top: -3rem;
 }
 
 .c_Info h5 {
