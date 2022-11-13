@@ -136,10 +136,10 @@ function h_mTg() { // ham. menu toggle
         } else {
             e_Fd(h, false); // reveal menu (fade in)
         }
-
+        /*
         setTimeout(function() {
             int_H.classList.add("h-fx");
-        }, 200);
+        }, 200);*/
         
 
         //////
