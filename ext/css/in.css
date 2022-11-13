@@ -57,10 +57,10 @@
     border-radius: 50%;
 }*/
 
-#tpZ {
+#tpZ { /*trapezoidal element - linking #intro_sc and #lead_sc */
     border-top: 3rem solid transparent;
     border-right: 100vw solid #303030;
-    height: 2rem;
+    height: 1rem;
     top: -4rem;
 }
 
