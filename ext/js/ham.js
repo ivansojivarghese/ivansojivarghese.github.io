@@ -125,7 +125,8 @@ function h_mTg() { // ham. menu toggle
         }
 
         h_mBs(c); // perform button [stroke] dynamisms
-        c_rep(h, "z-G", "z-F"); // bring forward in visibility
+        // c_rep(h, "z-G", "z-F"); // bring forward in visibility
+        int_H.classList.add("z-F");
 
         ////// 
 
@@ -150,9 +151,8 @@ function h_mTg() { // ham. menu toggle
         hm.z = true;
         hm.m = false; // hover effect requires add. 'mouse' [trigger]movement from user
         h_mBs(c); // perform button [stroke] dynamisms
-        c_rep(h, "z-F", "z-G"); // bring forward in visibility
-
-        int_H.classList.remove("h-fx");
+        // c_rep(h, "z-F", "z-G"); // bring forward in visibility
+        int_H.classList.remove("z-F");
 
         if (s) {
             e_Xt(h, "h", false); // hide menu

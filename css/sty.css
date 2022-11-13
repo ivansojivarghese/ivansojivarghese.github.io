@@ -124,10 +124,10 @@ h1, h2, h3, h5, h6, p {
 .h-f {
     height: 100vh;
 }
-
+/*
 .h-fx {
     height: 150vh;
-}
+}*/
 
 .h-fp, .img {
     height: 100%;
