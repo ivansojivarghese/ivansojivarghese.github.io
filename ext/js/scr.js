@@ -1,8 +1,8 @@
 
 // scroll-based loops/functions (local)
 
-var int_H = document.getElementById("intro_sc"),
-    hamB = document.getElementById("ham_banner"),
+var int_H = document.getElementById("intro_hold"),
+    // hamB = document.getElementById("ham_banner"),
     s_L = null; // loop variable
 
 /*pK = { // peeking chevron
@@ -20,7 +20,7 @@ var int_H = document.getElementById("intro_sc"),
 function sc_L() { // functions (live on scroll)
 
     int_H.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
-    hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
+    // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
 
     /*
     ldsc.b = getBd(ldsc.el, "top");
