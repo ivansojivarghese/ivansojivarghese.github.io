@@ -96,7 +96,7 @@ function h_mTg() { // ham. menu toggle
         t = hm.ft, // get button offset alignment time (max)
         c = hm.z;  // open/close status
     if (c) { // open menu
-        hm.z = false; // change status
+        
 
         if (y !== 0) { // if page has been scrolled (offset) from original
             op.s = true; // 'force' disable scroll (secondary)
@@ -112,13 +112,16 @@ function h_mTg() { // ham. menu toggle
             
 
             setTimeout(function() {
-                if (p >= 0.55 && !pos.c) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
+                if (p >= 0.55 && !pos.c && !hm.z) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
+                    op.s = false; // 'force' enable scroll (secondary)
+                    scr_t(false);
+                } else if (!hm.z) {
                     op.s = false; // 'force' enable scroll (secondary)
                     scr_t(false);
                 } else {
-                    op.s = false; // 'force' enable scroll (secondary)
-                    scr_t(false);
+                    op.s = false;
                 }
+                console.log("false");
             }, (p * t)); // delay function to allow 'pos.c' variable to update
         } else {
             scr_t(false);
@@ -136,7 +139,11 @@ function h_mTg() { // ham. menu toggle
             hm.t.style.backgroundColor = "rgba(48, 48, 48, 0.6)"; // change to transparent (dark) background
         } else {
             e_Fd(h, false); // reveal menu (fade in)
+
         }
+
+        hm.z = false; // change status
+
         /*
         setTimeout(function() {
             int_H.classList.add("h-fx");
@@ -163,6 +170,7 @@ function h_mTg() { // ham. menu toggle
         }
 
         scr_t(true);
+        console.log("true");
     }
 }
 
