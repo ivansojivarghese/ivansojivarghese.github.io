@@ -105,7 +105,7 @@ function h_mTg() { // ham. menu toggle
 
             // document.body.style.position = "fixed";
 
-            int_H.classList.add("h-fx");
+            
 
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
 
@@ -136,6 +136,11 @@ function h_mTg() { // ham. menu toggle
         } else {
             e_Fd(h, false); // reveal menu (fade in)
         }
+
+        setTimeout(function() {
+            int_H.classList.add("h-fx");
+        }, 200);
+        
 
         //////
 
