@@ -1,8 +1,7 @@
 
 // scroll-based loops/functions (local)
 
-var int_H = document.getElementById("intro_hold"),
-    // hamB = document.getElementById("ham_banner"),
+var int_m = document.getElementById("intro_main"),
     s_L = null; // loop variable
 
 /*pK = { // peeking chevron
@@ -19,10 +18,8 @@ var int_H = document.getElementById("intro_hold"),
 
 function sc_L() { // functions (live on scroll)
 
-    if (op.s) {
-        // int_H.style.transform = "none";
-    } else {
-        int_H.style.transform = "translateY(" + (pos.y * hm.p) + "px)";
+    if (!op.s) {
+        int_m.style.transform = "translateY(" + (pos.y * hm.p) + "px)";
     }
 
     // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";

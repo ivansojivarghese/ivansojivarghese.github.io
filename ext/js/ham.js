@@ -102,7 +102,7 @@ function h_mTg() { // ham. menu toggle
         if (y !== 0) { // if page has been scrolled (offset) from original
             op.s = true; // 'force' disable scroll (secondary)
 
-            int_H.style.transform = "none";
+            int_m.style.transform = "none";
 
             // document.body.style.position = "fixed";
 
@@ -132,7 +132,7 @@ function h_mTg() { // ham. menu toggle
 
         h_mBs(c); // perform button [stroke] dynamisms
         // c_rep(h, "z-G", "z-F"); // bring forward in visibility
-        int_H.classList.add("z-F");
+        int_m.classList.add("z-F");
 
         ////// 
 
@@ -149,7 +149,7 @@ function h_mTg() { // ham. menu toggle
 
         /*
         setTimeout(function() {
-            int_H.classList.add("h-fx");
+            int_m.classList.add("h-fx");
         }, 200);*/
         
 
@@ -162,7 +162,7 @@ function h_mTg() { // ham. menu toggle
         hm.m = false; // hover effect requires add. 'mouse' [trigger]movement from user
         h_mBs(c); // perform button [stroke] dynamisms
         // c_rep(h, "z-F", "z-G"); // bring forward in visibility
-        int_H.classList.remove("z-F");
+        int_m.classList.remove("z-F");
 
         if (s) {
             e_Xt(h, "h", false); // hide menu
