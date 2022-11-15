@@ -5,7 +5,8 @@ var im = { // #intro_main
         el : document.getElementById("intro_main"),
         t : document.getElementById("h_tint"), // background tint
         tp : document.getElementById("tpZ"),
-        tpR : 0
+        tpR : 0,
+        p : 0.25 // parallax scroll constant
     };
     s_L = null; // loop variable
 
@@ -30,7 +31,7 @@ function sc_L() { // functions (live on scroll)
     im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.tpR) + ")"; // #intro_main tint opacity
 
     if (!op.s) {
-        im.el.style.transform = "translateY(" + (pos.y * hm.p) + "px)";
+        im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";
     }
 
     // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";

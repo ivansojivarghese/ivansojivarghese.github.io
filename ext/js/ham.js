@@ -6,9 +6,8 @@ var hm = { // hamburger menu object
         k : document.getElementsByClassName("st"), // button strokes
         sc : document.getElementById("ham_sc"), // menu screen
         f : 0, // button offset
-        ft : 0, // "" offset (alignment/scroll) time
-        p : 0.25, // parallax scroll constant
 
+        // ft : 0, // "" offset (alignment/scroll) time
         /////
 
         c : document.getElementById("ham_button-c"), // button strokes container
@@ -90,11 +89,13 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
 function h_mTg() { // ham. menu toggle
     var s = vw.tB, // get viewport resolution type (check for tablet/desktop)
         h = s ? hm.sc_t : hm.sc, // select mobile or tablet/desktop versions depending on viewport variables
-        y = pos.y * hm.p, // get current y-pos
+        y = pos.y, // get current y-pos
         f = hm.f, // get button offset
         p = y / f, // offset percentile
-        t = hm.ft, // get button offset alignment time (max)
         c = hm.z;  // open/close status
+
+        // t = hm.ft, // get button offset alignment time (max)
+
     if (c) { // open menu
         
 
@@ -109,9 +110,12 @@ function h_mTg() { // ham. menu toggle
 
             // document.documentElement.classList.remove("scB");
 
-            console.log(p*t);
+            // console.log(p*t);
 
+            
             setTimeout(function() {
+                // console.log(p);
+
                 if (p >= 0.55 && !pos.c && !hm.z) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
                     op.s = false; // 'force' enable scroll (secondary)
                     scr_t(false);
@@ -121,11 +125,14 @@ function h_mTg() { // ham. menu toggle
                 } else {
                     op.s = false;
                 }
+
                 /*
                 if (!op.b.f) {
                     document.documentElement.classList.add("scB");
                 }*/
+
             }, /*(p * t)*/ 10); // delay function to allow 'pos.c' variable to update
+
         } else {
             scr_t(false);
         }
