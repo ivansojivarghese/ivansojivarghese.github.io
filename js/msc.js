@@ -21,8 +21,10 @@ var dev = {
     },
     pos = { // scroll pos.
         y : 0, // y-pos
-        a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values) 
+        a : [0], // comparison array (between consecutive 'n' y-pos values) 
+        t : 3, // no. of comparison elements in array (min. threshold)
         m : 0, // no. of comparison matches (count)
+        n : 0, // no. of comparison increments (count)
         i : 0, // loop iterator (for comparison array)  
         c : false, // scrolling change/activity status
         k : null, // at null state = 0
@@ -89,24 +91,43 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.k = nwCiArr(pos.a); // define - y-pos (previous 'n' iterations as array - for comparison with live y-pos)  
     }
     if (pos.y !== pos.a[pos.k[pos.i]]) { // if live value is not same as previous
+
+
+
+        if (pos.y > pos.a[pos.k[pos.i]]) { // if live value is greater than previous
+
+            if (pos.n <= _L) { 
+                pos.n++; // increment the no. of consecutive increments
+            } else {
+                pos.a[pos.n] = pos.y; // once threshold reached, create new element containing increasing value
+            }
+        }
+
+        console.log(pos.a);
+
         pos.c = true; // set scrolling to true
         pos.m = 0; // reset no. of matches - reset counter
+
     } else {
-        if (pos.m < (_L - 1)) { 
+        if (_L < pos.t) { // if min. threshold of comparison elements not met
+            pos.a[pos.i] = pos.y; // continue update
+        } else { 
+            pos.a.pop(); // // otherwise remove last element
+        }
+        if (pos.m <= _L) { 
             pos.m++; // increment no. of positive matches (to reach required threshold)
         } else {
             pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
         }
     }
+
     pos.a[pos.i] = pos.y; // update
+
     if (pos.i < _L) {
         pos.i++; // increment array index accordingly
     } else {
         pos.i = 0;
     }
-
-    // console.log(pos.a);
-
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
