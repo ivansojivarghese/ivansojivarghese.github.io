@@ -59,11 +59,11 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
     if (s) { // if opening
         hm.zh = false;
 
-        c_rep(hm.k[0], "bC_d", "bC_L"); // change (upper/lower) strokes to light contrast (white) base colours
+        // c_rep(hm.k[0], "bC_d", "bC_L"); // change (upper/lower) strokes to light contrast (white) base colours
         e_Fd(hm.k[1], true); // hide middle stroke from view
-        c_rep(hm.k[2], "bC_d", "bC_L");
+        // c_rep(hm.k[2], "bC_d", "bC_L");
 
-        hm.b.classList.add("md"); // add a modifier (addition of bkCol change on :active)
+        // hm.b.classList.add("md"); // add a modifier (addition of bkCol change on :active)
 
         hm.k[0].style.transform = "translateY(0.75rem) rotate(45deg)"; // rotate to form a cross (closing icon)
         hm.k[2].style.transform = "translateY(-0.75rem) rotate(-45deg)";
@@ -73,9 +73,9 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         hm.b.removeEventListener("mouseout", h_mBv);
         */
     } else { // if closing
-        c_rep(hm.k[0], "bC_L", "bC_d"); // reverse effect
+        // c_rep(hm.k[0], "bC_L", "bC_d"); // reverse effect
         e_Fd(hm.k[1], false);
-        c_rep(hm.k[2], "bC_L", "bC_d");
+        // c_rep(hm.k[2], "bC_L", "bC_d");
 
         hm.b.classList.remove("md");
 
@@ -106,7 +106,7 @@ function h_mTg() { // ham. menu toggle
 
             // document.body.style.position = "fixed";
 
-            // document.documentElement.classList.remove("scB");
+            document.documentElement.classList.remove("scB");
 
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
 
@@ -123,7 +123,7 @@ function h_mTg() { // ham. menu toggle
                     op.s = false;
                 }
 
-                // document.documentElement.classList.add("scB");
+                document.documentElement.classList.add("scB");
 
             }, (p * t)); // delay function to allow 'pos.c' variable to update
         } else {
