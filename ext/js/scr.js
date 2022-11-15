@@ -24,8 +24,8 @@ var im = { // #intro_main
 function sc_L() { // functions (live on scroll)
     if (pos.y > 0) {
         hm.b.classList.remove("en"); // remove ':active' feedback when scrolled
-    } else {
-        hm.b.classList.add("en");
+    } else if (!op.s) {
+        hm.b.classList.add("en"); // active if scroll-enabled forced
     }
     im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.tpR) + ")"; // #intro_main tint opacity
 
