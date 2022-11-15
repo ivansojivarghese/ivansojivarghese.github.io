@@ -1,12 +1,6 @@
 
 /* file-specific styling */
 
-#ham_sc {
-    position: fixed;
-    background-color: #FFF;
-    color: #303030;
-}
-
 #ham_C {
     width: 8rem;
     margin-left: auto;
@@ -18,6 +12,11 @@
     padding: 1rem 0;
     text-align: center;
 }
+
+#h_tint {
+    background-color: rgba(48, 48, 48, 0);
+}
+
 /*
 #hamburger_button {
     width: 2.5rem;

@@ -1,7 +1,11 @@
 
 // scroll-based loops/functions (local)
 
-var int_m = document.getElementById("intro_main"),
+var im = { // #intro_main
+        el : document.getElementById("intro_main"),
+        tp : document.getElementById("tpZ"),
+        tpR : 0
+    };
     s_L = null; // loop variable
 
 /*pK = { // peeking chevron
@@ -18,8 +22,10 @@ var int_m = document.getElementById("intro_main"),
 
 function sc_L() { // functions (live on scroll)
 
+    hm.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.tpR) + ")";
+
     if (!op.s) {
-        int_m.style.transform = "translateY(" + (pos.y * hm.p) + "px)";
+        im.el.style.transform = "translateY(" + (pos.y * hm.p) + "px)";
     }
 
     // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";

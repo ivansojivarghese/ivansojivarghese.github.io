@@ -105,7 +105,7 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.i = 0;
     }
 
-    console.log(pos.a);
+    // console.log(pos.a);
 
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html

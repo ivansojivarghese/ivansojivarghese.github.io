@@ -36,6 +36,13 @@ function load_js_e() { // load JS (page specific)
     var b = getBd(hm.b, "bottom"), // obtain 'bottom' bound of ham. button
         t = Math.ceil(((b - 1) / 10) * 2), // obtain approx. no. of max iterations (in 1000/30 ms. intervals) - round up for an inclusive value
         m = (op.Ls * 2) * t; // calculate max time (ms.) for button offset alignment
+        
     hm.f = b; // update the hamburger menu object properties
     hm.ft = m;
+}
+
+function load_js_eN() { // load JS, after page load (page specific)
+    var b = getBd(im.tp, "top");
+
+    im.tpR = 1 / b; // opacity fade out rate (100vh - b)
 }

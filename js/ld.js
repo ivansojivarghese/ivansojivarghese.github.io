@@ -120,6 +120,8 @@ function load_e() { // end the loading sequence
                 e_Fd(disp, false);  // show the page
                 scr_t(true); // enable scrolling
 
+                load_js_eN(); // load js, after page load
+
                 rL.i = true; // page fully loaded
             }, op.t); // give time for opacity .trs to completely hide element
         }, op.te - op.t);
@@ -143,7 +145,7 @@ function load_js() { // [compatibility/variables] load
 function browserCheck() { // detect browser (platform)
     var userAgent = navigator.userAgent;
     /*
-    if (userAgent.match(/samsungbrowser/i)) { // Samsung Internet
+    if (userAgent.match(/samsungbrowser/i)) { // Samsung Internet - SOME ISSUE (CHECK)
         ob.b.i = true; // set respective property to true
     } else */if (userAgent.match(/chrome|chromium|crios/i)){ // Chrome
         op.b.c = true; 

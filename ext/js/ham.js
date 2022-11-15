@@ -5,6 +5,7 @@ var hm = { // hamburger menu object
         b : document.getElementById("hamburger_button"), // button
         k : document.getElementsByClassName("st"), // button strokes
         sc : document.getElementById("ham_sc"), // menu screen
+        t : document.getElementById("h_tint"), // background tint
         f : 0, // button offset
         ft : 0, // "" offset (alignment/scroll) time
         p : 0.5, // parallax scroll constant
@@ -14,7 +15,6 @@ var hm = { // hamburger menu object
         c : document.getElementById("ham_button-c"), // button strokes container
         sc_t : document.getElementById("ham-tB_sc"), // menu screen - tablet/desktop
 
-        t : document.getElementById("b_Tint"), // background tint
         z : true, // ready status (ready to be opened?)
         zh : true, // ready status (button hover effect)
         m : false, // mouse-move status (within button)
@@ -102,7 +102,7 @@ function h_mTg() { // ham. menu toggle
         if (y !== 0) { // if page has been scrolled (offset) from original
             op.s = true; // 'force' disable scroll (secondary)
 
-            int_m.style.transform = "none";
+            im.el.style.transform = "none";
 
             // document.body.style.position = "fixed";
 
@@ -132,7 +132,7 @@ function h_mTg() { // ham. menu toggle
 
         h_mBs(c); // perform button [stroke] dynamisms
         // c_rep(h, "z-G", "z-F"); // bring forward in visibility
-        int_m.classList.add("z-F");
+        im.el.classList.add("z-F");
 
         ////// 
 
@@ -162,7 +162,7 @@ function h_mTg() { // ham. menu toggle
         hm.m = false; // hover effect requires add. 'mouse' [trigger]movement from user
         h_mBs(c); // perform button [stroke] dynamisms
         // c_rep(h, "z-F", "z-G"); // bring forward in visibility
-        int_m.classList.remove("z-F");
+        im.el.classList.remove("z-F");
 
         if (s) {
             e_Xt(h, "h", false); // hide menu

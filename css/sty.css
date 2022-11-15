@@ -124,12 +124,8 @@ h1, h2, h3, h5, h6, p {
 .h-f {
     height: 100vh;
 }
-/*
-.h-fx {
-    height: 150vh;
-}*/
 
-.h-fp, .img {
+.h-fp, .img, .tint {
     height: 100%;
 }
 
@@ -137,7 +133,7 @@ h1, h2, h3, h5, h6, p {
     height: 50%;
 }
 
-div {
+div, .tint {
     width: 100%;
 }
 
@@ -238,7 +234,7 @@ div {
     color: #FFF;
 }
 
-.c_d, body {
+.c_d, .hm, body {
     color: #303030;
 }
 
@@ -258,7 +254,7 @@ div {
     background-color: #303030;
 }
 
-.bC_L, .rv-in-col, .cnt {
+.bC_L, .hm, .rv-in-col, .cnt {
     background-color: #FFF;
 }
 
@@ -414,11 +410,11 @@ a.md, span.md {
     text-align: right;
 }
 
-.p-a, #load_sc, #error_sc, #display_sc, #tnc_sc, .load_r, .loader .wrap {
+.p-a, #load_sc, #error_sc, #display_sc, #tnc_sc, .load_r, .loader .wrap, .tint {
     position: absolute;
 }
 
-.p-f {
+.p-f, .hm {
     position: fixed;
 }
 
