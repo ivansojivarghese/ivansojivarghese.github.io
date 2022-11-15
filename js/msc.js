@@ -21,7 +21,7 @@ var dev = {
     },
     pos = { // scroll pos.
         y : 0, // y-pos
-        a : [0, 0, 0, 0, 0], // comparison array (between consecutive 'n' y-pos values) 
+        a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values) 
         m : 0, // no. of comparison matches (count)
         i : 0, // loop iterator (for comparison array)  
         c : false, // scrolling change/activity status
@@ -29,7 +29,9 @@ var dev = {
         L : null, // loop variables
         Lc : null
     },
-    wR = document.getElementById("wrapper"), // body wrap
+
+    // wR = document.getElementById("wrapper"), // body wrap
+
     wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
     wD = window.innerWidth, // width 
@@ -102,6 +104,9 @@ function c_Sr() { // check for scrolling activity (in live)
     } else {
         pos.i = 0;
     }
+
+    console.log(pos.a);
+
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body

@@ -122,9 +122,9 @@ function h_mTg() { // ham. menu toggle
                 } else {
                     op.s = false;
                 }
-
-                document.documentElement.classList.add("scB");
-
+                if (!op.b.f) {
+                    document.documentElement.classList.add("scB");
+                }
             }, (p * t)); // delay function to allow 'pos.c' variable to update
         } else {
             scr_t(false);
