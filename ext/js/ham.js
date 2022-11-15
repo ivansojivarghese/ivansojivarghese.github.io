@@ -103,13 +103,13 @@ function h_mTg() { // ham. menu toggle
 
             im.el.style.transform = "none";
 
+            window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
+
             // document.body.style.position = "fixed";
 
             // document.documentElement.classList.remove("scB");
 
-            window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
-
-            // console.log(p*t);
+            console.log(p*t);
 
             setTimeout(function() {
                 if (p >= 0.55 && !pos.c && !hm.z) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
@@ -125,7 +125,7 @@ function h_mTg() { // ham. menu toggle
                 if (!op.b.f) {
                     document.documentElement.classList.add("scB");
                 }*/
-            }, (p * t)); // delay function to allow 'pos.c' variable to update
+            }, /*(p * t)*/ 10); // delay function to allow 'pos.c' variable to update
         } else {
             scr_t(false);
         }
