@@ -4,7 +4,7 @@
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
         t : document.getElementById("h_tint"), // background tint
-        tp : document.getElementById("tpZ"),
+        tp : document.getElementById("tpZ"), // trapezoid
         tpR : 0,
         p : 0.25 // parallax scroll constant
     };
