@@ -27,8 +27,8 @@ function load_css_e() { // load CSS styles (page specific)
     c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
     c_css("#ham_C", "margin-top: calc((" + cH + "px - 16rem) / 2);", false, null);
     if (!op.b.s) { // if browser platform is NOT Safari
-        c_css(".bt:active", "background-color: #E4E4E4;", false, null); // apply button active states
-        c_css(".bt.md:active", "background-color: #565656;", false, null);
+        c_css(".bt.en:active", "background-color: #E4E4E4;", false, null); // apply button active states
+        c_css(".bt.en.md:active", "background-color: #565656;", false, null);
     }
 }
 

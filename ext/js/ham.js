@@ -5,7 +5,6 @@ var hm = { // hamburger menu object
         b : document.getElementById("hamburger_button"), // button
         k : document.getElementsByClassName("st"), // button strokes
         sc : document.getElementById("ham_sc"), // menu screen
-        t : document.getElementById("h_tint"), // background tint
         f : 0, // button offset
         ft : 0, // "" offset (alignment/scroll) time
         p : 0.5, // parallax scroll constant

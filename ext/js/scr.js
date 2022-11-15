@@ -3,6 +3,7 @@
 
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
+        t : document.getElementById("h_tint"), // background tint
         tp : document.getElementById("tpZ"),
         tpR : 0
     };
@@ -21,8 +22,12 @@ var im = { // #intro_main
 
 
 function sc_L() { // functions (live on scroll)
-
-    hm.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.tpR) + ")";
+    if (pos.y > 0) {
+        hm.b.classList.remove("en"); // remove ':active' feedback when scrolled
+    } else {
+        hm.b.classList.add("en");
+    }
+    im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.tpR) + ")"; // #intro_main tint opacity
 
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * hm.p) + "px)";
