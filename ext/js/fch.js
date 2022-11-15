@@ -38,7 +38,7 @@ function load_js_e() { // load JS (page specific)
         // m = (op.Ls * 2) * t; // calculate max time (ms.) for button offset alignment
         
     hm.f = b; // update the hamburger menu object properties
-    // hm.ft = m;
+    // m.ft = m;
 }
 
 function load_js_eN() { // load JS, after page load (page specific)
