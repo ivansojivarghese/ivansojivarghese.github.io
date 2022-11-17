@@ -23,13 +23,15 @@ var im = { // #intro_main
 
 
 function sc_L() { // functions (live on scroll)
+    /*
     if (pos.y > 0) {
         hm.b.classList.remove("en"); // remove ':active' feedback when scrolled
     } else if (!pos.c) {
         setTimeout(function() {
             hm.b.classList.add("en"); // active if live-scroll is false (at pos.y = 0)
         }, op.t); // set after trs. duration
-    }
+    }*/
+    
     im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.tpR) + ")"; // #intro_main tint opacity
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";

@@ -21,13 +21,20 @@ var dev = {
     },
     pos = { // scroll pos.
         y : 0, // y-pos
-        a : [0], // comparison array (between consecutive 'n' y-pos values) 
-        t : 3, // no. of comparison elements in array (min. threshold)
+        a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
+        d : [], // speed array (between consecutive changing y-pos values) 
+
+        // t : 3, // no. of comparison elements in array (min. threshold)
+
         m : 0, // no. of comparison matches (count)
         n : 0, // no. of comparison increments (count)
-        i : 0, // loop iterator (for comparison array)  
+
+        // i : 0, // loop iterator (for comparison array)  
+
         c : false, // scrolling change/activity status
-        k : null, // at null state = 0
+
+        // k : null, // at null state = 0
+
         L : null, // loop variables
         Lc : null
     },
@@ -87,13 +94,14 @@ function sL() { // scroll pos. loop
 
 function c_Sr() { // check for scrolling activity (in live)
     var _L = pos.a.length - 1;
+    /*
     if (!pos.k) { // if not defined
         pos.k = nwCiArr(pos.a); // define - y-pos (previous 'n' iterations as array - for comparison with live y-pos)  
-    }
-    if (pos.y !== pos.a[pos.k[pos.i]]) { // if live value is not same as previous
+    }*/
+    // if (pos.y !== pos.a[pos.k[pos.i]]) { // if live value is not same as previous
+    if (pos.y !== pos.a[2]) {
 
-
-
+        /*
         if (pos.y > pos.a[pos.k[pos.i]]) { // if live value is greater than previous
 
             if (pos.n <= _L) { 
@@ -101,19 +109,31 @@ function c_Sr() { // check for scrolling activity (in live)
             } else {
                 pos.a[pos.n] = pos.y; // once threshold reached, create new element containing increasing value
             }
-        }
+        }*/
 
-        console.log(pos.a);
+        // console.log(pos.a);
 
         pos.c = true; // set scrolling to true
         pos.m = 0; // reset no. of matches - reset counter
 
+        pos.d[pos.d.length] = pos.y;
+
+        if (pos.y > pos.a[2]) {
+            // scrolling down
+        } else {
+            // scrolling up
+        }
+
+        console.log(pos.d);
+
     } else {
+        /*
         if (_L < pos.t) { // if min. threshold of comparison elements not met
             pos.a[pos.i] = pos.y; // continue update
         } else { 
             pos.a.pop(); // // otherwise remove last element
         }
+        */
         if (pos.m <= _L) { 
             pos.m++; // increment no. of positive matches (to reach required threshold)
         } else {
@@ -121,13 +141,18 @@ function c_Sr() { // check for scrolling activity (in live)
         }
     }
 
-    pos.a[pos.i] = pos.y; // update
+    pos.a[0] = pos.a[1];
+    pos.a[1] = pos.a[2];
+    pos.a[2] = pos.y;
+    // pos.a[pos.i] = pos.y; // update
 
+    /*
     if (pos.i < _L) {
         pos.i++; // increment array index accordingly
     } else {
         pos.i = 0;
-    }
+    }*/
+
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
