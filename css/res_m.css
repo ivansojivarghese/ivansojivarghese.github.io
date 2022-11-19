@@ -61,7 +61,8 @@
 
 @media screen and (min-width: 360px) and (min-height: 650px) and (orientation: portrait) {
     html {
-        font-size: 16.5px;
+        /*font-size: 16.5px;*/
+        font-size: 17px;
     }
 }
 
