@@ -286,12 +286,13 @@ function scr_t(s) { // scroll toggle
 //////////////////////////////////////////
 
 window.addEventListener("resize", function() {
-    if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values before proceeding
+    console.log("resize");
+    // if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values before proceeding
         wH = window.innerHeight; // update on window size variables
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;
         reL(); // reload page
-    }
+    // }
 });
 
 pos.L = setInterval(sL, op.Ls); // check live scroll pos.
