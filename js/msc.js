@@ -1,7 +1,11 @@
 
 // misc.
 
-var dev = {
+var wH = window.innerHeight, // height
+    cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
+    wD = window.innerWidth, // width 
+    Rd = [], // load-ready - boolean statuses for loading resource elements
+    dev = {
         mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
         url : "https://ivansojivarghese.github.io/" // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
     },
@@ -22,6 +26,11 @@ var dev = {
     },
     pos = { // scroll pos. (window)
         y : 0, // y-pos
+        yA : 0, // y-pos (primary, comparison)
+
+        yB : 0, // y-pos (secondary, comparison)
+        yZ : false, // y-pos (status, comparison)
+
         a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
         d : [], // scroll speed array (between consecutive changing y-pos values) 
         v : [], // rec. scroll speed of user (instantaneously - updated for every scroll)
@@ -32,11 +41,7 @@ var dev = {
         r : true, /// scrolling direction - true if down
         L : null, // loop variables
         Lc : null
-    },
-    wH = window.innerHeight, // height
-    cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
-    wD = window.innerWidth, // width 
-    Rd = []; // load-ready - boolean statuses for loading resource elements
+    };
 
 ///////////////////////////////////////
 
@@ -85,57 +90,65 @@ function sL() { // scroll pos. loop
 }
 
 function c_Sr() { // check for scrolling activity (in live)
-    var _L = pos.a.length - 1;
+    var d = Math.abs(pos.y - pos.yA);
 
-    if (pos.y !== pos.a[_L]) {
-        pos.c = true; // set scrolling to true
-        pos.r = (pos.y > pos.a[_L]) ? true : false; // get direction of scroll
-        pos.m = 0; // reset no. of matches - reset counter
-        pos.d[pos.d.length] = pos.y; // update current y-pos into variable speed comparator array
+    if (d > pos.st) {
+        var _L = pos.a.length - 1;
 
-        if (pos.d[pos.d.length - 2]) { // check if second y-pos defined
-            pos.s = Math.abs((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) / (op.Ls * op.e)); // get scroll speed - relative speed between last updated and 2nd-last updated y-pos
-            pos.v[pos.v.length] = pos.s; // update in session-scroll speed variability array
-        }
-    } else {
-        if (pos.m <= _L) { 
-            pos.m++; // increment no. of positive matches (to reach required threshold)
+        if (pos.y !== pos.a[_L]) {
+            pos.c = true; // set scrolling to true
+            pos.r = (pos.y > pos.a[_L]) ? true : false; // get direction of scroll
+            pos.m = 0; // reset no. of matches - reset counter
+            pos.d[pos.d.length] = pos.y; // update current y-pos into variable speed comparator array
+
+            if (pos.d[pos.d.length - 2]) { // check if second y-pos defined
+                pos.s = Math.abs((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) / (op.Ls * op.e)); // get scroll speed - relative speed between last updated and 2nd-last updated y-pos
+                pos.v[pos.v.length] = pos.s; // update in session-scroll speed variability array
+            }
         } else {
-            pos.r = true; // default
-            pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
-            pos.d = []; // reset comparator array and speed to 0
-            pos.v = []; // reset rec. speed
-            pos.s = 0;
+            if (pos.m <= _L) { 
+                pos.m++; // increment no. of positive matches (to reach required threshold)
+            } else {
+                pos.r = true; // default
+                pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
+                pos.d = []; // reset comparator array and speed to 0
+                pos.v = []; // reset rec. speed
+                pos.s = 0; // reset speed to 0
+                pos.yA = 0;
+            }
         }
-    }
 
-    for (i = 0; i <= _L; i++) { // update y-pos data points to check for scroll
-        if (i === _L) {
-            pos.a[i] = pos.y;
+        for (i = 0; i <= _L; i++) { // update y-pos data points to check for scroll
+            if (i === _L) {
+                pos.a[i] = pos.y;
+            } else {
+                pos.a[i] = pos.a[i + 1];
+            }
+        }
+        if (op.s) { // 'force' enable/disable scroll when required
+            document.documentElement.style.overflowY = "hidden"; // html
+            document.body.style.overflowY = "hidden"; // body
+            if (op.b.s) { // Safari compatibility
+                document.documentElement.style.position = "fixed"; 
+                document.body.style.position = "fixed";
+            }
         } else {
-            pos.a[i] = pos.a[i + 1];
+            document.documentElement.style.overflowY = "";
+            document.body.style.overflowY = "";
+            if (op.b.s) {
+                document.documentElement.style.position = "";
+                document.body.style.position = "";
+            }
         }
-    }
-    if (op.s) { // 'force' enable/disable scroll when required
-        document.documentElement.style.overflowY = "hidden"; // html
-        document.body.style.overflowY = "hidden"; // body
-        if (op.b.s) { // Safari compatibility
-            document.documentElement.style.position = "fixed"; 
-            document.body.style.position = "fixed";
-        }
-    } else {
-        document.documentElement.style.overflowY = "";
-        document.body.style.overflowY = "";
-        if (op.b.s) {
-            document.documentElement.style.position = "";
-            document.body.style.position = "";
-        }
-    }
 
-    /*
-    if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
-        document.documentElement.classList.remove("scB"); // smooth scrolling is always disabled
-    }*/
+        /*
+        if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
+            document.documentElement.classList.remove("scB"); // smooth scrolling is always disabled
+        }*/
+    } else {
+        
+        console.log(d);
+    }
 }
 
 //////////////////////////////////////////
@@ -286,6 +299,14 @@ window.addEventListener("resize", function() {
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;
         reL(); // reload page
+    }
+});
+
+window.addEventListener("scroll", function() {
+    // console.log("hello");
+
+    if (!pos.yA) {
+        pos.yA = pos.y;
     }
 });
 

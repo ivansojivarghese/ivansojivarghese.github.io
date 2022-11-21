@@ -141,6 +141,7 @@ function load_css() { // load up CSS (common)
 
 function load_js() { // [compatibility/variables] load
     browserCheck();
+    pos.st = (op.e / 100) * cH; // set scroll-validity threshold
 }
 
 function browserCheck() { // detect browser (platform)
