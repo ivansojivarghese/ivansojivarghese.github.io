@@ -10,6 +10,7 @@ var dev = {
         t : 200, // transition duration - default (in ms.)
         te : 500, // transition duration (extended)
         Ls : 1000/60, // loop (interval) speed - sec./rev.
+        e : 2, // loop speed (modifier) base value
         b : { // browser check (major platforms)
             i : false, // samsung internet
             c : false, // chrome
@@ -19,14 +20,16 @@ var dev = {
             e : false // edge
         }
     },
-    pos = { // scroll pos.
+    pos = { // scroll pos. (window)
         y : 0, // y-pos
         a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
         d : [], // scroll speed array (between consecutive changing y-pos values) 
+        v : [], // rec. scroll speed of user (instantaneously - updated for every scroll)
         s : 0, // scroll speed
         m : 0, // no. of comparison matches (count)
         n : 0, // no. of comparison increments (count)
         c : false, // scrolling change/activity status
+        r : true, /// scrolling direction - true if down
         L : null, // loop variables
         Lc : null
     },
@@ -81,45 +84,54 @@ function sL() { // scroll pos. loop
     pos.y = window.scrollY; // update
 }
 
-var temp = 0;
-var cons = 0;
-
 function c_Sr() { // check for scrolling activity (in live)
     var _L = pos.a.length - 1;
 
     if (pos.y !== pos.a[_L]) {
         pos.c = true; // set scrolling to true
+        pos.r = (pos.y > pos.a[_L]) ? true : false; // get direction of scroll
         pos.m = 0; // reset no. of matches - reset counter
         pos.d[pos.d.length] = pos.y; // update current y-pos into variable speed comparator array
 
         if (pos.d[pos.d.length - 2]) { // check if second y-pos defined
 
-            var avg = ((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) + (pos.d[pos.d.length - 2] - pos.d[pos.d.length - 3])) / 2;
+            // var avg = ((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) + (pos.d[pos.d.length - 2] - pos.d[pos.d.length - 3])) / 2;
 
             // CREATE NEW 'AVG' FUNCTION, get avg. of pos.d array elements
+            /*
+            var a = num_Dif(pos.d),
+                b = num_Avg(a);
 
-            pos.s = Math.abs(avg / (op.Ls * 2)); // get scroll speed - relative speed between last updated and 2nd-last updated y-pos
+            console.log(a);*/
+
+            pos.s = Math.abs((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) / (op.Ls * op.e)); // get scroll speed - relative speed between last updated and 2nd-last updated y-pos
             
+            pos.v[pos.v.length] = pos.s;
+
+            // console.log(pos.s);
             // console.log(pos.s + ", " + temp + ", " + cons);
-            console.log(pos.d[pos.d.length - 1] + ", " + pos.d[pos.d.length - 2] + ", " + pos.s);
+            // console.log(pos.d[pos.d.length - 1] + ", " + pos.d[pos.d.length - 2] + ", " + pos.s);
 
             // if (pos.s <= temp) {
+                /*
                 if (Math.abs(pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) > cons) {
                     // console.log("UPDATE: " + (pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) + ", " + cons);
                     cons = pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2];
-                    // console.log("UPDATE: " + /*pos.d[pos.d.length - 1] + ", " + pos.d[pos.d.length - 2] /*+ ", " + pos.a + ", " +*/ pos.s);
-                }
+                    // console.log("UPDATE: " + /*pos.d[pos.d.length - 1] + ", " + pos.d[pos.d.length - 2] /*+ ", " + pos.a + ", " + pos.s);
+                }*/
                 // console.log(cons);
             // }
 
-            temp = pos.s;
+            // console.log(pos.v);
         }
     } else {
         if (pos.m <= _L) { 
             pos.m++; // increment no. of positive matches (to reach required threshold)
         } else {
+            pos.r = true; // default
             pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
             pos.d = []; // reset comparator array and speed to 0
+            pos.v = []; // reset rec. speed
             pos.s = 0;
         }
     }
@@ -131,9 +143,6 @@ function c_Sr() { // check for scrolling activity (in live)
             pos.a[i] = pos.a[i + 1];
         }
     }
-
-    // console.log(pos.c);
-
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
@@ -157,6 +166,15 @@ function c_Sr() { // check for scrolling activity (in live)
 }
 
 //////////////////////////////////////////
+/*
+function num_Dif(arr) { // numerical difference between consecutive array elements
+    var _L = arr.length - 2,
+        res = [];
+    for (i = 0; i <= _L; i++) {
+        res[res.length] = Math.abs(arr[i + 1] - arr[i]);
+    }
+    return res;
+}*/
 
 function num_E(n) { // numeral digit extractor (interger + decimals if any, returns object)
     n = String(n); // convert to string type (if from number type)
@@ -192,6 +210,30 @@ function num_S(n, c, a) { // convert any value to string format + divide into in
     }
     return res;
 }
+
+function num_Ct(arr, t, s) { // check for any numbers in array - greater/lower than a threshold
+    var _L = arr.length - 1,
+        res;
+    for (i = 0; i <= _L; i++) {
+        res = s ? arr[i] > t : arr[i] < t;
+        if (res) {
+            break;
+        }
+    }
+    return res;
+}
+
+/*
+function num_Avg(arr) { // numerical average calculator (from array)
+    var _L = arr.length - 1,
+        sum = 0,
+        res;
+    for (i = 0; i <= _L; i++) {
+        sum += arr[i];
+    }
+    res = sum / _L;
+    return res;
+}*/
 
 function s_Rep(s, p, n) { // extract/replace [string] character at indiv. pos. with new value
     var a = s.split(''); // split string to indiv. characters
@@ -296,4 +338,4 @@ window.addEventListener("resize", function() {
 });
 
 pos.L = setInterval(sL, op.Ls); // check live scroll pos.
-pos.Lc = setInterval(c_Sr, (op.Ls * 2)); // check scroll parameters (at half intervals)
+pos.Lc = setInterval(c_Sr, (op.Ls * op.e)); // check scroll parameters (at half intervals)

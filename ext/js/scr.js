@@ -7,7 +7,8 @@ var im = { // #intro_main
         L : document.getElementById("lead_sc"),
         // tp : document.getElementById("tpZ"), // trapezoid
         j : 0,
-        p : 0.25 // parallax scroll constant
+        p : 0.25, // parallax scroll constant
+        s : true // code execution status
     };
     s_L = null; // loop variable
 
@@ -32,8 +33,16 @@ function sc_L() { // functions (live on scroll)
             hm.b.classList.add("en"); // active if live-scroll is false (at pos.y = 0)
         }, op.t); // set after trs. duration
     }*/
-    
-    im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
+
+    if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) {
+        console.log("at the top");
+        im.t.style.backgroundColor = "rgba(48, 48, 48, 0)"; // #intro_main tint opacity
+        im.s = false;
+    } else if (pos.y > 0) {
+        im.s = true;
+    } else {
+        im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
+    }
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";
     }
