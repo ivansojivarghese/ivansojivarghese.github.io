@@ -36,12 +36,16 @@ function sc_L() { // functions (live on scroll)
 
     if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) {
         console.log("at the top");
+        
         im.t.style.backgroundColor = "rgba(48, 48, 48, 0)"; // #intro_main tint opacity
+        // im.el.classList.remove("trs");
         im.s = false;
-    } else if (pos.y > 0) {
-        im.s = true;
     } else {
         im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
+        if (pos.y > 0) {
+            // im.el.classList.add("trs");
+            im.s = true;
+        }
     }
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";
