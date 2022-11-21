@@ -26,11 +26,7 @@ var wH = window.innerHeight, // height
     },
     pos = { // scroll pos. (window)
         y : 0, // y-pos
-        yA : 0, // y-pos (primary, comparison)
-
-        yB : 0, // y-pos (secondary, comparison)
-        yZ : false, // y-pos (status, comparison)
-
+        yA : 0, // y-pos (secondary - comparison)
         a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
         d : [], // scroll speed array (between consecutive changing y-pos values) 
         v : [], // rec. scroll speed of user (instantaneously - updated for every scroll)
@@ -90,9 +86,8 @@ function sL() { // scroll pos. loop
 }
 
 function c_Sr() { // check for scrolling activity (in live)
-    var d = Math.abs(pos.y - pos.yA);
-
-    if (d > pos.st) {
+    var d = Math.abs(pos.y - pos.yA); // obtain distance of scroll
+    if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
         var _L = pos.a.length - 1;
 
         if (pos.y !== pos.a[_L]) {
@@ -145,10 +140,7 @@ function c_Sr() { // check for scrolling activity (in live)
         if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
             document.documentElement.classList.remove("scB"); // smooth scrolling is always disabled
         }*/
-    } else {
-        
-        console.log(d);
-    }
+    } 
 }
 
 //////////////////////////////////////////
@@ -303,10 +295,8 @@ window.addEventListener("resize", function() {
 });
 
 window.addEventListener("scroll", function() {
-    // console.log("hello");
-
     if (!pos.yA) {
-        pos.yA = pos.y;
+        pos.yA = pos.y; // add a secondary y-pos for comparison during scroll (distance)
     }
 });
 
