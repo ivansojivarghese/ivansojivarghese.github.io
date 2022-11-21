@@ -35,7 +35,7 @@ function sc_L() { // functions (live on scroll)
     }*/
 
     if (pos.y < (cH / op.e) && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
-        im.t.style.backgroundColor = "rgba(48, 48, 48, 0.5)"; // set opacity to 0
+        im.t.style.backgroundColor = "rgba(48, 48, 48, 0.5)"; // set opacity to 0.5
         im.s = false;
     } else {
         im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity

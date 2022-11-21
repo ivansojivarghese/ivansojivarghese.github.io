@@ -152,6 +152,8 @@ function h_mTg() { // ham. menu toggle
             hm.t.style.zIndex = 200;
             hm.t.style.backgroundColor = "rgba(48, 48, 48, 0.6)"; // change to transparent (dark) background
         } else {
+
+            h.classList.remove("z-G");
             e_Fd(h, false); // reveal menu (fade in)
 
         }
@@ -180,7 +182,9 @@ function h_mTg() { // ham. menu toggle
             hm.t.style.zIndex = "";
             hm.t.style.backgroundColor = ""; // change to transparent (dark) background
         } else {
+            
             e_Fd(h, true); // hide menu
+            h.classList.add("z-G");
         }
 
         scr_t(true);    
