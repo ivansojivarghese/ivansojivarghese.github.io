@@ -10,7 +10,7 @@ var dev = {
         t : 200, // transition duration - default (in ms.)
         te : 500, // transition duration (extended)
         Ls : 1000/60, // loop (interval) speed - sec./rev.
-        e : 2, // loop speed (modifier) base value
+        e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
         b : { // browser check (major platforms)
             i : false, // samsung internet
             c : false, // chrome
@@ -94,35 +94,8 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.d[pos.d.length] = pos.y; // update current y-pos into variable speed comparator array
 
         if (pos.d[pos.d.length - 2]) { // check if second y-pos defined
-
-            // var avg = ((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) + (pos.d[pos.d.length - 2] - pos.d[pos.d.length - 3])) / 2;
-
-            // CREATE NEW 'AVG' FUNCTION, get avg. of pos.d array elements
-            /*
-            var a = num_Dif(pos.d),
-                b = num_Avg(a);
-
-            console.log(a);*/
-
             pos.s = Math.abs((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) / (op.Ls * op.e)); // get scroll speed - relative speed between last updated and 2nd-last updated y-pos
-            
-            pos.v[pos.v.length] = pos.s;
-
-            // console.log(pos.s);
-            // console.log(pos.s + ", " + temp + ", " + cons);
-            // console.log(pos.d[pos.d.length - 1] + ", " + pos.d[pos.d.length - 2] + ", " + pos.s);
-
-            // if (pos.s <= temp) {
-                /*
-                if (Math.abs(pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) > cons) {
-                    // console.log("UPDATE: " + (pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) + ", " + cons);
-                    cons = pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2];
-                    // console.log("UPDATE: " + /*pos.d[pos.d.length - 1] + ", " + pos.d[pos.d.length - 2] /*+ ", " + pos.a + ", " + pos.s);
-                }*/
-                // console.log(cons);
-            // }
-
-            // console.log(pos.v);
+            pos.v[pos.v.length] = pos.s; // update in session-scroll speed variability array
         }
     } else {
         if (pos.m <= _L) { 
@@ -166,15 +139,6 @@ function c_Sr() { // check for scrolling activity (in live)
 }
 
 //////////////////////////////////////////
-/*
-function num_Dif(arr) { // numerical difference between consecutive array elements
-    var _L = arr.length - 2,
-        res = [];
-    for (i = 0; i <= _L; i++) {
-        res[res.length] = Math.abs(arr[i + 1] - arr[i]);
-    }
-    return res;
-}*/
 
 function num_E(n) { // numeral digit extractor (interger + decimals if any, returns object)
     n = String(n); // convert to string type (if from number type)
@@ -222,18 +186,6 @@ function num_Ct(arr, t, s) { // check for any numbers in array - greater/lower t
     }
     return res;
 }
-
-/*
-function num_Avg(arr) { // numerical average calculator (from array)
-    var _L = arr.length - 1,
-        sum = 0,
-        res;
-    for (i = 0; i <= _L; i++) {
-        sum += arr[i];
-    }
-    res = sum / _L;
-    return res;
-}*/
 
 function s_Rep(s, p, n) { // extract/replace [string] character at indiv. pos. with new value
     var a = s.split(''); // split string to indiv. characters

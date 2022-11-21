@@ -34,16 +34,15 @@ function sc_L() { // functions (live on scroll)
         }, op.t); // set after trs. duration
     }*/
 
-    if (pos.y < (cH / 2) && !pos.r && num_Ct(pos.v, op.e, true) && im.s) {
+    if (pos.y < (cH / op.e) && !pos.r && num_Ct(pos.v, op.e, true) && im.s) {
+
         console.log("at the top");
-        
+
         im.t.style.backgroundColor = "rgba(48, 48, 48, 0)"; // #intro_main tint opacity
-        // im.el.classList.remove("trs");
         im.s = false;
     } else {
         im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
-        if (pos.y > (cH / 2)) {
-            // im.el.classList.add("trs");
+        if (pos.y > (cH / op.e)) {
             im.s = true;
         }
     }
