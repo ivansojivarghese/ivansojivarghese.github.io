@@ -10,7 +10,6 @@ var im = { // #intro_main
         p : 0.25, // parallax scroll constant
         s : true // code execution status
     },
-    re,
     s_L = null; // loop variable
 
 /*pK = { // peeking chevron
@@ -39,16 +38,16 @@ function sc_L() { // functions (live on scroll)
 
         // im.t.style.backgroundColor = "rgba(48, 48, 48, 0.5)"; // set opacity to 0.5
         
-        re = im.j / 2;
+        // re = im.j / 2;
 
         im.s = false;
         console.log("high speed");
     } else {
-        im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * re) + ")"; // #intro_main tint opacity
+        im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
         if (pos.y > (cH / op.e)) {
             im.s = true; // enabler
 
-            re = im.j;
+            // re = im.j;
         }
     }
     if (!op.s) {
