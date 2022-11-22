@@ -184,7 +184,9 @@ function h_mTg() { // ham. menu toggle
         } else {
             
             e_Fd(h, true); // hide menu
-            h.classList.add("z-G");
+            setTimeout(function() {
+                h.classList.add("z-G");
+            }, op.t);
         }
 
         scr_t(true);    
