@@ -25,8 +25,8 @@ function sc_L() { // functions (live on scroll)
                 im.s = true; // enabler
             }
         }
-        im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
     }
+    im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)"; // #intro_main transform
     }
