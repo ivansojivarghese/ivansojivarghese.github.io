@@ -49,4 +49,5 @@ function load_js_eN() { // load JS, after page load (page specific)
     var b = getBd(im.L, "top");
 
     im.j = 1 / b; // opacity fade out rate (100vh - b)
+    re = im.j;
 }

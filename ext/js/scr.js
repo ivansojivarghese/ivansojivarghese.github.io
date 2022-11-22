@@ -9,7 +9,8 @@ var im = { // #intro_main
         j : 0,
         p : 0.25, // parallax scroll constant
         s : true // code execution status
-    };
+    },
+    re,
     s_L = null; // loop variable
 
 /*pK = { // peeking chevron
@@ -34,13 +35,20 @@ function sc_L() { // functions (live on scroll)
         }, op.t); // set after trs. duration
     }*/
 
-    if (pos.y < (cH / op.e) && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
-        im.t.style.backgroundColor = "rgba(48, 48, 48, 0.5)"; // set opacity to 0.5
+    if ((pos.y < (cH / op.e)) && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
+
+        // im.t.style.backgroundColor = "rgba(48, 48, 48, 0.5)"; // set opacity to 0.5
+        
+        re = im.j / 2;
+
         im.s = false;
+        console.log("high speed");
     } else {
-        im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
+        im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * re) + ")"; // #intro_main tint opacity
         if (pos.y > (cH / op.e)) {
             im.s = true; // enabler
+
+            re = im.j;
         }
     }
     if (!op.s) {
