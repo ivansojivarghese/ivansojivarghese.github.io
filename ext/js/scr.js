@@ -46,13 +46,15 @@ function sc_L() { // functions (live on scroll)
     } else {
         if (im.s) {
             im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
+        } else if (pos.y === 0) {
+            im.t.classList.remove("trs");
         }
         
         // if (pos.y > (cH / op.e)) {
         if (pos.r) {
 
             im.s = true; // enabler
-            im.t.classList.remove("trs");
+            // im.t.classList.remove("trs");
             // re = im.j;
         }
     }
