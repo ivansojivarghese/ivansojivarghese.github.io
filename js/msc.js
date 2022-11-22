@@ -104,7 +104,6 @@ function c_Sr() { // check for scrolling activity (in live)
             if (pos.m <= _L) { 
                 pos.m++; // increment no. of positive matches (to reach required threshold)
             } else {
-                // pos.r = pos.r; // default
                 pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
                 pos.d = []; // reset comparator array and speed to 0
                 pos.v = []; // reset rec. speed
@@ -182,14 +181,26 @@ function num_S(n, c, a) { // convert any value to string format + divide into in
 
 function num_Ct(arr, t, s) { // check for any numbers in array - greater/lower than a threshold
     var _L = arr.length - 1,
+        u = 0, // no. of true occurrences
+        f = 0, // no. of false occurrences
         res;
     for (i = 0; i <= _L; i++) {
-        res = s ? arr[i] > t : arr[i] < t;
+        // res = s ? arr[i] > t : arr[i] < t;
+        u = s ? (arr[i] > t ? u + 1 : u) : (arr[i] < t ? u + 1 : u);
+        f = s ? (arr[i] < t ? f + 1 : f) : (arr[i] > t ? f + 1 : f);
+
+        // LOOK THROUGH A RANGE OF VALUES - FIND THE MAJORITY BOOLEAN VALUES
+        /*
         if (res) {
             break;
-        }
+        }*/
     }
-    return res;
+    if (t > f) {
+        res = true
+    } else {
+        res = false;
+    }
+    return (res !== undefined) ? res : false;
 }
 
 function s_Rep(s, p, n) { // extract/replace [string] character at indiv. pos. with new value

@@ -12,12 +12,11 @@
     padding: 1rem 0;
     text-align: center;
 }
-
+/*
 #h_tint {
     background-color: rgba(48, 48, 48, 0);
 }
 
-/*
 #hamburger_button {
     width: 2.5rem;
     height: 1.85rem;
@@ -61,11 +60,6 @@
     border-right: 100vw solid #303030;
     height: 1rem;
     top: -4rem;
-}
-
-#lead_sc {
-    position: relative;
-    z-index: 200;
 }
 
 .c_Info h5 {

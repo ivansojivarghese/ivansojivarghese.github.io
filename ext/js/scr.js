@@ -35,28 +35,22 @@ function sc_L() { // functions (live on scroll)
     }*/
 
     if ((pos.y < (cH / op.e)) && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
-
         im.t.classList.add("trs");
-        im.t.style.backgroundColor = "rgba(48, 48, 48, 0)"; // set opacity to 0
-        
-        // re = im.j / 2;
-
+        // im.t.style.backgroundColor = "rgba(48, 48, 48, 0)"; // set opacity to 0
+        // im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
         im.s = false;
-        console.log("high speed");
     } else {
-        if (im.s) {
+        if (im.s || im.t.classList.contains("trs")) {
             im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
-        } else if (pos.y === 0) {
             im.t.classList.remove("trs");
-        }
-        
-        // if (pos.y > (cH / op.e)) {
-        if (pos.r) {
-
-            im.s = true; // enabler
+        } else if ((pos.y === 0) || num_Ct(pos.v, op.e, false) || pos.r) {
             // im.t.classList.remove("trs");
-            // re = im.j;
+            im.s = true;
         }
+        /*
+        if (pos.r) {
+            im.s = true; // enabler
+        }*/
     }
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";
