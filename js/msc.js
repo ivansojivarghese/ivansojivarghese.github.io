@@ -195,7 +195,7 @@ function num_Ct(arr, t, s) { // check for any numbers in array - greater/lower t
             break;
         }*/
     }
-    if (t > f) {
+    if (u > f) {
         res = true
     } else {
         res = false;
