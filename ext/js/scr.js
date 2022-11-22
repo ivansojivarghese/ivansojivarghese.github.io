@@ -25,45 +25,41 @@ var im = { // #intro_main
 
 
 function sc_L() { // functions (live on scroll)
-    if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
-        im.t.classList.add("trs");
-
-        // im.t.style.backgroundColor = "rgba(48, 48, 48, 0)"; // set opacity to 0
-        // im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
-
-        console.log("high-speed");
-
-        im.s = false;
-    } else {
-        if (im.s && im.t.classList.contains("trs")) {
-            // im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
-            im.t.classList.remove("trs");
-        } else if ((pos.y > 0) || num_Ct(pos.v, op.e, false) || pos.r) {
-            im.s = true; // enabler
+    var d = Math.abs(pos.y - pos.yA); // obtain distance of scroll
+    if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
+        if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
+            im.t.classList.add("trs");
+            im.s = false;
+        } else {
+            if (im.s && im.t.classList.contains("trs")) {
+                im.t.classList.remove("trs");
+            } else if ((pos.y > 0) || num_Ct(pos.v, op.e, false) || pos.r) {
+                im.s = true; // enabler
+            }
         }
-    }
-    im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
-    if (!op.s) {
-        im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";
-    }
+        im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
+        if (!op.s) {
+            im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";
+        }
 
-    // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
-    /*
-    ldsc.b = getBd(ldsc.el, "top");
+        // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
+        /*
+        ldsc.b = getBd(ldsc.el, "top");
 
-    if (ldsc.b < (cH * 0.95) && chkVL(ldsc.b, false) && !ldsc.s && rL.i) { // if following section at 95% mark of viewport (when scrolled)
-        e_Fd(pK.el, true);
-        setTimeout(function() {
-            pK.el.classList.add("d_n") // hide chevron
-        }, op.t);
-        ldsc.s = true; 
-    } else if (ldsc.b >= (cH * 0.95)) {
-        pK.el.classList.remove("d_n") // show chevron when scrolling back
-        setTimeout(function() {
-            e_Fd(pK.el, false);
-            ldsc.s = false;
-        }, 10);
-    }*/
+        if (ldsc.b < (cH * 0.95) && chkVL(ldsc.b, false) && !ldsc.s && rL.i) { // if following section at 95% mark of viewport (when scrolled)
+            e_Fd(pK.el, true);
+            setTimeout(function() {
+                pK.el.classList.add("d_n") // hide chevron
+            }, op.t);
+            ldsc.s = true; 
+        } else if (ldsc.b >= (cH * 0.95)) {
+            pK.el.classList.remove("d_n") // show chevron when scrolling back
+            setTimeout(function() {
+                e_Fd(pK.el, false);
+                ldsc.s = false;
+            }, 10);
+        }*/
+    }
 }
 
 /*
