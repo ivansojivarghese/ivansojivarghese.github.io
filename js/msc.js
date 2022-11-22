@@ -185,16 +185,13 @@ function num_Ct(arr, t, s) { // check for any numbers in array - greater/lower t
         f = 0, // no. of false occurrences
         res;
     for (i = 0; i <= _L; i++) {
-        
+
         // res = s ? arr[i] > t : arr[i] < t;
 
-        u = s ? (arr[i] > t ? u + 1 : u) : (arr[i] < t ? u + 1 : u);
+        u = s ? (arr[i] > t ? u + 1 : u) : (arr[i] < t ? u + 1 : u); // increment no. of true/false occurrences based on threshold checking
         f = s ? (arr[i] < t ? f + 1 : f) : (arr[i] > t ? f + 1 : f);
-
-        // LOOK THROUGH A RANGE OF VALUES - FIND THE MAJORITY BOOLEAN VALUES
-
     }
-    if (u > f) {
+    if (u > f) { // obtain a boolean result from the majority value
         res = true
     } else {
         res = false;

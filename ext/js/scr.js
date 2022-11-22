@@ -25,32 +25,24 @@ var im = { // #intro_main
 
 
 function sc_L() { // functions (live on scroll)
-    /*
-    if (pos.y > 0) {
-        hm.b.classList.remove("en"); // remove ':active' feedback when scrolled
-    } else if (!pos.c) {
-        setTimeout(function() {
-            hm.b.classList.add("en"); // active if live-scroll is false (at pos.y = 0)
-        }, op.t); // set after trs. duration
-    }*/
-
-    if ((pos.y < (cH / op.e)) && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
+    if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
         im.t.classList.add("trs");
 
         // im.t.style.backgroundColor = "rgba(48, 48, 48, 0)"; // set opacity to 0
         // im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
 
         console.log("high-speed");
-        
+
         im.s = false;
     } else {
-        if (im.s || im.t.classList.contains("trs")) {
-            im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
+        if (im.s && im.t.classList.contains("trs")) {
+            // im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
             im.t.classList.remove("trs");
-        } else if ((pos.y === 0) || num_Ct(pos.v, op.e, false) || pos.r) {
+        } else if ((pos.y > 0) || num_Ct(pos.v, op.e, false) || pos.r) {
             im.s = true; // enabler
         }
     }
+    im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";
     }
