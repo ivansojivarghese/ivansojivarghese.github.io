@@ -104,7 +104,7 @@ function c_Sr() { // check for scrolling activity (in live)
             if (pos.m <= _L) { 
                 pos.m++; // increment no. of positive matches (to reach required threshold)
             } else {
-                pos.r = true; // default
+                // pos.r = pos.r; // default
                 pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
                 pos.d = []; // reset comparator array and speed to 0
                 pos.v = []; // reset rec. speed

@@ -36,17 +36,23 @@ function sc_L() { // functions (live on scroll)
 
     if ((pos.y < (cH / op.e)) && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
 
-        // im.t.style.backgroundColor = "rgba(48, 48, 48, 0.5)"; // set opacity to 0.5
+        im.t.classList.add("trs");
+        im.t.style.backgroundColor = "rgba(48, 48, 48, 0)"; // set opacity to 0
         
         // re = im.j / 2;
 
         im.s = false;
         console.log("high speed");
     } else {
-        im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
-        if (pos.y > (cH / op.e)) {
-            im.s = true; // enabler
+        if (im.s) {
+            im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
+        }
+        
+        // if (pos.y > (cH / op.e)) {
+        if (pos.r) {
 
+            im.s = true; // enabler
+            im.t.classList.remove("trs");
             // re = im.j;
         }
     }
