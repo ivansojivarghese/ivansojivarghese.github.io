@@ -41,26 +41,21 @@ function sc_L() { // functions (live on scroll)
         // im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
 
         console.log("high-speed");
+        
         im.s = false;
     } else {
         if (im.s || im.t.classList.contains("trs")) {
             im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
             im.t.classList.remove("trs");
         } else if ((pos.y === 0) || num_Ct(pos.v, op.e, false) || pos.r) {
-            // im.t.classList.remove("trs");
-            im.s = true;
-        }
-        /*
-        if (pos.r) {
             im.s = true; // enabler
-        }*/
+        }
     }
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)";
     }
 
     // hamB.style.transform = "translateY(" + (pos.y * 0.5) + "px)";
-
     /*
     ldsc.b = getBd(ldsc.el, "top");
 
