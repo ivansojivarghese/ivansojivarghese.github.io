@@ -7,7 +7,18 @@ var wH = window.innerHeight, // height
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
         mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
-        url : "https://ivansojivarghese.github.io/" // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
+        url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
+        info : { // personal information - CHANGE WHEN NEEDED
+            work : "web dev", // work label
+            workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
+            college : "ntu", // name of institution
+            course : "computer science", // course name
+            location : "singapore", // geographic location/region/city/country/state
+            coords : "1.349°N 103.685°E", // geographic coords - last 2 decimals omitted for privacy
+            locationsNum : 21,
+            distance : 97,
+            postsNum : 134
+        }
     },
     op = { // site 'options'
         s : false, // check boolean - 'force' disable scroll
@@ -16,7 +27,7 @@ var wH = window.innerHeight, // height
         Ls : 1000/60, // loop (interval) speed - sec./rev.
         e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
         b : { // browser check (major platforms)
-            i : false, // samsung internet
+            // i : false, // samsung internet
             c : false, // chrome
             f : false, // firefox
             s : false, // safari

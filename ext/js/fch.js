@@ -9,8 +9,21 @@ var fchL = {
         2 : { // logo_hybrid
             el : document.getElementsByClassName("logo-hybrid"),
             u : 'logo/logo_hybrid.png'
-        }
-    };
+        },
+    },
+    qInfo = [ // quick information
+        document.getElementById("qIn1"), // work
+        document.getElementById("qIn2"), // workType
+        document.getElementById("qIn3"), // college
+        document.getElementById("qIn4"), // course
+        document.getElementById("qIn5"), // location
+        document.getElementById("qIn6") // coords
+    ],
+    sInfo = [
+        document.getElementById("sIn1"), // num. locations
+        document.getElementById("sIn2"), // distance
+        document.getElementById("sIn3"), // num. posts
+    ];
 
 
 function loadUp() {
@@ -37,12 +50,22 @@ function load_css_e() { // load CSS styles (page specific)
 }
 
 function load_js_e() { // load JS (page specific)
-    var b = getBd(hm.b, "bottom"); // obtain 'bottom' bound of ham. button
+    var b = getBd(hm.b, "bottom"), // obtain 'bottom' bound of ham. button
+        _Lq = qInfo.length,
+        i = 0;
+
         // t = Math.ceil(((b - 1) / 10) * 2), // obtain approx. no. of max iterations (in 1000/30 ms. intervals) - round up for an inclusive value
         // m = (op.Ls * 2) * t; // calculate max time (ms.) for button offset alignment
         
     hm.f = b; // update the hamburger menu object properties
     // m.ft = m;
+
+    for (var d in dev.info) {
+        if (i < _Lq) {
+            qInfo[i].innerHTML = dev.info[d];
+            i++;
+        }
+    }
 }
 
 function load_js_eN() { // load JS, after page load (page specific)
