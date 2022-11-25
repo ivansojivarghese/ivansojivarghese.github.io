@@ -1,6 +1,14 @@
 
 /* file-specific styling */
 
+.q_Info h5.cr, #stats h5, #stats h6 {
+    display: inline-block;
+}
+
+.q_Info h5.cr, #stats h6 {
+    margin-left: 0.5em;
+}
+
 #ham_C {
     width: 8rem;
     margin-left: auto;
@@ -73,9 +81,7 @@
 
 .q_Info h5.cr {
     position: relative;
-    display: inline-block;
     top: -0.15em;
-    margin-left: 0.5em;
 }
 
 .q_Info h6 {
@@ -91,4 +97,14 @@
     width: 40vw;
     margin-left: 40vw;
     margin-bottom: .5rem;
+}
+
+#stats {
+    margin-top: calc(50vh - 8.5rem);
+}
+
+#stats h5 {
+    font-weight: bold;
+    width: 2.5em;
+    text-align: right;
 }
