@@ -51,7 +51,7 @@ function load_css_e() { // load CSS styles (page specific)
 
 function load_js_e() { // load JS (page specific)
     var b = getBd(hm.b, "bottom"), // obtain 'bottom' bound of ham. button
-        _Lq = qInfo.length,
+        _Lq = qInfo.length, // number of elements
         i = 0;
 
         // t = Math.ceil(((b - 1) / 10) * 2), // obtain approx. no. of max iterations (in 1000/30 ms. intervals) - round up for an inclusive value
@@ -60,7 +60,7 @@ function load_js_e() { // load JS (page specific)
     hm.f = b; // update the hamburger menu object properties
     // m.ft = m;
 
-    for (var d in dev.info) {
+    for (var d in dev.info) { // loop through to concatenate information to text
         if (i < _Lq) {
             qInfo[i].innerHTML = dev.info[d];
             i++;
