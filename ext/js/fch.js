@@ -20,9 +20,9 @@ var fchL = {
         document.getElementById("qIn6") // coords
     ],
     sInfo = [
-        document.getElementById("sIn1"), // num. locations
-        document.getElementById("sIn2"), // distance
-        document.getElementById("sIn3"), // num. posts
+        document.getElementById("sIn1"), // distance
+        document.getElementById("sIn2"), // hours
+        document.getElementById("sIn3"), // cappuccinos
     ];
 
 
