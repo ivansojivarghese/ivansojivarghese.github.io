@@ -110,7 +110,7 @@
 }
 
 .link {
-    height: 10rem;
+    height: calc(50vh - 8.5rem);
     position: relative;
     left: auto;
     right: -10rem;
