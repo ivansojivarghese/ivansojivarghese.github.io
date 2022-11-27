@@ -356,8 +356,16 @@ a.md, span.md {
     margin-top: 3rem;
 }
 
+.m_B.z {
+    margin-bottom: 0;
+}
+
 .m_B {
     margin-bottom: 1rem;
+}
+
+.m_B.exh {
+    margin-bottom: 2rem;
 }
 
 .p_TBh {
@@ -531,6 +539,15 @@ div.locator_img {
 .chevron_down_img {
     background-image: url("../svg/chevron_down.svg");
 }*/
+
+a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
+    top: 0.3rem;
+    transform: rotate(-45deg);
+}
+
+.lead_arrow_forward_img {
+    background-image: url("../svg/lead_arrow_forward.svg");
+}
 
 .lead_arrow_forward_w_img {
     background-image: url("../svg/lead_arrow_forward_white.svg");
