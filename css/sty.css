@@ -64,7 +64,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 2.8rem;
-    margin-bottom: 0.5em;
+    /* margin-bottom: 0.5em; */
 }
 
 h2 {
@@ -297,7 +297,7 @@ a.md, span.md {
 }
 
 /* -------------- */
-
+/*
 .link, .hook {
     margin: 3rem 0;
 }
@@ -308,7 +308,7 @@ a.md, span.md {
 
 .hook {
     margin-bottom: 6rem;
-}
+}*/
 
 /* --------------- */
 
@@ -517,6 +517,10 @@ div.locator_img {
     height: 2.5rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+.link {
+    width: 0.1em;
 }
 
 .img_icon {
