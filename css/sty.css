@@ -418,7 +418,7 @@ a.md, span.md {
     position: fixed;
 }
 
-.p-r {
+.p-r, .link {
     position: relative;
 }
 
