@@ -111,5 +111,6 @@
 
 #link_1 {
     height: calc(50vh - 7rem);
-    left: 60%;
+    left: auto;
+    right: -10rem;
 }
