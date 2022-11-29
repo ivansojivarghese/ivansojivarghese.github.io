@@ -22,18 +22,25 @@ var wH = window.innerHeight, // height
     },
     op = { // site 'options'
         s : false, // check boolean - 'force' disable scroll
+        p : { // press/tap/click
+            L : false, // check boolean - long press/tap/click
+            tA : 0 // time - initial
+        },
         t : 200, // transition duration - default (in ms.)
         te : 500, // transition duration (extended)
         Ls : 1000/60, // loop (interval) speed - sec./rev.
         e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
         b : { // browser check (major platforms)
+
             // i : false, // samsung internet
+
             c : false, // chrome
             f : false, // firefox
             s : false, // safari
             o : false, // opera
             e : false // edge
-        }
+        },
+        L : null // loop variable
     },
     pos = { // scroll pos. (window)
         y : 0, // y-pos
@@ -96,10 +103,46 @@ function sL() { // scroll pos. loop
     pos.y = window.scrollY; // update
 }
 
+function pL() { // site parameters loop
+    if (op.s) { // 'force' enable/disable scroll when required
+        document.documentElement.style.overflowY = "hidden"; // html
+        document.body.style.overflowY = "hidden"; // body
+        if (op.b.s) { // Safari compatibility
+            document.documentElement.style.position = "fixed"; 
+            document.body.style.position = "fixed";
+        }
+    } else {
+        document.documentElement.style.overflowY = "";
+        document.body.style.overflowY = "";
+        if (op.b.s) {
+            document.documentElement.style.position = "";
+            document.body.style.position = "";
+        }
+    }
+
+    if (op.p.L) {
+        var b;
+        tB = new Date();
+        b = tB.getTime();
+
+        if ((b - op.p.tA) > 200) {
+            // console.log("long press");
+            op.p.L = true;
+        }
+
+        // op.s = true;
+    } else {
+        op.p.tA = 0;
+    }
+
+    // console.log(op.p.L);
+}
+
 function c_Sr() { // check for scrolling activity (in live)
-    var d = Math.abs(pos.y - pos.yA); // obtain distance of scroll
+    var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
-        var _L = pos.a.length - 1;
+        var _L = pos.a.length - 1,
+            tB; 
 
         if (pos.y !== pos.a[_L]) {
             pos.c = true; // set scrolling to true
@@ -130,22 +173,9 @@ function c_Sr() { // check for scrolling activity (in live)
                 pos.a[i] = pos.a[i + 1];
             }
         }
-        if (op.s) { // 'force' enable/disable scroll when required
 
-            document.documentElement.style.overflowY = "hidden"; // html
-            document.body.style.overflowY = "hidden"; // body
-            if (op.b.s) { // Safari compatibility
-                document.documentElement.style.position = "fixed"; 
-                document.body.style.position = "fixed";
-            }
-        } else {
+        if (op.p.L) {
 
-            document.documentElement.style.overflowY = "";
-            document.body.style.overflowY = "";
-            if (op.b.s) {
-                document.documentElement.style.position = "";
-                document.body.style.position = "";
-            }
         }
 
         /*
@@ -317,5 +347,25 @@ window.addEventListener("scroll", function() {
     }
 });
 
+window.addEventListener("pointerdown", function(event) {
+    var d = new Date();
+    op.p.tA = d.getTime();
+    op.p.L = true;
+
+    var e = event.pointerType;
+
+    // console.log("d");
+    console.log(e);
+});
+
+window.addEventListener("pointerup", function() {
+    op.p.tA = 0;
+    op.p.L = false;
+
+    console.log("u");
+});
+
+
+op.L = setInterval(pL, op.Ls); // check site paramters
 pos.L = setInterval(sL, op.Ls); // check live scroll pos.
 pos.Lc = setInterval(c_Sr, (op.Ls * op.e)); // check scroll parameters (at half intervals)

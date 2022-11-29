@@ -13,7 +13,7 @@ var im = { // #intro_main
 
 
 function sc_L() { // functions (live on scroll)
-    var d = Math.abs(pos.y - pos.yA); // obtain distance of scroll
+    var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
         if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
             im.t.classList.add("trs"); // add transitioning for 'smoothening' of effect

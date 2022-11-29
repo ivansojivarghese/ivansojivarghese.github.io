@@ -106,7 +106,7 @@ function h_mTg() { // ham. menu toggle
 
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
 
-            op.s = true; // 'force' disable scroll (secondary)
+            // op.s = true; // 'force' disable scroll (secondary)
 
             // document.body.style.position = "fixed";
 
