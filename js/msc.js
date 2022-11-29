@@ -131,6 +131,7 @@ function c_Sr() { // check for scrolling activity (in live)
             }
         }
         if (op.s) { // 'force' enable/disable scroll when required
+
             document.documentElement.style.overflowY = "hidden"; // html
             document.body.style.overflowY = "hidden"; // body
             if (op.b.s) { // Safari compatibility
@@ -138,6 +139,7 @@ function c_Sr() { // check for scrolling activity (in live)
                 document.body.style.position = "fixed";
             }
         } else {
+
             document.documentElement.style.overflowY = "";
             document.body.style.overflowY = "";
             if (op.b.s) {

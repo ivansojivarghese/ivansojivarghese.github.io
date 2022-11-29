@@ -100,11 +100,13 @@ function h_mTg() { // ham. menu toggle
         
 
         if (y !== 0) { // if page has been scrolled (offset) from original
-            op.s = true; // 'force' disable scroll (secondary)
+           // op.s = true; 
 
             im.el.style.transform = "none";
 
             window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
+
+            op.s = true; // 'force' disable scroll (secondary)
 
             // document.body.style.position = "fixed";
 
