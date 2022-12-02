@@ -22,8 +22,8 @@ var wH = window.innerHeight, // height
     },
     op = { // site 'options'
         s : false, // check boolean - 'force' disable scroll
-        p : { // press/tap/click
-            L : false, // check boolean - long press/tap/click
+        p : { // pointer (press/tap/click)
+            L : false, // check boolean - for long (extended) press/tap
             tA : 0 // time - initial
         },
         t : 200, // transition duration - default (in ms.)
