@@ -6,7 +6,7 @@ var wH = window.innerHeight, // height
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
-        mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
+        mode : false,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
             work : "web dev", // work label
@@ -105,7 +105,13 @@ async function resLoad(el, src) { // load a resource to element (img)
 }
 
 async function checkOnline() {
-    const promise = await fetch("../msc/onlineResourceLocator.png");
+    const promise = await fetch(op.r + "msc/onlineResourceLocator.png")
+        .then((p) => {
+            console.log("online");
+        })
+        .catch((e) => {
+            console.log("offline");
+        })
 }
 
 function getSiteRes() { // obtain site resource origin

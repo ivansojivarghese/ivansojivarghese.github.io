@@ -56,6 +56,8 @@ function docRead() {
                     load_css(); // apply CSS styling (common)
                     resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
+                    checkOnline(); // check if online
+
                     // WHAT IF LOADING ERROR?? - DISPLAY MESSAGE!
 
                 }
