@@ -15,16 +15,19 @@ var wH = window.innerHeight, // height
             course : "computer science", // course name
             location : "singapore", // geographic location/region/city/country/state
             coords : "1.349°N 103.685°E", // geographic coords - last 2 decimals omitted for privacy
-            locationsNum : 21,
             distance : 97,
-            postsNum : 134
+            hoursNo : 183,
+            cappuccinosNo : 245
         }
     },
     op = { // site 'options'
+        r : null, // resource link origin
         s : false, // check boolean - 'force' disable scroll
+        d : new Date(), // instance of Date
         p : { // pointer (press/tap/click)
-            L : false, // check boolean - for long (extended) press/tap
-            tA : 0 // time - initial
+            L : false, // check boolean - for long (extended) press/tap/click
+            tA : 0, // time - initial (at pointerdown)
+            tB : 0 // time - final (at pointerup)
         },
         t : 200, // transition duration - default (in ms.)
         te : 500, // transition duration (extended)
@@ -65,7 +68,7 @@ function reL() { // reload page
 }
 
 async function resLoad(el, src) { // load a resource to element (img)
-    var id = dev.mode ? dev.url : this.location.href, // obtain site URL
+    var id = op.r,
         g = (el.length > 1) ? true : false, // grouped elements if length > 1
         i = Rd.length; // GET current index
     if (g) {
@@ -91,10 +94,25 @@ async function resLoad(el, src) { // load a resource to element (img)
                 }
                 Rd[i] = true;
             }
-        })/*
+        })
         .catch((e) => {
+            console.log(e);
+            /*
+            if (dev.mode && !navigator.onLine) {
+                console.log("ello");
+            }*/
+        })
+}
 
-        })*/
+async function checkOnline() {
+    const promise = await fetch("../msc/onlineResourceLocator.png");
+}
+
+function getSiteRes() { // obtain site resource origin
+    var a = dev.url.slice(dev.url.indexOf("//") + 2, dev.url.length), // use abs. path url (in dev.mode) OR live site url (in !dev.mode)
+        b = dev.mode ? this.location.href.slice(0, (this.location.href.search(a) + a.length)) : dev.url;
+
+    return b;
 }
 
 //////////////////////////////////////////
@@ -104,6 +122,8 @@ function sL() { // scroll pos. loop
 }
 
 function pL() { // site parameters loop
+    op.d = new Date(); // update Date object
+
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
@@ -119,21 +139,21 @@ function pL() { // site parameters loop
             document.body.style.position = "";
         }
     }
-
+    /*
     if (op.p.L) {
         var b;
         tB = new Date();
         b = tB.getTime();
 
         if ((b - op.p.tA) > 200) {
-            // console.log("long press");
-            op.p.L = true;
+            console.log("long press");
+            // op.p.L = true;
         }
-
+ 
         // op.s = true;
     } else {
         op.p.tA = 0;
-    }
+    }*/
 
     // console.log(op.p.L);
 }
@@ -173,12 +193,11 @@ function c_Sr() { // check for scrolling activity (in live)
                 pos.a[i] = pos.a[i + 1];
             }
         }
-
+        /*
         if (op.p.L) {
 
         }
 
-        /*
         if (op.b.f && document.documentElement.classList.contains("scB")) { // optimisation for Firefox users
             document.documentElement.classList.remove("scB"); // smooth scrolling is always disabled
         }*/
@@ -347,22 +366,29 @@ window.addEventListener("scroll", function() {
     }
 });
 
-window.addEventListener("pointerdown", function(event) {
-    var d = new Date();
-    op.p.tA = d.getTime();
-    op.p.L = true;
+window.addEventListener("pointerdown", function() {
 
-    var e = event.pointerType;
+    op.p.tA = op.d.getTime(); 
 
-    // console.log("d");
-    console.log(e);
+    // op.p.L = true;
+
+    // var e = event.pointerType;
+
+    // create a function to detect long press (touch), tap (pen), or click (mouse)
+        // use last 3 pointer recurrences to get threshold for a long press/tap/click
+
 });
 
 window.addEventListener("pointerup", function() {
-    op.p.tA = 0;
-    op.p.L = false;
 
-    console.log("u");
+    op.p.tB = op.d.getTime();
+
+    // console.log(a);
+
+    // op.p.tA = 0;
+    // op.p.L = false;
+
+    console.log(op.p.tB - op.p.tA);
 });
 
 
