@@ -630,18 +630,15 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 /* ------------- */
 
 #error_sc h4 {
-    line-height: 1.5em;
-}
-
-#error_sc h4 {
     font-size: 1.1rem;
+    line-height: 1.5em;
     letter-spacing: 0.15em;
     margin-bottom: 0;
 }
 
 #error_sc p {
     font-size: 1.8rem;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.75em;
 }
 
 /* -------------- */
