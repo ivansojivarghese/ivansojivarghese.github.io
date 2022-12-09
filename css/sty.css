@@ -410,7 +410,7 @@ a.md, span.md {
     text-align: left;
 }
 
-.c_ta, #error {
+.c_ta, #error_sc {
     text-align: center;
 }
 
@@ -636,6 +636,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 #error_sc h4 {
     font-size: 1.1rem;
     letter-spacing: 0.15em;
+    margin-bottom: 0;
 }
 
 #error_sc p {

@@ -19,15 +19,14 @@ var disp = document.getElementById("display_sc"), // display
         s : false, // int_Load status
         i : false // full load status
     },
-
-
-    eR = { // error categories
+    eR = { // error 
         m : document.getElementById("error_sc"), // main
         e : false, // code-execution boolean
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd") // landscape
     },
+
 
 
     bC_d = "#303030", // contrast colour - dark
@@ -56,9 +55,14 @@ function docRead() {
                     load_css(); // apply CSS styling (common)
                     resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
-                    checkOnline(); // check if online
+                    // checkOnline(); // check if online
 
                     // WHAT IF LOADING ERROR?? - DISPLAY MESSAGE!
+                    // CHECK ERRORS
+                        // web connection
+                        // display resolution
+                        // orientation (in mobile)
+                        // 
 
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded
@@ -80,7 +84,7 @@ function docRead() {
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
                 }
-            }  else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
+            } else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
 
@@ -102,13 +106,15 @@ function docRead() {
 }
 
 function load_e() { // end the loading sequence
-    if (rL.s) { // only if status is true
 
-        // CHECK HERE: If error or normal?
+    er_C();
 
-        // if error
+    /*
+    if () { // if any error(s)
 
-        // if normal
+
+
+    } else */if (rL.s) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         setTimeout(function() {
             rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
@@ -145,6 +151,10 @@ function load_js() { // [compatibility/variables] load
     browserCheck();
     pos.st = (op.e / 100) * cH; // set scroll-validity threshold
     op.r = getSiteRes(); // get site resource origin
+    
+    // op.n = checkOnline(); // check if online
+
+    checkOnline();
 }
 
 function browserCheck() { // detect browser (platform)
@@ -266,6 +276,8 @@ function er_C() { // check for errors
         erPg_D("ld");
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
+
+        /*
         dsC.classList.remove("d_n"); // show display (webpage)
         setTimeout(function() {
             e_Fd(dsC, false); // fade in body
@@ -273,7 +285,9 @@ function er_C() { // check for errors
             setTimeout(function() {
                 intro_L(); // load up 'landing' area
             }, trD_a + trD);
-        }, trD);
+        }, trD);*/
+
+
     }
 }
 
@@ -303,7 +317,7 @@ function erPg_D(p) { // error page display
     el.classList.remove("d_n");
     setTimeout(function() {
         e_Fd(el, false); // fade in
-    }, trD)
+    }, op.t)
 }
 
 

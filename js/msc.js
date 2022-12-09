@@ -6,7 +6,7 @@ var wH = window.innerHeight, // height
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
-        mode : false,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
+        mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
             work : "web dev", // work label
@@ -22,6 +22,7 @@ var wH = window.innerHeight, // height
     },
     op = { // site 'options'
         r : null, // resource link origin
+        n : null, // online status (internet connectivity)
         s : false, // check boolean - 'force' disable scroll
         d : new Date(), // instance of Date
         p : { // pointer (press/tap/click)
@@ -67,6 +68,22 @@ function reL() { // reload page
     window.location.assign(window.location.href); // FIREFOX support
 }
 
+function resLoad_c(url, el, g, i) { // load a resource : modular
+    if (g) { 
+        for (var k = 0; k <= (el.length - 1); k++) {
+            el[k].style.backgroundImage = "url(" + url + ")"; // style
+            Rd[i + k] = true; // verify resource(s) ha(s/ve) been loaded
+        }
+    } else {
+        if (el[0]) { // support for class elements ('el') with only 1 element
+            el[0].style.backgroundImage = "url(" + url + ")"; // style
+        } else {
+            el.style.backgroundImage = "url(" + url + ")"; // style
+        }
+        Rd[i] = true;
+    }
+}
+
 async function resLoad(el, src) { // load a resource to element (img)
     var id = op.r,
         g = (el.length > 1) ? true : false, // grouped elements if length > 1
@@ -78,40 +95,74 @@ async function resLoad(el, src) { // load a resource to element (img)
     } else {
         Rd[i] = false; // apply normally
     }
-    const promise = await fetch(id + src) // fetch resource (relatively)
-        .then((p) => { // WAIT for result
-            const res = p.url; // obtain url 
-            if (g) { 
-                for (var k = 0; k <= (el.length - 1); k++) {
-                    el[k].style.backgroundImage = "url(" + res + ")"; // style
-                    Rd[i + k] = true; // verify resource(s) ha(s/ve) been loaded
-                }
-            } else {
-                if (el[0]) { // support for class elements ('el') with only 1 element
-                    el[0].style.backgroundImage = "url(" + res + ")"; // style
+    if (!dev.mode) { // if NOT dev mode
+        const promise = await fetch(id + src) // fetch resource
+            .then((p) => { // WAIT for result
+
+                resLoad_c(p.url, el, g, i);
+
+                /*
+                const res = p.url; // obtain url 
+                if (g) { 
+                    for (var k = 0; k <= (el.length - 1); k++) {
+                        el[k].style.backgroundImage = "url(" + res + ")"; // style
+                        Rd[i + k] = true; // verify resource(s) ha(s/ve) been loaded
+                    }
                 } else {
-                    el.style.backgroundImage = "url(" + res + ")"; // style
-                }
-                Rd[i] = true;
-            }
-        })
-        .catch((e) => {
-            console.log(e);
-            /*
-            if (dev.mode && !navigator.onLine) {
-                console.log("ello");
-            }*/
-        })
+                    if (el[0]) { // support for class elements ('el') with only 1 element
+                        el[0].style.backgroundImage = "url(" + res + ")"; // style
+                    } else {
+                        el.style.backgroundImage = "url(" + res + ")"; // style
+                    }
+                    Rd[i] = true;
+                }*/
+
+            })
+            .catch((e) => {
+                
+            })
+    } else {
+        resLoad_c(id + src, el, g, i);
+    }
 }
 
-async function checkOnline() {
-    const promise = await fetch(op.r + "msc/onlineResourceLocator.png")
-        .then((p) => {
-            console.log("online");
-        })
-        .catch((e) => {
-            console.log("offline");
-        })
+async function checkOnline() { // check status of internet connection
+    if (!dev.mode) { // if NOT dev mode (default)
+        const promise = await fetch(op.r + "msc/onlineResourceLocator.png") // await fetch of resource
+            .then((p) => p.json()) // JSON format
+            .then((d) => d) // get data
+            .then((z) => z.status) // zero-in
+            .then((t) => {
+
+                console.log(t);
+
+                op.n = t >= 200 && t < 300 // check OK status - comparison
+            })
+
+            /*
+            .then((d) => {
+                console.log(d);
+                op.n = d.status >= 200 && d.status < 300 // check OK status
+            })  */
+            .catch((e) => {
+                op.n = false; // not connected if error
+
+                console.log("err");
+            })
+    } else {
+        const xhr = new XMLHttpRequest(); // make new http request
+        xhr.open("GET", dev.url + "msc/onlineResourceLocator.png", true); // try to connect using live url
+        xhr.onreadystatechange = xhrHandler(xhr); // calls function below
+        xhr.send();
+    }
+}
+
+function xhrHandler(x) {
+    if (x.readyState === 4 && x.status === 200) {
+        op.n = true; // if connection is OK
+    } else {
+        op.n = false;
+    }
 }
 
 function getSiteRes() { // obtain site resource origin
