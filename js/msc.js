@@ -61,7 +61,7 @@ var wH = window.innerHeight, // height
         Lc : null
     };
 
-const checkOnlineStatus = async () => {
+const checkOnlineStatus = async () => { // check for internet connectivity
     try {
         const url = dev.mode ? dev.url : op.r;
         const online = await fetch(url + "msc/onlineResourceLocator.png", {
@@ -387,7 +387,7 @@ function scr_t(s) { // scroll toggle
 //////////////////////////////////////////
 
 window.addEventListener("resize", function() {
-    if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values before proceeding
+    if (wH !== window.innerHeight || wD !== window.innerWidth) { // check for change in width/height values before proceeding
         wH = window.innerHeight; // update on window size variables
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;

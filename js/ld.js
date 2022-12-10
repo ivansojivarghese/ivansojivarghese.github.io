@@ -107,9 +107,6 @@ function docRead() {
 }
 
 function load_e() { // end the loading sequence
-    /*
-    if () { // if any error(s)
-    } else */
 
     if (rL.s) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
@@ -198,12 +195,12 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
         v.z_L = true;
     }
     if (r.o === "portrait") { // portrait view (for mobile and tablet)
-        if (w < 220 || h < 440) { // if width less than 220, or height less than 440
+        if (w < 240 || h < 440) { // if width less than 220, or height less than 440
             v.z_S = true;
         } else if (w > 700 && h > 1400) { // targeting hybrid desktop-tablets - disabling for use in portrait view
             v.z_L = true;
         } else if (w >= 500) { // portrait tablet (phablet)
-            v.pH = true;
+            v.pH = true;    
         }
     } else if (r.o === "landscape") { // landscape tablet/mobile, or greater (desktop)
         if (h < 220 || w < 440) { // height less than 220, or width less than 440
