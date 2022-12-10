@@ -266,6 +266,13 @@ function num_E(n) { // numeral digit extractor (interger + decimals if any, retu
     return res; // return res.0 = integer, res.1 = first decimal digit, etc.
 }
 
+function num_Fs(s) { // font-size literal to numeral
+
+    // eg. 10px to 10
+    // 34.2rem to 34.2
+
+}
+
 function num_S(n, c, a) { // convert any value to string format + divide into individual span elements
     var e = String(n),
         cL = c + a, // add personalised classes to the span elements

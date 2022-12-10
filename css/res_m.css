@@ -5,25 +5,25 @@
 
 
 /* responsive - mobile */
-@media screen and (min-width: 100px) and (orientation: portrait) {
+@media screen and ((min-width: 100px) and (orientation: portrait)) or ((min-height: 100px) and (orientation: landscape)) {
     html {
         font-size: 8px;
     }
 }
 
-@media screen and (min-width: 150px) and (orientation: portrait) {
+@media screen and ((min-width: 150px) and (orientation: portrait)) or ((min-height: 150px) and (orientation: landscape)) {
     html {
         font-size: 9px;
     }
 }
 
-@media screen and (min-width: 200px) and (orientation: portrait) {
+@media screen and ((min-width: 200px) and (orientation: portrait)) or ((min-height: 200px) and (orientation: landscape)) {
     html {
         font-size: 10px;
     }
 }
 
-@media screen and (min-width: 220px) and (orientation: portrait) {
+@media screen and ((min-width: 220px) and (orientation: portrait)) or ((min-height: 220px) and (orientation: landscape)) {
     html {
         font-size: 11px;
     }
@@ -122,12 +122,12 @@
 }
 
 /* to display error message - use of landscape view in mobile phone viewports*/
-
+/*
 @media screen and (max-height: 300px) and (orientation: landscape) { 
     html {
         font-size: 11px;
     }
-}
+}*/
 
 @media screen and (min-height: 300px) and (max-height: 400px) and (orientation: landscape) { 
     html {

@@ -145,6 +145,11 @@ function load_css() { // load up CSS (common)
     c_css("#load_C", "margin-top: calc((" + cH + "px - 8rem) / 2);", false, null); // align loader to centre of viewport
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
+    if (vw.mB_L) { // in landscape view (mobile)
+        c_css(".err", "margin-top: calc((" + cH + "px - " + (10 * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null);
+        // approx. height of text elements container (error)
+    }
+    
     /*
     if (!op.b.f) { // if browser platform is NOT Firefox
         document.documentElement.classList.add("scB"); // add smooth scroll behaviour
