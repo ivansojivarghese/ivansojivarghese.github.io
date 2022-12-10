@@ -20,8 +20,9 @@ var disp = document.getElementById("display_sc"), // display
         i : false // full load status
     },
     eR = { // error 
-        m : document.getElementById("error_sc"), // main
+        h : "", // hold-value placement (error page id)
         e : false, // code-execution boolean
+        m : document.getElementById("error_sc"), // main
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd") // landscape
@@ -46,8 +47,8 @@ var disp = document.getElementById("display_sc"), // display
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "complete": // if DOM, styles, images and scripts all loaded
-            r = pgOr(wD, wH); // get screen orientation (using dimensions)
-            vw = vwP(wD, wH, r); // set device size/orientation params
+            r = pgOr(wD, cH); // get screen orientation (using dimensions)
+            vw = vwP(wD, cH, r); // set device size/orientation params
             if (!rL.e) { // ensure once execution
                 if (!rL.e2) {
                     rL.e2 = true;
@@ -106,18 +107,17 @@ function docRead() {
 }
 
 function load_e() { // end the loading sequence
-
-    er_C();
-
     /*
     if () { // if any error(s)
+    } else */
 
-
-
-    } else */if (rL.s) { // only if status is true (default)
+    if (rL.s) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         setTimeout(function() {
             rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
+
+            er_C(); // check for errors
+
             setTimeout(function() {
                 rL.el.classList.add("d_n"); // remove loader from display
 
@@ -125,8 +125,15 @@ function load_e() { // end the loading sequence
                 rL.p.classList.add("aniM-p");
                 rL.c.classList.add("aniM-p");
 
-                e_Fd(disp, false);  // show the page
-                scr_t(true); // enable scrolling
+                if (eR.h) { // if error is detected
+                    e_Fd(eR[eR.h], false);
+                } else {
+                    disp.classList.remove("d_n"); // show the page
+                    setTimeout(function() {
+                        e_Fd(disp, false);  
+                        scr_t(true); // enable scrolling
+                    }, 10);
+                }
 
                 load_js_eN(); // load js, after page load
 
@@ -151,10 +158,9 @@ function load_js() { // [compatibility/variables] load
     browserCheck();
     pos.st = (op.e / 100) * cH; // set scroll-validity threshold
     op.r = getSiteRes(); // get site resource origin
-    
-    // op.n = checkOnline(); // check if online
 
-    checkOnline();
+    // checkOnline();
+    // op.n = checkOnlineStatus();
 }
 
 function browserCheck() { // detect browser (platform)
@@ -269,14 +275,14 @@ function load_e() { // page load end
 
 function er_C() { // check for errors
     if (vw.z_S) { // if viewport size is too small
-        erPg_D("vs");
+        eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
-        erPg_D("vL");
+        eR.h = "vL";
     } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
-        erPg_D("ld");
+        eR.h = "ld";
+
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
-
         /*
         dsC.classList.remove("d_n"); // show display (webpage)
         setTimeout(function() {
@@ -286,8 +292,11 @@ function er_C() { // check for errors
                 intro_L(); // load up 'landing' area
             }, trD_a + trD);
         }, trD);*/
+    }
 
-
+    if (eR.h) {
+        eR.m.classList.remove("d_n"); // display the error
+        eR[eR.h].classList.remove("d_n");
     }
 }
 
@@ -310,7 +319,7 @@ function intro_L() { // load up the landing page (#intro_sc)
         int_LoadUp(); // perform load-up for other elements in landing zone (differs by page - refer to respective lds.js)
     }, (trD_a * 2));
 }
-
+/*
 function erPg_D(p) { // error page display
     var el = eR[p];
     eR.m.classList.remove("d_n"); // display
@@ -318,11 +327,9 @@ function erPg_D(p) { // error page display
     setTimeout(function() {
         e_Fd(el, false); // fade in
     }, op.t)
-}
+}*/
 
 
 rL.p.addEventListener("animationiteration", load_e); // read a function upon every loading ring iteration (transversing)
-
 history.scrollRestoration = "manual"; // prevent automatic scroll rendering from browser (in memory)
-
 _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup

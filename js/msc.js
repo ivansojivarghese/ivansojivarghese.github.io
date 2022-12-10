@@ -61,6 +61,24 @@ var wH = window.innerHeight, // height
         Lc : null
     };
 
+const checkOnlineStatus = async () => {
+    try {
+        const url = dev.mode ? dev.url : op.r;
+        const online = await fetch(url + "msc/onlineResourceLocator.png", {
+            cache : "no-store"
+        });
+        return online.status >= 200 && online.status < 300;
+    } catch (err) {
+        return false;
+    }
+}
+
+setInterval(async () => {
+    const result = await checkOnlineStatus();
+    op.n = result;
+    console.log(op.n);
+}, 3000);
+
 ///////////////////////////////////////
 
 function reL() { // reload page
@@ -123,45 +141,6 @@ async function resLoad(el, src) { // load a resource to element (img)
             })
     } else {
         resLoad_c(id + src, el, g, i);
-    }
-}
-
-async function checkOnline() { // check status of internet connection
-    if (!dev.mode) { // if NOT dev mode (default)
-        const promise = await fetch(op.r + "msc/onlineResourceLocator.png") // await fetch of resource
-            .then((p) => p.json()) // JSON format
-            .then((d) => d) // get data
-            .then((z) => z.status) // zero-in
-            .then((t) => {
-
-                console.log(t);
-
-                op.n = t >= 200 && t < 300 // check OK status - comparison
-            })
-
-            /*
-            .then((d) => {
-                console.log(d);
-                op.n = d.status >= 200 && d.status < 300 // check OK status
-            })  */
-            .catch((e) => {
-                op.n = false; // not connected if error
-
-                console.log("err");
-            })
-    } else {
-        const xhr = new XMLHttpRequest(); // make new http request
-        xhr.open("GET", dev.url + "msc/onlineResourceLocator.png", true); // try to connect using live url
-        xhr.onreadystatechange = xhrHandler(xhr); // calls function below
-        xhr.send();
-    }
-}
-
-function xhrHandler(x) {
-    if (x.readyState === 4 && x.status === 200) {
-        op.n = true; // if connection is OK
-    } else {
-        op.n = false;
     }
 }
 
@@ -408,7 +387,6 @@ function scr_t(s) { // scroll toggle
 //////////////////////////////////////////
 
 window.addEventListener("resize", function() {
-    console.log("resize");
     if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values before proceeding
         wH = window.innerHeight; // update on window size variables
         wD = window.innerWidth; 

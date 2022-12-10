@@ -392,6 +392,10 @@ a.md, span.md {
     padding-bottom: 0.5em !important;
 }
 
+.p_Bz {
+    padding-bottom: 0;
+}
+
 /* ------------- */
 
 .d_n, .phablet, .desktop { /*display control*/
@@ -487,10 +491,10 @@ div.locator_img {
 .text.ex-t {
     padding-top: 10rem;
 }
-
+/*
 .text.md {
     padding-bottom: 0;
-}
+}*/
 
 /* -------------- */
 
@@ -629,6 +633,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 /* ------------- */
 
+#error_sc h4, #error_sc p {
+    padding: 0 0.5em;
+}
+
 #error_sc h4 {
     font-size: 1.1rem;
     line-height: 1.5em;
@@ -637,8 +645,9 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }
 
 #error_sc p {
+    line-height: 1.4em;
     font-size: 1.8rem;
-    margin-bottom: 0.75em;
+    margin-bottom: 0.5em;
 }
 
 /* -------------- */
