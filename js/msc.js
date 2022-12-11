@@ -26,6 +26,7 @@ var wH = window.innerHeight, // height
         s : false, // check boolean - 'force' disable scroll
         d : new Date(), // instance of Date
         p : { // pointer (press/tap/click)
+            e : true, // execution boolean
             L : false, // check boolean - for long (extended) press/tap/click
             tA : 0, // time - initial (at pointerdown)
             tB : 0 // time - final (at pointerup)
@@ -77,7 +78,7 @@ const checkOnlineStatus = async () => { // check for internet connectivity
 setInterval(async () => {
     const result = await checkOnlineStatus();
     op.n = result;
-    console.log(op.n);
+    // console.log(op.n);
 }, 3000);
 
 ///////////////////////////////////////
@@ -160,6 +161,9 @@ function sL() { // scroll pos. loop
 
 function pL() { // site parameters loop
     op.d = new Date(); // update Date object
+    if (op.p.e) {
+        op.p.tA = op.d.getTime();
+    }
 
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
@@ -177,10 +181,14 @@ function pL() { // site parameters loop
         }
     }
 
-    if ((op.p.tB - op.p.tA) > 1000) {
+    if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
         op.p.L = true;
+    } else {
+        op.p.L = false;
     }
-    
+
+    console.log(op.p.L);
+
     /*
     if (op.p.L) {
         var b;
@@ -420,29 +428,12 @@ window.addEventListener("scroll", function() {
     }
 });
 
-window.addEventListener("pointerdown", function() {
-
-    op.p.tA = op.d.getTime(); 
-
-    // op.p.L = true;
-
-    // var e = event.pointerType;
-
-    // create a function to detect long press (touch), tap (pen), or click (mouse)
-        // use last 3 pointer recurrences to get threshold for a long press/tap/click
-
+window.addEventListener("pointerdown", function() { // tap/click down
+    op.p.e = false;
 });
 
-window.addEventListener("pointerup", function() {
-
-    op.p.tB = op.d.getTime();
-
-    // console.log(a);
-
-    // op.p.tA = 0;
-    // op.p.L = false;
-
-    console.log(op.p.tB - op.p.tA);
+window.addEventListener("pointerup", function() { // release/click up
+    op.p.e = true;
 });
 
 
