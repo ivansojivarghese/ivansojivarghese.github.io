@@ -420,6 +420,14 @@ window.addEventListener("pointerup", function() { // release/click up
     op.p.e = true;
 });
 
+window.addEventListener("mouseup", function() { // release/click up
+    op.p.e = true;
+});
+/*
+window.addEventListener("mousemove", function() { // release/click up
+    op.p.e = true;
+});*/
+
 
 op.L = setInterval(pL, op.Ls); // check site paramters
 pos.L = setInterval(sL, op.Ls); // check live scroll pos.
