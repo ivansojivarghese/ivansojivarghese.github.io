@@ -146,8 +146,8 @@ function load_css() { // load up CSS (common)
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
     if (vw.mB_L) { // in landscape view (mobile)
-        c_css(".err", "margin-top: calc((" + cH + "px - " + (10 * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null);
-        // approx. height of text elements container (error)
+        c_css(".err", "margin-top: calc((" + cH + "px - " + (10 * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
+        
     }
     
     /*
@@ -210,6 +210,7 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
     } else if (r.o === "landscape") { // landscape tablet/mobile, or greater (desktop)
         if (h < 220 || w < 440) { // height less than 220, or width less than 440
             v.z_S = true;
+            v.mB_L = true;
         } else if (h < 500) { // height less than 500 (mobile)
             v.mB_L = true;
         } else {
