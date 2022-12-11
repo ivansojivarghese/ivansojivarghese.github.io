@@ -176,6 +176,11 @@ function pL() { // site parameters loop
             document.body.style.position = "";
         }
     }
+
+    if ((op.p.tB - op.p.tA) > 1000) {
+        op.p.L = true;
+    }
+    
     /*
     if (op.p.L) {
         var b;
