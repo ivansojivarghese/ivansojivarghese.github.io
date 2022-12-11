@@ -183,29 +183,13 @@ function pL() { // site parameters loop
 
     if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
         op.p.L = true;
+        scr_t(false);
     } else {
         op.p.L = false;
+        scr_t(true);
     }
 
     console.log(op.p.L);
-
-    /*
-    if (op.p.L) {
-        var b;
-        tB = new Date();
-        b = tB.getTime();
-
-        if ((b - op.p.tA) > 200) {
-            console.log("long press");
-            // op.p.L = true;
-        }
- 
-        // op.s = true;
-    } else {
-        op.p.tA = 0;
-    }*/
-
-    // console.log(op.p.L);
 }
 
 function c_Sr() { // check for scrolling activity (in live)
