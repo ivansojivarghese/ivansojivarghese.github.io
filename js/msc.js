@@ -267,10 +267,16 @@ function num_E(n) { // numeral digit extractor (interger + decimals if any, retu
 }
 
 function num_Fs(s) { // font-size literal to numeral
-
-    // eg. 10px to 10
-    // 34.2rem to 34.2
-
+    var _L = s.length - 1,
+        res = "";
+    for (i = 0; i <= _L; i++) {
+        if (Number(s[i])) {
+            res += s[i];
+        } else {
+            break;
+        }
+    }
+    return Number(res);
 }
 
 function num_S(n, c, a) { // convert any value to string format + divide into individual span elements
