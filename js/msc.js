@@ -34,6 +34,7 @@ var wH = window.innerHeight, // height
         te : 500, // transition duration (extended)
         Ls : 1000/60, // loop (interval) speed - sec./rev.
         e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
+        f : window.getComputedStyle(document.body).getPropertyValue('font-size'), // get root font-size
         b : { // browser check (major platforms)
 
             // i : false, // samsung internet
@@ -266,11 +267,11 @@ function num_E(n) { // numeral digit extractor (interger + decimals if any, retu
     return res; // return res.0 = integer, res.1 = first decimal digit, etc.
 }
 
-function num_Fs(s) { // font-size literal to numeral
+function num_Fs(s) { // font-size literal to numeral (eg. "10px" -> 10)
     var _L = s.length - 1,
         res = "";
     for (i = 0; i <= _L; i++) {
-        if (Number(s[i])) {
+        if (Number(s[i]) || Number(s[i]) === 0) {
             res += s[i];
         } else {
             break;

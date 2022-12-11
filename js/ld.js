@@ -113,7 +113,7 @@ function load_e() { // end the loading sequence
         setTimeout(function() {
             rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
 
-            er_C(); // check for errors
+            // er_C(); // check for errors
 
             setTimeout(function() {
                 rL.el.classList.add("d_n"); // remove loader from display
@@ -146,8 +146,8 @@ function load_css() { // load up CSS (common)
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
     if (vw.mB_L) { // in landscape view (mobile)
-        c_css(".err", "margin-top: calc((" + cH + "px - " + (10 * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
-        
+        c_css(".err", "margin-top: calc((" + cH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
+        eR[eR.h].children[0].classList.remove("c-y"); // modify styling (remove centre-alignment)
     }
     
     /*
@@ -158,6 +158,7 @@ function load_css() { // load up CSS (common)
 
 function load_js() { // [compatibility/variables] load
     browserCheck();
+    errorCheck(); 
     pos.st = (op.e / 100) * cH; // set scroll-validity threshold
     op.r = getSiteRes(); // get site resource origin
 
@@ -276,7 +277,7 @@ function load_e() { // page load end
     }, trD_a);  // first class with .trs.md delay
 }*/
 
-function er_C() { // check for errors
+function errorCheck() { // check for errors
     if (vw.z_S) { // if viewport size is too small
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
