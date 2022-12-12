@@ -122,6 +122,12 @@ async function resLoad(el, src) { // load a resource to element (img)
                 resLoad_c(p.url, el, g, i);
 
                 /*
+                if (!dev.mode) {
+                    resLoad_c(p.url, el, g, i);
+                } else {
+                    resLoad_c(id + src, el, g, i);
+                }*/
+                /*
                 const res = p.url; // obtain url 
                 if (g) { 
                     for (var k = 0; k <= (el.length - 1); k++) {
@@ -181,15 +187,17 @@ function pL() { // site parameters loop
         }
     }
 
-    if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
-        op.p.L = true;
-        scr_t(false); // disable scroll
-    } else {
-        op.p.L = false;
-        scr_t(true); // enable scroll
+    if (!hm.e) {
+        if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
+            op.p.L = true;
+            scr_t(false); // disable scroll
+        } else {
+            op.p.L = false;
+            scr_t(true); // enable scroll
+        }
     }
 
-    console.log(op.p.L);
+    // console.log(op.p.L);
 }
 
 function c_Sr() { // check for scrolling activity (in live)

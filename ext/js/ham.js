@@ -6,6 +6,8 @@ var hm = { // hamburger menu object
         k : document.getElementsByClassName("st"), // button strokes
         sc : document.getElementById("ham_sc"), // menu screen
         f : 0, // button offset
+        e : false, // code execution
+        h : true, // latch
 
         // ft : 0, // "" offset (alignment/scroll) time
         /////
@@ -98,6 +100,11 @@ function h_mTg() { // ham. menu toggle
 
     if (c) { // open menu
         
+        hm.e = true;
+        hm.h = false;
+        setTimeout(function() { // latch set-up to avoid double call
+            hm.h = true;
+        }, op.t);
 
         if (y !== 0) { // if page has been scrolled (offset) from original
            // op.s = true; 
@@ -172,26 +179,31 @@ function h_mTg() { // ham. menu toggle
 
     } else { // close menu
 
-        hm.a = true; // set click activity to true
-        hm.z = true;
-        hm.m = false; // hover effect requires add. 'mouse' [trigger]movement from user
-        h_mBs(c); // perform button [stroke] dynamisms
-        // c_rep(h, "z-F", "z-G"); // bring forward in visibility
-        im.el.classList.remove("z-F");
+        if (hm.h) {
 
-        if (s) {
-            e_Xt(h, "h", false); // hide menu
-            hm.t.style.zIndex = "";
-            hm.t.style.backgroundColor = ""; // change to transparent (dark) background
-        } else {
-            
-            e_Fd(h, true); // hide menu
-            setTimeout(function() {
-                h.classList.add("z-G");
-            }, op.t);
+            hm.a = true; // set click activity to true
+            hm.z = true;
+            hm.m = false; // hover effect requires add. 'mouse' [trigger]movement from user
+            h_mBs(c); // perform button [stroke] dynamisms
+            // c_rep(h, "z-F", "z-G"); // bring forward in visibility
+            im.el.classList.remove("z-F");
+
+            if (s) {
+                e_Xt(h, "h", false); // hide menu
+                hm.t.style.zIndex = "";
+                hm.t.style.backgroundColor = ""; // change to transparent (dark) background
+            } else {
+                
+                e_Fd(h, true); // hide menu
+                setTimeout(function() {
+                    h.classList.add("z-G");
+                }, op.t);
+            }
+
+            scr_t(true);    
+
+            hm.e = false;
         }
-
-        scr_t(true);    
     }
 }
 
