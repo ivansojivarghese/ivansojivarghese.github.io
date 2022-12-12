@@ -410,6 +410,7 @@ window.addEventListener("scroll", function() {
     if (!pos.yA) {
         pos.yA = pos.y; // add a secondary y-pos for comparison during scroll (distance)
     }
+    op.p.e = true;
 });
 
 window.addEventListener("pointerdown", function() { // tap/click down
@@ -419,14 +420,6 @@ window.addEventListener("pointerdown", function() { // tap/click down
 window.addEventListener("pointerup", function() { // release/click up
     op.p.e = true;
 });
-
-window.addEventListener("mouseup", function() { // release/click up
-    op.p.e = true;
-});
-/*
-window.addEventListener("mousemove", function() { // release/click up
-    op.p.e = true;
-});*/
 
 
 op.L = setInterval(pL, op.Ls); // check site paramters
