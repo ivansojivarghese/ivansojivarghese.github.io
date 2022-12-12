@@ -421,7 +421,7 @@ window.addEventListener("pointerup", function() { // release/click up
     op.p.e = true;
 });
 
-window.addEventListener("touchmove", function() { // release/click up
+window.addEventListener("pointermove", function() { // release/click up
     op.p.e = true;
 });
 
