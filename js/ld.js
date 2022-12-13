@@ -18,6 +18,7 @@ var disp = document.getElementById("display_sc"), // display
         e : false, // code-execution boolean
         e2 : false, // ""
         e3 : false,
+        e4 : false,
         s : false, // int_Load status
         i : false // full load status
     },
@@ -29,6 +30,7 @@ var disp = document.getElementById("display_sc"), // display
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd") // landscape
     },
+
 
 
 
@@ -48,17 +50,39 @@ var disp = document.getElementById("display_sc"), // display
 
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
+        case "interactive":
+
+            console.log("hello");
+
+            if (!rL.e4) {
+                rL.e4 = true;
+                /*
+                r = pgOr(wD, cH); // get screen orientation (using dimensions)
+                vw = vwP(wD, cH, r); // set device size/orientation params
+                load_css(); // apply CSS styling (common)
+                load_js(); // load JS (common)
+                */
+                // setTimeout(function() {
+                e_Fd(rL.m, false);
+                // }, op.t);
+                
+            }
+
         case "complete": // if DOM, styles, images and scripts all loaded
+            /*
             r = pgOr(wD, cH); // get screen orientation (using dimensions)
             vw = vwP(wD, cH, r); // set device size/orientation params
+            */
             if (!rL.e) { // ensure once execution
-                if (!rL.e2) {
-                    rL.e2 = true;
-                    load_js(); // load JS (common)
-                    load_css(); // apply CSS styling (common)
 
+                if (!rL.e2) {
+                    
+                    rL.e2 = true;
+                    // load_js(); // load JS (common)
+                    // load_css(); // apply CSS styling (common)
+                    
                     setTimeout(function() {
-                        e_Fd(rL.m, false);
+                        // e_Fd(rL.m, false);
                         resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
                     }, op.t);
 
@@ -342,7 +366,14 @@ function erPg_D(p) { // error page display
     }, op.t)
 }*/
 
+r = pgOr(wD, cH); // get screen orientation (using dimensions)
+vw = vwP(wD, cH, r); // set device size/orientation params
+load_css();
+load_js();
+
 
 rL.p.addEventListener("animationiteration", load_e); // read a function upon every loading ring iteration (transversing)
 history.scrollRestoration = "manual"; // prevent automatic scroll rendering from browser (in memory)
-_Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
+setTimeout(function() {
+    _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
+}, op.t);
