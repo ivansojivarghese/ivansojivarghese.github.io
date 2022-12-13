@@ -258,6 +258,10 @@ div, .tint {
     background-color: #FFF;
 }
 
+.bC_m {
+    background: #E4E4E4;
+}
+
 .in-col {
     padding: 2.5rem 0;
     color: #FFF;
@@ -665,6 +669,26 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     animation-play-state: paused;
 }
 
+.load_r, #load_dot {
+    animation-duration: 1s;
+}
+
+#load_dot {
+    animation-name: load_dot;
+}
+
+@keyframes load_dot {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 #load_sc .container {
     width: 8rem;
     height: 8rem;
@@ -699,7 +723,6 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 .load_r {
     border-color: transparent;
     border-top-color: #303030;
-    animation-duration: 1s;
     animation-timing-function: ease-in-out;
 }
 
