@@ -7,7 +7,7 @@ var hm = { // hamburger menu object
         sc : document.getElementById("ham_sc"), // menu screen
         f : 0, // button offset
         e : false, // code execution
-        h : true, // latch
+        h : false, // latch
 
         // ft : 0, // "" offset (alignment/scroll) time
         /////
@@ -73,6 +73,7 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         hm.b.removeEventListener("mouseout", h_mBv);
         */
     } else { // if closing
+
         // c_rep(hm.k[0], "bC_L", "bC_d"); // reverse effect
         e_Fd(hm.k[1], false);
         // c_rep(hm.k[2], "bC_L", "bC_d");
@@ -85,6 +86,7 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         hm.b.addEventListener("mouseover", h_mBv); // add hover feature - default
         hm.b.addEventListener("mouseout", h_mBv);
         */
+
     }   
 }
 
@@ -99,83 +101,90 @@ function h_mTg() { // ham. menu toggle
         // t = hm.ft, // get button offset alignment time (max)
 
     if (c) { // open menu
-        
-        hm.e = true;
-        hm.h = false;
-        setTimeout(function() { // latch set-up to avoid double call
-            hm.h = true;
-        }, op.t);
 
-        if (y !== 0) { // if page has been scrolled (offset) from original
-           // op.s = true; 
+        if (!hm.h) { 
 
-            im.el.style.transform = "none";
-
-            window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
-
-            // op.s = true; // 'force' disable scroll (secondary)
-
-            // document.body.style.position = "fixed";
-
-            // document.documentElement.classList.remove("scB");
-
-            // console.log(p*t);
-
+            h_mBs(c); // perform button [stroke] dynamisms
             
-            setTimeout(function() {
-                // console.log(p);
+            hm.e = true;
+            // hm.h = false;
+            setTimeout(function() { // latch set-up to avoid double call
+                hm.h = true;
+            }, op.t);
 
-                if (p >= 0.55 && !pos.c && !hm.z) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
-                    op.s = false; // 'force' enable scroll (secondary)
-                    scr_t(false);
-                } else if (!hm.z) {
-                    op.s = false; // 'force' enable scroll (secondary)
-                    scr_t(false);
-                } else {
-                    op.s = false;
-                }
-                /*
+            if (y !== 0) { // if page has been scrolled (offset) from original
+            // op.s = true; 
+
+                im.el.style.transform = "none";
+
+                window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
+
+                // op.s = true; // 'force' disable scroll (secondary)
+
+                // document.body.style.position = "fixed";
+
+                // document.documentElement.classList.remove("scB");
+
+                // console.log(p*t);
+
+                
                 setTimeout(function() {
+                    // console.log(p);
 
-                }, (p * t));*/
+                    if (p >= 0.55 && !pos.c && !hm.z) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
+                        op.s = false; // 'force' enable scroll (secondary)
+                        scr_t(false);
+                    } else if (!hm.z) {
+                        op.s = false; // 'force' enable scroll (secondary)
+                        scr_t(false);
+                    } else {
+                        op.s = false;
+                    }
+                    /*
+                    setTimeout(function() {
 
-                /*
-                if (!op.b.f) {
-                    document.documentElement.classList.add("scB");
-                }*/
+                    }, (p * t));*/
 
-            }, /*(p * t)*/ 10); // delay function to allow 'pos.c' variable to update
+                    /*
+                    if (!op.b.f) {
+                        document.documentElement.classList.add("scB");
+                    }*/
 
-        } else {
-            scr_t(false);
+                }, /*(p * t)*/ 10); // delay function to allow 'pos.c' variable to update
+
+            } else {
+                scr_t(false);
+            }
+            /*
+            if (hm.h) {
+                h_mBs(c); // perform button [stroke] dynamisms
+            }*/
+            // c_rep(h, "z-G", "z-F"); // bring forward in visibility
+            im.el.classList.add("z-F");
+
+            ////// 
+
+            if (s) { // if tablet/desktop viewport
+                e_Xt(h, "h", true); // reveal menu (slide in)
+                hm.t.style.zIndex = 200;
+                hm.t.style.backgroundColor = "rgba(48, 48, 48, 0.6)"; // change to transparent (dark) background
+            } else {
+
+                h.classList.remove("z-G");
+                e_Fd(h, false); // reveal menu (fade in)
+
+            }
+
+            hm.z = false; // change status
+
+            /*
+            setTimeout(function() {
+                int_m.classList.add("h-fx");
+            }, 200);*/
+            
+
+            //////
         }
-
-        h_mBs(c); // perform button [stroke] dynamisms
-        // c_rep(h, "z-G", "z-F"); // bring forward in visibility
-        im.el.classList.add("z-F");
-
-        ////// 
-
-        if (s) { // if tablet/desktop viewport
-            e_Xt(h, "h", true); // reveal menu (slide in)
-            hm.t.style.zIndex = 200;
-            hm.t.style.backgroundColor = "rgba(48, 48, 48, 0.6)"; // change to transparent (dark) background
-        } else {
-
-            h.classList.remove("z-G");
-            e_Fd(h, false); // reveal menu (fade in)
-
-        }
-
-        hm.z = false; // change status
-
-        /*
-        setTimeout(function() {
-            int_m.classList.add("h-fx");
-        }, 200);*/
-        
-
-        //////
 
     } else { // close menu
 
@@ -203,6 +212,10 @@ function h_mTg() { // ham. menu toggle
             scr_t(true);    
 
             hm.e = false;
+
+            setTimeout(function() {
+                hm.h = false;
+            }, op.t);
         }
     }
 }
