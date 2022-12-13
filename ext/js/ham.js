@@ -7,7 +7,7 @@ var hm = { // hamburger menu object
         sc : document.getElementById("ham_sc"), // menu screen
         f : 0, // button offset
         e : false, // code execution
-        h : false, // latch
+        h : false, // latch (to prevent doubling)
 
         // ft : 0, // "" offset (alignment/scroll) time
         /////
