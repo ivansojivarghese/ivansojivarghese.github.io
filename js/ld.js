@@ -81,10 +81,14 @@ function docRead() {
                     // load_js(); // load JS (common)
                     // load_css(); // apply CSS styling (common)
                     
-                    setTimeout(function() {
-                        // e_Fd(rL.m, false);
-                        resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
-                    }, op.t);
+                    // setTimeout(function() {
+                    if (!rL.e4) {
+                        rL.e4 = true;
+                        e_Fd(rL.m, false);
+                    }
+
+                    resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+                    // }, op.t);
 
                     // checkOnline(); // check if online
 
