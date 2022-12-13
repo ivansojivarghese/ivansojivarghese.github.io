@@ -52,7 +52,7 @@ function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
 
-            console.log("hello");
+            console.log("loading");
 
             if (!rL.e4) {
                 rL.e4 = true;
