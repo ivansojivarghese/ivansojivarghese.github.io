@@ -7,6 +7,8 @@ var disp = document.getElementById("display_sc"), // display
             u : 'logo/favicon.png' // relative path
         },
         el : document.getElementById("load_sc"), // load_sc
+        m : document.getElementById("load_C"), // load_sc main
+        dt : document.getElementById("load_dot"), // loading dot
         g : document.getElementById("load_logo"), // loading logo
         t : document.getElementById("load_temP"), // loading logo/ring - 'template'
         r : document.getElementById("loadR"), // loading rings (container)
@@ -54,7 +56,11 @@ function docRead() {
                     rL.e2 = true;
                     load_js(); // load JS (common)
                     load_css(); // apply CSS styling (common)
-                    resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+
+                    setTimeout(function() {
+                        e_Fd(rL.m, false);
+                        resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+                    }, op.t);
 
                     // checkOnline(); // check if online
 
@@ -69,6 +75,9 @@ function docRead() {
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded
                     rL.e3 = true; 
                     e_Fd(rL.g, false); // show logo
+
+                    rL.dt.classList.add("d_n"); // hide loading dot
+
                     setTimeout(function() {
                         e_Fd(rL.t, false); // standby loading rings
                         e_Fd(rL.r, false);
