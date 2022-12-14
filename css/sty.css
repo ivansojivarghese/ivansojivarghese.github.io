@@ -690,19 +690,22 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 #load_dot {
     animation-name: load_dot;
+    opacity: 0.5;
 }
 
-#load_text {top: 9rem;}
+#load_text {
+    top: 9rem;
+}
 
 @keyframes load_dot {
     0% {
-        opacity: 1;
-    }
-    50% {
         opacity: 0.5;
     }
-    100% {
+    50% {
         opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
     }
 }
 
