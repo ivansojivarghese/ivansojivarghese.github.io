@@ -124,9 +124,7 @@ function docRead() {
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
                 } else if (op.n === false) {
-
-                    rL.dt.classList.add("aniM-f");
-
+                    rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     e_Fd(rL.n, false); // show message when internet not connected
                     e_Fd(rL.x, false);
                 }
