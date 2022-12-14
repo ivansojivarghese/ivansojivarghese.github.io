@@ -7,10 +7,12 @@ var disp = document.getElementById("display_sc"), // display
             u : 'logo/favicon.png' // relative path
         },
         el : document.getElementById("load_sc"), // load_sc
-        m : document.getElementById("load_C"), // load_sc main
+        m : document.getElementById("load_box"), // load_sc main
         dt : document.getElementById("load_dot"), // loading dot
+        n : document.getElementById("load_icon"), // loading icon (for any message)
         g : document.getElementById("load_logo"), // loading logo
         t : document.getElementById("load_temP"), // loading logo/ring - 'template'
+        x : document.getElementById("load_text"), // loading text (for message)
         r : document.getElementById("loadR"), // loading rings (container)
         p : document.getElementById("loadR-p"), // loading ring (primary)
         d : document.getElementById("loadR-e"), // loading ring (end)
@@ -121,6 +123,9 @@ function docRead() {
                             rL.e = true; // execute following code block once only
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
+                } else if (op.n === false) {
+                    e_Fd(rL.n, false); // show message when internet not connected
+                    e_Fd(rL.x, false);
                 }
             } else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
@@ -138,7 +143,7 @@ function docRead() {
                 // console.log("loaded");
 
                 clearInterval(_Ld); // stop ready-check loop
-            }
+            } 
         break;
     }
 }

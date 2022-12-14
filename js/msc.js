@@ -78,7 +78,6 @@ const checkOnlineStatus = async () => { // check for internet connectivity
 setInterval(async () => {
     const result = await checkOnlineStatus();
     op.n = result;
-    // console.log(op.n);
 }, 3000);
 
 ///////////////////////////////////////
@@ -145,9 +144,7 @@ async function resLoad(el, src) { // load a resource to element (img)
 
             })
             .catch((e) => {
-                // console.log(e);
-
-                // return false;
+                // 404 not found OR timeout
             })
     } else {
         resLoad_c(id + src, el, g, i);

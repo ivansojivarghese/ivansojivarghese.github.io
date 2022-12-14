@@ -1,7 +1,14 @@
 
 /*main (common) styling*/
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");*/
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+@font-face {
+    font-family: Poppins;
+    src: url("../msc/fonts/poppins/Poppins-Regular.ttf");
+}
 
 *  {
     user-select: none;
@@ -114,7 +121,7 @@ p {
 }
 
 h1, h2, h3, h5, h6, p {
-    font-family: "Poppins", "Roboto", sans-serif;
+    font-family: Poppins, "Roboto", sans-serif;
 }
 
 .t-u {
@@ -418,7 +425,7 @@ a.md, span.md {
     text-align: left;
 }
 
-.c_ta, #error_sc {
+.c_ta, #error_sc, #load_sc {
     text-align: center;
 }
 
@@ -434,12 +441,16 @@ a.md, span.md {
     position: fixed;
 }
 
-.p-r, .link {
+.p-r, .link, #load_text {
     position: relative;
 }
 
 .p-s {
     position: static;
+}
+
+.b-z {
+    bottom: 0;
 }
 /*
 div.locator_img {
@@ -577,6 +588,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/love_white.svg");
 }
 
+.wifi_off_img {
+    background-image: url("../svg/wifi_off.svg");
+}
+
 /*
 .locator_img {
     background-image: url("../svg/locater.svg");
@@ -676,6 +691,8 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 #load_dot {
     animation-name: load_dot;
 }
+
+#load_text {top: 9rem;}
 
 @keyframes load_dot {
     0% {
