@@ -10,6 +10,10 @@ var fchL = {
             el : document.getElementsByClassName("logo-hybrid"),
             u : 'logo/logo_hybrid.png'
         },
+        3 : { // favicon_secondary
+            el : document.getElementsByClassName("logo-secondary"),
+            u : 'logo/favicon_secondary.png'
+        }
     },
     qInfo = [ // quick information
         document.getElementById("qIn1"), // work
