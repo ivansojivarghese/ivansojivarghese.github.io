@@ -386,8 +386,8 @@ function erPg_D(p) { // error page display
 
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
-load_css();
 load_js();
+load_css();
 
 
 rL.p.addEventListener("animationiteration", load_e); // read a function upon every loading ring iteration (transversing)
