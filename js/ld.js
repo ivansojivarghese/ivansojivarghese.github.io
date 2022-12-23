@@ -204,7 +204,7 @@ function load_css() { // load up CSS (common)
 
 function load_css_N() { // load up CSS (after page load)
     var h = getBd(fter, "height"); 
-    c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null);
+    c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
 }
 
 function load_js() { // [compatibility/variables] load
