@@ -1,6 +1,7 @@
 
 
 var disp = document.getElementById("display_sc"), // display   
+    fter = document.getElementById("footer_sc"), // footer
     rL = { // page loader
         f : { // - favicon/logo
             el : document.getElementsByClassName("logo"), // element
@@ -176,6 +177,7 @@ function load_e() { // end the loading sequence
                 }
 
                 load_js_eN(); // load js, after page load
+                load_css_N(); // load css, after page load
 
                 rL.i = true; // page fully loaded
             }, op.t); // give time for opacity .trs to completely hide element
@@ -188,6 +190,7 @@ function load_css() { // load up CSS (common)
     c_css("#load_C", "margin-top: calc((" + cH + "px - 8rem) / 2);", false, null); // align loader to centre of viewport
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
+
     if (vw.mB_L) { // in landscape view (mobile)
         c_css(".err", "margin-top: calc((" + cH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
         eR[eR.h].children[0].classList.remove("c-y"); // modify styling (remove centre-alignment)
@@ -197,6 +200,11 @@ function load_css() { // load up CSS (common)
     if (!op.b.f) { // if browser platform is NOT Firefox
         document.documentElement.classList.add("scB"); // add smooth scroll behaviour
     }*/
+}
+
+function load_css_N() { // load up CSS (after page load)
+    var h = getBd(fter, "height"); 
+    c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null);
 }
 
 function load_js() { // [compatibility/variables] load
