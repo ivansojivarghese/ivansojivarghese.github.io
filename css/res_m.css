@@ -29,15 +29,48 @@
     }
 }
 
+@media screen and (min-width: 250px) and (orientation: portrait), screen and (min-height: 250px) and (orientation: landscape) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 270px) and (orientation: portrait), screen and (min-height: 270px) and (orientation: landscape) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 290px) and (orientation: portrait), screen and (min-height: 290px) and (orientation: landscape) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 310px) and (orientation: portrait), screen and (min-height: 310px) and (orientation: landscape) {
+    html {
+        font-size: 15px;
+    }
+}
+
+
+
+
+
 @media screen and (min-width: 250px) and (min-height: 600px) and (orientation: portrait) { /*special case: folding touch device*/
     html {
         font-size: 13.5px;
     }
 }
 
+
+
+
+
+/*
 @media screen and (min-width: 300px) and (orientation: portrait) {
     html {
-        font-size: 13px;
+        font-size: 15.5px;
     }
 }
 
@@ -75,21 +108,19 @@
     html {
         font-size: 16px;
     }
-}
+}*/
 
-@media screen and (min-width: 360px) and (min-height: 650px) and (orientation: portrait) {
+@media screen and (min-width: 350px) and (orientation: portrait) {
     html {
-        /*font-size: 16.5px;*/
         font-size: 17px;
     }
 }
-
-@media screen and (min-width: 360px) and (min-height: 700px) and (orientation: portrait) {
+/*
+@media screen and (min-width: 360px) and (orientation: portrait) {
     html {
-        /*font-size: 16.5px;*/
         font-size: 17.5px;
     }
-}
+}*/
 
 @media screen and (min-width: 360px) and (min-height: 800px) and (orientation: portrait) {
     html {

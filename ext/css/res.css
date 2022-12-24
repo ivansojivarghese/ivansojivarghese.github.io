@@ -1,0 +1,25 @@
+
+/*responsive styling*/
+
+@media screen and (min-width: 290px) and (max-height: 600px) and (orientation: portrait) { 
+    #profile_image {
+        width: 17rem;
+        height: 17rem;
+    }
+}
+
+@media screen and (min-width: 310px) and (max-height: 550px) and (orientation: portrait) { /* iPhone 4/5/SE support */
+    .head {
+        margin-top: 1rem;
+    }
+
+    #profile_image {
+        width: 15rem;
+        height: 15rem;
+        margin-top: -1rem !important;
+    }
+
+    #intro_sc .content {
+        margin-top: calc((480px - 27.5rem) / 3) !important;
+    }
+}
