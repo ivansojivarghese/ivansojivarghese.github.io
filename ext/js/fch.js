@@ -44,8 +44,8 @@ function load_css_e() { // load CSS styles (page specific)
 
     c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
 
-    if (wD >= 290 && cH <= 640 && !vw.mB_L) {
-        c_css("#profile_image", "width: 17rem; height: 17rem;", false, null);
+    if (wD >= 290 && cH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
+        c_css("#profile_image", "width: 17rem; height: 17rem;", false, null); // apply style mod
     }
 
     c_css("#ham_C", "margin-top: calc((" + cH + "px - 16rem) / 2);", false, null);
