@@ -1,12 +1,12 @@
 
 /*responsive styling*/
-
+/*
 @media screen and (min-width: 290px) and (max-height: 640px) and (orientation: portrait) { 
     #profile_image {
         width: 17rem;
         height: 17rem;
     }
-}
+}*/
 
 @media screen and (min-width: 310px) and (max-height: 550px) and (orientation: portrait) { /* iPhone 4/5/SE modification */
     .head {

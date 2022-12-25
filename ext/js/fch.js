@@ -44,8 +44,12 @@ function load_css_e() { // load CSS styles (page specific)
 
     c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
 
+    if (wD >= 290 && cH <= 640 && !vw.mB_L) {
+        c_css("#profile_image", "width: 17rem; height: 17rem;", false, null);
+    }
+
     c_css("#ham_C", "margin-top: calc((" + cH + "px - 16rem) / 2);", false, null);
-    
+
     if (!op.b.s) { // if browser platform is NOT Safari
 
         // ONLY APPLY FOR DESKTOP VIEWPORTS!
