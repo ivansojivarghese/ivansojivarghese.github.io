@@ -37,9 +37,6 @@ var wH = window.innerHeight, // height
         e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
         f : window.getComputedStyle(document.body).getPropertyValue('font-size'), // get root font-size
         b : { // browser check (major platforms)
-
-            // i : false, // samsung internet
-
             c : false, // chrome
             f : false, // firefox
             s : false, // safari
