@@ -41,8 +41,11 @@ function loadUp() {
 
 function load_css_e() { // load CSS styles (page specific)
     c_css("#intro_sc", "height: calc(" + cH + "px - 7rem);", false, null); // set landing page to full height (exclusive of url bar on mobile/tablet devices)
-    c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + wH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
+
+    c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
+
     c_css("#ham_C", "margin-top: calc((" + cH + "px - 16rem) / 2);", false, null);
+    
     if (!op.b.s) { // if browser platform is NOT Safari
 
         // ONLY APPLY FOR DESKTOP VIEWPORTS!
