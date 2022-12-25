@@ -121,6 +121,19 @@
         font-size: 18px;
     }
 }
+
+@media screen and (min-width: 400px) and (orientation: portrait) {
+    html {
+        font-size: 19px;
+    }
+}
+
+@media screen and (min-width: 420px) and (orientation: portrait) {
+    html {
+        font-size: 20px;
+    }
+}
+
 /*
 @media screen and (min-width: 360px) and (orientation: portrait) {
     html {
@@ -132,7 +145,7 @@
     html {
         font-size: 17px;
     }
-}*/
+}
 
 @media screen and (min-width: 410px) and (orientation: portrait) {
     html {
@@ -156,7 +169,7 @@
     html {
         font-size: 20px;
     }
-}
+}*/
 
 /* to display error message - use of landscape view in mobile phone viewports*/
 /*
