@@ -633,6 +633,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     margin-top: 2rem;
 }
 
+.head_b {
+    padding-top: 7rem;
+}
+
 .head .bt {
     border-radius: 50%;
     width: 2.5rem;
