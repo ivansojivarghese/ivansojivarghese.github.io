@@ -1,7 +1,11 @@
 
 
 var disp = document.getElementById("display_sc"), // display   
-    fter = document.getElementById("footer_sc"), // footer
+    fter = { // footer
+        el : document.getElementById("footer_sc"), // element
+        y : document.getElementById("f_yr"), // copyright year
+        v : document.getElementById("f_vr") // site version
+    },
     rL = { // page loader
         f : { // - favicon/logo
             el : document.getElementsByClassName("logo"), // element
@@ -176,8 +180,8 @@ function load_e() { // end the loading sequence
                     }, 10);
                 }
 
-                load_js_eN(); // load js, after page load
-                load_css_N(); // load css, after page load
+                // load_js_eN(); // load js, after page load
+                load_jscss_N(); // load js/css (common), after page load
 
                 rL.i = true; // page fully loaded
             }, op.t); // give time for opacity .trs to completely hide element
@@ -202,9 +206,12 @@ function load_css() { // load up CSS (common)
     }*/
 }
 
-function load_css_N() { // load up CSS (after page load)
-    var h = getBd(fter, "height"); 
+function load_jscss_N() { // load up JS/CSS (after page load; common)
+    var h = getBd(fter.el, "height"),
+        y = op.d.getFullYear(); // get copyright year
     c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
+    fter.y.innerHTML = y;
+    fter.v.innerHTML = dev.version;
 }
 
 function load_js() { // [compatibility/variables] load

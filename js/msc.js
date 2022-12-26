@@ -18,7 +18,8 @@ var wH = window.innerHeight, // height
             distance : 97,
             hoursNo : 183,
             cappuccinosNo : 245
-        }
+        },
+        version : 2.0 // site version
     },
     op = { // site 'options'
         r : null, // resource link origin
