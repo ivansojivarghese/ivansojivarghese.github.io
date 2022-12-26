@@ -10,6 +10,11 @@
     src: url("../msc/fonts/poppins/Poppins-Regular.ttf");
 }
 
+@font-face {
+    font-family: Raleway;
+    src: url("../msc/fonts/raleway/Raleway-Regular.ttf");
+}
+
 *  {
     user-select: none;
     -webkit-user-select: none; /* Safari support */
@@ -26,7 +31,7 @@ html { /*root element*/
 
 body {
     width: 100vw; /*takes full dimensions*/
-    font-family: "Raleway", "Segoe UI", sans-serif; /*Google Font, installed (offline) font, fallback font*/
+    /*font-family: "Raleway", "Segoe UI", sans-serif; /*Google Font, installed (offline) font, fallback font*/
 }
 
 .scB {
@@ -50,7 +55,7 @@ html, body {
     height: 100%;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, a {
+body, h1, h2, h3, h4, h5, h6, p, a, ul {
     padding: 0;
     margin: 0;
 }
@@ -89,6 +94,7 @@ h4 {
     font-size: 1rem;
     letter-spacing: 0.3em;*/
     margin-bottom: 1.2em;
+    font-family: "Raleway", "Segoe UI", sans-serif;
 }
 
 h5 {
@@ -120,8 +126,24 @@ p {
     padding-bottom: 1em;
 }
 
-h1, h2, h3, h5, h6, p {
+p, ul {
+    padding-right: 1.5rem;
+}
+
+ul {
+    margin-left: 1.5em;
+}
+
+h1, h2, h3, h5, h6, p, ul {
     font-family: Poppins, "Roboto", sans-serif;
+}
+
+.copy {
+    font-size: 1.1rem;
+}
+
+.attr {
+    font-size: 0.85rem;
 }
 
 .t-u {
@@ -215,7 +237,7 @@ div, .tint {
     opacity: 0.1;
 }
 
-.lh-ex {
+.lh-ex, li {
     line-height: 1.5em;
 }
 
@@ -630,7 +652,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 .head {
     position: absolute;
     height: 5rem;
-    margin-top: 2rem;
+    padding-top: 2rem;
 }
 
 .head_b {
@@ -908,18 +930,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 
 /* -------------- */
-
+/*
 #footer_sc p {
     padding-right: 1.5rem;
-}
-
-#footer_sc .copy {
-    font-size: 1.1rem;
-}
-
-#footer_sc .attr {
-    font-size: 0.85rem;
-}
+}*/
 
 #footer_sc .wrap {
     position: relative;
