@@ -19,7 +19,7 @@ var wH = window.innerHeight, // height
             hoursNo : 183,
             cappuccinosNo : 245
         },
-        version : 2.0 // site version
+        version : "2.0" // site version
     },
     op = { // site 'options'
         r : null, // resource link origin
