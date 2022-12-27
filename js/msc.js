@@ -61,7 +61,7 @@ var wH = window.innerHeight, // height
         Lc : null
     },
     pg = { // pages
-        w : "",
+        w : "", // current [open] window
         cond : { // conditions
             el : document.getElementById("cond_sc"), // main
             tnc : document.getElementById("tnc"), // tnc
