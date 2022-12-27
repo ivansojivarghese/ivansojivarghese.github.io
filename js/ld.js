@@ -210,7 +210,7 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
     var h = getBd(fter.el, "height"),
         y = op.d.getFullYear(); // get copyright year
 
-    c_css("#cond_sc", "height: " + cH + "px;", false, null);
+    c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
     c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
     fter.y.innerHTML = y;
