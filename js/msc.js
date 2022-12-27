@@ -59,6 +59,15 @@ var wH = window.innerHeight, // height
         r : true, /// scrolling direction - true if down
         L : null, // loop variables
         Lc : null
+    },
+    pg = { // pages
+        w : "",
+        cond : { // conditions
+            el : document.getElementById("cond_sc"), // main
+            tnc : document.getElementById("tnc"), // tnc
+            dcr : document.getElementById("dcr"), // disclaimer
+            cpy : document.getElementById("cpy") // copyright
+        } 
     };
 
 const checkOnlineStatus = async () => { // check for internet connectivity
@@ -331,14 +340,14 @@ function chkVL(n, s) { // numeral - check for positive/non-zero value
 }
 
 //////////////////////////////////////////
-
+/*
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
     if (s) { // check if class is present before removing
         el.classList.add("z_O"); // fade out
     } else {
         el.classList.remove("z_O"); // fade in
     }
-}
+}*/
 
 function getBd(el, p) { // retrieve getBoundingClientRect (bounding rectangle)
     var elB = el.getBoundingClientRect(),
@@ -358,6 +367,25 @@ function nwCiArr(ar) { // create a comparison [previous index] array
         }
     }
     return a;
+}
+
+function popU_toggle(el, el_s, s) { // pop-up toggle for page window
+    if (s) { // close
+        e_Fd(el, s);
+        c_rep(el, "z-Kk", "z-G");
+        el_s.classList.add("d_n");
+
+        setTimeout(function() {
+            op.s = false;
+        }, op.t);
+    } else { // open
+        op.s = true;
+        pg.w = el_s.id;
+
+        el_s.classList.remove("d_n");
+        c_rep(el, "z-G", "z-Kk");
+        e_Fd(el, s);
+    }
 }
 
 //////////////////////////////////////////

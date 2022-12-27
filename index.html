@@ -100,16 +100,16 @@
             </div> 
         </div> 
         <div id="display_sc" class="trs z_O d_n">
-            <div id="tnc_sc" class="bC_L h-f z-G z_O" style="opacity: 1; z-index: 500;">
+            <div id="cond_sc" class="bC_L h-f p-f trs z-G z_O">
                 <div class="head bC_L">
-                    <div class="ham bt trs">
+                    <div class="ham bt trs" onclick="popU_toggle(pg.cond.el, pg.cond[pg.w], true)">
                         <div class="stroke bC_d"></div>
                         <div class="stroke bC_d"></div>
                     </div>
                 </div>
                 <div class="head_b ovy-s">
                     <div class="m_L-10 m_wd">
-                        <div>
+                        <div id="tnc" class="d_n p_B">
                             <h3>t&c</h3>
                             <p class="attr lh-ex">
                                 Welcome.
@@ -142,7 +142,7 @@
                                 <li>Your use of this website and any dispute arising out of such use of the website is subject to local laws.</li>
                             </ul>
                         </div>
-                        <div>
+                        <div id="dcr" class="d_n p_B">
                             <h3>disclaimer</h3>
                             <p class="attr lh-ex">The information contained in this website is for general information purposes only. 
                                 The information is provided by Ivan Varghese and while we endeavour to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. 
@@ -161,7 +161,7 @@
                                 However, we take no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.
                             </p>
                         </div>
-                        <div>
+                        <div id="cpy" class="d_n p_B">
                             <h3>copyright</h3>
                             <p class="attr lh-ex">
                                 <p class="attr lh-ex">This website and its content is copyright of Ivan Varghese. 
@@ -176,7 +176,7 @@
                     </div>                    
                 </div>
             </div>
-            <div id="intro_main" class="p-r" style="display: none;">
+            <div id="intro_main" class="p-r">
                 <div id="h_tint" class="tint"></div>
                 <div class="head z-K">
                     <div id="hamburger_button" class="ham bt trs">
@@ -321,9 +321,9 @@
                         <p class="attr lh-ex">Disclaimer</p> -->
 
                         <p class="attr lh-ex">
-                            Refer to the <a class="t-u">Copyright</a> statement,
-                            <a class="t-u">Terms & Conditions</a> of usage, 
-                            and content <a class="t-u">Disclaimer</a> for further information.
+                            Refer to the <a class="t-u" onclick="popU_toggle(pg.cond.el, pg.cond.cpy, false)">Copyright</a> statement,
+                            <a class="t-u" onclick="popU_toggle(pg.cond.el, pg.cond.tnc, false)">Terms & Conditions</a> of usage, 
+                            and content <a class="t-u" onclick="popU_toggle(pg.cond.el, pg.cond.dcr, false)">Disclaimer</a> for further information.
                         </p>
 
                         <!-- 

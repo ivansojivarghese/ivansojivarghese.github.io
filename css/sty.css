@@ -463,7 +463,7 @@ a.md, span.md {
     text-align: right;
 }
 
-.p-a, #load_sc, #error_sc, #display_sc, #tnc_sc, .load_r, .loader .wrap, .tint {
+.p-a, #load_sc, #error_sc, #display_sc, .load_r, .loader .wrap, .tint {
     position: absolute;
 }
 
@@ -675,11 +675,11 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 /* ------------- */
 
-#tnc_sc .stroke:first-child {
+#cond_sc .stroke:first-child {
     transform: translateY(0.75rem) rotate(45deg);
 }
 
-#tnc_sc .stroke:last-child {
+#cond_sc .stroke:last-child {
     transform: rotate(-45deg);
 }
 
