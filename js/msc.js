@@ -393,7 +393,7 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
         setTimeout(function() {
             op.s = true;
             if (op.b.f) {
-                pg.cond.el.style.height = cH + "px";
+                pg.cond.el.style.height = wH + "px";
             }
         }, op.t);
     }
