@@ -390,9 +390,9 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
 
         // setTimeout(function() {
         // op.s = false;
-        scr_t(true, null);
+        //scr_t(true, null);
 
-        hm.e = false;
+        //hm.e = false;
         pg.e = false;
         /*
         if (op.b.f) {
@@ -414,9 +414,9 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
 
         // setTimeout(function() {
         // op.s = true;
-        scr_t(false, null);
+        //scr_t(false, null);
 
-        hm.e = true;
+        //hm.e = true;
         pg.e = true;
         /*
         if (op.b.f) {
