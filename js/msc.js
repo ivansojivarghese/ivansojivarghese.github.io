@@ -452,29 +452,33 @@ function scr_t(s, pg) { // scroll toggle
         b = document.body;
     if (s) { // enable
         if (pg) { // if page
+            /*
             if (op.b.s) { // safari compatibility
                 pg.classList.remove("p-f");
-            }
+            }*/
             c_rep(pg, "ovy-h", "ovy-s"); // enable scrolling
         } else { // or window
+            /*
             if (op.b.s) { // safari compatibility
                 h.classList.remove("p-f");
                 b.classList.remove("p-f");
-            }
+            }*/
             c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
             c_rep(b, "ovy-h", "ovy-s"); // body
         }
     } else { // disable
         if (pg) {
+            /*
             if (op.b.s) { // safari compatibility
                 pg.classList.add("p-f");
-            }
+            }*/
             c_rep(pg, "ovy-s", "ovy-h"); // disable scrolling
         } else {
+            /*
             if (op.b.s) { // safari compatibility
                 h.classList.add("p-f");
                 b.classList.add("p-f");
-            }
+            }*/
             c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
             c_rep(b, "ovy-s", "ovy-h"); // body
         }
@@ -485,7 +489,7 @@ function scr_t(s, pg) { // scroll toggle
 
 const documentHeight = () => {
     const doc = document.documentElement;
-    doc.style.setProperty("--doc-height", "${window.innerHeight}px");
+    // doc.style.setProperty("--doc-height", "${window.innerHeight}px");
 }
 window.addEventListener("resize", documentHeight);
 documentHeight();
