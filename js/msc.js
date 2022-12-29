@@ -377,12 +377,12 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
         c_rep(el, "z-Kk", "z-G");
         el_s.classList.add("d_n");
 
-        setTimeout(function() {
-            op.s = false;
-            if (op.b.f) {
-                pg.cond.el.style.height = "";
-            }
-        }, op.t);
+        // setTimeout(function() {
+        op.s = false;
+        if (op.b.f) {
+            pg.cond.el.style.height = "";
+        }
+        // }, op.t);
     } else { // open
         pg.w = el_s.id;
 
@@ -390,12 +390,12 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
         c_rep(el, "z-G", "z-Kk");
         e_Fd(el, s);
 
-        setTimeout(function() {
-            op.s = true;
-            if (op.b.f) {
-                pg.cond.el.style.height = wH + "px";
-            }
-        }, op.t);
+        // setTimeout(function() {
+        op.s = true;
+        if (op.b.f) {
+            pg.cond.el.style.height = wH + "px";
+        }
+        // }, op.t);
     }
 }
 
