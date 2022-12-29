@@ -6,7 +6,7 @@ var wH = window.innerHeight, // height
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
-        mode : false,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+        mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
             work : "web dev", // work label
@@ -61,6 +61,8 @@ var wH = window.innerHeight, // height
         Lc : null
     },
     pg = { // pages
+        e : false,
+        t : "", // reference window category
         w : "", // current [open] window
         cond : { // conditions
             el : document.getElementById("cond_sc"), // main
@@ -193,13 +195,21 @@ function pL() { // site parameters loop
         }
     }
 
-    if (!hm.e) {
+    if (!hm.e || pg.e) {
         if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
             op.p.L = true;
-            scr_t(false); // disable scroll
+            if (pg.e) { // if page
+                scr_t(false, pg[pg.t].el); // disable page scroll
+            } else { // if window
+                scr_t(false, null); // disable window scroll
+            }
         } else {
             op.p.L = false;
-            scr_t(true); // enable scroll
+            if (pg.e) {
+                scr_t(true, pg[pg.t].el); // disable page scroll
+            } else {
+                scr_t(true, null); // enable scroll
+            }
         }
     }
 
@@ -371,17 +381,19 @@ function nwCiArr(ar) { // create a comparison [previous index] array
 
 function popU_toggle(el, el_s, s) { // pop-up toggle for page window
     if (s) { // close
+        pg.t = "";
         pg.w = "";
 
-        e_Fd(el, s);
-        c_rep(el, "z-Kk", "z-G");
-        el_s.classList.add("d_n");
+        e_Fd(pg[el].el, s);
+        c_rep(pg[el].el, "z-Kk", "z-G");
+        pg[el][el_s].classList.add("d_n");
 
         // setTimeout(function() {
         // op.s = false;
-        scr_t(true);
+        scr_t(true, null);
 
         hm.e = false;
+        pg.e = false;
         /*
         if (op.b.f) {
             pg.cond.el.style.height = "";
@@ -389,17 +401,23 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
         
         // }, op.t);
     } else { // open
-        pg.w = el_s.id;
+        pg.t = el;
+        pg.w = el_s;
 
-        el_s.classList.remove("d_n");
-        c_rep(el, "z-G", "z-Kk");
-        e_Fd(el, s);
+        pg[el][el_s].classList.remove("d_n");
+        c_rep(pg[el].el, "z-G", "z-Kk");
+        e_Fd(pg[el].el, s);
+
+        // el_s.classList.remove("d_n");
+        // c_rep(el, "z-G", "z-Kk");
+        // e_Fd(el, s);
 
         // setTimeout(function() {
         // op.s = true;
-        scr_t(false);
+        scr_t(false, null);
 
         hm.e = true;
+        pg.e = true;
         /*
         if (op.b.f) {
             pg.cond.el.style.height = wH + "px";
@@ -429,23 +447,37 @@ function c_rep(el, d, n) { // replace CSS classes in elements
 
 //////////////////////////////////////////
 
-function scr_t(s) { // scroll toggle
+function scr_t(s, pg) { // scroll toggle
     var h = document.documentElement,
         b = document.body;
     if (s) { // enable
-        if (op.b.s) { // safari compatibility
-            h.classList.remove("p-f");
-            b.classList.remove("p-f");
+        if (pg) { // if page
+            if (op.b.s) { // safari compatibility
+                pg.classList.remove("p-f");
+            }
+            c_rep(pg, "ovy-h", "ovy-s"); // enable scrolling
+        } else { // or window
+            if (op.b.s) { // safari compatibility
+                h.classList.remove("p-f");
+                b.classList.remove("p-f");
+            }
+            c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
+            c_rep(b, "ovy-h", "ovy-s"); // body
         }
-        c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
-        c_rep(b, "ovy-h", "ovy-s"); // body
     } else { // disable
-        if (op.b.s) { // safari compatibility
-            h.classList.add("p-f");
-            b.classList.add("p-f");
+        if (pg) {
+            if (op.b.s) { // safari compatibility
+                pg.classList.add("p-f");
+            }
+            c_rep(pg, "ovy-s", "ovy-h"); // disable scrolling
+        } else {
+            if (op.b.s) { // safari compatibility
+                h.classList.add("p-f");
+                b.classList.add("p-f");
+            }
+            c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
+            c_rep(b, "ovy-s", "ovy-h"); // body
         }
-        c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
-        c_rep(b, "ovy-s", "ovy-h"); // body
     }
 }
 

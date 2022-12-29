@@ -133,10 +133,10 @@ function h_mTg() { // ham. menu toggle
 
                     if (p >= 0.55 && !pos.c && !hm.z) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
                         op.s = false; // 'force' enable scroll (secondary)
-                        scr_t(false);
+                        scr_t(false, null);
                     } else if (!hm.z) {
                         op.s = false; // 'force' enable scroll (secondary)
-                        scr_t(false);
+                        scr_t(false, null);
                     } else {
                         op.s = false;
                     }
@@ -153,7 +153,7 @@ function h_mTg() { // ham. menu toggle
                 }, /*(p * t)*/ 10); // delay function to allow 'pos.c' variable to update
 
             } else {
-                scr_t(false);
+                scr_t(false, null);
             }
             /*
             if (hm.h) {
@@ -209,7 +209,7 @@ function h_mTg() { // ham. menu toggle
                 }, op.t);
             }
 
-            scr_t(true);    
+            scr_t(true, null);    
 
             hm.e = false;
 
