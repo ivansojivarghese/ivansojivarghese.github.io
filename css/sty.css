@@ -689,7 +689,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 /* ------------- */
 
-#error_sc h4, #error_sc p {
+#error_sc h4, #error_sc p, p.error {
     padding: 0 0.5em;
 }
 
