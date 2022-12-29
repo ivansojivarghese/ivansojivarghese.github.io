@@ -488,9 +488,9 @@ function scr_t(s, pg) { // scroll toggle
 //////////////////////////////////////////
 
 const documentHeight = () => {
-    window.alert("resize");
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${document.documentElement.clientHeight}px`);
+    window.alert("resize" + doc.style.getPropertyValue("--doc-height"));
 }
 window.addEventListener("resize", documentHeight);
 documentHeight();
