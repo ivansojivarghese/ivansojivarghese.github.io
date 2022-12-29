@@ -489,12 +489,10 @@ function scr_t(s, pg) { // scroll toggle
 
 const documentHeight = () => {
     const doc = document.documentElement;
-    doc.style.setProperty("--doc-height", `${document.documentElement.clientHeight}px`);
+    doc.style.setProperty("--doc-height", `${document.documentElement.clientHeight}px`); // update height values of body/html on clientHeight resize
 }
 window.addEventListener("resize", documentHeight);
 documentHeight();
-
-
 
 window.addEventListener("resize", function() {
     if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values before proceeding
@@ -504,8 +502,6 @@ window.addEventListener("resize", function() {
         reL(); // reload page
     }
 });
-
-
 
 window.addEventListener("scroll", function() {
     if (!pos.yA) {
