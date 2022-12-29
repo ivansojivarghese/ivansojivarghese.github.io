@@ -489,7 +489,7 @@ function scr_t(s, pg) { // scroll toggle
 
 const documentHeight = () => {
     const doc = document.documentElement;
-    // doc.style.setProperty("--doc-height", "${window.innerHeight}px");
+    doc.style.setProperty("--doc-height", "${window.innerHeight}px");
 }
 window.addEventListener("resize", documentHeight);
 documentHeight();
