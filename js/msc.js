@@ -483,6 +483,13 @@ function scr_t(s, pg) { // scroll toggle
 
 //////////////////////////////////////////
 
+const documentHeight = () => {
+    const doc = document.documentElement;
+    doc.style.setProperty("--doc-height", "${window.innerHeight}px");
+}
+window.addEventListener("resize", documentHeight);
+documentHeight();
+
 window.addEventListener("resize", function() {
     if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values before proceeding
         wH = window.innerHeight; // update on window size variables
