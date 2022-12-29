@@ -378,8 +378,10 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
         el_s.classList.add("d_n");
 
         // setTimeout(function() {
-        op.s = false;
+        // op.s = false;
         scr_t(true);
+
+        hm.e = false;
 
         if (op.b.f) {
             pg.cond.el.style.height = "";
@@ -394,8 +396,10 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
         e_Fd(el, s);
 
         // setTimeout(function() {
-        op.s = true;
+        // op.s = true;
         scr_t(false);
+
+        hm.e = true;
 
         if (op.b.f) {
             pg.cond.el.style.height = wH + "px";
