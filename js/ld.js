@@ -199,12 +199,12 @@ function load_css() { // load up CSS (common)
         c_css(".err", "margin-top: calc((" + cH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
         eR[eR.h].children[0].classList.remove("c-y"); // modify styling (remove centre-alignment)
     }
-
+    /*
     if (op.b.f) {
         pg.cond.el.classList.add("h-fp");
     } else {
         pg.cond.el.classList.add("h-f");
-    }
+    }*/
     
     /*
     if (!op.b.f) { // if browser platform is NOT Firefox
