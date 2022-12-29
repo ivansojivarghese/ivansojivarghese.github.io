@@ -379,9 +379,12 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
 
         // setTimeout(function() {
         op.s = false;
+        scr_t(true);
+
         if (op.b.f) {
             pg.cond.el.style.height = "";
         }
+        
         // }, op.t);
     } else { // open
         pg.w = el_s.id;
@@ -392,9 +395,12 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
 
         // setTimeout(function() {
         op.s = true;
+        scr_t(false);
+
         if (op.b.f) {
             pg.cond.el.style.height = wH + "px";
         }
+
         // }, op.t);
     }
 }
