@@ -172,6 +172,13 @@ function getSiteRes() { // obtain site resource origin
     return b;
 }
 
+function setCookie(n, v, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = n + "=" + v + ";" + expires + ";path=/";
+}
+
 function cookiesAccept() { // acknowledge user acceptance and allow site access
     pg.cks.el.classList.add("z_O");
     setTimeout(function() {
