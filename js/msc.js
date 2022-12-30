@@ -174,7 +174,7 @@ function getSiteRes() { // obtain site resource origin
 function cookiesAccept() { // acknowledge user acceptance and allow site access
     pg.cks.el.classList.add("z_O");
     setTimeout(function() {
-        pg.cks.el.classList.add("d_n");
+        pg.cks.el.classList.add("d_n"); // show page
         op.c = true;
     }, op.t);
 }
