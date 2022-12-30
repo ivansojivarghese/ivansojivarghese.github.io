@@ -176,7 +176,9 @@ function load_e() { // end the loading sequence
                     disp.classList.remove("d_n"); // show the page
                     setTimeout(function() {
                         e_Fd(disp, false);  
-                        scr_t(false, null); // enable scrolling
+                        if (op.c) { // if cookie-use accepted
+                            scr_t(true, null); // enable scrolling
+                        }
                     }, 10);
                 }
 

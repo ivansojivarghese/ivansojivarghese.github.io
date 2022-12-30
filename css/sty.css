@@ -228,7 +228,7 @@ div, .tint {
     opacity: 0;
 }
 
-.z_P {
+.tint {
     opacity: 0.8;
 }
 
@@ -296,7 +296,7 @@ div, .tint {
     background-color: transparent;
 }
 
-.bC_d, .in-col, .cnt.md {
+.bC_d, .in-col, .cnt.md, .tint {
     background-color: #303030;
 }
 
