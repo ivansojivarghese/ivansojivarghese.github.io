@@ -172,10 +172,10 @@ function getSiteRes() { // obtain site resource origin
     return b;
 }
 
-function setCookie(n, v, days) {
+function setCookie(n, v, days) { // create a cookie 
     const d = new Date();
     d.setTime(d.getTime() + (days*24*60*60*1000));
-    let expires = "expires=" + d.toUTCString();
+    let expires = "expires=" + d.toUTCString(); // add expiry time tag (days)
     document.cookie = n + "=" + v + ";" + expires + ";path=/";
 }
 
