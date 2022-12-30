@@ -179,6 +179,22 @@ function setCookie(n, v, days) { // create a cookie
     document.cookie = n + "=" + v + ";" + expires + ";path=/";
 }
 
+function getCookie(n) {
+    let name = n + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
 function cookiesAccept() { // acknowledge user acceptance and allow site access
     pg.cks.el.classList.add("z_O");
     setTimeout(function() {
