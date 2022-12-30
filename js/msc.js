@@ -65,12 +65,15 @@ var wH = window.innerHeight, // height
         e : false,
         t : "", // reference window category
         w : "", // current [open] window
+        cks : { // cookies
+            el : document.getElementById("ckA_sc")
+        },
         cond : { // conditions
             el : document.getElementById("cond_sc"), // main
             tnc : document.getElementById("tnc"), // tnc
             dcr : document.getElementById("dcr"), // disclaimer
             cpy : document.getElementById("cpy") // copyright
-        } 
+        }
     };
 
 const checkOnlineStatus = async () => { // check for internet connectivity
@@ -169,7 +172,7 @@ function getSiteRes() { // obtain site resource origin
 }
 
 function cookiesAccept() { // acknowledge user acceptance and allow site access
-    
+
     op.c = true;
 }
 
