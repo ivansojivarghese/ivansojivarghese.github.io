@@ -35,7 +35,8 @@ var disp = document.getElementById("display_sc"), // display
         m : document.getElementById("error_sc"), // main
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
-        ld : document.getElementById("error_lnd") // landscape
+        ld : document.getElementById("error_lnd"), // landscape
+        ck : document.getElementById("error_cke") // cookies
     },
 
 
@@ -350,6 +351,11 @@ function errorCheck() { // check for errors
         eR.h = "vL";
     } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.h = "ld";
+    } else if (!op.k) { // check if cookies have been disabled (or not detected)
+
+        console.log("cookies disabled");
+
+        eR.h = "ck";
 
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
@@ -401,6 +407,7 @@ function erPg_D(p) { // error page display
 
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
+op.k = navigator.cookieEnabled; // check for enabled cookies
 load_js();
 load_css();
 

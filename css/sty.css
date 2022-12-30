@@ -144,11 +144,11 @@ h1, h2, h3, h5, h6, p, ul {
 }
 
 .copy {
-    font-size: 1.1rem;
+    font-size: 1.1rem !important;
 }
 
 .attr {
-    font-size: 0.85rem;
+    font-size: 0.85rem !important;
 }
 
 .t-u {
@@ -247,7 +247,7 @@ div, .tint {
 }
 
 .lh-ex, li {
-    line-height: 1.5em;
+    line-height: 1.5em !important;
 }
 
 .f_wg-n {

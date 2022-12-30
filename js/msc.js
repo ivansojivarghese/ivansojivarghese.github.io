@@ -22,7 +22,8 @@ var wH = window.innerHeight, // height
         version : "2.0" // site version
     },
     op = { // site 'options'
-        c : false, // cookie-acceptance check
+        k : null, // cookies enabled?
+        c : false, // [user] cookie-acceptance
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
         s : false, // check boolean - 'force' disable scroll
