@@ -352,11 +352,7 @@ function errorCheck() { // check for errors
     } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.h = "ld";
     } else if (!op.k) { // check if cookies have been disabled (or not detected)
-
-        console.log("cookies disabled");
-
         eR.h = "ck";
-
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
         /*
