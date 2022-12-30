@@ -196,20 +196,29 @@ function pL() { // site parameters loop
     }
 
     if (!hm.e || pg.e) {
+        var arg = pg.e ? pg[pg.t].el : null;
         if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
             op.p.L = true;
+
+            scr_t(false, arg);
+
+            /*
             if (pg.e) { // if page
                 scr_t(false, pg[pg.t].el); // disable page scroll
             } else { // if window
                 scr_t(false, null); // disable window scroll
-            }
+            }*/
         } else {
             op.p.L = false;
+
+            scr_t(true, arg);
+            
+            /*
             if (pg.e) {
                 scr_t(true, pg[pg.t].el); // disable page scroll
             } else {
                 scr_t(true, null); // enable scroll
-            }
+            }*/
         }
     }
 
