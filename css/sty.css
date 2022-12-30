@@ -528,6 +528,10 @@ div.locator_img {
     z-index: 1500;
 }
 
+.z-T {
+    z-index: 2000;
+}
+
 /* -------------- */
 
 .text {
@@ -665,17 +669,32 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }
 
 .head .bt {
-    border-radius: 50%;
+    margin-left: calc(100vw - (5rem + 1.5rem));
+}
+
+.ham.bt {
     width: 2.5rem;
     height: 1.85rem;
     padding: 1.575rem 1.25rem;
-    margin-left: calc(100vw - (5rem + 1.5rem));
+}
+
+.ham.mini.bt {
+    width: 2rem;
+    height: 0.3rem;
+    padding: 1.75rem 1em;
+    margin-left: calc(100vw - (2rem + 2em));
 }
 
 .ham .stroke {
     width: 2.5rem;
     height: 0.35rem;
     margin-bottom: 0.4rem;
+}
+
+.ham.mini .stroke {
+    width: 2rem;
+    height: 0.3rem;
+    margin-bottom: 0;
 }
 
 /* ------------- */
