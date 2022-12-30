@@ -66,7 +66,7 @@ var wH = window.innerHeight, // height
         t : "", // reference window category
         w : "", // current [open] window
         cks : { // cookies
-            el : document.getElementById("ckA_sc")
+            el : document.getElementById("ckA_sc"), // el
         },
         cond : { // conditions
             el : document.getElementById("cond_sc"), // main
@@ -173,7 +173,10 @@ function getSiteRes() { // obtain site resource origin
 
 function cookiesAccept() { // acknowledge user acceptance and allow site access
     pg.cks.el.classList.add("z_O");
-    op.c = true;
+    setTimeout(function() {
+        pg.cks.el.classList.add("d_n");
+        op.c = true;
+    }, op.t);
 }
 
 //////////////////////////////////////////
