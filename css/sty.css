@@ -688,7 +688,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 .ham.mini.bt {
     width: 1.8rem;
-    height: 0.3rem;
+    height: 0.2rem;
     padding: 1.75rem 1em 1.5rem;
     margin-left: calc(100vw - (1.8rem + 2em));
 }
@@ -701,7 +701,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 .ham.mini .stroke {
     width: 1.8rem;
-    height: 0.3rem;
+    height: 0.2rem;
     margin-bottom: 0;
 }
 
