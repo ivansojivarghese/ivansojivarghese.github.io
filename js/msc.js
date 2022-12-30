@@ -384,13 +384,17 @@ function nwCiArr(ar) { // create a comparison [previous index] array
     return a;
 }
 
-function popU_toggle(el, el_s, s) { // pop-up toggle for page window
+function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
     if (s) { // close
         pg.t = "";
         pg.w = "";
 
         e_Fd(pg[el].el, s);
-        c_rep(pg[el].el, "z-Kk", "z-G");
+        if (m) {
+            c_rep(pg[el].el, "z-I", "z-G");
+        } else {
+            c_rep(pg[el].el, "z-Kk", "z-G");
+        }
         pg[el][el_s].classList.add("d_n");
 
         // setTimeout(function() {
@@ -410,7 +414,11 @@ function popU_toggle(el, el_s, s) { // pop-up toggle for page window
         pg.w = el_s;
 
         pg[el][el_s].classList.remove("d_n");
-        c_rep(pg[el].el, "z-G", "z-Kk");
+        if (m) {
+            c_rep(pg[el].el, "z-G", "z-I"); // upgraded z-index
+        } else {
+            c_rep(pg[el].el, "z-G", "z-Kk");
+        }
         e_Fd(pg[el].el, s);
 
         // el_s.classList.remove("d_n");
