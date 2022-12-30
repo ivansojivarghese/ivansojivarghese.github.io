@@ -6,7 +6,7 @@ var wH = window.innerHeight, // height
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
-        mode : false,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+        mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
             work : "web dev", // work label
@@ -207,7 +207,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if ((!hm.e || pg.e) && op.c) {
+    if ((!hm.e && op.c) || pg.e) {
         var arg = pg.e ? pg[pg.t].el : null;
         if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
             op.p.L = true;
@@ -391,7 +391,9 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
 
         e_Fd(pg[el].el, s);
         if (m) {
-            c_rep(pg[el].el, "z-I", "z-G");
+            setTimeout(function() {
+                c_rep(pg[el].el, "z-I", "z-G");
+            }, op.t);
         } else {
             c_rep(pg[el].el, "z-Kk", "z-G");
         }
@@ -399,7 +401,9 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
 
         // setTimeout(function() {
         // op.s = false;
-        scr_t(true, null);
+        if (op.c) {
+            scr_t(true, null);
+        }
 
         hm.e = false;
         pg.e = false;
@@ -427,7 +431,9 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
 
         // setTimeout(function() {
         // op.s = true;
-        scr_t(false, null);
+        if (op.c) {
+            scr_t(false, null);
+        }
 
         hm.e = true;
         pg.e = true;
