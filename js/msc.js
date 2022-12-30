@@ -172,7 +172,7 @@ function getSiteRes() { // obtain site resource origin
 }
 
 function cookiesAccept() { // acknowledge user acceptance and allow site access
-
+    pg.cks.el.classList.add("z_O");
     op.c = true;
 }
 
