@@ -61,12 +61,9 @@ var disp = document.getElementById("display_sc"), // display
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
-
-            console.log("loading");
-
             if (!rL.e4) {
                 rL.e4 = true;
-                e_Fd(rL.m, false);
+                e_Fd(rL.m, false); // show load-box
             }
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!rL.e) { // ensure once execution
@@ -74,7 +71,7 @@ function docRead() {
                     rL.e2 = true;
                     if (!rL.e4) {
                         rL.e4 = true;
-                        e_Fd(rL.m, false);
+                        e_Fd(rL.m, false); // show load-box (either flow)
                     }
                     if (getCookie("userAccess") !== "true") { // create an access cookie (checks for first-time access)
                         resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
