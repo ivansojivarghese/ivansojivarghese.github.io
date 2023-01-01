@@ -79,10 +79,11 @@ function docRead() {
                     if (getCookie("userAccess") !== "true") { // create an access cookie (checks for first-time access)
                         resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
                         setCookie("userAccess", "true", 1); // access cookie lasts for 24 hours
+                        op.a = true;
                     } else {
                         Rd[Rd.length] = true;
 
-                        op.a = true;
+                        op.a = false;
 
                         console.log("2nd time");
                     }
@@ -99,7 +100,7 @@ function docRead() {
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded (or not)
                     rL.e3 = true; 
-                    if (!op.a) {
+                    if (op.a) {
                         e_Fd(rL.g, false); // show logo
                     }
 
