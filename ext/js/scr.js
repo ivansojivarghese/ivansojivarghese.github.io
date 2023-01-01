@@ -37,7 +37,7 @@ var im = { // #intro_main
 function sc_L() { // functions (live on scroll)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
-        if (getCookie("statsIncr") !== "true") {
+        if (getCookie("statsIncr") !== "true") { // check if cookie exists
             var b1 = getBd(sI_1.e, "top"), // get respective 'top' boundaries for each stat
                 b2 = getBd(sI_2.e, "top"),
                 b3 = getBd(sI_3.e, "top");
@@ -56,7 +56,12 @@ function sc_L() { // functions (live on scroll)
                 setCookie("statsIncr", "true", 1); // create cookie to detemine if stats have been incremented by user (on initial usage)
             }
         } else {
-
+            if (!sI_1.s) {
+                sI_1.e.innerHTML = sI_1.n; // apply automatically (no increment)
+                sI_2.e.innerHTML = sI_2.n;
+                sI_3.e.innerHTML = sI_3.n;
+                sI_1.s = true; // apply once
+            }
         }
         /*
         if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
