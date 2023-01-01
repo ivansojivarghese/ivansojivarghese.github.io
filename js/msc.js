@@ -530,7 +530,9 @@ function scr_t(s, pg) { // scroll toggle
 
 //////////////////////////////////////////
 
-setCookie("userAccess", "true", 1);
+if (getCookie("userAccess") !== "true") {
+    setCookie("userAccess", "true", 1);
+}
 
 //////////////////////////////////////////
 
