@@ -82,10 +82,7 @@ function docRead() {
                         op.a = true;
                     } else {
                         Rd[Rd.length] = true;
-
                         op.a = false;
-
-                        console.log("2nd time");
                     }
                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
