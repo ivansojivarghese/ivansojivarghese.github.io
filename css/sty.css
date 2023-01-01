@@ -254,7 +254,7 @@ div, .tint {
     font-weight: normal;
 }
 
-.f_wg-b, .em, .hm h5 {
+.f_wg-b, .em, .hm h5, .pill h4 {
     font-weight: bold;
 }
 
@@ -464,7 +464,7 @@ a.md, span.md {
     text-align: left;
 }
 
-.c_ta, #error_sc, #load_sc {
+.c_ta, .pill, #error_sc, #load_sc {
     text-align: center;
 }
 
@@ -595,6 +595,17 @@ div.locator_img {
     height: 2.5rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+.pill {
+    width: 8em;
+    height: 2em;
+    border-radius: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+.pill h4 {
+    padding: 0.5em 0;
 }
 
 .link {
