@@ -6,7 +6,7 @@ var im = { // #intro_main
         // t : document.getElementById("h_tint"), // background tint
         L : document.getElementById("lead_sc"),
         j : 0,
-        p : 0.5, // parallax scroll constant
+        // p : 0.5, // parallax scroll constant
         s : true // code execution status
     },
     
@@ -55,6 +55,8 @@ function sc_L() { // functions (live on scroll)
                 sI_3.s = true;
                 setCookie("statsIncr", "true", 1); // create cookie to detemine if stats have been incremented by user (on initial usage)
             }
+        } else {
+
         }
         /*
         if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
