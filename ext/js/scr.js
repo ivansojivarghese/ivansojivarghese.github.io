@@ -37,21 +37,24 @@ var im = { // #intro_main
 function sc_L() { // functions (live on scroll)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
-        var b1 = getBd(sI_1.e, "top"), // get respective 'top' boundaries for each stat
-            b2 = getBd(sI_2.e, "top"),
-            b3 = getBd(sI_3.e, "top");
+        if (getCookie("statsIncr") !== "true") {
+            var b1 = getBd(sI_1.e, "top"), // get respective 'top' boundaries for each stat
+                b2 = getBd(sI_2.e, "top"),
+                b3 = getBd(sI_3.e, "top");
 
-        if (chkVL(b1) && (b1 < wH) && !sI_1.s) { // stats 1 (if within viewport visual)
-            e_Ic(sI_1, null, sI_1.n);
-            sI_1.s = true; // only execute each block once
-        }
-        if (chkVL(b2) && (b2 < wH) && !sI_2.s) { // stats 2
-            e_Ic(sI_2, null, sI_2.n);
-            sI_2.s = true;
-        }
-        if (chkVL(b3) && (b3 < wH) && !sI_3.s) { // stats 3
-            e_Ic(sI_3, null, sI_3.n);
-            sI_3.s = true;
+            if (chkVL(b1) && (b1 < wH) && !sI_1.s) { // stats 1 (if within viewport visual)
+                e_Ic(sI_1, null, sI_1.n);
+                sI_1.s = true; // only execute each block once
+            }
+            if (chkVL(b2) && (b2 < wH) && !sI_2.s) { // stats 2
+                e_Ic(sI_2, null, sI_2.n);
+                sI_2.s = true;
+            }
+            if (chkVL(b3) && (b3 < wH) && !sI_3.s) { // stats 3
+                e_Ic(sI_3, null, sI_3.n);
+                sI_3.s = true;
+                setCookie("statsIncr", "true", 1); // create cookie to detemine if stats have been incremented by user (on initial usage)
+            }
         }
         /*
         if (pos.y === 0 && !pos.r && num_Ct(pos.v, op.e, true) && im.s) { // during a high-speed reverse scroll to the top (pos.y < threshold of viewport)
