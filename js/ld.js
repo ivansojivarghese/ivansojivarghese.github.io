@@ -100,21 +100,23 @@ function docRead() {
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded (or not)
                     rL.e3 = true; 
-                    if (op.a) {
-                        e_Fd(rL.g, false); // show logo
-                    }
-
+                    e_Fd(rL.g, false); // show logo
                     rL.dt.classList.add("d_n"); // hide loading dot
-
                     setTimeout(function() {
-                        e_Fd(rL.t, false); // standby loading rings
+                        if (op.a) {
+                            e_Fd(rL.t, false); // standby loading rings
+                        }
                         e_Fd(rL.r, false);
                     }, op.t); // same duration as .trs transition duration property
                     setTimeout(function() { // run loading animation
                         rL.g.classList.add("z_O"); 
-                        rL.t.classList.add("template");
+                        if (op.a) {
+                            rL.t.classList.add("template");
+                        }
                         setTimeout(function() { // hide the logo and show the rings
-                            rL.t.classList.add("z_O");
+                            if (op.a) {
+                                rL.t.classList.add("z_O");
+                            }
                             load_js_e(); // load js (indiv.)
                             load_css_e(); // load css styles to 'head' (indiv.)
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
