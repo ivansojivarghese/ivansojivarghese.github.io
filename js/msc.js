@@ -29,8 +29,8 @@ var wH = window.innerHeight, // height
             aL : 1 // user access (initial) time limit (days)
         },
 
-        aL : 1, 
-        a : null, 
+        // aL : 1, 
+        // a : null, 
         // k : null, 
         // c : false, 
 
