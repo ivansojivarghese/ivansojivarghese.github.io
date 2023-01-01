@@ -22,6 +22,7 @@ var wH = window.innerHeight, // height
         version : "2.0" // site version
     },
     op = { // site 'options'
+        aL : 1, // user access cookie time limit (days)
         a : null, // user access (inital) check [browser-dependant]
         k : null, // cookies enabled?
         c : false, // [user] cookies-enabled-acceptance
