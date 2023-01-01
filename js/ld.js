@@ -42,6 +42,7 @@ var disp = document.getElementById("display_sc"), // display
 
 
 
+
     bC_d = "#303030", // contrast colour - dark
     bC_L = "#FFF", // contrast colour - light
     bC_t = "transparent",
@@ -53,6 +54,7 @@ var disp = document.getElementById("display_sc"), // display
     r, // before-load parameters
     vw; // viewport variables
 
+    
     
 
 
