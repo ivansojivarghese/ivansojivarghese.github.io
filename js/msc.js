@@ -28,12 +28,6 @@ var wH = window.innerHeight, // height
             a : null, // user access (inital) check [browser-dependant]
             aL : 1 // user access (initial) time limit (days)
         },
-
-        // aL : 1, 
-        // a : null, 
-        // k : null, 
-        // c : false, 
-
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
         s : false, // check boolean - 'force' disable scroll
