@@ -100,7 +100,9 @@ function docRead() {
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded (or not)
                     rL.e3 = true; 
-                    e_Fd(rL.g, false); // show logo
+                    if (op.a) {
+                        e_Fd(rL.g, false); // show logo
+                    }
                     rL.dt.classList.add("d_n"); // hide loading dot
                     setTimeout(function() {
                         if (op.a) {
