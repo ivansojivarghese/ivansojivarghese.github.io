@@ -23,7 +23,7 @@ var wH = window.innerHeight, // height
     },
     op = { // site 'options'
         k : null, // cookies enabled?
-        c : false, // [user] cookie-acceptance
+        c : false, // [user] cookies-enabled-acceptance
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
         s : false, // check boolean - 'force' disable scroll
@@ -179,7 +179,7 @@ function setCookie(n, v, days) { // create a cookie
     document.cookie = n + "=" + v + ";" + expires + ";path=/"; // attach cookie
 }
 
-function getCookie(n) {
+function getCookie(n) { // obtain a cookie (if available)
     let name = n + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(";"); // split cookie name-value pairs into array elements
