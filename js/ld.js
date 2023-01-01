@@ -82,6 +82,8 @@ function docRead() {
                     } else {
                         Rd[Rd.length] = true;
 
+                        op.a = true;
+
                         console.log("2nd time");
                     }
                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
@@ -95,9 +97,11 @@ function docRead() {
                         // orientation (in mobile)
                         // 
                 }
-                if (rdS(Rd) && !rL.e3) { // when favicon has loaded
+                if (rdS(Rd) && !rL.e3) { // when favicon has loaded (or not)
                     rL.e3 = true; 
-                    e_Fd(rL.g, false); // show logo
+                    if (!op.a) {
+                        e_Fd(rL.g, false); // show logo
+                    }
 
                     rL.dt.classList.add("d_n"); // hide loading dot
 

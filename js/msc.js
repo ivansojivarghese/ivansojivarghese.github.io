@@ -22,6 +22,7 @@ var wH = window.innerHeight, // height
         version : "2.0" // site version
     },
     op = { // site 'options'
+        a : null, // user access (inital) check
         k : null, // cookies enabled?
         c : false, // [user] cookies-enabled-acceptance
         r : null, // resource link origin
