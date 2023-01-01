@@ -202,6 +202,7 @@ function getCookie(n) { // obtain a cookie (if available)
 function cookiesAccept() { // acknowledge user acceptance and allow site access
     pg.cks.el.classList.add("z_O");
     setTimeout(function() {
+        setCookie("cookiesAccepted", "true", 1); // cookie: cookies accepted
         pg.cks.el.classList.add("d_n"); // show page
         op.c.u = true;
     }, op.t);

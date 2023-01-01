@@ -80,8 +80,10 @@ function docRead() {
                     } else {
                         Rd[Rd.length] = true; // accelerate load process
                         op.c.a = false; // user NOT initial access
-                        pg.cks.el.classList.add("d_n"); // remove user cookie-acceptance message
-                        op.c.u = true;
+                        if (getCookie("cookiesAccepted") === "true") { // if cookies have been accepted by user
+                            pg.cks.el.classList.add("d_n"); // remove user cookie-acceptance message
+                            op.c.u = true;
+                        }
                     }
                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
