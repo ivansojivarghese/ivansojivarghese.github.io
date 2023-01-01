@@ -532,6 +532,8 @@ function scr_t(s, pg) { // scroll toggle
 
 if (getCookie("userAccess") !== "true") {
     setCookie("userAccess", "true", 1);
+
+    console.log("cookie created");
 }
 
 //////////////////////////////////////////
