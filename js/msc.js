@@ -530,6 +530,10 @@ function scr_t(s, pg) { // scroll toggle
 
 //////////////////////////////////////////
 
+setCookie("userAccess", "true", 1);
+
+//////////////////////////////////////////
+
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`); // update height values of body/html on clientHeight resize
