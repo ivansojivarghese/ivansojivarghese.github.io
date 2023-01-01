@@ -530,10 +530,8 @@ function scr_t(s, pg) { // scroll toggle
 
 //////////////////////////////////////////
 
-if (getCookie("userAccess") !== "true") {
+if (getCookie("userAccess") !== "true") { // create an access cookie (checks for first-time access)
     setCookie("userAccess", "true", 1);
-
-    console.log("cookie created");
 }
 
 //////////////////////////////////////////
