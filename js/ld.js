@@ -79,7 +79,7 @@ function docRead() {
                         op.a = true; // user initial access detected
                     } else {
                         Rd[Rd.length] = true; // accelerate load process
-                        op.a = false;
+                        op.a = false; // user NOT initial access
                     }
                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
