@@ -533,12 +533,6 @@ function scr_t(s, pg) { // scroll toggle
 }
 
 //////////////////////////////////////////
-/*
-if (getCookie("userAccess") !== "true") { // create an access cookie (checks for first-time access)
-    setCookie("userAccess", "true", 1);
-}*/
-
-//////////////////////////////////////////
 
 const documentHeight = () => {
     const doc = document.documentElement;
