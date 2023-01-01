@@ -82,7 +82,7 @@ function docRead() {
                         op.c.a = false; // user NOT initial access
                         if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
                             pg.cks.el.classList.add("d_n"); // remove user cookie-acceptance message
-                            op.c.u = true;
+                            op.c.u = true; // message accepted
                         }
                     }
                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
