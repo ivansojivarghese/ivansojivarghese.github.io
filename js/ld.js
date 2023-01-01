@@ -81,6 +81,8 @@ function docRead() {
                         setCookie("userAccess", "true", 1); // access cookie lasts for 24 hours
                     } else {
                         Rd[Rd.length] = true;
+
+                        console.log("2nd time");
                     }
                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
