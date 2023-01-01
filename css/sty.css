@@ -410,6 +410,10 @@ a.md, span.md {
     margin-bottom: 0;
 }
 
+.m_B.h {
+    margin-bottom: 0.5rem;
+}
+
 .m_B {
     margin-bottom: 1rem;
 }
