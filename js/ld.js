@@ -55,7 +55,7 @@ var disp = document.getElementById("display_sc"), // display
     vw; // viewport variables
 
     
-    
+
 
 
 function docRead() {
@@ -66,39 +66,24 @@ function docRead() {
 
             if (!rL.e4) {
                 rL.e4 = true;
-                /*
-                r = pgOr(wD, cH); // get screen orientation (using dimensions)
-                vw = vwP(wD, cH, r); // set device size/orientation params
-                load_css(); // apply CSS styling (common)
-                load_js(); // load JS (common)
-                */
-                // setTimeout(function() {
                 e_Fd(rL.m, false);
-                // }, op.t);
-                
             }
-
         case "complete": // if DOM, styles, images and scripts all loaded
-            /*
-            r = pgOr(wD, cH); // get screen orientation (using dimensions)
-            vw = vwP(wD, cH, r); // set device size/orientation params
-            */
             if (!rL.e) { // ensure once execution
-
-                if (!rL.e2) {
-                    
+                if (!rL.e2) {   
                     rL.e2 = true;
-                    // load_js(); // load JS (common)
-                    // load_css(); // apply CSS styling (common)
-                    
-                    // setTimeout(function() {
                     if (!rL.e4) {
                         rL.e4 = true;
                         e_Fd(rL.m, false);
                     }
 
-                    resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
-                    // }, op.t);
+                    if (getCookie("userAccess") !== "true") { // create an access cookie (checks for first-time access)
+
+                        resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+
+                        setCookie("userAccess", "true", 1);
+                    }
+                    // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
                     // checkOnline(); // check if online
 
@@ -108,7 +93,6 @@ function docRead() {
                         // display resolution
                         // orientation (in mobile)
                         // 
-
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded
                     rL.e3 = true; 
