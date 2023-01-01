@@ -75,11 +75,11 @@ function docRead() {
                     }
                     if (getCookie("userAccess") !== "true") { // create an access cookie (checks for first-time access)
                         resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
-                        setCookie("userAccess", "true", op.aL); // access cookie lasts for 24 hours
-                        op.a = true; // user initial access detected
+                        setCookie("userAccess", "true", op.c.aL); // access cookie lasts for 24 hours
+                        op.c.a = true; // user initial access detected
                     } else {
                         Rd[Rd.length] = true; // accelerate load process
-                        op.a = false; // user NOT initial access
+                        op.c.a = false; // user NOT initial access
                     }
                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
@@ -94,23 +94,23 @@ function docRead() {
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded (or not)
                     rL.e3 = true; 
-                    if (op.a) { // only if first-time access
+                    if (op.c.a) { // only if first-time access
                         e_Fd(rL.g, false); // show logo
                     }
                     rL.dt.classList.add("d_n"); // hide loading dot
                     setTimeout(function() {
-                        if (op.a) {
+                        if (op.c.a) {
                             e_Fd(rL.t, false); // standby loading rings
                         }
                         e_Fd(rL.r, false);
                     }, op.t); // same duration as .trs transition duration property
                     setTimeout(function() { // run loading animation
                         rL.g.classList.add("z_O"); 
-                        if (op.a) {
+                        if (op.c.a) {
                             rL.t.classList.add("template");
                         }
                         setTimeout(function() { // hide the logo and show the rings
-                            if (op.a) {
+                            if (op.c.a) {
                                 rL.t.classList.add("z_O");
                             }
                             load_js_e(); // load js (indiv.)
@@ -167,7 +167,7 @@ function load_e() { // end the loading sequence
                     disp.classList.remove("d_n"); // show the page
                     setTimeout(function() {
                         e_Fd(disp, false);  
-                        if (op.c) { // if cookie-use accepted
+                        if (op.c.u) { // if cookie-use accepted
                             scr_t(true, null); // enable scrolling
                         }
                     }, 10);
@@ -341,7 +341,7 @@ function errorCheck() { // check for errors
         eR.h = "vL";
     } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.h = "ld";
-    } else if (!op.k) { // check if cookies have been disabled (or not detected)
+    } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         eR.h = "ck";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
@@ -393,7 +393,7 @@ function erPg_D(p) { // error page display
 
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
-op.k = navigator.cookieEnabled; // check for enabled cookies
+op.c.e = navigator.cookieEnabled; // check for enabled cookies
 load_js();
 load_css();
 

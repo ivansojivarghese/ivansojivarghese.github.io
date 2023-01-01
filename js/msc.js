@@ -22,10 +22,18 @@ var wH = window.innerHeight, // height
         version : "2.0" // site version
     },
     op = { // site 'options'
-        aL : 1, // user access cookie time limit (days)
-        a : null, // user access (inital) check [browser-dependant]
-        k : null, // cookies enabled?
-        c : false, // [user] cookies-enabled-acceptance
+        c : { // cookies
+            u : false, // [user] cookies-enabled-acceptance
+            e : null, // enabled check
+            a : null, // user access (inital) check [browser-dependant]
+            aL : 1 // user access (initial) time limit (days)
+        },
+
+        aL : 1, 
+        a : null, 
+        // k : null, 
+        // c : false, 
+
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
         s : false, // check boolean - 'force' disable scroll
@@ -201,7 +209,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
     pg.cks.el.classList.add("z_O");
     setTimeout(function() {
         pg.cks.el.classList.add("d_n"); // show page
-        op.c = true;
+        op.c.u = true;
     }, op.t);
 }
 
@@ -233,7 +241,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if ((!hm.e && op.c) || pg.e) {
+    if ((!hm.e && op.c.u) || pg.e) {
         var arg = pg.e ? pg[pg.t].el : null;
         if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
             op.p.L = true;
@@ -427,7 +435,7 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
 
         // setTimeout(function() {
         // op.s = false;
-        if (op.c) {
+        if (op.c.u) {
             scr_t(true, null);
         }
 
@@ -457,7 +465,7 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
 
         // setTimeout(function() {
         // op.s = true;
-        if (op.c) {
+        if (op.c.u) {
             scr_t(false, null);
         }
 
