@@ -75,10 +75,10 @@ var wH = window.innerHeight, // height
         },
         cond : { // conditions
             el : document.getElementById("cond_sc"), // main
-            tnc : document.getElementById("tnc"), // tnc
-            dcr : document.getElementById("dcr"), // disclaimer
-            cpy : document.getElementById("cpy"), // copyright
-            prv : document.getElementById("prv") // privacy policy
+            tnc : document.getElementById("tnc"), // tnc [https://www.nibusinessinfo.co.uk/content/sample-website-terms-and-conditions-use]
+            dcr : document.getElementById("dcr"), // disclaimer [https://www.nibusinessinfo.co.uk/content/sample-website-disclaimer]
+            cpy : document.getElementById("cpy"), // copyright [https://www.nibusinessinfo.co.uk/content/sample-website-copyright-statement]
+            prv : document.getElementById("prv") // privacy policy [https://cdn.websitepolicies.com/wp-content/uploads/2022/04/privacy-policy-template.pdf]
         }
     };
 
