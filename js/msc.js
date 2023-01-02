@@ -77,7 +77,8 @@ var wH = window.innerHeight, // height
             el : document.getElementById("cond_sc"), // main
             tnc : document.getElementById("tnc"), // tnc
             dcr : document.getElementById("dcr"), // disclaimer
-            cpy : document.getElementById("cpy") // copyright
+            cpy : document.getElementById("cpy"), // copyright
+            prv : document.getElementById("prv") // privacy policy
         }
     };
 
