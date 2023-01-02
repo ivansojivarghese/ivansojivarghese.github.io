@@ -551,6 +551,16 @@ window.addEventListener("resize", function() {
     }
 });
 
+localStorage.openpages = Date.now();
+window.addEventListener("storage", function(e) {
+    if (e.key == "openpages") {
+        localStorage.page_available = Date.now();
+    }
+    if (e.key == "page_available") {
+        alert("One more page open");
+    }
+});
+
 window.addEventListener("scroll", function() {
     if (!pos.yA) {
         pos.yA = pos.y; // add a secondary y-pos for comparison during scroll (distance)
