@@ -554,7 +554,7 @@ window.addEventListener("resize", function() {
 localStorage.openpages = Date.now();
 window.addEventListener("storage", function(e) {
 
-    console.log("storage");
+    console.log(e.key);
 
     if (e.key == "openpages") {
         localStorage.page_available = Date.now();
