@@ -557,7 +557,7 @@ window.addEventListener("storage", function(e) {
         localStorage.page_available = Date.now();
     }
     if (e.key == "page_available") {
-        alert("One more page open");
+        console.log("multi-tab open");
     }
 });
 
