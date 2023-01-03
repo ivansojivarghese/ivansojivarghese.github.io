@@ -182,7 +182,11 @@ function setCookie(n, v, days) { // create a cookie
     const d = new Date(); // get current time
     d.setTime(d.getTime() + (days*24*60*60*1000));
     let expires = "expires=" + d.toUTCString(); // add expiry time tag (days)
-    document.cookie = n + "=" + v + ";" + expires + ";path=/"; // attach cookie
+    if (days) {
+        document.cookie = n + "=" + v + ";" + expires + ";path=/"; // attach cookie
+    } else {
+        document.cookie = n + "=" + v + ";path=/"; // attach cookie (with no expiration, deletes after browser session)
+    }
 }
 
 function getCookie(n) { // obtain a cookie (if available)
@@ -557,12 +561,14 @@ window.addEventListener("resize", function() {
 
 localStorage.openSite = Date.now();
 
-if (localStorage.duplicateNum === undefined) {
-    localStorage.duplicateNum = 0;
+if (getCookie("duplicateNum") === "") {
+    setCookie("duplicateNum", 0, false);
 }
 
 window.addEventListener("storage", function(e) {
+
     var n = Number(localStorage.duplicateNum);
+
     if (e.key === "openSite") {
         localStorage.duplicateSite = Date.now();
     }
