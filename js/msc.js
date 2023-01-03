@@ -562,12 +562,12 @@ window.addEventListener("resize", function() {
 localStorage.openSite = Date.now();
 
 if (getCookie("duplicateNum") === "") {
-    setCookie("duplicateNum", 0, false);
+    setCookie("duplicateNum", 0, null);
 }
 
 window.addEventListener("storage", function(e) {
 
-    var n = Number(localStorage.duplicateNum);
+    var n = getCookie("duplicateNum");
 
     if (e.key === "openSite") {
         localStorage.duplicateSite = Date.now();
