@@ -560,14 +560,18 @@ window.addEventListener("resize", function() {
 //////////////////////////////////////////
 
 localStorage.openSite = Date.now();
-
+/*
 if (getCookie("duplicateNum") === "") {
     setCookie("duplicateNum", 0, null);
+}*/
+if (localStorage.duplicateNum === undefined) {
+    localStorage.duplicateNum = 0;
 }
 
 window.addEventListener("storage", function(e) {
 
-    var n = Number(getCookie("duplicateNum"));
+    // var n = Number(getCookie("duplicateNum"));
+    var n = Number(localStorage.duplicateNum);
 
     if (e.key === "openSite") {
         localStorage.duplicateSite = Date.now();
@@ -577,7 +581,8 @@ window.addEventListener("storage", function(e) {
             n++;
             op.e1 = true;
         }
-        setCookie("duplicateNum", n, null)
+        // setCookie("duplicateNum", n, null)
+        localStorage.duplicateNum = n;
         localStorage.duplicated = true;
     }
 });
