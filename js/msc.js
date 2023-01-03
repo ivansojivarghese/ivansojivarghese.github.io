@@ -554,16 +554,11 @@ window.addEventListener("resize", function() {
 
 localStorage.openSite = Date.now();
 window.addEventListener("storage", function(e) {
-    if (localStorage.duplicated) {
-        console.log("site duplicated");
-    } else {
-        if (e.key === "openSite") {
-            localStorage.duplicateSite = Date.now();
-        }
-        if (e.key === "duplicateSite") {
-            localStorage.duplicated = true;
-            localStorage.openSite = Date.now();
-        }
+    if (e.key === "openSite") {
+        localStorage.duplicateSite = Date.now();
+    }
+    if (e.key === "duplicateSite") {
+        localStorage.duplicated = true;
     }
 });
 
