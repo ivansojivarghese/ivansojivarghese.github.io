@@ -31,7 +31,6 @@ var wH = window.innerHeight, // height
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
         s : false, // check boolean - 'force' disable scroll
-        sD : false, // site duplicate check (among similar browser tabs/windows)
         d : new Date(), // instance of Date
         p : { // pointer (press/tap/click)
             e : true, // execution boolean
@@ -555,14 +554,14 @@ window.addEventListener("resize", function() {
 
 localStorage.opensite = Date.now();
 window.addEventListener("storage", function(e) {
-    if (op.sD) {
+    if (localStorage.duplicated) {
         console.log("site duplicated");
     } else {
-        if (e.key == "opensite") {
+        if (e.key === "opensite") {
             localStorage.duplicatesite = Date.now();
         }
-        if (e.key == "duplicatesite") {
-            op.sD = true;
+        if (e.key === "duplicatesite") {
+            localStorage.duplicated = true;
         }
     }
 });
