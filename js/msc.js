@@ -552,7 +552,12 @@ window.addEventListener("resize", function() {
     }
 });
 
+//////////////////////////////////////////
+
 localStorage.openSite = Date.now();
+if (!localStorage.duplicateNum) {
+    localStorage.duplicateNum = 0;
+}
 window.addEventListener("storage", function(e) {
     if (e.key === "openSite") {
         localStorage.duplicateSite = Date.now();
@@ -561,6 +566,11 @@ window.addEventListener("storage", function(e) {
         localStorage.duplicated = true;
     }
 });
+window.addEventListener("beforeunload", function() {
+    // localStorage;
+});
+
+//////////////////////////////////////////
 
 window.addEventListener("scroll", function() {
     if (!pos.yA) {
