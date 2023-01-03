@@ -555,7 +555,7 @@ window.addEventListener("resize", function() {
 //////////////////////////////////////////
 
 localStorage.openSite = Date.now();
-if (!localStorage.duplicateNum) {
+if (localStorage.duplicateNum === undefined) {
     localStorage.duplicateNum = 0;
 }
 window.addEventListener("storage", function(e) {
