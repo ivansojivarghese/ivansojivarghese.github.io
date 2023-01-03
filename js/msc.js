@@ -31,6 +31,7 @@ var wH = window.innerHeight, // height
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
         s : false, // check boolean - 'force' disable scroll
+        sD : false, // site duplicate check (among similar browser tabs/windows)
         d : new Date(), // instance of Date
         p : { // pointer (press/tap/click)
             e : true, // execution boolean
@@ -552,16 +553,17 @@ window.addEventListener("resize", function() {
     }
 });
 
-localStorage.openpages = Date.now();
+localStorage.opensite = Date.now();
 window.addEventListener("storage", function(e) {
-
-    console.log(e.key);
-
-    if (e.key == "openpages") {
-        localStorage.page_available = Date.now();
-    }
-    if (e.key == "page_available") {
-        console.log("multi-tab open");
+    if (op.sD) {
+        console.log("site duplicated");
+    } else {
+        if (e.key == "opensite") {
+            localStorage.duplicatesite = Date.now();
+        }
+        if (e.key == "duplicatesite") {
+            op.sD = true;
+        }
     }
 });
 
