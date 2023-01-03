@@ -577,7 +577,7 @@ window.addEventListener("storage", function(e) {
             n++;
             op.e1 = true;
         }
-        localStorage.duplicateNum = n;
+        setCookie("duplicateNum", n, null)
         localStorage.duplicated = true;
     }
 });
