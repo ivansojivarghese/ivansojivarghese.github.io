@@ -50,6 +50,7 @@ var wH = window.innerHeight, // height
             o : false, // opera
             e : false // edge
         },
+        e1 : false, // code execution
         L : null // loop variable
     },
     pos = { // scroll pos. (window)
@@ -554,18 +555,24 @@ window.addEventListener("resize", function() {
 
 //////////////////////////////////////////
 
-localStorage.openSite = Date.now();
-if (localStorage.duplicateNum === undefined) {
-    localStorage.duplicateNum = 0;
+if (!op.e1) { // execute once
+    op.e1 = true;
+    localStorage.openSite = Date.now();
+    if (localStorage.duplicateNum === undefined) {
+        localStorage.duplicateNum = 0;
+    }
+    window.addEventListener("storage", function(e) {
+        var n = Number(localStorage.duplicateNum);
+        if (e.key === "openSite") {
+            localStorage.duplicateSite = Date.now();
+        }
+        if (e.key === "duplicateSite") {
+            n++;
+            localStorage.duplicateNum = n;
+            localStorage.duplicated = true;
+        }
+    });
 }
-window.addEventListener("storage", function(e) {
-    if (e.key === "openSite") {
-        localStorage.duplicateSite = Date.now();
-    }
-    if (e.key === "duplicateSite") {
-        localStorage.duplicated = true;
-    }
-});
 window.addEventListener("beforeunload", function() {
     // localStorage;
 });
