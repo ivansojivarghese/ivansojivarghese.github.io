@@ -579,10 +579,10 @@ window.addEventListener("storage", function(e) {
     if (e.key === "duplicateSite") {
         if (!op.e1) {
             n++;
+            localStorage.duplicateNum = n;
             op.e1 = true;
         }
         // setCookie("duplicateNum", n, null)
-        localStorage.duplicateNum = n;
         localStorage.duplicated = true;
     }
 });
