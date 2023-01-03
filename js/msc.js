@@ -571,20 +571,22 @@ if (localStorage.duplicateNum === undefined) {
 window.addEventListener("storage", function(e) {
 
     // var n = Number(getCookie("duplicateNum"));
+    
     var n = Number(localStorage.duplicateNum);
-
-    if (e.key === "openSite") {
-        localStorage.duplicateSite = Date.now();
-    }
-    if (e.key === "duplicateSite") {
-        if (!op.e1) {
-            n++;
-            localStorage.duplicateNum = n;
-            op.e1 = true;
+    if (n === 0) 
+        if (e.key === "openSite") {
+            localStorage.duplicateSite = Date.now();
         }
-        // setCookie("duplicateNum", n, null)
-        localStorage.duplicated = true;
-    }
+        if (e.key === "duplicateSite") {
+            if (!op.e1) {
+                n++;
+                localStorage.duplicateNum = n;
+                op.e1 = true;
+            }
+            // setCookie("duplicateNum", n, null)
+            localStorage.duplicated = true;
+        }
+    }   
 });
 
 window.addEventListener("beforeunload", function() {
