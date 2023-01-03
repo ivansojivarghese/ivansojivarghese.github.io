@@ -555,24 +555,25 @@ window.addEventListener("resize", function() {
 
 //////////////////////////////////////////
 
-if (!op.e1) { // execute once
-    op.e1 = true;
-    localStorage.openSite = Date.now();
-    if (localStorage.duplicateNum === undefined) {
-        localStorage.duplicateNum = 0;
-    }
-    window.addEventListener("storage", function(e) {
-        var n = Number(localStorage.duplicateNum);
-        if (e.key === "openSite") {
-            localStorage.duplicateSite = Date.now();
-        }
-        if (e.key === "duplicateSite") {
-            n++;
-            localStorage.duplicateNum = n;
-            localStorage.duplicated = true;
-        }
-    });
+localStorage.openSite = Date.now();
+if (localStorage.duplicateNum === undefined) {
+    localStorage.duplicateNum = 0;
 }
+window.addEventListener("storage", function(e) {
+    var n = Number(localStorage.duplicateNum);
+    if (e.key === "openSite") {
+        localStorage.duplicateSite = Date.now();
+    }
+    if (e.key === "duplicateSite") {
+        if (!op.e1) {
+            n++;
+            op.e1 = true;
+        }
+        localStorage.duplicateNum = n;
+        localStorage.duplicated = true;
+    }
+});
+
 window.addEventListener("beforeunload", function() {
     // localStorage;
 });
