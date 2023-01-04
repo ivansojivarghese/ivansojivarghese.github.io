@@ -86,10 +86,10 @@ var wH = window.innerHeight, // height
 const checkOnlineStatus = async () => { // check for internet connectivity
     try {
         const url = dev.mode ? dev.url : op.r;
-        const online = await fetch(url + "msc/onlineResourceLocator.png", {
+        const online = await fetch(url + "msc/onlineResourceLocator.png", { // send a 'ping' signal to resource locator
             cache : "no-store"
         });
-        return online.status >= 200 && online.status < 300;
+        return online.status >= 200 && online.status < 300; // determine network status from return value
     } catch (err) {
         return false;
     }
@@ -99,6 +99,18 @@ setInterval(async () => {
     const result = await checkOnlineStatus();
     op.n = result;
 }, 3000);
+
+///////////////////////////////////////
+
+const observer = new PerformanceObserver((list) => {
+    list.getEntries().forEach((entry) => {
+        if (entry.type === "reload") {
+            console.log("reloaded");
+        }
+    })
+});
+
+observer.observe({type: "navigation", buffered: true});
 
 ///////////////////////////////////////
 
