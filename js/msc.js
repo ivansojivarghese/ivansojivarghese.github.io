@@ -581,11 +581,13 @@ window.addEventListener("storage", function(e) {
             localStorage.duplicateTempNum = t;
         }*/
 
+        console.log("openSite");
+        /*
         if (e.key === "openSite") {
             console.log("openSite");
             // localStorage.duplicateSite = Date.now();
             // n++;
-        }
+        }*/
         
     } else {
         if (e.key === "openSite") {
