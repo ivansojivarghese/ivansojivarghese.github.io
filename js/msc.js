@@ -26,7 +26,8 @@ var wH = window.innerHeight, // height
             u : false, // [user] cookies-enabled-acceptance
             e : null, // enabled check
             a : null, // user access (inital) check [browser-dependant]
-            aL : 1 // user access (initial) time limit (days)
+            aL : 1, // user access (initial) time limit (days)
+            e1 : false // code execution
         },
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
@@ -621,9 +622,12 @@ window.addEventListener("storage", function(e) {
         }
         if (e.key === "duplicateSite") {
             var n = Number(getCookie("duplicatedNum"));
-            n++;
-            console.log("1: add");
-            setCookie("duplicatedNum", n, null);
+            if (!op.c.e1) {
+                n++;
+                console.log("1: add");
+                setCookie("duplicatedNum", n, null);
+                op.c.e1 = true;
+            }
             // localStorage.duplicated = true;
             // var n = Number(localStorage.duplicatedNum);
 
