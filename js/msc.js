@@ -573,7 +573,7 @@ window.addEventListener("storage", function(e) {
 
     // var n = Number(localStorage.duplicateNum);
 
-    if (localStorage.duplicated) {
+    if (n) {
 
         // n = 0;
 
@@ -622,7 +622,7 @@ window.addEventListener("storage", function(e) {
                 console.log("1: add");
             }
             setCookie("duplicatedNum", n, null);
-            localStorage.duplicated = true;
+            // localStorage.duplicated = true;
             // var n = Number(localStorage.duplicatedNum);
 
             // n++;
