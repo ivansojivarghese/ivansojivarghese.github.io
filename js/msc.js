@@ -575,16 +575,17 @@ window.addEventListener("storage", function(e) {
     var n = Number(localStorage.duplicateNum);
     if (n > 0) {
         // n = 0;
-
+        /*
         if (localStorage.duplicateTempNum === undefined) {
             localStorage.duplicateTempNum = n;
         } else {
             var t = Number(localStorage.duplicateTempNum);
             t++;
             localStorage.duplicateTempNum = t;
-        }
+        }*/
 
         if (e.key === "openSite") {
+            console.log("openSite");
             // localStorage.duplicateSite = Date.now();
             // n++;
         }
@@ -599,7 +600,6 @@ window.addEventListener("storage", function(e) {
                 localStorage.duplicateNum = n;
                 op.e1 = true;
             }
-            // setCookie("duplicateNum", n, null)
             localStorage.duplicated = true;
         }
     }   
