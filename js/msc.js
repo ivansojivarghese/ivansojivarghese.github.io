@@ -558,18 +558,19 @@ window.addEventListener("resize", function() {
 
 //////////////////////////////////////////
 
-// localStorage.openSite = Date.now();
-
+localStorage.openSite = Date.now();
+/*
 if (localStorage.duplicatedNum === undefined) {
     localStorage.openSite = Date.now();
     localStorage.duplicatedNum = 0;
 } else {
     localStorage.openSite = Date.now();
-}
+}*/
 
 window.addEventListener("storage", function(e) {
 
-    // var n = Number(getCookie("duplicateNum"));
+    var n = Number(getCookie("duplicatedNum"));
+
     // var n = Number(localStorage.duplicateNum);
 
     if (localStorage.duplicated) {
@@ -614,16 +615,19 @@ window.addEventListener("storage", function(e) {
             localStorage.duplicateSite = Date.now();
         }
         if (e.key === "duplicateSite") {
-            // if (!op.e1) {
-
-            var n = Number(localStorage.duplicatedNum);
-            n++;
-            console.log("1: add");
-            localStorage.duplicatedNum = n;
-
-                // op.e1 = true;
-            // }
+            if (n === "") {
+                n = 0;
+            } else {
+                n++;
+            }
+            setCookie("duplicatedNum", n, null);
             localStorage.duplicated = true;
+            // var n = Number(localStorage.duplicatedNum);
+
+            // n++;
+            console.log("1: add");
+            // localStorage.duplicatedNum = n;
+            
         }
     }   
 });
