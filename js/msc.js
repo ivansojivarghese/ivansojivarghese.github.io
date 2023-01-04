@@ -50,7 +50,6 @@ var wH = window.innerHeight, // height
             o : false, // opera
             e : false // edge
         },
-        e1 : false, // code execution
         L : null // loop variable
     },
     pos = { // scroll pos. (window)
@@ -583,7 +582,7 @@ window.addEventListener("storage", function(e) {
         n++;
         console.log(n);
         setCookie("duplicatedNum", n, null);
-        
+
         // localStorage.duplicatedNum = n;
         
         /*else {
