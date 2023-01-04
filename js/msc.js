@@ -620,12 +620,9 @@ window.addEventListener("storage", function(e) {
             localStorage.duplicateSite = Date.now();
         }
         if (e.key === "duplicateSite") {
-            if (n === "") {
-                n = 0;
-            } else {
-                n++;
-                console.log("1: add");
-            }
+            var n = Number(getCookie("duplicatedNum"));
+            n++;
+            console.log("1: add");
             setCookie("duplicatedNum", n, null);
             // localStorage.duplicated = true;
             // var n = Number(localStorage.duplicatedNum);
