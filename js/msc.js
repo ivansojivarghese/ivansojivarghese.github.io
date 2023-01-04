@@ -590,7 +590,9 @@ window.addEventListener("storage", function(e) {
     if (e.key === "duplicateSite") {
         var n = Number(getCookie("duplicatedNum"));
         if (!op.c.e1) {
-            n++;
+            if (!op.nav.r) {
+                n++;
+            }
             console.log("1: add");
             setCookie("duplicatedNum", n, null);
             op.c.e1 = true;
