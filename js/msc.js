@@ -29,6 +29,9 @@ var wH = window.innerHeight, // height
             aL : 1, // user access (initial) time limit (days)
             e1 : false // code execution
         },
+        nav : { // navigation
+            r : false, // page reload check
+        },
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
         s : false, // check boolean - 'force' disable scroll
@@ -102,10 +105,10 @@ setInterval(async () => {
 
 ///////////////////////////////////////
 
-const observer = new PerformanceObserver((list) => {
-    list.getEntries().forEach((entry) => {
-        if (entry.type === "reload") {
-            console.log("reloaded");
+const observer = new PerformanceObserver((list) => { // take note of performance events, as recorded in browser timeline
+    list.getEntries().forEach((entry) => { // obtain details from an entryType
+        if (entry.type === "reload") { 
+            op.nav.r = true; // detect a reload
         }
     })
 });
