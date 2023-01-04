@@ -619,6 +619,7 @@ window.addEventListener("storage", function(e) {
 
         if (e.key === "openSite") {
             localStorage.duplicateSite = Date.now();
+            op.c.e1 = true;
         }
         if (e.key === "duplicateSite") {
             var n = Number(getCookie("duplicatedNum"));
