@@ -569,20 +569,20 @@ if (localStorage.duplicatedNum === undefined) {
 
 window.addEventListener("storage", function(e) {
 
-    var n = Number(getCookie("duplicatedNum"));
+    // var n = Number(getCookie("duplicatedNum"));
 
     // var n = Number(localStorage.duplicateNum);
 
-    if (n) {
+    // if (n) {
 
         // n = 0;
 
-        console.log("duplicated");
+        // console.log("duplicated");
     /*
         var n = Number(localStorage.duplicatedNum);
         n++;
         console.log(n);*/
-        setCookie("duplicatedNum", n, null);
+        // setCookie("duplicatedNum", n, null);
 
         // localStorage.duplicatedNum = n;
         
@@ -610,7 +610,8 @@ window.addEventListener("storage", function(e) {
             // n++;
         }*/
         
-    } else {
+    // } else {
+
         if (e.key === "openSite") {
             localStorage.duplicateSite = Date.now();
         }
@@ -630,7 +631,8 @@ window.addEventListener("storage", function(e) {
             // localStorage.duplicatedNum = n;
             
         }
-    }   
+
+    // }   
 });
 
 window.addEventListener("beforeunload", function() {
