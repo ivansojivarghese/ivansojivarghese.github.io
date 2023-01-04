@@ -113,7 +113,7 @@ const observer = new PerformanceObserver((list) => { // take note of performance
     })
 });
 
-observer.observe({type: "navigation", buffered: true});
+observer.observe({type: "navigation", buffered: true}); // observe for navigation entryType
 
 ///////////////////////////////////////
 
