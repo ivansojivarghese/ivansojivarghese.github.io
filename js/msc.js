@@ -559,6 +559,9 @@ window.addEventListener("resize", function() {
 //////////////////////////////////////////
 
 localStorage.openSite = Date.now();
+if (getCookie("duplicatedNum") === "") {
+    setCookie("duplicatedNum", 0, null);
+}
 /*
 if (localStorage.duplicatedNum === undefined) {
     localStorage.openSite = Date.now();
