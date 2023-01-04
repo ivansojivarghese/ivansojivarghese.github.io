@@ -615,30 +615,28 @@ window.addEventListener("storage", function(e) {
         }*/
         
     // } else {
-        console.log(e.key);
+    console.log(e.key);
 
-        if (e.key === "openSite") {
-            localStorage.duplicateSite = Date.now();
+    if (e.key === "openSite") {
+        localStorage.duplicateSite = Date.now();
+        op.c.e1 = true;
+    }
+    if (e.key === "duplicateSite") {
+        var n = Number(getCookie("duplicatedNum"));
+        if (!op.c.e1) {
+            n++;
+            console.log("1: add");
+            setCookie("duplicatedNum", n, null);
             op.c.e1 = true;
         }
-        if (e.key === "duplicateSite") {
-            var n = Number(getCookie("duplicatedNum"));
-            if (!op.c.e1) {
-                n++;
-                console.log("1: add");
-                setCookie("duplicatedNum", n, null);
-                op.c.e1 = true;
-            }
-            // localStorage.duplicated = true;
-            // var n = Number(localStorage.duplicatedNum);
+        // localStorage.duplicated = true;
+        // var n = Number(localStorage.duplicatedNum);
 
-            // n++;
-            
-            // localStorage.duplicatedNum = n;
-            
-        }
-
-    // }   
+        // n++;
+        
+        // localStorage.duplicatedNum = n;
+        
+    } 
 });
 
 window.addEventListener("beforeunload", function() {
