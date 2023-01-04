@@ -574,7 +574,9 @@ window.addEventListener("storage", function(e) {
 
     var n = Number(localStorage.duplicateNum);
     if (n > 0) {
-        
+        if (e.key === "openSite") {
+            localStorage.duplicateSite = Date.now();
+        }
     } else {
         if (e.key === "openSite") {
             localStorage.duplicateSite = Date.now();
