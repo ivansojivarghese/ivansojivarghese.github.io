@@ -619,13 +619,14 @@ window.addEventListener("storage", function(e) {
                 n = 0;
             } else {
                 n++;
+                console.log("1: add");
             }
             setCookie("duplicatedNum", n, null);
             localStorage.duplicated = true;
             // var n = Number(localStorage.duplicatedNum);
 
             // n++;
-            console.log("1: add");
+            
             // localStorage.duplicatedNum = n;
             
         }
