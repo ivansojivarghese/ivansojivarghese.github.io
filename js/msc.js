@@ -572,15 +572,16 @@ window.addEventListener("storage", function(e) {
     var n = Number(localStorage.duplicateNum);
     if (n > 0) {
         // n = 0;
-        /*
+        
         if (localStorage.duplicateTempNum === undefined) {
             localStorage.duplicateTempNum = n;
-        } else {
+        } /*else {
             var t = Number(localStorage.duplicateTempNum);
             t++;
             localStorage.duplicateTempNum = t;
         }*/
-
+        n++;
+        localStorage.duplicateTempNum = n;
         console.log("openSite");
         /*
         if (e.key === "openSite") {
