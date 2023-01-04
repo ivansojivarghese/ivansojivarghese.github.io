@@ -563,58 +563,9 @@ localStorage.openSite = Date.now();
 if (getCookie("duplicatedNum") === "") {
     setCookie("duplicatedNum", 0, null);
 }
-/*
-if (localStorage.duplicatedNum === undefined) {
-    localStorage.openSite = Date.now();
-    localStorage.duplicatedNum = 0;
-} else {
-    localStorage.openSite = Date.now();
-}*/
 
 window.addEventListener("storage", function(e) {
 
-    // var n = Number(getCookie("duplicatedNum"));
-
-    // var n = Number(localStorage.duplicateNum);
-
-    // if (n) {
-
-        // n = 0;
-
-        // console.log("duplicated");
-    /*
-        var n = Number(localStorage.duplicatedNum);
-        n++;
-        console.log(n);*/
-        // setCookie("duplicatedNum", n, null);
-
-        // localStorage.duplicatedNum = n;
-        
-        /*else {
-            var t = Number(localStorage.duplicateTempNum);
-            t++;
-            localStorage.duplicateTempNum = t;
-        }
-        n++;
-        localStorage.duplicateTempNum = n;*/
-
-        // console.log("openSite");
-        /*
-        if (!op.e2) {
-            var n = Number(localStorage.duplicateTempNum);
-            n++;
-            localStorage.duplicateTempNum = n;
-            op.e2 = true;
-        }*/
-
-        /*
-        if (e.key === "openSite") {
-            console.log("openSite");
-            // localStorage.duplicateSite = Date.now();
-            // n++;
-        }*/
-        
-    // } else {
     console.log(e.key);
 
     if (e.key === "openSite") {
@@ -628,14 +579,7 @@ window.addEventListener("storage", function(e) {
             console.log("1: add");
             setCookie("duplicatedNum", n, null);
             op.c.e1 = true;
-        }
-        // localStorage.duplicated = true;
-        // var n = Number(localStorage.duplicatedNum);
-
-        // n++;
-        
-        // localStorage.duplicatedNum = n;
-        
+        }        
     } 
 });
 
