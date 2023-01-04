@@ -611,6 +611,7 @@ window.addEventListener("storage", function(e) {
         }*/
         
     // } else {
+        console.log(e.key);
 
         if (e.key === "openSite") {
             localStorage.duplicateSite = Date.now();
