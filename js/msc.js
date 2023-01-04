@@ -574,9 +574,21 @@ window.addEventListener("storage", function(e) {
 
     var n = Number(localStorage.duplicateNum);
     if (n > 0) {
-        if (e.key === "openSite") {
-            localStorage.duplicateSite = Date.now();
+        // n = 0;
+
+        if (localStorage.duplicateTempNum === undefined) {
+            localStorage.duplicateTempNum = n;
+        } else {
+            var t = Number(localStorage.duplicateTempNum);
+            t++;
+            localStorage.duplicateTempNum = t;
         }
+
+        if (e.key === "openSite") {
+            // localStorage.duplicateSite = Date.now();
+            // n++;
+        }
+        
     } else {
         if (e.key === "openSite") {
             localStorage.duplicateSite = Date.now();
