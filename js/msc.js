@@ -559,30 +559,50 @@ window.addEventListener("resize", function() {
 
 //////////////////////////////////////////
 
-localStorage.openSite = Date.now();
+// localStorage.openSite = Date.now();
 
-if (localStorage.duplicateNum === undefined) {
-    localStorage.duplicateNum = 0;
+if (localStorage.duplicatedNum === undefined) {
+    localStorage.openSite = Date.now();
+    localStorage.duplicatedNum = 0;
+} else {
+    localStorage.openSite = Date.now();
 }
 
 window.addEventListener("storage", function(e) {
 
     // var n = Number(getCookie("duplicateNum"));
+    // var n = Number(localStorage.duplicateNum);
 
-    var n = Number(localStorage.duplicateNum);
-    if (n > 0) {
+    if (localStorage.duplicated) {
+
         // n = 0;
+
+        console.log("duplicated");
+
+        var n = Number(localStorage.duplicatedNum);
+        n++;
+        console.log(n);
+        setCookie("duplicatedNum", n, null);
         
-        if (localStorage.duplicateTempNum === undefined) {
-            localStorage.duplicateTempNum = n;
-        } /*else {
+        // localStorage.duplicatedNum = n;
+        
+        /*else {
             var t = Number(localStorage.duplicateTempNum);
             t++;
             localStorage.duplicateTempNum = t;
-        }*/
+        }
         n++;
-        localStorage.duplicateTempNum = n;
-        console.log("openSite");
+        localStorage.duplicateTempNum = n;*/
+
+        // console.log("openSite");
+        /*
+        if (!op.e2) {
+            var n = Number(localStorage.duplicateTempNum);
+            n++;
+            localStorage.duplicateTempNum = n;
+            op.e2 = true;
+        }*/
+
         /*
         if (e.key === "openSite") {
             console.log("openSite");
@@ -595,11 +615,15 @@ window.addEventListener("storage", function(e) {
             localStorage.duplicateSite = Date.now();
         }
         if (e.key === "duplicateSite") {
-            if (!op.e1) {
-                n++;
-                localStorage.duplicateNum = n;
-                op.e1 = true;
-            }
+            // if (!op.e1) {
+
+            var n = Number(localStorage.duplicatedNum);
+            n++;
+            console.log("1: add");
+            localStorage.duplicatedNum = n;
+
+                // op.e1 = true;
+            // }
             localStorage.duplicated = true;
         }
     }   
