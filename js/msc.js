@@ -27,7 +27,7 @@ var wH = window.innerHeight, // height
             e : null, // enabled check
             a : null, // user access (inital) check [browser-dependant]
             aL : 1, // user access (initial) time limit (days)
-            e1 : false // code execution
+            x : false // code execution
         },
         nav : { // navigation
             r : false, // page reload check
@@ -585,17 +585,17 @@ window.addEventListener("storage", function(e) {
 
     if (e.key === "openSite") {
         localStorage.duplicateSite = Date.now();
-        op.c.e1 = true;
+        op.c.x = true;
     }
     if (e.key === "duplicateSite") {
         var n = Number(getCookie("duplicatedNum"));
-        if (!op.c.e1) {
+        if (!op.c.x) {
             if (!op.nav.r) {
                 n++;
             }
             console.log("1: add");
             setCookie("duplicatedNum", n, null);
-            op.c.e1 = true;
+            op.c.x = true;
         }        
     } 
 });
