@@ -578,10 +578,10 @@ window.addEventListener("storage", function(e) {
         // n = 0;
 
         console.log("duplicated");
-
+    /*
         var n = Number(localStorage.duplicatedNum);
         n++;
-        console.log(n);
+        console.log(n);*/
         setCookie("duplicatedNum", n, null);
 
         // localStorage.duplicatedNum = n;
