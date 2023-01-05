@@ -3,6 +3,8 @@
 
 var wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
+    elementHeight = document.querySelector('#control-height').clientHeight,
+    barHeight = elementHeight - wH,
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
@@ -568,6 +570,8 @@ window.addEventListener("resize", function() {
         wH = window.innerHeight; // update on window size variables
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;
+        elementHeight = document.querySelector('#control-height').clientHeight,
+        barHeight = elementHeight - wH,
         reL(); // reload page
     }
 });
