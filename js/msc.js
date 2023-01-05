@@ -4,7 +4,7 @@
 var wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
     elementHeight = document.querySelector('#control-height').clientHeight,
-    barHeight = elementHeight - wH,
+    barHeight = elementHeight - window.outerHeight,
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
@@ -571,7 +571,7 @@ window.addEventListener("resize", function() {
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;
         elementHeight = document.querySelector('#control-height').clientHeight,
-        barHeight = elementHeight - wH,
+        barHeight = elementHeight - window.outerHeight,
         reL(); // reload page
     }
 });
