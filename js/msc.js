@@ -576,6 +576,8 @@ window.addEventListener("resize", function() {
     }
 });
 
+window.alert(barHeight + "px");
+
 //////////////////////////////////////////
 
 localStorage.openSite = Date.now();
