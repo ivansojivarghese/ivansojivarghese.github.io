@@ -173,6 +173,15 @@ function load_e() { // end the loading sequence
                         e_Fd(disp, false);  
                         if (op.c.u) { // if cookie-use accepted
                             scr_t(true, null); // enable scrolling
+                        } else {
+
+                            console.log("reveal");
+
+                            setTimeout(function() {
+                                pg.cks.t.classList.remove("md");
+                                e_Sdv(pg.cks.m, true);
+                            }, op.t);
+
                         }
                     }, 10);
                 }
@@ -190,6 +199,7 @@ function load_e() { // end the loading sequence
 function load_css() { // load up CSS (common)
     c_css("#load_C", "margin-top: calc((" + cH + "px - 8rem) / 2);", false, null); // align loader to centre of viewport
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
+    c_css(".trs_e", "transition-duration: " + (op.te / 1000) + "s;", false, null); // transition duration [ext.] (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
 
     if (vw.mB_L) { // in landscape view (mobile)

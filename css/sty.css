@@ -224,7 +224,7 @@ div, .tint {
     width: 90%;
 }
 
-.z_O { /*zero opacity*/
+.z_O, .tint.md { /*zero opacity*/
     opacity: 0;
 }
 

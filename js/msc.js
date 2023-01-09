@@ -78,6 +78,8 @@ var wH = window.innerHeight, // height
         w : "", // current [open] window
         cks : { // cookies
             el : document.getElementById("ckA_sc"), // el
+            m : document.getElementById("ckA_msg"), // msg
+            t : document.getElementById("ckA_tint") // tint
         },
         cond : { // conditions
             el : document.getElementById("cond_sc"), // main

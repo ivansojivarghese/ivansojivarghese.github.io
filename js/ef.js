@@ -18,7 +18,15 @@ function e_Xt(el, m, s) { // effect - translate-x fade in (countering .z_O serie
     }
 }
 
-function e_Sd(el, tg, w, r, x, y) { // effect - slide in/out (text, images, etc.)
+function e_Sdv(el, s) { // effect - slide up/down (vertically) [text, images, etc.]
+    if (s) { // slide from bottom (to up)
+        el.style.transform = "";
+    } else { // slide from top (to bottom)
+        el.style.transform = "transformY(100%);"
+    }
+}
+/*
+function e_Sdh(el, tg, w, r, x, y) { // effect - slide in/out (horizontally)
     var e = el.id; // get 'id' attribute value of element
     c_css("#" + e + "::before", "{ width: " + w + "%; }", true, trD_a); // apply [temporary] width to 'slider'
     setTimeout(function() {
@@ -31,7 +39,7 @@ function e_Sd(el, tg, w, r, x, y) { // effect - slide in/out (text, images, etc.
             c_css("#" + e + "::before", "{ display: none; }", false); // no display afterwards
         }, trD_a);
     }, trD_a); // after .trs.md duration
-}
+}*/
 
 function e_Ic(el, p, f) { // effect - iterating digits on a numeral (in a string/text setting)
     p = (p !== null) ? String(p) : p;  // convert to string format (if not null)
