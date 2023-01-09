@@ -22,7 +22,7 @@ function e_Sdv(el, s) { // effect - slide up/down (vertically) [text, images, et
     if (s) { // slide from bottom (to up)
         el.style.transform = "";
     } else { // slide from top (to bottom)
-        el.style.transform = "transformY(100%);"
+        el.style.transform = "translateY(100%)";
     }
 }
 /*

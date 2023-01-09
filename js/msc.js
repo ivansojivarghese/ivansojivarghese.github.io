@@ -225,12 +225,17 @@ function getCookie(n) { // obtain a cookie (if available)
 }
 
 function cookiesAccept() { // acknowledge user acceptance and allow site access
-    pg.cks.el.classList.add("z_O");
+
+    e_Sdv(pg.cks.m, false);
+    pg.cks.t.classList.add("md"); // remove tint
+
+    // pg.cks.el.classList.add("z_O");
+
     setTimeout(function() {
         setCookie("cookiesAccepted", "true", 1); // cookie: cookies accepted
-        pg.cks.el.classList.add("d_n"); // show page
+        pg.cks.el.classList.add("d_n"); // hide page
         op.c.u = true;
-    }, op.t);
+    }, op.te);
 }
 
 //////////////////////////////////////////
