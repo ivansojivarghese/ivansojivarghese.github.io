@@ -177,7 +177,7 @@ function load_e() { // end the loading sequence
                             setTimeout(function() {
                                 pg.cks.t.classList.remove("md"); // add tint
                                 e_Sdv(pg.cks.m, true); // show cookie-acceptance message
-                            }, op.t);
+                            }, op.te);
                         }
                     }, 10);
                 }
