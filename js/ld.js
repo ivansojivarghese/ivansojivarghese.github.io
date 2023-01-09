@@ -174,10 +174,8 @@ function load_e() { // end the loading sequence
                         if (op.c.u) { // if cookie-use accepted
                             scr_t(true, null); // enable scrolling
                         } else {
-                            setTimeout(function() {
-                                pg.cks.t.classList.remove("md"); // add tint
-                                e_Sdv(pg.cks.m, true); // show cookie-acceptance message
-                            }, op.t);
+                            pg.cks.t.classList.remove("md"); // add tint
+                            e_Sdv(pg.cks.m, true); // show cookie-acceptance message
                         }
                     }, 10);
                 }
