@@ -175,10 +175,11 @@ function load_e() { // end the loading sequence
                             scr_t(true, null); // enable scrolling
                         } else {
                             setTimeout(function() {
-
+                                /*
                                 pg.msg.t.classList.remove("md"); // add tint
                                 e_Sdv(pg.msg.ckA, true); // show cookie-acceptance message
-                                
+                                */
+                                msg_toggle(pg.msg.ckA, null, true, true);
                             }, op.te);
                         }
                     }, 10);

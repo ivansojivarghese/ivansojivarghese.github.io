@@ -195,6 +195,10 @@ div, .tint {
     width: 0;
 }
 
+.f_wd { /*fifth width*/
+    width: 20%;
+}
+
 .q_wd { /*quarter width*/
     width: 30%;
 }
@@ -374,6 +378,10 @@ a.md, span.md {
     margin-left: 1em !important;
 }
 
+.m_L-5 {
+    margin-left: 5% !important;
+}
+
 .m_L-10 {
     margin-left: 10% !important;
 }
@@ -420,6 +428,10 @@ a.md, span.md {
 
 .m_B.exh {
     margin-bottom: 2rem;
+}
+
+.p_TB {
+    padding: 1em 0;
 }
 
 .p_TBh {

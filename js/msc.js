@@ -77,9 +77,13 @@ var wH = window.innerHeight, // height
         t : "", // reference window category
         w : "", // current [open] window
         msg : { // messages
+            c : false, // check (if feature is active)
             el : document.getElementById("msg_sc"), // el
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
+            net : document.getElementById("net_msg"), // network
+            net_i : document.getElementById("net_msg-i"), // network - icon
+            net_t : document.getElementById("net_msg-t") // network - text
         },
         cond : { // conditions
             el : document.getElementById("cond_sc"), // main
@@ -225,11 +229,12 @@ function getCookie(n) { // obtain a cookie (if available)
 }
 
 function cookiesAccept() { // acknowledge user acceptance and allow site access
-
+    /*
     e_Sdv(pg.msg.ckA, false);
-    pg.msg.t.classList.add("md"); // remove tint
-
+    pg.msg.t.classList.add("md"); // remove tint*/
     // pg.msg.el.classList.add("z_O");
+
+    msg_toggle(pg.msg.ckA, null, false, true);
 
     setTimeout(function() {
         setCookie("cookiesAccepted", "true", 1); // cookie: cookies accepted
@@ -275,6 +280,13 @@ function pL() { // site parameters loop
             op.p.L = false;
             scr_t(true, arg);
         }
+    }
+
+    if (op.n === false) { // if loss of network connection (internet)
+        pg.msg.net_i.classList.add("wifi_off_img");
+        pg.msg.net_t.innerHTML = "offline";
+
+        // check for other messages, then open up
     }
 
     // console.log(op.p.L);
@@ -441,6 +453,21 @@ function nwCiArr(ar) { // create a comparison [previous index] array
         }
     }
     return a;
+}
+
+function msg_toggle(el, el_s, s, t) { // toggle for messages
+    if (s && t) { // show
+        pg.msg.t.classList.remove("md"); // add tint (if applicable)
+    } else if (t) { // hide
+        pg.msg.t.classList.add("md"); // remove tint
+    }
+    if (s) {
+        
+    }
+    if (el_s) { // internal element reveal (if applicable)
+
+    }
+    e_Sdv(el, s); // show cookie-acceptance message
 }
 
 function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
