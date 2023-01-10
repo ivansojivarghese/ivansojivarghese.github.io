@@ -613,6 +613,11 @@ div.locator_img {
     margin-right: auto;
 }
 
+.msg.down {
+    opacity: 0;
+    transform: translateY(30%);
+}
+
 .pill {
     width: 8em;
     height: 2em;

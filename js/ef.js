@@ -20,9 +20,9 @@ function e_Xt(el, m, s) { // effect - translate-x fade in (countering .z_O serie
 
 function e_Sdv(el, s) { // effect - slide up/down (vertically) [text, images, etc.]
     if (s) { // slide from bottom (to up)
-        el.style.transform = "";
+        el.classList.remove("down");
     } else { // slide from top (to bottom)
-        el.style.transform = "translateY(100%)";
+        el.classList.add("down");
     }
 }
 /*
