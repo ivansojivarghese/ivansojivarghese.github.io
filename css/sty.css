@@ -217,7 +217,7 @@ div, .tint {
 }
 
 .o_wd { /*optimal width*/
-    width: 80%;
+    width: 80% !important;
 }
 
 .m_wd-15 { /*marginalised width - accounting 15% of margin*/
@@ -258,7 +258,7 @@ div, .tint {
     font-weight: normal;
 }
 
-.f_wg-b, .em, .hm h5, .pill h4 {
+.f_wg-b, .em, .hm h5, .pill h4, .pill h5 {
     font-weight: bold;
 }
 
@@ -620,6 +620,16 @@ div.locator_img {
     margin-bottom: 1.5em;
 }
 
+.pill.msg {
+    text-align: left;
+    height: 1.5rem;
+}
+
+.pill.msg h5 {
+    font-size: 1.5rem;
+    top: -0.2rem;
+}
+
 .pill h4 {
     padding: 0.5em 0;
 }
@@ -631,6 +641,11 @@ div.locator_img {
 .img_icon {
     width: 1.8rem;
     height: 1.8rem;
+}
+
+.img_icon.md {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 /*
 .chevron_down_img {
@@ -668,6 +683,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 .wifi_off_img {
     background-image: url("../svg/wifi_off.svg");
+}
+
+.wifi_off_w_img {
+    background-image: url("../svg/wifi_off_white.svg");
 }
 
 /*
