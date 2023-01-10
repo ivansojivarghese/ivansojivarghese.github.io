@@ -608,6 +608,7 @@ function scr_t(s, pg) { // scroll toggle
 //////////////////////////////////////////
 
 const documentHeight = () => {
+    window.alert("resize");
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`); // update height values of body/html on clientHeight resize
 }
