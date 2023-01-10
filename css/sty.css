@@ -761,6 +761,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 /* ------------- */
 
+#msg_sc {
+    height: var(--doc-height);
+}
+
 #net_msg .pill {
     background-color: #A10000;
 }
