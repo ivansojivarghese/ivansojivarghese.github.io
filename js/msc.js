@@ -76,10 +76,10 @@ var wH = window.innerHeight, // height
         e : false,
         t : "", // reference window category
         w : "", // current [open] window
-        cks : { // cookies
-            el : document.getElementById("ckA_sc"), // el
-            m : document.getElementById("ckA_msg"), // msg
-            t : document.getElementById("ckA_tint") // tint
+        msg : { // messages
+            el : document.getElementById("msg_sc"), // el
+            t : document.getElementById("msg_tint"), // tint
+            ckA : document.getElementById("ckA_msg"), // cookie-acceptance
         },
         cond : { // conditions
             el : document.getElementById("cond_sc"), // main
@@ -226,14 +226,14 @@ function getCookie(n) { // obtain a cookie (if available)
 
 function cookiesAccept() { // acknowledge user acceptance and allow site access
 
-    e_Sdv(pg.cks.m, false);
-    pg.cks.t.classList.add("md"); // remove tint
+    e_Sdv(pg.msg.ckA, false);
+    pg.msg.t.classList.add("md"); // remove tint
 
-    // pg.cks.el.classList.add("z_O");
+    // pg.msg.el.classList.add("z_O");
 
     setTimeout(function() {
         setCookie("cookiesAccepted", "true", 1); // cookie: cookies accepted
-        pg.cks.el.classList.add("d_n"); // hide page
+        pg.msg.el.classList.add("d_n"); // hide page
         op.c.u = true;
     }, op.te);
 }

@@ -81,7 +81,7 @@ function docRead() {
                         Rd[Rd.length] = true; // accelerate load process
                         op.c.a = false; // user NOT initial access
                         if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
-                            pg.cks.el.classList.add("d_n"); // remove user cookie-acceptance message
+                            pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
                             op.c.u = true; // message accepted
                         }
                     }
@@ -175,8 +175,10 @@ function load_e() { // end the loading sequence
                             scr_t(true, null); // enable scrolling
                         } else {
                             setTimeout(function() {
-                                pg.cks.t.classList.remove("md"); // add tint
-                                e_Sdv(pg.cks.m, true); // show cookie-acceptance message
+
+                                pg.msg.t.classList.remove("md"); // add tint
+                                e_Sdv(pg.msg.ckA, true); // show cookie-acceptance message
+                                
                             }, op.te);
                         }
                     }, 10);
