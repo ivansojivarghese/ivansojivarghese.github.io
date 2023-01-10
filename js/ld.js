@@ -177,9 +177,11 @@ function load_e() { // end the loading sequence
                             setTimeout(function() {
                                 /*
                                 pg.msg.t.classList.remove("md"); // add tint
-                                e_Sdv(pg.msg.ckA, true); // show cookie-acceptance message
+                                e_Sdv(pg.msg.ckA, true); 
                                 */
-                                msg_toggle(pg.msg.ckA, null, true, true);
+                                if (!pg.msg.c) {
+                                    msg_toggle(pg.msg.ckA, null, true, true); // show cookie-acceptance message
+                                }
                             }, op.te);
                         }
                     }, 10);

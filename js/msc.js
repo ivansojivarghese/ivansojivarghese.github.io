@@ -456,17 +456,22 @@ function nwCiArr(ar) { // create a comparison [previous index] array
 }
 
 function msg_toggle(el, el_s, s, t) { // toggle for messages
-    if (s && t) { // show
-        pg.msg.t.classList.remove("md"); // add tint (if applicable)
-    } else if (t) { // hide
-        pg.msg.t.classList.add("md"); // remove tint
+    if (s) { // show
+        pg.msg.c = true;
+        if (t) {
+            pg.msg.t.classList.remove("md"); // add tint (if applicable)
+        }
+    } else { // hide
+        pg.msg.c = false;
+        if (t) {
+            pg.msg.t.classList.add("md"); // remove tint
+        }
     }
-    if (s) {
-        
-    }
+    
     if (el_s) { // internal element reveal (if applicable)
 
     }
+    
     e_Sdv(el, s); // show cookie-acceptance message
 }
 
