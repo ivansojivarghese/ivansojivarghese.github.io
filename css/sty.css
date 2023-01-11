@@ -155,6 +155,10 @@ h1, h2, h3, h5, h6, p, ul {
     text-decoration: underline;
 }
 
+.h-d {
+    height: var(--doc-height);
+}
+
 .h-f, #control-height {
     height: 100vh;
 }
@@ -769,10 +773,6 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }
 
 /* ------------- */
-
-#msg_sc {
-    height: var(--doc-height);
-}
 
 #net_msg .pill {
     background-color: #A10000;
