@@ -159,11 +159,11 @@ h1, h2, h3, h5, h6, p, ul {
     height: var(--doc-height);
 }
 
-.h-f, #control-height {
+.h-f, .tint, #control-height {
     height: 100vh;
 }
 
-.h-fp, .img, .tint {
+.h-fp, .img {
     height: 100%;
 }
 
