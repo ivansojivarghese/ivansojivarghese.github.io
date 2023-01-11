@@ -8,7 +8,7 @@ var wH = window.innerHeight, // height
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
-        mode : false,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+        mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
             work : "web dev", // work label
