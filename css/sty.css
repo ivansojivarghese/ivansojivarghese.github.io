@@ -629,12 +629,12 @@ div.locator_img {
     margin-bottom: 1.5em;
 }
 
-.pill.msg {
+.pill.msg_m {
     text-align: left;
     height: 1.5rem;
 }
 
-.pill.msg h5 {
+.pill.msg_m h5 {
     font-size: 1.5rem;
     top: -0.2rem;
 }
