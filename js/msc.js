@@ -285,8 +285,8 @@ function pL() { // site parameters loop
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
         op.nc = true; // network changed
         
-        // pg.msg.net_i.classList.add("wifi_off_w_img");
-        // pg.msg.net_t.innerHTML = "offline";
+        pg.msg.net_i.classList.add("wifi_off_w_img");
+        pg.msg.net_t.innerHTML = "offline";
 
         if (!pg.msg.c) {
             msg_toggle(pg.msg.net, null, true, false);
@@ -465,15 +465,21 @@ function msg_toggle(el, el_s, s, t) { // toggle for messages
     if (s) { // show
         pg.msg.c = true;
         pg.msg.el.classList.remove("d_n"); // show page
+        el.classList.remove("d_n");
         if (t) {
             pg.msg.t.classList.remove("md"); // add tint (if applicable)
         }
+        setTimeout(function() {
+            e_Sdv(el, s); // show cookie-acceptance message
+        }, 10); // after short delay
     } else { // hide
         pg.msg.c = false;
+        e_Sdv(el, s); // hide cookie-acceptance message
         if (t) {
             pg.msg.t.classList.add("md"); // remove tint
         }
         setTimeout(function() {
+            el.classList.add("d_n");
             pg.msg.el.classList.add("d_n"); // hide page
         }, op.t);
     }
@@ -482,7 +488,7 @@ function msg_toggle(el, el_s, s, t) { // toggle for messages
 
     }
 
-    e_Sdv(el, s); // show cookie-acceptance message
+    // e_Sdv(el, s); // show cookie-acceptance message
 }
 
 function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
