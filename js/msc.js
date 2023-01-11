@@ -285,7 +285,7 @@ function pL() { // site parameters loop
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
         op.nc = true; // network changed
         
-        pg.msg.net_i.classList.add("wifi_off_w_img");
+        pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
         pg.msg.net_t.innerHTML = "offline";
 
         if (!pg.msg.c) {
