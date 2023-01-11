@@ -180,7 +180,7 @@ function load_e() { // end the loading sequence
                                 e_Sdv(pg.msg.ckA, true); 
                                 */
                                 if (!pg.msg.c) {
-                                    msg_toggle(pg.msg.ckA, null, true, true); // show cookie-acceptance message
+                                    msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
                                 }
                             }, op.te);
                         }

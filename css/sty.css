@@ -236,6 +236,10 @@ div, .tint {
     opacity: 0.85;
 }
 
+.tint.a {
+    opacity: 0.3;
+}
+
 .z_Ot {
     opacity: 0;
     transform: translateX(-3rem);

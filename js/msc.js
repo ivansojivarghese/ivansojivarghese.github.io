@@ -235,7 +235,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
     pg.msg.t.classList.add("md"); // remove tint*/
     // pg.msg.el.classList.add("z_O");
 
-    msg_toggle(pg.msg.ckA, null, false, true);
+    msg_toggle(pg.msg.ckA, null, false, true, null);
 
     setTimeout(function() {
         setCookie("cookiesAccepted", "true", 1); // cookie: cookies accepted
@@ -289,7 +289,7 @@ function pL() { // site parameters loop
         pg.msg.net_t.innerHTML = "offline";
 
         if (!pg.msg.c) {
-            msg_toggle(pg.msg.net, null, true, true);
+            msg_toggle(pg.msg.net, null, true, true, true);
         }
 
         // check for other messages, then open up
@@ -461,13 +461,16 @@ function nwCiArr(ar) { // create a comparison [previous index] array
     return a;
 }
 
-function msg_toggle(el, el_s, s, t) { // toggle for messages
+function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
     if (s) { // show
         pg.msg.c = true;
         pg.msg.el.classList.remove("d_n"); // show page
         el.classList.remove("d_n");
-        if (t) {
+        if (t && t_m) {
+            pg.msg.t.classList.add("a"); // add low tint
             pg.msg.t.classList.remove("md"); // add tint (if applicable)
+        } else if (t) {
+            pg.msg.t.classList.remove("md"); 
         }
         setTimeout(function() {
             e_Sdv(el, s); // show cookie-acceptance message
@@ -475,8 +478,11 @@ function msg_toggle(el, el_s, s, t) { // toggle for messages
     } else { // hide
         pg.msg.c = false;
         e_Sdv(el, s); // hide cookie-acceptance message
-        if (t) {
+        if (t && t_m) {
+            pg.msg.t.classList.remove("a"); // remove low tint
             pg.msg.t.classList.add("md"); // remove tint
+        } else if (t) {
+            pg.msg.t.classList.add("md"); 
         }
         setTimeout(function() {
             el.classList.add("d_n");
