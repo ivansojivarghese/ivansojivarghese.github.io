@@ -466,14 +466,14 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
         pg.msg.c = true;
         pg.msg.el.classList.remove("d_n"); // show page
         el.classList.remove("d_n");
-        if (t && t_m) {
-            pg.msg.t.classList.add("a"); // add low tint
-            pg.msg.t.classList.remove("md"); // add tint (if applicable)
-        } else if (t) {
-            pg.msg.t.classList.remove("md"); 
-        }
         setTimeout(function() {
             e_Sdv(el, s); // show cookie-acceptance message
+            if (t && t_m) {
+                pg.msg.t.classList.add("a"); // add low tint
+                pg.msg.t.classList.remove("md"); // add tint (if applicable)
+            } else if (t) {
+                pg.msg.t.classList.remove("md"); 
+            }
         }, 10); // after short delay
     } else { // hide
         pg.msg.c = false;
