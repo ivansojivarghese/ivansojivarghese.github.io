@@ -289,7 +289,7 @@ function pL() { // site parameters loop
         pg.msg.net_t.innerHTML = "offline";
 
         if (!pg.msg.c) {
-            msg_toggle(pg.msg.net, null, true, false);
+            msg_toggle(pg.msg.net, null, true, true);
         }
 
         // check for other messages, then open up
