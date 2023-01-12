@@ -288,9 +288,6 @@ function pL() { // site parameters loop
         // pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
         // pg.msg.net_t.innerHTML = "offline";
 
-        resLoad(rL.w_fw.el, rL.w_fw.u);
-        pg.msg.net_t.innerHTML = "offline";
-
         if (!pg.msg.c) {
             msg_toggle(pg.msg.net, null, true, true, true);
         }

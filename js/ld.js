@@ -89,6 +89,8 @@ function docRead() {
                             op.c.u = true; // message accepted
                         }
                     }
+                    resLoad(rL.w_fw.el, rL.w_fw.u);
+
                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
 
                     // checkOnline(); // check if online
