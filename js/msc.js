@@ -303,7 +303,7 @@ function pL() { // site parameters loop
     pg.msg.net_t.innerHTML = locationBarVis + " " + menuBarVis + " " + toolbarVis;*/
     // pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
 
-    pg.msg.net_t.innerHTML = window.innerHeight + " " + window.clientHeight;
+    pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight;
 
 
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
