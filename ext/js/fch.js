@@ -41,7 +41,6 @@ function loadUp() {
 
 function load_css_e() { // load CSS styles (page specific)
     c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
-    c_css("#link_3", "height: calc(" + cH + "px - " + getBd(document.getElementById('link_3'), 'top') + "px);", false, null);
 
     if (wD >= 290 && cH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
 
@@ -73,6 +72,8 @@ function load_js_e() { // load JS (page specific)
         
     hm.f = b; // update the hamburger menu object properties
     // m.ft = m;
+
+    c_css("#link_3", "height: calc(" + cH + "px - " + getBd(document.getElementById('link_3'), 'top') + "px);", false, null);
 
     for (var d in dev.info) { // loop through to concatenate information to text
         if (i < _Lq) {
