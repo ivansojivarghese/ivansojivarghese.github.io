@@ -630,6 +630,10 @@ function scr_t(s, pg) { // scroll toggle
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${document.documentElement.clientHeight}px`); // update height values of body/html on clientHeight resize
+    elementHeight = document.querySelector('#control-height').clientHeight;
+    barHeight = elementHeight - wH;
+    barHeightTemp = (barHeightTemp !== barHeight && barHeight !== 0) ? barHeight : barHeightTemp; // change barHeightTemp only if non-zero variation in value
+    op.nav.b = (barHeight > 0) ? true : false;
 }
 window.addEventListener("resize", documentHeight);
 documentHeight();
@@ -639,10 +643,6 @@ window.addEventListener("resize", function() {
         wH = window.innerHeight; // update on window size variables
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;
-        elementHeight = document.querySelector('#control-height').clientHeight;
-        barHeight = elementHeight - wH;
-        barHeightTemp = (barHeightTemp !== barHeight && barHeight !== 0) ? barHeight : barHeightTemp; // change barHeightTemp only if non-zero variation in value
-        op.nav.b = (barHeight > 0) ? true : false;
         reL(); // reload page
     }
 });
