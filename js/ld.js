@@ -208,6 +208,7 @@ function load_css() { // load up CSS (common)
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css(".trs_e", "transition-duration: " + (op.te / 1000) + "s;", false, null); // transition duration [ext.] (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
+    c_css(".head_b", "height: calc(" + cH + "px - 7rem);", false, null); // set landing page to full height (exclusive of url bar on mobile/tablet devices)
 
     if (vw.mB_L) { // in landscape view (mobile)
         c_css(".err", "margin-top: calc((" + cH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
