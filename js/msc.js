@@ -288,7 +288,7 @@ function pL() { // site parameters loop
         pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
     }
 
-    pg.msg.net_t.innerHTML = op.nav.b;
+    pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
 
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
         op.nc = true; // network changed
