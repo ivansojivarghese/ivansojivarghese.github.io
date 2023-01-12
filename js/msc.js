@@ -290,7 +290,19 @@ function pL() { // site parameters loop
 
     elementHeight = document.querySelector('#control-height').clientHeight;
     barHeight = elementHeight - wH;
-    pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
+
+        // check if location bar is visible
+    let locationBarVis = window.locationbar.visible ? "location bar visible" : "location bar invisible";
+
+    // check if menu bar is visible
+    let menuBarVis = window.menubar.visible ? "menu bar visible" : "menu bar invisible";
+
+    // check if toolbar is visible
+    let toolbarVis = window.toolbar.visible ? "toolbar visible" : "toolbar invisible";
+
+    pg.msg.net_t.innerHTML = locationBarVis;
+    // pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
+
 
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
         op.nc = true; // network changed
