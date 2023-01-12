@@ -283,10 +283,10 @@ function pL() { // site parameters loop
             scr_t(true, arg);
         }
     }
-
+    /*
     if (!op.nav.b) { // check if URL bar is NOT in view
         pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
-    }
+    }*/
 
     elementHeight = document.querySelector('#control-height').clientHeight;
     barHeight = elementHeight - wH;
