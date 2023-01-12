@@ -6,10 +6,14 @@ var disp = document.getElementById("display_sc"), // display
         y : document.getElementById("f_yr"), // copyright year
         v : document.getElementById("f_vr") // site version
     },
-    rL = { // page loader
+    rL = { // page loader/msc
         f : { // - favicon/logo
             el : document.getElementsByClassName("logo"), // element
             u : 'logo/favicon.png' // relative path
+        },
+        w_fw : { // - wifi off (white)
+            el : document.getElementById("net_msg-i"),
+            u : '../svg/wifi_off_white.svg'
         },
         el : document.getElementById("load_sc"), // load_sc
         m : document.getElementById("load_box"), // load_sc main
@@ -75,6 +79,9 @@ function docRead() {
                     }
                     if (getCookie("initialAccess") !== "true" && !dev.mode) { // create an access cookie (checks for first-time access)
                         resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+
+                        resLoad(rL.w_fw.el, rL.w_fw.u);
+
                         setCookie("initialAccess", "true", op.c.aL); // access cookie lasts for 24 hours
                         op.c.a = true; // user initial access detected
                     } else {
