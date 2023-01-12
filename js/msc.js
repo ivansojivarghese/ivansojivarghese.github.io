@@ -643,7 +643,7 @@ function scr_t(s, pg) { // scroll toggle
 
 const documentHeight = () => {
     const doc = document.documentElement;
-    doc.style.setProperty("--doc-height", `${window.innerHeight}px`); // update height values of body/html on clientHeight resize
+    doc.style.setProperty("--doc-height", `${window.outerHeight}px`); // update height values of body/html on clientHeight resize
     // elementHeight = document.querySelector('#control-height').clientHeight;
     // barHeight = elementHeight - wH;
     barHeightTemp = (barHeightTemp !== barHeight && barHeight !== 0) ? barHeight : barHeightTemp; // change barHeightTemp only if non-zero variation in value
