@@ -33,6 +33,7 @@ var wH = window.innerHeight, // height
         },
         nav : { // navigation
             r : false, // page reload check
+            b : true // URL bar in view check
         },
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
@@ -280,6 +281,10 @@ function pL() { // site parameters loop
             op.p.L = false;
             scr_t(true, arg);
         }
+    }
+
+    if (!op.n.b) { // check if URL bar is NOT in view
+
     }
 
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
@@ -620,7 +625,6 @@ function scr_t(s, pg) { // scroll toggle
 //////////////////////////////////////////
 
 const documentHeight = () => {
-    // window.alert("resize");
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${document.documentElement.clientHeight}px`); // update height values of body/html on clientHeight resize
 }
@@ -632,13 +636,12 @@ window.addEventListener("resize", function() {
         wH = window.innerHeight; // update on window size variables
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;
-        elementHeight = document.querySelector('#control-height').clientHeight,
-        barHeight = elementHeight - wH,
+        elementHeight = document.querySelector('#control-height').clientHeight;
+        barHeight = elementHeight - wH;
+        op.nav.b = (barHeight > 0) ? true : false;
         reL(); // reload page
     }
 });
-
-// window.alert(barHeight + "px");
 
 //////////////////////////////////////////
 
