@@ -49,11 +49,12 @@ function load_css_e() { // load CSS styles (page specific)
     // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 
     if (wD >= 290 && cH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
-
-        if (!(wD >= 310 && cH <= 550)) {
+        if (!(wD >= 310 && cH <= 550)) { // if width/height NOT within 310px and 550px
             c_css("#profile_image", "width: 17rem; height: 17rem;", false, null); // apply style mod
+            c_css("#link_3", "height: calc(" + cH + "px - (29.32rem + 2 * (" + mg + ")));", false, null);
+        } else {
+            c_css("#link_3", "height: calc(" + cH + "px - (27.32rem + 2 * (" + mg + ")));", false, null);
         }
-
     }
 
     c_css("#ham_C", "margin-top: calc((" + cH + "px - 16rem) / 2);", false, null);
