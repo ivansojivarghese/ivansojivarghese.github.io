@@ -101,7 +101,7 @@ function docRead() {
 
                     resLoad(rL.w_f.el, rL.w_f.u); // wifi_off
 
-                    resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
+                    // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
 
                     // WHAT IF LOADING ERROR?? - DISPLAY MESSAGE!
                     // CHECK ERRORS
