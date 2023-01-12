@@ -6,13 +6,13 @@ var disp = document.getElementById("display_sc"), // display
         y : document.getElementById("f_yr"), // copyright year
         v : document.getElementById("f_vr") // site version
     },
-    rL = { // page loader/msc
+    rL = { // page/resource loader
         f : { // - favicon/logo
             el : document.getElementsByClassName("logo"), // element
             u : 'logo/favicon.png' // relative path
         },
         w_f : { // - wifi off
-            el : document.getElementById("wifi_off_img"),
+            el : document.getElementsByClassName("wifi_off_img"),
             u : '../svg/wifi_off.svg'
         },
         w_fw : { // - wifi off (white)
@@ -20,7 +20,7 @@ var disp = document.getElementById("display_sc"), // display
             u : '../svg/wifi_off_white.svg'
         },
         w_w : { // wifi (white)
-            el : document.getElementById("wifi_w_img"),
+            el : document.getElementsByClassName("wifi_w_img"),
             u : '../svg/wifi_white.svg'
         },
         el : document.getElementById("load_sc"), // load_sc
