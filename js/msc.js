@@ -288,8 +288,8 @@ function pL() { // site parameters loop
         pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
     }*/
 
-    elementHeight = document.querySelector('#control-height').clientHeight;
-    barHeight = elementHeight - wH;
+    //elementHeight = document.getElementById("control-height").innerHeight,
+    //barHeight = elementHeight - wH;
 
      /*   // check if location bar is visible
     let locationBarVis = window.locationbar.visible ? true : false;
@@ -301,7 +301,7 @@ function pL() { // site parameters loop
     let toolbarVis = window.toolbar.visible ? true : false;
 
     pg.msg.net_t.innerHTML = locationBarVis + " " + menuBarVis + " " + toolbarVis;*/
-    // pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
+    pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
 
 
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
