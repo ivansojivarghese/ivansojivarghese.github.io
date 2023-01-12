@@ -288,8 +288,8 @@ function pL() { // site parameters loop
         pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
     }*/
 
-    //elementHeight = document.getElementById("control-height").innerHeight,
-    //barHeight = elementHeight - wH;
+    elementHeight = document.getElementById("control-height").innerHeight,
+    barHeight = elementHeight - wH;
 
      /*   // check if location bar is visible
     let locationBarVis = window.locationbar.visible ? true : false;
