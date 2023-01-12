@@ -5,6 +5,7 @@ var wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
     elementHeight = document.querySelector('#control-height').clientHeight,
     barHeight = elementHeight - wH,
+    barHeightTemp = barHeight, // temp. hold
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
@@ -283,7 +284,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (!op.n.b) { // check if URL bar is NOT in view
+    if (!op.nav.b) { // check if URL bar is NOT in view
         pg.msg.net.style.transform = "translateY(30px)";
     }
 
@@ -638,6 +639,7 @@ window.addEventListener("resize", function() {
         cH = document.documentElement.clientHeight;
         elementHeight = document.querySelector('#control-height').clientHeight;
         barHeight = elementHeight - wH;
+        barHeightTemp = (barHeightTemp !== barHeight && barHeight !== 0) ? barHeight : barHeightTemp; // change barHeightTemp only if non-zero variation in value
         op.nav.b = (barHeight > 0) ? true : false;
         reL(); // reload page
     }
