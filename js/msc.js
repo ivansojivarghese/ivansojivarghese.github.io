@@ -291,7 +291,7 @@ function pL() { // site parameters loop
     elementHeight = document.querySelector('#control-height').clientHeight;
     barHeight = elementHeight - wH;
 
-        // check if location bar is visible
+     /*   // check if location bar is visible
     let locationBarVis = window.locationbar.visible ? true : false;
 
     // check if menu bar is visible
@@ -300,7 +300,7 @@ function pL() { // site parameters loop
     // check if toolbar is visible
     let toolbarVis = window.toolbar.visible ? true : false;
 
-    pg.msg.net_t.innerHTML = locationBarVis + " " + menuBarVis + " " + toolbarVis;
+    pg.msg.net_t.innerHTML = locationBarVis + " " + menuBarVis + " " + toolbarVis;*/
     // pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
 
 
