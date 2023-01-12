@@ -292,15 +292,15 @@ function pL() { // site parameters loop
     barHeight = elementHeight - wH;
 
         // check if location bar is visible
-    let locationBarVis = window.locationbar.visible ? "location bar visible" : "location bar invisible";
+    let locationBarVis = window.locationbar.visible ? true : false;
 
     // check if menu bar is visible
-    let menuBarVis = window.menubar.visible ? "menu bar visible" : "menu bar invisible";
+    let menuBarVis = window.menubar.visible ? true : false;
 
     // check if toolbar is visible
-    let toolbarVis = window.toolbar.visible ? "toolbar visible" : "toolbar invisible";
+    let toolbarVis = window.toolbar.visible ? true : false;
 
-    pg.msg.net_t.innerHTML = locationBarVis;
+    pg.msg.net_t.innerHTML = locationBarVis + " " + menuBarVis + " " + toolbarVis;
     // pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
 
 
