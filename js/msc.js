@@ -301,7 +301,9 @@ function pL() { // site parameters loop
     let toolbarVis = window.toolbar.visible ? true : false;
 
     pg.msg.net_t.innerHTML = locationBarVis + " " + menuBarVis + " " + toolbarVis;*/
-    pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
+    // pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
+
+    pg.msg.net_t.innerHTML = window.innerHeight + " " + window.clientHeight;
 
 
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
