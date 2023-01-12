@@ -3,8 +3,8 @@
 
 var wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
-    elementHeight = document.getElementById("control-height").innerHeight,
-    barHeight = elementHeight - wH,
+    elementHeight = document.getElementById("control-height"),
+    barHeight = getBd(elementHeight, "height") - wH,
     barHeightTemp = barHeight, // temp. hold
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
@@ -288,8 +288,8 @@ function pL() { // site parameters loop
         pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
     }*/
 
-    elementHeight = document.getElementById("control-height").innerHeight,
-    barHeight = elementHeight - wH;
+    // elementHeight = document.getElementById("control-height").innerHeight,
+    barHeight = getBd(elementHeight, "height") - wH;
 
      /*   // check if location bar is visible
     let locationBarVis = window.locationbar.visible ? true : false;
@@ -645,8 +645,8 @@ const documentHeight = () => {
     // window.alert("Resize");
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`); // update height values of body/html on clientHeight resize
-    elementHeight = document.getElementById("control-height").innerHeight,
-    barHeight = elementHeight - wH;
+    // elementHeight = document.getElementById("control-height").innerHeight,
+    barHeight = getBd(elementHeight, "height") - wH;
     barHeightTemp = (barHeightTemp !== barHeight && barHeight !== 0) ? barHeight : barHeightTemp; // change barHeightTemp only if non-zero variation in value
     op.nav.b = (barHeight > 0) ? true : false;
 }
