@@ -28,10 +28,10 @@
 html {
     font-size: 10px;
 }
-
-:root { /*root (html) element*/
-    --doc-height: 100%; /* variable value */
-}
+/*
+:root { /*root (html) element
+    --doc-height: 100%; 
+}*/
 
 body {
     width: 100vw; /*takes full dimensions*/
@@ -154,10 +154,10 @@ h1, h2, h3, h5, h6, p, ul {
 .t-u {
     text-decoration: underline;
 }
-
+/*
 .h-d {
     height: var(--doc-height);
-}
+}*/
 
 .h-f, .tint, #control-height {
     height: 100vh;
