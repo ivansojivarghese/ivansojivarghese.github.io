@@ -284,7 +284,7 @@ function pL() { // site parameters loop
     }
 
     if (!op.n.b) { // check if URL bar is NOT in view
-
+        pg.msg.net.style.transform = "translateY(30px)";
     }
 
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
