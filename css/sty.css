@@ -500,10 +500,6 @@ a.md, span.md {
     position: absolute;
 }
 
-.p-t {
-    position: sticky;
-}
-
 .p-f, .hm {
     position: fixed;
 }
