@@ -53,7 +53,7 @@ function load_css_e() { // load CSS styles (page specific)
             c_css("#profile_image", "width: 17rem; height: 17rem;", false, null); // apply style mod
             c_css("#link_3", "height: calc(" + cH + "px - (29.32rem + 2 * (" + mg + ")));", false, null);
         } else {
-            c_css("#link_3", "height: calc(" + cH + "px - (27.32rem + 2 * (" + mg + ")));", false, null);
+            c_css("#link_3", "height: calc(" + cH + "px - (26.32rem + ((480px - 27.5rem) / 3)));", false, null);
         }
     }
 
