@@ -3,7 +3,7 @@
 
 var wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
-    elementHeight = document.querySelector('#control-height').clientHeight,
+    elementHeight = document.getElementById("control-height").innerHeight,
     barHeight = elementHeight - wH,
     barHeightTemp = barHeight, // temp. hold
     wD = window.innerWidth, // width 
@@ -645,8 +645,8 @@ const documentHeight = () => {
     window.alert("Resize");
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`); // update height values of body/html on clientHeight resize
-    // elementHeight = document.querySelector('#control-height').clientHeight;
-    // barHeight = elementHeight - wH;
+    elementHeight = document.getElementById("control-height").innerHeight,
+    barHeight = elementHeight - wH;
     barHeightTemp = (barHeightTemp !== barHeight && barHeight !== 0) ? barHeight : barHeightTemp; // change barHeightTemp only if non-zero variation in value
     op.nav.b = (barHeight > 0) ? true : false;
 }
