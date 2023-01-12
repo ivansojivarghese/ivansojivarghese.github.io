@@ -288,6 +288,8 @@ function pL() { // site parameters loop
         pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
     }
 
+    elementHeight = document.querySelector('#control-height').clientHeight;
+    barHeight = elementHeight - wH;
     pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
 
     if (op.n === false && !op.nc) { // if loss of network connection (internet)
@@ -630,8 +632,8 @@ function scr_t(s, pg) { // scroll toggle
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${document.documentElement.clientHeight}px`); // update height values of body/html on clientHeight resize
-    elementHeight = document.querySelector('#control-height').clientHeight;
-    barHeight = elementHeight - wH;
+    // elementHeight = document.querySelector('#control-height').clientHeight;
+    // barHeight = elementHeight - wH;
     barHeightTemp = (barHeightTemp !== barHeight && barHeight !== 0) ? barHeight : barHeightTemp; // change barHeightTemp only if non-zero variation in value
     op.nav.b = (barHeight > 0) ? true : false;
 }
