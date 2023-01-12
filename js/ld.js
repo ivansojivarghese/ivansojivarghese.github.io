@@ -79,9 +79,6 @@ function docRead() {
                     }
                     if (getCookie("initialAccess") !== "true" && !dev.mode) { // create an access cookie (checks for first-time access)
                         resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
-
-                        resLoad(rL.w_fw.el, rL.w_fw.u);
-
                         setCookie("initialAccess", "true", op.c.aL); // access cookie lasts for 24 hours
                         op.c.a = true; // user initial access detected
                     } else {
@@ -243,6 +240,8 @@ function load_js() { // [compatibility/variables] load
     errorCheck(); 
     pos.st = (op.e / 100) * cH; // set scroll-validity threshold
     op.r = getSiteRes(); // get site resource origin
+
+    resLoad(rL.w_fw.el, rL.w_fw.u);
 
     // checkOnline();
     // op.n = checkOnlineStatus();
