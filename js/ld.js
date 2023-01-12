@@ -91,16 +91,10 @@ function docRead() {
                     }
                     resLoad(rL.w_fw.el, rL.w_fw.u);
 
-                    // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
-
-                    // checkOnline(); // check if online
-
                     // WHAT IF LOADING ERROR?? - DISPLAY MESSAGE!
                     // CHECK ERRORS
                         // web connection
-                        // display resolution
-                        // orientation (in mobile)
-                        // 
+
                 }
                 if (rdS(Rd) && !rL.e3) { // when favicon has loaded (or not)
                     rL.e3 = true; 
