@@ -97,7 +97,11 @@ function docRead() {
                             op.c.u = true; // message accepted
                         }
                     }
-                    resLoad(rL.w_fw.el, rL.w_fw.u);
+                    resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
+
+                    resLoad(rL.w_f.el, rL.w_f.u); // wifi_off
+
+                    resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
 
                     // WHAT IF LOADING ERROR?? - DISPLAY MESSAGE!
                     // CHECK ERRORS
