@@ -11,9 +11,17 @@ var disp = document.getElementById("display_sc"), // display
             el : document.getElementsByClassName("logo"), // element
             u : 'logo/favicon.png' // relative path
         },
+        w_f : { // - wifi off
+            el : document.getElementById("wifi_off_img"),
+            u : '../svg/wifi_off.svg'
+        },
         w_fw : { // - wifi off (white)
-            el : document.getElementById("net_msg-i"),
+            el : document.getElementsByClassName("wifi_off_w_img"),
             u : '../svg/wifi_off_white.svg'
+        },
+        w_w : { // wifi (white)
+            el : document.getElementById("wifi_w_img"),
+            u : '../svg/wifi_white.svg'
         },
         el : document.getElementById("load_sc"), // load_sc
         m : document.getElementById("load_box"), // load_sc main
