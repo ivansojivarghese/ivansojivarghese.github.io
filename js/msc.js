@@ -642,7 +642,7 @@ function scr_t(s, pg) { // scroll toggle
 }
 
 //////////////////////////////////////////
-
+/*
 const documentHeight = () => {
     // window.alert("Resize");
     const doc = document.documentElement;
@@ -653,7 +653,7 @@ const documentHeight = () => {
     op.nav.b = (barHeight > 0) ? true : false;
 }
 window.addEventListener("resize", documentHeight);
-documentHeight();
+documentHeight();*/
 
 window.addEventListener("resize", function() {
     if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values before proceeding
