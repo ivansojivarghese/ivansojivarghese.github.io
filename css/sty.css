@@ -175,6 +175,10 @@ h1, h2, h3, h5, h6, p, ul {
     height: 1rem;
 }
 
+.h-z {
+    height: 0;
+}
+
 .w-s {
     width: 1rem;
 }
