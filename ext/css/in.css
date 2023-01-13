@@ -67,6 +67,12 @@
     top: 1rem;
 }
 
+#chev_d {
+    bottom: 1.6em;
+    left: 50%;
+    transform: translateY(50%) translateX(-50%);
+}
+
 /*
 #peekCh {
     margin-top: 1.5rem;
