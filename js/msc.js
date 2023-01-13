@@ -96,7 +96,8 @@ var wH = window.innerHeight, // height
             cpy : document.getElementById("cpy"), // copyright [https://www.nibusinessinfo.co.uk/content/sample-website-copyright-statement]
             prv : document.getElementById("prv") // privacy policy [https://cdn.websitepolicies.com/wp-content/uploads/2022/04/privacy-policy-template.pdf]
         }
-    };
+    },
+    timer = {}; // keep track of timer instances
 
 const checkOnlineStatus = async () => { // check for internet connectivity
     try {
@@ -249,6 +250,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
+
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
@@ -466,14 +468,20 @@ function chkVL(n, s) { // numeral - check for positive/non-zero value
 }
 
 //////////////////////////////////////////
-/*
-function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
-    if (s) { // check if class is present before removing
-        el.classList.add("z_O"); // fade out
-    } else {
-        el.classList.remove("z_O"); // fade in
-    }
-}*/
+
+function countdownTimerSec(d, t) { // count down (in sec.)
+    timer[t] = {}; // create object
+    var i = 0, // init
+        f = function() {
+            if (i < d) { // if less than limit
+                timer[t].s = d - i; // live countdown tracker
+                i++; // iterate
+            } else {
+                clearInterval(timer[t].L); // clear at end
+            }
+        };
+    timer[t].L = setInterval(f, 1000); // start loop
+}
 
 function getBd(el, p) { // retrieve getBoundingClientRect (bounding rectangle)
     var elB = el.getBoundingClientRect(),
