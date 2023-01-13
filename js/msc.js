@@ -29,6 +29,7 @@ var wH = window.innerHeight, // height
             u : false, // [user] cookies-enabled-acceptance
             uM : 5, // "" deny message limit (sec.)
             uT : "cD", // "" timer tracker
+            uR : false, // "" redirect check
             e : null, // enabled check
             a : null, // user access (inital) check [browser-dependant]
             aL : 1, // user access (initial) time limit (days)
@@ -261,6 +262,7 @@ function cookiesDeny() { // deny site access (and begin to close tab)
 
 function cookiesDenyRedirect() {
     historyBack(); // redirect to previous page
+    op.c.uR = true;
     setTimeout(function() {
         pg.msg.ckDp1.innerHTML = "page redirected";
         pg.msg.ckDp2.classList.remove("d_n");
@@ -269,11 +271,17 @@ function cookiesDenyRedirect() {
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
-    msg_toggle(pg.msg.ckD, null, false, true, null);
-    clearInterval(timer[op.c.uT].L);
-    setTimeout(function() {
-        pg.msg.ckDs.innerHTML = op.c.uM; // reset time
-    }, op.t);
+    if (op.c.uR) { // if redirected
+        pg.msg.ckDp1.innerHTML = "redirecting to the"; // reset back
+        pg.msg.ckDp2.classList.add("d_n");
+        pg.msg.ckDp3.classList.remove("d_n");
+    } else {
+        msg_toggle(pg.msg.ckD, null, false, true, null);
+        clearInterval(timer[op.c.uT].L);
+        setTimeout(function() {
+            pg.msg.ckDs.innerHTML = op.c.uM; // reset time
+        }, op.t);
+    }
 }
 
 //////////////////////////////////////////
