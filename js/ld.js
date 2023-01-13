@@ -95,7 +95,6 @@ function docRead() {
                         if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
                             pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
                             op.c.u = true; // message accepted
-                            load_eN(); // complete any due tasks (page-specific)
                         }
                     }
                     resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
@@ -194,6 +193,8 @@ function load_e() { // end the loading sequence
                                 */
                                 if (!pg.msg.c) {
                                     msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
+                                } else {
+                                    load_eN(); // complete any due tasks (page-specific)
                                 }
                             }, op.te);
                         }
