@@ -247,8 +247,12 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
     }, op.te);
 }
 
-function cookiesDeny() { // deny site access (and close tab)
+function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
+}
+
+function cookiesDenyCancel() { // cancel close tab, back to original message
+    msg_toggle(pg.msg.ckD, null, false, true, null);
 }
 
 //////////////////////////////////////////
@@ -509,18 +513,24 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             }
         }, 10); // after short delay
     } else { // hide
-        pg.msg.c = false;
         e_Sdv(el, s); // hide message
-        if (t && t_m) {
-            pg.msg.t.classList.remove("a"); // remove low tint
-            pg.msg.t.classList.add("md"); // remove tint
-        } else if (t) {
-            pg.msg.t.classList.add("md"); 
+        if (el !== pg.msg.ckD) {
+            pg.msg.c = false;
+            if (t && t_m) {
+                pg.msg.t.classList.remove("a"); // remove low tint
+                pg.msg.t.classList.add("md"); // remove tint
+            } else if (t) {
+                pg.msg.t.classList.add("md"); 
+            }
+            setTimeout(function() {
+                el.classList.add("d_n");
+                pg.msg.el.classList.add("d_n"); // hide page
+            }, op.t);
+        } else {
+            setTimeout(function() {
+                el.classList.add("d_n");
+            }, op.t);
         }
-        setTimeout(function() {
-            el.classList.add("d_n");
-            pg.msg.el.classList.add("d_n"); // hide page
-        }, op.t);
     }
     
     if (el_s) { // internal element reveal (if applicable)
