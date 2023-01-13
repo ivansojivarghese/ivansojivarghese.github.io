@@ -29,7 +29,8 @@ var fchL = {
         document.getElementById("sIn3"), // cappuccinos
     ],
     el = {
-        lk3a : document.getElementById("link_3a")
+        lk3a : document.getElementById("link_3a"),
+        lk3b : document.getElementById("link_3b")
     };
 
 
@@ -92,5 +93,19 @@ function load_js_e() { // load JS (page specific)
 }
 
 function load_eN() { // load, after cookie acceptance (page specific)
+    scrollArrowIterate();
     c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
+}
+
+function scrollArrowIterate() {
+    el.lk3b.style.top = "2rem";
+    el.lk3b.style.height = "calc(100% - 2rem)";
+    setTimeout(function() {
+        el.lk3b.style.top = "auto";
+        el.lk3b.style.bottom = "2rem";
+        el.lk3b.style.height = 0;
+        setTimeout(function() {
+            scrollArrowIterate();
+        }, op.t);
+    }, op.t);
 }

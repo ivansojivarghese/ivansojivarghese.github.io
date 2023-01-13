@@ -65,23 +65,6 @@
 #link_3b {
     width: 0.15rem;
     top: 1rem;
-    animation-name: scrollArrow;
-}
-
-@keyframes scrollArrow {
-    0% {
-        top: 1rem;
-    }
-    50% {
-        height: calc(100% - 2rem);
-    }
-    50.1% {
-        bottom: 1rem;
-        top: auto;
-    }
-    100% {
-        height: 0;
-    }
 }
 
 /*
