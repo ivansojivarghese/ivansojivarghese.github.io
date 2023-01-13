@@ -65,6 +65,7 @@
 #link_3b {
     width: 0.15rem;
     top: 1rem;
+    transition-timing-function: cubic-bezier(1, 0, 0, 1);
 }
 
 #chev_d {
