@@ -252,12 +252,15 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
-    countdownTimerSec(op.c.uM - 1, "a", pg.msg.ckDs, historyBack); // countdown from 5 sec. for redirecting away from page
+    countdownTimerSec(op.c.uM - 1, "cD", pg.msg.ckDs, historyBack); // countdown from 5 sec. for redirecting away from page
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
     msg_toggle(pg.msg.ckD, null, false, true, null);
-    pg.msg.ckDs.innerHTML = op.c.uM; // reset time
+    clearInterval(timer["cD"].L);
+    setTimeout(function() {
+        pg.msg.ckDs.innerHTML = op.c.uM; // reset time
+    }, op.t);
 }
 
 //////////////////////////////////////////
