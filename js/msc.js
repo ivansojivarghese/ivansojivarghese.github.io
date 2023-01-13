@@ -272,6 +272,7 @@ function cookiesDenyRedirect() {
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
     if (op.c.uR) { // if redirected
+        op.c.uR = false;
         pg.msg.ckDp1.innerHTML = "redirecting to the"; // reset back
         pg.msg.ckDp2.classList.add("d_n");
         pg.msg.ckDp3.classList.remove("d_n");
