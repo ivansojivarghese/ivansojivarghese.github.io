@@ -256,12 +256,14 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
-    countdownTimerSec(op.c.uM - 1, op.c.uT, pg.msg.ckDs, cookieDenyRedirect); // countdown from 5 sec. for redirecting away from page
+    countdownTimerSec(op.c.uM - 1, op.c.uT, pg.msg.ckDs, cookiesDenyRedirect); // countdown from 5 sec. for redirecting away from page
 }
 
-function cookieDenyRedirect() {
+function cookiesDenyRedirect() {
     historyBack(); // redirect to previous page
-
+    pg.msg.ckDp1.innerHTML = "page redirected";
+    pg.msg.ckDp2.classList.remove("d_n");
+    pg.msg.ckDp3.classList.add("d_n");
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
