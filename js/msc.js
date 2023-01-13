@@ -261,9 +261,11 @@ function cookiesDeny() { // deny site access (and begin to close tab)
 
 function cookiesDenyRedirect() {
     historyBack(); // redirect to previous page
-    pg.msg.ckDp1.innerHTML = "page redirected";
-    pg.msg.ckDp2.classList.remove("d_n");
-    pg.msg.ckDp3.classList.add("d_n");
+    setTimeout(function() {
+        pg.msg.ckDp1.innerHTML = "page redirected";
+        pg.msg.ckDp2.classList.remove("d_n");
+        pg.msg.ckDp3.classList.add("d_n");
+    }, 10);
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
