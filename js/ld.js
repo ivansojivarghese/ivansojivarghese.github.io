@@ -184,6 +184,7 @@ function load_e() { // end the loading sequence
                     setTimeout(function() {
                         e_Fd(disp, false);  
                         if (op.c.u) { // if cookie-use accepted
+                            load_eN(); // complete any due tasks (page-specific)
                             scr_t(true, null); // enable scrolling
                         } else {
                             setTimeout(function() {
@@ -193,8 +194,6 @@ function load_e() { // end the loading sequence
                                 */
                                 if (!pg.msg.c) {
                                     msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
-                                } else {
-                                    load_eN(); // complete any due tasks (page-specific)
                                 }
                             }, op.te);
                         }
