@@ -251,7 +251,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
-    countdownTimerSec(4, "a", pg.msg.ckDs, historyBack); // countdown from 5 sec. for closing of current tab
+    countdownTimerSec(4, "a", pg.msg.ckDs, historyBack); // countdown from 5 sec. for redirecting away from page
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
@@ -476,7 +476,6 @@ function countdownTimerSec(d, t, e, p) { // count down (in sec.)
         f = function() {
             if (i < d) { // if less than limit
                 timer[t].s = d - i; // live countdown tracker
-                console.log(timer[t].s);
                 if (e) {
                     e.innerHTML = timer[t].s;
                 }
@@ -484,7 +483,7 @@ function countdownTimerSec(d, t, e, p) { // count down (in sec.)
             } else {
                 clearInterval(timer[t].L); // clear at end
                 if (p) {
-                    p();
+                    p(); // run a function if applicable
                 }
             }
         };
