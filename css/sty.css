@@ -701,6 +701,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 .location_w_img {
     background-image: url("../svg/location_white.svg");
 }
+
+.chevron_down_img {
+    background-image: url("../svg/chevron_down.svg");
+}
 /*
 .love_img {
     background-image: url("../svg/love.svg");
