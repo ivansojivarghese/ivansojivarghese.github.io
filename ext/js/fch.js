@@ -98,14 +98,14 @@ function load_eN() { // load, after cookie acceptance (page specific)
 }
 
 function scrollArrowIterate() {
-    el.lk3b.style.top = "2rem";
-    el.lk3b.style.height = "calc(100% - 2rem)";
+    el.lk3b.style.top = "1rem";
+    el.lk3b.style.height = "calc(100% - 2.5rem)";
     setTimeout(function() {
         el.lk3b.style.top = "auto";
-        el.lk3b.style.bottom = "2rem";
+        el.lk3b.style.bottom = "1rem";
         el.lk3b.style.height = 0;
         setTimeout(function() {
             scrollArrowIterate();
-        }, op.t);
-    }, op.t);
+        }, op.te);
+    }, op.te);
 }

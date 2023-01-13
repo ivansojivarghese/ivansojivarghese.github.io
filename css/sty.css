@@ -446,6 +446,10 @@ a.md, span.md {
     padding: 1em 0;
 }
 
+.p_TBm {
+    padding: 1em 0 1.5em;
+}
+
 .p_TBh {
     padding: 0.45em 0;
 }
