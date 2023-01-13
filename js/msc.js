@@ -242,6 +242,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
     setTimeout(function() {
         setCookie("cookiesAccepted", "true", 1); // cookie: cookies accepted
         op.c.u = true;
+        load_eN(); // continue load process if any (page specific)
     }, op.te);
 }
 

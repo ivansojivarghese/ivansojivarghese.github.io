@@ -27,7 +27,10 @@ var fchL = {
         document.getElementById("sIn1"), // distance
         document.getElementById("sIn2"), // hours
         document.getElementById("sIn3"), // cappuccinos
-    ];
+    ],
+    el = {
+        lk3a : document.getElementById("link_3a")
+    };
 
 
 function loadUp() {
@@ -88,10 +91,6 @@ function load_js_e() { // load JS (page specific)
     }
 }
 
-function load_js_eN() { // load JS, after page load (page specific)
-    /*
-    var b = getBd(im.L, "top");
-
-    im.j = 1 / b; // opacity fade out rate (100vh - b)
-    */
+function load_eN() { // load, after cookie acceptance (page specific)
+    el.lk3a.classList.add("h-fp");
 }
