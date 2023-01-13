@@ -85,6 +85,7 @@ var wH = window.innerHeight, // height
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
             ckD : document.getElementById("ckD_msg"), // cookie-deny
+            ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
             net : document.getElementById("net_msg"), // network
             net_i : document.getElementById("net_msg-i"), // network - icon
             net_t : document.getElementById("net_msg-t") // network - text
@@ -250,7 +251,9 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
-
+    setTimeout(function() {
+        countdownTimerSec(5, "a", pg.msg.ckDs);
+    }, op.t);
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
@@ -469,12 +472,15 @@ function chkVL(n, s) { // numeral - check for positive/non-zero value
 
 //////////////////////////////////////////
 
-function countdownTimerSec(d, t) { // count down (in sec.)
+function countdownTimerSec(d, t, e) { // count down (in sec.)
     timer[t] = {}; // create object
     var i = 0, // init
         f = function() {
             if (i < d) { // if less than limit
                 timer[t].s = d - i; // live countdown tracker
+                if (e) {
+                    e.innerHTML = timer[t].s;
+                }
                 i++; // iterate
             } else {
                 clearInterval(timer[t].L); // clear at end
