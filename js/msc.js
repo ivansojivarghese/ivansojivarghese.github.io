@@ -28,6 +28,7 @@ var wH = window.innerHeight, // height
         c : { // cookies
             u : false, // [user] cookies-enabled-acceptance
             uM : 5, // "" deny message limit (sec.)
+            uT : "cD", // "" timer tracker
             e : null, // enabled check
             a : null, // user access (inital) check [browser-dependant]
             aL : 1, // user access (initial) time limit (days)
@@ -252,12 +253,12 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
-    countdownTimerSec(op.c.uM - 1, "cD", pg.msg.ckDs, historyBack); // countdown from 5 sec. for redirecting away from page
+    countdownTimerSec(op.c.uM - 1, op.c.uT, pg.msg.ckDs, historyBack); // countdown from 5 sec. for redirecting away from page
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
     msg_toggle(pg.msg.ckD, null, false, true, null);
-    clearInterval(timer["cD"].L);
+    clearInterval(timer[op.c.uT].L);
     setTimeout(function() {
         pg.msg.ckDs.innerHTML = op.c.uM; // reset time
     }, op.t);
