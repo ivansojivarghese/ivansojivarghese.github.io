@@ -126,10 +126,14 @@
                             content <a class="t-u" onclick="popU_toggle('cond', 'dcr', false, true)">disclaimer,</a>
                             and <a class="t-u" onclick="popU_toggle('cond', 'prv', false, true)">privacy</a> policy for further information.
                         </p>
-                        <p class="attr lh-ex">Do you agree to proceed?</p>
+                        <p class="attr lh-ex">Do you agree to proceed? Closing this message automatically assumes that you do so.</p>
                     </div>
-                    <div class="bC_d c_w pill" style="margin-left: calc((100vw - 8em) / 2);" onclick="cookiesAccept()">
-                        <h4 class="m_B z">ok</h4>
+                    <div class="m_Az" style="width: 17.5em;">
+                        <div class="bC_d c_w pill d_i" onclick="cookiesAccept()" style="margin-right: 1.5em;">
+                            <h4 class="m_B z">yes</h4>
+                        </div><div class="bC_d c_w pill negate d_i" onclick="">
+                            <h4 class="m_B z">no</h4>
+                        </div>
                     </div>
                 </div>
                 <div id="net_msg" class="z-Te p-a trs bC_t d_n msg down" style="top: 0;">
