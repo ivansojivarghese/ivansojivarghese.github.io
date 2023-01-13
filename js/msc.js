@@ -87,6 +87,9 @@ var wH = window.innerHeight, // height
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
             ckD : document.getElementById("ckD_msg"), // cookie-deny
+            ckDp1 : document.getElementById("ckD_msg-p1"), // para 1
+            ckDp2 : document.getElementById("ckD_msg-p2"), // para 2
+            ckDp3 : document.getElementById("ckD_msg-p3"), // para 3
             ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
             net : document.getElementById("net_msg"), // network
             net_i : document.getElementById("net_msg-i"), // network - icon
@@ -253,7 +256,12 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
-    countdownTimerSec(op.c.uM - 1, op.c.uT, pg.msg.ckDs, historyBack); // countdown from 5 sec. for redirecting away from page
+    countdownTimerSec(op.c.uM - 1, op.c.uT, pg.msg.ckDs, cookieDenyRedirect); // countdown from 5 sec. for redirecting away from page
+}
+
+function cookieDenyRedirect() {
+    historyBack(); // redirect to previous page
+
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
