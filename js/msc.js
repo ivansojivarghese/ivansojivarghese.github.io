@@ -251,9 +251,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
-    setTimeout(function() {
-        countdownTimerSec(5, "a", pg.msg.ckDs);
-    }, op.t);
+    countdownTimerSec(4, "a", pg.msg.ckDs); // countdown from 5 sec. for closing of current tab
 }
 
 function cookiesDenyCancel() { // cancel close tab, back to original message
@@ -472,18 +470,22 @@ function chkVL(n, s) { // numeral - check for positive/non-zero value
 
 //////////////////////////////////////////
 
-function countdownTimerSec(d, t, e) { // count down (in sec.)
+function countdownTimerSec(d, t, e, p) { // count down (in sec.)
     timer[t] = {}; // create object
     var i = 0, // init
         f = function() {
             if (i < d) { // if less than limit
                 timer[t].s = d - i; // live countdown tracker
+                console.log(timer[t].s);
                 if (e) {
                     e.innerHTML = timer[t].s;
                 }
                 i++; // iterate
             } else {
                 clearInterval(timer[t].L); // clear at end
+                if (p) {
+
+                }
             }
         };
     timer[t].L = setInterval(f, 1000); // start loop
