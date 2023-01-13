@@ -95,8 +95,11 @@ function load_js_e() { // load JS (page specific)
 
 function load_eN() { // load, after cookie acceptance (page specific)
     // scroll arrow
-    scrollArrowIterate(); // start iteration
-    c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
+    var h = getBd(el.lk3, "height");
+    if (h >= 60) {
+        scrollArrowIterate(); // start iteration
+        c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
+    }
 }
 
 function scrollArrowIterate() {
