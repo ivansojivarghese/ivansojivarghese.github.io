@@ -92,5 +92,5 @@ function load_js_e() { // load JS (page specific)
 }
 
 function load_eN() { // load, after cookie acceptance (page specific)
-    c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' indication 
+    c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
 }

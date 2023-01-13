@@ -95,6 +95,7 @@ function docRead() {
                         if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
                             pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
                             op.c.u = true; // message accepted
+                            load_eN(); // complete any due tasks (page-specific)
                         }
                     }
                     resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
