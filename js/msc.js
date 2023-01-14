@@ -281,8 +281,8 @@ function cookiesDenyRedirect() {
     pg.msg.ckDp2.classList.add("d_n");
     pg.msg.ckDp3.classList.remove("d_n");
     if (document.referrer) { // if previous URI exists (from link path)
-        window.history.back(); // redirect to previous page in history
         observer.observe({type: "navigation", buffered: true}); // observe a navigation entryType (check for op.nav.fb)
+        window.history.back(); // redirect to previous page in history
     }
 }
 
