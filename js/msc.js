@@ -337,7 +337,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (op.c.uR && op.nav.fb) { // cookie-message redirect[ed] and forward/backward navigation
+    if (op.c.uR && (op.nav.fb || performance.navigation.type === 2)) { // cookie-message redirect[ed] and forward/backward navigation
         pg.msg.ckDp1.innerHTML = "site redirected";
     }
 
