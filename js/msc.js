@@ -32,7 +32,7 @@ var wH = window.innerHeight, // height
             uR : false, // "" redirect check
             e : null, // enabled check
             a : null, // user access (inital) check [browser-dependant]
-            aL : 1, // user access (initial) time limit (days)
+            t : 1, // default time limit (days)
             x : false // code execution
         },
         nav : { // navigation
@@ -263,7 +263,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
     msg_toggle(pg.msg.ckA, null, false, true, null);
 
     setTimeout(function() {
-        setCookie("cookiesAccepted", "true", 1); // cookie: cookies accepted
+        setCookie("cookiesAccepted", "true", op.c.t); // cookie: cookies accepted
         op.c.u = true;
         load_eN(); // continue load process if any (page specific)
     }, op.te);

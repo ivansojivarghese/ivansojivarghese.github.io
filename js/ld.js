@@ -87,7 +87,7 @@ function docRead() {
                     }
                     if (getCookie("initialAccess") !== "true" && !dev.mode) { // create an access cookie (checks for first-time access)
                         resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
-                        setCookie("initialAccess", "true", op.c.aL); // access cookie lasts for 24 hours
+                        setCookie("initialAccess", "true", op.c.t); // access cookie lasts for 24 hours
                         op.c.a = true; // user initial access detected
                     } else {
                         Rd[Rd.length] = true; // accelerate load process

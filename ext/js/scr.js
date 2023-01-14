@@ -53,7 +53,7 @@ function sc_L() { // functions (live on scroll)
             if (chkVL(b3) && (b3 < wH) && !sI_3.s) { // stats 3
                 e_Ic(sI_3, null, sI_3.n);
                 sI_3.s = true;
-                setCookie("statsIncr", "true", 1); // create cookie to detemine if stats have been incremented by user (on initial usage)
+                setCookie("statsIncr", "true", op.c.t); // create cookie to detemine if stats have been incremented by user (on initial usage)
             }
         } else {
             if (!sI_1.s) {
