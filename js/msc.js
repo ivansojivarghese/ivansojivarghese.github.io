@@ -775,8 +775,8 @@ window.addEventListener("beforeunload", function() {
 
     // localStorage; - duplicate tab detection
 
-    if (op.c.uR) {
-        op.nav.fb = true;
+    if (op.c.uR) { // if unloading when cookie-deny redirect message is active
+        op.nav.fb = true; // automatically set forward/back nav. to true
     }
 });
 
