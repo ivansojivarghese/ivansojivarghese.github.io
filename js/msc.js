@@ -337,7 +337,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (op.c.uR && (op.nav.fb || performance.navigation.type === "TYPE_BACK_FORWARD")) { // cookie-message redirect[ed] and forward/backward navigation
+    if (op.c.uR && op.nav.fb) { // cookie-message redirect[ed] and forward/backward navigation
         pg.msg.ckDp1.innerHTML = "site redirected";
     }
 
@@ -774,10 +774,10 @@ window.addEventListener("storage", function(e) {
 window.addEventListener("beforeunload", function() {
     // localStorage;
 });
-/*
-function historyBack() {
-    window.history.back();
-}*/
+
+window.addEventListener('nav::user_asked_history', function(e) {
+    console.log('nav::direction=', e.detail.direction); 
+})
 
 //////////////////////////////////////////
 
