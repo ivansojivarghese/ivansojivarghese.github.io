@@ -775,8 +775,8 @@ window.addEventListener("beforeunload", function() {
     // localStorage;
 });
 
-window.addEventListener('nav::user_asked_history', function(e) {
-    console.log('nav::direction=', e.detail.direction); 
+window.addEventListener('hashchange', function(e) {
+
 })
 
 //////////////////////////////////////////
