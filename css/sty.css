@@ -418,6 +418,10 @@ a.md, span.md {
     margin-top: 1rem;
 }
 
+.m_T.h {
+    margin-top: 1.5rem;
+}
+
 .m_T.exh {
     margin-top: 2rem;
 }
@@ -442,6 +446,10 @@ a.md, span.md {
     margin-bottom: 2rem;
 }
 
+.p_z {
+    padding: 0;
+}
+
 .p_TB {
     padding: 1em 0;
 }
@@ -460,6 +468,10 @@ a.md, span.md {
 
 .p_T {
     padding-top: 1rem !important;
+}
+
+.p_T.ex {
+    padding-top: 2rem !important;
 }
 
 .p_B {
