@@ -131,7 +131,7 @@ function docRead() {
                                 rL.t.classList.add("z_O");
                             }
                             load_js_e(); // load js (indiv.)
-                            load_css_e(); // load css styles to 'head' (indiv.)
+                            // load_css_e(); // load css styles to 'head' (indiv.)
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
                             rL.e = true; // execute following code block once only
                         }, op.t); 
@@ -166,6 +166,7 @@ function load_e() { // end the loading sequence
 
     if (rL.s) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
+        load_css_e(); // load css styles to 'head' (indiv.)
         setTimeout(function() {
             rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
 
