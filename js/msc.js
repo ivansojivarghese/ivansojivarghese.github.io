@@ -775,8 +775,8 @@ window.addEventListener("beforeunload", function() {
     // localStorage;
 });
 
-window.addEventListener('hashchange', function(e) {
-
+window.addEventListener("popstate", function(event) {
+    alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
 })
 
 //////////////////////////////////////////
