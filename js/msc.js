@@ -303,8 +303,6 @@ function sL() { // scroll pos. loop
 }
 
 function pL() { // site parameters loop
-    observer.observe({type: "navigation", buffered: true}); // observe navigation entryType continuously
-
     op.d = new Date(); // update Date object
     if (op.p.e) {
         op.p.tA = op.d.getTime();
