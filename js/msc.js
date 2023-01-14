@@ -773,7 +773,9 @@ window.addEventListener("storage", function(e) {
 
 window.addEventListener("beforeunload", function() {
     // localStorage;
-    console.log("unload");
+    if (op.c.uR) {
+        op.nav.fb = true;
+    }
 });
 
 //////////////////////////////////////////
