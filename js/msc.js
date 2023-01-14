@@ -772,7 +772,9 @@ window.addEventListener("storage", function(e) {
 });
 
 window.addEventListener("beforeunload", function() {
-    // localStorage;
+
+    // localStorage; - duplicate tab detection
+
     if (op.c.uR) {
         op.nav.fb = true;
     }
