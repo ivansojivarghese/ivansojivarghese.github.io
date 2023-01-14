@@ -37,6 +37,8 @@ var wH = window.innerHeight, // height
         },
         nav : { // navigation
             r : false, // page reload check
+            fb : false, // page forward/backward nav. check
+            n : false, // page nav. check (direct)
             b : true // URL bar in view check
         },
         r : null, // resource link origin
@@ -127,8 +129,20 @@ setInterval(async () => {
 
 const observer = new PerformanceObserver((list) => { // take note of performance events, as recorded in browser timeline
     list.getEntries().forEach((entry) => { // obtain details from an entryType
+        if (entry.type === "navigate") {
+            op.nav.n = true; // detect a direct nav.
+            op.nav.fb = false; // reset other values
+            op.nav.r = false;
+        }
+        if (entry.type === "back_forward") {
+            op.nav.fb = true; // detect a forward/backward nav.
+            op.nav.n = false; // reset other values
+            op.nav.r = false;
+        }
         if (entry.type === "reload") { 
             op.nav.r = true; // detect a reload
+            op.nav.n = false; // reset other values
+            op.nav.fb = false;
         }
     })
 });
@@ -261,9 +275,14 @@ function cookiesDeny() { // deny site access (and begin to close tab)
 }
 
 function cookiesDenyRedirect() {
-    historyBack(); // redirect to previous page
+    // historyBack(); // redirect to previous page
+    window.history.back(); // redirect to previous page in history
     op.c.uR = true;
-    pg.msg.ckDp1.innerHTML = "page redirected";
+    if (op.nav.fb) {
+        pg.msg.ckDp1.innerHTML = "site redirected";
+    } else {
+        pg.msg.ckDp1.innerHTML = "site undirected";
+    }
     pg.msg.ckDp2.classList.remove("d_n");
     pg.msg.ckDp3.classList.add("d_n");
 }
@@ -272,7 +291,7 @@ function cookiesDenyCancel() { // cancel close tab, back to original message
     if (op.c.uR) { // if redirected
         op.c.uR = false;
         setTimeout(function() {
-            pg.msg.ckDp1.innerHTML = "redirecting to the"; // reset back
+            pg.msg.ckDp1.innerHTML = "exiting from site"; // reset back
             pg.msg.ckDp2.classList.add("d_n");
             pg.msg.ckDp3.classList.remove("d_n");
         }, op.t);
@@ -755,10 +774,10 @@ window.addEventListener("storage", function(e) {
 window.addEventListener("beforeunload", function() {
     // localStorage;
 });
-
+/*
 function historyBack() {
     window.history.back();
-}
+}*/
 
 //////////////////////////////////////////
 
