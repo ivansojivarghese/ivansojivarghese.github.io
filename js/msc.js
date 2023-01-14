@@ -773,11 +773,8 @@ window.addEventListener("storage", function(e) {
 
 window.addEventListener("beforeunload", function() {
     // localStorage;
+    console.log("unload");
 });
-
-window.addEventListener("popstate", function(event) {
-    alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-})
 
 //////////////////////////////////////////
 
