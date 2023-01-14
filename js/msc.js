@@ -131,18 +131,12 @@ const observer = new PerformanceObserver((list) => { // take note of performance
     list.getEntries().forEach((entry) => { // obtain details from an entryType
         if (entry.type === "navigate") {
             op.nav.n = true; // detect a direct nav.
-            op.nav.fb = false; // reset other values
-            op.nav.r = false;
         }
         if (entry.type === "back_forward") {
             op.nav.fb = true; // detect a forward/backward nav.
-            op.nav.n = false; // reset other values
-            op.nav.r = false;
         }
         if (entry.type === "reload") { 
             op.nav.r = true; // detect a reload
-            op.nav.n = false; // reset other values
-            op.nav.fb = false;
         }
     })
 });
