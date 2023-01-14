@@ -277,13 +277,11 @@ function cookiesDeny() { // deny site access (and begin to close tab)
 function cookiesDenyRedirect() {
     op.c.uR = true; // redirected
     pg.msg.ckDp1.classList.add("p_T", "ex"); // show/hide statements
+    pg.msg.ckDp1.innerHTML = "site undirected";
     pg.msg.ckDp2.classList.add("d_n");
     pg.msg.ckDp3.classList.remove("d_n");
-    if (document.referrer) { // if previous URI exists (from link)
+    if (document.referrer) { // if previous URI exists (from link path)
         window.history.back(); // redirect to previous page in history
-        pg.msg.ckDp1.innerHTML = "site redirected";
-    } else { // else if direct nav., bookmarks, or no history
-        pg.msg.ckDp1.innerHTML = "site undirected";
     }
 }
 
@@ -342,6 +340,11 @@ function pL() { // site parameters loop
             scr_t(true, arg);
         }
     }
+
+    if (op.c.uR && op.nav.fb) { // cookie-message redirect[ed] and forward/backward navigation
+        pg.msg.ckDp1.innerHTML = "site redirected";
+    }
+
     /*
     if (!op.nav.b) { // check if URL bar is NOT in view
         pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
