@@ -270,7 +270,7 @@ div, .tint {
     font-weight: normal;
 }
 
-.f_wg-b, .em, .hm h5, .pill h4, .pill h5 {
+.f_wg-b, .em, .hm h5, .pill h4, .pill h5, .action {
     font-weight: bold;
 }
 
@@ -803,6 +803,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 .pill.negate {
     background-color: #A10000;
+}
+
+.action.negate {
+    color: #A10000;
 }
 
 #net_msg .pill.md {
