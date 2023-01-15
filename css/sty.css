@@ -442,6 +442,10 @@ a.md, span.md {
     margin-bottom: 1rem;
 }
 
+.m_B.ex {
+    margin-bottom: 1.5rem;
+}
+
 .m_B.exh {
     margin-bottom: 2rem;
 }
