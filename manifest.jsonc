@@ -1,0 +1,7 @@
+
+// PWA (progressive web app) manifest
+
+{
+    "short-name": "Ivan",
+    "name": "Ivan Varghese"
+}
