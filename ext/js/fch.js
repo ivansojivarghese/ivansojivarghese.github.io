@@ -8,7 +8,7 @@ var fchL = {
         },
         2 : { // logo_hybrid
             el : document.getElementsByClassName("logo-hybrid"),
-            u : 'logo/logo_hybrid.png'
+            u : 'svg/logo/logo_hybrid.svg'
         },
         3 : { // favicon_secondary
             el : document.getElementsByClassName("logo-secondary"),
