@@ -13,7 +13,7 @@ var disp = document.getElementById("display_sc"), // display
         },
         f_s : {
             el : document.getElementsByClassName("logo-secondary"),
-            u : 'logo/favicon_secondary.png'
+            u : '../logo/favicon_secondary.png'
         },
         w_f : { // - wifi off
             el : document.getElementsByClassName("wifi_off_img"),
