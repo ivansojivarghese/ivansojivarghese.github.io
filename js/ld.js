@@ -11,6 +11,10 @@ var disp = document.getElementById("display_sc"), // display
             el : document.getElementsByClassName("logo"), // element
             u : 'logo/favicon.png' // relative path
         },
+        f_s : {
+            el : document.getElementsByClassName("logo-secondary"),
+            u : 'logo/favicon_secondary.png'
+        },
         w_f : { // - wifi off
             el : document.getElementsByClassName("wifi_off_img"),
             u : '../svg/wifi_off.svg'
@@ -97,6 +101,8 @@ function docRead() {
                             op.c.u = true; // message accepted
                         } 
                     }
+
+                    resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
 
                     resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
 
