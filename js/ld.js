@@ -9,7 +9,7 @@ var disp = document.getElementById("display_sc"), // display
     rL = { // page/resource loader
         f : { // - favicon/logo
             el : document.getElementsByClassName("logo"), // element
-            u : 'logo/favicon.png' // relative path
+            u : '../svg/logo/favicon_b.svg' // relative path
         },
         w_f : { // - wifi off
             el : document.getElementsByClassName("wifi_off_img"),
