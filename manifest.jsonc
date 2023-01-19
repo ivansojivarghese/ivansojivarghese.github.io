@@ -2,6 +2,23 @@
 // PWA (progressive web app) manifest
 
 {
-    "short-name": "Ivan",
-    "name": "Ivan Varghese"
+    "short-name" : "Ivan",
+    "name" : "Ivan Varghese",
+    "icons" : [
+        /*{
+            "src": "/images/icons-vector.svg",
+            "type": "image/svg+xml",
+            "sizes": "512x512"
+        },*/
+        {
+            "src": "favicon/android-chrome-192x192",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "favicon/android-chrome-512x512",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
 }
