@@ -4,7 +4,7 @@
    "name" : "Ivan Varghese",
    "icons" : [
        {
-           "src": "android-chrome-192x192.png",
+           "src": "manifest-192.png",
            "type": "image/png",
            "sizes": "192x192"
        },
