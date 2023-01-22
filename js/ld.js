@@ -104,7 +104,7 @@ function docRead() {
                     }
 
                     resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
-                    
+
                     resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
 
                     // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
@@ -146,7 +146,7 @@ function docRead() {
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
 
                     rL.n.classList.add("wifi_off_img");
-                    rL.xc.innerHTML = "internet disconnected";
+                    rL.xc.innerHTML = "offline";
                     e_Fd(rL.n, false); // show message when internet not connected
                     e_Fd(rL.x, false);
                 }
