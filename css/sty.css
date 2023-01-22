@@ -520,11 +520,11 @@ a.md, span.md {
     text-align: right;
 }
 
-.p-a, #control-height, #load_sc, #error_sc, #display_sc, .load_r, .loader .wrap, .tint {
+.p-a, #control-height, #load_sc, #error_sc, #display_sc, .load_r, .loader .wrap {
     position: absolute;
 }
 
-.p-f, .hm {
+.p-f, .hm, .tint {
     position: fixed;
 }
 
