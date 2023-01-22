@@ -3,9 +3,9 @@
 
 var wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
-    elementHeight = document.getElementById("control-height"),
-    barHeight = getBd(elementHeight, "height") - wH,
-    barHeightTemp = barHeight, // temp. hold
+    //elementHeight = document.getElementById("control-height"),
+    //barHeight = getBd(elementHeight, "height") - wH,
+    //barHeightTemp = barHeight, // temp. hold
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     dev = {
@@ -345,7 +345,7 @@ function pL() { // site parameters loop
     }*/
 
     // elementHeight = document.getElementById("control-height").innerHeight,
-    barHeight = getBd(elementHeight, "height") - wH;
+    // barHeight = getBd(elementHeight, "height") - wH;
 
      /*   // check if location bar is visible
     let locationBarVis = window.locationbar.visible ? true : false;

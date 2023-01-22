@@ -159,7 +159,7 @@ h1, h2, h3, h5, h6, p, ul {
     height: var(--doc-height);
 }*/
 
-.h-f, .tint, #control-height {
+.h-f, .tint {
     height: 100vh;
 }
 
@@ -199,7 +199,7 @@ div, .tint {
     width: auto;
 }
 
-.z_wd, #control-height { /* zero width*/
+.z_wd { /* zero width*/
     width: 0;
 }
 
@@ -520,7 +520,7 @@ a.md, span.md {
     text-align: right;
 }
 
-.p-a, #control-height, #load_sc, #error_sc, #display_sc, .load_r, .loader .wrap {
+.p-a, #load_sc, #error_sc, #display_sc, .load_r, .loader .wrap {
     position: absolute;
 }
 
