@@ -33,7 +33,8 @@ var disp = document.getElementById("display_sc"), // display
         n : document.getElementById("load_icon"), // loading icon (for any message)
         g : document.getElementById("load_logo"), // loading logo
         t : document.getElementById("load_temP"), // loading logo/ring - 'template'
-        x : document.getElementById("load_text"), // loading text (for message)
+        x : document.getElementById("load_text"), // loading text
+        xc : document.getElementById("load_text_cnt"), // loading text content
         r : document.getElementById("loadR"), // loading rings (container)
         p : document.getElementById("loadR-p"), // loading ring (primary)
         d : document.getElementById("loadR-e"), // loading ring (end)
@@ -83,7 +84,7 @@ function docRead() {
             }
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!rL.e) { // ensure once execution
-                if (!rL.e2) {   
+                if (!rL.e2) { 
                     rL.e2 = true;
                     if (!rL.e4) {
                         rL.e4 = true;
@@ -103,10 +104,8 @@ function docRead() {
                     }
 
                     resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
-
+                    
                     resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
-
-                    resLoad(rL.w_f.el, rL.w_f.u); // wifi_off
 
                     // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
 
@@ -142,11 +141,16 @@ function docRead() {
                             rL.e = true; // execute following code block once only
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
+
                 } else if (op.n === false) {
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
+
+                    rL.n.classList.add("wifi_off_img");
+                    rL.xc.innerHTML = "internet disconnected";
                     e_Fd(rL.n, false); // show message when internet not connected
                     e_Fd(rL.x, false);
                 }
+
             } else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
