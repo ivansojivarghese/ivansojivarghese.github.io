@@ -150,13 +150,13 @@ const networkConditions = async() => {
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
     op.ne.w = speed;
-    return true;
+    return op.ne.w;
 }
 
 op.r = getSiteRes(); // get site resource origin
 const netCheck = networkConditions(); // perform network check on startup
 
-if (netCheck) {
+if (!netCheck) {
     setInterval(async () => {
         networkConditions();
     }, 5000);
