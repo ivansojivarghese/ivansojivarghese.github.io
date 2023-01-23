@@ -136,7 +136,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             cache : "no-store"
         });
         op.ne.t = op.d.getTime(); // end time of fetch
-        op.ne.s = op.ne.f / ((op.ne.t - op.ne.a) / 1000); // approx. network speed (in MBps)
+        op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
 
         // op.ne.w = 
 
