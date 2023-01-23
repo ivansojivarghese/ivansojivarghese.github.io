@@ -142,13 +142,13 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 }
 
 op.r = getSiteRes(); // get site resource origin
-op.n = estimateNetworkSpeed();
+// op.n = estimateNetworkSpeed();
 
-/*
 setInterval(async () => {
+    estimateNetworkSpeed();
     const result = await checkOnlineStatus(); 
     op.n = result;
-}, 3000);*/
+}, 3000);
 
 ///////////////////////////////////////
 
