@@ -148,10 +148,11 @@ function docRead() {
 
                     console.log("slow speed");
 
-                    // rL.n.classList.add("wifi_slow_img");
-                    // rL.xc.innerHTML = "slow speed";
-                    e_Fd(rL.n, false); 
-                    e_Fd(rL.x, false);
+                    rL.n.classList.add("wifi_slow_img");
+                    rL.xc.innerHTML = "slow speed";
+
+                    // e_Fd(rL.n, false); 
+                    // e_Fd(rL.x, false);
 
                 } else if (op.n === false) {
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
