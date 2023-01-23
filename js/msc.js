@@ -145,13 +145,18 @@ const estimateNetworkSpeed = async() => { // estimate network speed
     }
 }
 
-op.r = getSiteRes(); // get site resource origin
-
-setInterval(async () => {
+const networkConditions = async() => {
     const status = await checkOnlineStatus(); // check internet connection
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
     op.ne.w = speed;
+}
+
+op.r = getSiteRes(); // get site resource origin
+networkConditions();
+
+setInterval(async () => {
+    networkConditions();
 }, 1000);
 
 ///////////////////////////////////////
