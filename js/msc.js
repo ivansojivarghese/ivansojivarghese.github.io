@@ -178,6 +178,14 @@ const obs = new PerformanceObserver((list) => {
       // Logs "The time to first-contentful-paint was 400.6999999284744 milliseconds."
     });
   });
+
+  const ob = new PerformanceObserver((list) => {
+    const entries = list.getEntries();
+    const lastEntry = entries[entries.length - 1]; // Use the latest LCP candidate
+    console.log("LCP:", lastEntry.startTime);
+    console.log(lastEntry);
+  });
+  ob.observe({ type: "largest-contentful-paint", buffered: true });
   
   obs.observe({ type: "paint", buffered: true });
 
