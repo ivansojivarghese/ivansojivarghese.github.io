@@ -43,9 +43,11 @@ var wH = window.innerHeight, // height
         },
         ne : { // network speed estimator
             f : 5301699, // resource file size (bytes)
+            h : 5000000, // slow speed threshold (Bps (/ 1000000 = MBps)
             a : 0, // start time
             t : 0, // end time
             s : 0, // estimated speed 
+            w : null, // slow speed check - less than threshold?
         },
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
@@ -134,7 +136,10 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             cache : "no-store"
         });
         op.ne.t = op.d.getTime(); // end time of fetch
-        op.ne.s = (op.ne.t - op.ne.a) / 1000; // approx. network speed (in MBps)
+        op.ne.s = op.ne.f / ((op.ne.t - op.ne.a) / 1000); // approx. network speed (in MBps)
+
+        // op.ne.w = 
+
         return online.status >= 200 && online.status < 300; 
     } catch (err) {
         return false;
