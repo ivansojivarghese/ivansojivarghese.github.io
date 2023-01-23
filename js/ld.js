@@ -261,7 +261,7 @@ function load_js() { // [compatibility/variables] load
     browserCheck();
     errorCheck(); 
     pos.st = (op.e / 100) * cH; // set scroll-validity threshold
-    op.r = getSiteRes(); // get site resource origin
+    // op.r = getSiteRes(); // get site resource origin
 
     // checkOnline();
     // op.n = checkOnlineStatus();

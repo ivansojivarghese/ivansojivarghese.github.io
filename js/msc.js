@@ -140,6 +140,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
     }
 }
 
+op.r = getSiteRes(); // get site resource origin
 estimateNetworkSpeed();
 
 /*
