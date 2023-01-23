@@ -41,6 +41,9 @@ var wH = window.innerHeight, // height
             n : false, // page nav. check (direct)
             b : true // URL bar in view check
         },
+        ne : { // network speed estimator
+            f : 5301699, // resource file size (bytes)
+        },
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
         nc : false, // online status change
@@ -120,10 +123,22 @@ const checkOnlineStatus = async () => { // check for internet connectivity
     }
 }
 
+const estimateNetworkSpeed = async() => { // estimate network speed
+    try {
+        const url = dev.mode ? dev.url : op.r;
+        const online = await fetch(url + "msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
+            cache : "no-store"
+        });
+        return online.status >= 200 && online.status < 300; 
+    } catch (err) {
+        return false;
+    }
+}
+/*
 setInterval(async () => {
-    const result = await checkOnlineStatus();
+    const result = await checkOnlineStatus(); 
     op.n = result;
-}, 3000);
+}, 3000);*/
 
 ///////////////////////////////////////
 
