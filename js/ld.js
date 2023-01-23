@@ -174,6 +174,7 @@ function docRead() {
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
 
+                e_Fd(rL.xe, false); // show speed
                 e_Fd(rL.n, false); // show message
                 e_Fd(rL.x, false);
 
