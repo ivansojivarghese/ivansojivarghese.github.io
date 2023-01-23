@@ -172,7 +172,7 @@ function docRead() {
 
             } else if (rdS(Rd) && op.ne.w) { // if network slow (with background processes loaded)
 
-                rL.xep.innerHTML = op.ne.s.toFixed(1) + "mbps";
+                rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
 
                 e_Fd(rL.n, false); // show message
                 e_Fd(rL.x, false);
