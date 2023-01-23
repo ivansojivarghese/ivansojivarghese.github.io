@@ -153,11 +153,13 @@ const networkConditions = async() => {
 }
 
 op.r = getSiteRes(); // get site resource origin
-networkConditions(); // perform network check on startup
+const netCheck = networkConditions(); // perform network check on startup
 
-setInterval(async () => {
-    networkConditions();
-}, 5000);
+if (netCheck) {
+    setInterval(async () => {
+        networkConditions();
+    }, 5000);
+}
 
 ///////////////////////////////////////
 
