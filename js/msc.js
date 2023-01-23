@@ -169,6 +169,18 @@ function renderTime() {
 
 window.addEventListener("load", renderTime);
 
+const obs = new PerformanceObserver((list) => {
+    list.getEntries().forEach((entry) => {
+      console.log(
+        `The time to ${entry.name} was ${entry.startTime} milliseconds.`
+      );
+      // Logs "The time to first-paint was 386.7999999523163 milliseconds."
+      // Logs "The time to first-contentful-paint was 400.6999999284744 milliseconds."
+    });
+  });
+  
+  obs.observe({ type: "paint", buffered: true });
+
 ///////////////////////////////////////
 
 const observer = new PerformanceObserver((list) => { // take note of performance events, as recorded in browser timeline
