@@ -152,7 +152,7 @@ setInterval(async () => {
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
     op.ne.w = speed;
-}, 3000);
+}, 1000);
 
 ///////////////////////////////////////
 
