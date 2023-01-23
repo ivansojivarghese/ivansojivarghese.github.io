@@ -47,7 +47,7 @@ var wH = window.innerHeight, // height
             a : 0, // start time
             t : 0, // end time
             s : 0, // estimated speed 
-            w : null, // slow speed check - less than threshold?
+            w : true, // slow speed check - less than threshold?
         },
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
