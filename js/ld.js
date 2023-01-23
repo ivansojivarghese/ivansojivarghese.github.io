@@ -149,7 +149,7 @@ function docRead() {
                     console.log("slow speed");
 
                     // rL.n.classList.add("wifi_slow_img");
-                    rL.xc.innerHTML = "slow speed";
+                    // rL.xc.innerHTML = "slow speed";
                     e_Fd(rL.n, false); 
                     e_Fd(rL.x, false);
 
