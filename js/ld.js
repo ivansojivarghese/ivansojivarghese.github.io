@@ -142,9 +142,12 @@ function docRead() {
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
 
+                } else if (op.ne.w) {
+
+                    console.log("slow speed");
+
                 } else if (op.n === false) {
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-
                     rL.n.classList.add("wifi_off_img");
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.n, false); // show message when internet not connected
