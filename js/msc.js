@@ -166,6 +166,8 @@ function onLoad() { var now = new Date().getTime();
     var page_load_time = now - performance.timing.navigationStart; 
     console.log("User-perceived page render time: " + page_load_time); }
 
+window.addEventListener("load", onload);
+
 ///////////////////////////////////////
 
 const observer = new PerformanceObserver((list) => { // take note of performance events, as recorded in browser timeline
