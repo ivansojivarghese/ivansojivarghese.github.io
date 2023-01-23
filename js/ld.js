@@ -15,9 +15,9 @@ var disp = document.getElementById("display_sc"), // display
             el : document.getElementsByClassName("logo-secondary"),
             u : '../logo/favicon_secondary.png'
         },
-        w_f : { // - wifi off
-            el : document.getElementsByClassName("wifi_off_img"),
-            u : '../svg/wifi_off.svg'
+        w_s : { // - wifi slow
+            el : document.getElementsByClassName("wifi_slow_img"),
+            u : '../svg/wifi_slow.svg'
         },
         w_fw : { // - wifi off (white)
             el : document.getElementsByClassName("wifi_off_w_img"),
@@ -106,6 +106,8 @@ function docRead() {
                     resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
 
                     resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
+
+                    resLoad(rL.w_s.el, rL.w_s.u); // wifi_off_white
 
                     // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
 
