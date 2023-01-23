@@ -47,6 +47,7 @@ var disp = document.getElementById("display_sc"), // display
         e2 : false, // ""
         e3 : false,
         e4 : false,
+        e5 : false,
         s : false, // int_Load status
         i : false // full load status
     },
@@ -158,6 +159,7 @@ function docRead() {
                     // resLoad(rL.w_s.el, rL.w_s.u);
 
                     rL.e = true;
+                    rL.e5 = true;
 
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
@@ -178,7 +180,9 @@ function docRead() {
                 e_Fd(rL.n, false); // show message
                 e_Fd(rL.x, false);
 
-            } else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
+                rL.e5 = false;
+
+            } else if (rdS(Rd) && !rL.e5) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
 
