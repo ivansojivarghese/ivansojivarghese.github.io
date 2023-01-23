@@ -149,8 +149,9 @@ op.r = getSiteRes(); // get site resource origin
 
 setInterval(async () => {
     const status = await checkOnlineStatus(); 
+    const speed = await estimateNetworkSpeed();
     op.n = status;
-    op.ne.w = await estimateNetworkSpeed();
+    op.ne.w = speed;
 }, 3000);
 
 ///////////////////////////////////////
