@@ -159,7 +159,7 @@ setInterval(async () => {
     networkConditions();
 }, 5000);
 
-function renderingTime() { 
+function renderTime() { 
     var n = op.d.getTime(),
         t = n - performance.timing.navigationStart; 
     console.log("User-perceived page render time: " + t); 
@@ -167,7 +167,7 @@ function renderingTime() {
     e_Fd(rL.xes, false);
 }
 
-window.addEventListener("load", onLoad);
+window.addEventListener("load", renderTime);
 
 ///////////////////////////////////////
 
