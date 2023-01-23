@@ -160,8 +160,8 @@ setInterval(async () => {
 }, 5000);
 
 function renderingTime() { 
-    var now = new Date().getTime(); 
-    var t = now - performance.timing.navigationStart; 
+    var n = op.d.getTime(),
+        t = n - performance.timing.navigationStart; 
     console.log("User-perceived page render time: " + t); 
     rL.xes.innerHTML = "~" + (t/1000).toFixed(0) + "s";
     e_Fd(rL.xes, false);
