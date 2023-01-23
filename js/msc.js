@@ -137,8 +137,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         });
         op.ne.t = op.d.getTime(); // end time of fetch
         op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
-
-        op.ne.w = op.ne.s <= op.ne.h ? true : false;
+        op.ne.w = op.ne.s <= op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
 
         return online.status >= 200 && online.status < 300; 
 
