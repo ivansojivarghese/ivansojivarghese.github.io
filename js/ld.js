@@ -15,10 +15,11 @@ var disp = document.getElementById("display_sc"), // display
             el : document.getElementsByClassName("logo-secondary"),
             u : '../logo/favicon_secondary.png'
         },
+        /*
         w_s : { // - wifi slow
             el : document.getElementsByClassName("wifi_slow_img"),
             u : '../svg/wifi_slow.svg'
-        },
+        },*/
         w_fw : { // - wifi off (white)
             el : document.getElementsByClassName("wifi_off_w_img"),
             u : '../svg/wifi_off_white.svg'
@@ -170,6 +171,8 @@ function docRead() {
                 }
 
             } else if (rdS(Rd) && op.ne.w) { // if network slow (with background processes loaded)
+
+                rL.xep.innerHTML = op.ne.s + "mbps";
 
                 e_Fd(rL.n, false); // show message
                 e_Fd(rL.x, false);
