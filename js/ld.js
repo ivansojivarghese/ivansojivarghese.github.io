@@ -162,6 +162,11 @@ function docRead() {
                     e_Fd(rL.x, false);
                 }
 
+            } else if (op.ne.w) {
+
+                e_Fd(rL.n, false); 
+                e_Fd(rL.x, false);
+
             } else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
