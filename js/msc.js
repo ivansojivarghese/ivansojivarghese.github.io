@@ -159,9 +159,12 @@ setInterval(async () => {
     networkConditions();
 }, 5000);
 
-function onLoad() { var now = new Date().getTime(); 
+function onLoad() { 
+    var now = new Date().getTime(); 
     var page_load_time = now - performance.timing.navigationStart; 
-    console.log("User-perceived page render time: " + page_load_time); }
+    console.log("User-perceived page render time: " + page_load_time); 
+    rL.xes.innerHTML = "~" + page_load_time + "s";
+}
 
 window.addEventListener("load", onLoad);
 
