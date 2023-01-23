@@ -159,11 +159,11 @@ setInterval(async () => {
     networkConditions();
 }, 5000);
 
-function onLoad() { 
+function renderingTime() { 
     var now = new Date().getTime(); 
-    var page_load_time = now - performance.timing.navigationStart; 
-    console.log("User-perceived page render time: " + page_load_time); 
-    rL.xes.innerHTML = "~" + (page_load_time/1000).toFixed(0) + "s";
+    var t = now - performance.timing.navigationStart; 
+    console.log("User-perceived page render time: " + t); 
+    rL.xes.innerHTML = "~" + (t/1000).toFixed(0) + "s";
     e_Fd(rL.xes, false);
 }
 
