@@ -14,11 +14,11 @@ var disp = document.getElementById("display_sc"), // display
         f_s : {
             el : document.getElementsByClassName("logo-secondary"),
             u : '../logo/favicon_secondary.png'
-        },/*
+        },
         w_s : { // - wifi slow
             el : document.getElementsByClassName("wifi_slow_img"),
             u : '../svg/wifi_slow.svg'
-        },*/
+        },
         w_fw : { // - wifi off (white)
             el : document.getElementsByClassName("wifi_off_w_img"),
             u : '../svg/wifi_off_white.svg'
@@ -150,6 +150,8 @@ function docRead() {
 
                     rL.n.classList.add("wifi_slow_img");
                     rL.xc.innerHTML = "slow speed";
+
+                    resLoad(rL.w_s.el, rL.w_s.u);
 
                     rL.e = true;
 
