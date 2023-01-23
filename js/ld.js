@@ -166,7 +166,7 @@ function docRead() {
                     e_Fd(rL.x, false);
                 }
 
-            } else if (op.ne.w) {
+            } else if (rdS(Rd) && op.ne.w) {
 
                 e_Fd(rL.n, false); 
                 e_Fd(rL.x, false);
