@@ -166,9 +166,9 @@ function docRead() {
                     e_Fd(rL.x, false);
                 }
 
-            } else if (rdS(Rd) && op.ne.w) {
+            } else if (rdS(Rd) && op.ne.w) { // if network slow (with background processes loaded)
 
-                e_Fd(rL.n, false); 
+                e_Fd(rL.n, false); // show message
                 e_Fd(rL.x, false);
 
             } else if (rdS(Rd)) { // show webpage once all processes (requests, etc.) are complete
