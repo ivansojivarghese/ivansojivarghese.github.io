@@ -151,6 +151,8 @@ function docRead() {
                     rL.n.classList.add("wifi_slow_img");
                     rL.xc.innerHTML = "slow speed";
 
+                    rL.e = true;
+
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
 
