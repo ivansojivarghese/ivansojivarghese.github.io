@@ -150,6 +150,7 @@ const networkConditions = async() => {
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
     op.ne.w = speed;
+    return true;
 }
 
 op.r = getSiteRes(); // get site resource origin
