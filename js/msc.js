@@ -135,7 +135,9 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         });
         op.ne.t = op.d.getTime();
         op.ne.s = op.ne.t - op.ne.a;
+
         // return online.status >= 200 && online.status < 300; 
+        
     } catch (err) {
         return false;
     }
