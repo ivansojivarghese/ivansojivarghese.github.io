@@ -35,6 +35,9 @@ var disp = document.getElementById("display_sc"), // display
         t : document.getElementById("load_temP"), // loading logo/ring - 'template'
         x : document.getElementById("load_text"), // loading text
         xc : document.getElementById("load_text_cnt"), // loading text content
+        xe : document.getElementById("load_text_ex"), // loading text extra
+        xep : document.getElementById("load_text_ex_p"), // "" primary
+        xes : document.getElementById("load_text_ex_s"), // "" secondary
         r : document.getElementById("loadR"), // loading rings (container)
         p : document.getElementById("loadR-p"), // loading ring (primary)
         d : document.getElementById("loadR-e"), // loading ring (end)
