@@ -6,12 +6,12 @@
 
 @font-face {
     font-family: Poppins;
-    src: url("../msc/fonts/poppins/Poppins-Regular.ttf");
+    src: url("../msc/fonts/poppins/Poppins-Regular.woff2");
 }
 
 @font-face {
     font-family: Raleway;
-    src: url("../msc/fonts/raleway/Raleway-Regular.ttf");
+    src: url("../msc/fonts/raleway/Raleway-Regular.woff2");
 }
 
 *  {
