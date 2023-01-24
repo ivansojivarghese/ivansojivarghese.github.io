@@ -191,6 +191,7 @@ completeInterval = setInterval(function() {
     }
   }, 450);
 
+/////////////////////////////////////////////////////
 
 function renderTime() { 
     var n = op.d.getTime(),
