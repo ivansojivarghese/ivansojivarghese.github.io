@@ -159,6 +159,8 @@ setInterval(async () => {
     networkConditions();
 }, 5000);
 
+/////////////////////////////////////////////
+
 function renderTime() { 
     var n = op.d.getTime(),
         t = n - performance.timing.navigationStart; 
