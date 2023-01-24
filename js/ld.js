@@ -183,7 +183,7 @@ function docRead() {
 
                 rL.e5 = false;
 
-            } else if (rdS(Rd) && !rL.e5 && something) { // show webpage once all processes (requests, etc.) are complete
+            } else if (rdS(Rd) && !rL.e5 && rL.y) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
 
