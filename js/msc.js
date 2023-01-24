@@ -877,7 +877,18 @@ window.addEventListener("beforeunload", function() {
 
 window.addEventListener("load", function() {
     rL.y = true; // page has been rendered
+    requestAnimationFrame(startRender);
 });
+
+function rendered() {
+    //Render complete
+    alert("image rendered");
+}
+
+function startRender() {
+    //Rendering start
+    requestAnimationFrame(rendered);
+}
 
 //////////////////////////////////////////
 
