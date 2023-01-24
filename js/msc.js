@@ -161,6 +161,37 @@ setInterval(async () => {
 
 /////////////////////////////////////////////
 
+var completeInterval = null, renderedInterval = null, count = 0;
+var yu = document.getElementById("profile_image");
+yu.src = '/ext/jpg/ivan_profile.jpg';
+
+completeInterval = setInterval(function() {
+    ++count;
+    if (yu.complete || count > 20) {
+      // Cancel checking once IMG is loaded OR we've tried for ~9s already
+      clearInterval(completeInterval);
+      completeInterval = null;
+      count = 0;
+      if (count > 20) {
+        // Image load went wrong, so do something useful:
+        console.error("ERROR: Could not load image");
+      } else {
+        // IMG is now 'complete' - but that just means it's in the render queue...
+        // Wait for naturalWidth and naturalHeight to be > 0 since this shows
+        // that the image is done being RENDERED (not just 'loaded/complete')
+        renderedInterval = setInterval(function() {
+          if (yu.naturalHeight > 0 && yu.naturalWidth > 0) {
+            clearInterval(renderedInterval);
+            renderedInterval = null;
+            // Do whatever now that image is rendered (aka DONE):
+            console.log("Image loaded - YAY!")
+          }
+        }, 100);
+      }
+    }
+  }, 450);
+
+
 function renderTime() { 
     var n = op.d.getTime(),
         t = n - performance.timing.navigationStart; 
