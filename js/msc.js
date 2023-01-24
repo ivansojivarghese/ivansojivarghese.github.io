@@ -160,7 +160,7 @@ setInterval(async () => {
 }, 5000);
 
 /////////////////////////////////////////////
-
+/*
 var completeInterval = null, renderedInterval = null, count = 0;
 var yu = document.getElementById("image");
 yu.src = '/ext/jpg/ivan_profile.jpg';
@@ -189,7 +189,7 @@ completeInterval = setInterval(function() {
         }, 100);
       }
     }
-  }, 450);
+  }, 450);*/
 
 /////////////////////////////////////////////////////
 
