@@ -188,7 +188,6 @@ const obs = new PerformanceObserver((list) => {
     console.log(lastEntry);
   });
   ob.observe({ type: "largest-contentful-paint", buffered: true });
-  
   obs.observe({ type: "paint", buffered: true });
 
 ///////////////////////////////////////
@@ -842,6 +841,10 @@ window.addEventListener("beforeunload", function() {
     if (op.c.uR) { // if unloading when cookie-deny redirect message is active
         op.nav.fb = true; // automatically set forward/back nav. to true
     }
+});
+
+window.addEventListener("load", function() {
+    rL.y = true; // page has been rendered
 });
 
 //////////////////////////////////////////

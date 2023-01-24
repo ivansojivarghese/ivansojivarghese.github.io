@@ -48,7 +48,8 @@ var disp = document.getElementById("display_sc"), // display
         e3 : false,
         e4 : false,
         e5 : false,
-        s : false, // int_Load status
+        s : false, // int load status
+        y : false, // ready (render) load status
         i : false // full load status
     },
     eR = { // error 
@@ -182,7 +183,7 @@ function docRead() {
 
                 rL.e5 = false;
 
-            } else if (rdS(Rd) && !rL.e5) { // show webpage once all processes (requests, etc.) are complete
+            } else if (rdS(Rd) && !rL.e5 && something) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
 
