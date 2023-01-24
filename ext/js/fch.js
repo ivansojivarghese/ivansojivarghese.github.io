@@ -2,6 +2,7 @@
 // locally run JS fetching (respective to each page)
 
 var fchL = {
+        /*
         1 : { // #intro_sc profile image
             el : document.getElementById("profile_image"),
             u : 'ext/jpg/ivan_profile.jpg'
@@ -9,7 +10,7 @@ var fchL = {
         2 : { // logo_hybrid
             el : document.getElementsByClassName("logo-hybrid"),
             u : 'logo/logo_hybrid.png'
-        }/*,
+        },
         3 : { // favicon_secondary
             el : document.getElementsByClassName("logo-secondary"),
             u : 'logo/favicon_secondary.png'
