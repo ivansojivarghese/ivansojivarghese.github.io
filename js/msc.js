@@ -162,7 +162,7 @@ setInterval(async () => {
 /////////////////////////////////////////////
 
 var completeInterval = null, renderedInterval = null, count = 0;
-var yu = document.getElementById("profile_image");
+var yu = document.getElementById("image");
 yu.src = '/ext/jpg/ivan_profile.jpg';
 
 completeInterval = setInterval(function() {
