@@ -203,6 +203,7 @@ function renderTime() {
 
 window.addEventListener("load", renderTime);
 
+/*
 const obs = new PerformanceObserver((list) => {
     list.getEntries().forEach((entry) => {
       console.log(
@@ -220,7 +221,7 @@ const obs = new PerformanceObserver((list) => {
     console.log(lastEntry);
   });
   ob.observe({ type: "largest-contentful-paint", buffered: true });
-  obs.observe({ type: "paint", buffered: true });
+  obs.observe({ type: "paint", buffered: true });*/
 
 ///////////////////////////////////////
 
