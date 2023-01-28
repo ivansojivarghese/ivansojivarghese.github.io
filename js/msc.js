@@ -212,7 +212,7 @@ const obs = new PerformanceObserver((list) => {
       // Logs "The time to first-paint was 386.7999999523163 milliseconds."
       // Logs "The time to first-contentful-paint was 400.6999999284744 milliseconds."
     });
-  });
+  });*/
 
   const ob = new PerformanceObserver((list) => {
     const entries = list.getEntries();
@@ -221,7 +221,7 @@ const obs = new PerformanceObserver((list) => {
     console.log(lastEntry);
   });
   ob.observe({ type: "largest-contentful-paint", buffered: true });
-  obs.observe({ type: "paint", buffered: true });*/
+  // obs.observe({ type: "paint", buffered: true });
 
 ///////////////////////////////////////
 
