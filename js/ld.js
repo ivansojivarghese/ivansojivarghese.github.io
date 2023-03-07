@@ -174,7 +174,7 @@ function docRead() {
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.x, false); // show message when internet not connected
                     } else {
-                        rL.dt.classList.add("md");
+                        rL.dt.classList.add("md"); // blink status
                     }
                 }
 
@@ -207,7 +207,7 @@ function docRead() {
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.x, false); // show message when internet not connected
                 } else {
-
+                    rL.dt.classList.add("md");
                 }
             } else if (rdS(Rd) && !rL.e5 && rL.y) { // show webpage once all processes (requests, etc.) are complete
 
