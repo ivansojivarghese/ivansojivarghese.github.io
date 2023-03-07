@@ -524,6 +524,56 @@ function c_Sr() { // check for scrolling activity (in live)
 
 //////////////////////////////////////////
 
+// check if specific font family exists
+
+/**
+ * Checks if a font is available to be used on a web page.
+ *
+ * @param {String} fontName The name of the font to check
+ * @return {Boolean}
+ * @license MIT
+ * @copyright Sam Clarke 2013
+ * @author Sam Clarke <sam@samclarke.com>
+ */
+
+(function (document) { // function runs automatically
+    var width;
+    var body = document.body;
+  
+    var container = document.createElement('span'); // create element
+    container.innerHTML = Array(100).join('wi'); // create 'wi' text repeated 99 times
+    container.style.cssText = [ // style in following way (with !important)
+      'position:absolute',
+      'width:auto',
+      'font-size:128px',
+      'left:-99999px'
+    ].join(' !important;');
+  
+    var getWidth = function (fontFamily) { // obtain width of text element created (in container, using fontFamily)
+      container.style.fontFamily = fontFamily;
+  
+      body.appendChild(container);
+      width = container.clientWidth;
+      body.removeChild(container);
+  
+      return width;
+    };
+  
+    // Pre compute the widths of monospace, serif & sans-serif
+    // to improve performance.
+    var monoWidth  = getWidth('monospace');
+    var serifWidth = getWidth('serif');
+    var sansWidth  = getWidth('sans-serif');
+  
+    window.isFontAvailable = function (font) {
+      return monoWidth !== getWidth(font + ',monospace') || // if the width returns NOT EQUAL to the any of the 3 fallbacks above, then fontFamily is being used
+        sansWidth !== getWidth(font + ',sans-serif') ||
+        serifWidth !== getWidth(font + ',serif');
+    };
+})(document);
+
+//////////////////////////////////////////
+
 function num_E(n) { // numeral digit extractor (interger + decimals if any, returns object)
     n = String(n); // convert to string type (if from number type)
     var _L = n.length - 1,
