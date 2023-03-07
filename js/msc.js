@@ -822,8 +822,12 @@ function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
     }
 }
 
-function c_rep(el, d, n) { // replace CSS classes in elements
-    el.classList.replace(d, n);
+function c_rep(el, d, n) { // replace CSS classes in elements (if applicable)
+    if (el.classList.contains(d)) {
+        el.classList.replace(d, n);
+    } else {
+        el.classList.add(n);
+    }
 }
 
 //////////////////////////////////////////
