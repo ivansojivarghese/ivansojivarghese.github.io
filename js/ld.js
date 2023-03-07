@@ -150,9 +150,9 @@ function docRead() {
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
 
-                } else if (op.ne.w && op.ne.s) {
+                } else if (op.ne.w && op.ne.s) { // if slow network
 
-                    console.log("slow speed");
+                    // console.log("slow speed");
 
                     rL.n.classList.add("wifi_slow_img");
                     rL.xc.innerHTML = "network is slow";
@@ -165,12 +165,15 @@ function docRead() {
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
 
-                } else if (op.n === false) {
+                } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     rL.n.classList.add("wifi_off_img");
-                    rL.xc.innerHTML = "offline";
-                    e_Fd(rL.n, false); // show message when internet not connected
-                    e_Fd(rL.x, false);
+                    
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+                        rL.xc.innerHTML = "offline";
+                        e_Fd(rL.n, false); // show message when internet not connected
+                        e_Fd(rL.x, false);
+                    }
                 }
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s) { // if network slow (with background processes loaded)
@@ -179,7 +182,7 @@ function docRead() {
 
                 // rL.n.classList.add("wifi_slow_img");
 
-                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                     e_Fd(rL.xe, false); // show speed
                     e_Fd(rL.n, false); // show message
                     e_Fd(rL.x, false);
