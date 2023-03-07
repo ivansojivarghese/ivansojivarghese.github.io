@@ -150,7 +150,7 @@ function docRead() {
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
 
-                } else if (op.ne.w && op.ne.s) {
+                } else if (op.ne.w && op.ne.s && op.ne.s > 0) {
 
                     console.log("slow speed");
 
