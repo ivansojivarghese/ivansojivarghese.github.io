@@ -169,7 +169,7 @@ function docRead() {
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     rL.n.classList.add("wifi_off_img");
                     
-                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.n, false); // show message when internet not connected
                         e_Fd(rL.x, false);
