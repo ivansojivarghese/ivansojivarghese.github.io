@@ -122,7 +122,7 @@ function docRead() {
                         // web connection
 
                 }
-                if ((rdS(Rd) && !rL.e3 && !op.ne.w) || (rdS(Rd) && op.ne.w && !op.ne.s)) { // when favicon has loaded (or not)
+                if ((rdS(Rd) && !rL.e3 && !op.ne.w) || (rdS(Rd) && op.ne.w && op.ne.s)) { // when favicon has loaded (or not)
                     rL.e3 = true; 
                     if (op.c.a) { // only if first-time access
                         e_Fd(rL.g, false); // show logo
