@@ -154,7 +154,7 @@ function docRead() {
 
                     console.log("slow speed");
 
-                    // rL.n.classList.add("wifi_slow_img");
+                    rL.n.classList.add("wifi_slow_img");
                     rL.xc.innerHTML = "network is slow";
 
                     // resLoad(rL.w_s.el, rL.w_s.u);
@@ -177,7 +177,9 @@ function docRead() {
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
 
-                rL.n.classList.add("wifi_slow_img");
+                // rL.n.classList.add("wifi_slow_img");
+
+                
 
                 e_Fd(rL.xe, false); // show speed
                 e_Fd(rL.n, false); // show message
