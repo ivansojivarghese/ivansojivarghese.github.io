@@ -16,6 +16,11 @@
     font-display: block;
 }
 
+:root {
+    --negate_col: #A10000;
+    --predicate_col: #007000;
+}
+
 *  {
     user-select: none;
     -webkit-user-select: none; /* Safari support */
@@ -813,16 +818,16 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 /* ------------- */
 
-.pill.negate {
-    background-color: #A10000;
+.pill.negate, .neg {
+    background-color: var(--negate_col);
 }
 
 .action.negate {
-    color: #A10000;
+    color: var(--negate_col);
 }
 
 #net_msg .pill.md {
-    background-color: #007000;
+    background-color: var(--predicate_col);
 }
 
 /* ------------- */
@@ -876,6 +881,11 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 #load_dot {
     animation-name: load_dot;
     opacity: 0.5;
+}
+
+#load_dot.md {
+    background-color: var(--negate_col);
+    opacity: 1;
 }
 
 #load_text {

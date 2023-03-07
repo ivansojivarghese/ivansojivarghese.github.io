@@ -173,6 +173,8 @@ function docRead() {
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.x, false); // show message when internet not connected
+                    } else {
+                        rL.dt.classList.add("md");
                     }
                 }
 
@@ -204,6 +206,8 @@ function docRead() {
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.x, false); // show message when internet not connected
+                } else {
+
                 }
             } else if (rdS(Rd) && !rL.e5 && rL.y) { // show webpage once all processes (requests, etc.) are complete
 
