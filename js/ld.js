@@ -214,6 +214,15 @@ function docRead() {
                 clearInterval(_Ld); // stop ready-check loop
             } else if (op.ne.s >= op.ne.h && rL.e5) {
                 rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
+            } else if (op.n === false) {
+                rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
+                rL.n.classList.add("wifi_off_img");
+                e_Fd(rL.n, false); 
+                
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
+                    rL.xc.innerHTML = "offline";
+                    e_Fd(rL.x, false); // show message when internet not connected
+                }
             }
         break;
     }
