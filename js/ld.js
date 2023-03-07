@@ -179,14 +179,20 @@ function docRead() {
 
                 // rL.n.classList.add("wifi_slow_img");
 
-                
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+                    e_Fd(rL.xe, false); // show speed
+                    e_Fd(rL.n, false); // show message
+                    e_Fd(rL.x, false);
 
+                    rL.e5 = false;
+                }
+                /*
                 e_Fd(rL.xe, false); // show speed
                 e_Fd(rL.n, false); // show message
                 e_Fd(rL.x, false);
 
                 rL.e5 = false;
-
+                */
             } else if (rdS(Rd) && !rL.e5 && rL.y) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
