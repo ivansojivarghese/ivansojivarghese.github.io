@@ -153,8 +153,9 @@ function docRead() {
                 } else if (op.ne.w && op.ne.s) { // if slow network
 
                     // console.log("slow speed");
+                    // rL.n.classList.add("wifi_slow_img");
 
-                    rL.n.classList.add("wifi_slow_img");
+                    c_rep(rL.n, "wifi_off_img", "wifi_slow_img");
                     rL.xc.innerHTML = "network is slow";
 
                     // resLoad(rL.w_s.el, rL.w_s.u);
@@ -167,14 +168,15 @@ function docRead() {
 
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-                    rL.n.classList.add("wifi_off_img");
+                    // rL.n.classList.add("wifi_off_img");
+                    c_rep(rL.n, "wifi_slow_img", "wifi_off_img");
                     e_Fd(rL.n, false); 
                     
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.x, false); // show message when internet not connected
                     } else {
-                        rL.dt.classList.add("md"); // blink status
+                        rL.dt.classList.add("md"); 
                     }
                 }
 
@@ -200,7 +202,8 @@ function docRead() {
                 */
             } else if (op.n === false) { // if network offine
                 rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-                rL.n.classList.add("wifi_off_img");
+                // rL.n.classList.add("wifi_off_img");
+                c_rep(rL.n, "wifi_slow_img", "wifi_off_img");
                 e_Fd(rL.n, false); 
                 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
