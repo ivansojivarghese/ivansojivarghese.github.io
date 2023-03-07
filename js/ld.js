@@ -168,11 +168,11 @@ function docRead() {
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     rL.n.classList.add("wifi_off_img");
+                    e_Fd(rL.n, false); 
                     
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
-                        e_Fd(rL.n, false); // show message when internet not connected
-                        e_Fd(rL.x, false);
+                        e_Fd(rL.x, false); // show message when internet not connected
                     }
                 }
 
