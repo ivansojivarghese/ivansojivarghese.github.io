@@ -48,6 +48,7 @@ var wH = window.innerHeight, // height
             t : 0, // end time
             s : 0, // estimated speed 
             c : 0, // iterative count
+            d : false, // slow speed boolean var hold
             w : true, // slow speed check - less than threshold?
         },
         r : null, // resource link origin
@@ -152,9 +153,16 @@ const networkConditions = async() => {
     op.n = status;
     if (op.ne.w) {
         if (op.ne.c === 5) {
+            if (!speed) {
+                op.ne.d = true;
+            }
             op.ne.w = speed;
             op.ne.c = 0;
         } else {
+            if (!speed && op.ne.d) {
+                op.ne.w = speed;
+                op.ne.d = false;
+            }
             op.ne.c++;
         }
     } else {
