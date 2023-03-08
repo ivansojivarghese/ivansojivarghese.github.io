@@ -172,12 +172,9 @@ function docRead() {
                     c_rep(rL.n, "wifi_off_img", "wifi_find_img");
 
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
-                        //rL.xc.innerHTML = "offline";
-                        //e_Fd(rL.x, false); // show message when internet not connected
-                    } else {
-
-                    }
-
+                        rL.xc.innerHTML = "reconnecting";
+                        e_Fd(rL.x, false); // show message when internet not connected
+                    } 
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     // rL.n.classList.add("wifi_off_img");
