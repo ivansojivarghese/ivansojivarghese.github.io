@@ -181,6 +181,14 @@ function docRead() {
                     }
                 }
 
+            } else if (op.n && op.nc) { // if network change - from offline to online
+                rL.dt.classList.remove("md", "aniM-f"); 
+                c_rep(rL.n, "wifi_off_img", "wifi_find_img");
+
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
+                    rL.xc.innerHTML = "reconnecting";
+                    e_Fd(rL.x, false); // show message when internet not connected
+                } 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
@@ -201,14 +209,6 @@ function docRead() {
 
                 rL.e5 = false;
                 */
-            } else if (op.n && op.nc) { // if network change - from offline to online
-                rL.dt.classList.remove("md", "aniM-f"); 
-                c_rep(rL.n, "wifi_off_img", "wifi_find_img");
-
-                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
-                    rL.xc.innerHTML = "reconnecting";
-                    e_Fd(rL.x, false); // show message when internet not connected
-                } 
             } else if (op.n === false) { // if network offline
                 rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                 // rL.n.classList.add("wifi_off_img");
