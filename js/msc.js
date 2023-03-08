@@ -47,6 +47,7 @@ var wH = window.innerHeight, // height
             a : 0, // start time
             t : 0, // end time
             s : 0, // estimated speed 
+            c : 0, // iterative count
             w : true, // slow speed check - less than threshold?
         },
         r : null, // resource link origin
@@ -149,7 +150,14 @@ const networkConditions = async() => {
     const status = await checkOnlineStatus(); // check internet connection
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
-    if (op.n) {
+    if (op.ne.w) {
+        if (op.ne.c === 3) {
+            op.ne.w = speed;
+            op.ne.c = 0;
+        } else {
+            op.ne.c++;
+        }
+    } else {
         op.ne.w = speed;
     }
 }
