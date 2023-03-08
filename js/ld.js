@@ -160,7 +160,7 @@ function docRead() {
 
                     // resLoad(rL.w_s.el, rL.w_s.u);
 
-                    rL.e = true;
+                    // rL.e = true;
                     rL.e5 = true;
 
                     // e_Fd(rL.n, false); 
