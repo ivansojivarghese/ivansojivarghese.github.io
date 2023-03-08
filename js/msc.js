@@ -151,7 +151,7 @@ const networkConditions = async() => {
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
     if (op.ne.w) {
-        if (op.ne.c === 3) {
+        if (op.ne.c === 5) {
             op.ne.w = speed;
             op.ne.c = 0;
         } else {
