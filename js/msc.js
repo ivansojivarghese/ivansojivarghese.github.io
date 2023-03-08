@@ -49,7 +49,7 @@ var wH = window.innerHeight, // height
             s : 0, // estimated speed 
             c : 0, // iterative count
             d : false, // slow speed boolean var hold
-            w : false, // slow speed check - less than threshold?
+            w : true, // slow speed check - less than threshold?
         },
         r : null, // resource link origin
         n : null, // online status (internet connectivity)
