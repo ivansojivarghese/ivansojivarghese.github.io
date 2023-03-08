@@ -44,7 +44,6 @@ var disp = document.getElementById("display_sc"), // display
         d : document.getElementById("loadR-e"), // loading ring (end)
         c : document.getElementById("loadR-s"), // loading ring (secondary)
         e : false, // code-execution boolean
-        eA : false, // secondary to 'rL.e'
         e2 : false, // ""
         e3 : false,
         e4 : false,
@@ -90,7 +89,7 @@ function docRead() {
                 e_Fd(rL.m, false); // show load-box
             }
         case "complete": // if DOM, styles, images and scripts all loaded
-            if (!rL.e || rL.eA) { // ensure once execution
+            if (!rL.e) { // ensure once execution
                 if (!rL.e2) { 
                     rL.e2 = true;
                     if (!rL.e4) {
@@ -162,7 +161,6 @@ function docRead() {
                     // resLoad(rL.w_s.el, rL.w_s.u);
 
                     rL.e = true;
-                    rL.eA = true;
                     rL.e5 = true;
 
                     // e_Fd(rL.n, false); 
