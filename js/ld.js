@@ -171,12 +171,12 @@ function docRead() {
                     // rL.n.classList.add("wifi_off_img");
                     c_rep(rL.n, "wifi_slow_img", "wifi_off_img");
                     e_Fd(rL.n, false); 
+
+                    rL.dt.classList.add("md"); 
                     
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.x, false); // show message when internet not connected
-                    } else {
-                        rL.dt.classList.add("md"); 
                     }
                 }
 
@@ -205,13 +205,13 @@ function docRead() {
                 // rL.n.classList.add("wifi_off_img");
                 c_rep(rL.n, "wifi_slow_img", "wifi_off_img");
                 e_Fd(rL.n, false); 
+
+                rL.dt.classList.add("md");
                 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.x, false); // show message when internet not connected
-                } else {
-                    rL.dt.classList.add("md");
-                }
+                } 
             } else if (rdS(Rd) && !rL.e5 && rL.y) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
