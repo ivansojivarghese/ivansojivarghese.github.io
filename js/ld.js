@@ -173,6 +173,7 @@ function docRead() {
                     e_Fd(rL.n, false); 
 
                     rL.dt.classList.add("md"); 
+                    op.nc = false;
                     
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
@@ -200,13 +201,14 @@ function docRead() {
 
                 rL.e5 = false;
                 */
-            } else if (op.n === false) { // if network offine
+            } else if (op.n === false) { // if network offline
                 rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                 // rL.n.classList.add("wifi_off_img");
                 c_rep(rL.n, "wifi_slow_img", "wifi_off_img");
                 e_Fd(rL.n, false); 
 
                 rL.dt.classList.add("md");
+                op.nc = false;
                 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                     rL.xc.innerHTML = "offline";
