@@ -168,7 +168,15 @@ function docRead() {
 
                 } else if (op.n === false && op.nc) { // if network change - from offline to online
                     op.n = true;
-                    
+                    rL.dt.classList.remove("md", "aniM-f"); 
+                    c_rep(rL.n, "wifi_off_img", "wifi_find_img");
+
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
+                        //rL.xc.innerHTML = "offline";
+                        //e_Fd(rL.x, false); // show message when internet not connected
+                    } else {
+
+                    }
 
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
