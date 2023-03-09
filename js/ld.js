@@ -173,7 +173,7 @@ function docRead() {
                     e_Fd(rL.n, false); 
 
                     rL.dt.classList.add("md"); 
-                    op.nc = false;
+                    // op.nc = false;
                     
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
@@ -216,7 +216,7 @@ function docRead() {
                 e_Fd(rL.n, false); 
 
                 rL.dt.classList.add("md");
-                op.nc = false;
+                // op.nc = false;
                 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                     rL.xc.innerHTML = "offline";
