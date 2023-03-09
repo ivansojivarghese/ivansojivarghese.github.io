@@ -115,7 +115,7 @@ function scrollArrowIterate(m) {
             el.lk3b.style.bottom = "1.5rem"; // reverse anchor
             el.lk3b.style.height = 0; // zero height
             setTimeout(function() {
-                scrollArrowIterate(); // repeat
+                scrollArrowIterate(m); // repeat
             }, op.te);
         }, op.te);
     }
