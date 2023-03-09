@@ -844,11 +844,22 @@ function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
     }
 }
 
-function c_rep(el, d, n) { // replace CSS classes in elements (if applicable)
-    if (el.classList.contains(d)) {
-        el.classList.replace(d, n);
+function c_rep(el, d, n) { // replace CSS class (any given in array) in element with new class (if applicable), 'd' array type
+    if (Array.isArray(d)) {
+        var _L = d.length - 1;
+        for (i = 0; i <= _L; i++) {
+            if (el.classList.contains(d[i])) {
+                el.classList.replace(d[i], n);
+            } else {
+                el.classList.add(n);
+            }
+        }
     } else {
-        el.classList.add(n);
+        if (el.classList.contains(d)) {
+            el.classList.replace(d, n);
+        } else {
+            el.classList.add(n);
+        }
     }
 }
 
