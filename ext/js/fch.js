@@ -98,21 +98,25 @@ function load_eN() { // load, after cookie acceptance (page specific)
     var h = getBd(el.lk3, "height");
     if (h >= 60) { // min. 60px height required
         if (h >= 80) {
-            scrollArrowIterate(); // start iteration
+            scrollArrowIterate(true); // start iteration
+        } else {
+            scrollArrowIterate(false); // start iteration (single)
         }
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
     }
 }
 
-function scrollArrowIterate() {
+function scrollArrowIterate(m) {
     el.lk3b.style.top = "1rem";
     el.lk3b.style.height = "calc(100% - 2.5rem)"; // full height
-    setTimeout(function() {
-        el.lk3b.style.top = "auto";
-        el.lk3b.style.bottom = "1.5rem"; // reverse anchor
-        el.lk3b.style.height = 0; // zero height
+    if (m) {
         setTimeout(function() {
-            scrollArrowIterate(); // repeat
+            el.lk3b.style.top = "auto";
+            el.lk3b.style.bottom = "1.5rem"; // reverse anchor
+            el.lk3b.style.height = 0; // zero height
+            setTimeout(function() {
+                scrollArrowIterate(); // repeat
+            }, op.te);
         }, op.te);
-    }, op.te);
+    }
 }
