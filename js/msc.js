@@ -845,7 +845,7 @@ function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
 }
 
 function c_rep(el, d, n) { // replace CSS class (any given in array) in element with new class (if applicable), 'd' array type
-    if (Array.isArray(d)) {
+    if (Array.isArray(d)) { // if array of classes to compare
         var _L = d.length - 1;
         for (i = 0; i <= _L; i++) {
             if (el.classList.contains(d[i])) {
@@ -854,7 +854,7 @@ function c_rep(el, d, n) { // replace CSS class (any given in array) in element 
                 el.classList.add(n);
             }
         }
-    } else {
+    } else { // else, only 1 class to replace
         if (el.classList.contains(d)) {
             el.classList.replace(d, n);
         } else {
