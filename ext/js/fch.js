@@ -109,7 +109,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
 function scrollArrowIterate(m) {
     el.lk3b.style.top = "1rem";
     el.lk3b.style.height = "calc(100% - 2.5rem)"; // full height
-    if (m) {
+    if (m) { // repeating iterations
         setTimeout(function() {
             el.lk3b.style.top = "auto";
             el.lk3b.style.bottom = "1.5rem"; // reverse anchor
