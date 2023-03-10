@@ -457,6 +457,7 @@ function errorCheck() { // check for errors
         eR.h = "ld";
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         eR.h = "ck";
+        rL.y = true;
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
         /*
@@ -471,7 +472,7 @@ function errorCheck() { // check for errors
     }
 
     if (eR.h) {
-        rL.s = true;
+        // rL.s = true;
         eR.m.classList.remove("d_n"); // display the error
         eR[eR.h].classList.remove("d_n");
     }
