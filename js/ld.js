@@ -471,6 +471,7 @@ function errorCheck() { // check for errors
     }
 
     if (eR.h) {
+        rL.s = true;
         eR.m.classList.remove("d_n"); // display the error
         eR[eR.h].classList.remove("d_n");
     }
