@@ -481,7 +481,6 @@ function pL() { // site parameters loop
 
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
-
     if ((op.n === false && !op.nc) || (op.n && op.nc)) { // if loss of network connection (internet)
         op.nc = true; // network changed
         
@@ -495,7 +494,7 @@ function pL() { // site parameters loop
         // check for other messages, then open up
     }
 
-    // console.log(op.p.L);
+    console.log(op.ne.s);
 }
 
 function c_Sr() { // check for scrolling activity (in live)

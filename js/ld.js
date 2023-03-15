@@ -189,6 +189,9 @@ function docRead() {
                     rL.xc.innerHTML = "reconnecting";
                     e_Fd(rL.x, false); // show message when internet not connected
                 } 
+
+                
+
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
