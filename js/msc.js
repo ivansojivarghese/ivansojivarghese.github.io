@@ -171,7 +171,7 @@ const networkConditions = async() => {
             op.ne.w = false; 
         }
         if (op.ne.c !== 0 && !op.ne.d) {
-            op.ne.d = true;
+            // op.ne.d = true;
             op.ne.c = 0;
         } else if (op.ne.c < 5) {
             op.ne.d = true;
