@@ -186,8 +186,13 @@ const networkConditions = async() => {
         }
         // op.ne.d = true;
     } else {
-        op.ne.w = speed;
-        op.ne.d = false;
+        if (op.ne.c === 3) {
+            op.ne.w = speed;
+            op.ne.d = false;
+            op.ne.c = 0;
+        } else {
+            op.ne.c++;
+        }
     }
 }
 
