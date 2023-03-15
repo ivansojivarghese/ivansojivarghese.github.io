@@ -188,7 +188,7 @@ networkConditions(); // perform network check on startup
 
 setInterval(async () => {
     networkConditions(); // continuously check on network
-}, 1000);
+}, 2000);
 
 /////////////////////////////////////////////
 /*
