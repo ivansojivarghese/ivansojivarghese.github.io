@@ -49,6 +49,7 @@ var wH = window.innerHeight, // height
             s : 0, // estimated speed 
             c : 0, // iterative count
             d : false, // slow speed boolean var hold
+            v : false, // normal (high) speed ""
             w : true, // slow speed check - less than threshold?
         },
         r : null, // resource link origin
@@ -166,13 +167,16 @@ const networkConditions = async() => {
             op.ne.c++;
         }
     } else if (op.ne.w) {
-        // op.ne.d = false;
+        if (!op.ne.v) {
+            op.ne.d = false;
+        }
         if (!op.nc) {
             op.ne.w = false; 
         }
         if (op.ne.c !== 0 && !op.ne.d) {
             // op.ne.d = true;
             op.ne.c = 0;
+            op.ne.v = true;
         } else if (op.ne.c < 5) {
             op.ne.d = true;
             op.ne.c++;
