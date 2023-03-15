@@ -186,6 +186,7 @@ const networkConditions = async() => {
         }
         // op.ne.d = true;
     } else {
+        op.ne.v = false;
         if (op.ne.c === 3) {
             op.ne.w = speed;
             op.ne.d = false;
