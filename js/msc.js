@@ -153,7 +153,7 @@ const networkConditions = async() => {
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
     if (op.ne.w && speed) { // filters to avoid detecting 'sudden' surges in speed (leading to false slow network status)
-        if (op.ne.c === 2) { // at least 3 checks needed to prove
+        if (op.ne.c === 5) { // at least n checks needed to prove
             if (!speed) {
                 op.ne.d = true;
             }
@@ -171,7 +171,7 @@ const networkConditions = async() => {
         }
         if (op.ne.c !== 0 && !op.ne.d) {
             op.ne.c = 0;
-        } else if (op.ne.c < 2) {
+        } else if (op.ne.c < 5) {
             op.ne.c++;
         } else {
             op.ne.w = speed;
@@ -188,7 +188,7 @@ networkConditions(); // perform network check on startup
 
 setInterval(async () => {
     networkConditions(); // continuously check on network
-}, 1000);
+}, 3000);
 
 /////////////////////////////////////////////
 /*
