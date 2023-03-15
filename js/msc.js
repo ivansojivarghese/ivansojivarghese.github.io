@@ -174,6 +174,7 @@ const networkConditions = async() => {
             op.ne.d = true;
             op.ne.c = 0;
         } else if (op.ne.c < 5) {
+            op.ne.d = true;
             op.ne.c++;
         } else {
             op.ne.w = speed;
