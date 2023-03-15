@@ -178,7 +178,7 @@ op.r = getSiteRes(); // get site resource origin
 networkConditions(); // perform network check on startup
 
 setInterval(async () => {
-    networkConditions();
+    networkConditions(); // continuously check on network
 }, 1000);
 
 /////////////////////////////////////////////
