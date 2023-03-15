@@ -174,6 +174,7 @@ function docRead() {
 
                     rL.dt.classList.add("md"); 
                     // op.nc = false;
+                    op.ne.s = 0;
                     
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
@@ -190,7 +191,7 @@ function docRead() {
                     e_Fd(rL.x, false); // show message when internet not connected
                 } 
 
-                
+
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
 
@@ -220,6 +221,7 @@ function docRead() {
 
                 rL.dt.classList.add("md");
                 // op.nc = false;
+                op.ne.s = 0;
                 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
                     rL.xc.innerHTML = "offline";
