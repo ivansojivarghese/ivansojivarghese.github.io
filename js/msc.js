@@ -166,7 +166,7 @@ const networkConditions = async() => {
             op.ne.c++;
         }
     } else if (op.ne.w) {
-        op.ne.d = false;
+        // op.ne.d = false;
         if (!op.nc) {
             op.ne.w = false; 
         }
