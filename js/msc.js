@@ -48,6 +48,7 @@ var wH = window.innerHeight, // height
             t : 0, // end time
             s : 0, // estimated speed 
             c : 0, // iterative count
+            r : false, // count incrementation check
             d : false, // slow speed boolean var hold
             v : false, // normal (high) speed ""
             w : true, // slow speed check - less than threshold?
@@ -175,12 +176,13 @@ const networkConditions = async() => {
         if (!op.nc && !op.ne.d) {
             op.ne.w = false; 
         }
-        if (op.ne.c !== 0 && (!op.ne.d || (op.ne.d && op.ne.v /*&& op.ne.c === 0*/))) {
+        if (op.ne.c !== 0 && (!op.ne.d || (op.ne.d && op.ne.v && !op.ne.r))) {
             // op.ne.d = true;
             op.ne.c = 0;
             op.ne.v = true;
         } else if (op.ne.c < 3) {
             op.ne.d = true;
+            op.ne.r = true;
             op.ne.c++;
         } else {
             op.ne.w = speed;
