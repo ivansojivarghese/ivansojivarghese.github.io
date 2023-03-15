@@ -151,8 +151,8 @@ const networkConditions = async() => {
     const status = await checkOnlineStatus(); // check internet connection
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
-    if (op.ne.w && speed) {
-        if (op.ne.c === 2) {
+    if (op.ne.w && speed) { // filters to avoid detecting 'sudden' surges in speed (leading to false slow network status)
+        if (op.ne.c === 2) { // at least 3 checks needed to prove
             if (!speed) {
                 op.ne.d = true;
             }
@@ -179,7 +179,7 @@ networkConditions(); // perform network check on startup
 
 setInterval(async () => {
     networkConditions();
-}, 5000);
+}, 1000);
 
 /////////////////////////////////////////////
 /*
