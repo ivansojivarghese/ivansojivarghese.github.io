@@ -31,7 +31,8 @@ var fchL = {
     el = {
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
-        lk3b : document.getElementById("link_3b")
+        lk3b : document.getElementById("link_3b"),
+        chev : document.getElementById("chev_d")
     };
 
 
@@ -103,6 +104,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
             scrollArrowIterate(false); // start iteration (single)
         }
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
+        e_Fd(el.chev, false);
     }
 }
 
