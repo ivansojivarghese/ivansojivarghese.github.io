@@ -143,6 +143,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         s = op.ne.s < op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
         return s; 
     } catch (err) { // if network error
+        op.ne.s = 0; // return 0 mbps
         return true; // default true
     }
 }
