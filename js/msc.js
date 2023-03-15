@@ -494,7 +494,7 @@ function pL() { // site parameters loop
         // check for other messages, then open up
     }
 
-    console.log(op.ne.s);
+    console.log(op.ne.s + ", " + op.ne.w);
 }
 
 function c_Sr() { // check for scrolling activity (in live)
