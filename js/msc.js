@@ -169,10 +169,10 @@ const networkConditions = async() => {
     } else if (op.ne.w) {
         if (!op.ne.v) {
             op.ne.d = false;
-        }/*
-        if (!op.nc) {
+        }
+        if (!op.nc && op.ne.d) {
             op.ne.w = false; 
-        }*/
+        }
         if (op.ne.c !== 0 && !op.ne.d) {
             // op.ne.d = true;
             op.ne.c = 0;
