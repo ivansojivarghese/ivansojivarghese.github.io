@@ -520,6 +520,8 @@ op.c.e = navigator.cookieEnabled; // check for enabled cookies
 op.mt = function() { // check for maintenance
     if (op.nav.d !== "") { // maintenance function
         return true; 
+    } else {
+        return false;
     }
 }
 load_js();
