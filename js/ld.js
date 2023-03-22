@@ -513,17 +513,18 @@ function erPg_D(p) { // error page display
         e_Fd(el, false); // fade in
     }, op.t)
 }*/
-
-r = pgOr(wD, cH); // get screen orientation (using dimensions)
-vw = vwP(wD, cH, r); // set device size/orientation params
-op.c.e = navigator.cookieEnabled; // check for enabled cookies
-op.mt = function() { // check for maintenance
-    if (op.nav.d !== "") { // maintenance function
+function mt_check() { // maintenance function (temporary status)
+    if (op.nav.d !== "") { 
         return true; 
     } else {
         return false;
     }
 }
+
+r = pgOr(wD, cH); // get screen orientation (using dimensions)
+vw = vwP(wD, cH, r); // set device size/orientation params
+op.c.e = navigator.cookieEnabled; // check for enabled cookies
+op.mt = mt_check();
 load_js();
 load_css();
 
