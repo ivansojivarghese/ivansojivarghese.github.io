@@ -524,7 +524,7 @@ a.md, span.md {
     text-align: left;
 }
 
-.c_ta, .pill, .error_sc, #load_sc {
+.c_ta, .pill, .error_main, #load_sc {
     text-align: center;
 }
 
@@ -532,7 +532,7 @@ a.md, span.md {
     text-align: right;
 }
 
-.p-a, #load_sc, .error_sc, #display_sc, .load_r, .loader .wrap {
+.p-a, #load_sc, .error_main, #display_sc, .load_r, .loader .wrap {
     position: absolute;
 }
 
@@ -850,18 +850,18 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 /* ------------- */
 
-.error_sc h4, .error_sc p, p.error {
+.error_main h4, .error_main p, p.error {
     padding: 0 0.5em;
 }
 
-.error_sc h4 {
+.error_main h4 {
     font-size: 1.1rem;
     line-height: 1.5em;
     letter-spacing: 0.15em;
     margin-bottom: 0;
 }
 
-.error_sc p {
+.error_main p {
     line-height: 1.4em;
     font-size: 1.8rem;
     margin-bottom: 0.5em;
