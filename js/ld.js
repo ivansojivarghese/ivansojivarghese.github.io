@@ -518,7 +518,7 @@ r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
 op.c.e = navigator.cookieEnabled; // check for enabled cookies
 op.mt = function() { // check for maintenance
-    if (op.nav.d !== "") {
+    if (op.nav.d !== "") { // maintenance function
         return true; 
     }
 }
