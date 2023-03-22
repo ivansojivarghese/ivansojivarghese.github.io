@@ -524,7 +524,7 @@ a.md, span.md {
     text-align: left;
 }
 
-.c_ta, .pill, #error_sc, #load_sc {
+.c_ta, .pill, .error_sc, #load_sc {
     text-align: center;
 }
 
@@ -532,7 +532,7 @@ a.md, span.md {
     text-align: right;
 }
 
-.p-a, #load_sc, #error_sc, #display_sc, .load_r, .loader .wrap {
+.p-a, #load_sc, .error_sc, #display_sc, .load_r, .loader .wrap {
     position: absolute;
 }
 
