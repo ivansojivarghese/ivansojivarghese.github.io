@@ -850,18 +850,18 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 /* ------------- */
 
-#error_sc h4, #error_sc p, p.error {
+.error_sc h4, .error_sc p, p.error {
     padding: 0 0.5em;
 }
 
-#error_sc h4 {
+.error_sc h4 {
     font-size: 1.1rem;
     line-height: 1.5em;
     letter-spacing: 0.15em;
     margin-bottom: 0;
 }
 
-#error_sc p {
+.error_sc p {
     line-height: 1.4em;
     font-size: 1.8rem;
     margin-bottom: 0.5em;
