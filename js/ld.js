@@ -59,6 +59,7 @@ var disp = document.getElementById("display_sc"), // display
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd"), // landscape
+        mt : document.getElementById("error_mt"), // maintenance
         ck : document.getElementById("error_cke") // cookies
     },
 
@@ -462,6 +463,8 @@ function errorCheck() { // check for errors
         eR.h = "ld";
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         eR.h = "ck";
+    } else if (op.mt) { // check if site under maintenance
+        eR.h = "mt";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
         /*
@@ -514,6 +517,11 @@ function erPg_D(p) { // error page display
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
 op.c.e = navigator.cookieEnabled; // check for enabled cookies
+op.mt = function() { // check for maintenance
+    if (op.nav.d !== "") {
+        return true; 
+    }
+}
 load_js();
 load_css();
 

@@ -36,6 +36,7 @@ var wH = window.innerHeight, // height
             x : false // code execution
         },
         nav : { // navigation
+            d : document.referrer, // check for previous URI
             r : false, // page reload check
             fb : false, // page forward/backward nav. check
             n : false, // page nav. check (direct)
