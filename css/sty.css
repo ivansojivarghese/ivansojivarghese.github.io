@@ -700,6 +700,12 @@ div.locator_img {
     width: 1.5rem;
     height: 1.5rem;
 }
+
+.img_icon.ex-s {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
 /*
 .chevron_down_img {
     background-image: url("../svg/chevron_down.svg");
