@@ -4,7 +4,7 @@ var disp = document.getElementById("display_sc"), // display
     fter = { // footer
         el : document.getElementById("footer_sc"), // element
         y : document.getElementById("f_yr"), // copyright year
-        v : document.getElementById("f_vr") // site version
+        v : document.getElementsByClassName("f_vr") // site version
     },
     rL = { // page/resource loader
         f : { // - favicon/logo
@@ -327,13 +327,17 @@ function load_css() { // load up CSS (common)
 
 function load_jscss_N() { // load up JS/CSS (after page load; common)
     var h = getBd(fter.el, "height"),
-        y = op.d.getFullYear(); // get copyright year
+        y = op.d.getFullYear(), // get copyright year
+        i = 0;
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
     c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
     fter.y.innerHTML = y;
-    fter.v.innerHTML = dev.version;
+    while (fter.v[i]) { // add copyright year + site version no.
+        fter.v[i].innerHTML = dev.version;
+        i++;
+    }
 }
 
 function load_js() { // [compatibility/variables] load
