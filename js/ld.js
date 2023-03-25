@@ -521,8 +521,8 @@ function erPg_D(p) { // error page display
         e_Fd(el, false); // fade in
     }, op.t)
 }*/
-function mt_check(v) { // maintenance function (temporary status)
-    if (op.nav.d !== "") { 
+function mt_check(v) { // maintenance function (temporary)
+    if (op.nav.d !== "" || dev.mtne) { // ([temporary check condition] || full maintenance)
         if (v) { // if version upgrade
             var i = 0;
             while (eR.v.u_e[i]) { // edit to element[s]
