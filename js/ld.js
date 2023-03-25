@@ -529,7 +529,7 @@ function mt_check(v) { // maintenance function (temporary status)
                 eR.v.u_e[i].innerHTML = dev.version_up;
                 i++;
             }
-            eR.v.u.c_rep("d_n", "d_i");
+            c_rep(eR.v.u, "d_n", "d_i");
         }
         return true; 
     } else {
