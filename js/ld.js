@@ -525,7 +525,7 @@ function mt_check(v) { // maintenance function (temporary status)
     if (op.nav.d !== "") { 
         if (v) { // if version upgrade
             var i = 0;
-            while (eR.v.u_e[i]) { // add copyright year + site version no.
+            while (eR.v.u_e[i]) { // edit to element[s]
                 eR.v.u_e[i].innerHTML = dev.version_up;
                 i++;
             }
