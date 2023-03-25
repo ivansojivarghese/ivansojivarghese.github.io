@@ -55,6 +55,10 @@ var disp = document.getElementById("display_sc"), // display
     eR = { // error 
         h : "", // hold-value placement (error page id)
         e : false, // code-execution boolean
+        v : { // version
+            u : document.getElementById("vrU"), // version upgrade
+            u_e : document.getElementsByClassName("vr-u") // "" elements class
+        },
         m : document.getElementById("error_sc"), // main
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
@@ -517,8 +521,16 @@ function erPg_D(p) { // error page display
         e_Fd(el, false); // fade in
     }, op.t)
 }*/
-function mt_check() { // maintenance function (temporary status)
+function mt_check(v) { // maintenance function (temporary status)
     if (op.nav.d !== "") { 
+        if (v) { // if version upgrade
+            var i = 0;
+            while (eR.v.u_e[i]) { // add copyright year + site version no.
+                eR.v.u_e[i].innerHTML = dev.version_up;
+                i++;
+            }
+            eR.v.u.c_rep("d_n", "d_i");
+        }
         return true; 
     } else {
         return false;
@@ -528,7 +540,7 @@ function mt_check() { // maintenance function (temporary status)
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
 op.c.e = navigator.cookieEnabled; // check for enabled cookies
-op.mt = mt_check();
+op.mt = mt_check(dev.version_up);
 load_js();
 load_css();
 

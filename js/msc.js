@@ -22,7 +22,8 @@ var wH = window.innerHeight, // height
             hoursNo : 183,
             cappuccinosNo : 245
         },
-        version : "2.0" // site version
+        version : "2.0", // site version
+        version_up : "2.1", // version upgrade
     },
     op = { // site 'options'
         c : { // cookies
