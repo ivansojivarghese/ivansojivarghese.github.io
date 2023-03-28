@@ -960,10 +960,7 @@ window.addEventListener("resize", function() {
 });
 
 window.addEventListener("orientationchange", function() {
-    pg.sc.m.classList.add("z_O"); // remove page from display during orientation change
-    setTimeout(function() {
-        pg.sc.m.classList.add("d_n"); // applicable for slow networks
-    }, op.t);
+    pg.sc.m.classList.add("d_n"); // remove page from display during orientation change (for slow networks)
 });
 
 //////////////////////////////////////////
