@@ -960,7 +960,7 @@ window.addEventListener("resize", function() {
 });
 
 window.addEventListener("orientationchange", function() {
-    // add an interim page here (to show change in device orientation)
+    pg.sc.m.classList.add("d_n"); // not display page
 });
 
 //////////////////////////////////////////
