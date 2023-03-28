@@ -960,7 +960,7 @@ window.addEventListener("resize", function() {
 });
 
 window.addEventListener("orientationchange", function() {
-    pg.sc.m.classList.add("d_n"); // not display page
+    pg.sc.m.classList.add("d_n"); // remove display during orientation change
 });
 
 //////////////////////////////////////////
