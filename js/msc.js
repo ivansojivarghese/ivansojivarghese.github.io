@@ -99,6 +99,9 @@ var wH = window.innerHeight, // height
         e : false,
         t : "", // reference window category
         w : "", // current [open] window
+        sc : { // sections
+            m : document.getElementById("main_sc") // main
+        },
         msg : { // messages
             c : false, // check (if feature is active)
             el : document.getElementById("msg_sc"), // el
@@ -957,7 +960,7 @@ window.addEventListener("resize", function() {
 });
 
 window.addEventListener("orientationchange", function() {
-
+    // add an interim page here (to show change in device orientation)
 });
 
 //////////////////////////////////////////
