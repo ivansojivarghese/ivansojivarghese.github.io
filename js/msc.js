@@ -948,7 +948,7 @@ window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
 window.addEventListener("resize", function() {
-    if (wH !== window.innerHeight && wD !== window.innerWidth && window.innerHeight !== window.innerWidth) { // check for change in width/height values before proceeding
+    if (wH !== window.innerHeight && wD !== window.innerWidth && window.innerHeight !== wD && window.innerWidth !== wH) { // check for change in width/height values before proceeding
         wH = window.innerHeight; // update on window size variables
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;
