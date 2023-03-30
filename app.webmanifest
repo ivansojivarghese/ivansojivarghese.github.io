@@ -18,7 +18,7 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/maskable-192x192.png",
+                    "src": "favicon/clicks_pwa.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
@@ -31,7 +31,7 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/maskable-192x192.png",
+                    "src": "favicon/code_pwa.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
@@ -44,7 +44,7 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/maskable-192x192.png",
+                    "src": "favicon/diary_pwa.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
