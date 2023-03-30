@@ -18,15 +18,15 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/maskable-192x192.png",
+                    "src": "favicon/maskable-512x512.png",
                     "type": "image/png",
-                    "sizes": "192x192"
+                    "sizes": "512x512",
+                    "purpose": "maskable"
                 },
                 {
-                     "src": "favicon/maskable-512x512.png",
-                     "type": "image/png",
-                     "sizes": "512x512",
-                     "purpose": "maskable"
+                    "src": "favicon/maskable-512x512-c.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
                 }
             ]
         },
