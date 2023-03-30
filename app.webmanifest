@@ -14,17 +14,71 @@
         {
             "name" : "clicks",
             "short_name" : "clicks",
-            "url" :  "https://ivansojivarghese.github.io/clicks"
+            "url" :  "https://ivansojivarghese.github.io/clicks",
+            "icons" : [
+                {
+                    "src": "favicon/android-chrome-192x192.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "favicon/android-chrome-512x512.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                },
+                {
+                     "src": "favicon/maskable-512x512.png",
+                     "type": "image/png",
+                     "sizes": "512x512",
+                     "purpose": "maskable"
+                 }
+            ]
         },
         {
             "name" : "code",
             "short_name" : "code",
-            "url" :  "https://ivansojivarghese.github.io/code"
+            "url" :  "https://ivansojivarghese.github.io/code",
+            "icons" : [
+                {
+                    "src": "favicon/android-chrome-192x192.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "favicon/android-chrome-512x512.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                },
+                {
+                     "src": "favicon/maskable-512x512.png",
+                     "type": "image/png",
+                     "sizes": "512x512",
+                     "purpose": "maskable"
+                 }
+            ]
         },
         {
             "name" : "diary",
             "short_name" : "diary",
-            "url" :  "https://ivansojivarghese.github.io/diary"
+            "url" :  "https://ivansojivarghese.github.io/diary",
+            "icons" : [
+                {
+                    "src": "favicon/android-chrome-192x192.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "favicon/android-chrome-512x512.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                },
+                {
+                     "src": "favicon/maskable-512x512.png",
+                     "type": "image/png",
+                     "sizes": "512x512",
+                     "purpose": "maskable"
+                 }
+            ],
         }  
    ],
    "screenshots" : [],
