@@ -18,9 +18,9 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/maskable-512x512-c.png",
+                    "src": "favicon/maskable-192x192.png",
                     "type": "image/png",
-                    "sizes": "512x512"
+                    "sizes": "192x192"
                 }
             ]
         },
@@ -46,8 +46,7 @@
                 {
                     "src": "favicon/maskable-512x512.png",
                     "type": "image/png",
-                    "sizes": "512x512",
-                    "purpose": "maskable"
+                    "sizes": "512x512"
                 },
                 {
                     "src": "favicon/maskable-512x512-c.png",
