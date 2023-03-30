@@ -12,8 +12,8 @@
    "description" : "An aspiring Computer Science student. Have a peek at my photography, projects and ideas!",
    "shortcuts" : [
         {
-            "name" : "clicks",
-            "short_name" : "clicks",
+            "name" : "Clicks",
+            "short_name" : "Clicks",
             "url" :  "https://ivansojivarghese.github.io/clicks",
             "description" : "",
             "icons" : [
@@ -31,8 +31,8 @@
             ]
         },
         {
-            "name" : "code",
-            "short_name" : "code",
+            "name" : "Code",
+            "short_name" : "Code",
             "url" :  "https://ivansojivarghese.github.io/code",
             "description" : "",
             "icons" : [
@@ -45,8 +45,8 @@
             ]
         },
         {
-            "name" : "diary",
-            "short_name" : "diary",
+            "name" : "Diary",
+            "short_name" : "Diary",
             "url" :  "https://ivansojivarghese.github.io/diary",
             "description" : "",
             "icons" : [
