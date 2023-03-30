@@ -10,6 +10,23 @@
    "orientation" : "portrait",
    "categories" : ["developer", "developer tools", "development", "education", "books & reference", "design", "lifestyle", "personalization", "photo", "photo & video", "multimedia", "multimedia design", "network", "networking", "productivity", "reference"],
    "description" : "An aspiring computer science student. Have a peek at my photography, projects and ideas!",
+   "shortcuts" : [
+        {
+            "name" : "clicks",
+            "short_name" : "clicks",
+            "start_url" :  "https://ivansojivarghese.github.io/clicks"
+        },
+        {
+            "name" : "code",
+            "short_name" : "code",
+            "start_url" :  "https://ivansojivarghese.github.io/code"
+        },
+        {
+            "name" : "diary",
+            "short_name" : "diary",
+            "start_url" :  "https://ivansojivarghese.github.io/diary"
+        }  
+   ],
    "screenshots" : [],
    "icons" : [
        {
