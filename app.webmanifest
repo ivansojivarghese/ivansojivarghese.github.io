@@ -8,6 +8,7 @@
    "lang" : "en",
    "dir" : "ltr",
    "orientation" : "portrait",
+   "categories" : ["developer", "developer tools", "development", "education", "books & reference", "design", "lifestyle", "personalization", "photo", "photo & video"],
    "icons" : [
        {
            "src": "favicon/android-chrome-192x192.png",
