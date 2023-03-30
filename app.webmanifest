@@ -21,12 +21,6 @@
                     "src": "favicon/maskable-512x512-c.png",
                     "type": "image/png",
                     "sizes": "512x512"
-                },
-                {
-                    "src": "favicon/maskable-512x512.png",
-                    "type": "image/png",
-                    "sizes": "512x512",
-                    "purpose": "maskable"
                 }
             ]
         },
@@ -40,12 +34,6 @@
                     "src": "favicon/maskable-192x192.png",
                     "type": "image/png",
                     "sizes": "192x192"
-                },
-                {
-                     "src": "favicon/maskable-512x512.png",
-                     "type": "image/png",
-                     "sizes": "512x512",
-                     "purpose": "maskable"
                 }
             ]
         },
@@ -59,12 +47,6 @@
                     "src": "favicon/maskable-192x192.png",
                     "type": "image/png",
                     "sizes": "192x192"
-                },
-                {
-                     "src": "favicon/maskable-512x512.png",
-                     "type": "image/png",
-                     "sizes": "512x512",
-                     "purpose": "maskable"
                 }
             ]
         }  
