@@ -15,6 +15,7 @@
             "name" : "clicks",
             "short_name" : "clicks",
             "url" :  "https://ivansojivarghese.github.io/clicks",
+            "description" : "",
             "icons" : [
                 {
                     "src": "favicon/android-chrome-192x192.png",
@@ -38,6 +39,7 @@
             "name" : "code",
             "short_name" : "code",
             "url" :  "https://ivansojivarghese.github.io/code",
+            "description" : "",
             "icons" : [
                 {
                     "src": "favicon/android-chrome-192x192.png",
@@ -61,6 +63,7 @@
             "name" : "diary",
             "short_name" : "diary",
             "url" :  "https://ivansojivarghese.github.io/diary",
+            "description" : "",
             "icons" : [
                 {
                     "src": "favicon/android-chrome-192x192.png",
