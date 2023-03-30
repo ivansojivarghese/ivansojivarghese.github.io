@@ -2,6 +2,7 @@
 {
    "short_name" : "Ivan",
    "name" : "Ivan Varghese",
+   "start_url" : "/",
    "icons" : [
        {
            "src": "favicon/android-chrome-192x192.png",
