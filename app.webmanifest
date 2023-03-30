@@ -18,14 +18,16 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/android-chrome-192x192.png",
+                    "src": "favicon/maskable-96x96.png",
                     "type": "image/png",
-                    "sizes": "192x192"
+                    "sizes": "96x96",
+                    "purpose": "maskable" 
                 },
                 {
-                    "src": "favicon/android-chrome-512x512.png",
+                    "src": "favicon/maskable-192x192.png",
                     "type": "image/png",
-                    "sizes": "512x512"
+                    "sizes": "192x192",
+                    "purpose": "maskable" 
                 },
                 {
                      "src": "favicon/maskable-512x512.png",
@@ -42,14 +44,16 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/android-chrome-192x192.png",
+                    "src": "favicon/maskable-96x96.png",
                     "type": "image/png",
-                    "sizes": "192x192"
+                    "sizes": "96x96",
+                    "purpose": "maskable" 
                 },
                 {
-                    "src": "favicon/android-chrome-512x512.png",
+                    "src": "favicon/maskable-192x192.png",
                     "type": "image/png",
-                    "sizes": "512x512"
+                    "sizes": "192x192",
+                    "purpose": "maskable" 
                 },
                 {
                      "src": "favicon/maskable-512x512.png",
@@ -66,14 +70,16 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/android-chrome-192x192.png",
+                    "src": "favicon/maskable-96x96.png",
                     "type": "image/png",
-                    "sizes": "192x192"
+                    "sizes": "96x96",
+                    "purpose": "maskable" 
                 },
                 {
-                    "src": "favicon/android-chrome-512x512.png",
+                    "src": "favicon/maskable-192x192.png",
                     "type": "image/png",
-                    "sizes": "512x512"
+                    "sizes": "192x192",
+                    "purpose": "maskable" 
                 },
                 {
                      "src": "favicon/maskable-512x512.png",
