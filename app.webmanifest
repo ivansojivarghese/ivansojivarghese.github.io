@@ -3,6 +3,7 @@
    "name" : "Ivan Varghese",
    "short_name" : "Ivan Varghese",
    "start_url" : "https://ivansojivarghese.github.io/",
+   "scope" : "https://ivansojivarghese.github.io/",
    "id" : "ivansojivarghese",
    "icons" : [
        {
