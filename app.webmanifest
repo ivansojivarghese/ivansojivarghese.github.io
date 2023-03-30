@@ -29,11 +29,7 @@
             "url" :  "https://ivansojivarghese.github.io/code",
             "description" : "",
             "icons" : [
-                {
-                    "src": "favicon/maskable-512x512-c.png",
-                    "type": "image/png",
-                    "sizes": "512x512"
-                }
+
             ]
         },
         {
@@ -44,11 +40,6 @@
             "icons" : [
                 {
                     "src": "favicon/maskable-512x512.png",
-                    "type": "image/png",
-                    "sizes": "512x512"
-                },
-                {
-                    "src": "favicon/maskable-512x512-c.png",
                     "type": "image/png",
                     "sizes": "512x512"
                 }
