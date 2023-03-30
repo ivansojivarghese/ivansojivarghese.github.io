@@ -14,17 +14,17 @@
         {
             "name" : "clicks",
             "short_name" : "clicks",
-            "start_url" :  "https://ivansojivarghese.github.io/clicks"
+            "url" :  "https://ivansojivarghese.github.io/clicks"
         },
         {
             "name" : "code",
             "short_name" : "code",
-            "start_url" :  "https://ivansojivarghese.github.io/code"
+            "url" :  "https://ivansojivarghese.github.io/code"
         },
         {
             "name" : "diary",
             "short_name" : "diary",
-            "start_url" :  "https://ivansojivarghese.github.io/diary"
+            "url" :  "https://ivansojivarghese.github.io/diary"
         }  
    ],
    "screenshots" : [],
