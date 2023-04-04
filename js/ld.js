@@ -32,8 +32,10 @@ var disp = document.getElementById("display_sc"), // display
         m : document.getElementById("load_box"), // load_sc main
         dt : document.getElementById("load_dot"), // loading dot
         n : document.getElementById("load_icon"), // loading icon (for any message)
+
         g : document.getElementById("load_logo"), // loading logo
         t : document.getElementById("load_temP"), // loading logo/ring - 'template'
+
         x : document.getElementById("load_text"), // loading text
         xc : document.getElementById("load_text_cnt"), // loading text content
         xe : document.getElementById("load_text_ex"), // loading text extra
@@ -135,20 +137,23 @@ function docRead() {
                     }*/
                     rL.dt.classList.add("d_n"); // hide loading dot
                     setTimeout(function() {
+                        /*
                         if (op.c.a) {
                             e_Fd(rL.t, false); // standby loading rings
-                        }
+                        }*/
                         e_Fd(rL.r, false);
                     }, op.t); // same duration as .trs transition duration property
                     setTimeout(function() { // run loading animation
-                        rL.g.classList.add("z_O"); 
+                        // rL.g.classList.add("z_O"); 
+                        /*
                         if (op.c.a) {
                             rL.t.classList.add("template");
-                        }
+                        }*/
                         setTimeout(function() { // hide the logo and show the rings
+                            /*
                             if (op.c.a) {
                                 rL.t.classList.add("z_O");
-                            }
+                            }*/
                             load_js_e(); // load js (indiv.)
                             // load_css_e(); // load css styles to 'head' (indiv.)
                             loadUp();  // trigger ALL PROMISES (fetching of resources)
