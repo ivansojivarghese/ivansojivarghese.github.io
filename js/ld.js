@@ -33,8 +33,8 @@ var disp = document.getElementById("display_sc"), // display
         dt : document.getElementById("load_dot"), // loading dot
         n : document.getElementById("load_icon"), // loading icon (for any message)
 
-        g : document.getElementById("load_logo"), // loading logo
-        t : document.getElementById("load_temP"), // loading logo/ring - 'template'
+        //g : document.getElementById("load_logo"), // loading logo
+        //t : document.getElementById("load_temP"), // loading logo/ring - 'template'
 
         x : document.getElementById("load_text"), // loading text
         xc : document.getElementById("load_text_cnt"), // loading text content
