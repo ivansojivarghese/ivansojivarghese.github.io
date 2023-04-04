@@ -18,7 +18,7 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/clicks_pwa.png",
+                    "src": "favicon/clicks_pwa_dark.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
@@ -31,7 +31,7 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/code_pwa.png",
+                    "src": "favicon/code_pwa_dark.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
@@ -44,7 +44,7 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/diary_pwa.png",
+                    "src": "favicon/diary_pwa_dark.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
