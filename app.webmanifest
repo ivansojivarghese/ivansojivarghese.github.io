@@ -72,5 +72,8 @@
    ],
    "theme_color": "#303030",
    "background_color": "#FFFFFF",
+   "color_scheme_overrides": {
+        "background_color": "#303030"
+    },
    "display": "standalone"
 }
