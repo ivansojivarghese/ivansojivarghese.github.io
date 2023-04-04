@@ -133,7 +133,7 @@ op.m.setAttribute("rel", "manifest");
 
 const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-if (isDarkMode) {
+if (isDarkMode()) {
     op.m.setAttribute("href", "app_dark.webmanifest");
 } else {
     op.m.setAttribute("href", "app.webmanifest");
