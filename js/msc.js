@@ -27,7 +27,6 @@ var wH = window.innerHeight, // height
         version_up : null, // version upgrade (if applicable, during maintenance)
     },
     op = { // site 'options'
-        m : null, // manifest
         c : { // cookies
             u : false, // [user] cookies-enabled-acceptance
             uM : 5, // "" deny message limit (sec.)
@@ -127,7 +126,7 @@ var wH = window.innerHeight, // height
     },
     timer = {}; // keep track of timer instances
 
- 
+/*
 op.m = document.createElement("LINK"); // installing appropriate manifest
 op.m.setAttribute("rel", "manifest");
 
@@ -140,7 +139,7 @@ if (isDarkMode()) {
 }
 
 document.head.append(op.m);
-
+*/
 
 const checkOnlineStatus = async () => { // check for internet connectivity
     try {
