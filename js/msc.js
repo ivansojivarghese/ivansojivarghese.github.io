@@ -27,6 +27,7 @@ var wH = window.innerHeight, // height
         version_up : null, // version upgrade (if applicable, during maintenance)
     },
     op = { // site 'options'
+        m, // manifest
         c : { // cookies
             u : false, // [user] cookies-enabled-acceptance
             uM : 5, // "" deny message limit (sec.)
@@ -125,6 +126,21 @@ var wH = window.innerHeight, // height
         }
     },
     timer = {}; // keep track of timer instances
+
+ 
+op.m = document.createElement("LINK"); // installing appropriate manifest
+op.m.setAttribute("rel", "manifest");
+
+const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (isDarkMode) {
+    op.m.setAttribute("href", "app_dark.webmanifest");
+} else {
+    op.m.setAttribute("href", "app.webmanifest");
+}
+
+document.head.append(op.m);
+
 
 const checkOnlineStatus = async () => { // check for internet connectivity
     try {
