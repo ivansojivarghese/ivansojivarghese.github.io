@@ -15,6 +15,17 @@
             })(window,document,'script','dataLayer','GTM-KRQX2NV');
         </script>
         <!-- End Google Tag Manager -->
+        <script>
+            var mft = document.createElement("LINK");
+            mft.setAttribute("rel", "manifest");
+            const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (isDarkMode) {
+                mft.setAttribute("href", "app_dark.webmanifest");
+            } else {
+                mft.setAttribute("href", "app.webmanifest");
+            }
+            document.head.append(mft);
+        </script>
         <title>Ivan Varghese</title>
         <meta charset="UTF-8">
         <meta name="author" content="Ivan Varghese">
@@ -152,6 +163,8 @@
             href="favicon/favicon-16x16_dark.png"
             media="(prefers-color-scheme: dark)"
         >
+
+        <!--
         <link 
             rel="manifest" 
             href="app_dark.webmanifest"
@@ -162,8 +175,6 @@
             href="app.webmanifest"
             media="(prefers-color-scheme: light)"
         >
-
-        <!--
         <link rel="icon" href="favicon/favicon.svg">
         <link rel="mask-icon" href="mask-icon.svg" color="#000000">
         <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
