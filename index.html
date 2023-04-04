@@ -15,17 +15,6 @@
             })(window,document,'script','dataLayer','GTM-KRQX2NV');
         </script>
         <!-- End Google Tag Manager -->
-        <script>
-            var mft = document.createElement("LINK");
-            mft.setAttribute("rel", "manifest");
-            const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (isDarkMode) {
-                mft.setAttribute("href", "app_dark.webmanifest");
-            } else {
-                mft.setAttribute("href", "app.webmanifest");
-            }
-            document.head.append(mft);
-        </script>
         <title>Ivan Varghese</title>
         <meta charset="UTF-8">
         <meta name="author" content="Ivan Varghese">
@@ -67,7 +56,17 @@
         <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
         <link rel="icon" type="image/png" href="/favicon/favicon.png">
         -->
-
+        <script>
+            var mft = document.createElement("LINK");
+            mft.setAttribute("rel", "manifest");
+            const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (isDarkMode) {
+                mft.setAttribute("href", "app_dark.webmanifest");
+            } else {
+                mft.setAttribute("href", "app.webmanifest");
+            }
+            document.head.append(mft);
+        </script>
         <link rel="canonical" href="https://ivansojivarghese.github.io/">
         <link 
             rel="apple-touch-icon" 
