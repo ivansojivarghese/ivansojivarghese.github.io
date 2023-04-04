@@ -102,7 +102,7 @@ function docRead() {
                         e_Fd(rL.m, false); // show load-box (either flow)
                     }
                     if (getCookie("initialAccess") !== "true" && !dev.mode) { // create an access cookie (checks for first-time access)
-                        resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+                        // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
                         setCookie("initialAccess", "true", op.c.t); // access cookie lasts for 24 hours
                         op.c.a = true; // user initial access detected
                     } else {
