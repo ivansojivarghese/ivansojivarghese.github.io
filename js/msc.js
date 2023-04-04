@@ -425,7 +425,7 @@ function cookiesDeny() { // deny site access (and begin to close tab)
 function cookiesDenyRedirect() {
     op.c.uR = true; // redirected
     pg.msg.ckDp1.classList.add("p_T", "ex"); // show/hide statements
-    pg.msg.ckDp1.innerHTML = "site undirected";
+    pg.msg.ckDp1.innerHTML = "website undirected";
     pg.msg.ckDp2.classList.add("d_n");
     pg.msg.ckDp3.classList.remove("d_n");
     if (document.referrer) { // if previous URI exists (from link path)
@@ -438,7 +438,7 @@ function cookiesDenyCancel() { // cancel close tab, back to original message
         op.c.uR = false;
         setTimeout(function() {
             pg.msg.ckDp1.classList.remove("p_T", "ex");
-            pg.msg.ckDp1.innerHTML = "exiting from site"; // reset back
+            pg.msg.ckDp1.innerHTML = "exiting from website"; // reset back
             pg.msg.ckDp2.classList.remove("d_n");
             pg.msg.ckDp3.classList.add("d_n");
         }, op.t);
