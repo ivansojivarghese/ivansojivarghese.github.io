@@ -56,18 +56,33 @@
        {
            "src": "favicon/android-chrome-192x192.png",
            "type": "image/png",
-           "sizes": "192x192"
+           "sizes": "192x192",
+           "color_scheme": "light"
        },
+       {
+            "src": "favicon/android-chrome-192x192_dark.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "color_scheme": "dark"
+        },
        {
            "src": "favicon/android-chrome-512x512.png",
            "type": "image/png",
-           "sizes": "512x512"
+           "sizes": "512x512",
+           "color_scheme": "light"
        },
        {
+            "src": "favicon/android-chrome-512x512_dark.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "color_scheme": "dark"
+        },
+        {
             "src": "favicon/maskable-512x512.png",
             "type": "image/png",
             "sizes": "512x512",
-            "purpose": "maskable"
+            "purpose": "maskable",
+            "color_scheme": "light"
         }
    ],
    "theme_color": "#303030",
