@@ -367,7 +367,7 @@ function browserCheck() { // detect browser (platform)
     } else if (userAgent.match(/firefox|fxios/i)){ // Firefox
         op.b.f = true;
     } else if (userAgent.match(/safari/i)){ // Safari
-        op.b.s = true;
+        // op.b.s = true;
     } 
     if (userAgent.match(/opr\//i)){ // Opera
         op.b.o = true;
