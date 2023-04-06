@@ -57,7 +57,7 @@
             "description" : "",
             "icons" : [
                 {
-                    "src": "favicon/diary_pwa.png",
+                    "src": "favicon/about_pwa.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
