@@ -49,6 +49,19 @@
                     "sizes": "192x192"
                 }
             ]
+        },
+        {
+            "name" : "About",
+            "short_name" : "About",
+            "url" :  "https://ivansojivarghese.github.io/about",
+            "description" : "",
+            "icons" : [
+                {
+                    "src": "favicon/diary_pwa.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                }
+            ]
         }  
    ],
    "screenshots" : [],
