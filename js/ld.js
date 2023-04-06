@@ -366,9 +366,9 @@ function browserCheck() { // detect browser (platform)
         op.b.c = true; 
     } else if (userAgent.match(/firefox|fxios/i)){ // Firefox
         op.b.f = true;
-    } /*else if (userAgent.match(/safari/i)){ // Safari
-        // op.b.s = true;
-    } */
+    } else if (userAgent.match(/safari/i)){ // Safari
+        op.b.s = true;
+    } 
     if (userAgent.match(/opr\//i)){ // Opera
         op.b.o = true;
         op.b.c = false; // revoke true status(es) of other browsers - since userAgent contains them (matching elements) as well
