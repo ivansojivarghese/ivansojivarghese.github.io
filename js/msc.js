@@ -107,11 +107,13 @@ var wH = window.innerHeight, // height
             el : document.getElementById("msg_sc"), // el
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
+            /*
             ckD : document.getElementById("ckD_msg"), // cookie-deny
             ckDp1 : document.getElementById("ckD_msg-p1"), // para 1
             ckDp2 : document.getElementById("ckD_msg-p2"), // para 2
             ckDp3 : document.getElementById("ckD_msg-p3"), // para 3
             ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
+            */
             net : document.getElementById("net_msg"), // network
             net_i : document.getElementById("net_msg-i"), // network - icon
             net_t : document.getElementById("net_msg-t") // network - text
@@ -417,7 +419,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
         load_eN(); // continue load process if any (page specific)
     }, op.te);
 }
-
+/*
 function cookiesDeny() { // deny site access (and begin to close tab)
     msg_toggle(pg.msg.ckD, null, true, true, null);
     countdownTimerSec(op.c.uM - 1, op.c.uT, pg.msg.ckDs, cookiesDenyRedirect); // countdown from 5 sec. for redirecting away from page
@@ -449,7 +451,7 @@ function cookiesDenyCancel() { // cancel close tab, back to original message
     setTimeout(function() {
         pg.msg.ckDs.innerHTML = op.c.uM; // reset time
     }, op.t);
-}
+}*/
 
 //////////////////////////////////////////
 
