@@ -97,8 +97,8 @@ function load_js_e() { // load JS (page specific)
 function load_eN() { // load, after cookie acceptance (page specific)
     // scroll arrow
     var h = getBd(el.lk3, "height");
-    if (h >= 60) { // min. 60px height required
-        if (h >= 80) {
+    if (h >= 65) { // min. 65px height required
+        if (h >= 85) {
             scrollArrowIterate(true); // start iteration
         } else {
             scrollArrowIterate(false); // start iteration (single)
