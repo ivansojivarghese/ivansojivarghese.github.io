@@ -20,6 +20,6 @@
     }
 
     #intro_sc .content {
-        margin-top: calc((480px - 27.5rem) / 3) !important;
+        margin-top: calc((480px - 27.5rem) / 3);
     }
 }
