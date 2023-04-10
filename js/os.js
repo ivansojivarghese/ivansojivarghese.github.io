@@ -1,6 +1,6 @@
 
 var op = { // site 'options'
-        // sys : "", // operating system
+        sys : "", // operating system
         isDarkMode : function() { // dark mode detection
             return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         }
