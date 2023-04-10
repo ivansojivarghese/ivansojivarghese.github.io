@@ -54,6 +54,7 @@ function applyManifest() {
 
 uA_L = setInterval(function() {
     if (navigator.userAgent) {
+        op.uA = navigator.userAgent;
         osCheck();
         applyManifest();
         clearInterval(uA_L);
