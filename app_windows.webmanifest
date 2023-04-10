@@ -74,6 +74,34 @@
             "color_scheme": "light"
         },
         {
+            "src": "favicon/windows/app_icon_1.25.png",
+            "type": "image/png",
+            "sizes": "55x55",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/app_icon_1.5.png",
+            "type": "image/png",
+            "sizes": "66x66",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/app_icon_2.png",
+            "type": "image/png",
+            "sizes": "88x88",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/app_icon_4.png",
+            "type": "image/png",
+            "sizes": "176x176",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
             "src": "favicon/windows/small_tile.png",
             "type": "image/png",
             "sizes": "71x71",
