@@ -8,6 +8,7 @@ var wH = window.innerHeight, // height
     //barHeightTemp = barHeight, // temp. hold
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
+    timer = {}; // keep track of timer instances
     dev = {
         mode : false,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
         mtne : false, // maintenance check
@@ -25,108 +26,109 @@ var wH = window.innerHeight, // height
         },
         version : "2.0", // site version
         version_up : null, // version upgrade (if applicable, during maintenance)
+    };
+
+    
+op = { // site 'options'
+    c : { // cookies
+        u : false, // [user] cookies-enabled-acceptance
+        uM : 5, // "" deny message limit (sec.)
+        uT : "cD", // "" timer tracker
+        uR : false, // "" redirect check
+        e : null, // enabled check
+        a : null, // user access (inital) check [browser-dependant]
+        t : 1, // default time limit (days)
+        x : false // code execution
     },
-    op = { // site 'options'
-        c : { // cookies
-            u : false, // [user] cookies-enabled-acceptance
-            uM : 5, // "" deny message limit (sec.)
-            uT : "cD", // "" timer tracker
-            uR : false, // "" redirect check
-            e : null, // enabled check
-            a : null, // user access (inital) check [browser-dependant]
-            t : 1, // default time limit (days)
-            x : false // code execution
-        },
-        nav : { // navigation
-            d : document.referrer, // check for previous URI
-            r : false, // page reload check
-            fb : false, // page forward/backward nav. check
-            n : false, // page nav. check (direct)
-            b : true // URL bar in view check
-        },
-        ne : { // network speed estimator
-            f : 5301699, // resource file size (bytes)
-            h : 5, // slow speed threshold (MBps (* 1000000 = Bps)
-            a : 0, // start time
-            t : 0, // end time
-            s : 0, // estimated speed 
-            c : 0, // iterative count
-            r : false, // count incrementation check
-            d : false, // slow speed boolean var hold
-            v : false, // normal (high) speed ""
-            w : true, // slow speed check - less than threshold?
-        },
-        r : null, // resource link origin
-        n : null, // online status (internet connectivity)
-        nc : false, // online status change
-        s : false, // check boolean - 'force' disable scroll
-        d : new Date(), // instance of Date
-        p : { // pointer (press/tap/click)
-            e : true, // execution boolean
-            L : false, // check boolean - for long (extended) press/tap/click
-            tA : 0, // time - initial (at pointerdown)
-            tB : 0 // time - final (at pointerup)
-        },
-        t : 200, // transition duration - default (in ms.)
-        te : 500, // transition duration (extended)
-        Ls : 1000/60, // loop (interval) speed - sec./rev.
-        e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
-        f : window.getComputedStyle(document.body).getPropertyValue('font-size'), // get root font-size
-        b : { // browser check (major platforms)
-            c : false, // chrome
-            f : false, // firefox
-            s : false, // safari
-            o : false, // opera
-            e : false // edge
-        },
-        L : null // loop variable
+    nav : { // navigation
+        d : document.referrer, // check for previous URI
+        r : false, // page reload check
+        fb : false, // page forward/backward nav. check
+        n : false, // page nav. check (direct)
+        b : true // URL bar in view check
     },
-    pos = { // scroll pos. (window)
-        y : 0, // y-pos
-        yA : 0, // y-pos (secondary - comparison)
-        a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
-        d : [], // scroll speed array (between consecutive changing y-pos values) 
-        v : [], // rec. scroll speed of user (instantaneously - updated for every scroll)
-        s : 0, // scroll speed
-        m : 0, // no. of comparison matches (count)
-        n : 0, // no. of comparison increments (count)
-        c : false, // scrolling change/activity status
-        r : true, /// scrolling direction - true if down
-        L : null, // loop variables
-        Lc : null
+    ne : { // network speed estimator
+        f : 5301699, // resource file size (bytes)
+        h : 5, // slow speed threshold (MBps (* 1000000 = Bps)
+        a : 0, // start time
+        t : 0, // end time
+        s : 0, // estimated speed 
+        c : 0, // iterative count
+        r : false, // count incrementation check
+        d : false, // slow speed boolean var hold
+        v : false, // normal (high) speed ""
+        w : true, // slow speed check - less than threshold?
     },
-    pg = { // pages
-        e : false,
-        t : "", // reference window category
-        w : "", // current [open] window
-        sc : { // sections
-            m : document.getElementById("main_sc") // main
-        },
-        msg : { // messages
-            c : false, // check (if feature is active)
-            el : document.getElementById("msg_sc"), // el
-            t : document.getElementById("msg_tint"), // tint
-            ckA : document.getElementById("ckA_msg"), // cookie-acceptance
-            /*
-            ckD : document.getElementById("ckD_msg"), // cookie-deny
-            ckDp1 : document.getElementById("ckD_msg-p1"), // para 1
-            ckDp2 : document.getElementById("ckD_msg-p2"), // para 2
-            ckDp3 : document.getElementById("ckD_msg-p3"), // para 3
-            ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
-            */
-            net : document.getElementById("net_msg"), // network
-            net_i : document.getElementById("net_msg-i"), // network - icon
-            net_t : document.getElementById("net_msg-t") // network - text
-        },
-        cond : { // conditions
-            el : document.getElementById("cond_sc"), // main
-            tnc : document.getElementById("tnc"), // tnc [https://www.nibusinessinfo.co.uk/content/sample-website-terms-and-conditions-use]
-            dcr : document.getElementById("dcr"), // disclaimer [https://www.nibusinessinfo.co.uk/content/sample-website-disclaimer]
-            cpy : document.getElementById("cpy"), // copyright [https://www.nibusinessinfo.co.uk/content/sample-website-copyright-statement]
-            prv : document.getElementById("prv") // privacy policy [https://cdn.websitepolicies.com/wp-content/uploads/2022/04/privacy-policy-template.pdf]
-        }
+    r : null, // resource link origin
+    n : null, // online status (internet connectivity)
+    nc : false, // online status change
+    s : false, // check boolean - 'force' disable scroll
+    d : new Date(), // instance of Date
+    p : { // pointer (press/tap/click)
+        e : true, // execution boolean
+        L : false, // check boolean - for long (extended) press/tap/click
+        tA : 0, // time - initial (at pointerdown)
+        tB : 0 // time - final (at pointerup)
     },
-    timer = {}; // keep track of timer instances
+    t : 200, // transition duration - default (in ms.)
+    te : 500, // transition duration (extended)
+    Ls : 1000/60, // loop (interval) speed - sec./rev.
+    e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
+    f : window.getComputedStyle(document.body).getPropertyValue('font-size'), // get root font-size
+    b : { // browser check (major platforms)
+        c : false, // chrome
+        f : false, // firefox
+        s : false, // safari
+        o : false, // opera
+        e : false // edge
+    },
+    L : null // loop variable
+},
+pos = { // scroll pos. (window)
+    y : 0, // y-pos
+    yA : 0, // y-pos (secondary - comparison)
+    a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
+    d : [], // scroll speed array (between consecutive changing y-pos values) 
+    v : [], // rec. scroll speed of user (instantaneously - updated for every scroll)
+    s : 0, // scroll speed
+    m : 0, // no. of comparison matches (count)
+    n : 0, // no. of comparison increments (count)
+    c : false, // scrolling change/activity status
+    r : true, /// scrolling direction - true if down
+    L : null, // loop variables
+    Lc : null
+},
+pg = { // pages
+    e : false,
+    t : "", // reference window category
+    w : "", // current [open] window
+    sc : { // sections
+        m : document.getElementById("main_sc") // main
+    },
+    msg : { // messages
+        c : false, // check (if feature is active)
+        el : document.getElementById("msg_sc"), // el
+        t : document.getElementById("msg_tint"), // tint
+        ckA : document.getElementById("ckA_msg"), // cookie-acceptance
+        /*
+        ckD : document.getElementById("ckD_msg"), // cookie-deny
+        ckDp1 : document.getElementById("ckD_msg-p1"), // para 1
+        ckDp2 : document.getElementById("ckD_msg-p2"), // para 2
+        ckDp3 : document.getElementById("ckD_msg-p3"), // para 3
+        ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
+        */
+        net : document.getElementById("net_msg"), // network
+        net_i : document.getElementById("net_msg-i"), // network - icon
+        net_t : document.getElementById("net_msg-t") // network - text
+    },
+    cond : { // conditions
+        el : document.getElementById("cond_sc"), // main
+        tnc : document.getElementById("tnc"), // tnc [https://www.nibusinessinfo.co.uk/content/sample-website-terms-and-conditions-use]
+        dcr : document.getElementById("dcr"), // disclaimer [https://www.nibusinessinfo.co.uk/content/sample-website-disclaimer]
+        cpy : document.getElementById("cpy"), // copyright [https://www.nibusinessinfo.co.uk/content/sample-website-copyright-statement]
+        prv : document.getElementById("prv") // privacy policy [https://cdn.websitepolicies.com/wp-content/uploads/2022/04/privacy-policy-template.pdf]
+    }
+};
 
 
 const checkOnlineStatus = async () => { // check for internet connectivity

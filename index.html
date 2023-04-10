@@ -15,17 +15,38 @@
             })(window,document,'script','dataLayer','GTM-KRQX2NV');
         </script>
         <!-- End Google Tag Manager -->
+        <script src="js/os.js"></script>
+        <!-- 
         <script>
-            var mft = document.createElement("LINK"); // installing appropriate manifest
+            var op_sys = "", // operating system
+                mft = document.createElement("LINK"), // installing appropriate manifest
+                isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             mft.setAttribute("rel", "manifest");
-            const isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            function osCheck() {
+                var userAgent = navigator.userAgent;
+                if (userAgent.match(/iPhone|iPad|iPod/i)) { // iOS
+
+                } else if () {// android
+
+                }
+
+                if (userAgent.search('Windows') !== -1) {
+                    op_sys = "Windows";
+                } else if (userAgent.search('Mac') !== -1) {
+                    op_sys ="MacOS";
+                } else if (userAgent.search('X11') !== -1 && !(userAgent.search('Linux') !== -1)) {
+                    op_sys = "UNIX";
+                } else if (userAgent.search('Linux') !== -1 && userAgent.search('X11') !== -1) {
+                    op_sys = "Linux";
+                }
+            }
             if (isDarkMode()) {
                 mft.setAttribute("href", "app_dark.webmanifest");
             } else {
                 mft.setAttribute("href", "app.webmanifest");
             }
             document.head.append(mft);
-        </script>
+        </script> -->
         <title>Ivan Varghese</title>
         <meta charset="UTF-8">
         <meta name="author" content="Ivan Varghese">
