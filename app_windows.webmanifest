@@ -66,6 +66,55 @@
    ],
    "screenshots" : [],
    "icons" : [
+        {
+            "src": "favicon/windows/app_icon.png",
+            "type": "image/png",
+            "sizes": "44x44",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/small_tile.png",
+            "type": "image/png",
+            "sizes": "71x71",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/medium_tile.png",
+            "type": "image/png",
+            "sizes": "150x150",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/wide_tile.png",
+            "type": "image/png",
+            "sizes": "350x150",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/large_tile.png",
+            "type": "image/png",
+            "sizes": "310x310",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/store_logo.png",
+            "type": "image/png",
+            "sizes": "50x50",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/splash_screen.png",
+            "type": "image/png",
+            "sizes": "620x300",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
       {
         "src": "favicon/windows11/SmallTile.scale-100.png",
         "sizes": "71x71"
