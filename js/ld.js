@@ -361,19 +361,19 @@ function load_js() { // [compatibility/variables] load
 }
 
 function browserCheck() { // detect browser (platform)
-    // var userAgent = navigator.userAgent;
-    if (op.uA.match(/chrome|chromium|crios/i)) { // Chrome
+    var userAgent = navigator.userAgent;
+    if (userAgent.match(/chrome|chromium|crios/i)) { // Chrome
         op.b.c = true; 
-    } else if (op.uA.match(/firefox|fxios/i)) { // Firefox
+    } else if (userAgent.match(/firefox|fxios/i)) { // Firefox
         op.b.f = true;
-    } else if (op.uA.match(/safari/i)) { // Safari
+    } else if (userAgent.match(/safari/i)) { // Safari
         op.b.s = true;
     } 
-    if (op.uA.match(/opr\//i)) { // Opera
+    if (userAgent.match(/opr\//i)) { // Opera
         op.b.o = true;
         op.b.c = false; // revoke true status(es) of other browsers - since userAgent contains them (matching elements) as well
         op.b.s = false;
-    } else if (op.uA.match(/edg/i)) { // Edge
+    } else if (userAgent.match(/edg/i)) { // Edge
         op.b.e = true;
         op.b.c = false;
         op.b.s = false;
