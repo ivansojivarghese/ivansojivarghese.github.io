@@ -7,7 +7,7 @@ var op = { // site 'options'
     uA_L;
 
 
-op.isDarkMode = function() { // dark mode detection
+function isDarkMode() { // dark mode detection
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
@@ -34,7 +34,7 @@ function applyManifest() {
     m.setAttribute("rel", "manifest");
 
     if (op.sys === "Android") {
-        if (op.isDarkMode()) {
+        if (isDarkMode()) {
             m.setAttribute("href", "app_dark.webmanifest");
         } else {
             m.setAttribute("href", "app.webmanifest");
@@ -42,7 +42,7 @@ function applyManifest() {
     } else if (op.sys === "iOS") {
 
     } else if (op.sys === "Windows") {
-        if (op.isDarkMode()) {
+        if (isDarkMode()) {
             m.setAttribute("href", "");
         } else {
             m.setAttribute("href", "app_windows.webmanifest");
