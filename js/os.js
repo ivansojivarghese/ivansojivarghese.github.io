@@ -11,17 +11,17 @@ var op = { // site 'options'
 
 
 function osCheck() {
-    if (userAgent.match(/iPhone|iPad|iPod/i)) { // iOS
+    if (op.uA.match(/iPhone|iPad|iPod/i)) { // iOS
         op.sys = "iOS";
-    } else if (userAgent.match(/Android/i)) {// android
+    } else if (op.uA.match(/Android/i)) {// android
         op.sys = "Android";
-    } else if (userAgent.match(/Windows/i)) { // windows
+    } else if (op.uA.match(/Windows/i)) { // windows
         op.sys = "Windows";
-    } else if (userAgent.match(/Mac/i)) { // mac
+    } else if (op.uA.match(/Mac/i)) { // mac
         op.sys ="MacOS";
-    } else if (userAgent.match(/X11/i) && !userAgent.match(/Linux/i)) { // unix
+    } else if (op.uA.match(/X11/i) && !op.uA.match(/Linux/i)) { // unix
         op.sys = "UNIX";
-    } else if (userAgent.match(/Linux/i) && userAgent.match(/X11/i)) { // linux
+    } else if (op.uA.match(/Linux/i) && op.uA.match(/X11/i)) { // linux
         op.sys = "Linux";
     }
 }
