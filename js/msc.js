@@ -28,8 +28,8 @@ var wH = window.innerHeight, // height
         version_up : null, // version upgrade (if applicable, during maintenance)
     };
 
-    
-op = { // site 'options'
+
+op = { 
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
         uM : 5, // "" deny message limit (sec.)

@@ -1,31 +1,42 @@
 
-var op_sys = "", // operating system
-    mft = document.createElement("LINK"), // installing appropriate manifest
-    isDarkMode = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-
-    mft.setAttribute("rel", "manifest");
-    function osCheck() {
-        var userAgent = navigator.userAgent;
-        if (userAgent.match(/iPhone|iPad|iPod/i)) { // iOS
-
-        } else if () {// android
-
+var op = { // site 'options'
+        sys : "", // operating system
+        isDarkMode : function() { // dark mode detection
+            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         }
+    };
 
-        if (userAgent.search('Windows') !== -1) {
-            op_sys = "Windows";
-        } else if (userAgent.search('Mac') !== -1) {
-            op_sys ="MacOS";
-        } else if (userAgent.search('X11') !== -1 && !(userAgent.search('Linux') !== -1)) {
-            op_sys = "UNIX";
-        } else if (userAgent.search('Linux') !== -1 && userAgent.search('X11') !== -1) {
-            op_sys = "Linux";
-        }
+
+function osCheck() {
+    var userAgent = navigator.userAgent;
+    if (userAgent.match(/iPhone|iPad|iPod/i)) { // iOS
+        op.sys = "iOS";
+    } else if (userAgent.match(/Android/i)) {// android
+        op.sys = "Android";
+    } else if (userAgent.match(/Windows/i)) { // windows
+        op.sys = "Windows";
+    } else if (userAgent.match(/Mac/i)) { // mac
+        op.sys ="MacOS";
+    } else if (userAgent.match(/X11/i) && !userAgent.match(/Linux/i)) { // unix
+        op.sys = "UNIX";
+    } else if (userAgent.match(/Linux/i) && userAgent.match(/X11/i)) { // linux
+        op.sys = "Linux";
     }
+}
+
+function applyManifest() {
+    var m = document.createElement("LINK"); // installing appropriate manifest
+    m.setAttribute("rel", "manifest");
+
     if (isDarkMode()) {
-        mft.setAttribute("href", "app_dark.webmanifest");
+        m.setAttribute("href", "app_dark.webmanifest");
     } else {
-        mft.setAttribute("href", "app.webmanifest");
+        m.setAttribute("href", "app.webmanifest");
     }
-    document.head.append(mft);
+    
+    document.head.append(m);
+}
+
+
+osCheck();
+applyManifest();
