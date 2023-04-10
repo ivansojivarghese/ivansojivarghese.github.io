@@ -109,12 +109,46 @@
             "color_scheme": "light"
         },
         {
+            "src": "favicon/windows/small_tile_1.25.png",
+            "type": "image/png",
+            "sizes": "89x89",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/small_tile_1.5.png",
+            "type": "image/png",
+            "sizes": "107x107",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/small_tile_2.png",
+            "type": "image/png",
+            "sizes": "142x142",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/small_tile_4.png",
+            "type": "image/png",
+            "sizes": "284x284",
+            "purpose": "any",
+            "color_scheme": "light"
+        },
+
+
+
+        {
             "src": "favicon/windows/medium_tile.png",
             "type": "image/png",
             "sizes": "150x150",
             "purpose": "any",
             "color_scheme": "light"
         },
+
+
+        
         {
             "src": "favicon/windows/wide_tile.png",
             "type": "image/png",
