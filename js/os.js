@@ -41,6 +41,8 @@ function applyManifest() {
         }
     } else if (op.sys === "iOS") {
 
+        //
+
     } else if (op.sys === "Windows") {
         if (isDarkMode()) {
             m.setAttribute("href", "");
