@@ -28,12 +28,22 @@ function applyManifest() {
     var m = document.createElement("LINK"); // installing appropriate manifest
     m.setAttribute("rel", "manifest");
 
-    if (isDarkMode()) {
-        m.setAttribute("href", "app_dark.webmanifest");
-    } else {
-        m.setAttribute("href", "app.webmanifest");
+    if (op.sys === "Android") {
+        if (isDarkMode()) {
+            m.setAttribute("href", "app_dark.webmanifest");
+        } else {
+            m.setAttribute("href", "app.webmanifest");
+        }
+    } else if (op.sys === "iOS") {
+
+    } else if (op.sys === "Windows") {
+        if (isDarkMode()) {
+            m.setAttribute("href", "");
+        } else {
+            m.setAttribute("href", "app_windows.webmanifest");
+        }
     }
-    
+
     document.head.append(m);
 }
 
