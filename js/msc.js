@@ -26,7 +26,52 @@ var wH = window.innerHeight, // height
         },
         version : "2.0", // site version
         version_up : null, // version upgrade (if applicable, during maintenance)
-    };
+    },
+    pos = { // scroll pos. (window)
+        y : 0, // y-pos
+        yA : 0, // y-pos (secondary - comparison)
+        a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
+        d : [], // scroll speed array (between consecutive changing y-pos values) 
+        v : [], // rec. scroll speed of user (instantaneously - updated for every scroll)
+        s : 0, // scroll speed
+        m : 0, // no. of comparison matches (count)
+        n : 0, // no. of comparison increments (count)
+        c : false, // scrolling change/activity status
+        r : true, /// scrolling direction - true if down
+        L : null, // loop variables
+        Lc : null
+    },
+    pg = { // pages
+        e : false,
+        t : "", // reference window category
+        w : "", // current [open] window
+        sc : { // sections
+            m : document.getElementById("main_sc") // main
+        },
+        msg : { // messages
+            c : false, // check (if feature is active)
+            el : document.getElementById("msg_sc"), // el
+            t : document.getElementById("msg_tint"), // tint
+            ckA : document.getElementById("ckA_msg"), // cookie-acceptance
+            /*
+            ckD : document.getElementById("ckD_msg"), // cookie-deny
+            ckDp1 : document.getElementById("ckD_msg-p1"), // para 1
+            ckDp2 : document.getElementById("ckD_msg-p2"), // para 2
+            ckDp3 : document.getElementById("ckD_msg-p3"), // para 3
+            ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
+            */
+            net : document.getElementById("net_msg"), // network
+            net_i : document.getElementById("net_msg-i"), // network - icon
+            net_t : document.getElementById("net_msg-t") // network - text
+        },
+        cond : { // conditions
+            el : document.getElementById("cond_sc"), // main
+            tnc : document.getElementById("tnc"), // tnc [https://www.nibusinessinfo.co.uk/content/sample-website-terms-and-conditions-use]
+            dcr : document.getElementById("dcr"), // disclaimer [https://www.nibusinessinfo.co.uk/content/sample-website-disclaimer]
+            cpy : document.getElementById("cpy"), // copyright [https://www.nibusinessinfo.co.uk/content/sample-website-copyright-statement]
+            prv : document.getElementById("prv") // privacy policy [https://cdn.websitepolicies.com/wp-content/uploads/2022/04/privacy-policy-template.pdf]
+        }
+    };    
 
 
 op = { 
@@ -83,53 +128,7 @@ op = {
         e : false // edge
     },
     L : null // loop variable
-},
-pos = { // scroll pos. (window)
-    y : 0, // y-pos
-    yA : 0, // y-pos (secondary - comparison)
-    a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
-    d : [], // scroll speed array (between consecutive changing y-pos values) 
-    v : [], // rec. scroll speed of user (instantaneously - updated for every scroll)
-    s : 0, // scroll speed
-    m : 0, // no. of comparison matches (count)
-    n : 0, // no. of comparison increments (count)
-    c : false, // scrolling change/activity status
-    r : true, /// scrolling direction - true if down
-    L : null, // loop variables
-    Lc : null
-},
-pg = { // pages
-    e : false,
-    t : "", // reference window category
-    w : "", // current [open] window
-    sc : { // sections
-        m : document.getElementById("main_sc") // main
-    },
-    msg : { // messages
-        c : false, // check (if feature is active)
-        el : document.getElementById("msg_sc"), // el
-        t : document.getElementById("msg_tint"), // tint
-        ckA : document.getElementById("ckA_msg"), // cookie-acceptance
-        /*
-        ckD : document.getElementById("ckD_msg"), // cookie-deny
-        ckDp1 : document.getElementById("ckD_msg-p1"), // para 1
-        ckDp2 : document.getElementById("ckD_msg-p2"), // para 2
-        ckDp3 : document.getElementById("ckD_msg-p3"), // para 3
-        ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
-        */
-        net : document.getElementById("net_msg"), // network
-        net_i : document.getElementById("net_msg-i"), // network - icon
-        net_t : document.getElementById("net_msg-t") // network - text
-    },
-    cond : { // conditions
-        el : document.getElementById("cond_sc"), // main
-        tnc : document.getElementById("tnc"), // tnc [https://www.nibusinessinfo.co.uk/content/sample-website-terms-and-conditions-use]
-        dcr : document.getElementById("dcr"), // disclaimer [https://www.nibusinessinfo.co.uk/content/sample-website-disclaimer]
-        cpy : document.getElementById("cpy"), // copyright [https://www.nibusinessinfo.co.uk/content/sample-website-copyright-statement]
-        prv : document.getElementById("prv") // privacy policy [https://cdn.websitepolicies.com/wp-content/uploads/2022/04/privacy-policy-template.pdf]
-    }
 };
-
 
 const checkOnlineStatus = async () => { // check for internet connectivity
     try {
