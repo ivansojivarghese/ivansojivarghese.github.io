@@ -72,7 +72,7 @@ op = {
     },
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
-    Ls : 1000/60, // loop (interval) speed - sec./rev.
+    // Ls : 1000/60, // loop (interval) speed - sec./rev.
     e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
     f : window.getComputedStyle(document.body).getPropertyValue('font-size'), // get root font-size
     b : { // browser check (major platforms)

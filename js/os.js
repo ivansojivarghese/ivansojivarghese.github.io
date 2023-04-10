@@ -1,14 +1,16 @@
 
 var op = { // site 'options'
         sys : "", // operating system
+        uA : navigator.userAgent, // user agent
+        Ls : 1000/60, // loop (interval) speed - sec./rev.
         isDarkMode : function() { // dark mode detection
             return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         }
-    };
+    },
+    uA_L;
 
 
 function osCheck() {
-    var userAgent = navigator.userAgent;
     if (userAgent.match(/iPhone|iPad|iPod/i)) { // iOS
         op.sys = "iOS";
     } else if (userAgent.match(/Android/i)) {// android
@@ -48,5 +50,10 @@ function applyManifest() {
 }
 
 
-osCheck();
-applyManifest();
+uA_L = setInterval(function() {
+    if (navigator.userAgent) {
+        osCheck();
+        applyManifest();
+        clearInterval(uA_L);
+    }
+}, op.Ls);
