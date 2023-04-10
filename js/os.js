@@ -11,18 +11,20 @@ var op = { // site 'options'
 
 
 function osCheck() {
-    if (op.uA.match(/iPhone|iPad|iPod/i)) { // iOS
-        op.sys = "iOS";
-    } else if (op.uA.match(/Android/i)) {// android
-        op.sys = "Android";
-    } else if (op.uA.match(/Windows/i)) { // windows
-        op.sys = "Windows";
-    } else if (op.uA.match(/Mac/i)) { // mac
-        op.sys ="MacOS";
-    } else if (op.uA.match(/X11/i) && !op.uA.match(/Linux/i)) { // unix
-        op.sys = "UNIX";
-    } else if (op.uA.match(/Linux/i) && op.uA.match(/X11/i)) { // linux
-        op.sys = "Linux";
+    if (op.uA) {
+        if (op.uA.match(/iPhone|iPad|iPod/i)) { // iOS
+            op.sys = "iOS";
+        } else if (op.uA.match(/Android/i)) {// android
+            op.sys = "Android";
+        } else if (op.uA.match(/Windows/i)) { // windows
+            op.sys = "Windows";
+        } else if (op.uA.match(/Mac/i)) { // mac
+            op.sys ="MacOS";
+        } else if (op.uA.match(/X11/i) && !op.uA.match(/Linux/i)) { // unix
+            op.sys = "UNIX";
+        } else if (op.uA.match(/Linux/i) && op.uA.match(/X11/i)) { // linux
+            op.sys = "Linux";
+        }
     }
 }
 
