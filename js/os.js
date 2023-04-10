@@ -2,13 +2,14 @@
 var op = { // site 'options'
         sys : "", // operating system
         uA : navigator.userAgent, // user agent
-        Ls : 1000/60, // loop (interval) speed - sec./rev.
-        isDarkMode : function() { // dark mode detection
-            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        }
+        Ls : 1000/60 // loop (interval) speed - sec./rev.
     },
     uA_L;
 
+
+op.isDarkMode = function() { // dark mode detection
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
 
 function osCheck() {
     if (op.uA) {
