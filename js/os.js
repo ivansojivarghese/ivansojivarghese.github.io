@@ -35,9 +35,7 @@ function applyManifest() {
     if (op.sys === "Android") {
         if (isDarkMode()) {
             m.setAttribute("href", "app_dark.webmanifest");
-        } /*else {
-            m.setAttribute("href", "app.webmanifest");
-        }*/
+        } 
     } else if (op.sys === "iOS") {
 
         //

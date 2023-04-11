@@ -79,39 +79,34 @@
             "purpose": "any"
         },
         {
-            "src": "favicon/windows/app_icon.png",
+            "src": "favicon/windows/app_icon_dark.png",
             "type": "image/png",
             "sizes": "44x44",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/app_icon_1.25.png",
+            "src": "favicon/windows/app_icon_1.25_dark.png",
             "type": "image/png",
             "sizes": "55x55",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/app_icon_1.5.png",
+            "src": "favicon/windows/app_icon_1.5_dark.png",
             "type": "image/png",
             "sizes": "66x66",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/app_icon_2.png",
+            "src": "favicon/windows/app_icon_2_dark.png",
             "type": "image/png",
             "sizes": "88x88",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/app_icon_4.png",
+            "src": "favicon/windows/app_icon_4_dark.png",
             "type": "image/png",
             "sizes": "176x176",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
             "src": "favicon/windows/small_tile.png",
