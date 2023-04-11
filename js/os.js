@@ -30,10 +30,16 @@ function osCheck() {
 }
 
 function applyManifest() {
-    var m = document.getElementById("mft"); // installing appropriate manifest
+    var cfg = document.getElementById("msConfig"), // browser config.
+        m = document.getElementById("mft"), // get appropriate manifest
+        d = isDarkMode();
+
+    if (d) {
+        cfg.setAttribute("content", "browserconfig_dark.xml");
+    }
 
     if (op.sys === "Android") {
-        if (isDarkMode()) {
+        if (d) {
             m.setAttribute("href", "app_dark.webmanifest");
         } 
     } else if (op.sys === "iOS") {
@@ -44,7 +50,7 @@ function applyManifest() {
 
         // m.setAttribute("href", "app_windows.webmanifest");
 
-        if (isDarkMode()) {
+        if (d) {
             m.setAttribute("href", "app_windows_dark.webmanifest");
         } else {
             m.setAttribute("href", "app_windows.webmanifest");
