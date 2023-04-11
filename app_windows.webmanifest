@@ -339,7 +339,7 @@
         }
    ],
    "theme_color": "#303030",
-   "background_color": "#FFFFFF",
+   "background_color": "#303030",
    "display": "standalone",
    "display_override": [
     "standalone",
