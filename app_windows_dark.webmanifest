@@ -215,6 +215,8 @@
             "purpose": "any",
             "color_scheme": "light"
         },
+
+
         {
             "src": "favicon/windows/large_tile.png",
             "type": "image/png",
@@ -237,19 +239,19 @@
             "color_scheme": "light"
         },
         {
-            "src": "favicon/windows/large_tile_2.png",
+            "src": "favicon/windows/dark/large_tile_2_dark.png",
             "type": "image/png",
             "sizes": "620x620",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/large_tile_4.png",
+            "src": "favicon/windows/dark/large_tile_4_dark.png",
             "type": "image/png",
             "sizes": "1240x1240",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
+
+
         {
             "src": "favicon/windows/store_logo.png",
             "type": "image/png",
