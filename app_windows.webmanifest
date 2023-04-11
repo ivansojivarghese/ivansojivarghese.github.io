@@ -67,18 +67,6 @@
    "screenshots" : [],
    "icons" : [
         {
-            "src": "favicon/windows/icon48x48_dark.png",
-            "type": "image/png",
-            "sizes": "48x48",
-            "purpose": "any"
-        },
-        {
-            "src": "favicon/windows/icon256x256_dark.png",
-            "type": "image/png",
-            "sizes": "256x256",
-            "purpose": "any"
-        },
-        {
             "src": "favicon/windows/icon48x48.png",
             "type": "image/png",
             "sizes": "48x48",
@@ -91,6 +79,18 @@
             "sizes": "256x256",
             "purpose": "any",
             "color_scheme": "light"
+        },
+        {
+            "src": "favicon/windows/icon48x48_dark.png",
+            "type": "image/png",
+            "sizes": "48x48",
+            "purpose": "any"
+        },
+        {
+            "src": "favicon/windows/icon256x256_dark.png",
+            "type": "image/png",
+            "sizes": "256x256",
+            "purpose": "any"
         },
         {
             "src": "favicon/windows/app_icon.png",
