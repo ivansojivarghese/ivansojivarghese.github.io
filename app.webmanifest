@@ -90,5 +90,11 @@
    ],
    "theme_color": "#303030",
    "background_color": "#FFFFFF",
-   "display": "standalone"
+   "display": "standalone",
+   "display_override": [
+    "standalone",
+    "minimal-ui",
+    "window-controls-overlay",
+    "browser"
+  ]
 }
