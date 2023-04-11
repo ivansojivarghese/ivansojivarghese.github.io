@@ -47,7 +47,7 @@ function applyManifest() {
         // m.setAttribute("href", "app_windows.webmanifest");
 
         if (isDarkMode()) {
-            m.setAttribute("href", "");
+            m.setAttribute("href", "app_windows_dark.webmanifest");
         } else {
             m.setAttribute("href", "app_windows.webmanifest");
         }
