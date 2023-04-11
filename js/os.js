@@ -30,15 +30,14 @@ function osCheck() {
 }
 
 function applyManifest() {
-    var m = document.createElement("LINK"); // installing appropriate manifest
-    m.setAttribute("rel", "manifest");
+    var m = document.getElementById("mft"); // installing appropriate manifest
 
     if (op.sys === "Android") {
         if (isDarkMode()) {
             m.setAttribute("href", "app_dark.webmanifest");
-        } else {
+        } /*else {
             m.setAttribute("href", "app.webmanifest");
-        }
+        }*/
     } else if (op.sys === "iOS") {
 
         //
@@ -51,7 +50,7 @@ function applyManifest() {
         }
     }
 
-    document.head.append(m);
+    // document.head.append(m);
 }
 
 
