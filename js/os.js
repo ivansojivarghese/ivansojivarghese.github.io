@@ -49,8 +49,6 @@ function applyManifest() {
             m.setAttribute("href", "app_windows.webmanifest");
         }
     }
-
-    // document.head.append(m);
 }
 
 
