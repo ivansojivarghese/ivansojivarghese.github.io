@@ -44,14 +44,13 @@ function applyManifest() {
 
     } else if (op.sys === "Windows") {
 
-        m.setAttribute("href", "app_windows.webmanifest");
-        
-        /*
+        // m.setAttribute("href", "app_windows.webmanifest");
+
         if (isDarkMode()) {
             m.setAttribute("href", "");
         } else {
             m.setAttribute("href", "app_windows.webmanifest");
-        }*/
+        }
     }
 }
 
