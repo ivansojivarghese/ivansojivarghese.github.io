@@ -37,19 +37,13 @@ function applyManifest() {
     if (d) {
         cfg.setAttribute("content", "browserconfig_dark.xml");
     }
-
     if (op.sys === "Android") {
         if (d) {
             m.setAttribute("href", "app_dark.webmanifest");
         } 
     } else if (op.sys === "iOS") {
 
-        //
-
     } else if (op.sys === "Windows") {
-
-        // m.setAttribute("href", "app_windows.webmanifest");
-
         if (d) {
             m.setAttribute("href", "app_windows_dark.webmanifest");
         } else {
