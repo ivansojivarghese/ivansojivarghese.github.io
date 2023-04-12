@@ -4,9 +4,9 @@
 	<msapplication>
 		<tile>
 			<square70x70logo src="favicon/windows/dark/mstile-70x70.png?1"/>
-			<square150x150logo src="favicon/windows/dark/medium_tile_dark.png?1"/>
+			<square150x150logo src="favicon/windows/dark/mstile-150x150.png?1"/>
 			<wide310x150logo src="favicon/windows/dark/mstile-310x150.png?1"/>
-			<square310x310logo src="favicon/windows/dark/large_tile_dark.png?1"/>
+			<square310x310logo src="favicon/windows/dark/mstile-310x310.png?1"/>
 			<TileColor>#808080</TileColor>
 		</tile>
 	</msapplication>
