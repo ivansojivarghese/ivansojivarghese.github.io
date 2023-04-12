@@ -69,12 +69,14 @@
        {
             "src": "favicon/android-chrome-192x192_dark.png",
             "type": "image/png",
-            "sizes": "192x192"
+            "sizes": "192x192",
+            "purpose": "any"
         },
        {
             "src": "favicon/android-chrome-512x512_dark.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "purpose": "any"
         },
         {
             "src": "favicon/maskable-512x512_dark.png",
