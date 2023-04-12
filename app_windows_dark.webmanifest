@@ -108,43 +108,37 @@
             "sizes": "176x176",
             "purpose": "any"
         },
-
-
         {
-            "src": "favicon/windows/small_tile.png",
+            "src": "favicon/windows/small_tile_dark.png",
             "type": "image/png",
             "sizes": "71x71",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/small_tile_1.25.png",
+            "src": "favicon/windows/small_tile_1.25_dark.png",
             "type": "image/png",
             "sizes": "89x89",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/small_tile_1.5.png",
+            "src": "favicon/windows/small_tile_1.5_dark.png",
             "type": "image/png",
             "sizes": "107x107",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/small_tile_2.png",
+            "src": "favicon/windows/small_tile_2_dark.png",
             "type": "image/png",
             "sizes": "142x142",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
         {
-            "src": "favicon/windows/small_tile_4.png",
+            "src": "favicon/windows/small_tile_4_dark.png",
             "type": "image/png",
             "sizes": "284x284",
-            "purpose": "any",
-            "color_scheme": "light"
+            "purpose": "any"
         },
+        
         {
             "src": "favicon/windows/medium_tile.png",
             "type": "image/png",
