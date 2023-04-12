@@ -477,7 +477,7 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-    console.log(renderTime());
+    // console.log(renderTime());
 
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
@@ -545,7 +545,7 @@ function pL() { // site parameters loop
         // check for other messages, then open up
     }
 
-    // console.log(op.ne.s + ", " + op.ne.w + ", " + op.nc);
+    console.log(op.ne.s + ", " + op.ne.w + ", " + op.nc);
 }
 
 function c_Sr() { // check for scrolling activity (in live)
