@@ -36,22 +36,27 @@ function applyManifest() {
         m = document.getElementById("mft"), // get appropriate manifest
         d = isDarkMode();
 
-    if (d) {
-        cfg.setAttribute("content", "browserconfig_dark.xml");
-        tCol.setAttribute("content", "#808080");
-        tImg.setAttribute("content", "favicon/windows/dark/mstile-144x144.png?1");
-    }
     if (op.sys === "Android") {
         if (d) {
             m.setAttribute("href", "app_dark.webmanifest");
-        } 
+        } else {
+            m.setAttribute("href", "app.webmanifest");
+        }
     } else if (op.sys === "iOS") {
 
     } else if (op.sys === "Windows") {
         if (d) {
             m.setAttribute("href", "app_windows_dark.webmanifest");
+
+            cfg.setAttribute("content", "browserconfig_dark.xml");
+            tCol.setAttribute("content", "#808080");
+            tImg.setAttribute("content", "favicon/windows/dark/mstile-144x144.png?1");
         } else {
             m.setAttribute("href", "app_windows.webmanifest");
+
+            cfg.setAttribute("content", "browserconfig.xml");
+            tCol.setAttribute("content", "#303030");
+            tImg.setAttribute("content", "favicon/windows/mstile-144x144.png?1");
         }
     }
 }
