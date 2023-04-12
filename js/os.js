@@ -31,11 +31,15 @@ function osCheck() {
 
 function applyManifest() {
     var cfg = document.getElementById("msConfig"), // browser config.
+        tCol = document.getElementById("msTcol"), // broswer tile col.
+        tImg = document.getElementById("msTimg"), // browser tile img.
         m = document.getElementById("mft"), // get appropriate manifest
         d = isDarkMode();
 
     if (d) {
         cfg.setAttribute("content", "browserconfig_dark.xml");
+        tCol.setAttribute("content", "#808080");
+        tImg.setAttribute("content", "favicon/windows/dark/mstile-144x144.png?1");
     }
     if (op.sys === "Android") {
         if (d) {
