@@ -492,6 +492,9 @@ function errorCheck() { // check for errors
         }, trD);*/
     }
 
+    // var loadTime = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
+    // console.log(loadTime);
+
     if (eR.h && isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
         rL.y = true;
         eR.m.classList.remove("d_n"); // display the error
