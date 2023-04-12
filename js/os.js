@@ -44,11 +44,11 @@ function applyManifest() {
         }
     } else if (op.sys === "iOS") {
 
-    } else if (op.sys === "Windows") {
+    } else if (op.sys === "Windows") { // if windows
         if (d) {
-            m.setAttribute("href", "app_windows_dark.webmanifest");
+            m.setAttribute("href", "app_windows_dark.webmanifest"); 
 
-            cfg.setAttribute("content", "browserconfig_dark.xml");
+            cfg.setAttribute("content", "browserconfig_dark.xml"); // add tile designs
             tCol.setAttribute("content", "#808080");
             tImg.setAttribute("content", "favicon/windows/dark/mstile-144x144.png?1");
         } else {
