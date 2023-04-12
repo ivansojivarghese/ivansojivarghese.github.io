@@ -85,6 +85,10 @@ op = {
         t : 1, // default time limit (days)
         x : false // code execution
     },
+    Ld : {
+        dom : 0, // 'domcontentloaded'
+        a : 0 // 'load'
+    },
     nav : { // navigation
         d : document.referrer, // check for previous URI
         r : false, // page reload check
@@ -256,12 +260,19 @@ completeInterval = setInterval(function() {
 function renderTime() { 
     var n = op.d.getTime(),
         t = n - performance.timing.navigationStart; 
+    return t;
+    /*
     rL.xes.innerHTML = "~" + (t/1000).toFixed(0) + "s";
     e_Fd(rL.xes, false);
+    */
 }
 
-window.addEventListener("DOMContentLoaded", renderTime);
-window.addEventListener("load", renderTime);
+window.addEventListener("DOMContentLoaded", function() { // 1 - base html/css/scripts
+    op.Ld.dom = renderTime();
+}); 
+window.addEventListener("load", function() { // 2 - full load
+    op.Ld.a = renderTime();
+}); 
 
 /*
 const obs = new PerformanceObserver((list) => {
