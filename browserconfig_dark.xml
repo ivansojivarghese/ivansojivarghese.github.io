@@ -8,7 +8,7 @@
 			<wide310x150logo src="favicon/windows/dark/wide_tile_dark.png?1"/>
 			<square310x310logo src="favicon/windows/dark/large_tile_dark.png?1"/>
 			<TileColor>#808080</TileColor>
-			<TileImage src="favicon/windows/dark/medium_tile_dark.png?1"/>
+			<TileImage src="favicon/windows/dark/large_tile_4_dark.png?1"/>
 		</tile>
 	</msapplication>
 </browserconfig>
