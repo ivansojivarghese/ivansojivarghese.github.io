@@ -80,6 +80,7 @@ var disp = document.getElementById("display_sc"), // display
     sV_a = 0.8, // user viewport threshold - for scroll-based functions
 
     _Ld, // loop
+    _Le, // loop (applicable, if error)
 
     r, // before-load parameters
     vw; // viewport variables
@@ -519,6 +520,7 @@ function errorCheck() { // check for errors
         eR.m.classList.remove("d_n"); // display the error
         eR[eR.h].classList.remove("d_n");
     } else if (eR.h && !isFontAvailable("Poppins") && !isFontAvailable("Raleway")) {
+        
         errorCheck(); // iterative
     }
 }
