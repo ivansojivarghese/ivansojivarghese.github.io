@@ -87,7 +87,8 @@ op = {
     },
     Ld : {
         dom : 0, // 'domcontentloaded'
-        a : 0 // 'load'
+        a : 0, // 'load'
+        t : 10000 // threshold for timeout
     },
     nav : { // navigation
         d : document.referrer, // check for previous URI

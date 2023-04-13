@@ -177,7 +177,7 @@ function docRead() {
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
                 
-                } else if ((op.Ld.dom / 1000) > 10) { // timeout 1
+                } else if (op.Ld.dom > op.Ld.t) { // timeout 1
 
                     console.log("timeout 1");
 
