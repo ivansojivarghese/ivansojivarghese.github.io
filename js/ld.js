@@ -193,7 +193,7 @@ function docRead() {
                         e_Fd(rL.x, false); // show message when timeout
                     } 
 
-                    window.stop(); // stop all network fetching
+                    window.stop(); // stop all network resource(s) fetching
 
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
