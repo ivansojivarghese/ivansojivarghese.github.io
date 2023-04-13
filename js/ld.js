@@ -180,8 +180,8 @@ function docRead() {
                 } else if (op.Ld.dom > op.Ld.t) { // timeout 1
 
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-                    // rL.n.classList.add("wifi_off_img");
-                    c_rep(rL.n, "", "timeout_img");
+                    rL.n.classList.add("timeout_img");
+                    // c_rep(rL.n, "", "timeout_img");
                     e_Fd(rL.n, false); 
 
                     rL.dt.classList.add("md"); 
