@@ -193,6 +193,8 @@ function docRead() {
                         e_Fd(rL.x, false); // show message when internet not connected
                     } 
 
+                    window.stop();
+
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     // rL.n.classList.add("wifi_off_img");
