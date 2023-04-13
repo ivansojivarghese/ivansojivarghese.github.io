@@ -105,8 +105,8 @@ h4 {
     font-size: 1rem;
     letter-spacing: 0.3em;*/
     margin-bottom: 1.2em;
-    /*font-family: "Raleway", "Segoe UI", sans-serif;*/
-    font-family: Raleway;
+    font-family: Raleway, "Roboto", sans-serif;
+    /*font-family: Raleway;*/
 }
 
 h5 {
@@ -147,8 +147,8 @@ ul {
 }
 
 h1, h2, h3, h5, h6, p, ul {
-    /*font-family: Poppins, "Roboto", sans-serif;*/
-    font-family: Poppins;
+    font-family: Poppins, "Roboto", sans-serif;
+    /*font-family: Poppins;*/
 }
 
 .copy {
