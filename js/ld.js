@@ -181,8 +181,12 @@ function docRead() {
 
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     // rL.n.classList.add("wifi_off_img");
-                    c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
+                    // c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
                     e_Fd(rL.n, false); 
+
+                    rL.dt.classList.add("md"); 
+                    // op.nc = false;
+                    op.ne.s = 0;
 
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
