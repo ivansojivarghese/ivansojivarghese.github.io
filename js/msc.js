@@ -477,7 +477,7 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-    console.log(renderTime() + ", " + op.ne.s);
+    // console.log(renderTime() + ", " + op.ne.s);
 
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
