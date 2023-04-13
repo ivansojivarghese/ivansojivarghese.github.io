@@ -194,6 +194,7 @@ function docRead() {
                     } 
 
                     window.stop(); // stop all network resource(s) fetching
+                    clearInterval(_Ld); // stop loading process
 
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
