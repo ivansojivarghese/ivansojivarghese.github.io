@@ -188,6 +188,11 @@ function docRead() {
                     // op.nc = false;
                     op.ne.s = 0;
 
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
+                        rL.xc.innerHTML = "timeout";
+                        e_Fd(rL.x, false); // show message when internet not connected
+                    } 
+
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     // rL.n.classList.add("wifi_off_img");
