@@ -220,7 +220,7 @@ function docRead() {
                     e_Fd(rL.x, false); // show message when internet not connected
                 } 
 
-
+                console.log("reconnecting");
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
 
