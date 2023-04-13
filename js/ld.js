@@ -518,7 +518,7 @@ function errorCheck() { // check for errors
         rL.y = true;
         eR.m.classList.remove("d_n"); // display the error
         eR[eR.h].classList.remove("d_n");
-    } else {
+    } else if (eR.h && !isFontAvailable("Poppins") && !isFontAvailable("Raleway")) {
         errorCheck();
     }
 }
