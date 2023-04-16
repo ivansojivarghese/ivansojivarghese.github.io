@@ -105,6 +105,7 @@ op = {
         s : 0, // estimated speed 
         c : 0, // iterative count
         b : [], // array of accounted network speeds (for variability)
+        bI : 60, // array refresh interval (sec.)
         bT : "nV", // "" timer tracker
         r : false, // count incrementation check
         d : false, // slow speed boolean var hold
@@ -163,7 +164,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         if (op.ne.s !== Infinity && op.ne.s !== 0) { // get valid values only
             s = op.ne.s < op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
             if (!op.ne.b.length) { // start new timer (check for network variability)
-                countdownTimerSec(60, op.ne.bT, null, networkVariability);
+                countdownTimerSec(op.ne.bI, op.ne.bT, null, networkVariability);
             }
             op.ne.b[op.ne.b.length] = op.ne.s; // add to variability array
             return s;
