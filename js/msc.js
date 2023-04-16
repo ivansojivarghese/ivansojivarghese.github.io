@@ -104,6 +104,7 @@ op = {
         t : 0, // end time
         s : 0, // estimated speed 
         c : 0, // iterative count
+        b : [], // array of accounted network speeds (for variability)
         r : false, // count incrementation check
         d : false, // slow speed boolean var hold
         v : false, // normal (high) speed ""
@@ -159,6 +160,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
         if (op.ne.s !== Infinity || op.ne.s !== 0) { // get valid values only
             s = op.ne.s < op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
+            op.ne.b[op.ne.b.length] = op.ne.s; // add to variability array
             return s;
         } else {
             return null;
