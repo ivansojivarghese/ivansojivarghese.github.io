@@ -243,6 +243,7 @@ function networkVariability() { // determine variability of network
     // remove outliers 
     // take note of extremes
     // take note of DEVIATION (IMPORTANT!!!)
+    // take note of number of data points that give the above stats
 
     op.ne.b = []; // empty array
 }
