@@ -160,7 +160,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         });
         op.ne.t = op.d.getTime(); // end time of fetch
         op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
-        if (op.ne.s !== Infinity || op.ne.s !== 0) { // get valid values only
+        if (op.ne.s !== Infinity && op.ne.s !== 0) { // get valid values only
             s = op.ne.s < op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
             if (!op.ne.b.length) { // start new timer (check for network variability)
                 countdownTimerSec(60, op.ne.bT, null, networkVariability);
@@ -239,7 +239,7 @@ op.ne.L = setInterval(async () => {
 function networkVariability() { // determine variability of network
     console.log(op.ne.b);
 
-    // 
+    // remove outliers
 
     op.ne.b = []; // empty array
 }
