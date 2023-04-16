@@ -161,12 +161,10 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
         if (op.ne.s !== Infinity || op.ne.s !== 0) { // get valid values only
             s = op.ne.s < op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
-
             if (!op.ne.b.length) { // start new timer (check for network variability)
                 countdownTimerSec(60, op.ne.bT, null, networkVariability);
             }
             op.ne.b[op.ne.b.length] = op.ne.s; // add to variability array
-
             return s;
         } else {
             return null;
@@ -563,7 +561,7 @@ function pL() { // site parameters loop
         // check for other messages, then open up
     }
 
-    console.log(op.ne.s + ", " + op.ne.w + ", " + op.nc);
+    // console.log(op.ne.s + ", " + op.ne.w + ", " + op.nc);
 }
 
 function c_Sr() { // check for scrolling activity (in live)
