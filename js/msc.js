@@ -157,8 +157,12 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         });
         op.ne.t = op.d.getTime(); // end time of fetch
         op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
-        s = op.ne.s < op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
-        return s; 
+        if (op.ne.s !== Infinity || op.ne.s !== 0) { // get valid values only
+            s = op.ne.s < op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
+            return s;
+        } else {
+            return null;
+        }
     } catch (err) { // if network error
         op.ne.s = 0; // return 0 mbps
         return true; // default true
