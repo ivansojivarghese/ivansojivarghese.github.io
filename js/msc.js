@@ -167,6 +167,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             op.ne.b[op.ne.b.length] = op.ne.s; // add to variability array
             return s;
         } else {
+            op.ne.s = op.ne.b[op.ne.b.length - 1]; // set value to previously accounted figure
             return null;
         }
     } catch (err) { // if network error
@@ -236,6 +237,9 @@ setInterval(async () => {
 
 function networkVariability() { // determine variability of network
     console.log(op.ne.b);
+
+    // 
+
     op.ne.b = []; // empty array
 }
 
