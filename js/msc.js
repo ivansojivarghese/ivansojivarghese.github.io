@@ -79,7 +79,7 @@ op = {
         u : false, // [user] cookies-enabled-acceptance
         // uM : 5, // "" deny message limit (sec.)
         // uT : "cD", // "" timer tracker
-        uR : false, // "" redirect check
+        // uR : false, // "" redirect check
         e : null, // enabled check
         a : null, // user access (inital) check [browser-dependant]
         t : 1, // default time limit (days)
