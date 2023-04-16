@@ -77,8 +77,8 @@ var wH = window.innerHeight, // height
 op = { 
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
-        uM : 5, // "" deny message limit (sec.)
-        uT : "cD", // "" timer tracker
+        // uM : 5, // "" deny message limit (sec.)
+        // uT : "cD", // "" timer tracker
         uR : false, // "" redirect check
         e : null, // enabled check
         a : null, // user access (inital) check [browser-dependant]
@@ -506,10 +506,10 @@ function pL() { // site parameters loop
             scr_t(true, arg);
         }
     }
-
+    /*
     if (op.c.uR && op.nav.fb) { // cookie-message redirect[ed] and forward/backward navigation
         pg.msg.ckDp1.innerHTML = "site redirected";
-    }
+    }*/
 
     /*
     if (!op.nav.b) { // check if URL bar is NOT in view
@@ -1013,9 +1013,10 @@ window.addEventListener("beforeunload", function() {
 
     // localStorage; - duplicate tab detection
 
+    /*
     if (op.c.uR) { // if unloading when cookie-deny redirect message is active
         op.nav.fb = true; // automatically set forward/back nav. to true
-    }
+    }*/
 });
 
 window.addEventListener("load", function() {
