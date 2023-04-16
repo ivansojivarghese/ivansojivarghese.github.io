@@ -83,7 +83,6 @@ function load_js_e() { // load JS (page specific)
         // t = Math.ceil(((b - 1) / 10) * 2), // obtain approx. no. of max iterations (in 1000/30 ms. intervals) - round up for an inclusive value
         // m = (op.Ls * 2) * t; // calculate max time (ms.) for button offset alignment
     
-    document.title = "Ivan Varghese"; // default the title
     hm.f = b; // update the hamburger menu object properties
     // m.ft = m;
 
