@@ -110,6 +110,7 @@ op = {
         d : false, // slow speed boolean var hold
         v : false, // normal (high) speed ""
         w : true, // slow speed check - less than threshold?
+        L : null // loop
     },
     r : null, // resource link origin
     n : null, // online status (internet connectivity)
@@ -231,7 +232,7 @@ const networkConditions = async() => {
 op.r = getSiteRes(); // get site resource origin
 networkConditions(); // perform network check on startup
 
-setInterval(async () => {
+op.ne.L = setInterval(async () => {
     networkConditions(); // continuously check on network
 }, 3000);
 
@@ -998,6 +999,18 @@ window.addEventListener("resize", function() {
 
 window.addEventListener("orientationchange", function() {
     pg.sc.m.classList.add("d_n"); // remove page from display during orientation change (for slow networks)
+});
+
+//////////////////////////////////////////
+
+window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
+    if (document.hidden) {
+        clearInterval(op.ne.L);
+    } else {
+        op.ne.L = setInterval(async () => {
+            networkConditions(); // continuously check on network
+        }, 3000);
+    }
 });
 
 //////////////////////////////////////////
