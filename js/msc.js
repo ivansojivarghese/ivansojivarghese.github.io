@@ -240,7 +240,9 @@ op.ne.L = setInterval(async () => {
 function networkVariability() { // determine variability of network
     console.log(op.ne.b);
 
-    // remove outliers
+    // remove outliers 
+    // take note of extremes
+    // take note of DEVIATION (IMPORTANT!!!)
 
     op.ne.b = []; // empty array
 }
