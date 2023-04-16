@@ -234,7 +234,7 @@ setInterval(async () => {
     networkConditions(); // continuously check on network
 }, 3000);
 
-function networkVariability() {
+function networkVariability() { // determine variability of network
     console.log(op.ne.b);
     op.ne.b = []; // empty array
 }
