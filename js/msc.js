@@ -243,7 +243,8 @@ function networkVariability() { // determine variability of network
         q3 = medianHalf(q2, op.ne.b, false), // 75%
         iqr = q3 - q1,
         outL = q1 - (1.5 * iqr), // lower outliers
-        outU = q3 + (1.5 * iqr); // "" upper
+        outU = q3 + (1.5 * iqr), // "" upper
+        cleanData = cleanOutliers(op.ne.b, outL, outU); // remove outliers
 
     // remove outliers 
     // take note of extremes
@@ -706,7 +707,7 @@ function median(ar) { // median - q2
 function cleanOutliers(ar, L, u) { // remove outliers
     var res = [];
     for (i = 0, j = 0; i <= ar.length - 1; i++) {
-        if (ar[i] >= L && ar[i] <= u) {
+        if (ar[i] >= L && ar[i] <= u) { // check if data point within thresholds
             res[j] = ar[i];
             j++;
         }
