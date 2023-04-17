@@ -240,7 +240,10 @@ op.ne.L = setInterval(async () => {
 function networkVariability() { // determine variability of network
     var q2 = median(op.ne.b), // median
         q1 = medianHalf(q2, op.ne.b, true), // 25%
-        q3 = medianHalf(q2, op.ne.b, false); // 75%
+        q3 = medianHalf(q2, op.ne.b, false), // 75%
+        iqr = q3 - q1,
+        outL = q1 - (1.5 * iqr), // lower outliers
+        outU = q3 + (1.5 * iqr); // "" upper
 
     // remove outliers 
     // take note of extremes
@@ -697,6 +700,17 @@ function median(ar) { // median - q2
     var mid = Math.floor(ar.length / 2), // get middle value
         sorted = ar.sort(function(a, b){return a-b}); // sort in asc. order
         res = ar.length % 2 !== 0 ? sorted[mid] : (sorted[mid] + sorted[mid - 1] / 2); // find result
+    return res;
+}
+
+function cleanOutliers(ar, L, u) { // remove outliers
+    var res = [];
+    for (i = 0, j = 0; i <= ar.length - 1; i++) {
+        if (ar[i] >= L && ar[i] <= u) {
+            res[j] = ar[i];
+            j++;
+        }
+    }
     return res;
 }
 
