@@ -238,7 +238,7 @@ op.ne.L = setInterval(async () => {
 }, 3000);
 
 function networkVariability() { // determine variability of network
-    console.log(op.ne.b);
+    var q2 = q2Median(op.ne.b); // median
 
     // remove outliers 
     // take note of extremes
@@ -668,6 +668,17 @@ function c_Sr() { // check for scrolling activity (in live)
         serifWidth !== getWidth(font + ',serif');
     };
 })(document);
+
+//////////////////////////////////////////
+
+// stats
+
+function q2Median(ar) { // median - q2
+    var mid = Math.floor(ar.length / 2), // get middle value
+        sorted = ar.sort(function(a, b){return a-b}); // sort in asc. order
+        res = ar.length % 2 !== 0 ? sorted[mid] : (sorted[mid] + sorted[mid - 1] / 2); // find result
+    return res;
+}
 
 //////////////////////////////////////////
 
