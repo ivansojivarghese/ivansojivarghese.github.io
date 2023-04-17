@@ -244,10 +244,11 @@ function networkVariability() { // determine variability of network
         iqr = q3 - q1,
         outL = q1 - (1.5 * iqr), // lower outliers
         outU = q3 + (1.5 * iqr), // "" upper
-        cleanData = cleanOutliers(op.ne.b, outL, outU); // remove outliers
+        cleanData = cleanOutliers(op.ne.b, outL, outU), // remove outliers
+        range = Math.max(...cleanData) - Math.min(...cleanData);
 
     // remove outliers 
-    // take note of extremes
+    // take note of extremes (in clean data)
     // take note of DEVIATION (IMPORTANT!!!)
     // take note of number of data points that give the above stats
 
