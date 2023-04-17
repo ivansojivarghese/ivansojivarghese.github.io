@@ -238,7 +238,8 @@ op.ne.L = setInterval(async () => {
 }, 3000);
 
 function networkVariability() { // determine variability of network
-    var q2 = q2Median(op.ne.b); // median
+    var q2 = q2Median(op.ne.b), // median
+        q1 = name(q2, op.ne.b), // 25%
 
     // remove outliers 
     // take note of extremes
@@ -673,7 +674,23 @@ function c_Sr() { // check for scrolling activity (in live)
 
 // stats
 
-function q2Median(ar) { // median - q2
+function medianHalf(t, ar, m) { // 25%/75% - q1/q3
+    var sorted = ar.sort(function(a, b){return a-b}), // sort in asc. order
+        half = [];
+
+    for (i = 0, j = 0; i <= ar.length - 1; i++) {
+        if (sorted[i] < t) {
+            half[j] = sorted[i];
+            j++;
+        } else {
+            break;
+        }
+    }
+
+    return median(half);
+}
+
+function median(ar) { // median - q2
     var mid = Math.floor(ar.length / 2), // get middle value
         sorted = ar.sort(function(a, b){return a-b}); // sort in asc. order
         res = ar.length % 2 !== 0 ? sorted[mid] : (sorted[mid] + sorted[mid - 1] / 2); // find result
