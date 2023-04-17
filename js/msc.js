@@ -676,10 +676,12 @@ function c_Sr() { // check for scrolling activity (in live)
 
 function medianHalf(t, ar, m) { // 25%/75% - q1/q3
     var sorted = ar.sort(function(a, b){return a-b}), // sort in asc. order
-        half = [];
+        cond, // condition
+        half = []; // array halved
 
-    for (i = 0, j = 0; i <= ar.length - 1; i++) {
-        if (sorted[i] < t) {
+    for (i = 0, j = 0; i <= ar.length - 1; i++) { // loop through array
+        cond = m ? sorted[i] < t : sorted[i] > t; // find 25% if m = true, else otherwise
+        if (cond) {
             half[j] = sorted[i];
             j++;
         } else {
@@ -687,7 +689,7 @@ function medianHalf(t, ar, m) { // 25%/75% - q1/q3
         }
     }
 
-    return median(half);
+    return median(half); // get median of halved array
 }
 
 function median(ar) { // median - q2
