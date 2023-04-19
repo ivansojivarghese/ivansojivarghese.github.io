@@ -254,6 +254,8 @@ function networkVariability() { // determine variability of network
     // take note of DEVIATION (IMPORTANT!!!)
     // take note of number of data points that give the above stats
 
+    // the lower values of range & std + high number of data points = low variability
+
     op.ne.b = []; // empty array
 }
 
