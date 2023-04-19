@@ -245,7 +245,9 @@ function networkVariability() { // determine variability of network
         outL = q1 - (1.5 * iqr), // lower outliers
         outU = q3 + (1.5 * iqr), // "" upper
         cleanData = cleanOutliers(op.ne.b, outL, outU), // remove outliers
-        range = Math.max(...cleanData) - Math.min(...cleanData);
+        range = Math.max(...cleanData) - Math.min(...cleanData),
+        mean = mean(cleanData), 
+        std = stdDeviation(cleanData, mean);
 
     // remove outliers 
     // take note of extremes (in clean data)
@@ -705,6 +707,14 @@ function median(ar) { // median - q2
     return res;
 }
 
+function mean(ar) {
+    var res = 0;
+    for (i = 0; i <= ar.length - 1; i++) {
+        res += ar[i];
+    }
+    return (res / ar.length);
+}
+
 function cleanOutliers(ar, L, u) { // remove outliers
     var res = [];
     for (i = 0, j = 0; i <= ar.length - 1; i++) {
@@ -714,6 +724,14 @@ function cleanOutliers(ar, L, u) { // remove outliers
         }
     }
     return res;
+}
+
+function stdDeviation(ar, m) { // standard deviation
+    var res = 0;
+    for (i = 0; i <= ar.length - 1; i++) {
+        res += Math.pow((ar[i] - m), 2);
+    }
+    return Math.sqrt(res / ar.length);
 }
 
 //////////////////////////////////////////
