@@ -246,8 +246,8 @@ function networkVariability() { // determine variability of network
         outU = q3 + (1.5 * iqr), // "" upper
         cleanData = cleanOutliers(op.ne.b, outL, outU), // remove outliers
         range = Math.max(...cleanData) - Math.min(...cleanData),
-        mean = mean(cleanData), 
-        std = stdDeviation(cleanData, mean);
+        avg = mean(cleanData), 
+        std = stdDeviation(cleanData, avg);
 
     // remove outliers 
     // take note of extremes (in clean data)
