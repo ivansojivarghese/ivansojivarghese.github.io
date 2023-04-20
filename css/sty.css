@@ -85,9 +85,9 @@ p, h1, h2, h3, h4, h5, h6 {
     line-height: 1em;
 }
 
-h1 {
+h1, .h1-rep h2 {
     font-size: 2.8rem;
-    /* margin-bottom: 0.5em; */
+    margin-bottom: 0;
 }
 
 h2 {
