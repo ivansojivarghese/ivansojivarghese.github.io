@@ -10,6 +10,7 @@ User-agent: Bingbot
 User-agent: AdldxBot
 User-agent: facebookexternalhit
 User-agent: Twitterbot
+User-agent: Pinterestbot
 Allow: /
 
 User-agent: *
