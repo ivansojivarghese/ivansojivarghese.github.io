@@ -8,6 +8,8 @@ User-agent: Mediapartners-Google
 User-agent: AdsBot-Google
 User-agent: Bingbot
 User-agent: AdldxBot
+User-agent: facebookexternalhit
+User-agent: Twitterbot
 Allow: /
 
 User-agent: *
