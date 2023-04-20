@@ -1,4 +1,9 @@
 
-User-agent: *
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Allow: /
 
-Disallow: /index_nocrawl.html
+User-agent: *
+Disallow: /
+
+Sitemap: 
