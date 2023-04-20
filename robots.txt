@@ -6,6 +6,8 @@ User-agent: Googlebot-Video
 User-agent: Googlebot-Mobile
 User-agent: Mediapartners-Google
 User-agent: AdsBot-Google
+User-agent: Bingbot
+User-agent: AdldxBot
 Allow: /
 
 User-agent: *
