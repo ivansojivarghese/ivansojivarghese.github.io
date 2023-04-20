@@ -6,4 +6,4 @@ Allow: /
 User-agent: *
 Disallow: /
 
-Sitemap: 
+Sitemap: https://ivansojivarghese.github.io/sitemap.xml
