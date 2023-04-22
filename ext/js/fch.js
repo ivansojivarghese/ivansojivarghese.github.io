@@ -122,3 +122,7 @@ function scrollArrowIterate(m) {
         }, op.te);
     }
 }
+
+function peek() {
+    window.scrollY("30px");
+}
