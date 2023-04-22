@@ -124,5 +124,5 @@ function scrollArrowIterate(m) {
 }
 
 function peek() {
-    window.scrollY("30px");
+    window.scrollTo(0, "30px");
 }
