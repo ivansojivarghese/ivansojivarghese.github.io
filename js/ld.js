@@ -92,10 +92,6 @@ var disp = document.getElementById("display_sc"), // display
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
-            if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
-                setCookie("maxHeight", cH, op.c.t); // update
-                aH = getCookie("maxHeight");
-            } 
             if (!rL.e4) {
                 rL.e4 = true;
                 e_Fd(rL.m, false); // show load-box
@@ -585,6 +581,11 @@ function mt_check(v) { // maintenance function (temporary)
     }
 }
 
+
+if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
+    setCookie("maxHeight", cH, op.c.t); // update
+    aH = getCookie("maxHeight");
+} 
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
 op.c.e = navigator.cookieEnabled; // check for enabled cookies
