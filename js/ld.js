@@ -583,7 +583,7 @@ function mt_check(v) { // maintenance function (temporary)
 }
 
 
-if (getCookie("maxHeight") < cH || (op.nav.r && getCookie("windowResize"))) { // if height fluctuates from additional URL bars, etc.
+if (getCookie("maxHeight") < cH || (op.nav.r && getCookie("windowResize") === true)) { // if height fluctuates from additional URL bars, etc.
     setCookie("maxHeight", cH, op.c.t); // update
     aH = getCookie("maxHeight");
 } 
