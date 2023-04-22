@@ -99,6 +99,7 @@ function docRead() {
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!rL.e) { // ensure once execution
                 if (!rL.e2) { 
+                    setCookie("windowResize", false, op.c.t);
                     rL.e2 = true;
                     if (!rL.e4) {
                         rL.e4 = true;
@@ -582,7 +583,7 @@ function mt_check(v) { // maintenance function (temporary)
 }
 
 
-if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
+if (getCookie("maxHeight") < cH || (op.nav.r && getCookie("windowResize"))) { // if height fluctuates from additional URL bars, etc.
     setCookie("maxHeight", cH, op.c.t); // update
     aH = getCookie("maxHeight");
 } 

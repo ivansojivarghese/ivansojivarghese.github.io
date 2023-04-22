@@ -1072,6 +1072,7 @@ window.addEventListener("resize", function() {
         wH = window.innerHeight; // update on window size variables
         wD = window.innerWidth; 
         cH = document.documentElement.clientHeight;
+        setCookie("windowResize", true, op.c.t);
         reL(); // reload page
     }
 });
