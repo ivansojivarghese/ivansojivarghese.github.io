@@ -115,11 +115,11 @@ function docRead() {
                         if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
                             pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
                             op.c.u = true; // message accepted
-                            if (getCookie("maxHeight") < cH) { // if height fluctuates from additional URL bars, etc.
+                            if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
                                 setCookie("maxHeight", cH, op.c.t); // update
-                            } else {
+                            } /*else if () {
                                 setCookie("maxHeight", aH, op.c.t); // update
-                            }
+                            }*/
                         } 
                     }
 
