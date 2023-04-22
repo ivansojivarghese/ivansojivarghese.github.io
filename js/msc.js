@@ -73,6 +73,9 @@ var wH = window.innerHeight, // height
         }
     };    
 
+if (getCookie("maxHeight")) {
+    var aH = getCookie("maxHeight");
+}
 
 op = { 
     c : { // cookies
