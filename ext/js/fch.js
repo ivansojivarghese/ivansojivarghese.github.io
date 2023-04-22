@@ -46,24 +46,24 @@ function loadUp() {
 }
 
 function load_css_e() { // load CSS styles (page specific)
-    var mg = "(" + cH + "px - 27.5rem) / 5"; // margin
+    var mg = "(" + aH + "px - 27.5rem) / 5"; // margin
 
     // c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
     c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
-    c_css("#link_3", "height: calc(" + cH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
+    c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
 
     // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 
-    if (wD >= 290 && cH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
-        if (!(wD >= 310 && cH <= 550)) { // if width/height NOT within 310px and 550px
+    if (wD >= 290 && aH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
+        if (!(wD >= 310 && aH <= 550)) { // if width/height NOT within 310px and 550px
             c_css("#profile_image", "width: 17rem; height: 17rem;", false, null); // apply style mod
-            c_css("#link_3", "height: calc(" + cH + "px - (29.32rem + 2 * (" + mg + ")));", false, null);
+            c_css("#link_3", "height: calc(" + aH + "px - (29.32rem + 2 * (" + mg + ")));", false, null);
         } else {
-            c_css("#link_3", "height: calc(" + cH + "px - (26.32rem + ((480px - 27.5rem) / 3)));", false, null);
+            c_css("#link_3", "height: calc(" + aH + "px - (26.32rem + ((480px - 27.5rem) / 3)));", false, null);
         }
     }
 
-    c_css("#ham_C", "margin-top: calc((" + cH + "px - 16rem) / 2);", false, null);
+    c_css("#ham_C", "margin-top: calc((" + aH + "px - 16rem) / 2);", false, null);
 
     if (!op.b.s) { // if browser platform is NOT Safari
 
@@ -125,7 +125,7 @@ function scrollArrowIterate(m) {
 }
 
 function peek() {
-    var t = cH * 0.2;
+    var t = aH * 0.2;
     window.scrollTo(0, t);
 
     // 4 rem
