@@ -92,6 +92,10 @@ var disp = document.getElementById("display_sc"), // display
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
+            if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
+                setCookie("maxHeight", cH, op.c.t); // update
+                aH = getCookie("maxHeight");
+            } 
             if (!rL.e4) {
                 rL.e4 = true;
                 e_Fd(rL.m, false); // show load-box
@@ -115,6 +119,7 @@ function docRead() {
                         if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
                             pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
                             op.c.u = true; // message accepted
+                            /*
                             if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
                                 setCookie("maxHeight", cH, op.c.t); // update
                                 aH = getCookie("maxHeight");
