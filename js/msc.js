@@ -75,6 +75,8 @@ var wH = window.innerHeight, // height
 
 if (getCookie("maxHeight")) {
     var aH = getCookie("maxHeight");
+} else {
+    aH = cH;
 }
 
 op = { 
