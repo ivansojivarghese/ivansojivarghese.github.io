@@ -89,9 +89,11 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         hm.b.addEventListener("mouseover", h_mBv); // add hover feature - default
         hm.b.addEventListener("mouseout", h_mBv);
         */
-        if (hm.k3) {
-            el.lk3.classList.remove("z-G");
-        }
+        setTimeout(function() {
+            if (hm.k3) {
+                el.lk3.classList.remove("z-G");
+            }
+        }, op.t);
     }   
 }
 
