@@ -155,7 +155,7 @@ op = {
     },
     nav : { // navigation
         d : document.referrer, // check for previous URI
-        r : (document.referrer === dev.url) ? true : false, // page reload check
+        r : (document.referrer === window.location.href) ? true : false, // page reload check
         fb : false, // page forward/backward nav. check
         n : false, // page nav. check (direct)
         b : true // URL bar in view check
