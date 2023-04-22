@@ -19,6 +19,7 @@ var hm = { // hamburger menu object
         zh : true, // ready status (button hover effect)
         m : false, // mouse-move status (within button)
         a : false, // click activity (from open menu - close menu)
+        k3 : false, // link_3 activation
         id : 0 // input id
     },
     up = { // [user] input
@@ -57,8 +58,11 @@ function h_mBv() { // ham. menu button hover stroke(s) dynamics
 
 function h_mBs(s) { // ham. menu stroke(s) dynamics
     if (s) { // if opening
+        if (hm.k3) {
+            el.lk3.classList.add("z-G");
+        }
         hm.zh = false;
-
+        
         // c_rep(hm.k[0], "bC_d", "bC_L"); // change (upper/lower) strokes to light contrast (white) base colours
         e_Fd(hm.k[1], true); // hide middle stroke from view
         // c_rep(hm.k[2], "bC_d", "bC_L");
@@ -73,7 +77,6 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         hm.b.removeEventListener("mouseout", h_mBv);
         */
     } else { // if closing
-
         // c_rep(hm.k[0], "bC_L", "bC_d"); // reverse effect
         e_Fd(hm.k[1], false);
         // c_rep(hm.k[2], "bC_L", "bC_d");
@@ -86,7 +89,9 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         hm.b.addEventListener("mouseover", h_mBv); // add hover feature - default
         hm.b.addEventListener("mouseout", h_mBv);
         */
-
+        if (hm.k3) {
+            el.lk3.classList.remove("z-G");
+        }
     }   
 }
 

@@ -102,6 +102,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
             scrollArrowIterate(true); // start iteration
         } else {
             scrollArrowIterate(false); // start iteration (single)
+            hm.k3 = true;
             el.lk3.classList.remove("z-G");
             el.lk3.addEventListener("click", peek); // add peek feature
         }
