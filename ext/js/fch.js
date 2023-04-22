@@ -125,5 +125,6 @@ function scrollArrowIterate(m) {
 }
 
 function peek() {
-    window.scrollTo(0, 30);
+    var t = cH * 1.2;
+    window.scrollTo(0, t);
 }
