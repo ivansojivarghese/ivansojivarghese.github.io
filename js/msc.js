@@ -3,6 +3,7 @@
 
 var wH = window.innerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
+    aH = 0, // actual, viewable height
     //elementHeight = document.getElementById("control-height"),
     //barHeight = getBd(elementHeight, "height") - wH,
     //barHeightTemp = barHeight, // temp. hold
