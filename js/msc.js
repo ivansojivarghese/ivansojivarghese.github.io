@@ -73,6 +73,64 @@ var wH = window.innerHeight, // height
         }
     };    
 
+/////////////////////////////////////////////////////
+
+function renderTime() { 
+    var n = op.d.getTime(),
+        t = n - performance.timing.navigationStart; 
+    return t;
+    /*
+    rL.xes.innerHTML = "~" + (t/1000).toFixed(0) + "s";
+    e_Fd(rL.xes, false);
+    */
+}
+
+window.addEventListener("DOMContentLoaded", function() { // 1 - base html/css/scripts
+    op.Ld.dom = renderTime();
+}); 
+window.addEventListener("load", function() { // 2 - full load
+    op.Ld.a = renderTime();
+}); 
+
+/*
+const obs = new PerformanceObserver((list) => {
+    list.getEntries().forEach((entry) => {
+      console.log(
+        `The time to ${entry.name} was ${entry.startTime} milliseconds.`
+      );
+      // Logs "The time to first-paint was 386.7999999523163 milliseconds."
+      // Logs "The time to first-contentful-paint was 400.6999999284744 milliseconds."
+    });
+  });*/
+
+const ob = new PerformanceObserver((list) => {
+    const entries = list.getEntries();
+    const lastEntry = entries[entries.length - 1]; // Use the latest LCP candidate
+    console.log("LCP:", lastEntry.startTime);
+    console.log(lastEntry);
+});
+
+ob.observe({ type: "largest-contentful-paint", buffered: true });
+  // obs.observe({ type: "paint", buffered: true });
+
+const observer = new PerformanceObserver((list) => { // take note of performance events, as recorded in browser timeline
+    list.getEntries().forEach((entry) => { // obtain details from an entryType
+        if (entry.type === "navigate") {
+            op.nav.n = true; // detect a direct nav.
+        }
+        if (entry.type === "back_forward") {
+            op.nav.fb = true; // detect a forward/backward nav.
+        }
+        if (entry.type === "reload") { 
+            op.nav.r = true; // detect a reload
+        }
+    })
+});
+
+observer.observe({type: "navigation", buffered: true}); // observe a navigation entryType
+
+////////////////////////////////////////
+
 if (getCookie("maxHeight")) {
     var aH = getCookie("maxHeight"); // get height from cookie
 } else {
@@ -295,63 +353,6 @@ completeInterval = setInterval(function() {
       }
     }
   }, 450);*/
-
-/////////////////////////////////////////////////////
-
-function renderTime() { 
-    var n = op.d.getTime(),
-        t = n - performance.timing.navigationStart; 
-    return t;
-    /*
-    rL.xes.innerHTML = "~" + (t/1000).toFixed(0) + "s";
-    e_Fd(rL.xes, false);
-    */
-}
-
-window.addEventListener("DOMContentLoaded", function() { // 1 - base html/css/scripts
-    op.Ld.dom = renderTime();
-}); 
-window.addEventListener("load", function() { // 2 - full load
-    op.Ld.a = renderTime();
-}); 
-
-/*
-const obs = new PerformanceObserver((list) => {
-    list.getEntries().forEach((entry) => {
-      console.log(
-        `The time to ${entry.name} was ${entry.startTime} milliseconds.`
-      );
-      // Logs "The time to first-paint was 386.7999999523163 milliseconds."
-      // Logs "The time to first-contentful-paint was 400.6999999284744 milliseconds."
-    });
-  });*/
-
-  const ob = new PerformanceObserver((list) => {
-    const entries = list.getEntries();
-    const lastEntry = entries[entries.length - 1]; // Use the latest LCP candidate
-    console.log("LCP:", lastEntry.startTime);
-    console.log(lastEntry);
-  });
-  ob.observe({ type: "largest-contentful-paint", buffered: true });
-  // obs.observe({ type: "paint", buffered: true });
-
-///////////////////////////////////////
-
-const observer = new PerformanceObserver((list) => { // take note of performance events, as recorded in browser timeline
-    list.getEntries().forEach((entry) => { // obtain details from an entryType
-        if (entry.type === "navigate") {
-            op.nav.n = true; // detect a direct nav.
-        }
-        if (entry.type === "back_forward") {
-            op.nav.fb = true; // detect a forward/backward nav.
-        }
-        if (entry.type === "reload") { 
-            op.nav.r = true; // detect a reload
-        }
-    })
-});
-
-observer.observe({type: "navigation", buffered: true}); // observe a navigation entryType
 
 ///////////////////////////////////////
 
