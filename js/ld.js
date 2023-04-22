@@ -112,12 +112,12 @@ function docRead() {
                     } else {
                         Rd[Rd.length] = true; // accelerate load process
                         op.c.a = false; // user NOT initial access
-                        if (getCookie("maxHeight") !== cH) { // if height changes (increases)
-                            setCookie("maxHeight", cH, op.c.t); // update
-                        }
                         if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
                             pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
                             op.c.u = true; // message accepted
+                            if (getCookie("maxHeight") !== cH) { // if height changes (increases)
+                                setCookie("maxHeight", cH, op.c.t); // update
+                            }
                         } 
                     }
 
