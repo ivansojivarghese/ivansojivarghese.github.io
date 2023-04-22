@@ -127,4 +127,8 @@ function scrollArrowIterate(m) {
 function peek() {
     var t = cH * 0.2;
     window.scrollTo(0, t);
+
+    // 4 rem
+    // 7rem
+    // 1rem
 }
