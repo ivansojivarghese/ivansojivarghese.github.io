@@ -878,13 +878,14 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             } else if (t) {
                 pg.msg.t.classList.remove("md"); 
             }
+            /*
             if (el === pg.msg.ckA) {
                 pg.msg.ckD.style.height = getBd(el, "height") + "px"; // set height of cookie-deny message
-            }
+            }*/
         }, 10); // after short delay
     } else { // hide
         e_Sdv(el, s); // hide message
-        if (el !== pg.msg.ckD) {
+        //if (el !== pg.msg.ckD) {
             pg.msg.c = false;
             if (t && t_m) {
                 pg.msg.t.classList.remove("a"); // remove low tint
@@ -896,11 +897,12 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 el.classList.add("d_n");
                 pg.msg.el.classList.add("d_n"); // hide page
             }, op.t);
+        /*
         } else {
             setTimeout(function() {
                 el.classList.add("d_n");
             }, op.t);
-        }
+        }*/
     }
     
     if (el_s) { // internal element reveal (if applicable)
