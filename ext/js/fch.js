@@ -102,6 +102,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
             scrollArrowIterate(true); // start iteration
         } else {
             scrollArrowIterate(false); // start iteration (single)
+            el.lk3.addEventListener("click", peek); // add peek feature
         }
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
         e_Fd(el.chev, false); // show chevron
