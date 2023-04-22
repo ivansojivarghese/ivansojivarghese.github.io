@@ -117,6 +117,7 @@ function docRead() {
                             op.c.u = true; // message accepted
                             if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
                                 setCookie("maxHeight", cH, op.c.t); // update
+                                aH = getCookie("maxHeight");
                             } /*else if () {
                                 setCookie("maxHeight", aH, op.c.t); // update
                             }*/
