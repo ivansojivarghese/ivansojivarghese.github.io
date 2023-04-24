@@ -781,6 +781,13 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
 
+    // could be improved
+    // look at intervals between elements in iprData
+        // elements with (higher than average or NOT approximate) intervals with previous/forward element to be removed
+    // if majority of elements (> 60%) are double-digit, remove other digit types (triple, or single)
+        // same rule applies to single, triple digit
+        
+
     return res;
 }
 
