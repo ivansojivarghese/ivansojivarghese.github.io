@@ -302,6 +302,7 @@ op.ne.L = setInterval(async () => {
 }, op.ne.bD);
 
 function networkVariability() { // determine variability of network
+    /*
     var q2 = median(op.ne.b), // median
         q1 = medianHalf(q2, op.ne.b, true), // 25%
         q3 = medianHalf(q2, op.ne.b, false), // 75%
@@ -312,6 +313,8 @@ function networkVariability() { // determine variability of network
         range = Math.max(...cleanData) - Math.min(...cleanData),
         avg = mean(cleanData), 
         std = stdDeviation(cleanData, avg);
+    */
+    var a = dataAnalysis(op.ne.b);
 
     // remove outliers 
     // take note of extremes (in clean data)
