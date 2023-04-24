@@ -713,8 +713,6 @@ function medianHalf(t, ar, m) { // 25%/75% - q1/q3
         if (cond) {
             half[j] = sorted[i];
             j++;
-        } else {
-            break;
         }
     }
 
