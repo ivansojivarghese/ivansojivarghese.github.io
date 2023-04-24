@@ -169,6 +169,7 @@ op = {
         c : 0, // iterative count
         b : [], // array of accounted network speeds (for variability)
         bI : 60, // array refresh interval (sec.)
+        bD : 3000, // default function interval (ms.)
         bT : "nV", // "" timer tracker
         r : false, // count incrementation check
         d : false, // slow speed boolean var hold
@@ -298,7 +299,7 @@ networkConditions(); // perform network check on startup
 
 op.ne.L = setInterval(async () => {
     networkConditions(); // continuously check on network
-}, 3000);
+}, op.ne.bD);
 
 function networkVariability() { // determine variability of network
     var q2 = median(op.ne.b), // median
@@ -318,6 +319,11 @@ function networkVariability() { // determine variability of network
     // take note of number of data points that give the above stats
 
     // the lower values of range & std + high number of data points = low variability
+    // r = 0 (ideal)
+    // s = 0 (ideal)
+    // (op.ne.bI * 1000) / op.ne.bD = max number of data points (ideal)
+
+    // r * s + (m * n) = v
 
     op.ne.b = []; // empty array
 }
@@ -1090,7 +1096,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
     } else {
         op.ne.L = setInterval(async () => {
             networkConditions(); // continuously check on network
-        }, 3000);
+        }, op.ne.bD);
     }
 });
 
