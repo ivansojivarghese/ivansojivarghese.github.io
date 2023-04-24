@@ -804,7 +804,7 @@ function dataAnalysis(ar) {
         range = Math.max(...cleanData) - Math.min(...cleanData),
         avg = mean(cleanData), 
         std = stdDeviation(cleanData, avg),
-        iprData = removeAnomalies(cleanData, avg, q2, std, range);
+        iprData = removeAnomalies(cleanData, avg, q2, std, range); // improved data
 
     data = {
         data : ar,
