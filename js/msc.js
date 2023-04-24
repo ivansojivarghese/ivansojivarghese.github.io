@@ -756,7 +756,8 @@ function stdDeviation(ar, m) { // standard deviation
 }
 
 function dataAnalysis(ar) {
-    var data = {
+    var data = {};
+    data = {
         q2 : median(ar), // median
         q1 : medianHalf(data.q2, ar, true), // 25%
         q3 : medianHalf(data.q2, ar, false), // 75%
