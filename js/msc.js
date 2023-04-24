@@ -755,6 +755,7 @@ function dataAnalysis(ar) {
         std = stdDeviation(cleanData, avg);
 
     data = {
+        data : ar,
         q2 : q2,
         q1 : q1,
         q3 : q3,
