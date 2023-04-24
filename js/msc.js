@@ -752,7 +752,8 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         ], c = 0, t = false,
         sorted = c_ar.sort(function(a, b){return a-b}), // sort in asc. order 
         uL = 0, // upper limit
-        wL = 0; // lower limit
+        wL = 0, // lower limit
+        res = [];
 
     for (i = 0; i < e.length - 1; i++) {
         if (c < 2) {
@@ -766,12 +767,21 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     }
 
     if (t) { // use mean
-        uL = a + s;
+        uL = a + s; // upper limit = mean + std.
         wL = a - s;
     } else { // use median
         uL = m + s;
         wL = m - s;
     }
+
+    for (j = 0, k = 0; j < sorted.length - 1; j++) { // loop elements that fit rules into new array
+        if (sorted[j] > wL && sorted[j] < uL) {
+            res[k] = sorted[j];
+            k++;
+        }
+    }
+
+    return res;
 }
 
 function stdDeviation(ar, m) { // standard deviation
