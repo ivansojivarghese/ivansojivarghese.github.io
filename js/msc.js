@@ -722,7 +722,7 @@ function medianHalf(t, ar, m) { // 25%/75% - q1/q3
 function median(ar) { // median - q2
     var mid = Math.floor(ar.length / 2), // get middle value
         sorted = ar.sort(function(a, b){return a-b}); // sort in asc. order
-        res = ar.length % 2 !== 0 ? sorted[mid] : (sorted[mid] + sorted[mid - 1] / 2); // find result
+        res = ar.length % 2 !== 0 ? sorted[mid] : ((sorted[mid] + sorted[mid - 1]) / 2); // find result
     return res;
 }
 
