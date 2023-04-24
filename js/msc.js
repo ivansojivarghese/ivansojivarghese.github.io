@@ -321,7 +321,10 @@ function networkVariability() { // determine variability of network
     // the lower values of range & std + high number of data points = low variability
     // r = 0 (ideal)
     // s = 0 (ideal)
-    // (op.ne.bI * 1000) / op.ne.bD = max number of data points (ideal)
+    // var t = (op.ne.bI * 1000) / op.ne.bD; = max number of data points (ideal)
+    // f = (t - c > 0) ? t - c : 0;
+
+    // v = r + s + f;
 
     // r * s + (m * n) = v
 
@@ -746,6 +749,22 @@ function stdDeviation(ar, m) { // standard deviation
         res += Math.pow((ar[i] - m), 2);
     }
     return Math.sqrt(res / ar.length);
+}
+
+function dataAnalysis(ar) {
+    var data = {
+        q2 : median(ar), // median
+        q1 : medianHalf(data.q2, ar, true), // 25%
+        q3 : medianHalf(data.q2, ar, false), // 75%
+        iqr : data.q3 - data.q1,
+        outL : data.q1 - (1.5 * data.iqr), // lower outliers
+        outU : data.q3 + (1.5 * data.iqr), // "" upper
+        cleanData : cleanOutliers(ar, data.outL, data.outU), // remove outliers
+        range : Math.max(...data.cleanData) - Math.min(...data.cleanData),
+        avg : mean(data.cleanData), 
+        std : stdDeviation(data.cleanData, data.avg)
+    };
+    return data;
 }
 
 //////////////////////////////////////////
