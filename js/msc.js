@@ -709,7 +709,7 @@ function medianHalf(t, ar, m) { // 25%/75% - q1/q3
         half = []; // array halved
 
     for (i = 0, j = 0; i <= ar.length - 1; i++) { // loop through array
-        cond = m ? sorted[i] < t : sorted[i] > t; // find 25% if m = true, else otherwise
+        cond = m ? sorted[i] <= t : sorted[i] >= t; // find 25% if m = true, else otherwise
         if (cond) {
             half[j] = sorted[i];
             j++;
