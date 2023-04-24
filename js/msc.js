@@ -691,6 +691,13 @@ function c_Sr() { // check for scrolling activity (in live)
 
 // stats
 
+function approxNum(v1, v2, e) { // check if 2 numbers are approximate
+    if (e === null) {
+      e = 5;
+    }
+    return Math.abs(v1 - v2) < e;
+}
+
 function medianHalf(t, ar, m) { // 25%/75% - q1/q3
     var sorted = ar.sort(function(a, b){return a-b}), // sort in asc. order
         cond, // condition
@@ -733,10 +740,34 @@ function cleanOutliers(ar, L, u) { // remove outliers
     return res;
 }
 
-function removeAnomalies(c_ar, m, s) { // remove further anomalies (possible undetected outliers)
+function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possible undetected outliers)
 
     // when no extreme observations, mean is more accurate.
     // with extreme observations, median is more accurate
+
+    var e = [ // checks to detect if data has NOT extremes
+        approxNum(a, m), // check if mean and median are approximately close
+        r < a, // if range less than mean
+        r < m // if range less than median
+    ], c = 0, t = false;
+
+    for (i = 0; i < e.length - 1; i++) {
+        if (c < 2) {
+            if (e[i] === true) { // obtain 2 / 3 checks
+                c++;
+            }
+        } else {
+            t = true; // data NOT extreme
+            break;
+        }
+    }
+
+    if (t) {
+        // use mean 
+    } else {
+        // use median
+    }
+
 }
 
 function stdDeviation(ar, m) { // standard deviation
