@@ -756,19 +756,31 @@ function stdDeviation(ar, m) { // standard deviation
 }
 
 function dataAnalysis(ar) {
-    var data = {};
+    var data = {},
+        q2 = median(ar), // median
+        q1 = medianHalf(q2, ar, true), // 25%
+        q3 = medianHalf(q2, ar, false), // 75%
+        iqr = q3 - q1,
+        outL = q1 - (1.5 * iqr), // lower outliers
+        outU = q3 + (1.5 * iqr), // "" upper
+        cleanData = cleanOutliers(ar, outL, outU), // remove outliers
+        range = Math.max(...cleanData) - Math.min(...cleanData),
+        avg = mean(cleanData), 
+        std = stdDeviation(cleanData, avg);
+
     data = {
-        q2 : median(ar), // median
-        q1 : medianHalf(data.q2, ar, true), // 25%
-        q3 : medianHalf(data.q2, ar, false), // 75%
-        iqr : data.q3 - data.q1,
-        outL : data.q1 - (1.5 * data.iqr), // lower outliers
-        outU : data.q3 + (1.5 * data.iqr), // "" upper
-        cleanData : cleanOutliers(ar, data.outL, data.outU), // remove outliers
-        range : Math.max(...data.cleanData) - Math.min(...data.cleanData),
-        avg : mean(data.cleanData), 
-        std : stdDeviation(data.cleanData, data.avg)
-    };
+        q2 : q2,
+        q1 : q1,
+        q3 : q3,
+        iqr : iqr,
+        outL : outL,
+        outU : outU,
+        cleanData : cleanData,
+        range : range,
+        avg : avg,
+        std : std
+    }
+
     return data;
 }
 
