@@ -803,7 +803,8 @@ function dataAnalysis(ar) {
         cleanData = cleanOutliers(ar, outL, outU), // remove outliers
         range = Math.max(...cleanData) - Math.min(...cleanData),
         avg = mean(cleanData), 
-        std = stdDeviation(cleanData, avg);
+        std = stdDeviation(cleanData, avg),
+        iprData = removeAnomalies(cleanData, avg, q2, std, range);
 
     data = {
         data : ar,
@@ -816,7 +817,8 @@ function dataAnalysis(ar) {
         cleanData : cleanData,
         range : range,
         avg : avg,
-        std : std
+        std : std,
+        iprData : iprData
     }
 
     return data;
