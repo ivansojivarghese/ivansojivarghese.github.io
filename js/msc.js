@@ -315,6 +315,7 @@ function networkVariability() { // determine variability of network
         std = stdDeviation(cleanData, avg);
     */
     var a = dataAnalysis(op.ne.b);
+    console.log(a);
 
     // remove outliers 
     // take note of extremes (in clean data)
