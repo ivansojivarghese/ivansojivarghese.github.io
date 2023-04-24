@@ -733,6 +733,12 @@ function cleanOutliers(ar, L, u) { // remove outliers
     return res;
 }
 
+function removeAnomalies(c_ar, m, s) { // remove further anomalies (possible undetected outliers)
+
+    // when no extreme observations, mean is more accurate.
+    // with extreme observations, median is more accurate
+}
+
 function stdDeviation(ar, m) { // standard deviation
     var res = 0;
     for (i = 0; i <= ar.length - 1; i++) {
