@@ -753,9 +753,14 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         sorted = c_ar.sort(function(a, b){return a-b}), // sort in asc. order 
         uL = 0, // upper limit
         wL = 0, // lower limit
-        res = [];
+        ipr = [], // improve - 1
+        iprItv = {
+            g : 0, // average of intervals
+            t : [], // intervals
+            a : [] // improve - 2
+        }
 
-    for (i = 0; i < e.length - 1; i++) {
+    for (i = 0; i <= e.length - 1; i++) {
         if (c < 2) {
             if (e[i] === true) { // obtain 2 / 3 checks
                 c++;
@@ -774,19 +779,30 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         wL = m - s;
     }
 
-    for (j = 0, k = 0; j < sorted.length - 1; j++) { // loop elements that fit rules into new array
-        if (sorted[j] > wL && sorted[j] < uL) {
-            res[k] = sorted[j];
+    for (j = 0, k = 0; j <= sorted.length - 1; j++) { // loop elements that fit rules into new array
+        if (sorted[j] > wL && sorted[j] < uL) { // if elements are within lower and upper boundaries
+            ipr[k] = sorted[j];
             k++;
         }
     }
+    for (m = 0, n = 0; m <= ipr.length - 1; m++) {
+        if (m > 0) { // at 2nd element or after
+            iprItv.t[n] = Math.abs(ipr[m] - ipr[m - 1]); // get the interval between 2 consecutive elements
+            iprItv.g += iprItv[n]; // cumulative intervals
+            if (m === ipr.length - 1) { // at last element
+                iprItv.g = iprItv.g / (n + 1); // cal. average interval
+            } else {
+                n++;
+            }
+        }
+    }
 
-    // could be improved
     // look at intervals between elements in iprData
-        // elements with (higher than average or NOT approximate) intervals with previous/forward element to be removed
+        // get the average interval
+        // elements with (higher/lower than average BUT NOT approximate) intervals with previous/forward element to be removed
+
     // if majority of elements (> 60%) are double-digit, remove other digit types (triple, or single)
         // same rule applies to single, triple digit
-        
 
     return res;
 }
