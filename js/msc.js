@@ -801,6 +801,16 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     for (p = 0, q = 0; p <= iprItv.t[p].length - 1; p++) {
         if (approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are approx. to average, based on std.
             // iprItv.a[q] = 
+
+            // suppose 6 speed data points, with 5 intervals
+            // a big 'gap' interval detected in between point indexes 1 & 2
+            // find majority-minority stake in array set of data, split at big interval location
+            // RATIO of majority? 60/40, 70/30, 65/35??
+            // discard minority set - continue with majority set
+
+            // IF big 'gap' detected in between indexes 2 & 3, 
+            // majority-minority stake is EQUAL?
+            // HOW TO DETERMINE REMOVALS? PROCEED TO NEXT STAGE?
         }
     }
 
