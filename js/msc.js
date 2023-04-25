@@ -756,6 +756,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         ipr = [], // improve - 1
         iprItv = {
             g : 0, // average of intervals
+            s : 0, // std of intervals
             t : [], // intervals
             a : [] // improve - 2
         }
@@ -792,22 +793,25 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             if (m === ipr.length - 1) { // at last element
                 iprItv.g = iprItv.g / (n + 1); // cal. average interval
             } else {
-                n++;
+                n++; 
             }
         }
     }
-    for (p = 0; p <= iprItv.t[p].length - 1; p++) {
-        if (approxNum(iprItv.t[p], iprItv.g, null)) { // if intervals are approx. to average
-
+    iprItv.s = stdDeviation(iprItv.t, iprItv.g); // cal. std. of intervals with average
+    for (p = 0, q = 0; p <= iprItv.t[p].length - 1; p++) {
+        if (approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are approx. to average, based on std.
+            // iprItv.a[q] = 
         }
     }
 
     // look at intervals between elements in iprData
-        // get the average interval
+        // get the average/median interval
         // elements with (higher/lower than average BUT NOT approximate) intervals with previous/forward element to be removed
 
     // if majority of elements (> 60%) are double-digit, remove other digit types (triple, or single)
         // same rule applies to single, triple digit
+
+    // look at speeds/intervals at beginning of array, if slow speeds are accounted for majority fast network at beginning?
 
     return res;
 }
