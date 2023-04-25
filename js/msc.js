@@ -796,6 +796,11 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             }
         }
     }
+    for (p = 0; p <= iprItv.t[p].length - 1; p++) {
+        if (approxNum(iprItv.t[p], iprItv.g, null)) { // if intervals are approx. to average
+
+        }
+    }
 
     // look at intervals between elements in iprData
         // get the average interval
