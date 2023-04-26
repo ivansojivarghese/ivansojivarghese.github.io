@@ -25,7 +25,7 @@ var wH = window.innerHeight, // height
             cappuccinosNo : 245
         },
         version : "2.0", // site version
-        version_up : null, // version upgrade (if applicable, during maintenance)
+        version_up : "2.1", // version upgrade (if applicable, during maintenance)
     },
     pos = { // scroll pos. (window)
         y : 0, // y-pos
