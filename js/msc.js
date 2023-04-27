@@ -692,10 +692,14 @@ function c_Sr() { // check for scrolling activity (in live)
 // stats
 
 function approxNum(v1, v2, e) { // check if 2 numbers are approximate
-    if (e === null) {
-      e = 5;
+    if ((!v1 || !v2) && e) {
+        return true;
+    } else {
+        if (e === null) {
+            e = 5;
+        }
+        return Math.abs(v1 - v2) < e;
     }
-    return Math.abs(v1 - v2) < e;
 }
 
 function medianHalf(t, ar, m) { // 25%/75% - q1/q3
