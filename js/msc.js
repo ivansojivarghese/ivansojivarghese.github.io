@@ -819,8 +819,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
 
             // iprItv.a[q] = 
 
-            // DONT COUNT IN THE ZERO VALUES in avg and std-dev functions specifically for this case
-            // THEN TRY THE NEW CHANGES IN CONSOLE
+            
 
             // suppose 6 speed data points, with 5 intervals
             // a big 'gap' interval detected in between point indexes 1 & 2
