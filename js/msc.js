@@ -757,6 +757,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         iprItv = {
             g : 0, // average of intervals
             s : 0, // std of intervals
+            r : 0, // no. of non-zero elements
             t : [], // intervals
             a : [] // improve - 2
         }
@@ -786,12 +787,12 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             k++;
         }
     }
-    for (m = 0, n = 0, q = 0; m <= ipr.length - 1; m++) {
+    for (m = 0, n = 0; m <= ipr.length - 1; m++) {
         if (m > 0) { // at 2nd element or after
             iprItv.t[n] = Math.abs(ipr[m] - ipr[m - 1]); // get the interval between 2 consecutive elements
             iprItv.g += iprItv.t[n]; // cumulative intervals
             if (iprItv.t[n] !== 0) {
-                q++;
+                iprItv.q++;
             }
             if (m === ipr.length - 1) { // at last element
                 iprItv.g = iprItv.g / q; // cal. average interval (among non-zero values only)
@@ -800,7 +801,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             }
         }
     }
-    iprItv.s = stdDeviation(iprItv.t, iprItv.g); // cal. std. of intervals with average
+    iprItv.s = stdDeviation(iprItv.t, iprItv.g, iprItv.q); // cal. std. of intervals with average
     var res = [];
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
         if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are NOT approx. to average, based on std.
