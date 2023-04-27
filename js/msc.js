@@ -836,12 +836,12 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     return res;
 }
 
-function stdDeviation(ar, m) { // standard deviation
+function stdDeviation(ar, m, q) { // standard deviation
     var res = 0;
     for (i = 0; i <= ar.length - 1; i++) {
         res += Math.pow((ar[i] - m), 2);
     }
-    return Math.sqrt(res / ar.length);
+    return q ? Math.sqrt(res / q) : Math.sqrt(res / ar.length);
 }
 
 function dataAnalysis(ar) {
@@ -855,7 +855,7 @@ function dataAnalysis(ar) {
         cleanData = cleanOutliers(ar, outL, outU), // remove outliers
         range = Math.max(...cleanData) - Math.min(...cleanData),
         avg = mean(cleanData), 
-        std = stdDeviation(cleanData, avg),
+        std = stdDeviation(cleanData, avg, null),
         iprData = removeAnomalies(cleanData, avg, q2, std, range); // improved data
 
     data = {
