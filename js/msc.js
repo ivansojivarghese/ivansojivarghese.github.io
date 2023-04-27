@@ -791,6 +791,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             k++;
         }
     }
+    console.log(ipr);
     for (m = 0, n = 0, q = 0; m <= ipr.length - 1; m++) {
         if (m > 0) { // at 2nd element or after
             iprItv.t[n] = Math.abs(ipr[m] - ipr[m - 1]); // get the interval between 2 consecutive elements
