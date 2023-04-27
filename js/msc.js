@@ -815,7 +815,6 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     var res = [];
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
         if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are NOT approx. to average, based on std.
-
             iprItv[iprItv.d.length] = p; // store the index in
 
             // DIVIDE interval array into 3 segments. Front, middle & back, Front & back are considered extremes.
