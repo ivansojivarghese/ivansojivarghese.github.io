@@ -819,7 +819,10 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
 
             // iprItv.a[q] = 
 
-            
+            // DIVIDE interval array into 3 segments. Front, middle & back, Front & back are considered extremes.
+                // if (n % 3 == 0) elements, divided evenly
+                // if (n % 3 == 1) elements, divided evenly, with extra element in middle
+                // if (n % 3 == 2) elements, divided evenly, with extra elements in extremes.
 
             // suppose 6 speed data points, with 5 intervals
             // a big 'gap' interval detected in between point indexes 1 & 2
