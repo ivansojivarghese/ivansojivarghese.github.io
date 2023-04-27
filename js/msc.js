@@ -795,7 +795,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                 iprItv.q++;
             }
             if (m === ipr.length - 1) { // at last element
-                iprItv.g = iprItv.g / q; // cal. average interval (among non-zero values only)
+                iprItv.g = iprItv.g / iprItv.q; // cal. average interval (among non-zero values only)
             } else {
                 n++; 
             }
