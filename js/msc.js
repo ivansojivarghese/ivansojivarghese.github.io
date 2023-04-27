@@ -808,6 +808,8 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     }
     iprItv.s = stdDeviation(iprItv.t, iprItv.g, iprItv.q); // cal. std. of intervals with average
     console.log(iprItv.t);
+    console.log("g: " + iprItv.g);
+    console.log("q: " + iprItv.q);
     var res = [];
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
         if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are NOT approx. to average, based on std.
