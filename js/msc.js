@@ -763,6 +763,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             s : 0, // std of intervals
             r : 0, // no. of non-zero elements
             t : [], // intervals
+            d : [], // focused intervals (indexed)
             a : [] // improve - 2
         }
 
@@ -815,9 +816,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
         if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are NOT approx. to average, based on std.
 
-            res[res.length] = p;
-
-            // iprItv.a[q] = 
+            iprItv[iprItv.d.length] = p; // store the index in
 
             // DIVIDE interval array into 3 segments. Front, middle & back, Front & back are considered extremes.
                 // if (n % 3 == 0) elements, divided evenly
