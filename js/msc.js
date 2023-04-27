@@ -786,12 +786,15 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             k++;
         }
     }
-    for (m = 0, n = 0; m <= ipr.length - 1; m++) {
+    for (m = 0, n = 0, q = 0; m <= ipr.length - 1; m++) {
         if (m > 0) { // at 2nd element or after
             iprItv.t[n] = Math.abs(ipr[m] - ipr[m - 1]); // get the interval between 2 consecutive elements
             iprItv.g += iprItv.t[n]; // cumulative intervals
+            if (iprItv.t[n] !== 0) {
+                q++;
+            }
             if (m === ipr.length - 1) { // at last element
-                iprItv.g = iprItv.g / (n + 1); // cal. average interval
+                iprItv.g = iprItv.g / q; // cal. average interval (among non-zero values only)
             } else {
                 n++; 
             }
