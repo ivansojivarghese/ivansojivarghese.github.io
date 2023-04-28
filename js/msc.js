@@ -762,6 +762,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             g : 0, // average of intervals
             s : 0, // std of intervals
             r : 0, // no. of non-zero elements
+            v : [], // checkpoints
             t : [], // intervals
             d : [], // focused intervals (indexed)
             a : [] // improve - 2
@@ -801,8 +802,18 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                 q++;
             }
             if (m === ipr.length - 1) { // at last element
+                var s = iprItv.t.length % 3; // get remainder
                 iprItv.q = q;
                 iprItv.g = iprItv.g / iprItv.q; // cal. average interval (among non-zero values only)
+                for (w = 0; w <= 2; w++) { // divide into 3 segments
+                    iprItv.v[w] = (((iprItv.t.length - s) / 3) * (w + 1)) - 1;
+                }
+                if (s) {
+                    iprItv.v[s]++; // add the remainder(s) to respective segments
+                    if (iprItv.v[s - 2]) {
+                        iprItv.v[s - 2]++;
+                    }
+                }
             } else {
                 n++; 
             }
