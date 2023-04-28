@@ -793,7 +793,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             k++;
         }
     }
-    console.log(ipr);
+    // console.log(ipr);
     for (m = 0, n = 0, q = 0; m <= ipr.length - 1; m++) {
         if (m > 0) { // at 2nd element or after
             iprItv.t[n] = Math.abs(ipr[m] - ipr[m - 1]); // get the interval between 2 consecutive elements
@@ -808,11 +808,16 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                 for (w = 0; w <= 2; w++) { // divide into 3 segments
                     iprItv.v[w] = (((iprItv.t.length - s) / 3) * (w + 1)) - 1;
                 }
-                if (s) {
-                    iprItv.v[s]++; // add the remainder(s) to respective segments
-                    if (iprItv.v[s - 2]) {
-                        iprItv.v[s - 2]++;
-                    }
+                switch (s) {
+                    case 1: // remainder: 1
+                        iprItv.v[s]++; // add the remainder(s) to respective segments
+                        iprItv.v[s + 1]++;
+                    break;
+                    case 2: // remainder: 2
+                        iprItv.v[s - 2]++; // add 1 to segment 1
+                        iprItv.v[s - 1]++;
+                        iprItv.v[s] += 2; // add 2 to last segment
+                    break;
                 }
             } else {
                 n++; 
@@ -820,13 +825,13 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
     iprItv.s = stdDeviation(iprItv.t, iprItv.g, iprItv.q); // cal. std. of intervals with average
-    console.log(iprItv.t);
-    console.log("g: " + iprItv.g);
-    console.log("s: " + iprItv.s);
-    var res = [];
+    // console.log(iprItv.t);
+    // console.log("g: " + iprItv.g);
+    // console.log("s: " + iprItv.s);
+    // var res = [];
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
         if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are NOT approx. to average, based on std.
-            iprItv[iprItv.d.length] = p; // store the index in
+            iprItv.d[iprItv.d.length] = p; // store the index
 
             // DIVIDE interval array into 3 segments. Front, middle & back, Front & back are considered extremes.
                 // if (n % 3 == 0) elements, divided evenly
@@ -845,6 +850,8 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
 
+
+
     // look at intervals between elements in iprData
         // get the average/median interval
         // elements with (higher/lower than average BUT NOT approximate) intervals with previous/forward element to be removed
@@ -854,7 +861,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
 
     // look at speeds/intervals at beginning of array, if slow speeds are accounted for majority fast network at beginning?
 
-    return res;
+    return iprItv.a;
 }
 
 function stdDeviation(ar, m, q) { // standard deviation
