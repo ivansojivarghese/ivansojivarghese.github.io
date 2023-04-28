@@ -765,6 +765,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             v : [], // checkpoints
             t : [], // intervals
             d : [], // focused intervals (indexed)
+            m : [], // removal intervals (indexed)
             a : [] // improve - 2
         }
 
@@ -849,9 +850,10 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             // HOW TO DETERMINE REMOVALS? PROCEED TO NEXT STAGE?
         }
     }
-    for (r = 0; r <= iprItv.d.length - 1; r++) {
-        if (iprItv.d[r] <= iprItv.v[0] || (iprItv.d[r] >= iprItv.v[1] && iprItv.d[r] >= iprItv.v[2])) { // if indexes at extreme endpoints
-
+    for (r = 0, z = 0; r <= iprItv.d.length - 1; r++) {
+        if (iprItv.d[r] <= iprItv.v[0] || (iprItv.d[r] >= iprItv.v[1] && iprItv.d[r] <= iprItv.v[2])) { // if indexes at extreme endpoints
+            iprItv.m[z] = iprItv.d[r]; // count in for removal
+            z++;
         }
     }
 
