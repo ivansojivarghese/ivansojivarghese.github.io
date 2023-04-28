@@ -849,7 +849,11 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             // HOW TO DETERMINE REMOVALS? PROCEED TO NEXT STAGE?
         }
     }
+    for (r = 0; r <= iprItv.d.length - 1; r++) {
+        if (iprItv.d[r] <= iprItv.v[0] || (iprItv.d[r] >= iprItv.v[1] && iprItv.d[r] >= iprItv.v[2])) { // if indexes at extreme endpoints
 
+        }
+    }
 
 
     // look at intervals between elements in iprData
