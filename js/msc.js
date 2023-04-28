@@ -851,7 +851,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
     for (r = 0, z = 0; r <= iprItv.d.length - 1; r++) {
-        if (iprItv.d[r] <= iprItv.v[0] || (iprItv.d[r] >= iprItv.v[1] && iprItv.d[r] <= iprItv.v[2])) { // if indexes at extreme endpoints
+        if (iprItv.d[r] <= iprItv.v[0] || (iprItv.d[r] >= iprItv.v[1] && iprItv.d[r] <= iprItv.v[2])) { // if indexes at extreme segment-thirds
             iprItv.m[z] = iprItv.d[r]; // count in for removal
             z++;
         }
