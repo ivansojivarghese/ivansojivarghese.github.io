@@ -826,7 +826,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
     iprItv.s = stdDeviation(iprItv.t, iprItv.g, iprItv.q); // cal. std. of intervals with average
-    // console.log(iprItv.t);
+    console.log(iprItv.t);
     // console.log("g: " + iprItv.g);
     // console.log("s: " + iprItv.s);
     // var res = [];
@@ -857,7 +857,6 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
 
-
     // look at intervals between elements in iprData
         // get the average/median interval
         // elements with (higher/lower than average BUT NOT approximate) intervals with previous/forward element to be removed
@@ -867,7 +866,8 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
 
     // look at speeds/intervals at beginning of array, if slow speeds are accounted for majority fast network at beginning?
 
-    return iprItv.a;
+    // return iprItv.a;
+    return iprItv.m;
 }
 
 function stdDeviation(ar, m, q) { // standard deviation
