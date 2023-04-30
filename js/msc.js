@@ -794,7 +794,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             k++;
         }
     }
-    console.log(ipr);
+    // console.log(ipr);
     for (m = 0, n = 0, q = 0; m <= ipr.length - 1; m++) {
         if (m > 0) { // at 2nd element or after
             iprItv.t[n] = Math.abs(ipr[m] - ipr[m - 1]); // get the interval between 2 consecutive elements
@@ -820,38 +820,29 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                         iprItv.v[s] += 2; // add 2 to last segment
                     break;
                 }
+
+                // DIVIDE interval array into 3 segments. Front, middle & back, Front & back are considered extremes.
+                // if (n % 3 == 0) elements, divided evenly
+                // if (n % 3 == 1) elements, divided evenly, with extra element in middle
+                // if (n % 3 == 2) elements, divided evenly, with extra elements in extremes.
+
             } else {
                 n++; 
             }
         }
     }
     iprItv.s = stdDeviation(iprItv.t, iprItv.g, iprItv.q); // cal. std. of intervals with average
-    console.log(iprItv.t);
+    // console.log(iprItv.t);
     // console.log("g: " + iprItv.g);
     // console.log("s: " + iprItv.s);
     // var res = [];
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
         if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are NOT approx. to average, based on std.
             iprItv.d[iprItv.d.length] = p; // store the index
-
-            // DIVIDE interval array into 3 segments. Front, middle & back, Front & back are considered extremes.
-                // if (n % 3 == 0) elements, divided evenly
-                // if (n % 3 == 1) elements, divided evenly, with extra element in middle
-                // if (n % 3 == 2) elements, divided evenly, with extra elements in extremes.
-
-            // suppose 6 speed data points, with 5 intervals
-            // a big 'gap' interval detected in between point indexes 1 & 2
-            // find majority-minority stake in array set of data, split at big interval location
-            // RATIO of majority? 60/40, 70/30, 65/35??
-            // discard minority set - continue with majority set
-
-            // IF big 'gap' detected in between indexes 2 & 3, 
-            // majority-minority stake is EQUAL?
-            // HOW TO DETERMINE REMOVALS? PROCEED TO NEXT STAGE?
         }
     }
-    console.log(iprItv.v);
-    console.log(iprItv.d);
+    // console.log(iprItv.v);
+    // console.log(iprItv.d);
     for (r = 0, z = 0; r <= iprItv.d.length - 1; r++) {
         if (iprItv.d[r] <= iprItv.v[0] || (iprItv.d[r] > iprItv.v[1] && iprItv.d[r] <= iprItv.v[2])) { // if indexes at extreme segment-thirds
             iprItv.m[z] = iprItv.d[r]; // count in for removal
@@ -859,12 +850,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
 
-    // look at intervals between elements in iprData
-        // get the average/median interval
-        // elements with (higher/lower than average BUT NOT approximate) intervals with previous/forward element to be removed
-
-    // if majority of elements (> 60%) are double-digit, remove other digit types (triple, or single)
-        // same rule applies to single, triple digit
+    // PROCEED WITH REMOVAL!
 
     // look at speeds/intervals at beginning of array, if slow speeds are accounted for majority fast network at beginning?
 
