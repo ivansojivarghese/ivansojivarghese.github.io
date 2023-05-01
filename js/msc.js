@@ -766,6 +766,8 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             t : [], // intervals
             d : [], // focused intervals (indexed)
             m : [], // removal intervals (indexed)
+            mL : null, // largest val. in low extreme segment
+            mH : null, // smallest val. in high extreme segment
             a : [] // improve - 2
         }
 
@@ -794,7 +796,6 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             k++;
         }
     }
-    // console.log(ipr);
     for (m = 0, n = 0, q = 0; m <= ipr.length - 1; m++) {
         if (m > 0) { // at 2nd element or after
             iprItv.t[n] = Math.abs(ipr[m] - ipr[m - 1]); // get the interval between 2 consecutive elements
@@ -832,30 +833,40 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
     iprItv.s = stdDeviation(iprItv.t, iprItv.g, iprItv.q); // cal. std. of intervals with average
-    // console.log(iprItv.t);
-    // console.log("g: " + iprItv.g);
-    // console.log("s: " + iprItv.s);
-    // var res = [];
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
         if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are NOT approx. to average, based on std.
             iprItv.d[iprItv.d.length] = p; // store the index
         }
     }
-    // console.log(iprItv.v);
-    // console.log(iprItv.d);
-    for (r = 0, z = 0; r <= iprItv.d.length - 1; r++) {
-        if (iprItv.d[r] <= iprItv.v[0] || (iprItv.d[r] > iprItv.v[1] && iprItv.d[r] <= iprItv.v[2])) { // if indexes at extreme segment-thirds
-            iprItv.m[z] = iprItv.d[r]; // count in for removal
-            z++;
+    if (iprItv.d.length) {
+        for (r = 0, z = 0; r <= iprItv.d.length - 1; r++) {
+            if (iprItv.d[r] <= iprItv.v[0] || (iprItv.d[r] > iprItv.v[1] && iprItv.d[r] <= iprItv.v[2])) { // if indexes at extreme segment-thirds
+                iprItv.m[z] = iprItv.d[r]; // count in for removal
+                z++;
+            }
+        }
+    }
+    if (iprItv.m.length) {
+        for (x = 0; x <= iprItv.m.length - 1; x++) {
+            if (iprItv.m[x] <= iprItv.v[0]) { // low extreme
+                if (iprItv.mL === null || iprItv.m[x] > iprItv.mL) {
+                    iprItv.mL = iprItv.m[x]; // find the largest indexed interval in low extreme segment
+                }
+            } else if (iprItv.m[x] > iprItv.v[1] && iprItv.m[x] <= iprItv.v[2]) { // high extreme
+                if (iprItv.mH === null || iprItv.m[x] < iprItv.mH) {
+                    iprItv.mH = iprItv.m[x]; // find the smallest indexed interval in high extreme segment
+                } 
+            }
+        }
+        var mL = iprItv.mL === null ? 0 : iprItv.mL + 1, // attain high/low thresholds (if applicable)
+            mH = iprItv.mH === null ? ipr.length - 1 : iprItv.mH - 1;
+        for (c = mL, d = 0; c <= mH; c++) {
+            iprItv.a[d] = ipr[c]; // low & high extremes removed
+            d++;
         }
     }
 
-    // PROCEED WITH REMOVAL!
-
-    // look at speeds/intervals at beginning of array, if slow speeds are accounted for majority fast network at beginning?
-
-    // return iprItv.a;
-    return iprItv.m;
+    return iprItv.a.length ? iprItv.a : ipr; // return profiled array (if applicable)
 }
 
 function stdDeviation(ar, m, q) { // standard deviation
