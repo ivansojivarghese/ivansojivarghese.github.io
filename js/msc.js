@@ -904,7 +904,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
 
         var mL = iprItv.mL === null ? 0 : iprItv.mL + 1, // attain high/low thresholds (if applicable)
             mH = iprItv.mH === null ? ipr.length - 1 : iprItv.mH;
-        for (c = mL, d = 0; c <= (mH * 2); c++) {
+        for (c = mL, d = 0; c <= mH; c++) {
             iprItv.a[d] = ipr[c]; // low & high extremes removed
             d++;
         }
