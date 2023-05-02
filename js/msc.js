@@ -832,7 +832,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             }
         }
     }
-    iprItv.s = stdDeviation(iprItv.t, iprItv.g, iprItv.q); // cal. std. of intervals with average
+    iprItv.s = stdDeviation(iprItv.t, iprItv.g); // cal. std. of intervals with average
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
         if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s)) { // if intervals are NOT approx. to average, based on std.
             iprItv.d[iprItv.d.length] = p; // store the index
@@ -870,12 +870,12 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     return iprItv.a.length ? iprItv.a : ipr; // return profiled array (if applicable)
 }
 
-function stdDeviation(ar, m, q) { // standard deviation
+function stdDeviation(ar, m) { // standard deviation
     var res = 0;
     for (i = 0; i <= ar.length - 1; i++) {
         res += Math.pow((ar[i] - m), 2);
     }
-    return q ? Math.sqrt(res / q) : Math.sqrt(res / ar.length);
+    return Math.sqrt(res / ar.length);
 }
 
 function dataAnalysis(ar) {
@@ -889,7 +889,7 @@ function dataAnalysis(ar) {
         cleanData = cleanOutliers(ar, outL, outU), // remove outliers
         range = Math.max(...cleanData) - Math.min(...cleanData),
         avg = mean(cleanData), 
-        std = stdDeviation(cleanData, avg, null),
+        std = stdDeviation(cleanData, avg),
         iprData = removeAnomalies(cleanData, avg, q2, std, range); // improved data
 
     data = {
