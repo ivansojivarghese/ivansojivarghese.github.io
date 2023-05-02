@@ -878,6 +878,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             do {
                 if (iprItv.m[e - 1]) { // backtrack to previous interval if it exists
                     v = iprItv.m[e - 1];
+                    e--;
                 } else {
                     iprItv.mL = -1; // if no more intervals to check, default to first element
                     break; 
@@ -891,6 +892,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             do {
                 if (iprItv.m[e + 1]) { // forward track to next interval if it exists
                     v = iprItv.m[e + 1];
+                    e++;
                 } else {
                     iprItv.mH = iprItv.t.length - 1; // if no more intervals to check, default to last element
                     break; 
