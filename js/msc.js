@@ -896,7 +896,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                     break; 
                 }
             }
-            while (!atLeastHalf((v + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1)));
+            while (atLeastHalf((v + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1)));
         }
         var mL = iprItv.mL === null ? 0 : iprItv.mL + 1, // attain high/low thresholds (if applicable)
             mH = iprItv.mH === null ? ipr.length - 1 : iprItv.mH;
