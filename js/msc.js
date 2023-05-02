@@ -868,7 +868,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                 } 
             }
         }
-        if (iprItv.mL && atLeastHalf(iprItv.mL + 1, iprItv.v[0] + 1)) {
+        if (iprItv.mL !== null && atLeastHalf(iprItv.mL + 1, iprItv.v[0] + 1)) {
             var v = iprItv.mL,
                 e = iprItv.m.indexOf(v); 
             do {
@@ -881,7 +881,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             }
             while (atLeastHalf(v + 1, iprItv.v[0] + 1));
         }
-        if (iprItv.mH && !atLeastHalf((iprItv.mH + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1))) {
+        if (iprItv.mH !== null && !atLeastHalf((iprItv.mH + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1))) {
             var v = iprItv.mH,
                 e = iprItv.m.indexOf(v); 
             do {
