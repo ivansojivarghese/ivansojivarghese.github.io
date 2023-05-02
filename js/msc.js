@@ -188,6 +188,7 @@ op = {
         tA : 0, // time - initial (at pointerdown)
         tB : 0 // time - final (at pointerup)
     },
+    aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
     // Ls : 1000/60, // loop (interval) speed - sec./rev.
@@ -703,7 +704,7 @@ function approxNum(v1, v2, e) { // check if 2 numbers are approximate
         return true;
     } else {
         if (e === null) {
-            e = 5;
+            e = op.aP;
         }
         return Math.abs(v1 - v2) < e;
     }
@@ -790,11 +791,11 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     }
 
     if (t) { // use mean
-        uL = a + s; // upper limit = mean + std.
-        wL = a - s;
+        uL = a + s + op.aP; // upper limit = mean + std.
+        wL = a - s - op.aP;
     } else { // use median
-        uL = m + s;
-        wL = m - s;
+        uL = m + s + op.aP;
+        wL = m - s - op.aP;
     }
 
     for (j = 0, k = 0; j <= sorted.length - 1; j++) { // loop elements that fit rules into new array
