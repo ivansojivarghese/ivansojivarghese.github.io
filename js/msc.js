@@ -868,6 +868,9 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                 } 
             }
         }
+
+        // INTERVAL VERIFICATION
+
         if (iprItv.mL !== null && atLeastHalf(iprItv.mL + 1, iprItv.v[0] + 1)) {
             var v = iprItv.mL,
                 e = iprItv.m.indexOf(v); 
@@ -894,13 +897,6 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             }
             while (!atLeastHalf((v + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1)));
         }
-
-        // VERIFY THE INTERVALS
-            // MAINTAIN EQUITY in final iprItv.a array - SAME AS ORIGINAL c_ar
-                // v1, v2, v3 distribution - ensure every segment (esp. v1/v3) HAS 1 ELEMENT AT LEAST
-            // 
-
-        // MODIFY iprItv.mL/iprItv.mH intervals here!
 
         var mL = iprItv.mL === null ? 0 : iprItv.mL + 1, // attain high/low thresholds (if applicable)
             mH = iprItv.mH === null ? ipr.length - 1 : iprItv.mH;
