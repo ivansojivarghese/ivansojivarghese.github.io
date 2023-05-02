@@ -691,6 +691,13 @@ function c_Sr() { // check for scrolling activity (in live)
 
 // stats
 
+function atLeastHalf(a, b) { // check if a number is at least 50% of the other (integers only)
+    var n = Math.round(a),
+        d = Math.round(b),
+        t = Math.ceil(d / 2);
+    return n >= t;
+}
+
 function approxNum(v1, v2, e) { // check if 2 numbers are approximate
     if ((!v1 || !v2) && e) {
         return true;
@@ -860,6 +867,32 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                     iprItv.mH = iprItv.m[x]; // find the smallest indexed interval in high extreme segment
                 } 
             }
+        }
+        if (iprItv.mL && atLeastHalf(iprItv.mL + 1, iprItv.v[0] + 1)) {
+            var v = iprItv.mL,
+                e = iprItv.m.findIndex(v); 
+            do {
+                if (iprItv.m[e - 1]) { // backtrack to previous interval if it exists
+                    v = iprItv.m[e - 1];
+                } else {
+                    iprItv.mL = v; // if no more intervals to check, break
+                    break;
+                }
+            }
+            while (atLeastHalf(v + 1, iprItv.v[0] + 1));
+        }
+        if (iprItv.mH && !atLeastHalf((iprItv.mH + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1))) {
+            var v = iprItv.mH,
+                e = iprItv.m.findIndex(v); 
+            do {
+                if (iprItv.m[e + 1]) { // backtrack to previous interval if it exists
+                    v = iprItv.m[e + 1];
+                } else {
+                    iprItv.mH = v; // if no more intervals to check, break
+                    break;
+                }
+            }
+            while (!atLeastHalf((v + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1)));
         }
 
         // VERIFY THE INTERVALS
