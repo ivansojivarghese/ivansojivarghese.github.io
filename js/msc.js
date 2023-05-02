@@ -885,7 +885,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             var v = iprItv.mH,
                 e = iprItv.m.findIndex(v); 
             do {
-                if (iprItv.m[e + 1]) { // backtrack to previous interval if it exists
+                if (iprItv.m[e + 1]) { // forward track to next interval if it exists
                     v = iprItv.m[e + 1];
                 } else {
                     iprItv.mH = v; // if no more intervals to check, break
