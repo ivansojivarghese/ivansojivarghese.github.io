@@ -807,7 +807,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                 var s = iprItv.t.length % 3; // get remainder
                 iprItv.q = q; // no. of non-zero intervals
                 // iprItv.g = iprItv.g / iprItv.q; // cal. average interval (among non-zero values only)
-                iprItv.g = iprItv.g / iprItv.t.length;
+                iprItv.g = iprItv.g / iprItv.t.length; // cal. average of intervals 
                 for (w = 0; w <= 2; w++) { // divide into 3 segments
                     iprItv.v[w] = (((iprItv.t.length - s) / 3) * (w + 1)) - 1;
                 }
