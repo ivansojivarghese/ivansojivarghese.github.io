@@ -898,9 +898,9 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
             }
             while (!atLeastHalf((v + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1)));
         }
-        console.log("mH: " + mH + ", mL: " + mL);
         var mL = iprItv.mL === null ? 0 : iprItv.mL + 1, // attain high/low thresholds (if applicable)
             mH = iprItv.mH === null ? ipr.length - 1 : iprItv.mH;
+        console.log("mH: " + mH + ", mL: " + mL);
         for (c = mL, d = 0; c <= mH; c++) {
             iprItv.a[d] = ipr[c]; // low & high extremes removed
             d++;
