@@ -842,7 +842,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     }
     iprItv.s = stdDeviation(iprItv.t, iprItv.g); // cal. std. of intervals with average
     for (p = 0, q = 0; p <= iprItv.t.length - 1; p++) {
-        if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s) && approxNum(iprItv.t[p], 0)) { // if intervals are NOT approx. to average, based on std. + of value at least 5
+        if (!approxNum(iprItv.t[p], iprItv.g, iprItv.s) && !approxNum(iprItv.t[p], 0)) { // if intervals are NOT approx. to average, based on std. + of value at least 5
             iprItv.d[iprItv.d.length] = p; // store the index
         }
     }
