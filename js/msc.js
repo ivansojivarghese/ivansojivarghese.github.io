@@ -872,7 +872,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
     }
 
-    return iprItv.a.length ? iprItv.a : ipr; // return profiled array (if applicable)
+    return iprItv.a.length ? iprItv.a : ipr.length ? ipr : c_ar; // return profiled array (if applicable)
 }
 
 function stdDeviation(ar, m) { // standard deviation
