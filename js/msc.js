@@ -791,7 +791,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     }
 
     if (t) { // use mean
-        uL = a + s + op.aP; // upper limit = mean + std.
+        uL = a + s + op.aP; // upper limit = mean + std. + approximator val.
         wL = a - s - op.aP;
     } else { // use median
         uL = m + s + op.aP;
