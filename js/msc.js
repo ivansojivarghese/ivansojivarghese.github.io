@@ -931,7 +931,10 @@ function dataAnalysis(ar) {
         range = Math.max(...cleanData) - Math.min(...cleanData),
         avg = mean(cleanData), 
         std = stdDeviation(cleanData, avg),
-        iprData = removeAnomalies(cleanData, avg, q2, std, range); // improved data
+        iprData = removeAnomalies(cleanData, avg, q2, std, range), // improved data
+        iprRange = Math.max(...iprData) - Math.min(...iprData),
+        iprAvg = mean(iprData),
+        iprStd = stdDeviation(iprData, iprAvg);
 
     data = {
         data : ar,
@@ -945,7 +948,10 @@ function dataAnalysis(ar) {
         range : range,
         avg : avg,
         std : std,
-        iprData : iprData
+        iprData : iprData,
+        iprRange : iprRange,
+        iprAvg : iprAvg,
+        iprStd : iprStd
     }
 
     return data;
