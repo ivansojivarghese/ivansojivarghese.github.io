@@ -870,7 +870,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
         if (iprItv.mL && atLeastHalf(iprItv.mL + 1, iprItv.v[0] + 1)) {
             var v = iprItv.mL,
-                e = iprItv.m.findIndex(v); 
+                e = iprItv.m.indexOf(v); 
             do {
                 if (iprItv.m[e - 1]) { // backtrack to previous interval if it exists
                     v = iprItv.m[e - 1];
@@ -883,7 +883,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
         }
         if (iprItv.mH && !atLeastHalf((iprItv.mH + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1))) {
             var v = iprItv.mH,
-                e = iprItv.m.findIndex(v); 
+                e = iprItv.m.indexOf(v); 
             do {
                 if (iprItv.m[e + 1]) { // forward track to next interval if it exists
                     v = iprItv.m[e + 1];
