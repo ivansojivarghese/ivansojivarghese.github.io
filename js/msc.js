@@ -879,8 +879,8 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                 if (iprItv.m[e - 1]) { // backtrack to previous interval if it exists
                     v = iprItv.m[e - 1];
                 } else {
-                    iprItv.mL = v; // if no more intervals to check, break
-                    break;
+                    iprItv.mL = -1; // if no more intervals to check, default to first element
+                    break; 
                 }
             }
             while (atLeastHalf(v + 1, iprItv.v[0] + 1));
@@ -892,8 +892,8 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
                 if (iprItv.m[e + 1]) { // forward track to next interval if it exists
                     v = iprItv.m[e + 1];
                 } else {
-                    iprItv.mH = v; // if no more intervals to check, break
-                    break;
+                    iprItv.mH = iprItv.t.length - 1; // if no more intervals to check, default to last element
+                    break; 
                 }
             }
             while (!atLeastHalf((v + 1) - (iprItv.v[1] + 1), (iprItv.v[2] + 1) - (iprItv.v[1] + 1)));
