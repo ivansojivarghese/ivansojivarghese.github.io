@@ -856,6 +856,7 @@ function removeAnomalies(c_ar, a, m, s, r) { // remove further anomalies (possib
     }
     console.log(iprItv.t);
     console.log(iprItv.m);
+    console.log(ipr);
     if (iprItv.m.length) {
         for (x = 0; x <= iprItv.m.length - 1; x++) {
             if (iprItv.m[x] <= iprItv.v[0]) { // low extreme
