@@ -705,6 +705,14 @@ function c_Sr() { // check for scrolling activity (in live)
 })(document);
 
 //////////////////////////////////////////
+/*
+function svgLoad(s) {
+    svgElem.addEventListener("load", () => {
+        console.log("SVG loaded.");
+      });
+}*/
+
+//////////////////////////////////////////
 
 // stats
 
