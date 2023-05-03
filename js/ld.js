@@ -177,7 +177,9 @@ function docRead() {
                     // rL.n.classList.add("wifi_slow_img");
 
                     c_rep(rL.n, "wifi_off_img", "wifi_slow_img");
-                    rL.xc.innerHTML = "network is slow";
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s) {
+                        rL.xc.innerHTML = "network is slow";
+                    }
 
                     // resLoad(rL.w_s.el, rL.w_s.u);
 
