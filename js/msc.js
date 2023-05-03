@@ -351,8 +351,10 @@ function networkTrend(ar) { // trend(s) of network speed
         var a = ar[0], // first element
             b = ar[ar.length - 1], // last ""
             _L = ar.length; // no. of data points
-            
+
         res = ((b - a) / _L); // return trend
+
+        // ONLY CONSIDER POSITIVE/NEGATIVE TREND IF 3+ SPEED POINTS MATCH CASE (RESPECTIVELY IN CONSECUTIVE ORDER)
 
         // CHECK FOR CONSTANT TREND USING STD DEV, ETC.
             // OUTPUT: NULL
