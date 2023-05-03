@@ -346,13 +346,15 @@ function networkVariability() { // determine variability of network
 }
 
 function networkTrend(ar) { // trend(s) of network speed
-    var a = ar[0], // first element
-        b = ar[ar.length - 1], // last ""
-        _L = ar.length, // no. of data points
-        res = ((b - a) / _L); // return trend
+    if (ar.length > 1) {
+        var a = ar[0], // first element
+            b = ar[ar.length - 1], // last ""
+            _L = ar.length, // no. of data points
+            res = ((b - a) / _L); // return trend
 
-    // CHECK FOR CONSTANT TREND USING STD DEV, ETC.
-        // OUTPUT: NULL
+        // CHECK FOR CONSTANT TREND USING STD DEV, ETC.
+            // OUTPUT: NULL
+    }
     
     return (res !== 0 /*|| something*/) ? res > 0 ? true : false : null;
 }
