@@ -303,8 +303,14 @@ op.ne.L = setInterval(async () => {
 }, op.ne.bD);
 
 function networkVariability() { // determine variability of network
-    var a = dataAnalysis(op.ne.b);
-    console.log(a);
+    var a = dataAnalysis(op.ne.b),
+        t = ((op.ne.bI * 1000) / op.ne.bD) + 1, // max number of data points (ideal)
+        r = a.iprRange > 0 ? a.iprRange <= 100 ? (1 - (a.iprRange / 100)) * 100 : 0 : 0, // inverse percentage of range in speeds (comparison to 100mbps)
+        f = (t - a.iprData.length >= 0) ? (a.iprData.length / t) * 100 : 100, // percentage of retained data
+        s = a.iprStd >= 0 ? (1 - (a.iprStd / a.iprData.length)) * 100 : 0, // percentage of std. dev.
+        v = (0.4 * s) + (0.3 * r) + (0.3 * f); // variability formula
+        
+    console.log(v);
 
     // remove outliers 
     // take note of extremes (in clean data)
