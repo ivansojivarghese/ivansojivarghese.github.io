@@ -339,6 +339,8 @@ function networkVariability() { // determine variability of network
     // take note of number of data points that give the above stats
 
     // use the 'v' to allocate appropriate interval timing
+    // 0: not variable
+    // 1: highly variable
 
     op.ne.b = []; // empty array
 }
