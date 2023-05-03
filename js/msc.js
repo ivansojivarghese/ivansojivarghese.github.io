@@ -705,14 +705,6 @@ function c_Sr() { // check for scrolling activity (in live)
 })(document);
 
 //////////////////////////////////////////
-/*
-function svgLoad(s) {
-    svgElem.addEventListener("load", () => {
-        console.log("SVG loaded.");
-      });
-}*/
-
-//////////////////////////////////////////
 
 // stats
 
@@ -1331,6 +1323,16 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             networkConditions(); // continuously check on network
         }, op.ne.bD);
     }
+});
+
+window.addEventListener("focus", function() { // window in focus
+    op.ne.L = setInterval(async () => {
+        networkConditions(); // continuously check on network
+    }, op.ne.bD);
+});
+
+window.addEventListener("blur", function() { // window out of focus
+    clearInterval(op.ne.L);
 });
 
 //////////////////////////////////////////
