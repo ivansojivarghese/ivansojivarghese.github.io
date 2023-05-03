@@ -205,6 +205,7 @@ function docRead() {
 
                     window.stop(); // stop all network resource(s) fetching
                     clearInterval(_Ld); // stop loading process
+                    clearInterval(op.ne.L); // clear network check loop
 
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
