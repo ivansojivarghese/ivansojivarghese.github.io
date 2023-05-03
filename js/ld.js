@@ -217,7 +217,7 @@ function docRead() {
                     // op.nc = false;
                     op.ne.s = 0;
                     
-                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.x, false); // show message when internet not connected
                     }
@@ -227,7 +227,7 @@ function docRead() {
                 rL.dt.classList.remove("md", "aniM-f"); 
                 c_rep(rL.n, "wifi_off_img", "wifi_find_img");
 
-                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_f) { // check if fonts are downloaded
                     rL.xc.innerHTML = "reconnecting";
                     e_Fd(rL.x, false); // show message when internet not connected
                 } 
@@ -240,7 +240,7 @@ function docRead() {
 
                 // rL.n.classList.add("wifi_slow_img");
 
-                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) { // check if fonts are downloaded
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s) { // check if fonts are downloaded
                     e_Fd(rL.xe, false); // show speed
                     e_Fd(rL.n, false); // show message
                     e_Fd(rL.x, false);
