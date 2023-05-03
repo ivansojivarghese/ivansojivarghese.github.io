@@ -166,6 +166,7 @@ op = {
         a : 0, // start time
         t : 0, // end time
         s : 0, // estimated speed 
+        y : 0, // estimated variability (0 - 1)
         c : 0, // iterative count
         b : [], // array of accounted network speeds (for variability)
         bt : 3, // no. of checks for speed change
@@ -315,6 +316,8 @@ function networkVariability() { // determine variability of network
 
         i = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], // array of interval checkpoints
         w = [10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000]; // array of possible timing intervals
+
+    op.ne.y = b;
 
     for (j = 0; j <= i.length - 1; j++) { // loop through intervals to find suitable one for variability value
         if (b >= i[j] && b < i[j + 1]) {
