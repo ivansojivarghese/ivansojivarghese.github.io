@@ -1326,12 +1326,18 @@ window.addEventListener("visibilitychange", function() { // stop network check i
 });
 
 window.addEventListener("focus", function() { // window in focus
+
+    // REMOVE 'HIDING' LAYER
+
     op.ne.L = setInterval(async () => {
         networkConditions(); // continuously check on network
     }, op.ne.bD);
 });
 
 window.addEventListener("blur", function() { // window out of focus
+
+    // ADD 'HIDING' LAYER - PREVENT TO BE SEEN IN TAB PREVIEW
+
     clearInterval(op.ne.L);
 });
 
