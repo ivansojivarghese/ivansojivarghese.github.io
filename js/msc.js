@@ -303,16 +303,30 @@ op.ne.L = setInterval(async () => {
 }, op.ne.bD);
 
 function networkVariability() { // determine variability of network
-    var a = dataAnalysis(op.ne.b),
+    var c = op.ne.bD, // original interval timing
+        a = dataAnalysis(op.ne.b),
         t = ((op.ne.bI * 1000) / op.ne.bD) + 1, // max number of data points (ideal)
         r = a.iprRange > 0 ? a.iprRange <= 100 ? (1 - (a.iprRange / 100)) * 100 : 0 : 0, // inverse percentage of range in speeds (comparison to 100mbps)
         f = (t - a.iprData.length >= 0) ? (a.iprData.length / t) * 100 : 100, // percentage of retained data
         s = a.iprStd >= 0 ? (1 - (a.iprStd / a.iprData.length)) * 100 : 0, // percentage of std. dev.
         v = ((0.4 * s) + (0.3 * r) + (0.3 * f)) / 100, // variability formula - as percentile
-        b = v >= 0 ? v : 0; // // default the negatives - if any
-        
-    if (b >= 0 && b < 0.1) {
-        
+        b = v >= 0 ? v : 0, // // default the negatives - if any
+
+        i = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], // array of interval checkpoints
+        w = [10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000]; // array of possible timing intervals
+
+    for (j = 0; j <= i.length - 1; j++) { // loop through intervals to find suitable one for variability value
+        if (b >= i[j] && b < i[j + 1]) {
+            op.ne.bD = w[j];
+            break;
+        }
+    }
+
+    if (c !== op.ne.bD) { // if new interval set
+        clearInterval(op.ne.L); // clear network check loop
+        op.ne.L = setInterval(async () => { // restart a new loop with new interval value
+            networkConditions(); 
+        }, op.ne.bD);
     }
 
     // remove outliers 
