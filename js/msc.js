@@ -308,16 +308,19 @@ function networkVariability() { // determine variability of network
         r = a.iprRange > 0 ? a.iprRange <= 100 ? (1 - (a.iprRange / 100)) * 100 : 0 : 0, // inverse percentage of range in speeds (comparison to 100mbps)
         f = (t - a.iprData.length >= 0) ? (a.iprData.length / t) * 100 : 100, // percentage of retained data
         s = a.iprStd >= 0 ? (1 - (a.iprStd / a.iprData.length)) * 100 : 0, // percentage of std. dev.
-        v = ((0.4 * s) + (0.3 * r) + (0.3 * f)) / 100; // variability formula - as percentile
+        v = ((0.4 * s) + (0.3 * r) + (0.3 * f)) / 100, // variability formula - as percentile
+        b = v >= 0 ? v : 0; // // default the negatives - if any
         
-    console.log(v);
-
-    // use the v to allocate appropriate interval timing
+    if (b >= 0 && b < 0.1) {
+        
+    }
 
     // remove outliers 
     // take note of extremes
     // take note of DEVIATION
     // take note of number of data points that give the above stats
+
+    // use the 'v' to allocate appropriate interval timing
 
     op.ne.b = []; // empty array
 }
