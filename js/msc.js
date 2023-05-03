@@ -354,7 +354,7 @@ function networkTrend(ar) { // trend(s) of network speed
     // CHECK FOR CONSTANT TREND USING STD DEV, ETC.
         // OUTPUT: NULL
     
-    return res !== 0 ? res > 0 ? true : false : null;
+    return (res !== 0 /*|| something*/) ? res > 0 ? true : false : null;
 }
 
 /////////////////////////////////////////////
