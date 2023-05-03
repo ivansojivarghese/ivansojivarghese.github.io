@@ -312,7 +312,7 @@ function networkVariability() { // determine variability of network
         r = a.iprRange > 0 ? a.iprRange <= 100 ? (1 - (a.iprRange / 100)) * 100 : 0 : 0, // inverse percentage of range in speeds (comparison to 100mbps)
         f = (t - a.iprData.length >= 0) ? (a.iprData.length / t) * 100 : 100, // percentage of retained data
         s = a.iprStd >= 0 ? (1 - (a.iprStd / a.iprData.length)) * 100 : 0, // percentage of std. dev.
-        v = ((0.4 * s) + (0.3 * r) + (0.3 * f)) / 100, // variability formula - as percentile
+        v = 1 - (((0.4 * s) + (0.3 * r) + (0.3 * f)) / 100), // variability formula - as percentile
         b = v >= 0 ? v : 0, // // default the negatives - if any
 
         i = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], // array of interval checkpoints
