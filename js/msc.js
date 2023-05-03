@@ -168,6 +168,7 @@ op = {
         s : 0, // estimated speed 
         c : 0, // iterative count
         b : [], // array of accounted network speeds (for variability)
+        bt : 3, // no. of checks for speed change
         bI : 60, // array refresh interval (sec.)
         bD : 3000, // default function interval (ms.)
         bT : "nV", // "" timer tracker
@@ -248,7 +249,7 @@ const networkConditions = async() => {
     const speed = await estimateNetworkSpeed(); // check internet slow speed
     op.n = status;
     if (op.ne.w && speed) { // filters to avoid detecting 'sudden' surges in speed (leading to false slow network status)
-        if (op.ne.c === 3) { // at least n checks needed to prove
+        if (op.ne.c === op.ne.bt) { // at least n checks needed to prove
             if (!speed) {
                 op.ne.d = true;
             }
@@ -273,7 +274,7 @@ const networkConditions = async() => {
             // op.ne.d = true;
             op.ne.c = 0;
             op.ne.v = true;
-        } else if (op.ne.c < 3) {
+        } else if (op.ne.c < op.ne.bt) {
             op.ne.d = true;
             op.ne.r = true;
             op.ne.c++;
@@ -285,7 +286,7 @@ const networkConditions = async() => {
     } else {
         op.ne.r = false;
         op.ne.v = true;
-        if (op.ne.c === 3) {
+        if (op.ne.c === op.ne.bt) {
             op.ne.w = speed;
             op.ne.d = false;
             op.ne.c = 0;
