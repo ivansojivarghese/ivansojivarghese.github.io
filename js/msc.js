@@ -226,6 +226,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         const online = await fetch(url + "msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
             cache : "no-store"
         });
+        console.log("speed fetch");
         op.ne.t = op.d.getTime(); // end time of fetch
         op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
         if (op.ne.s !== Infinity && op.ne.s !== 0) { // get valid values only
