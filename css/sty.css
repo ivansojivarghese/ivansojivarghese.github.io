@@ -728,14 +728,6 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/lead_arrow_forward_white.svg");
 }
 
-.lead_arrow_forward_r_img {
-    background-image: url("../svg/lead_arrow_forward_red.svg");
-}
-
-.lead_arrow_forward_g_img {
-    background-image: url("../svg/lead_arrow_forward_green.svg");
-}
-
 .work_w_img {
     background-image: url("../svg/work_white.svg");
 }
