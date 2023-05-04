@@ -1261,6 +1261,14 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
 
 //////////////////////////////////////////
 
+function changeSVGColor(color, el) {
+    var svg = el.contentDocument,
+        elements = svg.getElementsByClassName("primaryColor");
+    for (var i = 0; i < elements.length; i++) { 
+        elements[i].style.fill = color;
+    }
+}
+
 function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
     var style = document.createElement("STYLE"); // create 'style' tag
     style.type = "text/css"; 
