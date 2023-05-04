@@ -246,8 +246,8 @@ function docRead() {
                     
                     setTimeout(function() {
                         if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) { // show connected
-                            rL.dt.classList.add("e", "aniM-f"); // stop animation on 'load_dot'
-                            // c_rep(rL.dt, "md", "e"); // change dot to green color
+                            rL.dt.classList.add("e", "aniM-f"); // stop animation on 'load_dot', change to green
+                            // c_rep(rL.dt, "md", "e"); 
                             c_rep(rL.n, "wifi_find_img", "wifi_img");
                             rL.xc.innerHTML = "connected";
                         }
