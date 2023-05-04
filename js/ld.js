@@ -238,16 +238,18 @@ function docRead() {
                 // console.log("reconnecting");
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
-                switch (networkTrend(op.ne.b)) {
-                    case true: // positive
-                        
-                    break;
-                    case false: // negative
+                if (svg.L_ag && svg.L_ar) {
+                    switch (networkTrend(op.ne.b)) {
+                        case true: // positive
+                            
+                        break;
+                        case false: // negative
 
-                    break;
-                    case null: // constant
+                        break;
+                        case null: // constant
 
-                    break;
+                        break;
+                    }
                 }
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
