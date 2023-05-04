@@ -241,17 +241,17 @@ function docRead() {
                 if (svg.L_ag && svg.L_ar) {
                     switch (networkTrend(op.ne.b)) {
                         case true: // positive
-                            c_rep(rL.xea, ["", ""], ""); // arrow turns green
+                            c_rep(rL.xea, ["lead_arrow_forward_img", "lead_arrow_forward_r_img"], "lead_arrow_forward_g_img"); // arrow turns green
                         break;
                         case false: // negative
-                            c_rep(rL.xea, ["", ""], ""); // arrow turns green
+                            c_rep(rL.xea, ["lead_arrow_forward_g_img", "lead_arrow_forward_img"], "lead_arrow_forward_r_img"); // arrow turns red
                         break;
                         case null: // constant
-                            c_rep(rL.xea, ["", ""], ""); // arrow turns green
+                            c_rep(rL.xea, ["lead_arrow_forward_r_img", "lead_arrow_forward_g_img"], "lead_arrow_forward_img"); // arrow turns black
                         break;
                     }
                 }
-                
+
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
 
                 // rL.n.classList.add("wifi_slow_img");
