@@ -239,7 +239,7 @@ function docRead() {
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
-                rL.xes.innerHTML = networkTrend(op.ne.b); 
+                // rL.xes.innerHTML = networkTrend(op.ne.b); 
 
                 // rL.n.classList.add("wifi_slow_img");
 
