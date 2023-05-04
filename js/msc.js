@@ -169,7 +169,6 @@ op = {
         y : 0, // estimated variability (0 - 1)
         c : 0, // iterative count
         b : [], // array of accounted network speeds (for variability)
-        bA : [], // boolean array - network speed trends (slow)
         bt : 3, // no. of checks for speed change
         bI : 60, // array refresh interval (sec.)
         bD : 3000, // default function interval (ms.)
@@ -347,24 +346,25 @@ function networkVariability() { // determine variability of network
 }
 
 function networkTrend(ar) { // trend(s) of network speed
-    var base = null, // boolean
+    var t_ar = [], // trend array
+        base = null, // boolean
         full = null, 
         c = 0, // count
-        res;
+        res;    
 
     if (ar.length > 1) { 
         var a = ar[ar.length - 2], // 2nd last element
             b = ar[ar.length - 1]; // last ""
 
         res = (b - a) !== 0 ? (b - a) > 0 ? true : false : null; // return trend
-        op.ne.bA[op.ne.bA.length] = res; // update trend in array
+        t_ar[t_ar.length] = res; // update trend in array
 
         for (i = ar.length - 1; i >= 0; i--) { // backtrack from array (to check for trend)
             if (i === ar.length - 1) { // at first element
-                base = op.ne.bA[i - 1];
+                base = t_ar[i - 1];
                 c++;
             } else {
-                if (op.ne.bA[i - 1] !== base) { // no trend
+                if (t_ar[i - 1] !== base) { // no trend
                     res = 0; // constant trend (default)
                 } else if (res === 0) {
                     break;
