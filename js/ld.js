@@ -242,6 +242,7 @@ function docRead() {
                     switch (networkTrend(op.ne.b)) {
                         case true: // positive
                             c_rep(rL.xea, ["lead_arrow_forward_img", "lead_arrow_forward_r_img"], "lead_arrow_forward_g_img"); // arrow turns green
+                            rL.xea.
                         break;
                         case false: // negative
                             c_rep(rL.xea, ["lead_arrow_forward_g_img", "lead_arrow_forward_img"], "lead_arrow_forward_r_img"); // arrow turns red
