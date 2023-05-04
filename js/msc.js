@@ -361,7 +361,7 @@ function networkTrend(ar) { // trend(s) of network speed
 
         for (i = ar.length - 1; i >= 0; i--) { // backtrack from array (to check for trend)
             if (i === ar.length - 1) { // at first element
-                base = t_ar[i - 1];
+                base = t_ar[t_ar.length - 1];
                 c++;
             } else {
                 if (t_ar[i - 1] !== base) { // no trend
