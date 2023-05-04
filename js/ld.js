@@ -172,14 +172,16 @@ function docRead() {
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
 
-                } else if (op.ne.w && op.ne.s && !op.ne.off) { // if slow network
+                } else if (op.ne.w && op.ne.s) { // if slow network
 
                     // console.log("slow speed");
                     // rL.n.classList.add("wifi_slow_img");
 
-                    c_rep(rL.n, "wifi_off_img", "wifi_slow_img");
-                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s) {
-                        rL.xc.innerHTML = "network is slow";
+                    if (!op.ne.off) {
+                        c_rep(rL.n, "wifi_off_img", "wifi_slow_img");
+                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s) {
+                            rL.xc.innerHTML = "network is slow";
+                        }
                     }
 
                     // resLoad(rL.w_s.el, rL.w_s.u);
