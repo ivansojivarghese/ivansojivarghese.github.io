@@ -228,7 +228,7 @@ function docRead() {
 
             } else if (op.n && op.nc) { // if network change - from offline to online
                 rL.dt.classList.remove("md", "aniM-f"); 
-                c_rep(rL.n, "wifi_off_img", "wifi_find_img");
+                c_rep(rL.n, ["wifi_off_img", "wifi_slow_img"], "wifi_find_img");
 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_f) { // check if fonts are downloaded
                     if (!op.nR) {
