@@ -41,6 +41,7 @@ var disp = document.getElementById("display_sc"), // display
         xe : document.getElementById("load_text_ex"), // loading text extra
         xep : document.getElementById("load_text_ex_p"), // "" primary
         xes : document.getElementById("load_text_ex_s"), // "" secondary
+        xea : document.getElementById("load_text_arrow"), // "" arrow
         r : document.getElementById("loadR"), // loading rings (container)
         p : document.getElementById("loadR-p"), // loading ring (primary)
         d : document.getElementById("loadR-e"), // loading ring (end)
@@ -239,6 +240,7 @@ function docRead() {
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
+                rL.xea;
                 // rL.xes.innerHTML = networkTrend(op.ne.b); 
 
                 // rL.n.classList.add("wifi_slow_img");
