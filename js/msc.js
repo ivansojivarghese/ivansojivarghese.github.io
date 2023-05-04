@@ -203,6 +203,11 @@ op = {
         o : false, // opera
         e : false // edge
     },
+    col : { // colors (hex)
+        b : "#303030", // base
+        p : "#007000", // predicate
+        n : "#A10000" // negate
+    },
     L : null // loop variable
 };
 
@@ -1261,10 +1266,16 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
 
 //////////////////////////////////////////
 
-function changeSVGColor(color, el) {
+function changeSVGColor(color, el, trs_e) {
     var svg = el.contentDocument,
-        elements = svg.getElementsByClassName("primaryColor");
+        elements = svg.getElementsByClassName("primaryColor"); // add class to relevant structures of SVG before function use
     for (var i = 0; i < elements.length; i++) { 
+        elements[i].style.transition = "all 0s cubic-bezier(0.22, 0.61, 0.36, 1)"; // set transition
+        if (trs_e) {
+            elements[i].style.transitionDuration = "0.5s";
+        } else {
+            elements[i].style.transitionDuration = "0.2s";
+        }
         elements[i].style.fill = color;
     }
 }

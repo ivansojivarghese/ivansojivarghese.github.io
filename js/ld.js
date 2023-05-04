@@ -243,12 +243,15 @@ function docRead() {
                         case true: // positive
                             //c_rep(rL.xea, ["lead_arrow_forward_img", "lead_arrow_forward_r_img"], "lead_arrow_forward_g_img"); // arrow turns green
                             // rL.xea.
+                            changeSVGColor(op.col.p, rL.xea, false);
                         break;
                         case false: // negative
                             //c_rep(rL.xea, ["lead_arrow_forward_g_img", "lead_arrow_forward_img"], "lead_arrow_forward_r_img"); // arrow turns red
+                            changeSVGColor(op.col.n, rL.xea, false);
                         break;
                         case null: // constant
                             //c_rep(rL.xea, ["lead_arrow_forward_r_img", "lead_arrow_forward_g_img"], "lead_arrow_forward_img"); // arrow turns black
+                            changeSVGColor(op.col.b, rL.xea, false);
                         break;
                     }
                 }
