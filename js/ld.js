@@ -239,8 +239,17 @@ function docRead() {
 
                 if (!op.nR) {
                     op.nR = true;
-                    // set cookie
-                    setTimeout(reL, 1000); // reload page after 1 sec.
+
+                    // set cookie to set that page reloaded due to offline->online setting
+                    
+                    setTimeout(function() {
+                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) { // show connected
+                            // make dot to green
+                            c_rep(rL.n, "wifi_find_img", "wifi_img");
+                            rL.xc.innerHTML = "connected";
+                        }
+                        reL();
+                    }, 1000); // reload page after 1 sec.
                 }
 
                 // console.log("reconnecting");
