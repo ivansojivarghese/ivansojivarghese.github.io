@@ -256,7 +256,7 @@ function docRead() {
                             rL.xc.innerHTML = "connected";
                         }
                         reL();
-                    }, 1000); // reload page after 1 sec.
+                    }, op.ne.bD); // reload page after 1 sec.
                 }
 
                 // console.log("reconnecting");
