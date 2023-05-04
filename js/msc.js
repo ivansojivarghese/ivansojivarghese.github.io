@@ -354,8 +354,8 @@ function networkTrend(ar) { // trend(s) of network speed
 
     if (ar.length > 1) { 
         for (i = ar.length - 1; i >= 0; i--) { // backtrack from array (to check for trend)
-            var a = ar[ar.length - 2], // 2nd last element
-                b = ar[ar.length - 1]; // last ""
+            var a = ar[i - 1], // 2nd last element
+                b = ar[i]; // last ""
 
             res = (b - a) !== 0 ? (b - a) > 0 ? true : false : null; // return trend
             t_ar[t_ar.length] = res; // update trend in array
