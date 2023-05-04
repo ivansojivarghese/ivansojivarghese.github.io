@@ -182,6 +182,7 @@ op = {
     r : null, // resource link origin
     n : null, // online status (internet connectivity)
     nc : false, // online status change
+    nR : false, // offline reload check
     s : false, // check boolean - 'force' disable scroll
     d : new Date(), // instance of Date
     p : { // pointer (press/tap/click)

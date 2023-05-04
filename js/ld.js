@@ -237,6 +237,12 @@ function docRead() {
                     rL.xc.innerHTML = "";
                 }
 
+                if (!op.nR) {
+                    op.nR = true;
+                    // set cookie
+                    setTimeout(reL, 1000); // reload page after 1 sec.
+                }
+
                 // console.log("reconnecting");
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
