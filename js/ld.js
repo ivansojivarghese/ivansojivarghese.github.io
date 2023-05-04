@@ -238,10 +238,20 @@ function docRead() {
                 // console.log("reconnecting");
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
+                switch (networkTrend(op.ne.b)) {
+                    case true:
+                        
+                    break;
+                    case false:
+
+                    break;
+                    case null:
+
+                    break;
+                }
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
                 rL.xea;
-                // rL.xes.innerHTML = networkTrend(op.ne.b); 
 
                 // rL.n.classList.add("wifi_slow_img");
 
