@@ -244,7 +244,7 @@ function docRead() {
                     
                     setTimeout(function() {
                         if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) { // show connected
-                            // make dot to green
+                            c_rep(rL.dt, "md", "e"); // change dot to green color
                             c_rep(rL.n, "wifi_find_img", "wifi_img");
                             rL.xc.innerHTML = "connected";
                         }
