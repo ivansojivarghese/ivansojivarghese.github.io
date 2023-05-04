@@ -357,7 +357,7 @@ function networkTrend(ar) { // trend(s) of network speed
             var a = ar[i - 1], // 2nd last element
                 b = ar[i]; // last ""
 
-            res = (b - a) !== 0 ? (b - a) > 0 ? true : false : null; // return trend
+            res = ((b - a) !== 0 && a && b) ? (b - a) > 0 ? true : false : null; // return trend
             t_ar[t_ar.length] = res; // update trend in array
 
             if (i === ar.length - 1) { // at first element
