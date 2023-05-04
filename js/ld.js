@@ -231,7 +231,9 @@ function docRead() {
                 c_rep(rL.n, "wifi_off_img", "wifi_find_img");
 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_f) { // check if fonts are downloaded
-                    rL.xc.innerHTML = "reconnecting";
+                    if (!op.nR) {
+                        rL.xc.innerHTML = "reconnecting";
+                    }
                     e_Fd(rL.x, false); // show message when internet not connected
                 } else {
                     rL.xc.innerHTML = "";
@@ -244,7 +246,8 @@ function docRead() {
                     
                     setTimeout(function() {
                         if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) { // show connected
-                            c_rep(rL.dt, "md", "e"); // change dot to green color
+                            rL.dt.classList.add("e", "aniM-f"); // stop animation on 'load_dot'
+                            // c_rep(rL.dt, "md", "e"); // change dot to green color
                             c_rep(rL.n, "wifi_find_img", "wifi_img");
                             rL.xc.innerHTML = "connected";
                         }
