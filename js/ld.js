@@ -241,12 +241,15 @@ function docRead() {
                 switch (networkTrend(op.ne.b)) { // check recent [live] network trend
                     case true: // positive
                         changeSVGColor(op.col.p, rL.xea, false); // turns green
+                        rL.xea.style.transform = "rotate(-90deg)"; // point up
                     break;
                     case false: // negative
                         changeSVGColor(op.col.n, rL.xea, false); // turns red
+                        rL.xea.style.transform = "rotate(90deg)"; // point down
                     break;
                     case null: // constant
                         changeSVGColor(op.col.b, rL.xea, false); // turns black
+                        rL.xea.style.transform = "rotate(0deg)";
                     break;
                 }
 
