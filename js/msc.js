@@ -368,6 +368,9 @@ function networkTrend(ar) { // trend(s) of network speed
                 base = t_ar[t_ar.length - 1];
                 c++;
             } else {
+                if (t_ar[t_ar.length - 1] === base) {
+                    c++;
+                }
                 if (res === 0 || d) {
                     break;
                 } else if (t_ar[t_ar.length - 1] !== base) { // no trend
