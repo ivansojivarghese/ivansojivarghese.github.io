@@ -169,6 +169,7 @@ op = {
         y : 0, // estimated variability (0 - 1)
         c : 0, // iterative count
         b : [], // array of accounted network speeds (for variability)
+        bA : [], // boolean array - network speed trends (slow)
         bt : 3, // no. of checks for speed change
         bI : 60, // array refresh interval (sec.)
         bD : 3000, // default function interval (ms.)
@@ -346,23 +347,45 @@ function networkVariability() { // determine variability of network
 }
 
 function networkTrend(ar) { // trend(s) of network speed
-    var res;
-    if (ar.length > 1) {
-        var a = ar[0], // first element
-            b = ar[ar.length - 1], // last ""
-            _L = ar.length; // no. of data points
+    var base = null, // boolean
+        full = null, 
+        c = 0, // count
+        res;
 
-        res = ((b - a) / _L); // return trend
+    if (ar.length > 1) { 
+        var a = ar[ar.length - 2], // 2nd last element
+            b = ar[ar.length - 1]; // last ""
+
+        res = (b - a) !== 0 ? (b - a) > 0 ? true : false : null; // return trend
+        op.ne.bA[op.ne.bA.length] = res; // update trend in array
 
         // ONLY CONSIDER POSITIVE/NEGATIVE TREND IF 3+ SPEED POINTS MATCH CASE (RESPECTIVELY IN CONSECUTIVE ORDER)
 
         // CHECK FOR CONSTANT TREND USING STD DEV, ETC.
             // OUTPUT: NULL
     } else {
-        res = 0;
+        res = 0; // return as constant
+    }
+
+    for (i = ar.length - 1; i >= 0; i--) { // backtrack from array (to check for trend)
+        if (i === ar.length - 1) { // at first element
+            base = op.ne.bA[i - 1];
+            c++;
+        } else {
+            if (op.ne.bA[i - 1] !== base) { // no trend
+                base = op.ne.bA[i - 1]; // update
+                c = 0; // reset
+            } else if (c < op.ne.bt) {
+                c++; // increment count
+            } else {
+                full = base; // trend confirmed
+                break;
+            }
+        }
     }
     
-    return (res !== 0 /*|| something*/) ? res > 0 ? true : false : null;
+    return full;
+    // return (res !== 0 /*|| something*/) ? res > 0 ? true : false : null;
 }
 
 /////////////////////////////////////////////

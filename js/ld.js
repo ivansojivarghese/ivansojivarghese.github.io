@@ -242,6 +242,8 @@ function docRead() {
 
                 // rL.n.classList.add("wifi_slow_img");
 
+                // op.ne.bA;
+
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s) { // check if fonts are downloaded
                     e_Fd(rL.xe, false); // show speed
                     e_Fd(rL.n, false); // show message
