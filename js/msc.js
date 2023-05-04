@@ -173,6 +173,7 @@ op = {
         bI : 60, // array refresh interval (sec.)
         bD : 3000, // default function interval (ms.)
         bT : "nV", // "" timer tracker
+        off : false, // unexpected offline check
         r : false, // count incrementation check
         d : false, // slow speed boolean var hold
         v : false, // normal (high) speed ""

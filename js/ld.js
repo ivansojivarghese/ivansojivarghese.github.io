@@ -172,7 +172,7 @@ function docRead() {
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
 
-                } else if (op.ne.w && op.ne.s) { // if slow network
+                } else if (op.ne.w && op.ne.s && !op.ne.off) { // if slow network
 
                     // console.log("slow speed");
                     // rL.n.classList.add("wifi_slow_img");
@@ -218,6 +218,7 @@ function docRead() {
 
                     rL.dt.classList.add("md"); 
                     // op.nc = false;
+                    op.ne.off = true; // unexpected offline
                     op.ne.s = 0;
                     op.ne.w = false;
                     
