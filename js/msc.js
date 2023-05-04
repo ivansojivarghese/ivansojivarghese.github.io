@@ -359,32 +359,28 @@ function networkTrend(ar) { // trend(s) of network speed
         res = (b - a) !== 0 ? (b - a) > 0 ? true : false : null; // return trend
         op.ne.bA[op.ne.bA.length] = res; // update trend in array
 
-        // ONLY CONSIDER POSITIVE/NEGATIVE TREND IF 3+ SPEED POINTS MATCH CASE (RESPECTIVELY IN CONSECUTIVE ORDER)
-
-        // CHECK FOR CONSTANT TREND USING STD DEV, ETC.
-            // OUTPUT: NULL
+        for (i = ar.length - 1; i >= 0; i--) { // backtrack from array (to check for trend)
+            if (i === ar.length - 1) { // at first element
+                base = op.ne.bA[i - 1];
+                c++;
+            } else {
+                if (op.ne.bA[i - 1] !== base) { // no trend
+                    res = 0; // constant trend (default)
+                } else if (res === 0) {
+                    break;
+                } else if (c < op.ne.bt) {
+                    c++; // increment count
+                } else {
+                    full = base; // trend confirmed
+                    break;
+                }
+            }
+        }
     } else {
         res = 0; // return as constant
     }
-
-    for (i = ar.length - 1; i >= 0; i--) { // backtrack from array (to check for trend)
-        if (i === ar.length - 1) { // at first element
-            base = op.ne.bA[i - 1];
-            c++;
-        } else {
-            if (op.ne.bA[i - 1] !== base) { // no trend
-                base = op.ne.bA[i - 1]; // update
-                c = 0; // reset
-            } else if (c < op.ne.bt) {
-                c++; // increment count
-            } else {
-                full = base; // trend confirmed
-                break;
-            }
-        }
-    }
     
-    return full;
+    return (res !== 0) ? full: null;
     // return (res !== 0 /*|| something*/) ? res > 0 ? true : false : null;
 }
 
