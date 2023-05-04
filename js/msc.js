@@ -350,6 +350,7 @@ function networkTrend(ar) { // trend(s) of network speed
         base = null, // boolean
         full = null, 
         c = 0, // count
+        d = false,
         res;    
 
     if (ar.length > 1) { 
@@ -357,6 +358,9 @@ function networkTrend(ar) { // trend(s) of network speed
             var a = ar[i - 1], // 2nd last element
                 b = ar[i]; // last ""
 
+            if (res === 0) {
+                d = true;
+            }
             res = ((b - a) !== 0 && a && b) ? (b - a) > 0 ? true : false : null; // return trend
             t_ar[t_ar.length] = res; // update trend in array
 
@@ -364,7 +368,7 @@ function networkTrend(ar) { // trend(s) of network speed
                 base = t_ar[t_ar.length - 1];
                 c++;
             } else {
-                if (res === 0) {
+                if (res === 0 || d) {
                     break;
                 } else if (t_ar[t_ar.length - 1] !== base) { // no trend
                     res = 0; // constant trend (default)
