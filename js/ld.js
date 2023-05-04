@@ -259,7 +259,7 @@ function docRead() {
                             op.ne.reCon = true;
                         }
                         reL();
-                    }, op.ne.bD); // reload page after 1 sec.
+                    }, op.ne.bD); // reload page after interval
                 }
 
                 // console.log("reconnecting");
