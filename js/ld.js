@@ -233,7 +233,9 @@ function docRead() {
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_f) { // check if fonts are downloaded
                     rL.xc.innerHTML = "reconnecting";
                     e_Fd(rL.x, false); // show message when internet not connected
-                } 
+                } else {
+                    rL.xc.innerHTML = "";
+                }
 
                 // console.log("reconnecting");
 
