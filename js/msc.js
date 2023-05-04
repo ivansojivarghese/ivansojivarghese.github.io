@@ -369,13 +369,13 @@ function networkTrend(ar) { // trend(s) of network speed
                 c++;
             } else {
                 if (t_ar[t_ar.length - 1] === base) {
-                    c++;
+                    c++; // increment if subsequent intervals match with base
                 }
                 if (res === 0 || d) {
                     break;
                 } else if (t_ar[t_ar.length - 1] !== base) { // no trend
                     res = 0; // constant trend (default)
-                } else if (c >= op.ne.bt) {
+                } else if (c >= op.ne.bt) { // after consecutive trend intervals
                     full = base; // trend confirmed
                     break;
                 }
