@@ -241,19 +241,18 @@ function docRead() {
                 if (svg.L_ag && svg.L_ar) {
                     switch (networkTrend(op.ne.b)) {
                         case true: // positive
-                            
+                            c_rep(rL.xea, ["", ""], ""); // arrow turns green
                         break;
                         case false: // negative
-
+                            c_rep(rL.xea, ["", ""], ""); // arrow turns green
                         break;
                         case null: // constant
-
+                            c_rep(rL.xea, ["", ""], ""); // arrow turns green
                         break;
                     }
                 }
-
+                
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
-                rL.xea;
 
                 // rL.n.classList.add("wifi_slow_img");
 
