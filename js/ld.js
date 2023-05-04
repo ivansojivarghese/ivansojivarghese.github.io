@@ -241,14 +241,14 @@ function docRead() {
                 if (svg.L_ag && svg.L_ar) {
                     switch (networkTrend(op.ne.b)) {
                         case true: // positive
-                            c_rep(rL.xea, ["lead_arrow_forward_img", "lead_arrow_forward_r_img"], "lead_arrow_forward_g_img"); // arrow turns green
-                            rL.xea.
+                            //c_rep(rL.xea, ["lead_arrow_forward_img", "lead_arrow_forward_r_img"], "lead_arrow_forward_g_img"); // arrow turns green
+                            // rL.xea.
                         break;
                         case false: // negative
-                            c_rep(rL.xea, ["lead_arrow_forward_g_img", "lead_arrow_forward_img"], "lead_arrow_forward_r_img"); // arrow turns red
+                            //c_rep(rL.xea, ["lead_arrow_forward_g_img", "lead_arrow_forward_img"], "lead_arrow_forward_r_img"); // arrow turns red
                         break;
                         case null: // constant
-                            c_rep(rL.xea, ["lead_arrow_forward_r_img", "lead_arrow_forward_g_img"], "lead_arrow_forward_img"); // arrow turns black
+                            //c_rep(rL.xea, ["lead_arrow_forward_r_img", "lead_arrow_forward_g_img"], "lead_arrow_forward_img"); // arrow turns black
                         break;
                     }
                 }
