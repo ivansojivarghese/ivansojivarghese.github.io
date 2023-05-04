@@ -375,9 +375,9 @@ function networkTrend(ar) { // trend(s) of network speed
                     break;
                 } else if (t_ar[t_ar.length - 1] !== base) { // no trend
                     res = 0; // constant trend (default)
-                } else if (c < op.ne.bt) {
+                } else if (c >= op.ne.bt) {
                     c++; // increment count
-                } else {
+                // } else {
                     full = base; // trend confirmed
                     break;
                 }
