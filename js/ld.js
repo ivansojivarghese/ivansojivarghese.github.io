@@ -239,10 +239,9 @@ function docRead() {
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
 
                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps";
+                rL.xes.innerHTML = networkTrend(op.ne.b); 
 
                 // rL.n.classList.add("wifi_slow_img");
-
-                // networkTrend
 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s) { // check if fonts are downloaded
                     e_Fd(rL.xe, false); // show speed
