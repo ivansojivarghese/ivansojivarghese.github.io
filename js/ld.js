@@ -42,7 +42,6 @@ var disp = document.getElementById("display_sc"), // display
         xep : document.getElementById("load_text_ex_p"), // "" primary
         xes : document.getElementById("load_text_ex_s"), // "" secondary
         xea : document.getElementById("load_text_arrow"), // "" arrow
-        xea_svg : null,
         r : document.getElementById("loadR"), // loading rings (container)
         p : document.getElementById("loadR-p"), // loading ring (primary)
         d : document.getElementById("loadR-e"), // loading ring (end)
@@ -257,8 +256,6 @@ function docRead() {
                 // rL.n.classList.add("wifi_slow_img");
 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s && svg.L_a) { // check if fonts are downloaded
-                    rL.xea_svg = rL.xea.contentDocument;
-
                     e_Fd(rL.xe, false); // show speed
                     e_Fd(rL.n, false); // show message
                     e_Fd(rL.x, false);
