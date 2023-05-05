@@ -311,6 +311,12 @@ function docRead() {
                 // op.nc = false;
                 op.ne.s = 0;
                 op.ne.w = false;
+
+                rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                    changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                    rL.xea.style.transform = "rotate(0deg)";
+                }
                 
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o) { // check if fonts are downloaded
                     rL.xc.innerHTML = "offline";
