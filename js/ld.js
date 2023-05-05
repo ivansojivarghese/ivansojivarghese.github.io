@@ -188,9 +188,6 @@ function docRead() {
 
                     rL.e = true;
                     rL.e5 = true;
-                    if ((getCookie("networkReload") === "true")) {
-                        setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed)
-                    }
 
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
@@ -322,6 +319,10 @@ function docRead() {
             } else if (rdS(Rd) && !rL.e5 && rL.y) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
+
+                if ((getCookie("networkReload") === "true")) {
+                    setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
+                }
 
                     /// loadR-e to complete the ring
                         // activate animation when ring is untransversed (animationiteration event)
