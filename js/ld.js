@@ -251,6 +251,7 @@ function docRead() {
                         setCookie("networkReload", "true", op.c.t); // reload (due to network) cookie
                     }
                     setTimeout(function() {
+                        rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
                         rL.dt.classList.add("e"); // stop animation on 'load_dot', change to green
                         c_rep(rL.dt, "aniM", "aniM-f"); 
                         if ((isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) || (svg.w)) { // show connected
