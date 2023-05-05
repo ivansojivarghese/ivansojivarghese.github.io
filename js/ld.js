@@ -358,6 +358,7 @@ function load_e() { // end the loading sequence
 
                 if (eR.h) { // if error is detected
                     if (eR[eR.h].classList.contains("d_n")) {
+                        eR.m.classList.remove("d_n");
                         eR[eR.h].classList.remove("d_n");
                     }
                     e_Fd(eR[eR.h], false); // show the error
