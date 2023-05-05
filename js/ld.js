@@ -208,6 +208,8 @@ function docRead() {
                         e_Fd(rL.x, false); // show message when timeout
                     } 
 
+                    console.log("timeout 1");
+
                     window.stop(); // stop all network resource(s) fetching
                     clearInterval(_Ld); // stop loading process
                     clearInterval(op.ne.L); // clear network check loop
