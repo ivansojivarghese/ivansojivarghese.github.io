@@ -192,7 +192,7 @@ function docRead() {
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
                 
-                } else if (op.Ld.dom > op.Ld.t || getCookie("networkReload") === "true") { // timeout 1
+                } else if (op.Ld.dom > op.Ld.t) { // timeout 1
 
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     rL.n.classList.add("timeout_img");
