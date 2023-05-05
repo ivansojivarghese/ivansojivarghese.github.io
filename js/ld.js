@@ -354,7 +354,10 @@ function load_e() { // end the loading sequence
                 rL.c.classList.add("aniM-p");
 
                 if (eR.h) { // if error is detected
-                    e_Fd(eR[eR.h], false);
+                    if (eR[eR.h].classList.contains("d_n")) {
+                        eR[eR.h].classList.remove("d_n");
+                    }
+                    e_Fd(eR[eR.h], false); // show the error
                 } else {
                     disp.classList.remove("d_n"); // show the page
                     setTimeout(function() {
