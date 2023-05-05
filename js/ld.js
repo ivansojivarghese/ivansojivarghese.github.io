@@ -257,7 +257,7 @@ function docRead() {
                             c_rep(rL.n, "wifi_find_img", "wifi_img");
                             rL.xc.innerHTML = "connected";
                         } else {
-                            c_rep(rL.n, "wifi_find_img", " ");
+                            rL.n.classList.remove("wifi_find_img");
                             rL.xc.innerHTML = "";
                         }
                         op.ne.reCon = true;
