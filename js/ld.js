@@ -172,7 +172,7 @@ function docRead() {
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
 
-                } else if (op.ne.w && op.ne.s) { // if slow network
+                } else if ((op.ne.w && op.ne.s) || (!op.ne.w && op.ne.s && op.ne.off)) { // if slow network (or fast network after offline)
 
                     // console.log("slow speed");
                     // rL.n.classList.add("wifi_slow_img");
