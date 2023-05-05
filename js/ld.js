@@ -251,13 +251,13 @@ function docRead() {
                     // set cookie to set that page reloaded due to offline->online setting
                     
                     setTimeout(function() {
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) { // show connected
+                        if ((isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) || (svg.w)) { // show connected
                             rL.dt.classList.add("e"); // stop animation on 'load_dot', change to green
                             c_rep(rL.dt, "aniM", "aniM-f"); 
                             c_rep(rL.n, "wifi_find_img", "wifi_img");
                             rL.xc.innerHTML = "connected";
                             op.ne.reCon = true;
-                        }
+                        } 
                         reL();
                     }, op.ne.bD); // reload page after interval
                 }
