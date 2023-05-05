@@ -256,8 +256,8 @@ function docRead() {
                         if ((isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) || (svg.w)) { // show connected
                             c_rep(rL.n, "wifi_find_img", "wifi_img");
                             rL.xc.innerHTML = "connected";
-                            op.ne.reCon = true;
                         } 
+                        op.ne.reCon = true;
                         reL();
                     }, op.ne.bD); // reload page after interval
                 }
