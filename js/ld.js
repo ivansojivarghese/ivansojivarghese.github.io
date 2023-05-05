@@ -247,9 +247,9 @@ function docRead() {
 
                 if (!op.nR) {
                     op.nR = true;
-
-                    // set cookie to set that page reloaded due to offline->online setting
-                    
+                    if (getCookie("networkReload") !== "true") {
+                        setCookie("networkReload", "true", op.c.t); // reload (due to network) cookie
+                    }
                     setTimeout(function() {
                         rL.dt.classList.add("e"); // stop animation on 'load_dot', change to green
                         c_rep(rL.dt, "aniM", "aniM-f"); 
