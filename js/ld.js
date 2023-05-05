@@ -188,6 +188,9 @@ function docRead() {
 
                     rL.e = true;
                     rL.e5 = true;
+                    if ((getCookie("networkReload") === "true")) {
+                        setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed)
+                    }
 
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
