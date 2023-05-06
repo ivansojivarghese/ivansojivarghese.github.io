@@ -274,7 +274,7 @@ function docRead() {
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
                 if (!op.ne.x) {
-                    countdownTimerSec(op.Ld.t, op.ne.t2, null, timeout2); // start timeout 2 timer
+                    countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
                     op.ne.x = true; // execute once
                 }
 
