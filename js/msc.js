@@ -151,7 +151,7 @@ op = {
     Ld : {
         dom : 0, // 'domcontentloaded'
         a : 0, // 'load'
-        t : 10000 // threshold for timeout
+        t : 10000 // threshold for timeout (general)
     },
     nav : { // navigation
         d : document.referrer, // check for previous URI
@@ -179,6 +179,9 @@ op = {
         d : false, // slow speed boolean var hold
         v : false, // normal (high) speed ""
         w : true, // slow speed check - less than threshold?
+        x : false, // code execution
+        t2 : "t2", // timeout 2 timer tracker
+        t2s : false, // timeout 2 status
         L : null // loop
     },
     r : null, // resource link origin

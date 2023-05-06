@@ -273,32 +273,52 @@ function docRead() {
                 // console.log("reconnecting");
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
-                switch (networkTrend(op.ne.b)) { // check recent [live] network trend
-                    case true: // positive
-                        changeSVGColor(op.col.p, rL.xea, false); // turns green
-                        rL.xea.style.transform = "rotate(-90deg)"; // point up
-                    break;
-                    case false: // negative
-                        changeSVGColor(op.col.n, rL.xea, false); // turns red
-                        rL.xea.style.transform = "rotate(90deg)"; // point down
-                    break;
-                    case null: // constant
-                        changeSVGColor(op.col.b, rL.xea, false); // turns black
-                        rL.xea.style.transform = "rotate(0deg)";
-                    break;
+                if (!op.ne.x) {
+                    countdownTimerSec(op.Ld.t, op.ne.t2, null, function() {
+                        op.ne.t2s = true;
+                    }); // start timeout 2 timer
+                    op.ne.x = true; // execute once
                 }
 
-                rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
+                if (!op.ne.t2s) { // no timeout 
+                    switch (networkTrend(op.ne.b)) { // check recent [live] network trend
+                        case true: // positive
+                            changeSVGColor(op.col.p, rL.xea, false); // turns green
+                            rL.xea.style.transform = "rotate(-90deg)"; // point up
+                        break;
+                        case false: // negative
+                            changeSVGColor(op.col.n, rL.xea, false); // turns red
+                            rL.xea.style.transform = "rotate(90deg)"; // point down
+                        break;
+                        case null: // constant
+                            changeSVGColor(op.col.b, rL.xea, false); // turns black
+                            rL.xea.style.transform = "rotate(0deg)";
+                        break;
+                    }
 
-                // rL.n.classList.add("wifi_slow_img");
+                    rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
 
-                if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s && svg.L_a) { // check if fonts are downloaded
-                    e_Fd(rL.xe, false); // show speed
-                    e_Fd(rL.n, false); // show message
-                    e_Fd(rL.x, false);
+                    // rL.n.classList.add("wifi_slow_img");
 
-                    // rL.e5 = false;
-                    rL.e5 = (loadS_res(res_ar)) ? false : true;
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s && svg.L_a) { // check if fonts are downloaded
+                        e_Fd(rL.xe, false); // show speed
+                        e_Fd(rL.n, false); // show message
+                        e_Fd(rL.x, false);
+
+                        // rL.e5 = false;
+                        rL.e5 = (loadS_res(res_ar)) ? false : true;
+                    }
+                } else { // timeout 2
+                    rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
+                    rL.dt.classList.add("md"); // turns red
+                    if (svg.t) {
+                        c_rep(rL.n, "wifi_slow_img", "timeout_img");
+                    }
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
+                        rL.xc.innerHTML = "timeout";
+                    } else {
+                        rL.xc.innerHTML = "";
+                    }
                 }
                 /*
                 e_Fd(rL.xe, false); // show speed
