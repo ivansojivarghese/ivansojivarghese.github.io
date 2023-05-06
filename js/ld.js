@@ -368,6 +368,10 @@ function docRead() {
                     load_js_e(); // load js (indiv.)
                     loadUp();  // trigger ALL PROMISES (fetching of resources)
                     rL.e = true; // execute following code block once only
+
+                    rL.s = true;
+                    clearInterval(_Ld); // stop ready-check loop
+
                 }, op.t); // same duration as .trs transition duration property
                 
                 /*
