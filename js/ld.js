@@ -358,7 +358,7 @@ function docRead() {
                     setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
                 }
 
-                rL.m.classList.add("d_n"); // hide loading 
+                rL.dt.classList.add("d_n"); // hide loading 
                 setTimeout(function() { // show loading ring
                     e_Fd(rL.r, false);
                 }, op.t); // same duration as .trs transition duration property
