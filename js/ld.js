@@ -307,6 +307,8 @@ function docRead() {
                         rL.e5 = (loadS_res(res_ar)) ? false : true;
                     }
                 } else { // timeout 2
+                    op.ne.s = 0;
+                    rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     rL.dt.classList.add("md"); // turns red 
                     if (svg.t) {
