@@ -367,7 +367,8 @@ function docRead() {
                 setTimeout(function() { // show loading ring
                     e_Fd(rL.r, false);
                 }, op.t); // same duration as .trs transition duration property
-
+                
+                /*
                 setTimeout(function() { // run loading animation
                     setTimeout(function() { // hide the logo and show the rings
                         load_js_e(); // load js (indiv.)
@@ -376,6 +377,7 @@ function docRead() {
                         rL.e = true; // execute following code block once only
                     }, op.t); 
                 }, 800); // total loading duration to be min. 1.2sec
+                */
 
                 // (rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)
 
