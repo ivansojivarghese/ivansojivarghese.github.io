@@ -665,7 +665,7 @@ function erPg_D(p) { // error page display
     }, op.t)
 }*/
 function mt_check(v) { // maintenance function (temporary)
-    if (op.nav.d !== "" || dev.mtne) { // ([temporary check condition] || full maintenance)
+    if (/*op.nav.d !== "" ||*/ dev.mtne) { // ([temporary check condition] || full maintenance)
         if (v) { // if version upgrade
             var i = 0;
             while (eR.v.u_e[i]) { // edit to element[s]
