@@ -75,6 +75,18 @@ var wH = window.innerHeight, // height
 
 /////////////////////////////////////////////////////
 
+function reqA(v) { // animation frames (rendering)
+    requestAnimationFrame(renderStart);
+}
+
+function renderStart() {
+    requestAnimationFrame(renderCallback);
+}
+
+function renderCallback() {
+    console.log("render");
+}
+
 function renderTime() { 
     var n = op.d.getTime(),
         t = n - performance.timing.navigationStart; 
