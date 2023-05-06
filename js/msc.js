@@ -79,6 +79,8 @@ function reqA(v) { // animation frames (rendering)
     requestAnimationFrame(function() {
         // add to DOM
 
+        resLoad(fchL["1"].el, fchL["1"].u); 
+
         requestAnimationFrame(function() {
             document.body.offsetWidth; // force repaint
             requestAnimationFrame(function() {
