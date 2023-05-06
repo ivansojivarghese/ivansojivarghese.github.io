@@ -272,10 +272,10 @@ function docRead() {
 
                 // console.log("reconnecting");
 
-            } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
+            } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n && op.ne.noCon) { // if network slow (with background processes loaded)
                 if (!op.ne.x) {
                     // countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
-                    countdownTimerSec(100, op.ne.t2, null, timeout2); // start timeout 2 timer
+                    countdownTimerSec(100, op.ne.t2, null, timeout2); // TESTING!
                     op.ne.x = true; // execute once
                 }
 
@@ -296,6 +296,7 @@ function docRead() {
                     }
 
                     rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
+                    op.ne.noCon = (loadS_res(res_ar)) ? false : true; // check loading of resources
 
                     // rL.n.classList.add("wifi_slow_img");
 
