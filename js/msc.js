@@ -438,10 +438,10 @@ function reL() { // reload page
 function loadS_res(ar) { // check load statuses of all resource files
     var _L = ar.length,
         r = true;
-    for (i = 0; i <= _L - 1; i++) {
+    for (i = 0; i <= _L - 1; i++) { // loop through file types
         if (r) {
-            for (var x in ar[i]) {
-                if (ar[i][x] === false) {
+            for (var x in ar[i]) { // loop through indiv. resources of each type
+                if (ar[i][x] === false) { // check load status
                     r = false;
                     break;
                 }
