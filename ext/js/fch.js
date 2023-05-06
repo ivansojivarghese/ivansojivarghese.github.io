@@ -14,11 +14,6 @@ var fchL = {
             el : document.getElementsByClassName("logo-inverse"),
             u : 'logo/favicon_inverse_512.png'
         }
-        /*
-        3 : { // favicon_secondary
-            el : document.getElementsByClassName("logo-secondary"),
-            u : 'logo/favicon_secondary.png'
-        }*/
     },
     qInfo = [ // quick information
         document.getElementById("qIn1"), // work

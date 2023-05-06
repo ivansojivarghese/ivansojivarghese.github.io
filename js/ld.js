@@ -127,7 +127,7 @@ function docRead() {
                         } 
                     }
 
-                    resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
+                    // resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
                     // resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
                     // resLoad(rL.w_s.el, rL.w_s.u); // wifi_off_white
                     // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
