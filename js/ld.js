@@ -160,8 +160,10 @@ function docRead() {
                             }*/
                             load_js_e(); // load js (indiv.)
                             // load_css_e(); // load css styles to 'head' (indiv.)
-                            loadUp();  // trigger ALL PROMISES (fetching of resources)
-                            rL.e = true; // execute following code block once only
+                            if (loadS_res(res_ar)) {
+                                loadUp();  // trigger ALL PROMISES (fetching of resources)
+                                rL.e = true; // execute following code block once only
+                            }
                         }, op.t); 
                     }, 800); // total loading duration to be min. 1.2sec
 
