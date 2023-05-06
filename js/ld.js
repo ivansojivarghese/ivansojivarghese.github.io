@@ -136,7 +136,7 @@ function docRead() {
                     // loadUp();  // trigger ALL PROMISES (fetching of resources)
 
                 }
-                if (/*(rdS(Rd) &&*/ !rL.e3 && !op.ne.w && loadS_res(res_ar)) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded
+                if ((rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded
                     rL.e3 = true; 
                     rL.s = true;
                     /*
@@ -269,7 +269,7 @@ function docRead() {
 
                 // console.log("reconnecting");
 
-            } else if (/*rdS(Rd) &&*/ op.ne.w && op.ne.s && op.n && op.ne.noCon) { // if network slow (with background processes loaded)
+            } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n && op.ne.noCon) { // if network slow (with background processes loaded)
                 if (!op.ne.x) {
                     // countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
                     countdownTimerSec(100, op.ne.t2, null, timeout2); // TESTING!
@@ -354,7 +354,7 @@ function docRead() {
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.x, false); // show message when internet not connected
                 } 
-            } else if (/*rdS(Rd) &&*/ !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
+            } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
 
                 // rL.s = true; // set load status to true
 
