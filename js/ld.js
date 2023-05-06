@@ -566,7 +566,7 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
 function rdS(v) { // check ready-state (boolean conditions) of webpage - ensure images, APIs, external scripts (etc.) have been loaded before display
     var res = true,
         m = v.length - 1,
-        _L = (m >= 1) ? m : 0;
+        _L = (m >= 0) ? m : 0;
     for (i = 0; i <= _L; i++) { // loop through ready-conditions variable
         if (v[i] !== true) {
             res = false; // check for all variables to TRUE
