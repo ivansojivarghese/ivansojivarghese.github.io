@@ -76,16 +76,25 @@ var wH = window.innerHeight, // height
 /////////////////////////////////////////////////////
 
 function reqA(v) { // animation frames (rendering)
-    requestAnimationFrame(renderStart);
-}
+    requestAnimationFrame(function() {
+        // add to DOM
 
+        requestAnimationFrame(function() {
+            document.body.offsetWidth; // force repaint
+            requestAnimationFrame(function() {
+                v = true; // image is painted
+            });
+        });
+    });
+}
+/*
 function renderStart() {
     requestAnimationFrame(renderCallback);
 }
 
 function renderCallback() {
     console.log("render");
-}
+}*/
 
 function renderTime() { 
     var n = op.d.getTime(),
