@@ -264,7 +264,9 @@ function docRead() {
                             rL.xc.innerHTML = "";
                         }
                         op.ne.reCon = true;
-                        reL();
+                        setTimeout(function() {
+                            reL();
+                        }, op.te);
                     }, op.ne.bD); // reload page after interval
                 }
 
