@@ -441,7 +441,7 @@ function loadS_res(ar) { // check load statuses of all resource files
     for (i = 0; i <= _L - 1; i++) {
         if (r) {
             for (var x in ar[i]) {
-                if (!x) {
+                if (ar[i][x] === false) {
                     r = false;
                     break;
                 }
