@@ -350,13 +350,15 @@ function docRead() {
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.x, false); // show message when internet not connected
                 } 
-            } else if (rdS(Rd) && !rL.e5 && rL.y) { // show webpage once all processes (requests, etc.) are complete
+            } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
 
                 rL.s = true; // set load status to true
 
                 if ((getCookie("networkReload") === "true")) {
                     setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
                 }
+
+                // (rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)
 
                     /// loadR-e to complete the ring
                         // activate animation when ring is untransversed (animationiteration event)
