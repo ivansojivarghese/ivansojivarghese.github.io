@@ -359,10 +359,11 @@ function docRead() {
                 }
 
                 // rL.dt.classList.add("d_n"); // hide loading 
-                rL.xe.classList.add("z_O");
-                rL.dt.classList.add("z_O");
-                rL.n.classList.add("z_O");
-                rL.x.classList.add("z_O");
+
+                e_Fd(rL.xe, true); // hide network stats
+                e_Fd(rL.dt, true);
+                e_Fd(rL.n, true);
+                e_Fd(rL.x, true);
                 setTimeout(function() { // show loading ring
                     e_Fd(rL.r, false);
                 }, op.t); // same duration as .trs transition duration property
