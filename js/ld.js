@@ -309,6 +309,10 @@ function docRead() {
                 } else { // timeout 2
                     op.ne.s = 0;
                     rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                    if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                        changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                        rL.xea.style.transform = "rotate(0deg)";
+                    }
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     rL.dt.classList.add("md"); // turns red 
                     if (svg.t) {
@@ -319,6 +323,9 @@ function docRead() {
                     } else {
                         rL.xc.innerHTML = "";
                     }
+                    window.stop(); // stop all network resource(s) fetching
+                    clearInterval(_Ld); // stop loading process
+                    clearInterval(op.ne.L); // clear network check loop
                 }
                 /*
                 e_Fd(rL.xe, false); // show speed
