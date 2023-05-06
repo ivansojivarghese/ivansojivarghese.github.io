@@ -208,7 +208,7 @@ function docRead() {
                         e_Fd(rL.x, false); // show message when timeout
                     } 
 
-                    console.log("timeout 1");
+                    // console.log("timeout 1");
 
                     window.stop(); // stop all network resource(s) fetching
                     clearInterval(_Ld); // stop loading process
@@ -295,7 +295,8 @@ function docRead() {
                     e_Fd(rL.n, false); // show message
                     e_Fd(rL.x, false);
 
-                    rL.e5 = false;
+                    // rL.e5 = false;
+                    rL.e5 = (loadS_res(res_ar)) ? false : true;
                 }
                 /*
                 e_Fd(rL.xe, false); // show speed
