@@ -274,9 +274,7 @@ function docRead() {
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n) { // if network slow (with background processes loaded)
                 if (!op.ne.x) {
-                    countdownTimerSec(op.Ld.t, op.ne.t2, null, function() {
-                        op.ne.t2s = true;
-                    }); // start timeout 2 timer
+                    countdownTimerSec(op.Ld.t, op.ne.t2, null, timeout2); // start timeout 2 timer
                     op.ne.x = true; // execute once
                 }
 
@@ -310,7 +308,7 @@ function docRead() {
                     }
                 } else { // timeout 2
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-                    rL.dt.classList.add("md"); // turns red
+                    rL.dt.classList.add("md"); // turns red 
                     if (svg.t) {
                         c_rep(rL.n, "wifi_slow_img", "timeout_img");
                     }
@@ -669,6 +667,10 @@ function mt_check(v) { // maintenance function (temporary)
     } else {
         return false;
     }
+}
+
+function timeout2() {
+    op.ne.t2s = false; // timeout if loading is long (slow network)
 }
 
 
