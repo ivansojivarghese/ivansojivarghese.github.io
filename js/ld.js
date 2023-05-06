@@ -672,7 +672,7 @@ function mt_check(v) { // maintenance function (temporary)
 }
 
 function timeout2() {
-    op.ne.t2s = false; // timeout if loading is long (slow network)
+    op.ne.t2s = true; // timeout if loading is long (slow network)
 }
 
 
