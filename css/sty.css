@@ -245,7 +245,7 @@ div, .tint {
 }
 
 .z_O, .tint.md { /*zero opacity*/
-    opacity: 0;
+    opacity: 0 !important;
 }
 
 .tint {
