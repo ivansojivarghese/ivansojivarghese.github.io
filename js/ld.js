@@ -358,8 +358,6 @@ function docRead() {
                     setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
                 }
 
-                // rL.dt.classList.add("d_n"); // hide loading 
-
                 e_Fd(rL.xe, true); // hide network stats
                 e_Fd(rL.dt, true);
                 rL.dt.classList.add("aniM-f"); // hide load dot
@@ -367,6 +365,9 @@ function docRead() {
                 e_Fd(rL.x, true);
                 setTimeout(function() { // show loading ring
                     e_Fd(rL.r, false);
+                    load_js_e(); // load js (indiv.)
+                    loadUp();  // trigger ALL PROMISES (fetching of resources)
+                    rL.e = true; // execute following code block once only
                 }, op.t); // same duration as .trs transition duration property
                 
                 /*
