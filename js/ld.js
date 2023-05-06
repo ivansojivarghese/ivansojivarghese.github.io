@@ -254,8 +254,8 @@ function docRead() {
                     }
                     setTimeout(function() {
                         rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
-                        rL.dt.classList.add("e"); // stop animation on 'load_dot', change to green
                         c_rep(rL.dt, "aniM", "aniM-f"); 
+                        rL.dt.classList.add("e"); // stop animation on 'load_dot', change to green
                         if ((isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) || (svg.w)) { // show connected
                             c_rep(rL.n, "wifi_find_img", "wifi_img");
                             rL.xc.innerHTML = "connected";
