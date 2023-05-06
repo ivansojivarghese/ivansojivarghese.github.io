@@ -75,7 +75,7 @@ var wH = window.innerHeight, // height
 
 /////////////////////////////////////////////////////
 
-function reqA(v) { // animation frames (rendering)
+function reqA() { // animation frames (rendering)
     requestAnimationFrame(function() {
         // add to DOM
 
@@ -84,7 +84,7 @@ function reqA(v) { // animation frames (rendering)
         requestAnimationFrame(function() {
             document.body.offsetWidth; // force repaint
             requestAnimationFrame(function() {
-                v = true; // image is painted
+                img.p = true; // image is painted
             });
         });
     });
