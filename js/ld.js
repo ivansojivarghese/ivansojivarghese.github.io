@@ -132,6 +132,9 @@ function docRead() {
                     // resLoad(rL.w_s.el, rL.w_s.u); // wifi_off_white
                     // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
 
+                    load_js_e(); // load js (indiv.)
+                    loadUp();  // trigger ALL PROMISES (fetching of resources)
+
                 }
                 if ((rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded
                     rL.e3 = true; 
