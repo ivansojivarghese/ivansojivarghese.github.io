@@ -7,6 +7,7 @@ var disp = document.getElementById("display_sc"), // display
         v : document.getElementsByClassName("f_vr") // site version
     },
     rL = { // page/resource loader
+        /*
         f : { // - favicon/logo
             el : document.getElementsByClassName("logo"), // element
             u : 'logo/favicon.png' // relative path
@@ -15,11 +16,10 @@ var disp = document.getElementById("display_sc"), // display
             el : document.getElementsByClassName("logo-secondary"),
             u : '../logo/favicon_secondary.png'
         },
-        /*
         w_s : { // - wifi slow
             el : document.getElementsByClassName("wifi_slow_img"),
             u : '../svg/wifi_slow.svg'
-        },*/
+        },
         w_fw : { // - wifi off (white)
             el : document.getElementsByClassName("wifi_off_w_img"),
             u : '../svg/wifi_off_white.svg'
@@ -27,7 +27,7 @@ var disp = document.getElementById("display_sc"), // display
         w_w : { // wifi (white)
             el : document.getElementsByClassName("wifi_w_img"),
             u : '../svg/wifi_white.svg'
-        },
+        },*/
         el : document.getElementById("load_sc"), // load_sc
         m : document.getElementById("load_box"), // load_sc main
         dt : document.getElementById("load_dot"), // loading dot
