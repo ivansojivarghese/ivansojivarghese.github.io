@@ -9,7 +9,12 @@ var fchL = {
         2 : { // logo_hybrid
             el : document.getElementsByClassName("logo-hybrid"),
             u : 'logo/logo_hybrid.png'
-        },/*
+        },
+        3 : { // favicon inverse
+            el : document.getElementsByClassName("logo-inverse"),
+            u : 'logo/favicon_inverse_512.png'
+        }
+        /*
         3 : { // favicon_secondary
             el : document.getElementsByClassName("logo-secondary"),
             u : 'logo/favicon_secondary.png'

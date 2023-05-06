@@ -128,16 +128,9 @@ function docRead() {
                     }
 
                     resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
-
-                    resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
-
+                    // resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
                     // resLoad(rL.w_s.el, rL.w_s.u); // wifi_off_white
-
                     // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
-
-                    // WHAT IF LOADING ERROR?? - DISPLAY MESSAGE!
-                    // CHECK ERRORS
-                        // web connection
 
                 }
                 if ((rdS(Rd) && !rL.e3 && !op.ne.w) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when favicon has loaded (or not)
