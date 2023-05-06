@@ -388,7 +388,8 @@ function docRead() {
                 // show the page
                     // set scroll 
 
-                clearInterval(_Ld); // stop ready-check loop
+                // clearInterval(_Ld); // stop ready-check loop
+
             } else if (op.ne.s >= op.ne.h && rL.e5) {
                 rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
             }
