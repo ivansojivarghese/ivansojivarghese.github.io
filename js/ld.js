@@ -133,7 +133,7 @@ function docRead() {
                     // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
 
                 }
-                if ((rdS(Rd) && !rL.e3 && !op.ne.w) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when favicon has loaded (or not)
+                if ((rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded
                     rL.e3 = true; 
                     /*
                     if (op.c.a) { // only if first-time access
@@ -147,25 +147,23 @@ function docRead() {
                         }*/
                         e_Fd(rL.r, false);
                     }, op.t); // same duration as .trs transition duration property
-                    if (loadS_res(res_ar)) {
-                        setTimeout(function() { // run loading animation
-                            // rL.g.classList.add("z_O"); 
+                    setTimeout(function() { // run loading animation
+                        // rL.g.classList.add("z_O"); 
+                        /*
+                        if (op.c.a) {
+                            rL.t.classList.add("template");
+                        }*/
+                        setTimeout(function() { // hide the logo and show the rings
                             /*
                             if (op.c.a) {
-                                rL.t.classList.add("template");
+                                rL.t.classList.add("z_O");
                             }*/
-                            setTimeout(function() { // hide the logo and show the rings
-                                /*
-                                if (op.c.a) {
-                                    rL.t.classList.add("z_O");
-                                }*/
-                                load_js_e(); // load js (indiv.)
-                                // load_css_e(); // load css styles to 'head' (indiv.)
-                                loadUp();  // trigger ALL PROMISES (fetching of resources)
-                                rL.e = true; // execute following code block once only
-                            }, op.t); 
-                        }, 800); // total loading duration to be min. 1.2sec
-                    }
+                            load_js_e(); // load js (indiv.)
+                            // load_css_e(); // load css styles to 'head' (indiv.)
+                            loadUp();  // trigger ALL PROMISES (fetching of resources)
+                            rL.e = true; // execute following code block once only
+                        }, op.t); 
+                    }, 800); // total loading duration to be min. 1.2sec
 
                 } else if ((op.ne.w && op.ne.s) || (!op.ne.w && op.ne.s && op.ne.off)) { // if slow network (or fast network after offline)
 
