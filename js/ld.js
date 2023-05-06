@@ -358,6 +358,19 @@ function docRead() {
                     setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
                 }
 
+                rL.dt.classList.add("d_n"); // hide loading dot
+                setTimeout(function() {
+                    e_Fd(rL.r, false);
+                }, op.t); // same duration as .trs transition duration property
+                setTimeout(function() { // run loading animation
+                    setTimeout(function() { // hide the logo and show the rings
+                        load_js_e(); // load js (indiv.)
+                        // load_css_e(); // load css styles to 'head' (indiv.)
+                        loadUp();  // trigger ALL PROMISES (fetching of resources)
+                        rL.e = true; // execute following code block once only
+                    }, op.t); 
+                }, 800); // total loading duration to be min. 1.2sec
+
                 // (rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)
 
                     /// loadR-e to complete the ring
@@ -368,8 +381,6 @@ function docRead() {
 
                 // show the page
                     // set scroll 
-
-                // console.log("loaded");
 
                 clearInterval(_Ld); // stop ready-check loop
             } else if (op.ne.s >= op.ne.h && rL.e5) {
