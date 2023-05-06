@@ -436,10 +436,21 @@ function reL() { // reload page
 }
 
 function loadS_res(ar) { // check load statuses of all resource files
-    var _L = ar.length;
-    for () {
-        
+    var _L = ar.length,
+        r = true;
+    for (i = 0; i <= _L - 1; i++) {
+        if (r) {
+            for (var x in ar[i]) {
+                if (!x) {
+                    r = false;
+                    break;
+                }
+            }
+        } else {
+            break;
+        }
     }
+    return r;
 }
 
 function resLoad_c(url, el, g, i) { // load a resource : modular
