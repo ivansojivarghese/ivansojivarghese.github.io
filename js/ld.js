@@ -147,25 +147,25 @@ function docRead() {
                         }*/
                         e_Fd(rL.r, false);
                     }, op.t); // same duration as .trs transition duration property
-                    setTimeout(function() { // run loading animation
-                        // rL.g.classList.add("z_O"); 
-                        /*
-                        if (op.c.a) {
-                            rL.t.classList.add("template");
-                        }*/
-                        setTimeout(function() { // hide the logo and show the rings
+                    if (loadS_res(res_ar)) {
+                        setTimeout(function() { // run loading animation
+                            // rL.g.classList.add("z_O"); 
                             /*
                             if (op.c.a) {
-                                rL.t.classList.add("z_O");
+                                rL.t.classList.add("template");
                             }*/
-                            load_js_e(); // load js (indiv.)
-                            // load_css_e(); // load css styles to 'head' (indiv.)
-                            if (loadS_res(res_ar)) {
+                            setTimeout(function() { // hide the logo and show the rings
+                                /*
+                                if (op.c.a) {
+                                    rL.t.classList.add("z_O");
+                                }*/
+                                load_js_e(); // load js (indiv.)
+                                // load_css_e(); // load css styles to 'head' (indiv.)
                                 loadUp();  // trigger ALL PROMISES (fetching of resources)
                                 rL.e = true; // execute following code block once only
-                            }
-                        }, op.t); 
-                    }, 800); // total loading duration to be min. 1.2sec
+                            }, op.t); 
+                        }, 800); // total loading duration to be min. 1.2sec
+                    }
 
                 } else if ((op.ne.w && op.ne.s) || (!op.ne.w && op.ne.s && op.ne.off)) { // if slow network (or fast network after offline)
 
