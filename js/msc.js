@@ -435,6 +435,13 @@ function reL() { // reload page
     window.location.assign(window.location.href); // FIREFOX support
 }
 
+function loadS_res(ar) { // check load statuses of all resource files
+    var _L = ar.length;
+    for () {
+        
+    }
+}
+
 function resLoad_c(url, el, g, i) { // load a resource : modular
     if (g) { 
         for (var k = 0; k <= (el.length - 1); k++) {
