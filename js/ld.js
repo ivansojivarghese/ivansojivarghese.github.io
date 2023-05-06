@@ -362,6 +362,7 @@ function docRead() {
 
                 e_Fd(rL.xe, true); // hide network stats
                 e_Fd(rL.dt, true);
+                rL.dt.classList.add("aniM-f");
                 e_Fd(rL.n, true);
                 e_Fd(rL.x, true);
                 setTimeout(function() { // show loading ring
