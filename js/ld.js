@@ -136,7 +136,7 @@ function docRead() {
                     // loadUp();  // trigger ALL PROMISES (fetching of resources)
 
                 }
-                if ((rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar) && op.n) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded
+                if ((rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar) && op.n) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded (normal)
                     rL.e3 = true; 
                     // rL.s = true;
                     /*
