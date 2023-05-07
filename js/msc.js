@@ -1447,10 +1447,12 @@ window.addEventListener("visibilitychange", function() { // stop network check i
         checkOnlineStatus_abort.abort(); // abort any existing fetching
         estimateNetworkSpeed_abort.abort();
         op.n = true;
+        console.log("hidden");
     } else {
         op.ne.L = setInterval(async () => {
             networkConditions(); // continuously check on network
         }, op.ne.bD);
+        console.log("in view");
     }
 });
 
@@ -1461,6 +1463,7 @@ window.addEventListener("focus", function() { // window in focus
     op.ne.L = setInterval(async () => {
         networkConditions(); // continuously check on network
     }, op.ne.bD);
+    console.log("in view");
 });
 
 window.addEventListener("blur", function() { // window out of focus
@@ -1471,6 +1474,7 @@ window.addEventListener("blur", function() { // window out of focus
     checkOnlineStatus_abort.abort(); // abort any existing fetching
     estimateNetworkSpeed_abort.abort();
     op.n = true;
+    console.log("hidden");
 });
 
 //////////////////////////////////////////
