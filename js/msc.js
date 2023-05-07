@@ -252,7 +252,7 @@ const checkOnlineStatus = async () => { // check for internet connectivity
         const online = await fetch(url + "msc/onlineResourceLocator.png", { // send a 'ping' signal to resource locator
             cache : "no-store",
             priority: "low",
-            cos_signal
+            signal: cos_signal
         });
         return online.status >= 200 && online.status < 300; // determine network status from return value
     } catch (err) {
@@ -268,7 +268,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         const online = await fetch(url + "msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
             cache : "no-store",
             priority: "low",
-            ens_signal
+            signal: ens_signal
         });
         op.ne.t = op.d.getTime(); // end time of fetch
         op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
