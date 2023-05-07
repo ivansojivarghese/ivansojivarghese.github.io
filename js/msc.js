@@ -482,7 +482,7 @@ function loadS_res(ar) { // check load statuses of all resource files
 function resLoad_c(url, el, g, i) { // load a resource : modular
     if (g) { 
         for (var k = 0; k <= (el.length - 1); k++) {
-            el[k].style.backgroundImage = "url(" + url + ")"; // style
+            // el[k].style.backgroundImage = "url(" + url + ")"; // style
             Rd[i + k] = true; // verify resource(s) ha(s/ve) been loaded
         }
     } else {
