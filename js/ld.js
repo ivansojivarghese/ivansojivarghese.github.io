@@ -378,9 +378,7 @@ function docRead() {
                     rL.e = true; // execute following code block once only
                     rL.s = true;
                     clearInterval(_Ld); // stop ready-check loop
-
-                    countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
-
+                    countdownTimerSec((op.Ld.t / 1000), op.ne.t3, null, timeout3); // start timeout 2 timer
                 }, op.t); // same duration as .trs transition duration property
                 
                 /*
@@ -417,8 +415,15 @@ function docRead() {
 }
 
 function load_e() { // end the loading sequence
+    if (op.ne.t3s) { // timeout 3
 
-    if (rL.s && !op.ne.w) { // only if status is true (default)
+        e_Fd(rL.xe, false); // hide network stats
+        e_Fd(rL.dt, false);
+        rL.dt.classList.add("aniM-f"); // hide load dot
+        e_Fd(rL.n, false);
+        e_Fd(rL.x, false);
+
+    } else if (rL.s && !op.ne.w) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         load_css_e(); // load css styles to 'head' (indiv.)
         setTimeout(function() {
@@ -714,6 +719,10 @@ function mt_check(v) { // maintenance function (temporary)
 
 function timeout2() {
     op.ne.t2s = true; // timeout if loading is long (slow network)
+}
+
+function timeout3() {
+    op.ne.t3s = true; // timeout
 }
 
 
