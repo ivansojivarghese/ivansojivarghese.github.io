@@ -482,14 +482,14 @@ function loadS_res(ar) { // check load statuses of all resource files
 function resLoad_c(url, el, g, i) { // load a resource : modular
     if (g) { 
         for (var k = 0; k <= (el.length - 1); k++) {
-            // el[k].style.backgroundImage = "url(" + url + ")"; // style
+            el[k].style.backgroundImage = "url(" + url + ")"; // style
             Rd[i + k] = true; // verify resource(s) ha(s/ve) been loaded
         }
     } else {
         if (el[0]) { // support for class elements ('el') with only 1 element
-            el[0].style.backgroundImage = "url(" + url + ")"; // style
+            // el[0].style.backgroundImage = "url(" + url + ")"; // style
         } else {
-            el.style.backgroundImage = "url(" + url + ")"; // style
+            // el.style.backgroundImage = "url(" + url + ")"; // style
         }
         Rd[i] = true;
     }
