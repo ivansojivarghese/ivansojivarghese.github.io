@@ -138,7 +138,7 @@ function docRead() {
                 }
                 if ((rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded
                     rL.e3 = true; 
-                    // rL.s = true;
+                    rL.s = true;
                     /*
                     if (op.c.a) { // only if first-time access
                         e_Fd(rL.g, false); // show logo
@@ -356,12 +356,12 @@ function docRead() {
                 } 
             } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
 
-                rL.s = true; // set load status to true
+                // rL.s = true; // set load status to true
 
                 if ((getCookie("networkReload") === "true")) {
                     setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
                 }
-                /*
+                
                 e_Fd(rL.xe, true); // hide network stats
                 e_Fd(rL.dt, true);
                 rL.dt.classList.add("aniM-f"); // hide load dot
@@ -377,7 +377,7 @@ function docRead() {
                     clearInterval(_Ld); // stop ready-check loop
 
                 }, op.t); // same duration as .trs transition duration property
-                */
+                
                 /*
                 setTimeout(function() { // run loading animation
                     setTimeout(function() { // hide the logo and show the rings
@@ -400,7 +400,7 @@ function docRead() {
                 // show the page
                     // set scroll 
 
-                clearInterval(_Ld); // stop ready-check loop
+                // clearInterval(_Ld); // stop ready-check loop
 
             } else if (op.ne.s >= op.ne.h && rL.e5) {
                 rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
