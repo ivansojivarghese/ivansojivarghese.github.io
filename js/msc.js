@@ -1446,6 +1446,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
         clearInterval(op.ne.L); // clear network check loop
         checkOnlineStatus_abort.abort(); // abort any existing fetching
         estimateNetworkSpeed_abort.abort();
+        op.n = true;
     } else {
         op.ne.L = setInterval(async () => {
             networkConditions(); // continuously check on network
@@ -1469,6 +1470,7 @@ window.addEventListener("blur", function() { // window out of focus
     clearInterval(op.ne.L); // clear network check loop
     checkOnlineStatus_abort.abort(); // abort any existing fetching
     estimateNetworkSpeed_abort.abort();
+    op.n = true;
 });
 
 //////////////////////////////////////////
