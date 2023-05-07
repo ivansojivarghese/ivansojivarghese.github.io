@@ -418,8 +418,8 @@ function load_e() { // end the loading sequence
     if (op.ne.t3s) { // timeout 3
 
         e_Fd(rL.r, true); // hide loading ring
-        e_Fd(rL.dt, false); // show load dot
-        rL.dt.classList.add("e"); 
+        e_Fd(rL.dt, false); // show load dot (in red)
+        rL.dt.classList.add("md"); 
         e_Fd(rL.n, false);
         e_Fd(rL.x, false);
 
