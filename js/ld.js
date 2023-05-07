@@ -209,7 +209,7 @@ function docRead() {
                     clearInterval(_Ld); // stop loading process
                     clearInterval(op.ne.L); // clear network check loop
 
-                    checkOnlineStatus_abort.abort();
+                    checkOnlineStatus_abort.abort(); // abort any existing fetching
                     estimateNetworkSpeed_abort.abort();
 
                 } else if (op.n === false) { // if network offline
@@ -326,6 +326,9 @@ function docRead() {
                     window.stop(); // stop all network resource(s) fetching
                     clearInterval(_Ld); // stop loading process
                     clearInterval(op.ne.L); // clear network check loop
+
+                    checkOnlineStatus_abort.abort(); // abort any existing fetching
+                    estimateNetworkSpeed_abort.abort();
                 }
                 /*
                 e_Fd(rL.xe, false); // show speed
