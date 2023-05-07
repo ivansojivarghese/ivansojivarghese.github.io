@@ -434,6 +434,7 @@ function load_e() { // end the loading sequence
                 rL.p.classList.add("aniM-p");
                 rL.c.classList.add("aniM-p");
 
+                rL.dt.classList.remove("d_n");
                 rL.dt.classList.add("md"); 
                 e_Fd(rL.dt, false); // show load dot (in red)
                 e_Fd(rL.n, false);
