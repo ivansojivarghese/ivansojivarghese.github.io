@@ -417,11 +417,22 @@ function docRead() {
 function load_e() { // end the loading sequence
     if (op.ne.t3s) { // timeout 3
 
+        if (svg.t) {
+            c_rep(rL.n, "wifi_slow_img", "timeout_img");
+        }
+        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
+            rL.xc.innerHTML = "timeout";
+        } else {
+            rL.xc.innerHTML = "";
+        }
+
         e_Fd(rL.r, true); // hide loading ring
-        e_Fd(rL.dt, false); // show load dot (in red)
         rL.dt.classList.add("md"); 
-        e_Fd(rL.n, false);
-        e_Fd(rL.x, false);
+        setTimeout(function() {
+            e_Fd(rL.dt, false); // show load dot (in red)
+            e_Fd(rL.n, false);
+            e_Fd(rL.x, false);
+        }, op.t);
 
     } else if (rL.s && !op.ne.w) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
