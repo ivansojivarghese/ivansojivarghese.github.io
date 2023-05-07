@@ -203,13 +203,14 @@ function docRead() {
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
                         rL.xc.innerHTML = "timeout";
                         e_Fd(rL.x, false); // show message when timeout
-                    } 
-
-                    // console.log("timeout 1");
+                    }
 
                     window.stop(); // stop all network resource(s) fetching
                     clearInterval(_Ld); // stop loading process
                     clearInterval(op.ne.L); // clear network check loop
+
+                    checkOnlineStatus_abort.abort();
+                    estimateNetworkSpeed_abort.abort();
 
                 } else if (op.n === false) { // if network offline
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
@@ -399,7 +400,7 @@ function docRead() {
 
                 // show the page
                     // set scroll 
-                    
+
                 if (!op.ne.w) {
                     clearInterval(_Ld); // stop ready-check loop
                 }
