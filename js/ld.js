@@ -428,6 +428,12 @@ function load_e() { // end the loading sequence
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         setTimeout(function() {
             e_Fd(rL.r, true); // hide loading ring
+
+            setTimeout(function() {
+                rL.r.classList.add("aniM-p"); // stop animation in the rings
+                rL.p.classList.add("aniM-p");
+                rL.c.classList.add("aniM-p");
+            }, op.t);
         }, op.te - op.t);
         
         /*
@@ -443,7 +449,7 @@ function load_e() { // end the loading sequence
                 rL.c.classList.add("aniM-p");
             }, op.t);
         }, op.t);*/
-        
+
         rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
 
         window.stop(); // stop all network resource(s) fetching
