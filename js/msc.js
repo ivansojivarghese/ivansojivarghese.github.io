@@ -204,7 +204,9 @@ op = {
         w : true, // slow speed check - less than threshold?
         x : false, // code execution
         t2 : "t2", // timeout 2 timer tracker
-        t2s : false, // timeout 2 status
+        t2s : false, // timeout 2 status,
+        t3 : "t3", // timeout 3 timer tracker
+        t3s : false, // timeout 3 status
         L : null // loop
     },
     r : null, // resource link origin

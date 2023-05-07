@@ -378,6 +378,9 @@ function docRead() {
                     rL.e = true; // execute following code block once only
                     rL.s = true;
                     clearInterval(_Ld); // stop ready-check loop
+
+                    countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
+
                 }, op.t); // same duration as .trs transition duration property
                 
                 /*
