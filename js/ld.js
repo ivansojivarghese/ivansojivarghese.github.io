@@ -440,20 +440,6 @@ function load_e() { // end the loading sequence
                 e_Fd(rL.x, false);
             }, op.t);
         }, op.te - op.t);
-        
-        /*
-        setTimeout(function() {
-            rL.dt.classList.add("md"); 
-            setTimeout(function() {
-                e_Fd(rL.dt, false); // show load dot (in red)
-                e_Fd(rL.n, false);
-                e_Fd(rL.x, false);
-
-                rL.r.classList.add("aniM-p"); // stop animation in the rings
-                rL.p.classList.add("aniM-p");
-                rL.c.classList.add("aniM-p");
-            }, op.t);
-        }, op.t);*/
 
         rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
 
