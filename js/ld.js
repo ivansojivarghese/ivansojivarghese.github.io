@@ -356,7 +356,7 @@ function docRead() {
                 } 
             } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
                 // if (!op.ne.w) {
-                    rL.s = true; // set load status to true
+                rL.s = true; // set load status to true
                 // }
                 if ((getCookie("networkReload") === "true")) {
                     setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
@@ -400,7 +400,7 @@ function docRead() {
                 // show the page
                     // set scroll 
 
-                // clearInterval(_Ld); // stop ready-check loop
+                clearInterval(_Ld); // stop ready-check loop
 
             } else if (op.ne.s >= op.ne.h && rL.e5) {
                 rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
