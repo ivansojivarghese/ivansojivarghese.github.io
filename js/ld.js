@@ -427,12 +427,12 @@ function load_e() { // end the loading sequence
 
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         setTimeout(function() {
-            e_Fd(rL.r, true); // hide loading ring
-
             setTimeout(function() {
                 rL.r.classList.add("aniM-p"); // stop animation in the rings
                 rL.p.classList.add("aniM-p");
                 rL.c.classList.add("aniM-p");
+
+                e_Fd(rL.r, true); // hide loading ring
             }, op.t);
         }, op.te - op.t);
         
