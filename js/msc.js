@@ -173,7 +173,7 @@ op = {
     Ld : {
         dom : 0, // 'domcontentloaded'
         a : 0, // 'load'
-        t : 10000 // threshold for timeout (general)
+        t : 15000 // threshold for timeout (general)
     },
     nav : { // navigation
         d : document.referrer, // check for previous URI
@@ -538,7 +538,7 @@ async function resLoad(el, src) { // load a resource to element (img)
             .catch((e) => {
 
                 // 404 not found OR timeout
-                
+
             })
     } else {
         resLoad_c(id + src, el, g, i);
