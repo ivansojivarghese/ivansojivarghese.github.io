@@ -417,9 +417,8 @@ function docRead() {
 function load_e() { // end the loading sequence
     if (op.ne.t3s) { // timeout 3
 
-        e_Fd(rL.xe, false); // hide network stats
-        e_Fd(rL.dt, false);
-        rL.dt.classList.add("aniM-f"); // hide load dot
+        e_Fd(rL.dt, false); // show load dot
+        rL.dt.classList.add("e"); 
         e_Fd(rL.n, false);
         e_Fd(rL.x, false);
 
