@@ -240,7 +240,7 @@ op = {
     L : null // loop variable
 };
 
-const checkOnlineStatus_abort = new AbortController(); // abortion functions
+const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
 const cos_signal = checkOnlineStatus_abort.signal;
 
 const estimateNetworkSpeed_abort = new AbortController();
