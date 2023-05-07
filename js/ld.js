@@ -405,7 +405,7 @@ function docRead() {
                     // set scroll 
 
                 if (!op.ne.w) { // if network NOT slow
-                    rL.s = true;
+                    // rL.s = true;
                     clearInterval(_Ld); // stop ready-check loop
                 }
 
