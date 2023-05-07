@@ -426,7 +426,7 @@ function load_e() { // end the loading sequence
         }
 
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
-        e_Fd(rL.r, true); // hide loading ring
+        // e_Fd(rL.r, true); // hide loading ring
         /*
         setTimeout(function() {
             rL.dt.classList.add("md"); 
