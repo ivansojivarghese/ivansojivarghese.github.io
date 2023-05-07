@@ -510,7 +510,7 @@ async function resLoad(el, src) { // load a resource to element (img)
         const promise = await fetch(id + src) // fetch resource
             .then((p) => { // WAIT for result
 
-                // resLoad_c(p.url, el, g, i);
+                resLoad_c(p.url, el, g, i);
 
                 /*
                 if (!dev.mode) {
