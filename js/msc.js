@@ -487,9 +487,9 @@ function resLoad_c(url, el, g, i) { // load a resource : modular
         }
     } else {
         if (el[0]) { // support for class elements ('el') with only 1 element
-            // el[0].style.backgroundImage = "url(" + url + ")"; // style
+            el[0].style.backgroundImage = "url(" + url + ")"; // style
         } else {
-            // el.style.backgroundImage = "url(" + url + ")"; // style
+            el.style.backgroundImage = "url(" + url + ")"; // style
         }
         Rd[i] = true;
     }
