@@ -424,7 +424,7 @@ function load_e() { // end the loading sequence
         } else {
             rL.xc.innerHTML = "";
         }
-        
+
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         e_Fd(rL.r, true); // hide loading ring
         setTimeout(function() {
@@ -433,6 +433,10 @@ function load_e() { // end the loading sequence
                 e_Fd(rL.dt, false); // show load dot (in red)
                 e_Fd(rL.n, false);
                 e_Fd(rL.x, false);
+
+                rL.r.classList.add("aniM-p"); // stop animation in the rings
+                rL.p.classList.add("aniM-p");
+                rL.c.classList.add("aniM-p");
             }, op.t);
         }, op.t);
 
