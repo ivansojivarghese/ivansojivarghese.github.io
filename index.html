@@ -34,19 +34,6 @@
                     L_i : false
                 },
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
-                function reqA() { // animation frames (rendering)
-                    requestAnimationFrame(function() {
-                        
-                        resLoad(fchL["1"].el, fchL["1"].u);  // add to DOM
-
-                        requestAnimationFrame(function() {
-                            document.body.offsetWidth; // force repaint
-                            requestAnimationFrame(function() {
-                                img.p = true; // image is painted
-                            });
-                        });
-                    });
-                }
         </script>
         <!-- End Google Tag Manager -->
         <title>Ivan (Soji) Varghese | Clicks, Code & Concepts</title>
@@ -180,7 +167,7 @@
         <link rel="preload" href="svg/wifi_slow.svg" as="image" type="image/svg+xml" onload="svg.w_s = true;">
         <link rel="preload" href="svg/chevron_down.svg" as="image" type="image/svg+xml" onload="svg.c = true;">
         <!-- Images -->
-        <link rel="preload" href="ext/jpg/ivan_profile.jpg" as="image" type="image/jpg" onload="reqA()">
+        <link rel="preload" href="ext/jpg/ivan_profile.jpg" as="image" type="image/jpg" onload="img.p = true;">
         <link rel="preload" href="logo/logo_hybrid.png" as="image" type="image/png" onload="img.L_h = true;">
         <link rel="preload" href="logo/favicon_inverse_512.png" as="image" type="image/png" onload="img.L_i = true;">
         <!-- SVGs -->

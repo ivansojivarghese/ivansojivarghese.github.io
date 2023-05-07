@@ -74,7 +74,7 @@ var wH = window.innerHeight, // height
     };    
 
 /////////////////////////////////////////////////////
-
+/*
 function reqA() { // animation frames (rendering)
     requestAnimationFrame(function() {
         
@@ -87,7 +87,7 @@ function reqA() { // animation frames (rendering)
             });
         });
     });
-}
+}*/
 /*
 function renderStart() {
     requestAnimationFrame(renderCallback);
