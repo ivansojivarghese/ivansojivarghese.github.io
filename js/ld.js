@@ -417,7 +417,7 @@ function docRead() {
 
 function load_e() { // end the loading sequence
 
-    if (rL.s) { // only if status is true (default)
+    if (rL.s && !op.ne.w) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         load_css_e(); // load css styles to 'head' (indiv.)
         setTimeout(function() {
