@@ -1443,7 +1443,14 @@ window.addEventListener("orientationchange", function() {
 
 window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
     if (document.hidden) {
-        clearInterval(op.ne.L);
+        // clearInterval(op.ne.L);
+
+        window.stop(); // stop all network resource(s) fetching
+        clearInterval(_Ld); // stop loading process
+        clearInterval(op.ne.L); // clear network check loop
+
+        checkOnlineStatus_abort.abort(); // abort any existing fetching
+        estimateNetworkSpeed_abort.abort();
     } else {
         op.ne.L = setInterval(async () => {
             networkConditions(); // continuously check on network
@@ -1464,7 +1471,14 @@ window.addEventListener("blur", function() { // window out of focus
 
     // ADD 'HIDING' LAYER - PREVENT TO BE SEEN IN TAB PREVIEW
 
-    clearInterval(op.ne.L);
+    // clearInterval(op.ne.L);
+
+    window.stop(); // stop all network resource(s) fetching
+    clearInterval(_Ld); // stop loading process
+    clearInterval(op.ne.L); // clear network check loop
+
+    checkOnlineStatus_abort.abort(); // abort any existing fetching
+    estimateNetworkSpeed_abort.abort();
 });
 
 //////////////////////////////////////////
