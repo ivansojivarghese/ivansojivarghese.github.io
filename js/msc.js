@@ -1440,7 +1440,7 @@ window.addEventListener("orientationchange", function() {
 });
 
 //////////////////////////////////////////
-
+/*
 window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
     if (document.hidden) {
         clearInterval(op.ne.L); // clear network check loop
@@ -1475,7 +1475,7 @@ window.addEventListener("blur", function() { // window out of focus
     estimateNetworkSpeed_abort.abort();
     op.n = true;
     console.log("hidden");
-});
+});*/
 
 //////////////////////////////////////////
 
