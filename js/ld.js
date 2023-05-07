@@ -376,10 +376,8 @@ function docRead() {
                     load_js_e(); // load js (indiv.)
                     loadUp();  // trigger ALL PROMISES (fetching of resources)
                     rL.e = true; // execute following code block once only
-                    if (!op.ne.w) { // if network NOT slow
-                        rL.s = true;
-                        clearInterval(_Ld); // stop ready-check loop
-                    }
+                    rL.s = true;
+                    clearInterval(_Ld); // stop ready-check loop
                 }, op.t); // same duration as .trs transition duration property
                 
                 /*
@@ -405,7 +403,6 @@ function docRead() {
                     // set scroll 
 
                 if (!op.ne.w) { // if network NOT slow
-                    // rL.s = true;
                     clearInterval(_Ld); // stop ready-check loop
                 }
 
