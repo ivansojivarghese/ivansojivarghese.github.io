@@ -138,7 +138,7 @@ function docRead() {
                 }
                 if ((rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded
                     rL.e3 = true; 
-                    rL.s = true;
+                    // rL.s = true;
                     /*
                     if (op.c.a) { // only if first-time access
                         e_Fd(rL.g, false); // show logo
