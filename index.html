@@ -34,6 +34,19 @@
                     L_i : false
                 },
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
+                function reqA() { // animation frames (rendering)
+                    requestAnimationFrame(function() {
+                        
+                        resLoad(fchL["1"].el, fchL["1"].u);  // add to DOM
+
+                        requestAnimationFrame(function() {
+                            document.body.offsetWidth; // force repaint
+                            requestAnimationFrame(function() {
+                                img.p = true; // image is painted
+                            });
+                        });
+                    });
+                }
         </script>
         <!-- End Google Tag Manager -->
         <title>Ivan (Soji) Varghese | Clicks, Code & Concepts</title>
