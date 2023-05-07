@@ -439,6 +439,7 @@ function load_e() { // end the loading sequence
                 rL.c.classList.add("aniM-p");
             }, op.t);
         }, op.t);
+        rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
 
         window.stop(); // stop all network resource(s) fetching
         clearInterval(_Ld); // stop loading process
