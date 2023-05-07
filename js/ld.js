@@ -143,7 +143,8 @@ function docRead() {
                     if (op.c.a) { // only if first-time access
                         e_Fd(rL.g, false); // show logo
                     }*/
-                    rL.dt.classList.add("d_n"); // hide loading dot
+                    // rL.dt.classList.add("d_n"); // hide loading dot
+                    e_Fd(rL.dt, true);
                     setTimeout(function() {
                         /*
                         if (op.c.a) {
