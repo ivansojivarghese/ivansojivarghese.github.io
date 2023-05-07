@@ -434,7 +434,10 @@ function load_e() { // end the loading sequence
                 rL.p.classList.add("aniM-p");
                 rL.c.classList.add("aniM-p");
 
-                // e_Fd(rL.r, true); // hide loading ring
+                rL.dt.classList.add("md"); 
+                e_Fd(rL.dt, false); // show load dot (in red)
+                e_Fd(rL.n, false);
+                e_Fd(rL.x, false);
             }, op.t);
         }, op.te - op.t);
         
