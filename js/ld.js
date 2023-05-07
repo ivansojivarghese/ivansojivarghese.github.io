@@ -416,7 +416,6 @@ function docRead() {
 
 function load_e() { // end the loading sequence
     if (op.ne.t3s) { // timeout 3
-
         if (svg.t) {
             c_rep(rL.n, ["wifi_find_img", "wifi_img", "wifi_slow_img", "wifi_off_img"], "timeout_img");
         }
