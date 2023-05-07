@@ -426,11 +426,13 @@ function load_e() { // end the loading sequence
         }
 
         e_Fd(rL.r, true); // hide loading ring
-        rL.dt.classList.add("md"); 
         setTimeout(function() {
-            e_Fd(rL.dt, false); // show load dot (in red)
-            e_Fd(rL.n, false);
-            e_Fd(rL.x, false);
+            rL.dt.classList.add("md"); 
+            setTimeout(function() {
+                e_Fd(rL.dt, false); // show load dot (in red)
+                e_Fd(rL.n, false);
+                e_Fd(rL.x, false);
+            }, op.t);
         }, op.t);
 
         window.stop(); // stop all network resource(s) fetching
