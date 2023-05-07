@@ -450,7 +450,7 @@ function load_e() { // end the loading sequence
         checkOnlineStatus_abort.abort(); // abort any existing fetching
         estimateNetworkSpeed_abort.abort();
 
-    } else if (rL.s && !op.ne.w) { // only if status is true (default)
+    } else if (rL.s && !op.ne.w && op.n) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         load_css_e(); // load css styles to 'head' (indiv.)
         setTimeout(function() {
