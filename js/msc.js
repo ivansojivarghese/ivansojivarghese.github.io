@@ -536,7 +536,9 @@ async function resLoad(el, src) { // load a resource to element (img)
 
             })
             .catch((e) => {
+
                 // 404 not found OR timeout
+                
             })
     } else {
         resLoad_c(id + src, el, g, i);
