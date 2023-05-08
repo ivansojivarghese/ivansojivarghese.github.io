@@ -146,7 +146,8 @@ function docRead() {
                         e_Fd(rL.g, false); // show logo
                     }*/
 
-                    // something becomes true (loading)
+                    rL.r_s = true;
+                    rL.i_s = false;
 
                     rL.dt.classList.add("d_n"); // hide loading dot
                     setTimeout(function() {
@@ -218,6 +219,10 @@ function docRead() {
                     estimateNetworkSpeed_abort.abort();
 
                 } else if (op.n === false) { // if network offline
+
+                    rL.i_s = true;
+                    rL.r_s = false;
+
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     // rL.n.classList.add("wifi_off_img");
                     c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
@@ -276,6 +281,10 @@ function docRead() {
                 // console.log("reconnecting");
 
             } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n && op.ne.noCon) { // if network slow (with background processes loaded)
+
+                rL.i_s = true;
+                rL.r_s = false;
+
                 if (!op.ne.x) {
                     countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
                     // countdownTimerSec(100, op.ne.t2, null, timeout2); // TESTING!
