@@ -320,7 +320,17 @@
             gtag('config', 'G-MZFE1LHEQP');
         </script>
         <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
+            $("#loading").ajaxError(function(event, xhr) {
+                if (xhr.status === 0) {
+                    if (xhr.statusText === 'abort') {
+                    // Has been aborted
+                    } else {
+                    // Offline mode
+                    }
+                }
+                });
+        </script>
 
         <!-- Advertising - Google Adsense 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2266437936984562" crossorigin="anonymous"></script> -->
