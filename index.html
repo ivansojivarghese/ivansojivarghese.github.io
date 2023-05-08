@@ -349,6 +349,8 @@
                 if (op.Ld.s === false) {
                     xhr.open('GET', 'https://ivansojivarghese.github.io/msc/networkSpeedEstimator.jpg');
                     xhr.send();
+                } else {
+                    clearInterval(ajxL);
                 }
             }, 1000);
 
