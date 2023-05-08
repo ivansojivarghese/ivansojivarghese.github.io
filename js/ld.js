@@ -383,7 +383,7 @@ function docRead() {
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.x, false); // show message when internet not connected
                 } 
-            } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar) && !rL.i_s) { // show webpage once all processes (requests, etc.) are complete
+            } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
                 // if (!op.ne.w) {
                 // rL.s = true; // set load status to true
                 // }
