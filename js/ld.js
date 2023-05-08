@@ -195,7 +195,10 @@ function docRead() {
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
                 
-                } else if (op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) { // timeout 1
+                } else if ((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) && !rL.r_s) { // timeout 1
+
+                    rL.i_s = true;
+                    rL.r_s = false;
 
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     rL.n.classList.add("timeout_img");
@@ -218,7 +221,7 @@ function docRead() {
                     checkOnlineStatus_abort.abort(); // abort any existing fetching
                     estimateNetworkSpeed_abort.abort();
 
-                } else if (op.n === false) { // if network offline
+                } else if (op.n === false && !rL.r_s) { // if network offline
 
                     rL.i_s = true;
                     rL.r_s = false;
@@ -241,6 +244,10 @@ function docRead() {
                 }
 
             } else if (op.n && op.nc) { // if network change - from offline to online
+
+                rL.i_s = true;
+                rL.r_s = false;
+
                 rL.dt.classList.remove("md", "aniM-f"); 
                 if (!op.ne.reCon) {
                     c_rep(rL.n, ["wifi_off_img", "wifi_slow_img"], "wifi_find_img");
