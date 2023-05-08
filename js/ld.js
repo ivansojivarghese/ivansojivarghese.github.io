@@ -280,7 +280,7 @@ function docRead() {
 
                 // console.log("reconnecting");
 
-            } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n && op.ne.noCon) { // if network slow (with background processes loaded)
+            } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n && op.ne.noCon && !rL.r_s) { // if network slow (with background processes loaded)
 
                 rL.i_s = true;
                 rL.r_s = false;
