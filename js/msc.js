@@ -274,8 +274,7 @@ const checkOnlineStatus = async () => { // check for internet connectivity
         // return false;
         res = null;
     } finally { // check if actually offline (or network just aborted)
-        
-        if (!op.Ld.a) {
+        if (op.Ld.a === false) {
             res = false;
         }
     }
