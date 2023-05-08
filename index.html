@@ -327,7 +327,9 @@
                 b : false, // abort status
                 s : null, // load status
             };
-            op.ne.bD = 3000; // default function interval (ms.)
+            op.ne = {
+                bD : 3000 // default function interval (ms.)
+            };
 
             /*
             $(document).on("ajaxError", function(event, xhr) {
