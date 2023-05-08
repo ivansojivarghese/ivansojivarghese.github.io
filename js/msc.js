@@ -173,7 +173,7 @@ op = {
         x : false // code execution
     },
     Ld : {
-        a : false, // abort status
+        b : false, // abort status
         s : null, // load status
         dom : 0, // 'domcontentloaded'
         a : 0, // 'load'
@@ -250,14 +250,14 @@ const checkOnlineStatus_abort = new AbortController(); // respective abortion fu
 const cos_signal = checkOnlineStatus_abort.signal;
 
 cos_signal.addEventListener("abort", function() {
-    op.Ld.a = true;
+    op.Ld.b = true;
 });
 
 const estimateNetworkSpeed_abort = new AbortController();
 const ens_signal = estimateNetworkSpeed_abort.signal;
 
 ens_signal.addEventListener("abort", function() {
-    op.Ld.a = true;
+    op.Ld.b = true;
 });
 
 const checkOnlineStatus = async () => { // check for internet connectivity
@@ -274,7 +274,7 @@ const checkOnlineStatus = async () => { // check for internet connectivity
         // return false;
         res = null;
     } finally { // check if actually offline (or network just aborted)
-        if (op.Ld.a === false) {
+        if (!op.Ld.b) {
             res = false;
         }
     }
