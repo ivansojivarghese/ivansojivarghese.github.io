@@ -322,7 +322,7 @@
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script>
-            var op = {};
+            var op = {}, ajxL;
             op.Ld = {
                 b : false, // abort status
                 s : null, // load status
@@ -345,9 +345,12 @@
                 }
             };
             xhr.open('GET', 'http://www.google.com');
-            if (op.Ld.s === false) {
-                xhr.send();
-            }
+
+            ajxL = setInterval(function() {
+                if (op.Ld.s === false) {
+                    xhr.send();
+                }
+            }, 1000);
 
             /*
             $(document).ajaxError(function(event, xhr) {
