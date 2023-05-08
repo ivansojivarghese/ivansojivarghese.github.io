@@ -321,7 +321,8 @@
         </script>
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
-            $(document).ajaxError(function(event, xhr) {
+
+            $(document).on("ajaxError", function(event, xhr) {
                 if (xhr.status === 0) {
                     if (xhr.statusText === 'abort') {
                         console.log("abort");
@@ -330,6 +331,18 @@
                     }
                 }
             });
+
+            
+            /*
+            $(document).ajaxError(function(event, xhr) {
+                if (xhr.status === 0) {
+                    if (xhr.statusText === 'abort') {
+                        console.log("abort");
+                    } else {
+                        console.log("offline");
+                    }
+                }
+            });*/
         </script>
 
         <!-- Advertising - Google Adsense 
