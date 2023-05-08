@@ -214,12 +214,14 @@ function docRead() {
                         e_Fd(rL.x, false); // show message when timeout
                     }
 
-                    window.stop(); // stop all network resource(s) fetching
-                    clearInterval(_Ld); // stop loading process
-                    clearInterval(op.ne.L); // clear network check loop
+                    setTimeout(function() {
+                        window.stop(); // stop all network resource(s) fetching
+                        clearInterval(_Ld); // stop loading process
+                        clearInterval(op.ne.L); // clear network check loop
 
-                    checkOnlineStatus_abort.abort(); // abort any existing fetching
-                    estimateNetworkSpeed_abort.abort();
+                        checkOnlineStatus_abort.abort(); // abort any existing fetching
+                        estimateNetworkSpeed_abort.abort();
+                    }, op.t);
 
                 } else if (op.n === false && !rL.r_s) { // if network offline
 
@@ -344,12 +346,14 @@ function docRead() {
                     } else {
                         rL.xc.innerHTML = "";
                     }
-                    window.stop(); // stop all network resource(s) fetching
-                    clearInterval(_Ld); // stop loading process
-                    clearInterval(op.ne.L); // clear network check loop
+                    setTimeout(function() {
+                        window.stop(); // stop all network resource(s) fetching
+                        clearInterval(_Ld); // stop loading process
+                        clearInterval(op.ne.L); // clear network check loop
 
-                    checkOnlineStatus_abort.abort(); // abort any existing fetching
-                    estimateNetworkSpeed_abort.abort();
+                        checkOnlineStatus_abort.abort(); // abort any existing fetching
+                        estimateNetworkSpeed_abort.abort();
+                    }, op.t);
                 }
                 /*
                 e_Fd(rL.xe, false); // show speed
@@ -472,13 +476,14 @@ function load_e() { // end the loading sequence
         }, op.te - op.t);
 
         rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
+        setTimeout(function() {
+            window.stop(); // stop all network resource(s) fetching
+            clearInterval(_Ld); // stop loading process
+            clearInterval(op.ne.L); // clear network check loop
 
-        window.stop(); // stop all network resource(s) fetching
-        clearInterval(_Ld); // stop loading process
-        clearInterval(op.ne.L); // clear network check loop
-
-        checkOnlineStatus_abort.abort(); // abort any existing fetching
-        estimateNetworkSpeed_abort.abort();
+            checkOnlineStatus_abort.abort(); // abort any existing fetching
+            estimateNetworkSpeed_abort.abort();
+        }, op.t);
 
     } else if (rL.s && !op.ne.w && op.n) { // only if status is true (default)
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
