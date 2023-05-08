@@ -252,6 +252,7 @@ const estimateNetworkSpeed_abort = new AbortController();
 const ens_signal = estimateNetworkSpeed_abort.signal;
 
 const checkOnlineStatus = async () => { // check for internet connectivity
+    var res;
     try {
         const url = dev.mode ? dev.url : op.r;
         const online = await fetch(url + "msc/onlineResourceLocator.png", { // send a 'ping' signal to resource locator
@@ -259,11 +260,14 @@ const checkOnlineStatus = async () => { // check for internet connectivity
             priority: "low",
             signal: cos_signal
         });
-        return online.status >= 200 && online.status < 300; // determine network status from return value
-    } catch (err) {
+        res = online.status >= 200 && online.status < 300; // determine network status from return value
+    } catch (err) { // maybe offline?
         // return false;
-        return null;
+        res = null;
+    } finally { // check if actually offline (or network just aborted)
+        
     }
+    return res;
 }
 
 const estimateNetworkSpeed = async() => { // estimate network speed
