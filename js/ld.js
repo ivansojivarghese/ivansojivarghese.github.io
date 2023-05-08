@@ -221,7 +221,7 @@ function docRead() {
 
                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                         estimateNetworkSpeed_abort.abort();
-                    }, op.t);
+                    }, op.te);
 
                 } else if (op.n === false && !rL.r_s) { // if network offline
 
@@ -353,7 +353,7 @@ function docRead() {
 
                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                         estimateNetworkSpeed_abort.abort();
-                    }, op.t);
+                    }, op.te);
                 }
                 /*
                 e_Fd(rL.xe, false); // show speed
@@ -487,7 +487,7 @@ function load_e() { // end the loading sequence
 
             checkOnlineStatus_abort.abort(); // abort any existing fetching
             estimateNetworkSpeed_abort.abort();
-        }, op.t);
+        }, op.te);
 
     } else if (rL.s && !op.ne.w && op.n) { // only if status is true (default)
 
