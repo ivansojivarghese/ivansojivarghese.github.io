@@ -449,6 +449,10 @@ function docRead() {
 
 function load_e() { // end the loading sequence
     if (op.ne.t3s) { // timeout 3
+
+        rL.i_s = true;
+        rL.r_s = false;
+
         if (svg.t) {
             c_rep(rL.n, ["wifi_find_img", "wifi_img", "wifi_slow_img", "wifi_off_img"], "timeout_img");
         }
@@ -486,6 +490,10 @@ function load_e() { // end the loading sequence
         }, op.t);
 
     } else if (rL.s && !op.ne.w && op.n) { // only if status is true (default)
+
+        rL.i_s = false;
+        rL.r_s = false;
+
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         load_css_e(); // load css styles to 'head' (indiv.)
         setTimeout(function() {
