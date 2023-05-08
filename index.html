@@ -320,12 +320,13 @@
             gtag('config', 'G-MZFE1LHEQP');
         </script>
         <!-- jQuery -->
-        <script>
-            var op = {};
-        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script>
-            op.Ld = {};
+            var op = {};
+            op.Ld = {
+                b : false, // abort status
+                s : null, // load status
+            };
 
             $(document).on("ajaxError", function(event, xhr) {
                 if (xhr.status === 0) {
@@ -358,7 +359,7 @@
                     }
                 }
             });*/
-            
+
         </script>
 
         <!-- Advertising - Google Adsense 
