@@ -243,7 +243,7 @@ function docRead() {
                     }
                 }
 
-            } else if (op.n && op.nc) { // if network change - from offline to online
+            } else if (op.n && op.nc && !rL.r_s) { // if network change - from offline to online
 
                 rL.i_s = true;
                 rL.r_s = false;
@@ -358,7 +358,11 @@ function docRead() {
 
                 rL.e5 = false;
                 */
-            } else if (op.n === false) { // if network offline
+            } else if (op.n === false && !rL.r_s) { // if network offline
+
+                rL.i_s = true;
+                rL.r_s = false;
+
                 rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                 // rL.n.classList.add("wifi_off_img");
                 c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
