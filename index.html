@@ -328,34 +328,11 @@
                 s : null, // load status
             };
 
-            
-            $(document).on("ajaxError", function(event, xhr) {
-                if (xhr.status === 0) {
-                    console.log("wow");
-                    if (xhr.statusText === 'abort') {
-                        console.log("abort");
-                    } else {
-                        console.log("offline");
-                    }
-                }
-            });
-
-            /*
-            $(document).ajaxError(function(event, xhr) {
-                if (xhr.status === 0) {
-                    if (xhr.statusText === 'abort') {
-                        console.log("abort");
-                    } else {
-                        console.log("offline");
-                    }
-                }
-            });*/
-
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
-                if (xhr.readyState !== 4) {
-                    console.log("aborted? " + xhr.readyState + " " + xhr.status);
-                } else if (xhr.readyState === 4 && (xhr.status >= 200 && xhr.status < 300)) {
+                if (xhr.readyState === 1 && xhr.readyState === 2) {
+                    op.Ld.b = true;
+                } else if ((xhr.readyState === 3 || xhr.readyState === 4) && (xhr.status >= 200 && xhr.status < 300)) {
                     op.Ld.b = false;
                 }
             };
