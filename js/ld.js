@@ -138,11 +138,12 @@ function docRead() {
                     // loadUp();  // trigger ALL PROMISES (fetching of resources)
 
                 }
-                if (op.Ld.b && op.n === false) {
+                /*if (op.Ld.b && op.n === false) {
 
                     console.log("aborted. cancelled.");
 
-                } else if ((rdS(Rd) && !rL.e3 && (op.ne.w === false) && loadS_res(res_ar) && op.n && !rL.i_s) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded (normal)
+                } else*/
+                if ((rdS(Rd) && !rL.e3 && (op.ne.w === false) && loadS_res(res_ar) && op.n && !rL.i_s) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded (normal)
                     rL.e3 = true; 
                     // rL.s = true;
                     /*
@@ -226,6 +227,13 @@ function docRead() {
                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                         estimateNetworkSpeed_abort.abort();
                     }, op.te);
+
+                } else if (op.Ld.b && op.n === false && !rL.r_s) {
+                
+                    rL.i_s = true;
+                    rL.r_s = false;
+
+                    console.log("aborted. cancelled.");
 
                 } else if (op.n === false && !rL.r_s) { // if network offline
 
