@@ -228,7 +228,7 @@ function docRead() {
                     rL.i_s = true;
                     rL.r_s = false;
 
-                    console.log("aborted. cancelled.");
+                    console.log("aborted. cancelled. " + op.n);
 
                 } else if (op.n === false && !rL.r_s) { // if network offline
 
