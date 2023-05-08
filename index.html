@@ -327,7 +327,9 @@
                 b : false, // abort status
                 s : null, // load status
             };
+            op.ne.bD = 3000; // default function interval (ms.)
 
+            /*
             $(document).on("ajaxError", function(event, xhr) {
                 if (xhr.status === 0) {
                     if (xhr.statusText === 'abort') {
@@ -336,7 +338,7 @@
                         console.log("offline");
                     }
                 }
-            });
+            });*/
 
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
@@ -354,7 +356,7 @@
                 } else if (op.Ld.s === true) {
                     clearInterval(ajxL);
                 }
-            }, 1000);
+            }, op.ne.bD);
 
             /*
             $(document).ajaxError(function(event, xhr) {

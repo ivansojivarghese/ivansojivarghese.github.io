@@ -197,7 +197,7 @@ op = {
         b : [], // array of accounted network speeds (for variability)
         bt : 3, // no. of checks for speed change
         bI : 60, // array refresh interval (sec.)
-        bD : 3000, // default function interval (ms.)
+        // bD : 3000, // default function interval (ms.)
         bT : "nV", // "" timer tracker
         off : false, // unexpected offline check
         reCon : false, // reconnection?
