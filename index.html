@@ -340,6 +340,17 @@
                 }
             });*/
 
+            /*
+            $(document).ajaxError(function(event, xhr) {
+                if (xhr.status === 0) {
+                    if (xhr.statusText === 'abort') {
+                        console.log("abort");
+                    } else {
+                        console.log("offline");
+                    }
+                }
+            });*/
+
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState !== 4) {
@@ -351,23 +362,12 @@
 
             ajxL = setInterval(function() {
                 if (op.Ld.s === false) {
-                    xhr.open('GET', 'https://ivansojivarghese.github.io/msc/networkSpeedEstimator.jpg');
+                    xhr.open('GET', 'https://ivansojivarghese.github.io/');
                     xhr.send();
                 } else if (op.Ld.s === true) {
                     clearInterval(ajxL);
                 }
             }, op.ne.bD);
-
-            /*
-            $(document).ajaxError(function(event, xhr) {
-                if (xhr.status === 0) {
-                    if (xhr.statusText === 'abort') {
-                        console.log("abort");
-                    } else {
-                        console.log("offline");
-                    }
-                }
-            });*/
 
         </script>
 
