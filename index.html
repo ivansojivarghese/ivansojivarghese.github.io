@@ -356,7 +356,7 @@
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState !== 4) {
-                    console.log("aborted?");
+                    console.log("aborted? " + xhr.readyState);
                 } else if (xhr.readyState === 4 && (xhr.status >= 200 && xhr.status < 300)) {
                     op.Ld.b = false;
                 }
