@@ -332,7 +332,17 @@
                 }
             });
 
-            
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    op.Ld.b = false;
+                }
+            };
+            xhr.open('GET', 'http://www.google.com');
+            if (op.Ld.s === false) {
+                xhr.send();
+            }
+
             /*
             $(document).ajaxError(function(event, xhr) {
                 if (xhr.status === 0) {
