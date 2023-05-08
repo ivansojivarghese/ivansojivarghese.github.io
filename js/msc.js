@@ -261,7 +261,8 @@ const checkOnlineStatus = async () => { // check for internet connectivity
         });
         return online.status >= 200 && online.status < 300; // determine network status from return value
     } catch (err) {
-        return false;
+        // return false;
+        return null;
     }
 }
 
