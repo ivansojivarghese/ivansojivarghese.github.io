@@ -195,7 +195,7 @@ function docRead() {
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
                 
-                } else if (((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) || (op.Ld.b)) && !rL.r_s) { // timeout 1
+                } else if (((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) || (op.Ld.b && !op.Ld.s)) && !rL.r_s) { // timeout 1
 
                     rL.i_s = true;
                     rL.r_s = false;
