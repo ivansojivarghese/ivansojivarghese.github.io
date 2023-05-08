@@ -324,12 +324,12 @@
             $("#loading").ajaxError(function(event, xhr) {
                 if (xhr.status === 0) {
                     if (xhr.statusText === 'abort') {
-                    // Has been aborted
+                        console.log("abort");
                     } else {
-                    // Offline mode
+                        console.log("offline");
                     }
                 }
-                });
+            });
         </script>
 
         <!-- Advertising - Google Adsense 
