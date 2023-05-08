@@ -195,7 +195,7 @@ function docRead() {
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
                 
-                } else if ((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) && !rL.r_s) { // timeout 1
+                } else if (((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) || (op.Ld.b)) && !rL.r_s) { // timeout 1
 
                     rL.i_s = true;
                     rL.r_s = false;
@@ -222,13 +222,6 @@ function docRead() {
                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                         estimateNetworkSpeed_abort.abort();
                     }, op.te);
-
-                } else if (op.Ld.b && !rL.r_s) {
-                
-                    rL.i_s = true;
-                    rL.r_s = false;
-
-                    console.log("aborted. cancelled. " + op.n);
 
                 } else if (op.n === false && !rL.r_s) { // if network offline
 
