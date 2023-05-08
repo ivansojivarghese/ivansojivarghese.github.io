@@ -140,7 +140,7 @@ function docRead() {
                 }
                 if (op.Ld.b && op.n === false) {
 
-                    console.log("aborted");
+                    console.log("aborted. cancelled.");
 
                 } else if ((rdS(Rd) && !rL.e3 && (op.ne.w === false) && loadS_res(res_ar) && op.n && !rL.i_s) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded (normal)
                     rL.e3 = true; 
