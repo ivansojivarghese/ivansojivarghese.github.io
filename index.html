@@ -328,16 +328,17 @@
                 s : null, // load status
             };
 
-            /*
+            
             $(document).on("ajaxError", function(event, xhr) {
                 if (xhr.status === 0) {
+                    console.log("wow");
                     if (xhr.statusText === 'abort') {
                         console.log("abort");
                     } else {
                         console.log("offline");
                     }
                 }
-            });*/
+            });
 
             /*
             $(document).ajaxError(function(event, xhr) {
@@ -398,7 +399,6 @@
         <img style="display: none;" src="https://ivansojivarghese.github.io/logo/logo_og.png" alt="cover image of Ivan Varghese" title="cover image of Ivan Varghese">
         <h1 style="display: none">Ivan (Soji) Varghese | Clicks, Code & Concepts</h1>
         <div data-nosnippet id="main_sc">
-            <video style="display: none;" src="msc/abortionDetection.mp4" onabort="abort()"></video>
             <div id="load_sc" class="loader h-fp trs z-K"> 
                 <div id="load_C">
                     <div id="load_box" class="container p-a c-x trs z_O">

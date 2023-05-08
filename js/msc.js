@@ -246,9 +246,6 @@ op = {
     L : null // loop variable
 };
 
-function abort() {
-    console.log("aborted real");
-}
 
 const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
 const cos_signal = checkOnlineStatus_abort.signal;
