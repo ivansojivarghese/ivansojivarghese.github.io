@@ -53,7 +53,9 @@ var disp = document.getElementById("display_sc"), // display
         e5 : false,
         s : false, // int load status
         y : false, // ready (render) load status
-        i : false // full load status
+        i : false, // full load status
+        r_s : false, // [loader] loading ring status
+        i_s : false // [loader] information status
     },
     eR = { // error 
         h : "", // hold-value placement (error page id)
@@ -143,6 +145,9 @@ function docRead() {
                     if (op.c.a) { // only if first-time access
                         e_Fd(rL.g, false); // show logo
                     }*/
+
+                    // something becomes true (loading)
+
                     rL.dt.classList.add("d_n"); // hide loading dot
                     setTimeout(function() {
                         /*
