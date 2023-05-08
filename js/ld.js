@@ -223,6 +223,10 @@ function docRead() {
                         estimateNetworkSpeed_abort.abort();
                     }, op.te);
 
+                } else if (op.Ld.b && op.n === false && !rL.r_s) {
+                    
+                    console.log("aborted");
+
                 } else if (op.n === false && !rL.r_s) { // if network offline
 
                     rL.i_s = true;
