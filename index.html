@@ -330,7 +330,7 @@
 
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
-                if (xhr.readyState === 1 && xhr.readyState === 2) {
+                if (xhr.readyState === 1 || xhr.readyState === 2) {
                     op.Ld.b = true;
                 } else if ((xhr.readyState === 3 || xhr.readyState === 4) && (xhr.status >= 200 && xhr.status < 300)) {
                     op.Ld.b = false;
