@@ -108,9 +108,11 @@ function renderTime() {
 }
 
 window.addEventListener("DOMContentLoaded", function() { // 1 - base html/css/scripts
+    op.Ld.s = false;
     op.Ld.dom = renderTime();
 }); 
 window.addEventListener("load", function() { // 2 - full load
+    op.Ld.s = true;
     op.Ld.a = renderTime();
 }); 
 
@@ -171,6 +173,7 @@ op = {
         x : false // code execution
     },
     Ld : {
+        s : null, // status
         dom : 0, // 'domcontentloaded'
         a : 0, // 'load'
         t : 15000 // threshold for timeout (general)
