@@ -327,6 +327,8 @@
         <script>
             console.log("jQuery");
 
+            op.Ld = {};
+
             $(document).on("ajaxError", function(event, xhr) {
                 if (xhr.status === 0) {
                     if (xhr.statusText === 'abort') {
