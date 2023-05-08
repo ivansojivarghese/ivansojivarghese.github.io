@@ -173,7 +173,8 @@ op = {
         x : false // code execution
     },
     Ld : {
-        s : null, // status
+        a : false, // abort status
+        s : null, // load status
         dom : 0, // 'domcontentloaded'
         a : 0, // 'load'
         t : 15000 // threshold for timeout (general)
@@ -248,8 +249,16 @@ op = {
 const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
 const cos_signal = checkOnlineStatus_abort.signal;
 
+cos_signal.addEventListener("abort", function() {
+    op.Ld.a = true;
+});
+
 const estimateNetworkSpeed_abort = new AbortController();
 const ens_signal = estimateNetworkSpeed_abort.signal;
+
+ens_signal.addEventListener("abort", function() {
+    op.Ld.a = true;
+});
 
 const checkOnlineStatus = async () => { // check for internet connectivity
     var res;
