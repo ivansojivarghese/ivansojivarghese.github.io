@@ -138,7 +138,7 @@ function docRead() {
                     // loadUp();  // trigger ALL PROMISES (fetching of resources)
 
                 }
-                if (op.Ld.b) {
+                if (op.Ld.b && op.n === false) {
 
                     console.log("aborted");
 
