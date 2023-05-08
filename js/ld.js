@@ -210,7 +210,11 @@ function docRead() {
                     op.ne.s = 0;
 
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
-                        rL.xc.innerHTML = "timeout";
+                        if (op.Ld.b) {
+                            rL.xc.innerHTML = "cancelled";
+                        } else {
+                            rL.xc.innerHTML = "timeout";
+                        }
                         e_Fd(rL.x, false); // show message when timeout
                     }
 
