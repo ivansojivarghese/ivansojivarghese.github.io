@@ -352,7 +352,7 @@
             }, 10);
 
             function checkCacheLoad(e) {
-                op.Ld.c = e.persisted;
+                op.Ld.c = e.persisted; // check if browser has cached the page (forward/back navigation)
                 if (op.Ld.c) {
                     alert("caching!");
                 }
