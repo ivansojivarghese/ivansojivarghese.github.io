@@ -32,6 +32,7 @@ var disp = document.getElementById("display_sc"), // display
         m : document.getElementById("load_box"), // load_sc main
         dt : document.getElementById("load_dot"), // loading dot
         n : document.getElementById("load_icon"), // loading icon (for any message)
+        nA : document.getElementById("load_abort"), // loading icon (abort)
 
         //g : document.getElementById("load_logo"), // loading logo
         //t : document.getElementById("load_temP"), // loading logo/ring - 'template'
@@ -150,6 +151,9 @@ function docRead() {
                     rL.i_s = false;
 
                     rL.dt.classList.add("d_n"); // hide loading dot
+
+                    rL.nA.classList.add("d_n"); 
+
                     setTimeout(function() {
                         /*
                         if (op.c.a) {
