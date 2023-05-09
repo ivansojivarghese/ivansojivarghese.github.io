@@ -365,13 +365,13 @@
                 setCookie(CACHE_COOKIE, 0);
             }
             function confirmCacheLoad() { // occurs when page is NOT cached
-                var val = getCookie("loadedFromBrowserCache"),
+                var val = getCookie(CACHE_COOKIE),
                     num = 0;
                 if (val !== null) {
                     num = Number(val);
                     if (num <= 1) {
                         num++;
-                        setCookie("loadedFromBrowserCache", num);
+                        setCookie(CACHE_COOKIE, num);
                     } else {
                         console.log("cached");
                     }
