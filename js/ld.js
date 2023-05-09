@@ -195,7 +195,7 @@ function docRead() {
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
                 
-                } else if (op.n === null && op.ne.w === null && !op.ne.x2) {
+                } else if (op.n === null && op.ne.w === null && !op.ne.x2) { // potential timeout 1 (@load_dot)
 
                     countdownTimerSec((op.Ld.t / 1000), op.ne.t1, null, timeout1); // start timeout 1 timer
                     op.ne.x2 = true;
