@@ -360,10 +360,13 @@
             })();
 
             function confirmCacheLoad() { // occurs when page is NOT cached
-                var val = getCookie("loadedFromBrowserCache");
+                var val = getCookie("loadedFromBrowserCache"),
+                    num = 0;
                 if (val !== null) {
-                    if (val <= 1) {
-                        val++;
+                    num = Number(val);
+                    if (num <= 1) {
+                        num++;
+                        setCookie("loadedFromBrowserCache", num);
                     } else {
                         console.log("cached");
                     }
