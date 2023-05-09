@@ -350,25 +350,6 @@
                     clearInterval(ajxL);
                 }
             }, 10);
-            /*
-            var CACHE_COOKIE = "loadedFromBrowserCache";
-            if (!getCookie(CACHE_COOKIE)) {
-                setCookie(CACHE_COOKIE, 0);
-            }
-            function confirmCacheLoad() { // occurs when page is NOT cached
-                var val = getCookie(CACHE_COOKIE),
-                    num = 0;
-                if (val !== null) {
-                    num = Number(val);
-                    if (num <= 1) {
-                        num++;
-                        setCookie(CACHE_COOKIE, num);
-                    } else {
-                        console.log("cached");
-                    }
-                }
-                op.Ld.c = false;
-            }*/
 
             function checkCacheLoad(e) {
                 op.Ld.c = e.persisted;
