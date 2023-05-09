@@ -351,6 +351,14 @@
                 }
             }, 10);
 
+            // Detect whether or not we are loading this page from the browser cache
+            // Set the value $.loadedFromBrowserCache, which other scripts can use
+            (function() {
+                var CACHE_COOKIE = "loadedFromBrowserCache";
+                setCookie(CACHE_COOKIE, 0);
+                // jQuery.loadedFromBrowserCache = getCookie(CACHE_COOKIE) === "true";
+            })();
+
             function confirmCacheLoad() { // occurs when page is NOT cached
                 var val = getCookie(CACHE_COOKIE);
                 if (val !== null) {
@@ -366,14 +374,6 @@
             function checkCacheLoad(e) {
                 op.Ld.c = e.persisted;
             }
-
-            // Detect whether or not we are loading this page from the browser cache
-            // Set the value $.loadedFromBrowserCache, which other scripts can use
-            (function() {
-                var CACHE_COOKIE = "loadedFromBrowserCache";
-                setCookie(CACHE_COOKIE, 0);
-                // jQuery.loadedFromBrowserCache = getCookie(CACHE_COOKIE) === "true";
-            })();
 
         </script>
 
