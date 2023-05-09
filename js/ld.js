@@ -152,7 +152,7 @@ function docRead() {
 
                     rL.dt.classList.add("d_n"); // hide loading dot
 
-                    rL.nA.classList.add("d_n"); 
+                    rL.nA.classList.add("d_n"); // hide abort button
 
                     setTimeout(function() {
                         /*
