@@ -381,6 +381,9 @@
 
             function checkCacheLoad(e) {
                 op.Ld.c = e.persisted;
+                if (op.Ld.c) {
+                    alert("caching!");
+                }
             }
 
         </script>
