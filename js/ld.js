@@ -209,11 +209,13 @@ function docRead() {
                     // op.nc = false;
                     op.ne.s = 0;
 
-                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.t1) { // check if fonts are downloaded
                         if (op.Ld.b && getCookie("networkReload") === "true" && op.ne.w) {
                             rL.xc.innerHTML = "cancelled";
+                            op.ne.t1 = true;
                         } else {
                             rL.xc.innerHTML = "timeout";
+                            op.ne.t1 = true;
                         }
                         e_Fd(rL.x, false); // show message when timeout
                     }
