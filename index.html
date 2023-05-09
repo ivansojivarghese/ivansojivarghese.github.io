@@ -351,7 +351,11 @@
                 }
             }, 10);
 
-            function checkCookieLoad(e) {
+            function confirmCacheLoad() {
+                
+            }
+
+            function checkCacheLoad(e) {
                 op.Ld.c = e.persisted;
             }
 
@@ -373,7 +377,7 @@
         <!-- Microsoft Webmaster verification -->
         <meta name="msvalidate.01" content="5534539BE20C7554AD9C3555B3D27655"/>
     </head>
-    <body class="ovy-h" onpageshow="checkCookieLoad(event)">
+    <body class="ovy-h" onload="confirmCacheLoad()" onpageshow="checkCacheLoad(event)">
         <!-- <iframe src="index_nocrawl.html"></iframe> -->  
         <!-- <div id="control-height"></div> 
         <img id="image" class="d_n"> -->
