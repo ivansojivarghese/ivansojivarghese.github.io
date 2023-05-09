@@ -207,7 +207,10 @@ op = {
         v : false, // normal (high) speed ""
         w : true, // slow speed check - less than threshold?
         x : false, // code execution
-        t1 : false, // timeout 1 code execution
+        x2 : false, // code execution
+        tc : false, // timeout code execution
+        t1 : "t1", // timeout 1 timer tracker
+        t1s : false, // timeout 1 status
         t2 : "t2", // timeout 2 timer tracker
         t2s : false, // timeout 2 status,
         t3 : "t3", // timeout 3 timer tracker

@@ -195,6 +195,11 @@ function docRead() {
                     // e_Fd(rL.n, false); 
                     // e_Fd(rL.x, false);
                 
+                } else if (op.n === null && op.ne.w === null && !op.ne.x2) {
+
+                    countdownTimerSec((op.Ld.t / 1000), op.ne.t1, null, timeout1); // start timeout 1 timer
+                    op.ne.x2 = true;
+
                 } else if (((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) || (op.Ld.b && op.Ld.s && !op.ne.w && op.ne.s)) && !rL.r_s) { // timeout 1
 
                     rL.i_s = true;
@@ -209,13 +214,13 @@ function docRead() {
                     // op.nc = false;
                     op.ne.s = 0;
 
-                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.t1) { // check if fonts are downloaded
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
                         if (op.Ld.b && getCookie("networkReload") === "true" && op.ne.w) {
                             rL.xc.innerHTML = "cancelled";
-                            op.ne.t1 = true;
+                            op.ne.tc = true;
                         } else {
                             rL.xc.innerHTML = "timeout";
-                            op.ne.t1 = true;
+                            op.ne.tc = true;
                         }
                         e_Fd(rL.x, false); // show message when timeout
                     }
@@ -302,7 +307,6 @@ function docRead() {
 
                 if (!op.ne.x) {
                     countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
-                    // countdownTimerSec(100, op.ne.t2, null, timeout2); // TESTING!
                     op.ne.x = true; // execute once
                 }
 
@@ -791,6 +795,10 @@ function mt_check(v) { // maintenance function (temporary)
     } else {
         return false;
     }
+}
+
+function timeout1() {
+    op.ne.t1s = true; 
 }
 
 function timeout2() {
