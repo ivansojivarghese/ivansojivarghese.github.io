@@ -200,7 +200,7 @@ function docRead() {
                     countdownTimerSec((op.Ld.t / 1000), op.ne.t1, null, timeout1); // start timeout 1 timer
                     op.ne.x2 = true;
 
-                } else if (((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) || (op.Ld.b && op.Ld.s && !op.ne.w && op.ne.s)) && !rL.r_s) { // timeout 1
+                } else if (((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) || (op.Ld.b && op.Ld.s && !op.ne.w && op.ne.s) || op.ne.t1s) && !rL.r_s) { // timeout 1
 
                     rL.i_s = true;
                     rL.r_s = false;
