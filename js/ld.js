@@ -32,7 +32,6 @@ var disp = document.getElementById("display_sc"), // display
         m : document.getElementById("load_box"), // load_sc main
         dt : document.getElementById("load_dot"), // loading dot
         n : document.getElementById("load_icon"), // loading icon (for any message)
-        nA : document.getElementById("load_abort"), // loading icon (abort)
 
         //g : document.getElementById("load_logo"), // loading logo
         //t : document.getElementById("load_temP"), // loading logo/ring - 'template'
@@ -151,8 +150,6 @@ function docRead() {
                     rL.i_s = false;
 
                     rL.dt.classList.add("d_n"); // hide loading dot
-
-                    rL.nA.classList.add("d_n"); // hide abort button
 
                     setTimeout(function() {
                         /*
@@ -412,8 +409,6 @@ function docRead() {
                 if ((getCookie("networkReload") === "true")) {
                     setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
                 }
-
-                rL.nA.classList.add("d_n"); // hide abort button
                 
                 e_Fd(rL.xe, true); // hide network stats
                 e_Fd(rL.dt, true);
