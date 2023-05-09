@@ -462,6 +462,10 @@ function networkTrend(ar) { // trend(s) of network speed
     return (res !== 0) ? full: null;
 }
 
+function loadAbort() {
+    
+}
+
 /////////////////////////////////////////////
 /*
 var completeInterval = null, renderedInterval = null, count = 0;
