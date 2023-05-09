@@ -359,9 +359,9 @@
                 setCookie(CACHE_COOKIE, 0);
                 // jQuery.loadedFromBrowserCache = getCookie(CACHE_COOKIE) === "true";
             })();*/
-            
-            if (!getCookie("loadedFromBrowserCache")) {
-                var CACHE_COOKIE = "loadedFromBrowserCache";
+
+            var CACHE_COOKIE = "loadedFromBrowserCache";
+            if (!getCookie(CACHE_COOKIE)) {
                 setCookie(CACHE_COOKIE, 0);
             }
             function confirmCacheLoad() { // occurs when page is NOT cached
