@@ -352,9 +352,13 @@
             }, 10);
 
             function confirmCacheLoad() { // occurs when page is NOT cached
-                if (getCookie(CACHE_COOKIE) !== null) {
-                    var val = getCookie(CACHE_COOKIE);
-                    val++;
+                var val = getCookie(CACHE_COOKIE);
+                if (val !== null) {
+                    if (val <= 1) {
+                        val++;
+                    } else {
+                        console.log("cached");
+                    }
                 }
                 op.Ld.c = false;
             }
