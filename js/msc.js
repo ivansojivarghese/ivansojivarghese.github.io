@@ -461,7 +461,7 @@ function networkTrend(ar) { // trend(s) of network speed
     
     return (res !== 0) ? full: null;
 }
-
+/*
 function loadAbort() { // abort (by user) @load_dot
     rL.i_s = true;
     rL.r_s = false;
@@ -484,7 +484,7 @@ function loadAbort() { // abort (by user) @load_dot
         checkOnlineStatus_abort.abort(); // abort any existing fetching
         estimateNetworkSpeed_abort.abort();
     }, op.te);
-}
+}*/
 
 /////////////////////////////////////////////
 /*
