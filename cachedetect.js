@@ -22,7 +22,7 @@ function isCacheEnabled(){
        head.appendChild(script);
 
     }  else {
-        window.cloneCallback();
+        return window.cloneCallback();
     }   
 }
 
