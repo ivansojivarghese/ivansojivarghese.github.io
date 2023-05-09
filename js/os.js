@@ -61,6 +61,33 @@ function applyManifest() {
     }
 }
 
+function setCookie(n, v, days) { // create a cookie 
+    const d = new Date(); // get current time
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    let expires = "expires=" + d.toUTCString(); // add expiry time tag (days)
+    if (days) {
+        document.cookie = n + "=" + v + ";" + expires + ";path=/"; // attach cookie
+    } else {
+        document.cookie = n + "=" + v + ";path=/"; // attach cookie (with no expiration, deletes after browser session)
+    }
+}
+
+function getCookie(n) { // obtain a cookie (if available)
+    let name = n + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";"); // split cookie name-value pairs into array elements
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') { // ignore spaces at prefix and focus on significant characters
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) { // if cookie found
+            return c.substring(name.length, c.length); // return its value
+        }
+    }
+    return ""; // return nothing if not found
+}
+
 
 uA_L = setInterval(function() {
     if (navigator.userAgent) {

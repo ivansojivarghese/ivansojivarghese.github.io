@@ -591,7 +591,7 @@ function getSiteRes() { // obtain site resource origin
 
     return b;
 }
-
+/*
 function setCookie(n, v, days) { // create a cookie 
     const d = new Date(); // get current time
     d.setTime(d.getTime() + (days*24*60*60*1000));
@@ -617,7 +617,7 @@ function getCookie(n) { // obtain a cookie (if available)
         }
     }
     return ""; // return nothing if not found
-}
+}*/
 
 function cookiesAccept() { // acknowledge user acceptance and allow site access
     /*
