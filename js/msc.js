@@ -463,7 +463,27 @@ function networkTrend(ar) { // trend(s) of network speed
 }
 
 function loadAbort() {
-    
+    rL.i_s = true;
+    rL.r_s = false;
+
+    rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
+    rL.dt.classList.add("md"); 
+    op.ne.s = 0;
+
+    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
+        rL.xc.innerHTML = "cancelled";
+        op.ne.tc = true;
+        e_Fd(rL.x, false); // show message when timeout
+    }
+
+    setTimeout(function() {
+        window.stop(); // stop all network resource(s) fetching
+        clearInterval(_Ld); // stop loading process
+        clearInterval(op.ne.L); // clear network check loop
+
+        checkOnlineStatus_abort.abort(); // abort any existing fetching
+        estimateNetworkSpeed_abort.abort();
+    }, op.te);
 }
 
 /////////////////////////////////////////////
