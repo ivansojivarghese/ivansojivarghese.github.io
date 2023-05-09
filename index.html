@@ -329,6 +329,7 @@
         <script>
             var op = {}, ajxL;
             op.Ld = {
+                c : null, // cookie-based load?
                 b : false, // abort status
                 s : null, // load status
             };
@@ -350,6 +351,10 @@
                 }
             }, 10);
 
+            function checkCookieLoad(e) {
+                op.Ld.c = e.persisted;
+            }
+
             // Detect whether or not we are loading this page from the browser cache
             // Set the value $.loadedFromBrowserCache, which other scripts can use
             (function() {
@@ -368,7 +373,7 @@
         <!-- Microsoft Webmaster verification -->
         <meta name="msvalidate.01" content="5534539BE20C7554AD9C3555B3D27655"/>
     </head>
-    <body class="ovy-h">
+    <body class="ovy-h" onpageshow="checkCookieLoad()">
         <!-- <iframe src="index_nocrawl.html"></iframe> -->  
         <!-- <div id="control-height"></div> 
         <img id="image" class="d_n"> -->
