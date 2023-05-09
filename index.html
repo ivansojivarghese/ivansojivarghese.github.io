@@ -353,11 +353,15 @@
 
             // Detect whether or not we are loading this page from the browser cache
             // Set the value $.loadedFromBrowserCache, which other scripts can use
+            /*
             (function() {
                 var CACHE_COOKIE = "loadedFromBrowserCache";
                 setCookie(CACHE_COOKIE, 0);
                 // jQuery.loadedFromBrowserCache = getCookie(CACHE_COOKIE) === "true";
-            })();
+            })();*/
+
+            var CACHE_COOKIE = "loadedFromBrowserCache";
+            setCookie(CACHE_COOKIE, 0);
 
             function confirmCacheLoad() { // occurs when page is NOT cached
                 var val = getCookie("loadedFromBrowserCache"),
