@@ -412,6 +412,8 @@ function docRead() {
                 if ((getCookie("networkReload") === "true")) {
                     setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
                 }
+
+                rL.nA.classList.add("d_n"); // hide abort button
                 
                 e_Fd(rL.xe, true); // hide network stats
                 e_Fd(rL.dt, true);
