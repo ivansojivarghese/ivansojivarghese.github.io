@@ -352,11 +352,9 @@
             // Set the value $.loadedFromBrowserCache, which other scripts can use
             (function() {
                 var CACHE_COOKIE = "loadedFromBrowserCache";
-                jQuery.loadedFromBrowserCache = getCookie(CACHE_COOKIE) == 'true';
-                setCookie(CACHE_COOKIE, 'true');
+                jQuery.loadedFromBrowserCache = getCookie(CACHE_COOKIE) === "true";
+                setCookie(CACHE_COOKIE, "true");
             })();
-
-            getCookie()
 
         </script>
 
