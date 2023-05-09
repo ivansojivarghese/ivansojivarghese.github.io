@@ -359,7 +359,8 @@
                 setCookie(CACHE_COOKIE, 0);
                 // jQuery.loadedFromBrowserCache = getCookie(CACHE_COOKIE) === "true";
             })();*/
-            if (getCookie("loadedFromBrowserCache")) {
+            
+            if (!getCookie("loadedFromBrowserCache")) {
                 var CACHE_COOKIE = "loadedFromBrowserCache";
                 setCookie(CACHE_COOKIE, 0);
             }
