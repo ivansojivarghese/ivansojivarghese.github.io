@@ -343,7 +343,7 @@ function docRead() {
                         rL.xc.innerHTML = "";
                     }
 
-                    setCookie("networkReload", "", -1); // delete cookie variable
+                    setCookie("networkReload", null, -1); // delete cookie variable
 
                     setTimeout(function() {
                         window.stop(); // stop all network resource(s) fetching
@@ -445,7 +445,7 @@ function docRead() {
                         rL.xc.innerHTML = "";
                     }
 
-                    setCookie("networkReload", "", -1); // delete cookie variable
+                    setCookie("networkReload", null, -1); // delete cookie variable
 
                     setTimeout(function() {
                         window.stop(); // stop all network resource(s) fetching
