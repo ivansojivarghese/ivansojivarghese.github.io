@@ -410,11 +410,14 @@ function docRead() {
                 // rL.n.classList.add("wifi_off_img");
                 if (!op.ne.t2s) {
                     c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
-                } else if (op.ne.t2s && svg.t) {
-                    c_rep(rL.n, "wifi_off_img", "timeout_img");
-                } else if (op.ne.t2s) {
-                    rL.n.classList.remove("wifi_off_img");
+                } else {
+                    if (svg.t) {
+                        c_rep(rL.n, "wifi_off_img", "timeout_img");
+                    } else {
+                        rL.n.classList.remove("wifi_off_img");
+                    }
                 }
+                
                 e_Fd(rL.n, false); 
 
                 rL.dt.classList.add("md");
@@ -431,12 +434,23 @@ function docRead() {
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o && !op.ne.t2s) { // check if fonts are downloaded
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.x, false); // show message when internet not connected
-                } else if (op.ne.t2s && svg.t) {
-                    rL.xc.innerHTML = "timeout";
-                    e_Fd(rL.x, false); // show message when timeout
                 } else if (op.ne.t2s) {
-                    rL.xc.innerHTML = "";
+                    if (svg.t) {
+                        rL.xc.innerHTML = "timeout";
+                        e_Fd(rL.x, false); // show message when timeout
+                    } else {
+                        rL.xc.innerHTML = "";
+                    }
+                    setTimeout(function() {
+                        window.stop(); // stop all network resource(s) fetching
+                        clearInterval(_Ld); // stop loading process
+                        clearInterval(op.ne.L); // clear network check loop
+
+                        checkOnlineStatus_abort.abort(); // abort any existing fetching
+                        estimateNetworkSpeed_abort.abort();
+                    }, op.te);
                 }
+
             } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
                 // if (!op.ne.w) {
                 // rL.s = true; // set load status to true
