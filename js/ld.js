@@ -331,6 +331,26 @@ function docRead() {
                             reL();
                         }, op.te);
                     }, op.ne.bD); // reload page after interval
+
+                } else if (getCookie("networkReload") === "true") {
+
+                    c_rep(rL.dt, "e", "md"); // set dot to red
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
+                        c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
+                        rL.xc.innerHTML = "cancelled";
+                    } else {
+                        e_Fd(rL.n, true); // hide
+                        rL.xc.innerHTML = "";
+                    }
+
+                    setTimeout(function() {
+                        window.stop(); // stop all network resource(s) fetching
+                        clearInterval(_Ld); // stop loading process
+                        clearInterval(op.ne.L); // clear network check loop
+
+                        checkOnlineStatus_abort.abort(); // abort any existing fetching
+                        estimateNetworkSpeed_abort.abort();
+                    }, op.te);
                 }
 
                 // console.log("reconnecting");
