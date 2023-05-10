@@ -343,8 +343,6 @@ function docRead() {
                         rL.xc.innerHTML = "";
                     }
 
-                    setCookie("networkReload", null, -1); // delete cookie variable
-
                     setTimeout(function() {
                         window.stop(); // stop all network resource(s) fetching
                         clearInterval(_Ld); // stop loading process
@@ -352,6 +350,8 @@ function docRead() {
 
                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                         estimateNetworkSpeed_abort.abort();
+
+                        setCookie("networkReload", null, -1); // delete cookie variable
                     }, op.te);
                 }
 
@@ -445,8 +445,6 @@ function docRead() {
                         rL.xc.innerHTML = "";
                     }
 
-                    setCookie("networkReload", null, -1); // delete cookie variable
-
                     setTimeout(function() {
                         window.stop(); // stop all network resource(s) fetching
                         clearInterval(_Ld); // stop loading process
@@ -454,6 +452,8 @@ function docRead() {
 
                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                         estimateNetworkSpeed_abort.abort();
+
+                        setCookie("networkReload", null, -1); // delete cookie variable
                     }, op.te);
 
                 } else {
