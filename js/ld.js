@@ -316,6 +316,9 @@ function docRead() {
                         setCookie("networkReload", "true", op.c.t); // reload (due to network) cookie
                     }
                     setTimeout(function() {
+
+                        countdownTimerSec((op.Ld.t / 1000), op.ne.t4, null, timeout4); // start timeout 4 timer
+
                         rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
                         c_rep(rL.dt, "aniM", "aniM-f"); 
                         rL.dt.classList.add("e"); // stop animation on 'load_dot', change to green
@@ -332,12 +335,20 @@ function docRead() {
                         }, op.te);
                     }, op.ne.bD); // reload page after interval
 
-                } else if (getCookie("networkReload") === "true" && !op.n) { // cancelled by user
+                } else if ((getCookie("networkReload") === "true" && !op.n) || op.ne.t4s) { // cancelled by user OR timeout 4
 
                     c_rep(rL.dt, "e", "md"); // set dot to red
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
                         c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
-                        rL.xc.innerHTML = "cancelled";
+                        if (!op.ne.x3) {
+                            if (op.ne.t4s) {
+                                rL.xc.innerHTML = "timeout";
+                                op.ne.x3 = true;
+                            } else {
+                                rL.xc.innerHTML = "cancelled";
+                                op.ne.x3 = true;
+                            }
+                        }
                     } else {
                         e_Fd(rL.n, true); // hide
                         rL.xc.innerHTML = "";
@@ -922,6 +933,10 @@ function timeout2() {
 
 function timeout3() {
     op.ne.t3s = true; // timeout
+}
+
+function timeout4() {
+    op.ne.t4s = true;
 }
 
 
