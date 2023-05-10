@@ -423,6 +423,15 @@ function docRead() {
                         rL.xc.innerHTML = "";
                     }
 
+                    setTimeout(function() {
+                        window.stop(); // stop all network resource(s) fetching
+                        clearInterval(_Ld); // stop loading process
+                        clearInterval(op.ne.L); // clear network check loop
+
+                        checkOnlineStatus_abort.abort(); // abort any existing fetching
+                        estimateNetworkSpeed_abort.abort();
+                    }, op.te);
+
                 } else {
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     // rL.n.classList.add("wifi_off_img");
