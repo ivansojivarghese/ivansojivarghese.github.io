@@ -271,21 +271,6 @@ function docRead() {
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.x, false); // show message when internet not connected
 
-                        /*
-                        if (svg.t && op.ne.t0s) { // if timeout 0
-                            c_rep(rL.n, ["wifi_off_img"], "timeout_img");
-                            rL.xc.innerHTML = "timeout";
-                            
-                            setTimeout(function() {
-                                window.stop(); // stop all network resource(s) fetching
-                                clearInterval(_Ld); // stop loading process
-                                clearInterval(op.ne.L); // clear network check loop
-        
-                                checkOnlineStatus_abort.abort(); // abort any existing fetching
-                                estimateNetworkSpeed_abort.abort();
-                            }, op.te);
-                        }   */
-
                     } else if (op.ne.t0s) { // if timeout 0
 
                         if (svg.t) {
