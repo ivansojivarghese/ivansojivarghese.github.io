@@ -240,6 +240,13 @@ function docRead() {
                     rL.i_s = true;
                     rL.r_s = false;
 
+                    countdownTimerSec((op.Ld.t / 1000), op.ne.t1, null, timeout1); // start timeout 1 timer
+
+                    if (some) {
+                        c_rep(rL.n, ["wifi_off_img"], "timeout_img");
+                        rL.xc.innerHTML = "timeout";
+                    }
+
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     // rL.n.classList.add("wifi_off_img");
                     c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
