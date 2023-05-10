@@ -332,7 +332,7 @@ function docRead() {
                         }, op.te);
                     }, op.ne.bD); // reload page after interval
 
-                } else if (getCookie("networkReload") === "true" && !op.n) {
+                } else if (getCookie("networkReload") === "true" && !op.n) { // cancelled by user
 
                     c_rep(rL.dt, "e", "md"); // set dot to red
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
@@ -342,6 +342,8 @@ function docRead() {
                         e_Fd(rL.n, true); // hide
                         rL.xc.innerHTML = "";
                     }
+
+                    setCookie("networkReload", "", -1); // delete cookie variable
 
                     setTimeout(function() {
                         window.stop(); // stop all network resource(s) fetching
@@ -442,6 +444,8 @@ function docRead() {
                         e_Fd(rL.n, true); // hide
                         rL.xc.innerHTML = "";
                     }
+
+                    setCookie("networkReload", "", -1); // delete cookie variable
 
                     setTimeout(function() {
                         window.stop(); // stop all network resource(s) fetching
