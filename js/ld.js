@@ -436,6 +436,11 @@ function docRead() {
 
                 if (getCookie("networkReload") === "true") { // cancelled by user
 
+                    op.ne.s = 0;
+                    op.ne.w = false;
+
+                    rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+
                     c_rep(rL.dt, "e", "md"); // set dot to red
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
                         c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
