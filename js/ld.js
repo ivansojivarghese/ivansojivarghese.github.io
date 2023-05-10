@@ -247,7 +247,18 @@ function docRead() {
 
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
                     // rL.n.classList.add("wifi_off_img");
-                    c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
+                    // c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
+
+                    if (!op.ne.t0s) {
+                        c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
+                    } else { // if timeout 0
+                        if (svg.t) {
+                            c_rep(rL.n, "wifi_off_img", "timeout_img");
+                        } else {
+                            rL.n.classList.remove("wifi_off_img");
+                        }
+                    }
+
                     e_Fd(rL.n, false); 
 
                     rL.dt.classList.add("md"); 
@@ -256,10 +267,11 @@ function docRead() {
                     op.ne.s = 0;
                     op.ne.w = false;
                     
-                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o) { // check if fonts are downloaded
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o && !op.ne.t0s) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.x, false); // show message when internet not connected
 
+                        /*
                         if (svg.t && op.ne.t0s) { // if timeout 0
                             c_rep(rL.n, ["wifi_off_img"], "timeout_img");
                             rL.xc.innerHTML = "timeout";
@@ -272,8 +284,17 @@ function docRead() {
                                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                                 estimateNetworkSpeed_abort.abort();
                             }, op.te);
-                        }   
+                        }   */
+
                     } else if (op.ne.t0s) { // if timeout 0
+
+                        if (svg.t) {
+                            rL.xc.innerHTML = "timeout";
+                            e_Fd(rL.x, false); // show message when timeout
+                        } else {
+                            rL.xc.innerHTML = "";
+                        }
+
                         setTimeout(function() {
                             window.stop(); // stop all network resource(s) fetching
                             clearInterval(_Ld); // stop loading process
@@ -410,7 +431,7 @@ function docRead() {
                 // rL.n.classList.add("wifi_off_img");
                 if (!op.ne.t2s) {
                     c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
-                } else {
+                } else { // if timeout 2
                     if (svg.t) {
                         c_rep(rL.n, "wifi_off_img", "timeout_img");
                     } else {
@@ -434,7 +455,7 @@ function docRead() {
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o && !op.ne.t2s) { // check if fonts are downloaded
                     rL.xc.innerHTML = "offline";
                     e_Fd(rL.x, false); // show message when internet not connected
-                } else if (op.ne.t2s) {
+                } else if (op.ne.t2s) { // if timeout 2
                     if (svg.t) {
                         rL.xc.innerHTML = "timeout";
                         e_Fd(rL.x, false); // show message when timeout
