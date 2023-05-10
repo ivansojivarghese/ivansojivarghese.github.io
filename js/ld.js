@@ -240,11 +240,9 @@ function docRead() {
                     rL.i_s = true;
                     rL.r_s = false;
 
-                    countdownTimerSec((op.Ld.t / 1000), op.ne.t1, null, timeout1); // start timeout 1 timer
-
-                    if (some) {
-                        c_rep(rL.n, ["wifi_off_img"], "timeout_img");
-                        rL.xc.innerHTML = "timeout";
+                    if (!op.ne.x1) {
+                        countdownTimerSec((op.Ld.t / 1000), op.ne.t0, null, timeout0); // start timeout 0 timer
+                        op.ne.x1 = true;
                     }
 
                     rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
@@ -261,6 +259,29 @@ function docRead() {
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o) { // check if fonts are downloaded
                         rL.xc.innerHTML = "offline";
                         e_Fd(rL.x, false); // show message when internet not connected
+
+                        if (svg.t && op.ne.t0s) { // if timeout
+                            c_rep(rL.n, ["wifi_off_img"], "timeout_img");
+                            rL.xc.innerHTML = "timeout";
+                            
+                            setTimeout(function() {
+                                window.stop(); // stop all network resource(s) fetching
+                                clearInterval(_Ld); // stop loading process
+                                clearInterval(op.ne.L); // clear network check loop
+        
+                                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                estimateNetworkSpeed_abort.abort();
+                            }, op.te);
+                        }   
+                    } else if (op.ne.t0s) {
+                        setTimeout(function() {
+                            window.stop(); // stop all network resource(s) fetching
+                            clearInterval(_Ld); // stop loading process
+                            clearInterval(op.ne.L); // clear network check loop
+    
+                            checkOnlineStatus_abort.abort(); // abort any existing fetching
+                            estimateNetworkSpeed_abort.abort();
+                        }, op.te);
                     }
                 }
 
@@ -803,6 +824,10 @@ function mt_check(v) { // maintenance function (temporary)
     } else {
         return false;
     }
+}
+
+function timeout0() {
+    op.ne.t0s = true;
 }
 
 function timeout1() {
