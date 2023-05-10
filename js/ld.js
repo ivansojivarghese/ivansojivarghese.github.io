@@ -340,7 +340,7 @@ function docRead() {
                     c_rep(rL.dt, "e", "md"); // set dot to red
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
                         c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
-                        if (!op.ne.x3) {
+                        if (!op.ne.x3) { // execute once
                             if (op.ne.t4s) {
                                 rL.xc.innerHTML = "timeout";
                                 op.ne.x3 = true;
@@ -445,7 +445,7 @@ function docRead() {
                 rL.i_s = true;
                 rL.r_s = false;
 
-                if (getCookie("networkReload") === "true") { // cancelled by user
+                if (getCookie("networkReload") === "true" || op.ne.t4s) { // cancelled by user
 
                     op.ne.s = 0;
                     op.ne.w = false;
@@ -455,7 +455,16 @@ function docRead() {
                     c_rep(rL.dt, "e", "md"); // set dot to red
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
                         c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
-                        rL.xc.innerHTML = "cancelled";
+
+                        if (!op.ne.x3) { // execute once
+                            if (op.ne.t4s) {
+                                rL.xc.innerHTML = "timeout";
+                                op.ne.x3 = true;
+                            } else {
+                                rL.xc.innerHTML = "cancelled";
+                                op.ne.x3 = true;
+                            }
+                        }
                     } else {
                         e_Fd(rL.n, true); // hide
                         rL.xc.innerHTML = "";
