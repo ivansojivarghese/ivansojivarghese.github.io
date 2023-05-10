@@ -332,7 +332,7 @@ function docRead() {
                         }, op.te);
                     }, op.ne.bD); // reload page after interval
 
-                } else if (getCookie("networkReload") === "true") {
+                } else if (getCookie("networkReload") === "true" && !op.n) {
 
                     c_rep(rL.dt, "e", "md"); // set dot to red
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
