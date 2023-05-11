@@ -660,7 +660,7 @@ function load_e() { // end the loading sequence
                 rL.p.classList.add("aniM-p");
                 rL.c.classList.add("aniM-p");
 
-                if (op.ne.t0_5s) { // timeout 0.5
+                if (op.ne.t0_5s || (!op.c.e && op.Ld.dom > op.Ld.t)) { // timeout 0.5
 
                     rL.dt.classList.add("aniM-f"); 
                     rL.dt.classList.add("md"); // load_dot to red
@@ -976,9 +976,7 @@ function mt_check(v) { // maintenance function (temporary)
 }
 
 function timeout0_5() {
-    if (op.Ld.dom > op.Ld.t) {
-        op.ne.t0_5s = true;
-    }
+    op.ne.t0_5s = true;
 }
 
 function timeout0() {
