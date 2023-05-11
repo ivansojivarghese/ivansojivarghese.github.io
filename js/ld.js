@@ -662,6 +662,8 @@ function load_e() { // end the loading sequence
 
                 if (op.ne.t0_5s || (!op.c.e && op.Ld.dom > op.Ld.t)) { // timeout 0.5
 
+                    rL.el.classList.remove("d_n"); // show loader
+
                     rL.dt.classList.add("aniM-f"); 
                     rL.dt.classList.add("md"); // load_dot to red
                     e_Fd(rL.dt, false); // show load dot (in red)
