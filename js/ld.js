@@ -649,12 +649,15 @@ function load_e() { // end the loading sequence
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         load_css_e(); // load css styles to 'head' (indiv.)
         setTimeout(function() {
-            rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
-
+            if (op.c.e) {
+                rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
+            }
             // er_C(); // check for errors
 
             setTimeout(function() {
-                rL.el.classList.add("d_n"); // remove loader from display
+                if (op.c.e) {
+                    rL.el.classList.add("d_n"); // remove loader from display
+                }
 
                 rL.r.classList.add("aniM-p"); // stop animation in the rings
                 rL.p.classList.add("aniM-p");
