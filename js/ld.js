@@ -662,7 +662,19 @@ function load_e() { // end the loading sequence
 
                 if (op.ne.t0_5s) { // timeout 0.5
 
-                    
+                    rL.dt.classList.add("aniM-f"); 
+                    rL.dt.classList.add("md"); // load_dot to red
+                    e_Fd(rL.dt, false); // show load dot (in red)
+
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
+                        rL.n.classList.add("timeout_img");
+                        rL.xc.innerHTML = "timeout";
+                        e_Fd(rL.n, false); // show icon 
+                        e_Fd(rL.x, false); // show message 
+                    } else if (svg.t) {
+                        rL.n.classList.add("timeout_img");
+                        e_Fd(rL.n, false); // show icon 
+                    }
 
                 } else if (eR.h) { // if error is detected
 
