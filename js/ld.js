@@ -954,7 +954,7 @@ function timeout4() {
 }
 
 
-if (getCookie("maxHeight") < cH || (op.nav.r && getCookie("windowResize") === "true")) { // if height fluctuates from additional URL bars, etc.
+if (getCookie("maxHeight") && (getCookie("maxHeight") < cH || (op.nav.r && getCookie("windowResize") === "true"))) { // if height fluctuates from additional URL bars, etc.
     setCookie("maxHeight", cH, op.c.t); // update
     aH = getCookie("maxHeight");
 } 
