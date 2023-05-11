@@ -660,6 +660,16 @@ function load_e() { // end the loading sequence
                 rL.c.classList.add("aniM-p");
 
                 if (eR.h) { // if error is detected
+
+                    setTimeout(function() {
+                        window.stop(); // stop all network resource(s) fetching
+                        clearInterval(_Ld); // stop loading process
+                        clearInterval(op.ne.L); // clear network check loop
+
+                        checkOnlineStatus_abort.abort(); // abort any existing fetching
+                        estimateNetworkSpeed_abort.abort();
+                    }, op.te);
+
                     if (eR[eR.h].classList.contains("d_n")) {
                         eR.m.classList.remove("d_n");
                         eR[eR.h].classList.remove("d_n");
