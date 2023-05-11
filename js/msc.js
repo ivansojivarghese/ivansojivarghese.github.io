@@ -283,11 +283,10 @@ const checkOnlineStatus = async () => { // check for internet connectivity
         res = online.status >= 200 && online.status < 300; // determine network status from return value
     } catch (err) { // maybe offline?
         if (!op.Ld.b) {
-            res = false;
+            res = false; // offline
         } else {
-            res = null;
+            res = null; // failed to fetch
         }
-        // return false;  
     } 
     return res;
 }

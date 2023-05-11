@@ -235,7 +235,7 @@ function docRead() {
                         estimateNetworkSpeed_abort.abort();
                     }, op.te);
 
-                } else if (op.n === false && !rL.r_s) { // if network offline
+                } else if (!op.n && !rL.r_s) { // if network offline
 
                     rL.i_s = true;
                     rL.r_s = false;
@@ -445,7 +445,7 @@ function docRead() {
 
                 rL.e5 = false;
                 */
-            } else if (op.n === false && !rL.r_s) { // if network offline
+            } else if (!op.n && !rL.r_s) { // if network offline
 
                 rL.i_s = true;
                 rL.r_s = false;
