@@ -591,6 +591,8 @@ function docRead() {
                 } else if (op.ne.s >= op.ne.h && rL.e5) {
                     rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
                 }
+            } else {
+                rL.s = true; // page loaded
             }
         break;
     }
