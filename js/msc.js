@@ -211,8 +211,10 @@ op = {
         x2 : false, // code execution
         x3 : false, // code execution
         tc : false, // timeout code execution
-        t0 : "t0", // timeout 1 timer tracker
-        t0s : false, // timeout 1 status
+        t0_5 : "t0_5", // timeout 0.5 timer tracker
+        t0_5s : false, // timeout 0.5 status
+        t0 : "t0", // timeout 0 timer tracker
+        t0s : false, // timeout 0 status
         t1 : "t1", // timeout 1 timer tracker
         t1s : false, // timeout 1 status
         t2 : "t2", // timeout 2 timer tracker

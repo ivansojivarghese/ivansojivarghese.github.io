@@ -592,6 +592,7 @@ function docRead() {
                     rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
                 }
             } else {
+                countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5s, null, timeout0_5); // timeout 0.5
                 rL.s = true; // page loaded
             }
         break;
@@ -659,7 +660,11 @@ function load_e() { // end the loading sequence
                 rL.p.classList.add("aniM-p");
                 rL.c.classList.add("aniM-p");
 
-                if (eR.h) { // if error is detected
+                if (op.ne.t0_5s) { // timeout 0.5
+
+                    
+
+                } else if (eR.h) { // if error is detected
 
                     setTimeout(function() {
                         window.stop(); // stop all network resource(s) fetching
@@ -946,6 +951,10 @@ function mt_check(v) { // maintenance function (temporary)
     } else {
         return false;
     }
+}
+
+function timeout0_5() {
+    op.ne.t0_5s = true;
 }
 
 function timeout0() {
