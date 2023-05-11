@@ -592,7 +592,7 @@ function docRead() {
                     rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
                 }
             } else {
-                countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5s, null, timeout0_5); // timeout 0.5
+                countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
                 rL.s = true; // page loaded
             }
         break;
@@ -649,13 +649,13 @@ function load_e() { // end the loading sequence
         rL.d.style.animationName = "loadR_end"; // set ending animation detail
         load_css_e(); // load css styles to 'head' (indiv.)
         setTimeout(function() {
-            if (op.c.e || (!op.c.e && op.Ld.dom > op.Ld.t)) {
+            if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom > op.Ld.t))) {
                 rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
             }
             // er_C(); // check for errors
 
             setTimeout(function() {
-                if (op.c.e || (!op.c.e && op.Ld.dom > op.Ld.t)) {
+                if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom > op.Ld.t))) {
                     rL.el.classList.add("d_n"); // remove loader from display
                 }
 
