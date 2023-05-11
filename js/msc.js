@@ -763,7 +763,7 @@ function pL() { // site parameters loop
 
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
-    if ((op.n === false && !op.nc) || (op.n && op.nc)) { // if change in network connection (internet)
+    if ((!op.n && !op.nc) || (op.n && op.nc)) { // if change in network connection (internet)
         op.nc = true; // network changed
         
         // pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
