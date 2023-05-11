@@ -676,8 +676,6 @@ function load_e() { // end the loading sequence
                         e_Fd(rL.n, false); // show icon 
                     }
 
-                } else if (eR.h) { // if error is detected
-
                     setTimeout(function() {
                         window.stop(); // stop all network resource(s) fetching
                         clearInterval(_Ld); // stop loading process
@@ -687,11 +685,23 @@ function load_e() { // end the loading sequence
                         estimateNetworkSpeed_abort.abort();
                     }, op.te);
 
+                } else if (eR.h) { // if error is detected
+
                     if (eR[eR.h].classList.contains("d_n")) {
                         eR.m.classList.remove("d_n");
                         eR[eR.h].classList.remove("d_n");
                     }
                     e_Fd(eR[eR.h], false); // show the error
+
+                    setTimeout(function() {
+                        window.stop(); // stop all network resource(s) fetching
+                        clearInterval(_Ld); // stop loading process
+                        clearInterval(op.ne.L); // clear network check loop
+
+                        checkOnlineStatus_abort.abort(); // abort any existing fetching
+                        estimateNetworkSpeed_abort.abort();
+                    }, op.te);
+                    
                 } else {
                     disp.classList.remove("d_n"); // show the page
                     setTimeout(function() {
