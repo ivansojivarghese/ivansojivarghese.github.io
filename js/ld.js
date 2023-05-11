@@ -701,7 +701,7 @@ function load_e() { // end the loading sequence
                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                         estimateNetworkSpeed_abort.abort();
                     }, op.te);
-                    
+
                 } else {
                     disp.classList.remove("d_n"); // show the page
                     setTimeout(function() {
@@ -976,7 +976,9 @@ function mt_check(v) { // maintenance function (temporary)
 }
 
 function timeout0_5() {
-    op.ne.t0_5s = true;
+    if (op.Ld.dom > op.Ld.t) {
+        op.ne.t0_5s = true;
+    }
 }
 
 function timeout0() {
