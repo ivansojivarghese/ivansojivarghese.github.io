@@ -216,7 +216,7 @@ function docRead() {
                     op.ne.s = 0;
 
                     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
-                        if (op.Ld.b && getCookie("networkReload") === "true" && op.ne.w) {
+                        if (getCookie("networkReload") === "true" || (op.Ld.b && op.ne.w)) {
                             rL.xc.innerHTML = "cancelled";
                             op.ne.tc = true;
                         } else {
