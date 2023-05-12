@@ -377,11 +377,22 @@
                 #main_sc {
                     display: none;
                 }
+
+                @media screen and (max-width: 218px) and (max-height: 281px) { /* wearables */
+                    #js_message {
+                        display: none;
+                    }
+
+                    #js_message_dot {
+                        display: block;
+                    }
+                }
             </style>
             <div data-nosnippet class="error_main">
-                <div class="err p-a" style="top: 5rem;">
+                <div id="js_message" class="err p-a" style="top: 5rem;">
                     <p class="p_Bz"><span class="em">javascript</span> is disabled</p>
                 </div>
+                <div id="js_message_dot" class="d_n trs p-a c-xy img_icon bC_m b-r aniM"></div>
             </div>
         </noscript>
         <img style="display: none;" src="https://ivansojivarghese.github.io/ext/jpg/ivan_profile.jpg" alt="thumbnail of Ivan Varghese" title="thumbnail of Ivan Varghese">
