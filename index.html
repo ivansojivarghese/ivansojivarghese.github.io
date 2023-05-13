@@ -378,7 +378,7 @@
                     display: none;
                 }
 
-                @media screen and (max-width: 240px) and (orientation: portrait), screen and (max-height: 440px) and (orientation: portrait), screen and (max-height: 240px) and (orientation: landscape), screen and (max-width: 440px) and (orientation: landscape) { /* wearables, below minimums */
+                @media screen and (max-width: 240px) and (orientation: portrait) and (max-height: 440px) and (orientation: portrait), screen and (max-height: 240px) and (orientation: landscape) and (max-width: 440px) and (orientation: landscape) { /* wearables, below minimums */
                     #js_message {
                         display: none;
                     }
@@ -388,7 +388,7 @@
                     }
                 }
 
-                @media screen and (min-width: 240px) and (orientation: portrait), screen and (min-height: 440px) and (orientation: portrait), screen and (min-height: 240px) and (orientation: landscape), screen and (min-width: 440px) and (orientation: landscape) { 
+                @media screen and (min-width: 240px) and (orientation: portrait) and (min-height: 440px) and (orientation: portrait), screen and (min-height: 240px) and (orientation: landscape) and (min-width: 440px) and (orientation: landscape) { 
                     #js_message {
                         display: block;
                     }
