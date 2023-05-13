@@ -398,6 +398,10 @@ a.md, span.md {
     margin: 0;
 }
 
+.m_z {
+    margin: 0 !important;
+}
+
 .m_Az, .img_icon {
     margin: 0 auto;
 }
