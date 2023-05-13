@@ -378,13 +378,23 @@
                     display: none;
                 }
 
-                @media screen and (max-width: 240px) and (max-height: 440px) { /* wearables, below minimums */
+                @media screen and (max-width: 239px) and (max-height: 439px) { /* wearables, below minimums */
                     #js_message {
                         display: none;
                     }
 
                     #js_message_dot {
                         display: block;
+                    }
+                }
+
+                @media screen and (min-width: 240px) and (min-height: 440px) { /* wearables, below minimums */
+                    #js_message {
+                        display: block;
+                    }
+
+                    #js_message_dot {
+                        display: none;
                     }
                 }
             </style>
