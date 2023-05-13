@@ -751,6 +751,8 @@ function load_css() { // load up CSS (common)
     if (vw.mB_L && !vw.z_S) { // in landscape view (mobile), but NOT small viewport
         c_css(".err", "margin-top: calc((" + aH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
         eR[eR.h].children[0].classList.remove("c-y"); // modify styling (remove centre-alignment)
+    } else if (vw.mB_L && !vw.z_S) {
+        rL.dt.style.transform = "translateX(-50%) translateY(-100%)";
     }
     /*
     if (op.b.f) {
