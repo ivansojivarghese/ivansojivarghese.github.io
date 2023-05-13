@@ -131,6 +131,12 @@
     }
 }
 
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    #load_icon, #load_text, #load_text_ex {
+        display: none;
+    }
+}
+
 
 
 /*
