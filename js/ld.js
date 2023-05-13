@@ -591,7 +591,11 @@ function docRead() {
                     }
                 }
             } else {
-                rL.s = true; // page loaded
+                if (!op.ne.x4) {
+                    countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
+                    rL.s = true; // page loaded
+                    op.ne.x4 = true;
+                }
             }
         break;
     }
