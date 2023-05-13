@@ -91,7 +91,7 @@ function docRead() {
                 e_Fd(rL.m, false); // show load-box
             }
         case "complete": // if DOM, styles, images and scripts all loaded
-            if (!vw.mB_L) { // if NOT mobile landscape
+            if (!vw.mB_L && !vw.z_S) { // if NOT mobile landscape OR small display
                 setCookie("testCookie", "true"); // set a test cookie
                 if (getCookie("testCookie")) { // check for cookies
                     if (!rL.e) { // ensure once execution
