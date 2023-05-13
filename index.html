@@ -378,7 +378,7 @@
                     display: none;
                 }
 
-                @media screen and (max-width: 239px), screen and (max-height: 439px) { /* wearables, below minimums */
+                @media screen and (max-width: 239px) and (orientation: portrait), screen and (max-height: 439px) and (orientation: portrait) { /* wearables, below minimums */
                     #js_message {
                         display: none;
                     }
@@ -388,7 +388,7 @@
                     }
                 }
 
-                @media screen and (min-width: 240px), screen and (min-height: 440px) { /* wearables, below minimums */
+                @media screen and (min-width: 240px) and (orientation: portrait), screen and (min-height: 440px) and (orientation: portrait) { /* wearables, below minimums */
                     #js_message {
                         display: block;
                     }
