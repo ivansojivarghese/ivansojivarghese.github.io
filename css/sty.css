@@ -917,7 +917,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     opacity: 0.5;
 }
 
-#load_dot.md, #js_message_dot {
+#load_dot.md, #js_message_dot, .dot_negate {
     background-color: var(--negate_col);
     opacity: 1;
 }
