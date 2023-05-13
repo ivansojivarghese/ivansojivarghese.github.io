@@ -591,7 +591,7 @@ function docRead() {
                     }
                 }
             } else {
-                
+                rL.s = true; // page loaded
             }
         break;
     }
