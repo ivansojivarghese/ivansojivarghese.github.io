@@ -91,503 +91,507 @@ function docRead() {
                 e_Fd(rL.m, false); // show load-box
             }
         case "complete": // if DOM, styles, images and scripts all loaded
-            setCookie("testCookie", "true"); // set a test cookie
-            if (getCookie("testCookie")) { // check for cookies
-                if (!rL.e) { // ensure once execution
-                    if (!rL.e2) { 
-                        setCookie("windowResize", false, op.c.t);
-                        rL.e2 = true;
-                        if (!rL.e4) {
-                            rL.e4 = true;
-                            e_Fd(rL.m, false); // show load-box (either flow)
+            if (!vw.mB_L) { // if NOT mobile landscape
+                setCookie("testCookie", "true"); // set a test cookie
+                if (getCookie("testCookie")) { // check for cookies
+                    if (!rL.e) { // ensure once execution
+                        if (!rL.e2) { 
+                            setCookie("windowResize", false, op.c.t);
+                            rL.e2 = true;
+                            if (!rL.e4) {
+                                rL.e4 = true;
+                                e_Fd(rL.m, false); // show load-box (either flow)
+                            }
+                            if (getCookie("initialAccess") !== "true" && !dev.mode) { // create an access cookie (checks for first-time access)
+                                // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
+                                setCookie("initialAccess", "true", op.c.t); // access cookie lasts for 24 hours
+                                setCookie("maxHeight", cH, op.c.t); // max height 
+                                op.c.a = true; // user initial access detected
+                            } else {
+                                Rd[Rd.length] = true; // accelerate load process
+                                op.c.a = false; // user NOT initial access
+                                if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
+                                    pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
+                                    op.c.u = true; // message accepted
+                                    /*
+                                    if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
+                                        setCookie("maxHeight", cH, op.c.t); // update
+                                        aH = getCookie("maxHeight");
+                                    } /*else if () {
+                                        setCookie("maxHeight", aH, op.c.t); // update
+                                    }*/
+                                } 
+                            }
+
+                            // resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
+                            // resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
+                            // resLoad(rL.w_s.el, rL.w_s.u); // wifi_off_white
+                            // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
+
+                            // load_js_e(); // load js (indiv.)
+                            // loadUp();  // trigger ALL PROMISES (fetching of resources)
+
                         }
-                        if (getCookie("initialAccess") !== "true" && !dev.mode) { // create an access cookie (checks for first-time access)
-                            // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
-                            setCookie("initialAccess", "true", op.c.t); // access cookie lasts for 24 hours
-                            setCookie("maxHeight", cH, op.c.t); // max height 
-                            op.c.a = true; // user initial access detected
-                        } else {
-                            Rd[Rd.length] = true; // accelerate load process
-                            op.c.a = false; // user NOT initial access
-                            if (getCookie("cookiesAccepted") === "true" || dev.mode) { // if cookies have been accepted by user
-                                pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
-                                op.c.u = true; // message accepted
+                        if ((rdS(Rd) && !rL.e3 && (op.ne.w === false) && loadS_res(res_ar) && op.n && !rL.i_s) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded (normal)
+                            rL.e3 = true; 
+                            // rL.s = true;
+                            /*
+                            if (op.c.a) { // only if first-time access
+                                e_Fd(rL.g, false); // show logo
+                            }*/
+
+                            rL.r_s = true;
+                            rL.i_s = false;
+
+                            rL.dt.classList.add("d_n"); // hide loading dot
+
+                            setTimeout(function() {
                                 /*
-                                if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
-                                    setCookie("maxHeight", cH, op.c.t); // update
-                                    aH = getCookie("maxHeight");
-                                } /*else if () {
-                                    setCookie("maxHeight", aH, op.c.t); // update
+                                if (op.c.a) {
+                                    e_Fd(rL.t, false); // standby loading rings
                                 }*/
-                            } 
+                                e_Fd(rL.r, false);
+                            }, op.t); // same duration as .trs transition duration property
+                            setTimeout(function() { // run loading animation
+                                // rL.g.classList.add("z_O"); 
+                                /*
+                                if (op.c.a) {
+                                    rL.t.classList.add("template");
+                                }*/
+                                setTimeout(function() { // hide the logo and show the rings
+                                    /*
+                                    if (op.c.a) {
+                                        rL.t.classList.add("z_O");
+                                    }*/
+                                    load_js_e(); // load js (indiv.)
+                                    // load_css_e(); // load css styles to 'head' (indiv.)
+                                    loadUp();  // trigger ALL PROMISES (fetching of resources)
+                                    rL.e = true; // execute following code block once only
+                                }, op.t); 
+                            }, 800); // total loading duration to be min. 1.2sec
+
+                        } else if ((op.ne.w && op.ne.s) || (!op.ne.w && op.ne.s && op.ne.off)) { // if slow network (or fast network after offline)
+
+                            // console.log("slow speed");
+                            // rL.n.classList.add("wifi_slow_img");
+
+                            if (!op.ne.off) {
+                                c_rep(rL.n, "wifi_off_img", "wifi_slow_img");
+                                if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s) {
+                                    rL.xc.innerHTML = "network is slow";
+                                }
+                            }
+
+                            // resLoad(rL.w_s.el, rL.w_s.u);
+
+                            rL.e = true;
+                            rL.e5 = true;
+
+                            // e_Fd(rL.n, false); 
+                            // e_Fd(rL.x, false);
+                        
+                        } else if ((op.n === null && op.ne.w === null && !op.ne.x2) || (op.n && !op.ne.w && !op.ne.x2)) { // potential timeout 1 (@load_dot)
+
+                            countdownTimerSec((op.Ld.t / 1000), op.ne.t1, null, timeout1); // start timeout 1 timer
+                            op.ne.x2 = true;
+
+                        } else if (((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) || (op.Ld.b && op.Ld.s && !op.ne.w && op.ne.s) || op.ne.t1s) && !rL.r_s) { // timeout 1
+
+                            rL.i_s = true;
+                            rL.r_s = false;
+
+                            rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
+                            rL.n.classList.add("timeout_img");
+                            // c_rep(rL.n, "", "timeout_img");
+                            e_Fd(rL.n, false); 
+
+                            rL.dt.classList.add("md"); 
+                            // op.nc = false;
+                            op.ne.s = 0;
+
+                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
+                                if (getCookie("networkReload") === "true" || (op.Ld.b && op.ne.w)) {
+                                    rL.xc.innerHTML = "cancelled";
+                                    op.ne.tc = true;
+                                } else {
+                                    rL.xc.innerHTML = "timeout";
+                                    op.ne.tc = true;
+                                }
+                                e_Fd(rL.x, false); // show message when timeout
+                            }
+
+                            setTimeout(function() {
+                                window.stop(); // stop all network resource(s) fetching
+                                clearInterval(_Ld); // stop loading process
+                                clearInterval(op.ne.L); // clear network check loop
+
+                                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                estimateNetworkSpeed_abort.abort();
+                            }, op.te);
+
+                        } else if (op.n === false && !rL.r_s) { // if network offline
+
+                            rL.i_s = true;
+                            rL.r_s = false;
+
+                            if (!op.ne.x1) {
+                                countdownTimerSec((op.Ld.t / 1000), op.ne.t0, null, timeout0); // start timeout 0 timer
+                                op.ne.x1 = true;
+                            }
+
+                            rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
+                            // rL.n.classList.add("wifi_off_img");
+                            // c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
+
+                            if (!op.ne.t0s) {
+                                c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
+                            } else { // if timeout 0
+                                if (svg.t) {
+                                    c_rep(rL.n, "wifi_off_img", "timeout_img");
+                                } else {
+                                    rL.n.classList.remove("wifi_off_img");
+                                }
+                            }
+
+                            e_Fd(rL.n, false); 
+
+                            rL.dt.classList.add("md"); 
+                            // op.nc = false;
+                            op.ne.off = true; // unexpected offline
+                            op.ne.s = 0;
+                            op.ne.w = false;
+                            
+                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o && !op.ne.t0s) { // check if fonts are downloaded
+                                rL.xc.innerHTML = "offline";
+                                e_Fd(rL.x, false); // show message when internet not connected
+
+                            } else if (op.ne.t0s) { // if timeout 0
+
+                                if (svg.t) {
+                                    rL.xc.innerHTML = "timeout";
+                                    e_Fd(rL.x, false); // show message when timeout
+                                } else {
+                                    rL.xc.innerHTML = "";
+                                }
+
+                                setTimeout(function() {
+                                    window.stop(); // stop all network resource(s) fetching
+                                    clearInterval(_Ld); // stop loading process
+                                    clearInterval(op.ne.L); // clear network check loop
+            
+                                    checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                    estimateNetworkSpeed_abort.abort();
+                                }, op.te);
+                            }
                         }
 
-                        // resLoad(rL.f_s.el, rL.f_s.u); // favicon_secondary
-                        // resLoad(rL.w_fw.el, rL.w_fw.u); // wifi_off_white
-                        // resLoad(rL.w_s.el, rL.w_s.u); // wifi_off_white
-                        // resLoad(rL.w_w.el, rL.w_w.u); // wifi_white
+                    } else if (op.n && op.nc && !rL.r_s) { // if network change - from offline to online
 
-                        // load_js_e(); // load js (indiv.)
-                        // loadUp();  // trigger ALL PROMISES (fetching of resources)
+                        rL.i_s = true;
+                        rL.r_s = false;
 
-                    }
-                    if ((rdS(Rd) && !rL.e3 && (op.ne.w === false) && loadS_res(res_ar) && op.n && !rL.i_s) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded (normal)
-                        rL.e3 = true; 
-                        // rL.s = true;
+                        rL.dt.classList.remove("md", "aniM-f"); 
+                        if (!op.ne.reCon) {
+                            c_rep(rL.n, ["wifi_off_img", "wifi_slow_img"], "wifi_find_img");
+                        }
+
+                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_f) { // check if fonts are downloaded
+                            if (!op.nR) {
+                                rL.xc.innerHTML = "reconnecting";
+                            }
+                            e_Fd(rL.x, false); // show message when internet not connected
+                        } else {
+                            rL.xc.innerHTML = "";
+                        }
+
+                        if (!op.nR) {
+                            op.nR = true;
+                            if (getCookie("networkReload") !== "true") {
+                                setCookie("networkReload", "true", op.c.t); // reload (due to network) cookie
+                            }
+                            setTimeout(function() {
+
+                                countdownTimerSec((op.Ld.t / 1000), op.ne.t4, null, timeout4); // start timeout 4 timer
+
+                                rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
+                                c_rep(rL.dt, "aniM", "aniM-f"); 
+                                rL.dt.classList.add("e"); // stop animation on 'load_dot', change to green
+                                if ((isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) || (svg.w)) { // show connected
+                                    c_rep(rL.n, "wifi_find_img", "wifi_img");
+                                    rL.xc.innerHTML = "connected";
+                                } else {
+                                    rL.n.classList.remove("wifi_find_img");
+                                    rL.xc.innerHTML = "";
+                                }
+                                op.ne.reCon = true;
+                                setTimeout(function() {
+                                    reL();
+                                }, op.te);
+                            }, op.ne.bD); // reload page after interval
+
+                        } else if ((getCookie("networkReload") === "true" && !op.n) || op.ne.t4s) { // cancelled by user OR timeout 4
+
+                            op.ne.s = 0;
+                            op.ne.w = false;
+
+                            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+
+                            c_rep(rL.dt, "e", "md"); // set dot to red
+                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
+                                c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
+                                if (!op.ne.x3) { // execute once
+                                    if (op.ne.t4s) {
+                                        rL.xc.innerHTML = "timeout";
+                                        op.ne.x3 = true;
+                                    } else {
+                                        rL.xc.innerHTML = "cancelled";
+                                        op.ne.x3 = true;
+                                    }
+                                }
+                            } else {
+                                e_Fd(rL.n, true); // hide
+                                rL.xc.innerHTML = "";
+                            }
+
+                            setTimeout(function() {
+                                window.stop(); // stop all network resource(s) fetching
+                                clearInterval(_Ld); // stop loading process
+                                clearInterval(op.ne.L); // clear network check loop
+
+                                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                estimateNetworkSpeed_abort.abort();
+
+                                setCookie("networkReload", null, -1); // delete cookie variable
+                            }, op.te);
+                        }
+
+                        // console.log("reconnecting");
+
+                    } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n && op.ne.noCon && !rL.r_s) { // if network slow (with background processes loaded)
+
+                        rL.i_s = true;
+                        rL.r_s = false;
+
+                        if (!op.ne.x) {
+                            countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
+                            op.ne.x = true; // execute once
+                        }
+
+                        if (!op.ne.t2s) { // no timeout 
+                            switch (networkTrend(op.ne.b)) { // check recent [live] network trend
+                                case true: // positive
+                                    changeSVGColor(op.col.p, rL.xea, false); // turns green
+                                    rL.xea.style.transform = "rotate(-90deg)"; // point up
+                                break;
+                                case false: // negative
+                                    changeSVGColor(op.col.n, rL.xea, false); // turns red
+                                    rL.xea.style.transform = "rotate(90deg)"; // point down
+                                break;
+                                case null: // constant
+                                    changeSVGColor(op.col.b, rL.xea, false); // turns black
+                                    rL.xea.style.transform = "rotate(0deg)";
+                                break;
+                            }
+
+                            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
+                            op.ne.noCon = (loadS_res(res_ar)) ? false : true; // check loading of resources
+
+                            // rL.n.classList.add("wifi_slow_img");
+
+                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s && svg.L_a) { // check if fonts are downloaded
+                                e_Fd(rL.xe, false); // show speed
+                                e_Fd(rL.n, false); // show message
+                                e_Fd(rL.x, false);
+
+                                // rL.e5 = false;
+                                rL.e5 = (loadS_res(res_ar)) ? false : true;
+                            }
+                        } else { // timeout 2
+                            op.ne.s = 0;
+                            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                            if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                                rL.xea.style.transform = "rotate(0deg)";
+                            }
+                            rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
+                            rL.dt.classList.add("md"); // turns red 
+                            if (svg.t) {
+                                c_rep(rL.n, "wifi_slow_img", "timeout_img");
+                            }
+                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
+                                rL.xc.innerHTML = "timeout";
+                            } else {
+                                rL.xc.innerHTML = "";
+                            }
+                            setTimeout(function() {
+                                window.stop(); // stop all network resource(s) fetching
+                                clearInterval(_Ld); // stop loading process
+                                clearInterval(op.ne.L); // clear network check loop
+
+                                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                estimateNetworkSpeed_abort.abort();
+                            }, op.te);
+                        }
                         /*
-                        if (op.c.a) { // only if first-time access
-                            e_Fd(rL.g, false); // show logo
-                        }*/
+                        e_Fd(rL.xe, false); // show speed
+                        e_Fd(rL.n, false); // show message
+                        e_Fd(rL.x, false);
+
+                        rL.e5 = false;
+                        */
+                    } else if (!op.n && !rL.r_s) { // if network offline
+
+                        rL.i_s = true;
+                        rL.r_s = false;
+
+                        if (getCookie("networkReload") === "true" || op.ne.t4s) { // cancelled by user
+
+                            op.ne.s = 0;
+                            op.ne.w = false;
+
+                            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+
+                            c_rep(rL.dt, "e", "md"); // set dot to red
+                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
+                                c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
+
+                                if (!op.ne.x3) { // execute once
+                                    if (op.ne.t4s) {
+                                        rL.xc.innerHTML = "timeout";
+                                        op.ne.x3 = true;
+                                    } else {
+                                        rL.xc.innerHTML = "cancelled";
+                                        op.ne.x3 = true;
+                                    }
+                                }
+                            } else {
+                                e_Fd(rL.n, true); // hide
+                                rL.xc.innerHTML = "";
+                            }
+
+                            setTimeout(function() {
+                                window.stop(); // stop all network resource(s) fetching
+                                clearInterval(_Ld); // stop loading process
+                                clearInterval(op.ne.L); // clear network check loop
+
+                                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                estimateNetworkSpeed_abort.abort();
+
+                                setCookie("networkReload", null, -1); // delete cookie variable
+                            }, op.te);
+
+                        } else {
+                            rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
+                            // rL.n.classList.add("wifi_off_img");
+                            if (!op.ne.t2s) {
+                                c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
+                            } else { // if timeout 2
+                                if (svg.t) {
+                                    c_rep(rL.n, "wifi_off_img", "timeout_img");
+                                } else {
+                                    rL.n.classList.remove("wifi_off_img");
+                                }
+                            }
+                            
+                            e_Fd(rL.n, false); 
+
+                            rL.dt.classList.add("md");
+                            // op.nc = false;
+                            op.ne.s = 0;
+                            op.ne.w = false;
+
+                            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                            if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                                rL.xea.style.transform = "rotate(0deg)";
+                            }
+                            
+                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o && !op.ne.t2s) { // check if fonts are downloaded
+                                rL.xc.innerHTML = "offline";
+                                e_Fd(rL.x, false); // show message when internet not connected
+                            } else if (op.ne.t2s) { // if timeout 2
+                                if (svg.t) {
+                                    rL.xc.innerHTML = "timeout";
+                                    e_Fd(rL.x, false); // show message when timeout
+                                } else {
+                                    rL.xc.innerHTML = "";
+                                }
+                                setTimeout(function() {
+                                    window.stop(); // stop all network resource(s) fetching
+                                    clearInterval(_Ld); // stop loading process
+                                    clearInterval(op.ne.L); // clear network check loop
+
+                                    checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                    estimateNetworkSpeed_abort.abort();
+                                }, op.te);
+                            }
+                        }
+                        
+                    } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
+                        // if (!op.ne.w) {
+                        // rL.s = true; // set load status to true
+                        // }
 
                         rL.r_s = true;
                         rL.i_s = false;
 
-                        rL.dt.classList.add("d_n"); // hide loading dot
-
-                        setTimeout(function() {
-                            /*
-                            if (op.c.a) {
-                                e_Fd(rL.t, false); // standby loading rings
-                            }*/
+                        if ((getCookie("networkReload") === "true")) {
+                            setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
+                        }
+                        
+                        e_Fd(rL.xe, true); // hide network stats
+                        e_Fd(rL.dt, true);
+                        rL.dt.classList.add("aniM-f"); // hide load dot
+                        e_Fd(rL.n, true);
+                        e_Fd(rL.x, true);
+                        setTimeout(function() { // show loading ring
                             e_Fd(rL.r, false);
+                            load_js_e(); // load js (indiv.)
+                            loadUp();  // trigger ALL PROMISES (fetching of resources)
+                            rL.e = true; // execute following code block once only
+                            rL.s = true;
+                            clearInterval(_Ld); // stop ready-check loop
+                            countdownTimerSec((op.Ld.t / 1000), op.ne.t3, null, timeout3); // start timeout 2 timer
                         }, op.t); // same duration as .trs transition duration property
+                        
+                        /*
                         setTimeout(function() { // run loading animation
-                            // rL.g.classList.add("z_O"); 
-                            /*
-                            if (op.c.a) {
-                                rL.t.classList.add("template");
-                            }*/
                             setTimeout(function() { // hide the logo and show the rings
-                                /*
-                                if (op.c.a) {
-                                    rL.t.classList.add("z_O");
-                                }*/
                                 load_js_e(); // load js (indiv.)
                                 // load_css_e(); // load css styles to 'head' (indiv.)
                                 loadUp();  // trigger ALL PROMISES (fetching of resources)
                                 rL.e = true; // execute following code block once only
                             }, op.t); 
                         }, 800); // total loading duration to be min. 1.2sec
+                        */
 
-                    } else if ((op.ne.w && op.ne.s) || (!op.ne.w && op.ne.s && op.ne.off)) { // if slow network (or fast network after offline)
+                        // (rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)
 
-                        // console.log("slow speed");
-                        // rL.n.classList.add("wifi_slow_img");
+                            /// loadR-e to complete the ring
+                                // activate animation when ring is untransversed (animationiteration event)
+                                    // set a variable to true to activate
+                                // .5s later: pause all animations (rings)
+                                // trs to display page
 
-                        if (!op.ne.off) {
-                            c_rep(rL.n, "wifi_off_img", "wifi_slow_img");
-                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s) {
-                                rL.xc.innerHTML = "network is slow";
-                            }
+                        // show the page
+                            // set scroll 
+
+                        if (!op.ne.w) { // if network NOT slow
+                            clearInterval(_Ld); // stop ready-check loop
                         }
 
-                        // resLoad(rL.w_s.el, rL.w_s.u);
-
-                        rL.e = true;
-                        rL.e5 = true;
-
-                        // e_Fd(rL.n, false); 
-                        // e_Fd(rL.x, false);
-                    
-                    } else if ((op.n === null && op.ne.w === null && !op.ne.x2) || (op.n && !op.ne.w && !op.ne.x2)) { // potential timeout 1 (@load_dot)
-
-                        countdownTimerSec((op.Ld.t / 1000), op.ne.t1, null, timeout1); // start timeout 1 timer
-                        op.ne.x2 = true;
-
-                    } else if (((op.Ld.dom > op.Ld.t || (getCookie("networkReload") === "true" && op.ne.w)) || (op.Ld.b && op.Ld.s && !op.ne.w && op.ne.s) || op.ne.t1s) && !rL.r_s) { // timeout 1
-
-                        rL.i_s = true;
-                        rL.r_s = false;
-
-                        rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-                        rL.n.classList.add("timeout_img");
-                        // c_rep(rL.n, "", "timeout_img");
-                        e_Fd(rL.n, false); 
-
-                        rL.dt.classList.add("md"); 
-                        // op.nc = false;
-                        op.ne.s = 0;
-
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
-                            if (getCookie("networkReload") === "true" || (op.Ld.b && op.ne.w)) {
-                                rL.xc.innerHTML = "cancelled";
-                                op.ne.tc = true;
-                            } else {
-                                rL.xc.innerHTML = "timeout";
-                                op.ne.tc = true;
-                            }
-                            e_Fd(rL.x, false); // show message when timeout
-                        }
-
-                        setTimeout(function() {
-                            window.stop(); // stop all network resource(s) fetching
-                            clearInterval(_Ld); // stop loading process
-                            clearInterval(op.ne.L); // clear network check loop
-
-                            checkOnlineStatus_abort.abort(); // abort any existing fetching
-                            estimateNetworkSpeed_abort.abort();
-                        }, op.te);
-
-                    } else if (op.n === false && !rL.r_s) { // if network offline
-
-                        rL.i_s = true;
-                        rL.r_s = false;
-
-                        if (!op.ne.x1) {
-                            countdownTimerSec((op.Ld.t / 1000), op.ne.t0, null, timeout0); // start timeout 0 timer
-                            op.ne.x1 = true;
-                        }
-
-                        rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-                        // rL.n.classList.add("wifi_off_img");
-                        // c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
-
-                        if (!op.ne.t0s) {
-                            c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
-                        } else { // if timeout 0
-                            if (svg.t) {
-                                c_rep(rL.n, "wifi_off_img", "timeout_img");
-                            } else {
-                                rL.n.classList.remove("wifi_off_img");
-                            }
-                        }
-
-                        e_Fd(rL.n, false); 
-
-                        rL.dt.classList.add("md"); 
-                        // op.nc = false;
-                        op.ne.off = true; // unexpected offline
-                        op.ne.s = 0;
-                        op.ne.w = false;
-                        
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o && !op.ne.t0s) { // check if fonts are downloaded
-                            rL.xc.innerHTML = "offline";
-                            e_Fd(rL.x, false); // show message when internet not connected
-
-                        } else if (op.ne.t0s) { // if timeout 0
-
-                            if (svg.t) {
-                                rL.xc.innerHTML = "timeout";
-                                e_Fd(rL.x, false); // show message when timeout
-                            } else {
-                                rL.xc.innerHTML = "";
-                            }
-
-                            setTimeout(function() {
-                                window.stop(); // stop all network resource(s) fetching
-                                clearInterval(_Ld); // stop loading process
-                                clearInterval(op.ne.L); // clear network check loop
-        
-                                checkOnlineStatus_abort.abort(); // abort any existing fetching
-                                estimateNetworkSpeed_abort.abort();
-                            }, op.te);
-                        }
+                    } else if (op.ne.s >= op.ne.h && rL.e5) {
+                        rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
                     }
-
-                } else if (op.n && op.nc && !rL.r_s) { // if network change - from offline to online
-
-                    rL.i_s = true;
-                    rL.r_s = false;
-
-                    rL.dt.classList.remove("md", "aniM-f"); 
-                    if (!op.ne.reCon) {
-                        c_rep(rL.n, ["wifi_off_img", "wifi_slow_img"], "wifi_find_img");
+                } else {
+                    if (!op.ne.x4) {
+                        countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
+                        rL.s = true; // page loaded
+                        op.ne.x4 = true;
                     }
-
-                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_f) { // check if fonts are downloaded
-                        if (!op.nR) {
-                            rL.xc.innerHTML = "reconnecting";
-                        }
-                        e_Fd(rL.x, false); // show message when internet not connected
-                    } else {
-                        rL.xc.innerHTML = "";
-                    }
-
-                    if (!op.nR) {
-                        op.nR = true;
-                        if (getCookie("networkReload") !== "true") {
-                            setCookie("networkReload", "true", op.c.t); // reload (due to network) cookie
-                        }
-                        setTimeout(function() {
-
-                            countdownTimerSec((op.Ld.t / 1000), op.ne.t4, null, timeout4); // start timeout 4 timer
-
-                            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
-                            c_rep(rL.dt, "aniM", "aniM-f"); 
-                            rL.dt.classList.add("e"); // stop animation on 'load_dot', change to green
-                            if ((isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w) || (svg.w)) { // show connected
-                                c_rep(rL.n, "wifi_find_img", "wifi_img");
-                                rL.xc.innerHTML = "connected";
-                            } else {
-                                rL.n.classList.remove("wifi_find_img");
-                                rL.xc.innerHTML = "";
-                            }
-                            op.ne.reCon = true;
-                            setTimeout(function() {
-                                reL();
-                            }, op.te);
-                        }, op.ne.bD); // reload page after interval
-
-                    } else if ((getCookie("networkReload") === "true" && !op.n) || op.ne.t4s) { // cancelled by user OR timeout 4
-
-                        op.ne.s = 0;
-                        op.ne.w = false;
-
-                        rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-
-                        c_rep(rL.dt, "e", "md"); // set dot to red
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
-                            c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
-                            if (!op.ne.x3) { // execute once
-                                if (op.ne.t4s) {
-                                    rL.xc.innerHTML = "timeout";
-                                    op.ne.x3 = true;
-                                } else {
-                                    rL.xc.innerHTML = "cancelled";
-                                    op.ne.x3 = true;
-                                }
-                            }
-                        } else {
-                            e_Fd(rL.n, true); // hide
-                            rL.xc.innerHTML = "";
-                        }
-
-                        setTimeout(function() {
-                            window.stop(); // stop all network resource(s) fetching
-                            clearInterval(_Ld); // stop loading process
-                            clearInterval(op.ne.L); // clear network check loop
-
-                            checkOnlineStatus_abort.abort(); // abort any existing fetching
-                            estimateNetworkSpeed_abort.abort();
-
-                            setCookie("networkReload", null, -1); // delete cookie variable
-                        }, op.te);
-                    }
-
-                    // console.log("reconnecting");
-
-                } else if (rdS(Rd) && op.ne.w && op.ne.s && op.n && op.ne.noCon && !rL.r_s) { // if network slow (with background processes loaded)
-
-                    rL.i_s = true;
-                    rL.r_s = false;
-
-                    if (!op.ne.x) {
-                        countdownTimerSec((op.Ld.t / 1000), op.ne.t2, null, timeout2); // start timeout 2 timer
-                        op.ne.x = true; // execute once
-                    }
-
-                    if (!op.ne.t2s) { // no timeout 
-                        switch (networkTrend(op.ne.b)) { // check recent [live] network trend
-                            case true: // positive
-                                changeSVGColor(op.col.p, rL.xea, false); // turns green
-                                rL.xea.style.transform = "rotate(-90deg)"; // point up
-                            break;
-                            case false: // negative
-                                changeSVGColor(op.col.n, rL.xea, false); // turns red
-                                rL.xea.style.transform = "rotate(90deg)"; // point down
-                            break;
-                            case null: // constant
-                                changeSVGColor(op.col.b, rL.xea, false); // turns black
-                                rL.xea.style.transform = "rotate(0deg)";
-                            break;
-                        }
-
-                        rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // approx. speed
-                        op.ne.noCon = (loadS_res(res_ar)) ? false : true; // check loading of resources
-
-                        // rL.n.classList.add("wifi_slow_img");
-
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_s && svg.L_a) { // check if fonts are downloaded
-                            e_Fd(rL.xe, false); // show speed
-                            e_Fd(rL.n, false); // show message
-                            e_Fd(rL.x, false);
-
-                            // rL.e5 = false;
-                            rL.e5 = (loadS_res(res_ar)) ? false : true;
-                        }
-                    } else { // timeout 2
-                        op.ne.s = 0;
-                        rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-                        if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
-                            changeSVGColor(op.col.b, rL.xea, false); // default the arrow
-                            rL.xea.style.transform = "rotate(0deg)";
-                        }
-                        rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-                        rL.dt.classList.add("md"); // turns red 
-                        if (svg.t) {
-                            c_rep(rL.n, "wifi_slow_img", "timeout_img");
-                        }
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
-                            rL.xc.innerHTML = "timeout";
-                        } else {
-                            rL.xc.innerHTML = "";
-                        }
-                        setTimeout(function() {
-                            window.stop(); // stop all network resource(s) fetching
-                            clearInterval(_Ld); // stop loading process
-                            clearInterval(op.ne.L); // clear network check loop
-
-                            checkOnlineStatus_abort.abort(); // abort any existing fetching
-                            estimateNetworkSpeed_abort.abort();
-                        }, op.te);
-                    }
-                    /*
-                    e_Fd(rL.xe, false); // show speed
-                    e_Fd(rL.n, false); // show message
-                    e_Fd(rL.x, false);
-
-                    rL.e5 = false;
-                    */
-                } else if (!op.n && !rL.r_s) { // if network offline
-
-                    rL.i_s = true;
-                    rL.r_s = false;
-
-                    if (getCookie("networkReload") === "true" || op.ne.t4s) { // cancelled by user
-
-                        op.ne.s = 0;
-                        op.ne.w = false;
-
-                        rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-
-                        c_rep(rL.dt, "e", "md"); // set dot to red
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
-                            c_rep(rL.n, "wifi_img", "timeout_img"); // change icon to timeout
-
-                            if (!op.ne.x3) { // execute once
-                                if (op.ne.t4s) {
-                                    rL.xc.innerHTML = "timeout";
-                                    op.ne.x3 = true;
-                                } else {
-                                    rL.xc.innerHTML = "cancelled";
-                                    op.ne.x3 = true;
-                                }
-                            }
-                        } else {
-                            e_Fd(rL.n, true); // hide
-                            rL.xc.innerHTML = "";
-                        }
-
-                        setTimeout(function() {
-                            window.stop(); // stop all network resource(s) fetching
-                            clearInterval(_Ld); // stop loading process
-                            clearInterval(op.ne.L); // clear network check loop
-
-                            checkOnlineStatus_abort.abort(); // abort any existing fetching
-                            estimateNetworkSpeed_abort.abort();
-
-                            setCookie("networkReload", null, -1); // delete cookie variable
-                        }, op.te);
-
-                    } else {
-                        rL.dt.classList.add("aniM-f"); // stop animation on 'load_dot'
-                        // rL.n.classList.add("wifi_off_img");
-                        if (!op.ne.t2s) {
-                            c_rep(rL.n, ["wifi_slow_img", "wifi_find_img"], "wifi_off_img");
-                        } else { // if timeout 2
-                            if (svg.t) {
-                                c_rep(rL.n, "wifi_off_img", "timeout_img");
-                            } else {
-                                rL.n.classList.remove("wifi_off_img");
-                            }
-                        }
-                        
-                        e_Fd(rL.n, false); 
-
-                        rL.dt.classList.add("md");
-                        // op.nc = false;
-                        op.ne.s = 0;
-                        op.ne.w = false;
-
-                        rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-                        if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
-                            changeSVGColor(op.col.b, rL.xea, false); // default the arrow
-                            rL.xea.style.transform = "rotate(0deg)";
-                        }
-                        
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.w_o && !op.ne.t2s) { // check if fonts are downloaded
-                            rL.xc.innerHTML = "offline";
-                            e_Fd(rL.x, false); // show message when internet not connected
-                        } else if (op.ne.t2s) { // if timeout 2
-                            if (svg.t) {
-                                rL.xc.innerHTML = "timeout";
-                                e_Fd(rL.x, false); // show message when timeout
-                            } else {
-                                rL.xc.innerHTML = "";
-                            }
-                            setTimeout(function() {
-                                window.stop(); // stop all network resource(s) fetching
-                                clearInterval(_Ld); // stop loading process
-                                clearInterval(op.ne.L); // clear network check loop
-
-                                checkOnlineStatus_abort.abort(); // abort any existing fetching
-                                estimateNetworkSpeed_abort.abort();
-                            }, op.te);
-                        }
-                    }
-                    
-                } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
-                    // if (!op.ne.w) {
-                    // rL.s = true; // set load status to true
-                    // }
-
-                    rL.r_s = true;
-                    rL.i_s = false;
-
-                    if ((getCookie("networkReload") === "true")) {
-                        setCookie("networkReload", null, -1); // delete the cookie (since network is of normal speed, loaded normally)
-                    }
-                    
-                    e_Fd(rL.xe, true); // hide network stats
-                    e_Fd(rL.dt, true);
-                    rL.dt.classList.add("aniM-f"); // hide load dot
-                    e_Fd(rL.n, true);
-                    e_Fd(rL.x, true);
-                    setTimeout(function() { // show loading ring
-                        e_Fd(rL.r, false);
-                        load_js_e(); // load js (indiv.)
-                        loadUp();  // trigger ALL PROMISES (fetching of resources)
-                        rL.e = true; // execute following code block once only
-                        rL.s = true;
-                        clearInterval(_Ld); // stop ready-check loop
-                        countdownTimerSec((op.Ld.t / 1000), op.ne.t3, null, timeout3); // start timeout 2 timer
-                    }, op.t); // same duration as .trs transition duration property
-                    
-                    /*
-                    setTimeout(function() { // run loading animation
-                        setTimeout(function() { // hide the logo and show the rings
-                            load_js_e(); // load js (indiv.)
-                            // load_css_e(); // load css styles to 'head' (indiv.)
-                            loadUp();  // trigger ALL PROMISES (fetching of resources)
-                            rL.e = true; // execute following code block once only
-                        }, op.t); 
-                    }, 800); // total loading duration to be min. 1.2sec
-                    */
-
-                    // (rdS(Rd) && !rL.e3 && !op.ne.w && loadS_res(res_ar)
-
-                        /// loadR-e to complete the ring
-                            // activate animation when ring is untransversed (animationiteration event)
-                                // set a variable to true to activate
-                            // .5s later: pause all animations (rings)
-                            // trs to display page
-
-                    // show the page
-                        // set scroll 
-
-                    if (!op.ne.w) { // if network NOT slow
-                        clearInterval(_Ld); // stop ready-check loop
-                    }
-
-                } else if (op.ne.s >= op.ne.h && rL.e5) {
-                    rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
                 }
             } else {
-                if (!op.ne.x4) {
-                    countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
-                    rL.s = true; // page loaded
-                    op.ne.x4 = true;
-                }
+                
             }
         break;
     }
