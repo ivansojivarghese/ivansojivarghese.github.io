@@ -131,7 +131,7 @@
     }
 }
 
-@media screen and (max-height: 500px) and (orientation: landscape) {
+@media screen and (max-height: 500px) and (orientation: landscape), screen and (max-height: 440px) and (orientation: portrait) {
     #load_icon, #load_text, #load_text_ex {
         display: none;
     }
