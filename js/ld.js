@@ -748,7 +748,7 @@ function load_css() { // load up CSS (common)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
     // c_css(".head_b", "height: calc(var(--doc-height) - 7rem);", false, null); // set landing page to full height (exclusive of url bar on mobile/tablet devices)
 
-    if (vw.mB_L) { // in landscape view (mobile)
+    if (vw.mB_L && !vw.z_S) { // in landscape view (mobile), but NOT small viewport
         c_css(".err", "margin-top: calc((" + aH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
         eR[eR.h].children[0].classList.remove("c-y"); // modify styling (remove centre-alignment)
     }
