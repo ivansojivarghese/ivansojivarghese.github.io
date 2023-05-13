@@ -71,25 +71,16 @@ var disp = document.getElementById("display_sc"), // display
         mt : document.getElementById("error_mt"), // maintenance
         ck : document.getElementById("error_cke") // cookies
     },
-
-
-
-
-
-    bC_d = "#303030", // contrast colour - dark
-    bC_L = "#FFF", // contrast colour - light
-    bC_t = "transparent",
-    trD_a = 500, // transition duration - for animation (in ms.)
-    sV_a = 0.8, // user viewport threshold - for scroll-based functions
-
     _Ld, // loop
     _Le, // loop (applicable, if error)
-
     r, // before-load parameters
     vw; // viewport variables
 
-    
-
+    // bC_d = "#303030", // contrast colour - dark
+    // bC_L = "#FFF", // contrast colour - light
+    // bC_t = "transparent",
+    // trD_a = 500, // transition duration - for animation (in ms.)
+    // sV_a = 0.8, // user viewport threshold - for scroll-based functions
 
 
 function docRead() {
@@ -957,7 +948,7 @@ function intro_L() { // load up the landing page (#intro_sc)
 
     setTimeout(function() {
         int_LoadUp(); // perform load-up for other elements in landing zone (differs by page - refer to respective lds.js)
-    }, (trD_a * 2));
+    }, (op.te * 2));
 }
 /*
 function erPg_D(p) { // error page display
