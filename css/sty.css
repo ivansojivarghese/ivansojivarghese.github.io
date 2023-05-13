@@ -105,7 +105,7 @@ h4 {
     font-size: 1rem;
     letter-spacing: 0.3em;*/
     margin-bottom: 1.2em;
-    font-family: Raleway, "Roboto", sans-serif;
+    font-family: Raleway, sans-serif;
     /*font-family: Raleway;*/
 }
 
@@ -147,7 +147,7 @@ ul {
 }
 
 h1, h2, h3, h5, h6, p, ul {
-    font-family: Poppins, "Roboto", sans-serif;
+    font-family: Poppins, sans-serif;
     /*font-family: Poppins;*/
 }
 
