@@ -131,13 +131,13 @@
     }
 }
 
-@media screen and (max-height: 500px) and (orientation: landscape), screen and (max-height: 440px) and (orientation: portrait) {
+@media screen and (max-height: 500px) and (orientation: landscape), screen and (max-width: 240px) and (max-height: 440px) and (orientation: portrait) {
     #load_icon, #load_text, #load_text_ex {
         display: none;
     }
 }
 
-@media screen and (min-height: 440px) and (orientation: portrait) {
+@media screen and (min-width: 240px) and (min-height: 440px) and (orientation: portrait) {
     #load_icon, #load_text, #load_text_ex {
         display: inherit;
     }
