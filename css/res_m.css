@@ -139,7 +139,7 @@
 
 @media screen and (min-height: 500px) and (orientation: landscape) {
     #load_icon, #load_text, #load_text_ex {
-        display: block;
+        display: inherit;
     }
 }
 
