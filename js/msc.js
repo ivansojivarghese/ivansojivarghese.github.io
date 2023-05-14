@@ -8,7 +8,7 @@ var wH = window.innerHeight, // height
     //barHeightTemp = barHeight, // temp. hold
     wD = window.innerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
-    timer = {}; // keep track of timer instances
+    timer = {}, // keep track of timer instances
     dev = {
         mode : true,  // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
         mtne : false, // maintenance check
@@ -25,7 +25,7 @@ var wH = window.innerHeight, // height
             cappuccinosNo : 245
         },
         version : "2.0", // site version
-        version_up : "2.1", // version upgrade (if applicable, during maintenance)
+        version_up : "2.1" // version upgrade (if applicable, during maintenance)
     },
     pos = { // scroll pos. (window)
         y : 0, // y-pos
