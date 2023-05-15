@@ -855,6 +855,9 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     margin-bottom: 0;
 }
 
+.print_sc {
+    display: none;
+}
 /* ------------- */
 
 .pill.negate, .neg {
