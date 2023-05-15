@@ -18,141 +18,143 @@
 
             // CODE referenced from 'https://doodstream.com/'
 
-            var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+            var developer = false, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
                 keyStatus = {}, // keys down/up status
                 disabledEvent, // function declaration (global)
                 minimalUserResponseInMiliseconds = 200; // user response time
-            /*
-            function check() {
-                console.clear(); // clear console always
-                before = new Date().getTime();
-                debugger; // check for dev tools usage, break if detected
-                after = new Date().getTime();
-                if (after - before > minimalUserResponseInMiliseconds) {
-                    document.write("<h2>Dont open Developer Tools.</h2>");
-                    self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
-                } else {
-                    before = null;
-                    after = null;
-                    delete before;
-                    delete after;
+
+            if (!developer) {
+                function check() {
+                    console.clear(); // clear console always
+                    before = new Date().getTime();
+                    debugger; // check for dev tools usage, break if detected
+                    after = new Date().getTime();
+                    if (after - before > minimalUserResponseInMiliseconds) {
+                        document.write("<h2>Dont open Developer Tools.</h2>");
+                        self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
+                    } else {
+                        before = null;
+                        after = null;
+                        delete before;
+                        delete after;
+                    }
+                    setTimeout(check, 100); // check every 100ms
                 }
-                setTimeout(check, 100); // check every 100ms
+
+                check(); 
+
+                window.addEventListener("DOMContentLoaded", function() {
+                    document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
+                        e.preventDefault();
+                    }, false);
+                    document.addEventListener("wheel", function(e) { // prevent mouse wheel scrolling zoom
+                        if (keyStatus.Control || e.ctrlKey) {
+                            disabledEvent(e);
+                            e.preventDefault();
+                        } 
+                    }, {
+                        passive : false
+                    }); 
+                    document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
+                        var p = e.key;
+                        keyStatus[p] = true;
+                        
+                        if (e.ctrlKey && e.keyCode == 67) { // ctrl + c
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.keyCode == 88) { // ctrl + x
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.keyCode == 86) { // ctrl + v
+                            disabledEvent(e);
+                        }   
+                        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl + shift + i (dev tools)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { // Ctrl + shift + j (dev tools)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.shiftKey && e.keyCode == 67) { // Ctrl + shift + c (dev tools)
+                            disabledEvent(e);
+                        }
+                        if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) { // cmd + s (save page)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.keyCode == 85) {  // Ctrl + u (view source)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.keyCode == 80) { // Ctrl + p (print page)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.keyCode == 79) { // Ctrl + o (open page)
+                            disabledEvent(e);
+                        }
+                        if (event.keyCode == 114) { // F3 (search in page)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.keyCode == 70) { // Ctrl + f (search in page)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.keyCode == 71) { // Ctrl + g (search in page)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && e.shiftKey && e.keyCode == 71) { // Ctrl + shift + g (search in page)
+                            disabledEvent(e);
+                        }
+                        if (e.shiftKey && e.keyCode == 114) { // shift + F3 (search in page)
+                            disabledEvent(e);
+                        }
+                        if (e.ctrlKey && (e.keyCode == "61" || e.keyCode == "107" || e.keyCode == "173" || e.keyCode == "109" || e.keyCode == "187" || e.keyCode == "189")) { // Ctrl + '+' (prevent zoom in/out)
+                            disabledEvent(e);
+                            e.preventDefault();
+                        }
+                        if ((e.altKey && e.keyCode == 37) || e.keyCode == 8) { // go back, 'alt' + back arrow
+                            disabledEvent(e);
+                        }
+                        if ((e.altKey && e.keyCode == 39) || e.shiftKey && e.keyCode == 8) { // go forward, 'alt' + forward arrow
+                            disabledEvent(e);
+                        }
+                        if (e.keyCode == 122) { // F11 (fullscreen)
+                            disabledEvent(e);
+                        }
+                        if (e.keyCode == 123) { // F12 (dev tools)
+                            disabledEvent(e);
+                        }
+                    }, false);
+                    document.addEventListener("keyup", function(e) {
+                        var p = e.key;
+                        keyStatus[p] = false;
+
+                    }, false);
+                    document.addEventListener("click", function(e) {
+                        pre_Ed(e);
+                    }, false);
+                    function pre_Ed(e) { // prevent external-directs on internal links (tabs, windows) using middle clicks (mousewheel)
+                        var m = false;
+                        if (e && (e.which == 2 || e.button == 4 )) { // check for mousewheel (middle) click
+                            m = true;
+                        }
+                        if (keyStatus.Control && keyStatus.Shift) { // if 'ctrl' + 'shift' pressed
+                            disabledEvent(e); // open link in foreground tab
+                        }
+                        if (keyStatus.Control || m) { // if 'Ctrl' key pressed - open link in background tab
+                            disabledEvent(e);
+                        }
+                        if (keyStatus.Shift) { // if 'shift' key pressed
+                            disabledEvent(e); // open link in new window
+                        }
+                    }
+                    disabledEvent = function(e) { // cancel any event
+                        if (e.stopPropagation) {
+                            e.stopPropagation();
+                        } else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                        e.preventDefault();
+                        return false;
+                    };
+                });
             }
-
-            check(); */
-
-            window.addEventListener("DOMContentLoaded", function() {
-                document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
-                    e.preventDefault();
-                }, false);
-                document.addEventListener("wheel", function(e) { // prevent mouse wheel scrolling zoom
-                    if (keyStatus.Control || e.ctrlKey) {
-                        disabledEvent(e);
-                        e.preventDefault();
-                    } 
-                }, {
-                    passive : false
-                }); 
-                document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
-                    var p = e.key;
-                    keyStatus[p] = true;
-                    
-                    if (e.ctrlKey && e.keyCode == 67) { // ctrl + c
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.keyCode == 88) { // ctrl + x
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.keyCode == 86) { // ctrl + v
-                        disabledEvent(e);
-                    }   
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl + shift + i (dev tools)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { // Ctrl + shift + j (dev tools)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 67) { // Ctrl + shift + c (dev tools)
-                        disabledEvent(e);
-                    }
-                    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) { // cmd + s (save page)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.keyCode == 85) {  // Ctrl + u (view source)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.keyCode == 80) { // Ctrl + p (print page)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.keyCode == 79) { // Ctrl + o (open page)
-                        disabledEvent(e);
-                    }
-                    if (event.keyCode == 114) { // F3 (search in page)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.keyCode == 70) { // Ctrl + f (search in page)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.keyCode == 71) { // Ctrl + g (search in page)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 71) { // Ctrl + shift + g (search in page)
-                        disabledEvent(e);
-                    }
-                    if (e.shiftKey && e.keyCode == 114) { // shift + F3 (search in page)
-                        disabledEvent(e);
-                    }
-                    if (e.ctrlKey && (e.keyCode == "61" || e.keyCode == "107" || e.keyCode == "173" || e.keyCode == "109" || e.keyCode == "187" || e.keyCode == "189")) { // Ctrl + '+' (prevent zoom in/out)
-                        disabledEvent(e);
-                        e.preventDefault();
-                    }
-                    if ((e.altKey && e.keyCode == 37) || e.keyCode == 8) { // go back, 'alt' + back arrow
-                        disabledEvent(e);
-                    }
-                    if ((e.altKey && e.keyCode == 39) || e.shiftKey && e.keyCode == 8) { // go forward, 'alt' + forward arrow
-                        disabledEvent(e);
-                    }
-                    if (e.keyCode == 122) { // F11 (fullscreen)
-                        disabledEvent(e);
-                    }
-                    if (e.keyCode == 123) { // F12 (dev tools)
-                        disabledEvent(e);
-                    }
-                }, false);
-                document.addEventListener("keyup", function(e) {
-                    var p = e.key;
-                    keyStatus[p] = false;
-
-                }, false);
-                document.addEventListener("click", function(e) {
-                    pre_Ed(e);
-                }, false);
-                function pre_Ed(e) { // prevent external-directs on internal links (tabs, windows) using middle clicks (mousewheel)
-                    var m = false;
-                    if (e && (e.which == 2 || e.button == 4 )) { // check for mousewheel (middle) click
-                        m = true;
-                    }
-                    if (keyStatus.Control && keyStatus.Shift) { // if 'ctrl' + 'shift' pressed
-                        disabledEvent(e); // open link in foreground tab
-                    }
-                    if (keyStatus.Control || m) { // if 'Ctrl' key pressed - open link in background tab
-                        disabledEvent(e);
-                    }
-                    if (keyStatus.Shift) { // if 'shift' key pressed
-                        disabledEvent(e); // open link in new window
-                    }
-                }
-                disabledEvent = function(e) { // cancel any event
-                    if (e.stopPropagation) {
-                        e.stopPropagation();
-                    } else if (window.event) {
-                        window.event.cancelBubble = true;
-                    }
-                    e.preventDefault();
-                    return false;
-                };
-            });
         </script>
         <script>
             var svg = {
