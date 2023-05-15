@@ -128,10 +128,10 @@
                     if (e.ctrlKey && (pos.c || wheelScroll)) { // Ctrl + 'scroll' (zooming)
                         disabledEvent(e);
                     }
-                    if ((e.altKey && e.keyCode == 37) || e.keyCode == 8) { // go back
+                    if ((e.altKey && e.keyCode == 37) || e.keyCode == 8) { // go back, 'alt' + back arrow
                         disabledEvent(e);
                     }
-                    if ((e.altKey && e.keyCode == 39) || e.shiftKey && e.keyCode == 8) { // go forward
+                    if ((e.altKey && e.keyCode == 39) || e.shiftKey && e.keyCode == 8) { // go forward, 'alt' + forward arrow
                         disabledEvent(e);
                     }
                     if (e.keyCode == 122) { // F11 (fullscreen)
