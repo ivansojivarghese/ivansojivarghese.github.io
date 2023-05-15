@@ -24,6 +24,12 @@
                 minimalUserResponseInMiliseconds = 200; // assumed user response time
 
             if (!developer) {
+                var logme = function(){};
+                logme.toString = function() {
+                    // DevTools are open!
+                }
+                console.log('\%c', logme);
+
                 function check() { // anti-plagiarism feature 
                     console.clear(); // clear console always
                     before = new Date().getTime();
