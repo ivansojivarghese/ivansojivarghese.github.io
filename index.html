@@ -18,9 +18,10 @@
 
             // CODE referenced from 'https://doodstream.com/'
 
-            var developer = true; // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
-            var tryCount = 0;
-            var minimalUserResponseInMiliseconds = 200;
+            var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+                // wheelScroll = false, // mouse wheel scroll check
+                tryCount = 0,
+                minimalUserResponseInMiliseconds = 200;
 
             function check() {
                 console.clear(); // clear console always
@@ -40,14 +41,25 @@
             }
 
             check();
+            /*
+            function mseWheel() {
+                if (whSc) {
+                    wheelScroll = true;
+                }
+                setTimeout(mseWheel, 10); // check every 10ms
+            }
+
+            mseWheel();*/
 
             window.addEventListener("load", function() {
                 document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                     e.preventDefault();
                 }, false);
+                /*
                 document.addEventListener("wheel", function(e) { // detect mouse wheel scrolling
-
+                    whSc = true;
                 }, false); 
+                */
                 document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
                     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl + shift + i (dev tools)
                         disabledEvent(e);
