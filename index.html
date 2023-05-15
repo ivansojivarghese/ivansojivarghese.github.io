@@ -60,8 +60,8 @@
                 document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
                     // keyD = true;
                     // keyU = false;
-
-                    keyStatus.key = true;
+                    var p = e.key;
+                    keyStatus[p] = true;
 
                     if (e.ctrlKey) {
                         keyControl = true;
@@ -142,8 +142,9 @@
                 document.addEventListener("keyup", function(e) {
                     // keyU = true;
                     // keyD = false;
+                    var p = e.key;
+                    keyStatus[p] = false;
 
-                    keyStatus.key = false;
                 }, false);
                 document.addEventListener("click", function(e) {
                     pre_Ed(e);
