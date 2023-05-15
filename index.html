@@ -21,7 +21,8 @@
             var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
                 wheelScroll = false, // mouse wheel scroll check
                 keyStatus = {}, // keys down/up status
-                tryCount = 0,
+                // tryCount = 0,
+                disabledEvent, // function declaration (global)
                 minimalUserResponseInMiliseconds = 200; // user response time
             /*
             function check() {
@@ -148,7 +149,7 @@
                         disabledEvent(e); // open link in new window
                     }
                 }
-                function disabledEvent(e) { // cancel any event
+                disabledEvent = function(e) { // cancel any event
                     if (e.stopPropagation) {
                         e.stopPropagation();
                     } else if (window.event) {
@@ -156,7 +157,7 @@
                     }
                     e.preventDefault();
                     return false;
-                }
+                };
             });
         </script>
         <script>
