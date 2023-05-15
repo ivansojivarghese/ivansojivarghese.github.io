@@ -25,15 +25,6 @@
 
             if (!developer) {
                 function check() { // anti-debugging features
-
-                    (function(fn) {
-                        window.alert = function() {
-                            var args = Array.prototype.slice.call(arguments);
-                            _doLog('alert', args);
-                            return fn.apply(window, args);
-                        };
-                    }(window.alert));
-
                     console.clear(); // clear console always
                     before = new Date().getTime();
                     eval('debugger'); // check for dev tools usage, break if detected
