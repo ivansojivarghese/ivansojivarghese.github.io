@@ -20,11 +20,6 @@
 
             var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
                 wheelScroll = false, // mouse wheel scroll check
-                /*
-                keyControl = false, // control (command) key down
-                keyShift = false, // shift key down
-                keyAlt = false, // alt key down
-                */
                 keyStatus = {}, // keys down/up status
                 tryCount = 0,
                 minimalUserResponseInMiliseconds = 200; // user response time
@@ -60,20 +55,9 @@
                     }
                 }, false); 
                 document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
-                    // keyD = true;
-                    // keyU = false;
                     var p = e.key;
                     keyStatus[p] = true;
-                    /*
-                    if (e.ctrlKey) {
-                        keyControl = true;
-                    }
-                    if (e.shiftKey) {
-                        keyShift = true;
-                    }
-                    if (e.altKey) {
-                        keyAlt = true;
-                    }*/
+                    
                     if (e.ctrlKey && e.keyCode == 67) { // ctrl + c
                         disabledEvent(e);
                     }
@@ -142,8 +126,6 @@
                     }
                 }, false);
                 document.addEventListener("keyup", function(e) {
-                    // keyU = true;
-                    // keyD = false;
                     var p = e.key;
                     keyStatus[p] = false;
 
