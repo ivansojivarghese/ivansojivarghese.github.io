@@ -21,7 +21,8 @@
             var developer = false, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
                 keyStatus = {}, // keys down/up status
                 disabledEvent, // function declaration (global)
-                minimalUserResponseInMiliseconds = 200; // assumed user response time
+                minimalUserResponseInMiliseconds = 200, // assumed user response time
+                devError = false;
 
             if (!developer) {
                 function check() { // anti-debugging features
@@ -29,12 +30,11 @@
                     before = new Date().getTime();
                     eval('debugger'); // check for dev tools usage, break if detected
                     after = new Date().getTime();
-                    if (after - before > minimalUserResponseInMiliseconds) {
-                        if (!document.body.innerHTML) {
-                            document.documentElement.style.overflow = "hidden";
-                            document.write("<h1 style='width:" + window.outerWidth + "px; font-size: 5rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
-                            // self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
-                        }
+                    if ((after - before) > minimalUserResponseInMiliseconds && !devError) {
+                        document.documentElement.style.overflow = "hidden";
+                        document.write("<h1 style='width:" + window.outerWidth + "px; font-size: 5rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
+                        devError = true;
+                        // self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
                     } else {
                         before = null;
                         after = null;
