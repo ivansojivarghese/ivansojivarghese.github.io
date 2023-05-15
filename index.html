@@ -27,6 +27,7 @@
                 var logme = function(){};
                 function check() { // anti-plagiarism feature 
                     logme.toString = function() {
+                        eval('debugger');
                         // DevTools are open!
                     }
                     console.log(logme);
