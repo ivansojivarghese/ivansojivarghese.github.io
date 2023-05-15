@@ -48,7 +48,7 @@
                     e.preventDefault();
                 }, false);
                 document.addEventListener("wheel", function(e) { // detect mouse wheel scrolling
-                    if (keyStatus.Control) {
+                    if (keyStatus.Control || e.ctrlKey) {
                         // wheelScroll = true;
                         disabledEvent(e);
                         e.preventDefault();
