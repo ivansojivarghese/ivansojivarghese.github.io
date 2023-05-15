@@ -103,19 +103,10 @@
                     if (e.shiftKey && e.keyCode == 114) { // shift + F3 (search in page)
                         disabledEvent(e);
                     }
-
-
                     if (e.ctrlKey && (e.keyCode == "61" || e.keyCode == "107" || e.keyCode == "173" || e.keyCode == "109" || e.keyCode == "187" || e.keyCode == "189")) { // Ctrl + '+' (prevent zoom in/out)
                         disabledEvent(e);
                         e.preventDefault();
                     }
-                    /*
-                    if (e.ctrlKey && e.keyCode == 109) { // Ctrl + '-' (zoom out)
-                        disabledEvent(e);
-                        e.preventDefault();
-                    }*/
-
-
                     if ((e.altKey && e.keyCode == 37) || e.keyCode == 8) { // go back, 'alt' + back arrow
                         disabledEvent(e);
                     }
