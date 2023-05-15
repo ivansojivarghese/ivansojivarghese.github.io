@@ -503,6 +503,18 @@
                 }
             }
 
+            $(document).on("mousedown", function (e1) { // detect middle button click (on mouse)
+                if (e1.which === 2) {
+                    $(document).one("mouseup", function (e2) {
+                        if (e1.target === e2.target) {
+                            var e3 = $.event.fix(e2);
+                            e3.type = "middleclick";
+                            $(e2.target).trigger(e3);
+                        }
+                    });
+                }
+            }); 
+
         </script>
 
         <!-- Advertising - Google Adsense 
