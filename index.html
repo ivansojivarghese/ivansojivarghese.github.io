@@ -46,22 +46,6 @@
 
             check(); */
 
-            function pre_Ed(e) { // prevent external-directs on internal links (tabs, windows) using middle clicks (mousewheel)
-                var m = false;
-                if (e && (e.which == 2 || e.button == 4 )) { // check for mousewheel (middle) click
-                    m = true;
-                }
-                if (keyControl && keyShift) { // if 'ctrl' + 'shift' pressed
-                    disabledEvent(e); // open link in foreground tab
-                }
-                if (keyControl || m) { // if 'Ctrl' key pressed - open link in background tab
-                    disabledEvent(e);
-                }
-                if (keyShift) { // if 'shift' key pressed
-                    disabledEvent(e); // open link in new window
-                }
-            }
-
             window.addEventListener("DOMContentLoaded", function() {
                 document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                     e.preventDefault();
@@ -157,6 +141,21 @@
                         keyControl = false;
                     }
                 }, false);
+                function pre_Ed(e) { // prevent external-directs on internal links (tabs, windows) using middle clicks (mousewheel)
+                    var m = false;
+                    if (e && (e.which == 2 || e.button == 4 )) { // check for mousewheel (middle) click
+                        m = true;
+                    }
+                    if (keyControl && keyShift) { // if 'ctrl' + 'shift' pressed
+                        disabledEvent(e); // open link in foreground tab
+                    }
+                    if (keyControl || m) { // if 'Ctrl' key pressed - open link in background tab
+                        disabledEvent(e);
+                    }
+                    if (keyShift) { // if 'shift' key pressed
+                        disabledEvent(e); // open link in new window
+                    }
+                }
                 function disabledEvent(e) { // cancel any event
                     if (e.stopPropagation) {
                         e.stopPropagation();
