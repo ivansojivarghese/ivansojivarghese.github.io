@@ -49,10 +49,11 @@
                 }, false);
                 document.addEventListener("wheel", function(e) { // detect mouse wheel scrolling
                     if (keyStatus.Control) {
-                        wheelScroll = true;
-                    } else {
+                        // wheelScroll = true;
+                        disabledEvent(e);
+                    } /*else {
                         wheelScroll = false;
-                    }
+                    }*/
                 }, false); 
                 document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
                     var p = e.key;
