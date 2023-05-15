@@ -26,7 +26,7 @@
                 after = new Date().getTime();
                 if (after - before > minimalUserResponseInMiliseconds) {
                     document.write(" Dont open Developer Tools. ");
-                    self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length));
+                    self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
                 } else {
                     before = null;
                     after = null;
