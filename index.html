@@ -46,7 +46,7 @@
                 document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                     e.preventDefault();
                 }, false);
-                document.addEventListener("wheel", function(e) { // detect mouse wheel scrolling
+                document.addEventListener("wheel", function(e) { // prevent mouse wheel scrolling zoom
                     if (keyStatus.Control || e.ctrlKey) {
                         disabledEvent(e);
                         e.preventDefault();
@@ -105,12 +105,15 @@
                     }
 
 
-                    if (e.ctrlKey && e.keyCode == 107) { // Ctrl + '+' (zoom in)
+                    if (e.ctrlKey && (e.keyCode == "61" || e.keyCode == "107" || e.keyCode == "173" || e.keyCode == "109" || e.keyCode == "187" || e.keyCode == "189")) { // Ctrl + '+' (prevent zoom in/out)
                         disabledEvent(e);
+                        e.preventDefault();
                     }
+                    /*
                     if (e.ctrlKey && e.keyCode == 109) { // Ctrl + '-' (zoom out)
                         disabledEvent(e);
-                    }
+                        e.preventDefault();
+                    }*/
 
 
                     if ((e.altKey && e.keyCode == 37) || e.keyCode == 8) { // go back, 'alt' + back arrow
