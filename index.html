@@ -19,9 +19,11 @@
             // CODE referenced from 'https://doodstream.com/'
 
             var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
-                // wheelScroll = false, // mouse wheel scroll check
+                wheelScroll = false, // mouse wheel scroll check
+                keyD = false, // key down
+                keyU = true, // key up
                 tryCount = 0,
-                minimalUserResponseInMiliseconds = 200;
+                minimalUserResponseInMiliseconds = 200; // user response time
 
             function check() {
                 console.clear(); // clear console always
@@ -55,12 +57,20 @@
                 document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                     e.preventDefault();
                 }, false);
-                /*
                 document.addEventListener("wheel", function(e) { // detect mouse wheel scrolling
-                    whSc = true;
+                    if (keyControl) {
+                        wheelScroll = true;
+                    } else {
+                        wheelScroll = false;
+                    }
                 }, false); 
-                */
                 document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
+                    keyD = true;
+                    keyU = false;
+
+                    if (e.ctrlKey) {
+                        keyControl = true;
+                    }
                     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl + shift + i (dev tools)
                         disabledEvent(e);
                     }
@@ -103,16 +113,21 @@
                     if (e.ctrlKey && e.keyCode == 109) { // Ctrl + '-' (zoom out)
                         disabledEvent(e);
                     }
-                    if (e.ctrlKey && pos.c) { // Ctrl + 'scroll' (zooming)
+                    if (e.ctrlKey && (pos.c || wheelScroll)) { // Ctrl + 'scroll' (zooming)
                         disabledEvent(e);
                     }
-
-
                     if (event.keyCode == 122) { // F11 (fullscreen)
                         disabledEvent(e);
                     }
                     if (event.keyCode == 123) { // F12 (dev tools)
                         disabledEvent(e);
+                    }
+                }, false);
+                document.addEventListener("keyup", function(e) {
+                    keyU = true;
+                    keyD = false;
+                    if (e.ctrlKey) {
+                        keyControl = false;
                     }
                 }, false);
                 function disabledEvent(e) { // cancel any event
