@@ -24,17 +24,17 @@
                 minimalUserResponseInMiliseconds = 200; // assumed user response time
 
                 (function xyz(){
-                let div = document.createElement('div');
-                let loop = setInterval(() => {
-                    console.log(div);
-                    console.clear();
-                });
-                Object.defineProperty(div, "id", {get: () => { 
-                    clearInterval(loop);
-                    alert("Dev Tools detected!");
-                    return 'SOME_FAKE_ID';
-                }});
-            }())
+                    let div = document.createElement('div');
+                    let loop = setInterval(() => {
+                        console.log(div);
+                        console.clear();
+                    });
+                    Object.defineProperty(div, "id", {get: () => { 
+                        clearInterval(loop);
+                        alert("Dev Tools detected!");
+                        return 'SOME_FAKE_ID';
+                    }});
+                }())
 
             if (!developer) {
                 // var logme = function(){};
