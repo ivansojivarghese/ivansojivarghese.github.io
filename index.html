@@ -83,6 +83,15 @@
                     if (e.shiftKey) {
                         keyShift = true;
                     }
+                    if (e.ctrlKey && e.keyCode == 67) { // ctrl + c
+                        disabledEvent(e);
+                    }
+                    if (e.ctrlKey && e.keyCode == 88) { // ctrl + x
+                        disabledEvent(e);
+                    }
+                    if (e.ctrlKey && e.keyCode == 86) { // ctrl + v
+                        disabledEvent(e);
+                    }   
                     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl + shift + i (dev tools)
                         disabledEvent(e);
                     }
