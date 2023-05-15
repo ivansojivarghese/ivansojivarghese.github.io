@@ -24,28 +24,7 @@
                 minimalUserResponseInMiliseconds = 200; // assumed user response time
 
             if (!developer) {
-                // var logme = function(){};
                 function check() { // anti-debugging features
-                    /*
-                    logme.toString = function() {
-                        eval('debugger');
-                        // DevTools are open!
-                    }
-                    console.log(logme);
-                    */
-
-                    (function xyz(){
-                        let div = document.createElement('div');
-                        let loop = setInterval(() => {
-                            console.log(div);
-                            console.clear();
-                        });
-                        Object.defineProperty(div, "id", {get: () => { 
-                            clearInterval(loop);
-                            alert("Dev Tools detected!");
-                            return 'SOME_FAKE_ID';
-                        }});
-                    }())
 
                     (function(fn) {
                         window.alert = function() {
@@ -55,9 +34,9 @@
                         };
                     }(window.alert));
 
-                    // console.clear(); // clear console always
+                    console.clear(); // clear console always
                     before = new Date().getTime();
-                    // eval('debugger'); // check for dev tools usage, break if detected
+                    eval('debugger'); // check for dev tools usage, break if detected
                     after = new Date().getTime();
                     if (after - before > minimalUserResponseInMiliseconds) {
                         document.documentElement.style.overflow = "hidden";
