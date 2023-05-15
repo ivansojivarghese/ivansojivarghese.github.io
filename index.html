@@ -18,10 +18,12 @@
             var developer = true; // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
             var tryCount = 0;
             var minimalUserResponseInMiliseconds = 200;
+
             function check() {
-                console.clear();
+                console.clear(); // clear console always
                 before = new Date().getTime();
-                debugger ;after = new Date().getTime();
+                debugger; // check for dev tools usage, break if detected
+                after = new Date().getTime();
                 if (after - before > minimalUserResponseInMiliseconds) {
                     document.write(" Dont open Developer Tools. ");
                     self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length));
@@ -33,13 +35,15 @@
                 }
                 setTimeout(check, 100);
             }
+
             check();
+
             window.onload = function() {
-                document.addEventListener("contextmenu", function(e) {
+                document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                     e.preventDefault();
                 }, false);
                 document.addEventListener("keydown", function(e) {
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // disable access to DevTools via various keyboard shortcuts
                         disabledEvent(e);
                     }
                     if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
