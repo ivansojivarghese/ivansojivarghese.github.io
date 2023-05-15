@@ -45,11 +45,14 @@
                 document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                     e.preventDefault();
                 }, false);
-                document.addEventListener("keydown", function(e) {
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // disable access to DevTools via various keyboard shortcuts
+                document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
+                    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl + shift + i (dev tools)
                         disabledEvent(e);
                     }
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { // Ctrl + shift + I (dev tools)
+                    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { // Ctrl + shift + j (dev tools)
+                        disabledEvent(e);
+                    }
+                    if (e.ctrlKey && e.shiftKey && e.keyCode == 67) { // Ctrl + shift + c (dev tools)
                         disabledEvent(e);
                     }
                     if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) { // cmd + s (save page)
