@@ -20,9 +20,11 @@
 
             var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
                 wheelScroll = false, // mouse wheel scroll check
+                /*
                 keyControl = false, // control (command) key down
                 keyShift = false, // shift key down
                 keyAlt = false, // alt key down
+                */
                 keyStatus = {}, // keys down/up status
                 tryCount = 0,
                 minimalUserResponseInMiliseconds = 200; // user response time
@@ -51,7 +53,7 @@
                     e.preventDefault();
                 }, false);
                 document.addEventListener("wheel", function(e) { // detect mouse wheel scrolling
-                    if (keyControl) {
+                    if (keyStatus.Control) {
                         wheelScroll = true;
                     } else {
                         wheelScroll = false;
@@ -62,7 +64,7 @@
                     // keyU = false;
                     var p = e.key;
                     keyStatus[p] = true;
-
+                    /*
                     if (e.ctrlKey) {
                         keyControl = true;
                     }
@@ -71,7 +73,7 @@
                     }
                     if (e.altKey) {
                         keyAlt = true;
-                    }
+                    }*/
                     if (e.ctrlKey && e.keyCode == 67) { // ctrl + c
                         disabledEvent(e);
                     }
@@ -154,13 +156,13 @@
                     if (e && (e.which == 2 || e.button == 4 )) { // check for mousewheel (middle) click
                         m = true;
                     }
-                    if (keyControl && keyShift) { // if 'ctrl' + 'shift' pressed
+                    if (keyStatus.Control && keyStatus.Shift) { // if 'ctrl' + 'shift' pressed
                         disabledEvent(e); // open link in foreground tab
                     }
-                    if (keyControl || m) { // if 'Ctrl' key pressed - open link in background tab
+                    if (keyStatus.Control || m) { // if 'Ctrl' key pressed - open link in background tab
                         disabledEvent(e);
                     }
-                    if (keyShift) { // if 'shift' key pressed
+                    if (keyStatus.Shift) { // if 'shift' key pressed
                         disabledEvent(e); // open link in new window
                     }
                 }
