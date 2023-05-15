@@ -15,6 +15,9 @@
             })(window,document,'script','dataLayer','GTM-KRQX2NV');
         </script>
         <script>
+
+            // CODE outsourced from 
+
             var developer = true; // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
             var tryCount = 0;
             var minimalUserResponseInMiliseconds = 200;
@@ -25,7 +28,7 @@
                 debugger; // check for dev tools usage, break if detected
                 after = new Date().getTime();
                 if (after - before > minimalUserResponseInMiliseconds) {
-                    document.write(" Dont open Developer Tools. ");
+                    document.write("<h2>Dont open Developer Tools.</h2>");
                     self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
                 } else {
                     before = null;
