@@ -30,7 +30,7 @@
                     debugger; // check for dev tools usage, break if detected
                     after = new Date().getTime();
                     if (after - before > minimalUserResponseInMiliseconds) {
-                        document.write("<h1 style='font-family: sans-serif;'>Close Developer Tools.</h1>");
+                        document.write("<h1 style='font-family: sans-serif; margin-left: 1rem;'>Error: Developer Tools are open.</h1>");
                         self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
                     } else {
                         before = null;
