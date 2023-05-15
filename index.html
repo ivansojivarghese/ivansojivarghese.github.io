@@ -19,7 +19,6 @@
             // CODE referenced from 'https://doodstream.com/'
 
             var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
-                // wheelScroll = false, // mouse wheel scroll check
                 keyStatus = {}, // keys down/up status
                 disabledEvent, // function declaration (global)
                 minimalUserResponseInMiliseconds = 200; // user response time
@@ -111,7 +110,7 @@
                         disabledEvent(e);
                     }
 
-                    
+
                     if ((e.altKey && e.keyCode == 37) || e.keyCode == 8) { // go back, 'alt' + back arrow
                         disabledEvent(e);
                     }
