@@ -38,7 +38,7 @@
 
             check();
 
-            window.onload = function() {
+            window.addEventListener("load", function() {
                 document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                     e.preventDefault();
                 }, false);
@@ -68,7 +68,7 @@
                     e.preventDefault();
                     return false;
                 }
-            }
+            });
         </script>
         <script>
             var svg = {
