@@ -16,7 +16,7 @@
         </script>
         <script>
 
-            // CODE outsourced from 
+            // CODE outsourced from 'https://doodstream.com/'
 
             var developer = true; // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
             var tryCount = 0;
@@ -49,20 +49,20 @@
                     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // disable access to DevTools via various keyboard shortcuts
                         disabledEvent(e);
                     }
-                    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { // Ctrl + shift + I (dev tools)
                         disabledEvent(e);
                     }
-                    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+                    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) { // cmd + s (save page)
                         disabledEvent(e);
                     }
-                    if (e.ctrlKey && e.keyCode == 85) {
+                    if (e.ctrlKey && e.keyCode == 85) {  // Ctrl + u (view source)
                         disabledEvent(e);
                     }
-                    if (event.keyCode == 123) {
+                    if (event.keyCode == 123) { // F12 (dev tools)
                         disabledEvent(e);
                     }
                 }, false);
-                function disabledEvent(e) {
+                function disabledEvent(e) { // cancel any event
                     if (e.stopPropagation) {
                         e.stopPropagation();
                     } else if (window.event) {
