@@ -509,6 +509,8 @@
                 }
             }
 
+            // CODE referenced from Kyle Mitofsky at jsfiddle.net 
+
             $(document).on("mousedown", function (e1) { // detect middle button click (on mouse)
                 if (e1.which === 2) {
                     $(document).one("mouseup", function (e2) {
@@ -521,7 +523,7 @@
                 }
             }); 
 
-            $(document).on("middleclick", function (e) {
+            $(document).on("middleclick", function (e) { // prevent event occurrence on mouse middle clicks
                 e.preventDefault();
                 disabledEvent(e);
                 return false;
