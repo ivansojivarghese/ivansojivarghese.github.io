@@ -51,7 +51,7 @@
                         disabledEvent(e);
                         e.preventDefault();
                     } 
-                }, false); 
+                }); 
                 document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
                     var p = e.key;
                     keyStatus[p] = true;
