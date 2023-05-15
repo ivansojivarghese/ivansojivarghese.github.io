@@ -522,7 +522,9 @@
             }); 
 
             $(document).on("middleclick", function (e) {
+                e.preventDefault();
                 disabledEvent(e);
+                return false;
             });
 
         </script>
