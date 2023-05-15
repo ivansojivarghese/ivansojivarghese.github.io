@@ -32,7 +32,7 @@
                     if (after - before > minimalUserResponseInMiliseconds) {
                         document.documentElement.style.overflow = "hidden";
                         document.write("<h1 style='width:" + window.outerWidth + "px; font-size: 5rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
-                        self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
+                        // self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
                     } else {
                         before = null;
                         after = null;
