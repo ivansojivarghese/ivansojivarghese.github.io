@@ -27,7 +27,7 @@
                 function check() { // anti-plagiarism feature 
                     console.clear(); // clear console always
                     before = new Date().getTime();
-                    debugger; // check for dev tools usage, break if detected
+                    eval('debugger'); // check for dev tools usage, break if detected
                     after = new Date().getTime();
                     if (after - before > minimalUserResponseInMiliseconds) {
                         document.documentElement.style.overflow = "hidden";
