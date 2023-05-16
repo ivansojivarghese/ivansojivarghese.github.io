@@ -25,7 +25,7 @@
                 devError = false;
 
             if (!developer) {
-                console.log(Object.defineProperties(new Error, {
+                console.log(Object.defineProperties(new Error, { // check if DevTools are open
                     message: {
                         get() {
                             alert('Close Developer Tools.'),
