@@ -35,9 +35,9 @@
                             get() {
                                 if (!devErrorAlert) { 
                                     alert('Close Developer Tools.'), 
-                                    devErrorAlert = true 
+                                    devErrorAlert = true,
+                                    devError = true
                                 };
-                                devError = true
                             }
                         },
                         toString: {
