@@ -22,7 +22,11 @@
                 keyStatus = {}, // keys down/up status
                 disabledEvent, // function declaration (global)
                 minimalUserResponseInMiliseconds = 200, // assumed user response time
-                devError = false;
+                devError = false,
+                scale = 'scale(1)';
+
+            document.body.style.webkitTransform =  scale;    // Chrome, Opera, Safari
+            document.body.style.transform = scale;     // General
 
             if (!developer) {
                 /*
