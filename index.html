@@ -89,7 +89,7 @@
                     before = new Date().getTime();
                     eval('debugger'); // check for dev tools usage, break if detected
                     after = new Date().getTime();
-                    if (((after - before) > minimalUserResponseInMiliseconds && !devErrorMessage) || devError) {
+                    if (((after - before) > minimalUserResponseInMiliseconds && !devErrorMessage) || (devError && !devErrorMessage)) {
                         document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
                         document.documentElement.style.overflow = "hidden";
                         document.documentElement.style.userSelect = "none";
