@@ -24,6 +24,8 @@
                 checkDevTools, // function, check for devTools presence (global)
                 minimalUserResponseInMiliseconds = 200, // assumed user response time
                 checkInterval = 100,
+                devActivity = 0, // no. of times devTools opened by user
+                devStatus = false,
                 devError = false,
                 devErrorMessage = false,
                 devErrorAlert = false;
@@ -39,6 +41,7 @@
                                     alert('Close Developer Tools.'),
                                     // devErrorAlert = true
                                     // }
+                                    devActivity++;
                                     devErrorAlert = true,
                                     devError = true
                                     // };
@@ -49,6 +52,7 @@
                                     // if (!devError && !devErrorAlert) {
                                     (new Error).stack.includes('toString@') && alert('Close Developer Tools.');
                                     if (op.b.s) {
+                                        devActivity++;
                                         devError = true,
                                         devErrorAlert = true 
                                     }
@@ -57,9 +61,31 @@
                                 }
                             }
                         }));
+                    } else { // continue checking if DevTools is open
+                        console.log(Object.defineProperties(new Error, { 
+                            message: {
+                                get() { // Chrome/Firefox/Opera/Edge
+                                    // alert('Close Developer Tools.')
+                                    devStatus = true
+                                }
+                            },
+                            toString: {
+                                value() { // Safari
+                                    (new Error).stack.includes('toString@') /*&& alert('Close Developer Tools.')*/
+                                    if (op.b.s) {
+                                        devStatus = true
+                                    }
+                                }
+                            }
+                        }));
+                        if (devStatus) { // devtools still open
+                            devError = true;
+                            devStatus = false;
+                        } else { // devtools closed
+                            devError = false;
+                            devErrorAlert = false;
+                        }
                     }
-
-                    // if nothing happens? no dev tools?
 
                     setTimeout(checkDevTools, checkInterval);
                 }
@@ -83,6 +109,9 @@
                         after = null;
                         delete before;
                         delete after;
+                    }
+                    if (!devError && devActivity) {
+                        reL(); // reload after devTools are closed
                     }
                     setTimeout(check, checkInterval); // check every 100ms
                 }
