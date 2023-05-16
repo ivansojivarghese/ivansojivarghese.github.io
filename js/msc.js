@@ -1486,7 +1486,11 @@ const documentHeight = () => {
 window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function(e) {
+    var zoom = Math.round((window.outerWidth / window.innerWidth) * 100); // approx. zoom of page
+    if (zoom !== 100) {
+        disabledEvent(e);
+    }
 
     // detect between 'ZOOM' resizing & VIEWPORT resizing
 
