@@ -603,7 +603,6 @@ function docRead() {
             } else {
                 pg.sc.m.style.display = "none"; // if dev error (devtools open)
                 pg.sc.m.remove(); // remove from DOM
-                empty(document); // empty the DOM
             }
         break;
     }
