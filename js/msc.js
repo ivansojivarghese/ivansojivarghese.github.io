@@ -1506,6 +1506,7 @@ window.addEventListener("resize", function(e) {
         // show error overlay (stating zoom MUST be at 100% default)
         
         disabledEventGlobal(e); // possible event stoppage
+        
     } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
         wH = window.outerHeight; // update on window size variables
         wD = window.outerWidth; 
