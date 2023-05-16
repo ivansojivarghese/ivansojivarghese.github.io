@@ -27,12 +27,12 @@
             console.log(Object.defineProperties(new Error, {
                 message: {
                     get() {
-                        alert('Chrome/Firefox')
+                        alert('Close Developer Tools.')
                     }
                 },
                 toString: {
                     value() {
-                        (new Error).stack.includes('toString@') && alert('Safari')
+                        (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
                     }
                 }
             }));
