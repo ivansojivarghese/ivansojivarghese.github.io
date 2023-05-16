@@ -1493,7 +1493,7 @@ window.addEventListener("resize", function(e) {
     var zoom = Math.round((window.outerWidth / window.innerWidth) * 100); // approx. [potential] zoom of page
     if (zoom !== 100) {
         // disabledEvent(e);
-        op.ev.d(e);
+        // op.ev.d(e);
     }
 
     // detect between 'ZOOM' resizing & VIEWPORT resizing
