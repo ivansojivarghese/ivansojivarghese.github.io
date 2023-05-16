@@ -1474,7 +1474,7 @@ function scr_t(s, pg) { // scroll toggle
 
 //////////////////////////////////////////
 
-function disabledEventGlobal(e) {
+function disabledEventGlobal(e) { // disable event propagation (global)
     if (e.stopPropagation) {
         e.stopPropagation();
     } else if (window.event) {
