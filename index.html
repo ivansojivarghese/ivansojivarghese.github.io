@@ -24,6 +24,11 @@
                 minimalUserResponseInMiliseconds = 200, // assumed user response time
                 devError = false;
 
+                console.log(Object.defineProperties(new Error, {
+                message: {get() {alert('Chrome/Firefox')}},
+                toString: {value() {(new Error).stack.includes('toString@')&&alert('Safari')}}
+                }));
+
             if (!developer) {
                 function check() { // anti-debugging features
                     console.clear(); // clear console always
