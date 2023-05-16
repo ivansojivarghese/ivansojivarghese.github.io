@@ -172,7 +172,7 @@ op = {
         t : 1, // default time limit (days)
         x : false // code execution
     },
-    Ld : {
+    Ld : { // load
         b : false, // abort status
         s : null, // load status
         dom : 0, // 'domcontentloaded'
