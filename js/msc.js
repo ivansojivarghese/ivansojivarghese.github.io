@@ -1,12 +1,12 @@
 
 // misc.
 
-var wH = window.innerHeight, // height
+var wH = window.outerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
     //elementHeight = document.getElementById("control-height"),
     //barHeight = getBd(elementHeight, "height") - wH,
     //barHeightTemp = barHeight, // temp. hold
-    wD = window.innerWidth, // width 
+    wD = window.outerWidth, // width 
     Rd = [], // load-ready - boolean statuses for loading resource elements
     timer = {}, // keep track of timer instances
     dev = {
@@ -1487,9 +1487,9 @@ window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
 window.addEventListener("resize", function() {
-    if (wH !== window.innerHeight && wD !== window.innerWidth) { // check for change in width/height values before proceeding
-        wH = window.innerHeight; // update on window size variables
-        wD = window.innerWidth; 
+    if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding
+        wH = window.outerHeight; // update on window size variables
+        wD = window.outerWidth; 
         cH = document.documentElement.clientHeight;
         pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
         setCookie("windowResize", true, op.c.t);
