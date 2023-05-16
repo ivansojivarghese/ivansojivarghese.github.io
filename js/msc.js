@@ -1501,14 +1501,12 @@ window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
 window.addEventListener("resize", function(e) {
-    if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default
+    if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
+
+        // show error overlay (stating zoom MUST be at 100% default)
         
         disabledEventGlobal(e); // possible event stoppage
-    }
-
-    // detect between 'ZOOM' resizing & VIEWPORT resizing
-
-    if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding
+    } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
         wH = window.outerHeight; // update on window size variables
         wD = window.outerWidth; 
         cH = document.documentElement.clientHeight;
