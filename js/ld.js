@@ -601,8 +601,9 @@ function docRead() {
                     }
                 }
             } else {
-                pg.sc.m.style.display = "none"; // if dev error (devtools open)
-                pg.sc.m.remove(); // remove from DOM
+                document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
+                // pg.sc.m.style.display = "none"; // if dev error (devtools open)
+                // pg.sc.m.remove(); // remove from DOM
             }
         break;
     }
