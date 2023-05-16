@@ -23,7 +23,6 @@
                 disabledEvent, // function declaration (global)
                 minimalUserResponseInMiliseconds = 200, // assumed user response time
                 devError = false;
-                // devErrorShow = false;
 
             if (!developer) {
                 console.log(Object.defineProperties(new Error, {
@@ -36,7 +35,7 @@
                     toString: {
                         value() {
                             (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
-                            // devError = true
+                            // devError = true, Safari?
                         }
                     }
                 }));
@@ -44,13 +43,6 @@
                 function check() { // anti-debugging features
                     console.clear(); // clear console always
                     before = new Date().getTime();
-                    /*
-                    if (devError && !devErrorShow) {
-                        document.documentElement.style.overflow = "hidden";
-                        document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
-                        devErrorShow = true;
-                    }*/
-
                     eval('debugger'); // check for dev tools usage, break if detected
                     after = new Date().getTime();
                     if ((after - before) > minimalUserResponseInMiliseconds && !devError) {
