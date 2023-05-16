@@ -30,27 +30,29 @@
             if (!developer) {
                 
                 checkDevTools = function() {
-                    console.log(Object.defineProperties(new Error, { // check if DevTools are open
-                        message: {
-                            get() {
-                                // if (!devErrorAlert) { 
-                                alert('Close Developer Tools.'), 
-                                // devErrorAlert = true,
-                                devError = true
-                                // };
+                    if (!devError) {
+                        console.log(Object.defineProperties(new Error, { // check if DevTools are open
+                            message: {
+                                get() {
+                                    // if (!devErrorAlert) { 
+                                    alert('Close Developer Tools.'), 
+                                    // devErrorAlert = true,
+                                    devError = true
+                                    // };
+                                }
+                            },
+                            toString: {
+                                value() {
+                                    // if (!devError && !devErrorAlert) {
+                                    (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
+                                    // devError = true,
+                                    // devErrorAlert = true 
+                                    // }
+                                    // devError = true, Safari?
+                                }
                             }
-                        },
-                        toString: {
-                            value() {
-                                // if (!devError && !devErrorAlert) {
-                                (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
-                                // devError = true,
-                                // devErrorAlert = true 
-                                // }
-                                // devError = true, Safari?
-                            }
-                        }
-                    }));
+                        }));
+                    }
 
                     // if nothing happens? no dev tools?
 
