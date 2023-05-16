@@ -12,6 +12,7 @@ var wH = window.outerHeight, // height
     dev = {
         mode : developer,  
         mtne : false, // maintenance check
+        z : 100, // zoom level, default
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
             work : "web dev", // work label
@@ -238,7 +239,7 @@ op = {
         tA : 0, // time - initial (at pointerdown)
         tB : 0 // time - final (at pointerup)
     },
-    zoom : Math.round((window.outerWidth / window.innerWidth) * 100), // approx. [potential] zoom of page, in percentage
+    zoom : Math.round((window.outerWidth / window.innerWidth) * dev.z), // approx. [potential] zoom of page, in percentage
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
@@ -1500,8 +1501,9 @@ window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
 window.addEventListener("resize", function(e) {
-    if (op.zoom !== 100) {
-        disabledEventGlobal(e);
+    if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default
+        
+        disabledEventGlobal(e); // possible event stoppage
     }
 
     // detect between 'ZOOM' resizing & VIEWPORT resizing
