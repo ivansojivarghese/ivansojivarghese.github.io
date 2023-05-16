@@ -24,22 +24,22 @@
                 minimalUserResponseInMiliseconds = 200, // assumed user response time
                 devError = false;
 
-            console.log(Object.defineProperties(new Error, {
-                message: {
-                    get() {
-                        alert('Close Developer Tools.')
-                        document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>")
-                        document.getElementById("main_sc").style.display = "none";
-                    }
-                },
-                toString: {
-                    value() {
-                        (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
-                    }
-                }
-            }));
-
             if (!developer) {
+                console.log(Object.defineProperties(new Error, {
+                    message: {
+                        get() {
+                            alert('Close Developer Tools.')
+                            document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>")
+                            document.getElementById("main_sc").style.display = "none";
+                        }
+                    },
+                    toString: {
+                        value() {
+                            (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
+                        }
+                    }
+                }));
+
                 function check() { // anti-debugging features
                     console.clear(); // clear console always
                     before = new Date().getTime();
