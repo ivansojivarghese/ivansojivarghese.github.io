@@ -29,7 +29,7 @@
             document.body.style.transform = scale;     // General
 
             if (!developer) {
-                /*
+                
                 console.log(Object.defineProperties(new Error, { // check if DevTools are open
                     message: {
                         get() {
@@ -43,24 +43,9 @@
                             // devError = true, Safari?
                         }
                     }
-                }));*/
+                }));
 
                 function check() { // anti-debugging features
-
-                    console.log(Object.defineProperties(new Error, { // check if DevTools are open
-                        message: {
-                            get() {
-                                alert('Close Developer Tools.'),
-                                devError = true
-                            }
-                        },
-                        toString: {
-                            value() {
-                                (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
-                                // devError = true, Safari?
-                            }
-                        }
-                    }));
 
                     console.clear(); // clear console always
                     before = new Date().getTime();
