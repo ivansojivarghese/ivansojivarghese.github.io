@@ -31,14 +31,15 @@
             if (!developer) {
                 
                 checkDevTools = function() {
-                    // if (!devError) {
+                    if (!devErrorAlert) {
                         console.log(Object.defineProperties(new Error, { // check if DevTools are open
                             message: {
                                 get() { // Chrome/Firefox/Opera/Edge
                                     // if (!devErrorAlert) { 
-                                    alert('Close Developer Tools.')
+                                    alert('Close Developer Tools.'),
                                     // devErrorAlert = true
                                     // }
+                                    devErrorAlert = true,
                                     devError = true
                                     // };
                                 }
@@ -50,13 +51,13 @@
                                     if (op.b.s) {
                                         devError = true
                                     }
-                                    // devErrorAlert = true 
+                                    devErrorAlert = true 
                                     // }
                                     // devError = true, Safari?
                                 }
                             }
                         }));
-                    // }
+                    }
 
                     // if nothing happens? no dev tools?
 
