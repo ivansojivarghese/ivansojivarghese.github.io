@@ -238,6 +238,7 @@ op = {
         tA : 0, // time - initial (at pointerdown)
         tB : 0 // time - final (at pointerup)
     },
+    zoom : Math.round((window.outerWidth / window.innerWidth) * 100), // approx. [potential] zoom of page, in percentage
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
