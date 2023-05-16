@@ -71,7 +71,8 @@ var wH = window.outerHeight, // height
             cpy : document.getElementById("cpy"), // copyright [https://www.nibusinessinfo.co.uk/content/sample-website-copyright-statement]
             prv : document.getElementById("prv") // privacy policy [https://cdn.websitepolicies.com/wp-content/uploads/2022/04/privacy-policy-template.pdf]
         }
-    };    
+    },
+    disabledEvent; 
 
 /////////////////////////////////////////////////////
 /*
