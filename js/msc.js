@@ -1487,6 +1487,9 @@ window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
 window.addEventListener("resize", function() {
+
+    // detect between 'ZOOM' resizing & VIEWPORT resizing
+
     if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding
         wH = window.outerHeight; // update on window size variables
         wD = window.outerWidth; 
