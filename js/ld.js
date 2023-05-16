@@ -603,7 +603,7 @@ function docRead() {
             } else {
                 pg.sc.m.style.display = "none"; // if dev error (devtools open)
 
-
+                
             }
         break;
     }
