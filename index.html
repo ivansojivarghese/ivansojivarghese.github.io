@@ -21,25 +21,31 @@
             var developer = false, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
                 keyStatus = {}, // keys down/up status
                 disabledEvent, // function declaration (global)
+                checkDevTools, // function, check for devTools presence (global)
                 minimalUserResponseInMiliseconds = 200, // assumed user response time
                 devError = false;
 
             if (!developer) {
                 
-                console.log(Object.defineProperties(new Error, { // check if DevTools are open
-                    message: {
-                        get() {
-                            alert('Close Developer Tools.'),
-                            devError = true
+                checkDevTools = function() {
+                    console.log(Object.defineProperties(new Error, { // check if DevTools are open
+                        message: {
+                            get() {
+                                alert('Close Developer Tools.'),
+                                devError = true
+                            }
+                        },
+                        toString: {
+                            value() {
+                                (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
+                                // devError = true, Safari?
+                            }
                         }
-                    },
-                    toString: {
-                        value() {
-                            (new Error).stack.includes('toString@') && alert('Close Developer Tools.')
-                            // devError = true, Safari?
-                        }
-                    }
-                }));
+                    }));
+                    setTimeout(checkDevTools, 100);
+                }
+
+                checkDevTools();
 
                 function check() { // anti-debugging features
 
