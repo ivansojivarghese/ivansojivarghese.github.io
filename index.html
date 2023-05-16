@@ -42,6 +42,8 @@
                 function check() { // anti-debugging features
                     console.clear(); // clear console always
                     before = new Date().getTime();
+                    document.documentElement.style.overflow = "hidden";
+                    document.write("<h1 style='display: none; width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
                     eval('debugger'); // check for dev tools usage, break if detected
                     after = new Date().getTime();
                     if ((after - before) > minimalUserResponseInMiliseconds && !devError) {
