@@ -544,7 +544,9 @@
         <script>
             var op = {}, ajxL;
             op.ev = {
-                d : disabledEvent(e)
+                d : function(e) {
+                    disabledEvent(e)
+                }
             };
             op.Ld = {
                 // z : 'scale(1)', // default zoom scale
