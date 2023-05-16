@@ -35,10 +35,10 @@
                         console.log(Object.defineProperties(new Error, { // check if DevTools are open
                             message: {
                                 get() { // Chrome/Firefox/Opera/Edge
-                                    if (!devErrorAlert) { 
-                                        alert('Close Developer Tools.')
-                                        devErrorAlert = true
-                                    }
+                                    // if (!devErrorAlert) { 
+                                    alert('Close Developer Tools.')
+                                    // devErrorAlert = true
+                                    // }
                                     devError = true
                                     // };
                                 }
