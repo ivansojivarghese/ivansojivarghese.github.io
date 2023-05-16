@@ -544,15 +544,15 @@
         <script>
             var op = {}, ajxL;
             op.Ld = {
-                z : 'scale(1)', // default zoom scale
+                // z : 'scale(1)', // default zoom scale
                 c : null, // cookie-based load?
                 b : false, // abort status
                 s : null, // load status
             };
-
+            /*
             document.body.style.webkitTransform =  scale;    // Chrome, Opera, Safari
             document.body.style.transform = scale;     // General
-
+            */
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 1 || xhr.readyState === 2) {
