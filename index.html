@@ -25,8 +25,16 @@
                 devError = false;
 
                 console.log(Object.defineProperties(new Error, {
-                message: {get() {alert('Chrome/Firefox')}},
-                toString: {value() {(new Error).stack.includes('toString@')&&alert('Safari')}}
+                    message: {
+                        get() {
+                            alert('Chrome/Firefox')
+                        }
+                    },
+                    toString: {
+                        value() {
+                            (new Error).stack.includes('toString@') && alert('Safari')
+                        }
+                    }
                 }));
 
             if (!developer) {
