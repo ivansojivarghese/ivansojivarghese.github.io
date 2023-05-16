@@ -33,7 +33,7 @@
                     if (!devError) {
                         console.log(Object.defineProperties(new Error, { // check if DevTools are open
                             message: {
-                                get() {
+                                get() { // Chrome/Firefox/Opera/Edge
                                     // if (!devErrorAlert) { 
                                     alert('Close Developer Tools.'), 
                                     // devErrorAlert = true,
@@ -42,7 +42,7 @@
                                 }
                             },
                             toString: {
-                                value() {
+                                value() { // Safari
                                     // if (!devError && !devErrorAlert) {
                                     (new Error).stack.includes('toString@') && alert('Close Developer Tools.');
                                     if (op.b.s) {
