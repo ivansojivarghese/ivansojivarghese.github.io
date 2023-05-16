@@ -1499,8 +1499,8 @@ window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
 window.addEventListener("resize", function(e) {
-    var zoom = Math.round((window.outerWidth / window.innerWidth) * 100); // approx. [potential] zoom of page
-    if (zoom !== 100) {
+    // var zoom = Math.round((window.outerWidth / window.innerWidth) * 100); // approx. [potential] zoom of page
+    if (op.zoom !== 100) {
         disabledEventGlobal(e);
     }
 
