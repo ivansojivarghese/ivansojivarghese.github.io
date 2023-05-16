@@ -555,12 +555,18 @@
         <script>
             var op = {}, ajxL;
             
-            op.ev = {
+            op.ev = { // event
                 d : function(e) {
-                    disabledEvent(e)
+                    if (e.stopPropagation) {
+                        e.stopPropagation();
+                    } else if (window.event) {
+                        window.event.cancelBubble = true;
+                    }
+                    e.preventDefault();
+                    return false;
                 }
             };
-            op.Ld = {
+            op.Ld = { // load
                 // z : 'scale(1)', // default zoom scale
                 c : null, // cookie-based load?
                 b : false, // abort status
