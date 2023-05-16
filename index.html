@@ -44,8 +44,10 @@
                             toString: {
                                 value() {
                                     // if (!devError && !devErrorAlert) {
-                                    (new Error).stack.includes('toString@') && alert('Close Developer Tools.'),
-                                    devError = true
+                                    (new Error).stack.includes('toString@') && alert('Close Developer Tools.');
+                                    if (op.b.s) {
+                                        devError = true
+                                    }
                                     // devErrorAlert = true 
                                     // }
                                     // devError = true, Safari?
