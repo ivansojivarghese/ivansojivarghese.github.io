@@ -162,9 +162,10 @@ if (getCookie("maxHeight")) {
 }
 
 op = { 
+    /*
     ev : { // events
         d : null
-    }, 
+    }, */
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
         // uM : 5, // "" deny message limit (sec.)
