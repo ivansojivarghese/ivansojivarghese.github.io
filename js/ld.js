@@ -602,8 +602,14 @@ function docRead() {
                 }
             } else {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
-                // pg.sc.m.style.display = "none"; // if dev error (devtools open)
-                // pg.sc.m.remove(); // remove from DOM
+                rL.s = true; // page loaded
+                
+                window.stop(); // stop all network resource(s) fetching
+                clearInterval(_Ld); // stop loading process
+                clearInterval(op.ne.L); // clear network check loop
+
+                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                estimateNetworkSpeed_abort.abort();
             }
         break;
     }
