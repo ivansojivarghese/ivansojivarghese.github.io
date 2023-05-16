@@ -116,6 +116,16 @@
 
                 check(); 
 
+                disabledEvent = function(e) { // cancel any event
+                    if (e.stopPropagation) {
+                        e.stopPropagation();
+                    } else if (window.event) {
+                        window.event.cancelBubble = true;
+                    }
+                    e.preventDefault();
+                    return false;
+                };
+
                 window.addEventListener("DOMContentLoaded", function() {
                     document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                         e.preventDefault();
@@ -217,6 +227,7 @@
                             disabledEvent(e); // open link in new window
                         }
                     }
+                    /*
                     disabledEvent = function(e) { // cancel any event
                         if (e.stopPropagation) {
                             e.stopPropagation();
@@ -225,7 +236,7 @@
                         }
                         e.preventDefault();
                         return false;
-                    };
+                    };*/
                 });
             }
         </script>
