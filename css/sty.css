@@ -847,6 +847,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     width: 2.5rem;
     height: 0.35rem;
     margin-bottom: 0.4rem;
+    border-radius: 1rem;
 }
 
 .ham.mini .stroke {
