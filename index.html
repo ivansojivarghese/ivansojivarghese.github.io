@@ -22,11 +22,7 @@
                 keyStatus = {}, // keys down/up status
                 disabledEvent, // function declaration (global)
                 minimalUserResponseInMiliseconds = 200, // assumed user response time
-                devError = false,
-                scale = 'scale(1)';
-
-            document.body.style.webkitTransform =  scale;    // Chrome, Opera, Safari
-            document.body.style.transform = scale;     // General
+                devError = false;
 
             if (!developer) {
                 
@@ -495,10 +491,14 @@
         <script>
             var op = {}, ajxL;
             op.Ld = {
+                z : 'scale(1)', // default zoom scale
                 c : null, // cookie-based load?
                 b : false, // abort status
                 s : null, // load status
             };
+
+            document.body.style.webkitTransform =  scale;    // Chrome, Opera, Safari
+            document.body.style.transform = scale;     // General
 
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
