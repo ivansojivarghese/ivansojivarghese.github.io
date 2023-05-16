@@ -23,6 +23,7 @@
                 disabledEvent, // function declaration (global)
                 checkDevTools, // function, check for devTools presence (global)
                 minimalUserResponseInMiliseconds = 200, // assumed user response time
+                checkInterval = 100,
                 devError = false;
 
             if (!developer) {
@@ -42,7 +43,7 @@
                             }
                         }
                     }));
-                    setTimeout(checkDevTools, 100);
+                    setTimeout(checkDevTools, checkInterval);
                 }
 
                 checkDevTools();
@@ -64,7 +65,7 @@
                         delete before;
                         delete after;
                     }
-                    setTimeout(check, 100); // check every 100ms
+                    setTimeout(check, checkInterval); // check every 100ms
                 }
 
                 check(); 
