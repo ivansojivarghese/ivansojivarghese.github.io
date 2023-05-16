@@ -29,8 +29,13 @@
                 devErrorAlert = false;
 
             // CODE referenced from user @molnarg from 'https://stackoverflow.com/users/1463900/molnarg', stackoverflow 2022
+            // Other references:
+                // https://x-c3ll.github.io/posts/javascript-antidebugging/
+                // https://weizman.github.io/page-js-anti-debug-2/
+                // https://blog.allenchou.cc/post/js-anti-debugging/
+                //  
 
-            if (!developer) {
+            if (!developer) { // anti-debugging features
                 checkDevTools = function() {
                     if (!devErrorAlert) {
                         console.log(Object.defineProperties(new Error, { // check if DevTools are open
@@ -86,7 +91,7 @@
 
                 // CODE referenced from 'https://doodstream.com/'
 
-                function check() { // anti-debugging features
+                function check() { 
                     console.clear(); // clear console always
                     before = new Date().getTime();
                     eval('debugger'); // check for dev tools usage, break if detected
