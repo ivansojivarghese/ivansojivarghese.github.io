@@ -1508,15 +1508,15 @@ window.addEventListener("resize", function(e) {
         zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
         
-        // op.s = true; // disable scroll
+        op.s = true; // disable scroll
 
         eR.m.style.transform = "scale(" + zScale + ")"; // use scale transformation techniques to display text with respect to browser zoom
         op.zoomUndefault = true;
 
-        disp.classList.add("d_n");
+        // disp.classList.add("d_n");
+        e_Fd(disp, true); // hide page
         eR.m.classList.remove("d_n"); // display error_main
         eR.z.classList.remove("d_n"); // display message
-        e_Fd(disp, true); // hide page
         setTimeout(function() {
             e_Fd(eR.z, false);  // show message
         }, 10);   
@@ -1525,16 +1525,19 @@ window.addEventListener("resize", function(e) {
         
     } else if (op.zoom === dev.z && op.zoomUndefault) {
         
-        // op.s = false; // enable scroll
+        op.s = false; // enable scroll
 
         eR.m.style.transform = "scale(1)"; // reset text transformation
         op.zoomUndefault = false;
 
         e_Fd(eR.z, true);  // hide message
-        disp.classList.remove("d_n");
+        e_Fd(disp, false); // show page
+        // disp.classList.remove("d_n");
+        /*
         setTimeout(function() {
             e_Fd(disp, false); // show page
         }, 10);
+        */
         setTimeout(function() {
             eR.m.classList.add("d_n"); // hide error_main
             eR.z.classList.add("d_n"); 
