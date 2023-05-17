@@ -903,13 +903,14 @@ function atLeastHalf(a, b) { // check if a number is at least 50% of the other (
 }
 
 function approxNum(v1, v2, e) { // check if 2 numbers are approximate
+    var a = 0;
     if ((!v1 || !v2) && e) {
         return true;
     } else {
         if (e === null) {
-            e = op.aP;
+            a = op.aP;
         }
-        return Math.abs(v1 - v2) < e;
+        return Math.abs(v1 - v2) < a;
     }
 }
 
