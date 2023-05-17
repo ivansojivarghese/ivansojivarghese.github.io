@@ -1501,6 +1501,7 @@ window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
 window.addEventListener("resize", function(e) {
+    op.zoom = Math.round((window.outerWidth / window.innerWidth) * dev.z);
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
 
         eR.m.classList.remove("d_n"); // display error_main
