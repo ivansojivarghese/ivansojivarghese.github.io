@@ -157,7 +157,7 @@ observer.observe({type: "navigation", buffered: true}); // observe a navigation 
 ////////////////////////////////////////
 
 osCheck();
-
+console.log(op.sys);
 var aH;
 if (getCookie("maxHeight") && (op.sys === "iOS" || op.sys === "Android")) {
     aH = getCookie("maxHeight"); // get height from cookie
