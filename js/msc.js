@@ -1520,6 +1520,7 @@ window.addEventListener("resize", function(e) {
         zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
     if (!approxNum(op.zoom, dev.z)) { // if potential new zoom reference is NOT default (Zoom resizing)
         
+        eR.s = true;
         op.s = true; // disable scroll
 
         eR.m.style.transform = "scale(" + zScale + ")"; // use scale transformation techniques to display text with respect to browser zoom
@@ -1550,6 +1551,7 @@ window.addEventListener("resize", function(e) {
         setTimeout(function() {
             eR.m.classList.add("d_n"); // hide error_main
             eR.z.classList.add("d_n"); 
+            eR.s = false;
         }, op.t);  
 
     } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)

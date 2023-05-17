@@ -58,6 +58,7 @@ var disp = document.getElementById("display_sc"), // display
         i_s : false // [loader] information status
     },
     eR = { // error 
+        s : false, // status
         h : "", // hold-value placement (error page id)
         e : false, // code-execution boolean
         v : { // version
@@ -947,10 +948,12 @@ function errorCheck() { // check for errors
     // console.log(loadTime);
 
     if (eR.h && isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+        eR.s = true;
         rL.y = true;
         eR.m.classList.remove("d_n"); // display the error
         eR[eR.h].classList.remove("d_n");
     } else if (eR.h && !isFontAvailable("Poppins") && !isFontAvailable("Raleway")) {
+        eR.s = true;
         _Le = setInterval(function() {
             if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
                 errorCheck(); // iterative
