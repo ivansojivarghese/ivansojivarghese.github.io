@@ -1505,7 +1505,7 @@ window.addEventListener("resize", function(e) {
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
 
         // disable scrolling
-        // 
+        // use scale transformation techniques to display text with respect to browser zoom
         // enable transitioning for transform: scale of error text
 
         e_Fd(disp, true); // hide page
