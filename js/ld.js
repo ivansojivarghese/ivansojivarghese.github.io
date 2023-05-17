@@ -947,19 +947,21 @@ function errorCheck() { // check for errors
     // var loadTime = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
     // console.log(loadTime);
 
-    if (eR.h && isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
-        eR.s = true;
-        rL.y = true;
-        eR.m.classList.remove("d_n"); // display the error
-        eR[eR.h].classList.remove("d_n");
-    } else if (eR.h && !isFontAvailable("Poppins") && !isFontAvailable("Raleway")) {
-        eR.s = true;
-        _Le = setInterval(function() {
-            if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
-                errorCheck(); // iterative
-                clearInterval(_Le);
-            }
-        }, op.Ls);
+    if (!eR.s) {
+        if (eR.h && isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+            eR.s = true;
+            rL.y = true;
+            eR.m.classList.remove("d_n"); // display the error
+            eR[eR.h].classList.remove("d_n");
+        } else if (eR.h && !isFontAvailable("Poppins") && !isFontAvailable("Raleway")) {
+            eR.s = true;
+            _Le = setInterval(function() {
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+                    errorCheck(); // iterative
+                    clearInterval(_Le);
+                }
+            }, op.Ls);
+        }
     }
 }
 
