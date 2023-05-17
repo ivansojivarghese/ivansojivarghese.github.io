@@ -156,8 +156,9 @@ observer.observe({type: "navigation", buffered: true}); // observe a navigation 
 
 ////////////////////////////////////////
 
+var aH;
 if (getCookie("maxHeight") && (op.sys === "iOS" || op.sys === "Android")) {
-    var aH = getCookie("maxHeight"); // get height from cookie
+    aH = getCookie("maxHeight"); // get height from cookie
 } else {
     aH = cH;
 }
