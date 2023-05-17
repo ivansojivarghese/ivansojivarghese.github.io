@@ -1507,8 +1507,6 @@ window.addEventListener("resize", function(e) {
         eR.z.classList.remove("d_n"); // display message
         e_Fd(disp, true); // hide page
         e_Fd(eR.z, false); 
-
-        // show error overlay (stating zoom MUST be at 100% default)
         
         disabledEventGlobal(e); // possible event stoppage
         
