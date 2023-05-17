@@ -1507,8 +1507,8 @@ window.addEventListener("resize", function(e) {
         zOff = (op.zoom / dev.z) - w,
         zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
-        /*
-        op.s = true; // disable scroll
+        
+        // op.s = true; // disable scroll
 
         eR.m.style.transform = "scale(" + zScale + ")"; // use scale transformation techniques to display text with respect to browser zoom
         op.zoomUndefault = true;
@@ -1520,12 +1520,12 @@ window.addEventListener("resize", function(e) {
         setTimeout(function() {
             e_Fd(eR.z, false);  // show message
         }, 10);   
-        */
-        // disabledEventGlobal(e); // possible event stoppage
+        
+        disabledEventGlobal(e); // possible event stoppage
         
     } else if (op.zoom === dev.z && op.zoomUndefault) {
         
-        op.s = false; // enable scroll
+        // op.s = false; // enable scroll
 
         eR.m.style.transform = "scale(1)"; // reset text transformation
         op.zoomUndefault = false;
