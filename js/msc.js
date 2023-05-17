@@ -162,7 +162,6 @@ var aH;
 if (getCookie("maxHeight") && (op.sys === "iOS" || op.sys === "Android")) {
     aH = getCookie("maxHeight"); // get height from cookie
 } else {
-    console.log("desktop");
     aH = cH;
 }
 
