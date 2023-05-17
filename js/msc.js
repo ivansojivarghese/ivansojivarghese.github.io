@@ -1523,6 +1523,10 @@ window.addEventListener("resize", function(e) {
         
         disabledEventGlobal(e); // possible event stoppage
         
+    } else if (op.zoom === dev.z && op.zoomUndefault && eR.h) {
+
+        reL(); // reload page if error at initial
+
     } else if (op.zoom === dev.z && op.zoomUndefault) {
         
         op.s = false; // enable scroll
