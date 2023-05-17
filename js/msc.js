@@ -1506,8 +1506,10 @@ window.addEventListener("resize", function(e) {
 
         eR.m.classList.remove("d_n"); // display error_main
         eR.z.classList.remove("d_n"); // display message
-        e_Fd(disp, true); // hide page
-        e_Fd(eR.z, false); 
+        setTimeout(function() {
+            e_Fd(disp, true); // hide page
+            e_Fd(eR.z, false); 
+        }, op.t);
         
         disabledEventGlobal(e); // possible event stoppage
         
