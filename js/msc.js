@@ -240,6 +240,7 @@ op = {
         tB : 0 // time - final (at pointerup)
     },
     zoom : Math.round((window.outerWidth / window.innerWidth) * dev.z), // approx. [potential] zoom of page, in percentage
+    zoomUndefault : false, // default check
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
@@ -1508,6 +1509,8 @@ window.addEventListener("resize", function(e) {
         // use scale transformation techniques to display text with respect to browser zoom
         // enable transitioning for transform: scale of error text
 
+        op.zoomUndefault = true;
+
         disp.classList.add("d_n");
         eR.m.classList.remove("d_n"); // display error_main
         eR.z.classList.remove("d_n"); // display message
@@ -1518,6 +1521,12 @@ window.addEventListener("resize", function(e) {
         
         disabledEventGlobal(e); // possible event stoppage
         
+    } else if (op.zoom === dev.z && op.zoomUndefault) {
+
+        op.zoomUndefault = false;
+
+
+
     } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
         wH = window.outerHeight; // update on window size variables
         wD = window.outerWidth; 
