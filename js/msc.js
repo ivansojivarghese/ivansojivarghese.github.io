@@ -1521,7 +1521,7 @@ window.addEventListener("resize", function(e) {
             e_Fd(eR.z, false);  // show message
         }, 10);   
         
-        disabledEventGlobal(e); // possible event stoppage
+        // disabledEventGlobal(e); // possible event stoppage
         
     } else if (op.zoom === dev.z && op.zoomUndefault) {
         
