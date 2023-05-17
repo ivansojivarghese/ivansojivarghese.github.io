@@ -717,18 +717,14 @@ function pL() { // site parameters loop
     // console.log(renderTime() + ", " + op.ne.s);
 
     if (op.s) { // 'force' enable/disable scroll when required
-        if (pos.y === 0) {
-            document.documentElement.style.overflowY = "hidden"; // html
-        }
+        document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
         if (op.b.s) { // Safari compatibility
             document.documentElement.style.position = "fixed"; 
             document.body.style.position = "fixed";
         }
     } else {
-        if (pos.y === 0) {
-            document.documentElement.style.overflowY = "";
-        }
+        document.documentElement.style.overflowY = "";
         document.body.style.overflowY = "";
         if (op.b.s) {
             document.documentElement.style.position = "";
