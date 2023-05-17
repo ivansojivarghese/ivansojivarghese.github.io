@@ -1509,6 +1509,7 @@ window.addEventListener("resize", function(e) {
         // use scale transformation techniques to display text with respect to browser zoom
         // enable transitioning for transform: scale of error text
 
+        op.s = true; // disable scroll
         op.zoomUndefault = true;
 
         disp.classList.add("d_n");
@@ -1523,6 +1524,9 @@ window.addEventListener("resize", function(e) {
         
     } else if (op.zoom === dev.z && op.zoomUndefault) {
 
+        // enable scrolling
+        
+        op.s = false; // enable scroll
         op.zoomUndefault = false;
 
         e_Fd(eR.z, true);  // hide message
