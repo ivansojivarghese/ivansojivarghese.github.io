@@ -1503,6 +1503,8 @@ documentHeight();*/
 
 window.addEventListener("resize", function(e) {
     op.zoom = Math.round((window.outerWidth / window.innerWidth) * dev.z);
+    var zOff = (op.zoom / dev.z) - (dev.z / dev.z),
+        zScale = 1 + zOff;
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
 
         // disable scrolling
@@ -1510,6 +1512,8 @@ window.addEventListener("resize", function(e) {
         // enable transitioning for transform: scale of error text
 
         op.s = true; // disable scroll
+
+        eR.z.style.transform = "scale(" + zScale + ")";
         op.zoomUndefault = true;
 
         disp.classList.add("d_n");
