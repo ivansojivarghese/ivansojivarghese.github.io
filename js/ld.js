@@ -918,7 +918,9 @@ function load_e() { // page load end
 }*/
 
 function errorCheck() { // check for errors
-    if (vw.z_S) { // if viewport size is too small
+    if (op.zoomDefault) { // if viewport zoom not defaulted (100%)
+        eR.h = "z";
+    } else if (vw.z_S) { // if viewport size is too small
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
