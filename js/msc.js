@@ -1526,8 +1526,6 @@ window.addEventListener("resize", function(e) {
             p = errorPrecedence("z", eR.p, eR.a);
         if (!eR.s || (eR.s && p)) {
 
-            // ERROR PRECEDENCE
-            
             eR.s = true;
             eR.p = "z"; // zoom error
             op.s = true; // disable scroll
