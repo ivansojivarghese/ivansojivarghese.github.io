@@ -1549,6 +1549,15 @@ window.addEventListener("resize", function(e) {
             }, 10);   
             
             disabledEventGlobal(e); // possible event stoppage
+
+            setTimeout(function() { // timeout
+                window.stop(); // stop all network resource(s) fetching
+                clearInterval(_Ld); // stop loading process
+                clearInterval(op.ne.L); // clear network check loop
+
+                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                estimateNetworkSpeed_abort.abort();
+            }, op.te);
         }
         
     } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && eR.h) { // zoom undefaulted, then defaulted
