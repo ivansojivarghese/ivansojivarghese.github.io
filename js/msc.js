@@ -1504,12 +1504,12 @@ window.addEventListener("resize", function(e) {
     op.zoom = Math.round((window.outerWidth / window.innerWidth) * dev.z);
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
 
-        eR.m.classList.remove("d_n"); // display error_main
-        eR.z.classList.remove("d_n"); // display message
+        e_Fd(disp, true); // hide page
+        e_Fd(eR.z, false); 
         setTimeout(function() {
-            e_Fd(disp, true); // hide page
-            e_Fd(eR.z, false); 
-        }, op.t);
+            eR.m.classList.remove("d_n"); // display error_main
+            eR.z.classList.remove("d_n"); // display message
+        }, op.t);   
         
         disabledEventGlobal(e); // possible event stoppage
         
