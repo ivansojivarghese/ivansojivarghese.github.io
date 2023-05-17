@@ -176,7 +176,7 @@ h1, h2, h3, h5, h6, p, ul {
     height: 100vh;
 }
 
-.h-fp, .img, .error_main div {
+.h-fp, .img, .error_main > div {
     height: 100%;
 }
 
@@ -333,7 +333,7 @@ div, .tint {
     background-color: #000;
 }
 
-.bC_L, .hm, .rv-in-col, .cnt, .error_main div {
+.bC_L, .hm, .rv-in-col, .cnt, .error_main > div {
     background-color: #FFF;
 }
 
