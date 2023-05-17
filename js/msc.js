@@ -1508,13 +1508,9 @@ window.addEventListener("resize", function(e) {
         zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
 
-        // disable scrolling
-        // use scale transformation techniques to display text with respect to browser zoom
-        // enable transitioning for transform: scale of error text
-
         op.s = true; // disable scroll
 
-        eR.m.style.transform = "scale(" + zScale + ")";
+        eR.m.style.transform = "scale(" + zScale + ")"; // use scale transformation techniques to display text with respect to browser zoom
         op.zoomUndefault = true;
 
         disp.classList.add("d_n");
@@ -1528,12 +1524,10 @@ window.addEventListener("resize", function(e) {
         disabledEventGlobal(e); // possible event stoppage
         
     } else if (op.zoom === dev.z && op.zoomUndefault) {
-
-        // reset text transformation
         
         op.s = false; // enable scroll
 
-        eR.m.style.transform = "scale(1)";
+        eR.m.style.transform = "scale(1)"; // reset text transformation
         op.zoomUndefault = false;
 
         e_Fd(eR.z, true);  // hide message
