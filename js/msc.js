@@ -1508,6 +1508,7 @@ window.addEventListener("resize", function(e) {
         // use scale transformation techniques to display text with respect to browser zoom
         // enable transitioning for transform: scale of error text
 
+        disp.classList.add("d_n");
         e_Fd(disp, true); // hide page
         e_Fd(eR.z, false); 
         setTimeout(function() {
