@@ -1513,7 +1513,6 @@ window.addEventListener("resize", function(e) {
         eR.m.style.transform = "scale(" + zScale + ")"; // use scale transformation techniques to display text with respect to browser zoom
         op.zoomUndefault = true;
 
-        // disp.classList.add("d_n");
         e_Fd(disp, true); // hide page
         eR.m.classList.remove("d_n"); // display error_main
         eR.z.classList.remove("d_n"); // display message
@@ -1532,12 +1531,6 @@ window.addEventListener("resize", function(e) {
 
         e_Fd(eR.z, true);  // hide message
         e_Fd(disp, false); // show page
-        // disp.classList.remove("d_n");
-        /*
-        setTimeout(function() {
-            e_Fd(disp, false); // show page
-        }, 10);
-        */
         setTimeout(function() {
             eR.m.classList.add("d_n"); // hide error_main
             eR.z.classList.add("d_n"); 
