@@ -1523,6 +1523,9 @@ window.addEventListener("resize", function(e) {
     if (!approxNum(op.zoom, dev.z)) { // if potential new zoom reference is NOT default (Zoom resizing)
         
         if (!eR.s || (eR.s && errorPrecedence("z", eR.p, eR.a))) {
+
+            // ERROR PRECEDENCE
+
             eR.s = true;
             eR.p = "z"; // zoom error
             op.s = true; // disable scroll
@@ -1548,20 +1551,19 @@ window.addEventListener("resize", function(e) {
 
     } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) { // zoom undefaulted
         
-        if () {
-            op.s = false; // enable scroll
+        op.s = false; // enable scroll
 
-            eR.m.style.transform = "scale(1)"; // reset text transformation
-            op.zoomUndefault = false;
+        eR.m.style.transform = "scale(1)"; // reset text transformation
+        op.zoomUndefault = false;
 
-            e_Fd(eR.z, true);  // hide message
-            e_Fd(disp, false); // show page
-            setTimeout(function() {
-                eR.m.classList.add("d_n"); // hide error_main
-                eR.z.classList.add("d_n"); 
-                eR.s = false;
-            }, op.t);  
-        }
+        e_Fd(eR.z, true);  // hide message
+        e_Fd(disp, false); // show page
+        setTimeout(function() {
+            eR.m.classList.add("d_n"); // hide error_main
+            eR.z.classList.add("d_n"); 
+            eR.s = false;
+            eR.p = "";
+        }, op.t);  
 
     } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
 
