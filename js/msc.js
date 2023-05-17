@@ -163,6 +163,9 @@ if (getCookie("maxHeight") && (op.sys === "iOS" || op.sys === "Android")) {
 }
 
 op = { 
+    sys : op.sys,
+    uA : op.uA,
+    Ls : op.Ls,
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
         // uM : 5, // "" deny message limit (sec.)
@@ -174,8 +177,11 @@ op = {
         x : false // code execution
     },
     Ld : { // load
-        b : false, // abort status
-        s : null, // load status
+        // b : false, // abort status
+        // s : null, // load status
+        b : op.Ld.b,
+        s : op.Ld.s,
+        c : op.Ld.c,
         dom : 0, // 'domcontentloaded'
         a : 0, // 'load'
         t : 15000 // threshold for timeout (general)
