@@ -57,9 +57,11 @@ var disp = document.getElementById("display_sc"), // display
         r_s : false, // [loader] loading ring status
         i_s : false // [loader] information status
     },
-    eR = { // error 
+    eR = { // error
+        a : [], // error precedence array
         s : false, // status
         h : "", // hold-value placement (error page id)
+        p : "", // current error (id)
         e : false, // code-execution boolean
         v : { // version
             u : document.getElementById("vrU"), // version upgrade
@@ -70,8 +72,8 @@ var disp = document.getElementById("display_sc"), // display
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd"), // landscape
-        mt : document.getElementById("error_mt"), // maintenance
-        ck : document.getElementById("error_cke") // cookies
+        ck : document.getElementById("error_cke"), // cookies
+        mt : document.getElementById("error_mt") // maintenance
     },
     _Ld, // loop
     _Le, // loop (applicable, if error)
@@ -919,6 +921,9 @@ function load_e() { // page load end
 }*/
 
 function errorCheck() { // check for errors
+
+    eR.a = ["mt", "ck", "ld", "vL", "vs", "z"]; // error precedence array, UPDATE WHEN NEEDED!!
+    
     if (op.zoomDefault) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
     } else if (vw.z_S) { // if viewport size is too small
@@ -950,11 +955,13 @@ function errorCheck() { // check for errors
     if (!eR.s) {
         if (eR.h && isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
             eR.s = true;
+            eR.p = eR.h;
             rL.y = true;
             eR.m.classList.remove("d_n"); // display the error
             eR[eR.h].classList.remove("d_n");
         } else if (eR.h && !isFontAvailable("Poppins") && !isFontAvailable("Raleway")) {
             eR.s = true;
+            eR.p = eR.h;
             _Le = setInterval(function() {
                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
                     errorCheck(); // iterative
@@ -962,6 +969,17 @@ function errorCheck() { // check for errors
                 }
             }, op.Ls);
         }
+    }
+}
+
+function errorPrecedence(n, p, a) { // check for priority of errors
+    var nD = a.indexOf(n),
+        pD = a.indexOf(p);
+
+    if (nD > pD) {
+        return true;
+    } else if (nD < pD) {
+        return false;
     }
 }
 
