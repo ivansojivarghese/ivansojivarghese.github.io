@@ -176,7 +176,7 @@ h1, h2, h3, h5, h6, p, ul {
     height: 100vh;
 }
 
-.h-fp, .img, .error_main.m > div {
+.h-fp, .img, .error_main > div {
     height: 100%;
 }
 
@@ -708,7 +708,7 @@ div.locator_img {
     width: 0.1em;
 }
 
-.img_icon {
+.img_icon, #js_message_dot, #load_dot {
     width: 1.8rem;
     height: 1.8rem;
 }
