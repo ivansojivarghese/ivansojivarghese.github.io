@@ -164,7 +164,7 @@ if (getCookie("maxHeight") && (op.sys === "iOS" || op.sys === "Android")) {
 }
 
 op = { 
-    sys : op.sys,
+    sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
     c : { // cookies
