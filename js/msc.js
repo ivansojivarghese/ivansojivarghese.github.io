@@ -1525,7 +1525,15 @@ window.addEventListener("resize", function(e) {
 
         op.zoomUndefault = false;
 
-
+        e_Fd(eR.z, true);  // hide message
+        disp.classList.remove("d_n");
+        setTimeout(function() {
+            e_Fd(disp, true); // show page
+        }, 10);
+        setTimeout(function() {
+            eR.m.classList.add("d_n"); // hide error_main
+            eR.z.classList.add("d_n"); 
+        }, op.t);  
 
     } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
         wH = window.outerHeight; // update on window size variables
