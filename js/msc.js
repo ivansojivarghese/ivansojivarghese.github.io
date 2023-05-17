@@ -156,6 +156,8 @@ observer.observe({type: "navigation", buffered: true}); // observe a navigation 
 
 ////////////////////////////////////////
 
+osCheck();
+
 var aH;
 if (getCookie("maxHeight") && (op.sys === "iOS" || op.sys === "Android")) {
     console.log("desktop");
