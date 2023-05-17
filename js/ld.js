@@ -65,6 +65,7 @@ var disp = document.getElementById("display_sc"), // display
             u_e : document.getElementsByClassName("vr-u") // "" elements class
         },
         m : document.getElementById("error_sc"), // main
+        z : document.getElementById("error_z"), // zoom
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd"), // landscape
