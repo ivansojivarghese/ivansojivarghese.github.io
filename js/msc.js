@@ -1503,6 +1503,11 @@ documentHeight();*/
 window.addEventListener("resize", function(e) {
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
 
+        eR.m.classList.remove("d_n"); // display error_main
+        eR..classList.remove("d_n"); // display message
+        e_Fd(disp, true); // hide page
+        e_Fd()
+
         // show error overlay (stating zoom MUST be at 100% default)
         
         disabledEventGlobal(e); // possible event stoppage
