@@ -1537,11 +1537,11 @@ window.addEventListener("resize", function(e) {
         
         disabledEventGlobal(e); // possible event stoppage
         
-    } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && eR.h) {
+    } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && eR.h) { // zoom undefaulted, then defaulted
 
         reL(); // reload page if error at initial
 
-    } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) {
+    } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) { // zoom undefaulted
         
         op.s = false; // enable scroll
 
