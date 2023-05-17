@@ -1292,50 +1292,52 @@ function nwCiArr(ar) { // create a comparison [previous index] array
 }
 
 function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
-    if (s) { // show
-        pg.msg.c = true;
-        pg.msg.el.classList.remove("d_n"); // show page
-        el.classList.remove("d_n");
-        setTimeout(function() {
-            e_Sdv(el, s); // show message
-            if (t && t_m) {
-                pg.msg.t.classList.add("a"); // add low tint
-                pg.msg.t.classList.remove("md"); // add tint (if applicable)
-            } else if (t) {
-                pg.msg.t.classList.remove("md"); 
-            }
+    if (!eR.s) { // when no errors
+        if (s) { // show
+            pg.msg.c = true;
+            pg.msg.el.classList.remove("d_n"); // show page
+            el.classList.remove("d_n");
+            setTimeout(function() {
+                e_Sdv(el, s); // show message
+                if (t && t_m) {
+                    pg.msg.t.classList.add("a"); // add low tint
+                    pg.msg.t.classList.remove("md"); // add tint (if applicable)
+                } else if (t) {
+                    pg.msg.t.classList.remove("md"); 
+                }
+                /*
+                if (el === pg.msg.ckA) {
+                    pg.msg.ckD.style.height = getBd(el, "height") + "px"; // set height of cookie-deny message
+                }*/
+            }, 10); // after short delay
+        } else { // hide
+            e_Sdv(el, s); // hide message
+            //if (el !== pg.msg.ckD) {
+                pg.msg.c = false;
+                if (t && t_m) {
+                    pg.msg.t.classList.remove("a"); // remove low tint
+                    pg.msg.t.classList.add("md"); // remove tint
+                } else if (t) {
+                    pg.msg.t.classList.add("md"); 
+                }
+                setTimeout(function() {
+                    el.classList.add("d_n");
+                    pg.msg.el.classList.add("d_n"); // hide page
+                }, op.t);
             /*
-            if (el === pg.msg.ckA) {
-                pg.msg.ckD.style.height = getBd(el, "height") + "px"; // set height of cookie-deny message
+            } else {
+                setTimeout(function() {
+                    el.classList.add("d_n");
+                }, op.t);
             }*/
-        }, 10); // after short delay
-    } else { // hide
-        e_Sdv(el, s); // hide message
-        //if (el !== pg.msg.ckD) {
-            pg.msg.c = false;
-            if (t && t_m) {
-                pg.msg.t.classList.remove("a"); // remove low tint
-                pg.msg.t.classList.add("md"); // remove tint
-            } else if (t) {
-                pg.msg.t.classList.add("md"); 
-            }
-            setTimeout(function() {
-                el.classList.add("d_n");
-                pg.msg.el.classList.add("d_n"); // hide page
-            }, op.t);
-        /*
-        } else {
-            setTimeout(function() {
-                el.classList.add("d_n");
-            }, op.t);
-        }*/
-    }
-    
-    if (el_s) { // internal element reveal (if applicable)
+        }
+        
+        if (el_s) { // internal element reveal (if applicable)
 
-    }
+        }
 
-    // e_Sdv(el, s); // show cookie-acceptance message
+        // e_Sdv(el, s); // show cookie-acceptance message
+    }
 }
 
 function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
