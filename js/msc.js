@@ -1514,7 +1514,7 @@ window.addEventListener("resize", function(e) {
 
         op.s = true; // disable scroll
 
-        eR.z.style.transform = "scale(" + zScale + ")";
+        eR.m.style.transform = "scale(" + zScale + ")";
         op.zoomUndefault = true;
 
         disp.classList.add("d_n");
