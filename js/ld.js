@@ -975,11 +975,14 @@ function errorCheck() { // check for errors
 function errorPrecedence(n, p, a) { // check for priority of errors
     var nD = a.indexOf(n),
         pD = a.indexOf(p);
-
-    if (nD > pD) {
-        return true;
-    } else if (nD < pD) {
-        return false;
+    if (nD !== pD) {
+        if (nD > pD) {
+            return true;
+        } else if (nD < pD) {
+            return false;
+        }
+    } else {
+        return null;
     }
 }
 
