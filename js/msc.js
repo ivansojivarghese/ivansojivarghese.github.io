@@ -1532,6 +1532,8 @@ window.addEventListener("resize", function(e) {
         // reset text transformation
         
         op.s = false; // enable scroll
+
+        eR.m.style.transform = "scale(1)";
         op.zoomUndefault = false;
 
         e_Fd(eR.z, true);  // hide message
