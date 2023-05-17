@@ -1504,7 +1504,7 @@ documentHeight();*/
 window.addEventListener("resize", function(e) {
     op.zoom = Math.round((window.outerWidth / window.innerWidth) * dev.z);
     var zOff = (op.zoom / dev.z) - (dev.z / dev.z),
-        zScale = 1 + zOff;
+        zScale = 1 - zOff;
     if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
 
         // disable scrolling
