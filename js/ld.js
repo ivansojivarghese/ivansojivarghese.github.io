@@ -712,7 +712,7 @@ function load_e() { // end the loading sequence
                             estimateNetworkSpeed_abort.abort();
                         }, op.te);
 
-                    } else if (eR.h) { // if error is detected
+                    } else if (eR.h && !eR.s) { // if error is detected
 
                         if (eR[eR.h].classList.contains("d_n")) {
                             eR.m.classList.remove("d_n");
