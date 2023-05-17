@@ -1,11 +1,10 @@
 
-var uA_L;
-
-op = { // site 'options'
-    sys : "", // operating system
-    uA : navigator.userAgent, // user agent
-    Ls : 1000/60 // loop (interval) speed - sec./rev.
-};
+var uA_L,
+    op = { // site 'options'
+        sys : "", // operating system
+        uA : navigator.userAgent, // user agent
+        Ls : 1000/60 // loop (interval) speed - sec./rev.
+    };
 
 function isDarkMode() { // dark mode detection
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
