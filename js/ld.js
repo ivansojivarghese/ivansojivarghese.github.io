@@ -94,7 +94,7 @@ function docRead() {
             }
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!devError) {
-                if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display
+                if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom
                     setCookie("testCookie", "true"); // set a test cookie
                     if (getCookie("testCookie")) { // check for cookies
                         if (!rL.e) { // ensure once execution
