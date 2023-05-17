@@ -1513,8 +1513,8 @@ window.addEventListener("resize", function(e) {
         eR.z.classList.remove("d_n"); // display message
         e_Fd(disp, true); // hide page
         setTimeout(function() {
-            e_Fd(eR.z, false); 
-        }, op.t);   
+            e_Fd(eR.z, false);  // show message
+        }, 10);   
         
         disabledEventGlobal(e); // possible event stoppage
         
