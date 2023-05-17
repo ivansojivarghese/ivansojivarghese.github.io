@@ -907,7 +907,7 @@ function approxNum(v1, v2, e) { // check if 2 numbers are approximate
     if ((!v1 || !v2) && e) {
         return true;
     } else {
-        if (e === null) {
+        if (!e) {
             a = op.aP;
         }
         return Math.abs(v1 - v2) < a;
