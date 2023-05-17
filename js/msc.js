@@ -1524,7 +1524,7 @@ window.addEventListener("resize", function(e) {
         
     } else if (op.zoom === dev.z && op.zoomUndefault) {
 
-        // enable scrolling
+        // reset text transformation
         
         op.s = false; // enable scroll
         op.zoomUndefault = false;
@@ -1532,7 +1532,7 @@ window.addEventListener("resize", function(e) {
         e_Fd(eR.z, true);  // hide message
         disp.classList.remove("d_n");
         setTimeout(function() {
-            e_Fd(disp, true); // show page
+            e_Fd(disp, false); // show page
         }, 10);
         setTimeout(function() {
             eR.m.classList.add("d_n"); // hide error_main
