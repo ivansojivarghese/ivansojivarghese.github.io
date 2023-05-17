@@ -1517,7 +1517,7 @@ window.addEventListener("resize", function(e) {
     var w = dev.z / dev.z,
         zOff = (op.zoom / dev.z) - w,
         zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
-    if (op.zoom !== dev.z) { // if potential new zoom reference is NOT default (Zoom resizing)
+    if (!approxNum(op.zoom, dev.z)) { // if potential new zoom reference is NOT default (Zoom resizing)
         
         op.s = true; // disable scroll
 
@@ -1533,11 +1533,11 @@ window.addEventListener("resize", function(e) {
         
         disabledEventGlobal(e); // possible event stoppage
         
-    } else if (op.zoom === dev.z && op.zoomUndefault && eR.h) {
+    } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && eR.h) {
 
         reL(); // reload page if error at initial
 
-    } else if (op.zoom === dev.z && op.zoomUndefault) {
+    } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) {
         
         op.s = false; // enable scroll
 
