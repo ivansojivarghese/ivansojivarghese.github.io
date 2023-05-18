@@ -1547,6 +1547,13 @@ window.addEventListener("resize", function(e) {
             op.zoomUndefault = true;
 
             e_Fd(disp, true); // hide page
+            if (op.ne.w) { // if network slow
+                eR_t.z.classList.remove("d_n"); // display error small text
+            } else {
+                if (!eR_t.z.classList.contains("d_n")) {
+                    eR_t.z.classList.add("d_n"); // display error small text
+                }
+            }
             eR.m.classList.remove("d_n"); // display error_main
             eR.z.classList.remove("d_n"); // display message
 
