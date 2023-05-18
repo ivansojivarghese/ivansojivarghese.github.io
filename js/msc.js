@@ -1504,7 +1504,11 @@ function disabledEventGlobal(e) { // disable event propagation (global)
 //////////////////////////////////////////
 
 function checkJS() {
-    
+    if (window) {
+        console.log("JS is running");
+    } else {
+        console.log("JS is disabled");
+    }
 
     setTimeout(checkJS, 1000);
 }
