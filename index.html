@@ -217,13 +217,13 @@
                         if (e && (e.which == 2 || e.button == 4 )) { // check for mousewheel (middle) click
                             m = true;
                         }
-                        if (keyStatus.Control && keyStatus.Shift) { // if 'ctrl' + 'shift' pressed
+                        if ((keyStatus.Control || e.ctrlKey) && (keyStatus.Shift || e.shiftKey)) { // if 'ctrl' + 'shift' pressed
                             disabledEvent(e); // open link in foreground tab
                         }
-                        if (keyStatus.Control || m) { // if 'Ctrl' key pressed - open link in background tab
+                        if ((keyStatus.Control || e.ctrlKey) || m) { // if 'Ctrl' key pressed - open link in background tab
                             disabledEvent(e);
                         }
-                        if (keyStatus.Shift) { // if 'shift' key pressed
+                        if (keyStatus.Shift || e.shiftKey) { // if 'shift' key pressed
                             disabledEvent(e); // open link in new window
                         }
                     }
