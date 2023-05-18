@@ -1502,6 +1502,16 @@ function disabledEventGlobal(e) { // disable event propagation (global)
 }
 
 //////////////////////////////////////////
+
+function checkJS() {
+    
+
+    setTimeout(checkJS, 1000);
+}
+
+window.addEventListener("DOMContentLoaded", checkJS);
+
+//////////////////////////////////////////
 /*
 const documentHeight = () => {
     // window.alert("Resize");
