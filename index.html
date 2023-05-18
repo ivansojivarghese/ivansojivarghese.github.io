@@ -142,46 +142,46 @@
                         var p = e.key;
                         keyStatus[p] = true;
                         
-                        if (e.ctrlKey && e.keyCode == 67) { // ctrl + c
+                        if (e.ctrlKey && (e.keyCode == 67 || e.code === "KeyC")) { // ctrl + c
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.keyCode == 88) { // ctrl + x
+                        if (e.ctrlKey && (e.keyCode == 88 || e.code === "KeyX")) { // ctrl + x
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.keyCode == 86) { // ctrl + v
+                        if (e.ctrlKey && (e.keyCode == 86 || e.code === "KeyV")) { // ctrl + v
                             disabledEvent(e);
                         }   
-                        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl + shift + i (dev tools)
+                        if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.code === "KeyI")) { // Ctrl + shift + i (dev tools)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { // Ctrl + shift + j (dev tools)
+                        if (e.ctrlKey && e.shiftKey && (e.keyCode == 74 || e.code === "KeyJ")) { // Ctrl + shift + j (dev tools)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.shiftKey && e.keyCode == 67) { // Ctrl + shift + c (dev tools)
+                        if (e.ctrlKey && e.shiftKey && (e.keyCode == 67 || e.code === "KeyC")) { // Ctrl + shift + c (dev tools)
                             disabledEvent(e);
                         }
-                        if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) { // cmd + s (save page)
+                        if ((e.keyCode == 83 || e.code === "KeyS") && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) { // cmd + s (save page)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.keyCode == 85) {  // Ctrl + u (view source)
+                        if (e.ctrlKey && (e.keyCode == 85 || e.code === "KeyU")) {  // Ctrl + u (view source)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.keyCode == 80) { // Ctrl + p (print page)
+                        if (e.ctrlKey && (e.keyCode == 80 || e.code === "KeyP")) { // Ctrl + p (print page)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.keyCode == 79) { // Ctrl + o (open page)
+                        if (e.ctrlKey && (e.keyCode == 79 || e.code === "KeyO")) { // Ctrl + o (open page)
                             disabledEvent(e);
                         }
-                        if (event.keyCode == 114) { // F3 (search in page)
+                        if (event.keyCode == 114 || e.code === "F3") { // F3 (search in page)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.keyCode == 70) { // Ctrl + f (search in page)
+                        if (e.ctrlKey && (e.keyCode == 70 || e.code === "KeyF")) { // Ctrl + f (search in page)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.keyCode == 71) { // Ctrl + g (search in page)
+                        if (e.ctrlKey && (e.keyCode == 71 || e.code === "KeyG")) { // Ctrl + g (search in page)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && e.shiftKey && e.keyCode == 71) { // Ctrl + shift + g (search in page)
+                        if (e.ctrlKey && e.shiftKey && (e.keyCode == 71 || e.code === "KeyG")) { // Ctrl + shift + g (search in page)
                             disabledEvent(e);
                         }
                         if (e.shiftKey && e.keyCode == 114) { // shift + F3 (search in page)
