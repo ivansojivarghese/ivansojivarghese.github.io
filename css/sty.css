@@ -891,6 +891,15 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     animation-iteration-count: infinite;
 }
 
+@keyframes checkJS {
+    0% {
+        display: none;
+    }
+    100% {
+        display: block;
+    }
+}
+
 .error_main h4, .error_main p, p.error {
     padding: 0 0.5em;
 }
