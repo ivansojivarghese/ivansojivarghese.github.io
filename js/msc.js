@@ -1601,7 +1601,7 @@ window.addEventListener("resize", function(e) {
         cH = document.documentElement.clientHeight;
         pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
         setCookie("windowResize", true, op.c.t);
-        reL(); // reload page
+        // reL(); // reload page
     }
 });
 
