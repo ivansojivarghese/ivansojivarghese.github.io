@@ -99,7 +99,7 @@ function docRead() {
             }
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!devError) {
-                if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom
+                if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668 BELOW!)
                     setCookie("testCookie", "true"); // set a test cookie
                     if (getCookie("testCookie")) { // check for cookies
                         if (!rL.e) { // ensure once execution
@@ -665,7 +665,7 @@ function load_e() { // end the loading sequence
                 estimateNetworkSpeed_abort.abort();
             }, op.te);
 
-        } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
+        } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
 
             rL.i_s = false;
             rL.r_s = false;
