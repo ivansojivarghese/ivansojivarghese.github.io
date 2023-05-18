@@ -885,6 +885,12 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 /* ------------- */
 
+.error_main_noscript {
+    animation-name: checkJS;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
 .error_main h4, .error_main p, p.error {
     padding: 0 0.5em;
 }
