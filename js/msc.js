@@ -1502,10 +1502,10 @@ function disabledEventGlobal(e) { // disable event propagation (global)
 }
 
 //////////////////////////////////////////
-
+/*
 async function JSEnabled() {
     const response = await fetch("https://ivansojivarghese.github.io/");
-}
+}*/
 
 function checkJS() {
     if (window) {
