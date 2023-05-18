@@ -1526,7 +1526,6 @@ window.addEventListener("resize", function(e) {
             p = errorPrecedence("z", eR.p, eR.a);
         if (!eR.s || (eR.s && p)) {
 
-            eR.s = true;
             eR.p = "z"; // zoom error
             op.s = true; // disable scroll
 
@@ -1543,6 +1542,7 @@ window.addEventListener("resize", function(e) {
                     eR[pE].classList.add("d_n"); // display message
                 }, op.t);
             } 
+            eR.s = true;
 
             setTimeout(function() {
                 e_Fd(eR.z, false);  // show message
