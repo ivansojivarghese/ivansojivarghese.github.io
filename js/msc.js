@@ -1576,9 +1576,9 @@ window.addEventListener("resize", function(e) {
         
     } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && eR.h) { // zoom undefaulted, then defaulted
 
-        reL(); // reload page if error at initial
-
-        // SLOW NETWORKS???
+        if (!op.ne.w) { // proceed only with fast networks
+            reL(); // reload page if error at initial
+        }
 
     } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) { // zoom undefaulted
         
