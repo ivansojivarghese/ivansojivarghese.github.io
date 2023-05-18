@@ -986,7 +986,7 @@ function errorPrecedence(n, p, a) { // check for priority of errors
             return null;
         }
     } else {
-        return true;
+        return null;
     }
 }
 
