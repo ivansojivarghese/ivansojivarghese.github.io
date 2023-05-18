@@ -903,7 +903,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }
 
 .err_t {
-    font-size: 0.6rem;
+    font-size: 0.6rem !important;
     margin-top: 0.5rem;
     color: var(--negate_col);
 }
