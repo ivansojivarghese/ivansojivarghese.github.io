@@ -956,6 +956,15 @@ function errorCheck() { // check for errors
     // console.log(loadTime);
 
     if (!eR.s) {
+        if (eR.h && (eR.h === "z")) { // other msc. error info to display
+            if (op.ne.w) { // if network slow
+                eR_t.z.classList.remove("d_n"); // display error small text
+            } else {
+                if (!eR_t.z.classList.contains("d_n")) {
+                    eR_t.z.classList.add("d_n"); // display error small text
+                }
+            }
+        }
         if (eR.h && isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
             eR.s = true;
             eR.p = eR.h;
