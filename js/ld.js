@@ -983,7 +983,7 @@ function errorPrecedence(n, p, a) { // check for priority of errors
                 return false;
             }
         } else {
-            return null;
+            return undefined;
         }
     } else {
         return null;
