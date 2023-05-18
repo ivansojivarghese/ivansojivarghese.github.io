@@ -760,6 +760,13 @@ function load_e() { // end the loading sequence
                 }, op.t); // give time for opacity .trs to completely hide element
             }, op.te - op.t);
             rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
+
+        } else if (!op.ne.x4) {
+            
+            countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
+            rL.s = true; // page loaded
+            op.ne.x4 = true;
+            e_Fd(rL.m, false); // show load-box (either flow)
         }
     }
 }
