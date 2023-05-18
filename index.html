@@ -619,21 +619,7 @@
         <!-- <div id="control-height"></div> 
         <img id="image" class="d_n"> -->
         <style type="text/css">
-            @media (scripting: none) {
-                body {
-                    background-color: var(--negate_col);
-                    overflow: hidden;
-                }
-
-                #main_sc, #print_sc {
-                    display: none;
-                }
-
-                #error_sc, #error_js {
-                    display: block;
-                }
-            }
-            @media (scripting: initial-only) {
+            @media (scripting: none), (scripting: initial-only) {
                 body {
                     background-color: var(--negate_col);
                     overflow: hidden;
