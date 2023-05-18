@@ -139,7 +139,7 @@
                         passive : false
                     }); 
                     document.addEventListener("keydown", function(e) { // disable access to DevTools via various keyboard shortcuts
-                        var p = e.key;
+                        var p = e.code;
                         keyStatus[p] = true;
                         
                         if (e.ctrlKey && (e.keyCode == 67 || e.code === "KeyC")) { // ctrl + c
@@ -184,28 +184,28 @@
                         if (e.ctrlKey && e.shiftKey && (e.keyCode == 71 || e.code === "KeyG")) { // Ctrl + shift + g (search in page)
                             disabledEvent(e);
                         }
-                        if (e.shiftKey && e.keyCode == 114) { // shift + F3 (search in page)
+                        if (e.shiftKey && (e.keyCode == 114 || e.code === "F3")) { // shift + F3 (search in page)
                             disabledEvent(e);
                         }
-                        if (e.ctrlKey && (e.keyCode == "61" || e.keyCode == "107" || e.keyCode == "173" || e.keyCode == "109" || e.keyCode == "187" || e.keyCode == "189")) { // Ctrl + '+' (prevent zoom in/out)
+                        if (e.ctrlKey && (e.code === "NumpadAdd" || e.code === "NumpadSubtract" || e.keyCode == "61" || e.keyCode == "107" || e.keyCode == "173" || e.keyCode == "109" || e.keyCode == "187" || e.keyCode == "189")) { // Ctrl + '+/-' (prevent zoom in/out)
                             disabledEvent(e);
                             e.preventDefault();
                         }
-                        if ((e.altKey && e.keyCode == 37) || e.keyCode == 8) { // go back, 'alt' + back arrow
+                        if ((e.altKey && (e.keyCode == 37 || e.code === "ArrowLeft")) || (e.keyCode == 8 || e.code === "Backspace")) { // go back, 'alt' + back arrow
                             disabledEvent(e);
                         }
-                        if ((e.altKey && e.keyCode == 39) || e.shiftKey && e.keyCode == 8) { // go forward, 'alt' + forward arrow
+                        if ((e.altKey && (e.keyCode == 39 || e.code === "ArrowRight")) || e.shiftKey && (e.keyCode == 8 || e.code === "Backspace")) { // go forward, 'alt' + forward arrow
                             disabledEvent(e);
                         }
-                        if (e.keyCode == 122) { // F11 (fullscreen)
+                        if (e.keyCode == 122 || e.code === "F11") { // F11 (fullscreen)
                             disabledEvent(e);
                         }
-                        if (e.keyCode == 123) { // F12 (dev tools)
+                        if (e.keyCode == 123 || e.code === "F12") { // F12 (dev tools)
                             disabledEvent(e);
                         }
                     }, false);
                     document.addEventListener("keyup", function(e) {
-                        var p = e.key;
+                        var p = e.code;
                         keyStatus[p] = false;
 
                     }, false);
