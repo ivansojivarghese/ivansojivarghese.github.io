@@ -762,11 +762,39 @@ function load_e() { // end the loading sequence
             rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
 
         } else if (!op.ne.x4) {
-            
+
             countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
             rL.s = true; // page loaded
             op.ne.x4 = true;
             e_Fd(rL.m, false); // show load-box (either flow)
+        
+        } else if (op.ne.t0_5s) { // timeout
+
+            rL.el.classList.remove("d_n"); // show loader
+            rL.el.classList.remove("z_O"); 
+
+            rL.dt.classList.add("aniM-f"); 
+            rL.dt.classList.add("md"); // load_dot to red
+            e_Fd(rL.dt, false); // show load dot (in red)
+
+            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
+                rL.n.classList.add("timeout_img");
+                rL.xc.innerHTML = "timeout";
+                e_Fd(rL.n, false); // show icon 
+                e_Fd(rL.x, false); // show message 
+            } else if (svg.t) {
+                rL.n.classList.add("timeout_img");
+                e_Fd(rL.n, false); // show icon 
+            }
+
+            setTimeout(function() {
+                window.stop(); // stop all network resource(s) fetching
+                clearInterval(_Ld); // stop loading process
+                clearInterval(op.ne.L); // clear network check loop
+
+                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                estimateNetworkSpeed_abort.abort();
+            }, op.te);
         }
     }
 }
