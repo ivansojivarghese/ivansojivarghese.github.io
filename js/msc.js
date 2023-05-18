@@ -1585,6 +1585,8 @@ window.addEventListener("resize", function(e) {
 
         if (!op.ne.w) { // proceed only with fast networks
             reL(); // reload page if error at initial
+            eR_t.z.classList.add("md");
+            eR_t.z.innerHTML = "loading..."; // change text status
         }
 
     } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) { // zoom undefaulted

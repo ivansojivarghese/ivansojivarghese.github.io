@@ -908,6 +908,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     color: var(--negate_col);
 }
 
+.err_t.md {
+    color: var(--predicate_col);
+}
+
 /* -------------- */
 
 .aniM {
