@@ -1517,7 +1517,7 @@ window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
 window.addEventListener("resize", function(e) {
-    op.zoom = !op.b.f ? Math.round((window.outerWidth / window.innerWidth) * dev.z) : ;
+    op.zoom = !op.b.f ? Math.round((window.outerWidth / window.innerWidth) * dev.z) : (Number(getCookie("maxHeight")) / window.innerHeight).toFixed(2);
     var w = dev.z / dev.z,
         zOff = (op.zoom / dev.z) - w,
         zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
