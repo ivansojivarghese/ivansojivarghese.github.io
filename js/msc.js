@@ -1516,92 +1516,134 @@ const documentHeight = () => {
 window.addEventListener("resize", documentHeight);
 documentHeight();*/
 
+/*
+function isZooming(){
+    var newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
+    if(newPx_ratio != px_ratio){
+        px_ratio = newPx_ratio;
+        console.log("zooming");
+        return true;
+    }else{
+        console.log("just resizing");
+        return false;
+    }
+}*/
+
+// for zoom detection
+var px_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
+
 window.addEventListener("resize", function(e) {
-    op.zoom = !op.b.f ? Math.round((window.outerWidth / window.innerWidth) * dev.z) : Math.round(Number((Number(getCookie("maxHeight")) / window.innerHeight).toFixed(2)) * dev.z); // FIREFOX follows a different strategy (cookie-based, initial user settings)
-    var w = dev.z / dev.z,
-        zOff = (op.zoom / dev.z) - w,
-        zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
-    if (!approxNum(op.zoom, dev.z)) { // if potential new zoom reference is NOT default (Zoom resizing)
 
-        var pE = eR.p,
-            p = errorPrecedence("z", eR.p, eR.a);
-        if (!eR.s || (eR.s && p !== false && p !== undefined)) {
+    var newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
+    if (newPx_ratio != px_ratio) {
+        px_ratio = newPx_ratio;
+        console.log("zooming");
 
-            eR.p = "z"; // zoom error
-            op.s = true; // disable scroll
+        op.zoom = !op.b.f ? Math.round((window.outerWidth / window.innerWidth) * dev.z) : Math.round(Number((Number(getCookie("maxHeight")) / window.innerHeight).toFixed(2)) * dev.z); // FIREFOX follows a different strategy (cookie-based, initial user settings)
+        var w = dev.z / dev.z,
+            zOff = (op.zoom / dev.z) - w,
+            zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
+        if (!approxNum(op.zoom, dev.z)) { // if potential new zoom reference is NOT default (Zoom resizing)
 
-            eR.m.style.transform = "scale(" + zScale + ")"; // use scale transformation techniques to display text with respect to browser zoom
-            op.zoomUndefault = true;
+            var pE = eR.p,
+                p = errorPrecedence("z", eR.p, eR.a);
+            if (!eR.s || (eR.s && p !== false && p !== undefined)) {
 
-            e_Fd(disp, true); // hide page
-            if (op.ne.w) { // if network slow
-                eR_t.z.classList.remove("d_n"); // display error small text
-            } else {
-                if (!eR_t.z.classList.contains("d_n")) {
-                    eR_t.z.classList.add("d_n"); // display error small text
+                eR.p = "z"; // zoom error
+                op.s = true; // disable scroll
+
+                eR.m.style.transform = "scale(" + zScale + ")"; // use scale transformation techniques to display text with respect to browser zoom
+                op.zoomUndefault = true;
+
+                e_Fd(disp, true); // hide page
+                if (op.ne.w) { // if network slow
+                    eR_t.z.classList.remove("d_n"); // display error small text
+                } else {
+                    if (!eR_t.z.classList.contains("d_n")) {
+                        eR_t.z.classList.add("d_n"); // display error small text
+                    }
                 }
-            }
-            eR.m.classList.remove("d_n"); // display error_main
-            eR.z.classList.remove("d_n"); // display message
+                eR.m.classList.remove("d_n"); // display error_main
+                eR.z.classList.remove("d_n"); // display message
 
-            if (eR.s && p) {
-                e_Fd(eR[pE], true);  // hide previous error message
+                if (eR.s && p) {
+                    e_Fd(eR[pE], true);  // hide previous error message
+                    setTimeout(function() {
+                        eR[pE].classList.add("d_n"); // display message
+                    }, op.t);
+                } 
+                eR.s = true;
+
                 setTimeout(function() {
-                    eR[pE].classList.add("d_n"); // display message
-                }, op.t);
-            } 
-            eR.s = true;
+                    e_Fd(eR.z, false);  // show message
+                }, 10);   
+                
+                disabledEventGlobal(e); // possible event stoppage
 
-            setTimeout(function() {
-                e_Fd(eR.z, false);  // show message
-            }, 10);   
+                setTimeout(function() { // timeout
+                    window.stop(); // stop all network resource(s) fetching
+                    clearInterval(_Ld); // stop loading process
+                    clearInterval(op.ne.L); // clear network check loop
+
+                    checkOnlineStatus_abort.abort(); // abort any existing fetching
+                    estimateNetworkSpeed_abort.abort();
+                }, op.te);
+            }
             
-            disabledEventGlobal(e); // possible event stoppage
+        } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && eR.h) { // zoom undefaulted, then defaulted
 
-            setTimeout(function() { // timeout
-                window.stop(); // stop all network resource(s) fetching
-                clearInterval(_Ld); // stop loading process
-                clearInterval(op.ne.L); // clear network check loop
+            if (!op.ne.w) { // proceed only with fast networks
+                reL(); // reload page if error at initial
+                eR_t.z.classList.add("md");
+                eR_t.z.innerHTML = "loading..."; // change text status
+            }
 
-                checkOnlineStatus_abort.abort(); // abort any existing fetching
-                estimateNetworkSpeed_abort.abort();
-            }, op.te);
+        } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) { // zoom undefaulted
+            
+            op.s = false; // enable scroll
+
+            eR.m.style.transform = "scale(1)"; // reset text transformation
+            op.zoomUndefault = false;
+
+            e_Fd(eR.z, true);  // hide message
+            e_Fd(disp, false); // show page
+            setTimeout(function() {
+                eR.m.classList.add("d_n"); // hide error_main
+                eR.z.classList.add("d_n"); 
+                eR.s = false;
+                eR.p = "";
+            }, op.t);  
+
+        }/* else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
+
+            // REMOVE POSSIBILITY OF ORIENTATION CHANGE RELOAD!
+
+            wH = window.outerHeight; // update on window size variables
+            wD = window.outerWidth; 
+            cH = document.documentElement.clientHeight;
+            // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
+            setCookie("windowResize", true, op.c.t);
+            // reL(); // reload page
+        }*/
+
+        return true;
+
+    } else {
+        console.log("just resizing");
+
+        if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
+
+            // REMOVE POSSIBILITY OF ORIENTATION CHANGE RELOAD!
+
+            wH = window.outerHeight; // update on window size variables
+            wD = window.outerWidth; 
+            cH = document.documentElement.clientHeight;
+            // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
+            setCookie("windowResize", true, op.c.t);
+            // reL(); // reload page
         }
-        
-    } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && eR.h) { // zoom undefaulted, then defaulted
 
-        if (!op.ne.w) { // proceed only with fast networks
-            reL(); // reload page if error at initial
-            eR_t.z.classList.add("md");
-            eR_t.z.innerHTML = "loading..."; // change text status
-        }
-
-    } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) { // zoom undefaulted
-        
-        op.s = false; // enable scroll
-
-        eR.m.style.transform = "scale(1)"; // reset text transformation
-        op.zoomUndefault = false;
-
-        e_Fd(eR.z, true);  // hide message
-        e_Fd(disp, false); // show page
-        setTimeout(function() {
-            eR.m.classList.add("d_n"); // hide error_main
-            eR.z.classList.add("d_n"); 
-            eR.s = false;
-            eR.p = "";
-        }, op.t);  
-
-    } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
-
-        // REMOVE POSSIBILITY OF ORIENTATION CHANGE RELOAD!
-
-        wH = window.outerHeight; // update on window size variables
-        wD = window.outerWidth; 
-        cH = document.documentElement.clientHeight;
-        // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
-        setCookie("windowResize", true, op.c.t);
-        // reL(); // reload page
+        return false;
     }
 });
 
