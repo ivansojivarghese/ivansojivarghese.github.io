@@ -69,6 +69,10 @@ var disp = document.getElementById("display_sc"), // display
         },
         m : document.getElementById("error_sc"), // main
         z : document.getElementById("error_z"), // zoom
+        z_e : { // zoom, extension (if applicable)
+            h : document.getElementById("error_z_h"), // header
+            s : document.getElementById("error_z_s") // span
+        },
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd"), // landscape
@@ -812,6 +816,12 @@ function load_css() { // load up CSS (common)
     } else if (vw.mB_L && !vw.z_S) { // landscape, small
         rL.dt.style.transform = "translateX(-50%) translateY(-100%)";
     }
+
+    if (op.b.f) { // if FIREFOX browser
+        eR.z_e.h.innerHTML = "<span class='em'>zooming</span> is unpermitted";
+        eR.z_e.s.innerHTML = "";
+    }
+
     /*
     if (op.b.f) {
         pg.cond.el.classList.add("h-fp");
