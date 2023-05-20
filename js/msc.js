@@ -1656,7 +1656,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         }, 10);
     } else if (wiH >= 500) {
 
-        // from phablet to tablet, desktop, etc.
+        // from tablet to phablet, etc.
 
         // make modifications if needed
 
