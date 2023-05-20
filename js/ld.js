@@ -243,6 +243,8 @@ function docRead() {
 
                                     checkOnlineStatus_abort.abort(); // abort any existing fetching
                                     estimateNetworkSpeed_abort.abort();
+
+                                    rL.i = true;
                                 }, op.te);
 
                             } else if (op.n === false && !rL.r_s) { // if network offline
@@ -297,6 +299,8 @@ function docRead() {
                 
                                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                                         estimateNetworkSpeed_abort.abort();
+
+                                        rL.i = true;
                                     }, op.te);
                                 }
                             }
@@ -378,6 +382,8 @@ function docRead() {
                                     estimateNetworkSpeed_abort.abort();
 
                                     setCookie("networkReload", null, -1); // delete cookie variable
+
+                                    rL.i = true;
                                 }, op.te);
                             }
 
@@ -446,6 +452,8 @@ function docRead() {
 
                                     checkOnlineStatus_abort.abort(); // abort any existing fetching
                                     estimateNetworkSpeed_abort.abort();
+
+                                    rL.i = true;
                                 }, op.te);
                             }
                             /*
@@ -494,6 +502,8 @@ function docRead() {
                                     estimateNetworkSpeed_abort.abort();
 
                                     setCookie("networkReload", null, -1); // delete cookie variable
+
+                                    rL.i = true;
                                 }, op.te);
 
                             } else {
@@ -539,6 +549,8 @@ function docRead() {
 
                                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                                         estimateNetworkSpeed_abort.abort();
+
+                                        rL.i = true;
                                     }, op.te);
                                 }
                             }
@@ -625,6 +637,8 @@ function docRead() {
 
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
+
+                rL.i = true;
             }
         break;
     }
@@ -636,6 +650,8 @@ function load_e() { // end the loading sequence
 
             rL.i_s = true;
             rL.r_s = false;
+
+            // rL.i = true;
 
             if (svg.t) {
                 c_rep(rL.n, ["wifi_find_img", "wifi_img", "wifi_slow_img", "wifi_off_img"], "timeout_img");
@@ -671,6 +687,8 @@ function load_e() { // end the loading sequence
 
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
+
+                rL.i = true;
             }, op.te);
 
         } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
@@ -704,6 +722,8 @@ function load_e() { // end the loading sequence
                         rL.dt.classList.add("md"); // load_dot to red
                         e_Fd(rL.dt, false); // show load dot (in red)
 
+                        // rL.i = true;
+
                         if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
                             rL.n.classList.add("timeout_img");
                             rL.xc.innerHTML = "timeout";
@@ -721,9 +741,13 @@ function load_e() { // end the loading sequence
 
                             checkOnlineStatus_abort.abort(); // abort any existing fetching
                             estimateNetworkSpeed_abort.abort();
+
+                            rL.i = true;
                         }, op.te);
 
                     } else if (eR.h && (eR.h === eR.p)) { // if error is detected
+
+                        // rL.i = true;
 
                         if (eR[eR.h].classList.contains("d_n")) {
                             eR.m.classList.remove("d_n");
@@ -738,12 +762,15 @@ function load_e() { // end the loading sequence
 
                             checkOnlineStatus_abort.abort(); // abort any existing fetching
                             estimateNetworkSpeed_abort.abort();
+
+                            rL.i = true;
                         }, op.te);
 
                     } else {
                         disp.classList.remove("d_n"); // show the page
                         setTimeout(function() {
                             e_Fd(disp, false);  
+                            // rL.i = true;
                             if (op.c.u) { // if cookie-use accepted
                                 load_eN(); // complete any due tasks (page-specific)
                                 scr_t(true, null); // enable scrolling
@@ -802,6 +829,8 @@ function load_e() { // end the loading sequence
 
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
+
+                rL.i = true;
             }, op.te);
         }
     }
