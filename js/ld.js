@@ -830,7 +830,7 @@ function load_e() { // end the loading sequence
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
 
-                rL.i = true;
+                // rL.i = true;
             }, op.te);
         }
     }
