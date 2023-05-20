@@ -1665,11 +1665,14 @@ screen.orientation.addEventListener("change", function() {
     wiH = window.innerHeight
     
     if (wiH < 500) {
+        vw.mB_L = true;
         eR.m.classList.remove("d_n");
         e_Fd(disp, true);
         setTimeout(function() {
             e_Fd(eR.ld, false);
         }, 10);
+    } else {
+        vw.mB_L = false;
     }
 });
 
