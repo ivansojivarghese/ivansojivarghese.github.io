@@ -1646,11 +1646,11 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    if (!rL.ld_e.x2) {
+    if (!eR.ld_e.x2) {
 
-        rL.ld_e.x2 = true;
+        eR.ld_e.x2 = true;
         setTimeout(function() {
-            rL.ld_e.x2 = false;
+            eR.ld_e.x2 = false;
         }, op.t);
 
         if (screen.orientation.angle == 0) {
