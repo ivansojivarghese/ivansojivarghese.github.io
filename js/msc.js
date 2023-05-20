@@ -1645,17 +1645,17 @@ window.addEventListener("resize", function(e) {
 });
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
-
+    /*
     wH = window.outerHeight; // update on window size variables
     wD = window.outerWidth; 
     cH = document.documentElement.clientHeight;
 
     wiD = window.innerWidth;
     wiH = window.innerHeight
-
+    */
     console.log(screen.orientation.angle);
     
-    if (wiH < 500) { // show error on mobile landscape
+    if (wiD < 500) { // show error on mobile landscape
         vw.mB_L = true;
         eR.m.classList.remove("d_n");
         e_Fd(disp, true);
