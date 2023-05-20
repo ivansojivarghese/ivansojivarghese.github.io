@@ -1654,7 +1654,7 @@ window.addEventListener("resize", function(e) {
     }
 });
 
-screen.orientation.addEventListener("change", function() {
+screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 	console.log('Current orientation is ' + screen.orientation.type);
 
     wH = window.outerHeight; // update on window size variables
@@ -1664,14 +1664,14 @@ screen.orientation.addEventListener("change", function() {
     wiD = window.innerWidth;
     wiH = window.innerHeight
     
-    if (wiH < 500) {
+    if (wiH < 500) { // show error on mobile landscape
         vw.mB_L = true;
         eR.m.classList.remove("d_n");
         e_Fd(disp, true);
         setTimeout(function() {
             e_Fd(eR.ld, false);
         }, 10);
-    } else {
+    } else if (wiD < 500) {
         vw.mB_L = false;
     }
 });
