@@ -525,6 +525,10 @@ a.md, span.md {
 
 /* ------------- */
 
+.v_n {
+    visibility: hidden;
+}
+
 .d_n, .phablet, .desktop { /*display control*/
     display: none;
 }
