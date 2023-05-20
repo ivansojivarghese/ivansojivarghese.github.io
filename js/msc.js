@@ -1648,6 +1648,11 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
     if (!rL.ld_e.x2) {
 
+        rL.ld_e.x2 = true;
+        setTimeout(function() {
+            rL.ld_e.x2 = false;
+        }, op.t);
+
         if (screen.orientation.angle == 0) {
             if (wiH < 500 && eR.ld_e.x && screen.orientation.angle == 0) { // if loaded on this error
 
