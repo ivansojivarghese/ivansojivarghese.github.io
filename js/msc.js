@@ -1646,6 +1646,8 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
+    console.log("orient");
+
     if (rL.i) {
         if (!eR.ld_e.x2) {
 
