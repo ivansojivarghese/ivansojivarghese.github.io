@@ -1673,24 +1673,8 @@ screen.orientation.addEventListener("change", function() {
     }
 });
 
-/*
-window.addEventListener("orientationchange", function() {
-    // pg.sc.m.classList.add("d_n"); // remove page from display during orientation change (for slow networks)
-
-    wiD = window.innerWidth;
-    wiH = window.innerHeight;
-    
-    if (wiH < 500) {
-        eR.m.classList.remove("d_n");
-        e_Fd(disp, true);
-        setTimeout(function() {
-            e_Fd(eR.ld, false);
-        }, 10);
-    }
-
-});*/
-
 //////////////////////////////////////////
+
 /*
 window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
     if (document.hidden) {
