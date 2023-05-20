@@ -1726,7 +1726,33 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         }
     } else {
 
-        // SHOW BLANK SCREEN (in mobile landscape)
+        if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
+            if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
+
+                scr_t(false, null); // disable scrolling
+                op.s = true;
+                eR.s = true;
+                eR.p = "ld";
+
+                vw.mB_L = true; // set variable
+
+                disp.classList.add("z_Os");
+                e_Fd(disp, true); // fade main display out
+                eR.m.classList.remove("d_n");
+                eR.ld.classList.remove("d_n");
+
+                setTimeout(function() {
+                    e_Fd(eR.ld, false); // fade in error
+                }, op.t);
+
+            } else if (wiD >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
+
+                // from phablet to tablet, desktop, etc.
+
+                // make modifications if needed
+
+            }
+        }
     }
 });
 
