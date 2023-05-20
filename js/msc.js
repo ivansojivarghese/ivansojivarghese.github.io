@@ -1654,6 +1654,11 @@ window.addEventListener("resize", function(e) {
     }
 });
 
+screen.orientation.addEventListener('change', function() {
+	console.log('Current orientation is ' + screen.orientation.type);
+});
+
+/*
 window.addEventListener("orientationchange", function() {
     // pg.sc.m.classList.add("d_n"); // remove page from display during orientation change (for slow networks)
 
@@ -1668,7 +1673,7 @@ window.addEventListener("orientationchange", function() {
         }, 10);
     }
 
-});
+});*/
 
 //////////////////////////////////////////
 /*
