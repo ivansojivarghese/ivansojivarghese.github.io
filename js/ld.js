@@ -792,6 +792,7 @@ function load_e() { // end the loading sequence
                     load_jscss_N(); // load js/css (common), after page load
 
                     rL.i = true; // page fully loaded
+                    
                 }, op.t); // give time for opacity .trs to completely hide element
             }, op.te - op.t);
             rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
