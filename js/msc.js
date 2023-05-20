@@ -1753,6 +1753,15 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             }
         }
+
+        setTimeout(function() {
+            wH = window.outerHeight; // update on window size variables
+            wD = window.outerWidth; 
+            cH = document.documentElement.clientHeight;
+
+            wiD = window.innerWidth;
+            wiH = window.innerHeight;
+        }, 10);
     }
 });
 
