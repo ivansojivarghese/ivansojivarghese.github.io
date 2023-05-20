@@ -1650,15 +1650,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
         vw.mB_L = false;
 
+        eR.m.classList.add("d_n");
+        eR.ld.classList.add("d_n");
         e_Fd(eR.ld, true); // fade error out
         disp.classList.remove("d_n");
+
         setTimeout(function() {
-
-            eR.m.classList.add("d_n");
-            eR.ld.classList.add("d_n");
-
             e_Fd(disp, false); // fade in display
-
             scr_t(true, null); // enable scrolling
             op.s = false;
         }, op.t);
