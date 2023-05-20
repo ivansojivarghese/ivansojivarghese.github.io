@@ -1678,11 +1678,12 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
         vw.mB_L = true; // set variable
 
+        disp.classList.add("d_n");
         e_Fd(disp, true); // fade main display out
         eR.m.classList.remove("d_n");
         eR.ld.classList.remove("d_n");
+
         setTimeout(function() {
-            disp.classList.add("d_n");
             e_Fd(eR.ld, false); // fade in error
         }, op.t);
 
