@@ -1643,6 +1643,24 @@ window.addEventListener("resize", function(e) {
 });
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
+
+    if (wiH < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
+        scr_t(false, null); // disable scrolling
+        op.s = true;
+        vw.mB_L = true;
+        eR.m.classList.remove("d_n");
+        eR.ld.classList.remove("d_n");
+        disp.classList.add("d_n");
+        setTimeout(function() {
+            e_Fd(eR.ld, false);
+        }, 10);
+    } else if (wiH >= 500) {
+
+        // from phablet to tablet, desktop, etc.
+
+        // make modifications if needed
+
+    }
     
     if (wiD < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
         scr_t(false, null); // disable scrolling
