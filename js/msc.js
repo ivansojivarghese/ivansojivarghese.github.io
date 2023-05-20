@@ -1646,7 +1646,7 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    if (!rL.ld.x2) {
+    if (!rL.ld_e.x2) {
 
         if (screen.orientation.angle == 0) {
             if (wiH < 500 && eR.ld_e.x && screen.orientation.angle == 0) { // if loaded on this error
