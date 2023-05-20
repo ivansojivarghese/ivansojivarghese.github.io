@@ -1646,61 +1646,65 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    if (wiH < 500 && screen.orientation.angle == 90 && eR.ld_e.x) { // if loaded on this error
+    if (screen.orientation.angle == 90) {
+        if (wiH < 500 && eR.ld_e.x) { // if loaded on this error
 
-        eR.m.classList.add("d_n");
-        eR.ld.classList.add("d_n");
-        reL(); // reload to portrait
+            eR.m.classList.add("d_n");
+            eR.ld.classList.add("d_n");
+            reL(); // reload to portrait
 
-    } else if (wiH < 500 && screen.orientation.angle == 90) { // remove error on mobile portrait (from landscape to portrait)
+        } else if (wiH < 500) { // remove error on mobile portrait (from landscape to portrait)
 
-        vw.mB_L = false;
-        eR.s = false;
-        eR.p = "";
+            vw.mB_L = false;
+            eR.s = false;
+            eR.p = "";
 
-        eR.m.classList.add("d_n");
-        eR.ld.classList.add("d_n");
-        e_Fd(eR.ld, true); // fade error out
-        disp.classList.remove("z_Os");
+            eR.m.classList.add("d_n");
+            eR.ld.classList.add("d_n");
+            e_Fd(eR.ld, true); // fade error out
+            disp.classList.remove("z_Os");
 
-        setTimeout(function() {
-            e_Fd(disp, false); // fade in display
-            scr_t(true, null); // enable scrolling
-            op.s = false;
-        }, op.t);
+            setTimeout(function() {
+                e_Fd(disp, false); // fade in display
+                scr_t(true, null); // enable scrolling
+                op.s = false;
+            }, op.t);
 
-    } else if (wiH >= 500) {
+        } else if (wiH >= 500) {
 
-        // from tablet to phablet, etc.
+            // from tablet to phablet, etc.
 
-        // make modifications if needed
+            // make modifications if needed
 
+        }
     }
     
-    if (wiD < 500 && screen.orientation.angle == 0) { // show error on mobile landscape (mobile portrait to mobile landscape)
+    if (screen.orientation.angle == 0) {
+        if (wiD < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
 
-        scr_t(false, null); // disable scrolling
-        op.s = true;
-        eR.s = true;
-        eR.p = "ld";
+            scr_t(false, null); // disable scrolling
+            op.s = true;
+            eR.s = true;
+            eR.p = "ld";
 
-        vw.mB_L = true; // set variable
+            vw.mB_L = true; // set variable
 
-        disp.classList.add("z_Os");
-        e_Fd(disp, true); // fade main display out
-        eR.m.classList.remove("d_n");
-        eR.ld.classList.remove("d_n");
+            disp.classList.add("z_Os");
+            e_Fd(disp, true); // fade main display out
+            eR.m.classList.remove("d_n");
+            eR.ld.classList.remove("d_n");
 
-        setTimeout(function() {
-            e_Fd(eR.ld, false); // fade in error
-        }, op.t);
+            setTimeout(function() {
+                e_Fd(eR.ld, false); // fade in error
+            }, op.t);
 
-    } else if (wiD >= 500) {
+        } else if (wiD >= 500) {
 
-        // from phablet to tablet, desktop, etc.
+            // from phablet to tablet, desktop, etc.
 
-        // make modifications if needed
+            // make modifications if needed
 
+        }
     }
 
     setTimeout(function() {
