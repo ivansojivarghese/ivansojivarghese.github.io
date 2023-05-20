@@ -1657,12 +1657,12 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     if (wiD < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
         vw.mB_L = true;
         eR.m.classList.remove("d_n");
+        eR.ld.classList.remove("d_n");
         disp.classList.add("d_n");
         setTimeout(function() {
             e_Fd(eR.ld, false);
         }, 10);
     } else if (wiD >= 500) {
-        // vw.mB_L = false;
 
         // from phablet to tablet, desktop, etc.
 
