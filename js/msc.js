@@ -1644,15 +1644,15 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    if (wiH < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
+    if (wiH < 500) { // remove error on mobile portrait 
         vw.mB_L = false;
         eR.m.classList.add("d_n");
         eR.ld.classList.add("d_n");
         disp.classList.remove("d_n");
         setTimeout(function() {
             e_Fd(disp, false);
-            scr_t(false, null); // disable scrolling
-            op.s = true;
+            scr_t(true, null); // enable scrolling
+            op.s = false;
         }, 10);
     } else if (wiH >= 500) {
 
