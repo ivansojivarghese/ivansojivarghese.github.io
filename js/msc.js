@@ -1648,6 +1648,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
     if (wiH < 500 && eR.ld_e.x) { // if loaded on this error
 
+        eR.m.classList.add("d_n");
+        eR.ld.classList.add("d_n");
         reL(); // reload
 
     } else if (wiH < 500) { // remove error on mobile portrait (from landscape to portrait)
