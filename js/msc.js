@@ -1666,12 +1666,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         scr_t(false, null); // disable scrolling
         op.s = true;
         vw.mB_L = true;
+        e_Fd(disp, true);
         eR.m.classList.remove("d_n");
         eR.ld.classList.remove("d_n");
         setTimeout(function() {
-            disp.classList.add("d_n", "z_O");
+            disp.classList.add("d_n");
             e_Fd(eR.ld, false);
-        }, 10);
+        }, op.t);
     } else if (wiD >= 500) {
 
         // from phablet to tablet, desktop, etc.
