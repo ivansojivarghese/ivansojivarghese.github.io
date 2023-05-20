@@ -1669,7 +1669,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         eR.m.classList.remove("d_n");
         eR.ld.classList.remove("d_n");
         setTimeout(function() {
-            disp.classList.add("d_n z_O");
+            disp.classList.add("d_n", "z_O");
             e_Fd(eR.ld, false);
         }, 10);
     } else if (wiD >= 500) {
