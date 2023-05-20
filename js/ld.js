@@ -76,6 +76,9 @@ var disp = document.getElementById("display_sc"), // display
         vs : document.getElementById("error_vs"), // viewport - small
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd"), // landscape
+        ld_e : { // extension
+            x : false // execution
+        },
         ck : document.getElementById("error_cke"), // cookies
         mt : document.getElementById("error_mt") // maintenance
     },
@@ -977,6 +980,7 @@ function errorCheck() { // check for errors
     } else if (vw.z_S) { // if viewport size is too small
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
+        eR.ld_e.x = true;
         eR.h = "vL";
     } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.h = "ld";
