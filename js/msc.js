@@ -1649,6 +1649,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     if (wiH < 500) { // remove error on mobile portrait (from landscape to portrait)
 
         vw.mB_L = false;
+        eR.s = false;
+        eR.p = "";
 
         eR.m.classList.add("d_n");
         eR.ld.classList.add("d_n");
@@ -1673,6 +1675,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
         scr_t(false, null); // disable scrolling
         op.s = true;
+        eR.s = true;
+        eR.p = "ld";
 
         vw.mB_L = true; // set variable
 
