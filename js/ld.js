@@ -980,9 +980,9 @@ function errorCheck() { // check for errors
     } else if (vw.z_S) { // if viewport size is too small
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
-        eR.ld_e.x = true;
         eR.h = "vL";
     } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
+        eR.ld_e.x = true;
         eR.h = "ld";
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         eR.h = "ck";
