@@ -244,7 +244,7 @@ function docRead() {
                                     checkOnlineStatus_abort.abort(); // abort any existing fetching
                                     estimateNetworkSpeed_abort.abort();
 
-                                    rL.i = true;
+                                    // rL.i = true;
                                 }, op.te);
 
                             } else if (op.n === false && !rL.r_s) { // if network offline
@@ -300,7 +300,7 @@ function docRead() {
                                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                                         estimateNetworkSpeed_abort.abort();
 
-                                        rL.i = true;
+                                        // rL.i = true;
                                     }, op.te);
                                 }
                             }
@@ -383,7 +383,7 @@ function docRead() {
 
                                     setCookie("networkReload", null, -1); // delete cookie variable
 
-                                    rL.i = true;
+                                    // rL.i = true;
                                 }, op.te);
                             }
 
@@ -453,7 +453,7 @@ function docRead() {
                                     checkOnlineStatus_abort.abort(); // abort any existing fetching
                                     estimateNetworkSpeed_abort.abort();
 
-                                    rL.i = true;
+                                    // rL.i = true;
                                 }, op.te);
                             }
                             /*
@@ -503,7 +503,7 @@ function docRead() {
 
                                     setCookie("networkReload", null, -1); // delete cookie variable
 
-                                    rL.i = true;
+                                    // rL.i = true;
                                 }, op.te);
 
                             } else {
@@ -550,7 +550,7 @@ function docRead() {
                                         checkOnlineStatus_abort.abort(); // abort any existing fetching
                                         estimateNetworkSpeed_abort.abort();
 
-                                        rL.i = true;
+                                        // rL.i = true;
                                     }, op.te);
                                 }
                             }
@@ -638,7 +638,7 @@ function docRead() {
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
 
-                rL.i = true;
+                // rL.i = true;
             }
         break;
     }
@@ -688,7 +688,7 @@ function load_e() { // end the loading sequence
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
 
-                rL.i = true;
+                // rL.i = true;
             }, op.te);
 
         } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
@@ -742,7 +742,7 @@ function load_e() { // end the loading sequence
                             checkOnlineStatus_abort.abort(); // abort any existing fetching
                             estimateNetworkSpeed_abort.abort();
 
-                            rL.i = true;
+                            // rL.i = true;
                         }, op.te);
 
                     } else if (eR.h && (eR.h === eR.p)) { // if error is detected
@@ -763,7 +763,7 @@ function load_e() { // end the loading sequence
                             checkOnlineStatus_abort.abort(); // abort any existing fetching
                             estimateNetworkSpeed_abort.abort();
 
-                            rL.i = true;
+                            // rL.i = true;
                         }, op.te);
 
                     } else {
