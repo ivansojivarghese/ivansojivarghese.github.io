@@ -1633,11 +1633,7 @@ window.addEventListener("resize", function(e) {
     } else {
         console.log("just resizing");
 
-        if (wiH === window.innerWidth && wiD === window.innerHeight) {
-
-            console.log("orientation change");
-
-        } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
+        if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
             // REMOVE POSSIBILITY OF ORIENTATION CHANGE RELOAD!
 
