@@ -1656,6 +1656,21 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener('change', function() {
 	console.log('Current orientation is ' + screen.orientation.type);
+
+    wH = window.outerHeight; // update on window size variables
+    wD = window.outerWidth; 
+    cH = document.documentElement.clientHeight;
+
+    wiD = window.innerWidth;
+    wiH = window.innerHeight
+    
+    if (wiH < 500) {
+        eR.m.classList.remove("d_n");
+        e_Fd(disp, true);
+        setTimeout(function() {
+            e_Fd(eR.ld, false);
+        }, 10);
+    }
 });
 
 /*
