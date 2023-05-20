@@ -1653,14 +1653,14 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             eR.ld_e.x2 = false;
         }, op.t);
 
-        if (screen.orientation.angle == 0) {
-            if (wiH < 500 && eR.ld_e.x && screen.orientation.angle == 0) { // if loaded on this error
+        if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
+            if (wiH < 500 && eR.ld_e.x && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
 
                 eR.m.classList.add("d_n");
                 eR.ld.classList.add("d_n");
                 reL(); // reload to portrait
 
-            } else if (wiH < 500 && screen.orientation.angle == 0) { // remove error on mobile portrait (from landscape to portrait)
+            } else if (wiH < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
 
                 vw.mB_L = false;
                 eR.s = false;
@@ -1677,7 +1677,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     op.s = false;
                 }, op.t);
 
-            } else if (wiH >= 500 && screen.orientation.angle == 0) {
+            } else if (wiH >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
 
                 // from tablet to phablet, etc.
 
@@ -1686,8 +1686,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
         }
         
-        if (screen.orientation.angle == 90) {
-            if (wiD < 500 && screen.orientation.angle == 90) { // show error on mobile landscape (mobile portrait to mobile landscape)
+        if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
+            if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
 
                 scr_t(false, null); // disable scrolling
                 op.s = true;
@@ -1705,7 +1705,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     e_Fd(eR.ld, false); // fade in error
                 }, op.t);
 
-            } else if (wiD >= 500 && screen.orientation.angle == 90) {
+            } else if (wiD >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
 
                 // from phablet to tablet, desktop, etc.
 
