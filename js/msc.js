@@ -1645,6 +1645,7 @@ window.addEventListener("resize", function(e) {
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
     
     if (wiD < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
+        scr_t(false, null); // disable scrolling
         vw.mB_L = true;
         eR.m.classList.remove("d_n");
         eR.ld.classList.remove("d_n");
