@@ -7,6 +7,8 @@ var wH = window.outerHeight, // height
     //barHeight = getBd(elementHeight, "height") - wH,
     //barHeightTemp = barHeight, // temp. hold
     wD = window.outerWidth, // width 
+    wiH = window.innerHeight,
+    wiD = window.innerWidth,
     Rd = [], // load-ready - boolean statuses for loading resource elements
     timer = {}, // keep track of timer instances
     dev = {
@@ -1631,7 +1633,7 @@ window.addEventListener("resize", function(e) {
     } else {
         console.log("just resizing");
 
-        if (wH === window.outerWidth && wD === window.outerHeight) {
+        if (wiH === window.innerWidth && wiD === window.innerHeight) {
 
             console.log("orientation change");
 
@@ -1661,6 +1663,7 @@ window.addEventListener("orientationchange", function() {
     setTimeout(function() {
         e_Fd(eR.ld, false);
     }, 10);*/
+
 });
 
 //////////////////////////////////////////
