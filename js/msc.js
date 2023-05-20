@@ -1658,7 +1658,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     if (wiD < 500) { // show error on mobile landscape
         vw.mB_L = true;
         eR.m.classList.remove("d_n");
-        e_Fd(disp, true);
+        disp.classList.add("d_n");
         setTimeout(function() {
             e_Fd(eR.ld, false);
         }, 10);
