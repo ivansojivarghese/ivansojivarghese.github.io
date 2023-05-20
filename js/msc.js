@@ -1726,7 +1726,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         }
     } else {
 
-        // SHOW BLANK SCREEN
+        // SHOW BLANK SCREEN (in mobile landscape)
     }
 });
 
