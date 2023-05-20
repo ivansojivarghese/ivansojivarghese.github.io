@@ -1638,8 +1638,9 @@ window.addEventListener("resize", function(e) {
             wH = window.outerHeight; // update on window size variables
             wD = window.outerWidth; 
             cH = document.documentElement.clientHeight;
-            // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
             setCookie("windowResize", true, op.c.t);
+
+            // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
             // reL(); // reload page
         }
 
