@@ -1644,18 +1644,23 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    if (wiH < 500) { // remove error on mobile portrait 
+    if (wiH < 500) { // remove error on mobile portrait (from landscape to portrait)
+
         vw.mB_L = false;
 
-        eR.m.classList.add("d_n");
-        eR.ld.classList.add("d_n");
+        e_Fd(eR.ld, true); // fade error out
         disp.classList.remove("d_n");
         setTimeout(function() {
+
+            eR.m.classList.add("d_n");
+            eR.ld.classList.add("d_n");
+
             e_Fd(disp, false);
 
             scr_t(true, null); // enable scrolling
             op.s = false;
-        }, 10);
+        }, op.t);
+        
     } else if (wiH >= 500) {
 
         // from tablet to phablet, etc.
@@ -1678,7 +1683,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             disp.classList.add("d_n");
             e_Fd(eR.ld, false); // fade in error
         }, op.t);
-        
+
     } else if (wiD >= 500) {
 
         // from phablet to tablet, desktop, etc.
