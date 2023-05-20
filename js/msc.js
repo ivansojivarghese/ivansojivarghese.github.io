@@ -1653,6 +1653,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
     wiD = window.innerWidth;
     wiH = window.innerHeight
+
+    console.log(screen.orientation.angle);
     
     if (wiH < 500) { // show error on mobile landscape
         vw.mB_L = true;
