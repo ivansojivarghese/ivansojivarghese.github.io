@@ -1645,14 +1645,6 @@ window.addEventListener("resize", function(e) {
 });
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
-    /*
-    wH = window.outerHeight; // update on window size variables
-    wD = window.outerWidth; 
-    cH = document.documentElement.clientHeight;
-
-    wiD = window.innerWidth;
-    wiH = window.innerHeight
-    */
     
     if (wiD < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
         vw.mB_L = true;
@@ -1669,6 +1661,15 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         // make modifications if needed
 
     }
+
+    setTimeout(function() {
+        wH = window.outerHeight; // update on window size variables
+        wD = window.outerWidth; 
+        cH = document.documentElement.clientHeight;
+
+        wiD = window.innerWidth;
+        wiH = window.innerHeight;
+    }, 10);
 });
 
 //////////////////////////////////////////
