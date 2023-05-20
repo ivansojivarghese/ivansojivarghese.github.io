@@ -1646,7 +1646,11 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    if (wiH < 500) { // remove error on mobile portrait (from landscape to portrait)
+    if (wiH < 500 && firstTime) {
+
+        reL(); // reload
+
+    } else if (wiH < 500) { // remove error on mobile portrait (from landscape to portrait)
 
         vw.mB_L = false;
         eR.s = false;
