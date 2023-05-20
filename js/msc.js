@@ -1646,11 +1646,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
     if (wiH < 500) { // remove error on mobile portrait 
         vw.mB_L = false;
+
         eR.m.classList.add("d_n");
         eR.ld.classList.add("d_n");
         disp.classList.remove("d_n");
         setTimeout(function() {
             e_Fd(disp, false);
+
             scr_t(true, null); // enable scrolling
             op.s = false;
         }, 10);
@@ -1663,16 +1665,20 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     }
     
     if (wiD < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
+
         scr_t(false, null); // disable scrolling
         op.s = true;
-        vw.mB_L = true;
-        e_Fd(disp, true);
+
+        vw.mB_L = true; // set variable
+
+        e_Fd(disp, true); // fade main display out
         eR.m.classList.remove("d_n");
         eR.ld.classList.remove("d_n");
         setTimeout(function() {
             disp.classList.add("d_n");
-            e_Fd(eR.ld, false);
+            e_Fd(eR.ld, false); // fade in error
         }, op.t);
+        
     } else if (wiD >= 500) {
 
         // from phablet to tablet, desktop, etc.
