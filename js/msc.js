@@ -1552,7 +1552,8 @@ window.addEventListener("resize", function(e) {
             if (!eR.s || (eR.s && p !== false && p !== undefined)) {
 
                 eR.p = "z"; // zoom error
-                op.s = true; // disable scroll
+                scr_t(false, null); // disable scrolling
+                op.s = true;
 
                 eR.m.style.transform = "scale(" + zScale + ")"; // use scale transformation techniques to display text with respect to browser zoom
                 op.zoomUndefault = true;
@@ -1602,7 +1603,8 @@ window.addEventListener("resize", function(e) {
 
         } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) { // zoom undefaulted
             
-            op.s = false; // enable scroll
+            scr_t(true, null); // enable scrolling
+            op.s = false;
 
             eR.m.style.transform = "scale(1)"; // reset text transformation
             op.zoomUndefault = false;
