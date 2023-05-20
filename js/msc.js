@@ -1631,7 +1631,11 @@ window.addEventListener("resize", function(e) {
     } else {
         console.log("just resizing");
 
-        if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
+        if (wH === window.outerWidth && wD === window.outerHeight) {
+
+            console.log("orientation change");
+
+        } else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
             // REMOVE POSSIBILITY OF ORIENTATION CHANGE RELOAD!
 
@@ -1651,11 +1655,12 @@ window.addEventListener("resize", function(e) {
 window.addEventListener("orientationchange", function() {
     // pg.sc.m.classList.add("d_n"); // remove page from display during orientation change (for slow networks)
 
+    /*
     eR.m.classList.remove("d_n");
     e_Fd(disp, true);
     setTimeout(function() {
         e_Fd(eR.ld, false);
-    }, 10);
+    }, 10);*/
 });
 
 //////////////////////////////////////////
