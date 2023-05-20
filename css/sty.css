@@ -249,6 +249,11 @@ div, .tint {
     width: 90%;
 }
 
+.z_Os {
+    opacity: 0 !important;
+    transition-duration: 0s !important;
+}
+
 .z_O, .tint.md { /*zero opacity*/
     opacity: 0 !important;
 }

@@ -1661,7 +1661,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         eR.m.classList.add("d_n");
         eR.ld.classList.add("d_n");
         e_Fd(eR.ld, true); // fade error out
-        disp.classList.remove("v_n");
+        disp.classList.remove("z_Os");
 
         setTimeout(function() {
             e_Fd(disp, false); // fade in display
@@ -1686,7 +1686,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
         vw.mB_L = true; // set variable
 
-        disp.classList.add("v_n");
+        disp.classList.add("z_Os");
         e_Fd(disp, true); // fade main display out
         eR.m.classList.remove("d_n");
         eR.ld.classList.remove("d_n");
