@@ -1653,17 +1653,21 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     wiD = window.innerWidth;
     wiH = window.innerHeight
     */
-    console.log(screen.orientation.angle);
     
-    if (wiD < 500) { // show error on mobile landscape
+    if (wiD < 500) { // show error on mobile landscape (mobile portrait to mobile landscape)
         vw.mB_L = true;
         eR.m.classList.remove("d_n");
         disp.classList.add("d_n");
         setTimeout(function() {
             e_Fd(eR.ld, false);
         }, 10);
-    } else if (wiD < 500) {
-        vw.mB_L = false;
+    } else if (wiD >= 500) {
+        // vw.mB_L = false;
+
+        // from phablet to tablet, desktop, etc.
+
+        // make modifications if needed
+
     }
 });
 
