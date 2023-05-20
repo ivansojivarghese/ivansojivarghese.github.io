@@ -77,7 +77,8 @@ var disp = document.getElementById("display_sc"), // display
         vL : document.getElementById("error_vL"), // viewport - large
         ld : document.getElementById("error_lnd"), // landscape
         ld_e : { // extension
-            x : false // execution
+            x : false, // execution
+            x2 : false
         },
         ck : document.getElementById("error_cke"), // cookies
         mt : document.getElementById("error_mt") // maintenance
