@@ -1654,7 +1654,7 @@ window.addEventListener("resize", function(e) {
     }
 });
 
-screen.orientation.addEventListener('change', function() {
+screen.orientation.addEventListener("change", function() {
 	console.log('Current orientation is ' + screen.orientation.type);
 
     wH = window.outerHeight; // update on window size variables
