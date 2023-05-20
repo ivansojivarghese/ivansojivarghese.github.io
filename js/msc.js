@@ -1655,12 +1655,12 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             eR.m.classList.add("d_n");
             eR.ld.classList.add("d_n");
 
-            e_Fd(disp, false);
+            e_Fd(disp, false); // fade in display
 
             scr_t(true, null); // enable scrolling
             op.s = false;
         }, op.t);
-        
+
     } else if (wiH >= 500) {
 
         // from tablet to phablet, etc.
