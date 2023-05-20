@@ -1616,17 +1616,7 @@ window.addEventListener("resize", function(e) {
                 eR.p = "";
             }, op.t);  
 
-        }/* else if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing)
-
-            // REMOVE POSSIBILITY OF ORIENTATION CHANGE RELOAD!
-
-            wH = window.outerHeight; // update on window size variables
-            wD = window.outerWidth; 
-            cH = document.documentElement.clientHeight;
-            // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
-            setCookie("windowResize", true, op.c.t);
-            // reL(); // reload page
-        }*/
+        }
 
         return true;
 
