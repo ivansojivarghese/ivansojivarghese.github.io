@@ -1645,7 +1645,7 @@ window.addEventListener("resize", function(e) {
 });
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
-	console.log('Current orientation is ' + screen.orientation.type);
+	// console.log('Current orientation is ' + screen.orientation.type);
 
     wH = window.outerHeight; // update on window size variables
     wD = window.outerWidth; 
