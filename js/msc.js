@@ -1625,8 +1625,6 @@ window.addEventListener("resize", function(e) {
 
         if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
-            // REMOVE POSSIBILITY OF ORIENTATION CHANGE RELOAD!
-
             wH = window.outerHeight; // update on window size variables
             wD = window.outerWidth; 
             cH = document.documentElement.clientHeight;
