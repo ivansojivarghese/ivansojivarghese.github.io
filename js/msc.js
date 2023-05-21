@@ -1648,17 +1648,18 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
     console.log("orient");
 
-    wH = window.outerHeight; // update on window size variables
-    wD = window.outerWidth; 
-    cH = document.documentElement.clientHeight;
-
-    wiD = window.innerWidth;
-    wiH = window.innerHeight;
-
     eR.m.classList.add("d_n");
     disp.classList.add("z_Os");
 
     setTimeout(function() {
+
+        wH = window.outerHeight; // update on window size variables
+        wD = window.outerWidth; 
+        cH = document.documentElement.clientHeight;
+
+        wiD = window.innerWidth;
+        wiH = window.innerHeight;
+
 
         if (rL.i) {
 
@@ -1777,7 +1778,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }, 10);*/
         }
 
-    }, op.t);
+    }, 10);
 });
 
 //////////////////////////////////////////
