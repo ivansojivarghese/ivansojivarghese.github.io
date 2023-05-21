@@ -1648,122 +1648,129 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
     console.log("orient");
 
-    if (rL.i) {
+    eR.m.classList.add("d_n");
+    disp.classList.add("z_Os");
 
-        if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
+    setTimeout(function() {
 
-            console.log("lands. to po.");
+        if (rL.i) {
 
-            if (wiH < 500 && eR.ld_e.x && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
+            if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
 
-                eR.m.classList.add("d_n");
-                eR.ld.classList.add("d_n");
-                reL(); // reload to portrait
+                console.log("lands. to po.");
 
-            } else if (wiH < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
+                if (wiH < 500 && eR.ld_e.x && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
 
-                vw.mB_L = false;
-                eR.s = false;
-                eR.p = "";
+                    eR.m.classList.add("d_n");
+                    eR.ld.classList.add("d_n");
+                    reL(); // reload to portrait
 
-                eR.m.classList.add("d_n");
-                eR.ld.classList.add("d_n");
-                e_Fd(eR.ld, true); // fade error out
-                disp.classList.remove("z_Os");
+                } else if (wiH < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
 
-                setTimeout(function() {
-                    e_Fd(disp, false); // fade in display
-                    scr_t(true, null); // enable scrolling
-                    op.s = false;
-                }, op.t);
+                    vw.mB_L = false;
+                    eR.s = false;
+                    eR.p = "";
 
-            } else if (wiH >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
+                    eR.m.classList.add("d_n");
+                    eR.ld.classList.add("d_n");
+                    e_Fd(eR.ld, true); // fade error out
+                    disp.classList.remove("z_Os");
 
-                // from tablet to phablet, etc.
+                    setTimeout(function() {
+                        e_Fd(disp, false); // fade in display
+                        scr_t(true, null); // enable scrolling
+                        op.s = false;
+                    }, op.t);
 
-                // make modifications if needed
+                } else if (wiH >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
 
+                    // from tablet to phablet, etc.
+
+                    // make modifications if needed
+
+                }
             }
+            
+            if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
+                if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
+
+                    console.log("po. to lands.");
+
+                    scr_t(false, null); // disable scrolling
+                    op.s = true;
+                    eR.s = true;
+                    eR.p = "ld";
+
+                    vw.mB_L = true; // set variable
+
+                    disp.classList.add("z_Os");
+                    e_Fd(disp, true); // fade main display out
+                    eR.m.classList.remove("d_n");
+                    eR.ld.classList.remove("d_n");
+
+                    setTimeout(function() {
+                        e_Fd(eR.ld, false); // fade in error
+                    }, op.t);
+
+                } else if (wiD >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
+
+                    // from phablet to tablet, desktop, etc.
+
+                    // make modifications if needed
+
+                }
+            }
+
+            setTimeout(function() {
+                wH = window.outerHeight; // update on window size variables
+                wD = window.outerWidth; 
+                cH = document.documentElement.clientHeight;
+
+                wiD = window.innerWidth;
+                wiH = window.innerHeight;
+            }, 10);
+
+        } else {
+
+            if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
+                if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
+
+                    scr_t(false, null); // disable scrolling
+                    op.s = true;
+                    eR.s = true;
+                    eR.p = "ld";
+
+                    vw.mB_L = true; // set variable
+
+                    disp.classList.add("z_Os");
+                    e_Fd(disp, true); // fade main display out
+                    eR.m.classList.remove("d_n");
+                    eR.ld.classList.remove("d_n");
+
+                    setTimeout(function() {
+                        e_Fd(eR.ld, false); // fade in error
+                    }, op.t);
+
+                } else if (wiD >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
+
+                    // from phablet to tablet, desktop, etc.
+
+                    // make modifications if needed
+
+                }
+            }
+
+            setTimeout(function() {
+                wH = window.outerHeight; // update on window size variables
+                wD = window.outerWidth; 
+                cH = document.documentElement.clientHeight;
+
+                wiD = window.innerWidth;
+                wiH = window.innerHeight;
+            }, 10);
         }
         
-        if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
-            if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
-
-                console.log("po. to lands.");
-
-                scr_t(false, null); // disable scrolling
-                op.s = true;
-                eR.s = true;
-                eR.p = "ld";
-
-                vw.mB_L = true; // set variable
-
-                disp.classList.add("z_Os");
-                e_Fd(disp, true); // fade main display out
-                eR.m.classList.remove("d_n");
-                eR.ld.classList.remove("d_n");
-
-                setTimeout(function() {
-                    e_Fd(eR.ld, false); // fade in error
-                }, op.t);
-
-            } else if (wiD >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
-
-                // from phablet to tablet, desktop, etc.
-
-                // make modifications if needed
-
-            }
-        }
-
-        setTimeout(function() {
-            wH = window.outerHeight; // update on window size variables
-            wD = window.outerWidth; 
-            cH = document.documentElement.clientHeight;
-
-            wiD = window.innerWidth;
-            wiH = window.innerHeight;
-        }, 10);
-
-    } else {
-
-        if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
-            if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
-
-                scr_t(false, null); // disable scrolling
-                op.s = true;
-                eR.s = true;
-                eR.p = "ld";
-
-                vw.mB_L = true; // set variable
-
-                disp.classList.add("z_Os");
-                e_Fd(disp, true); // fade main display out
-                eR.m.classList.remove("d_n");
-                eR.ld.classList.remove("d_n");
-
-                setTimeout(function() {
-                    e_Fd(eR.ld, false); // fade in error
-                }, op.t);
-
-            } else if (wiD >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
-
-                // from phablet to tablet, desktop, etc.
-
-                // make modifications if needed
-
-            }
-        }
-
-        setTimeout(function() {
-            wH = window.outerHeight; // update on window size variables
-            wD = window.outerWidth; 
-            cH = document.documentElement.clientHeight;
-
-            wiD = window.innerWidth;
-            wiH = window.innerHeight;
-        }, 10);
-    }
+    }, 10);
 });
 
 //////////////////////////////////////////
