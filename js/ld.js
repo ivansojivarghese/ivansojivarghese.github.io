@@ -768,7 +768,7 @@ function load_e() { // end the loading sequence
             }, op.te - op.t);
             rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
 
-        } else if (!op.ne.x4 && (!getCookie("testCookie") || !vw.mB_L || !vw.z_S || !op.zoomDefault)) {
+        } else if (!op.ne.x4 && (getCookie("testCookie") || vw.mB_L || vw.z_S || op.zoomDefault)) {
 
             countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
             rL.s = true; // page loaded
