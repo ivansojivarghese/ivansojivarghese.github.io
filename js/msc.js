@@ -1646,8 +1646,6 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    console.log("orient");
-
     eR.m.classList.add("d_n");
     disp.classList.add("z_Os");
 
@@ -1664,7 +1662,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
 
-                console.log("lands. to po.");
 
                 if (wiD < 500 && eR.ld_e.x && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
 
@@ -1700,8 +1697,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             
             if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
                 if (wiH < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
-
-                    console.log("po. to lands.");
 
                     scr_t(false, null); // disable scrolling
                     op.s = true;
