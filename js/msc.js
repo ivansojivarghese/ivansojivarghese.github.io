@@ -1658,7 +1658,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         wiD = window.innerWidth;
         wiH = window.innerHeight;
 
-        if (rL.i) {
+        if (rL.i) { // if page had loaded?
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
 
@@ -1722,7 +1722,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-        } else {
+        } /*else {
 
             if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
                 if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
@@ -1751,7 +1751,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-        }
+        } */
+        
     }, 10);
 });
 
