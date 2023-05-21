@@ -1657,6 +1657,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }, op.t);
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
+
+                console.log("lands. to po.");
+
                 if (wiH < 500 && eR.ld_e.x && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
 
                     eR.m.classList.add("d_n");
@@ -1691,6 +1694,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             
             if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
                 if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
+
+                    console.log("po. to lands.");
 
                     scr_t(false, null); // disable scrolling
                     op.s = true;
