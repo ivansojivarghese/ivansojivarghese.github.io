@@ -1660,20 +1660,19 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         wiD = window.innerWidth;
         wiH = window.innerHeight;
 
-
         if (rL.i) {
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
 
                 console.log("lands. to po.");
 
-                if (wiH < 500 && eR.ld_e.x && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
+                if (wiD < 500 && eR.ld_e.x && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
 
                     eR.m.classList.add("d_n");
                     eR.ld.classList.add("d_n");
                     reL(); // reload to portrait
 
-                } else if (wiH < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
+                } else if (wiD < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
 
                     vw.mB_L = false;
                     eR.s = false;
@@ -1690,7 +1689,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         op.s = false;
                     }, op.t);
 
-                } else if (wiH >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
+                } else if (wiD >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
 
                     // from tablet to phablet, etc.
 
@@ -1700,7 +1699,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
             
             if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
-                if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
+                if (wiH < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
 
                     console.log("po. to lands.");
 
@@ -1720,7 +1719,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         e_Fd(eR.ld, false); // fade in error
                     }, op.t);
 
-                } else if (wiD >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
+                } else if (wiH >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
 
                     // from phablet to tablet, desktop, etc.
 
