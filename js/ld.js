@@ -599,7 +599,7 @@ function docRead() {
                             rL.e5 = false; // fix - if code block had executed unwantedly, but network speed remains optimal.
                         }
                     } else {
-                        if (!op.ne.x4) {
+                        if (!op.ne.x4) { // if cookies disabled
                             countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
                             rL.s = true; // page loaded
                             op.ne.x4 = true;
@@ -607,7 +607,7 @@ function docRead() {
                         }
                     }
                 } else {
-                    if (!op.ne.x4) {
+                    if (!op.ne.x4) { // if error (visual)
                         countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
                         rL.s = true; // page loaded
                         op.ne.x4 = true;
