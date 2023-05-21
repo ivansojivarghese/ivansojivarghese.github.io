@@ -106,9 +106,9 @@ function docRead() {
             }
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!devError) {
-                if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668 BELOW! @load_e function condition 2)
+                if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668, 771 BELOW! @load_e function condition 2)
                     setCookie("testCookie", "true"); // set a test cookie
-                    if (getCookie("testCookie")) { // check for cookies
+                    if (getCookie("testCookie")) { // check for cookies, // UPDATE AT LINE 771 BELOW!
                         if (!rL.e) { // ensure once execution
                             if (!rL.e2) { 
                                 setCookie("windowResize", false, op.c.t);
@@ -768,7 +768,7 @@ function load_e() { // end the loading sequence
             }, op.te - op.t);
             rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
 
-        } else if (!op.ne.x4) {
+        } else if (!op.ne.x4 && (!getCookie("testCookie") || !vw.mB_L || !vw.z_S || !op.zoomDefault)) {
 
             countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
             rL.s = true; // page loaded
