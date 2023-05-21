@@ -1727,16 +1727,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-            /*
-            setTimeout(function() {
-                wH = window.outerHeight; // update on window size variables
-                wD = window.outerWidth; 
-                cH = document.documentElement.clientHeight;
-
-                wiD = window.innerWidth;
-                wiH = window.innerHeight;
-            }, 10);
-            */
         } else {
 
             if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
@@ -1766,17 +1756,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-            /*
-            setTimeout(function() {
-                wH = window.outerHeight; // update on window size variables
-                wD = window.outerWidth; 
-                cH = document.documentElement.clientHeight;
-
-                wiD = window.innerWidth;
-                wiH = window.innerHeight;
-            }, 10);*/
         }
-
     }, 10);
 });
 
