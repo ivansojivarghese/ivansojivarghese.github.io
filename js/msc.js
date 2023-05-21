@@ -1777,7 +1777,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }, 10);*/
         }
 
-    }, 10);
+    }, op.t);
 });
 
 //////////////////////////////////////////
