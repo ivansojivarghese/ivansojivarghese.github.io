@@ -1730,7 +1730,11 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                 wiD = window.innerWidth;
                 wiH = window.innerHeight;
             }, 10);
-        }
+        
+        } else {
+
+            console.log("middle");
+        } 
     } else {
 
         if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
