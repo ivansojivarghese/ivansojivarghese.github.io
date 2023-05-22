@@ -1672,6 +1672,7 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
+    rL.el.classList.add("d_n");
     eR.m.classList.add("d_n");
     disp.classList.add("z_Os");
 
