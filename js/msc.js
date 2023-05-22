@@ -118,7 +118,7 @@ const refresh = () => {
         setTimeout(refresh, 10000);
     }
 }
-setTimeout(refresh, 10000);
+setTimeout(refresh, 10000); //
 
 
 function renderTime() { 
