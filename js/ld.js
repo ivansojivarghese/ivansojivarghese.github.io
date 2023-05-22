@@ -713,14 +713,14 @@ function load_e() { // end the loading sequence
                 if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t))) {
                     rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
                 }
-                if (!cacheEnabled || aborted) {
-                    rL.el.classList.add("d_n");
-                }
                 // er_C(); // check for errors
 
                 setTimeout(function() {
                     if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t))) {
                         rL.el.classList.add("d_n"); // remove loader from display
+                    }
+                    if (!cacheEnabled || aborted) {
+                        rL.r.classList.add("d_n");
                     }
 
                     rL.r.classList.add("aniM-p"); // stop animation in the rings
