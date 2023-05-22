@@ -1690,10 +1690,14 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
 
 
-                if (wiD < 500 && eR.ld_e.x && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
+                if (wiD < 500 && (eR.ld_e.x || rL.o_c) && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
 
                     eR.m.classList.add("d_n");
-                    eR.ld.classList.add("d_n");
+                    if (!rL.o_c) {
+                        eR.ld.classList.add("d_n");
+                    } else {
+                        eR.or.classList.add("d_n");
+                    }
                     reL(); // reload to portrait
 
                 } else if (wiD < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
