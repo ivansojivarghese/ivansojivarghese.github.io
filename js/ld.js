@@ -721,7 +721,7 @@ function load_e() { // end the loading sequence
                     if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t))) {
                         rL.el.classList.add("d_n"); // remove loader from display
                     }
-                    if (!cacheEnabled || aborted) {
+                    if ((!cacheEnabled || aborted) && eR.s) {
                         rL.r.classList.add("d_n"); // hide rings
                         rL.dt.classList.remove("d_n"); // show dot
                     }
@@ -730,7 +730,7 @@ function load_e() { // end the loading sequence
                     rL.p.classList.add("aniM-p");
                     rL.c.classList.add("aniM-p");
 
-                    if (op.ne.t0_5s || (!op.c.e && (op.Ld.dom > op.Ld.t)) || !cacheEnabled || aborted) { // timeout 0.5 | UPDATE LINE 716 ABOVE!
+                    if (op.ne.t0_5s || (!op.c.e && (op.Ld.dom > op.Ld.t)) || ((!cacheEnabled || aborted) && eR.s)) { // timeout 0.5 | UPDATE LINE 716 ABOVE!
 
                         rL.el.classList.remove("d_n"); // show loader
                         rL.el.classList.remove("z_O"); 
