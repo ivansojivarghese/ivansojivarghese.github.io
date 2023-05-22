@@ -1707,7 +1707,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     eR.p = "";
 
                     eR.m.classList.add("d_n");
-                    if (!rL.o_c) {
+                    if (aborted || !cacheEnabled) { // show load
+                        rL.el.classList.remove("d_n");
+                    } else if (!rL.o_c) {
                         eR.ld.classList.add("d_n");
                         e_Fd(eR.ld, true); // fade error out
                     } else {
