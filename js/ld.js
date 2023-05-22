@@ -716,7 +716,7 @@ function load_e() { // end the loading sequence
                 // er_C(); // check for errors
 
                 setTimeout(function() {
-                    if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t))) {
+                    if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t)) || !cacheEnabled) {
                         rL.el.classList.add("d_n"); // remove loader from display
                     }
 
