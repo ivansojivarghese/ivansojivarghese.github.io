@@ -720,7 +720,8 @@ function load_e() { // end the loading sequence
                         rL.el.classList.add("d_n"); // remove loader from display
                     }
                     if (!cacheEnabled || aborted) {
-                        rL.r.classList.add("d_n");
+                        rL.r.classList.add("d_n"); // hide rings
+                        rL.dt.classList.remove("d_n"); // show dot
                     }
 
                     rL.r.classList.add("aniM-p"); // stop animation in the rings
