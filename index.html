@@ -258,6 +258,7 @@
                 this.addEventListener("DOMContentLoaded", preloadImages, true);
  
                 var cacheEnabled = true; // default, assumed true
+                var aborted = false; // check if resource fails to fetch
                 var timeout = 15000; // default timeout
                 var loadedImages = 0;
                 var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png");
@@ -280,16 +281,20 @@
                                             }).then((response) => {
                                                 tempImage.src = window.location.href + imageArray[i];
                                                 clearTimeout(id);
-                                            }).catch((error) => {
-                                                console.log(error);
+                                                return true;
+                                            }).catch((error) => {   
                                                 if (error.match(/TypeError/g)) { // typeerror
-                                                    cacheEnabled = false;
+                                                    return false;
                                                 } else if (error.match(/AbortError/g)) { // aborterror
-
-                                                    // abort error
-
+                                                    return null;
                                                 }
                                             });
+
+                        if (result === false) {
+                            cacheEnabled = result;
+                        } else if (result === null) {
+                            aborted = true;
+                        }
                     }
                 }
                 
