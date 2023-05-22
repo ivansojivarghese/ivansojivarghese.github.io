@@ -100,6 +100,26 @@ function renderCallback() {
     console.log("render");
 }*/
 
+
+// CODE REFERENCED FROM: https://javascript.plainenglish.io/how-to-automatically-reload-a-page-after-a-given-period-of-inactivity-in-javascript-991d632d1f80
+// BY John Au-Yeung, 2021
+
+let time = new Date().getTime();
+const setActivityTime = (e) => {
+    time = new Date().getTime();
+}
+document.body.addEventListener("mousemove", setActivityTime);
+document.body.addEventListener("keypress", setActivityTime);
+const refresh = () => {
+    if (new Date().getTime() - time >= 60000) {
+        reL();
+    } else {
+        setTimeout(refresh, 10000);
+    }
+}
+setTimeout(refresh, 10000);
+
+
 function renderTime() { 
     var n = op.d.getTime(),
         t = n - performance.timing.navigationStart; 

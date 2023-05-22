@@ -13,27 +13,7 @@
                 j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
                 f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-KRQX2NV');
-        </script>
-        <script>
-
-            // CODE REFERENCED FROM: https://javascript.plainenglish.io/how-to-automatically-reload-a-page-after-a-given-period-of-inactivity-in-javascript-991d632d1f80
-            // BY John Au-Yeung, 2021
-
-            let time = new Date().getTime();
-            const setActivityTime = (e) => {
-                time = new Date().getTime();
-            }
-            document.body.addEventListener("mousemove", setActivityTime);
-            document.body.addEventListener("keypress", setActivityTime);
-            const refresh = () => {
-                if (new Date().getTime() - time >= 60000) {
-                    reL();
-                } else {
-                    setTimeout(refresh, 10000);
-                }
-            }
-            setTimeout(refresh, 10000);
-        </script>   
+        </script> 
         <script>
 
             var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
