@@ -253,24 +253,35 @@
 
                 // image(s) preloading
                 // CODE REFERENCED FROM kirupa.com
+                // ADDITIONAL MODS REFERENCED FROM Dmitri Pavlutin
 
                 this.addEventListener("DOMContentLoaded", preloadImages, true);
  
                 var cacheEnabled = true; // default, assumed true
+                var timeout = 15000; // default timeout
                 var loadedImages = 0;
                 var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png");
                 
                 async function preloadImages(e) { // pre-load heavy images
+
                     for (var i = 0; i < imageArray.length; i++) {
                         var tempImage = new Image();
                         tempImage.addEventListener("load", trackProgress, true);
 
+                        const controller = new AbortController(); // abort controller for fetch
+                        const id = setTimeout(function() { 
+                            controller.abort()
+                        }, timeout);
+
                         const result = await fetch(window.location.href + imageArray[i], {
                                                 cache: "only-if-cached",
-                                                mode: "same-origin"
+                                                mode: "same-origin",
+                                                signal: controller.signal
                                             }).then((response) => {
                                                 tempImage.src = window.location.href + imageArray[i];
+                                                clearTimeout(id);
                                             }).catch((error) => {
+                                                console.log(error);
                                                 cacheEnabled = false;
                                             });
                     }

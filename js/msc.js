@@ -215,7 +215,7 @@ op = {
         c : op.Ld.c,
         dom : 0, // 'domcontentloaded'
         a : 0, // 'load'
-        t : 15000 // threshold for timeout (general)
+        t : timeout // threshold for timeout (general)
     },
     nav : { // navigation
         d : document.referrer, // check for previous URI
