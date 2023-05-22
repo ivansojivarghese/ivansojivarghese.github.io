@@ -1768,20 +1768,27 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
         } else if (!rL.o_c) { // if page not loaded (or preloading)
 
-            c_css(".err", "margin-top: 0;", false, null); // style tag
-            rL.o_c = true;
+            if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+                c_css(".err", "margin-top: 0;", false, null); // style tag
+                rL.o_c = true;
 
-            scr_t(false, null); // disable scrolling
-            op.s = true;
+                scr_t(false, null); // disable scrolling
+                op.s = true;
 
-            eR.m.classList.remove("d_n");
-            eR.or.classList.remove("d_n");
-            setTimeout(function() {
-                e_Fd(eR.or, false);
-            }, 10);
+                eR.m.classList.remove("d_n");
+                eR.or.classList.remove("d_n");
+                setTimeout(function() {
+                    e_Fd(eR.or, false);
+                }, 10);
 
-            eR.s = true;
-            eR.p = "or";
+                eR.s = true;
+                eR.p = "or";
+
+            } else {
+
+                
+
+            }
 
             setTimeout(function() {
                 window.stop(); // stop all network resource(s) fetching
@@ -1791,40 +1798,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
             }, op.te);
-
         }
-        
-        /*else {
-
-            if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
-                if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
-
-                    scr_t(false, null); // disable scrolling
-                    op.s = true;
-                    eR.s = true;
-                    eR.p = "ld";
-
-                    vw.mB_L = true; // set variable
-
-                    disp.classList.add("z_Os");
-                    e_Fd(disp, true); // fade main display out
-                    eR.m.classList.remove("d_n");
-                    eR.ld.classList.remove("d_n");
-
-                    setTimeout(function() {
-                        e_Fd(eR.ld, false); // fade in error
-                    }, op.t);
-
-                } else if (wiD >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
-
-                    // from phablet to tablet, desktop, etc.
-
-                    // make modifications if needed
-
-                }
-            }
-        } */
-        
     }, op.t);
 });
 
