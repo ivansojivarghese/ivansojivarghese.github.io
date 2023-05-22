@@ -742,7 +742,8 @@ function load_e() { // end the loading sequence
 
                         if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
                             if (!cacheEnabled) {
-
+                                rL.n.classList.add("cache_img");
+                                rL.xc.innerHTML = "enable caching";
                             } else {
                                 rL.n.classList.add("timeout_img");
                                 rL.xc.innerHTML = "timeout";
@@ -753,7 +754,7 @@ function load_e() { // end the loading sequence
                             e_Fd(rL.x, false); // show message 
                         } else if (svg.t) {
                             if (!cacheEnabled) {
-                                
+                                rL.n.classList.add("cache_img");
                             } else {
                                 rL.n.classList.add("timeout_img");
                             }

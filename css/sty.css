@@ -794,6 +794,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/timeout.svg");
 }
 
+.cache_img {
+    background-image: url("../svg/cache.svg");
+}
+
 /*
 .wifi_off_w_img {
     background-image: url("../svg/wifi_off_white.svg");
