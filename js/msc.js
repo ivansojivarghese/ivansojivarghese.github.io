@@ -1786,6 +1786,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             } else {
 
+                rL.o_c = true;
                 c_css("#load_C", "margin-top: calc((" + wiH + "px - 8rem) / 2);", false, null);
                 rL.el.classList.remove("d_n");
                 eR.m.classList.add("d_n");
