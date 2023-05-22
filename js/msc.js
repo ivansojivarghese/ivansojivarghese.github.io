@@ -1749,7 +1749,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-        } else { // if page not loaded
+        } else { // if page not loaded (or preloading)
 
             scr_t(false, null); // disable scrolling
             op.s = true;
