@@ -256,6 +256,7 @@
 
                 this.addEventListener("DOMContentLoaded", preloadImages, true);
  
+                var cacheEnabled = true; // default, assumed true
                 var loadedImages = 0;
                 var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png");
                 
@@ -270,9 +271,7 @@
                                             }).then((response) => {
                                                 tempImage.src = window.location.href + imageArray[i];
                                             }).catch((error) => {
-                                                
-                                                // variable
-
+                                                cacheEnabled = false;
                                             });
                     }
                 }
