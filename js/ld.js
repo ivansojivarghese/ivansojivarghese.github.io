@@ -79,6 +79,7 @@ var disp = document.getElementById("display_sc"), // display
         ld_e : { // extension
             x : false // execution
         },
+        or : document.getElementById("error_or"), // orientation change
         ck : document.getElementById("error_cke"), // cookies
         mt : document.getElementById("error_mt") // maintenance
     },
@@ -1038,7 +1039,7 @@ function load_e() { // page load end
 
 function errorCheck() { // check for errors
 
-    eR.a = ["mt", "ck", "ld", "vL", "vs", "z"]; // error precedence array, UPDATE WHEN NEEDED!!
+    eR.a = ["mt", "ck", "or", "ld", "vL", "vs", "z"]; // error precedence array, UPDATE WHEN NEEDED!!
     
     if (op.zoomDefault) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
