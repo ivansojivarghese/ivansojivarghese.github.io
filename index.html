@@ -252,13 +252,14 @@
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
 
                 // image(s) preloading
+                // CODE REFERENCED FROM kirupa.com
 
                 this.addEventListener("DOMContentLoaded", preloadImages, true);
  
                 var loadedImages = 0;
                 var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png");
                 
-                async function preloadImages(e) {
+                async function preloadImages(e) { // pre-load heavy images
                     for (var i = 0; i < imageArray.length; i++) {
                         var tempImage = new Image();
                         tempImage.addEventListener("load", trackProgress, true);
@@ -270,15 +271,14 @@
                                                 tempImage.src = window.location.href + imageArray[i];
                                             }).catch((error) => {
                                                 
-                                                console.log("error");
+                                                // variable
+
                                             });
                     }
                 }
                 
                 function trackProgress() {
                     loadedImages++;
-                    
-                    console.log("image: " + loadedImages);
 
                     if (loadedImages == imageArray.length) {
                         imagesLoaded();
@@ -287,7 +287,7 @@
 
                 function imagesLoaded() {
                     // do something
-                    console.log("images loaded");
+
                 }
         </script>
         <!-- End Google Tag Manager -->
