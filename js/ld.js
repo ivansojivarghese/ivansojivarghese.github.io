@@ -224,6 +224,12 @@ function docRead() {
                                 // op.nc = false;
                                 op.ne.s = 0;
 
+                                rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                    changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                                    rL.xea.style.transform = "rotate(0deg)";
+                                }
+
                                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
                                     if (getCookie("networkReload") === "true" || (op.Ld.b && op.ne.w)) {
                                         rL.xc.innerHTML = "cancelled";
@@ -289,6 +295,13 @@ function docRead() {
                                         rL.xc.innerHTML = "";
                                     }
 
+                                    op.ne.s = 0;
+                                    rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                                    if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                        changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                                        rL.xea.style.transform = "rotate(0deg)";
+                                    }
+
                                     setTimeout(function() {
                                         window.stop(); // stop all network resource(s) fetching
                                         clearInterval(_Ld); // stop loading process
@@ -350,6 +363,11 @@ function docRead() {
                                 op.ne.w = false;
 
                                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+
+                                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                    changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                                    rL.xea.style.transform = "rotate(0deg)";
+                                }
 
                                 c_rep(rL.dt, "e", "md"); // set dot to red
                                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
@@ -465,6 +483,11 @@ function docRead() {
                                 op.ne.w = false;
 
                                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+
+                                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                    changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                                    rL.xea.style.transform = "rotate(0deg)";
+                                }
 
                                 c_rep(rL.dt, "e", "md"); // set dot to red
                                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
@@ -636,6 +659,13 @@ function load_e() { // end the loading sequence
             rL.i_s = true;
             rL.r_s = false;
 
+            op.ne.s = 0;
+            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+            if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                rL.xea.style.transform = "rotate(0deg)";
+            }
+
             if (svg.t) {
                 c_rep(rL.n, ["wifi_find_img", "wifi_img", "wifi_slow_img", "wifi_off_img"], "timeout_img");
             }
@@ -702,6 +732,13 @@ function load_e() { // end the loading sequence
                         rL.dt.classList.add("aniM-f"); 
                         rL.dt.classList.add("md"); // load_dot to red
                         e_Fd(rL.dt, false); // show load dot (in red)
+
+                        op.ne.s = 0;
+                        rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                        if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                            changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                            rL.xea.style.transform = "rotate(0deg)";
+                        }
 
                         if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
                             rL.n.classList.add("timeout_img");
@@ -783,6 +820,13 @@ function load_e() { // end the loading sequence
             rL.dt.classList.add("aniM-f"); 
             rL.dt.classList.add("md"); // load_dot to red
             e_Fd(rL.dt, false); // show load dot (in red)
+
+            op.ne.s = 0;
+            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+            if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                rL.xea.style.transform = "rotate(0deg)";
+            }
 
             if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
                 rL.n.classList.add("timeout_img");
