@@ -1749,11 +1749,17 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-        } else {
+        } else { // if page not loaded
+
+            scr_t(false, null); // disable scrolling
+            op.s = true;
 
             eR.m.classList.remove("d_n");
             eR.or.classList.remove("d_n");
             e_Fd(eR.or, false);
+
+            eR.s = true;
+            eR.p = "or";
 
         }
         
