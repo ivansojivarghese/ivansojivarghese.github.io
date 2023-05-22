@@ -274,7 +274,7 @@
                         tempImage.addEventListener("load", trackProgress, true);
 
                         const result = await fetch(window.location.href + imageArray[i], {
-                                                cache: "only-if-cached"
+                                                cache: "no-store"
                                             }).then((response) => {
                                                 tempImage.src = window.location.href + imageArray[i];
                                             }).catch((error) => {
