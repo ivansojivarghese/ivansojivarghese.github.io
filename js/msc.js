@@ -1749,7 +1749,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-        } /*else {
+        } else {
+
+            
+
+        }
+        
+        /*else {
 
             if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
                 if (wiD < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
