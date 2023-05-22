@@ -278,13 +278,15 @@
                                                 mode: "same-origin",
                                                 signal: controller.signal
                                             }).then((response) => {
-                                                tempImage.src = window.location.href + "a" + imageArray[i];
+                                                tempImage.src = window.location.href + imageArray[i];
                                                 clearTimeout(id);
                                             }).catch((error) => {
                                                 console.log(error);
                                                 if (error.match(/TypeError/g)) { // typeerror
                                                     cacheEnabled = false;
                                                 } else if (error.match(/AbortError/g)) { // aborterror
+
+                                                    // abort error
 
                                                 }
                                             });
