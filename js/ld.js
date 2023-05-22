@@ -745,7 +745,10 @@ function load_e() { // end the loading sequence
                         }
 
                         if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
-                            if (!cacheEnabled) {
+                            if (aborted) {
+                                rL.n.classList.add("abort_img");
+                                rL.xc.innerHTML = "aborted";
+                            } else if (!cacheEnabled) {
                                 rL.n.classList.add("cache_img");
                                 rL.xc.innerHTML = "enable caching";
                             } else {
@@ -757,7 +760,9 @@ function load_e() { // end the loading sequence
                             e_Fd(rL.n, false); // show icon 
                             e_Fd(rL.x, false); // show message 
                         } else if (svg.t) {
-                            if (!cacheEnabled) {
+                            if (aborted) {
+                                rL.n.classList.add("abort_img");
+                            } else if (!cacheEnabled) {
                                 rL.n.classList.add("cache_img");
                             } else {
                                 rL.n.classList.add("timeout_img");
