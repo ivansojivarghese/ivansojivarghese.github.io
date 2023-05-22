@@ -261,19 +261,25 @@
                 },
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
 
-                // image(s) preload
+                // image(s) preloading
 
                 this.addEventListener("DOMContentLoaded", preloadImages, true);
  
                 var loadedImages = 0;
                 var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png");
                 
-                function preloadImages(e) {
+                async function preloadImages(e) {
                     for (var i = 0; i < imageArray.length; i++) {
                         var tempImage = new Image();
-                        
                         tempImage.addEventListener("load", trackProgress, true);
-                        tempImage.src = window.location.href + imageArray[i];
+
+                        const result = await fetch(window.location.href + imageArray[i], {
+                                                cache: "force-cache"
+                                            }).then((response) => {
+                                                tempImage.src = window.location.href + imageArray[i];
+                                            });
+
+                        // tempImage.src = window.location.href + imageArray[i];
                     }
                 }
                 
