@@ -724,7 +724,7 @@ function load_e() { // end the loading sequence
                     rL.p.classList.add("aniM-p");
                     rL.c.classList.add("aniM-p");
 
-                    if (op.ne.t0_5s || (!op.c.e && (op.Ld.dom > op.Ld.t))) { // timeout 0.5
+                    if (op.ne.t0_5s || (!op.c.e && (op.Ld.dom > op.Ld.t)) || !cacheEnabled) { // timeout 0.5
 
                         rL.el.classList.remove("d_n"); // show loader
                         rL.el.classList.remove("z_O"); 
@@ -741,12 +741,23 @@ function load_e() { // end the loading sequence
                         }
 
                         if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
-                            rL.n.classList.add("timeout_img");
-                            rL.xc.innerHTML = "timeout";
+                            if (!cacheEnabled) {
+
+                            } else {
+                                rL.n.classList.add("timeout_img");
+                                rL.xc.innerHTML = "timeout";
+                            }
+                            // rL.n.classList.add("timeout_img");
+                            // rL.xc.innerHTML = "timeout";
                             e_Fd(rL.n, false); // show icon 
                             e_Fd(rL.x, false); // show message 
                         } else if (svg.t) {
-                            rL.n.classList.add("timeout_img");
+                            if (!cacheEnabled) {
+                                
+                            } else {
+                                rL.n.classList.add("timeout_img");
+                            }
+                            // rL.n.classList.add("timeout_img");
                             e_Fd(rL.n, false); // show icon 
                         }
 
