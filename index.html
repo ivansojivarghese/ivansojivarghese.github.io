@@ -290,9 +290,9 @@
                                                 }
                                             });
 
-                        if (result === false) {
+                        if (result === false) { // cache
                             cacheEnabled = result;
-                        } else if (result === null) {
+                        } else if (result === null) { // fetch fail (timeout)
                             aborted = true;
                         }
                     }
