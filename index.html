@@ -282,7 +282,11 @@
                                                 clearTimeout(id);
                                             }).catch((error) => {
                                                 console.log(error);
-                                                cacheEnabled = false;
+                                                if (error.match(/TypeError/g)) { // typeerror
+                                                    cacheEnabled = false;
+                                                } else if (error.match(/AbortError/g)) { // aborterror
+
+                                                }
                                             });
                     }
                 }
