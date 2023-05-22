@@ -111,7 +111,7 @@ const setActivityTime = (e) => {
 }
 document.body.addEventListener("mousemove", setActivityTime);
 document.body.addEventListener("keypress", setActivityTime);
-document.documentElement.addEventListener("scroll", setActivityTime);
+document.body.addEventListener("scroll", setActivityTime);
 document.body.addEventListener("touchstart", setActivityTime);
 const refresh = () => {
     if (new Date().getTime() - time >= 60000) {
