@@ -28,7 +28,8 @@ var wH = window.outerHeight, // height
             cappuccinosNo : 245
         },
         version : "2.0", // site version
-        version_up : "2.1" // version upgrade (if applicable, during maintenance)
+        version_up : "2.1", // version upgrade (if applicable, during maintenance)
+        v : 1 // max view time (days)
     },
     pos = { // scroll pos. (window)
         y : 0, // y-pos
@@ -200,7 +201,7 @@ op = {
         // uR : false, // "" redirect check
         e : null, // enabled check
         a : null, // user access (inital) check [browser-dependant]
-        t : 1, // default time limit (days)
+        t : dev.v, // default time limit (days)
         x : false // code execution
     },
     Ld : { // load
