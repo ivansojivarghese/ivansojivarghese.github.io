@@ -1793,14 +1793,14 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             }
 
-            setTimeout(function() {
+            // setTimeout(function() {
                 window.stop(); // stop all network resource(s) fetching
                 clearInterval(_Ld); // stop loading process
                 clearInterval(op.ne.L); // clear network check loop
 
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
-            }, op.te);
+            // }, op.te);
         }
     }, op.t);
 });
