@@ -283,9 +283,9 @@
                                                 clearTimeout(id);
                                                 return true;
                                             }).catch((error) => {   
-                                                if (error.match(/TypeError/g)) { // typeerror
+                                                if (error.text().match(/TypeError/g)) { // typeerror
                                                     return false;
-                                                } else if (error.match(/AbortError/g)) { // aborterror
+                                                } else if (error.text().match(/AbortError/g)) { // aborterror
                                                     return null;
                                                 }
                                             });
