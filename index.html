@@ -282,7 +282,8 @@
                                                 tempImage.src = window.location.href + imageArray[i];
                                                 clearTimeout(id);
                                                 return true;
-                                            }).catch((error) => {   
+                                            }).catch((error) => {
+                                                console.log(error);   
                                                 if (error.name.match(/TypeError/g)) { // typeerror
                                                     return false;
                                                 } else if (error.name.match(/AbortError/g)) { // aborterror
