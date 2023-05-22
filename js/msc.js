@@ -1770,7 +1770,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             // var h = wiH
             // c_css(".err", "margin-top: calc((" + h + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // style tag
-            c_css(".err", "margin-top: none;", false, null); // style tag
+            c_css(".err", "margin-top: 0;", false, null); // style tag
             rL.o_c = true;
 
             scr_t(false, null); // disable scrolling
