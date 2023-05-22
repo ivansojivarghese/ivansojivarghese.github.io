@@ -1764,6 +1764,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
         } else if (!something) { // if page not loaded (or preloading)
 
+            var h = wiH
+            c_css(".err", "margin-top: calc((" + h + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // style tag
             something = true;
 
             scr_t(false, null); // disable scrolling
