@@ -1685,7 +1685,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         wiD = window.innerWidth;
         wiH = window.innerHeight;
 
-        if (rL.i && !rL.o_c || rL.o_c && !rL.i) { // if page had loaded?
+        if (rL.i && !rL.o_c || rL.o_c) { // if page had loaded?
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
 
