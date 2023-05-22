@@ -1692,6 +1692,19 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 if (wiD < 500 && (eR.ld_e.x || rL.o_c) && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
 
+                    if (eR.ld_e.x && !rL.o_c) {
+                        eR.or.classList.remove("d_n");
+                        e_Fd(eR.or, false);
+                    } else {
+                        eR.m.classList.add("d_n");
+                        if (!rL.o_c) {
+                            eR.ld.classList.add("d_n");
+                        } else {
+                            eR.or.classList.add("d_n");
+                        }
+                        reL(); // reload to portrait
+                    }
+                    /*
                     eR.m.classList.add("d_n");
                     if (!rL.o_c) {
                         eR.ld.classList.add("d_n");
@@ -1699,6 +1712,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         eR.or.classList.add("d_n");
                     }
                     reL(); // reload to portrait
+                    */
 
                 } else if (wiD < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
 
