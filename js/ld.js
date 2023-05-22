@@ -51,6 +51,7 @@ var disp = document.getElementById("display_sc"), // display
         e3 : false,
         e4 : false,
         e5 : false,
+        o_c : false, // orientation-change check (during load)
         s : false, // int load status
         y : false, // ready (render) load status
         i : false, // full load status

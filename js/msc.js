@@ -1685,7 +1685,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         wiD = window.innerWidth;
         wiH = window.innerHeight;
 
-        if (rL.i && !something || something) { // if page had loaded?
+        if (rL.i && !rL.o_c || rL.o_c) { // if page had loaded?
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
 
@@ -1703,7 +1703,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     eR.p = "";
 
                     eR.m.classList.add("d_n");
-                    if (!something) {
+                    if (!rL.o_c) {
                         eR.ld.classList.add("d_n");
                         e_Fd(eR.ld, true); // fade error out
                     } else {
@@ -1740,14 +1740,14 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     disp.classList.add("z_Os");
                     e_Fd(disp, true); // fade main display out
                     eR.m.classList.remove("d_n");
-                    if (!something) {
+                    if (!rL.o_c) {
                         eR.ld.classList.remove("d_n");
                     } else {
                         eR.or.classList.remove("d_n");
                     }
 
                     setTimeout(function() {
-                        if (!something) {
+                        if (!rL.o_c) {
                             e_Fd(eR.ld, false); // fade in error
                         } else {
                             e_Fd(eR.or, false); // fade in error
@@ -1762,11 +1762,11 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-        } else if (!something) { // if page not loaded (or preloading)
+        } else if (!rL.o_c) { // if page not loaded (or preloading)
 
             var h = wiH
             c_css(".err", "margin-top: calc((" + h + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // style tag
-            something = true;
+            rL.o_c = true;
 
             scr_t(false, null); // disable scrolling
             op.s = true;
