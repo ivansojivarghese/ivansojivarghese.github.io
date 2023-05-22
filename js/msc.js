@@ -1787,8 +1787,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             } else {
 
                 rL.el.classList.remove("d_n");
-                eR.m.classList.remove("d_n");
-                
+                eR.m.classList.add("d_n");
+
             }
 
             setTimeout(function() {
