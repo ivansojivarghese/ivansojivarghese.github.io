@@ -1783,6 +1783,15 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             eR.s = true;
             eR.p = "or";
 
+            setTimeout(function() {
+                window.stop(); // stop all network resource(s) fetching
+                clearInterval(_Ld); // stop loading process
+                clearInterval(op.ne.L); // clear network check loop
+
+                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                estimateNetworkSpeed_abort.abort();
+            }, op.te);
+
         }
         
         /*else {
