@@ -27,7 +27,7 @@
             document.body.addEventListener("keypress", setActivityTime);
             const refresh = () => {
                 if (new Date().getTime() - time >= 60000) {
-                    window.location.reload(true);
+                    reL();
                 } else {
                     setTimeout(refresh, 10000);
                 }

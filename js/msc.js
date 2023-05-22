@@ -545,7 +545,7 @@ completeInterval = setInterval(function() {
 ///////////////////////////////////////
 
 function reL() { // reload page
-    this.location.reload();
+    this.location.reload(true);
     window.location.assign(window.location.href); // FIREFOX support
 }
 
