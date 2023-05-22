@@ -1685,7 +1685,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         wiD = window.innerWidth;
         wiH = window.innerHeight;
 
-        if (rL.i) { // if page had loaded?
+        if (rL.i && !something || something) { // if page had loaded?
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
 
@@ -1703,8 +1703,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     eR.p = "";
 
                     eR.m.classList.add("d_n");
-                    eR.ld.classList.add("d_n");
-                    e_Fd(eR.ld, true); // fade error out
+                    if (!something) {
+                        eR.ld.classList.add("d_n");
+                        e_Fd(eR.ld, true); // fade error out
+                    } else {
+                        eR.or.classList.add("d_n");
+                        e_Fd(eR.or, true); // fade error out
+                    }
                     disp.classList.remove("z_Os");
 
                     setTimeout(function() {
@@ -1735,10 +1740,18 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     disp.classList.add("z_Os");
                     e_Fd(disp, true); // fade main display out
                     eR.m.classList.remove("d_n");
-                    eR.ld.classList.remove("d_n");
+                    if (!something) {
+                        eR.ld.classList.remove("d_n");
+                    } else {
+                        eR.or.classList.remove("d_n");
+                    }
 
                     setTimeout(function() {
-                        e_Fd(eR.ld, false); // fade in error
+                        if (!something) {
+                            e_Fd(eR.ld, false); // fade in error
+                        } else {
+                            e_Fd(eR.or, false); // fade in error
+                        }
                     }, op.t);
 
                 } else if (wiH >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
@@ -1749,7 +1762,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                 }
             }
-        } else { // if page not loaded (or preloading)
+        } else if (!something) { // if page not loaded (or preloading)
+
+            something = true;
 
             scr_t(false, null); // disable scrolling
             op.s = true;
