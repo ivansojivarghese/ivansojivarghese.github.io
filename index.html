@@ -282,13 +282,13 @@
                                                 tempImage.src = window.location.href + imageArray[i];
                                                 clearTimeout(id);
                                                 return true;
-                                            }).catch((error) => {   
+                                            }).catch((error => {   
                                                 if (error.text().match(/TypeError/g)) { // typeerror
                                                     return false;
                                                 } else if (error.text().match(/AbortError/g)) { // aborterror
                                                     return null;
                                                 }
-                                            });
+                                            }));
 
                         if (result === false) { // cache
                             cacheEnabled = result;
