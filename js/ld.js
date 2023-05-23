@@ -1042,7 +1042,7 @@ function errorCheck() { // check for errors
 
     eR.a = ["mt", "ck", "or", "ld", "vL", "vs", "z"]; // error precedence array, UPDATE WHEN NEEDED!!
     
-    if (op.zoomDefault) { // if viewport zoom not defaulted (100%)
+    if (op.zoomDefault && !vw.z_L) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
     } else if (vw.z_S) { // if viewport size is too small
         eR.h = "vs";
