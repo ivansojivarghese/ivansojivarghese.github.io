@@ -1859,7 +1859,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             clearInterval(op.ne.L); // clear network check loop
             checkOnlineStatus_abort.abort(); // abort any existing fetching
             estimateNetworkSpeed_abort.abort();
-            op.n = true;
+            // op.n = true;
             console.log("hidden");
         } else {
             op.ne.L = setInterval(async () => {
