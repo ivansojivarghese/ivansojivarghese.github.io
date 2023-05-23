@@ -1700,10 +1700,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             eR.or.classList.remove("d_n");
                             e_Fd(eR.or, false);
                         } else {
+                            this.location.reload(true);
+                            window.location.assign(window.location.href); // FIREFOX support
+                            /*
                             window.stop();
                             setTimeout(function() {
                                 reL();
-                            }, 10);
+                            }, 10);*/
                         }
                     } else {
                         eR.m.classList.add("d_n");
