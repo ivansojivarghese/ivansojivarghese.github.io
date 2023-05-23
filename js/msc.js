@@ -1729,7 +1729,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                     vw.mB_L = false;
                     eR.s = false;
-                    eR.p = op.c.e ? "" : "ck"; // check for cookies
+                    if (op.c.e) {
+                        eR.p = "ck"; // check for cookies
+                    } else if (op.mt) {
+                        eR.p = "mt"; // check for cookies
+                    } else {
+                        eR.p = "";
+                    }
 
                     if (eR.p) {
                         eR.m.classList.remove("d_n");
