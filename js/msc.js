@@ -1991,6 +1991,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             }
 
             op.ne.L = setInterval(async () => {
+                console.log("function running");
                 networkConditions(); // continuously check on network
             }, op.ne.bD);
 
