@@ -1867,7 +1867,9 @@ window.addEventListener("visibilitychange", function() { // stop network check i
 
             // REFERENCED FROM FUNCTION(S) ABOVE - APPROX. LINE 300
 
-            op.nav.vb = true;
+            setTimeout(function() {
+                op.nav.vb = true;
+            }, op.ne.bD);
 
             const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
             const cos_signal = checkOnlineStatus_abort.signal;
