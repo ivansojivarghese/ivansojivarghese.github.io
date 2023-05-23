@@ -1689,7 +1689,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // landscape to portrait
 
-
                 if (wiD < 500 && (eR.ld_e.x || rL.o_c) && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
 
                     if (eR.ld_e.x && !rL.o_c) {
