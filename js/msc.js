@@ -1858,15 +1858,16 @@ window.addEventListener("visibilitychange", function() { // stop network check i
     if (rL.i && !eR.s) {
         if (document.hidden) {
             clearInterval(op.ne.L); // clear network check loop
-            checkOnlineStatus_abort.abort(); // abort any existing fetching
-            estimateNetworkSpeed_abort.abort();
+
+            // checkOnlineStatus_abort.abort(); // abort any existing fetching
+            // estimateNetworkSpeed_abort.abort();
 
             console.log("hidden");
 
         } else {
 
             // REFERENCED FROM FUNCTION(S) ABOVE - APPROX. LINE 300
-
+            /*
             setTimeout(function() {
                 op.nav.vb = true;
             }, op.ne.bI * 1000); // after 1 min.
@@ -1988,7 +1989,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
                         op.ne.c++;
                     }
                 }
-            }
+            }*/
 
             op.ne.L = setInterval(async () => {
                 console.log("function running");
