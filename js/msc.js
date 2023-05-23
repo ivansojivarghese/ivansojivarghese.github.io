@@ -1740,6 +1740,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     if (eR.p) {
                         eR.m.classList.remove("d_n");
                         eR.ld.classList.add("d_n");
+                        if (eR.p !== "or") {
+                            eR.or.classList.add("d_n");
+                        }
                         eR[eR.p].classList.remove("d_n"); // show error message
                     } else {
                         eR.m.classList.add("d_n");
