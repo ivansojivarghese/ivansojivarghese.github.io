@@ -1853,7 +1853,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
 //////////////////////////////////////////
 
-/*
+
 window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
     if (document.hidden) {
         clearInterval(op.ne.L); // clear network check loop
@@ -1868,7 +1868,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
         console.log("in view");
     }
 });
-
+/*
 window.addEventListener("focus", function() { // window in focus
 
     // REMOVE 'HIDING' LAYER
