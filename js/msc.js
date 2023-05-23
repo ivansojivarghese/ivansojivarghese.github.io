@@ -223,8 +223,7 @@ op = {
         r : (document.referrer === window.location.href) ? true : false, // page reload check
         fb : false, // page forward/backward nav. check
         n : false, // page nav. check (direct)
-        b : true, // URL bar in view check
-        vb : false // visibility change check
+        b : true // URL bar in view check
     },
     ne : { // network speed estimator
         f : 5301699, // resource file size (bytes)
@@ -810,7 +809,7 @@ function pL() { // site parameters loop
 
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
-    if ((op.n === false && !op.nc) || (op.n && op.nc) || (!op.n && !op.nc && op.nav.vb)) { // if change in network connection (internet)
+    if ((op.n === false && !op.nc) || (op.n && op.nc)) { // if change in network connection (internet)
         op.nc = true; // network changed
         
         pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
@@ -1868,9 +1867,6 @@ window.addEventListener("visibilitychange", function() { // stop network check i
 
             // REFERENCED FROM FUNCTION(S) ABOVE - APPROX. LINE 300
             /*
-            setTimeout(function() {
-                op.nav.vb = true;
-            }, op.ne.bI * 1000); // after 1 min.
 
             const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
             const cos_signal = checkOnlineStatus_abort.signal;
