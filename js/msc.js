@@ -1860,12 +1860,80 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             checkOnlineStatus_abort.abort(); // abort any existing fetching
             estimateNetworkSpeed_abort.abort();
             // op.n = true;
+
             console.log("hidden");
+
         } else {
+            const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
+            const cos_signal = checkOnlineStatus_abort.signal;
+
+            cos_signal.addEventListener("abort", function() {
+                op.Ld.b = true;
+            });
+
+            const estimateNetworkSpeed_abort = new AbortController();
+            const ens_signal = estimateNetworkSpeed_abort.signal;
+
+            ens_signal.addEventListener("abort", function() {
+                op.Ld.b = true;
+            });
+
+            const checkOnlineStatus = async () => { // check for internet connectivity
+                var res;
+                try {
+                    const url = dev.mode ? dev.url : op.r;
+                    const online = await fetch(url + "msc/onlineResourceLocator.png", { // send a 'ping' signal to resource locator
+                        cache : "no-store",
+                        priority: "low",
+                        signal: cos_signal
+                    });
+                    res = online.status >= 200 && online.status < 300; // determine network status from return value
+                } catch (err) { // maybe offline?
+                    if (!op.Ld.b) {
+                        res = false; // offline
+                    } else {
+                        res = null; // failed to fetch
+                    }
+                } 
+                return res;
+            }
+
+            const estimateNetworkSpeed = async() => { // estimate network speed
+                try {
+                    var s;
+                    op.ne.a = op.d.getTime(); // start time of fetch
+                    const url = dev.mode ? dev.url : op.r;
+                    const online = await fetch(url + "msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
+                        cache : "no-store",
+                        priority: "low",
+                        signal: ens_signal
+                    });
+                    op.ne.t = op.d.getTime(); // end time of fetch
+                    op.ne.s = (op.ne.f / ((op.ne.t - op.ne.a) / 1000)) / 1000000; // approx. network speed (in MBps)
+                    if (op.ne.s !== Infinity && op.ne.s !== 0) { // get valid values only
+                        s = op.ne.s < op.ne.h ? true : false; // check for slow network (if less than 5 MBps speed)
+                        op.ne.w = s;
+                        if (!op.ne.b.length) { // start new timer (check for network variability)
+                            countdownTimerSec(op.ne.bI, op.ne.bT, null, networkVariability);
+                        }
+                        op.ne.b[op.ne.b.length] = op.ne.s; // add to variability array
+                        return s;
+                    } else {
+                        op.ne.s = op.ne.b[op.ne.b.length - 1]; // set value to previously accounted figure
+                        return null;
+                    }
+                } catch (err) { // if network error
+                    op.ne.s = 0; // return 0 mbps
+                    return true; // default true
+                }
+            }
+            
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
             }, op.ne.bD);
+
             console.log("in view");
+
         }
     }
 });
