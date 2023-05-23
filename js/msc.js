@@ -1853,7 +1853,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
 //////////////////////////////////////////
 
-
 window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
     if (document.hidden) {
         clearInterval(op.ne.L); // clear network check loop
