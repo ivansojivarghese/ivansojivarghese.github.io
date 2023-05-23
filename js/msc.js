@@ -1764,13 +1764,14 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     scr_t(false, null); // disable scrolling
                     op.s = true;
                     eR.s = true;
-                    eR.p = "ld";
 
                     vw.mB_L = true; // set variable
 
                     if (!eR[eR.p].classList.contains("d_n") && !eR[eR.p].classList.contains("z_O")) { // set any other error(s) beforehand to null display
                         eR[eR.p].classList.add("d_n");
                     }
+
+                    eR.p = "ld";
                     
                     disp.classList.add("z_Os");
                     e_Fd(disp, true); // fade main display out
