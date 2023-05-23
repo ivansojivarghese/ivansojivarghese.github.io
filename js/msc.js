@@ -1870,7 +1870,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
 
             setTimeout(function() {
                 op.nav.vb = true;
-            }, op.ne.bD);
+            }, 1000);
 
             const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
             const cos_signal = checkOnlineStatus_abort.signal;

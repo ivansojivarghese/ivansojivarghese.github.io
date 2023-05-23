@@ -1186,6 +1186,21 @@ function timeout4() {
     op.ne.t4s = true;
 }
 
+function supportsCookies() {
+    try {
+
+        // Create cookie
+        document.cookie = 'cookietest=1';
+        var ret = document.cookie.indexOf('cookietest=') != -1;
+        
+        // Delete cookie
+        document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT';
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
 
 if (getCookie("maxHeight") && (getCookie("maxHeight") < cH || (op.nav.r && getCookie("windowResize") === "true"))) { // if height fluctuates from additional URL bars, etc.
     setCookie("maxHeight", cH, op.c.t); // update
