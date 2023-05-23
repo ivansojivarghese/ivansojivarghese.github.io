@@ -1321,7 +1321,7 @@ function nwCiArr(ar) { // create a comparison [previous index] array
 }
 
 function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
-    if (!eR.s) { // when no errors
+    if (!eR.s && rL.i) { // when no errors
         if (s) { // show
             pg.msg.c = true;
             pg.msg.el.classList.remove("d_n"); // show page
