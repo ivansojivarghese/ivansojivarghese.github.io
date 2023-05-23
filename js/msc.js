@@ -1771,14 +1771,14 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     disp.classList.add("z_Os");
                     e_Fd(disp, true); // fade main display out
                     eR.m.classList.remove("d_n");
-                    if (!rL.o_c) {
+                    if (!rL.o_c && !eR.ld_e.x) {
                         eR.ld.classList.remove("d_n");
                     } else {
                         eR.or.classList.remove("d_n");
                     }
 
                     setTimeout(function() {
-                        if (!rL.o_c) {
+                        if (!rL.o_c && !eR.ld_e.x) {
                             e_Fd(eR.ld, false); // fade in error
                         } else {
                             e_Fd(eR.or, false); // fade in error
