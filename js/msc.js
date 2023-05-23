@@ -1687,7 +1687,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
         if (rL.i && !rL.o_c || rL.o_c) { // if page had loaded?
 
-            if (screen.orientation.angle == 0 || screen.orientation.angle == 180) {
+            if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // landscape to portrait
 
 
                 if (wiD < 500 && (eR.ld_e.x || rL.o_c) && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
@@ -1773,7 +1773,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                 }
             }
             
-            if (screen.orientation.angle == 90 || screen.orientation.angle == 270) {
+            if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // portrait to landscape
                 if (wiH < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
 
                     scr_t(false, null); // disable scrolling
