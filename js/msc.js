@@ -1701,7 +1701,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             e_Fd(eR.or, false);
                         } else {
                             window.stop();
-                            reL();
+                            setTimeout(function() {
+                                reL();
+                            }, 10);
                         }
                     } else {
                         eR.m.classList.add("d_n");
