@@ -1186,18 +1186,6 @@ function timeout4() {
     op.ne.t4s = true;
 }
 
-function supportsCookies() { // Cookie check function, REFERENCED FROM MODERNIZER
-    try {
-        document.cookie = 'cookietest=1'; // Create cookie
-        var ret = document.cookie.indexOf('cookietest=') != -1;
-
-        document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT'; // Delete cookie
-        return true;
-    } catch (e) {
-        return false;
-    }
-}
-
 
 if (getCookie("maxHeight") && (getCookie("maxHeight") < cH || (op.nav.r && getCookie("windowResize") === "true"))) { // if height fluctuates from additional URL bars, etc.
     setCookie("maxHeight", cH, op.c.t); // update
@@ -1205,7 +1193,7 @@ if (getCookie("maxHeight") && (getCookie("maxHeight") < cH || (op.nav.r && getCo
 } 
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
-op.c.e = navigator.cookieEnabled || supportsCookies(); // check for enabled cookies
+op.c.e = navigator.cookieEnabled; // check for enabled cookies
 op.mt = mt_check(dev.version_up);
 load_js();
 load_css();
