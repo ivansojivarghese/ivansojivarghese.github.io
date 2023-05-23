@@ -1859,11 +1859,13 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             clearInterval(op.ne.L); // clear network check loop
             checkOnlineStatus_abort.abort(); // abort any existing fetching
             estimateNetworkSpeed_abort.abort();
-            // op.n = true;
 
             console.log("hidden");
 
         } else {
+
+            // REFERENCED FROM FUNCTION(S) ABOVE - APPROX. LINE 300
+
             const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
             const cos_signal = checkOnlineStatus_abort.signal;
 
