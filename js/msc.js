@@ -1732,7 +1732,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     if (op.c.e) {
                         eR.p = "ck"; // check for cookies
                     } else if (op.mt) {
-                        eR.p = "mt"; // check for cookies
+                        eR.p = "mt"; // maintenance
                     } else {
                         eR.p = "";
                     }
