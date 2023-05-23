@@ -1729,9 +1729,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                     vw.mB_L = false;
                     eR.s = false;
-                    eR.p = "";
+                    eR.p = op.c.e ? "" : "ck";
 
-                    eR.m.classList.add("d_n");
+                    if (eR.p) {
+                        eR.m.classList.remove("d_n");
+                    } else {
+                        eR.m.classList.add("d_n");
+                    }
                     if (aborted || !cacheEnabled) { // show load
                         rL.el.classList.remove("d_n");
                     } else if (!rL.o_c) {
