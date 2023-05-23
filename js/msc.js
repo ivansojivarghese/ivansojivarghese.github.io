@@ -1700,6 +1700,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             eR.or.classList.remove("d_n");
                             e_Fd(eR.or, false);
                         } else {
+                            window.stop();
                             reL();
                         }
                     } else {
