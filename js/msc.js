@@ -1927,7 +1927,62 @@ window.addEventListener("visibilitychange", function() { // stop network check i
                     return true; // default true
                 }
             }
-            
+
+            const networkConditions = async() => {
+                const status = await checkOnlineStatus(); // check internet connection
+                const speed = await estimateNetworkSpeed(); // check internet slow speed
+                op.n = status;
+                if (!op.n) {
+                    op.ne.w = null;
+                }
+                if (op.ne.w && speed) { // filters to avoid detecting 'sudden' surges in speed (leading to false slow network status)
+                    if (op.ne.c === op.ne.bt) { // at least n checks needed to prove
+                        if (!speed) {
+                            op.ne.d = true;
+                        }
+                        op.ne.c = 0;
+                    } else {
+                        if (!speed && op.ne.d) {
+                            op.ne.w = speed;
+                            op.ne.d = false;
+                        }
+                        op.ne.c++;
+                    }
+                } else if (op.ne.w) {
+                    if (!op.ne.v) {
+                        op.ne.d = false;
+                    } else {
+                        op.ne.d = true;
+                    }
+                    if (!op.nc && !op.ne.d) {
+                        op.ne.w = false; 
+                    }
+                    if (op.ne.c !== 0 && (!op.ne.d || (op.ne.d && op.ne.v && !op.ne.r))) {
+                        // op.ne.d = true;
+                        op.ne.c = 0;
+                        op.ne.v = true;
+                    } else if (op.ne.c < op.ne.bt) {
+                        op.ne.d = true;
+                        op.ne.r = true;
+                        op.ne.c++;
+                    } else {
+                        op.ne.w = speed;
+                        op.ne.c = 0;
+                    }
+                    // op.ne.d = true;
+                } else {
+                    op.ne.r = false;
+                    op.ne.v = true;
+                    if (op.ne.c === op.ne.bt) {
+                        op.ne.w = speed;
+                        op.ne.d = false;
+                        op.ne.c = 0;
+                    } else {
+                        op.ne.c++;
+                    }
+                }
+            }
+
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
             }, op.ne.bD);
