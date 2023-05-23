@@ -1695,7 +1695,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     if (eR.ld_e.x && !rL.o_c) {
                         eR.ld.classList.add("d_n");
                         e_Fd(eR.ld, true);
-                        if (vw.mB_L) {
+                        if (!vw.mB_L) {
                             eR.m.classList.remove("d_n");
                             eR.or.classList.remove("d_n");
                             e_Fd(eR.or, false);
