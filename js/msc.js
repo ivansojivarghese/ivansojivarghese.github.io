@@ -1677,7 +1677,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     eR.m.classList.add("d_n");
     disp.classList.add("z_Os");
 
-    op.Ld.p = scrollY;
+    // op.Ld.p = scrollY;
 
     setTimeout(function() {
 
@@ -1769,6 +1769,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
             
             if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // portrait to landscape
+
+                op.Ld.p = scrollY;
 
                 if (wiH < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
 
