@@ -1768,6 +1768,10 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                     vw.mB_L = true; // set variable
 
+                    if (!eR[eR.s].classList.contains("d_n") && !eR[eR.s].classList.contains("z_O")) {
+                        eR[eR.s].classList.add("d_n");
+                    }
+                    
                     disp.classList.add("z_Os");
                     e_Fd(disp, true); // fade main display out
                     eR.m.classList.remove("d_n");
