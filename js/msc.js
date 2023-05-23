@@ -1860,7 +1860,6 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             clearInterval(op.ne.L); // clear network check loop
             checkOnlineStatus_abort.abort(); // abort any existing fetching
             estimateNetworkSpeed_abort.abort();
-            op.n = true;
 
             console.log("hidden");
 
@@ -1870,7 +1869,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
 
             setTimeout(function() {
                 op.nav.vb = true;
-            }, 1000);
+            }, op.ne.bI * 1000); // after 1 min.
 
             const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
             const cos_signal = checkOnlineStatus_abort.signal;
