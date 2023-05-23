@@ -1768,8 +1768,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                     vw.mB_L = true; // set variable
 
-                    if (!eR[eR.s].classList.contains("d_n") && !eR[eR.s].classList.contains("z_O")) { // set any other error(s) beforehand to null display
-                        eR[eR.s].classList.add("d_n");
+                    if (!eR[eR.p].classList.contains("d_n") && !eR[eR.p].classList.contains("z_O")) { // set any other error(s) beforehand to null display
+                        eR[eR.p].classList.add("d_n");
                     }
                     
                     disp.classList.add("z_Os");
