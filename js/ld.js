@@ -1186,9 +1186,8 @@ function timeout4() {
     op.ne.t4s = true;
 }
 
-function supportsCookies() {
+function supportsCookies() { // Cookie check function, REFERENCED FROM MODERNIZER
     try {
-
         // Create cookie
         document.cookie = 'cookietest=1';
         var ret = document.cookie.indexOf('cookietest=') != -1;
@@ -1208,7 +1207,7 @@ if (getCookie("maxHeight") && (getCookie("maxHeight") < cH || (op.nav.r && getCo
 } 
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
-op.c.e = navigator.cookieEnabled; // check for enabled cookies
+op.c.e = navigator.cookieEnabled || supportsCookies(); // check for enabled cookies
 op.mt = mt_check(dev.version_up);
 load_js();
 load_css();
