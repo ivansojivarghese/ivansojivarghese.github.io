@@ -1380,7 +1380,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     setTimeout(function() { // hide message after time
                         msg_toggle(el, null, false, true, null);
                         setTimeout(function() {
-                            pg.msg.t.classList.remove("d_n"); 
+                            pg.msg.t.classList.remove("d_n"); // wow
                         }, op.t);
                     }, 3000);   
                 }
