@@ -856,8 +856,6 @@ function pL() { // site parameters loop
                 pg.msg.net_i.classList.add("wifi_w_img"); // set content
                 pg.msg.net_t.innerHTML = "back online!";
 
-                pg.msg.t.classList.add("d_n");
-
                 msg_toggle(pg.msg.net, null, true, false, false); // show
 
             }, op.t);
@@ -1391,6 +1389,8 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 pg.msg.t.classList.add("md"); // remove tint
             } else if (t) {
                 pg.msg.t.classList.add("md"); 
+            } else {
+                pg.msg.t.classList.add("d_n"); // remove tint
             }
             setTimeout(function() {
                 el.classList.add("d_n");
