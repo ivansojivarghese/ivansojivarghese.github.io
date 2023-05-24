@@ -197,9 +197,6 @@ op = {
     Ls : op.Ls,
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
-        // uM : 5, // "" deny message limit (sec.)
-        // uT : "cD", // "" timer tracker
-        // uR : false, // "" redirect check
         e : null, // enabled check
         a : null, // user access (inital) check [browser-dependant]
         t : dev.v, // default time limit (days)
@@ -781,8 +778,10 @@ function pL() { // site parameters loop
         }
     }
 
-    if (!navigator.cookieEnabled || !getCookie("testCookie")) { // if cookies are disabled/deleted
+    if ((!navigator.cookieEnabled || !getCookie("testCookie")) && op.c.e) { // if cookies are disabled/deleted
         console.log("cookies deleted");
+
+        op.c.e = false;
 
         if (pg.msg.net_p.classList.contains("predicate")) {
             pg.msg.net_p.classList.remove("predicate"); 
@@ -795,9 +794,11 @@ function pL() { // site parameters loop
 
         msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
 
-    } else { // if cookies enabled after disabling
+    } else if (!op.c.e && (navigator.cookieEnabled || getCookie("testCookie"))) { // if cookies enabled after disabling
 
-        
+        msg_toggle(pg.msg.net, null, false, true, null); // hide message
+
+        op.c.e = true;
     }
 
 
