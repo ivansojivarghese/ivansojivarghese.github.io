@@ -778,34 +778,36 @@ function pL() { // site parameters loop
         }
     }
 
-    if ((!navigator.cookieEnabled || !getCookie("testCookie")) && op.c.e) { // if cookies are disabled/deleted
-        console.log("cookies deleted");
+    if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s) {
+        if ((!navigator.cookieEnabled || !getCookie("testCookie")) && op.c.e) { // if cookies are disabled/deleted
+            console.log("cookies deleted");
 
-        op.c.e = false;
-        pg.msg.c = true;
+            op.c.e = false;
+            pg.msg.c = true;
 
-        if (pg.msg.net_p.classList.contains("predicate")) {
-            pg.msg.net_p.classList.remove("predicate"); 
+            if (pg.msg.net_p.classList.contains("predicate")) {
+                pg.msg.net_p.classList.remove("predicate"); 
+            }
+            pg.msg.net_p.classList.add("negate"); // set color
+            pg.msg.net_i.classList.remove("wifi_w_img"); 
+            pg.msg.net_i.classList.remove("wifi_img"); 
+            pg.msg.net_i.classList.add("cookies_w_img"); // set content
+            pg.msg.net_t.innerHTML = "enable cookies";
+
+            msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
+
+        } else if (!op.c.e && (navigator.cookieEnabled || getCookie("testCookie"))) { // if cookies enabled after disabling
+
+            msg_toggle(pg.msg.net, null, false, true, null); // hide message
+            setTimeout(function() {
+                pg.msg.net_p.classList.remove("negate"); // default
+                pg.msg.net_i.classList.remove("cookies_w_img"); 
+                pg.msg.net_t.innerHTML = "";
+            }, op.t);
+
+            op.c.e = true;
+            pg.msg.c = false;
         }
-        pg.msg.net_p.classList.add("negate"); // set color
-        pg.msg.net_i.classList.remove("wifi_w_img"); 
-        pg.msg.net_i.classList.remove("wifi_img"); 
-        pg.msg.net_i.classList.add("cookies_w_img"); // set content
-        pg.msg.net_t.innerHTML = "enable cookies";
-
-        msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
-
-    } else if (!op.c.e && (navigator.cookieEnabled || getCookie("testCookie"))) { // if cookies enabled after disabling
-
-        msg_toggle(pg.msg.net, null, false, true, null); // hide message
-        setTimeout(function() {
-            pg.msg.net_p.classList.remove("negate"); // default
-            pg.msg.net_i.classList.remove("cookies_w_img"); 
-            pg.msg.net_t.innerHTML = "";
-        }, op.t);
-
-        op.c.e = true;
-        pg.msg.c = false;
     }
 
 
