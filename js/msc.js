@@ -848,7 +848,6 @@ function pL() { // site parameters loop
 
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
-
     if (!eR.s && ((op.n === false && !op.nc) || (op.n && op.nc))) { // if change in network connection (internet)
         if (!op.nc) { // offline
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
@@ -910,6 +909,8 @@ function pL() { // site parameters loop
             }, op.t);
         }
     }
+
+    js_live(); // run local functions (fch.js)
 }
 
 function c_Sr() { // check for scrolling activity (in live)

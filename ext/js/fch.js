@@ -94,6 +94,20 @@ function load_js_e() { // load JS (page specific)
     }
 }
 
+function js_live() { // update js - in live
+    if (pg.msg.fo) { // if page offline
+
+        // fade out, in sequence
+
+        // top-anchor, while transitioning down
+            // bottom-anchor, finish transition
+            // fade out line and arrow
+
+        // bottom-anchor, finish trans.
+            // fade out both
+    }
+}
+
 function load_eN() { // load, after cookie acceptance (page specific)
     // scroll arrow
     var h = getBd(el.lk3, "height");
