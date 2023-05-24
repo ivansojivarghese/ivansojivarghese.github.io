@@ -1967,12 +1967,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
     if (rL.i && !eR.s) {
         if (document.hidden) { // hidden document
+            op.Lf.h = true;
             clearInterval(op.ne.L); // clear network check loop
         } else { // visible document
-            if () { // in focus
-                
+            if (document.hasFocus()) { // in focus
+                op.Lf.vA = true;
             } else { // out of focus
-
+                op.Lf.vP = true;
             }
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
