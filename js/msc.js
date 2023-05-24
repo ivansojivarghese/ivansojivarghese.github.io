@@ -782,6 +782,7 @@ function pL() { // site parameters loop
         console.log("cookies deleted");
 
         op.c.e = false;
+        pg.msg.c = true;
 
         if (pg.msg.net_p.classList.contains("predicate")) {
             pg.msg.net_p.classList.remove("predicate"); 
@@ -804,6 +805,7 @@ function pL() { // site parameters loop
         }, op.t);
 
         op.c.e = true;
+        pg.msg.c = false;
     }
 
 
