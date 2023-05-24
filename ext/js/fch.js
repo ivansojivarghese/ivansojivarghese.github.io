@@ -97,23 +97,11 @@ function load_js_e() { // load JS (page specific)
 }
 
 function js_live() { // update js - in live
-    if (!pg.msg.fo && el.x) { // if page offline
 
+    if (!pg.msg.fo && el.x) { // if page offline
         el.lk3b.classList.remove("d_n");
         load_eN(); // reload scroll arrow feature
         el.x = false;
-
-        /*
-        if (!el.a) { // at bottom anchor
-            el.lk3b.style.top = "auto";
-        }*/
-
-        // top-anchor, while transitioning down
-            // bottom-anchor, finish transition
-            // fade out line and arrow
-
-        // bottom-anchor, finish trans.
-            // fade out both
     }
 }
 
