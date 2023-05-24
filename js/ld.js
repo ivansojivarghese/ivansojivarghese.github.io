@@ -812,7 +812,7 @@ function load_e() { // end the loading sequence
                                     pg.msg.t.classList.remove("md"); // add tint
                                     e_Sdv(pg.msg.ckA, true); 
                                     */
-                                    if (!pg.msg.k && !pg.msg.c && !getCookie("cookiesAccepted")) {
+                                    if (!pg.msg.k && !pg.msg.c && !pg.cond.a && !getCookie("cookiesAccepted")) {
                                         msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
                                     }
                                 }, op.te);

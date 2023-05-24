@@ -71,6 +71,7 @@ var wH = window.outerHeight, // height
             net_t : document.getElementById("net_msg-t") // network - text
         },
         cond : { // conditions
+            a : false, // active check
             el : document.getElementById("cond_sc"), // main
             tnc : document.getElementById("tnc"), // tnc [https://www.nibusinessinfo.co.uk/content/sample-website-terms-and-conditions-use]
             dcr : document.getElementById("dcr"), // disclaimer [https://www.nibusinessinfo.co.uk/content/sample-website-disclaimer]
