@@ -64,7 +64,8 @@ var wH = window.outerHeight, // height
             net : document.getElementById("net_msg"), // network
             net_p : document.getElementById("net_msg_pill"), // network - pill
             net_i : document.getElementById("net_msg-i"), // network - icon
-            net_t : document.getElementById("net_msg-t") // network - text
+            net_t : document.getElementById("net_msg-t"), // network - text
+            net_e : document.getElementById("net_msg-e") // network - extra text
         },
         cond : { // conditions
             a : false, // active check
@@ -795,7 +796,8 @@ function pL() { // site parameters loop
             pg.msg.net_i.classList.add("cookies_w_img"); // set content
             pg.msg.net_t.innerHTML = "enable cookies";
             if (navigator.cookieEnabled && !getCookie("testCookie")) { // if cookies 'deleted/removed'
-                
+                pg.msg.net_e.innerHTML = "reload";
+                pg.msg.net_e.classList.remove("d_n");
             }
 
             msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
