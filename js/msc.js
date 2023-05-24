@@ -1382,14 +1382,9 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 } else if (t) {
                     pg.msg.t.classList.remove("md"); 
                 }
-                /*
-                if (el === pg.msg.ckA) {
-                    pg.msg.ckD.style.height = getBd(el, "height") + "px"; // set height of cookie-deny message
-                }*/
             }, 10); // after short delay
         } else { // hide
             e_Sdv(el, s); // hide message
-            //if (el !== pg.msg.ckD) {
             if (el === pg.msg.ckA) {
                 pg.msg.k = false;
             } else {
