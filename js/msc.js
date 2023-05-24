@@ -806,7 +806,7 @@ function pL() { // site parameters loop
 
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
-    if ((op.n === false && !op.nc) || (op.n && op.nc)) { // if change in network connection (internet)
+    if (!eR.s && ((op.n === false && !op.nc) || (op.n && op.nc))) { // if change in network connection (internet)
         if (!op.nc) { // offline
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s) {
                 op.nc = true; // network changed
