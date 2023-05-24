@@ -55,6 +55,7 @@ var wH = window.outerHeight, // height
         },
         msg : { // messages
             r : 3000, // response time (avg.)
+            fo : false, // offline-online sequence active?
             k : false, // if cookie message is active
             c : false, // check (if feature[pill] is active)
             el : document.getElementById("msg_sc"), // el
@@ -780,7 +781,8 @@ function pL() { // site parameters loop
 
     if ((!navigator.cookieEnabled || !getCookie("testCookie")) && op.c.e) { // if cookies are disabled/deleted
         console.log("cookies deleted");
-        if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s) {
+        
+        if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             op.c.e = false;
             pg.msg.c = true;
 
@@ -797,7 +799,7 @@ function pL() { // site parameters loop
         }
 
     } else if (!op.c.e && (navigator.cookieEnabled || getCookie("testCookie"))) { // if cookies enabled after disabling
-        if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s) {
+        if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
             /*
             setTimeout(function() {
@@ -838,6 +840,8 @@ function pL() { // site parameters loop
         if (!op.nc) { // offline
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e) {
                 op.nc = true; // network changed
+                pg.msg.fo = true;
+
                 if (pg.msg.net_p.classList.contains("predicate")) {
                     pg.msg.net_p.classList.remove("predicate"); 
                 }
@@ -851,6 +855,7 @@ function pL() { // site parameters loop
                 msg_toggle(pg.msg.net, null, true, true, true);
             } else if (!pg.msg.k && !pg.cond.a && !hm.s && op.c.e) {
                 op.nc = true; // network changed
+
                 msg_toggle(pg.msg.net, null, false, true, true);
 
                 setTimeout(function() {
@@ -885,6 +890,9 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "back online!";
 
                 msg_toggle(pg.msg.net, null, true, false, false); // show
+                setTimeout(function() {
+                    pg.msg.fo = false;
+                }, op.t);
 
             }, op.t);
         }
