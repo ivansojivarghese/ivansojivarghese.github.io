@@ -781,14 +781,14 @@ function pL() { // site parameters loop
         }
     }
 
-    if (!navigator.cookieEnabled || !getCookie("testCookie")) {
+    if (!navigator.cookieEnabled || !getCookie("testCookie")) { // if cookies are disabled/deleted
         console.log("cookies deleted");
+
+        msg_toggle(el, null, true, true, true); // disable page, show message
+    } else {
+
     }
 
-    /*
-    if (op.c.uR && op.nav.fb) { // cookie-message redirect[ed] and forward/backward navigation
-        pg.msg.ckDp1.innerHTML = "site redirected";
-    }*/
 
     /*
     if (!op.nav.b) { // check if URL bar is NOT in view
