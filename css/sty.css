@@ -485,7 +485,7 @@ a.md, span.md {
 }
 
 .p_z {
-    padding: 0;
+    padding: 0 !important;
 }
 
 .p_TB {
