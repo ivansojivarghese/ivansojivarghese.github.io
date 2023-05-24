@@ -813,8 +813,8 @@ function pL() { // site parameters loop
 
     if ((op.n === false && !op.nc) || (op.n && op.nc)) { // if change in network connection (internet)
         if (!op.nc) { // offline
-            op.nc = true; // network changed
             if (!pg.msg.c) {
+                op.nc = true; // network changed
                 if (pg.msg.net_p.classList.contains("predicate")) {
                     pg.msg.net_p.classList.remove("predicate"); 
                 }
@@ -827,6 +827,7 @@ function pL() { // site parameters loop
                 
                 msg_toggle(pg.msg.net, null, true, true, true);
             } else if (!pg.msg.k) {
+                op.nc = true; // network changed
                 msg_toggle(pg.msg.net, null, false, true, true);
 
                 setTimeout(function() {
