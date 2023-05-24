@@ -892,7 +892,7 @@ function pL() { // site parameters loop
                 msg_toggle(pg.msg.net, null, true, false, false); // show
                 setTimeout(function() {
                     pg.msg.fo = false;
-                }, op.t);
+                }, pg.msg.r);
 
             }, op.t);
         }
