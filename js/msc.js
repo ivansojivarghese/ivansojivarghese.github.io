@@ -849,7 +849,7 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "offline";
                 
                 msg_toggle(pg.msg.net, null, true, true, true);
-            } else if (!pg.msg.k && !pg.cond.a && !hm.s && op.c.e) {
+            } else if (!pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
                 op.nc = true; // network changed
 
                 msg_toggle(pg.msg.net, null, false, true, true);
@@ -872,7 +872,7 @@ function pL() { // site parameters loop
         } else if (op.n & op.nc) { // back online
 
             op.nc = false;
-            msg_toggle(pg.msg.net, null, false, true, true); // hide
+            msg_toggle(pg.msg.net, null, false, true, true); // hide offline
 
             setTimeout(function() {
                 if (pg.msg.net_p.classList.contains("negate")) {
@@ -885,7 +885,7 @@ function pL() { // site parameters loop
                 pg.msg.net_i.classList.add("wifi_w_img"); // set content
                 pg.msg.net_t.innerHTML = "back online!";
 
-                msg_toggle(pg.msg.net, null, true, false, false); // show
+                msg_toggle(pg.msg.net, null, true, false, false); // show online
                 setTimeout(function() {
                     pg.msg.fo = false;
                 }, pg.msg.r + op.t);
