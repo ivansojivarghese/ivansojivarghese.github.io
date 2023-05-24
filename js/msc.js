@@ -822,7 +822,7 @@ function pL() { // site parameters loop
                 msg_toggle(pg.msg.net, null, true, true, true);
             }
         } else if (op.n & op.nc) {
-            // console.log("online");
+            console.log("online");
 
             msg_toggle(pg.msg.net, null, false, true, true); // back online - hide
 
