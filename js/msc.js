@@ -822,6 +822,10 @@ function pL() { // site parameters loop
         }
 
         // check for other messages, then open up
+
+    } else if (op.nc && op.n) {
+
+        console.log("online");
     }
 
     // console.log(op.ne.s + ", " + op.ne.w + ", " + op.nc);
