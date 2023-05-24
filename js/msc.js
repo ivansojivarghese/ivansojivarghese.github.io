@@ -810,7 +810,7 @@ function pL() { // site parameters loop
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
             setTimeout(function() {
-                if (pg.msg.ce) {
+                if (pg.msg.ce) { // if extended
                     pg.msg.net_p.classList.remove("md");
                     pg.msg.net_e.innerHTML = ""; // add text
                     pg.msg.net_e.classList.add("d_n");
