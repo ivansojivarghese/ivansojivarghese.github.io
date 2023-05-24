@@ -780,6 +780,11 @@ function pL() { // site parameters loop
             scr_t(true, arg);
         }
     }
+
+    if (!navigator.cookieEnabled || !getCookie("testCookie")) {
+        console.log("cookies deleted");
+    }
+
     /*
     if (op.c.uR && op.nav.fb) { // cookie-message redirect[ed] and forward/backward navigation
         pg.msg.ckDp1.innerHTML = "site redirected";
