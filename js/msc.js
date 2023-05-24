@@ -796,7 +796,7 @@ function pL() { // site parameters loop
             pg.msg.net_i.classList.add("cookies_w_img"); // set content
             pg.msg.net_t.innerHTML = "enable cookies";
             if (navigator.cookieEnabled && !getCookie("testCookie")) { // if cookies 'deleted/removed'
-                pg.msg.net_p.
+                pg.msg.net_p.classList.add("md");
                 pg.msg.net_e.innerHTML = "reload"; // add text
                 pg.msg.net_e.classList.remove("d_n");
             }
