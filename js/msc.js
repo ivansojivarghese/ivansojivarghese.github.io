@@ -797,7 +797,7 @@ function pL() { // site parameters loop
         }
 
     } else if (!op.c.e && (navigator.cookieEnabled || getCookie("testCookie"))) { // if cookies enabled after disabling
-        if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s) {
+        if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s) {
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
             setTimeout(function() {
                 pg.msg.net_p.classList.remove("negate"); // default
