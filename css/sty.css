@@ -708,6 +708,10 @@ div.locator_img {
     height: 1.5rem;
 }
 
+.pill.msg_m.md {
+    height: 4rem;
+}
+
 .pill.msg_m h5 {
     font-size: 1.5rem;
     top: -0.2rem;
