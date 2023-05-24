@@ -814,7 +814,13 @@ function pL() { // site parameters loop
         if (!op.nc) {
             op.nc = true; // network changed
             // offline
+            if (pg.msg.net_p.classList.contains("predicate")) {
+                pg.msg.net_p.classList.remove("predicate"); 
+            }
             pg.msg.net_p.classList.add("negate"); // set color
+            if (pg.msg.net_i.classList.contains("wifi_w_img")) {
+                pg.msg.net_i.classList.remove("wifi_w_img"); 
+            }
             pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
             pg.msg.net_t.innerHTML = "offline";
 
