@@ -795,12 +795,15 @@ function pL() { // site parameters loop
             pg.msg.net_i.classList.remove("wifi_w_img"); 
             pg.msg.net_i.classList.remove("wifi_img"); 
             pg.msg.net_i.classList.add("cookies_w_img"); // set content
-            pg.msg.net_t.innerHTML = "enable cookies";
+            
             if (navigator.cookieEnabled && !getCookie("testCookie") && !pg.msg.ce) { // if cookies 'deleted/removed'
+                pg.msg.net_t.innerHTML = "missing cookies";
                 pg.msg.net_p.classList.add("md");
                 pg.msg.net_e.innerHTML = "reload"; // add text
                 pg.msg.net_e.classList.remove("d_n");
                 pg.msg.ce = true;
+            } else {
+                pg.msg.net_t.innerHTML = "enable cookies";
             }
 
             msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
