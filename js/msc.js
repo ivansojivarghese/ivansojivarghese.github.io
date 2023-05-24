@@ -794,6 +794,9 @@ function pL() { // site parameters loop
             pg.msg.net_i.classList.remove("wifi_img"); 
             pg.msg.net_i.classList.add("cookies_w_img"); // set content
             pg.msg.net_t.innerHTML = "enable cookies";
+            if (navigator.cookieEnabled && !getCookie("testCookie")) { // if cookies 'deleted/removed'
+                
+            }
 
             msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
         }
