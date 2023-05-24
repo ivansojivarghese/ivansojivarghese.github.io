@@ -1435,8 +1435,8 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 pg.msg.t.classList.add("md"); 
             }
             setTimeout(function() {
-                el.classList.add("d_n");
                 if (!pg.msg.c) { // ensure no other messages
+                    el.classList.add("d_n");
                     pg.msg.el.classList.add("d_n"); // hide page
                 }
             }, op.t);
