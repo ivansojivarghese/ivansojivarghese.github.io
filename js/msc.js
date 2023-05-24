@@ -826,7 +826,7 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "offline";
                 
                 msg_toggle(pg.msg.net, null, true, true, true);
-            } else if () {
+            } else if (!pg.msg.k) {
                 msg_toggle(pg.msg.net, null, false, true, true);
 
                 setTimeout(function() {
