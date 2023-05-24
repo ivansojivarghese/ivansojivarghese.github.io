@@ -887,6 +887,10 @@ function load_css() { // load up CSS (common)
         rL.dt.style.transform = "translateX(-50%) translateY(-100%)";
     }
 
+    if (vw.tB) { // if tablet or desktop
+        hm.sc.classList.remove("active"); // de-activate hamburger menu
+    }
+
     if (op.b.f) { // if FIREFOX browser
         eR.z_e.h.innerHTML = "<span class='em'>zooming</span> is unpermitted"; // change #error_z information
         eR.z_e.s.innerHTML = "default (original)";
