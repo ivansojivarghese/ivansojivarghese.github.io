@@ -65,6 +65,7 @@ var wH = window.outerHeight, // height
             ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
             */
             net : document.getElementById("net_msg"), // network
+            net_p : document.getElementById("net_msg_pill"), // network - pill
             net_i : document.getElementById("net_msg-i"), // network - icon
             net_t : document.getElementById("net_msg-t") // network - text
         },
@@ -812,6 +813,7 @@ function pL() { // site parameters loop
     if ((op.n === false && !op.nc) || (op.n && op.nc)) { // if change in network connection (internet)
         op.nc = true; // network changed
         
+        pg.msg.net_p.classList.add("negate"); // set color
         pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
         pg.msg.net_t.innerHTML = "offline";
 
