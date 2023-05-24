@@ -813,7 +813,7 @@ function pL() { // site parameters loop
 
     if ((op.n === false && !op.nc) || (op.n && op.nc)) { // if change in network connection (internet)
         if (!op.nc) { // offline
-            if (!pg.msg.c) {
+            if (!pg.msg.c && !pg.msg.k) {
                 op.nc = true; // network changed
                 if (pg.msg.net_p.classList.contains("predicate")) {
                     pg.msg.net_p.classList.remove("predicate"); 
