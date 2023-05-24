@@ -821,7 +821,7 @@ function pL() { // site parameters loop
             if (!pg.msg.c) {
                 msg_toggle(pg.msg.net, null, true, true, true);
             }
-        } else {
+        } else if (op.n & op.nc) {
             console.log("online");
         }
 
