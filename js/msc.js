@@ -1375,11 +1375,14 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     pg.msg.t.classList.remove("md"); // add tint (if applicable)
                 } else if (t) {
                     pg.msg.t.classList.remove("md"); 
-                } else {
+                } else { // no tint + show->hide message
                     pg.msg.t.classList.add("d_n"); 
-    
-                    // timer to hide message away
-    
+                    setTimeout(function() {
+                        msg_toggle(el, null, false, true, null);
+                        setTimeout(function() {
+                            pg.msg.t.classList.remove("d_n"); 
+                        }, op.t);
+                    }, 3000);   
                 }
             }, 10); // after short delay
         } else { // hide
