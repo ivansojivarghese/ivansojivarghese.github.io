@@ -209,6 +209,9 @@
                         if (e.keyCode == 123 || e.code === "F12") { // F12 (dev tools)
                             disabledEvent(e);
                         }
+                        if (e.keyCode == 44 || e.code === "PrintScreen") { // PrintScreen
+                            disabledEvent(e);
+                        }
                     }, false);
                     document.addEventListener("keyup", function(e) {
                         var p = e.code;
