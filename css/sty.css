@@ -770,6 +770,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/love.svg");
 }*/
 
+.cookies_w_img {
+    background-image: url("../svg/cookies_white.svg");
+}
+
 .wifi_img {
     background-image: url("../svg/wifi.svg");
 }

@@ -784,7 +784,16 @@ function pL() { // site parameters loop
     if (!navigator.cookieEnabled || !getCookie("testCookie")) { // if cookies are disabled/deleted
         console.log("cookies deleted");
 
-        msg_toggle(el, null, true, true, true); // disable page, show message
+        if (pg.msg.net_p.classList.contains("predicate")) {
+            pg.msg.net_p.classList.remove("predicate"); 
+        }
+        pg.msg.net_p.classList.add("negate"); // set color
+        pg.msg.net_i.classList.remove("wifi_w_img"); 
+        pg.msg.net_i.classList.remove("wifi_img"); 
+        pg.msg.net_i.classList.add("cookies_w_img"); // set content
+        pg.msg.net_t.innerHTML = "enable cookies";
+
+        msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
     } else {
 
     }
