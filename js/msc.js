@@ -53,7 +53,8 @@ var wH = window.outerHeight, // height
             m : document.getElementById("main_sc") // main
         },
         msg : { // messages
-            c : false, // check (if feature is active)
+            k : false, // if cookie message is active
+            c : false, // check (if feature[pill] is active)
             el : document.getElementById("msg_sc"), // el
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
@@ -825,7 +826,7 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "offline";
                 
                 msg_toggle(pg.msg.net, null, true, true, true);
-            } else {
+            } else if () {
                 msg_toggle(pg.msg.net, null, false, true, true);
 
                 setTimeout(function() {
@@ -1370,7 +1371,11 @@ function nwCiArr(ar) { // create a comparison [previous index] array
 function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
     if (!eR.s && rL.i) { // when no errors
         if (s) { // show
-            pg.msg.c = true;
+            if (el === pg.msg.ckA) {
+                pg.msg.k = true;
+            } else {
+                pg.msg.c = true;
+            }
             pg.msg.el.classList.remove("d_n"); // show page
             el.classList.remove("d_n");
             setTimeout(function() {
@@ -1389,17 +1394,21 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
         } else { // hide
             e_Sdv(el, s); // hide message
             //if (el !== pg.msg.ckD) {
+            if (el === pg.msg.ckA) {
+                pg.msg.k = false;
+            } else {
                 pg.msg.c = false;
-                if (t && t_m) {
-                    pg.msg.t.classList.remove("a"); // remove low tint
-                    pg.msg.t.classList.add("md"); // remove tint
-                } else if (t) {
-                    pg.msg.t.classList.add("md"); 
-                }
-                setTimeout(function() {
-                    el.classList.add("d_n");
-                    pg.msg.el.classList.add("d_n"); // hide page
-                }, op.t);
+            }
+            if (t && t_m) {
+                pg.msg.t.classList.remove("a"); // remove low tint
+                pg.msg.t.classList.add("md"); // remove tint
+            } else if (t) {
+                pg.msg.t.classList.add("md"); 
+            }
+            setTimeout(function() {
+                el.classList.add("d_n");
+                pg.msg.el.classList.add("d_n"); // hide page
+            }, op.t);
             /*
             } else {
                 setTimeout(function() {
