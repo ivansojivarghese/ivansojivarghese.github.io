@@ -799,11 +799,12 @@ function pL() { // site parameters loop
     } else if (!op.c.e && (navigator.cookieEnabled || getCookie("testCookie"))) { // if cookies enabled after disabling
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s) {
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
+            /*
             setTimeout(function() {
                 pg.msg.net_p.classList.remove("negate"); // default
                 pg.msg.net_i.classList.remove("cookies_w_img"); 
                 pg.msg.net_t.innerHTML = "";
-            }, op.t);
+            }, op.t);*/
 
             op.c.e = true;
             pg.msg.c = false;
