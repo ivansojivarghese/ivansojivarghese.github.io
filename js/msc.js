@@ -50,7 +50,8 @@ var wH = window.outerHeight, // height
         t : "", // reference window category
         w : "", // current [open] window
         sc : { // sections
-            m : document.getElementById("main_sc") // main
+            m : document.getElementById("main_sc"), // main
+            c : document.getElementById("content_sc") // content
         },
         msg : { // messages
             k : false, // if cookie message is active
