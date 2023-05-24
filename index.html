@@ -125,12 +125,6 @@
                     e.preventDefault();
                     return false;
                 };
-                /*
-                document.body.oncopy = function(){return false};  // disable copy, right menu, select functions
-                document.body.oncontextmenu = function(){return false}; 
-                document.body.onselectstart = document.body.ondrag = function(){
-                    return false;
-                }*/
 
                 window.addEventListener("DOMContentLoaded", function() {
                     document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
@@ -730,7 +724,7 @@
         <!-- Microsoft Webmaster verification -->
         <meta name="msvalidate.01" content="5534539BE20C7554AD9C3555B3D27655"/>
     </head>
-    <body class="ovy-h" onpageshow="checkCacheLoad(event)" ondragstart="return false;" onselectstart="return false;">
+    <body class="ovy-h" onpageshow="checkCacheLoad(event)" ondragstart="return false;" onselectstart="return false;" oncopy="return false;">
         <!-- <iframe src="index_nocrawl.html"></iframe> -->  
         <!-- <div id="control-height"></div> 
         <img id="image" class="d_n"> -->
