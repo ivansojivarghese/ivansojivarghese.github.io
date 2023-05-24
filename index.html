@@ -204,8 +204,8 @@
                             disabledEvent(e);
                         }
                         if (e.keyCode == 44 || e.code === "PrintScreen") { // PrintScreen
-                            navigator.clipboard.writeText('');
                             disabledEvent(e);
+                            navigator.clipboard.writeText('');
                         }
                     }, false);
                     document.addEventListener("keyup", function(e) {
