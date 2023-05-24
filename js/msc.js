@@ -779,7 +779,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if ((!navigator.cookieEnabled || !getCookie("testCookie")) && op.c.e) { // if cookies are disabled/deleted
+    if ((!navigator.cookieEnabled || !getCookie("testCookie")) && op.c.e && !eR.s) { // if cookies are disabled/deleted
         console.log("cookies deleted");
         
         if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
