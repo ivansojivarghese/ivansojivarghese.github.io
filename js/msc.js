@@ -1420,6 +1420,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
 
 function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
     if (s) { // close
+        pg.cond.a = false;
         pg.t = "";
         pg.w = "";
 
@@ -1448,6 +1449,7 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
         
         // }, op.t);
     } else { // open
+        pg.cond.a = true;
         pg.t = el;
         pg.w = el_s;
 
