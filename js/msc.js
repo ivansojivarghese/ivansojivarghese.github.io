@@ -223,6 +223,14 @@ op = {
         n : false, // page nav. check (direct)
         b : true // URL bar in view check
     },
+    Lf : { // PAGE lifecycle API variables
+        h : false, // hidden
+        vA : false, // visible - active
+        vP : false, // visible - passive
+        f : false, // frozen
+        t : false, // terminated
+        d : false // discarded
+    },
     ne : { // network speed estimator
         f : 5301699, // resource file size (bytes)
         h : 5, // slow speed threshold (MBps (* 1000000 = Bps)
@@ -1958,19 +1966,17 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
 window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
     if (rL.i && !eR.s) {
-        if (document.hidden) {
+        if (document.hidden) { // hidden document
             clearInterval(op.ne.L); // clear network check loop
+        } else { // visible document
+            if () { // in focus
+                
+            } else { // out of focus
 
-            console.log("hidden");
-
-        } else {
-
+            }
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
             }, op.ne.bD);
-
-            console.log("in view");
-
         }
     }
 });
