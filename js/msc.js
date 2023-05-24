@@ -828,17 +828,19 @@ function pL() { // site parameters loop
             } else {
                 msg_toggle(pg.msg.net, null, false, true, true);
 
-                if (pg.msg.net_p.classList.contains("predicate")) {
-                    pg.msg.net_p.classList.remove("predicate"); 
-                }
-                pg.msg.net_p.classList.add("negate"); // set color
-                if (pg.msg.net_i.classList.contains("wifi_w_img")) {
-                    pg.msg.net_i.classList.remove("wifi_w_img"); 
-                }
-                pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
-                pg.msg.net_t.innerHTML = "offline";
-                
-                msg_toggle(pg.msg.net, null, true, true, true);
+                setTimeout(function() {
+                    if (pg.msg.net_p.classList.contains("predicate")) {
+                        pg.msg.net_p.classList.remove("predicate"); 
+                    }
+                    pg.msg.net_p.classList.add("negate"); // set color
+                    if (pg.msg.net_i.classList.contains("wifi_w_img")) {
+                        pg.msg.net_i.classList.remove("wifi_w_img"); 
+                    }
+                    pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
+                    pg.msg.net_t.innerHTML = "offline";
+                    
+                    msg_toggle(pg.msg.net, null, true, true, true);
+                }, op.t);
             }
             
         } else if (op.n & op.nc) { // back online
