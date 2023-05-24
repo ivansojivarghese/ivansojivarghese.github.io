@@ -798,7 +798,7 @@ function pL() { // site parameters loop
 
         msg_toggle(pg.msg.net, null, false, true, null); // hide message
         setTimeout(function() {
-            pg.msg.net_p.classList.remove("negate"); // set color
+            pg.msg.net_p.classList.remove("negate"); // default
             pg.msg.net_i.classList.remove("cookies_w_img"); 
             pg.msg.net_t.innerHTML = "";
         }, op.t);
