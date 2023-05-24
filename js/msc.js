@@ -1994,6 +1994,10 @@ document.addEventListener("pagehide", function() { // the page is now terminated
     op.Lf.t = true;
 })
 
+if (document.wasDiscarded) { // Page was previously discarded by the browser while in a hidden tab.
+    op.Lf.d = true;
+}
+
 /*
 window.addEventListener("focus", function() { // window in focus
 
