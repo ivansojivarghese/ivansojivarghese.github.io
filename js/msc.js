@@ -824,6 +824,7 @@ function pL() { // site parameters loop
         } else if (op.n & op.nc) {
             console.log("online");
 
+            op.nc = false;
             msg_toggle(pg.msg.net, null, false, true, true); // back online - hide
 
             setTimeout(function() {
@@ -836,7 +837,6 @@ function pL() { // site parameters loop
 
                 msg_toggle(pg.msg.net, null, true, true, true); // show
 
-                op.nc = false;
             }, op.t);
         }
 
