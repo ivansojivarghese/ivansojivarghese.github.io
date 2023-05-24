@@ -54,6 +54,7 @@ var wH = window.outerHeight, // height
             c : document.getElementById("content_sc") // content
         },
         msg : { // messages
+            r : 3000, // response time (avg.)
             k : false, // if cookie message is active
             c : false, // check (if feature[pill] is active)
             el : document.getElementById("msg_sc"), // el
@@ -1380,9 +1381,9 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     setTimeout(function() { // hide message after time
                         msg_toggle(el, null, false, true, null);
                         setTimeout(function() {
-                            pg.msg.t.classList.remove("d_n"); // wow
+                            pg.msg.t.classList.remove("d_n"); 
                         }, op.t);
-                    }, 3000);   
+                    }, pg.msg.r);   
                 }
             }, 10); // after short delay
         } else { // hide
