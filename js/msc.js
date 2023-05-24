@@ -784,7 +784,8 @@ function pL() { // site parameters loop
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
 
             msg_toggle(pg.msg.net, null, false, true, null);
-            
+            pg.msg.c = false;
+
         } else if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             op.c.e = false;
             pg.msg.c = true;
