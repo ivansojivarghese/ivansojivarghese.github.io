@@ -866,12 +866,7 @@ function pL() { // site parameters loop
 
             }, op.t);
         }
-
-        // check for other messages, then open up
-
     }
-
-    // console.log(op.ne.s + ", " + op.ne.w + ", " + op.nc);
 }
 
 function c_Sr() { // check for scrolling activity (in live)
