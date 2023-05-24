@@ -832,6 +832,9 @@ function pL() { // site parameters loop
                     pg.msg.net_p.classList.remove("negate"); 
                 }
                 pg.msg.net_p.classList.add("predicate"); // set color
+                if (pg.msg.net_i.classList.contains("wifi_off_w_img")) {
+                    pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+                }
                 pg.msg.net_i.classList.add("wifi_w_img"); // set content
                 pg.msg.net_t.innerHTML = "back online!";
 
