@@ -1398,7 +1398,9 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             }
             setTimeout(function() {
                 el.classList.add("d_n");
-                pg.msg.el.classList.add("d_n"); // hide page
+                if (!pg.msg.c) { // ensure no other messages
+                    pg.msg.el.classList.add("d_n"); // hide page
+                }
             }, op.t);
             /*
             } else {
