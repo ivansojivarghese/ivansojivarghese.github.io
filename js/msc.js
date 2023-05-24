@@ -58,13 +58,6 @@ var wH = window.outerHeight, // height
             el : document.getElementById("msg_sc"), // el
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
-            /*
-            ckD : document.getElementById("ckD_msg"), // cookie-deny
-            ckDp1 : document.getElementById("ckD_msg-p1"), // para 1
-            ckDp2 : document.getElementById("ckD_msg-p2"), // para 2
-            ckDp3 : document.getElementById("ckD_msg-p3"), // para 3
-            ckDs : document.getElementById("ckD_msg_timer"), // cookie-deny timer span
-            */
             net : document.getElementById("net_msg"), // network
             net_p : document.getElementById("net_msg_pill"), // network - pill
             net_i : document.getElementById("net_msg-i"), // network - icon
