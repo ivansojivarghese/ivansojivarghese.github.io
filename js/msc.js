@@ -58,6 +58,7 @@ var wH = window.outerHeight, // height
             fo : false, // offline-online sequence active?
             k : false, // if cookie message is active
             c : false, // check (if feature[pill] is active)
+            ce : false, // pill extended?
             el : document.getElementById("msg_sc"), // el
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
@@ -795,10 +796,11 @@ function pL() { // site parameters loop
             pg.msg.net_i.classList.remove("wifi_img"); 
             pg.msg.net_i.classList.add("cookies_w_img"); // set content
             pg.msg.net_t.innerHTML = "enable cookies";
-            if (navigator.cookieEnabled && !getCookie("testCookie")) { // if cookies 'deleted/removed'
+            if (navigator.cookieEnabled && !getCookie("testCookie") && !pg.msg.ce) { // if cookies 'deleted/removed'
                 pg.msg.net_p.classList.add("md");
                 pg.msg.net_e.innerHTML = "reload"; // add text
                 pg.msg.net_e.classList.remove("d_n");
+                pg.msg.ce = true;
             }
 
             msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
@@ -808,6 +810,12 @@ function pL() { // site parameters loop
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
             setTimeout(function() {
+                if (pg.msg.ce) {
+                    pg.msg.net_p.classList.remove("md");
+                    pg.msg.net_e.innerHTML = ""; // add text
+                    pg.msg.net_e.classList.add("d_n");
+                    pg.msg.ce = false;
+                }
                 op.c.e = true;
                 pg.msg.c = false;
             }, op.t);
