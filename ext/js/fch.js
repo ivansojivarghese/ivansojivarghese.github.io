@@ -29,7 +29,8 @@ var fchL = {
         document.getElementById("sIn3"), // cappuccinos
     ],
     el = {
-        a : true,
+        x : false, // code execution
+        a : true, // scroll arrow anchor status
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
@@ -96,10 +97,11 @@ function load_js_e() { // load JS (page specific)
 }
 
 function js_live() { // update js - in live
-    if (pg.msg.fo) { // if page offline
+    if (!pg.msg.fo && el.x) { // if page offline
 
-        // fade out, in sequence
-        // console.log(el.a);
+        load_eN();
+        el.x = false;
+
         /*
         if (!el.a) { // at bottom anchor
             el.lk3b.style.top = "auto";
@@ -145,6 +147,7 @@ function scrollArrowIterate(m) {
                 if (!pg.msg.fo) { // if NOT offline
                     scrollArrowIterate(m); // repeat
                 } else { // if offline
+                    el.x = true;
                     el.lk3b.classList.add("d_n");
                     e_Fd(el.chev, true); // hide chevron
                 }
