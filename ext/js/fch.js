@@ -29,6 +29,7 @@ var fchL = {
         document.getElementById("sIn3"), // cappuccinos
     ],
     el = {
+        a : true,
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
@@ -98,6 +99,7 @@ function js_live() { // update js - in live
     if (pg.msg.fo) { // if page offline
 
         // fade out, in sequence
+        console.log(el.a);
 
         // top-anchor, while transitioning down
             // bottom-anchor, finish transition
@@ -126,10 +128,12 @@ function load_eN() { // load, after cookie acceptance (page specific)
 }
 
 function scrollArrowIterate(m) {
+    el.a = true;
     el.lk3b.style.top = "1rem";
     el.lk3b.style.height = "calc(100% - 2.5rem)"; // full height
     if (m) { // repeating iterations
         setTimeout(function() {
+            el.a = false;
             el.lk3b.style.top = "auto";
             el.lk3b.style.bottom = "1.5rem"; // reverse anchor
             el.lk3b.style.height = 0; // zero height
