@@ -142,10 +142,11 @@ function scrollArrowIterate(m) {
             el.lk3b.style.bottom = "1.5rem"; // reverse anchor
             el.lk3b.style.height = 0; // zero height
             setTimeout(function() {
-                if (!pg.msg.fo) {
+                if (!pg.msg.fo) { // if NOT offline
                     scrollArrowIterate(m); // repeat
-                } else {
+                } else { // if offline
                     el.lk3b.classList.add("d_n");
+                    e_Fd(el.chev, true); // hide chevron
                 }
             }, op.te);
         }, op.te);
