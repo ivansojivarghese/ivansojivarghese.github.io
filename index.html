@@ -260,7 +260,7 @@
                 function toClear(){
                     document.body.style.cssText="-webkit-filter: blur(0px);-moz-filter: blur(0px);-ms-filter: blur(0px);-o-filter: blur(0px);filter: blur(0px);"
                 }
-
+                /*
                 document.onclick = function(event){
                     toClear();
                 }
@@ -272,7 +272,7 @@
                 document.onblur = function(event){
                     toBlur();
                 }
-
+                */
                 document.addEventListener('keyup', (e) => {
                     if (e.key == 'PrintScreen') {
                         if (noScreenshot)
