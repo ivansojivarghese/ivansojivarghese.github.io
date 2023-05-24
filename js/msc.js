@@ -846,7 +846,6 @@ function pL() { // site parameters loop
             }
             
         } else if (op.n & op.nc) { // back online
-            console.log("online");
 
             op.nc = false;
             msg_toggle(pg.msg.net, null, false, true, true); // hide
@@ -862,7 +861,7 @@ function pL() { // site parameters loop
                 pg.msg.net_i.classList.add("wifi_w_img"); // set content
                 pg.msg.net_t.innerHTML = "back online!";
 
-                msg_toggle(pg.msg.net, null, true, true, true); // show
+                msg_toggle(pg.msg.net, null, true, false, false); // show
 
             }, op.t);
         }
