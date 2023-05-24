@@ -1981,6 +1981,15 @@ window.addEventListener("visibilitychange", function() { // stop network check i
         }
     }
 });
+
+document.addEventListener('freeze', function(event) { // The page is now frozen.
+    op.Lf.f = true;
+});
+
+document.addEventListener('resume', function(event) { // The page has been unfrozen.
+    op.Lf.f = false;
+});
+
 /*
 window.addEventListener("focus", function() { // window in focus
 
