@@ -99,7 +99,11 @@ function js_live() { // update js - in live
     if (pg.msg.fo) { // if page offline
 
         // fade out, in sequence
-        console.log(el.a);
+        // console.log(el.a);
+        /*
+        if (!el.a) { // at bottom anchor
+            el.lk3b.style.top = "auto";
+        }*/
 
         // top-anchor, while transitioning down
             // bottom-anchor, finish transition
@@ -138,7 +142,11 @@ function scrollArrowIterate(m) {
             el.lk3b.style.bottom = "1.5rem"; // reverse anchor
             el.lk3b.style.height = 0; // zero height
             setTimeout(function() {
-                scrollArrowIterate(m); // repeat
+                if (!pg.msg.fo) {
+                    scrollArrowIterate(m); // repeat
+                } else {
+                    el.lk3b.classList.add("d_n");
+                }
             }, op.te);
         }, op.te);
     }
