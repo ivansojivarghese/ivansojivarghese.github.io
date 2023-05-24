@@ -886,7 +886,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     color: var(--negate_col);
 }
 
-#net_msg .pill.md {
+.pill.predicate {
     background-color: var(--predicate_col);
 }
 

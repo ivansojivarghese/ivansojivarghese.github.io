@@ -822,7 +822,20 @@ function pL() { // site parameters loop
                 msg_toggle(pg.msg.net, null, true, true, true);
             }
         } else if (op.n & op.nc) {
-            console.log("online");
+            // console.log("online");
+
+            msg_toggle(pg.msg.net, null, false, true, true); // back online - hide
+
+            if (pg.msg.net_p.classList.contains("negate")) {
+                pg.msg.net_p.classList.remove("negate"); 
+            }
+            pg.msg.net_p.classList.add("predicate"); // set color
+            pg.msg.net_i.classList.add("wifi_w_img"); // set content
+            pg.msg.net_t.innerHTML = "back online!";
+
+            msg_toggle(pg.msg.net, null, true, true, true); // show
+
+            op.nc = false;
         }
 
         // check for other messages, then open up
