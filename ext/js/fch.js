@@ -99,7 +99,7 @@ function load_js_e() { // load JS (page specific)
 function js_live() { // update js - in live
     if (!pg.msg.fo && el.x) { // if page offline
 
-        load_eN();
+        load_eN(); // reload scroll arrow feature
         el.x = false;
 
         /*
