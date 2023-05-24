@@ -126,6 +126,12 @@
                     return false;
                 };
 
+                document.body.oncopy = function(){return false};  // disable copy, right menu, select functions
+                document.body.oncontextmenu = function(){return false}; 
+                document.body.onselectstart = document.body.ondrag = function(){
+                    return false;
+                }
+
                 window.addEventListener("DOMContentLoaded", function() {
                     document.addEventListener("contextmenu", function(e) { // prevent right context-menu from showing
                         e.preventDefault();
@@ -241,48 +247,7 @@
             Created by PDFAntiCopy.com
             */
             if (!developer) {
-                if (noCopy) 
-                { 
-                    document.body.oncopy = function(){return false}; 
-                    document.body.oncontextmenu = function(){return false}; 
-                    document.body.onselectstart = document.body.ondrag = function(){
-                        return false;
-                    }
-                    document.onkeydown = function() {
-                        if((event.ctrlKey == true || event.metaKey == true) && event.keyCode == 83) {
-                            event.preventDefault();
-                        }
-                        if((event.ctrlKey == true || event.metaKey == true) && event.code == 83) {
-                            event.preventDefault();
-                        }
-                    }
-                }
 
-                if (noPrint) 
-                {     
-                var c=document.createElement("span");
-                c.style.display="none";
-                c.style.postion="absolute";
-                c.style.background="#000";
-                    var first=document.body.firstChild;
-                    var wraphtml=document.body.insertBefore(c,first);
-                c.setAttribute('width', document.body.scrollWidth);
-                c.setAttribute('height', document.body.scrollHeight);
-                    c.style.display="block";
-                    var cssNode3 = document.createElement('style'); 
-                    cssNode3.type = 'text/css'; 
-                    cssNode3.media = 'print'; 
-                    cssNode3.innerHTML ='body{display:none}';
-                        document.head.appendChild(cssNode3); 	
-                }         	
-                    
-                var cssNode2 = document.createElement('style'); 
-                cssNode2.type = 'text/css'; 
-                cssNode2.media = 'screen'; 
-                cssNode2.innerHTML ='div{-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}';
-                document.head.appendChild(cssNode2);
-                document.body.style.cssText="-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;";
-                    
 
                 function toBlur(){
                     if (autoBlur) {
