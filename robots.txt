@@ -16,4 +16,7 @@ Allow: /
 User-agent: *
 Disallow: /
 
+User-agent: *
+Disallow: /index_nocrawl.html
+
 Sitemap: https://ivansojivarghese.github.io/sitemap.xml
