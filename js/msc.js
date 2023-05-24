@@ -794,8 +794,10 @@ function pL() { // site parameters loop
         pg.msg.net_t.innerHTML = "enable cookies";
 
         msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
-    } else {
 
+    } else { // if cookies enabled after disabling
+
+        
     }
 
 
