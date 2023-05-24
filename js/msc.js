@@ -798,7 +798,7 @@ function pL() { // site parameters loop
             msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
         }
 
-    } else if (!op.c.e && (navigator.cookieEnabled || getCookie("testCookie"))) { // if cookies enabled after disabling
+    } else if (!op.c.e && ((navigator.cookieEnabled && getCookie("testCookie")) || navigator.cookieEnabled)) { // if cookies enabled after disabling
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
             setTimeout(function() {
