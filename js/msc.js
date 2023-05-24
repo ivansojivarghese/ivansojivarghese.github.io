@@ -811,27 +811,28 @@ function pL() { // site parameters loop
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
     if ((op.n === false && !op.nc) || (op.n && op.nc)) { // if change in network connection (internet)
-        if (!op.nc) {
+        if (!op.nc) { // offline
             op.nc = true; // network changed
-            // offline
-            if (pg.msg.net_p.classList.contains("predicate")) {
-                pg.msg.net_p.classList.remove("predicate"); 
-            }
-            pg.msg.net_p.classList.add("negate"); // set color
-            if (pg.msg.net_i.classList.contains("wifi_w_img")) {
-                pg.msg.net_i.classList.remove("wifi_w_img"); 
-            }
-            pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
-            pg.msg.net_t.innerHTML = "offline";
-
             if (!pg.msg.c) {
+                if (pg.msg.net_p.classList.contains("predicate")) {
+                    pg.msg.net_p.classList.remove("predicate"); 
+                }
+                pg.msg.net_p.classList.add("negate"); // set color
+                if (pg.msg.net_i.classList.contains("wifi_w_img")) {
+                    pg.msg.net_i.classList.remove("wifi_w_img"); 
+                }
+                pg.msg.net_i.classList.add("wifi_off_w_img"); // set content
+                pg.msg.net_t.innerHTML = "offline";
+                
                 msg_toggle(pg.msg.net, null, true, true, true);
             }
-        } else if (op.n & op.nc) {
+            
+            
+        } else if (op.n & op.nc) { // back online
             console.log("online");
 
             op.nc = false;
-            msg_toggle(pg.msg.net, null, false, true, true); // back online - hide
+            msg_toggle(pg.msg.net, null, false, true, true); // hide
 
             setTimeout(function() {
                 if (pg.msg.net_p.classList.contains("negate")) {
