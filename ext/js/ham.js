@@ -14,7 +14,7 @@ var hm = { // hamburger menu object
 
         c : document.getElementById("ham_button-c"), // button strokes container
         sc_t : document.getElementById("ham-tB_sc"), // menu screen - tablet/desktop
-
+        s : false, // menu open status
         z : true, // ready status (ready to be opened?)
         zh : true, // ready status (button hover effect)
         m : false, // mouse-move status (within button)
@@ -116,6 +116,7 @@ function h_mTg() { // ham. menu toggle
             hm.e = true;
             // hm.h = false;
             setTimeout(function() { // latch set-up to avoid double call
+                hm.s = true;
                 hm.h = true;
             }, op.t);
 
@@ -222,6 +223,7 @@ function h_mTg() { // ham. menu toggle
 
             setTimeout(function() {
                 hm.h = false;
+                hm.s = false;
             }, op.t);
         }
     }
