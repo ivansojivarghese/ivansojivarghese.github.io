@@ -1391,6 +1391,9 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 pg.msg.t.classList.add("md"); 
             } else {
                 pg.msg.t.classList.add("d_n"); // remove tint
+
+                // timer to hide message away
+
             }
             setTimeout(function() {
                 el.classList.add("d_n");
