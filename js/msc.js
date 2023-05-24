@@ -831,9 +831,10 @@ function pL() { // site parameters loop
 
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
+
     if (!eR.s && ((op.n === false && !op.nc) || (op.n && op.nc))) { // if change in network connection (internet)
         if (!op.nc) { // offline
-            if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e) {
+            if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
                 op.nc = true; // network changed
                 pg.msg.fo = true;
 
