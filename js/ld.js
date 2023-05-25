@@ -290,7 +290,7 @@ function docRead() {
                                 }
                             }
 
-                        } else if (op.n && op.nc && !rL.r_s) { // if network change - from offline to online
+                        } else if (op.n && op.nc && !rL.r_s && op.ne.off) { // if network change - from offline to online
 
                             rL.i_s = true;
                             rL.r_s = false;
