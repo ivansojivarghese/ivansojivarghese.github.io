@@ -1701,6 +1701,7 @@ window.addEventListener("resize", function(e) {
     if (newPx_ratio != px_ratio && (op.sys !== "iOS" && op.sys !== "Android")) { // zooming - only applicable to desktop browsers
         px_ratio = newPx_ratio;
         console.log("zooming");
+        this.alert(op.sys);
 
         op.zoom = !op.b.f ? Math.round((window.outerWidth / window.innerWidth) * dev.z) : Math.round(Number((Number(getCookie("maxHeight")) / window.innerHeight).toFixed(2)) * dev.z); // FIREFOX follows a different strategy (cookie-based, initial user settings)
         var w = dev.z / dev.z,
