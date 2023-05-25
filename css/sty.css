@@ -634,6 +634,10 @@ div.locator_img {
     z-index: 3000;
 }
 
+.z-A {
+    z-index: 5000;
+}
+
 /* -------------- */
 
 .text {
