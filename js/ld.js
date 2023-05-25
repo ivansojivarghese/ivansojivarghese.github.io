@@ -83,7 +83,7 @@ var disp = document.getElementById("display_sc"), // display
         or : document.getElementById("error_or"), // orientation change
         ck : document.getElementById("error_cke"), // cookies
         mt : document.getElementById("error_mt"), // maintenance
-        f : document.getElementById("error_full") // fullscreen
+        f : document.getElementById("error_fS") // fullscreen
     },
     eR_t = { // error small texts
         z : document.getElementById("err_t_z")
@@ -1060,6 +1060,8 @@ function errorCheck() { // check for errors
         eR.h = "ck";
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
+    } else if () { // check if fullscreen
+        eR.h = "fS";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
         /*
