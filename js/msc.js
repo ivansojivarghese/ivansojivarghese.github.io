@@ -827,6 +827,7 @@ function pL() { // site parameters loop
                     pg.msg.net_p.classList.remove("md");
                     pg.msg.net_e.innerHTML = ""; // add text
                     pg.msg.net_e.classList.add("d_n");
+                    pg.msg.net_e.onclick = "";
                     pg.msg.ce = false;
                 }
                 op.c.e = true;
