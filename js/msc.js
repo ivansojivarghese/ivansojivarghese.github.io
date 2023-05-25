@@ -1969,6 +1969,12 @@ window.addEventListener("visibilitychange", function() { // stop network check i
     if (rL.i && !eR.s) {
         if (document.hidden) { // hidden document
             op.Lf.h = true;
+
+            pg.sc.o.classList.remove("d_n");
+            setTimeout(function() {
+                e_Fd(pg.sc.o, false);
+            }, 10);
+
             clearInterval(op.ne.L); // clear network check loop
         } else { // visible document
             if (document.hasFocus()) { // in focus
