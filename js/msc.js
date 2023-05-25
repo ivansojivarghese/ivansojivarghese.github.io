@@ -51,7 +51,8 @@ var wH = window.outerHeight, // height
         w : "", // current [open] window
         sc : { // sections
             m : document.getElementById("main_sc"), // main
-            c : document.getElementById("content_sc") // content
+            c : document.getElementById("content_sc"), // content
+            o : document.getElementById("overlay_sc") // overlay
         },
         msg : { // messages
             r : 3000, // response time (avg.)
