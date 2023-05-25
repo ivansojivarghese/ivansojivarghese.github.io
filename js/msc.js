@@ -864,33 +864,31 @@ function pL() { // site parameters loop
         }
     }
 
-    if (rL.i) {
-        if (checkFullScreen() && !eR.s && !op.fS) { // check if FullScreen is enabled (desktop only)
-            scr_t(false, null); // disable scrolling
-            op.fS = true;
-            op.s = true;
-            eR.m.classList.remove("d_n"); // show error in display
-            eR.fS.classList.remove("d_n");   
-            e_Fd(disp, true); // fade out display
+    if (checkFullScreen() && !eR.s && !op.fS) { // check if FullScreen is enabled (desktop only)
+        scr_t(false, null); // disable scrolling
+        op.fS = true;
+        op.s = true;
+        eR.m.classList.remove("d_n"); // show error in display
+        eR.fS.classList.remove("d_n");   
+        e_Fd(disp, true); // fade out display
+        setTimeout(function() {
+            e_Fd(eR.fS, false);
+        }, 10);
+        eR.s = true;
+    } else if (!checkFullScreen() && eR.s && op.fS) {
+        if (eR.fS_e.x) {
+            reL(); // reload if on first load
+        } else {
+            e_Fd(eR.fS, true);
+            e_Fd(disp, false);
             setTimeout(function() {
-                e_Fd(eR.fS, false);
-            }, 10);
-            eR.s = true;
-        } else if (!checkFullScreen() && eR.s && op.fS) {
-            if (eR.fS_e.x) {
-                reL(); // reload if on first load
-            } else {
-                e_Fd(eR.fS, true);
-                e_Fd(disp, false);
-                setTimeout(function() {
-                    scr_t(true, null); // enable scrolling
-                    op.fS = false;
-                    op.s = false;
-                    eR.m.classList.add("d_n"); // show error in display
-                    eR.fS.classList.add("d_n"); 
-                    eR.s = false;
-                }, op.t);
-            }
+                scr_t(true, null); // enable scrolling
+                op.fS = false;
+                op.s = false;
+                eR.m.classList.add("d_n"); // show error in display
+                eR.fS.classList.add("d_n"); 
+                eR.s = false;
+            }, op.t);
         }
     }
 
