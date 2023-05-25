@@ -1987,7 +1987,7 @@ window.addEventListener("visibilitychange", function() { // stop network check i
 
             scr_t(true, null); // disable scrolling
             op.s = false;
-            e_Fd(pg.sc.o, false);
+            e_Fd(pg.sc.o, true);
             setTimeout(function() {
                 pg.sc.o.classList.add("d_n");
             }, op.t);
