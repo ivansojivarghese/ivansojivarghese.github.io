@@ -833,12 +833,16 @@ function pL() { // site parameters loop
         }
     }
 
-    if (!document.fullscreenElement && !eR.s) { // check if FullScreen is enabled
-        eR.f.classList.remove("d_n");
-        setTimeout(function() {
-            e_Fd(eR.f, false);
-        }, 10);
-        eR.s = true;
+    if (rL.i) {
+        if (!document.fullscreenElement && !eR.s) { // check if FullScreen is enabled
+            eR.m.classList.remove("d_n"); // error in display
+            eR.f.classList.remove("d_n");   
+            e_Fd(disp, true); // fade out display
+            setTimeout(function() {
+                e_Fd(eR.f, false);
+            }, 10);
+            eR.s = true;
+        }
     }
 
     /*
