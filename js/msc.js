@@ -952,7 +952,7 @@ function pL() { // site parameters loop
                 }, op.t);
             }
             
-        } else if (op.n & op.nc) { // back online
+        } else if (op.n & op.nc && rL.i) { // back online
 
             op.nc = false;
             msg_toggle(pg.msg.net, null, false, true, true); // hide offline
