@@ -823,7 +823,7 @@ function pL() { // site parameters loop
                 pg.msg.net_p.classList.add("md");
                 pg.msg.net_e.innerHTML = "reload"; // add text
                 pg.msg.net_e.classList.remove("d_n");
-                pg.msg.net_e.onclick = "reL()"; // reload button
+                pg.msg.net_e.addEventListener("click", reL); // add reload function
                 pg.msg.ce = true;
             } else {
                 pg.msg.net_t.innerHTML = "enable cookies";
@@ -840,7 +840,7 @@ function pL() { // site parameters loop
                     pg.msg.net_p.classList.remove("md");
                     pg.msg.net_e.innerHTML = ""; // add text
                     pg.msg.net_e.classList.add("d_n");
-                    pg.msg.net_e.onclick = "";
+                    pg.msg.net_e.removeEventListener("click", reL);
                     pg.msg.ce = false;
                 }
                 op.c.e = true;
