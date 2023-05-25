@@ -77,6 +77,9 @@ var wH = window.outerHeight, // height
             prv : document.getElementById("prv") // privacy policy [https://cdn.websitepolicies.com/wp-content/uploads/2022/04/privacy-policy-template.pdf]
         }
     },
+    eR = {
+        s : false // error check
+    },
     rL = {
         i : false // load status
     };

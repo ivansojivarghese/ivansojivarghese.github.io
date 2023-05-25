@@ -6,36 +6,6 @@ var disp = document.getElementById("display_sc"), // display
         y : document.getElementById("f_yr"), // copyright year
         v : document.getElementsByClassName("f_vr") // site version
     },
-    eR = { // error
-        a : [], // error precedence array
-        s : false, // status
-        h : "", // hold-value placement (error page id)
-        p : "", // current error (id)
-        e : false, // code-execution boolean
-        v : { // version
-            u : document.getElementById("vrU"), // version upgrade
-            u_e : document.getElementsByClassName("vr-u") // "" elements class
-        },
-        m : document.getElementById("error_sc"), // main
-        z : document.getElementById("error_z"), // zoom
-        z_e : { // zoom, extension (if applicable)
-            h : document.getElementById("error_z_h"), // header
-            s : document.getElementById("error_z_s") // span
-        },
-        vs : document.getElementById("error_vs"), // viewport - small
-        vL : document.getElementById("error_vL"), // viewport - large
-        ld : document.getElementById("error_lnd"), // landscape
-        ld_e : { // extension
-            x : false // execution
-        },
-        or : document.getElementById("error_or"), // orientation change
-        ck : document.getElementById("error_cke"), // cookies
-        mt : document.getElementById("error_mt"), // maintenance
-        fS : document.getElementById("error_fS"), // fullscreen
-        fS_e : {
-            x : false // execution
-        }
-    },
     eR_t = { // error small texts
         z : document.getElementById("err_t_z")
     },
@@ -43,6 +13,37 @@ var disp = document.getElementById("display_sc"), // display
     _Le, // loop (applicable, if error)
     r, // before-load parameters
     vw; // viewport variables
+
+eR = { // error
+    a : [], // error precedence array
+    s : eR.s, // status
+    h : "", // hold-value placement (error page id)
+    p : "", // current error (id)
+    e : false, // code-execution boolean
+    v : { // version
+        u : document.getElementById("vrU"), // version upgrade
+        u_e : document.getElementsByClassName("vr-u") // "" elements class
+    },
+    m : document.getElementById("error_sc"), // main
+    z : document.getElementById("error_z"), // zoom
+    z_e : { // zoom, extension (if applicable)
+        h : document.getElementById("error_z_h"), // header
+        s : document.getElementById("error_z_s") // span
+    },
+    vs : document.getElementById("error_vs"), // viewport - small
+    vL : document.getElementById("error_vL"), // viewport - large
+    ld : document.getElementById("error_lnd"), // landscape
+    ld_e : { // extension
+        x : false // execution
+    },
+    or : document.getElementById("error_or"), // orientation change
+    ck : document.getElementById("error_cke"), // cookies
+    mt : document.getElementById("error_mt"), // maintenance
+    fS : document.getElementById("error_fS"), // fullscreen
+    fS_e : {
+        x : false // execution
+    }
+};
 
 rL = { // page/resource loader
     el : document.getElementById("load_sc"), // load_sc
