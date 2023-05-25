@@ -78,7 +78,7 @@ var wH = window.outerHeight, // height
         }
     },
     rL = {
-        i : false
+        i : false // load status
     };
 
 /////////////////////////////////////////////////////
