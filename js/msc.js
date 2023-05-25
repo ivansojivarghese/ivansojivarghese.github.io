@@ -1969,14 +1969,6 @@ window.addEventListener("visibilitychange", function() { // stop network check i
     if (rL.i && !eR.s) {
         if (document.hidden) { // hidden document
             op.Lf.h = true;
-
-            scr_t(false, null); // disable scrolling
-            op.s = true;
-            pg.sc.o.classList.remove("d_n");
-            setTimeout(function() {
-                e_Fd(pg.sc.o, false);
-            }, 10);
-
             clearInterval(op.ne.L); // clear network check loop
         } else { // visible document
             if (document.hasFocus()) { // in focus
@@ -1984,14 +1976,6 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             } else { // out of focus
                 op.Lf.vP = true;
             }
-
-            scr_t(true, null); // disable scrolling
-            op.s = false;
-            e_Fd(pg.sc.o, true);
-            setTimeout(function() {
-                pg.sc.o.classList.add("d_n");
-            }, op.t);
-
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
             }, op.ne.bD);
