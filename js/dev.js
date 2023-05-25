@@ -1,5 +1,5 @@
 
-var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+var developer = false, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
     keyStatus = {}, // keys down/up status
     disabledEvent, // function declaration (global)
     checkDevTools, // function, check for devTools presence (global)
@@ -11,7 +11,7 @@ var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER P
     devErrorMessage = false,
     devErrorAlert = false;
 
-    
+
 // CODE referenced from user @molnarg from 'https://stackoverflow.com/users/1463900/molnarg', stackoverflow 2022
 // Other references:
 // https://x-c3ll.github.io/posts/javascript-antidebugging/
