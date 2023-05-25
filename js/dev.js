@@ -9,7 +9,8 @@ var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER P
     devStatus = false,
     devError = false,
     devErrorMessage = false,
-    devErrorAlert = false;
+    devErrorAlert = false,
+    timeout = 15000; // default timeout
 
 
 // CODE referenced from user @molnarg from 'https://stackoverflow.com/users/1463900/molnarg', stackoverflow 2022
