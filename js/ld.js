@@ -83,7 +83,7 @@ var disp = document.getElementById("display_sc"), // display
         or : document.getElementById("error_or"), // orientation change
         ck : document.getElementById("error_cke"), // cookies
         mt : document.getElementById("error_mt"), // maintenance
-        f : document.getElementById("error_fS") // fullscreen
+        fS : document.getElementById("error_fS") // fullscreen
     },
     eR_t = { // error small texts
         z : document.getElementById("err_t_z")

@@ -842,21 +842,21 @@ function pL() { // site parameters loop
             op.fS = true;
             op.s = true;
             eR.m.classList.remove("d_n"); // show error in display
-            eR.f.classList.remove("d_n");   
+            eR.fS.classList.remove("d_n");   
             e_Fd(disp, true); // fade out display
             setTimeout(function() {
-                e_Fd(eR.f, false);
+                e_Fd(eR.fS, false);
             }, 10);
             eR.s = true;
         } else if ((window.innerHeight !== screen.height)  && (op.sys !== "iOS" && op.sys !== "Android") && eR.s && op.fS) {
-            e_Fd(eR.f, true);
+            e_Fd(eR.fS, true);
             e_Fd(disp, false);
             setTimeout(function() {
                 scr_t(true, null); // disable scrolling
                 op.fS = false;
                 op.s = false;
                 eR.m.classList.add("d_n"); // show error in display
-                eR.f.classList.add("d_n"); 
+                eR.fS.classList.add("d_n"); 
                 eR.s = false;
             }, op.t);
         }
