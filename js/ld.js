@@ -6,58 +6,6 @@ var disp = document.getElementById("display_sc"), // display
         y : document.getElementById("f_yr"), // copyright year
         v : document.getElementsByClassName("f_vr") // site version
     },
-    rL = { // page/resource loader
-        /*
-        f : { // - favicon/logo
-            el : document.getElementsByClassName("logo"), // element
-            u : 'logo/favicon.png' // relative path
-        },
-        f_s : {
-            el : document.getElementsByClassName("logo-secondary"),
-            u : '../logo/favicon_secondary.png'
-        },
-        w_s : { // - wifi slow
-            el : document.getElementsByClassName("wifi_slow_img"),
-            u : '../svg/wifi_slow.svg'
-        },
-        w_fw : { // - wifi off (white)
-            el : document.getElementsByClassName("wifi_off_w_img"),
-            u : '../svg/wifi_off_white.svg'
-        },
-        w_w : { // wifi (white)
-            el : document.getElementsByClassName("wifi_w_img"),
-            u : '../svg/wifi_white.svg'
-        },*/
-        el : document.getElementById("load_sc"), // load_sc
-        m : document.getElementById("load_box"), // load_sc main
-        dt : document.getElementById("load_dot"), // loading dot
-        n : document.getElementById("load_icon"), // loading icon (for any message)
-
-        //g : document.getElementById("load_logo"), // loading logo
-        //t : document.getElementById("load_temP"), // loading logo/ring - 'template'
-
-        x : document.getElementById("load_text"), // loading text
-        xc : document.getElementById("load_text_cnt"), // loading text content
-        xe : document.getElementById("load_text_ex"), // loading text extra
-        xep : document.getElementById("load_text_ex_p"), // "" primary
-        xes : document.getElementById("load_text_ex_s"), // "" secondary
-        xea : document.getElementById("load_text_arrow"), // "" arrow
-        r : document.getElementById("loadR"), // loading rings (container)
-        p : document.getElementById("loadR-p"), // loading ring (primary)
-        d : document.getElementById("loadR-e"), // loading ring (end)
-        c : document.getElementById("loadR-s"), // loading ring (secondary)
-        e : false, // code-execution boolean
-        e2 : false, // ""
-        e3 : false,
-        e4 : false,
-        e5 : false,
-        o_c : false, // orientation-change check (during load)
-        s : false, // int load status
-        y : false, // ready (render) load status
-        i : false, // full load status
-        r_s : false, // [loader] loading ring status
-        i_s : false // [loader] information status
-    },
     eR = { // error
         a : [], // error precedence array
         s : false, // status
@@ -96,12 +44,33 @@ var disp = document.getElementById("display_sc"), // display
     r, // before-load parameters
     vw; // viewport variables
 
-    // bC_d = "#303030", // contrast colour - dark
-    // bC_L = "#FFF", // contrast colour - light
-    // bC_t = "transparent",
-    // trD_a = 500, // transition duration - for animation (in ms.)
-    // sV_a = 0.8, // user viewport threshold - for scroll-based functions
-
+rL = { // page/resource loader
+    el : document.getElementById("load_sc"), // load_sc
+    m : document.getElementById("load_box"), // load_sc main
+    dt : document.getElementById("load_dot"), // loading dot
+    n : document.getElementById("load_icon"), // loading icon (for any message)
+    x : document.getElementById("load_text"), // loading text
+    xc : document.getElementById("load_text_cnt"), // loading text content
+    xe : document.getElementById("load_text_ex"), // loading text extra
+    xep : document.getElementById("load_text_ex_p"), // "" primary
+    xes : document.getElementById("load_text_ex_s"), // "" secondary
+    xea : document.getElementById("load_text_arrow"), // "" arrow
+    r : document.getElementById("loadR"), // loading rings (container)
+    p : document.getElementById("loadR-p"), // loading ring (primary)
+    d : document.getElementById("loadR-e"), // loading ring (end)
+    c : document.getElementById("loadR-s"), // loading ring (secondary)
+    e : false, // code-execution boolean
+    e2 : false, // ""
+    e3 : false,
+    e4 : false,
+    e5 : false,
+    o_c : false, // orientation-change check (during load)
+    s : false, // int load status
+    y : false, // ready (render) load status
+    i : rL.i, // full load status
+    r_s : false, // [loader] loading ring status
+    i_s : false // [loader] information status
+};
 
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
