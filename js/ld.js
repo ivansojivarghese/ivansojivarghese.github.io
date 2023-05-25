@@ -1040,7 +1040,7 @@ function errorCheck() { // check for errors
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
     } else if (op.fS) { // check if fullscreen
-        eR.fS_e.x = true; // if on first load
+        eR.fS_e.x = op.fS; // if on first load
         eR.h = "fS";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
