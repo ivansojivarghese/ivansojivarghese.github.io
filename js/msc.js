@@ -879,6 +879,7 @@ function pL() { // site parameters loop
     } else if (!checkFullScreen() && eR.s && op.fS) {
         if (eR.fS_e.x) {
             reL(); // reload if on first load
+            eR.fS_e.x = false;
         } else {
             e_Fd(eR.fS, true);
             e_Fd(disp, false);
