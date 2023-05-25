@@ -208,7 +208,6 @@ op = {
     Ld : { // load
         // b : false, // abort status
         // s : null, // load status
-        f : false,
         b : op.Ld.b,
         s : op.Ld.s,
         c : op.Ld.c,
@@ -286,6 +285,7 @@ op = {
     },
     zoom : Math.round((window.outerWidth / window.innerWidth) * dev.z), // approx. [potential] zoom of page, in percentage
     zoomUndefault : false, // default check
+    fS : false, // fullscreen check (desktop only)
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
@@ -835,9 +835,9 @@ function pL() { // site parameters loop
     }
 
     if (rL.i) {
-        if ((window.innerHeight === screen.height) && (op.sys !== "iOS" && op.sys !== "Android") && !eR.s) { // check if FullScreen is enabled (desktop only)
+        if ((window.innerHeight === screen.height) && (op.sys !== "iOS" && op.sys !== "Android") && !eR.s && !op.fS) { // check if FullScreen is enabled (desktop only)
             scr_t(false, null); // disable scrolling
-            // 
+            op.fS = true;
             op.s = true;
             eR.m.classList.remove("d_n"); // show error in display
             eR.f.classList.remove("d_n");   
@@ -846,12 +846,12 @@ function pL() { // site parameters loop
                 e_Fd(eR.f, false);
             }, 10);
             eR.s = true;
-        } else if ((window.innerHeight !== screen.height)  && (op.sys !== "iOS" && op.sys !== "Android") && eR.s) {
+        } else if ((window.innerHeight !== screen.height)  && (op.sys !== "iOS" && op.sys !== "Android") && eR.s && op.fS) {
             e_Fd(eR.f, true);
             e_Fd(disp, false);
             setTimeout(function() {
                 scr_t(true, null); // disable scrolling
-                // 
+                op.fS = false;
                 op.s = false;
                 eR.m.classList.add("d_n"); // show error in display
                 eR.f.classList.add("d_n"); 
