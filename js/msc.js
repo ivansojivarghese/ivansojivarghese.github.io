@@ -913,7 +913,7 @@ function pL() { // site parameters loop
         op.nc = true;
     }*/
 
-    if (!eR.s && rL.i && ((op.n === false && !op.nc) || (op.n && op.nc))) { // if change in network connection (internet)
+    if (!eR.s && ((op.n === false && !op.nc) || (op.n && op.nc))) { // if change in network connection (internet)
         if (!op.nc) { // offline
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
                 op.nc = true; // network changed
