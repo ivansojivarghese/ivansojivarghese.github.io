@@ -2120,8 +2120,6 @@ window.addEventListener("pointermove", function() { // release/click up
     op.p.e = true;
 });
 
-if (rL.i) {
-    op.L = setInterval(pL, op.Ls); // check site paramters
-    pos.L = setInterval(sL, op.Ls); // check live scroll pos.
-    pos.Lc = setInterval(c_Sr, (op.Ls * op.e)); // check scroll parameters (at half intervals)
-}
+op.L = setInterval(pL, op.Ls); // check site paramters
+pos.L = setInterval(sL, op.Ls); // check live scroll pos.
+pos.Lc = setInterval(c_Sr, (op.Ls * op.e)); // check scroll parameters (at half intervals)
