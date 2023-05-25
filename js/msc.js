@@ -913,7 +913,7 @@ function pL() { // site parameters loop
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
 
-    if ((!eR.s && ((op.n === false && !op.nc) || (op.n && op.nc))) || (!rL.i && op.n && !op.nc && !op.ne.w)) { // if change in network connection (internet)
+    if ((!eR.s && ((op.n === false && !op.nc) || (op.n && op.nc))) || (!rL.i && op.n && !op.nc && (!op.ne.w || op.ne.x))) { // if change in network connection (internet)
         if (!op.nc) { // offline
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
                 op.nc = true; // network changed
