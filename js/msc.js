@@ -977,7 +977,9 @@ function pL() { // site parameters loop
         }
     }
 
-    js_live(); // run local functions (fch.js)
+    if (rL.i) {
+        js_live(); // run local functions (fch.js)
+    }
 }
 
 function c_Sr() { // check for scrolling activity (in live)
