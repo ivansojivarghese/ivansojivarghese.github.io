@@ -760,20 +760,14 @@ function cookiesDenyCancel() { // cancel close tab, back to original message
 
 function checkFullScreen() {
     if ((window.innerHeight === screen.height || window.innerHeight === screen.availHeight) && (op.sys !== "iOS" && op.sys !== "Android")) { // only on desktops
+        if (rL.i) {
+            eR.fS_e.x = false;
+        } else {
+            eR.fS_e.x = true; // on first load
+        }
         return true;    
     } else {
         return false;
-    }
-    if (rL.i) {
-        eR.fS_e.x = false;
-        
-    } else {
-        eR.fS_e.x = true; // on first load
-        if ((window.innerHeight === screen.height || window.innerHeight === screen.availHeight) && (op.sys !== "iOS" && op.sys !== "Android")) { // only on desktops
-            return true;    
-        } else {
-            return false;
-        }
     }
 }
 
