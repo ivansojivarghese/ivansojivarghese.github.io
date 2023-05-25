@@ -883,7 +883,7 @@ function pL() { // site parameters loop
                 e_Fd(eR.fS, true);
                 e_Fd(disp, false);
                 setTimeout(function() {
-                    scr_t(true, null); // disable scrolling
+                    scr_t(true, null); // enable scrolling
                     op.fS = false;
                     op.s = false;
                     eR.m.classList.add("d_n"); // show error in display
@@ -1486,8 +1486,8 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
     if (!eR.s && rL.i) { // when no errors
         if (s) { // show
             if (el === pg.msg.ckA) {
-                scr_t(true, null); // disable scrolling
-                op.s = false;
+                scr_t(false, null); // disable scrolling
+                op.s = true;
                 pg.msg.k = true;
             } else {
                 pg.msg.c = true;
