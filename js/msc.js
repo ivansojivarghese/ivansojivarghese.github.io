@@ -1698,7 +1698,7 @@ var px_ratio = window.devicePixelRatio || window.screen.availWidth / document.do
 window.addEventListener("resize", function(e) {
 
     var newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
-    if (newPx_ratio != px_ratio && (op.sys !== "iOS" && op.sys !== "Android")) { // zooming - only applicable to desktop browsers
+    if (newPx_ratio != px_ratio && (op.sys !== "iOS" && op.sys !== "Android") && op.c.e) { // zooming - only applicable to desktop browsers
         px_ratio = newPx_ratio;
         console.log("zooming");
         this.alert(op.sys);
