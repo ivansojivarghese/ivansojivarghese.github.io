@@ -1982,6 +1982,9 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             } else { // out of focus
                 op.Lf.vP = true;
             }
+
+
+
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
             }, op.ne.bD);
@@ -1999,6 +2002,10 @@ document.addEventListener("resume", function() { // The page has been unfrozen.
 
 document.addEventListener("pagehide", function() { // the page is now terminated
     op.Lf.t = true;
+})
+
+document.addEventListener("pageshow", function() { // the page is now terminated
+    op.Lf.t = false;
 })
 
 if (document.wasDiscarded) { // Page was previously discarded by the browser while in a hidden tab.
