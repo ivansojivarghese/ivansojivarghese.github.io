@@ -834,7 +834,7 @@ function pL() { // site parameters loop
     }
 
     if (rL.i) {
-        if ((window.innerHeight === screen.height) && !eR.s) { // check if FullScreen is enabled
+        if ((window.innerHeight === screen.height) && (op.sys !== "iOS" && op.sys !== "Android") && !eR.s) { // check if FullScreen is enabled (desktop only)
             eR.m.classList.remove("d_n"); // error in display
             eR.f.classList.remove("d_n");   
             e_Fd(disp, true); // fade out display
@@ -842,6 +842,11 @@ function pL() { // site parameters loop
                 e_Fd(eR.f, false);
             }, 10);
             eR.s = true;
+        } else if ((window.innerHeight !== screen.height)  && (op.sys !== "iOS" && op.sys !== "Android") && eR.s) {
+            e_Fd(eR.f, true);
+            setTimeout(function() {
+                e_Fd(disp, false);
+            }, op.t);
         }
     }
 
