@@ -768,6 +768,7 @@ function checkFullScreen() {
         }
     } else {
         eR.fS_e.x = true; // on first load
+        return true;
     }
 }
 
