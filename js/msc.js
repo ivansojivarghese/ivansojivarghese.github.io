@@ -917,7 +917,9 @@ function pL() { // site parameters loop
         if (!op.nc) { // offline
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
                 op.nc = true; // network changed
-                pg.msg.fo = true;
+                if (rL.i) {
+                    pg.msg.fo = true;
+                }
 
                 if (pg.msg.net_p.classList.contains("predicate")) {
                     pg.msg.net_p.classList.remove("predicate"); 
