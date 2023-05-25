@@ -1551,6 +1551,8 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
     } else if (rL.i) {
         if (s) { // if show
             if (el === pg.msg.ckA) { // show cookie acceptance after error
+                scr_t(false, null); // disable scrolling
+                op.s = true;
                 setTimeout(function() { // keep checking for errors
                     msg_toggle(pg.msg.ckA, null, true, true, null); // try to show cookie-acceptance message
                 }, 10);
