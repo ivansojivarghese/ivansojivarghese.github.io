@@ -833,6 +833,9 @@ function pL() { // site parameters loop
         }
     }
 
+    if (document.fullscreenElement) { // check if FullScreen is enabled
+        // show error
+    }
 
     /*
     if (!op.nav.b) { // check if URL bar is NOT in view
