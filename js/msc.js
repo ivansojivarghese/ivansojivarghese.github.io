@@ -1545,7 +1545,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
     } else if (rL.i) {
         if (s) { // if show
             if (el === pg.msg.ckA) { // show cookie acceptance after error
-                setTimeout(function() { // keep checking
+                setTimeout(function() { // keep checking for errors
                     msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
                 }, 10);
             }
