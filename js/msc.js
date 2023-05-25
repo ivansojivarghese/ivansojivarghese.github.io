@@ -792,14 +792,16 @@ function pL() { // site parameters loop
         }
     }
 
-    if ((!hm.e && op.c.u) || pg.e) {
-        var arg = pg.e ? pg[pg.t].el : null;
-        if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
-            op.p.L = true;
-            scr_t(false, arg);
-        } else {
-            op.p.L = false;
-            scr_t(true, arg);
+    if (rL.i) {
+        if ((!hm.e && op.c.u) || pg.e) {
+            var arg = pg.e ? pg[pg.t].el : null;
+            if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
+                op.p.L = true;
+                scr_t(false, arg);
+            } else {
+                op.p.L = false;
+                scr_t(true, arg);
+            }
         }
     }
 
