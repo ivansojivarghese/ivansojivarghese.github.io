@@ -511,6 +511,7 @@ function docRead() {
 
                                 rL.dt.classList.add("md");
                                 // op.nc = false;
+                                op.ne.off = true; // unexpected offline
                                 op.ne.s = 0;
                                 op.ne.w = false;
 
