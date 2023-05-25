@@ -1516,6 +1516,8 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
         } else { // hide
             e_Sdv(el, s); // hide message
             if (el === pg.msg.ckA) {
+                scr_t(true, null); // enable scrolling
+                op.s = false;
                 pg.msg.k = false;
             } else {
                 pg.msg.c = false;
