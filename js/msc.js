@@ -811,7 +811,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s) { // if cookies are disabled
+    if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
         console.log("cookies deleted");
         
         if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
@@ -840,7 +840,7 @@ function pL() { // site parameters loop
             msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
         }
 
-    } else if (!op.c.e && (navigator.cookieEnabled && getCookie("testCookie"))) { // if cookies enabled after disabling
+    } else if (!op.c.e && rL.i && (navigator.cookieEnabled && getCookie("testCookie"))) { // if cookies enabled after disabling
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
             setTimeout(function() {
@@ -909,7 +909,7 @@ function pL() { // site parameters loop
 
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
 
-    if (!eR.s && ((op.n === false && !op.nc) || (op.n && op.nc))) { // if change in network connection (internet)
+    if (!eR.s && rL.i && ((op.n === false && !op.nc) || (op.n && op.nc))) { // if change in network connection (internet)
         if (!op.nc) { // offline
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
                 op.nc = true; // network changed
