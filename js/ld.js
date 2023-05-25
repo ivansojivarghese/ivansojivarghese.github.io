@@ -1060,7 +1060,7 @@ function errorCheck() { // check for errors
         eR.h = "ck";
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
-    } else if () { // check if fullscreen
+    } else if (op.fS) { // check if fullscreen
         eR.h = "fS";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
