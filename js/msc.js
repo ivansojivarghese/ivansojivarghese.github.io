@@ -810,6 +810,7 @@ function pL() { // site parameters loop
                 pg.msg.net_p.classList.add("md");
                 pg.msg.net_e.innerHTML = "reload"; // add text
                 pg.msg.net_e.classList.remove("d_n");
+                pg.msg.net_e.onclick = "reL()";
                 pg.msg.ce = true;
             } else {
                 pg.msg.net_t.innerHTML = "enable cookies";
