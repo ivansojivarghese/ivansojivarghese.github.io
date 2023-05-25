@@ -201,7 +201,7 @@ function docRead() {
                                 op.ne.s = 0;
 
                                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-                                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                                     changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                                     rL.xea.style.transform = "rotate(0deg)";
                                 }
@@ -274,7 +274,7 @@ function docRead() {
 
                                     op.ne.s = 0;
                                     rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-                                    if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                    if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                                         changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                                         rL.xea.style.transform = "rotate(0deg)";
                                     }
@@ -341,7 +341,7 @@ function docRead() {
 
                                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
 
-                                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                                     changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                                     rL.xea.style.transform = "rotate(0deg)";
                                 }
@@ -419,7 +419,7 @@ function docRead() {
                             } else { // timeout 2
                                 op.ne.s = 0;
                                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-                                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                                     changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                                     rL.xea.style.transform = "rotate(0deg)";
                                 }
@@ -461,7 +461,7 @@ function docRead() {
 
                                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
 
-                                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                                     changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                                     rL.xea.style.transform = "rotate(0deg)";
                                 }
@@ -518,7 +518,7 @@ function docRead() {
                                 op.ne.w = false;
 
                                 rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-                                if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                                if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                                     changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                                     rL.xea.style.transform = "rotate(0deg)";
                                 }
@@ -640,7 +640,7 @@ function load_e() { // end the loading sequence
 
             op.ne.s = 0;
             rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-            if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+            if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                 changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                 rL.xea.style.transform = "rotate(0deg)";
             }
@@ -718,7 +718,7 @@ function load_e() { // end the loading sequence
 
                         op.ne.s = 0;
                         rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-                        if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+                        if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                             changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                             rL.xea.style.transform = "rotate(0deg)";
                         }
@@ -823,7 +823,7 @@ function load_e() { // end the loading sequence
 
             op.ne.s = 0;
             rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-            if (networkTrend(op.ne.b) || networkTrend(op.ne.b) === false) {
+            if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
                 changeSVGColor(op.col.b, rL.xea, false); // default the arrow
                 rL.xea.style.transform = "rotate(0deg)";
             }
