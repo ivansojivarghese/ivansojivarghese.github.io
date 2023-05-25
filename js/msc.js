@@ -2003,27 +2003,29 @@ if (document.wasDiscarded) { // Page was previously discarded by the browser whi
     op.Lf.d = true;
 }
 
-/*
 window.addEventListener("focus", function() { // window in focus
 
     // REMOVE 'HIDING' LAYER
-
-    op.ne.L = setInterval(async () => {
-        networkConditions(); // continuously check on network
-    }, op.ne.bD);
-    console.log("in view");
+    
+    scr_t(true, null); 
+    op.s = false;
+    e_Fd(pg.sc.o, true);
+    setTimeout(function() {
+        pg.sc.o.classList.add("d_n");
+    }, op.t);
 });
 
 window.addEventListener("blur", function() { // window out of focus
 
     // ADD 'HIDING' LAYER - PREVENT TO BE SEEN IN TAB PREVIEW
 
-    clearInterval(op.ne.L); // clear network check loop
-    checkOnlineStatus_abort.abort(); // abort any existing fetching
-    estimateNetworkSpeed_abort.abort();
-    op.n = true;
-    console.log("hidden");
-});*/
+    scr_t(false, null); // disable scrolling
+    op.s = true;
+    pg.sc.o.classList.remove("d_n");
+    setTimeout(function() {
+        e_Fd(pg.sc.o, false);
+    }, 10);
+});
 
 //////////////////////////////////////////
 
