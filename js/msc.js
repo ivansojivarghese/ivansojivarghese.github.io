@@ -768,7 +768,11 @@ function checkFullScreen() {
         }
     } else {
         eR.fS_e.x = true; // on first load
-        return true;
+        if ((window.innerHeight === screen.height || window.innerHeight === screen.availHeight) && (op.sys !== "iOS" && op.sys !== "Android")) { // only on desktops
+            return true;    
+        } else {
+            return false;
+        }
     }
 }
 
