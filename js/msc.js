@@ -924,6 +924,8 @@ function pL() { // site parameters loop
                 if (rL.i) {
                     op.nc = true; // network changed
                     pg.msg.fo = true;
+                } else if (op.ne.off) {
+                    op.nc = true;
                 }
 
                 if (pg.msg.net_p.classList.contains("predicate")) {
