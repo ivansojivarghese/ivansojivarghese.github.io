@@ -1201,7 +1201,7 @@ if (getCookie("maxHeight") && (getCookie("maxHeight") < cH || (op.nav.r && getCo
 r = pgOr(wD, cH); // get screen orientation (using dimensions)
 vw = vwP(wD, cH, r); // set device size/orientation params
 op.c.e = navigator.cookieEnabled; // check for enabled cookies
-op.fS = ;
+op.fS = checkFullScreen(); // check if in full screen view
 op.mt = mt_check(dev.version_up);
 load_js();
 load_css();
