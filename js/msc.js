@@ -1541,6 +1541,15 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
         }
 
         // e_Sdv(el, s); // show cookie-acceptance message
+
+    } else if (rL.i) {
+        if (s) { // if show
+            if (el === pg.msg.ckA) { // show cookie acceptance after error
+                setTimeout(function() { // keep checking
+                    msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
+                }, 10);
+            }
+        }
     }
 }
 
