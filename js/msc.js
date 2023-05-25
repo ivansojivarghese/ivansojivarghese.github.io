@@ -1676,7 +1676,7 @@ var px_ratio = window.devicePixelRatio || window.screen.availWidth / document.do
 window.addEventListener("resize", function(e) {
 
     var newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
-    if (newPx_ratio != px_ratio) {
+    if (newPx_ratio != px_ratio && (op.sys !== "iOS" && op.sys !== "Android")) { // zooming - only applicable to desktop browsers
         px_ratio = newPx_ratio;
         console.log("zooming");
 
@@ -2006,7 +2006,7 @@ if (document.wasDiscarded) { // Page was previously discarded by the browser whi
 window.addEventListener("focus", function() { // window in focus
 
     // REMOVE 'HIDING' LAYER
-    
+
     scr_t(true, null); 
     op.s = false;
     e_Fd(pg.sc.o, true);
