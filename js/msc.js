@@ -833,7 +833,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (document.fullscreenElement && !eR.s) { // check if FullScreen is enabled
+    if (!document.fullscreenElement && !eR.s) { // check if FullScreen is enabled
         eR.f.classList.remove("d_n");
         setTimeout(function() {
             e_Fd(eR.f, false);
