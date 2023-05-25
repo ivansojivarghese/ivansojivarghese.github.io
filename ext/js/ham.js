@@ -1,31 +1,32 @@
 
 // hamburger menu functions
 
-var hm = { // hamburger menu object
-        b : document.getElementById("hamburger_button"), // button
-        k : document.getElementsByClassName("st"), // button strokes
-        sc : document.getElementById("ham_sc"), // menu screen
-        f : 0, // button offset
-        e : false, // code execution
-        h : false, // latch (to prevent doubling)
-
-        // ft : 0, // "" offset (alignment/scroll) time
-        /////
-
-        c : document.getElementById("ham_button-c"), // button strokes container
-        sc_t : document.getElementById("ham-tB_sc"), // menu screen - tablet/desktop
-        s : false, // menu open status
-        z : true, // ready status (ready to be opened?)
-        zh : true, // ready status (button hover effect)
-        m : false, // mouse-move status (within button)
-        a : false, // click activity (from open menu - close menu)
-        k3 : false, // link_3 activation
-        id : 0 // input id
-    },
-    up = { // [user] input
+var up = { // [user] input
         t : undefined, // type
         id : 0 // unique id (for reference)
     };
+
+hm = { // hamburger menu object
+    b : document.getElementById("hamburger_button"), // button
+    k : document.getElementsByClassName("st"), // button strokes
+    sc : document.getElementById("ham_sc"), // menu screen
+    f : 0, // button offset
+    e : false, // code execution
+    h : false, // latch (to prevent doubling)
+
+    // ft : 0, // "" offset (alignment/scroll) time
+    /////
+
+    c : document.getElementById("ham_button-c"), // button strokes container
+    sc_t : document.getElementById("ham-tB_sc"), // menu screen - tablet/desktop
+    s : hm.s, // menu open status
+    z : true, // ready status (ready to be opened?)
+    zh : true, // ready status (button hover effect)
+    m : false, // mouse-move status (within button)
+    a : false, // click activity (from open menu - close menu)
+    k3 : false, // link_3 activation
+    id : 0 // input id
+};
 
 
 function i_ty(e) { // input type - touch, pen or mouse

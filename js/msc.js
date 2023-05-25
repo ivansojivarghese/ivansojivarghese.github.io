@@ -82,6 +82,9 @@ var wH = window.outerHeight, // height
     },
     rL = {
         i : false // load status
+    },
+    hm = { // hamburger menu
+        s : false // open status
     };
 
 /////////////////////////////////////////////////////
