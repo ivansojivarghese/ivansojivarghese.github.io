@@ -51,8 +51,7 @@ var wH = window.outerHeight, // height
         w : "", // current [open] window
         sc : { // sections
             m : document.getElementById("main_sc"), // main
-            c : document.getElementById("content_sc"), // content
-            o : document.getElementById("overlay_sc") // overlay
+            c : document.getElementById("content_sc") // content
         },
         msg : { // messages
             r : 3000, // response time (avg.)
@@ -2005,26 +2004,10 @@ if (document.wasDiscarded) { // Page was previously discarded by the browser whi
 
 window.addEventListener("focus", function() { // window in focus
 
-    // REMOVE 'HIDING' LAYER
-
-    scr_t(true, null); 
-    op.s = false;
-    e_Fd(pg.sc.o, true);
-    setTimeout(function() {
-        pg.sc.o.classList.add("d_n");
-    }, op.t);
 });
 
 window.addEventListener("blur", function() { // window out of focus
 
-    // ADD 'HIDING' LAYER - PREVENT TO BE SEEN IN TAB PREVIEW
-
-    scr_t(false, null); // disable scrolling
-    op.s = true;
-    pg.sc.o.classList.remove("d_n");
-    setTimeout(function() {
-        e_Fd(pg.sc.o, false);
-    }, 10);
 });
 
 //////////////////////////////////////////
