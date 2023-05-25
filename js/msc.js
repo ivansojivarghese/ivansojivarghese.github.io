@@ -830,7 +830,7 @@ function pL() { // site parameters loop
             }
             pg.msg.net_p.classList.add("negate"); // set color
             pg.msg.net_i.classList.remove("wifi_w_img"); 
-            pg.msg.net_i.classList.remove("wifi_img"); 
+            pg.msg.net_i.classList.remove("wifi_off_w_img "); 
             pg.msg.net_i.classList.add("cookies_w_img"); // set content
             
             if (navigator.cookieEnabled && !getCookie("testCookie") && !pg.msg.ce) { // if cookies 'deleted/removed'
