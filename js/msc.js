@@ -749,6 +749,14 @@ function cookiesDenyCancel() { // cancel close tab, back to original message
     }, op.t);
 }*/
 
+function checkFullScreen() {
+    if ((window.innerHeight === screen.height) && (op.sys !== "iOS" && op.sys !== "Android")) { // only on desktops
+        return true;    
+    } else {
+        return false;
+    }
+}
+
 //////////////////////////////////////////
 
 function sL() { // scroll pos. loop
@@ -837,7 +845,7 @@ function pL() { // site parameters loop
     }
 
     if (rL.i) {
-        if ((window.innerHeight === screen.height) && (op.sys !== "iOS" && op.sys !== "Android") && !eR.s && !op.fS) { // check if FullScreen is enabled (desktop only)
+        if (checkFullScreen() && !eR.s && !op.fS) { // check if FullScreen is enabled (desktop only)
             scr_t(false, null); // disable scrolling
             op.fS = true;
             op.s = true;
@@ -848,7 +856,7 @@ function pL() { // site parameters loop
                 e_Fd(eR.fS, false);
             }, 10);
             eR.s = true;
-        } else if ((window.innerHeight !== screen.height)  && (op.sys !== "iOS" && op.sys !== "Android") && eR.s && op.fS) {
+        } else if (!checkFullScreen() && eR.s && op.fS) {
             e_Fd(eR.fS, true);
             e_Fd(disp, false);
             setTimeout(function() {
