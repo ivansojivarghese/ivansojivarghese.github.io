@@ -814,7 +814,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (rL.i && !eR.s && !pg.msg.k && !pg.msg.c && !pg.cond.a && !hm.s && getCookie("testCookie") && !getCookie("cookiesAccepted")) { // if cookies have NOT been accepted by user
+    if (rL.i && !eR.s && !pg.msg.k && !pg.msg.c && !pg.cond.a && !hm.s && (getCookie("testCookie") || document.cookieEnabled) && !getCookie("cookiesAccepted") && !op.c.u) { // if cookies have NOT been accepted by user
         msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
     }
 
