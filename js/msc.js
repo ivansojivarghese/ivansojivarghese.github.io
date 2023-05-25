@@ -880,6 +880,7 @@ function pL() { // site parameters loop
         if (eR.fS_e.x) {
             reL(); // reload if on first load
             eR.fS_e.x = false;
+            op.fS = false;
         } else {
             e_Fd(eR.fS, true);
             e_Fd(disp, false);
