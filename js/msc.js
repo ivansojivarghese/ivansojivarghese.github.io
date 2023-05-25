@@ -833,8 +833,12 @@ function pL() { // site parameters loop
         }
     }
 
-    if (document.fullscreenElement) { // check if FullScreen is enabled
-        // show error
+    if (document.fullscreenElement && !eR.s) { // check if FullScreen is enabled
+        eR.f.classList.remove("d_n");
+        setTimeout(function() {
+            e_Fd(eR.f, false);
+        }, 10);
+        eR.s = true;
     }
 
     /*
