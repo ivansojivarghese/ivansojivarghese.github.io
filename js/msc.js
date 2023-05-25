@@ -917,7 +917,7 @@ function pL() { // site parameters loop
         if (!op.nc) { // offline
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
                 op.nc = true; // network changed
-                if (rL.i && !op.n) {
+                if (rL.i) {
                     pg.msg.fo = true;
                 }
 
