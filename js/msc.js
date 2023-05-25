@@ -834,7 +834,7 @@ function pL() { // site parameters loop
     }
 
     if (rL.i) {
-        if (!document.fullscreenElement && !eR.s) { // check if FullScreen is enabled
+        if ((!document.fullscreenElement || (window.innerHeight === screen.height)) && !eR.s) { // check if FullScreen is enabled
             eR.m.classList.remove("d_n"); // error in display
             eR.f.classList.remove("d_n");   
             e_Fd(disp, true); // fade out display
