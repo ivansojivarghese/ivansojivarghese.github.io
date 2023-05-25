@@ -750,10 +750,15 @@ function cookiesDenyCancel() { // cancel close tab, back to original message
 }*/
 
 function checkFullScreen() {
-    if ((window.innerHeight === screen.height) && (op.sys !== "iOS" && op.sys !== "Android")) { // only on desktops
-        return true;    
+    if (rL.i) {
+        eR.fS_e.x = false;
+        if ((window.innerHeight === screen.height) && (op.sys !== "iOS" && op.sys !== "Android")) { // only on desktops
+            return true;    
+        } else {
+            return false;
+        }
     } else {
-        return false;
+        eR.fS_e.x = true; // on first load
     }
 }
 
@@ -857,16 +862,20 @@ function pL() { // site parameters loop
             }, 10);
             eR.s = true;
         } else if (!checkFullScreen() && eR.s && op.fS) {
-            e_Fd(eR.fS, true);
-            e_Fd(disp, false);
-            setTimeout(function() {
-                scr_t(true, null); // disable scrolling
-                op.fS = false;
-                op.s = false;
-                eR.m.classList.add("d_n"); // show error in display
-                eR.fS.classList.add("d_n"); 
-                eR.s = false;
-            }, op.t);
+            if (eR.fS_e.x) {
+                reL(); // reload if on first load
+            } else {
+                e_Fd(eR.fS, true);
+                e_Fd(disp, false);
+                setTimeout(function() {
+                    scr_t(true, null); // disable scrolling
+                    op.fS = false;
+                    op.s = false;
+                    eR.m.classList.add("d_n"); // show error in display
+                    eR.fS.classList.add("d_n"); 
+                    eR.s = false;
+                }, op.t);
+            }
         }
     }
 
