@@ -294,7 +294,7 @@ op = {
     },
     zoom : Math.round((window.outerWidth / window.innerWidth) * dev.z), // approx. [potential] zoom of page, in percentage
     zoomUndefault : false, // default check
-    fS : checkFullScreen(), // check if in full screen view, // fullscreen check (desktop only)
+    fS : false, // check if in full screen view, // fullscreen check (desktop only)
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)

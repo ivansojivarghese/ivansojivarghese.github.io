@@ -1022,6 +1022,9 @@ function load_e() { // page load end
 function errorCheck() { // check for errors
 
     eR.a = ["fS", "mt", "ck", "or", "ld", "vL", "vs", "z"]; // error precedence array, UPDATE WHEN NEEDED!!
+
+    // msc.
+    op.fS = checkFullScreen();
     
     if (op.zoomDefault && !vw.z_L) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
