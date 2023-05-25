@@ -908,10 +908,10 @@ function pL() { // site parameters loop
     // pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
 
     // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
-
+    /*
     if (op.n && !rL.r_s && !rL.i && !op.nc) {
         op.nc = true;
-    }
+    }*/
 
     if (!eR.s && rL.i && ((op.n === false && !op.nc) || (op.n && op.nc))) { // if change in network connection (internet)
         if (!op.nc) { // offline
