@@ -1806,7 +1806,7 @@ window.addEventListener("resize", function(e) {
                 }, 10);   
                 
                 disabledEventGlobal(e); // possible event stoppage
-
+                /*
                 setTimeout(function() { // timeout
                     window.stop(); // stop all network resource(s) fetching
                     clearInterval(_Ld); // stop loading process
@@ -1814,7 +1814,7 @@ window.addEventListener("resize", function(e) {
 
                     checkOnlineStatus_abort.abort(); // abort any existing fetching
                     estimateNetworkSpeed_abort.abort();
-                }, op.te);
+                }, op.te);*/
             }
             
         } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && eR.h) { // zoom undefaulted, then defaulted
