@@ -885,9 +885,11 @@ function pL() { // site parameters loop
             e_Fd(eR.fS, true);
             e_Fd(disp, false);
             setTimeout(function() {
-                scr_t(true, null); // enable scrolling
+                if (op.c.u) { // if cookies accepted by user
+                    scr_t(true, null); // enable scrolling
+                    op.s = false;
+                }
                 op.fS = false;
-                op.s = false;
                 eR.m.classList.add("d_n"); // show error in display
                 eR.fS.classList.add("d_n"); 
                 eR.s = false;
