@@ -1769,7 +1769,7 @@ window.addEventListener("resize", function(e) {
         var w = dev.z / dev.z,
             zOff = (op.zoom / dev.z) - w,
             zScale = op.zoom < dev.z ? w - zOff : (w + (zOff / 2) <= (w + 0.25)) ? w + (zOff / 2) : (w + 0.25);
-        if (!approxNum(op.zoom, dev.z)) { // if potential new zoom reference is NOT default (Zoom resizing)
+        if (!approxNum(op.zoom, dev.z) && op.zoom !== 0) { // if potential new zoom reference is NOT default (Zoom resizing)
 
             var pE = eR.p,
                 p = errorPrecedence("z", eR.p, eR.a);
