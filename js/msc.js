@@ -894,7 +894,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (op.Ld.s !== null) {
+    if (op.Ld.s !== null) { // check for possible screen/window/tab splitting by user
         checkSplitScreen();
     }
 
