@@ -1763,7 +1763,7 @@ function checkSplitScreen() {
         bTop = b.top,
         bBottom = b.bottom;
 
-    if ((((bTop / window.screen.availHeight) * 100) > 10) || (((bBottom / window.screen.availHeight) * 100) < 90)) { // mobile
+    if ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1])) { // mobile
         document.body.style.backgroundColor = "red";
     }
     
