@@ -815,10 +815,6 @@ function pL() { // site parameters loop
             }
         }
     }
-    /*
-    if (rL.i && !eR.s && !pg.msg.k && !pg.msg.c && !pg.cond.a && !hm.s && (getCookie("testCookie") || document.cookieEnabled) && !getCookie("cookiesAccepted") && !op.c.u) { // if cookies have NOT been accepted by user
-        msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
-    }*/
 
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
         console.log("cookies deleted");
@@ -896,6 +892,10 @@ function pL() { // site parameters loop
                 eR.s = false;
             }, op.t);
         }
+    }
+
+    if (op.Ld.s !== null) {
+        checkSplitScreen();
     }
 
     /*
