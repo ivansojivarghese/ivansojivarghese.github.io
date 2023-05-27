@@ -1758,8 +1758,16 @@ function isZooming(){
 
 // Split screen detection
 function checkSplitScreen() {
-    var b = dev.cH.getBoundingClientRect(); // bounding rectangle
-    console.log(b);
+    var b = dev.cH.getBoundingClientRect(), // bounding rectangle
+        bTop = b.top,
+        bBottom = b.bottom;
+
+    if ((((bTop / window.screen.availHeight) * 100) > 10) || (((bBottom / window.screen.availHeight) * 100) < 90)) {
+        document.body.style.backgroundColor = "red";
+    }
+    
+    // window.screen.availWidth
+    // window.screen.availHeight
 }
 
 // for zoom detection
