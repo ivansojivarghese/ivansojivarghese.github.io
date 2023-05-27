@@ -27,6 +27,7 @@ var wH = window.outerHeight, // height
             hoursNo : 183,
             cappuccinosNo : 245
         },
+        cH : document.getElementById("control-height"), // dummy element, to check height changes relative to viewport
         version : "2.0", // site version
         version_up : "2.1", // version upgrade (if applicable, during maintenance)
         v : 1 // max view time (days)
@@ -1754,6 +1755,12 @@ function isZooming(){
         return false;
     }
 }*/
+
+// Split screen detection
+function checkSplitScreen() {
+    var b = dev.cH.getBoundingClientRect(); // bounding rectangle
+    console.log(b);
+}
 
 // for zoom detection
 var px_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
