@@ -1048,19 +1048,7 @@ function errorCheck() { // check for errors
         eR.h = "fS";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
-        /*
-        dsC.classList.remove("d_n"); // show display (webpage)
-        setTimeout(function() {
-            e_Fd(dsC, false); // fade in body
-            rL.el.classList.add("d_n"); 
-            setTimeout(function() {
-                intro_L(); // load up 'landing' area
-            }, trD_a + trD);
-        }, trD);*/
     }
-
-    // var loadTime = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
-    // console.log(loadTime);
 
     if (!eR.s) {
         if (eR.h && (eR.h === "z")) { // other msc. error info to display
