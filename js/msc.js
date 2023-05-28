@@ -1767,6 +1767,7 @@ function checkSplitScreen() {
 
     if ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (bLeft !== 0) || (bRight !== screen.availWidth)) { 
         document.body.style.backgroundColor = "red";
+        alert(bLeft + ", " + bRight);
     }
 }
 
