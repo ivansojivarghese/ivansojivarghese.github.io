@@ -1767,6 +1767,7 @@ function checkSplitScreen() {
         bRight = Math.round(b.right);
 
     if (!op.sp && !eR.s && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
+        eR.s = true;
         c_css(".err", "margin-top: 0;", false, null); // style tag
         op.sp = true; // split screen active
         scr_t(false, null); // disable scrolling
@@ -1776,7 +1777,6 @@ function checkSplitScreen() {
         eR.m.classList.remove("d_n");
         eR.sp.classList.remove("d_n");
         setTimeout(function() {
-            eR.s = true;
             eR.sp.classList.remove("z_O");
         }, 10);
     } else if (op.sp && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
