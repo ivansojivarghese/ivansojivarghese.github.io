@@ -297,6 +297,7 @@ op = {
     zoom : Math.round((window.outerWidth / window.innerWidth) * dev.z), // approx. [potential] zoom of page, in percentage
     zoomUndefault : false, // default check
     fS : false, // check if in full screen view, // fullscreen check (desktop only)
+    sP : false, // check if in split view
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
@@ -1766,6 +1767,7 @@ function checkSplitScreen() {
         bRight = Math.round(b.right);
 
     if ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])) { 
+        op.sP = true;
         // document.body.style.backgroundColor = "red";
         // alert(bLeft + ", " + bRight + ", " + screen.availWidth + ", " + screen.width);
         // alert(bTop + ", " + bBottom + ", " + bLeft + ", " + bRight + ", " + screen.availHeight + ", " + screen.height + ", " + screen.availWidth + ", " + screen.width);

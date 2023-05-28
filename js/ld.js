@@ -1022,12 +1022,15 @@ function load_e() { // page load end
 
 function errorCheck() { // check for errors
 
-    eR.a = ["fS", "mt", "ck", "or", "ld", "vL", "vs", "z"]; // error precedence array, UPDATE WHEN NEEDED!!
+    eR.a = ["fS", "mt", "ck", "or", "ld", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // msc.
+    op.sP = checkSplitScreen();
     op.fS = checkFullScreen();
     
-    if (op.zoomDefault && !vw.z_L) { // if viewport zoom not defaulted (100%)
+    if (op.sP) { // check if screen/window/tab is split (20:80 ratio max)
+        eR.h = "sp";
+    } else if (op.zoomDefault && !vw.z_L) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
     } else if (vw.z_S) { // if viewport size is too small
         eR.h = "vs";
