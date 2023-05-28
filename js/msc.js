@@ -1775,9 +1775,10 @@ function checkSplitScreen() {
         eR.m.classList.remove("d_n");
         eR.sP.classList.remove("d_n");
         setTimeout(function() {
+            eR.s = true;
             e_Fd(eR.sP, false);
         }, 10);
-        
+
         // show error
 
         // document.body.style.backgroundColor = "red";
