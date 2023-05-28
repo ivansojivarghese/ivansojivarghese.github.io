@@ -1779,8 +1779,8 @@ function checkSplitScreen() {
             eR.s = true;
             e_Fd(eR.sp, false);
         }, 10);
-    } else if (op.sp) {
-        
+    } else if (op.sp) { // no splitting, no error
+        eR.sp.classList.add("z_O");
     }
 }
 
