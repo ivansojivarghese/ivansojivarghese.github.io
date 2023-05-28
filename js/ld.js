@@ -30,6 +30,7 @@ eR = { // error
         h : document.getElementById("error_z_h"), // header
         s : document.getElementById("error_z_s") // span
     },
+    sp : document.getElementById("error_sp"), // split screen
     vs : document.getElementById("error_vs"), // viewport - small
     vL : document.getElementById("error_vL"), // viewport - large
     ld : document.getElementById("error_lnd"), // landscape
