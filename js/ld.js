@@ -1030,13 +1030,13 @@ function errorCheck() { // check for errors
     
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
         eR.h = "sp";
-    } else if (op.zoomDefault && !vw.z_L) { // if viewport zoom not defaulted (100%)
+    } else if (op.zoomDefault && !vw.z_L && (op.sys !== "iOS" && op.sys !== "Android")) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
     } else if (vw.z_S) { // if viewport size is too small
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
-    } else if (vw.mB_L) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
+    } else if (vw.mB_L && (op.sys === "iOS" || op.sys === "Android")) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
