@@ -1781,10 +1781,6 @@ function checkSplitScreen() {
 
         // show error
 
-        // document.body.style.backgroundColor = "red";
-        // alert(bLeft + ", " + bRight + ", " + screen.availWidth + ", " + screen.width);
-        // alert(bTop + ", " + bBottom + ", " + bLeft + ", " + bRight + ", " + screen.availHeight + ", " + screen.height + ", " + screen.availWidth + ", " + screen.width);
-    
     } else if (op.sp) {
 
     }
