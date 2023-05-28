@@ -1766,7 +1766,7 @@ function checkSplitScreen() {
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    if (!op.sp && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
+    if (!op.sp && !eR.s && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
         op.sp = true; // split screen active
         scr_t(false, null); // disable scrolling
         op.s = true;
