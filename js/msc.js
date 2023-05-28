@@ -1772,18 +1772,15 @@ function checkSplitScreen() {
         op.s = true;
 
         disp.classList.add("d_n"); // show error
-        disp.classList.add("z_O"); // show error
+        disp.classList.add("z_O"); 
         eR.m.classList.remove("d_n");
         eR.sp.classList.remove("d_n");
         setTimeout(function() {
             eR.s = true;
             e_Fd(eR.sp, false);
         }, 10);
-
-
-
     } else if (op.sp) {
-
+        
     }
 }
 
