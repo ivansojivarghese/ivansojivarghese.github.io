@@ -1771,7 +1771,7 @@ function checkSplitScreen() {
         scr_t(false, null); // disable scrolling
         op.s = true;
 
-        e_Fd(disp, true);
+        e_Fd(disp, true); // REPLACE WITH DIRECT STYLING
         eR.m.classList.remove("d_n");
         eR.sp.classList.remove("d_n");
         setTimeout(function() {
