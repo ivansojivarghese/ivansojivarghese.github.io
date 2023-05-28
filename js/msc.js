@@ -1760,10 +1760,10 @@ function isZooming(){
 // Split screen detection
 function checkSplitScreen() {
     var b = dev.cH.getBoundingClientRect(), // bounding rectangle
-        bTop = b.top,
-        bBottom = b.bottom,
-        bLeft = b.left,
-        bRight = b.right;
+        bTop = Math.round(b.top),
+        bBottom = Math.round(b.bottom),
+        bLeft = Math.round(b.left),
+        bRight = Math.round(b.right);
 
     if ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (bLeft !== 0) || (bRight !== screen.availWidth)) { 
         document.body.style.backgroundColor = "red";
