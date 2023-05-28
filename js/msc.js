@@ -1765,7 +1765,7 @@ function checkSplitScreen() {
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    if ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (bLeft !== 0) || (bRight !== screen.availWidth)) { 
+    if ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])) { 
         document.body.style.backgroundColor = "red";
         // alert(bLeft + ", " + bRight + ", " + screen.availWidth + ", " + screen.width);
         alert(bTop + ", " + bBottom + ", " + bLeft + ", " + bRight + ", " + screen.availHeight + ", " + screen.height + ", " + screen.availWidth + ", " + screen.width);
