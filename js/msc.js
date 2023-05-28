@@ -1771,16 +1771,26 @@ function checkSplitScreen() {
         scr_t(false, null); // disable scrolling
         op.s = true;
 
-        disp.classList.add("d_n"); // show error
-        disp.classList.add("z_O"); 
+        disp.classList.add("z_Os"); 
         eR.m.classList.remove("d_n");
         eR.sp.classList.remove("d_n");
         setTimeout(function() {
             eR.s = true;
-            e_Fd(eR.sp, false);
+            eR.sp.classList.remove("z_O");
+            // e_Fd(eR.sp, false);
         }, 10);
     } else if (op.sp) { // no splitting, no error
         eR.sp.classList.add("z_O");
+        setTimeout(function() {
+            disp.classList.remove("z_Os"); 
+            eR.sp.classList.add("d_n");
+            eR.m.classList.add("d_n");
+
+            eR.s = false;
+            op.sp = false; // split screen active
+            scr_t(true, null); // enable scrolling
+            op.s = false;
+        }, op.t);
     }
 }
 
