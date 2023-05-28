@@ -1771,7 +1771,7 @@ function checkSplitScreen() {
         scr_t(false, null); // disable scrolling
         op.s = true;
 
-        disp.classList.add("z_O");
+        disp.classList.add("z_O"); // show error
         eR.m.classList.remove("d_n");
         eR.sp.classList.remove("d_n");
         setTimeout(function() {
@@ -1779,7 +1779,7 @@ function checkSplitScreen() {
             e_Fd(eR.sp, false);
         }, 10);
 
-        // show error
+        
 
     } else if (op.sp) {
 
