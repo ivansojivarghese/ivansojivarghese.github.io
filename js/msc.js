@@ -1771,6 +1771,12 @@ function checkSplitScreen() {
         scr_t(false, null); // disable scrolling
         op.s = true;
 
+        e_Fd(disp, true);
+        eR.m.classList.remove("d_n");
+        eR.sP.classList.remove("d_n");
+        setTimeout(function() {
+            e_Fd(eR.sP, false);
+        }, 10);
         // show error
 
         // document.body.style.backgroundColor = "red";
