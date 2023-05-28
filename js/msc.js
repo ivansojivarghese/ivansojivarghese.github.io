@@ -1777,6 +1777,7 @@ function checkSplitScreen() {
         setTimeout(function() {
             e_Fd(eR.sP, false);
         }, 10);
+        
         // show error
 
         // document.body.style.backgroundColor = "red";
