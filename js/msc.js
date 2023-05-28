@@ -1771,6 +1771,7 @@ function checkSplitScreen() {
         scr_t(false, null); // disable scrolling
         op.s = true;
 
+        disp.classList.add("d_n"); // show error
         disp.classList.add("z_O"); // show error
         eR.m.classList.remove("d_n");
         eR.sp.classList.remove("d_n");
@@ -1779,7 +1780,7 @@ function checkSplitScreen() {
             e_Fd(eR.sp, false);
         }, 10);
 
-        
+
 
     } else if (op.sp) {
 
