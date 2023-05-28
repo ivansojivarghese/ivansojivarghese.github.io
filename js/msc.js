@@ -1776,7 +1776,7 @@ function checkSplitScreen() {
         eR.sp.classList.remove("d_n");
         setTimeout(function() {
             eR.s = true;
-            e_Fd(eR.sP, false);
+            e_Fd(eR.sp, false);
         }, 10);
 
         // show error
