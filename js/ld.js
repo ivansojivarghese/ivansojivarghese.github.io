@@ -1054,7 +1054,7 @@ function errorCheck() { // check for errors
 
     if (!eR.s) {
         if (eR.h && (eR.h === "z")) { // other msc. error info to display
-            if (op.ne.w) { // if network slow
+            if (op.ne.w || op.b.f) { // if network slow
                 eR_t.z.classList.remove("d_n"); // display error small text
             } else {
                 if (!eR_t.z.classList.contains("d_n")) {
