@@ -861,9 +861,9 @@ function load_css() { // load up CSS (common)
     if (vw.mB_L && !vw.z_S && (op.sys === "iOS" || op.sys === "Android")) { // in landscape view (mobile), but NOT small viewport
         c_css(".err", "margin-top: calc((" + cH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
         eR[eR.h].children[0].classList.remove("c-y"); // modify styling (remove centre-alignment)
-    } else if (vw.mB_L && !vw.z_S) { // landscape, small
+    } /*else if (vw.mB_L && !vw.z_S) { // landscape, small
         rL.dt.style.transform = "translateX(-50%) translateY(-100%)";
-    }
+    }*/
     /*
     if (vw.tB) { // if tablet or desktop
         hm.sc.classList.remove("active"); // de-activate hamburger menu
