@@ -952,7 +952,7 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
             v.pH = true;    
         }
     } else if (r.o === "landscape") { // landscape tablet/mobile, or greater (desktop)
-        if (h < 220 || w < 440) { // height less than 220, or width less than 440
+        if (h < 240 || w < 440) { // height less than 220, or width less than 440
             v.z_S = true;
             v.mB_L = true;
         } else if (h < 500) { // height less than 500 (mobile)
