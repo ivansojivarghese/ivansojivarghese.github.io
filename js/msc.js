@@ -1785,7 +1785,7 @@ function checkSplitScreen() {
         if (!rL.i) { // if page not loaded
             op.spR = true;
         }
-    } else if (op.sp && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
+    } else if (op.sp && !eR.s && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
         eR.sp.classList.add("z_O");
         setTimeout(function() {
             disp.classList.remove("z_Os"); 
