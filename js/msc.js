@@ -786,10 +786,6 @@ function pL() { // site parameters loop
     if (op.p.e) {
         op.p.tA = op.d.getTime();
     }
-    /*
-    if (rL.i) {
-        vw = vwP(wD, cH, r); // set device size/orientation params
-    }*/
 
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
