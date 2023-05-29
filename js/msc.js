@@ -1778,6 +1778,9 @@ function checkSplitScreen() {
 
             disp.classList.add("z_Os"); 
             eR.m.classList.remove("d_n");
+            if (eR.p === "ld") {
+                eR[eR.p].classList.remove("d_n");
+            }
             eR.sp.classList.remove("d_n");
             setTimeout(function() {
                 eR.sp.classList.remove("z_O");
@@ -1792,6 +1795,9 @@ function checkSplitScreen() {
                 disp.classList.remove("z_Os"); 
                 eR.sp.classList.add("d_n");
                 eR.m.classList.add("d_n");
+                if (eR.p === "ld") {
+                    eR[eR.p].classList.add("d_n");
+                }
 
                 eR.s = false;
                 eR.p = "";
