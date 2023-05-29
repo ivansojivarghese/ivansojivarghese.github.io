@@ -787,10 +787,6 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-    if (rL.i) {
-        vw = vwP(wD, cH, r); // set device size/orientation params
-    }
-
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
@@ -1865,7 +1861,7 @@ window.addEventListener("resize", function(e) {
                 eR_t.z.innerHTML = "loading..."; // change text status
             }
 
-        } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && !vw.z_S && !vw.z_L) { // zoom undefaulted
+        } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && (!vw.z_S && !vw.z_L)) { // zoom undefaulted
             
             scr_t(true, null); // enable scrolling
             op.s = false;
