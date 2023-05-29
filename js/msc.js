@@ -1863,7 +1863,7 @@ window.addEventListener("resize", function(e) {
                 eR_t.z.innerHTML = "loading..."; // change text status
             }
 
-        } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault) { // zoom undefaulted
+        } else if (approxNum(op.zoom, dev.z) && op.zoomUndefault && window.innerWidth <= 3100) { // zoom undefaulted
             
             scr_t(true, null); // enable scrolling
             op.s = false;
