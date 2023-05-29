@@ -1767,6 +1767,7 @@ function checkSplitScreen() {
 
     if (op.spR) {
         reL();
+        op.spR = false;
     } else if (!op.sp && !eR.s && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
         eR.s = true;
         eR.p = "sp";
