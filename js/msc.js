@@ -1915,14 +1915,13 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    rL.el.classList.add("d_n");
-    eR.m.classList.add("d_n");
-    disp.classList.add("z_Os");
-
-    // op.Ld.p = scrollY;
-
     if (eR.p !== "sp") {
 
+        rL.el.classList.add("d_n");
+        eR.m.classList.add("d_n");
+        disp.classList.add("z_Os");
+
+        // op.Ld.p = scrollY;
         setTimeout(function() {
 
             wH = window.outerHeight; // update on window size variables
