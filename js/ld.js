@@ -1027,6 +1027,7 @@ function errorCheck() { // check for errors
     eR.a = ["fS", "mt", "ck", "or", "ld", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // msc.
+    op.sp = checkSplitScreen();
     op.fS = checkFullScreen();
     
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
