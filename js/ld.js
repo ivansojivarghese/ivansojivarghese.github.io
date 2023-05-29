@@ -872,6 +872,8 @@ function load_css() { // load up CSS (common)
     if (op.b.f) { // if FIREFOX browser
         eR.z_e.h.innerHTML = "<span class='em'>zooming</span> is unpermitted"; // change #error_z information
         eR.z_e.s.innerHTML = "default (original)";
+        eR_t.z.innerHTML = "reload";
+        eR_t.z.classList.remove("d_n");
     }
 
     /*
