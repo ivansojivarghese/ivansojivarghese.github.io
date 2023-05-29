@@ -1771,7 +1771,6 @@ function checkSplitScreen() {
             op.spR = false;
         } else if (!op.sp && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
             eR.s = true;
-            eR.p = "sp";
             op.sp = true; // split screen active
             scr_t(false, null); // disable scrolling
             op.s = true;
@@ -1779,9 +1778,10 @@ function checkSplitScreen() {
             disp.classList.add("z_Os"); 
             eR.m.classList.remove("d_n");
             if (eR.p === "ld") {
-                eR[eR.p].classList.remove("d_n");
+                eR[eR.p].classList.add("d_n");
             }
             eR.sp.classList.remove("d_n");
+            eR.p = "sp";
             setTimeout(function() {
                 eR.sp.classList.remove("z_O");
             }, 10);
@@ -1796,7 +1796,7 @@ function checkSplitScreen() {
                 eR.sp.classList.add("d_n");
                 eR.m.classList.add("d_n");
                 if (eR.p === "ld") {
-                    eR[eR.p].classList.add("d_n");
+                    eR[eR.p].classList.remove("d_n");
                 }
 
                 eR.s = false;
