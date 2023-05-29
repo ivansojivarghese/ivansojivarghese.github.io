@@ -1930,7 +1930,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         wiD = window.innerWidth;
         wiH = window.innerHeight;
 
-        if (rL.i && !rL.o_c || rL.o_c) { // if page had loaded?
+        if (rL.i && (eR.p !== "sp") && (!rL.o_c || rL.o_c)) { // if page had loaded?
 
             if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // landscape to portrait
 
