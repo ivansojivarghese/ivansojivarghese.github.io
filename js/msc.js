@@ -1766,6 +1766,7 @@ function checkSplitScreen() {
 
     if (!op.sp && !eR.s && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
         eR.s = true;
+        eR.p = "sp";
         op.sp = true; // split screen active
         scr_t(false, null); // disable scrolling
         op.s = true;
@@ -1784,6 +1785,7 @@ function checkSplitScreen() {
             eR.m.classList.add("d_n");
 
             eR.s = false;
+            eR.p = "";
             op.sp = false; // split screen active
             scr_t(true, null); // enable scrolling
             op.s = false;
