@@ -1781,14 +1781,15 @@ function checkSplitScreen() {
             eR[eR.p].classList.add("d_n");
         }
         eR.sp.classList.remove("d_n");
-        eR.p = "sp";
         setTimeout(function() {
             eR.sp.classList.remove("z_O");
         }, 10);
 
-        if (!rL.i) { // if page not loaded
+        if (!rL.i || eR.p === "ld") { // if page not loaded
             op.spR = true;
         }
+
+        eR.p = "sp";
     } else if (op.sp && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
         eR.sp.classList.add("z_O");
         setTimeout(function() {
