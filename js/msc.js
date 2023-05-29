@@ -298,6 +298,7 @@ op = {
     zoomUndefault : false, // default check
     fS : false, // check if in full screen view, // fullscreen check (desktop only)
     sp : false, // check if in split view
+    spR : false, // split-view, reload
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
