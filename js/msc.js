@@ -302,6 +302,7 @@ op = {
     oR : false, // recent orientation change?
     wR : false, // window resize change?
     oRa : [], // orientation change array
+    wRa : [], // window resize change array
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
@@ -1914,15 +1915,15 @@ window.addEventListener("resize", function(e) {
     } else {
         console.log("just resizing");
 
-        var id = op.oRa.length; // set id to orientation
-        op.oRa[id] = true;
+        var id = op.wRa.length; // set id to orientation
+        op.wRa[id] = true;
 
         scr_t(false, null); // disable scrolling
         op.s = true;
-        op.oR = true;
+        op.wR = true;
         setTimeout(function() {
-            if ((op.oRa.length - 1) === id) {
-                op.oR = false;
+            if ((op.wRa.length - 1) === id) {
+                op.wR = false;
             }
         }, op.te);
 
