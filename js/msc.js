@@ -1920,6 +1920,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         eR.m.classList.add("d_n");
         disp.classList.add("z_Os");
 
+        scr_t(false, null); // disable scrolling
+        op.s = true;
+
         // op.Ld.p = scrollY;
         setTimeout(function() {
 
