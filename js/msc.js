@@ -2092,7 +2092,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
         }, op.t);
 
-    } else { // split screen error
+    } /*else { // split screen error
 
         eR.s = true;
         // op.sp = true; // split screen active
@@ -2105,7 +2105,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         setTimeout(function() {
             eR.sp.classList.remove("z_O");
         }, 10);
-    }
+    }*/
 });
 
 //////////////////////////////////////////
