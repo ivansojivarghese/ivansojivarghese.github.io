@@ -1801,7 +1801,7 @@ function checkSplitScreen() {
 
             eR.s = false;
             eR.p = "";
-            op.sp = false; // split screen active
+            op.sp = false; // split screen de-active
             scr_t(true, null); // enable scrolling
             op.s = false;
         }, op.t);
