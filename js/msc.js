@@ -27,7 +27,7 @@ var wH = window.outerHeight, // height
             hoursNo : 183,
             cappuccinosNo : 245
         },
-        sC_a : (op.sys !== "iOS" && op.sys !== "Android") ? [15, 85] : [10, 90], // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
+        sC_a : (op.sys !== "iOS" && op.sys !== "Android") ? [15, 85] : [20, 80], // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
         cH : document.getElementById("control-height"), // dummy element, to check height changes relative to viewport
         version : "2.0", // site version
         version_up : "2.1", // version upgrade (if applicable, during maintenance)
