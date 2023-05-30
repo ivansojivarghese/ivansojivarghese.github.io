@@ -1924,17 +1924,17 @@ window.addEventListener("resize", function(e) {
     } else {
         console.log("just resizing");
 
-        var id = op.wRa.length; // set id to resize
-        op.wRa[id] = true; //
-
-        op.wR = true;
-        setTimeout(function() {
-            if ((op.wRa.length - 1) === id) {
-                op.wR = false;
-            }
-        }, op.te);
-
         if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
+
+            var id = op.wRa.length; // set id to resize
+            op.wRa[id] = true; //
+
+            op.wR = true;
+            setTimeout(function() {
+                if ((op.wRa.length - 1) === id) {
+                    op.wR = false;
+                }
+            }, op.te);
 
             wH = window.outerHeight; // update on window size variables
             wD = window.outerWidth; 
