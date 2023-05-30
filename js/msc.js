@@ -1920,8 +1920,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         eR.m.classList.add("d_n");
         disp.classList.add("z_Os");
 
-        scr_t(false, null); // disable scrolling
-        op.s = true;
+        // scr_t(false, null); // disable scrolling
+        // op.s = true;
 
         // op.Ld.p = scrollY;
         setTimeout(function() {
@@ -2095,7 +2095,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
         }, op.t);
 
-    } else {
+    } /*else {
+        
         rL.el.classList.add("d_n");
         eR.m.classList.add("d_n");
         disp.classList.add("z_Os");
@@ -2114,7 +2115,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             document.body.style.backgroundColor = "red";
 
         }, op.t);
-    }
+    }*/
 });
 
 //////////////////////////////////////////
