@@ -904,13 +904,13 @@ function pL() { // site parameters loop
         if (!op.oR) {
 
         }*/
-    } else if (op.oR) {
+    } /*else if (op.oR) {
         scr_t(false, null); // disable scrolling
         op.s = true;
         if (!eR.sp.classList.contains("d_n")) {
             eR.sp.classList.add("d_n"); // hide split screen message
         }
-    }
+    }*/
 
     /*
     if (!op.nav.b) { // check if URL bar is NOT in view
@@ -1930,7 +1930,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     op.oR = true;
     setTimeout(function() {
         op.oR = false;
-    }, op.t);
+    }, op.te);
 
     if (eR.p !== "sp") { // if NOT split screen
 
