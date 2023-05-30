@@ -1779,46 +1779,48 @@ function checkSplitScreen() {
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    if (op.spR && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
-        reL();
-        op.spR = false;
-    } else if (!op.sp && (!eR.s || (eR.s && eR.p === "ld")) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
-        eR.s = true;
-        op.sp = true; // split screen active
-        scr_t(false, null); // disable scrolling
-        op.s = true;
+    if (!op.oR) {
+        if (op.spR && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
+            reL();
+            op.spR = false;
+        } else if (!op.sp && (!eR.s || (eR.s && eR.p === "ld")) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
+            eR.s = true;
+            op.sp = true; // split screen active
+            scr_t(false, null); // disable scrolling
+            op.s = true;
 
-        disp.classList.add("z_Os"); 
-        eR.m.classList.remove("d_n");
-        if (eR.p === "ld") {
-            eR[eR.p].classList.add("d_n");
-        }
-        eR.sp.classList.remove("d_n");
-        setTimeout(function() {
-            eR.sp.classList.remove("z_O");
-        }, 10);
-
-        if (!rL.i || eR.p === "ld") { // if page not loaded
-            op.spR = true;
-        }
-        eR.p = "sp";
-
-    } else if (op.sp && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
-        eR.sp.classList.add("z_O");
-        setTimeout(function() {
-            disp.classList.remove("z_Os"); 
-            eR.sp.classList.add("d_n");
-            eR.m.classList.add("d_n");
+            disp.classList.add("z_Os"); 
+            eR.m.classList.remove("d_n");
             if (eR.p === "ld") {
-                eR[eR.p].classList.remove("d_n");
+                eR[eR.p].classList.add("d_n");
             }
+            eR.sp.classList.remove("d_n");
+            setTimeout(function() {
+                eR.sp.classList.remove("z_O");
+            }, 10);
 
-            eR.s = false;
-            eR.p = "";
-            op.sp = false; // split screen de-active
-            scr_t(true, null); // enable scrolling
-            op.s = false;
-        }, op.t);
+            if (!rL.i || eR.p === "ld") { // if page not loaded
+                op.spR = true;
+            }
+            eR.p = "sp";
+
+        } else if (op.sp && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
+            eR.sp.classList.add("z_O");
+            setTimeout(function() {
+                disp.classList.remove("z_Os"); 
+                eR.sp.classList.add("d_n");
+                eR.m.classList.add("d_n");
+                if (eR.p === "ld") {
+                    eR[eR.p].classList.remove("d_n");
+                }
+
+                eR.s = false;
+                eR.p = "";
+                op.sp = false; // split screen de-active
+                scr_t(true, null); // enable scrolling
+                op.s = false;
+            }, op.t);
+        }
     }
 }
 
