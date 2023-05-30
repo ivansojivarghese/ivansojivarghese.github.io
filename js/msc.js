@@ -907,8 +907,8 @@ function pL() { // site parameters loop
     } else if (op.oR) {
         scr_t(false, null); // disable scrolling
         op.s = true;
-        if (!eR.sp.classList.contains("z_Os")) {
-            eR.sp.classList.add("z_Os"); // hide split screen message
+        if (!eR.sp.classList.contains("d_n")) {
+            eR.sp.classList.add("d_n"); // hide split screen message
         }
     }
 
