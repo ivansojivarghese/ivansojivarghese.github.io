@@ -1796,17 +1796,24 @@ function checkSplitScreen() {
 
                 disp.classList.add("z_Os"); 
                 eR.m.classList.remove("d_n");
-                if (eR.p === "ld" && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
-                    eR[eR.p].classList.add("d_n");
-                }
+
+                setTimeout(function() {
+                    if (eR.p === "ld" && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
+                        eR[eR.p].classList.add("d_n");
+                    }
+                }, 10);
+
                 eR.sp.classList.remove("d_n");
                 setTimeout(function() {
                     eR.sp.classList.remove("z_O");
                 }, 10);
 
-                if (!rL.i || (eR.p === "ld" && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) { // if page not loaded
-                    op.spR = true;
-                }
+                setTimeout(function() {
+                    if (!rL.i || (eR.p === "ld" && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) { // if page not loaded
+                        op.spR = true;
+                    }
+                }, 10);
+
                 eR.p = "sp";
             }
 
