@@ -300,6 +300,7 @@ op = {
     sp : false, // check if in split view
     spR : false, // split-view, reload
     oR : false, // recent orientation change?
+    oRa : [], // orientation change array
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
@@ -1932,11 +1933,16 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
+    var id = op.oRa.length; // set id to orientation
+    op.oRa[id] = true;
+
     scr_t(false, null); // disable scrolling
     op.s = true;
     op.oR = true;
     setTimeout(function() {
-        op.oR = false;
+        if (op.oRa.length === id) {
+            op.oR = false;
+        }
     }, op.te);
 
     if (eR.p !== "sp") { // if NOT split screen
