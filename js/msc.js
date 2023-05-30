@@ -1765,7 +1765,6 @@ function checkSplitScreen() {
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    // if (eR.p === "ld") {
     if (op.spR && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
         reL();
         op.spR = false;
@@ -1788,8 +1787,8 @@ function checkSplitScreen() {
         if (!rL.i || eR.p === "ld") { // if page not loaded
             op.spR = true;
         }
-
         eR.p = "sp";
+
     } else if (op.sp && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
         eR.sp.classList.add("z_O");
         setTimeout(function() {
@@ -1915,7 +1914,7 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    if (eR.p !== "sp") {
+    if (eR.p !== "sp") { // if NOT split screen
 
         rL.el.classList.add("d_n");
         eR.m.classList.add("d_n");
@@ -2095,7 +2094,25 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
     } else { // split screen error
 
-        
+        eR.s = true;
+        op.sp = true; // split screen active
+        scr_t(false, null); // disable scrolling
+        op.s = true;
+
+        disp.classList.add("z_Os"); 
+        eR.m.classList.remove("d_n");
+        if (eR.p === "ld") {
+            eR[eR.p].classList.add("d_n");
+        }
+        eR.sp.classList.remove("d_n");
+        setTimeout(function() {
+            eR.sp.classList.remove("z_O");
+        }, 10);
+
+        if (!rL.i || eR.p === "ld") { // if page not loaded
+            op.spR = true;
+        }
+        eR.p = "sp";
     }
 });
 
