@@ -1787,10 +1787,6 @@ function checkSplitScreen() {
         } else if (!op.sp && (!eR.s || (eR.s && eR.p === "ld")) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
             if (!op.oR) {
 
-                if (op.oR) {
-                    alert("oh");
-                }
-
                 eR.s = true;
                 op.sp = true; // split screen active
                 scr_t(false, null); // disable scrolling
@@ -1917,6 +1913,18 @@ window.addEventListener("resize", function(e) {
     } else {
         console.log("just resizing");
 
+        var id = op.oRa.length; // set id to orientation
+        op.oRa[id] = true;
+
+        scr_t(false, null); // disable scrolling
+        op.s = true;
+        op.oR = true;
+        setTimeout(function() {
+            if ((op.oRa.length - 1) === id) {
+                op.oR = false;
+            }
+        }, op.te);
+
         if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
             wH = window.outerHeight; // update on window size variables
@@ -1946,7 +1954,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     op.oR = true;
     setTimeout(function() {
         if ((op.oRa.length - 1) === id) {
-            console.log("wow");
             op.oR = false;
         }
     }, op.te);
