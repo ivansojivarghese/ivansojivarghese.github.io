@@ -898,6 +898,11 @@ function pL() { // site parameters loop
 
     if (op.Ld.s !== null && !op.oR) { // check for possible screen/window/tab splitting by user
         checkSplitScreen();
+
+        // if no error, then show landscape
+
+    } else if (op.oR) {
+        
     }
 
     /*
