@@ -300,6 +300,7 @@ op = {
     sp : false, // check if in split view
     spR : false, // split-view, reload
     oR : false, // recent orientation change?
+    wR : false, // window resize change?
     oRa : [], // orientation change array
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
