@@ -1941,6 +1941,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     op.oR = true;
     setTimeout(function() {
         if ((op.oRa.length - 1) === id) {
+            console.log("wow");
             op.oR = false;
         }
     }, op.te);
