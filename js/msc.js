@@ -1930,6 +1930,8 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
+    scr_t(false, null); // disable scrolling
+    op.s = true;
     op.oR = true;
     setTimeout(function() {
         op.oR = false;
