@@ -2092,6 +2092,22 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
         }, op.t);
 
+    } else {
+        rL.el.classList.add("d_n");
+        eR.m.classList.add("d_n");
+        disp.classList.add("z_Os");
+
+        setTimeout(function() {
+            wH = window.outerHeight; // update on window size variables
+            wD = window.outerWidth; 
+            cH = document.documentElement.clientHeight;
+
+            wiD = window.innerWidth;
+            wiH = window.innerHeight;
+
+            document.body.style.backgroundColor = "red";
+
+        }, op.t);
     }
 });
 
