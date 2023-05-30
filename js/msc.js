@@ -2092,6 +2092,10 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             }
         }, op.t);
+
+    } else { // split screen error
+
+        
     }
 });
 
