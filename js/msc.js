@@ -895,7 +895,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (op.Ld.s !== null) { // check for possible screen/window/tab splitting by user
+    if (op.Ld.s !== null && ) { // check for possible screen/window/tab splitting by user
         checkSplitScreen();
     }
 
@@ -1920,10 +1920,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         eR.m.classList.add("d_n");
         disp.classList.add("z_Os");
 
-        // scr_t(false, null); // disable scrolling
-        // op.s = true;
-
-        // op.Ld.p = scrollY;
         setTimeout(function() {
 
             wH = window.outerHeight; // update on window size variables
@@ -2094,7 +2090,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             }
         }, op.t);
-
+        
     } /*else {
         
         rL.el.classList.add("d_n");
