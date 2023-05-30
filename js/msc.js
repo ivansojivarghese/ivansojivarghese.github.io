@@ -900,9 +900,12 @@ function pL() { // site parameters loop
         checkSplitScreen();
 
         // if no error, then show landscape
+        /*
+        if (!op.oR) {
 
+        }*/
     } else if (op.oR) {
-        
+        eR.sp.classList.add("z_Os"); // hide split screen message
     }
 
     /*
