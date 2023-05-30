@@ -2095,7 +2095,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     } else { // split screen error
 
         eR.s = true;
-        op.sp = true; // split screen active
+        // op.sp = true; // split screen active
         scr_t(false, null); // disable scrolling
         op.s = true;
 
