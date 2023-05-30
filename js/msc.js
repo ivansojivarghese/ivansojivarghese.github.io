@@ -2101,9 +2101,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
         disp.classList.add("z_Os"); 
         eR.m.classList.remove("d_n");
-        if (eR.p === "ld") {
-            eR[eR.p].classList.add("d_n");
-        }
         eR.sp.classList.remove("d_n");
         setTimeout(function() {
             eR.sp.classList.remove("z_O");
@@ -2112,7 +2109,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         if (!rL.i || eR.p === "ld") { // if page not loaded
             op.spR = true;
         }
-        eR.p = "sp";
     }
 });
 
