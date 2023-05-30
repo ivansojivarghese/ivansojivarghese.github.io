@@ -2105,10 +2105,6 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         setTimeout(function() {
             eR.sp.classList.remove("z_O");
         }, 10);
-
-        if (!rL.i || eR.p === "ld") { // if page not loaded
-            op.spR = true;
-        }
     }
 });
 
