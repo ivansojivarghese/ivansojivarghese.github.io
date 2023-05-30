@@ -1786,6 +1786,11 @@ function checkSplitScreen() {
             op.spR = false;
         } else if (!op.sp && (!eR.s || (eR.s && eR.p === "ld")) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
             if (!op.oR) {
+
+                if (op.oR) {
+                    alert("oh");
+                }
+
                 eR.s = true;
                 op.sp = true; // split screen active
                 scr_t(false, null); // disable scrolling
@@ -1801,7 +1806,7 @@ function checkSplitScreen() {
                     eR.sp.classList.remove("z_O");
                 }, 10);
 
-                if (!rL.i || eR.p === "ld") { // if page not loaded
+                if (!rL.i || (eR.p === "ld" && !op.oR)) { // if page not loaded
                     op.spR = true;
                 }
                 eR.p = "sp";
