@@ -1925,8 +1925,8 @@ window.addEventListener("resize", function(e) {
         console.log("just resizing");
 
         var id = op.wRa.length; // set id to resize
-        op.wRa[id] = true;
-        
+        op.wRa[id] = true; //
+
         op.wR = true;
         setTimeout(function() {
             if ((op.wRa.length - 1) === id) {
