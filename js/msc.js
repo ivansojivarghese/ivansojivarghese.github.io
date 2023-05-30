@@ -299,6 +299,7 @@ op = {
     fS : false, // check if in full screen view, // fullscreen check (desktop only)
     sp : false, // check if in split view
     spR : false, // split-view, reload
+    oR : false, // recent orientation change?
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     te : 500, // transition duration (extended)
@@ -1914,6 +1915,11 @@ window.addEventListener("resize", function(e) {
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
+    op.oR = true;
+    setTimeout(function() {
+        op.oR = false;
+    }, op.t);
+
     if (eR.p !== "sp") { // if NOT split screen
 
         rL.el.classList.add("d_n");
@@ -2090,7 +2096,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
             }
         }, op.t);
-        
+
     } /*else {
         
         rL.el.classList.add("d_n");
