@@ -1772,6 +1772,9 @@ function isZooming(){
 
 // Split screen detection
 function checkSplitScreen() {
+
+    console.log("split");
+
     var b = dev.cH.getBoundingClientRect(), // bounding rectangle
         bTop = Math.round(b.top),
         bBottom = Math.round(b.bottom),
