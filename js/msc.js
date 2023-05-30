@@ -1940,7 +1940,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     op.s = true;
     op.oR = true;
     setTimeout(function() {
-        if (op.oRa.length === id) {
+        if ((op.oRa.length - 1) === id) {
             op.oR = false;
         }
     }, op.te);
