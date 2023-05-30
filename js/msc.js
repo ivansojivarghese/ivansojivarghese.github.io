@@ -1790,7 +1790,7 @@ function checkSplitScreen() {
                 if (op.oR) {
                     alert("oh");
                 }
-//
+
                 eR.s = true;
                 op.sp = true; // split screen active
                 scr_t(false, null); // disable scrolling
