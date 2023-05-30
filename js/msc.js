@@ -1806,7 +1806,7 @@ function checkSplitScreen() {
                     eR.sp.classList.remove("z_O");
                 }, 10);
 
-                if (!rL.i || (eR.p === "ld" && !op.oR)) { // if page not loaded
+                if (!rL.i || (eR.p === "ld")) { // if page not loaded
                     op.spR = true;
                 }
                 eR.p = "sp";
