@@ -2092,20 +2092,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             }
         }, op.t);
 
-    } /*else { // split screen error
-
-        eR.s = true;
-        // op.sp = true; // split screen active
-        scr_t(false, null); // disable scrolling
-        op.s = true;
-
-        disp.classList.add("z_Os"); 
-        eR.m.classList.remove("d_n");
-        eR.sp.classList.remove("d_n");
-        setTimeout(function() {
-            eR.sp.classList.remove("z_O");
-        }, 10);
-    }*/
+    }
 });
 
 //////////////////////////////////////////
