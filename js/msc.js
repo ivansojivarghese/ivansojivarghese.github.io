@@ -899,7 +899,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (op.Ld.s !== null && !op.oR) { // check for possible screen/window/tab splitting by user
+    if (op.Ld.s !== null && !op.oR && !op.wR) { // check for possible screen/window/tab splitting by user
         checkSplitScreen();
 
         // if no error, then show landscape
@@ -1782,12 +1782,12 @@ function checkSplitScreen() {
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    if (!op.oR) {
+    if (!op.oR && !op.wR) {
         if (op.spR && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
             reL();
             op.spR = false;
         } else if (!op.sp && (!eR.s || (eR.s && eR.p === "ld")) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
-            if (!op.oR) {
+            if (!op.oR && !op.wR) {
 
                 eR.s = true;
                 op.sp = true; // split screen active
