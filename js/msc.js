@@ -1796,7 +1796,7 @@ function checkSplitScreen() {
 
                 disp.classList.add("z_Os"); 
                 eR.m.classList.remove("d_n");
-                if (eR.p === "ld") {
+                if (eR.p === "ld" && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
                     eR[eR.p].classList.add("d_n");
                 }
                 eR.sp.classList.remove("d_n");
@@ -1804,7 +1804,7 @@ function checkSplitScreen() {
                     eR.sp.classList.remove("z_O");
                 }, 10);
 
-                if (!rL.i || (eR.p === "ld")) { // if page not loaded
+                if (!rL.i || (eR.p === "ld" && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) { // if page not loaded
                     op.spR = true;
                 }
                 eR.p = "sp";
