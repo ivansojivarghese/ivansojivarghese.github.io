@@ -2105,6 +2105,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
             wiD = window.innerWidth;
             wiH = window.innerHeight;
 
+            scr_t(false, null); // disable scrolling
+            op.s = true;
+
             document.body.style.backgroundColor = "red";
 
         }, op.t);
