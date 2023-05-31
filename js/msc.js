@@ -1809,6 +1809,8 @@ function checkSplitScreen() {
 
             } else if (op.sp && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
                             
+                alert("wow");
+                
                 eR.sp.classList.add("z_O");
                 setTimeout(function() {
                     disp.classList.remove("z_Os"); 
