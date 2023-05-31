@@ -1812,10 +1812,10 @@ function checkSplitScreen() {
                 setTimeout(function() {
                     r = pgOr(wD, cH); // get screen orientation (using dimensions)
                     vw = vwP(wD, cH, r); // set device size/orientation params
-                    /*
-                    if (true) { // if in landscape (mobile)
+                    
+                    if (vw.mB_L) { // if in landscape (mobile)
                         
-                    } else {*/
+                    } else {
                         eR.sp.classList.add("z_O");
                         setTimeout(function() {
                             disp.classList.remove("z_Os"); 
@@ -1831,7 +1831,7 @@ function checkSplitScreen() {
                             scr_t(true, null); // enable scrolling
                             op.s = false;
                         }, op.t);
-                    // }
+                    }
                 }, 10);
             }
         }
