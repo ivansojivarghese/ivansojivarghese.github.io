@@ -905,8 +905,6 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 }
 
 function load_js() { // [compatibility/variables] load
-    op.sp = checkSplitScreen();
-
     browserCheck();
     errorCheck(); 
     pos.st = (op.e / 100) * aH; // set scroll-validity threshold
@@ -1031,6 +1029,7 @@ function errorCheck() { // check for errors
 
     // msc.
     op.fS = checkFullScreen();
+    op.sp = checkSplitScreen();
     
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
         eR.h = "sp";
