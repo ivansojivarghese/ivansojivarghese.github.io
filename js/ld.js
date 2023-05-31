@@ -1040,6 +1040,7 @@ function errorCheck() { // check for errors
     op.sp = !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]));
     
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
+        op.spR = true;
         eR.h = "sp";
     } else if (op.zoomDefault && !vw.z_L && (op.sys !== "iOS" && op.sys !== "Android")) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
