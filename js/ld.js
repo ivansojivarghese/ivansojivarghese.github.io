@@ -1033,7 +1033,6 @@ function errorCheck() { // check for errors
         bRight = Math.round(b.right);
 
     eR.a = ["fS", "mt", "ck", "or", "ld", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
-    dev.sC_a = 
 
     // msc.
     op.fS = checkFullScreen();
