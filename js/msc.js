@@ -1815,7 +1815,9 @@ function checkSplitScreen() {
                     
                     if (vw.mB_L) { // if in landscape (mobile)
                         reL();
+                        op.sp = false;
                     } else {
+                        op.sp = false; // split screen de-active
                         eR.sp.classList.add("z_O");
                         setTimeout(function() {
                             disp.classList.remove("z_Os"); 
@@ -1827,7 +1829,6 @@ function checkSplitScreen() {
 
                             eR.s = false;
                             eR.p = "";
-                            op.sp = false; // split screen de-active
                             scr_t(true, null); // enable scrolling
                             op.s = false;
                         }, op.t);
