@@ -1810,10 +1810,12 @@ function checkSplitScreen() {
             } else if (op.sp && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
                 
                 setTimeout(function() {
-                    var s
-                    if () { // if in landscape (mobile)
+                    r = pgOr(wD, cH); // get screen orientation (using dimensions)
+                    vw = vwP(wD, cH, r); // set device size/orientation params
+                    /*
+                    if (true) { // if in landscape (mobile)
                         
-                    } else {
+                    } else {*/
                         eR.sp.classList.add("z_O");
                         setTimeout(function() {
                             disp.classList.remove("z_Os"); 
@@ -1829,7 +1831,7 @@ function checkSplitScreen() {
                             scr_t(true, null); // enable scrolling
                             op.s = false;
                         }, op.t);
-                    }
+                    // }
                 }, 10);
             }
         }
