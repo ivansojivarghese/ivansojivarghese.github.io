@@ -2141,6 +2141,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
 
+            } else if (rL.o_c) {
+                reL();
             }
         }, op.t);
 
