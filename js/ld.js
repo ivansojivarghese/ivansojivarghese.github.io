@@ -1025,6 +1025,12 @@ function load_e() { // page load end
 
 function errorCheck() { // check for errors
 
+    var b = dev.cH.getBoundingClientRect(), // bounding rectangle
+        bTop = Math.round(b.top),
+        bBottom = Math.round(b.bottom),
+        bLeft = Math.round(b.left),
+        bRight = Math.round(b.right);
+
     eR.a = ["fS", "mt", "ck", "or", "ld", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // msc.
