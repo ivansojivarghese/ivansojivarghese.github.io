@@ -1770,7 +1770,7 @@ function checkSplitScreen() {
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    // setTimeout(function() {
+    setTimeout(function() {
         if (!op.oR && !op.wR) {
             if (op.spR && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
                 reL();
@@ -1822,7 +1822,7 @@ function checkSplitScreen() {
                 }, op.t);
             }
         }
-    // }, 10);
+    }, 10);
 }
 
 // for zoom detection
