@@ -1814,7 +1814,7 @@ function checkSplitScreen() {
                     vw = vwP(wD, cH, r); // set device size/orientation params
                     
                     if (vw.mB_L) { // if in landscape (mobile)
-                        
+                        reL();
                     } else {
                         eR.sp.classList.add("z_O");
                         setTimeout(function() {
