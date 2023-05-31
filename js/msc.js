@@ -1787,9 +1787,9 @@ function checkSplitScreen() {
                     eR.m.classList.remove("d_n");
 
                     if (eR.p === "ld" && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
-                        e_Fd(eR[eR.p], true);
+                        e_Fd(eR["ld"], true);
                         setTimeout(function() {
-                            eR[eR.p].classList.add("d_n");
+                            eR["ld"].classList.add("d_n");
                         }, op.t);
                     }
 
