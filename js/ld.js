@@ -905,10 +905,11 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 }
 
 function load_js() { // [compatibility/variables] load
+    dev.sC_a = (op.sys !== "iOS" && op.sys !== "Android") ? [15, 85] : [20, 80]; // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
     browserCheck();
     errorCheck(); 
     pos.st = (op.e / 100) * aH; // set scroll-validity threshold
-    dev.sC_a = (op.sys !== "iOS" && op.sys !== "Android") ? [15, 85] : [20, 80]; // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
+
     // op.r = getSiteRes(); // get site resource origin
 
     // checkOnline();
@@ -1032,6 +1033,7 @@ function errorCheck() { // check for errors
         bRight = Math.round(b.right);
 
     eR.a = ["fS", "mt", "ck", "or", "ld", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
+    dev.sC_a = 
 
     // msc.
     op.fS = checkFullScreen();
