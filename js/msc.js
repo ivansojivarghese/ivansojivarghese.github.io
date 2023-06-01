@@ -6,6 +6,7 @@ var wH = window.outerHeight, // height
     wD = window.outerWidth, // width 
     wiH = window.innerHeight,
     wiD = window.innerWidth,
+    uHeight = 0,
     Rd = [], // load-ready - boolean statuses for loading resource elements
     timer = {}, // keep track of timer instances
     dev = {
@@ -1765,11 +1766,12 @@ function checkSplitScreen() {
 
     var u = dev.uH.getBoundingClientRect(),
         b = dev.cH.getBoundingClientRect(), // bounding rectangle
-        uHeight = Math.round(u.height), 
         bTop = Math.round(b.top),
         bBottom = Math.round(b.bottom),
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
+
+    uHeight = Math.round(u.height);
 
     setTimeout(function() {
         if (!op.oR && !op.wR) {
