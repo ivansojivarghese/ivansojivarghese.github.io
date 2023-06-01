@@ -1813,7 +1813,7 @@ function checkSplitScreen() {
                     r = pgOr(wD, cH); // get screen orientation (using dimensions)
                     vw = vwP(wD, cH, r); // set device size/orientation params
                     
-                    if (vw.mB_L) { // if in landscape (mobile)
+                    if (vw.mB_L && (op.sys === "iOS" || op.sys === "Android")) { // if in landscape (mobile)
                         reL();
                         op.sp = false;
                     } else {
