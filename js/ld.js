@@ -83,6 +83,12 @@ function docRead() {
             }
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!devError) {
+
+                var lead_B = pg.sc.d.getBoundingClientRect(),
+                    lead_Bt = lead_B.top;
+
+                console.log(lead_Bt);
+
                 if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668, 771 BELOW! @load_e function condition 2)
                     setCookie("testCookie", "true", op.c.t); // set a test cookie
                     if (getCookie("testCookie")) { // check for cookies, // UPDATE AT LINE 771 BELOW!
@@ -683,8 +689,6 @@ function load_e() { // end the loading sequence
             }, op.te);
 
         } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
-
-            var lead_B = 
 
             rL.i_s = false;
             rL.r_s = false;
