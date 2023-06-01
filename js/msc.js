@@ -1945,6 +1945,10 @@ window.addEventListener("resize", function(e) {
 
             setCookie("windowResize", true, op.c.t);
 
+            if (!checkSplitScreen()) {
+                reL();
+            }
+
             // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
             // reL(); // reload page
         }
