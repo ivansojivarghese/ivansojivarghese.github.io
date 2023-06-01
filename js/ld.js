@@ -92,6 +92,11 @@ function docRead() {
                 if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668, 771 BELOW! @load_e function condition 2)
                     setCookie("testCookie", "true", op.c.t); // set a test cookie
                     if (getCookie("testCookie")) { // check for cookies, // UPDATE AT LINE 771 BELOW!
+
+                        if (getCookie("maxHeight")) {
+                            console.log(window.innerHeight + ", " + getCookie("maxHeight"));
+                        }
+
                         if (!rL.e) { // ensure once execution
                             if (!rL.e2) { 
                                 setCookie("windowResize", false, op.c.t);
