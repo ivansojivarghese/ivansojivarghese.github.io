@@ -1763,7 +1763,9 @@ function isZooming(){
 // Split screen detection
 function checkSplitScreen() {
 
-    var b = dev.cH.getBoundingClientRect(), // bounding rectangle
+    var u = dev.uH.getBoundingClientRect(),
+        b = dev.cH.getBoundingClientRect(), // bounding rectangle
+        uHeight = Math.round(u.height), 
         bTop = Math.round(b.top),
         bBottom = Math.round(b.bottom),
         bLeft = Math.round(b.left),
@@ -1925,6 +1927,7 @@ window.addEventListener("resize", function(e) {
 
         var u = dev.uH.getBoundingClientRect(), 
             b = dev.cH.getBoundingClientRect(), // bounding rectangle
+            uHeight = Math.round(u.height), 
             bTop = Math.round(b.top),
             bBottom = Math.round(b.bottom),
             bLeft = Math.round(b.left),
