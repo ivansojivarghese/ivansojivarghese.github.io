@@ -1927,13 +1927,12 @@ window.addEventListener("resize", function(e) {
 
         var u = dev.uH.getBoundingClientRect(), 
             b = dev.cH.getBoundingClientRect(), // bounding rectangle
-            uHeight = Math.round(u.height), 
             bTop = Math.round(b.top),
             bBottom = Math.round(b.bottom),
             bLeft = Math.round(b.left),
             bRight = Math.round(b.right);
 
-        if ((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && )) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
+        if ((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) !== uHeight))) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
             var id = op.wRa.length; // set id to resize
             op.wRa[id] = true; //
