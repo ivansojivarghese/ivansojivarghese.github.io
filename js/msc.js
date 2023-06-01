@@ -1934,34 +1934,36 @@ window.addEventListener("resize", function(e) {
             bLeft = Math.round(b.left),
             bRight = Math.round(b.right);
 
-        if ((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) !== uHeight))) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
+        setTimeout(function() {
+            if ((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) !== uHeight))) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
-            var id = op.wRa.length; // set id to resize
-            op.wRa[id] = true; //
+                var id = op.wRa.length; // set id to resize
+                op.wRa[id] = true; //
 
-            op.wR = true;
-            setTimeout(function() {
-                if ((op.wRa.length - 1) === id) {
-                    op.wR = false;
+                op.wR = true;
+                setTimeout(function() {
+                    if ((op.wRa.length - 1) === id) {
+                        op.wR = false;
+                    }
+                }, op.te);
+
+                wH = window.outerHeight; // update on window size variables
+                wD = window.outerWidth; 
+                cH = document.documentElement.clientHeight;
+
+                wiD = window.innerWidth;
+                wiH = window.innerHeight
+
+                setCookie("windowResize", true, op.c.t);
+
+                if (!op.sp && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
+                    reL();
                 }
-            }, op.te);
 
-            wH = window.outerHeight; // update on window size variables
-            wD = window.outerWidth; 
-            cH = document.documentElement.clientHeight;
-
-            wiD = window.innerWidth;
-            wiH = window.innerHeight
-
-            setCookie("windowResize", true, op.c.t);
-
-            if (!op.sp && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
-                reL();
+                // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
+                // reL(); // reload page
             }
-
-            // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
-            // reL(); // reload page
-        }
+        }, 10);
 
         return false;
     }
