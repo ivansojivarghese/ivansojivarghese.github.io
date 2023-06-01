@@ -1947,6 +1947,11 @@ window.addEventListener("resize", function(e) {
                     }
                 }, op.te);
 
+                if (!op.sp && (((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) === uHeight))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) {
+                    pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
+                    reL();
+                }
+
                 wH = window.outerHeight; // update on window size variables
                 wD = window.outerWidth; 
                 cH = document.documentElement.clientHeight;
@@ -1955,11 +1960,6 @@ window.addEventListener("resize", function(e) {
                 wiH = window.innerHeight
 
                 setCookie("windowResize", true, op.c.t);
-
-                if (!op.sp && (((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) === uHeight))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) {
-                    pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
-                    reL();
-                }
             }
         }, 10);
 
