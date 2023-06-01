@@ -1923,7 +1923,8 @@ window.addEventListener("resize", function(e) {
     } else {
         console.log("just resizing");
 
-        var b = dev.cH.getBoundingClientRect(), // bounding rectangle
+        var u = dev.uH.getBoundingClientRect(), 
+            b = dev.cH.getBoundingClientRect(), // bounding rectangle
             bTop = Math.round(b.top),
             bBottom = Math.round(b.bottom),
             bLeft = Math.round(b.left),
