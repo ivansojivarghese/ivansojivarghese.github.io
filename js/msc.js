@@ -3,9 +3,6 @@
 
 var wH = window.outerHeight, // height
     cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
-    //elementHeight = document.getElementById("control-height"),
-    //barHeight = getBd(elementHeight, "height") - wH,
-    //barHeightTemp = barHeight, // temp. hold
     wD = window.outerWidth, // width 
     wiH = window.innerHeight,
     wiD = window.innerWidth,
@@ -29,6 +26,7 @@ var wH = window.outerHeight, // height
         },
         sC_a : [], // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
         cH : document.getElementById("control-height"), // dummy element, to check height changes relative to viewport
+        uH : document.getElementById("ui-height"), // dummy element, check for URL/interface bar resizing
         version : "2.0", // site version
         version_up : "2.1", // version upgrade (if applicable, during maintenance)
         v : 1 // max view time (days)
@@ -1931,7 +1929,7 @@ window.addEventListener("resize", function(e) {
             bLeft = Math.round(b.left),
             bRight = Math.round(b.right);
 
-        if ((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
+        if ((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && )) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
             var id = op.wRa.length; // set id to resize
             op.wRa[id] = true; //
