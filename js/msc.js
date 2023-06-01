@@ -1931,7 +1931,7 @@ window.addEventListener("resize", function(e) {
             bLeft = Math.round(b.left),
             bRight = Math.round(b.right);
 
-        if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
+        if ((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
             var id = op.wRa.length; // set id to resize
             op.wRa[id] = true; //
