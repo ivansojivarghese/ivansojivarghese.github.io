@@ -1957,11 +1957,9 @@ window.addEventListener("resize", function(e) {
                 setCookie("windowResize", true, op.c.t);
 
                 if (!op.sp && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
+                    pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
                     reL();
                 }
-
-                // pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
-                // reL(); // reload page
             }
         }, 10);
 
