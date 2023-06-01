@@ -1924,6 +1924,12 @@ window.addEventListener("resize", function(e) {
     } else {
         console.log("just resizing");
 
+        var b = dev.cH.getBoundingClientRect(), // bounding rectangle
+            bTop = Math.round(b.top),
+            bBottom = Math.round(b.bottom),
+            bLeft = Math.round(b.left),
+            bRight = Math.round(b.right);
+
         if (wH !== window.outerHeight && wD !== window.outerWidth) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
             var id = op.wRa.length; // set id to resize
