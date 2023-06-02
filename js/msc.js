@@ -846,6 +846,7 @@ function pL() { // site parameters loop
             pg.msg.net_i.classList.remove("wifi_off_w_img"); 
             pg.msg.net_i.classList.remove("cookies_w_img"); // set content
         }
+        pg.msg.net_i.classList.add(""); // set content
 
         msg_toggle(pg.msg.net, null, true, true, true); // show message
         op.er.d = true;
