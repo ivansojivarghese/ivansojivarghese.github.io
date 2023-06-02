@@ -801,7 +801,7 @@ function load_e() { // end the loading sequence
                                     pg.msg.t.classList.remove("md"); // add tint
                                     e_Sdv(pg.msg.ckA, true); 
                                     */
-                                    if (getCookie("initialAccess") !== "true") {
+                                    if (getCookie("initialAccess") === "true") {
                                         var u = dev.uH.getBoundingClientRect();
                                         uHeight = Math.round(u.height);
                                     }
