@@ -835,7 +835,7 @@ function pL() { // site parameters loop
 
     if (getCookie("displayErrorReload") === "true" && !op.er.d && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
         
-        msg_toggle(a, null, true, true, true); // show message
+        msg_toggle(pg.msg.net, null, true, true, true); // show message
         op.er.d = true;
     }
 
