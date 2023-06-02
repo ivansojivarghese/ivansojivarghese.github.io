@@ -1814,31 +1814,36 @@ function checkSplitScreen() {
                 
                 // DIFFERING HEIGHT/WIDTH OF WINDOW AT NON-SPLIT?
 
-                setTimeout(function() {
-                    r = pgOr(wD, cH); // get screen orientation (using dimensions)
-                    vw = vwP(wD, cH, r); // set device size/orientation params
-                    
-                    if (vw.mB_L && (op.sys === "iOS" || op.sys === "Android")) { // if in landscape (mobile)
-                        reL();
-                        op.sp = false;
-                    } else {
-                        op.sp = false; // split screen de-active
-                        eR.sp.classList.add("z_O");
-                        setTimeout(function() {
-                            disp.classList.remove("z_Os"); 
-                            eR.sp.classList.add("d_n");
-                            eR.m.classList.add("d_n");
-                            if (eR.p === "ld") {
-                                eR[eR.p].classList.remove("d_n");
-                            }
+                if (Number(getCookie("maxWidth")) === window.innerWidth && Number(getCookie("maxHeight")) === window.innerHeight) {
+                    setTimeout(function() {
+                        r = pgOr(wD, cH); // get screen orientation (using dimensions)
+                        vw = vwP(wD, cH, r); // set device size/orientation params
+                        
+                        if (vw.mB_L && (op.sys === "iOS" || op.sys === "Android")) { // if in landscape (mobile)
+                            reL();
+                            op.sp = false;
+                        } else {
+                            op.sp = false; // split screen de-active
+                            eR.sp.classList.add("z_O");
+                            setTimeout(function() {
+                                disp.classList.remove("z_Os"); 
+                                eR.sp.classList.add("d_n");
+                                eR.m.classList.add("d_n");
+                                if (eR.p === "ld") {
+                                    eR[eR.p].classList.remove("d_n");
+                                }
 
-                            eR.s = false;
-                            eR.p = "";
-                            scr_t(true, null); // enable scrolling
-                            op.s = false;
-                        }, op.t);
-                    }
-                }, 10);
+                                eR.s = false;
+                                eR.p = "";
+                                scr_t(true, null); // enable scrolling
+                                op.s = false;
+                            }, op.t);
+                        }
+                    }, 10);
+                } else {
+                    reL();
+                    op.sp = false;
+                }
             }
         }
     }, 10);
