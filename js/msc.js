@@ -799,7 +799,7 @@ function pL() { // site parameters loop
                 setCookie("displayErrorReload", "true", op.c.t); // set a cookie to show page fix message after reload
                 // reL();
             }
-        }, 10); // 
+        }, 10); 
     }
 
     if (getCookie("displayErrorReload") === "true" && !op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
