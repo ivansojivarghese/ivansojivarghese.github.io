@@ -801,14 +801,14 @@ function load_e() { // end the loading sequence
                                     pg.msg.t.classList.remove("md"); // add tint
                                     e_Sdv(pg.msg.ckA, true); 
                                     */
-                                    if (getCookie("initialAccess") === "true") {
-                                        var u = dev.uH.getBoundingClientRect();
-                                        uHeight = Math.round(u.height);
-                                    }
                                     if (!pg.msg.k && !pg.msg.c && !pg.cond.a && !hm.s && !getCookie("cookiesAccepted")) {
                                         msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
                                     }
                                 }, op.te);
+                            }
+                            if (getCookie("initialAccess") === "true") {
+                                var u = dev.uH.getBoundingClientRect();
+                                uHeight = Math.round(u.height);
                             }
                         }, 10);
                     }
