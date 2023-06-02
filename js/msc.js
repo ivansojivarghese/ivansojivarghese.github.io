@@ -1841,8 +1841,8 @@ function checkSplitScreen() {
                         }
                     }, 10);
                 } else {
-                    setCookie();
-                    setCookie();
+                    setCookie("maxHeight", cH, op.c.t);
+                    setCookie("maxWidth", window.innerWidth, op.c.t);
                     reL();
                     op.sp = false;
                 }
