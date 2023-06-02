@@ -829,7 +829,7 @@ function pL() { // site parameters loop
             pHeight = p.height;
         if (pHeight !== window.innerHeight) {
             setCookie("displayErrorReload", "true", op.c.t); // set a cookie to show page fix message after reload
-            reL();
+            // reL();
         }
     }
 
