@@ -801,6 +801,10 @@ function load_e() { // end the loading sequence
                                     pg.msg.t.classList.remove("md"); // add tint
                                     e_Sdv(pg.msg.ckA, true); 
                                     */
+                                    if (getCookie("initialAccess") !== "true") {
+                                        var u = dev.uH.getBoundingClientRect();
+                                        uHeight = Math.round(u.height);
+                                    }
                                     if (!pg.msg.k && !pg.msg.c && !pg.cond.a && !hm.s && !getCookie("cookiesAccepted")) {
                                         msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
                                     }
@@ -906,11 +910,6 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
         i = 0;
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
-
-    if (getCookie("initialAccess") !== "true") {
-        var u = dev.uH.getBoundingClientRect();
-        uHeight = Math.round(u.height);
-    }
 
     c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
     fter.y.innerHTML = y;
