@@ -116,12 +116,9 @@ function docRead() {
                                 }
                                 if (getCookie("initialAccess") !== "true" /*&& !dev.mode*/) { // create an access cookie (checks for first-time access)
 
-                                    var u = dev.uH.getBoundingClientRect();
-
                                     setCookie("initialAccess", "true", op.c.t); // access cookie lasts for 24 hours
                                     setCookie("maxHeight", cH, op.c.t); // max innerheight ""
                                     setCookie("maxWidth", window.innerWidth, op.c.t); // max innerWidth ""
-                                    uHeight = Math.round(u.height);
                                     op.c.a = true; // user initial access detected
 
                                 } else {
