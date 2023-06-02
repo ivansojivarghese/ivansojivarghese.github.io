@@ -844,9 +844,10 @@ function pL() { // site parameters loop
         if (pg.msg.net_i.classList.contains("wifi_w_img") || pg.msg.net_i.classList.remove("wifi_off_w_img") || pg.msg.net_i.classList.remove("cookies_w_img")) {
             pg.msg.net_i.classList.remove("wifi_w_img"); 
             pg.msg.net_i.classList.remove("wifi_off_w_img"); 
-            pg.msg.net_i.classList.remove("cookies_w_img"); // set content
+            pg.msg.net_i.classList.remove("cookies_w_img"); // remove 
         }
-        pg.msg.net_i.classList.add(""); // set content
+        pg.msg.net_i.classList.add(""); // set icon
+        pg.msg.net_t.innerHTML = ""; // content
 
         msg_toggle(pg.msg.net, null, true, true, true); // show message
         op.er.d = true;
