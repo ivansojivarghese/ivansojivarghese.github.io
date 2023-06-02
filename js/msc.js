@@ -821,6 +821,17 @@ function pL() { // site parameters loop
         }
     }
 
+    if (rL & rL.i) { // display error fixing
+        var p = pg.sc.m.getBoundingClientRect(),
+            pHeight = p.height;
+        if (pHeight !== window.innerHeight) {
+            reL();
+
+            // set a cookie to show page fix message after reload
+
+        }
+    }
+
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
         console.log("cookies deleted");
         
