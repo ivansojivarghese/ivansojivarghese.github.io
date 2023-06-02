@@ -644,10 +644,6 @@ function docRead() {
 
 function load_e() { // end the loading sequence
     if (!devError) {
-        if (getCookie("initialAccess") !== "true") {
-            var u = dev.uH.getBoundingClientRect();
-            uHeight = Math.round(u.height);
-        }
 
         if (op.ne.t3s) { // timeout 3
 
@@ -910,6 +906,11 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
         i = 0;
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
+
+    if (getCookie("initialAccess") !== "true") {
+        var u = dev.uH.getBoundingClientRect();
+        uHeight = Math.round(u.height);
+    }
 
     c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
     fter.y.innerHTML = y;
