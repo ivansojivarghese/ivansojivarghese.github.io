@@ -112,6 +112,7 @@ function docRead() {
                                     // resLoad(rL.f.el, rL.f.u); // load up site favicon (logo)
                                     setCookie("initialAccess", "true", op.c.t); // access cookie lasts for 24 hours
                                     setCookie("maxHeight", cH, op.c.t); // max innerheight ""
+                                    setCookie("maxWidth", window.innerWidth, op.c.t); // max innerWidth ""
                                     op.c.a = true; // user initial access detected
                                 } else {
                                     Rd[Rd.length] = true; // accelerate load process
