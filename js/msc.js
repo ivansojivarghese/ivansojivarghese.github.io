@@ -834,9 +834,10 @@ function pL() { // site parameters loop
                 pg.msg.net_p.classList.remove("balanced"); 
             }
             pg.msg.net_p.classList.add("negate"); // set color
-            if (pg.msg.net_i.classList.contains("wifi_w_img") || pg.msg.net_i.classList.remove("wifi_off_w_img")) {
+            if (pg.msg.net_i.classList.contains("wifi_w_img") || pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("info_w_img")) {
                 pg.msg.net_i.classList.remove("wifi_w_img"); 
                 pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+                pg.msg.net_i.classList.remove("info_w_img");
             }
             pg.msg.net_i.classList.add("cookies_w_img"); // set content
             
@@ -941,8 +942,17 @@ function pL() { // site parameters loop
                     op.nc = true;
                 }
 
-                if (pg.msg.net_p.classList.contains("predicate")) {
+                //
+                if (pg.msg.net_i.classList.contains("wifi_w_img") || pg.msg.net_i.classList.remove("wifi_off_w_img") || pg.msg.net_i.classList.remove("cookies_w_img")) {
+                    pg.msg.net_i.classList.remove("wifi_w_img"); 
+                    pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+                    pg.msg.net_i.classList.remove("cookies_w_img"); // remove 
+                }
+                //
+
+                if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
                     pg.msg.net_p.classList.remove("predicate"); 
+                    pg.msg.net_p.classList.remove("balanced"); 
                 }
                 pg.msg.net_p.classList.add("negate"); // set color
                 if (pg.msg.net_i.classList.contains("wifi_w_img")) {
