@@ -94,7 +94,7 @@ function docRead() {
                     if (getCookie("testCookie")) { // check for cookies, // UPDATE AT LINE 771 BELOW!
 
                         if (getCookie("maxHeight")) {
-                            if (getCookie("maxHeight") !== window.innerHeight) {
+                            if (Number(getCookie("maxHeight")) !== window.innerHeight) {
                                 setCookie("maxHeight", null, -1);
                                 reL();
                             }
