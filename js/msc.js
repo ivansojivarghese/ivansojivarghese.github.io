@@ -1841,6 +1841,8 @@ function checkSplitScreen() {
                         }
                     }, 10);
                 } else {
+                    setCookie();
+                    setCookie();
                     reL();
                     op.sp = false;
                 }

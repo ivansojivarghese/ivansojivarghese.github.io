@@ -120,13 +120,6 @@ function docRead() {
                                     if (getCookie("cookiesAccepted") === "true" /*|| dev.mode*/) { // if cookies have been accepted by user
                                         pg.msg.el.classList.add("d_n"); // remove user cookie-acceptance message
                                         op.c.u = true; // message accepted
-                                        /*
-                                        if (getCookie("maxHeight") < cH || op.nav.r) { // if height fluctuates from additional URL bars, etc.
-                                            setCookie("maxHeight", cH, op.c.t); // update
-                                            aH = getCookie("maxHeight");
-                                        } /*else if () {
-                                            setCookie("maxHeight", aH, op.c.t); // update
-                                        }*/
                                     } 
                                 }
 
@@ -141,11 +134,6 @@ function docRead() {
                             }
                             if ((rdS(Rd) && !rL.e3 && (op.ne.w === false) && loadS_res(res_ar) && op.n && !rL.i_s) /*|| (rdS(Rd) && op.ne.w && op.ne.s)*/) { // when elements have loaded (normal)
                                 rL.e3 = true; 
-                                // rL.s = true;
-                                /*
-                                if (op.c.a) { // only if first-time access
-                                    e_Fd(rL.g, false); // show logo
-                                }*/
 
                                 rL.r_s = true;
                                 rL.i_s = false;
