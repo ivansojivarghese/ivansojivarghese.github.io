@@ -24,6 +24,7 @@
 :root {
     --negate_col: #A10000;
     --predicate_col: #007000;
+    --balanced_col : #22355C;
 }
 
 *  {
@@ -912,6 +913,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 .pill.predicate {
     background-color: var(--predicate_col);
+}
+
+.pill.balanced {
+    background-color: var(--balanced_col);
 }
 
 /* ------------- */

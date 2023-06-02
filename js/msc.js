@@ -840,7 +840,7 @@ function pL() { // site parameters loop
             pg.msg.net_p.classList.remove("predicate"); 
             pg.msg.net_p.classList.remove("negate"); 
         }
-        pg.msg.net_p.classList.add(""); // set color
+        pg.msg.net_p.classList.add("balanced"); // set color
         if (pg.msg.net_i.classList.contains("wifi_w_img") || pg.msg.net_i.classList.remove("wifi_off_w_img") || pg.msg.net_i.classList.remove("cookies_w_img")) {
             pg.msg.net_i.classList.remove("wifi_w_img"); 
             pg.msg.net_i.classList.remove("wifi_off_w_img"); 
