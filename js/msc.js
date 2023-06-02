@@ -846,7 +846,7 @@ function pL() { // site parameters loop
             pg.msg.net_i.classList.remove("wifi_off_w_img"); 
             pg.msg.net_i.classList.remove("cookies_w_img"); // remove 
         }
-        pg.msg.net_i.classList.add(""); // set icon
+        pg.msg.net_i.classList.add("info_w_img"); // set icon
         pg.msg.net_t.innerHTML = ""; // content
 
         msg_toggle(pg.msg.net, null, true, true, true); // show message
