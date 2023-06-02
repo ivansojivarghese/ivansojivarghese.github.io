@@ -825,8 +825,7 @@ function pL() { // site parameters loop
         var p = pg.sc.m.getBoundingClientRect(),
             pHeight = p.height;
         if (pHeight !== window.innerHeight) {
-            
-            // set a cookie to show page fix message after reload
+            setCookie("null", null, op.c.t); // set a cookie to show page fix message after reload
             reL();
         }
     }
