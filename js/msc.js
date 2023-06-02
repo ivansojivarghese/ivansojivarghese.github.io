@@ -835,7 +835,7 @@ function pL() { // site parameters loop
         }, 10); // 
     }
 
-    if (getCookie("displayErrorReload") === "true" && !op.er.d && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
+    if (getCookie("displayErrorReload") === "true" && !op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
         
         // edit message contents
         if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) { // UPDATE ACROSS ALL MESSAGES!
