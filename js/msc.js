@@ -735,39 +735,6 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
         load_eN(); // continue load process if any (page specific)
     }, op.te);
 }
-/*
-function cookiesDeny() { // deny site access (and begin to close tab)
-    msg_toggle(pg.msg.ckD, null, true, true, null);
-    countdownTimerSec(op.c.uM - 1, op.c.uT, pg.msg.ckDs, cookiesDenyRedirect); // countdown from 5 sec. for redirecting away from page
-}
-
-function cookiesDenyRedirect() {
-    op.c.uR = true; // redirected
-    pg.msg.ckDp1.classList.add("p_T", "ex"); // show/hide statements
-    pg.msg.ckDp1.innerHTML = "site undirected";
-    pg.msg.ckDp2.classList.add("d_n");
-    pg.msg.ckDp3.classList.remove("d_n");
-    if (document.referrer) { // if previous URI exists (from link path)
-        window.history.back(); // redirect to previous page in history
-    }
-}
-
-function cookiesDenyCancel() { // cancel close tab, back to original message
-    if (op.c.uR) { // if redirected
-        op.c.uR = false;
-        setTimeout(function() {
-            pg.msg.ckDp1.classList.remove("p_T", "ex");
-            pg.msg.ckDp1.innerHTML = "exiting from site"; // reset back
-            pg.msg.ckDp2.classList.remove("d_n");
-            pg.msg.ckDp3.classList.add("d_n");
-        }, op.t);
-    }
-    msg_toggle(pg.msg.ckD, null, false, true, null);
-    clearInterval(timer[op.c.uT].L);
-    setTimeout(function() {
-        pg.msg.ckDs.innerHTML = op.c.uM; // reset time
-    }, op.t);
-}*/
 
 function checkFullScreen() {
     if ((window.innerHeight === screen.height || window.innerHeight === screen.availHeight) && (op.sys !== "iOS" && op.sys !== "Android")) { // only on desktops
