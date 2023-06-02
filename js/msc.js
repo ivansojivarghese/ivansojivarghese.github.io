@@ -1771,7 +1771,7 @@ function checkSplitScreen() {
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    uHeight = Math.round(u.height);
+    // uHeight = Math.round(u.height);
 
     setTimeout(function() {
         if (!op.oR && !op.wR) {
@@ -1811,8 +1811,6 @@ function checkSplitScreen() {
                 }
 
             } else if (op.sp && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
-                
-                // DIFFERING HEIGHT/WIDTH OF WINDOW AT NON-SPLIT?
 
                 if (Number(getCookie("maxWidth")) === window.innerWidth && Number(getCookie("maxHeight")) === window.innerHeight) {
                     setTimeout(function() {
