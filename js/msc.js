@@ -1028,7 +1028,7 @@ function c_Sr() { // check for scrolling activity (in live)
                 pos.s = Math.abs((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) / (op.Ls * op.e)); // get scroll speed - relative speed between last updated and 2nd-last updated y-pos
                 pos.v[pos.v.length] = pos.s; // update in session-scroll speed variability array
             }
-        } else 
+        } else {
             if (pos.m <= _L) { 
                 pos.m++; // increment no. of positive matches (to reach required threshold)
             } else {
