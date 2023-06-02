@@ -644,6 +644,11 @@ function docRead() {
 
 function load_e() { // end the loading sequence
     if (!devError) {
+        if (getCookie("initialAccess") !== "true") {
+            var u = dev.uH.getBoundingClientRect();
+            uHeight = Math.round(u.height);
+        }
+
         if (op.ne.t3s) { // timeout 3
 
             rL.i_s = true;
