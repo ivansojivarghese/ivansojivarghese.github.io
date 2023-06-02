@@ -825,10 +825,9 @@ function pL() { // site parameters loop
         var p = pg.sc.m.getBoundingClientRect(),
             pHeight = p.height;
         if (pHeight !== window.innerHeight) {
-            reL();
-
+            
             // set a cookie to show page fix message after reload
-
+            reL();
         }
     }
 
