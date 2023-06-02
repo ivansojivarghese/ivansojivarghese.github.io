@@ -282,6 +282,9 @@ op = {
         t4s : false, // timeout 4 status
         L : null // loop
     },
+    er : { // display errors
+        d : false
+    },
     r : null, // resource link origin
     n : null, // online status (internet connectivity)
     nc : false, // online status change
@@ -828,6 +831,11 @@ function pL() { // site parameters loop
             setCookie("displayErrorReload", "true", op.c.t); // set a cookie to show page fix message after reload
             reL();
         }
+    }
+
+    if (getCookie("displayErrorReload") === "true" && ) {
+
+        // false
     }
 
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
