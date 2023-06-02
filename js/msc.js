@@ -825,12 +825,14 @@ function pL() { // site parameters loop
     }
 
     if (rL && rL.i && !disp.classList.contains("d_n") && !disp.classList.contains("z_O")) { // display error fixing
-        var p = pg.sc.m.getBoundingClientRect(),
+        setTimeout(function() {
+            var p = pg.sc.m.getBoundingClientRect(),
             pHeight = p.height;
-        if (pHeight !== window.innerHeight) {
-            setCookie("displayErrorReload", "true", op.c.t); // set a cookie to show page fix message after reload
-            // reL();
-        }
+            if (pHeight !== window.innerHeight) {
+                setCookie("displayErrorReload", "true", op.c.t); // set a cookie to show page fix message after reload
+                // reL();
+            }
+        }, 10);
     }
 
     if (getCookie("displayErrorReload") === "true" && !op.er.d && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
