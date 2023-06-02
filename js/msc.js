@@ -836,7 +836,7 @@ function pL() { // site parameters loop
     if (getCookie("displayErrorReload") === "true" && !op.er.d && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
         
         // edit message contents
-        if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) {
+        if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) { // UPDATE ACROSS ALL MESSAGES!
             pg.msg.net_p.classList.remove("predicate"); 
             pg.msg.net_p.classList.remove("negate"); 
         }
