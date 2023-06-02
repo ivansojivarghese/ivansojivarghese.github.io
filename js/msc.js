@@ -849,7 +849,7 @@ function pL() { // site parameters loop
         pg.msg.net_i.classList.add("info_w_img"); // set icon
         pg.msg.net_t.innerHTML = ""; // content
 
-        msg_toggle(pg.msg.net, null, true, true, true); // show message
+        msg_toggle(pg.msg.net, null, true, false, false); // show message
         op.er.d = true;
     }
 
