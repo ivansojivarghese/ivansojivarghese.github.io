@@ -98,6 +98,12 @@ function docRead() {
                                 setCookie("maxHeight", null, -1);
                                 reL();
                             }
+                        } else if (getCookie("initialAccess") === "true") {
+                            setCookie("maxHeight", cH, op.c.t);
+                        }
+
+                        if (!getCookie("maxWidth") && getCookie("initialAccess") === "true") {
+                            setCookie("maxWidth", window.innerWidth, op.c.t);
                         }
 
                         if (!rL.e) { // ensure once execution
