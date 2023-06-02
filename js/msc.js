@@ -282,7 +282,7 @@ op = {
         t4s : false, // timeout 4 status
         L : null // loop
     },
-    er : { // display errors
+    er : { // errors (fixes) - as messages
         d : false
     },
     r : null, // resource link origin
@@ -833,9 +833,11 @@ function pL() { // site parameters loop
         }
     }
 
-    if (getCookie("displayErrorReload") === "true" && ) {
+    if (getCookie("displayErrorReload") === "true" && !op.er.d && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
+        
+        msg_toggle(); // show message
 
-        // false
+        op.er.d = true;
     }
 
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
