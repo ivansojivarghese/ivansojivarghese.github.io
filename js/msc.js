@@ -824,7 +824,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (rL && rL.i && !disp.classList.contains("d_n") && !disp.classList.contains("z_O")) { // display error fixing
+    if (rL && rL.i && op.c.u && !eR.s && !disp.classList.contains("d_n") && !disp.classList.contains("z_O")) { // display error fixing
         setTimeout(function() {
             var p = pg.sc.m.getBoundingClientRect(),
             pHeight = p.height;
