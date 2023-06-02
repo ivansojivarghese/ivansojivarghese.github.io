@@ -835,7 +835,15 @@ function pL() { // site parameters loop
 
     if (getCookie("displayErrorReload") === "true" && !op.er.d && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
         
-        // 
+        // edit message contents
+        if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) {
+            pg.msg.net_p.classList.remove("predicate"); 
+            pg.msg.net_p.classList.remove("negate"); 
+        }
+        pg.msg.net_p.classList.add("negate"); // set color
+        pg.msg.net_i.classList.remove("wifi_w_img"); 
+        pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+        pg.msg.net_i.classList.add("cookies_w_img"); // set content
 
         msg_toggle(pg.msg.net, null, true, true, true); // show message
         op.er.d = true;
