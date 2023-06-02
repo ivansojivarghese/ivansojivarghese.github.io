@@ -985,12 +985,15 @@ function pL() { // site parameters loop
             msg_toggle(pg.msg.net, null, false, true, true); // hide offline
 
             setTimeout(function() {
-                if (pg.msg.net_p.classList.contains("negate")) {
+                if (pg.msg.net_p.classList.contains("negate") || pg.msg.net_p.classList.contains("balanced")) {
                     pg.msg.net_p.classList.remove("negate"); 
+                    pg.msg.net_p.classList.remove("balanced");
                 }
                 pg.msg.net_p.classList.add("predicate"); // set color
-                if (pg.msg.net_i.classList.contains("wifi_off_w_img")) {
+                if (pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img") || pg.msg.net_i.classList.contains("info_w_img")) {
                     pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+                    pg.msg.net_i.classList.remove("cookies_w_img");
+                    pg.msg.net_i.classList.remove("info_w_img");
                 }
                 pg.msg.net_i.classList.add("wifi_w_img"); // set content
                 pg.msg.net_t.innerHTML = "back online!";
@@ -1025,7 +1028,7 @@ function c_Sr() { // check for scrolling activity (in live)
                 pos.s = Math.abs((pos.d[pos.d.length - 1] - pos.d[pos.d.length - 2]) / (op.Ls * op.e)); // get scroll speed - relative speed between last updated and 2nd-last updated y-pos
                 pos.v[pos.v.length] = pos.s; // update in session-scroll speed variability array
             }
-        } else {
+        } else 
             if (pos.m <= _L) { 
                 pos.m++; // increment no. of positive matches (to reach required threshold)
             } else {
