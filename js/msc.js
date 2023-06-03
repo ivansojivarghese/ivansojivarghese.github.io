@@ -762,12 +762,12 @@ function pL() { // site parameters loop
     if (op.p.e) {
         op.p.tA = op.d.getTime();
     }
-
+    /*
     if (op.n && op.wRo) { // offline - prevent window resize reload
         setTimeout(function() {
             op.wRo = false;
         }, op.ne.bD);
-    }
+    }*/
 
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
@@ -1978,8 +1978,10 @@ window.addEventListener("resize", function(e) {
                 if (!op.sp && op.n && !op.wRo && (((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) !== uHeight))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) {
                     pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
                     reL();
-                } else if (!op.n) { // if offline
+                } else if (!op.n && !op.wRo) { // if offline
                     op.wRo = true;
+                } else if (!op.n && op.wRo) {
+                    op.wRo = false;
                 }
 
                 wH = window.outerHeight; // update on window size variables
