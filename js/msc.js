@@ -790,7 +790,7 @@ function pL() { // site parameters loop
             }
         }
     }
-
+    /*
     if (rL && rL.i && op.c.u && !eR.s && !disp.classList.contains("d_n") && !disp.classList.contains("z_O")) { // display error fixing
         setTimeout(function() {
             var p = pg.sc.m.getBoundingClientRect(),
@@ -800,7 +800,7 @@ function pL() { // site parameters loop
                 // reL();
             }
         }, 10); 
-    }
+    }*/
 
     if (getCookie("displayErrorReload") === "true" && !op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
         
