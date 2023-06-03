@@ -304,6 +304,7 @@ op = {
     spR : false, // split-view, reload
     oR : false, // recent orientation change?
     wR : false, // window resize change?
+    wRo : false, // window resize offline change?
     oRa : [], // orientation change array
     wRa : [], // window resize change array
     aP : 5, // approximator value
@@ -760,6 +761,12 @@ function pL() { // site parameters loop
     op.d = new Date(); // update Date object
     if (op.p.e) {
         op.p.tA = op.d.getTime();
+    }
+
+    if (op.n && op.wRo) {
+        setTimeout(function() {
+            op.wRo = false;
+        }, op.ne.bD);
     }
 
     if (op.s) { // 'force' enable/disable scroll when required
@@ -1968,9 +1975,11 @@ window.addEventListener("resize", function(e) {
                     }
                 }, op.te);
 
-                if (!op.sp && op.n && (((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) !== uHeight))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) {
+                if (!op.sp && op.n && !op.wRo && (((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) !== uHeight))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) {
                     pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
                     reL();
+                } else if (!op.n) { // if offline
+                    op.wRo = true;
                 }
 
                 wH = window.outerHeight; // update on window size variables
