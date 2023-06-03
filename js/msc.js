@@ -795,7 +795,7 @@ function pL() { // site parameters loop
         setTimeout(function() {
             var p = pg.sc.m.getBoundingClientRect(),
             pHeight = p.height;
-            if (pHeight !== window.innerHeight) {
+            if (pHeight !== window.innerHeight && pHeight) {
                 setCookie("displayErrorReload", "true", op.c.t); // set a cookie to show page fix message after reload
                 // reL();
             }
