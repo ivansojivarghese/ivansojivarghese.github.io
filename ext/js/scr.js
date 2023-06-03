@@ -79,7 +79,7 @@ function sc_L() { // functions (live on scroll)
     if (rL && rL.i && op.c.u && !eR.s && !disp.classList.contains("d_n") && !disp.classList.contains("z_O")) { // display error fixing
         setTimeout(function() {
             var p = im.el.getBoundingClientRect(),
-            pHeight = p.height;
+            pHeight = Math.round(p.height);
             if (pHeight !== window.innerHeight && pHeight) {
                 setCookie("displayErrorReload", "true", op.c.t); // set a cookie to show page fix message after reload
                 // reL();
