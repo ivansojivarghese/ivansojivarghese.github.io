@@ -763,7 +763,7 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-    if (op.n && op.wRo) {
+    if (op.n && op.wRo) { // offline - prevent window resize reload
         setTimeout(function() {
             op.wRo = false;
         }, op.ne.bD);
