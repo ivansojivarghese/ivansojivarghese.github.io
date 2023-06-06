@@ -1860,7 +1860,7 @@ function checkSplitScreen() {
                             }, op.t);
                         }
                     }, 10);
-                } else {
+                } else if (op.n) {
                     setCookie("maxHeight", window.innerHeight, op.c.t);
                     setCookie("maxWidth", window.innerWidth, op.c.t);
                     reL();
