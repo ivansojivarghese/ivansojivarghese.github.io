@@ -762,6 +762,7 @@ function pL() { // site parameters loop
     if (op.p.e) {
         op.p.tA = op.d.getTime();
     }
+
     /*
     if (op.n && op.wRo) { // offline - prevent window resize reload
         setTimeout(function() {
@@ -1980,7 +1981,7 @@ window.addEventListener("resize", function(e) {
                     reL();
                 } else if (!op.n && !op.wRo) { // if offline
                     op.wRo = true;
-                } else if (!op.n && op.wRo) {
+                } else if (!op.n && op.wRo) { // online, and no scroll
                     op.wRo = false;
                 }
 
