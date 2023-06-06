@@ -797,6 +797,26 @@ function pL() { // site parameters loop
                 scr_t(true, arg);
             }
         }
+
+        if (op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
+        
+            // edit message contents
+            if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) { // UPDATE ACROSS ALL MESSAGES!
+                pg.msg.net_p.classList.remove("predicate"); 
+                pg.msg.net_p.classList.remove("negate"); 
+            }
+            pg.msg.net_p.classList.add("balanced"); // set color
+            if (pg.msg.net_i.classList.contains("wifi_w_img") || pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img")) {
+                pg.msg.net_i.classList.remove("wifi_w_img"); 
+                pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+                pg.msg.net_i.classList.remove("cookies_w_img"); // remove 
+            }
+            pg.msg.net_i.classList.add("info_w_img"); // set icon
+            pg.msg.net_t.innerHTML = "display fix"; // content
+    
+            msg_toggle(pg.msg.net, null, true, false, false); // show message
+            op.er.d = false;
+        }
     }
     /*
     if (rL && rL.i && op.c.u && !eR.s && !disp.classList.contains("d_n") && !disp.classList.contains("z_O")) { // display error fixing
@@ -809,26 +829,6 @@ function pL() { // site parameters loop
             }
         }, 10); 
     }*/
-
-    if (op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
-        
-        // edit message contents
-        if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) { // UPDATE ACROSS ALL MESSAGES!
-            pg.msg.net_p.classList.remove("predicate"); 
-            pg.msg.net_p.classList.remove("negate"); 
-        }
-        pg.msg.net_p.classList.add("balanced"); // set color
-        if (pg.msg.net_i.classList.contains("wifi_w_img") || pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img")) {
-            pg.msg.net_i.classList.remove("wifi_w_img"); 
-            pg.msg.net_i.classList.remove("wifi_off_w_img"); 
-            pg.msg.net_i.classList.remove("cookies_w_img"); // remove 
-        }
-        pg.msg.net_i.classList.add("info_w_img"); // set icon
-        pg.msg.net_t.innerHTML = "display fix"; // content
-
-        msg_toggle(pg.msg.net, null, true, false, false); // show message
-        op.er.d = false;
-    }
 
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
         console.log("cookies deleted");
