@@ -839,7 +839,7 @@ function pL() { // site parameters loop
             op.c.e = false;
             pg.msg.c = true;
 
-            setCookie("cookiesAccepted", "false", op.c.t); // cookies declined
+            setCookie("cookiesAccepted", null, -1); // cookies deleted
             op.c.u = false;
 
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) { // UPDATE ACROSS ALL MESSAGES!
