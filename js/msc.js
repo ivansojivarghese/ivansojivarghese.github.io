@@ -731,9 +731,14 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
     msg_toggle(pg.msg.ckA, null, false, true, null);
 
     setTimeout(function() {
-        setCookie("cookiesAccepted", "true", op.c.t); // cookie: cookies accepted
-        op.c.u = true;
-        load_eN(); // continue load process if any (page specific)
+        if (getCookie("cookiesAccepted") !== "false") {
+            setCookie("cookiesAccepted", "true", op.c.t); // cookie: cookies accepted
+            op.c.u = true;
+            load_eN(); // continue load process if any (page specific)
+        } else {
+            setCookie("cookiesAccepted", null, -1);
+        }
+
     }, op.te);
 }
 
@@ -837,7 +842,7 @@ function pL() { // site parameters loop
             op.c.e = false;
             pg.msg.c = true;
 
-            setCookie("cookiesAccepted", null, -1); // cookie: cookies accepted
+            setCookie("cookiesAccepted", "false", op.c.t); // cookies declined
             op.c.u = false;
 
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) { // UPDATE ACROSS ALL MESSAGES!
