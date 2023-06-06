@@ -1981,7 +1981,7 @@ window.addEventListener("resize", function(e) {
                     reL();
                 } else if (!op.n && !op.wRo) { // if offline
                     op.wRo = true;
-                } else if (!op.n && op.wRo) { // online, and no scroll
+                } else if (!op.n && op.wRo && !pos.c) { // online, and no scroll
                     op.wRo = false;
                 }
 
