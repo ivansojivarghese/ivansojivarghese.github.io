@@ -837,6 +837,9 @@ function pL() { // site parameters loop
             op.c.e = false;
             pg.msg.c = true;
 
+            setCookie("cookiesAccepted", null, -1); // cookie: cookies accepted
+            op.c.u = false;
+
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) { // UPDATE ACROSS ALL MESSAGES!
                 pg.msg.net_p.classList.remove("predicate"); 
                 pg.msg.net_p.classList.remove("balanced"); 
