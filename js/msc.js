@@ -828,6 +828,8 @@ function pL() { // site parameters loop
 
         msg_toggle(pg.msg.net, null, true, false, false); // show message
         op.er.d = true;
+
+        setCookie("displayErrorReload", null, -1); // delete
     }
 
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
