@@ -1978,6 +1978,7 @@ window.addEventListener("resize", function(e) {
 
                 if (!op.sp && op.n && !op.wRo && (((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.innerWidth || (wH !== window.innerHeight && (Math.round(u.height) !== uHeight))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1])))) {
                     pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
+                    setCookie("displayErrorReload", "true", op.c.t);
                     reL();
                 } else if (!op.n && !op.wRo) { // if offline
                     op.wRo = true;
