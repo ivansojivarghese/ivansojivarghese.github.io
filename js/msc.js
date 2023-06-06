@@ -829,9 +829,6 @@ function pL() { // site parameters loop
         msg_toggle(pg.msg.net, null, true, false, false); // show message
         op.er.d = true;
 
-        setTimeout(function() {
-            setCookie("displayErrorReload", null, -1); // delete cookie after message goes hidden
-        }, op.te);
     }
 
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
@@ -1569,6 +1566,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     pg.msg.el.classList.add("d_n"); // hide page
                 }
             }, op.t);
+            setCookie("displayErrorReload", null, -1); // delete
             /*
             } else {
                 setTimeout(function() {
@@ -1592,6 +1590,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     msg_toggle(pg.msg.ckA, null, true, true, null); // try to show cookie-acceptance message
                 }, 10);
             }
+            setCookie("displayErrorReload", null, -1); // delete
         }
     }
 }
