@@ -797,9 +797,6 @@ function load_e() { // end the loading sequence
                         disp.classList.remove("d_n"); // show the page
                         setTimeout(function() {
                             e_Fd(disp, false);  
-                            if (getCookie("displayErrorReload") === "true") {
-                                
-                            }
                             if (op.c.u) { // if cookie-use accepted
                                 load_eN(); // complete any due tasks (page-specific)
                                 scr_t(true, null); // enable scrolling
