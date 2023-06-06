@@ -830,7 +830,7 @@ function pL() { // site parameters loop
         op.er.d = true;
 
         setTimeout(function() {
-            setCookie("displayErrorReload", null, -1); // delete
+            setCookie("displayErrorReload", null, -1); // delete cookie after message goes hidden
         }, op.te);
     }
 
