@@ -731,13 +731,14 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
     msg_toggle(pg.msg.ckA, null, false, true, null);
 
     setTimeout(function() {
-        if (getCookie("cookiesAccepted") !== "false") {
+        // if (getCookie("cookiesAccepted") !== "false") {
             setCookie("cookiesAccepted", "true", op.c.t); // cookie: cookies accepted
             op.c.u = true;
             load_eN(); // continue load process if any (page specific)
+        /*
         } else {
             setCookie("cookiesAccepted", "true", op.c.t); 
-        }
+        }*/
 
     }, op.te);
 }
