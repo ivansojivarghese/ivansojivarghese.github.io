@@ -810,7 +810,7 @@ function pL() { // site parameters loop
         }, 10); 
     }*/
 
-    if (getCookie("displayErrorReload") === "true" && !op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
+    if (op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
         
         // edit message contents
         if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) { // UPDATE ACROSS ALL MESSAGES!
@@ -827,8 +827,7 @@ function pL() { // site parameters loop
         pg.msg.net_t.innerHTML = "display fix"; // content
 
         msg_toggle(pg.msg.net, null, true, false, false); // show message
-        op.er.d = true;
-
+        op.er.d = false;
     }
 
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled

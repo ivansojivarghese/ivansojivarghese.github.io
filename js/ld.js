@@ -106,6 +106,10 @@ function docRead() {
                             setCookie("maxWidth", window.innerWidth, op.c.t);
                         }
 
+                        if (getCookie("displayErrorReload") === "true") {
+                            op.er.d = true;
+                        }
+
                         if (!rL.e) { // ensure once execution
                             if (!rL.e2) { 
                                 setCookie("windowResize", false, op.c.t);
