@@ -736,7 +736,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
             op.c.u = true;
             load_eN(); // continue load process if any (page specific)
         } else {
-            setCookie("cookiesAccepted", null, -1);
+            setCookie("cookiesAccepted", null, -1); // delete
         }
 
     }, op.te);
