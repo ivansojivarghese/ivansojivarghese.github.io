@@ -824,7 +824,7 @@ function pL() { // site parameters loop
             pg.msg.net_i.classList.remove("cookies_w_img"); // remove 
         }
         pg.msg.net_i.classList.add("info_w_img"); // set icon
-        pg.msg.net_t.innerHTML = "display error"; // content
+        pg.msg.net_t.innerHTML = "display fix"; // content
 
         msg_toggle(pg.msg.net, null, true, false, false); // show message
         op.er.d = true;
