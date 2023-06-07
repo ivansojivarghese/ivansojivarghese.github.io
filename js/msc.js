@@ -199,34 +199,40 @@ observer.observe({type: "navigation", buffered: true}); // observe a navigation 
 // foreign-langugage (machine) translation detection
 // REFERENCED FROM Daniel Aleksandersen, https://www.daniel.priv.no/ @2023
 
-var fLang_el = document.getElementById("f_LangD"),
-    hostname = window.location.hostname,
-    translate_Check = false;
-
-// server-side machine translations
- translate_Check = [ "translate.googleusercontent.com", // Google Translate
-                    "translate.google.",
-                    "www.translatoruser-int.com", // Microsoft Bing Translate
-                    "www.translatetheweb.com",
-                    "ssl.microsofttranslator.com",
-                    "www.microsofttranslator.com",
-                    "translate.baiducontent.com", // Baidu Translate
-                    "fanyi.baidu.com",
-                    "z5h64q92x9.net", // Yandex Translate
-                    "translate.yandex.",
-                    "papago.naver.net" // Naver Papago
-                    ].includes(hostname);
-
-// client-side machine translations
-if (!translate_Check) {
-    translate_Check = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]");
-}
-
-if (!translate_Check) { // universal check
-    if (fLang_el.innerHTML !== "Made with love.") {
+function checkTranslation() {
+    var fLang_el = document.getElementById("f_LangD"),
+        hostname = window.location.hostname,
         translate_Check = false;
+
+    // server-side machine translations
+    translate_Check = [ "translate.googleusercontent.com", // Google Translate
+                        "translate.google.",
+                        "www.translatoruser-int.com", // Microsoft Bing Translate
+                        "www.translatetheweb.com",
+                        "ssl.microsofttranslator.com",
+                        "www.microsofttranslator.com",
+                        "translate.baiducontent.com", // Baidu Translate
+                        "fanyi.baidu.com",
+                        "z5h64q92x9.net", // Yandex Translate
+                        "translate.yandex.",
+                        "papago.naver.net" // Naver Papago
+                        ].includes(hostname);
+
+    // client-side machine translations
+    if (!translate_Check) {
+        translate_Check = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]");
     }
+
+    if (!translate_Check) { // universal check
+        if (fLang_el.innerHTML !== "Made with love.") {
+            translate_Check = false;
+        }
+    }
+
+    return translate_Check;
 }
+
+checkTranslation();
 
 ////////////////////////////////////////
 
