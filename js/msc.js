@@ -874,7 +874,9 @@ function pL() { // site parameters loop
 
     }*/ else if (!op.c.e && rL.i && (navigator.cookieEnabled /*&& getCookie("testCookie")*/)) { // if cookies enabled after disabling
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
-            msg_toggle(pg.msg.net, null, false, true, null); // hide message
+            if (getCookie("testCookie")) {
+                msg_toggle(pg.msg.net, null, false, true, null); // hide message
+            }
             setTimeout(function() {
                 if (pg.msg.ce) { // if extended
                     pg.msg.net_p.classList.remove("md");
