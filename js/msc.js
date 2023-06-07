@@ -867,7 +867,7 @@ function pL() { // site parameters loop
 
             msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
 
-        } /*else if ((pg.msg.c && !getCookie("testCookie")) && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
+        } else if ((pg.msg.c && pg.msg.ce && !getCookie("testCookie")) && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
 
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
 
@@ -881,7 +881,7 @@ function pL() { // site parameters loop
                 }
                 msg_toggle(pg.msg.net, null, true, true, true); // hide message
             }, op.t);
-        }*/
+        }
 
     } else if (!op.c.e && rL.i && (navigator.cookieEnabled /*&& getCookie("testCookie")*/)) { // if cookies enabled after disabling
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
