@@ -221,7 +221,7 @@ function checkTranslation() {
 
     // client-side machine translations
     if (!translate_Check) {
-        translate_Check = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]");
+        translate_Check = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]"); // check for elements with given specs
     }
 
     if (!translate_Check) { // universal check
