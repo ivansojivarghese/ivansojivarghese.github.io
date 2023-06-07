@@ -884,7 +884,7 @@ function pL() { // site parameters loop
                     pg.msg.ce = false;
                 }
                 op.c.e = true;
-                if (!getCookie("testCookie")) {
+                if (getCookie("testCookie")) {
                     pg.msg.c = false;
                 }
             }, op.t);
