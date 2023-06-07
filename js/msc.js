@@ -873,6 +873,7 @@ function pL() { // site parameters loop
 
             setTimeout(function() {
                 if (!pg.msg.ce) { // if un-extended
+                    pg.msg.net_t.innerHTML = "missing cookies";
                     pg.msg.net_p.classList.add("md");
                     pg.msg.net_e.innerHTML = "reload"; // add text
                     pg.msg.net_e.classList.remove("d_n");
