@@ -991,7 +991,7 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "offline";
                 
                 msg_toggle(pg.msg.net, null, true, true, true);
-            } else if (!pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
+            } else if (!pg.msg.ce && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
                 op.nc = true; // network changed
 
                 msg_toggle(pg.msg.net, null, false, true, true);
