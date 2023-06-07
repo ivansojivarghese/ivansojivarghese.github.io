@@ -199,7 +199,8 @@ observer.observe({type: "navigation", buffered: true}); // observe a navigation 
 // foreign-langugage (machine) translation detection
 // REFERENCED FROM Daniel Aleksandersen, https://www.daniel.priv.no/ @2023
 
-var hostname = window.location.hostname,
+var fLang_el = document.getElementById("f_LangD"),
+    hostname = window.location.hostname,
     translate_Check = false;
 
 // server-side machine translations
