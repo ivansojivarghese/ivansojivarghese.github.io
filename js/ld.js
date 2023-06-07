@@ -1072,7 +1072,14 @@ function errorCheck() { // check for errors
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
+        var j = true;
         eR.h = "ck";
+        setInterval(function() {
+            if (navigator.cookieEnabled && j) { // check if cookies enabled
+                reL(); 
+                j = false;
+            }
+        }, op.Ls);
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
     } else if (op.fS) { // check if fullscreen
