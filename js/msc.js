@@ -200,13 +200,14 @@ observer.observe({type: "navigation", buffered: true}); // observe a navigation 
 // REFERENCED FROM Daniel Aleksandersen, https://www.daniel.priv.no/ @2023
 
 var fLang_el = document.getElementById("f_LangD"),
-    hostname = window.location.hostname;
+    hostname = window.location.hostname,
+    translate_Check = false;
 
 function checkTranslation() {
-    var translate_Check = false;
+    var t = false;
 
     // server-side machine translations
-    translate_Check = [ "translate.googleusercontent.com", // Google Translate
+    t = [ "translate.googleusercontent.com", // Google Translate
                         "translate.google.",
                         "www.translatoruser-int.com", // Microsoft Bing Translate
                         "www.translatetheweb.com",
@@ -220,20 +221,20 @@ function checkTranslation() {
                         ].includes(hostname); // check if URLS above are contained in host name
 
     // client-side machine translations
-    if (!translate_Check) {
-        translate_Check = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]"); // check for elements with given specs
+    if (!t) {
+        t = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]"); // check for elements with given specs
     }
 
-    if (!translate_Check) { // universal check
+    if (!t) { // universal check
         if (fLang_el.innerHTML && fLang_el.innerHTML !== "Made with love.") {
-            translate_Check = false;
+            t = false;
         }
     }
 
-    return translate_Check;
+    return t;
 }
 
-checkTranslation();
+translate_Check = checkTranslation();
 
 ////////////////////////////////////////
 
