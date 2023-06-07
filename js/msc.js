@@ -224,7 +224,7 @@ function checkTranslation() {
     }
 
     if (!translate_Check) { // universal check
-        if (fLang_el.innerHTML !== "Made with love.") {
+        if (fLang_el.innerHTML && fLang_el.innerHTML !== "Made with love.") {
             translate_Check = false;
         }
     }
