@@ -217,8 +217,15 @@ var fLang_el = document.getElementById("f_LangD"),
                     "papago.naver.net" // Naver Papago
                     ].includes(hostname);
 
+// client-side machine translations
 if (!translate_Check) {
     translate_Check = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]");
+}
+
+if (!translate_Check) { // universal check
+    if (fLang_el.innerHTML !== "Made with love.") {
+        translate_Check = false;
+    }
 }
 
 ////////////////////////////////////////
