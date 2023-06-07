@@ -879,7 +879,7 @@ function pL() { // site parameters loop
                     pg.msg.net_e.addEventListener("click", reL);
                     pg.msg.ce = true;
                 }
-                msg_toggle(pg.msg.net, null, true, true, true); // hide message
+                msg_toggle(pg.msg.net, null, true, true, true); // show message
             }, op.t);
         }
 
