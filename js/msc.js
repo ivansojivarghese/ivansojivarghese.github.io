@@ -196,6 +196,30 @@ observer.observe({type: "navigation", buffered: true}); // observe a navigation 
 
 ////////////////////////////////////////
 
+// foreign-langugage (machine) translation detection
+// REFERENCED FROM Daniel Aleksandersen, https://www.daniel.priv.no/ @2023
+
+var hostname = window.location.hostname,
+    translate_Check = false;
+
+// server-side machine translations
+ translate_Check = [ "translate.googleusercontent.com", // Google Translate
+                    "translate.google.",
+                    "www.translatoruser-int.com", // Microsoft Bing Translate
+                    "www.translatetheweb.com",
+                    "ssl.microsofttranslator.com",
+                    "www.microsofttranslator.com",
+                    "translate.baiducontent.com", // Baidu Translate
+                    "fanyi.baidu.com",
+                    "z5h64q92x9.net", // Yandex Translate
+                    "translate.yandex.",
+                    "papago.naver.net" // Naver Papago
+                    ].includes(hostname);
+
+
+
+////////////////////////////////////////
+
 osCheck();
 console.log(op.sys);
 var aH;
@@ -206,6 +230,7 @@ if (getCookie("maxHeight") && (op.sys === "iOS" || op.sys === "Android")) {
 }
 
 op = { 
+    host : hostname,
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
