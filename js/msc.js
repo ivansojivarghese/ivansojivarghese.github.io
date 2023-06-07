@@ -216,7 +216,9 @@ var hostname = window.location.hostname,
                     "papago.naver.net" // Naver Papago
                     ].includes(hostname);
 
-
+if (!translate_Check) {
+    translate_Check = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]");
+}
 
 ////////////////////////////////////////
 
