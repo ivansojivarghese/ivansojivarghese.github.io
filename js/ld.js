@@ -43,7 +43,8 @@ eR = { // error
     fS : document.getElementById("error_fS"), // fullscreen
     fS_e : {
         x : false // execution
-    }
+    },
+    tr : document.getElementById("error_tr") // translation 
 };
 
 rL = { // page/resource loader
@@ -1087,7 +1088,7 @@ function errorCheck() { // check for errors
         eR.fS_e.x = op.fS; // if on first load
         eR.h = "fS";
     } else if (translate_Check) { // check if translated
-        eR.h = "";
+        eR.h = "tr";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
     }
