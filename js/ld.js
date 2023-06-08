@@ -1053,7 +1053,7 @@ function errorCheck() { // check for errors
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    eR.a = ["fS", "mt", "ck", "or", "ld", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
+    eR.a = ["tr", "fS", "mt", "ck", "or", "ld", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // msc.
     op.fS = checkFullScreen();
