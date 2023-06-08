@@ -206,19 +206,23 @@ var fLang_el = document.getElementById("f_LangD"),
 function checkTranslation() {
     var t = false;
 
+    t = document.documentElement.getAttribute("lang") === "en";
+
     // server-side machine translations
-    t = [ "translate.googleusercontent.com", // Google Translate
-                        "translate.google.",
-                        "www.translatoruser-int.com", // Microsoft Bing Translate
-                        "www.translatetheweb.com",
-                        "ssl.microsofttranslator.com",
-                        "www.microsofttranslator.com",
-                        "translate.baiducontent.com", // Baidu Translate
-                        "fanyi.baidu.com",
-                        "z5h64q92x9.net", // Yandex Translate
-                        "translate.yandex.",
-                        "papago.naver.net" // Naver Papago
-                        ].includes(hostname); // check if any of the URLS above are contained in host name
+    if (!t) {
+        t = [ "translate.googleusercontent.com", // Google Translate
+                            "translate.google.",
+                            "www.translatoruser-int.com", // Microsoft Bing Translate
+                            "www.translatetheweb.com",
+                            "ssl.microsofttranslator.com",
+                            "www.microsofttranslator.com",
+                            "translate.baiducontent.com", // Baidu Translate
+                            "fanyi.baidu.com",
+                            "z5h64q92x9.net", // Yandex Translate
+                            "translate.yandex.",
+                            "papago.naver.net" // Naver Papago
+                            ].includes(hostname); // check if any of the URLS above are contained in host name
+    }
 
     // client-side machine translations
     if (!t) {
