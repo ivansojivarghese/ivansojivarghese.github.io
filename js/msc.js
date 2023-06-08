@@ -342,6 +342,7 @@ op = {
     },
     zoom : Math.round((window.outerWidth / window.innerWidth) * dev.z), // approx. [potential] zoom of page, in percentage
     zoomUndefault : false, // default check
+    tr : false, // check if translated
     fS : false, // check if in full screen view, // fullscreen check (desktop only)
     sp : false, // check if in split view
     spR : false, // split-view, reload
@@ -843,7 +844,7 @@ function pL() { // site parameters loop
             }
         }
 
-        if (op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) {
+        if (op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) { // display fix
         
             // edit message contents
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) { // UPDATE ACROSS ALL MESSAGES!
@@ -948,6 +949,41 @@ function pL() { // site parameters loop
                 }
             }, op.t);
         }
+    }
+
+    translate_Check = checkTranslation();
+    if (!eR.s && translate_Check && !op.tr) {
+        scr_t(false, null); // disable scrolling
+        op.tr = true;
+        op.s = true;
+        eR.m.classList.remove("d_n"); // show error in display
+        eR.tr.classList.remove("d_n");   
+        e_Fd(disp, true); // fade out display
+        setTimeout(function() {
+            e_Fd(eR.tr, false);
+        }, 10);
+        eR.s = true;
+    } else if (!translate_Check && eR.s && op.tr) {
+
+        if (eR.fS_e.x) {
+            reL(); // reload if on first load
+            eR.fS_e.x = false;
+            op.fS = false;
+        } else {
+            e_Fd(eR.fS, true);
+            e_Fd(disp, false);
+            setTimeout(function() {
+                if (op.c.u) { // if cookies accepted by user
+                    scr_t(true, null); // enable scrolling
+                    op.s = false;
+                }
+                op.fS = false;
+                eR.m.classList.add("d_n"); // show error in display
+                eR.fS.classList.add("d_n"); 
+                eR.s = false;
+            }, op.t);
+        }
+        
     }
 
     if (checkFullScreen() && !eR.s && !op.fS) { // check if FullScreen is enabled (desktop only)
