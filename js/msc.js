@@ -964,26 +964,24 @@ function pL() { // site parameters loop
         }, 10);
         eR.s = true;
     } else if (!translate_Check && eR.s && op.tr) {
-
-        if (eR.fS_e.x) {
+        if (eR.tr_e.x) {
             reL(); // reload if on first load
-            eR.fS_e.x = false;
-            op.fS = false;
+            eR.tr_e.x = false;
+            op.tr = false;
         } else {
-            e_Fd(eR.fS, true);
+            e_Fd(eR.tr, true);
             e_Fd(disp, false);
             setTimeout(function() {
                 if (op.c.u) { // if cookies accepted by user
                     scr_t(true, null); // enable scrolling
                     op.s = false;
                 }
-                op.fS = false;
+                op.tr = false;
                 eR.m.classList.add("d_n"); // show error in display
-                eR.fS.classList.add("d_n"); 
+                eR.tr.classList.add("d_n"); 
                 eR.s = false;
             }, op.t);
         }
-        
     }
 
     if (checkFullScreen() && !eR.s && !op.fS) { // check if FullScreen is enabled (desktop only)

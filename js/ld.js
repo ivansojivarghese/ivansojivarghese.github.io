@@ -44,7 +44,10 @@ eR = { // error
     fS_e : {
         x : false // execution
     },
-    tr : document.getElementById("error_tr") // translation 
+    tr : document.getElementById("error_tr"), // translation 
+    tr_e : {
+        x : false 
+    }
 };
 
 rL = { // page/resource loader
