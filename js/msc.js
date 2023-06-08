@@ -218,7 +218,7 @@ function checkTranslation() {
                         "z5h64q92x9.net", // Yandex Translate
                         "translate.yandex.",
                         "papago.naver.net" // Naver Papago
-                        ].includes(hostname); // check if URLS above are contained in host name
+                        ].includes(hostname); // check if any of the URLS above are contained in host name
 
     // client-side machine translations
     if (!t) {

@@ -1058,7 +1058,8 @@ function errorCheck() { // check for errors
     op.fS = checkFullScreen();
     // op.sp = checkSplitScreen();
     op.sp = !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]));
-    
+    translate_Check = checkTranslation();
+
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
         op.spR = true;
         eR.h = "sp";
@@ -1085,6 +1086,8 @@ function errorCheck() { // check for errors
     } else if (op.fS) { // check if fullscreen
         eR.fS_e.x = op.fS; // if on first load
         eR.h = "fS";
+    } else if (translate_Check) { // check if translated
+        eR.h = "";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
     }
