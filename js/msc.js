@@ -204,12 +204,11 @@ var fLang_el = document.getElementById("f_LangD"),
     translate_Check = false;
 
 function checkTranslation() {
-    var t = false;
-
-    t = document.documentElement.getAttribute("lang") !== "en";
+    var t = false,
+        ta = document.documentElement.getAttribute("lang") !== "en";
 
     // server-side machine translations
-    if (!t) {
+    if (!t && ta) {
         t = [ "translate.googleusercontent.com", // Google Translate
                             "translate.google.",
                             "www.translatoruser-int.com", // Microsoft Bing Translate
@@ -225,11 +224,11 @@ function checkTranslation() {
     }
 
     // client-side machine translations
-    if (!t) {
+    if (!t && ta) {
         t = !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, *[_msttexthash], *[x-bergamot-translated]"); // check for elements with given specs
     }
 
-    if (!t) { // universal check
+    if (!t && ta) { // universal check
         if (fLang_el.innerHTML && fLang_el.innerHTML !== "Made with love.") {
             t = false;
         }
