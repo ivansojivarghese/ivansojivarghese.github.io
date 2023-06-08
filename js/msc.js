@@ -2185,7 +2185,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     } else if (wiD < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
 
                         vw.mB_L = false;
-                        eR.s = false;
+                        // eR.s = false;
                         // STATIC ERRORS (UPDATE WHEN NEEDED!)
                         if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
@@ -2206,8 +2206,10 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 eR.or.classList.add("d_n");
                             }
                             eR[eR.p].classList.remove("d_n"); // show error message
+                            eR.s = true;
                         } else {
                             eR.m.classList.add("d_n");
+                            eR.s = false;
                         }
                         if (aborted || !cacheEnabled) { // show load
                             rL.el.classList.remove("d_n");
