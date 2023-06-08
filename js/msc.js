@@ -206,7 +206,7 @@ var fLang_el = document.getElementById("f_LangD"),
 function checkTranslation() {
     var t = false;
 
-    t = document.documentElement.getAttribute("lang") === "en";
+    t = document.documentElement.getAttribute("lang") !== "en";
 
     // server-side machine translations
     if (!t) {
