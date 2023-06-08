@@ -966,6 +966,8 @@ function pL() { // site parameters loop
             e_Fd(eR.tr, false);
         }, 10);
         eR.s = true;
+        eR.h = "tr";
+        eR.p = "tr";
     } else if (!translate_Check && eR.s && op.tr) {
         if (eR.tr_e.x) {
             reL(); // reload if on first load
@@ -983,6 +985,8 @@ function pL() { // site parameters loop
                 eR.m.classList.add("d_n"); // show error in display
                 eR.tr.classList.add("d_n"); 
                 eR.s = false;
+                eR.h = "";
+                eR.p = "";
             }, op.t);
         }
     }
@@ -998,6 +1002,8 @@ function pL() { // site parameters loop
             e_Fd(eR.fS, false);
         }, 10);
         eR.s = true;
+        eR.h = "fS";
+        eR.p = "fS";
     } else if (!checkFullScreen() && eR.s && op.fS) {
         if (eR.fS_e.x) {
             reL(); // reload if on first load
@@ -1015,6 +1021,8 @@ function pL() { // site parameters loop
                 eR.m.classList.add("d_n"); // show error in display
                 eR.fS.classList.add("d_n"); 
                 eR.s = false;
+                eR.h = "";
+                eR.p = "";
             }, op.t);
         }
     }
