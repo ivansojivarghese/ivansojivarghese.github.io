@@ -2222,8 +2222,10 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                         setTimeout(function() {
                             e_Fd(disp, false); // fade in display
-                            scr_t(true, null); // enable scrolling
-                            op.s = false;
+                            if (!eR.s) { 
+                                scr_t(true, null); // enable scrolling
+                                op.s = false;
+                            }
                         }, op.t);
 
                     } else if (wiD >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
