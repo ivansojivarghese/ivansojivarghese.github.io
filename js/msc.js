@@ -2178,10 +2178,15 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                         vw.mB_L = false;
                         eR.s = false;
+                        // STATIC ERRORS (UPDATE WHEN NEEDED!)
                         if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
                         } else if (op.mt) {
                             eR.p = "mt"; // maintenance
+                        } else if (op.fS) {
+                            eR.p = "fS"; // full screen
+                        } else if (translate_Check) {
+                            eR.p = "tr"; // translate
                         } else {
                             eR.p = "";
                         }
