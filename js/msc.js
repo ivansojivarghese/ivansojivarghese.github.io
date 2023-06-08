@@ -1030,11 +1030,17 @@ function pL() { // site parameters loop
                     op.s = false;
                 }
                 op.fS = false;
-                eR.m.classList.add("d_n"); // show error in display
-                eR.fS.classList.add("d_n"); 
-                eR.s = false;
-                eR.h = "";
-                eR.p = "";
+                if ((vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) {
+
+                    
+
+                } else {
+                    eR.m.classList.add("d_n"); // show error in display
+                    eR.fS.classList.add("d_n"); 
+                    eR.s = false;
+                    eR.h = "";
+                    eR.p = "";
+                }
             }, op.t);
         }
     }
