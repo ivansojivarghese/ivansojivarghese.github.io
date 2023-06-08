@@ -982,11 +982,23 @@ function pL() { // site parameters loop
                     op.s = false;
                 }
                 op.tr = false;
-                eR.m.classList.add("d_n"); // show error in display
-                eR.tr.classList.add("d_n"); 
-                eR.s = false;
-                eR.h = "";
-                eR.p = "";
+                if ((vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if landscape error
+                    eR.m.classList.remove("d_n"); 
+                    eR.tr.classList.add("d_n"); 
+                    eR.ld.classList.remove("d_n");
+                    setTimeout(function() {
+                        e_Fd(eR.ld, false);
+                    }, 10);
+                    eR.s = true;
+                    eR.h = "ld";
+                    eR.p = "ld";
+                } else {
+                    eR.m.classList.add("d_n"); // hide error in display
+                    eR.tr.classList.add("d_n"); 
+                    eR.s = false;
+                    eR.h = "";
+                    eR.p = "";
+                }
             }, op.t);
         }
     }
