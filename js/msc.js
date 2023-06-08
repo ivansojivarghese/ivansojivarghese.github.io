@@ -977,7 +977,7 @@ function pL() { // site parameters loop
             e_Fd(eR.tr, true);
             e_Fd(disp, false);
             setTimeout(function() {
-                if (op.c.u) { // if cookies accepted by user
+                if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user + non-landscape mode
                     scr_t(true, null); // enable scrolling
                     op.s = false;
                 }
@@ -1013,7 +1013,7 @@ function pL() { // site parameters loop
             e_Fd(eR.fS, true);
             e_Fd(disp, false);
             setTimeout(function() {
-                if (op.c.u) { // if cookies accepted by user
+                if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user
                     scr_t(true, null); // enable scrolling
                     op.s = false;
                 }
