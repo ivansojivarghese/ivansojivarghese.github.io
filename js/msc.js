@@ -2230,6 +2230,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 eR.or.classList.add("d_n");
                             }
                             eR[eR.p].classList.remove("d_n"); // show error message
+                            setTimeout(function() {
+                                e_Fd(eR[eR.p], false);
+                            }, 10);
                             eR.s = true;
                         } else {
                             eR.m.classList.add("d_n");
