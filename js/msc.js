@@ -1031,9 +1031,15 @@ function pL() { // site parameters loop
                 }
                 op.fS = false;
                 if ((vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) {
-
-                    
-
+                    eR.m.classList.remove("d_n"); 
+                    eR.fS.classList.add("d_n"); 
+                    eR.ld.classList.remove("d_n");
+                    setTimeout(function() {
+                        e_Fd(eR.ld, false);
+                    }, 10);
+                    eR.s = true;
+                    eR.h = "ld";
+                    eR.p = "ld";
                 } else {
                     eR.m.classList.add("d_n"); // show error in display
                     eR.fS.classList.add("d_n"); 
