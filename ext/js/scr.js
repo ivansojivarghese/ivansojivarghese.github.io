@@ -30,8 +30,8 @@ var im = { // #intro_main
         e : document.getElementById("sIn3"),
         _L : undefined,
         s : false
-    },
-    s_L = null; // loop variable
+    };
+    // s_L = null; // loop variable
 
 
 function sc_L() { // functions (live on scroll)
@@ -92,6 +92,9 @@ function sc_L() { // functions (live on scroll)
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)"; // #intro_main transform
     }
+
+    requestAnimationFrame(sc_L);
 }
 
-s_L = setInterval(sc_L, op.Ls); // live loop
+// s_L = setInterval(sc_L, op.Ls); // live loop
+sc_L();
