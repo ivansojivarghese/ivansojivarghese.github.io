@@ -161,7 +161,7 @@ window.addEventListener("load", function() { // 2 - full load
 
 const scroller = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
-    smooth: true
+    smooth: true // 
 });
 
 /////////////////////////////////////////////////////////
