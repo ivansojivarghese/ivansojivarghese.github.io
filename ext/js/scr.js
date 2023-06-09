@@ -6,7 +6,7 @@ var im = { // #intro_main
         // t : document.getElementById("h_tint"), // background tint
         L : document.getElementById("lead_sc"),
         j : 0,
-        // p : 0.5, // parallax scroll constant
+        p : 0.5, // parallax scroll constant
         s : true // code execution status
     },
     
@@ -88,10 +88,10 @@ function sc_L() { // functions (live on scroll)
     }*/
 
     // im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
-    /*
+    
     if (!op.s) {
         im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)"; // #intro_main transform
-    }*/
+    }
 }
 
 s_L = setInterval(sc_L, op.Ls); // live loop
