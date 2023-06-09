@@ -157,6 +157,15 @@ window.addEventListener("load", function() { // 2 - full load
     op.Ld.a = renderTime();
 }); 
 
+/////////////////////////////////////////////////////////
+
+const scroller = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true
+});
+
+/////////////////////////////////////////////////////////
+
 /*
 const obs = new PerformanceObserver((list) => {
     list.getEntries().forEach((entry) => {
