@@ -850,11 +850,11 @@ function pL() { // site parameters loop
             if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
                 op.p.L = true;
                 scr_t(false, arg); // disable scroll
-                op.s = true;
+                // op.s = true;
             } else {
                 op.p.L = false;
                 scr_t(true, arg); // enable scroll
-                op.s = false;
+                // op.s = false;
             }
         }
 
