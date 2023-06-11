@@ -849,10 +849,12 @@ function pL() { // site parameters loop
             var arg = pg.e ? pg[pg.t].el : null;
             if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
                 op.p.L = true;
-                scr_t(false, arg);
+                scr_t(false, arg); // disable scroll
+                op.s = true;
             } else {
                 op.p.L = false;
-                scr_t(true, arg);
+                scr_t(true, arg); // enable scroll
+                op.s = false;
             }
         }
 
@@ -1762,6 +1764,7 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
         // op.s = false;
         if (op.c.u) {
             scr_t(true, null);
+            op.s = false;
         }
 
         hm.e = false;
@@ -1793,6 +1796,7 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
         // op.s = true;
         if (op.c.u) {
             scr_t(false, null);
+            op.s = true;
         }
 
         hm.e = true;
