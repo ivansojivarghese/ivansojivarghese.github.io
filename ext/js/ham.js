@@ -141,13 +141,13 @@ function h_mTg() { // ham. menu toggle
                     // console.log(p);
 
                     if (p >= 0.55 && !pos.c && !hm.z) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
-                        op.s = false; // 'force' disable scroll (secondary)
+                        op.s = true; // 'force' disable scroll (secondary)
                         scr_t(false, null);
                     } else if (!hm.z) {
-                        op.s = false; // 'force' disable scroll (secondary)
+                        op.s = true; // 'force' disable scroll (secondary)
                         scr_t(false, null);
                     } else {
-                        op.s = false;
+                        op.s = true;
                     }
                     /*
                     setTimeout(function() {
