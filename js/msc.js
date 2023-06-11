@@ -1902,6 +1902,7 @@ function scr_t(s, pg) { // scroll toggle
             // c_rep(b, "ovy-s", "ovy-h"); // body
 
             disp.removeEventListener("scroll", locoScroll);
+            pos.aL = false;
         }
     }
 }
