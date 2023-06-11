@@ -1902,7 +1902,7 @@ function scr_t(s, pg) { // scroll toggle
 }
 
 function locoScroll() { // locomotive scrolling
-    disp.style.transform = "translateY(" + pos.y + "px)";
+    disp.style.transform = "translateY(" + (-1 * pos.y) + "px)";
 }
 
 //////////////////////////////////////////
