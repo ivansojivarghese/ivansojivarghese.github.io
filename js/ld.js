@@ -804,7 +804,7 @@ function load_e() { // end the loading sequence
                             if (op.c.u) { // if cookie-use accepted
                                 load_eN(); // complete any due tasks (page-specific)
                                 scr_t(true, null); // enable scrolling
-                                op.s = false;
+                                // op.s = false;
                             } else {
                                 setTimeout(function() {
                                     /*
