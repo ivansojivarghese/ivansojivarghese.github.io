@@ -1878,7 +1878,7 @@ function scr_t(s, pg) { // scroll toggle
             // c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
             // c_rep(b, "ovy-h", "ovy-s"); // body
 
-            disp.addEventListener("scroll", locoScroll);
+            window.addEventListener("scroll", locoScroll);
         }
     } else { // disable
         if (pg) {
@@ -1896,7 +1896,7 @@ function scr_t(s, pg) { // scroll toggle
             // c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
             // c_rep(b, "ovy-s", "ovy-h"); // body
 
-            disp.removeEventListener("scroll", locoScroll);
+            window.removeEventListener("scroll", locoScroll);
         }
     }
 }
