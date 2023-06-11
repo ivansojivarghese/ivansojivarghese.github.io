@@ -462,7 +462,9 @@
             });
 
             $("#display_sc").on("mousewheel", function(event) {
-                
+                if (pos.aL) {
+                    locoScroll();
+                }
             });
 
         </script>

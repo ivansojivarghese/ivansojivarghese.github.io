@@ -1882,7 +1882,7 @@ function scr_t(s, pg) { // scroll toggle
             // c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
             // c_rep(b, "ovy-h", "ovy-s"); // body
 
-            disp.addEventListener("scroll", locoScroll, true);
+            // disp.addEventListener("scroll", locoScroll, true);
             pos.aL = true; // alternated
         }
     } else if (!s && pos.aL) { // disable
@@ -1901,7 +1901,7 @@ function scr_t(s, pg) { // scroll toggle
             // c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
             // c_rep(b, "ovy-s", "ovy-h"); // body
 
-            disp.removeEventListener("scroll", locoScroll, true);
+            // disp.removeEventListener("scroll", locoScroll, true);
             pos.aL = false;
         }
     }
