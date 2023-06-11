@@ -1875,8 +1875,10 @@ function scr_t(s, pg) { // scroll toggle
                 h.classList.remove("p-f");
                 b.classList.remove("p-f");
             }*/
-            c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
-            c_rep(b, "ovy-h", "ovy-s"); // body
+            // c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
+            // c_rep(b, "ovy-h", "ovy-s"); // body
+
+            disp.addEventListener("scroll", locoScroll);
         }
     } else { // disable
         if (pg) {
@@ -1891,10 +1893,16 @@ function scr_t(s, pg) { // scroll toggle
                 h.classList.add("p-f");
                 b.classList.add("p-f");
             }*/
-            c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
-            c_rep(b, "ovy-s", "ovy-h"); // body
+            // c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
+            // c_rep(b, "ovy-s", "ovy-h"); // body
+
+            disp.removeEventListener("scroll", locoScroll);
         }
     }
+}
+
+function locoScroll() { // locomotive scrolling
+
 }
 
 //////////////////////////////////////////
