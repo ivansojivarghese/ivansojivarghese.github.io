@@ -1902,7 +1902,8 @@ function scr_t(s, pg) { // scroll toggle
 }
 
 function locoScroll() { // locomotive scrolling
-
+    var s = window.getComputedStyle(disp);
+    
 }
 
 //////////////////////////////////////////
