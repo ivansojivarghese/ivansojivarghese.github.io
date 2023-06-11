@@ -163,7 +163,7 @@ function h_mTg() { // ham. menu toggle
 
             } else {
                 scr_t(false, null);
-                // op.s = true;
+                op.s = true;
             }
             /*
             if (hm.h) {
@@ -220,7 +220,7 @@ function h_mTg() { // ham. menu toggle
             }
 
             scr_t(true, null);    
-            // op.s = false;
+            op.s = false;
 
             hm.e = false;
 
