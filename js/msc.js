@@ -44,7 +44,8 @@ var wH = window.outerHeight, // height
         c : false, // scrolling change/activity status
         r : true, /// scrolling direction - true if down
         L : null, // loop variables
-        Lc : null
+        Lc : null,
+        aL : false, // check for alternate (prevent multiple function calls)
     },
     pg = { // pages
         e : false,
@@ -829,7 +830,7 @@ function pL() { // site parameters loop
     }*/
 
     if (op.s) { // 'force' enable/disable scroll when required
-        
+
         /*
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
