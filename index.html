@@ -461,9 +461,12 @@
                 return false;
             });
 
+            var dsP = 0;
             $(document).bind("mousewheel", function(event) {
                 if (pos.aL) {
-                    console.log("wowwow");
+                    // console.log("wowwow");
+                    dsP++;
+                    $("#display_sc").style.transform = "translateY(" + (-1 * dsP) + "px)";
                 }
             });
 
