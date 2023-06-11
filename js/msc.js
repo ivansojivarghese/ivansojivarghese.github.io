@@ -1866,7 +1866,7 @@ function c_rep(el, d, n) { // replace CSS class (any given in array) in element 
 function scr_t(s, pg) { // scroll toggle
     var h = document.documentElement,
         b = document.body;
-    if (s) { // enable
+    if (s && !pos.aL) { // enable
         if (pg) { // if page
             /*
             if (op.b.s) { // safari compatibility
@@ -1883,8 +1883,9 @@ function scr_t(s, pg) { // scroll toggle
             // c_rep(b, "ovy-h", "ovy-s"); // body
 
             window.addEventListener("scroll", locoScroll);
+            pos.aL = true; // alternated
         }
-    } else { // disable
+    } else if (!s && pos.aL) { // disable
         if (pg) {
             /*
             if (op.b.s) { // safari compatibility
