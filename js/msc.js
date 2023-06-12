@@ -2526,8 +2526,10 @@ pg.sc.c.addEventListener("touchend", function(event) {
             tch.drV = Math.abs(drg); // get abs of drg
             if (drg < 0) { // scroll down
                 tch.dr = true;
+                L_scroll(tch.drV, tch.dr);
             } else if (drg > 0) { // scroll up
                 tch.dr = false;
+                L_scroll(tch.drV, tch.dr);
             }
         } else {
             tch.d = false;
