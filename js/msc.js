@@ -1916,7 +1916,7 @@ function locoScroll() { // locomotive scrolling
 }*/
 
 function L_scroll(v, d) { // locomotive scrolling
-    
+
 }
 
 //////////////////////////////////////////
@@ -2502,7 +2502,7 @@ window.addEventListener("load", function() {
 
 pg.sc.c.addEventListener("touchstart", function(event) {
     if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
-        tch.yA = event.clientY;
+        tch.yA = event.touches[0].clientY;
     }
 });
 
@@ -2516,7 +2516,7 @@ pg.sc.c.addEventListener("touchend", function(event) {
     if (event.touches.length === 1) {
         var drg = 0;
         if (tch.d) { // if dragging
-            tch.yB = event.clientY;
+            tch.yB = event.touches[0].clientY;
             drg = tch.yB - tch.yA;
             tch.drV = Math.abs(drg); // get abs of drg
             if (drg < 0) { // scroll down
