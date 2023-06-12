@@ -1913,7 +1913,7 @@ function scr_t(s, pg) { // scroll toggle
 // Partial form of locomotive scrolling
 
 function SmoothScroll_init() {
-	new SmoothScroll(document, 120, 30);
+	new SmoothScroll(document, 120, 20);
 }
 
 function SmoothScroll(target, speed, smooth) {
