@@ -2502,6 +2502,7 @@ window.addEventListener("load", function() {
 
 pg.sc.c.addEventListener("touchstart", function(event) {
     if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
+        tch.d = false;
         tch.yA = event.touches[0].clientY;
     }
 });
