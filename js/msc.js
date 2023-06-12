@@ -2514,7 +2514,12 @@ pg.sc.c.addEventListener("touchstart", function(event) {
 pg.sc.c.addEventListener("touchmove", function(event) {
     if (event.touches.length === 1) {
         tch.yB = event.touches[0].clientY;
-        tch.d = true;
+        if (!tch.d) {
+            tch.d = true;
+        } else {
+            
+            // start scroll?
+        }
     }
 });
 
