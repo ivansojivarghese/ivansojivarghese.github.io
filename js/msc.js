@@ -50,7 +50,8 @@ var wH = window.outerHeight, // height
     tch = { // touch
         yA : 0,
         yB : 0,
-        d : false // drag check?
+        d : false, // drag check?
+        dr : null, // drag direction up?
     }
     pg = { // pages
         e : false,
