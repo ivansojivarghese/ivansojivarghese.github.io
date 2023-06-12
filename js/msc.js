@@ -2513,7 +2513,7 @@ pg.sc.c.addEventListener("touchmove", function(event) {
 });
 
 pg.sc.c.addEventListener("touchend", function(event) {
-    if (event.touches.length === 1) {
+    if (event.touches.length === 0) {
         var drg = 0;
         if (tch.d) { // if dragging
             tch.yB = event.touches[0].clientY;
