@@ -1908,6 +1908,8 @@ function scr_t(s, pg) { // scroll toggle
 
 //////////////////////////////////////
 
+// CODE REFERENCED FROM Manuel Otto @StackOverflow 2017: https://stackoverflow.com/questions/47011055/smooth-vertical-scrolling-on-mouse-wheel-in-vanilla-javascript
+
 function SmoothScroll_init() {
 	new SmoothScroll(document, 120, 20);
 }
