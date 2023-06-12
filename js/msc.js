@@ -48,8 +48,8 @@ var wH = window.outerHeight, // height
         aL : false, // check for alternate (prevent multiple function calls)
     },
     tch = { // touch
-        yA : 0,
-        yB : 0,
+        yA : 0, // touch initial
+        yB : 0, // touch end
         d : false, // drag check?
         dr : null, // drag direction up?
     }
