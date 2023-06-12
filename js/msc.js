@@ -47,6 +47,11 @@ var wH = window.outerHeight, // height
         Lc : null,
         aL : false, // check for alternate (prevent multiple function calls)
     },
+    tch = { // touch
+        yA : 0,
+        yB : 0,
+        d : false // drag check?
+    }
     pg = { // pages
         e : false,
         t : "", // reference window category
@@ -2490,17 +2495,16 @@ window.addEventListener("load", function() {
 //////////////////////////////////////////
 
 pg.sc.c.addEventListener("touchstart", function(event) {
-
+    tch.yA = event.clientY;
 });
 
 pg.sc.c.addEventListener("touchmove", function(event) {
-    
-    console.log("dragged");
+    tch.d = true;
 });
 
 pg.sc.c.addEventListener("touchend", function(event) {
-    if (dragging) {
-        
+    if (tch.d) {
+        tch.yB = event.clientY;
     }
 });
 
