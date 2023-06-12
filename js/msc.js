@@ -2489,13 +2489,12 @@ window.addEventListener("load", function() {
 
 //////////////////////////////////////////
 
-pg.sc.c.addEventListener("touchstart", function() {
+pg.sc.c.addEventListener("touchstart", function(event) {
     
-    console.log("dragged");
 });
 
 
-pg.sc.c.addEventListener("touchmove", function() {
+pg.sc.c.addEventListener("touchmove", function(event) {
     
     console.log("dragged");
 });
