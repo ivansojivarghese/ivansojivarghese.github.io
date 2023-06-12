@@ -2508,6 +2508,7 @@ pg.sc.c.addEventListener("touchstart", function(event) {
 
 pg.sc.c.addEventListener("touchmove", function(event) {
     if (event.touches.length === 1) {
+        tch.yB = event.touches[0].clientY;
         tch.d = true;
     }
 });
@@ -2516,7 +2517,6 @@ pg.sc.c.addEventListener("touchend", function(event) {
     if (event.touches.length === 0) {
         var drg = 0;
         if (tch.d) { // if dragging
-            tch.yB = event.touches[0].clientY;
             drg = tch.yB - tch.yA;
             tch.drV = Math.abs(drg); // get abs of drg
             if (drg < 0) { // scroll down
