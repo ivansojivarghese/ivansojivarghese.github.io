@@ -1905,21 +1905,9 @@ function scr_t(s, pg) { // scroll toggle
         }
     }
 }
-/*
-function locoScroll() { // locomotive scrolling
-    disp.style.transform = "translateY(" + (-1 * pos.y) + "px)";
-}
 
-function L_scroll(v, d) { // locomotive scrolling
-    if (d) {
-        pg.sc.c.style.transform = "translateY(" + (-1 * v) + "px)";
-    } else {
-        pg.sc.c.style.transform = "translateY(" + (v) + "px)";
-    }
-}*/
-
-function init(){
-	new SmoothScroll(document,120,20)
+function SmoothScroll_init() {
+	new SmoothScroll(document, 120, 20);
 }
 
 function SmoothScroll(target, speed, smooth) {
