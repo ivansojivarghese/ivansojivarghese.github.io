@@ -1919,7 +1919,7 @@ function L_scroll(v, d) { // locomotive scrolling
 }*/
 
 function init(){
-	new SmoothScroll(document,120,12)
+	new SmoothScroll(document,120,20)
 }
 
 function SmoothScroll(target, speed, smooth) {
