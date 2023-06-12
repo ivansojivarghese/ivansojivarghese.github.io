@@ -1914,6 +1914,12 @@ function scr_t(s, pg) { // scroll toggle
 
 function SmoothScroll_init() {
 	new SmoothScroll(document, 120, 20);
+    /*
+    Arguments:
+        target: the element to be scrolled smoothly - can be a div or document
+        speed: the amout of pixels to be scrolled per mousewheel step
+        smooth: the smoothness factor, the higher the value, the more smooth.
+    */
 }
 
 function SmoothScroll(target, speed, smooth) {
