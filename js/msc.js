@@ -2489,8 +2489,14 @@ window.addEventListener("load", function() {
 
 //////////////////////////////////////////
 
+pg.sc.c.addEventListener("touchstart", function() {
+    
+    console.log("dragged");
+});
+
+
 pg.sc.c.addEventListener("touchmove", function() {
-    document.body.style.backgroundColor = "red";
+    
     console.log("dragged");
 });
 
