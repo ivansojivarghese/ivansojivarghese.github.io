@@ -2525,6 +2525,7 @@ pg.sc.c.addEventListener("touchend", function(event) {
                 tch.dr = false;
             }
         } else {
+            tch.d = false;
             tch.dr = null; // reset
             tch.yA = 0;
             tch.yB = 0;
