@@ -52,6 +52,7 @@ var wH = window.outerHeight, // height
         yB : 0, // touch end
         d : false, // drag check?
         dr : null, // drag direction up?
+        drV : 0, // drag value
     }
     pg = { // pages
         e : false,
@@ -2513,20 +2514,17 @@ pg.sc.c.addEventListener("touchend", function(event) {
         if (tch.d) { // if dragging
             tch.yB = event.clientY;
             drg = tch.yB - tch.yA;
+            tch.drV = Math.abs(drg); // get abs of drg
             if (drg < 0) { // scroll down
                 tch.dr = true;
-
-                // get abs of drg
-                // use a formula to determine approx. transform based on abs value.
-
             } else if (drg > 0) { // scroll up
                 tch.dr = false;
-
             }
         } else {
             tch.dr = null; // reset
             tch.yA = 0;
             tch.yB = 0;
+            tch.drV = 0;
         }
     }
 });
