@@ -3,8 +3,7 @@
 
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
-        // t : document.getElementById("h_tint"), // background tint
-        L : document.getElementById("lead_sc"),
+        // L : document.getElementById("lead_sc"),
         j : 0,
         p : 0.5, // parallax scroll constant
         s : true // code execution status
