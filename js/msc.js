@@ -2509,8 +2509,14 @@ pg.sc.c.addEventListener("touchend", function(event) {
         drg = tch.yB - tch.yA;
         if (drg < 0) {
             // scroll down
+
+            // get abs of drg
+            // use a formula to determine approx. transform based on abs value.
+
         } else if (drg > 0) {
             // scroll up
+
+
         }
     }
 });
