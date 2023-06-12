@@ -5,10 +5,9 @@ var im = { // #intro_main
         el : document.getElementById("intro_main"),
         // L : document.getElementById("lead_sc"),
         j : 0,
-        p : 0.5, // parallax scroll constant
+        // p : 0.5, // parallax scroll constant
         s : true // code execution status
     },
-    
     sI_1 = { // stats numerals
         a : 0, // initial   
         n : 97, // km 
