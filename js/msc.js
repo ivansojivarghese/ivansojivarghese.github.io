@@ -2503,10 +2503,17 @@ pg.sc.c.addEventListener("touchmove", function(event) {
 });
 
 pg.sc.c.addEventListener("touchend", function(event) {
-    if (tch.d) {
+    if (tch.d) { // if dragging
         tch.yB = event.clientY;
+        if ((tch.yB - tch.yA) < 0) {
+            // scroll down
+        } else if ((tch.yB - tch.yA) > 0) {
+            // scroll up
+        }
     }
 });
+
+////////////////////////////////////////////
 
 window.addEventListener("scroll", function() {
     if (!pos.yA) {
