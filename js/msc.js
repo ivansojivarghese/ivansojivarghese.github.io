@@ -2513,12 +2513,19 @@ pg.sc.c.addEventListener("touchstart", function(event) {
 
 pg.sc.c.addEventListener("touchmove", function(event) {
     if (event.touches.length === 1) {
+        var drg = 0;
         tch.yB = event.touches[0].clientY;
         if (!tch.d) {
             tch.d = true;
         } else {
-            
-            // start scroll?
+            drg = tch.yB - tch.yA;
+            tch.drV = Math.abs(drg); // get abs of drg
+            if (drg < 0) { // scroll down
+                tch.dr = true;
+            } else if (drg > 0) { // scroll up
+                tch.dr = false;
+            }
+            L_scroll(tch.drV, tch.dr); // perform the scroll
         }
     }
 });
