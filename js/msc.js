@@ -1916,7 +1916,11 @@ function locoScroll() { // locomotive scrolling
 }*/
 
 function L_scroll(v, d) { // locomotive scrolling
-    pg.sc.c.style.transform = "";
+    if (d) {
+        pg.sc.c.style.transform = "translateY(" + (-1 * v) + "px)";
+    } else {
+        pg.sc.c.style.transform = "translateY(" + (v) + "px)";
+    }
 }
 
 //////////////////////////////////////////
