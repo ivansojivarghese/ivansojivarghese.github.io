@@ -971,7 +971,7 @@ function pL() { // site parameters loop
     }
 
     translate_Check = checkTranslation();
-    if (!eR.s && translate_Check && !op.tr) {
+    if (!eR.s && translate_Check && !op.tr && rL && rL.i) {
         scr_t(false, null); // disable scrolling
         op.tr = true;
         op.s = true;
@@ -984,7 +984,7 @@ function pL() { // site parameters loop
         eR.s = true;
         eR.h = "tr";
         eR.p = "tr";
-    } else if (!translate_Check && eR.s && op.tr) {
+    } else if (!translate_Check && eR.s && op.tr && rL && rL.i) {
         if (eR.tr_e.x) {
             reL(); // reload if on first load
             eR.tr_e.x = false;
@@ -1019,7 +1019,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (checkFullScreen() && !eR.s && !op.fS) { // check if FullScreen is enabled (desktop only)
+    if (checkFullScreen() && !eR.s && !op.fS && rL && rL.i) { // check if FullScreen is enabled (desktop only)
         scr_t(false, null); // disable scrolling
         op.fS = true;
         op.s = true;
@@ -1032,7 +1032,7 @@ function pL() { // site parameters loop
         eR.s = true;
         eR.h = "fS";
         eR.p = "fS";
-    } else if (!checkFullScreen() && eR.s && op.fS) {
+    } else if (!checkFullScreen() && eR.s && op.fS && rL && rL.i) {
         if (eR.fS_e.x) {
             reL(); // reload if on first load
             eR.fS_e.x = false;
