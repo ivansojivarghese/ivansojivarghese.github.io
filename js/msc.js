@@ -2508,18 +2508,15 @@ pg.sc.c.addEventListener("touchend", function(event) {
     if (tch.d) { // if dragging
         tch.yB = event.clientY;
         drg = tch.yB - tch.yA;
-        if (drg < 0) {
+        if (drg < 0) { // scroll down
             tch.dr = true;
-
-            // scroll down
 
             // get abs of drg
             // use a formula to determine approx. transform based on abs value.
 
-        } else if (drg > 0) {
+        } else if (drg > 0) { // scroll up
             tch.dr = false;
 
-            // scroll up
             
         }
     }
