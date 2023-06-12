@@ -2517,8 +2517,11 @@ pg.sc.c.addEventListener("touchend", function(event) {
         } else if (drg > 0) { // scroll up
             tch.dr = false;
 
-            
         }
+    } else {
+        tch.dr = null; // reset
+        tch.yA = 0;
+        tch.yB = 0;
     }
 });
 
