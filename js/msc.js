@@ -1913,7 +1913,7 @@ function scr_t(s, pg) { // scroll toggle
 /*
 function locoScroll() { // locomotive scrolling
     disp.style.transform = "translateY(" + (-1 * pos.y) + "px)";
-}*/
+}
 
 function L_scroll(v, d) { // locomotive scrolling
     if (d) {
@@ -1921,7 +1921,7 @@ function L_scroll(v, d) { // locomotive scrolling
     } else {
         pg.sc.c.style.transform = "translateY(" + (v) + "px)";
     }
-}
+}*/
 
 //////////////////////////////////////////
 
@@ -2503,7 +2503,7 @@ window.addEventListener("load", function() {
 });
 
 //////////////////////////////////////////
-
+/*
 pg.sc.c.addEventListener("touchstart", function(event) {
     if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
         tch.d = false;
@@ -2551,7 +2551,7 @@ pg.sc.c.addEventListener("touchend", function(event) {
         }
     }
 });
-
+*/
 ////////////////////////////////////////////
 
 window.addEventListener("scroll", function() {
