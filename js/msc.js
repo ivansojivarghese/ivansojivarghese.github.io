@@ -2496,32 +2496,38 @@ window.addEventListener("load", function() {
 //////////////////////////////////////////
 
 pg.sc.c.addEventListener("touchstart", function(event) {
-    tch.yA = event.clientY;
+    if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
+        tch.yA = event.clientY;
+    }
 });
 
 pg.sc.c.addEventListener("touchmove", function(event) {
-    tch.d = true;
+    if (event.touches.length === 1) {
+        tch.d = true;
+    }
 });
 
 pg.sc.c.addEventListener("touchend", function(event) {
-    var drg = 0;
-    if (tch.d) { // if dragging
-        tch.yB = event.clientY;
-        drg = tch.yB - tch.yA;
-        if (drg < 0) { // scroll down
-            tch.dr = true;
+    if (event.touches.length === 1) {
+        var drg = 0;
+        if (tch.d) { // if dragging
+            tch.yB = event.clientY;
+            drg = tch.yB - tch.yA;
+            if (drg < 0) { // scroll down
+                tch.dr = true;
 
-            // get abs of drg
-            // use a formula to determine approx. transform based on abs value.
+                // get abs of drg
+                // use a formula to determine approx. transform based on abs value.
 
-        } else if (drg > 0) { // scroll up
-            tch.dr = false;
+            } else if (drg > 0) { // scroll up
+                tch.dr = false;
 
+            }
+        } else {
+            tch.dr = null; // reset
+            tch.yA = 0;
+            tch.yB = 0;
         }
-    } else {
-        tch.dr = null; // reset
-        tch.yA = 0;
-        tch.yB = 0;
     }
 });
 
