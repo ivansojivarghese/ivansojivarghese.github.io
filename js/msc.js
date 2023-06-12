@@ -1915,6 +1915,10 @@ function locoScroll() { // locomotive scrolling
     disp.style.transform = "translateY(" + (-1 * pos.y) + "px)";
 }*/
 
+function L_scroll(v, d) { // locomotive scrolling
+    
+}
+
 //////////////////////////////////////////
 
 function disabledEventGlobal(e) { // disable event propagation (global)
