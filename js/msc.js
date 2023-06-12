@@ -834,22 +834,19 @@ function pL() { // site parameters loop
     }*/
 
     if (op.s) { // 'force' enable/disable scroll when required
-
-        /*
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
         if (op.b.s) { // Safari compatibility
             document.documentElement.style.position = "fixed"; 
             document.body.style.position = "fixed";
-        }*/
+        }
     } else {
-        /*
         document.documentElement.style.overflowY = "";
         document.body.style.overflowY = "";
         if (op.b.s) {
             document.documentElement.style.position = "";
             document.body.style.position = "";
-        }*/
+        }
     }
 
     if (rL && rL.i) {
@@ -1886,7 +1883,6 @@ function scr_t(s, pg) { // scroll toggle
             c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
             c_rep(b, "ovy-h", "ovy-s"); // body
 
-            // disp.addEventListener("scroll", locoScroll, true);
             pos.aL = true; // alternated
         }
     } else if (!s && pos.aL) { // disable
@@ -1905,7 +1901,6 @@ function scr_t(s, pg) { // scroll toggle
             c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
             c_rep(b, "ovy-s", "ovy-h"); // body
 
-            // disp.removeEventListener("scroll", locoScroll, true);
             pos.aL = false;
         }
     }
