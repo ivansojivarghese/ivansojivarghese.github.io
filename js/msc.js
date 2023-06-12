@@ -2491,6 +2491,7 @@ window.addEventListener("load", function() {
 
 pg.sc.c.addEventListener("touchmove", function() {
     document.body.style.backgroundColor = "red";
+    console.log("dragged");
 });
 
 window.addEventListener("scroll", function() {
