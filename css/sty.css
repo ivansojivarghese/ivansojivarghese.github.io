@@ -56,6 +56,10 @@ body {
     scroll-behavior: smooth;
 }
 
+.ov-h {
+    overflow: hidden;
+}
+
 .ovx-h {
     overflow-x: hidden;
 }
