@@ -123,6 +123,5 @@
     background-color: #303030;
     left: 30%;
     top: 50%;
-    opacity: 0.4;
     animation: bounceTop 5s ease-in-out infinite;
 }
