@@ -117,10 +117,12 @@
     margin-right: 0.1em;
 }
 
-.bg-circles .circle-1 {
+.bg-circles div {
     height: 80px;
     width: 80px;
-    background-color: #303030;
+}
+
+.bg-circles .circle-1 {
     left: 30%;
     top: 50%;
     animation: bounceTop 5s ease-in-out infinite;
