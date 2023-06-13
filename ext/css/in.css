@@ -122,6 +122,10 @@
     backdrop-filter: var(--backdrop-filter-blur);
 }
 
+.bg-circles div {
+    opacity: 0.5;
+}
+
 .bg-circles .circle-1 {
     height: 1rem;
     width: 1rem;
