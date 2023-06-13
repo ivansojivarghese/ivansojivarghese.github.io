@@ -80,7 +80,7 @@ function sc_L() { // functions (live on scroll)
         //////////////////////////////////
 
         if (b.L.top < aH) {
-            
+            console.log("started");
         }
     }
 }
