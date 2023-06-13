@@ -136,15 +136,17 @@
 .bg-circles .circle-3 {
     height: 8rem;
     width: 8rem;
+    /*
     left: 50%;
-    top: 23rem;
+    top: 23rem;*/
     animation: bounceTop 5s ease-in-out infinite;
 }
 
 .bg-circles .circle-4 {
-    height: 3rem;
-    width: 3rem;
+    height: 25rem;
+    width: 25rem;
+    /*
     left: 15%;
-    top: 5rem;
+    top: 5rem;*/
     animation: bounceTop 5s ease-in-out infinite;
 }
