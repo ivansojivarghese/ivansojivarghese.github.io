@@ -120,7 +120,7 @@
 .bg-circles .circle-1 {
     height: 80px;
     width: 80px;
-    background-color: var(--main-color);
+    background-color: #303030;
     left: 30%;
     top: 50%;
     opacity: 0.4;
