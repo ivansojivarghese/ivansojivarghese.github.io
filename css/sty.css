@@ -621,6 +621,10 @@ div.locator_img {
     transform: translateX(-50%);
 }
 
+.z-R {
+    z-index: 0;
+}
+
 .z-G {
     z-index: -10;
 }
