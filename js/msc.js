@@ -856,7 +856,8 @@ function pL() { // site parameters loop
     }
 
     if (rL && rL.i) {
-        if ((!hm.e && op.c.u && !eR.s) || pg.e) {
+        // if ((!hm.e && op.c.u && !eR.s) || pg.e) {
+        if (op.c.u && !eR.s) {
             var arg = pg.e ? pg[pg.t].el : null;
             if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
                 op.p.L = true;
