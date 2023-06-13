@@ -117,7 +117,7 @@
     margin-right: 0.1em;
 }
 
-.overlay {
+.overlay { /* REFERENCE TO: christy-varghese @https://christy-varghese.github.io/ */
     background-color: var(--white-alpha-25);
     backdrop-filter: var(--backdrop-filter-blur);
 }
