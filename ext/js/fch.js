@@ -30,6 +30,7 @@ var fchL = {
     ],
     el = {
         x : false, // code execution
+        x2 : false, 
         a : true, // scroll arrow anchor status
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
@@ -127,6 +128,12 @@ function load_eN() { // load, after cookie acceptance (page specific)
         }
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
         e_Fd(el.chev, false); // show chevron
+    }
+    if (!el.x2) {
+
+        // show circles in view
+
+        el.x2 = true;
     }
 }
 
