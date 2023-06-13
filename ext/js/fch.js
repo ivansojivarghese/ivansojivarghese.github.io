@@ -131,8 +131,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
         e_Fd(el.chev, false); // show chevron
     }
     if (!el.x2) {
-        for (i = 0; i <= d; i++) { // show background circles in view
-
+        var _L = el.bgC.length - 1;
+        for (i = 0; i <= _L; i++) { // show background circles in view
+            e_Fd(el.bgC[i], false);
         }
         el.x2 = true;
     }
