@@ -36,6 +36,7 @@ var fchL = {
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
         chev : document.getElementById("chev_d"),
+        bgC : document.getElementsByClassName("bg-circle"),
         bgC4 : document.getElementById("bg-cir4")
     };
 
@@ -130,9 +131,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
         e_Fd(el.chev, false); // show chevron
     }
     if (!el.x2) {
+        for (i = 0; i <= d; i++) { // show background circles in view
 
-        // show circles in view
-
+        }
         el.x2 = true;
     }
 }
