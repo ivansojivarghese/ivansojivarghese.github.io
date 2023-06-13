@@ -717,7 +717,7 @@ function load_e() { // end the loading sequence
 
                 setTimeout(function() {
                     if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t)) || eR.s) {
-                        rL.el.classList.add("d_n"); // remove loader from display
+                        // rL.el.classList.add("d_n"); // remove loader from display
                     }
                     if (!cacheEnabled || aborted) {
                         rL.r.classList.add("d_n"); // hide rings
