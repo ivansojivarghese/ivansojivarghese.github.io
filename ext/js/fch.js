@@ -135,7 +135,7 @@ function scrollArrowIterate(m) {
             setTimeout(function() {
                 if (!pg.msg.fo && pos.aT) { // if NOT offline AND NOT scrolled
                     scrollArrowIterate(m); // repeat
-                } else { // if offline OR scrolled
+                } else if (pg.msg.fo || !pos.aT) { // if offline OR scrolled
                     el.x = true;
                     el.lk3b.classList.add("d_n");
                     e_Fd(el.chev, true); // hide chevron
