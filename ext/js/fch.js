@@ -53,7 +53,7 @@ function load_css_e() { // load CSS styles (page specific)
     // c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
     c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
     c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
-    c_css("#card_overlay", "top: " + mg + "px;", false, null); 
+    c_css("#card_overlay", "top: " + aH + "px;", false, null); 
 
     // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 
