@@ -51,6 +51,8 @@ function load_css_e() { // load CSS styles (page specific)
     var mg = "(" + aH + "px - 27.5rem) / 5"; // margin
 
     // c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
+
+    c_css(".bg-circles", "height: " + aH + "px;", false, null);
     c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
     c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
 
