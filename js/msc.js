@@ -220,7 +220,7 @@ var fLang_el = document.getElementById("f_LangD"),
 
 function checkTranslation() {
     var t = false,
-        ta = document.documentElement.getAttribute("lang") !== "en";
+        ta = document.documentElement.getAttribute("lang") !== "en" || navigator.language.indexOf("en") === -1;
 
     // server-side machine translations
     if (!t && ta) {
