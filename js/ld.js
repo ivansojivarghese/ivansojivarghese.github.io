@@ -947,7 +947,7 @@ function browserCheck() { // detect browser (platform)
         op.b.c = true; 
     } else if (userAgent.match(/firefox|fxios/i)) { // Firefox
         op.b.f = true;
-    } else if (userAgent.match(/safari/i)) { // Safari
+    } else if (userAgent.match(/safari/i) && (op.sys === "iOS" || op.sys === "MacOS")) { // Safari (only in iOS/MacOS systems)
         op.b.s = true;
     } 
     if (userAgent.match(/opr\//i)) { // Opera
