@@ -34,7 +34,8 @@ var fchL = {
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
-        chev : document.getElementById("chev_d")
+        chev : document.getElementById("chev_d"),
+        bgC4 : document.getElementById("bg-cir4")
     };
 
 
@@ -113,6 +114,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
     // scroll arrow
     var h = getBd(el.lk3, "height");
     if (h >= 65) { // min. 65px height required
+        el.bgC4.classList.remove("d_n");
         if (h >= 85) {
             scrollArrowIterate(true); // start iteration
         } else {
