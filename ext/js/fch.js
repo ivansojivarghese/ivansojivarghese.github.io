@@ -149,6 +149,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     }, op.t);
                 }
             };
+            showCircle();
         }, op.t);
     }
 }
