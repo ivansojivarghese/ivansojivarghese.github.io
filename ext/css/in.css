@@ -153,8 +153,8 @@
 .bg-circles .circle-4 {
     height: 25rem;
     width: 25rem;
-    /*
     left: 15%;
+    /*
     top: 5rem;*/
     animation: bounceTop 5s ease-in-out infinite;
 }
