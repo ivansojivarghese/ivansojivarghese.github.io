@@ -55,7 +55,6 @@ function load_css_e() { // load CSS styles (page specific)
 
     c_css(".bg-circles", "height: " + aH + "px;", false, null);
     c_css(".bg-circles .circle-3", "top: calc(7rem + (" + mg + ") + 12rem);", false, null); // 7rem + profile_image top margin + inward offset (rel. to p. image height)
-    c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 4rem);", false, null); 
 
     c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
     c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
@@ -114,10 +113,13 @@ function load_eN() { // load, after cookie acceptance (page specific)
     // scroll arrow
     var h = getBd(el.lk3, "height");
     if (h >= 65) { // min. 65px height required
-        el.bgC4.classList.remove("d_n");
+        el.bgC4.classList.remove("d_n"); // show circle 4
         if (h >= 85) {
+            c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 4rem);", false, null); 
+            el.bgC4.style.left = "60%";
             scrollArrowIterate(true); // start iteration
         } else {
+            c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
             scrollArrowIterate(false); // start iteration (single)
             hm.k3 = true;
             el.lk3.classList.remove("z-G");
