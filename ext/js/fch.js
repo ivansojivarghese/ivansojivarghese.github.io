@@ -98,7 +98,7 @@ function load_js_e() { // load JS (page specific)
 
 function js_live() { // update js - in live
 
-    if (!pg.msg.fo && pos.aT && el.x) { // if page offline
+    if ((!pg.msg.fo && pos.aT) && el.x) { // if page online AND not scrolled
         el.lk3b.classList.remove("d_n");
         load_eN(); // reload scroll arrow feature
         el.x = false;
