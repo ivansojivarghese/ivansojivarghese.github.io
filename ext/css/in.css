@@ -117,12 +117,17 @@
     margin-right: 0.1em;
 }
 
-.bg-circles div {
-    height: 80px;
-    width: 80px;
+.bg-circles .circle-1 {
+    height: 2rem;
+    width: 2rem;
+    left: 30%;
+    top: 50%;
+    animation: bounceTop 5s ease-in-out infinite;
 }
 
-.bg-circles .circle-1 {
+.bg-circles .circle-2 {
+    height: 5rem;
+    width: 5rem;
     left: 30%;
     top: 50%;
     animation: bounceTop 5s ease-in-out infinite;
