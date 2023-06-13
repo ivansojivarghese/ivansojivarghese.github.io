@@ -133,7 +133,7 @@ function scrollArrowIterate(m) {
             el.lk3b.style.bottom = "1.5rem"; // reverse anchor
             el.lk3b.style.height = 0; // zero height
             setTimeout(function() {
-                if (!pg.msg.fo && ) { // if NOT offline AND NOT scrolled
+                if (!pg.msg.fo && pos.aT) { // if NOT offline AND NOT scrolled
                     scrollArrowIterate(m); // repeat
                 } else { // if offline OR scrolled
                     el.x = true;
