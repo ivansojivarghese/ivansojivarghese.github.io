@@ -46,6 +46,7 @@ var wH = window.outerHeight, // height
         L : null, // loop variables
         Lc : null,
         aL : false, // check for alternate (prevent multiple function calls)
+        aT : true // scrolled at top check
     },
     tch = { // touch
         yA : 0, // touch initial
@@ -818,6 +819,11 @@ function checkFullScreen() {
 
 function sL() { // scroll pos. loop
     pos.y = window.scrollY; // update
+    if (pos.y === 0) {
+        pos.aT = true;
+    } else {
+        pos.aT = false;
+    }
 }
 
 function pL() { // site parameters loop

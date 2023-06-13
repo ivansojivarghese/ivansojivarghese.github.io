@@ -3,8 +3,8 @@
 
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
-        // L : document.getElementById("lead_sc"),
-        j : 0,
+        L : document.getElementById("lead_sc"),
+        // j : 0,
         // p : 0.5, // parallax scroll constant
         s : true // code execution status
     },
@@ -33,7 +33,11 @@ var im = { // #intro_main
 
 
 function sc_L() { // functions (live on scroll)
-    var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
+    var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
+        b = { // element bounds
+            L : im.L.getBoundingClientRect() // #lead_sc
+        };
+
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
         if (getCookie("statsIncr") !== "true") { // check if cookie exists
             var b1 = getBd(sI_1.e, "top"), // get respective 'top' boundaries for each stat
@@ -72,13 +76,13 @@ function sc_L() { // functions (live on scroll)
                 im.s = true; // enabler
             }
         }*/
-    }
 
-    // im.t.style.backgroundColor = "rgba(48, 48, 48, " + (pos.y * im.j) + ")"; // #intro_main tint opacity
-    /*
-    if (!op.s) {
-        im.el.style.transform = "translateY(" + (pos.y * im.p) + "px)"; // #intro_main transform
-    }*/
+        //////////////////////////////////
+
+        if (b.L.top < aH) {
+            
+        }
+    }
 }
 
 s_L = setInterval(sc_L, op.Ls); // live loop

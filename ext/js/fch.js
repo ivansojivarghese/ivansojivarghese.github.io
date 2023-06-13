@@ -53,7 +53,6 @@ function load_css_e() { // load CSS styles (page specific)
     // c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
     c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
     c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
-    // c_css("#card_overlay", "top: " + aH + "px;", false, null); 
 
     // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 
@@ -134,9 +133,9 @@ function scrollArrowIterate(m) {
             el.lk3b.style.bottom = "1.5rem"; // reverse anchor
             el.lk3b.style.height = 0; // zero height
             setTimeout(function() {
-                if (!pg.msg.fo) { // if NOT offline
+                if (!pg.msg.fo && ) { // if NOT offline AND NOT scrolled
                     scrollArrowIterate(m); // repeat
-                } else { // if offline
+                } else { // if offline OR scrolled
                     el.x = true;
                     el.lk3b.classList.add("d_n");
                     e_Fd(el.chev, true); // hide chevron
@@ -149,6 +148,8 @@ function scrollArrowIterate(m) {
 function peek() {
     var t = aH * 0.2;
     window.scrollTo(0, t);
+
+    // scroll to reasonable point in content area
 
     // 4 rem
     // 7rem
