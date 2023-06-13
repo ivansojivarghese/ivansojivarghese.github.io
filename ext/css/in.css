@@ -132,3 +132,19 @@
     top: 5rem;
     animation: bounceTop 5s ease-in-out infinite;
 }
+
+.bg-circles .circle-3 {
+    height: 3rem;
+    width: 3rem;
+    left: 15%;
+    top: 5rem;
+    animation: bounceTop 5s ease-in-out infinite;
+}
+
+.bg-circles .circle-4 {
+    height: 3rem;
+    width: 3rem;
+    left: 15%;
+    top: 5rem;
+    animation: bounceTop 5s ease-in-out infinite;
+}
