@@ -217,6 +217,7 @@ function showCircle() { // show background circles in view
     }
 
     e_Fd(el.bgC[tgt], false);
+    
     // i++;
 
     if (tgt < _L) {
