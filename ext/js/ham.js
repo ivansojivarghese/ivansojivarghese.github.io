@@ -113,6 +113,8 @@ function h_mTg() { // ham. menu toggle
         if (!hm.h) { 
 
             h_mBs(c); // perform button [stroke] dynamisms
+
+            el.lk3.classList.add("z_G"); // hide arrow
             
             hm.e = true;
             // hm.h = false;
@@ -216,6 +218,7 @@ function h_mTg() { // ham. menu toggle
                 e_Fd(h, true); // hide menu
                 setTimeout(function() {
                     h.classList.add("z-G");
+                    el.lk3.classList.remove("z_G"); // show arrow
                 }, op.t);
             }
 
