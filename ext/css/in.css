@@ -161,3 +161,7 @@
         transform: translateY(0px);
     }
 }
+
+#lead_ws {
+    height: 7rem;
+}
