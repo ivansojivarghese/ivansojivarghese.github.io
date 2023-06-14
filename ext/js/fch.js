@@ -117,10 +117,16 @@ function js_live() { // update js - in live
             el.x3 = true;
             el.lk3.removeEventListener("click", peek); // remove peek feature
             e_Fd(el.lk3, true); // fade out arrow
-        } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
-            e_Fd(el.lk3, false); // fade in arrow
             setTimeout(function() {
-                el.lk3.addEventListener("click", peek); // add peek feature
+                el.lk3b.style.height = "0px";
+            }, op.t);
+        } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
+
+            // e_Fd(el.lk3, false); // fade in arrow
+
+            load_eN();
+            setTimeout(function() {
+                // el.lk3.addEventListener("click", peek); // add peek feature
                 el.x3 = false;
             }, op.t);
         }
