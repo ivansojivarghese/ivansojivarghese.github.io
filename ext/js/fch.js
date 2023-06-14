@@ -32,6 +32,7 @@ var fchL = {
         x : false, // code execution
         x2 : false, 
         a : true, // scroll arrow anchor status
+        ac : false, // scroll arrow click check
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
@@ -104,10 +105,18 @@ function load_js_e() { // load JS (page specific)
 }
 
 function js_live() { // update js - in live
-    if ((!pg.msg.fo && pos.aT) && el.x) { // if page online AND not scrolled
-        el.lk3b.classList.remove("d_n");
-        load_eN(); // reload scroll arrow feature
-        el.x = false;
+    if (!el.ac) {
+        if ((!pg.msg.fo && pos.aT) && el.x) { // if page online AND not scrolled
+            el.lk3b.classList.remove("d_n");
+            load_eN(); // reload scroll arrow feature
+            el.x = false;
+        }
+    } else {
+        if (pos.y !== 0) {
+            el.lk3.removeEventListener("click", peek); // remove peek feature
+            el.lk3.classList.add("z-G");
+            e_Fd(el.lk3, true); // fade out arrow
+        }   
     }
 }
 
@@ -120,12 +129,14 @@ function load_eN() { // load, after cookie acceptance (page specific)
             c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 4rem);", false, null); 
             el.bgC4.style.left = "60%";
             scrollArrowIterate(true); // start iteration
+            el.ac = false;
         } else {
             c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
             scrollArrowIterate(false); // start iteration (single)
             hm.k3 = true;
             el.lk3.classList.remove("z-G");
             el.lk3.addEventListener("click", peek); // add peek feature
+            el.ac = true;
         }
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
         e_Fd(el.chev, false); // show chevron
