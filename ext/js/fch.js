@@ -31,6 +31,7 @@ var fchL = {
     el = {
         x : false, // code execution
         x2 : false, 
+        x3 : false, 
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
         lk3 : document.getElementById("link_3"),
@@ -112,11 +113,14 @@ function js_live() { // update js - in live
             el.x = false;
         }
     } else {
-        if (!pos.aT) { // if scrolled
+        if (!pos.aT && !el.x3) { // if scrolled
+            el.x3 = true;
             el.lk3.removeEventListener("click", peek); // remove peek feature
             e_Fd(el.lk3, true); // fade out arrow
-        } else {
-
+        } else if (pos.aT && el.x3) {
+            e_Fd(el.lk3, false); // fade in arrow
+            el.lk3.addEventListener("click", peek); // remove peek feature
+            
         }
     }
 }
