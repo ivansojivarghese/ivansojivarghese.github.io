@@ -152,7 +152,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 }
             };*/
             // showCircle();
-        }, op.t);
+        }, op.te);
     }
 }
 
