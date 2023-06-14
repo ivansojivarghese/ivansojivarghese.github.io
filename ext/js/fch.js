@@ -114,10 +114,9 @@ function js_live() { // update js - in live
     } else {
         if (!pos.aT) { // if scrolled
             el.lk3.removeEventListener("click", peek); // remove peek feature
-            el.lk3.classList.add("z-G");
             e_Fd(el.lk3, true); // fade out arrow
         } else {
-            
+
         }
     }
 }
