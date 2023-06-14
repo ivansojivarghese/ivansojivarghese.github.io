@@ -322,13 +322,13 @@ div, .tint {
     transition-delay: 0s;
     transition-property: all;
 }
-/*
+
 .trs_L {
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
     transition-delay: 0s;
     transition-property: all;   
-}*/
+}
 
 .c_w {
     color: #FFF;
