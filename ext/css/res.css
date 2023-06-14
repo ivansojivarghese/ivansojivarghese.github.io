@@ -22,6 +22,10 @@
     #intro_sc .content {
         margin-top: calc((480px - 27.5rem) / 3) !important;
     }
+
+    .bg-circles .circle-3 {
+        top: calc(6rem + ((480px - 27.5rem) / 3) + 8rem) !important;
+    }
 }
 
 @media screen and (min-width: 350px) and (max-height: 570px) and (orientation: portrait) { /* iPhone 6/7/8 modification */
@@ -38,5 +42,9 @@
 
     #intro_sc .content {
         margin-top: calc((480px - 27.5rem) / 3) !important;
+    }
+
+    .bg-circles .circle-3 {
+        top: calc(6rem + ((480px - 27.5rem) / 3) + 6rem) !important;
     }
 }
