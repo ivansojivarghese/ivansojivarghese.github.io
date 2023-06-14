@@ -130,18 +130,16 @@ function load_eN() { // load, after cookie acceptance (page specific)
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
         e_Fd(el.chev, false); // show chevron
     }
+    setTimeout(function() {
+        showCircle();
+    }, op.te);
+
+    /*
     if (!el.x2) {
-        
         var i = 0,
             c = el.bgC.length;
         el.x2 = true;
         setTimeout(function() {
-            /*
-            var _L = el.bgC.length - 1;
-            for (i = 0; i <= _L; i++) { // show background circles in view
-                e_Fd(el.bgC[i], false);
-            }
-            */
             var showCircle = function() {
                 e_Fd(el.bgC[i], false);
                 i++;
@@ -153,7 +151,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
             };
             showCircle();
         }, op.te);
-    }
+    }*/
 }
 
 function scrollArrowIterate(m) {
@@ -188,4 +186,30 @@ function peek() {
     // 4 rem
     // 7rem
     // 1rem
+}
+
+function showCircle() { // show background circles in view
+    if (!el.x2) {
+        var i = 0,
+            c = el.bgC.length;
+        el.x2 = true;
+        setTimeout(function() {
+            /*
+            var _L = el.bgC.length - 1;
+            for (i = 0; i <= _L; i++) { 
+                e_Fd(el.bgC[i], false);
+            }
+            */
+            var showCircle = function() {
+                e_Fd(el.bgC[i], false);
+                i++;
+                if (i < c) {
+                    setTimeout(function() {
+                        showCircle();
+                    }, op.t);
+                }
+            };
+            // showCircle();
+        }, op.te);
+    }
 }
