@@ -1066,8 +1066,8 @@ function errorCheck() { // check for errors
     translate_Check = checkTranslation();
 
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
-        op.spR = true;
-        eR.h = "sp";
+        // op.spR = true;
+        // eR.h = "sp";
     } else if (op.zoomDefault && !vw.z_L && (op.sys !== "iOS" && op.sys !== "Android")) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
     } else if (vw.z_S || (vw.mB_L && (op.sys !== "iOS" && op.sys !== "Android"))) { // if viewport size is too small (or incompatible)
