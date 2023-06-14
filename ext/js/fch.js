@@ -117,10 +117,12 @@ function js_live() { // update js - in live
             el.x3 = true;
             el.lk3.removeEventListener("click", peek); // remove peek feature
             e_Fd(el.lk3, true); // fade out arrow
-        } else if (pos.aT && el.x3) {
+        } else if (pos.aT && el.x3) { // back to top
             e_Fd(el.lk3, false); // fade in arrow
-            el.lk3.addEventListener("click", peek); // remove peek feature
-            
+            setTimeout(function() {
+                el.lk3.addEventListener("click", peek); // add peek feature
+                el.x3 = false;
+            }, op.t);
         }
     }
 }
