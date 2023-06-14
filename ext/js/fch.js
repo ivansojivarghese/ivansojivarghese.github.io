@@ -36,7 +36,7 @@ var fchL = {
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
         chev : document.getElementById("chev_d"),
-        bgC : document.querySelectorAll(".bg-circle.z_O"),
+        bgC : document.querySelectorAll(".bg-circle"),
         bgC4 : document.getElementById("bg-cir4")
     };
 
