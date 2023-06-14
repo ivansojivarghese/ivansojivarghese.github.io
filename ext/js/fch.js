@@ -131,6 +131,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         e_Fd(el.chev, false); // show chevron
     }
     if (!el.x2) {
+        
         var i = 0,
             c = el.bgC.length;
         el.x2 = true;
@@ -149,7 +150,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     }, op.t);
                 }
             };
-            showCircle();
+            // showCircle();
         }, op.t);
     }
 }
