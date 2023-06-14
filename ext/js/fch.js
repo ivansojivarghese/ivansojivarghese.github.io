@@ -112,11 +112,13 @@ function js_live() { // update js - in live
             el.x = false;
         }
     } else {
-        if (pos.y !== 0) {
+        if (!pos.aT) { // if scrolled
             el.lk3.removeEventListener("click", peek); // remove peek feature
             el.lk3.classList.add("z-G");
             e_Fd(el.lk3, true); // fade out arrow
-        }   
+        } else {
+            
+        }
     }
 }
 
