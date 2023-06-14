@@ -136,25 +136,6 @@ function load_eN() { // load, after cookie acceptance (page specific)
             showCircle();
         }, op.te);
     }
-
-    /*
-    if (!el.x2) {
-        var i = 0,
-            c = el.bgC.length;
-        el.x2 = true;
-        setTimeout(function() {
-            var showCircle = function() {
-                e_Fd(el.bgC[i], false);
-                i++;
-                if (i < c) {
-                    setTimeout(function() {
-                        showCircle();
-                    }, op.t);
-                }
-            };
-            showCircle();
-        }, op.te);
-    }*/
 }
 
 function scrollArrowIterate(m) {
@@ -192,20 +173,6 @@ function peek() {
 }
 
 function showCircle() { // show background circles in view
-    // if (!el.x2) {
-        /*
-    var i = 0,
-        c = el.bgC.length;
-        */
-    // el.x2 = true;
-    // setTimeout(function() {
-        /*
-        var _L = el.bgC.length - 1;
-        for (i = 0; i <= _L; i++) { 
-            e_Fd(el.bgC[i], false);
-        }
-        */
-    // var showCircle = function() {
 
     var _L = el.bgC.length - 1,
         tgt;
@@ -218,16 +185,9 @@ function showCircle() { // show background circles in view
 
     e_Fd(el.bgC[tgt], false);
 
-    // i++;
-
     if (tgt < _L) {
         setTimeout(function() {
             showCircle();
         }, op.t);
     }
-
-        // };
-            // showCircle();
-        // }, op.te);
-    // }
 }
