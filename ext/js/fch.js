@@ -207,9 +207,19 @@ function showCircle() { // show background circles in view
         */
     // var showCircle = function() {
 
-    e_Fd(el.bgC[i], false);
+    var _L = el.bgC.length - 1,
+        tgt;
+    for (i = 0; i <= _L; i++) {
+        if (el.bgC[i].classList.contains("z_O")) {
+            tgt = i; 
+            break;
+        }
+    }
+
+    e_Fd(el.bgC[tgt], false);
     // i++;
-    if (i < c) {
+
+    if (tgt < _L) {
         setTimeout(function() {
             showCircle();
         }, op.te);
