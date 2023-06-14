@@ -131,7 +131,6 @@
     width: 1rem;
     left: 55%;
     top: 2.5rem;
-    animation: bounceTop 5s ease-in-out infinite;
 }
 
 .bg-circles .circle-2 {
@@ -139,14 +138,12 @@
     width: 3rem;
     left: 15%;
     top: 5rem;
-    animation: bounceTop 5s ease-in-out infinite;
 }
 
 .bg-circles .circle-3 {
     height: 8rem;
     width: 8rem;
     left: 50%;
-    animation: bounceTop 5s ease-in-out infinite;
 }
 
 .bg-circles .circle-4 {
@@ -154,4 +151,13 @@
     width: 1.5rem;
     left: 80%;
     animation: bounceTop 5s ease-in-out infinite;
+}
+
+@keyframes bounceTop {
+    0%, 100%{
+        transform: translateY(-50px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
 }
