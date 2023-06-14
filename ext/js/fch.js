@@ -126,6 +126,7 @@ function js_live() { // update js - in live
 
             // e_Fd(el.lk3, false); // fade in arrow
 
+            e_Fd(el.lk3b, false); // fade in
             load_eN();
             setTimeout(function() {
                 // el.lk3.addEventListener("click", peek); // add peek feature
