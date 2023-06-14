@@ -32,6 +32,7 @@ var fchL = {
         x : false, // code execution
         x2 : false, 
         x3 : false, 
+        x4 : false, 
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
         lk3 : document.getElementById("link_3"),
@@ -137,12 +138,18 @@ function load_eN() { // load, after cookie acceptance (page specific)
     if (h >= 65) { // min. 65px height required
         el.bgC4.classList.remove("d_n"); // show circle 4
         if (h >= 85) {
-            c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 4rem);", false, null); 
+            if (!el.x4) {
+                c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 4rem);", false, null); 
+                el.x4 = true;
+            }
             el.bgC4.style.left = "60%";
             scrollArrowIterate(true); // start iteration
             el.ac = false;
         } else {
-            c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
+            if (!el.x4) {
+                c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
+                el.x4 = true;
+            }
             scrollArrowIterate(false); // start iteration (single)
             hm.k3 = true;
             el.lk3.classList.remove("z-G");
