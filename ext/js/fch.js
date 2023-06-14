@@ -202,7 +202,6 @@ function peek() {
 }
 
 function showCircle() { // show background circles in view
-
     var _L = el.bgC.length - 1,
         tgt;
     for (i = 0; i <= _L; i++) {
@@ -211,9 +210,7 @@ function showCircle() { // show background circles in view
             break;
         }
     }
-
     e_Fd(el.bgC[tgt], false);
-
     if (tgt < _L) {
         setTimeout(function() {
             showCircle();
