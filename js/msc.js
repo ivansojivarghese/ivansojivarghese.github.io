@@ -2215,6 +2215,9 @@ window.addEventListener("resize", function(e) {
 
             e_Fd(eR.z, true);  // hide message
             e_Fd(disp, false); // show page
+
+            pgTasks("sc", false);
+
             setTimeout(function() {
                 eR.m.classList.add("d_n"); // hide error_main
                 eR.z.classList.add("d_n"); 
@@ -2383,6 +2386,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                         setTimeout(function() {
                             e_Fd(disp, false); // fade in display
+
+                            pgTasks("sc", false);
+
                             if (!eR.s && !pg.cond.a && !hm.s) { 
                                 scr_t(true, null); // enable scrolling
                                 op.s = false;
@@ -2420,6 +2426,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         
                         disp.classList.add("z_Os");
                         e_Fd(disp, true); // fade main display out
+
+                        pgTasks("sc", true);
+
                         eR.m.classList.remove("d_n");
                         if (!rL.o_c && !eR.ld_e.x) {
                             eR.ld.classList.remove("d_n");
