@@ -118,7 +118,7 @@ function js_live() { // update js - in live
             el.lk3.removeEventListener("click", peek); // remove peek feature
             e_Fd(el.lk3, true); // fade out arrow
             setTimeout(function() {
-                el.lk3b.style.height = "0px";
+                el.lk3b.style.height = "0px"; // set link to 0 height
             }, op.t);
         } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
 
