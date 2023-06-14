@@ -219,7 +219,7 @@ function showCircle() { // show background circles in view
 }
 
 function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
-    if (id === "sc") {
+    if (id === "sc") { // bg circles
         if (m) {
             var _L = el.bgC.length - 1;
             for (i = 0; i <= _L; i++) {
