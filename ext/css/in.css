@@ -155,7 +155,7 @@
 
 @keyframes bounceTop {
     0%, 100%{
-        transform: translateY(-3rem);
+        transform: translateY(-1rem);
     }
     50%{
         transform: translateY(0px);
