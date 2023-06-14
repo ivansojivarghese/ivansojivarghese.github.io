@@ -24,7 +24,7 @@
     }
 
     .bg-circles .circle-3 {
-        top: calc(6rem + ((480px - 27.5rem) / 3) + 8rem) !important;
+        top: calc(6rem + ((480px - 27.5rem) / 3) + 7rem) !important;
     }
 }
 
