@@ -2169,6 +2169,9 @@ window.addEventListener("resize", function(e) {
                 op.zoomUndefault = true;
 
                 e_Fd(disp, true); // hide page
+
+                pgTasks("sc", true);
+
                 if (op.ne.w || op.b.f) { // if network slow
                     eR_t.z.classList.remove("d_n"); // display error small text
                 } else {
