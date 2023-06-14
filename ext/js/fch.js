@@ -217,3 +217,16 @@ function showCircle() { // show background circles in view
         }, op.t);
     }
 }
+
+function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
+    if (id === "sc") {
+        if (m) {
+            var _L = el.bgC.length - 1;
+            for (i = 0; i <= _L; i++) {
+                e_Fd(el.bgC[i], true);
+            }
+        } else {
+            showCircle();
+        }
+    }
+}

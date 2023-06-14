@@ -987,6 +987,9 @@ function pL() { // site parameters loop
         eR.m.classList.remove("d_n"); // show error in display
         eR.tr.classList.remove("d_n");   
         e_Fd(disp, true); // fade out display
+
+        pgTasks("sc", true);
+
         setTimeout(function() {
             e_Fd(eR.tr, false);
         }, 10);
@@ -1001,6 +1004,9 @@ function pL() { // site parameters loop
         } else {
             e_Fd(eR.tr, true);
             e_Fd(disp, false);
+
+            pgTasks("sc", false);
+
             setTimeout(function() {
                 if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user + non-landscape mode
                     scr_t(true, null); // enable scrolling
