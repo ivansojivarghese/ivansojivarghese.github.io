@@ -131,16 +131,17 @@ function load_eN() { // load, after cookie acceptance (page specific)
         e_Fd(el.chev, false); // show chevron
     }
     if (!el.x2) {
-        
+        /*
         var i = 0,
-            c = el.bgC.length;
+            c = el.bgC.length;*/
         el.x2 = true;
         setTimeout(function() {
-            /*
+            
             var _L = el.bgC.length - 1;
             for (i = 0; i <= _L; i++) { // show background circles in view
                 e_Fd(el.bgC[i], false);
-            }*/
+            }
+            /*
             var showCircle = function() {
                 e_Fd(el.bgC[i], false);
                 i++;
@@ -149,7 +150,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         showCircle();
                     }, op.t);
                 }
-            };
+            };*/
             // showCircle();
         }, op.t);
     }
