@@ -113,11 +113,11 @@ function js_live() { // update js - in live
             el.x = false;
         }
     } else {
-        if (!pos.aT && !el.x3) { // if scrolled
+        if ((!pos.aT && !el.x3) || pg.msg.fo) { // if scrolled OR offline
             el.x3 = true;
             el.lk3.removeEventListener("click", peek); // remove peek feature
             e_Fd(el.lk3, true); // fade out arrow
-        } else if (pos.aT && el.x3) { // back to top
+        } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
             e_Fd(el.lk3, false); // fade in arrow
             setTimeout(function() {
                 el.lk3.addEventListener("click", peek); // add peek feature
