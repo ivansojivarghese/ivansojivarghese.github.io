@@ -130,9 +130,12 @@ function load_eN() { // load, after cookie acceptance (page specific)
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
         e_Fd(el.chev, false); // show chevron
     }
-    setTimeout(function() {
-        showCircle();
-    }, op.te);
+    if (!el.x2) {
+        el.x2 = true;
+        setTimeout(function() {
+            showCircle();
+        }, op.te);
+    }
 
     /*
     if (!el.x2) {
@@ -189,27 +192,27 @@ function peek() {
 }
 
 function showCircle() { // show background circles in view
-    if (!el.x2) {
-        var i = 0,
-            c = el.bgC.length;
-        el.x2 = true;
+    // if (!el.x2) {
+    var i = 0,
+        c = el.bgC.length;
+    // el.x2 = true;
+    // setTimeout(function() {
+        /*
+        var _L = el.bgC.length - 1;
+        for (i = 0; i <= _L; i++) { 
+            e_Fd(el.bgC[i], false);
+        }
+        */
+    // var showCircle = function() {
+    e_Fd(el.bgC[i], false);
+    i++;
+    if (i < c) {
         setTimeout(function() {
-            /*
-            var _L = el.bgC.length - 1;
-            for (i = 0; i <= _L; i++) { 
-                e_Fd(el.bgC[i], false);
-            }
-            */
-            var showCircle = function() {
-                e_Fd(el.bgC[i], false);
-                i++;
-                if (i < c) {
-                    setTimeout(function() {
-                        showCircle();
-                    }, op.t);
-                }
-            };
-            // showCircle();
+            showCircle();
         }, op.te);
     }
+        // };
+            // showCircle();
+        // }, op.te);
+    // }
 }
