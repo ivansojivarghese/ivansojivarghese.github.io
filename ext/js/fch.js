@@ -219,7 +219,11 @@ function showCircle() { // show background circles in view
             }
         }
         if (tgt !== undefined) {
-            e_Fd(el.bgC[tgt], false);
+            el.bgC[tgt].classList.remove("d_n");
+            setTimeout(function() {
+                e_Fd(el.bgC[tgt], false);
+            }, 10);
+            
             if (tgt < _L) {
                 setTimeout(function() {
                     showCircle();
