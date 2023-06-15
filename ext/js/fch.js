@@ -229,7 +229,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 e_Fd(el.bgC[i], true);
             }
         } else {
-            _L = 
+            _L = el.c4 ? _L : _L - 1;
             setTimeout(function() {
                 for (i = 0; i <= _L; i++) {
                     el.bgC[i].classList.remove("d_n");
