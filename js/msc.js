@@ -2243,7 +2243,9 @@ window.addEventListener("resize", function(e) {
                 eR.z.classList.add("d_n"); 
                 eR.s = false;
                 eR.p = "";
-                pgTasks("sc", false);
+                if (!disp.classList.contains("z_O")) {
+                    pgTasks("sc", false);
+                }
             }, op.t);  
 
         }
@@ -2415,7 +2417,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 op.s = false;
                             }
                             setTimeout(function() {
-                                if (op.c.u) {
+                                if (op.c.u && !disp.classList.contains("z_O")) {
                                     pgTasks("sc", false);
                                 }
                             }, op.t);
