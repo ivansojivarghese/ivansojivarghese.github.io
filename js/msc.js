@@ -2369,8 +2369,10 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             eR.p = "mt"; // maintenance
                         } else if (op.fS) {
                             eR.p = "fS"; // full screen
+                            op.fS = true;
                         } else if (translate_Check) {
                             eR.p = "tr"; // translate
+                            op.tr = true;
                         } else {
                             eR.p = "";
                         }
