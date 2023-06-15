@@ -253,7 +253,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
             el.x8 = true;
             setTimeout(function() {
                 el.x8 = false;
-            }, op.t);
+            }, op.te);
 
             var _L = el.bgC.length - 1;
             if (m && !el.x5) {
