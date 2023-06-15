@@ -33,6 +33,7 @@ var fchL = {
         x2 : false, 
         x3 : false, 
         x4 : false, 
+        x5 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -223,12 +224,14 @@ function showCircle() { // show background circles in view
 function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
     if (id === "sc") { // bg circles
         var _L = el.bgC.length - 1;
-        if (m) {
+        if (m && !el.x5) {
+            el.x5 = true;
             for (i = 0; i <= _L; i++) {
                 el.bgC[i].classList.add("d_n");
                 e_Fd(el.bgC[i], true);
             }
-        } else {
+        } else if (!m && el.x5) {
+            el.x5 = false;
             _L = el.c4 ? _L : _L - 1;
             setTimeout(function() {
                 for (i = 0; i <= _L; i++) {
