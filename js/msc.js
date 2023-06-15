@@ -863,7 +863,7 @@ function pL() { // site parameters loop
     if (pg.msg.io && pg.msg.ioS) { // hide buggy io messages
         var e = op.d.getTime();
         if ((e - pg.msg.ioS) > pg.msg.re) { // check for buggy messages (beyond ext. res. time)
-            msg_toggle(pg.msg.net, null, true, false, false); // show message
+            msg_toggle(pg.msg.net, null, false, true, null); // hide message
             pg.msg.io = false;
             pg.msg.ioS = 0;
         }
