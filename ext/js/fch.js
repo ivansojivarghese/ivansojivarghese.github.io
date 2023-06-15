@@ -218,13 +218,17 @@ function showCircle() { // show background circles in view
                 break;
             }
         }
-        e_Fd(el.bgC[tgt], false);
-        if (tgt < _L) {
-            setTimeout(function() {
-                showCircle();
-            }, op.t);
+        if (tgt !== undefined) {
+            e_Fd(el.bgC[tgt], false);
+            if (tgt < _L) {
+                setTimeout(function() {
+                    showCircle();
+                }, op.t);
+            } else {
+                el.x6 = false;
+            }
         } else {
-            el.x6 = false;
+            
         }
     }
 }
