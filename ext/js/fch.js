@@ -36,6 +36,7 @@ var fchL = {
         x5 : false,
         x6 : false,
         x7 : false,
+        x8 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -244,36 +245,43 @@ function showCircle() { // show background circles in view
 
 function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
     if (id === "sc") { // bg circles
-        var _L = el.bgC.length - 1;
-        if (m && !el.x5) {
-            el.x5 = true;
-            for (i = 0; i <= _L; i++) {
-                el.bgC[i].classList.add("d_n");
-                // e_Fd(el.bgC[i], true);
-                /*
-                if (i === _L) {
-                    el.x5 = true;
-                }*/
-            }
-        } else if (!m && el.x5) {
-            el.x5 = false;
-            _L = el.c4 ? _L : _L - 1;
-            for (i = 0; i <= _L; i++) {
-                e_Fd(el.bgC[i], true);
-                el.bgC[i].classList.add("d_n");
-            }
+        if (!el.x8) {
+            el.x8 = true;
             setTimeout(function() {
-                /*
+                el.x8 = false;
+            }, op.t);
+
+            var _L = el.bgC.length - 1;
+            if (m && !el.x5) {
+                el.x5 = true;
                 for (i = 0; i <= _L; i++) {
-                    el.bgC[i].classList.remove("d_n");
-                }*/
-                // console.log(el.bgC);
-                // setTimeout(function() {
+                    el.bgC[i].classList.add("d_n");
+                    // e_Fd(el.bgC[i], true);
+                    /*
+                    if (i === _L) {
+                        el.x5 = true;
+                    }*/
+                }
+            } else if (!m && el.x5) {
+                el.x5 = false;
+                _L = el.c4 ? _L : _L - 1;
+                for (i = 0; i <= _L; i++) {
+                    e_Fd(el.bgC[i], true);
+                    el.bgC[i].classList.add("d_n");
+                }
+                setTimeout(function() {
+                    /*
+                    for (i = 0; i <= _L; i++) {
+                        el.bgC[i].classList.remove("d_n");
+                    }*/
+                    // console.log(el.bgC);
+                    // setTimeout(function() {
 
-                showCircle();
+                    showCircle();
 
-                // }, op.t);
-            }, op.te);
+                    // }, op.t);
+                }, op.te);
+            }
         }
     }
 }
