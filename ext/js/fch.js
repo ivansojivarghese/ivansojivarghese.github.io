@@ -231,7 +231,9 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 for (i = 0; i <= _L; i++) {
                     el.bgC[i].classList.remove("d_n");
                 }
-                showCircle();
+                setTimeout(function() {
+                    showCircle();
+                }, 10);
             }, op.te);
         }
     }
