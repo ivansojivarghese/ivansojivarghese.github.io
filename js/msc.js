@@ -1727,6 +1727,10 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 } else { // no tint + show->hide message
                     pg.msg.t.classList.add("d_n"); 
                     setTimeout(function() { // hide message after time
+                        if (pg.msg.io && pg.msg.ioS) {
+                            pg.msg.io = false;
+                            pg.msg.ioS = false;
+                        }
                         msg_toggle(el, null, false, true, null);
                         setTimeout(function() {
                             pg.msg.t.classList.remove("d_n"); 
