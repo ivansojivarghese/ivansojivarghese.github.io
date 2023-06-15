@@ -260,7 +260,9 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 }*/
                 // console.log(el.bgC);
                 // setTimeout(function() {
-                    showCircle();
+
+                showCircle();
+
                 // }, op.t);
             }, op.te);
         }
