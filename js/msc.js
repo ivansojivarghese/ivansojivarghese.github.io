@@ -2326,7 +2326,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         eR.m.classList.add("d_n");
         disp.classList.add("z_Os");
 
-        uHeight = Math.round(u.height);
+        // uHeight = Math.round(u.height);
 
         pgTasks("sc", true);
 
