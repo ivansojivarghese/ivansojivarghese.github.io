@@ -250,7 +250,6 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                     el.bgC[i].classList.remove("d_n");
                 }
                 // console.log(el.bgC);
-                console.log(el.bgC);
                 setTimeout(function() {
                     showCircle();
                 }, op.t);
