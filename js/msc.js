@@ -2324,6 +2324,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         eR.m.classList.add("d_n");
         disp.classList.add("z_Os");
 
+        pgTasks("sc", true);
+
         setTimeout(function() {
 
             wH = window.outerHeight; // update on window size variables
