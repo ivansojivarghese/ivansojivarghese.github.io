@@ -227,7 +227,13 @@ function showCircle() { // show background circles in view
             
             if (tgt < _L) {
                 setTimeout(function() {
-                    showCircle();
+                    for (i = 0; i <= _L; i++) {
+                        if (el.bgC[i].classList.contains("z_O") || el.bgC[i].classList.contains("d_n")) {
+                            showCircle();
+                            break;
+                        }
+                    }
+                    // showCircle();
                 }, op.t);
             } else {
                 el.x6 = false;
