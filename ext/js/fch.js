@@ -234,7 +234,10 @@ function showCircle() { // show background circles in view
             }
         } else {
             console.log("error");
-            console.log(el.bgC);
+            console.log(el.bgC[0].className);
+            console.log(el.bgC[1].className);
+            console.log(el.bgC[2].className);
+            console.log(el.bgC[3].className);
             /*
             for (i = 0; i <= _L; i++) {
                 el.bgC[i].classList.add("d_n");
