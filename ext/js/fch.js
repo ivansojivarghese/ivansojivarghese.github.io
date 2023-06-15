@@ -223,6 +223,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
         if (m) {
             var _L = el.bgC.length - 1;
             for (i = 0; i <= _L; i++) {
+                el.bgC[i].classList.add("d_n");
                 e_Fd(el.bgC[i], true);
             }
         } else {
