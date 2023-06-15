@@ -247,11 +247,13 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
             _L = el.c4 ? _L : _L - 1;
             for (i = 0; i <= _L; i++) {
                 e_Fd(el.bgC[i], true);
+                el.bgC[i].classList.add("d_n");
             }
             setTimeout(function() {
+                /*
                 for (i = 0; i <= _L; i++) {
                     el.bgC[i].classList.remove("d_n");
-                }
+                }*/
                 // console.log(el.bgC);
                 setTimeout(function() {
                     showCircle();
