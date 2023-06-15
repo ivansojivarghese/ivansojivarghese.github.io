@@ -1042,7 +1042,7 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
                 }
-                if (!disp.classList.contains("z_O")) {
+                if (!eR.s) {
                     pgTasks("sc", false);
                 }
             }, op.t);
@@ -1097,7 +1097,7 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
                 }
-                if (!disp.classList.contains("z_O")) {
+                if (!eR.s) {
                     pgTasks("sc", false);
                 }
             }, op.t);
@@ -2243,7 +2243,7 @@ window.addEventListener("resize", function(e) {
                 eR.z.classList.add("d_n"); 
                 eR.s = false;
                 eR.p = "";
-                if (!disp.classList.contains("z_O")) {
+                if (!eR.s) {
                     pgTasks("sc", false);
                 }
             }, op.t);  
@@ -2417,7 +2417,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 op.s = false;
                             }
                             setTimeout(function() {
-                                if (op.c.u && !disp.classList.contains("z_O")) {
+                                if (op.c.u && !eR.s) {
                                     pgTasks("sc", false);
                                 }
                             }, op.t);
