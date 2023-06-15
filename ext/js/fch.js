@@ -220,14 +220,17 @@ function showCircle() { // show background circles in view
 
 function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
     if (id === "sc") { // bg circles
+        var _L = el.bgC.length - 1;
         if (m) {
-            var _L = el.bgC.length - 1;
             for (i = 0; i <= _L; i++) {
                 el.bgC[i].classList.add("d_n");
                 e_Fd(el.bgC[i], true);
             }
         } else {
             setTimeout(function() {
+                for (i = 0; i <= _L; i++) {
+                    el.bgC[i].classList.remove("d_n");
+                }
                 showCircle();
             }, op.te);
         }
