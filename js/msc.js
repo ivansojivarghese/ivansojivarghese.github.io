@@ -1042,7 +1042,9 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
                 }
-                pgTasks("sc", false);
+                if (!disp.classList.contains("z_O")) {
+                    pgTasks("sc", false);
+                }
             }, op.t);
         }
     }
@@ -1095,7 +1097,9 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
                 }
-                pgTasks("sc", false);
+                if (!disp.classList.contains("z_O")) {
+                    pgTasks("sc", false);
+                }
             }, op.t);
         }
     }
