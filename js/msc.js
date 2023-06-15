@@ -65,6 +65,8 @@ var wH = window.outerHeight, // height
             d : document.getElementById("lead_sc") // lead
         },
         msg : { // messages
+            io : false, // in-out message? (show + hide)
+            ioS : 0, // in-out start time
             r : 3000, // response time (avg.)
             fo : false, // offline-online sequence active?
             k : false, // if cookie message is active
@@ -857,6 +859,10 @@ function pL() { // site parameters loop
         }*/
     }
 
+    if (pg.msg.io) { // hide buggy io messages
+
+    }
+
     if (rL && rL.i) {
         // if ((!hm.e && op.c.u && !eR.s) || pg.e) {
         if (op.c.u && !eR.s && (!hm.e || pg.e)) {
@@ -889,6 +895,8 @@ function pL() { // site parameters loop
             pg.msg.net_t.innerHTML = "display fix"; // content
     
             msg_toggle(pg.msg.net, null, true, false, false); // show message
+            pg.msg.io = true;
+            pg.msg.ioS = op.d.getTime();
             op.er.d = false;
         }
     }
@@ -1181,6 +1189,8 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "back online!";
 
                 msg_toggle(pg.msg.net, null, true, false, false); // show online
+                pg.msg.io = true;
+                pg.msg.ioS = op.d.getTime();
                 setTimeout(function() {
                     pg.msg.fo = false;
                 }, pg.msg.r + op.t);
