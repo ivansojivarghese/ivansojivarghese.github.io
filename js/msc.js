@@ -1044,10 +1044,6 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
                 }
-                /*
-                if (!eR.s) {
-                    pgTasks("sc", false);
-                }*/
             }, op.t);
         }
     }
@@ -1102,10 +1098,6 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
                 }
-                /*
-                if (!eR.s) {
-                    pgTasks("sc", false);
-                }*/
             }, op.t);
         }
     }
@@ -2251,10 +2243,6 @@ window.addEventListener("resize", function(e) {
                 eR.z.classList.add("d_n"); 
                 eR.s = false;
                 eR.p = "";
-                /*
-                if (!eR.s) {
-                    pgTasks("sc", false);
-                }*/
             }, op.t);  
 
         }
@@ -2427,12 +2415,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 scr_t(true, null); // enable scrolling
                                 op.s = false;
                             }
-                            /*
-                            setTimeout(function() {
-                                if (op.c.u && !eR.s) {
-                                    pgTasks("sc", false);
-                                }
-                            }, op.t);*/
+
                         }, op.t);
 
                     } else if (wiD >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
