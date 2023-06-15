@@ -226,7 +226,9 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 e_Fd(el.bgC[i], true);
             }
         } else {
-            showCircle();
+            setTimeout(function() {
+                showCircle();
+            }, op.te);
         }
     }
 }
