@@ -68,6 +68,7 @@ var wH = window.outerHeight, // height
             io : false, // in-out message? (show + hide)
             ioS : 0, // in-out start time
             r : 3000, // response time (avg.)
+            re : 5000, // ext. response time
             fo : false, // offline-online sequence active?
             k : false, // if cookie message is active
             c : false, // check (if feature[pill] is active)
@@ -861,7 +862,11 @@ function pL() { // site parameters loop
 
     if (pg.msg.io && pg.msg.ioS) { // hide buggy io messages
         var e = op.d.getTime();
-        
+        if ((e - pg.msg.ioS) > pg.msg.re) { // check for buggy messages (beyond ext. res. time)
+            msg_toggle(pg.msg.net, null, true, false, false); // show message
+            pg.msg.io = false;
+            pg.msg.ioS = 0;
+        }
     }
 
     if (rL && rL.i) {
