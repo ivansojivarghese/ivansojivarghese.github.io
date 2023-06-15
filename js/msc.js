@@ -2473,6 +2473,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             if (!rL.o_c && !eR.ld_e.x) {
                                 e_Fd(eR.ld, false); // fade in error
                             } else {
+                                c_css(".err", "margin-top: 0;", false, null); // style tag
                                 e_Fd(eR.or, false); // fade in error
                             }
                         }, op.t);
