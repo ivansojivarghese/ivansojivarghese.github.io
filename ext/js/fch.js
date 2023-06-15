@@ -255,9 +255,9 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                     el.bgC[i].classList.remove("d_n");
                 }*/
                 // console.log(el.bgC);
-                setTimeout(function() {
+                // setTimeout(function() {
                     showCircle();
-                }, op.t);
+                // }, op.t);
             }, op.te);
         }
     }
