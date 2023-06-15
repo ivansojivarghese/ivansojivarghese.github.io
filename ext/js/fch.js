@@ -212,7 +212,7 @@ function showCircle() { // show background circles in view
             tgt;
         el.x6 = true;
         for (i = 0; i <= _L; i++) {
-            if (el.bgC[i].classList.contains("z_O")) {
+            if (el.bgC[i].classList.contains("z_O") || el.bgC[i].classList.contains("d_n")) {
                 el.x7 = true;
                 tgt = i; 
                 break;
