@@ -2419,7 +2419,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 pgTasks("sc", false);
                             }
 
-                            if (!eR.s && !pg.cond.a && !hm.s) { 
+                            if (!eR.s && !pg.cond.a && !hm.s && op.c.u) { 
                                 scr_t(true, null); // enable scrolling
                                 op.s = false;
                             }
