@@ -245,6 +245,9 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
         } else if (!m && el.x5) {
             el.x5 = false;
             _L = el.c4 ? _L : _L - 1;
+            for (i = 0; i <= _L; i++) {
+                e_Fd(el.bgC[i], true);
+            }
             setTimeout(function() {
                 for (i = 0; i <= _L; i++) {
                     el.bgC[i].classList.remove("d_n");
