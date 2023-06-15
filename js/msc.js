@@ -252,6 +252,12 @@ function checkTranslation() {
         }
     }
 
+    if (t) {
+        op.tr = true;
+    } else {
+        op.tr = false;
+    }
+
     return t;
 }
 
