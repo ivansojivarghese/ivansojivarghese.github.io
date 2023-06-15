@@ -233,10 +233,11 @@ function showCircle() { // show background circles in view
             }
         } else {
             console.log("error");
+            /*
             for (i = 0; i <= _L; i++) {
                 el.bgC[i].classList.add("d_n");
                 // e_Fd(el.bgC[i], true);
-            }
+            }*/
         }
     }
 }
