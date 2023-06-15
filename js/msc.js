@@ -2411,7 +2411,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 op.s = false;
                             }
                             setTimeout(function() {
-                                pgTasks("sc", false);
+                                if (op.c.u) {
+                                    pgTasks("sc", false);
+                                }
                             }, op.t);
                         }, op.t);
 
