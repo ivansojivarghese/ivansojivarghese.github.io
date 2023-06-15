@@ -246,10 +246,13 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
     if (id === "sc") { // bg circles
         var _L = el.bgC.length - 1;
         if (m && !el.x5) {
-            el.x5 = true;
+            // el.x5 = true;
             for (i = 0; i <= _L; i++) {
                 el.bgC[i].classList.add("d_n");
                 // e_Fd(el.bgC[i], true);
+                if (i === _L) {
+                    el.x5 = true;
+                }
             }
         } else if (!m && el.x5) {
             el.x5 = false;
