@@ -284,7 +284,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                     showCircle();
 
                     // }, op.t);
-                }, op.t);
+                }, op.te);
             }
         }
     }
