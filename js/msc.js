@@ -1019,7 +1019,7 @@ function pL() { // site parameters loop
             e_Fd(eR.tr, true);
             e_Fd(disp, false);
 
-            eR.s = false;
+            eR.s = (eR.p === "ld") ? true : false;
             if (!eR.s) {
                 pgTasks("sc", false);
             }
@@ -1076,7 +1076,7 @@ function pL() { // site parameters loop
             e_Fd(eR.fS, true);
             e_Fd(disp, false);
 
-            eR.s = false;
+            eR.s = (eR.p === "ld") ? true : false;
             if (!eR.s) {
                 pgTasks("sc", false);
             }
