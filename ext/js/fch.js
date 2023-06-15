@@ -228,7 +228,7 @@ function showCircle() { // show background circles in view
                 el.x6 = false;
             }
         } else {
-            
+            console.log("error");
         }
     }
 }
