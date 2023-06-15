@@ -281,7 +281,13 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                     // console.log(el.bgC);
                     // setTimeout(function() {
 
-                    showCircle();
+                    for (i = 0; i <= _L; i++) {
+                        if (el.bgC[i].classList.contains("z_O") || el.bgC[i].classList.contains("d_n")) {
+                            showCircle();
+                            break;
+                        }
+                    }
+                    // showCircle();
 
                     // }, op.t);
                 }, op.te);
