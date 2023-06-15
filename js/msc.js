@@ -859,8 +859,9 @@ function pL() { // site parameters loop
         }*/
     }
 
-    if (pg.msg.io) { // hide buggy io messages
-
+    if (pg.msg.io && pg.msg.ioS) { // hide buggy io messages
+        var e = op.d.getTime();
+        
     }
 
     if (rL && rL.i) {
