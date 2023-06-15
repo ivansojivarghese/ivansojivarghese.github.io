@@ -34,6 +34,7 @@ var fchL = {
         x3 : false, 
         x4 : false, 
         x5 : false,
+        x6 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -205,19 +206,24 @@ function peek() {
 }
 
 function showCircle() { // show background circles in view
-    var _L = el.bgC.length - 1,
-        tgt;
-    for (i = 0; i <= _L; i++) {
-        if (el.bgC[i].classList.contains("z_O")) {
-            tgt = i; 
-            break;
+    if (!el.x6) {
+        var _L = el.bgC.length - 1,
+            tgt;
+        el.x6 = true;
+        for (i = 0; i <= _L; i++) {
+            if (el.bgC[i].classList.contains("z_O")) {
+                tgt = i; 
+                break;
+            }
         }
-    }
-    e_Fd(el.bgC[tgt], false);
-    if (tgt < _L) {
-        setTimeout(function() {
-            showCircle();
-        }, op.t);
+        e_Fd(el.bgC[tgt], false);
+        if (tgt < _L) {
+            setTimeout(function() {
+                showCircle();
+            }, op.t);
+        } else {
+            el.x6 = false;
+        }
     }
 }
 
