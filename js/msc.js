@@ -1005,8 +1005,6 @@ function pL() { // site parameters loop
             e_Fd(eR.tr, true);
             e_Fd(disp, false);
 
-            pgTasks("sc", false);
-
             setTimeout(function() {
                 if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user + non-landscape mode
                     scr_t(true, null); // enable scrolling
@@ -1030,6 +1028,7 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
                 }
+                pgTasks("sc", false);
             }, op.t);
         }
     }
@@ -1059,8 +1058,6 @@ function pL() { // site parameters loop
             e_Fd(eR.fS, true);
             e_Fd(disp, false);
 
-            pgTasks("sc", false);
-
             setTimeout(function() {
                 if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user
                     scr_t(true, null); // enable scrolling
@@ -1084,6 +1081,7 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
                 }
+                pgTasks("sc", false);
             }, op.t);
         }
     }
@@ -2216,13 +2214,12 @@ window.addEventListener("resize", function(e) {
             e_Fd(eR.z, true);  // hide message
             e_Fd(disp, false); // show page
 
-            pgTasks("sc", false);
-
             setTimeout(function() {
                 eR.m.classList.add("d_n"); // hide error_main
                 eR.z.classList.add("d_n"); 
                 eR.s = false;
                 eR.p = "";
+                pgTasks("sc", false);
             }, op.t);  
 
         }
@@ -2387,12 +2384,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         setTimeout(function() {
                             e_Fd(disp, false); // fade in display
 
-                            pgTasks("sc", false);
-
                             if (!eR.s && !pg.cond.a && !hm.s) { 
                                 scr_t(true, null); // enable scrolling
                                 op.s = false;
                             }
+                            setTimeout(function() {
+                                pgTasks("sc", false);
+                            }, op.t);
                         }, op.t);
 
                     } else if (wiD >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
