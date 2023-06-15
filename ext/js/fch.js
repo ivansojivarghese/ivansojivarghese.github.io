@@ -35,6 +35,7 @@ var fchL = {
         x4 : false, 
         x5 : false,
         x6 : false,
+        x7 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -206,12 +207,13 @@ function peek() {
 }
 
 function showCircle() { // show background circles in view
-    if (!el.x6) {
+    if (!el.x6 || el.x7) {
         var _L = el.bgC.length - 1,
             tgt;
         el.x6 = true;
         for (i = 0; i <= _L; i++) {
             if (el.bgC[i].classList.contains("z_O")) {
+                el.x7 = true;
                 tgt = i; 
                 break;
             }
