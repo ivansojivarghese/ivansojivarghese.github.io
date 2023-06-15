@@ -233,7 +233,6 @@ function showCircle() { // show background circles in view
                             break;
                         }
                     }
-                    // showCircle();
                 }, op.t);
             } else {
                 el.x6 = false;
@@ -244,11 +243,6 @@ function showCircle() { // show background circles in view
             console.log(el.bgC[1].className);
             console.log(el.bgC[2].className);
             console.log(el.bgC[3].className);
-            /*
-            for (i = 0; i <= _L; i++) {
-                el.bgC[i].classList.add("d_n");
-                // e_Fd(el.bgC[i], true);
-            }*/
         }
     }
 }
@@ -266,11 +260,6 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 el.x5 = true;
                 for (i = 0; i <= _L; i++) {
                     el.bgC[i].classList.add("d_n");
-                    // e_Fd(el.bgC[i], true);
-                    /*
-                    if (i === _L) {
-                        el.x5 = true;
-                    }*/
                 }
             } else if (!m && el.x5) {
                 el.x5 = false;
@@ -280,22 +269,12 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                     el.bgC[i].classList.add("d_n");
                 }
                 setTimeout(function() {
-                    /*
-                    for (i = 0; i <= _L; i++) {
-                        el.bgC[i].classList.remove("d_n");
-                    }*/
-                    // console.log(el.bgC);
-                    // setTimeout(function() {
-
                     for (i = 0; i <= _L; i++) {
                         if (el.bgC[i].classList.contains("z_O") || el.bgC[i].classList.contains("d_n")) {
                             showCircle();
                             break;
                         }
                     }
-                    // showCircle();
-
-                    // }, op.t);
                 }, op.te);
             }
         }
