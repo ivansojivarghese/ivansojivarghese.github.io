@@ -33,6 +33,7 @@ var fchL = {
         x2 : false, 
         x3 : false, 
         x4 : false, 
+        c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
         lk3 : document.getElementById("link_3"),
@@ -136,6 +137,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
     // scroll arrow
     var h = getBd(el.lk3, "height");
     if (h >= 65) { // min. 65px height required
+        el.c4 = true;
         el.bgC4.classList.remove("d_n"); // show circle 4
         if (h >= 85) {
             if (!el.x4) {
@@ -227,6 +229,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 e_Fd(el.bgC[i], true);
             }
         } else {
+            _L = 
             setTimeout(function() {
                 for (i = 0; i <= _L; i++) {
                     el.bgC[i].classList.remove("d_n");
