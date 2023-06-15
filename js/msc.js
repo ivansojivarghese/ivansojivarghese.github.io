@@ -2409,7 +2409,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         setTimeout(function() {
                             e_Fd(disp, false); // fade in display
 
-                            // pgTasks("sc", false);
+                            pgTasks("sc", false);
 
                             if (!eR.s && !pg.cond.a && !hm.s) { 
                                 scr_t(true, null); // enable scrolling
