@@ -46,7 +46,6 @@ var wH = window.outerHeight, // height
         L : null, // loop variables
         Lc : null,
         aL : false, // check for alternate (prevent multiple function calls)
-        aS : false, // check if @scoll mode
         aT : true // scrolled at top check
     },
     tch = { // touch
@@ -355,6 +354,7 @@ op = {
     nc : false, // online status change
     nR : false, // offline reload check
     s : false, // check boolean - 'force' disable scroll
+    sc : false, // scroll status
     d : new Date(), // instance of Date
     p : { // pointer (press/tap/click)
         e : true, // execution boolean
@@ -1916,7 +1916,7 @@ function scr_t(s, pg) { // scroll toggle
     var h = document.documentElement,
         b = document.body;
     if (s && !pos.aL) { // enable
-        pos.aS = true;
+        op.sc = true;
         if (pg) { // if page
             /*
             if (op.b.s) { // safari compatibility
@@ -1935,7 +1935,7 @@ function scr_t(s, pg) { // scroll toggle
             pos.aL = true; // alternated
         }
     } else if (!s && pos.aL) { // disable
-        pos.aS = false;
+        op.sc = false;
         if (pg) {
             /*
             if (op.b.s) { // safari compatibility
@@ -1990,7 +1990,7 @@ function SmoothScroll(target, speed, smooth) {
 	target.addEventListener('DOMMouseScroll', scrolled, { passive: false });
 
 	function scrolled(e) {
-        if (!op.s && pos.aS) { // if scrolling enabled
+        if (!op.s && op.sc) { // if scrolling enabled
 		    e.preventDefault(); // disable default scrolling
 
             var delta = normalizeWheelDelta(e);
