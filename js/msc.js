@@ -46,6 +46,7 @@ var wH = window.outerHeight, // height
         L : null, // loop variables
         Lc : null,
         aL : false, // check for alternate (prevent multiple function calls)
+        aS : false, // check if @scoll mode
         aT : true // scrolled at top check
     },
     tch = { // touch
@@ -1915,6 +1916,7 @@ function scr_t(s, pg) { // scroll toggle
     var h = document.documentElement,
         b = document.body;
     if (s && !pos.aL) { // enable
+        pos.aS = true;
         if (pg) { // if page
             /*
             if (op.b.s) { // safari compatibility
@@ -1933,6 +1935,7 @@ function scr_t(s, pg) { // scroll toggle
             pos.aL = true; // alternated
         }
     } else if (!s && pos.aL) { // disable
+        pos.aS = false;
         if (pg) {
             /*
             if (op.b.s) { // safari compatibility
@@ -1987,7 +1990,7 @@ function SmoothScroll(target, speed, smooth) {
 	target.addEventListener('DOMMouseScroll', scrolled, { passive: false });
 
 	function scrolled(e) {
-        if (!op.s && pos.aL) { // if scrolling enabled
+        if (!op.s && pos.aS) { // if scrolling enabled
 		    e.preventDefault(); // disable default scrolling
 
             var delta = normalizeWheelDelta(e);
