@@ -1987,15 +1987,17 @@ function SmoothScroll(target, speed, smooth) {
 	target.addEventListener('DOMMouseScroll', scrolled, { passive: false });
 
 	function scrolled(e) {
-		e.preventDefault(); // disable default scrolling
+        if (!op.s && pos.aL) { // if scrolling enabled
+		    e.preventDefault(); // disable default scrolling
 
-		var delta = normalizeWheelDelta(e);
+            var delta = normalizeWheelDelta(e);
 
-		pos += -delta * speed;
-		pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)); // limit scrolling
+            pos += -delta * speed;
+            pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)); // limit scrolling
 
-		if (!moving) {
-            update();
+            if (!moving) {
+                update();
+            }
         }
 	}
 
