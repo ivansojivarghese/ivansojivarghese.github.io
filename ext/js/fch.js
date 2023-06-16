@@ -211,7 +211,10 @@ function showCircle() { // show background circles in view
     if (!el.x6 || el.x7) {
         var _L = el.bgC.length - 1,
             tgt;
+
+        _L = el.c4 ? _L : _L - 1;
         el.x6 = true;
+        
         for (i = 0; i <= _L; i++) {
             if (el.bgC[i].classList.contains("z_O") || el.bgC[i].classList.contains("d_n")) {
                 el.x7 = true;
@@ -237,13 +240,13 @@ function showCircle() { // show background circles in view
             } else {
                 el.x6 = false;
             }
-        } else {
+        } /*else {
             console.log("error");
             console.log(el.bgC[0].className);
             console.log(el.bgC[1].className);
             console.log(el.bgC[2].className);
             console.log(el.bgC[3].className);
-        }
+        }*/
     }
 }
 
@@ -256,6 +259,8 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
             }, op.t);
 
             var _L = el.bgC.length - 1;
+            _L = el.c4 ? _L : _L - 1;
+
             if (m && !el.x5) {
                 el.x5 = true;
                 for (i = 0; i <= _L; i++) {
@@ -263,7 +268,6 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 }
             } else if (!m && el.x5) {
                 el.x5 = false;
-                _L = el.c4 ? _L : _L - 1;
                 for (i = 0; i <= _L; i++) {
                     e_Fd(el.bgC[i], true);
                     el.bgC[i].classList.add("d_n");
