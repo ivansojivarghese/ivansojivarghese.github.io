@@ -29,14 +29,6 @@
     width: 0.35rem;
 }
 
-#hamburger_button .stroke:nth-child(1) {
-    width: 1rem;
-}
-
-#hamburger_button .stroke:nth-child(2) {
-    width: 1.75rem;
-}
-
 #profile_image {
     width: 18rem;
     height: 18rem;
