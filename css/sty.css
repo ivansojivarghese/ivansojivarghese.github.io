@@ -271,6 +271,10 @@ div, .tint {
     opacity: 0 !important;
 }
 
+.z_F {
+    opacity: 1 !important;
+}
+
 .tint {
     opacity: 0.85;
 }

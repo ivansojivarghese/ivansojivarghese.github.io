@@ -165,8 +165,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
         e_Fd(el.chev, false); // show chevron
     }
-    if (!el.x2) { // show background circles at load
+    if (!el.x2) { // show background circles + ham. button strokes at load
         el.x2 = true;
+        hamButtonLoad(); // ham. button
         setTimeout(function() {
             showCircle();
         }, op.te);

@@ -25,6 +25,7 @@ hm = { // hamburger menu object
     m : false, // mouse-move status (within button)
     a : false, // click activity (from open menu - close menu)
     k3 : false, // link_3 activation
+    bL : null, // button strokes load loop
     id : 0 // input id
 };
 
@@ -235,6 +236,24 @@ function h_mTg() { // ham. menu toggle
     }
 }
 
+function hamButtonLoad() {
+    var j = 0,
+        v = [1, 1.75, 2.5],
+        showStroke = function() {
+            if (j < hm.k.length) {
+                hm.k[j].classList.add("z_F");
+                hm.k[j].style.width = v[j] + "rem";
+                j++;
+            } else {
+                hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                clearInterval(hm.bL);
+            }
+        };
+
+    showStroke();
+    hm.bL = setInterval(showStroke, op.t);
+}
+
 
 // hm.b.addEventListener("mouseover", h_mBv); // hover effect (with cursor only)
 // hm.b.addEventListener("mouseout", h_mBv);
@@ -244,7 +263,7 @@ hm.b.addEventListener("mousemove", function(event) {
     event.stopPropagation(); // avoid 'rippling' the event to parents (esp. window)
 });*/
 
-hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+// hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
 
 
 window.addEventListener("mousemove", function() { // cursor movement through window
