@@ -138,10 +138,12 @@ function js_live() { // update js - in live
     }
     if (!pos.aT && !el.x9) { // hide hamburger button
         el.x9 = true;
-        hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+        hamButtonLoad(false);
+        // hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
     } else if (pos.aT && el.x9) {
         el.x9 = false;
-        hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+        hamButtonLoad(true);
+        // hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
     }
 }
 
@@ -176,7 +178,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
     if (!el.x2) { // show background circles + ham. button strokes at load
         el.x2 = true;
         setTimeout(function() {
-            hamButtonLoad(); // ham. button
+            hamButtonLoad(true); // ham. button
         }, op.t);
         setTimeout(function() {
             showCircle();

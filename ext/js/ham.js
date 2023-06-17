@@ -241,22 +241,40 @@ function h_mTg() { // ham. menu toggle
 }
 
 function hamButtonLoad() {
-    var j = 0,
-        v = [1, 1.75, 2.5],
-        showStroke = function() {
-            if (j < hm.k.length) {
-                e_Fd(hm.k[j], false);
-                hm.k[j].classList.add("z_F");
-                hm.k[j].style.width = v[j] + "rem";
-                j++;
-            } else {
-                hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                clearInterval(hm.bL);
-            }
-        };
+    if (m) { // show
+        var j = 0,
+            v = [1, 1.75, 2.5],
+            showStroke = function() {
+                if (j < hm.k.length) {
+                    e_Fd(hm.k[j], false);
+                    hm.k[j].classList.add("z_F");
+                    hm.k[j].style.width = v[j] + "rem";
+                    j++;
+                } else {
+                    hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                    clearInterval(hm.bL);
+                }
+            };
 
-    showStroke();
-    hm.bL = setInterval(showStroke, (op.t / 2));
+        showStroke();
+        hm.bL = setInterval(showStroke, (op.t / 2));
+    } else { // hide
+        var j = hm.k.length - 1,
+            hideStroke = function() {
+                if (j >= 0) {
+                    e_Fd(hm.k[j], true);
+                    hm.k[j].classList.remove("z_F");
+                    hm.k[j].style.width = "";
+                    j--;
+                } else {
+                    hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                    clearInterval(hm.bL);
+                }
+            };
+
+        hideStroke();
+        hm.bL = setInterval(hideStroke, (op.t / 2));
+    }
 }
 
 
