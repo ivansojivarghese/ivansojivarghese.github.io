@@ -137,6 +137,8 @@ function js_live() { // update js - in live
     }
     if (!pos.aT) { // hide hamburger button
         hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+    } else if (pos.aT) {
+        hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
     }
 }
 
