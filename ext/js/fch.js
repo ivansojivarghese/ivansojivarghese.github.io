@@ -167,7 +167,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
     }
     if (!el.x2) { // show background circles + ham. button strokes at load
         el.x2 = true;
-        hamButtonLoad(); // ham. button
+        setTimeout(function() {
+            hamButtonLoad(); // ham. button
+        }, op.t);
         setTimeout(function() {
             showCircle();
         }, op.te);
