@@ -241,6 +241,7 @@ function hamButtonLoad() {
         v = [1, 1.75, 2.5],
         showStroke = function() {
             if (j < hm.k.length) {
+                e_Fd(hm.k[j], false);
                 hm.k[j].classList.add("z_F");
                 hm.k[j].style.width = v[j] + "rem";
                 j++;
