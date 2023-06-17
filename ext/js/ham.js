@@ -66,6 +66,7 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         hm.zh = false;
         
         // c_rep(hm.k[0], "bC_d", "bC_L"); // change (upper/lower) strokes to light contrast (white) base colours
+        hm.k[1].classList.remove("z_F");
         e_Fd(hm.k[1], true); // hide middle stroke from view
         // c_rep(hm.k[2], "bC_d", "bC_L");
 
@@ -80,6 +81,7 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
         */
     } else { // if closing
         // c_rep(hm.k[0], "bC_L", "bC_d"); // reverse effect
+        hm.k[1].classList.add("z_F");
         e_Fd(hm.k[1], false);
         // c_rep(hm.k[2], "bC_L", "bC_d");
 
