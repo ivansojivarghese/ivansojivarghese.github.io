@@ -24,23 +24,14 @@
     padding: 1rem 0;
     text-align: center;
 }
-/*
-#h_tint {
-    background-color: rgba(48, 48, 48, 0);
+
+#hamburger_button .stroke:nth-child(1) {
+
 }
 
-#hamburger_button {
-    width: 2.5rem;
-    height: 1.85rem;
-    padding: 1.575rem 1.25rem; /* adds to 5rem of width/height dimensions 
-    margin-left: calc(100vw - (5rem + 1.5rem)); /*marginalised to the right - within 1.5rem of viewport edge 
+#hamburger_button .stroke:nth-child(2) {
+    
 }
-
-#hamburger_button .stroke {
-    width: 2.5rem;
-    height: 0.35rem;
-    margin-bottom: .4rem;
-}*/
 
 #profile_image {
     width: 18rem;
