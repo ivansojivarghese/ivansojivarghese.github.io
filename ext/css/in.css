@@ -109,7 +109,7 @@
     backdrop-filter: var(--backdrop-filter-blur);
 }
 
-.bg-circle {
+.bg-circle, .ham .stroke {
     opacity: 0.5;
 }
 
