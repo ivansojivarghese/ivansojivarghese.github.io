@@ -240,7 +240,7 @@ function h_mTg() { // ham. menu toggle
     }
 }
 
-function hamButtonLoad() {
+function hamButtonLoad(m) {
     if (m) { // show
         var j = 0,
             v = [1, 1.75, 2.5],
