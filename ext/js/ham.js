@@ -72,6 +72,7 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
 
         // hm.b.classList.add("md"); // add a modifier (addition of bkCol change on :active)
 
+        hm.k[0].style.width = "2.5rem";
         hm.k[0].style.transform = "translateY(0.75rem) rotate(45deg)"; // rotate to form a cross (closing icon)
         hm.k[2].style.transform = "translateY(-0.75rem) rotate(-45deg)";
 
@@ -87,6 +88,7 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
 
         hm.b.classList.remove("md");
 
+        hm.k[0].style.width = "1rem";
         hm.k[0].style.transform = "";
         hm.k[2].style.transform = "";
         /*
