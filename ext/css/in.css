@@ -25,6 +25,10 @@
     text-align: center;
 }
 
+#hamburger_button .stroke {
+    width: 0.35rem;
+}
+
 #hamburger_button .stroke:nth-child(1) {
     width: 1rem;
 }
