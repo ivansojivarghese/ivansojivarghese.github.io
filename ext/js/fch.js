@@ -135,6 +135,9 @@ function js_live() { // update js - in live
             }, op.t);
         }
     }
+    if (!pos.aT) { // hide hamburger button
+        hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+    }
 }
 
 function load_eN() { // load, after cookie acceptance (page specific)
