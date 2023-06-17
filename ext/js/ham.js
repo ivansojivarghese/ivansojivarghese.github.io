@@ -252,7 +252,7 @@ function hamButtonLoad() {
         };
 
     showStroke();
-    hm.bL = setInterval(showStroke, op.t);
+    hm.bL = setInterval(showStroke, (op.t / 2));
 }
 
 
