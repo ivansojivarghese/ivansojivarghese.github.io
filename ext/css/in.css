@@ -109,7 +109,7 @@
     backdrop-filter: var(--backdrop-filter-blur);
 }
 
-.bg-circle, .ham .stroke {
+.bg-circle, #hamburger_button .stroke {
     opacity: 0.5;
 }
 
