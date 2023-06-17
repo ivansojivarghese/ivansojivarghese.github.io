@@ -37,6 +37,7 @@ var fchL = {
         x6 : false,
         x7 : false,
         x8 : false,
+        x9 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -135,9 +136,11 @@ function js_live() { // update js - in live
             }, op.t);
         }
     }
-    if (!pos.aT) { // hide hamburger button
+    if (!pos.aT && !el.x9) { // hide hamburger button
+        el.x9 = true;
         hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-    } else if (pos.aT) {
+    } else if (pos.aT && el.x9) {
+        el.x9 = false;
         hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
     }
 }
