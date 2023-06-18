@@ -3,10 +3,9 @@
 
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
-        L : document.getElementById("lead_sc"),
-        Li : document.getElementById("lead_int"),
-        s : true, // code execution status
-        s2 : false
+        L : document.getElementById("lead_sc")
+        // s : true, // code execution status
+        // s2 : false
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -81,10 +80,11 @@ function sc_L() { // functions (live on scroll)
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
 
+        /*
         if (b.L.top < 0 && !im.s2) {
             im.s2 = true;
             e_Fd(im.Li, false); // display #lead_sc header
-        }
+        }*/
     }
 }
 
