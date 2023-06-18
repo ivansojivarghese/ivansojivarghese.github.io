@@ -5,8 +5,8 @@ var im = { // #intro_main
         el : document.getElementById("intro_main"),
         L : document.getElementById("lead_sc"),
         Lp1 : document.getElementById("pLa-1"),
-        Lp2 : document.getElementById("pLa-2"),
-        s2 : false
+        Lp2 : document.getElementById("pLa-2")
+        // s2 : false
         // s : true, // code execution status
     },
     sI_1 = { // stats numerals
@@ -82,9 +82,9 @@ function sc_L() { // functions (live on scroll)
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
 
-        if (b.L.top < aH && !im.s2) {
-            im.s2 = true;
-            e_Fd(im.Li, false); // display #lead_sc header
+        if (b.L.top < aH) {
+            im.Lp1.style.transform = "rotate(90deg) ";
+            im.Lp2.style.transform = "rotate(90deg) ";
         }
     }
 }
