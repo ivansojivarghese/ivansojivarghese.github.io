@@ -83,7 +83,7 @@ function sc_L() { // functions (live on scroll)
 
         if (b.L.top && b.L.top < aH && !im.s2) {
             im.s2 = true;
-            e_Fd(im.Li, false); // display
+            e_Fd(im.Li, false); // display #lead_sc header
         }
     }
 }
