@@ -79,7 +79,7 @@ function sc_L() { // functions (live on scroll)
 
         //////////////////////////////////
 
-        im.L.style.transform = "translateY(" + (pos.y * -0.2) + "px)"; // #lead_sc
+        im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
 
         if (b.L.top < aH) {
             
