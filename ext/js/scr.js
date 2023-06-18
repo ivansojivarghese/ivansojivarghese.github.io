@@ -83,8 +83,8 @@ function sc_L() { // functions (live on scroll)
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
 
         if (b.L.top < aH) {
-            im.Lp1.style.transform = "rotate(90deg) translateY(" + (pos.y * 0.25) + "px)";
-            im.Lp2.style.transform = "rotate(90deg) translateY(" + (pos.y * 0.5) + "px)";
+            im.Lp1.style.transform = "translateY(" + (pos.y * 0.25) + "px) rotate(90deg)";
+            im.Lp2.style.transform = "translateY(" + (pos.y * 0.5) + "px) rotate(90deg)";
         }
     }
 }
