@@ -3,7 +3,9 @@
 
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
-        L : document.getElementById("lead_sc")
+        L : document.getElementById("lead_sc"),
+        Lp1 : document.getElementById("pLa-1"),
+        Lp2 : document.getElementById("pLa-2")
         // s : true, // code execution status
         // s2 : false
     },
