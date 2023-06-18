@@ -156,3 +156,7 @@
 #lead_wrap {
     padding-top: calc(100vh - 7rem);
 }
+
+.q_Info {
+    margin-top: calc(100vh - 3.5rem);
+}
