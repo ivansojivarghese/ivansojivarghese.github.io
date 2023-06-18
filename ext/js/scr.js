@@ -79,7 +79,7 @@ function sc_L() { // functions (live on scroll)
 
         //////////////////////////////////
 
-        im.L.style.transform = "translateY(" + (pos.y * 0.7) + "px)";
+        im.L.style.transform = "translateY(" + (pos.y * -0.7) + "px)";
 
         if (b.L.top < aH) {
             
