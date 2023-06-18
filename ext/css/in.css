@@ -152,3 +152,7 @@
 #intro_ws {
     height: 8rem;
 }
+
+#lead_wrap {
+    padding-top: calc(100vh - 7rem);
+}
