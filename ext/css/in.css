@@ -156,3 +156,7 @@
 #lead_wrap {
     padding-top: calc(100vh - 7rem);
 }
+
+.parallax_la {
+    top: 3rem;
+}
