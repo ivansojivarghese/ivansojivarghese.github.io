@@ -4,7 +4,6 @@
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
         L : document.getElementById("lead_sc"),
-        Lc : document.getElementById("lead_c"),
         // j : 0,
         // p : 0.5, // parallax scroll constant
         s : true // code execution status
@@ -79,8 +78,6 @@ function sc_L() { // functions (live on scroll)
         }*/
 
         //////////////////////////////////
-
-        im.Lc.style.transform = "translateY(" + (pos.y * -0.7) + "px)";
 
         if (b.L.top < aH) {
             
