@@ -159,4 +159,13 @@
 
 .parallax_la {
     top: 3rem;
+    transform: rotate(90deg);
+}
+
+#pLa-1 {
+    left: calc(80% - 1.8rem);
+}
+
+#pLa-2 {
+    left: 80%;
 }
