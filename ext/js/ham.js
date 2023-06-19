@@ -248,6 +248,7 @@ function hamButtonLoad(m) {
             showStroke = function() {
                 if (j < hm.k.length) {
                     e_Fd(hm.k[j], false);
+                    hm.k[j].classList.remove("z_O");
                     hm.k[j].classList.add("z_F");
                     hm.k[j].style.width = v[j] + "rem";
                     j++;
@@ -264,6 +265,7 @@ function hamButtonLoad(m) {
             hideStroke = function() {
                 if (j >= 0) {
                     e_Fd(hm.k[j], true);
+                    hm.k[j].classList.add("z_O");
                     hm.k[j].classList.remove("z_F");
                     hm.k[j].style.width = "";
                     j--;
