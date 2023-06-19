@@ -113,11 +113,9 @@ function sc_L() { // functions (live on scroll)
             }
         }
 
-        if (b.pL3 < 0) { // parallax arrow 3
+        if (b.pL3.right > wiD) { // parallax arrow 3
             e_Fd(im.Lp3, false);
-            setTimeout(function() {
-                im.pL3.classList.add("d_n");
-            }, op.t);
+            im.Lp3.style.transform = "translateX(" + (wiD) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
         } else {
 
         }
