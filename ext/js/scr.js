@@ -5,7 +5,8 @@ var im = { // #intro_main
         el : document.getElementById("intro_main"),
         L : document.getElementById("lead_sc"),
         Lp1 : document.getElementById("pLa-1"),
-        Lp2 : document.getElementById("pLa-2")
+        Lp2 : document.getElementById("pLa-2"),
+        Lp3 : document.getElementById("pLa-3")
         // s2 : false
         // s : true, // code execution status
     },
@@ -81,10 +82,11 @@ function sc_L() { // functions (live on scroll)
         //////////////////////////////////
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
+        im.Lp3.style.transform = "translateY(" + (pos.y * -0.4) + "px)"; // parallax arrow 3
 
         if (b.L.top < aH) {
-            im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)";
-            im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)";
+            im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
+            im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
         }
     }
 
