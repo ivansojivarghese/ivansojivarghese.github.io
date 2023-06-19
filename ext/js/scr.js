@@ -91,11 +91,13 @@ function sc_L() { // functions (live on scroll)
                 im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
             }
 
-            if (b.L.bottom < aH) {
-                var r = aH - b.L.bottom;
-                im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
-            } else {
-                im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
+            if (!im.s2)
+                if (b.L.bottom < aH) {
+                    var r = aH - b.L.bottom;
+                    im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
+                } else {
+                    im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
+                }
             }
 
         } else { // upward scroll
@@ -105,11 +107,13 @@ function sc_L() { // functions (live on scroll)
                 im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(-90deg)"; // parallax arrow 2
             }
 
-            if (b.L.bottom < aH) {
-                var r = aH - b.L.bottom;
-                im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px) rotate(180deg)"; // parallax arrow 3
-            } else {
-                im.Lp3.style.transform = "translateX(-2rem) rotate(180deg)"; // parallax arrow 3
+            if (!im.s2) {
+                if (b.L.bottom < aH) {
+                    var r = aH - b.L.bottom;
+                    im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px) rotate(180deg)"; // parallax arrow 3
+                } else {
+                    im.Lp3.style.transform = "translateX(-2rem) rotate(180deg)"; // parallax arrow 3
+                }
             }
         }
 
