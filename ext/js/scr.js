@@ -90,6 +90,10 @@ function sc_L() { // functions (live on scroll)
 
         if (pos.r) { // downward scroll
 
+            im.Lp3.classList.add("trs");
+            setTimeout(function() {
+                im.Lp3.classList.remove("trs");
+            }, op.t);
             if (b.L.bottom < aH) {
                 var r = aH - b.L.bottom;
                 im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
