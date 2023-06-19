@@ -89,7 +89,7 @@ function sc_L() { // functions (live on scroll)
         }
 
         if (b.L.bottom < aH) {
-            im.Lp3.style.transform = "translateX(" + (pos.y * 0.1) + ") translateY(" + (pos.y * -0.1) + "px)"; // parallax arrow 3
+            im.Lp3.style.transform = "translateX(" + (pos.y * 0.1) + "px) translateY(" + (pos.y * -0.1) + "px)"; // parallax arrow 3
         } else {
             im.Lp3.style.transform = "translateX(-5rem) translateY(" + (pos.y * -0.1) + "px)"; // parallax arrow 3
         }
