@@ -138,12 +138,16 @@ function js_live() { // update js - in live
     }
     if (!pos.aT && !el.x9) { // hide hamburger button
         setTimeout(function() {
-            el.x9 = true;
+            if (!pos.aT) {
+                el.x9 = true;
+            }
         }, op.t);
         hamButtonLoad(false);
     } else if (pos.aT && el.x9) {
         setTimeout(function() {
-            el.x9 = false;
+            if (pos.aT) {
+                el.x9 = false;
+            }
         }, op.t);
         hamButtonLoad(true);
     }
