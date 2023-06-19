@@ -82,11 +82,15 @@ function sc_L() { // functions (live on scroll)
         //////////////////////////////////
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
-        im.Lp3.style.transform = "translateX(-2rem) translateY(" + (pos.y * -0.1) + "px)"; // parallax arrow 3
+        im.Lp3.style.transform = "translateX(-5rem) translateY(" + (pos.y * -0.1) + "px)"; // parallax arrow 3
 
         if (b.L.top < aH) {
             im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
             im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
+        }
+
+        if (b.L.bottom < aH) {
+            im.Lp3.style.transform = "translateX(" + (pos.y * 0.1) + ") translateY(" + (pos.y * -0.1) + "px)"; // parallax arrow 3
         }
     }
 
