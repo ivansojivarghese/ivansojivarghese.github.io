@@ -37,7 +37,8 @@ var im = { // #intro_main
 function sc_L() { // functions (live on scroll)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
         b = { // element bounds
-            L : im.L.getBoundingClientRect() // #lead_sc
+            L : im.L.getBoundingClientRect(), // #lead_sc
+            pL3 : im.Lp3.getBoundingClientRect() // parallax arrow 3
         };
 
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
@@ -110,6 +111,15 @@ function sc_L() { // functions (live on scroll)
             } else {
                 im.Lp3.style.transform = "translateX(-2rem) rotate(180deg)"; // parallax arrow 3
             }
+        }
+
+        if (b.pL3 < 0) { // parallax arrow 3
+            e_Fd(im.Lp3, false);
+            setTimeout(function() {
+                im.pL3.classList.add("d_n");
+            }, op.t);
+        } else {
+
         }
     }
 
