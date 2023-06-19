@@ -89,7 +89,6 @@ function sc_L() { // functions (live on scroll)
         }
 
         if (pos.r) { // downward scroll
-
             im.Lp3.classList.add("trs");
             setTimeout(function() {
                 im.Lp3.classList.remove("trs");
@@ -100,9 +99,7 @@ function sc_L() { // functions (live on scroll)
             } else {
                 im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
             }
-
         } else { // upward scroll
-
             im.Lp3.classList.add("trs");
             setTimeout(function() {
                 im.Lp3.classList.remove("trs");
@@ -113,7 +110,6 @@ function sc_L() { // functions (live on scroll)
             } else {
                 im.Lp3.style.transform = "translateX(-2rem) rotate(180deg)"; // parallax arrow 3
             }
-
         }
     }
 
