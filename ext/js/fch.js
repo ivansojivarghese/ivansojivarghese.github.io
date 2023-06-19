@@ -139,11 +139,9 @@ function js_live() { // update js - in live
     if (!pos.aT && !el.x9) { // hide hamburger button
         el.x9 = true;
         hamButtonLoad(false);
-        // hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
     } else if (pos.aT && el.x9) {
         el.x9 = false;
         hamButtonLoad(true);
-        // hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
     }
 }
 

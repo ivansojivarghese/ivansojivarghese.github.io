@@ -25,7 +25,8 @@ hm = { // hamburger menu object
     m : false, // mouse-move status (within button)
     a : false, // click activity (from open menu - close menu)
     k3 : false, // link_3 activation
-    bL : null, // button strokes load loop
+    bLS : null, // button strokes show loop
+    bLH : null, // button strokes hide loop
     id : 0 // input id
 };
 
@@ -252,12 +253,12 @@ function hamButtonLoad(m) {
                     j++;
                 } else {
                     hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                    clearInterval(hm.bL);
+                    clearInterval(hm.bLS);
                 }
             };
 
         showStroke();
-        hm.bL = setInterval(showStroke, (op.t / 2));
+        hm.bLS = setInterval(showStroke, (op.t / 2));
     } else { // hide
         var j = hm.k.length - 1,
             hideStroke = function() {
@@ -268,12 +269,12 @@ function hamButtonLoad(m) {
                     j--;
                 } else {
                     hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                    clearInterval(hm.bL);
+                    clearInterval(hm.bLH);
                 }
             };
 
         hideStroke();
-        hm.bL = setInterval(hideStroke, (op.t / 2));
+        hm.bLH = setInterval(hideStroke, (op.t / 2));
     }
 }
 
