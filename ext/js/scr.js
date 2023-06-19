@@ -89,6 +89,9 @@ function sc_L() { // functions (live on scroll)
         }
 
         if (b.L.bottom < aH) {
+
+            var r = b.L.bottom / aH;
+
             im.Lp3.style.transform = "translateX(" + (pos.y * 0.1) + "px) translateY(" + (pos.y * -0.2) + "px)"; // parallax arrow 3
         } else {
             im.Lp3.style.transform = "translateX(-2rem) translateY(" + (pos.y * -0.2) + "px)"; // parallax arrow 3
