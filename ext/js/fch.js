@@ -137,18 +137,22 @@ function js_live() { // update js - in live
         }
     }
     if (!pos.aT && !el.x9) { // hide hamburger button
+        /*
         setTimeout(function() {
             if (!pos.aT) {
                 el.x9 = true;
             }
-        }, op.t);
+        }, op.t);*/
+        el.x9 = true;
         hamButtonLoad(false);
     } else if (pos.aT && el.x9) {
+        /*
         setTimeout(function() {
             if (pos.aT) {
                 el.x9 = false;
             }
-        }, op.t);
+        }, op.t);*/
+        el.x9 = false;
         hamButtonLoad(true);
     }
 }
