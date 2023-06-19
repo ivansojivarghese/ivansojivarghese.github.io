@@ -137,10 +137,14 @@ function js_live() { // update js - in live
         }
     }
     if (!pos.aT && !el.x9) { // hide hamburger button
-        el.x9 = true;
+        setTimeout(function() {
+            el.x9 = true;
+        }, op.t);
         hamButtonLoad(false);
     } else if (pos.aT && el.x9) {
-        el.x9 = false;
+        setTimeout(function() {
+            el.x9 = false;
+        }, op.t);
         hamButtonLoad(true);
     }
 }
