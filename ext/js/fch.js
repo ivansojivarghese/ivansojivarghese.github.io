@@ -137,21 +137,9 @@ function js_live() { // update js - in live
         }
     }
     if (!pos.aT && !el.x9) { // hide hamburger button
-        /*
-        setTimeout(function() {
-            if (!pos.aT) {
-                el.x9 = true;
-            }
-        }, op.t);*/
         el.x9 = true;
         hamButtonLoad(false);
     } else if (pos.aT && el.x9) {
-        /*
-        setTimeout(function() {
-            if (pos.aT) {
-                el.x9 = false;
-            }
-        }, op.t);*/
         el.x9 = false;
         hamButtonLoad(true);
     }
@@ -188,7 +176,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
     if (!el.x2) { // show background circles + ham. button strokes at load
         el.x2 = true;
         setTimeout(function() {
-            hamButtonLoad(true); // ham. button
+            if (pos.aT) {
+                hamButtonLoad(true); // ham. button
+            }
         }, op.t);
         setTimeout(function() {
             showCircle();
