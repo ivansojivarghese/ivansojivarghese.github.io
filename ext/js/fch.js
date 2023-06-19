@@ -177,6 +177,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         el.x2 = true;
         setTimeout(function() {
             if (pos.aT) {
+                el.x9 = false;
                 hamButtonLoad(true); // ham. button
             }
         }, op.t);
