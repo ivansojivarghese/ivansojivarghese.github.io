@@ -115,7 +115,7 @@ function sc_L() { // functions (live on scroll)
 
         if (b.pL3.right > wiD) { // parallax arrow 3
             e_Fd(im.Lp3, false);
-            im.Lp3.style.transform = "translateX(" + (wiD) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
+            im.Lp3.style.transform = "translateX(" + (wiD) + "px - 2rem) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
         } else {
 
         }
