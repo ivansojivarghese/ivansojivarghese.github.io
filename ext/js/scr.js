@@ -107,7 +107,7 @@ function sc_L() { // functions (live on scroll)
             }*/
 
             if (!pos.aT) {
-                if (!im.s5) {
+                if (!im.s5 || !pos.aTs) {
                     if (b.L.top < aH) {
                         im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
                         im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
