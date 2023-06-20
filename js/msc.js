@@ -46,7 +46,8 @@ var wH = window.outerHeight, // height
         L : null, // loop variables
         Lc : null,
         aL : false, // check for alternate (prevent multiple function calls)
-        aT : true // scrolled at top check
+        aT : true, // scrolled at top check (live)
+        aTs : true // scrolled at top (delayed)
     },
     tch = { // touch
         yA : 0, // touch initial
