@@ -9,7 +9,8 @@ var im = { // #intro_main
         Lp3 : document.getElementById("pLa-3"),
         Lp4 : document.getElementById("pLa-4"),
         s2 : false,
-        s3 : false
+        s3 : false,
+        s4 : false
         // s : true, // code execution status
     },
     sI_1 = { // stats numerals
@@ -94,8 +95,11 @@ function sc_L() { // functions (live on scroll)
                 im.s3 = false;
             }, op.t);*/
 
-            if (!pos.r) {
-                
+            if (!pos.r && !im.s4) {
+                im.s4 = true;
+                if () {
+
+                }
             }
 
             if (b.L.top < aH) {
