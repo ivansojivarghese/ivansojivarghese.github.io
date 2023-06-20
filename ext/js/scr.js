@@ -128,7 +128,7 @@ function sc_L() { // functions (live on scroll)
         
         if ((!pos.r || (pos.r && im.s4)) && !pos.aT) { // upward scroll
 
-            if (im.s5 || (pos.aTs /*|| !pos.aT*/)) {
+            if (im.s5 && (pos.aTs /*|| !pos.aT*/)) {
                 if (b.L.top < aH) {
                     im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(-90deg)"; // parallax arrow 1
                     im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(-90deg)"; // parallax arrow 2
