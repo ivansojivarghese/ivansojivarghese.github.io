@@ -122,6 +122,10 @@ function sc_L() { // functions (live on scroll)
             im.s2 = false;
             e_Fd(im.Lp3, true);
         }*/
+
+        if (b.pL3.bottom < (0 - b.pL3.height)) { // parallax arrow 3
+            im.Lp3.classList.add("d_n");
+        }
     }
 
     requestAnimationFrame(sc_L);
