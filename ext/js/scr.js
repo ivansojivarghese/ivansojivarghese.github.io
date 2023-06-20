@@ -36,7 +36,6 @@ var im = { // #intro_main
         _L : undefined,
         s : false
     };
-    // s_L = null; // loop variable
 
 
 function sc_L() { // functions (live on scroll)
@@ -146,5 +145,3 @@ function sc_L() { // functions (live on scroll)
 }
 
 sc_L();
-
-// s_L = setInterval(sc_L, op.Ls); // live loop
