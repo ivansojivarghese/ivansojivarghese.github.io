@@ -6,8 +6,8 @@ var im = { // #intro_main
         L : document.getElementById("lead_sc"),
         Lp1 : document.getElementById("pLa-1"),
         Lp2 : document.getElementById("pLa-2"),
-        Lp3 : document.getElementById("pLa-3")
-        // s2 : false
+        Lp3 : document.getElementById("pLa-3"),
+        s2 : false
         // s : true, // code execution status
     },
     sI_1 = { // stats numerals
@@ -124,8 +124,10 @@ function sc_L() { // functions (live on scroll)
         }*/
 
         if (b.pL3.bottom < (0 - b.pL3.height)) { // parallax arrow 3
+            im.s2 = true;
             c_rep(im.Lp3, "d_i", "d_n");
-        } else {
+        } else if (im.s2) {
+            im.s2 = false;
             c_rep(im.Lp3, "d_n", "d_i");
         }
     }
