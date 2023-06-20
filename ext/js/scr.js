@@ -122,7 +122,7 @@ function sc_L() { // functions (live on scroll)
             c_rep(im.Lp3, "d_i", "d_n");
         } else if (b.pL4.bottom > (0 - b.pL4.height) && im.s2) {
             im.s2 = false;
-            
+            c_rep(im.Lp3, "d_n", "d_i");
         }
     }
 
