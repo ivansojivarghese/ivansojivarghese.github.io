@@ -8,7 +8,8 @@ var im = { // #intro_main
         Lp2 : document.getElementById("pLa-2"),
         Lp3 : document.getElementById("pLa-3"),
         Lp4 : document.getElementById("pLa-4"),
-        s2 : false
+        s2 : false,
+        s3 : false
         // s : true, // code execution status
     },
     sI_1 = { // stats numerals
@@ -86,7 +87,11 @@ function sc_L() { // functions (live on scroll)
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
 
-        if (pos.r) { // downward scroll
+        if (pos.r && !im.s3) { // downward scroll
+            im.s3 = true;
+            setTimeout(function() {
+                im.s3 = false;
+            }, op.t);
 
             if (b.L.top < aH) {
                 im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
@@ -101,7 +106,11 @@ function sc_L() { // functions (live on scroll)
                 im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
             }
 
-        } else { // upward scroll
+        } else if (!pos.r && !im.s3) { // upward scroll
+            im.s3 = true;
+            setTimeout(function() {
+                im.s3 = false;
+            }, op.t);
 
             if (b.L.top < aH) {
                 im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(-90deg)"; // parallax arrow 1
