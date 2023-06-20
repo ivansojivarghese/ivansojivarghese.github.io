@@ -1224,6 +1224,23 @@ function pL() { // site parameters loop
     }
 }
 
+function checkScrollDir(ar) { // check direction of scroll
+    var _L = ar.length - 1,
+        res = new Array(_L).fill(null);
+
+    for (i = 0, j = 0; i <= _L; i++) {
+        if (ar[i - 1]) {
+            if (ar[i] > ar[i - 1]) {
+                res[j] = true;
+            } else if (ar[i] < ar[i - 1]) {
+                res[j] = false
+            } else if (ar[i] === ar[i - 1]) {
+                res[j] = null;
+            }
+        }
+    }
+}
+
 function c_Sr() { // check for scrolling activity (in live)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
@@ -1232,7 +1249,9 @@ function c_Sr() { // check for scrolling activity (in live)
 
         if (pos.y !== pos.a[_L]) {
             pos.c = true; // set scrolling to true
+
             pos.r = (pos.y > pos.a[_L]) ? true : false; // get direction of scroll
+
             pos.m = 0; // reset no. of matches - reset counter
             pos.d[pos.d.length] = pos.y; // update current y-pos into variable speed comparator array
 
