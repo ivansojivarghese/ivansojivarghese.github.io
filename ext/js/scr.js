@@ -124,7 +124,7 @@ function sc_L() { // functions (live on scroll)
         }*/
 
         if (b.pL3.bottom < (0 - b.pL3.height)) { // parallax arrow 3
-            im.Lp3.classList.add("d_n");
+            c_rep(im.Lp3, "d_i", "d_n");
         }
     }
 
