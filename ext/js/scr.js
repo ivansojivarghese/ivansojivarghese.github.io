@@ -101,29 +101,33 @@ function sc_L() { // functions (live on scroll)
                 }
             }*/
 
-            if (!im.s5) {
-                if (b.L.top < aH) {
-                    im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
-                    im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
-                }
+            if (!pos.aT) {
+                if (!im.s5) {
+                    if (b.L.top < aH) {
+                        im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
+                        im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
+                    }
 
-                if (b.L.bottom < aH) {
-                    var r = aH - b.L.bottom;
-                    im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
-                    im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)"; // parallax arrow 4 (hidden)
+                    if (b.L.bottom < aH) {
+                        var r = aH - b.L.bottom;
+                        im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
+                        im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)"; // parallax arrow 4 (hidden)
+                    } else {
+                        im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
+                    }
                 } else {
-                    im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
-                }
-            } else {
-                if (pos.r && !im.s4) {
-                    im.p = op.d.getTime(); // get time of change
-                    im.s4 = true;
-                } else if (pos.r && im.s4) {
-                    if ((op.d.getTime() - im.p) > op.t) {
-                        im.s5 = false; // confirmed
-                        im.s4 = false;
+                    if (pos.r && !im.s4) {
+                        im.p = op.d.getTime(); // get time of change
+                        im.s4 = true;
+                    } else if (pos.r && im.s4) {
+                        if ((op.d.getTime() - im.p) > op.t) {
+                            im.s5 = false; // confirmed
+                            im.s4 = false;
+                        }
                     }
                 }
+            } else if (pos.aT && im.s5) {
+                im.s5 = false;
             }
         }  
         
