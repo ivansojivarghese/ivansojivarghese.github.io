@@ -6,8 +6,8 @@ var im = { // #intro_main
         L : document.getElementById("lead_sc"),
         Lp1 : document.getElementById("pLa-1"),
         Lp2 : document.getElementById("pLa-2"),
-        Lp3 : document.getElementById("pLa-3"),
-        s2 : false
+        Lp3 : document.getElementById("pLa-3")
+        // s2 : false
         // s : true, // code execution status
     },
     sI_1 = { // stats numerals
@@ -91,13 +91,11 @@ function sc_L() { // functions (live on scroll)
                 im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
             }
 
-            if (!im.s2) {
-                if (b.L.bottom < aH) {
-                    var r = aH - b.L.bottom;
-                    im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
-                } else {
-                    im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
-                }
+            if (b.L.bottom < aH) {
+                var r = aH - b.L.bottom;
+                im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
+            } else {
+                im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
             }
 
         } else { // upward scroll
@@ -107,16 +105,15 @@ function sc_L() { // functions (live on scroll)
                 im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(-90deg)"; // parallax arrow 2
             }
 
-            if (!im.s2) {
-                if (b.L.bottom < aH) {
-                    var r = aH - b.L.bottom;
-                    im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px) rotate(180deg)"; // parallax arrow 3
-                } else {
-                    im.Lp3.style.transform = "translateX(-2rem) rotate(180deg)"; // parallax arrow 3
-                }
+            if (b.L.bottom < aH) {
+                var r = aH - b.L.bottom;
+                im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px) rotate(180deg)"; // parallax arrow 3
+            } else {
+                im.Lp3.style.transform = "translateX(-2rem) rotate(180deg)"; // parallax arrow 3
             }
         }
 
+        /*
         if (b.pL3.right > wiD) { // parallax arrow 3
             im.s2 = true;
             e_Fd(im.Lp3, false);
@@ -124,7 +121,7 @@ function sc_L() { // functions (live on scroll)
         } else if (b.pL3.right <= wiD && im.s2) {
             im.s2 = false;
             e_Fd(im.Lp3, true);
-        }
+        }*/
     }
 
     requestAnimationFrame(sc_L);
