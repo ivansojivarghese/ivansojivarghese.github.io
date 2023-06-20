@@ -42,6 +42,7 @@ function sc_L() { // functions (live on scroll)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
         b = { // element bounds
             L : im.L.getBoundingClientRect(), // #lead_sc
+            pL1 : im.Lp1.getBoundingClientRect(), // parallax arrow 1
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
@@ -138,7 +139,7 @@ function sc_L() { // functions (live on scroll)
         
         if ((!pos.r || (pos.r && im.s4)) && !pos.aT) { // upward scroll
 
-            if (im.s5) {
+            if (im.s5 && (b.pL1.top < aH)) {
                 if (b.L.top < aH) {
                     im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(-90deg)"; // parallax arrow 1
                     im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(-90deg)"; // parallax arrow 2
