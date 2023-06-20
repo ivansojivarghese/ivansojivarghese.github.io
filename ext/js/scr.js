@@ -121,9 +121,9 @@ function sc_L() { // functions (live on scroll)
                         }
                     }
                 }
-            } else if (pos.aT && im.s5) {
+            } /*else if (pos.aT && im.s5) {
                 im.s5 = false;
-            }
+            }*/
         }  
         
         if ((!pos.r || (pos.r && im.s4)) && !pos.aT) { // upward scroll
