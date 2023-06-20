@@ -169,4 +169,5 @@
 
 #pLa-2 {
     left: 80%;
+    will-change: transform;
 }
