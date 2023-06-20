@@ -126,7 +126,7 @@ function sc_L() { // functions (live on scroll)
         if (b.pL3.bottom < (0 - b.pL3.height)) { // parallax arrow 3
             im.s2 = true;
             c_rep(im.Lp3, "d_i", "d_n");
-        } else if (im.s2) {
+        } else if (b.pL3.bottom >= (0 - b.pL3.height) && im.s2) {
             im.s2 = false;
             c_rep(im.Lp3, "d_n", "d_i");
         }
