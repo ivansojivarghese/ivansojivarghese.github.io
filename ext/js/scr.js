@@ -46,6 +46,11 @@ function sc_L() { // functions (live on scroll)
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
 
+    if (pos.aT) {
+        im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
+        im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
+    }
+
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
         if (getCookie("statsIncr") !== "true") { // check if cookie exists
             var b1 = getBd(sI_1.e, "top"), // get respective 'top' boundaries for each stat
