@@ -96,7 +96,7 @@ function sc_L() { // functions (live on scroll)
 
         if ((pos.r && !im.s5) || (!pos.r && im.s4) || (pos.r && im.s5)) { // downward scroll (plus, msc. conditions)
 
-            if (!pos.aT) {
+            // if (!pos.aT) {
                 if (!im.s5 || !pos.aTs) {
                     if (b.L.top < aH) {
                         im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
@@ -121,7 +121,8 @@ function sc_L() { // functions (live on scroll)
                         }
                     }
                 }
-            } /*else if (pos.aT && im.s5) {
+            // } 
+            /*else if (pos.aT && im.s5) {
                 im.s5 = false;
             }*/
         }  
