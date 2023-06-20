@@ -1237,8 +1237,11 @@ function checkScrollDir(ar) { // check direction of scroll
             } else if (ar[i] === ar[i - 1]) {
                 res[j] = null;
             }
+            j++;
         }
     }
+
+    // output a return value for pos.r
 }
 
 function c_Sr() { // check for scrolling activity (in live)
