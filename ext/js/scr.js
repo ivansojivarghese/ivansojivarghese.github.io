@@ -7,7 +7,8 @@ var im = { // #intro_main
         Lp1 : document.getElementById("pLa-1"),
         Lp2 : document.getElementById("pLa-2"),
         Lp3 : document.getElementById("pLa-3"),
-        s2 : false
+        s2 : false,
+
         // s : true, // code execution status
     },
     sI_1 = { // stats numerals
@@ -113,20 +114,10 @@ function sc_L() { // functions (live on scroll)
             }
         }
 
-        /*
-        if (b.pL3.right > wiD) { // parallax arrow 3
-            im.s2 = true;
-            e_Fd(im.Lp3, false);
-            im.Lp3.style.transform = "translateX(" + (wiD) + "px - 5rem) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
-        } else if (b.pL3.right <= wiD && im.s2) {
-            im.s2 = false;
-            e_Fd(im.Lp3, true);
-        }*/
-
         if (b.pL3.bottom < (0 - b.pL3.height)) { // parallax arrow 3
             im.s2 = true;
             c_rep(im.Lp3, "d_i", "d_n");
-        } else if (b.pL3.bottom >= (0 - b.pL3.height) && im.s2) {
+        } else if (b.pL3.bottom > (0 - b.pL3.height) && im.s2) {
             im.s2 = false;
             c_rep(im.Lp3, "d_n", "d_i");
         }
