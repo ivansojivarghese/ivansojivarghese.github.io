@@ -94,17 +94,7 @@ function sc_L() { // functions (live on scroll)
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
 
-        if ((pos.r && !im.s5) || (!pos.r && im.s4) || (pos.r && im.s5) /*|| pos.aT*/) { // downward scroll (plus, msc. conditions)
-
-            /*
-            if (!pos.r && !im.s4) {
-                im.p = op.d.getTime();
-                im.s4 = true;
-            } else if (!pos.r) {
-                if ((op.d.getTime() - im.p) > op.t) {
-                    im.s5 = true; // confirmed
-                }
-            }*/
+        if ((pos.r && !im.s5) || (!pos.r && im.s4) || (pos.r && im.s5)) { // downward scroll (plus, msc. conditions)
 
             if (!pos.aT) {
                 if (!im.s5 || !pos.aTs) {
