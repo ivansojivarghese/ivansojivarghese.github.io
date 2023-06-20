@@ -87,11 +87,16 @@ function sc_L() { // functions (live on scroll)
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
 
-        if (pos.r && !im.s3) { // downward scroll
+        if (pos.r || im.s3) { // downward scroll
+            /*
             im.s3 = true;
             setTimeout(function() {
                 im.s3 = false;
-            }, op.t);
+            }, op.t);*/
+
+            if (!pos.r) {
+                
+            }
 
             if (b.L.top < aH) {
                 im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
@@ -106,11 +111,15 @@ function sc_L() { // functions (live on scroll)
                 im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
             }
 
-        } else if (!pos.r && !im.s3) { // upward scroll
+        } else if (!pos.r || ) { // upward scroll
+            /*
             im.s3 = true;
             setTimeout(function() {
                 im.s3 = false;
-            }, op.t);
+            }, op.t);*/
+
+            im.s3 = true;
+
 
             if (b.L.top < aH) {
                 im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(-90deg)"; // parallax arrow 1
