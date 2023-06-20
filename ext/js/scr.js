@@ -96,7 +96,7 @@ function sc_L() { // functions (live on scroll)
             if (b.L.bottom < aH) {
                 var r = aH - b.L.bottom;
                 im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
-                im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)";
+                im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)"; // parallax arrow 4 (hidden)
             } else {
                 im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
             }
@@ -111,7 +111,7 @@ function sc_L() { // functions (live on scroll)
             if (b.L.bottom < aH) {
                 var r = aH - b.L.bottom;
                 im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px) rotate(180deg)"; // parallax arrow 3
-                im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)";
+                im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)"; // parallax arrow 4 (hidden)
             } else {
                 im.Lp3.style.transform = "translateX(-2rem) rotate(180deg)"; // parallax arrow 3
             }
