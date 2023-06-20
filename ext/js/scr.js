@@ -7,8 +7,8 @@ var im = { // #intro_main
         Lp1 : document.getElementById("pLa-1"),
         Lp2 : document.getElementById("pLa-2"),
         Lp3 : document.getElementById("pLa-3"),
-        s2 : false,
-
+        Lp4 : document.getElementById("pLa-4"),
+        s2 : false
         // s : true, // code execution status
     },
     sI_1 = { // stats numerals
@@ -39,7 +39,8 @@ function sc_L() { // functions (live on scroll)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
         b = { // element bounds
             L : im.L.getBoundingClientRect(), // #lead_sc
-            pL3 : im.Lp3.getBoundingClientRect() // parallax arrow 3
+            pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
+            pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
 
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
@@ -95,6 +96,7 @@ function sc_L() { // functions (live on scroll)
             if (b.L.bottom < aH) {
                 var r = aH - b.L.bottom;
                 im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
+                im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)";
             } else {
                 im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
             }
@@ -109,6 +111,7 @@ function sc_L() { // functions (live on scroll)
             if (b.L.bottom < aH) {
                 var r = aH - b.L.bottom;
                 im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px) rotate(180deg)"; // parallax arrow 3
+                im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)";
             } else {
                 im.Lp3.style.transform = "translateX(-2rem) rotate(180deg)"; // parallax arrow 3
             }
@@ -117,7 +120,7 @@ function sc_L() { // functions (live on scroll)
         if (b.pL3.bottom < (0 - b.pL3.height)) { // parallax arrow 3
             im.s2 = true;
             c_rep(im.Lp3, "d_i", "d_n");
-        } else if (b.pL3.bottom > (0 - b.pL3.height) && im.s2) {
+        } else if (b.pL4.bottom > (0 - b.pL4.height) && im.s2) {
             im.s2 = false;
             
         }
