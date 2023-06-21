@@ -114,7 +114,7 @@ function sc_L() { // functions (live on scroll)
                     } else {
                         im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
                     }
-                } else if (im.s5 && !im.s4) {
+                } /*else if (im.s5 && !im.s4) {
 
                     var mod = im.s6 ? "rotate(-90deg)" : "rotate(90deg)";
 
@@ -131,7 +131,7 @@ function sc_L() { // functions (live on scroll)
                         im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
                     }
 
-                } else {
+                }*/ else {
                     if (pos.r && !im.s4) {
                         im.p = op.d.getTime(); // get time of change
                         im.s4 = true;
