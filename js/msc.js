@@ -1242,7 +1242,7 @@ function checkScrollDir(ar) { // check direction of scroll
     }
 
     for (j = 0; j <= (_L - 1); j++) {
-        if (res[j - 1]) {   
+        if (res[j - 1] || res[j - 1] === false || res[j - 1] === null) {   
             if (res[j] && res[j - 1]) { // true - downward
                 return true;
             } else if (res[j] === false && res[j - 1] === false) { // false - upward
