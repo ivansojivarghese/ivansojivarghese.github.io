@@ -46,7 +46,8 @@ var fchL = {
         lk3b : document.getElementById("link_3b"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
-        bgC4 : document.getElementById("bg-cir4")
+        bgC4 : document.getElementById("bg-cir4"),
+        ldP : document.getElementById("lead_point")
     };
 
 
@@ -211,14 +212,10 @@ function scrollArrowIterate(m) {
 }
 
 function peek() {
-    var t = aH * 0.2;
-    window.scrollTo(0, t);
+    var b = el.ldP.getBoundingClientRect(), 
+        t = b.bottom;
 
-    // scroll to reasonable point in content area
-
-    // 4 rem
-    // 7rem
-    // 1rem
+    window.scrollTo(0, t); // scroll to reasonable point in content area
 }
 
 function showCircle() { // show background circles in view
