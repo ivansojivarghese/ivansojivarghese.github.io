@@ -832,7 +832,7 @@ function sL() { // scroll pos. loop
         pos.aT = false;
         setTimeout(function() {
             pos.aTs = false;
-        }, op.te);
+        }, op.t);
     }
 }
 
