@@ -123,7 +123,8 @@ function js_live() { // update js - in live
     } else {
         if ((!pos.aT && !el.x3) || pg.msg.fo) { // if scrolled OR offline
             el.x3 = true;
-            el.lk3.removeEventListener("click", peek); // remove peek feature
+            // el.lk3.removeEventListener("click", peek); 
+            el.lk3.setAttribute("href", ""); // remove peek feature
             e_Fd(el.lk3b, true); // fade out 
             e_Fd(el.chev, true); 
             setTimeout(function() {
@@ -168,7 +169,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
             scrollArrowIterate(false); // start iteration (single)
             hm.k3 = true;
             el.lk3.classList.remove("z-G");
-            el.lk3.addEventListener("click", peek); // add peek feature
+            // el.lk3.addEventListener("click", peek); 
+            el.lk3.setAttribute("href", "#lead_point"); // add peek feature
             el.ac = true;
         }
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
@@ -210,13 +212,13 @@ function scrollArrowIterate(m) {
         }, op.te);
     }
 }
-
+/*
 function peek() {
     var b = el.ldP.getBoundingClientRect(), 
         t = b.bottom;
     // document.documentElement.classList.add("scB");
     window.scrollTo(0, (t - aH)); // scroll to reasonable point in content area
-}
+}*/
 
 function showCircle() { // show background circles in view
     if (!el.x6 || el.x7) {
