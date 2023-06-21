@@ -105,7 +105,7 @@ function sc_L() { // functions (live on scroll)
                 if (!im.s5 || !pos.aTs) {
 
                     if (b.e.top < aH) {
-                        
+
                         im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
                         im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
                         im.s6 = false;
@@ -122,6 +122,9 @@ function sc_L() { // functions (live on scroll)
                     if (pos.r && !im.s4) {
                         im.p = op.d.getTime(); // get time of change
                         im.s4 = true;
+                        setTimeout(function() {
+                            im.s4 = false;
+                        }, op.ti);
                     } else if (pos.r && im.s4) {
                         if ((op.d.getTime() - im.p) > op.t) {
                             im.s5 = false; // confirmed
@@ -133,7 +136,7 @@ function sc_L() { // functions (live on scroll)
             
         }  
         
-        if ((!pos.r || (pos.r && im.s4)) && !pos.aT) { // upward scroll
+        if ((!pos.r || (pos.r && im.s4)) && !pos.aT && (!im.s6 && !im.s5 && im.s4)) { // upward scroll
 
             if (im.s5 && !pos.aTs) { // /*(!pos.aTs || !pos.aT */ ) {
                 if (b.e.top < aH) {
@@ -153,6 +156,9 @@ function sc_L() { // functions (live on scroll)
                 if (!pos.r && !im.s4) {
                     im.p = op.d.getTime(); // get time of change
                     im.s4 = true;
+                    setTimeout(function() {
+                        im.s4 = false;
+                    }, op.ti);
                 } else if (!pos.r && im.s4) {
                     if ((op.d.getTime() - im.p) > op.t) {
                         im.s5 = true; // confirmed
