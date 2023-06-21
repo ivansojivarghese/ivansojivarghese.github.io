@@ -169,8 +169,10 @@ function load_eN() { // load, after cookie acceptance (page specific)
             }
             scrollArrowIterate(false); // start iteration (single)
             hm.k3 = true;
-            el.lk3.classList.remove("z-G");
-            el.lk3.addEventListener("click", peek); 
+            setTimeout(function() {
+                el.lk3.classList.remove("z-G");
+                el.lk3.addEventListener("click", peek); 
+            }, op.te);
             el.ac = true;
         }
         c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
