@@ -124,7 +124,7 @@ function sc_L() { // functions (live on scroll)
                         im.s4 = true;
                         setTimeout(function() {
                             im.s4 = false;
-                        }, op.te);
+                        }, op.ti);
                     } else if (pos.r && im.s4) {
                         if ((op.d.getTime() - im.p) > op.t) {
                             im.s5 = false; // confirmed
@@ -158,7 +158,7 @@ function sc_L() { // functions (live on scroll)
                     im.s4 = true;
                     setTimeout(function() {
                         im.s4 = false;
-                    }, op.te);
+                    }, op.ti);
                 } else if (!pos.r && im.s4) {
                     if ((op.d.getTime() - im.p) > op.t) {
                         im.s5 = true; // confirmed
