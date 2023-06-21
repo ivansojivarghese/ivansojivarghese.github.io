@@ -3,6 +3,7 @@
 
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
+        elw : document.getElementById("intro_ws"),
         L : document.getElementById("lead_sc"),
         Lp1 : document.getElementById("pLa-1"),
         Lp2 : document.getElementById("pLa-2"),
@@ -42,6 +43,7 @@ var im = { // #intro_main
 function sc_L() { // functions (live on scroll)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
         b = { // element bounds
+            e : im.elw.getBoundingClientRect(), // #intro_ws
             L : im.L.getBoundingClientRect(), // #lead_sc
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
@@ -101,7 +103,7 @@ function sc_L() { // functions (live on scroll)
             // if (!pos.aT) {
                 if (!im.s5 || !pos.aTs) {
 
-                    if (b.L.top < aH) {
+                    if (b.e.top < aH) {
                         im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
                         im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
                         im.s6 = false;
@@ -149,7 +151,7 @@ function sc_L() { // functions (live on scroll)
         if ((!pos.r || (pos.r && im.s4)) && !pos.aT) { // upward scroll
 
             if (im.s5 && !pos.aTs) { // /*(!pos.aTs || !pos.aT */ ) {
-                if (b.L.top < aH) {
+                if (b.e.top < aH) {
                     im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(-90deg)"; // parallax arrow 1
                     im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(-90deg)"; // parallax arrow 2
                     im.s6 = true;
