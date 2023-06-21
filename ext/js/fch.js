@@ -140,8 +140,10 @@ function js_live() { // update js - in live
     if (!pos.aT && !el.x9) { // hide hamburger button
         el.x9 = true;
         hamButtonLoad(false);
-    } else if (pos.aT && el.x9) {
+    } else if (pos.aT && el.x9) { // show
         el.x9 = false;
+        hamButtonLoad(true);
+    } else if (pos.aT && !pos.c) { // show
         hamButtonLoad(true);
     }
 }
