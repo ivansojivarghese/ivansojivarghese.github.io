@@ -110,7 +110,9 @@ function sc_L() { // functions (live on scroll)
                     } else {
                         im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
                     }
-                } else {
+                } /*else if (!im.s5) {
+
+                }*/ else {
                     if (pos.r && !im.s4) {
                         im.p = op.d.getTime(); // get time of change
                         im.s4 = true;
@@ -122,9 +124,7 @@ function sc_L() { // functions (live on scroll)
                     }
                 }
             // } 
-            /*else if (pos.aT && im.s5) {
-                im.s5 = false;
-            }*/
+            
         }  
         
         if ((!pos.r || (pos.r && im.s4)) && !pos.aT) { // upward scroll
@@ -153,6 +153,9 @@ function sc_L() { // functions (live on scroll)
                     }
                 }
             }
+        } else if (pos.aT && im.s5) {
+            im.s5 = false;
+            im.s4 = false;
         }
 
         if (b.pL3.bottom < (0 - b.pL3.height)) { // parallax arrow 3
