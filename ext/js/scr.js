@@ -12,6 +12,7 @@ var im = { // #intro_main
         s3 : false,
         s4 : false,
         s5 : false,
+        s6 : false,
         p : 0
         // s : true, // code execution status
     },
@@ -49,6 +50,7 @@ function sc_L() { // functions (live on scroll)
     if (pos.aT) {
         im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
         im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
+        im.s6 = false;
     }
 
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
@@ -98,9 +100,11 @@ function sc_L() { // functions (live on scroll)
 
             // if (!pos.aT) {
                 if (!im.s5 || !pos.aTs) {
+
                     if (b.L.top < aH) {
                         im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
                         im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
+                        im.s6 = false;
                     }
 
                     if (b.L.bottom < aH) {
@@ -110,9 +114,24 @@ function sc_L() { // functions (live on scroll)
                     } else {
                         im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
                     }
-                } /*else if (!im.s5) {
+                } else if (im.s5 && !im.s4) {
 
-                }*/ else {
+                    var mod = im.s6 ? "rotate(-90deg)" : "rotate(90deg)";
+
+                    if (b.L.top < aH) {
+                        im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) " + mod; // parallax arrow 1
+                        im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) " + mod; // parallax arrow 2
+                    }
+
+                    if (b.L.bottom < aH) {
+                        var r = aH - b.L.bottom;
+                        im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
+                        im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)"; // parallax arrow 4 (hidden)
+                    } else {
+                        im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
+                    }
+
+                } else {
                     if (pos.r && !im.s4) {
                         im.p = op.d.getTime(); // get time of change
                         im.s4 = true;
@@ -133,6 +152,7 @@ function sc_L() { // functions (live on scroll)
                 if (b.L.top < aH) {
                     im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(-90deg)"; // parallax arrow 1
                     im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(-90deg)"; // parallax arrow 2
+                    im.s6 = true;
                 }
 
                 if (b.L.bottom < aH) {
