@@ -13,7 +13,7 @@ var im = { // #intro_main
         s3 : false,
         s4 : false,
         s5 : false,
-        s6 : false,
+        s6 : null,
         p : 0
         // s : true, // code execution status
     },
