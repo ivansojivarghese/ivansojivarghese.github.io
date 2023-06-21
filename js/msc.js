@@ -381,7 +381,7 @@ op = {
     // Ls : 1000/60, // loop (interval) speed - sec./rev.
     e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
     f : window.getComputedStyle(document.body).getPropertyValue('font-size'), // get root font-size
-    b : { // browser check (major platforms) //
+    b : { // browser check (major platforms) 
         c : false, // chrome
         f : false, // firefox
         s : false, // safari
