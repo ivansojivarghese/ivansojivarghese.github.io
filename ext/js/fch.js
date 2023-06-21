@@ -215,7 +215,7 @@ function peek() {
     var b = el.ldP.getBoundingClientRect(), 
         t = b.bottom;
     document.documentElement.classList.add("scB");
-    window.scrollTo(0, t); // scroll to reasonable point in content area
+    window.scrollTo(0, (t - aH)); // scroll to reasonable point in content area
 }
 
 function showCircle() { // show background circles in view
