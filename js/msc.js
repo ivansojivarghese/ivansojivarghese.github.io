@@ -1226,7 +1226,8 @@ function pL() { // site parameters loop
 
 function checkScrollDir(ar) { // check direction of scroll
     var _L = ar.length - 1,
-        res = new Array(_L).fill(null);
+        res = new Array(_L).fill(null),
+        v;
 
     for (i = 0, j = 0; i <= _L; i++) {
         if (ar[i - 1]) {
@@ -1241,7 +1242,19 @@ function checkScrollDir(ar) { // check direction of scroll
         }
     }
 
-    // output a return value for pos.r
+    for (j = 0; j <= (_L - 1); j++) {
+        if (res[j - 1]) {   
+            if (res[j] && res[j - 1]) { // true - downward
+                v = true;
+            } else if (res[j] === false && res[j - 1] === false) { // false - upward
+                v = false;  
+            } else { // constant - no change
+                v = pos.r;
+            }
+        }
+    }
+
+    return v; // output a return value for pos.r
 }
 
 function c_Sr() { // check for scrolling activity (in live)
@@ -1253,7 +1266,8 @@ function c_Sr() { // check for scrolling activity (in live)
         if (pos.y !== pos.a[_L]) {
             pos.c = true; // set scrolling to true
 
-            pos.r = (pos.y > pos.a[_L]) ? true : false; // get direction of scroll
+            // pos.r = (pos.y > pos.a[_L]) ? true : false; 
+            pos.r = checkScrollDir(pos.a); // get direction of scroll
 
             pos.m = 0; // reset no. of matches - reset counter
             pos.d[pos.d.length] = pos.y; // update current y-pos into variable speed comparator array
