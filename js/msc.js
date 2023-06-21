@@ -376,7 +376,7 @@ op = {
     wRa : [], // window resize change array
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
-    ti : 250, // "" interim
+    // ti : 250, // "" interim
     te : 500, // transition duration (extended)
     // Ls : 1000/60, // loop (interval) speed - sec./rev.
     e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
