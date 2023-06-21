@@ -136,7 +136,7 @@ function sc_L() { // functions (live on scroll)
             
         }  
         
-        if ((!pos.r || (pos.r && im.s4)) && !pos.aT && (im.s6 !== false)) { // upward scroll
+        if ((!pos.r || (pos.r && im.s4)) && !pos.aT) { // upward scroll
 
             if (im.s5 && !pos.aTs) { // /*(!pos.aTs || !pos.aT */ ) {
                 if (b.e.top < aH) {
