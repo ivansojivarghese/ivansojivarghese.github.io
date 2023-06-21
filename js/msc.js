@@ -827,6 +827,7 @@ function sL() { // scroll pos. loop
     if (pos.y === 0) {
         pos.aT = true;
         pos.aTs = true;
+        pos.r = true;
     } else if (pos.aT = true) {
         pos.aT = false;
         setTimeout(function() {
