@@ -116,24 +116,7 @@ function sc_L() { // functions (live on scroll)
                     } else {
                         im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
                     }
-                } /*else if (im.s5 && !im.s4) {
-
-                    var mod = im.s6 ? "rotate(-90deg)" : "rotate(90deg)";
-
-                    if (b.L.top < aH) {
-                        im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) " + mod; // parallax arrow 1
-                        im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) " + mod; // parallax arrow 2
-                    }
-
-                    if (b.L.bottom < aH) {
-                        var r = aH - b.L.bottom;
-                        im.Lp3.style.transform = "translateX(" + ((r / 2) * 0.5) + "px) translateY(" + (r * -0.4) + "px)"; // parallax arrow 3
-                        im.Lp4.style.transform = "translateY(" + (r * -0.4) + "px)"; // parallax arrow 4 (hidden)
-                    } else {
-                        im.Lp3.style.transform = "translateX(-2rem)"; // parallax arrow 3
-                    }
-
-                }*/ else {
+                } else {
                     if (pos.r && !im.s4) {
                         im.p = op.d.getTime(); // get time of change
                         im.s4 = true;
