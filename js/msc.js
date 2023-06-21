@@ -1252,8 +1252,6 @@ function checkScrollDir(ar) { // check direction of scroll
             }
         }
     }
-
-    // return v; // output a return value for pos.r
 }
 
 function c_Sr() { // check for scrolling activity (in live)
