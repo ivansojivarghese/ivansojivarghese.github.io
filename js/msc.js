@@ -841,8 +841,6 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-    console.log(pos.r);
-
     /*
     if (op.n && op.wRo) { // offline - prevent window resize reload
         setTimeout(function() {
