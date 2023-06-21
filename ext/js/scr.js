@@ -142,7 +142,7 @@ function sc_L() { // functions (live on scroll)
                 if (b.e.top < aH) {
                     im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(-90deg)"; // parallax arrow 1
                     im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(-90deg)"; // parallax arrow 2
-                    im.s6 = true; //
+                    im.s6 = true; 
                 }
 
                 if (b.L.bottom < aH) {
