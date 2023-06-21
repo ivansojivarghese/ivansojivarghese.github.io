@@ -101,7 +101,7 @@ function sc_L() { // functions (live on scroll)
         if ((pos.r && !im.s5) || (!pos.r && im.s4) || (pos.r && im.s5)) { // downward scroll (plus, msc. conditions)
 
             // if (!pos.aT) {
-                if ((!im.s5 || !pos.aTs) && !im.s6) {
+                if ((!im.s5 || !pos.aTs) && (im.s6 && pos.r)) {
 
                     if (b.e.top < aH) {
                         im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
