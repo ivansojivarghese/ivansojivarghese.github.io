@@ -214,6 +214,7 @@ function scrollArrowIterate(m) {
 function peek() {
     var b = el.ldP.getBoundingClientRect(), 
         t = b.top;
+    document.documentElement.classList.add("scB");
     window.scrollTo(0, (t - aH)); // scroll to reasonable point in content area
 }
 
