@@ -251,7 +251,7 @@ function showCircle() { // show background circles in view
             setTimeout(function() {
                 e_Fd(el.bgC[tgt], false);
                 if (tgt === 2 || tgt === 3) {
-                    bd["b" + tgt] = el.bgC[tgt].getBoundingClientRect(); // add parameters
+                    bd["b" + tgt] = el.bgC[tgt].getBoundingClientRect(); // add parameters for 3rd/4th circles
                 }
             }, 10);
             
