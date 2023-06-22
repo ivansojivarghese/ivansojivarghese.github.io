@@ -113,6 +113,13 @@
     opacity: 0.5;
 }
 
+.bg-circles .circle-0_5 {
+    height: 1rem;
+    width: 1rem;
+    left: 55%;
+    top: 2.5rem;
+}
+
 .bg-circles .circle-1 {
     height: 1rem;
     width: 1rem;
