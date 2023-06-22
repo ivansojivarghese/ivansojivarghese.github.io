@@ -64,6 +64,7 @@ function sc_L() { // functions (live on scroll)
         e_Fd(im.Lp2, true); // hide arrows
         im.s4 = false;
         im.s6 = false;
+        im.s9 = false;
     } else if (!pos.aT && !im.s9) { // show arrows
         im.s9 = true;
         e_Fd(im.Lp1, false);
