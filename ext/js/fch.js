@@ -348,7 +348,7 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
         y = e.y, // y-axis
         z = e.z; // z-axis
 
-    var tX = y * r;
+    var tX = (y * 2) * r;
 
     console.log(`Angular velocity along the X-axis ${e.x}`);
     console.log(`Angular velocity along the Y-axis ${e.y}`);
