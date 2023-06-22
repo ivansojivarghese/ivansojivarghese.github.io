@@ -326,7 +326,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                     throw error;
                 }
             }
-        } else {
+        } else { // no support
 
             // manual control
         }
