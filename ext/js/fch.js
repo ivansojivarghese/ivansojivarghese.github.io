@@ -350,15 +350,21 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
 }
 
 function bgCirclesMove(e) { // live gyro-based movement of bg. circles
-    var x = e.x, // x-axis
+    var _L = el.bgC.length - 1,
+        x = e.x, // x-axis
         y = e.y, // y-axis
         z = e.z; // z-axis
-
+    /*
     el.bgC[0].style.transform = "translate(" + (op.fN * y * 3) + "px, " + (op.fN * x * 3) + "px)"; // circle 0.5
     el.bgC[1].style.transform = "translate(" + (op.fN * y * 4) + "px, " + (op.fN * x * 4) + "px)"; // circle 1
     el.bgC[2].style.transform = "translate(" + (op.fN * y * 2) + "px, " + (op.fN * x * 2) + "px)"; // circle 2
     el.bgC[3].style.transform = "translate(" + (op.fN * y * 1) + "px, " + (op.fN * x * 1) + "px)"; // circle 3
     el.bgC[4].style.transform = "translate(" + (op.fN * y * 3) + "px, " + (op.fN * x * 3) + "px)"; // circle 4
+    */
+
+    for (i = 0; i <= _L; i++) {
+        el.bgC[i].style.transform = "translate(" + (op.fN * y * 3) + "px, " + (op.fN * x * 3) + "px)";
+    }
 
     // el.i.style.transform = "translate(" + (op.fN * y * 0.5) + "px, " + (op.fN * x * 0.5) + "px)"; // profile_image
 }

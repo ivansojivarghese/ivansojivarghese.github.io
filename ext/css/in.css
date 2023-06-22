@@ -118,6 +118,7 @@
     width: 1.5rem;
     left: 85%;
     top: 4.5rem;
+    transition-duration: 0.3s;
     /*animation: bounceTopHalf 4s ease-in-out infinite;*/
 }
 
@@ -126,6 +127,7 @@
     width: 1rem;
     left: 55%;
     top: 2.5rem;
+    transition-duration: 0.2s;
 }
 
 .bg-circles .circle-2 {
@@ -133,6 +135,7 @@
     width: 3rem;
     left: 15%;
     top: 5rem;
+    transition-duration: 0.4s;
 }
 
 .bg-circles .circle-3 {
@@ -145,6 +148,7 @@
     height: 1.5rem;
     width: 1.5rem;
     left: 80%;
+    transition-duration: 0.3s;
     /*animation: bounceTop 5s ease-in-out infinite;*/
 }
 
