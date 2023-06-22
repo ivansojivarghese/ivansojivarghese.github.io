@@ -38,6 +38,7 @@ var fchL = {
         x7 : false,
         x8 : false,
         x9 : false,
+        x10 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -140,10 +141,11 @@ function js_live() { // update js - in live
     if (!pos.aT && !el.x9) { // hide hamburger button
         el.x9 = true;
         hamButtonLoad(false);
-    } else if (pos.aT && el.x9) { // show
+    } else if (pos.aT && el.x9 && !el.x10) { // show
         el.x9 = false;
+        el.x10 = true;
         hamButtonLoad(true);
-    } else if (pos.aT && !pos.c) { // show
+    } else if (pos.aT && !pos.c && !el.x10) { // show
         el.x9 = false;
         hamButtonLoad(true); 
     }
