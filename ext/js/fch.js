@@ -296,18 +296,23 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
         }
     } else if (id === "gy") { // use gyroscope
         if ('Gyroscope' in window) { // browser support
+
+            // REFERENCED FROM MDN @: https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs
+            // Experimental feature
+
             let gyroscope = null;
             try {
-                gyroscope = new Gyroscope({ referenceFrame: "device" });
+                gyroscope = new Gyroscope({ referenceFrame: "device", frequency: 60 });
                 gyroscope.addEventListener("error", (event) => {
                     // Handle runtime errors.
                     if (event.error.name === "NotAllowedError") {
                         // Branch to code for requesting permission.
+                        console.log("Permission needed to use sensor.");
                     } else if (event.error.name === "NotReadableError") {
                         console.log("Cannot connect to the sensor.");
                     }
                 });
-                gyroscope.addEventListener("reading", () => reloadOnShake(gyroscope));
+                gyroscope.addEventListener("reading", () => bgCirclesMove(gyroscope));
                 gyroscope.start();
             } catch (error) {
                 // Handle construction errors.
@@ -325,4 +330,8 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
             // manual control
         }
     }
+}
+
+function bgCirclesMove(e) { // live gyro-based movement of bg. circles
+
 }
