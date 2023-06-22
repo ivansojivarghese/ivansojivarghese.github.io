@@ -49,6 +49,10 @@ var fchL = {
         bgC : document.querySelectorAll(".bg-circle"),
         bgC4 : document.getElementById("bg-cir4"),
         ldP : document.getElementById("lead_point")
+    },
+    bd = { // bounds
+        b2 : null,
+        b3 : null
     };
 
 let gyroscope = null;
@@ -246,6 +250,9 @@ function showCircle() { // show background circles in view
             el.bgC[tgt].classList.remove("d_n");
             setTimeout(function() {
                 e_Fd(el.bgC[tgt], false);
+                if (tgt === 2 || tgt === 3) {
+                    bd["b" + tgt] = el.bgC[tgt].getBoundingClientRect(); // add parameters
+                }
             }, 10);
             
             if (tgt < _L) {
@@ -336,7 +343,13 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
 }
 
 function bgCirclesMove(e) { // live gyro-based movement of bg. circles
+    var x = e.x, // x-axis
+        y = e.y, // y-axis
+        z = e.z; // z-axis
+
     console.log(`Angular velocity along the X-axis ${e.x}`);
     console.log(`Angular velocity along the Y-axis ${e.y}`);
     console.log(`Angular velocity along the Z-axis ${e.z}`);
+
+    el.bgC[3].style.transform = "translateX()";
 }
