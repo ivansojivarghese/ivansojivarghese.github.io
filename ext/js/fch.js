@@ -145,10 +145,10 @@ function js_live() { // update js - in live
         el.x9 = false;
         el.x10 = true;
         hamButtonLoad(true);
-    } /*else if (pos.aT && !pos.c && !el.x10 && el.x2) { // show
+    } else if (pos.aT && !pos.c && !el.x10 && el.x2 && el.x9) { // show
         el.x9 = false;
         hamButtonLoad(true); 
-    }*/
+    }
 }
 
 function load_eN() { // load, after cookie acceptance (page specific)
