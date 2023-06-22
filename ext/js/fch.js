@@ -297,7 +297,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
             }
         }
     } else if (id === "gy") { // use gyroscope
-        if ('Gyroscope' in window) { // browser support
+        if ('Gyroscope' in window && m) { // browser support
 
             // REFERENCED FROM MDN @: https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs
             // Experimental feature
@@ -312,6 +312,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                     } else if (event.error.name === "NotReadableError") {
                         console.log("Cannot connect to the sensor.");
                     }
+                    pgTasks("gy", false);
                 });
                 gyroscope.addEventListener("reading", () => bgCirclesMove(gyroscope));
                 gyroscope.start();
@@ -325,6 +326,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 } else {
                     throw error;
                 }
+                pgTasks("gy", false);
             }
         } else { // no support
 
