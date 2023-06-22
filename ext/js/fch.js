@@ -315,7 +315,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
             // Experimental feature
 
             try {
-                gyroscope = new Gyroscope({ referenceFrame: "device", frequency: 1 });
+                gyroscope = new Gyroscope({ referenceFrame: "device", frequency: 30 });
                 gyroscope.addEventListener("error", (event) => {
                     // Handle runtime errors.
                     if (event.error.name === "NotAllowedError") {
