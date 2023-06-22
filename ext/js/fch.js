@@ -343,17 +343,10 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
 }
 
 function bgCirclesMove(e) { // live gyro-based movement of bg. circles
-    var r = num_Fs(op.f), // root font size
-        x = e.x, // x-axis
+    var x = e.x, // x-axis
         y = e.y, // y-axis
         z = e.z; // z-axis
 
-    var tX = (y * 2) * r;
-
-    console.log(`Angular velocity along the X-axis ${e.x}`);
-    console.log(`Angular velocity along the Y-axis ${e.y}`);
-    console.log(`Angular velocity along the Z-axis ${e.z}`);
-
-    el.bgC[3].style.transform = "translateX(" + tX + "px)";
-
+    el.bgC[2].style.transform = "translate(" + (op.fN * y * -4) + "px, " + (op.fN * x * -4) + "px)"; // circle 2
+    el.bgC[3].style.transform = "translate(" + (op.fN * y * 2) + "px, " + (op.fN * x * 2) + "px)"; // circle 3
 }

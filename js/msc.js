@@ -399,6 +399,8 @@ op = {
 op.zoomDefault = !approxNum(op.zoom, dev.z) ? true : false; // set zoom default status
 op.zoomUndefault = op.zoomDefault ? true : false;
 
+op.fN = num_Fs(op.f); // convert to number
+
 const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
 const cos_signal = checkOnlineStatus_abort.signal;
 
