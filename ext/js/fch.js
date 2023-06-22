@@ -294,5 +294,35 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 }, op.te);
             }
         }
+    } else if (id === "") { // use gyroscope
+        if ('Gyroscope' in window) { // browser support
+            let gyroscope = null;
+            try {
+                gyroscope = new Gyroscope({ referenceFrame: "device" });
+                gyroscope.addEventListener("error", (event) => {
+                    // Handle runtime errors.
+                    if (event.error.name === "NotAllowedError") {
+                        // Branch to code for requesting permission.
+                    } else if (event.error.name === "NotReadableError") {
+                        console.log("Cannot connect to the sensor.");
+                    }
+                });
+                gyroscope.addEventListener("reading", () => reloadOnShake(gyroscope));
+                gyroscope.start();
+            } catch (error) {
+                // Handle construction errors.
+                if (error.name === "SecurityError") {
+                    // See the note above about permissions policy.
+                    console.log("Sensor construction was blocked by a permissions policy.");
+                } else if (error.name === "ReferenceError") {
+                    console.log("Sensor is not supported by the User Agent.");
+                } else {
+                    throw error;
+                }
+            }
+        } else {
+
+            // manual control
+        }
     }
 }
