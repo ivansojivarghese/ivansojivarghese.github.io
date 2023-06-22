@@ -294,7 +294,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 }, op.te);
             }
         }
-    } else if (id === "") { // use gyroscope
+    } else if (id === "gy") { // use gyroscope
         if ('Gyroscope' in window) { // browser support
             let gyroscope = null;
             try {
