@@ -52,8 +52,11 @@ var fchL = {
         ldP : document.getElementById("lead_point")
     },
     bd = { // bounds
+        b0 : null,
+        b1 : null,
         b2 : null,
-        b3 : null
+        b3 : null,
+        b4 : null
     };
 
 let gyroscope = null;
@@ -251,9 +254,7 @@ function showCircle() { // show background circles in view
             el.bgC[tgt].classList.remove("d_n");
             setTimeout(function() {
                 e_Fd(el.bgC[tgt], false);
-                if (tgt === 2 || tgt === 3) {
-                    bd["b" + tgt] = el.bgC[tgt].getBoundingClientRect(); // add parameters for 3rd/4th circles
-                }
+                bd["b" + tgt] = el.bgC[tgt].getBoundingClientRect(); // add parameters for 3rd/4th circles
                 if (tgt === _L && !el.x11) { // last target
                     el.x11 = true;
                     pgTasks("gy", true); // initiate gyroscope
