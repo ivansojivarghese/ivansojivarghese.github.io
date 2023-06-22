@@ -18,6 +18,7 @@ var im = { // #intro_main
         s6 : null,
         s7 : false,
         s8 : false,
+        s9 : false,
         p : 0
         // s : true, // code execution status
     },
@@ -59,8 +60,14 @@ function sc_L() { // functions (live on scroll)
         im.L.style.transform = "translateY(0px)"; // #lead_sc
         im.Lp1.style.transform = "translateY(" + (pos.y * 0.45) + "px) rotate(90deg)"; // parallax arrow 1
         im.Lp2.style.transform = "translateY(" + (pos.y * 0.8) + "px) rotate(90deg)"; // parallax arrow 2
+        e_Fd(im.Lp1, true);
+        e_Fd(im.Lp2, true); // hide arrows
         im.s4 = false;
         im.s6 = false;
+    } else if (!pos.aT && !im.s9) { // show arrows
+        im.s9 = true;
+        e_Fd(im.Lp1, false);
+        e_Fd(im.Lp2, false); 
     }
 
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
