@@ -51,6 +51,8 @@ var fchL = {
         ldP : document.getElementById("lead_point")
     };
 
+let gyroscope = null;
+
 
 function loadUp() {
     var a, b;
@@ -300,7 +302,6 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
             // REFERENCED FROM MDN @: https://developer.mozilla.org/en-US/docs/Web/API/Sensor_APIs
             // Experimental feature
 
-            let gyroscope = null;
             try {
                 gyroscope = new Gyroscope({ referenceFrame: "device", frequency: 60 });
                 gyroscope.addEventListener("error", (event) => {
