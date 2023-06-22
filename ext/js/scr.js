@@ -15,6 +15,7 @@ var im = { // #intro_main
         s4 : false,
         s5 : false,
         s6 : null,
+        s7 : false,
         p : 0
         // s : true, // code execution status
     },
@@ -102,8 +103,12 @@ function sc_L() { // functions (live on scroll)
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
 
-        if (b.Lp.top < 0) { // #lead_point
-            e_Fd(im.Lp1, true);
+        if (b.Lp.top < 0 && !im.s7) { // #lead_point
+            im.s7 = true;
+            e_Fd(im.Lp1, true); // hide arrow 1
+        } else if (b.Lp.top > 0 && im.s7) {
+            im.s7 = false;
+            e_Fd(im.Lp1, false); // show arrow 1
         }
 
         if ((pos.r && !im.s5) || (!pos.r && im.s4) || (pos.r && im.s5)) { // downward scroll (plus, msc. conditions)
