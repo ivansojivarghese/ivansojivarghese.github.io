@@ -118,7 +118,7 @@
     width: 1.5rem;
     left: 85%;
     top: 4.5rem;
-    animation: bounceTopHalf 4s ease-in-out infinite;
+    /*animation: bounceTopHalf 4s ease-in-out infinite;*/
 }
 
 .bg-circles .circle-1 {
@@ -145,7 +145,7 @@
     height: 1.5rem;
     width: 1.5rem;
     left: 80%;
-    animation: bounceTop 5s ease-in-out infinite;
+    /*animation: bounceTop 5s ease-in-out infinite;*/
 }
 
 @keyframes bounceTop {
