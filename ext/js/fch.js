@@ -366,5 +366,7 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
         el.bgC[i].style.transform = "translate(" + (op.fN * y * 3) + "px, " + (op.fN * x * 3) + "px)";
     }
 
+    // CHANGE BACK TO ORIGINAL ANIMATIONS
+
     // el.i.style.transform = "translate(" + (op.fN * y * 0.5) + "px, " + (op.fN * x * 0.5) + "px)"; // profile_image
 }
