@@ -6,6 +6,7 @@ var im = { // #intro_main
         elw : document.getElementById("intro_ws"),
         L : document.getElementById("lead_sc"),
         Lp : document.getElementById("lead_point"),
+        Lps : document.getElementById("lead_point_2"),
         Lp1 : document.getElementById("pLa-1"),
         Lp2 : document.getElementById("pLa-2"),
         Lp3 : document.getElementById("pLa-3"),
@@ -16,6 +17,7 @@ var im = { // #intro_main
         s5 : false,
         s6 : null,
         s7 : false,
+        s8 : false,
         p : 0
         // s : true, // code execution status
     },
@@ -48,6 +50,7 @@ function sc_L() { // functions (live on scroll)
             e : im.elw.getBoundingClientRect(), // #intro_ws
             L : im.L.getBoundingClientRect(), // #lead_sc
             Lp : im.Lp.getBoundingClientRect(), // #lead_point
+            Lps : im.Lps.getBoundingClientRect(), // #lead_point_2
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
@@ -109,6 +112,14 @@ function sc_L() { // functions (live on scroll)
         } else if (b.Lp.top > 0 && im.s7) {
             im.s7 = false;
             e_Fd(im.Lp1, false); // show arrow 1
+        }
+
+        if (b.Lps.top < 0 && !im.s8) { // #lead_point_2
+            im.s8 = true;
+            e_Fd(im.Lp2, true); // hide arrow 2
+        } else if (b.Lps.top > 0 && im.s8) {
+            im.s8 = false;
+            e_Fd(im.Lp2, false); // show arrow 2
         }
 
         if ((pos.r && !im.s5) || (!pos.r && im.s4) || (pos.r && im.s5)) { // downward scroll (plus, msc. conditions)
