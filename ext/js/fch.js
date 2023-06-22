@@ -144,7 +144,8 @@ function js_live() { // update js - in live
         el.x9 = false;
         hamButtonLoad(true);
     } else if (pos.aT && !pos.c) { // show
-        hamButtonLoad(true); // 
+        el.x9 = false;
+        hamButtonLoad(true); 
     }
 }
 
