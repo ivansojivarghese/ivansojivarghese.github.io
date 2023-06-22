@@ -39,6 +39,7 @@ var fchL = {
         x8 : false,
         x9 : false,
         x10 : false,
+        x11 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -252,6 +253,10 @@ function showCircle() { // show background circles in view
                 e_Fd(el.bgC[tgt], false);
                 if (tgt === 2 || tgt === 3) {
                     bd["b" + tgt] = el.bgC[tgt].getBoundingClientRect(); // add parameters for 3rd/4th circles
+                }
+                if (tgt === _L && !el.x11) { // last target
+                    el.x11 = true;
+                    pgTasks("gy", true); // initiate gyroscope
                 }
             }, 10);
             
