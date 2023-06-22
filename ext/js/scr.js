@@ -5,6 +5,7 @@ var im = { // #intro_main
         el : document.getElementById("intro_main"),
         elw : document.getElementById("intro_ws"),
         L : document.getElementById("lead_sc"),
+        Lp : document.getElementById("lead_point"),
         Lp1 : document.getElementById("pLa-1"),
         Lp2 : document.getElementById("pLa-2"),
         Lp3 : document.getElementById("pLa-3"),
@@ -45,6 +46,7 @@ function sc_L() { // functions (live on scroll)
         b = { // element bounds
             e : im.elw.getBoundingClientRect(), // #intro_ws
             L : im.L.getBoundingClientRect(), // #lead_sc
+            Lp : im.Lp.getBoundingClientRect(), // #lead_point
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
@@ -99,6 +101,10 @@ function sc_L() { // functions (live on scroll)
         //////////////////////////////////
 
         im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
+
+        if (b.Lp.top < 0) { // #lead_point
+            e_Fd(im.Lp1, true);
+        }
 
         if ((pos.r && !im.s5) || (!pos.r && im.s4) || (pos.r && im.s5)) { // downward scroll (plus, msc. conditions)
 
