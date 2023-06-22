@@ -190,7 +190,7 @@ function h_mTg() { // ham. menu toggle
             } else {
 
                 // h.classList.remove("z-G");
-                c_rep(h, "z_G", "z_N");
+                c_rep(h, "z_N", "z_G");
                 e_Fd(h, false); // reveal menu (fade in)
 
             }
@@ -226,7 +226,7 @@ function h_mTg() { // ham. menu toggle
                 e_Fd(h, true); // hide menu
                 setTimeout(function() {
                     // h.classList.add("z-G");
-                    c_rep(h, "z_N", "z_G");
+                    c_rep(h, "z_G", "z_N");
                     el.lk3.classList.remove("z_G"); // show arrow
                 }, op.t);
             }
