@@ -333,5 +333,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
 }
 
 function bgCirclesMove(e) { // live gyro-based movement of bg. circles
-
+    console.log(`Angular velocity along the X-axis ${e.x}`);
+    console.log(`Angular velocity along the Y-axis ${e.y}`);
+    console.log(`Angular velocity along the Z-axis ${e.z}`);
 }
