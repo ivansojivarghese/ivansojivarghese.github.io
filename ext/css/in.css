@@ -126,7 +126,7 @@
     width: 1rem;
     left: 55%;
     top: 2.5rem;
-    animation: swayRight 4s ease-in-out infinite;
+    animation: swayRight 8s ease-in-out infinite;
 }
 
 .bg-circles .circle-2 {
