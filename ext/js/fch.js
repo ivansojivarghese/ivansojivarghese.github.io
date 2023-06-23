@@ -360,11 +360,7 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
     el.bgC[3].style.transform = "translate(" + (op.fN * y * 1) + "px, " + (op.fN * x * 1) + "px)"; // circle 3
     el.bgC[4].style.transform = "translate(" + (op.fN * y * 3) + "px, " + (op.fN * x * 3) + "px)"; // circle 4
     */
-    /*
-    for (i = 0; i <= _L; i++) {
-        el.bgC[i].style.transform = "translate(" + (op.fN * y * 3) + "px, " + (op.fN * x * 3) + "px)";
-    }*/
 
-    el.bgC[3].style.transform = "translate(" + (op.fN * y * 5) + "px, " + (op.fN * x * 5) + "px)"; // circle 3
+    el.bgC[3].style.transform = "translate(" + (op.fN * y * 1) + "px, " + (op.fN * x * 1) + "px)"; // circle 3
 
 }

@@ -171,27 +171,7 @@
     0%, 100% {
         transform: translate(0, 0);
     }
-    12.5% {
-        transform: translate(0.125rem, 0.125rem);
-    }
-    25% {
-        transform: translate(0.25rem, 0.25rem);
-    }
-    37.5% {
-        transform: translate(0.125rem, 0.375rem);
-    }
-    50% {
-        transform: translate(0, 0.5rem);
-    }
-    62.5% {
-        transform: translate(-0.125rem, 0.375rem);
-    }
-    75% {
-        transform: translate(-0.25rem, 0.25rem);
-    }
-    87.5% {
-        transform: translate(-0.125rem, 0.125rem);
-    }
+    
 }
 
 #intro_ws {
