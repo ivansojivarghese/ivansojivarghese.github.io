@@ -167,6 +167,7 @@
 
             html, body {
                 overflow-x: hidden;
+                overflow-y: hidden;
                 overscroll-behavior: none;
                 max-width: 100%;
             }
@@ -174,6 +175,17 @@
             body {
                 font-family: Poppins, sans-serif;
                 margin: 2em;
+            }
+
+            html {
+                font-size: 10px;
+                width: 100vw; /*takes full dimensions*/
+                height: 100vh;
+            }
+
+            body {
+                width: 100vw; /*takes full dimensions*/
+                height: 100vh;
             }
 
             p, h1, h2, h3, h4, h5, h6 {
