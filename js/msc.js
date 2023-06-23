@@ -2705,6 +2705,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
   console.log(`'beforeinstallprompt' event was fired.`); // Optionally, send analytics event that PWA install promo was shown.
 });
 
+function showInstallPromotion() { // activate install button
+    
+}
+
 //////////////////////////////////////////
 /*
 pg.sc.c.addEventListener("touchstart", function(event) {
