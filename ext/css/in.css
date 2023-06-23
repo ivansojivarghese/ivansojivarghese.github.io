@@ -126,7 +126,7 @@
     width: 1rem;
     left: 55%;
     top: 2.5rem;
-    animation: goAround 4s ease-in-out infinite;
+    animation: swayRight 4s ease-in-out infinite;
 }
 
 .bg-circles .circle-2 {
@@ -167,11 +167,13 @@
     }
 }
 
-@keyframes goAround {
+@keyframes swayRight {
     0%, 100% {
-        transform: translate(0, 0);
+        transform: translateX(0.25rem);
     }
-    
+    50%{
+        transform: translateX(0);
+    }
 }
 
 #intro_ws {
