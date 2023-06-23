@@ -138,22 +138,54 @@
         >
         <!-- Inline the page's stylesheet. -->
         <style>
+            @font-face {
+                font-family: Poppins;
+                src: url("../msc/fonts/poppins/Poppins-Regular.woff2");
+                font-display: block;
+            }
+
+            @font-face {
+                font-family: Raleway;
+                src: url("../msc/fonts/raleway/Raleway-Regular.woff2");
+                font-display: block;
+            }
+
+            :root {
+                touch-action: pan-x pan-y; /*prevent zoom*/
+                height: 100% 
+            }
+
+            *  {
+                user-select: none;
+                -webkit-user-select: none; /* Safari support */
+                scrollbar-width: none; /*remove browser scroll bar from display - Firefox support*/
+            }
+
+            *::-webkit-scrollbar {
+                width: 0; /*remove browser scroll bar from display - Chrome, Edge, Safari support*/
+            }
+
+            html, body {
+                overflow-x: hidden;
+                overscroll-behavior: none;
+                max-width: 100%;
+            }
+
             body {
-            font-family: helvetica, arial, sans-serif;
-            margin: 2em;
+                font-family: Poppins, sans-serif;
+                margin: 2em;
             }
 
             h1 {
-            font-style: italic;
-            color: #373fff;
+                color: #303030;
             }
 
             p {
-            margin-block: 1rem;
+                margin-block: 1rem;
             }
 
             button {
-            display: block;
+                display: block;
             }
         </style>
     </head>
