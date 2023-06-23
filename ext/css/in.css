@@ -171,17 +171,14 @@
     0%, 100% {
         transform: translate(0, 0);
     }
-    12.5% {
-
-    }
     25% {
-        transform: translate(0.5rem, 0);
+        transform: translate(0.25rem, 0.25rem);
     }
     50% {
-        transform: translate(0.5rem, 0.5rem);
+        transform: translate(0, 0.5rem);
     }
     75% {
-        transform: translate(0, 0.5rem);
+        transform: translate(-0.25rem, 0.25rem);
     }
 }
 
