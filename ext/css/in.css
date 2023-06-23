@@ -134,6 +134,7 @@
     width: 3rem;
     left: 15%;
     top: 5rem;
+    animation: bounceTopHalf 10s ease-in-out infinite;
 }
 
 .bg-circles .circle-3 {
