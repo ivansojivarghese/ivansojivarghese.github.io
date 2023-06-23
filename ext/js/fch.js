@@ -344,7 +344,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
             }
         } else { // no support
 
-            // manual control
+            el.bgC[3].style.animation = "bounceTop 10s ease-in-out infinite";
         }
     }
 }
