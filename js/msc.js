@@ -2697,16 +2697,12 @@ window.addEventListener("load", () => {
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
+  
+  e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
+  deferredPrompt = e; // Stash the event so it can be triggered later.
+  showInstallPromotion(); // Update UI notify the user they can install the PWA
 
-  // Update UI notify the user they can install the PWA
-  // showInstallPromotion();
-
-  // Optionally, send analytics event that PWA install promo was shown.
-  console.log(`'beforeinstallprompt' event was fired.`);
+  console.log(`'beforeinstallprompt' event was fired.`); // Optionally, send analytics event that PWA install promo was shown.
 });
 
 //////////////////////////////////////////
