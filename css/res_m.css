@@ -95,6 +95,11 @@
     }
 }
 
+
+
+
+
+
 /* ---------- tablet/phablet ---- */ 
 
 @media screen and (min-width: 500px) and (orientation: portrait), (min-height: 500px) and (orientation: landscape) {
