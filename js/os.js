@@ -36,14 +36,28 @@ function applyManifest() {
         d = isDarkMode();
 
     if (op.sys === "Android") {
+
+        m.setAttribute("href", "app.webmanifest");
+
+        /*
         if (d) {
             m.setAttribute("href", "app_dark.webmanifest");
         } else {
             m.setAttribute("href", "app.webmanifest");
-        }
+        }*/
     } else if (op.sys === "iOS") {
 
+        
+
     } else if (op.sys === "Windows") { // if windows
+
+        m.setAttribute("href", "app_windows.webmanifest");
+
+        cfg.setAttribute("content", "browserconfig.xml");
+        tCol.setAttribute("content", "#303030");
+        tImg.setAttribute("content", "favicon/windows/mstile-144x144.png?1");
+
+        /*
         if (d) {
             m.setAttribute("href", "app_windows_dark.webmanifest"); 
 
@@ -56,7 +70,7 @@ function applyManifest() {
             cfg.setAttribute("content", "browserconfig.xml");
             tCol.setAttribute("content", "#303030");
             tImg.setAttribute("content", "favicon/windows/mstile-144x144.png?1");
-        }
+        }*/
     }
 }
 
