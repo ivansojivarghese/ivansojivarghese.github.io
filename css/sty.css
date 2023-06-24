@@ -808,10 +808,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 .chevron_down_img {
     background-image: url("../svg/chevron_down.svg");
 }
-/*
-.love_img {
-    background-image: url("../svg/love.svg");
-}*/
+
+.dark_mode_img {
+    background-image: url("../svg/dark_mode.svg");
+}
 
 .info_w_img {
     background-image: url("../svg/info_white.svg");
