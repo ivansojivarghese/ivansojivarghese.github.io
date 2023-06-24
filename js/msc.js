@@ -299,6 +299,9 @@ op = {
         n : false, // page nav. check (direct)
         b : true // URL bar in view check
     },
+    pwa : { // PWA support
+        iBtn : document.getElementById("dw_btn") // install button
+    },
     Lf : { // PAGE lifecycle API variables
         h : false, // hidden
         vA : false, // visible - active
@@ -2706,7 +2709,20 @@ window.addEventListener('beforeinstallprompt', (e) => {
 });
 
 function showInstallPromotion() { // activate install button
-    
+    op.pwa.iBtn.classList.remove("o-img"); // show button
+    op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+
+    // other stuff
+}
+
+async function installPrompt() {
+  hideInstallPromotion(); // Hide the app provided install promotion
+  
+  deferredPrompt.prompt(); // Show the install prompt
+  const { outcome } = await deferredPrompt.userChoice;  // Wait for the user to respond to the prompt
+  console.log(`User response to the install prompt: ${outcome}`); // Optionally, send analytics event with outcome of user choice
+  
+  deferredPrompt = null; // We've used the prompt, and can't use it again, throw it away
 }
 
 //////////////////////////////////////////
