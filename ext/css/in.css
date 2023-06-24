@@ -29,6 +29,11 @@
     height: 5rem;
 }
 
+#dw_btn {
+    margin-left: calc(100% - 3rem - 12rem); 
+    width: auto;
+}
+
 #hamburger_button .stroke {
     width: 0.35rem;
 }
