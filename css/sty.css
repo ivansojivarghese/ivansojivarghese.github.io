@@ -407,6 +407,10 @@ a.md, span.md {
     border-radius: 50%;
 }
 
+.b-rz {
+    border-radius: 0.5rem;
+}
+
 .u-p {
     cursor: pointer;
 }
