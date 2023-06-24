@@ -2732,6 +2732,14 @@ async function installPrompt() {
   deferredPrompt = null; // We've used the prompt, and can't use it again, throw it away
 }
 
+window.addEventListener('appinstalled', () => {
+    
+    hideInstallPromotion(); // Hide the app-provided install promotion
+    deferredPrompt = null; // Clear the deferredPrompt so it can be garbage collected
+    console.log('PWA was installed'); // Optionally, send analytics event to indicate successful install
+
+});
+
 //////////////////////////////////////////
 /*
 pg.sc.c.addEventListener("touchstart", function(event) {
