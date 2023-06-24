@@ -2715,6 +2715,13 @@ function showInstallPromotion() { // activate install button
     // other stuff
 }
 
+function hideInstallPromotion() { // activate install button
+    op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
+    op.pwa.iBtn.classList.add("o-img"); // hide button
+
+    // other stuff
+}
+
 async function installPrompt() {
   hideInstallPromotion(); // Hide the app provided install promotion
   
