@@ -125,7 +125,7 @@ function h_mTg() { // ham. menu toggle
 
             setTimeout(function() {
                 installBtnToggle();
-            }, op.t);
+            }, op.te);
             
             hm.e = true;
             // hm.h = false;
