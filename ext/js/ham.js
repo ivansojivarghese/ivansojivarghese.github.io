@@ -145,7 +145,7 @@ function h_mTg() { // ham. menu toggle
             setTimeout(function() { // latch set-up to avoid double call
                 hm.s = true;
                 hm.h = true;
-            }, op.t);
+            }, op.te);
 
             if (y !== 0) { // if page has been scrolled (offset) from original
             // op.s = true; 
