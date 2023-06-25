@@ -5,7 +5,7 @@ var uA_L,
         uA : navigator.userAgent, // user agent
         Ls : 1000/60, // loop (interval) speed - sec./rev.
         pwa : {
-            s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") ? true : false 
+            s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") ? true : false // check whether if opened as app
         }
     };
 

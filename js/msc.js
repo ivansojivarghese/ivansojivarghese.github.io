@@ -2,7 +2,7 @@
 // misc.
 
 var wH = window.outerHeight, // height
-    cH = document.documentElement.clientHeight, // [for mobile/tablet] height, exclusive of URL bar
+    cH = !op.pwa.s ? document.documentElement.clientHeight : window.innerHeight, // [for mobile/tablet] height, exclusive of URL bar
     wD = window.outerWidth, // width 
     wiH = window.innerHeight,
     wiD = window.innerWidth,
