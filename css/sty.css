@@ -824,8 +824,8 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/dark_mode.svg");
 }
 
-.download_w_img {
-    background-image: url("../svg/download_white.svg");
+.download_img {
+    background-image: url("../svg/download.svg");
 }
 
 .info_w_img {
