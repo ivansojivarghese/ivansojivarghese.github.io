@@ -122,6 +122,9 @@ function h_mTg() { // ham. menu toggle
             h_mBs(c); // perform button [stroke] dynamisms
 
             el.lk3.classList.add("z_G"); // hide arrow
+            if (el.a) { // if anchored
+                el.lk3.classList.add("d_n");
+            }
 
             setTimeout(function() {
                 installBtnToggle(true);
@@ -232,6 +235,9 @@ function h_mTg() { // ham. menu toggle
                     h.classList.add("z-G");
                     // c_rep(h, "z_G", "z_N");
                     el.lk3.classList.remove("z_G"); // show arrow
+                    if (el.a) { // if anchored
+                        el.lk3.classList.remove("d_n");
+                    }
                 }, op.t);
             }
 
