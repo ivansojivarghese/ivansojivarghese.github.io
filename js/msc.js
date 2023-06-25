@@ -2715,7 +2715,14 @@ window.addEventListener('beforeinstallprompt', (e) => {
 function showInstallPromotion() { // activate install button
     op.pwa.a = true;
     if (hm.e) {
-        installBtnToggle(true);
+        if (op.pwa.x) {
+            op.pwa.iBtn.classList.remove("o-img"); // show button
+            setTimeout(function() {
+                op.pwa.iBtn.addEventListener("click", installPrompt); // add click functio
+            }, op.t);            
+        } else {
+            installBtnToggle(true);
+        }
     }
 
     // other stuff
