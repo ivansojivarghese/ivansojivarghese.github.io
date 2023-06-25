@@ -284,11 +284,17 @@ function hamButtonLoad(m) {
 }
 
 function installBtnToggle() {
-    if (op.pwa.a) {
-        
-
-        // op.pwa.iBtn.classList.remove("o-img"); // show button
-        // op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+    if (op.pwa.a && !op.pwa.x) {
+        op.pwa.x = true;
+        c_rep(op.pwa.iBtn_h, "d_n", "d_i");
+        setTimeout(function() {
+            op.pwa.iBtn.style.transform = "none";
+            e_Fd(op.pwa.iBtn_h, false);
+            op.pwa.iBtn.classList.remove("o-img"); // show button
+            setTimeout(function() {
+                op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+            }, op.t);
+        }, 10);
     }
 }
 

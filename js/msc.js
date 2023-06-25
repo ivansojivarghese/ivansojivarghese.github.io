@@ -301,7 +301,8 @@ op = {
     },
     pwa : { // PWA support
         a : false, // pwa allowed?
-        s : op.pwa.s // pwa check?
+        s : op.pwa.s, // pwa check?
+        x : false
     },
     Lf : { // PAGE lifecycle API variables
         h : false, // hidden
