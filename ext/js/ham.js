@@ -122,6 +122,10 @@ function h_mTg() { // ham. menu toggle
             h_mBs(c); // perform button [stroke] dynamisms
 
             el.lk3.classList.add("z_G"); // hide arrow
+
+            setTimeout(function() {
+                installBtnToggle();
+            }, op.t);
             
             hm.e = true;
             // hm.h = false;
