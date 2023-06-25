@@ -89,6 +89,15 @@ function getPWADisplayMode() {
     return 'browser';
 }
 
+window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
+    let displayMode = 'browser';
+    if (evt.matches) {
+        displayMode = 'standalone';
+    }
+    // Log display mode change to analytics
+    console.log('DISPLAY_MODE_CHANGED', displayMode);
+});
+
 function setCookie(n, v, days) { // create a cookie 
     const d = new Date(); // get current time
     d.setTime(d.getTime() + (days*24*60*60*1000));
