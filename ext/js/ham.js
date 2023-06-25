@@ -124,7 +124,12 @@ function h_mTg() { // ham. menu toggle
             if (el.a) {
                 el.lk3.removeEventListener("click", peek);
             }
-            e_Fd(el.lk3, true);
+            e_Fd(el.lk3b, true); // fade out 
+            e_Fd(el.chev, true); 
+            setTimeout(function() {
+                el.lk3b.style.height = "0px"; // set link to 0 height
+            }, op.t);
+
             // el.lk3.classList.add("z-G"); // hide arrow
             /*
             if (el.a) { // if anchored
@@ -240,7 +245,9 @@ function h_mTg() { // ham. menu toggle
                     h.classList.add("z-G");
                     // c_rep(h, "z_G", "z_N");
                     // el.lk3.classList.remove("z-G"); // show arrow
-                    e_Fd(el.lk3, false);
+                    // e_Fd(el.lk3, false);
+                    e_Fd(el.lk3b, false); // fade in
+                    load_eN();
                     setTimeout(function() {
                         if (el.a) {
                             el.lk3.addEventListener("click", peek);
