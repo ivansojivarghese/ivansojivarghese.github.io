@@ -297,7 +297,7 @@ function hamButtonLoad(m) {
 
 function installBtnToggle(m) {
     if (m) {
-        if (op.pwa.a && !op.pwa.x) {
+        if (op.pwa.a && !op.pwa.x && !op.pwa.i) {
             op.pwa.x = true;
             op.pwa.iBtn.style.transform = "none";
             e_Fd(op.pwa.iBtn_h, false);
