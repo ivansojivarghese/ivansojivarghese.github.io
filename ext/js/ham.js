@@ -124,7 +124,7 @@ function h_mTg() { // ham. menu toggle
             el.lk3.classList.add("z_G"); // hide arrow
 
             setTimeout(function() {
-                installBtnToggle();
+                installBtnToggle(true);
             }, op.te);
             
             hm.e = true;
@@ -287,18 +287,27 @@ function hamButtonLoad(m) {
     }
 }
 
-function installBtnToggle() {
-    if (op.pwa.a && !op.pwa.x) {
-        op.pwa.x = true;
-        c_rep(op.pwa.iBtn_h, "d_n", "d_i");
-        setTimeout(function() {
+function installBtnToggle(m) {
+    if (m) {
+        if (op.pwa.a && !op.pwa.x) {
+            op.pwa.x = true;
             op.pwa.iBtn.style.transform = "none";
             e_Fd(op.pwa.iBtn_h, false);
             op.pwa.iBtn.classList.remove("o-img"); // show button
             setTimeout(function() {
                 op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
             }, op.t);
-        }, 10);
+        }
+    } else {
+        if (op.pwa.x) {
+            op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
+            e_Fd(op.pwa.iBtn_h, true);
+            op.pwa.iBtn.style.transform = "translateX(calc(7.63rem - 5vw));";
+            op.pwa.iBtn.classList.add("o-img"); // hide button
+            setTimeout(function() {
+                op.pwa.x = false;
+            }, op.t);
+        }
     }
 }
 
