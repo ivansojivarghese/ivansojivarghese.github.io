@@ -2714,15 +2714,18 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 function showInstallPromotion() { // activate install button
     op.pwa.a = true;
+    if (hm.e) {
+        installBtnToggle(true);
+    }
 
     // other stuff
 }
 
 function hideInstallPromotion() { // de-activate install button
-    // op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
-    // op.pwa.iBtn.classList.add("o-img"); // hide button
-
-    installBtnToggle(false);
+    if (hm.e) {
+        op.pwa.iBtn.classList.add("o-img"); // hide button
+        op.pwa.iBtn_h.classList.add("o-img"); // hide button
+    }
 
     // other stuff
 }
