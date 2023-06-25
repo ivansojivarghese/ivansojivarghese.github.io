@@ -121,7 +121,11 @@ function h_mTg() { // ham. menu toggle
 
             h_mBs(c); // perform button [stroke] dynamisms
 
-            el.lk3.classList.add("z-G"); // hide arrow
+            if (el.a) {
+                el.lk3.removeEventListener("click", peek);
+            }
+            e_Fd(el.lk3, true);
+            // el.lk3.classList.add("z-G"); // hide arrow
             /*
             if (el.a) { // if anchored
                 el.lk3.classList.add("d_n");
@@ -235,7 +239,13 @@ function h_mTg() { // ham. menu toggle
                 setTimeout(function() {
                     h.classList.add("z-G");
                     // c_rep(h, "z_G", "z_N");
-                    el.lk3.classList.remove("z-G"); // show arrow
+                    // el.lk3.classList.remove("z-G"); // show arrow
+                    e_Fd(el.lk3, false);
+                    setTimeout(function() {
+                        if (el.a) {
+                            el.lk3.addEventListener("click", peek);
+                        }
+                    }, op.t);
                     /*
                     if (el.a) { // if anchored
                         el.lk3.classList.remove("d_n");
