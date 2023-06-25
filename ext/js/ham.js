@@ -283,6 +283,15 @@ function hamButtonLoad(m) {
     }
 }
 
+function installBtnToggle() {
+    if (op.pwa.a) {
+        
+
+        // op.pwa.iBtn.classList.remove("o-img"); // show button
+        // op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+    }
+}
+
 
 // hm.b.addEventListener("mouseover", h_mBv); // hover effect (with cursor only)
 // hm.b.addEventListener("mouseout", h_mBv);

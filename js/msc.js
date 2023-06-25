@@ -300,8 +300,8 @@ op = {
         b : true // URL bar in view check
     },
     pwa : { // PWA support
-        s : op.pwa.s, // pwa check?
-        iBtn : document.getElementById("dw_btn") // install button
+        a : false, // pwa allowed?
+        s : op.pwa.s // pwa check?
     },
     Lf : { // PAGE lifecycle API variables
         h : false, // hidden
@@ -2700,23 +2700,24 @@ window.addEventListener("load", () => {
 // Initialize deferredPrompt for use later to show browser install prompt.
 let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  
-  e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
-  deferredPrompt = e; // Stash the event so it can be triggered later.
-  showInstallPromotion(); // Update UI notify the user they can install the PWA
+window.addEventListener('beforeinstallprompt', (e) => { 
+    op.pwa.iBtn = document.getElementById("dw_btn"); // pwa install button
+    op.pwa.iBtn_h = document.getElementById("dw_btn_h4"); // pwa install button h4
 
-  console.log(`'beforeinstallprompt' event was fired.`); // Optionally, send analytics event that PWA install promo was shown.
+    e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
+    deferredPrompt = e; // Stash the event so it can be triggered later.
+    showInstallPromotion(); // Update UI notify the user they can install the PWA
+
+    console.log(`'beforeinstallprompt' event was fired.`); // Optionally, send analytics event that PWA install promo was shown.
 });
 
 function showInstallPromotion() { // activate install button
-    op.pwa.iBtn.classList.remove("o-img"); // show button
-    op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+    op.pwa.a = true;
 
     // other stuff
 }
 
-function hideInstallPromotion() { // activate install button
+function hideInstallPromotion() { // de-activate install button
     op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
     op.pwa.iBtn.classList.add("o-img"); // hide button
 
@@ -2724,13 +2725,13 @@ function hideInstallPromotion() { // activate install button
 }
 
 async function installPrompt() {
-  hideInstallPromotion(); // Hide the app provided install promotion
-  
-  deferredPrompt.prompt(); // Show the install prompt
-  const { outcome } = await deferredPrompt.userChoice;  // Wait for the user to respond to the prompt
-  console.log(`User response to the install prompt: ${outcome}`); // Optionally, send analytics event with outcome of user choice
-  
-  deferredPrompt = null; // We've used the prompt, and can't use it again, throw it away
+    hideInstallPromotion(); // Hide the app provided install promotion
+
+    deferredPrompt.prompt(); // Show the install prompt
+    const { outcome } = await deferredPrompt.userChoice;  // Wait for the user to respond to the prompt
+    console.log(`User response to the install prompt: ${outcome}`); // Optionally, send analytics event with outcome of user choice
+
+    deferredPrompt = null; // We've used the prompt, and can't use it again, throw it away
 }
 
 window.addEventListener('appinstalled', () => {
