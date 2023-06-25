@@ -300,6 +300,7 @@ op = {
         b : true // URL bar in view check
     },
     pwa : { // PWA support
+        s : op.pwa.s, // pwa check?
         iBtn : document.getElementById("dw_btn") // install button
     },
     Lf : { // PAGE lifecycle API variables

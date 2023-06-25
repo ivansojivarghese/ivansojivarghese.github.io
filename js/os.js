@@ -3,7 +3,10 @@ var uA_L,
     op = { // site 'options'
         sys : "", // operating system
         uA : navigator.userAgent, // user agent
-        Ls : 1000/60 // loop (interval) speed - sec./rev.
+        Ls : 1000/60, // loop (interval) speed - sec./rev.
+        pwa : {
+            s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") ? true : false 
+        }
     };
 
 function isDarkMode() { // dark mode detection
@@ -72,6 +75,18 @@ function applyManifest() {
             tImg.setAttribute("content", "favicon/windows/mstile-144x144.png?1");
         }*/
     }
+}
+
+// REFERENCED FROM WEB.DEV: https://web.dev/customize-install/
+
+function getPWADisplayMode() {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    if (document.referrer.startsWith('android-app://')) {
+        return 'twa';
+    } else if (navigator.standalone || isStandalone) {
+        return 'standalone';
+    }
+    return 'browser';
 }
 
 function setCookie(n, v, days) { // create a cookie 
