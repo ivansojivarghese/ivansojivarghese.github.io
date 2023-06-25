@@ -2724,7 +2724,6 @@ function showInstallPromotion() { // activate install button
 function hideInstallPromotion() { // de-activate install button
     if (hm.e) {
         op.pwa.iBtn.classList.add("o-img"); // hide button
-        op.pwa.iBtn_h.classList.add("o-img"); // hide button
     }
 
     // other stuff
