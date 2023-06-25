@@ -89,7 +89,7 @@ function getPWADisplayMode() {
     return 'browser';
 }
 
-window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
+window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => { // check for changes in display
     let displayMode = 'browser';
     if (evt.matches) {
         displayMode = 'standalone';
