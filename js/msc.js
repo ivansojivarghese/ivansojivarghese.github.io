@@ -301,6 +301,7 @@ op = {
     },
     pwa : { // PWA support
         a : false, // pwa allowed?
+        i : false, // pwa installed?
         s : op.pwa.s, // pwa check?
         x : false
     },
