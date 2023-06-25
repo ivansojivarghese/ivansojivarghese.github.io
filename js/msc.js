@@ -2729,9 +2729,13 @@ function showInstallPromotion() { // activate install button
 }
 
 function hideInstallPromotion() { // de-activate install button
-    if (hm.e) {
-        op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
-        op.pwa.iBtn.classList.add("o-img"); // hide button
+    if (op.pwa.i) { // if installed
+        installBtnToggle(false);
+    } else {
+        if (hm.e) {
+            op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
+            op.pwa.iBtn.classList.add("o-img"); // hide button
+        }
     }
 
     // other stuff
@@ -2749,6 +2753,7 @@ async function installPrompt() {
 
 window.addEventListener('appinstalled', () => {
     
+    op.pwa.i = true;
     hideInstallPromotion(); // Hide the app-provided install promotion
     deferredPrompt = null; // Clear the deferredPrompt so it can be garbage collected
     console.log('PWA was installed'); // Optionally, send analytics event to indicate successful install
