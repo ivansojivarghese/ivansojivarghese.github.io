@@ -243,9 +243,11 @@ function h_mTg() { // ham. menu toggle
                 e_Fd(h, true); // hide menu
                 setTimeout(function() {
                     h.classList.add("z-G");
+
                     // c_rep(h, "z_G", "z_N");
                     // el.lk3.classList.remove("z-G"); // show arrow
                     // e_Fd(el.lk3, false);
+                    
                     if (el.ac) {
                         e_Fd(el.lk3b, false); // fade in
                         load_eN();
@@ -253,6 +255,7 @@ function h_mTg() { // ham. menu toggle
                             el.lk3.addEventListener("click", peek);
                         }, op.t);
                     }
+
                     /*
                     if (el.a) { // if anchored
                         el.lk3.classList.remove("d_n");
