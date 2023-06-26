@@ -47,6 +47,10 @@ var im = { // #intro_main
         s : false
     };
 
+for (k = 0; k <= ld.cs.length - 1; k++) {
+    ld["csX" + (k + 1)] = false;
+}
+
 
 function sc_L() { // functions (live on scroll)
     var ldc_L = ld.cs.length - 1,
@@ -216,8 +220,9 @@ function sc_L() { // functions (live on scroll)
         }
 
         for (j = 0; j <= ldc_L; j++) { // #lead_sc paragraph points
-            if (b["Lc" + (j + 1)].top < (op.svA * aH) && ) {
+            if (b["Lc" + (j + 1)].top < (op.svA * aH) && !ld["csX" + (j + 1)]) {
                 ld.cs[j].classList.remove("z_Ot"); // show
+                ld["csX" + (j + 1)] = true;
             }
         }
     }
