@@ -122,6 +122,7 @@ function h_mTg() { // ham. menu toggle
             h_mBs(c); // perform button [stroke] dynamisms
 
             if (el.ac) {
+                el.lk3.classList.add("z-G"); // hide arrow
                 el.lk3.removeEventListener("click", peek);
                 e_Fd(el.lk3b, true); // fade out 
                 e_Fd(el.chev, true); 
@@ -252,6 +253,7 @@ function h_mTg() { // ham. menu toggle
                         e_Fd(el.lk3b, false); // fade in
                         load_eN();
                         setTimeout(function() {
+                            el.lk3.classList.remove("z-G"); // hide arrow
                             el.lk3.addEventListener("click", peek);
                         }, op.t);
                     }
