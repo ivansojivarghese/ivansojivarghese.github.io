@@ -22,6 +22,9 @@ var im = { // #intro_main
         p : 0
         // s : true, // code execution status
     },
+    ld = { // #lead_sc
+        cs : document.getElementsByClassName("c_Info_s")
+    },
     sI_1 = { // stats numerals
         a : 0, // initial   
         n : 97, // km 
@@ -46,7 +49,8 @@ var im = { // #intro_main
 
 
 function sc_L() { // functions (live on scroll)
-    var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
+    var ldc_L = ld.cs.length - 1,
+        d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
         b = { // element bounds
             e : im.elw.getBoundingClientRect(), // #intro_ws
             L : im.L.getBoundingClientRect(), // #lead_sc
@@ -55,6 +59,10 @@ function sc_L() { // functions (live on scroll)
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
+
+    for (i = 0; i <= ldc_L; i++) {
+        b["Lc" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // get bounds for lead_sc indiv. points
+    }
 
     if (pos.aT) {
         im.L.style.transform = "translateY(0px)"; // #lead_sc
@@ -205,6 +213,12 @@ function sc_L() { // functions (live on scroll)
         } else if (b.pL4.bottom > (0 - b.pL4.height) && im.s2) {
             im.s2 = false;
             c_rep(im.Lp3, "d_n", "d_i");
+        }
+
+        for (j = 0; j <= ldc_L; j++) { // #lead_sc paragraph points
+            if (b["Lc" + (j + 1)].top < (op.svA * aH) && ) {
+                ld.cs[j].classList.remove("z_Ot"); // show
+            }
         }
     }
 
