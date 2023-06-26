@@ -380,7 +380,7 @@ op = {
     wRo : false, // window resize offline change?
     oRa : [], // orientation change array
     wRa : [], // window resize change array
-    svA : 0.8, // scroll-animations threshold
+    svA : 0.9, // scroll-animations threshold
     aP : 5, // approximator value
     t : 200, // transition duration - default (in ms.)
     // ti : 250, // "" interim
