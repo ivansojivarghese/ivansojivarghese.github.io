@@ -121,14 +121,14 @@ function h_mTg() { // ham. menu toggle
 
             h_mBs(c); // perform button [stroke] dynamisms
 
-            if (el.a) {
+            if (el.ac) {
                 el.lk3.removeEventListener("click", peek);
+                e_Fd(el.lk3b, true); // fade out 
+                e_Fd(el.chev, true); 
+                setTimeout(function() {
+                    el.lk3b.style.height = "0px"; // set link to 0 height
+                }, op.t);
             }
-            e_Fd(el.lk3b, true); // fade out 
-            e_Fd(el.chev, true); 
-            setTimeout(function() {
-                el.lk3b.style.height = "0px"; // set link to 0 height
-            }, op.t);
 
             // el.lk3.classList.add("z-G"); // hide arrow
             /*
@@ -246,13 +246,13 @@ function h_mTg() { // ham. menu toggle
                     // c_rep(h, "z_G", "z_N");
                     // el.lk3.classList.remove("z-G"); // show arrow
                     // e_Fd(el.lk3, false);
-                    e_Fd(el.lk3b, false); // fade in
-                    load_eN();
-                    setTimeout(function() {
-                        if (el.a) {
+                    if (el.ac) {
+                        e_Fd(el.lk3b, false); // fade in
+                        load_eN();
+                        setTimeout(function() {
                             el.lk3.addEventListener("click", peek);
-                        }
-                    }, op.t);
+                        }, op.t);
+                    }
                     /*
                     if (el.a) { // if anchored
                         el.lk3.classList.remove("d_n");
