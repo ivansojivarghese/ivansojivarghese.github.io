@@ -122,20 +122,16 @@ function h_mTg() { // ham. menu toggle
             h_mBs(c); // perform button [stroke] dynamisms
 
             if (el.ac) {
+                /*
                 el.lk3.classList.add("z-G"); // hide arrow
                 el.lk3.removeEventListener("click", peek);
                 e_Fd(el.lk3b, true); // fade out 
                 e_Fd(el.chev, true); 
                 setTimeout(function() {
                     el.lk3b.style.height = "0px"; // set link to 0 height
-                }, op.t);
-            }
-
-            // el.lk3.classList.add("z-G"); // hide arrow
-            /*
-            if (el.a) { // if anchored
+                }, op.t);*/
                 el.lk3.classList.add("d_n");
-            }*/
+            }
 
             setTimeout(function() {
                 installBtnToggle(true);
@@ -250,18 +246,16 @@ function h_mTg() { // ham. menu toggle
                     // e_Fd(el.lk3, false);
                     
                     if (el.ac) {
+                        /*
                         e_Fd(el.lk3b, false); // fade in
                         load_eN();
                         setTimeout(function() {
                             el.lk3.classList.remove("z-G"); // hide arrow
                             el.lk3.addEventListener("click", peek);
-                        }, op.t);
+                        }, op.t);*/
+                        el.lk3.classList.remove("d_n");
                     }
 
-                    /*
-                    if (el.a) { // if anchored
-                        el.lk3.classList.remove("d_n");
-                    }*/
                 }, op.t);
             }
 
