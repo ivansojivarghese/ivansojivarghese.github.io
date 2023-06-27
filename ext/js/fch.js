@@ -364,11 +364,9 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
     gyroscopeY = (op.fN * x * 3);
 
     if (op.Lf.h) {
-        // el.bgC[3].style.transform = "translate(0px, 0px)"; // circle 3
 
-        e_Fd(el.bgC[3], true); // fade out
-
-
+        el.bgC[3].style.transform = "translate(0px, 0px)"; // circle 3
+        
     } else {
         e_Fd(el.bgC[3], false);
         el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
