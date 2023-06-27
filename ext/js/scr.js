@@ -26,7 +26,9 @@ var im = { // #intro_main
     ld = { // #lead_sc
         cs : document.getElementsByClassName("c_Info_s"),
         rf : aH * op.svA[1],
-        rfe : aH * op.svA[0]
+        rfe : aH * op.svA[0],
+        rfd : 0,
+        x : false
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -223,7 +225,11 @@ function sc_L() { // functions (live on scroll)
         }
 
         if (b.Lpf.top <= ld.rf) { // c_Info header
-            var t = (-1 * ((pos.y - ld.rf) * ((op.fN * 3.5) / (ld.rf - ld.rfe))));
+            if (!ld.x) {
+                ld.x = true;
+                ld.rfd = pos.y;
+            }
+            var t = (-1 * ((pos.y - ld.rfd) * ((op.fN * 3.5) / (ld.rf - ld.rfe))));
             if (t >= op.fN * -3.5) {
                 im.Lpf.style.transform = "translateY(" + t + "px)";
             } else {
