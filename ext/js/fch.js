@@ -371,22 +371,22 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
         el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
     }
 }
-/*
+
 window.addEventListener("visibilitychange", function() { // modify sensor usage
     if (el.g) {
         if (document.hidden) { // hidden document
-            e_Fd(el.bgC[3], true);
+            // e_Fd(el.bgC[3], true);
             gyroscope.stop();
-            el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
+            // el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
         } else { // visible document
             gyroscope = new Gyroscope({ referenceFrame: "device", frequency: 30 });
             gyroscope.addEventListener("reading", () => bgCirclesMove(gyroscope));
             gyroscope.start();
-            e_Fd(el.bgC[3], false);
+            // e_Fd(el.bgC[3], false);
         }
     }
 });
-
+/*
 window.addEventListener("beforeunload", function() { 
     if (el.g) {
         e_Fd(el.bgC[3], true);
