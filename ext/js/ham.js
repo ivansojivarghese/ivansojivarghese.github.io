@@ -129,6 +129,7 @@ function h_mTg() { // ham. menu toggle
                 e_Fd(el.chev, true); 
                 el.lk3b.style.height = "0px"; // set link to 0 height
                 if (el.c4) {
+                    el.bgC[el.bgC.length - 1].classList.add("d_n"); // bg-circle 5
                     el.bgC[el.bgC.length - 1].classList.add("z_O"); // bg-circle 5
                 }
             }
@@ -252,6 +253,7 @@ function h_mTg() { // ham. menu toggle
                                 el.lk3.classList.remove("z-G"); // hide arrow
                                 el.lk3.addEventListener("click", peek);
                                 if (el.c4) {
+                                    el.bgC[el.bgC.length - 1].classList.remove("d_n"); // bg-circle 5
                                     el.bgC[el.bgC.length - 1].classList.remove("z_O"); // bg-circle 5
                                 }
                             }, op.t);
