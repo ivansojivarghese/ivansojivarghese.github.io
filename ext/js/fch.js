@@ -365,13 +365,9 @@ window.addEventListener("visibilitychange", function() { // modify sensor usage
         if (document.hidden) { // hidden document
             gyroscope.stop();
         } else { // visible document
+            gyroscope = new Gyroscope({ referenceFrame: "device", frequency: 30 });
+            gyroscope.addEventListener("reading", () => bgCirclesMove(gyroscope));
             gyroscope.start();
-            /*
-            if (document.hasFocus()) { // in focus
-                
-            } else { // out of focus
-                
-            }*/
         }
     }
 });
