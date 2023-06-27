@@ -131,7 +131,7 @@ function h_mTg() { // ham. menu toggle
             }
 
             if (el.c4) {
-                el.bgC[el.bgC.length - 1].classList.add("z_O");
+                el.bgC[el.bgC.length - 1].classList.add("z_O"); // bg-circle 5
             }
 
             setTimeout(function() {
