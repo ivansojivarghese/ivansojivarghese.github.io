@@ -360,7 +360,7 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
 
 }
 
-window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
+window.addEventListener("visibilitychange", function() { // modify sensor usage
     if (el.g) {
         if (document.hidden) { // hidden document
             gyroscope.stop();
@@ -371,5 +371,11 @@ window.addEventListener("visibilitychange", function() { // stop network check i
                 
             }
         }
+    }
+});
+
+window.addEventListener("beforeunload", function() { 
+    if (el.g) {
+        
     }
 });
