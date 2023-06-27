@@ -2628,6 +2628,8 @@ window.addEventListener("visibilitychange", function() { // stop network check i
     }
 });
 
+// PAGE LIFECYCLE API
+
 document.addEventListener("freeze", function() { // The page is now frozen.
     op.Lf.f = true;
 });
