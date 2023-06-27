@@ -84,6 +84,8 @@ function load_css_e() { // load CSS styles (page specific)
     c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
     c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
 
+    c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
+
     // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 
     if (wD >= 290 && aH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
