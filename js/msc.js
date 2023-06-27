@@ -2790,6 +2790,26 @@ window.addEventListener('appinstalled', () => {
 });
 
 //////////////////////////////////////////
+
+function isScreenLockSupported() {
+    return ('wakeLock' in navigator);
+}
+
+async function getScreenLock() {
+    if (isScreenLockSupported()){
+        let screenLock;
+        try {
+            screenLock = await navigator.wakeLock.request('screen');
+        } catch(err) {
+            console.log(err.name, err.message);
+        }
+        return screenLock;
+    }
+}
+
+getScreenLock();
+
+//////////////////////////////////////////
 /*
 pg.sc.c.addEventListener("touchstart", function(event) {
     if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
