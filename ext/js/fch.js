@@ -43,6 +43,7 @@ var fchL = {
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
+        g : false, // gyro sensor check
         i : document.getElementById("profile_image"),
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
@@ -330,6 +331,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 });
                 gyroscope.addEventListener("reading", () => bgCirclesMove(gyroscope));
                 gyroscope.start();
+                el.g = true;
             } catch (error) {
                 // Handle construction errors.
                 if (error.name === "SecurityError") {
@@ -343,7 +345,7 @@ function pgTasks(id, m) { // conduct any page-specific tasks (JS/CSS)
                 pgTasks("gy", false);
             }
         } else { // no support
-
+            el.g = false;
             el.bgC[3].style.animation = "bounceTop 10s ease-in-out infinite";
         }
     }
@@ -357,3 +359,17 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
     el.bgC[3].style.transform = "translate(" + (op.fN * y * 3) + "px, " + (op.fN * x * 3) + "px)"; // circle 3
 
 }
+
+window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
+    if (el.g) {
+        if (document.hidden) { // hidden document
+            gyroscope.stop();
+        } else { // visible document
+            if (document.hasFocus()) { // in focus
+                gyroscope.start();
+            } else { // out of focus
+                
+            }
+        }
+    }
+});
