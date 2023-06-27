@@ -928,6 +928,7 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "rendering fix"; // content
             } else if (op.er.ch) {
                 pg.msg.net_t.innerHTML = "cache reload"; 
+                setCookie("cacheReload", null, -1); // delete
             }
     
             msg_toggle(pg.msg.net, null, true, false, false); // show message
