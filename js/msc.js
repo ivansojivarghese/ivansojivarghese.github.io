@@ -2713,6 +2713,16 @@ window.addEventListener("load", () => {
     }
 });
 
+window.addEventListener('pagehide', function (event) {
+    if (event.persisted) {
+      // If the event's persisted property is `true` the page is about
+      // to enter the Back-Forward Cache, which is also in the frozen state
+      setCookie("cacheReload", "true", op.c.t); // set 'cache reload' cookie
+    }
+}), { 
+    capture: true 
+};
+
 /////////////////////////////////////////////
 
 // REFERENCED FROM WEB.DEV: https://web.dev/customize-install/
