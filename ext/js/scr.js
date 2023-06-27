@@ -21,7 +21,8 @@ var im = { // #intro_main
         s7 : false,
         s8 : false,
         s9 : false,
-        p : 0
+        p : 0,
+        sM : 0.25 // scroll mod.
         // s : true, // code execution status
     },
     ld = { // #lead_sc
@@ -53,10 +54,6 @@ var im = { // #intro_main
         _L : undefined,
         s : false
     };
-/*
-for (k = 0; k <= ld.cs.length - 1; k++) {
-    ld["csX" + (k + 1)] = false;
-}*/
 
 
 function sc_L() { // functions (live on scroll)
@@ -70,10 +67,6 @@ function sc_L() { // functions (live on scroll)
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
-    /*
-    for (i = 0; i <= ldc_L; i++) {
-        b["Lc" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // get bounds for lead_sc indiv. points
-    }*/
 
     if (pos.aT) {
         im.L.style.transform = "translateY(0px)"; // #lead_sc
@@ -131,7 +124,7 @@ function sc_L() { // functions (live on scroll)
 
         //////////////////////////////////
 
-        im.L.style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // #lead_sc
+        im.L.style.transform = "translateY(" + (pos.y * (-1 * im.sM)) + "px)"; // #lead_sc
 
         if (b.Lp.top < 0 && !im.s7) { // #lead_point
             im.s7 = true;
@@ -232,7 +225,7 @@ function sc_L() { // functions (live on scroll)
                 ld.x = true;
                 ld.rfd = pos.y;
             }
-            var m = (pos.y - ld.rfd) * (0.25 / (ld.rf - (ld.rfe * 0.75))), // modifier
+            var m = (pos.y - ld.rfd) * (im.sM / (ld.rf - (ld.rfe * (1 - im.sM)))), // modifier
                 t = (-1 * (((pos.y * (1 + m)) - ld.rfd) * ((op.fN * 3.5) / (ld.rf - ld.rfe)))),
                 p = ((t + (op.fN * -3.5)) / (op.fN * -3.5)) - 1;
             if (t >= op.fN * -3.5) {
@@ -254,13 +247,6 @@ function sc_L() { // functions (live on scroll)
         ld.cs[3].style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // c_Info 4
         ld.cs[4].style.transform = "translateY(" + (pos.y * -0.3) + "px)"; // c_Info 5
 
-        /*
-        for (j = 0; j <= ldc_L; j++) { // #lead_sc paragraph points
-            if (b["Lc" + (j + 1)].top < (op.svA * aH) && !ld["csX" + (j + 1)]) {
-                ld.cs[j].classList.remove("z_Ot"); // show
-                ld["csX" + (j + 1)] = true;
-            }
-        }*/
     }
 
     requestAnimationFrame(sc_L);
