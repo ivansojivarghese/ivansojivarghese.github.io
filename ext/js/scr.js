@@ -220,7 +220,7 @@ function sc_L() { // functions (live on scroll)
             c_rep(im.Lp3, "d_n", "d_i");
         }
 
-        if (b.Lpf < (aH * op.svA)) {
+        if (b.Lpf.top < (aH * op.svA)) {
             b.Lpf.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
         }
 
