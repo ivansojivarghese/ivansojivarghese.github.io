@@ -369,7 +369,7 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
         el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
     }
 }
-
+/*
 window.addEventListener("visibilitychange", function() { // modify sensor usage
     if (el.g) {
         if (document.hidden) { // hidden document
@@ -391,4 +391,4 @@ window.addEventListener("beforeunload", function() {
         gyroscope.stop();
         el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
     }
-});
+});*/
