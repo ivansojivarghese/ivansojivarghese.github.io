@@ -2794,6 +2794,8 @@ window.addEventListener('appinstalled', () => {
 
 //////////////////////////////////////////
 
+// REFERENCED FROM MEDIUM: https://medium.com/js-bytes/how-to-keep-your-screen-awake-using-javascript-aa15775d9bff
+
 let screenLock;
 
 function isScreenLockSupported() {
