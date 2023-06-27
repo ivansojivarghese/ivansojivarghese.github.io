@@ -252,6 +252,9 @@ function h_mTg() { // ham. menu toggle
                             setTimeout(function() {
                                 el.lk3.classList.remove("z-G"); // hide arrow
                                 el.lk3.addEventListener("click", peek);
+                                if (el.c4) {
+                                    el.bgC[el.bgC.length - 1].classList.remove("z_O"); // bg-circle 5
+                                }
                             }, op.t);
                         }, 10);
                     }
