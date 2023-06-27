@@ -253,7 +253,7 @@ function h_mTg() { // ham. menu toggle
                                 el.lk3.classList.remove("z-G"); // show arrow
                                 el.lk3.addEventListener("click", peek);
                                 setTimeout(function() {
-                                    if (el.c4) {
+                                    if (el.c4 && !hm.e) {
                                         el.bgC[el.bgC.length - 1].classList.remove("d_n"); // bg-circle 5
                                         setTimeout(function() {
                                             el.bgC[el.bgC.length - 1].classList.remove("z_O"); // bg-circle 5
