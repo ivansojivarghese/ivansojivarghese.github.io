@@ -226,7 +226,7 @@ function sc_L() { // functions (live on scroll)
         if (b.Lpf.top < (aH * op.svA[1])) { // c_Info header
             if (!ld.x) {
                 ld.x = true;
-                ld.rf = pos.y;
+                ld.rf = aH * op.svA[1];
                 ld.rfe = aH * op.svA[0];
             }
             im.Lpf.style.transform = "translateY(" + (-1 * ((pos.y - ld.rf) * ((op.fN * 3.5) / (ld.rf - ld.rfe)))) + "px)";
