@@ -6,6 +6,7 @@ var im = { // #intro_main
         elw : document.getElementById("intro_ws"),
         L : document.getElementById("lead_sc"),
         Lp : document.getElementById("lead_point"),
+        Lpf : document.getElementById("lead_point_1"),
         Lps : document.getElementById("lead_point_2"),
         Lp1 : document.getElementById("pLa-1"),
         Lp2 : document.getElementById("pLa-2"),
@@ -58,6 +59,7 @@ function sc_L() { // functions (live on scroll)
             e : im.elw.getBoundingClientRect(), // #intro_ws
             L : im.L.getBoundingClientRect(), // #lead_sc
             Lp : im.Lp.getBoundingClientRect(), // #lead_point
+            Lpf : im.Lpf.getBoundingClientRect(), // #lead_point_1
             Lps : im.Lps.getBoundingClientRect(), // #lead_point_2
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
@@ -216,6 +218,10 @@ function sc_L() { // functions (live on scroll)
         } else if (b.pL4.bottom > (0 - b.pL4.height) && im.s2) {
             im.s2 = false;
             c_rep(im.Lp3, "d_n", "d_i");
+        }
+
+        if (b.Lpf < (aH * op.svA)) {
+            b.Lpf.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
         }
 
         ld.cs[0].style.transform = "translateY(" + (pos.y * -0.1) + "px)"; // c_Info 1
