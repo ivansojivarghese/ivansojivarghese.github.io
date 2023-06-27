@@ -354,7 +354,8 @@ op = {
         L : null // loop
     },
     er : { // errors (fixes) - as messages
-        d : false
+        d : false, // display (render)
+        ch : false  // caching
     },
     r : null, // resource link origin
     n : null, // online status (internet connectivity)
@@ -909,7 +910,7 @@ function pL() { // site parameters loop
             }
         }
 
-        if (op.er.d && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) { // display fix
+        if ((op.er.d || op.er.ch) && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) { // display fix
         
             // edit message contents
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) { // UPDATE ACROSS ALL MESSAGES!
@@ -923,12 +924,17 @@ function pL() { // site parameters loop
                 pg.msg.net_i.classList.remove("cookies_w_img"); // remove 
             }
             pg.msg.net_i.classList.add("info_w_img"); // set icon
-            pg.msg.net_t.innerHTML = "rendering fix"; // content
+            if (op.er.d) {
+                pg.msg.net_t.innerHTML = "rendering fix"; // content
+            } else if (op.er.ch) {
+                pg.msg.net_t.innerHTML = "cache reload"; 
+            }
     
             msg_toggle(pg.msg.net, null, true, false, false); // show message
             pg.msg.io = true;
             pg.msg.ioS = op.d.getTime();
             op.er.d = false;
+            op.er.ch = false;
         }
     }
     /*

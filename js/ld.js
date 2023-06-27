@@ -114,6 +114,8 @@ function docRead() {
 
                             if (getCookie("displayErrorReload") === "true") {
                                 op.er.d = true;
+                            } else if (getCookie("cacheReload") === "true") {
+                                op.er.ch = true;    
                             }
 
                             if (!rL.e2) { 
