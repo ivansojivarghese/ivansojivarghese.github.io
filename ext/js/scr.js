@@ -234,7 +234,7 @@ function sc_L() { // functions (live on scroll)
             }
             var m = (pos.y - ld.rfd) * (0.25 / (ld.rf - (ld.rfe * 0.75))), // modifier
                 t = (-1 * (((pos.y * (1 + m)) - ld.rfd) * ((op.fN * 3.5) / (ld.rf - ld.rfe)))),
-                p = (t / (op.fN * -3.5));
+                p = (((op.fN * -3.5) - t) / (op.fN * -3.5));
             if (t >= op.fN * -3.5) {
                 im.Lpf.style.transform = "translateY(" + t + "px)";
                 im.Lph.style.opacity = p;
