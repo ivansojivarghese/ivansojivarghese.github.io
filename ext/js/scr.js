@@ -6,6 +6,7 @@ var im = { // #intro_main
         elw : document.getElementById("intro_ws"),
         L : document.getElementById("lead_sc"),
         Lp : document.getElementById("lead_point"),
+        Lph : document.getElementById("lead_point_0-5"),
         Lpf : document.getElementById("lead_point_1"),
         Lps : document.getElementById("lead_point_2"),
         Lp1 : document.getElementById("pLa-1"),
