@@ -26,7 +26,8 @@ var im = { // #intro_main
     ld = { // #lead_sc
         cs : document.getElementsByClassName("c_Info_s"),
         x : false,
-        rf : 0
+        rf : 0,
+        rfe : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -222,10 +223,11 @@ function sc_L() { // functions (live on scroll)
             c_rep(im.Lp3, "d_n", "d_i");
         }
 
-        if (b.Lpf.top < (aH * op.svA)) {
+        if (b.Lpf.top < (aH * op.svA[1])) {
             if (!ld.x) {
                 ld.x = true;
                 ld.rf = pos.y;
+                ld.rfe = aH * op.svA[0];
             }
             im.Lpf.style.transform = "translateY(" + ((pos.y - ld.rf) * -0.1) + "px)";
         }
