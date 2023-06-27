@@ -28,7 +28,8 @@ var im = { // #intro_main
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
-        x : false
+        x : false,
+        x2 : false
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -225,6 +226,7 @@ function sc_L() { // functions (live on scroll)
         }
 
         if (b.Lpf.top <= ld.rf) { // c_Info header
+            ld.x2 = true;
             if (!ld.x) {
                 ld.x = true;
                 ld.rfd = pos.y;
@@ -236,7 +238,8 @@ function sc_L() { // functions (live on scroll)
             } else if (t < op.fN * -3.5) {
                 im.Lpf.style.transform = "translateY(" + (op.fN * -3.5) + "px)";
             }
-        } else {
+        } else if (ld.x2) {
+            ld.x2 = false;
             im.Lpf.style.transform = "translateY(0px)";
         }
 
