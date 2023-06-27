@@ -218,11 +218,11 @@ function sc_L() { // functions (live on scroll)
             c_rep(im.Lp3, "d_n", "d_i");
         }
 
-        ld.cs[0].style.transform = "translateY(" + (pos.y * -0.3) + "px)"; // c_Info 1
-        ld.cs[1].style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // c_Info 2
+        ld.cs[0].style.transform = "translateY(" + (pos.y * -0.1) + "px)"; // c_Info 1
+        ld.cs[1].style.transform = "translateY(" + (pos.y * -0.15) + "px)"; // c_Info 2
         ld.cs[2].style.transform = "translateY(" + (pos.y * -0.2) + "px)"; // c_Info 3
-        ld.cs[3].style.transform = "translateY(" + (pos.y * -0.15) + "px)"; // c_Info 4
-        ld.cs[4].style.transform = "translateY(" + (pos.y * -0.1) + "px)"; // c_Info 5
+        ld.cs[3].style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // c_Info 4
+        ld.cs[4].style.transform = "translateY(" + (pos.y * -0.3) + "px)"; // c_Info 5
 
         /*
         for (j = 0; j <= ldc_L; j++) { // #lead_sc paragraph points
