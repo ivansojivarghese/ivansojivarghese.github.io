@@ -223,12 +223,14 @@ function sc_L() { // functions (live on scroll)
             c_rep(im.Lp3, "d_n", "d_i");
         }
 
-        if (b.Lpf.top <= (aH * op.svA[1])) { // c_Info header
+        if (b.Lpf.top <= ld.rf) { // c_Info header
+
             if (!ld.x) {
                 ld.x = true;
                 ld.rf = aH * op.svA[1];
                 ld.rfe = aH * op.svA[0];
             }
+
             var t = (-1 * ((pos.y - ld.rf) * ((op.fN * 3.5) / (ld.rf - ld.rfe))));
             if (t >= op.fN * -3.5) {
                 im.Lpf.style.transform = "translateY(" + t + "px)";
