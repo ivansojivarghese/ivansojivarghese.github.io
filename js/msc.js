@@ -2617,7 +2617,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
 //////////////////////////////////////////
 
-window.addEventListener("visibilitychange", function() { // stop network check if tab/window in background
+window.addEventListener("visibilitychange", async function() { // stop network check if tab/window in background
     if (rL.i && !eR.s) {
         if (document.hidden) { // hidden document
             op.Lf.h = true;
@@ -2631,6 +2631,9 @@ window.addEventListener("visibilitychange", function() { // stop network check i
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
             }, op.ne.bD);
+            if (screenLock !== null && document.visibilityState === 'visible') {
+                screenLock = await navigator.wakeLock.request('screen');
+            }
         }
     }
 });
@@ -2790,6 +2793,8 @@ window.addEventListener('appinstalled', () => {
 });
 
 //////////////////////////////////////////
+
+let screenLock;
 
 function isScreenLockSupported() {
     return ('wakeLock' in navigator);
