@@ -223,7 +223,7 @@ function sc_L() { // functions (live on scroll)
             c_rep(im.Lp3, "d_n", "d_i");
         }
 
-        if (b.Lpf.top < (aH * op.svA[1])) { // c_Info header
+        if (b.Lpf.top <= (aH * op.svA[1])) { // c_Info header
             if (!ld.x) {
                 ld.x = true;
                 ld.rf = aH * op.svA[1];
