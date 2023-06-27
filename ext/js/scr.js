@@ -22,9 +22,10 @@ var im = { // #intro_main
         p : 0
         // s : true, // code execution status
     },
+    /*
     ld = { // #lead_sc
         cs : document.getElementsByClassName("c_Info_s")
-    },
+    },*/
     sI_1 = { // stats numerals
         a : 0, // initial   
         n : 97, // km 
@@ -46,10 +47,10 @@ var im = { // #intro_main
         _L : undefined,
         s : false
     };
-
+/*
 for (k = 0; k <= ld.cs.length - 1; k++) {
     ld["csX" + (k + 1)] = false;
-}
+}*/
 
 
 function sc_L() { // functions (live on scroll)
@@ -63,10 +64,10 @@ function sc_L() { // functions (live on scroll)
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
-
+    /*
     for (i = 0; i <= ldc_L; i++) {
         b["Lc" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // get bounds for lead_sc indiv. points
-    }
+    }*/
 
     if (pos.aT) {
         im.L.style.transform = "translateY(0px)"; // #lead_sc
@@ -219,12 +220,13 @@ function sc_L() { // functions (live on scroll)
             c_rep(im.Lp3, "d_n", "d_i");
         }
 
+        /*
         for (j = 0; j <= ldc_L; j++) { // #lead_sc paragraph points
             if (b["Lc" + (j + 1)].top < (op.svA * aH) && !ld["csX" + (j + 1)]) {
                 ld.cs[j].classList.remove("z_Ot"); // show
                 ld["csX" + (j + 1)] = true;
             }
-        }
+        }*/
     }
 
     requestAnimationFrame(sc_L);
