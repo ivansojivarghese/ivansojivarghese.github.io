@@ -233,9 +233,11 @@ function sc_L() { // functions (live on scroll)
                 t = (-1 * (((pos.y * (1 + m)) - ld.rfd) * ((op.fN * 3.5) / (ld.rf - ld.rfe))));
             if (t >= op.fN * -3.5) {
                 im.Lpf.style.transform = "translateY(" + t + "px)";
-            } else {
+            } else if (t < op.fN * -3.5) {
                 im.Lpf.style.transform = "translateY(" + (op.fN * -3.5) + "px)";
             }
+        } else {
+            im.Lpf.style.transform = "translateY(0px)";
         }
 
         ld.cs[0].style.transform = "translateY(" + (pos.y * -0.1) + "px)"; // c_Info 1
