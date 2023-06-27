@@ -26,12 +26,14 @@ var im = { // #intro_main
         // s : true, // code execution status
     },
     ld = { // #lead_sc
+        csm : document.getElementById("c_Info-m"),
         cs : document.getElementsByClassName("c_Info_s"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
         x : false,
-        x2 : false
+        x2 : false,
+        x3 : false
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -67,6 +69,9 @@ function sc_L() { // functions (live on scroll)
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
+    for (i = 0; i <= ld.cs.length - 1; i++) {
+        b["csI" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // c_info h5 bounds
+    }
 
     if (pos.aT) {
         im.L.style.transform = "translateY(0px)"; // #lead_sc
@@ -247,6 +252,18 @@ function sc_L() { // functions (live on scroll)
         ld.cs[3].style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // c_Info 4
         ld.cs[4].style.transform = "translateY(" + (pos.y * -0.3) + "px)"; // c_Info 5
 
+        for (j = 0; j <= ld.cs.length - 1; j++) {
+            if (ld.cs[j - 1]) {
+                if (b["csI" + (j + 1)].top < b["csI" + (j)].bottom) { // if 2 h5 elements intersect
+                    ld.x3 = true;
+                    break;
+                }
+            }
+        }
+
+        if (ld.x3) {
+            ld.csm.classList.add("o-img");
+        }
     }
 
     requestAnimationFrame(sc_L);
