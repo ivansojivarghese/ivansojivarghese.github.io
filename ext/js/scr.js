@@ -257,12 +257,16 @@ function sc_L() { // functions (live on scroll)
                 if (b["csI" + (j + 1)].top < b["csI" + (j)].bottom) { // if 2 h5 elements intersect
                     ld.x3 = true;
                     break;
+                } else {
+                    ld.x3 = false;
                 }
             }
         }
 
         if (ld.x3) {
             ld.csm.classList.add("o-img");
+        } else {
+            ld.csm.classList.remove("o-img");
         }
     }
 
