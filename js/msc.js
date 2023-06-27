@@ -859,6 +859,14 @@ function pL() { // site parameters loop
         }, op.ne.bD);
     }*/
 
+    if (op.Lf.h) {
+        setTimeout(function() {
+            if (!document.hidden) {
+                op.Lf.h = false;
+            }
+        }, op.t);
+    }
+
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
