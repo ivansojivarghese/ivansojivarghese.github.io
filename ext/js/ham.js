@@ -254,7 +254,9 @@ function h_mTg() { // ham. menu toggle
                                 el.lk3.addEventListener("click", peek);
                                 if (el.c4) {
                                     el.bgC[el.bgC.length - 1].classList.remove("d_n"); // bg-circle 5
-                                    el.bgC[el.bgC.length - 1].classList.remove("z_O"); // bg-circle 5
+                                    setTimeout(function() {
+                                        el.bgC[el.bgC.length - 1].classList.remove("z_O"); // bg-circle 5
+                                    }, 10);
                                 }
                             }, op.t);
                         }, 10);
