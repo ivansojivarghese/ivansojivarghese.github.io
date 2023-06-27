@@ -415,6 +415,10 @@ a.md, span.md {
     cursor: pointer;
 }
 
+.u-d {
+    cursor: default;
+}
+
 /* -------------- */
 /*
 .link, .hook {

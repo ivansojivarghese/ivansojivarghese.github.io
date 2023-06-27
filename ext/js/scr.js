@@ -253,7 +253,7 @@ function sc_L() { // functions (live on scroll)
         ld.cs[3].style.transform = "translateY(" + (pos.y * -0.25) + "px)"; // c_Info 4
         ld.cs[4].style.transform = "translateY(" + (pos.y * -0.3) + "px)"; // c_Info 5
 
-        for (j = 0; j <= ld.cs.length - 1; j++) {
+        for (j = 0; j <= ld.cs.length - 1; j++) { // c_Info h5
             if (ld.cs[j - 1]) {
                 if (b["csI" + (j + 1)].top < b["csI" + (j)].bottom) { // if 2 h5 elements intersect
                     ld.x3 = true;
@@ -264,14 +264,26 @@ function sc_L() { // functions (live on scroll)
             }
         }
 
-        if (ld.x3) {
+        if (ld.x3) { // hide c_Info
             ld.csm.classList.add("o-img");
-            ld.csa[0].setAttribute("onclick", "event.preventDefault()");
-            ld.csa[1].setAttribute("onclick", "event.preventDefault()");
-        } else {
+
+            ld.csa[0].setAttribute("onclick", "event.preventDefault()"); // 'photos'
+            ld.csa[0].removeAttribute("href");
+            ld.csa[0].classList.add("u-d");
+
+            ld.csa[1].setAttribute("onclick", "event.preventDefault()"); // 'projects'
+            ld.csa[1].removeAttribute("href");
+            ld.csa[1].classList.add("u-d");
+        } else { // show
             ld.csm.classList.remove("o-img");
+
             ld.csa[0].setAttribute("onclick", "location.href='https://ivansojivarghese.github.io/clicks'");
+            ld.csa[0].setAttribute("href", "javascript:void(0)");
+            ld.csa[0].classList.remove("u-d");
+
             ld.csa[1].setAttribute("onclick", "location.href='https://ivansojivarghese.github.io/code'");
+            ld.csa[1].setAttribute("href", "javascript:void(0)");
+            ld.csa[1].classList.remove("u-d");
         }
     }
 
