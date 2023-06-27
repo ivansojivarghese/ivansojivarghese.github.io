@@ -229,7 +229,7 @@ function sc_L() { // functions (live on scroll)
                 ld.x = true;
                 ld.rfd = pos.y;
             }
-            var t = (-1 * ((pos.y - ld.rfd) * ((op.fN * 3.5) / (ld.rf - ld.rfe))));
+            var t = (-1 * (((pos.y * 1.25) - ld.rfd) * ((op.fN * 3.5) / (ld.rf - ld.rfe))));
             if (t >= op.fN * -3.5) {
                 im.Lpf.style.transform = "translateY(" + t + "px)";
             } else {
