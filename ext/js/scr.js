@@ -54,8 +54,7 @@ for (k = 0; k <= ld.cs.length - 1; k++) {
 
 
 function sc_L() { // functions (live on scroll)
-    var ldc_L = ld.cs.length - 1,
-        d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
+    var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
         b = { // element bounds
             e : im.elw.getBoundingClientRect(), // #intro_ws
             L : im.L.getBoundingClientRect(), // #lead_sc
