@@ -259,7 +259,7 @@ function h_mTg() { // ham. menu toggle
                                             el.bgC[el.bgC.length - 1].classList.remove("z_O"); // bg-circle 5
                                         }, 10);
                                     }
-                                }, 10);
+                                }, op.t);
                             }, op.t);
                         }, 10);
                     }
