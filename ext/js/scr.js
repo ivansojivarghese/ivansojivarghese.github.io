@@ -229,7 +229,7 @@ function sc_L() { // functions (live on scroll)
                 ld.rf = pos.y;
                 ld.rfe = aH * op.svA[0];
             }
-            im.Lpf.style.transform = "translateY(" + ( -1 * (((pos.y - ld.rf) - (ld.rf - ld.rfe)) * ((op.fN * -3.5) / (ld.rf - ld.rfe))) ) + "px)";
+            im.Lpf.style.transform = "translateY(" + ( -1 * (((pos.y - ld.rf)/* - (ld.rf - ld.rfe) */) * ((op.fN * -3.5) / (ld.rf - ld.rfe))) ) + "px)";
         }
 
         ld.cs[0].style.transform = "translateY(" + (pos.y * -0.1) + "px)"; // c_Info 1
