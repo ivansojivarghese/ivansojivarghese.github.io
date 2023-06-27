@@ -24,7 +24,9 @@ var im = { // #intro_main
         // s : true, // code execution status
     },
     ld = { // #lead_sc
-        cs : document.getElementsByClassName("c_Info_s")
+        cs : document.getElementsByClassName("c_Info_s"),
+        x : false,
+        rf : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -221,7 +223,11 @@ function sc_L() { // functions (live on scroll)
         }
 
         if (b.Lpf.top < (aH * op.svA)) {
-            im.Lpf.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+            if (!ld.x) {
+                ld.x = true;
+                ld.rf = pos.y;
+            }
+            im.Lpf.style.transform = "translateY(" + ((pos.y - ld.rf) * -0.1) + "px)";
         }
 
         ld.cs[0].style.transform = "translateY(" + (pos.y * -0.1) + "px)"; // c_Info 1
