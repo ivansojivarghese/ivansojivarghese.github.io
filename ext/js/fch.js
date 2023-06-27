@@ -365,11 +365,13 @@ window.addEventListener("visibilitychange", function() { // modify sensor usage
         if (document.hidden) { // hidden document
             gyroscope.stop();
         } else { // visible document
+            gyroscope.start();
+            /*
             if (document.hasFocus()) { // in focus
-                gyroscope.start();
+                
             } else { // out of focus
                 
-            }
+            }*/
         }
     }
 });
