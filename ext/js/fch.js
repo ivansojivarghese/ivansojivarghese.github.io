@@ -376,6 +376,6 @@ window.addEventListener("visibilitychange", function() { // modify sensor usage
 
 window.addEventListener("beforeunload", function() { 
     if (el.g) {
-        
+        gyroscope.stop();
     }
 });
