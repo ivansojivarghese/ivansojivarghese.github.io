@@ -28,6 +28,7 @@ var im = { // #intro_main
     ld = { // #lead_sc
         csm : document.getElementById("c_Info-m"),
         cs : document.getElementsByClassName("c_Info_s"),
+        csa : document.getElementsByClassName("c_Info_a"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
@@ -265,8 +266,12 @@ function sc_L() { // functions (live on scroll)
 
         if (ld.x3) {
             ld.csm.classList.add("o-img");
+            ld.csa[0].setAttribute("onclick", "event.preventDefault()");
+            ld.csa[1].setAttribute("onclick", "event.preventDefault()");
         } else {
             ld.csm.classList.remove("o-img");
+            ld.csa[0].setAttribute("onclick", "location.href='https://ivansojivarghese.github.io/clicks'");
+            ld.csa[1].setAttribute("onclick", "location.href='https://ivansojivarghese.github.io/code'");
         }
     }
 
