@@ -230,8 +230,10 @@ function sc_L() { // functions (live on scroll)
                 ld.rfe = aH * op.svA[0];
             }
             var t = (-1 * ((pos.y - ld.rf) * ((op.fN * 3.5) / (ld.rf - ld.rfe))));
-            if (t >= -op.fN * 3.5) {
+            if (t >= op.fN * -3.5) {
                 im.Lpf.style.transform = "translateY(" + t + "px)";
+            } else {
+                im.Lpf.style.transform = "translateY(" + (op.fN * -3.5) + "px)";
             }
         }
 
