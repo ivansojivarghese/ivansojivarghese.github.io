@@ -22,10 +22,9 @@ var im = { // #intro_main
         p : 0
         // s : true, // code execution status
     },
-    /*
     ld = { // #lead_sc
         cs : document.getElementsByClassName("c_Info_s")
-    },*/
+    },
     sI_1 = { // stats numerals
         a : 0, // initial   
         n : 97, // km 
@@ -218,6 +217,8 @@ function sc_L() { // functions (live on scroll)
             im.s2 = false;
             c_rep(im.Lp3, "d_n", "d_i");
         }
+
+        ld.cs[0].style.transform = "translateY(" + (pos.y * -0.4) + "px)";
 
         /*
         for (j = 0; j <= ldc_L; j++) { // #lead_sc paragraph points
