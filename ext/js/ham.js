@@ -129,11 +129,6 @@ function h_mTg() { // ham. menu toggle
                 e_Fd(el.lk3b, true); // fade out 
                 e_Fd(el.chev, true); 
                 el.lk3b.style.height = "0px"; // set link to 0 height
-                /*
-                setTimeout(function() {
-                    
-                }, op.t);
-                */
             }
 
             setTimeout(function() {
