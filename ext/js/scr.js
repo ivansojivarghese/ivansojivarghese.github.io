@@ -221,7 +221,7 @@ function sc_L() { // functions (live on scroll)
         }
 
         if (b.Lpf.top < (aH * op.svA)) {
-            b.Lpf.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+            im.Lpf.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
         }
 
         ld.cs[0].style.transform = "translateY(" + (pos.y * -0.1) + "px)"; // c_Info 1
