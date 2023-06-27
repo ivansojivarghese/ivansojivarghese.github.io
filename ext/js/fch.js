@@ -62,6 +62,8 @@ var fchL = {
     };
 
 let gyroscope = null;
+var gyroscopeX = 0,
+    gyroscopeY = 0;
 
 
 function loadUp() {
@@ -358,14 +360,17 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
         y = e.y, // y-axis
         z = e.z; // z-axis
 
-    el.bgC[3].style.transform = "translate(" + (op.fN * y * 3) + "px, " + (op.fN * x * 3) + "px)"; // circle 3
+    gyroscopeX = (op.fN * y * 3);
+    gyroscopeY = (op.fN * x * 3);
 
+    el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
 }
 
 window.addEventListener("visibilitychange", function() { // modify sensor usage
     if (el.g) {
         if (document.hidden) { // hidden document
             gyroscope.stop();
+            el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
         } else { // visible document
             gyroscope = new Gyroscope({ referenceFrame: "device", frequency: 30 });
             gyroscope.addEventListener("reading", () => bgCirclesMove(gyroscope));
@@ -377,5 +382,6 @@ window.addEventListener("visibilitychange", function() { // modify sensor usage
 window.addEventListener("beforeunload", function() { 
     if (el.g) {
         gyroscope.stop();
+        el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
     }
 });
