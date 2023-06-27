@@ -218,7 +218,7 @@ function sc_L() { // functions (live on scroll)
             c_rep(im.Lp3, "d_n", "d_i");
         }
 
-        ld.cs[0].style.transform = "translateY(" + (pos.y * -0.4) + "px)";
+        ld.cs[0].style.transform = "translateY(" + (pos.y * -0.4) + "px)"; // c_Info 1
 
         /*
         for (j = 0; j <= ldc_L; j++) { // #lead_sc paragraph points
