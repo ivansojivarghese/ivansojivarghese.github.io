@@ -2631,7 +2631,7 @@ window.addEventListener("visibilitychange", async function() { // stop network c
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
             }, op.ne.bD);
-            if (screenLock !== null && document.visibilityState === 'visible') {
+            if (screenLock !== null) {
                 screenLock = await navigator.wakeLock.request('screen');
             }
         }
