@@ -7,6 +7,9 @@ var uA_L,
         Ls : 1000/60, // loop (interval) speed - sec./rev.
         pwa : {
             s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") ? true : false // check whether if opened as app
+        },
+        Lf : {
+            fb : document.hasFocus()
         }
     };
 

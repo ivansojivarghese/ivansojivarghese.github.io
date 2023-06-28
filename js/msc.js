@@ -316,7 +316,7 @@ op = {
         x : false
     },
     Lf : { // PAGE lifecycle API variables
-        fb : false, // focus/blur - (true/false)
+        fb : op.Lf.fb, // focus/blur - (true/false)
         h : false, // hidden
         vA : false, // visible - active
         vP : false, // visible - passive
