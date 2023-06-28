@@ -270,7 +270,9 @@ function checkFocus() {
     if (!ex.a) {
         ex.a = true;
         setTimeout(function() {
-            ex.a = false;
+            setTimeout(function() {
+                ex.a = false;
+            }, dev.i);
             return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
         }, dev.i);
     }
