@@ -285,7 +285,7 @@ function checkFocus() {
         return !r;
     } else {
         // ex.f = [];
-        return r;
+        return false;
     }
 }
 
