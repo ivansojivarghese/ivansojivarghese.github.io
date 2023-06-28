@@ -860,10 +860,6 @@ function pL() { // site parameters loop
         }, op.ne.bD);
     }*/
 
-    if (!document.hidden && !document.hasFocus()) { // visible document BUT no focus
-        console.log("focus lost");
-    }
-
     if (op.Lf.h) { // if document hidden
         setTimeout(function() {
             if (!document.hidden) {
@@ -1142,6 +1138,10 @@ function pL() { // site parameters loop
                 }
             }, op.t);
         }
+    }
+
+    if (!document.hidden && !document.hasFocus()) { // visible document BUT no focus
+        console.log("focus lost");
     }
 
     if (op.Ld.s !== null && !op.oR && !op.wR) { // check for possible screen/window/tab splitting by user
