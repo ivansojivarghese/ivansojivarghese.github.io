@@ -1096,7 +1096,7 @@ function errorCheck() { // check for errors
         eR.h = "fS";
     } else if (translate_Check) { // check if translated
         eR.h = "tr";
-    } else if (focus_Check && !developer) { // check if focused
+    } else if (focus_Check && !developer) { // check if focused (and NOT developer mode)
         er.h = "fC";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
