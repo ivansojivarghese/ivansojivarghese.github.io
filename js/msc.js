@@ -382,6 +382,7 @@ op = {
     },
     zoom : Math.round((window.outerWidth / window.innerWidth) * dev.z), // approx. [potential] zoom of page, in percentage
     zoomUndefault : false, // default check
+    fC : false, // check if unfocused
     tr : false, // check if translated
     fS : false, // check if in full screen view, // fullscreen check (desktop only)
     sp : false, // check if in split view
@@ -1092,6 +1093,68 @@ function pL() { // site parameters loop
             }, op.t);
         }
     }
+
+    ////////////////////////////////////////
+
+    focus_Check = checkFocus();
+    if (!eR.s && focus_Check && !op.fC && rL && rL.i) {
+        scr_t(false, null); // disable scrolling
+        op.fC = true;
+        op.s = true;
+        eR.m.classList.remove("d_n"); // show error in display
+        eR.fC.classList.remove("d_n");   
+        e_Fd(disp, true); // fade out display
+
+        pgTasks("sc", true);
+
+        setTimeout(function() {
+            e_Fd(eR.fC, false);
+        }, 10);
+        eR.s = true;
+        eR.h = "fC";
+        eR.p = "fC";
+    } else if (!focus_Check && eR.s && op.fC && rL && rL.i) {
+        if (eR.fC_e.x) {
+            reL(); // reload if on first load
+            eR.fC_e.x = false;
+            op.fC = false;
+        } else {
+            e_Fd(eR.fC, true);
+            e_Fd(disp, false);
+
+            eR.s = (eR.p === "ld") ? true : false;
+            if (!eR.s) {
+                pgTasks("sc", false);
+            }
+
+            setTimeout(function() {
+                if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user + non-landscape mode
+                    scr_t(true, null); // enable scrolling
+                    op.s = false;
+                }
+                op.fC = false;
+                if ((vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if landscape error
+                    eR.m.classList.remove("d_n"); 
+                    eR.fC.classList.add("d_n"); 
+                    eR.ld.classList.remove("d_n");
+                    setTimeout(function() {
+                        e_Fd(eR.ld, false);
+                    }, 10);
+                    eR.s = true;
+                    eR.h = "ld";
+                    eR.p = "ld";
+                } else {
+                    eR.m.classList.add("d_n"); // hide error in display
+                    eR.fC.classList.add("d_n"); 
+                    eR.s = false;
+                    eR.h = "";
+                    eR.p = "";
+                }
+            }, op.t);
+        }
+    }
+
+    /////////////////////////////
 
     if (checkFullScreen() && !eR.s && !op.fS && rL && rL.i) { // check if FullScreen is enabled (desktop only)
         scr_t(false, null); // disable scrolling

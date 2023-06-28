@@ -40,6 +40,10 @@ eR = { // error
     or : document.getElementById("error_or"), // orientation change
     ck : document.getElementById("error_cke"), // cookies
     mt : document.getElementById("error_mt"), // maintenance
+    fC : document.getElementById("error_fC"), // focus
+    fC_e : {
+        x : false
+    },
     fS : document.getElementById("error_fS"), // fullscreen
     fS_e : {
         x : false // execution
@@ -1095,8 +1099,10 @@ function errorCheck() { // check for errors
         eR.fS_e.x = op.fS; // if on first load
         eR.h = "fS";
     } else if (translate_Check) { // check if translated
+        eR.tr_e.x = translate_Check; // first load
         eR.h = "tr";
     } else if (focus_Check && !developer) { // check if focused (and NOT developer mode)
+        eR.fC_e.x = focus_Check; 
         er.h = "fC";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
         eR.e = true;
