@@ -1097,7 +1097,7 @@ function pL() { // site parameters loop
     ////////////////////////////////////////
 
     focus_Check = checkFocus();
-    if (!eR.s && focus_Check && !op.fC && rL && rL.i) {
+    if (!eR.s && focus_Check && !op.fC && rL && rL.i && !developer) {
         scr_t(false, null); // disable scrolling
         op.fC = true;
         op.s = true;
