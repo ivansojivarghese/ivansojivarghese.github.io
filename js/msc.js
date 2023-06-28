@@ -101,6 +101,9 @@ var wH = window.outerHeight, // height
     },
     hm = { // hamburger menu
         s : false // open status
+    },
+    x = { // executions
+        a : false
     };
 
 /////////////////////////////////////////////////////
@@ -264,9 +267,13 @@ translate_Check = checkTranslation();
 var focus_Check = false;
 
 function checkFocus() {
-    setTimeout(function() {
-        return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
-    }, dev.i);
+    if (!x.a) {
+        x.a = true;
+        setTimeout(function() {
+            x.a = false;
+            return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
+        }, dev.i);
+    }
 }
 
 focus_Check = checkFocus();
