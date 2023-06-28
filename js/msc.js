@@ -269,7 +269,7 @@ var focus_Check = false;
 
 function checkFocus() {
     var f = false,
-        n = 0,
+        n = (ex.f.length >= 60) ? ex.f.length - 60 : 0,
         r = !document.hidden && !op.Lf.fb && !tDevice && rL.i;
     ex.f[ex.f.length] = r; // if document visible, but with NO focus
     while (n < 60) {
