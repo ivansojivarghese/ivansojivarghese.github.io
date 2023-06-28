@@ -1064,7 +1064,9 @@ function pL() { // site parameters loop
 
             eR.s = (eR.p === "ld") ? true : false;
             if (!eR.s) {
-                pgTasks("sc", false);
+                if (op.c.u) {
+                    pgTasks("sc", false);
+                }
             }
 
             setTimeout(function() {
@@ -1124,7 +1126,9 @@ function pL() { // site parameters loop
 
             eR.s = (eR.p === "ld") ? true : false;
             if (!eR.s) {
-                pgTasks("sc", false);
+                if (op.c.u) {
+                    pgTasks("sc", false);
+                }
             }
 
             setTimeout(function() {
@@ -1183,7 +1187,9 @@ function pL() { // site parameters loop
 
             eR.s = (eR.p === "ld") ? true : false;
             if (!eR.s) {
-                pgTasks("sc", false);
+                if (op.c.u) {
+                    pgTasks("sc", false);
+                }
             }
 
             setTimeout(function() {
@@ -2289,7 +2295,9 @@ function checkSplitScreen() {
                                     eR[eR.p].classList.remove("d_n");
                                 }
 
-                                pgTasks("sc", false);
+                                if (op.c.u) {
+                                    pgTasks("sc", false);
+                                }
 
                                 eR.s = false;
                                 eR.p = "";
@@ -2384,7 +2392,9 @@ window.addEventListener("resize", function(e) {
             e_Fd(eR.z, true);  // hide message
             e_Fd(disp, false); // show page
 
-            pgTasks("sc", false);
+            if (op.c.u) {
+                pgTasks("sc", false);
+            }
 
             setTimeout(function() {
                 eR.m.classList.add("d_n"); // hide error_main
