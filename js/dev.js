@@ -1,5 +1,5 @@
 
-var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+var developer = false, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
     keyStatus = {}, // keys down/up status
     disabledEvent, // function declaration (global)
     checkDevTools, // function, check for devTools presence (global)
@@ -96,6 +96,9 @@ if (!developer) { // anti-debugging features
         }
         if (!devError && devActivity) {
             reL(); // reload after devTools are closed
+        }
+        if (!document.hidden && !document.hasFocus()) { // visible document BUT no focus - screen capture prevention
+            console.log("focus lost");
         }
         setTimeout(check, checkInterval); // check every 100ms
     }

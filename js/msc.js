@@ -1140,10 +1140,6 @@ function pL() { // site parameters loop
         }
     }
 
-    if (!document.hidden && !document.hasFocus()) { // visible document BUT no focus
-        console.log("focus lost");
-    }
-
     if (op.Ld.s !== null && !op.oR && !op.wR) { // check for possible screen/window/tab splitting by user
         checkSplitScreen();
     } 
