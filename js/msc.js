@@ -30,7 +30,8 @@ var wH = window.outerHeight, // height
         uH : document.getElementById("ui-height"), // dummy element, check for URL/interface bar resizing
         version : "2.0", // site version
         version_up : "2.1", // version upgrade (if applicable, during maintenance)
-        v : 1 // max view time (days)
+        v : 1, // max view time (days)
+        i : 1000 // interface timeout (max.)
     },
     pos = { // scroll pos. (window)
         y : 0, // y-pos
@@ -263,7 +264,9 @@ translate_Check = checkTranslation();
 var focus_Check = false;
 
 function checkFocus() {
-    return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
+    setTimeout(function() {
+        return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
+    }, dev.i);
 }
 
 focus_Check = checkFocus();
