@@ -1217,10 +1217,6 @@ function pL() { // site parameters loop
         checkSplitScreen();
     } 
 
-    if (!document.hidden && !document.hasFocus()) { // visible document BUT no focus - screen capture prevention
-        console.log("focus lost");
-    }
-
     /*
     if (!op.nav.b) { // check if URL bar is NOT in view
         pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
