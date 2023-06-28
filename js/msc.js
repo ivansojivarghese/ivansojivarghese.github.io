@@ -263,7 +263,7 @@ translate_Check = checkTranslation();
 var focus_Check = false;
 
 function checkFocus() {
-    return !document.hidden && !document.hasFocus(); // if document visible, but with NO focus
+    return !document.hidden && !op.Lf.fb; // if document visible, but with NO focus
 }
 
 focus_Check = checkFocus();
@@ -316,6 +316,7 @@ op = {
         x : false
     },
     Lf : { // PAGE lifecycle API variables
+        fb : false, // focus/blur - (true/false)
         h : false, // hidden
         vA : false, // visible - active
         vP : false, // visible - passive
@@ -2748,11 +2749,11 @@ if (document.wasDiscarded) { // Page was previously discarded by the browser whi
 }
 
 window.addEventListener("focus", function() { // window in focus
-
+    op.Lf.fb = true;
 });
 
 window.addEventListener("blur", function() { // window out of focus
-
+    op.Lf.fb = false;
 });
 
 //////////////////////////////////////////
