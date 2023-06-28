@@ -103,6 +103,7 @@ var wH = window.outerHeight, // height
         s : false // open status
     },
     ex = { // executions
+        a : false,
         f : []
     };
 
@@ -1123,7 +1124,11 @@ function pL() { // site parameters loop
     ////////////////////////////////////////
 
     focus_Check = checkFocus();
-    if (!eR.s && focus_Check && !op.fC && rL && rL.i) {
+    if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
+        setTimeout(function() { // latching
+            ex.a = true;
+        }, (op.Ls * 60));
+
         scr_t(false, null); // disable scrolling
         op.fC = true;
         op.s = true;
@@ -1139,7 +1144,11 @@ function pL() { // site parameters loop
         eR.s = true;
         eR.h = "fC";
         eR.p = "fC";
-    } else if (!focus_Check && eR.s && op.fC && rL && rL.i) {
+    } else if (!focus_Check && eR.s && op.fC && ex.a && rL && rL.i) {
+        setTimeout(function() {
+            ex.a = false;
+        }, (op.Ls * 60));
+
         if (eR.fC_e.x) {
             reL(); // reload if on first load
             eR.fC_e.x = false;
