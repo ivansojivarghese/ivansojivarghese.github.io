@@ -275,9 +275,10 @@ function checkFocus() {
     while (n < (j + 60)) {
         if (ex.f[n] !== r) {
             f = true;
+            n++;
+        } else {
             break;
         }
-        n++;
     }
     if (f) {
         return !r;
