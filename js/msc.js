@@ -830,7 +830,7 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
 }
 
 function checkFullScreen() {
-    if ((window.innerHeight === screen.height || window.innerHeight === screen.availHeight) && (op.sys !== "iOS" && op.sys !== "Android")) { // only on desktops
+    if ((window.innerHeight === screen.height || window.innerHeight === screen.availHeight) && !tDevice) { // only on desktops
         /*
         if (rL.i) {
             op.fS = false;        
@@ -2324,7 +2324,7 @@ var px_ratio = window.devicePixelRatio || window.screen.availWidth / document.do
 window.addEventListener("resize", function(e) {
 
     var newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
-    if (newPx_ratio != px_ratio && (op.sys !== "iOS" && op.sys !== "Android")) { // zooming - only applicable to desktop browsers
+    if (newPx_ratio != px_ratio && !tDevice) { // zooming - only applicable to desktop browsers
         px_ratio = newPx_ratio;
         console.log("zooming");
 

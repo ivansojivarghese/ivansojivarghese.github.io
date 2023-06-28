@@ -936,7 +936,7 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 }
 
 function load_js() { // [compatibility/variables] load
-    dev.sC_a = (op.sys !== "iOS" && op.sys !== "Android") ? [15, 85] : [20, 80]; // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
+    dev.sC_a = !tDevice ? [15, 85] : [20, 80]; // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
     browserCheck();
     errorCheck(); 
     pos.st = (op.e / 100) * aH; // set scroll-validity threshold
@@ -1075,9 +1075,9 @@ function errorCheck() { // check for errors
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
         op.spR = true;
         eR.h = "sp";
-    } else if (op.zoomDefault && !vw.z_L && (op.sys !== "iOS" && op.sys !== "Android")) { // if viewport zoom not defaulted (100%)
+    } else if (op.zoomDefault && !vw.z_L && !tDevice) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
-    } else if (vw.z_S || (vw.mB_L && (op.sys !== "iOS" && op.sys !== "Android"))) { // if viewport size is too small (or incompatible)
+    } else if (vw.z_S || (vw.mB_L && !tDevice)) { // if viewport size is too small (or incompatible)
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
