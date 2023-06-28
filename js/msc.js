@@ -273,7 +273,7 @@ focus_Check = checkFocus();
 osCheck();
 console.log(op.sys);
 var aH;
-if (getCookie("maxHeight") && (op.sys === "iOS" || op.sys === "Android")) {
+if (getCookie("maxHeight") && tDevice) {
     aH = getCookie("maxHeight"); // get height from cookie
 } else {
     aH = cH;
@@ -1071,12 +1071,12 @@ function pL() { // site parameters loop
             }
 
             setTimeout(function() {
-                if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user + non-landscape mode
+                if (op.c.u && !(vw.mB_L && tDevice)) { // if cookies accepted by user + non-landscape mode
                     scr_t(true, null); // enable scrolling
                     op.s = false;
                 }
                 op.tr = false;
-                if ((vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if landscape error
+                if ((vw.mB_L && tDevice)) { // if landscape error
                     eR.m.classList.remove("d_n"); 
                     eR.tr.classList.add("d_n"); 
                     eR.ld.classList.remove("d_n");
@@ -1133,12 +1133,12 @@ function pL() { // site parameters loop
             }
 
             setTimeout(function() {
-                if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user + non-landscape mode
+                if (op.c.u && !(vw.mB_L && tDevice)) { // if cookies accepted by user + non-landscape mode
                     scr_t(true, null); // enable scrolling
                     op.s = false;
                 }
                 op.fC = false;
-                if ((vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if landscape error
+                if ((vw.mB_L && tDevice)) { // if landscape error
                     eR.m.classList.remove("d_n"); 
                     eR.fC.classList.add("d_n"); 
                     eR.ld.classList.remove("d_n");
@@ -1194,12 +1194,12 @@ function pL() { // site parameters loop
             }
 
             setTimeout(function() {
-                if (op.c.u && !(vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) { // if cookies accepted by user
+                if (op.c.u && !(vw.mB_L && tDevice)) { // if cookies accepted by user
                     scr_t(true, null); // enable scrolling
                     op.s = false;
                 }
                 op.fS = false;
-                if ((vw.mB_L && (op.sys === "iOS" || op.sys === "Android"))) {
+                if ((vw.mB_L && tDevice)) {
                     eR.m.classList.remove("d_n"); 
                     eR.fS.classList.add("d_n"); 
                     eR.ld.classList.remove("d_n");
@@ -2282,7 +2282,7 @@ function checkSplitScreen() {
                         r = pgOr(wD, cH); // get screen orientation (using dimensions)
                         vw = vwP(wD, cH, r); // set device size/orientation params
                         
-                        if ((vw.mB_L && (op.sys === "iOS" || op.sys === "Android")) || (!op.c.u && (op.sys !== "iOS" || op.sys !== "Android"))) { // if in landscape (mobile)
+                        if ((vw.mB_L && tDevice) || (!op.c.u && (op.sys !== "iOS" || op.sys !== "Android"))) { // if in landscape (mobile)
                             reL();
                             op.sp = false;
                         } else {
