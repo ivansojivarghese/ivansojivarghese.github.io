@@ -277,6 +277,7 @@ function checkFocus() {
             f = true;
             n++;
         } else {
+            f = false;
             break;
         }
     }
