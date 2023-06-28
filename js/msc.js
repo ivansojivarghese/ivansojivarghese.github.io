@@ -102,7 +102,7 @@ var wH = window.outerHeight, // height
     hm = { // hamburger menu
         s : false // open status
     },
-    x = { // executions
+    ex = { // executions
         a : false
     };
 
@@ -267,10 +267,10 @@ translate_Check = checkTranslation();
 var focus_Check = false;
 
 function checkFocus() {
-    if (!x.a) {
-        x.a = true;
+    if (!ex.a) {
+        ex.a = true;
         setTimeout(function() {
-            x.a = false;
+            ex.a = false;
             return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
         }, dev.i);
     }
