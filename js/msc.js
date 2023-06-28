@@ -263,7 +263,7 @@ translate_Check = checkTranslation();
 var focus_Check = false;
 
 function checkFocus() {
-    return !document.hidden && !op.Lf.fb; // if document visible, but with NO focus
+    return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
 }
 
 focus_Check = checkFocus();
