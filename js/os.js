@@ -1,5 +1,6 @@
 
 var uA_L,
+    tDevice, // check if device is touch-based
     op = { // site 'options'
         sys : "", // operating system
         uA : navigator.userAgent, // user agent
@@ -29,6 +30,16 @@ function osCheck() {
             op.sys = "Linux";
         }
     }
+}
+
+function isTouchSupported() {
+    var msTouchEnabled = window.navigator.msMaxTouchPoints;
+    var generalTouchEnabled = "ontouchstart" in document.createElement("div");
+
+    if ((msTouchEnabled || generalTouchEnabled) && (op.sys === "iOS" || op.sys === "Android")) {
+        return true;
+    }
+    return false;
 }
 
 function applyManifest() {
@@ -129,6 +140,7 @@ function getCookie(n) { // obtain a cookie (if available)
 uA_L = setInterval(function() {
     if (navigator.userAgent) {
         op.uA = navigator.userAgent;
+        tDevice = isTouchSupported();
         osCheck();
         applyManifest();
         clearInterval(uA_L);
