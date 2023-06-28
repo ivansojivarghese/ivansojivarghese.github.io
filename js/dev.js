@@ -1,5 +1,5 @@
 
-var developer = false, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
     keyStatus = {}, // keys down/up status
     disabledEvent, // function declaration (global)
     checkDevTools, // function, check for devTools presence (global)
