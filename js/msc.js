@@ -103,7 +103,8 @@ var wH = window.outerHeight, // height
         s : false // open status
     },
     ex = { // executions
-        a : false
+        a : false,
+        f : []
     };
 
 /////////////////////////////////////////////////////
