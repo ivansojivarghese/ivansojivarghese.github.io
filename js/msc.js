@@ -134,8 +134,6 @@ function renderCallback() {
 // CODE REFERENCED FROM: https://javascript.plainenglish.io/how-to-automatically-reload-a-page-after-a-given-period-of-inactivity-in-javascript-991d632d1f80
 // BY John Au-Yeung, 2021
 
-tDevice = isTouchSupported(); // check if touch device
-
 let time = new Date().getTime(); // CHECKS FOR INACTIVITY, & RELOADS IF SO (1 DAY)
 const setActivityTime = (e) => {
     time = new Date().getTime();

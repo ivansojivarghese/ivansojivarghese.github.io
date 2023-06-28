@@ -41,7 +41,7 @@ function isTouchSupported() {
     var msTouchEnabled = window.navigator.msMaxTouchPoints;
     var generalTouchEnabled = "ontouchstart" in document.createElement("div");
 
-    if ((msTouchEnabled || generalTouchEnabled) && (op.sys === "iOS" || op.sys === "Android")) {
+    if ((msTouchEnabled || generalTouchEnabled || developer) && (op.sys === "iOS" || op.sys === "Android")) {
         return true;
     }
     return false;
@@ -147,6 +147,7 @@ uA_L = setInterval(function() {
         op.uA = navigator.userAgent;
         osCheck();
         applyManifest();
+        tDevice = isTouchSupported(); // check if touch device
         clearInterval(uA_L);
     }
 }, op.Ls);
