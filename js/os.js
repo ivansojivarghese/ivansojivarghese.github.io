@@ -145,9 +145,9 @@ function getCookie(n) { // obtain a cookie (if available)
 uA_L = setInterval(function() {
     if (navigator.userAgent) {
         op.uA = navigator.userAgent;
-        tDevice = isTouchSupported();
         osCheck();
         applyManifest();
+        tDevice = isTouchSupported();
         clearInterval(uA_L);
     }
 }, op.Ls);
