@@ -860,10 +860,14 @@ function pL() { // site parameters loop
         }, op.ne.bD);
     }*/
 
-    if (op.Lf.h) {
+    if (!document.hidden && !document.hasFocus()) { // visible document BUT no focus
+        console.log("focus lost");
+    }
+
+    if (op.Lf.h) { // if document hidden
         setTimeout(function() {
             if (!document.hidden) {
-                op.Lf.h = false;
+                op.Lf.h = false; // reset
             }
         }, op.t);
     }
