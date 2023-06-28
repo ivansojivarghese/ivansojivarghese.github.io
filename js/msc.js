@@ -285,17 +285,6 @@ function checkFocus() {
         // ex.f = [];
         return r;
     }
-
-/*  
-    if (!ex.a) {
-        ex.a = true;
-        setTimeout(function() {
-            setTimeout(function() {
-                ex.a = false;
-            }, dev.i);
-            return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
-        }, dev.i);
-    }*/
 }
 
 focus_Check = checkFocus();
