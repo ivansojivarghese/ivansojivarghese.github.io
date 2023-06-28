@@ -2732,12 +2732,16 @@ window.addEventListener("visibilitychange", async function() { // stop network c
     if (rL.i && !eR.s) {
         if (document.hidden) { // hidden document
             op.Lf.h = true;
+            op.Lf.vP = false;
+            op.Lf.vA = false;
             clearInterval(op.ne.L); // clear network check loop
         } else { // visible document
             if (document.hasFocus()) { // in focus
                 op.Lf.vA = true;
+                op.Lf.vP = false;
             } else { // out of focus
                 op.Lf.vP = true;
+                op.Lf.vA = false;
             }
             op.ne.L = setInterval(async () => {
                 networkConditions(); // continuously check on network
