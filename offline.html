@@ -138,6 +138,66 @@
         >
         <!-- Inline the page's stylesheet. -->
         <style>
+            @font-face {
+                font-family: Poppins;
+                src: url("../msc/fonts/poppins/Poppins-Regular.woff2");
+                font-display: block;
+            }
+
+            @font-face {
+                font-family: Raleway;
+                src: url("../msc/fonts/raleway/Raleway-Regular.woff2");
+                font-display: block;
+            }
+
+            :root {
+                touch-action: pan-x pan-y; /*prevent zoom*/
+                height: 100% 
+            }
+
+            *  {
+                user-select: none;
+                -webkit-user-select: none; /* Safari support */
+                scrollbar-width: none; /*remove browser scroll bar from display - Firefox support*/
+            }
+
+            *::-webkit-scrollbar {
+                width: 0; /*remove browser scroll bar from display - Chrome, Edge, Safari support*/
+            }
+
+            html, body {
+                overflow-x: hidden;
+                overflow-y: hidden;
+                overscroll-behavior: none;
+                max-width: 100%;
+            }
+
+            body {
+                font-family: Poppins, sans-serif;
+                margin: 2em;
+            }
+
+            html {
+                font-size: 10px;
+                width: 100vw; /*takes full dimensions*/
+                height: 100vh;
+            }
+
+            p, h1, h2, h3, h4, h5, h6 {
+                line-height: 1em;
+                color: #303030;
+            }
+
+            p {
+                line-height: 1.5em;
+                font-size: 1.2rem;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+            }
+        </style>
+        <style>
             /* responsive - mobile */
             @media screen and (min-width: 100px) and (orientation: portrait), screen and (min-height: 100px) and (orientation: landscape) {
                 html {
@@ -213,66 +273,6 @@
 
             /* --- UPDATE OTHER FONTS HERE! ----- */
             
-        </style>
-        <style>
-            @font-face {
-                font-family: Poppins;
-                src: url("../msc/fonts/poppins/Poppins-Regular.woff2");
-                font-display: block;
-            }
-
-            @font-face {
-                font-family: Raleway;
-                src: url("../msc/fonts/raleway/Raleway-Regular.woff2");
-                font-display: block;
-            }
-
-            :root {
-                touch-action: pan-x pan-y; /*prevent zoom*/
-                height: 100% 
-            }
-
-            *  {
-                user-select: none;
-                -webkit-user-select: none; /* Safari support */
-                scrollbar-width: none; /*remove browser scroll bar from display - Firefox support*/
-            }
-
-            *::-webkit-scrollbar {
-                width: 0; /*remove browser scroll bar from display - Chrome, Edge, Safari support*/
-            }
-
-            html, body {
-                overflow-x: hidden;
-                overflow-y: hidden;
-                overscroll-behavior: none;
-                max-width: 100%;
-            }
-
-            body {
-                font-family: Poppins, sans-serif;
-                margin: 2em;
-            }
-
-            html {
-                font-size: 10px;
-                width: 100vw; /*takes full dimensions*/
-                height: 100vh;
-            }
-
-            p, h1, h2, h3, h4, h5, h6 {
-                line-height: 1em;
-                color: #303030;
-            }
-
-            p {
-                line-height: 1.5em;
-                font-size: 1.2rem;
-            }
-
-            h1 {
-                font-size: 2.8rem;
-            }
         </style>
     </head>
     <body>
