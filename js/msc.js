@@ -268,6 +268,24 @@ translate_Check = checkTranslation();
 var focus_Check = false;
 
 function checkFocus() {
+    var f = false,
+        n = 0,
+        r = !document.hidden && !op.Lf.fb && !tDevice;
+    ex.f[ex.f.length] = r; // if document visible, but with NO focus
+    while (n < 60) {
+        if (ex.f[n] !== r) {
+            f = true;
+            break;
+        }
+        n++;
+    }
+    if (f) {
+        return !r;
+    } else {
+        return r;
+    }
+
+/*  
     if (!ex.a) {
         ex.a = true;
         setTimeout(function() {
@@ -276,7 +294,7 @@ function checkFocus() {
             }, dev.i);
             return !document.hidden && !op.Lf.fb && !tDevice; // if document visible, but with NO focus
         }, dev.i);
-    }
+    }*/
 }
 
 focus_Check = checkFocus();
