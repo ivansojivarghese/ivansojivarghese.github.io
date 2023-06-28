@@ -97,10 +97,11 @@ if (!developer) { // anti-debugging features
         if (!devError && devActivity) {
             reL(); // reload after devTools are closed
         }
-        /*
-        if (!document.hidden && !document.hasFocus()) { // visible document BUT no focus - screen capture prevention
-            console.log("focus lost");
-        }*/
+        if (checkFocus && checkFocus()) { // visible document BUT no focus - screen capture prevention
+            // true
+        } else {
+            // false
+        }
         setTimeout(check, checkInterval); // check every 100ms
     }
 
