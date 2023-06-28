@@ -147,7 +147,6 @@ uA_L = setInterval(function() {
         op.uA = navigator.userAgent;
         osCheck();
         applyManifest();
-        tDevice = isTouchSupported();
         clearInterval(uA_L);
     }
 }, op.Ls);
