@@ -1056,12 +1056,7 @@ function pL() { // site parameters loop
     }
 
     translate_Check = checkTranslation();
-    if ((!eR.s /*|| (eR.s && (eR.h === "fC" || eR.p === "fC"))*/ ) && translate_Check && !op.tr && rL && rL.i) {
-        /*
-        if (eR.s && (eR.h === "fC" || eR.p === "fC")) { // fade out focus error
-            var a = eR.h || eR.p;
-            e_Fd(eR[a], true);
-        }*/
+    if ((!eR.s) && translate_Check && !op.tr && rL && rL.i) {
 
         scr_t(false, null); // disable scrolling
         op.tr = true;
@@ -1078,7 +1073,7 @@ function pL() { // site parameters loop
         eR.s = true;
         eR.h = "tr";
         eR.p = "tr";
-    } else if (!translate_Check && eR.s && op.tr && rL && rL.i) {
+    } else if ((!translate_Check || (checkFocus() || checkFullScreen() || checkSplitScreen())) && eR.s && op.tr && rL && rL.i) {
         if (eR.tr_e.x) {
             reL(); // reload if on first load
             eR.tr_e.x = false;
@@ -1087,7 +1082,7 @@ function pL() { // site parameters loop
             e_Fd(eR.tr, true);
             e_Fd(disp, false);
 
-            eR.s = (eR.p === "ld") ? true : false;
+            eR.s = (eR.p === "ld" || checkFocus() || checkFullScreen() || checkSplitScreen()) ? true : false;
             if (!eR.s) {
                 if (op.c.u) {
                     pgTasks("sc", false);
@@ -1110,6 +1105,29 @@ function pL() { // site parameters loop
                     eR.s = true;
                     eR.h = "ld";
                     eR.p = "ld";
+                } else if (checkFocus() || checkFullScreen() || checkSplitScreen()) {
+
+                    var b = "";
+                    if (checkSplitScreen()) {
+                        b = "sp";
+                    } else if (checkFullScreen()) {
+                        b = "fS";
+                    } else if (checkFocus()) {
+                        b = "fC";
+                    }
+
+                    eR.m.classList.remove("d_n"); 
+                    eR.fC.classList.add("d_n"); 
+
+                    eR[b].classList.remove("d_n");
+                    setTimeout(function() {
+                        e_Fd(eR[b], false);
+                    }, 10);
+                    eR.s = true;
+
+                    eR.h = b;
+                    eR.p = b;
+
                 } else {
                     eR.m.classList.add("d_n"); // hide error in display
                     eR.tr.classList.add("d_n"); 
