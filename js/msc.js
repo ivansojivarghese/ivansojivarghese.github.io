@@ -2353,19 +2353,6 @@ function checkSplitScreen() {
                 }
 
             } else if (op.sp && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
-                var b = "";
-                if (checkFullScreen()) {
-                    b = "fS";
-                    op.fS = true;
-                } else if (translate_Check) {
-                    b = "tr";
-                    op.tr = true;
-                } else if (checkFocus()) {
-                    b = "fC";
-                    op.fC = true;
-                } else if (eR.p === "ld") {
-                    b = "ld";
-                }
 
                 if (Number(getCookie("maxWidth")) === window.innerWidth && Number(getCookie("maxHeight")) === window.innerHeight) {
                     setTimeout(function() {
@@ -2382,8 +2369,8 @@ function checkSplitScreen() {
                                 disp.classList.remove("z_Os"); 
                                 eR.sp.classList.add("d_n");
                                 eR.m.classList.add("d_n");
-                                if (eR.p === "ld" || translate_Check || checkFullScreen() || checkFocus()) {
-                                    eR[b].classList.remove("d_n");
+                                if (eR.p === "ld") {
+                                    eR[eR.p].classList.remove("d_n");
                                 }
 
                                 if (op.c.u) {
