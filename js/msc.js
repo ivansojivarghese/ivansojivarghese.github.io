@@ -1222,7 +1222,7 @@ function pL() { // site parameters loop
                 e_Fd(eR.fC, true);
                 e_Fd(disp, false);
 
-                eR.s = (eR.p === "ld") ? true : false;
+                eR.s = (eR.p === "ld" || translate_Check || checkFullScreen() || checkSplitScreen()) ? true : false;
                 if (!eR.s) {
                     if (op.c.u) {
                         pgTasks("sc", false);
@@ -1245,6 +1245,28 @@ function pL() { // site parameters loop
                         eR.s = true;
                         eR.h = "ld";
                         eR.p = "ld";
+                    } else if (translate_Check || checkFullScreen() || checkSplitScreen()) { // other errors
+                        var b = "";
+                        if (checkSplitScreen()) {
+                            b = "sp";
+                        } else if (checkFullScreen()) {
+                            b = "fS";
+                        } else if (translate_Check) {
+                            b = "tr";
+                        }
+
+                        eR.m.classList.remove("d_n"); 
+                        eR.fC.classList.add("d_n"); 
+
+                        eR[b].classList.remove("d_n");
+                        setTimeout(function() {
+                            e_Fd(eR[b], false);
+                        }, 10);
+                        eR.s = true;
+
+                        eR.h = b;
+                        eR.p = b;
+
                     } else {
                         eR.m.classList.add("d_n"); // hide error in display
                         eR.fC.classList.add("d_n"); 
