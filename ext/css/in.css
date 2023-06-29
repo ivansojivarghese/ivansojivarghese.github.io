@@ -159,6 +159,13 @@
     animation: bounceTop 5s ease-in-out infinite;
 }
 
+#bg-cir5 {
+    height: 2rem;
+    width: 2rem;
+    opacity: 0.5;
+    left: 30%;
+}
+
 @keyframes bounceTop {
     0%, 100%{
         transform: translateY(-1rem);
