@@ -2300,24 +2300,25 @@ function checkSplitScreen() {
 
     setTimeout(function() {
         if (!op.oR && !op.wR) {
-            var b = "";
-            if (checkFullScreen()) {
-                b = "fS";
-                op.fS = true;
-            } else if (translate_Check) {
-                b = "tr";
-                op.tr = true;
-            } else if (checkFocus()) {
-                b = "fC";
-                op.fC = true;
-            } else if (eR.p === "ld") {
-                b = "ld";
-            }
+            
             if (op.spR && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) {
                 reL();
                 op.spR = false;
             } else if (!op.sp && (!eR.s || (eR.s && (eR.p === "ld" || translate_Check || checkFullScreen() || checkFocus()))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
-                
+                var b = "";
+                if (checkFullScreen()) {
+                    b = "fS";
+                    op.fS = true;
+                } else if (translate_Check) {
+                    b = "tr";
+                    op.tr = true;
+                } else if (checkFocus()) {
+                    b = "fC";
+                    op.fC = true;
+                } else if (eR.p === "ld") {
+                    b = "ld";
+                }
+
                 if (!op.oR && !op.wR) {
 
                     eR.s = true;
@@ -2352,6 +2353,19 @@ function checkSplitScreen() {
                 }
 
             } else if (op.sp && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { // no splitting, no error
+                var b = "";
+                if (checkFullScreen()) {
+                    b = "fS";
+                    op.fS = true;
+                } else if (translate_Check) {
+                    b = "tr";
+                    op.tr = true;
+                } else if (checkFocus()) {
+                    b = "fC";
+                    op.fC = true;
+                } else if (eR.p === "ld") {
+                    b = "ld";
+                }
 
                 if (Number(getCookie("maxWidth")) === window.innerWidth && Number(getCookie("maxHeight")) === window.innerHeight) {
                     setTimeout(function() {
