@@ -1152,48 +1152,50 @@ function pL() { // site parameters loop
     } else if (!focus_Check && eR.s && op.fC && ex.a && rL && rL.i) {
         setTimeout(function() {
             ex.a = false;
-        }, (op.Ls * 60));
+        }, (op.Ls * 90));
 
-        if (eR.fC_e.x) {
-            reL(); // reload if on first load
-            eR.fC_e.x = false;
-            op.fC = false;
-        } else {
-            e_Fd(eR.fC, true);
-            e_Fd(disp, false);
-
-            eR.s = (eR.p === "ld") ? true : false;
-            if (!eR.s) {
-                if (op.c.u) {
-                    pgTasks("sc", false);
-                }
-            }
-
-            setTimeout(function() {
-                if (op.c.u && !(vw.mB_L && tDevice)) { // if cookies accepted by user + non-landscape mode
-                    scr_t(true, null); // enable scrolling
-                    op.s = false;
-                }
+        setTimeout(function() {
+            if (eR.fC_e.x) {
+                reL(); // reload if on first load
+                eR.fC_e.x = false;
                 op.fC = false;
-                if ((vw.mB_L && tDevice)) { // if landscape error
-                    eR.m.classList.remove("d_n"); 
-                    eR.fC.classList.add("d_n"); 
-                    eR.ld.classList.remove("d_n");
-                    setTimeout(function() {
-                        e_Fd(eR.ld, false);
-                    }, 10);
-                    eR.s = true;
-                    eR.h = "ld";
-                    eR.p = "ld";
-                } else {
-                    eR.m.classList.add("d_n"); // hide error in display
-                    eR.fC.classList.add("d_n"); 
-                    eR.s = false;
-                    eR.h = "";
-                    eR.p = "";
+            } else {
+                e_Fd(eR.fC, true);
+                e_Fd(disp, false);
+
+                eR.s = (eR.p === "ld") ? true : false;
+                if (!eR.s) {
+                    if (op.c.u) {
+                        pgTasks("sc", false);
+                    }
                 }
-            }, op.t);
-        }
+
+                setTimeout(function() {
+                    if (op.c.u && !(vw.mB_L && tDevice)) { // if cookies accepted by user + non-landscape mode
+                        scr_t(true, null); // enable scrolling
+                        op.s = false;
+                    }
+                    op.fC = false;
+                    if ((vw.mB_L && tDevice)) { // if landscape error
+                        eR.m.classList.remove("d_n"); 
+                        eR.fC.classList.add("d_n"); 
+                        eR.ld.classList.remove("d_n");
+                        setTimeout(function() {
+                            e_Fd(eR.ld, false);
+                        }, 10);
+                        eR.s = true;
+                        eR.h = "ld";
+                        eR.p = "ld";
+                    } else {
+                        eR.m.classList.add("d_n"); // hide error in display
+                        eR.fC.classList.add("d_n"); 
+                        eR.s = false;
+                        eR.h = "";
+                        eR.p = "";
+                    }
+                }, op.t);
+            }
+        }, (op.Ls * 60));
     }
 
     /////////////////////////////
