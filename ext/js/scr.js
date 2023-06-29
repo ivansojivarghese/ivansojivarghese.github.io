@@ -130,7 +130,7 @@ function sc_L() { // functions (live on scroll)
 
         //////////////////////////////////
 
-        im.el.style.transform = "translateY(" + (pos.y * 0.1) + "px)"; // #intro_main
+        // im.el.style.transform = "translateY(" + (pos.y * 0.1) + "px)"; // #intro_main
         im.L.style.transform = "translateY(" + (pos.y * (-1 * im.sM)) + "px)"; // #lead_sc
 
         if (b.Lp.top < 0 && !im.s7) { // #lead_point
