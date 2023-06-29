@@ -1110,10 +1110,14 @@ function pL() { // site parameters loop
                     var b = "";
                     if (checkSplitScreen()) {
                         b = "sp";
+                        op.sp = true;
                     } else if (checkFullScreen()) {
                         b = "fS";
+                        op.fS = true;
                     } else if (checkFocus()) {
                         b = "fC";
+                        op.fC = true;
+                        ex.a = true;
                     }
 
                     eR.m.classList.remove("d_n"); 
@@ -1267,10 +1271,13 @@ function pL() { // site parameters loop
                         var b = "";
                         if (checkSplitScreen()) {
                             b = "sp";
+                            op.sp = true;
                         } else if (checkFullScreen()) {
                             b = "fS";
+                            op.fS = true;
                         } else if (translate_Check) {
                             b = "tr";
+                            op.tr = true;
                         }
 
                         eR.m.classList.remove("d_n"); 
