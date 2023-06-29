@@ -1073,7 +1073,7 @@ function pL() { // site parameters loop
         eR.s = true;
         eR.h = "tr";
         eR.p = "tr";
-    } else if ((!translate_Check || (checkFocus() || checkFullScreen() || checkSplitScreen())) && eR.s && op.tr && rL && rL.i) {
+    } else if ((!translate_Check || (checkFullScreen() || checkSplitScreen())) && eR.s && op.tr && rL && rL.i) {
         if (eR.tr_e.x) {
             reL(); // reload if on first load
             eR.tr_e.x = false;
@@ -1082,7 +1082,7 @@ function pL() { // site parameters loop
             e_Fd(eR.tr, true);
             e_Fd(disp, false);
 
-            eR.s = (eR.p === "ld" || checkFocus() || checkFullScreen() || checkSplitScreen()) ? true : false;
+            eR.s = (eR.p === "ld" || checkFullScreen() || checkSplitScreen()) ? true : false;
             if (!eR.s) {
                 if (op.c.u) {
                     pgTasks("sc", false);
@@ -1114,10 +1114,6 @@ function pL() { // site parameters loop
                     } else if (checkFullScreen()) {
                         b = "fS";
                         op.fS = true;
-                    } else if (checkFocus()) {
-                        b = "fC";
-                        op.fC = true;
-                        ex.a = true;
                     }
 
                     eR.m.classList.remove("d_n"); 
