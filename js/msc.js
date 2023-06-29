@@ -1107,6 +1107,9 @@ function pL() { // site parameters loop
                     eR.p = "ld";
                 } else if (checkFullScreen() || checkSplitScreen()) {
 
+                    scr_t(false, null); // disable scrolling
+                    op.s = true;
+
                     var b = "";
                     if (checkSplitScreen()) {
                         b = "sp";
@@ -1264,6 +1267,10 @@ function pL() { // site parameters loop
                         eR.h = "ld";
                         eR.p = "ld";
                     } else if (translate_Check || checkFullScreen() || checkSplitScreen()) { // other errors
+
+                        scr_t(false, null); // disable scrolling
+                        op.s = true;
+
                         var b = "";
                         if (checkSplitScreen()) {
                             b = "sp";
