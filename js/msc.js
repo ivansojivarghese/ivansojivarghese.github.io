@@ -2558,6 +2558,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
         // uHeight = Math.round(u.height);
 
+        op.Ld.p = pos.y;
+
         pgTasks("sc", true);
 
         setTimeout(function() {
@@ -2671,7 +2673,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                 
                 if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // portrait to landscape
 
-                    op.Ld.p = scrollY;
+                    // op.Ld.p = scrollY;
 
                     if (wiH < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
 
