@@ -1105,7 +1105,7 @@ function pL() { // site parameters loop
                     eR.s = true;
                     eR.h = "ld";
                     eR.p = "ld";
-                } else if (checkFocus() || checkFullScreen() || checkSplitScreen()) {
+                } else if (checkFullScreen() || checkSplitScreen()) {
 
                     var b = "";
                     if (checkSplitScreen()) {
