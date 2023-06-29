@@ -1121,7 +1121,68 @@ function pL() { // site parameters loop
         }
     }
 
-    ////////////////////////////////////////
+    if (checkFullScreen() && !eR.s && !op.fS && rL && rL.i) { // check if FullScreen is enabled (desktop only)
+        scr_t(false, null); // disable scrolling
+        op.fS = true;
+        op.s = true;
+        eR.m.classList.remove("d_n"); // show error in display
+        eR.fS.classList.remove("d_n");   
+        e_Fd(disp, true); // fade out display
+
+        pgTasks("sc", true);
+
+        setTimeout(function() {
+            e_Fd(eR.fS, false);
+        }, 10);
+        eR.s = true;
+        eR.h = "fS";
+        eR.p = "fS";
+    } else if (!checkFullScreen() && eR.s && op.fS && rL && rL.i) {
+        if (eR.fS_e.x) {
+            reL(); // reload if on first load
+            eR.fS_e.x = false;
+            op.fS = false;
+        } else {
+            e_Fd(eR.fS, true);
+            e_Fd(disp, false);
+
+            eR.s = (eR.p === "ld") ? true : false;
+            if (!eR.s) {
+                if (op.c.u) {
+                    pgTasks("sc", false);
+                }
+            }
+
+            setTimeout(function() {
+                if (op.c.u && !(vw.mB_L && tDevice)) { // if cookies accepted by user
+                    scr_t(true, null); // enable scrolling
+                    op.s = false;
+                }
+                op.fS = false;
+                if ((vw.mB_L && tDevice)) {
+                    eR.m.classList.remove("d_n"); 
+                    eR.fS.classList.add("d_n"); 
+                    eR.ld.classList.remove("d_n");
+                    setTimeout(function() {
+                        e_Fd(eR.ld, false);
+                    }, 10);
+                    eR.s = true;
+                    eR.h = "ld";
+                    eR.p = "ld";
+                } else {
+                    eR.m.classList.add("d_n"); // show error in display
+                    eR.fS.classList.add("d_n"); 
+                    eR.s = false;
+                    eR.h = "";
+                    eR.p = "";
+                }
+            }, op.t);
+        }
+    }
+
+    if (op.Ld.s !== null && !op.oR && !op.wR) { // check for possible screen/window/tab splitting by user
+        checkSplitScreen();
+    } 
 
     focus_Check = checkFocus();
     if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
@@ -1196,93 +1257,7 @@ function pL() { // site parameters loop
         }, (op.Ls * dev.t));
     }
 
-    /////////////////////////////
-
-    if (checkFullScreen() && !eR.s && !op.fS && rL && rL.i) { // check if FullScreen is enabled (desktop only)
-        scr_t(false, null); // disable scrolling
-        op.fS = true;
-        op.s = true;
-        eR.m.classList.remove("d_n"); // show error in display
-        eR.fS.classList.remove("d_n");   
-        e_Fd(disp, true); // fade out display
-
-        pgTasks("sc", true);
-
-        setTimeout(function() {
-            e_Fd(eR.fS, false);
-        }, 10);
-        eR.s = true;
-        eR.h = "fS";
-        eR.p = "fS";
-    } else if (!checkFullScreen() && eR.s && op.fS && rL && rL.i) {
-        if (eR.fS_e.x) {
-            reL(); // reload if on first load
-            eR.fS_e.x = false;
-            op.fS = false;
-        } else {
-            e_Fd(eR.fS, true);
-            e_Fd(disp, false);
-
-            eR.s = (eR.p === "ld") ? true : false;
-            if (!eR.s) {
-                if (op.c.u) {
-                    pgTasks("sc", false);
-                }
-            }
-
-            setTimeout(function() {
-                if (op.c.u && !(vw.mB_L && tDevice)) { // if cookies accepted by user
-                    scr_t(true, null); // enable scrolling
-                    op.s = false;
-                }
-                op.fS = false;
-                if ((vw.mB_L && tDevice)) {
-                    eR.m.classList.remove("d_n"); 
-                    eR.fS.classList.add("d_n"); 
-                    eR.ld.classList.remove("d_n");
-                    setTimeout(function() {
-                        e_Fd(eR.ld, false);
-                    }, 10);
-                    eR.s = true;
-                    eR.h = "ld";
-                    eR.p = "ld";
-                } else {
-                    eR.m.classList.add("d_n"); // show error in display
-                    eR.fS.classList.add("d_n"); 
-                    eR.s = false;
-                    eR.h = "";
-                    eR.p = "";
-                }
-            }, op.t);
-        }
-    }
-
-    if (op.Ld.s !== null && !op.oR && !op.wR) { // check for possible screen/window/tab splitting by user
-        checkSplitScreen();
-    } 
-
-    /*
-    if (!op.nav.b) { // check if URL bar is NOT in view
-        pg.msg.net.style.transform = "translateY(" + barHeightTemp + "px)";
-    }*/
-
-    // elementHeight = document.getElementById("control-height").innerHeight,
-    // barHeight = getBd(elementHeight, "height") - wH;
-
-     /*   // check if location bar is visible
-    let locationBarVis = window.locationbar.visible ? true : false;
-
-    // check if menu bar is visible
-    let menuBarVis = window.menubar.visible ? true : false;
-
-    // check if toolbar is visible
-    let toolbarVis = window.toolbar.visible ? true : false;
-
-    pg.msg.net_t.innerHTML = locationBarVis + " " + menuBarVis + " " + toolbarVis;*/
-    // pg.msg.net_t.innerHTML = op.nav.b + " " + barHeight;
-
-    // pg.msg.net_t.innerHTML = window.innerHeight + " " + document.documentElement.clientHeight + " " + barHeight;
-
+    ///////////////////////////////////
 
     if ((!eR.s && ((op.n === false && !op.nc) || (op.n && op.nc))) || (!rL.i && op.n && !op.nc && (!op.ne.w || (op.ne.w && op.ne.off)))) { // if change in network connection (internet)
         if (!op.nc) { // offline
