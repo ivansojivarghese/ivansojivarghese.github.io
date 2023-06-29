@@ -1209,7 +1209,7 @@ function pL() { // site parameters loop
             }
         }, (op.Ls * dev.t));
 
-    } else if (!focus_Check && eR.s && op.fC && ex.a && rL && rL.i) {
+    } else if ((!focus_Check || (translate_Check || checkFullScreen())) && eR.s && op.fC && ex.a && rL && rL.i) {
 
         setTimeout(function() {
             ex.a = false;
