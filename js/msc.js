@@ -2558,7 +2558,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
         // uHeight = Math.round(u.height);
 
-        if (rL.i && !rL.o_c && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // landscape to portrait
+        if (rL.i && !rL.o_c && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // portrait to landscape
             op.Ld.p = pos.y;
         }
 
