@@ -173,13 +173,6 @@ window.addEventListener("load", function() { // 2 - full load
 }); 
 
 /////////////////////////////////////////////////////////
-/*
-const scroller = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true 
-});
-*/
-/////////////////////////////////////////////////////////
 
 /*
 const obs = new PerformanceObserver((list) => {
@@ -269,11 +262,11 @@ var focus_Check = false;
 
 function checkFocus() {
     var f = false,
-        n = (ex.f.length >= 60) ? ex.f.length - 60 : 0,
+        n = (ex.f.length >= op.i) ? ex.f.length - op.i : 0,
         j = n,
         r = !document.hidden && !op.Lf.fb && !tDevice && rL.i;
     ex.f[ex.f.length] = r; // if document visible, but with NO focus
-    while (n < (j + 60)) {
+    while (n < (j + op.i)) {
         if (ex.f[n] !== r) {
             f = true;
             n++;
@@ -1125,11 +1118,7 @@ function pL() { // site parameters loop
 
     focus_Check = checkFocus();
     if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
-        /*
-        setTimeout(function() { // latching
-            ex.a = true;
-        }, (op.Ls * 90));
-        */
+
         setTimeout(function() {
             if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
                 ex.a = true;
@@ -1150,14 +1139,10 @@ function pL() { // site parameters loop
                 eR.h = "fC";
                 eR.p = "fC";
             }
-        }, (op.Ls * 60));
+        }, (op.Ls * op.i));
 
     } else if (!focus_Check && eR.s && op.fC && ex.a && rL && rL.i) {
-        /*
-        setTimeout(function() {
-            ex.a = false;
-        }, (op.Ls * 90));
-        */
+
         setTimeout(function() {
             ex.a = false;
 
@@ -1201,7 +1186,7 @@ function pL() { // site parameters loop
                     }
                 }, op.t);
             }
-        }, (op.Ls * 60));
+        }, (op.Ls * op.i));
     }
 
     /////////////////////////////
