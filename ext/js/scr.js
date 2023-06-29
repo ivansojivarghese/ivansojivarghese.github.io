@@ -132,7 +132,7 @@ function sc_L() { // functions (live on scroll)
         //////////////////////////////////
 
         im.L.style.transform = "translateY(" + (pos.y * (-1 * im.sM)) + "px)"; // #lead_sc
-        im.b5.style.transform = "translateY(" + (pos.y * -0.2) + "px)"; // bg-circle 5
+        im.b5.style.transform = "translateY(" + (pos.y * -0.75) + "px)"; // bg-circle 5
 
         if (b.Lp.top < 0 && !im.s7) { // #lead_point
             im.s7 = true;
