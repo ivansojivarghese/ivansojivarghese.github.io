@@ -1055,7 +1055,7 @@ function pL() { // site parameters loop
     }
 
     translate_Check = checkTranslation();
-    if (!eR.s && translate_Check && !op.tr && rL && rL.i) {
+    if ((!eR.s || (eR.s && (eR.h === "fC" || eR.p === "fC"))) && translate_Check && !op.tr && rL && rL.i) {
         scr_t(false, null); // disable scrolling
         op.tr = true;
         op.s = true;
