@@ -4,6 +4,7 @@
 var im = { // #intro_main
         el : document.getElementById("intro_main"),
         elw : document.getElementById("intro_ws"),
+        b5 : document.getElementById("bg-cir5"),
         L : document.getElementById("lead_sc"),
         Lp : document.getElementById("lead_point"),
         Lph : document.getElementById("lead_point_0-5"),
@@ -130,8 +131,8 @@ function sc_L() { // functions (live on scroll)
 
         //////////////////////////////////
 
-        // im.el.style.transform = "translateY(" + (pos.y * 0.1) + "px)"; // #intro_main
         im.L.style.transform = "translateY(" + (pos.y * (-1 * im.sM)) + "px)"; // #lead_sc
+        im.b5.style.transform = "translateY(" + (pos.y * (-1 * 0.2)) + "px)"; // bg-circle 5
 
         if (b.Lp.top < 0 && !im.s7) { // #lead_point
             im.s7 = true;
