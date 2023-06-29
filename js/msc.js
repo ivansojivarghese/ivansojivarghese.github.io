@@ -31,7 +31,8 @@ var wH = window.outerHeight, // height
         version : "2.0", // site version
         version_up : "2.1", // version upgrade (if applicable, during maintenance)
         v : 1, // max view time (days)
-        i : 1000 // interface timeout (max.)
+        i : 1000, // interface timeout (max.)
+        t : 60 // iterations per sec.
     },
     pos = { // scroll pos. (window)
         y : 0, // y-pos
@@ -262,11 +263,11 @@ var focus_Check = false;
 
 function checkFocus() {
     var f = false,
-        n = (ex.f.length >= op.i) ? ex.f.length - op.i : 0,
+        n = (ex.f.length >= dev.t) ? ex.f.length - dev.t : 0,
         j = n,
         r = !document.hidden && !op.Lf.fb && !tDevice && rL.i;
     ex.f[ex.f.length] = r; // if document visible, but with NO focus
-    while (n < (j + op.i)) {
+    while (n < (j + dev.t)) {
         if (ex.f[n] !== r) {
             f = true;
             n++;
@@ -1145,7 +1146,7 @@ function pL() { // site parameters loop
                 eR.h = "fC";
                 eR.p = "fC";
             }
-        }, (op.Ls * op.i));
+        }, (op.Ls * dev.t));
 
     } else if (!focus_Check && eR.s && op.fC && ex.a && rL && rL.i) {
 
@@ -1192,7 +1193,7 @@ function pL() { // site parameters loop
                     }
                 }, op.t);
             }
-        }, (op.Ls * op.i));
+        }, (op.Ls * dev.t));
     }
 
     /////////////////////////////
