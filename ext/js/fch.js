@@ -364,11 +364,12 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
     gyroscopeX = (op.fN * y * 3);
     gyroscopeY = (op.fN * x * 3);
 
+    /*
     if (op.Lf.h) { // if tab/window hidden
         el.bgC[3].style.transform = "translate(0px, 0px)"; // circle 3
     } else {
         el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
-    }
+    }*/
 }
 
 window.addEventListener("visibilitychange", function() { // modify sensor usage
