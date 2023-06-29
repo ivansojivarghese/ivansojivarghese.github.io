@@ -1127,23 +1127,28 @@ function pL() { // site parameters loop
     if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
         setTimeout(function() { // latching
             ex.a = true;
-        }, (op.Ls * 60));
-
-        scr_t(false, null); // disable scrolling
-        op.fC = true;
-        op.s = true;
-        eR.m.classList.remove("d_n"); // show error in display
-        eR.fC.classList.remove("d_n");   
-        e_Fd(disp, true); // fade out display
-
-        pgTasks("sc", true);
+        }, (op.Ls * 90));
 
         setTimeout(function() {
-            e_Fd(eR.fC, false);
-        }, 10);
-        eR.s = true;
-        eR.h = "fC";
-        eR.p = "fC";
+            if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
+                scr_t(false, null); // disable scrolling
+                op.fC = true;
+                op.s = true;
+                eR.m.classList.remove("d_n"); // show error in display
+                eR.fC.classList.remove("d_n");   
+                e_Fd(disp, true); // fade out display
+
+                pgTasks("sc", true);
+
+                setTimeout(function() {
+                    e_Fd(eR.fC, false);
+                }, 10);
+                eR.s = true;
+                eR.h = "fC";
+                eR.p = "fC";
+            }
+        }, (op.Ls * 60));
+
     } else if (!focus_Check && eR.s && op.fC && ex.a && rL && rL.i) {
         setTimeout(function() {
             ex.a = false;
