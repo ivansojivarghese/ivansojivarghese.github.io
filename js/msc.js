@@ -1125,12 +1125,15 @@ function pL() { // site parameters loop
 
     focus_Check = checkFocus();
     if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
+        /*
         setTimeout(function() { // latching
             ex.a = true;
         }, (op.Ls * 90));
-
+        */
         setTimeout(function() {
             if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
+                ex.a = true;
+
                 scr_t(false, null); // disable scrolling
                 op.fC = true;
                 op.s = true;
@@ -1150,11 +1153,14 @@ function pL() { // site parameters loop
         }, (op.Ls * 60));
 
     } else if (!focus_Check && eR.s && op.fC && ex.a && rL && rL.i) {
+        /*
         setTimeout(function() {
             ex.a = false;
         }, (op.Ls * 90));
-
+        */
         setTimeout(function() {
+            ex.a = false;
+
             if (eR.fC_e.x) {
                 reL(); // reload if on first load
                 eR.fC_e.x = false;
