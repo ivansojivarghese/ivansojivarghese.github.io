@@ -299,22 +299,15 @@ function sc_L() { // functions (live on scroll)
         // q_Info
 
         if (b.pb.bottom > aH && b.Lps.top > aH) {
-            // if (pos.s > 1) {
-                if (checkScrollDir(pos.a)) { // scrolling down
-                    ld.qis[1].style.transform = "translateY(calc(0.5rem * " + (pos.s) + "))";
-                    ld.qis[2].style.transform = "translateY(calc(1rem * " + (pos.s) + "))";
-                    ld.qis[3].style.transform = "translateY(calc(1.5rem * " + (pos.s) + "))";
-                    ld.qis[4].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
-                    ld.qis[5].style.transform = "translateY(calc(2.5rem * " + (pos.s) + "))";
-                    ld.qis[6].style.transform = "translateY(calc(3rem * " + (pos.s) + "))";
-                    ld.qis[7].style.transform = "translateY(calc(3.5rem * " + (pos.s) + "))";
-                } 
-            /*} else {
-                var _L = ld.qis.length - 1;
-                for (j = 0; j <= _L; j++) {
-                    ld.qis[j].style.transform = "translateY(0px)";
-                }
-            }*/
+            if (checkScrollDir(pos.a)) { // scrolling down
+                ld.qis[1].style.transform = "translateY(calc(0.5rem * " + (pos.s) + "))";
+                ld.qis[2].style.transform = "translateY(calc(1rem * " + (pos.s) + "))";
+                ld.qis[3].style.transform = "translateY(calc(1.5rem * " + (pos.s) + "))";
+                ld.qis[4].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
+                ld.qis[5].style.transform = "translateY(calc(2.5rem * " + (pos.s) + "))";
+                ld.qis[6].style.transform = "translateY(calc(3rem * " + (pos.s) + "))";
+                ld.qis[7].style.transform = "translateY(calc(3.5rem * " + (pos.s) + "))";
+            } 
         } else {
             if (checkScrollDir(pos.a)) { // scrolling down
                 var _L = ld.qis.length - 1;
@@ -324,8 +317,23 @@ function sc_L() { // functions (live on scroll)
             } 
         }
 
-        if (b.pb.top > 0) {
-
+        if (b.pb.bottom < 0 && b.Lps.top < 0) {
+            if (!checkScrollDir(pos.a)) { // scrolling up
+                ld.qis[0].style.transform = "translateY(calc(-3.5rem * " + (pos.s) + "))";
+                ld.qis[1].style.transform = "translateY(calc(-3rem * " + (pos.s) + "))";
+                ld.qis[2].style.transform = "translateY(calc(-2.5rem * " + (pos.s) + "))";
+                ld.qis[3].style.transform = "translateY(calc(-2rem * " + (pos.s) + "))";
+                ld.qis[4].style.transform = "translateY(calc(-1.5rem * " + (pos.s) + "))";
+                ld.qis[5].style.transform = "translateY(calc(-1rem * " + (pos.s) + "))";
+                ld.qis[6].style.transform = "translateY(calc(-0.5rem * " + (pos.s) + "))";
+            } 
+        } else {
+            if (!checkScrollDir(pos.a)) { // scrolling up
+                var _L = ld.qis.length - 1;
+                for (j = 0; j <= _L; j++) {
+                    ld.qis[j].style.transform = "translateY(0px)";
+                }
+            } 
         }
 
         // prefooter_sc
