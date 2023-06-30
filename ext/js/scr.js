@@ -298,7 +298,7 @@ function sc_L() { // functions (live on scroll)
 
         // q_Info
 
-        if (b.pb.bottom > aH) {
+        if (b.pb.bottom > aH && b.Lps.top > aH) {
             if (pos.s > 1) {
                 if (checkScrollDir(pos.a)) { // scrolling down
                     ld.qis[1].style.transform = "translateY(calc(0.5rem * " + (pos.s) + "))";
