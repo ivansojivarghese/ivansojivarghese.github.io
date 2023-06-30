@@ -37,6 +37,11 @@ var im = { // #intro_main
         x2 : false,
         x3 : false
     },
+    pf = { // #prefooter_sc
+        w1 : document.getElementById("wow_head1"),
+        w2 : document.getElementById("wow_head2"),
+        w3 : document.getElementById("wow_head3")
+    },
     sI_1 = { // stats numerals
         a : 0, // initial   
         n : 97, // km 
