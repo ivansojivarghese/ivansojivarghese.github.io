@@ -1473,6 +1473,7 @@ function c_Sr() { // check for scrolling activity (in live)
         pos.v = []; // reset rec. speed
         pos.s = 0; // reset speed to 0
         pos.yA = 0;
+        pos.a = [pos.y, pos.y, pos.y];
     }
 }
 
