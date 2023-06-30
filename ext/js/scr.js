@@ -31,6 +31,7 @@ var im = { // #intro_main
         cs : document.getElementsByClassName("c_Info_s"),
         csa : document.getElementsByClassName("c_Info_a"),
         qis : document.getElementsByClassName("q_Info_scr"),
+        pb : document.getElementById("profile_btn"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
@@ -74,6 +75,7 @@ function sc_L() { // functions (live on scroll)
             Lp : im.Lp.getBoundingClientRect(), // #lead_point
             Lpf : im.Lpf.getBoundingClientRect(), // #lead_point_1
             Lps : im.Lps.getBoundingClientRect(), // #lead_point_2
+            pb : ld.pb.getBoundingClientRect(), // #profile_btn
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
         };
@@ -313,6 +315,10 @@ function sc_L() { // functions (live on scroll)
                     ld.qis[j].style.transform = "translateY(0px)";
                 }
             }
+        }
+
+        if (b.pb.top > 0) {
+            
         }
 
         // prefooter_sc
