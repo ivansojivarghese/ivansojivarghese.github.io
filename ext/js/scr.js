@@ -315,6 +315,13 @@ function sc_L() { // functions (live on scroll)
                     ld.qis[j].style.transform = "translateY(0px)";
                 }
             }
+        } else {
+            if (checkScrollDir(pos.a)) { // scrolling down
+                var _L = ld.qis.length - 1;
+                for (j = 0; j <= _L; j++) {
+                    ld.qis[j].style.transform = "translateY(0px)";
+                }
+            } 
         }
 
         if (b.pb.top > 0) {
