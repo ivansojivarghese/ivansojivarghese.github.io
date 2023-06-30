@@ -297,9 +297,9 @@ function sc_L() { // functions (live on scroll)
         // q_Info
 
         if (pos.r) {
-            ld.qis[1];
+            ld.qis[1].style.transform = "translateY(" + (pos.s * 2) + "px)";
         } else {
-            ld.qis[6];
+            ld.qis[6].style.transform = "translateY(" + (pos.s * 2) + "px)";
         }
 
         // prefooter_sc
