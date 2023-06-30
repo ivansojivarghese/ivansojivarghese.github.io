@@ -30,6 +30,7 @@ var im = { // #intro_main
         csm : document.getElementById("c_Info-m"),
         cs : document.getElementsByClassName("c_Info_s"),
         csa : document.getElementsByClassName("c_Info_a"),
+        qis : document.getElementsByClassName("q_Info_scr"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
