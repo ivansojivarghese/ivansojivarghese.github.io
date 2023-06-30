@@ -299,6 +299,13 @@ function sc_L() { // functions (live on scroll)
         if (pos.s) {
             if (pos.r) {
                 ld.qis[1].style.transform = "translateY(" + (pos.s * 2) + "px)";
+                ld.qis[2].style.transform = "translateY(" + (pos.s * 2) + "px)";
+                ld.qis[3].style.transform = "translateY(" + (pos.s * 2) + "px)";
+                ld.qis[4].style.transform = "translateY(" + (pos.s * 2) + "px)";
+                ld.qis[5].style.transform = "translateY(" + (pos.s * 2) + "px)";
+                ld.qis[6].style.transform = "translateY(" + (pos.s * 2) + "px)";
+                ld.qis[7].style.transform = "translateY(" + (pos.s * 2) + "px)";
+                ld.qis[8].style.transform = "translateY(" + (pos.s * 2) + "px)";
             } /*else {
                 ld.qis[6].style.transform = "translateY(" + (pos.s * 2) + "px)";
             }*/
