@@ -297,7 +297,7 @@ function sc_L() { // functions (live on scroll)
         // q_Info
 
         if (pos.s) {
-            if (pos.r) {
+            if (checkScrollDir(pos.a)) {
                 ld.qis[1].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
                 ld.qis[2].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
                 ld.qis[3].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
@@ -305,6 +305,7 @@ function sc_L() { // functions (live on scroll)
                 ld.qis[5].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
                 ld.qis[6].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
                 ld.qis[7].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
+                
             } /*else {
                 ld.qis[6].style.transform = "translateY(" + (pos.s * 2) + "px)";
             }*/
