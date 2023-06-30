@@ -299,7 +299,7 @@ function sc_L() { // functions (live on scroll)
         // q_Info
 
         if (b.pb.bottom > aH && b.Lps.top > aH) {
-            if (pos.s > 1) {
+            // if (pos.s > 1) {
                 if (checkScrollDir(pos.a)) { // scrolling down
                     ld.qis[1].style.transform = "translateY(calc(0.5rem * " + (pos.s) + "))";
                     ld.qis[2].style.transform = "translateY(calc(1rem * " + (pos.s) + "))";
@@ -309,12 +309,12 @@ function sc_L() { // functions (live on scroll)
                     ld.qis[6].style.transform = "translateY(calc(3rem * " + (pos.s) + "))";
                     ld.qis[7].style.transform = "translateY(calc(3.5rem * " + (pos.s) + "))";
                 } 
-            } else {
+            /*} else {
                 var _L = ld.qis.length - 1;
                 for (j = 0; j <= _L; j++) {
                     ld.qis[j].style.transform = "translateY(0px)";
                 }
-            }
+            }*/
         } else {
             if (checkScrollDir(pos.a)) { // scrolling down
                 var _L = ld.qis.length - 1;
