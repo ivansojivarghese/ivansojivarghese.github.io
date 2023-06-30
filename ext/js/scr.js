@@ -296,10 +296,17 @@ function sc_L() { // functions (live on scroll)
 
         // q_Info
 
-        if (pos.r) {
-            ld.qis[1].style.transform = "translateY(" + (pos.s * 2) + "px)";
+        if (pos.s) {
+            if (pos.r) {
+                ld.qis[1].style.transform = "translateY(" + (pos.s * 2) + "px)";
+            } else {
+                ld.qis[6].style.transform = "translateY(" + (pos.s * 2) + "px)";
+            }
         } else {
-            ld.qis[6].style.transform = "translateY(" + (pos.s * 2) + "px)";
+            var _L = ld.qis.length - 1;
+            for (j = 0; j <= _L; j++) {
+                ld.qis[j].style.transform = "translateY(0px)";
+            }
         }
 
         // prefooter_sc
