@@ -196,7 +196,7 @@ function sc_L() { // functions (live on scroll)
 
     if (b.Lpf.top <= ld.rf) { // c_Info header
         ld.x2 = true;
-        if (!ld.x) {
+        if (!ld.x && rL.i) {
             ld.x = true;
             ld.rfd = pos.y;
         }
