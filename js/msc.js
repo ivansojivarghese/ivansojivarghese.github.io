@@ -1466,7 +1466,14 @@ function c_Sr() { // check for scrolling activity (in live)
         if (document.documentElement.classList.contains("scB")) {
             document.documentElement.classList.remove("scB");
         }
-    } 
+
+    } else {
+        pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
+        pos.d = []; // reset comparator array and speed to 0
+        pos.v = []; // reset rec. speed
+        pos.s = 0; // reset speed to 0
+        pos.yA = 0;
+    }
 }
 
 //////////////////////////////////////////
