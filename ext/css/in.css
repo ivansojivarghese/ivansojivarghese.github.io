@@ -221,9 +221,13 @@
 }
 
 #wow_head1 {
-    transform: translateY(7rem);
+    top: 550vh;
+}
+
+#wow_head2 {
+    top: -117vh;
 }
 
 #wow_head3 {
-    transform: translateY(20vh);
+    top: 260vh;
 }
