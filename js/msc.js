@@ -875,6 +875,8 @@ function sL() { // scroll pos. loop
             pos.aTs = false;
         }, op.t);
     }
+
+    console.log(pos.s);
 }
 
 function pL() { // site parameters loop
