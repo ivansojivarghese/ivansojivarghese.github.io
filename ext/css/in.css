@@ -219,3 +219,11 @@
 .c_Info_s {
     margin-top: 3.5rem;
 }
+
+#wow_head1 {
+    transform: translateY(7rem);
+}
+
+#wow_head3 {
+    transform: translateY(3.5rem);
+}
