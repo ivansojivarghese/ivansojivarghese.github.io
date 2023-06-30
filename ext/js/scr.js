@@ -305,7 +305,6 @@ function sc_L() { // functions (live on scroll)
                 ld.qis[5].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
                 ld.qis[6].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
                 ld.qis[7].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
-                ld.qis[8].style.transform = "translateY(calc(2rem * " + (pos.s) + "))";
             } /*else {
                 ld.qis[6].style.transform = "translateY(" + (pos.s * 2) + "px)";
             }*/
