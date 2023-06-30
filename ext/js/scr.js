@@ -302,11 +302,6 @@ function sc_L() { // functions (live on scroll)
             } else {
                 ld.qis[6].style.transform = "translateY(" + (pos.s * 2) + "px)";
             }
-        } else {
-            var _L = ld.qis.length - 1;
-            for (j = 0; j <= _L; j++) {
-                ld.qis[j].style.transform = "translateY(0px)";
-            }
         }
 
         // prefooter_sc
@@ -314,6 +309,14 @@ function sc_L() { // functions (live on scroll)
         pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
         pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
+
+    } else {
+        if (!pos.s) { // if no scrolling
+            var _L = ld.qis.length - 1;
+            for (j = 0; j <= _L; j++) {
+                ld.qis[j].style.transform = "translateY(0px)";
+            }
+        }
     }
 
     requestAnimationFrame(sc_L);
