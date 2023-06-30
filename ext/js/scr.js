@@ -98,6 +98,12 @@ function sc_L() { // functions (live on scroll)
         e_Fd(im.Lp2, false); 
     }
 
+    // prefooter_sc
+
+    pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
+    pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
+    pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
+
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
         if (getCookie("statsIncr") !== "true") { // check if cookie exists
             var b1 = getBd(sI_1.e, "top"), // get respective 'top' boundaries for each stat
@@ -335,12 +341,6 @@ function sc_L() { // functions (live on scroll)
                 }
             } 
         }
-
-        // prefooter_sc
-
-        pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
-        pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
-        pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
 
     } else {
         if (!pos.s) { // if no scrolling
