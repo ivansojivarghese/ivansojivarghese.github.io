@@ -294,8 +294,8 @@ function sc_L() { // functions (live on scroll)
         }
 
         pf.w1.style.transform = "translateY(" + (pos.y * -0.3) + "px)"; // 'wow' header, w
-        pf.w2.style.transform = "translateY(" + (pos.y * -0.1) + "px)"; // o
-        pf.w3.style.transform = "translateY(" + (pos.y * -0.2) + "px)"; // w
+        pf.w2.style.transform = "translateY(" + (pos.y * -0.075) + "px)"; // o
+        pf.w3.style.transform = "translateY(" + (pos.y * -0.3) + "px)"; // w
     }
 
     requestAnimationFrame(sc_L);
