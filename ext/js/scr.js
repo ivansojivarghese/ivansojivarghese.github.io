@@ -77,7 +77,10 @@ function sc_L() { // functions (live on scroll)
             Lps : im.Lps.getBoundingClientRect(), // #lead_point_2
             pb : ld.pb.getBoundingClientRect(), // #profile_btn
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
-            pL4 : im.Lp4.getBoundingClientRect() // parallax arrow 4 (hidden)
+            pL4 : im.Lp4.getBoundingClientRect(), // parallax arrow 4 (hidden)
+            pfw1 : pf.w1.getBoundingClientRect(), // w1
+            pfw2 : pf.w2.getBoundingClientRect(), // w2
+            pfw3 : pf.w3.getBoundingClientRect() // w3
         };
     for (i = 0; i <= ld.cs.length - 1; i++) {
         b["csI" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // c_info h5 bounds
@@ -258,8 +261,15 @@ function sc_L() { // functions (live on scroll)
     // prefooter_sc
 
     pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
-    pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
+    if (b.pfw3.bottom < b.pfw2.top) {
+        pf.w2.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // o
+    } else {
+        pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
+    }
+    // pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
+
+    
 
     ///////////////////////////////////////////////////
 
