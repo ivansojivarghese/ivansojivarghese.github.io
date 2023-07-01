@@ -262,14 +262,13 @@ function sc_L() { // functions (live on scroll)
 
     pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
     if (b.pfw3.bottom < b.pfw2.top) {
+        pf.w2.classList.add("trs_e");
         pf.w2.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // o
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     }
     // pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
-
-    
 
     ///////////////////////////////////////////////////
 
