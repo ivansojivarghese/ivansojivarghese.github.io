@@ -42,7 +42,9 @@ var im = { // #intro_main
     pf = { // #prefooter_sc
         w1 : document.getElementById("wow_head1"),
         w2 : document.getElementById("wow_head2"),
-        w3 : document.getElementById("wow_head3")
+        w3 : document.getElementById("wow_head3"),
+        yh : document.getElementById("you_head"),
+        mh : document.getElementById("mde_head")
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -264,10 +266,13 @@ function sc_L() { // functions (live on scroll)
     if (b.pfw3.bottom < b.pfw2.top) {
         pf.w2.classList.add("trs_e");
         pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * 0.2) + "px)"; // o
+
+        e_Fd(pf.yh, false)
+        e_Fd(pf.mh, false);
+
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     }
-    // pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
 
     ///////////////////////////////////////////////////
