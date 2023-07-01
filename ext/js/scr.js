@@ -273,6 +273,10 @@ function sc_L() { // functions (live on scroll)
         pf.yh.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
         pf.mh.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
 
+        setTimeout(function() {
+            pf.w2.classList.remove("trs_e");
+        }, op.te + op.t);
+
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     }
