@@ -270,9 +270,6 @@ function sc_L() { // functions (live on scroll)
         e_Fd(pf.yh, false)
         e_Fd(pf.mh, false);
 
-        pf.yh.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
-        pf.mh.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
-
         setTimeout(function() {
             pf.w2.classList.remove("trs_e");
         }, op.te + op.t);
@@ -281,6 +278,9 @@ function sc_L() { // functions (live on scroll)
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     }
     pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
+
+    pf.yh.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // you
+    pf.mh.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // made it!
 
     ///////////////////////////////////////////////////
 
