@@ -44,7 +44,9 @@ var im = { // #intro_main
         w2 : document.getElementById("wow_head2"),
         w3 : document.getElementById("wow_head3"),
         yh : document.getElementById("you_head"),
-        mh : document.getElementById("mde_head")
+        mh : document.getElementById("mde_head"),
+        x : false,
+        r : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -267,6 +269,8 @@ function sc_L() { // functions (live on scroll)
         // pf.w2.classList.add("trs_e");
 
         // shift from 0.15 to 0.2175 in 3.5rem of scroll
+        pf.x = true;
+        pf.r = pos.y;
 
         pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * 0.2175) + "px)"; // o
 
@@ -278,6 +282,15 @@ function sc_L() { // functions (live on scroll)
                 pf.w2.classList.remove("trs_e");
             }, (op.te + op.t));
         }*/
+
+    } else if (pf.x && b.pfw3.bottom < b.pfw2.top) {
+
+        var t = ((0.2175 - 0.15) / (op.fN * 3.5)) * (pos.y - pf.r);
+        if (t <= 0.2175) {
+            pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * t) + "px)"; // o
+        } else {
+            pf.x = false;
+        }
 
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
