@@ -267,8 +267,8 @@ function sc_L() { // functions (live on scroll)
         pf.w2.classList.add("trs_e");
         pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * 0.2175) + "px)"; // o
 
-        e_Fd(pf.yh, false)
-        e_Fd(pf.mh, false);
+        // e_Fd(pf.yh, false)
+        // e_Fd(pf.mh, false);
         /*
         if (!pos.s) {
             setTimeout(function() {
