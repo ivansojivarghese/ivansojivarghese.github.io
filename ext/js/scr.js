@@ -264,6 +264,9 @@ function sc_L() { // functions (live on scroll)
     if (b.pfw3.bottom < b.pfw2.top) {
         pf.w2.classList.add("trs_e");
         pf.w2.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // o
+        setTimeout(function() {
+            pf.w2.classList.remove("trs_e");
+        }, op.te);
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     }
