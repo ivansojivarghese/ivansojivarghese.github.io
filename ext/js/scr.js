@@ -270,9 +270,11 @@ function sc_L() { // functions (live on scroll)
         e_Fd(pf.yh, false)
         e_Fd(pf.mh, false);
 
-        setTimeout(function() {
-            pf.w2.classList.remove("trs_e");
-        }, op.te + op.t);
+        if (!pos.s) {
+            setTimeout(function() {
+                pf.w2.classList.remove("trs_e");
+            }, (op.te + op.t));
+        }
 
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
