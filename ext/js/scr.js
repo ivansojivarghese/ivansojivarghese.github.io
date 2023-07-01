@@ -281,8 +281,8 @@ function sc_L() { // functions (live on scroll)
     }
     pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
 
-    pf.yh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // you
-    pf.mh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // made it!
+    pf.yh.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // you
+    pf.mh.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // made it!
 
     ///////////////////////////////////////////////////
 
