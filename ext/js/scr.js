@@ -270,6 +270,9 @@ function sc_L() { // functions (live on scroll)
         e_Fd(pf.yh, false)
         e_Fd(pf.mh, false);
 
+        pf.yh.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
+        pf.mh.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
+
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     }
