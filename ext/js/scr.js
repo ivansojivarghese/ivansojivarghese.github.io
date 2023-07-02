@@ -44,9 +44,10 @@ var im = { // #intro_main
         w2 : document.getElementById("wow_head2"),
         w3 : document.getElementById("wow_head3"),
         yh : document.getElementById("you_head"),
-        mh : document.getElementById("mde_head"),
+        mh : document.getElementById("mde_head")
+        /*
         x : false,
-        r : 0
+        r : 0*/
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
