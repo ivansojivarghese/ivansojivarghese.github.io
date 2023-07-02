@@ -271,12 +271,12 @@ function sc_L() { // functions (live on scroll)
         pf.x = true;
         pf.r = pos.y;
 
-        pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * 0.2175) + "px)"; // o
+        // pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * 0.2175) + "px)"; // o
 
     } else if (pf.x && b.pfw3.bottom >= b.pfw2.top) {
 
         var t = ((0.2175 - 0.15) / (op.fN * 3.5)) * (pos.y - pf.r);
-        if (t <= 0.2175) {
+        if (t <= 0.2175 && t > 0) {
             pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * t) + "px)"; // o
         } else {
             pf.x = false;
