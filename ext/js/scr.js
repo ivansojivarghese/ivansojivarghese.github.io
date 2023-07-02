@@ -42,9 +42,9 @@ var im = { // #intro_main
     pf = { // #prefooter_sc
         w1 : document.getElementById("wow_head1"),
         w2 : document.getElementById("wow_head2"),
-        w3 : document.getElementById("wow_head3"),
-        yh : document.getElementById("you_head"),
-        mh : document.getElementById("mde_head")
+        w3 : document.getElementById("wow_head3")
+        // yh : document.getElementById("you_head"),
+        // mh : document.getElementById("mde_head")
         /*
         x : false,
         r : 0*/
@@ -292,8 +292,8 @@ function sc_L() { // functions (live on scroll)
     pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
 
-    pf.yh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // you
-    pf.mh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // made it!
+    // pf.yh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // you
+    // pf.mh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // made it!
 
     ///////////////////////////////////////////////////
 
