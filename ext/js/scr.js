@@ -283,7 +283,7 @@ function sc_L() { // functions (live on scroll)
             }, (op.te + op.t));
         }*/
 
-    } else if (pf.x && b.pfw3.bottom < b.pfw2.top) {
+    } else if (pf.x && b.pfw3.bottom >= b.pfw2.top) {
 
         var t = ((0.2175 - 0.15) / (op.fN * 3.5)) * (pos.y - pf.r);
         if (t <= 0.2175) {
