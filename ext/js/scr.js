@@ -278,10 +278,10 @@ function sc_L() { // functions (live on scroll)
 
         var t = ((0.2175 - 0.15) / (op.fN * 3.5)) * (pos.y - pf.r);
 
-        if (t <= 0.2175 && t > 0) {
+        if (t <= 0.2175 && t >= 0) {
             pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * (0.15 + t)) + "px)"; // o
         } else {
-            pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
+            pf.w2.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // o
         }
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
