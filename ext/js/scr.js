@@ -265,6 +265,7 @@ function sc_L() { // functions (live on scroll)
     // prefooter_sc
 
     pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
+
     if (!pf.x && b.pfw3.bottom < b.pfw2.top) {
 
         // shift from 0.15 to 0.2175 in 3.5rem of scroll
@@ -273,7 +274,7 @@ function sc_L() { // functions (live on scroll)
 
         // pf.w2.style.transform = "translateX(-0.9rem) translateY(" + (pos.y * 0.2175) + "px)"; // o
 
-    } else if (pf.x && b.pfw3.bottom >= b.pfw2.top) {
+    } else if (pf.x && b.pfw3.bottom < b.pfw2.top) {
 
         var t = ((0.2175 - 0.15) / (op.fN * 3.5)) * (pos.y - pf.r);
         if (t <= 0.2175 && t > 0) {
@@ -281,10 +282,10 @@ function sc_L() { // functions (live on scroll)
         } else {
             pf.x = false;
         }
-
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     }
+
     pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
 
     pf.yh.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // you
