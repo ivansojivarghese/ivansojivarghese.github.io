@@ -266,6 +266,7 @@ function sc_L() { // functions (live on scroll)
 
     pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
 
+    /*
     if (!pf.x && b.pfw3.bottom < b.pfw2.top) {
 
         // shift from 0.15 to 0.2175 in 3.5rem of scroll
@@ -285,12 +286,13 @@ function sc_L() { // functions (live on scroll)
         }
     } else {
         pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
-    }
+    }*/
 
+    pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
     pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
 
-    pf.yh.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // you
-    pf.mh.style.transform = "translateY(" + (pos.y * 0.2) + "px)"; // made it!
+    pf.yh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // you
+    pf.mh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // made it!
 
     ///////////////////////////////////////////////////
 
