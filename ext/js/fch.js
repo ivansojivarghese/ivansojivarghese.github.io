@@ -91,11 +91,6 @@ function load_css_e() { // load CSS styles (page specific)
 
     c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);
     c_css("#scroll_banner", "margin-top: " + (aH * 0.5) + "px", false, null);
-    /*
-    c_css("#wow_head1", "top:" + (aH * 550) + "px;", false, null); // 'w'
-    c_css("#wow_head2", "top:" + (aH * -117) + "px;", false, null); // 'o'
-    c_css("#wow_head3", "top:" + (aH * 260) + "px;", false, null); // 'w'
-    */
 
     // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 
