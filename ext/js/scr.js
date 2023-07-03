@@ -309,15 +309,14 @@ function sc_L() { // functions (live on scroll)
     // live section scrollbar
 
     if (b.pf.top && b.pf.top < aH) {
-        // var hm = getBd(document.getElementById("footer_main_sc"), "height");
-            // hpf = getBd(document.getElementById("prefooter_sc"), "height");
         if (!pf.x3) {
             pf.x3 = true;
             pf.rf2 = b.pf.height;
             pf.rf3 = pos.y;
         }
-        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px)";
-        pf.sb.style.height = (((pos.y - pf.rf3) / pf.rf2) * aH) + "px";
+        var h = (((pos.y - pf.rf3) / pf.rf2) * aH);
+        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px)";
+        pf.sb.style.height = h + "px";
     }
 
     ///////////////////////////////////////////////////
