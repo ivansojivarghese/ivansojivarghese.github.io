@@ -50,7 +50,9 @@ var im = { // #intro_main
         sb : document.getElementById("pf_scrollbar"),
         x : false,
         x2 : false,
-        rf : 0
+        x3 : false,
+        rf : 0,
+        rf2 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -307,8 +309,12 @@ function sc_L() { // functions (live on scroll)
     if (b.pf.top && b.pf.top < aH) {
         var hm = getBd(document.getElementById("footer_main_sc"), "height");
             hpf = getBd(document.getElementById("prefooter_sc"), "height");
+        if (!pf.x3) {
+            pf.x3 = true;
+            pf.rf2 = hpf;
+        }
         pf.sb.style.bottom = "calc(" + (hm + hpf) + "px - " + (aH - b.pf.top) + "px)";
-        // c_css("#pf_scrollbar", "bottom: calc(" + (hm + hpf) + "px - " + b.pf.top + "px)", false, null);
+        pf.sb.style.height = (aH - b.pf.top) + "px";
     }
 
     ///////////////////////////////////////////////////
