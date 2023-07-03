@@ -313,7 +313,7 @@ function sc_L() { // functions (live on scroll)
 
     // live section scrollbar
 
-    if (b.pf.top && b.pf.top < aH) {
+    if (b.pf.top && b.pf.top < aH && !pf.x5) {
         if (!pf.x3) {
             pf.x3 = true;
             pf.rf2 = b.pf.height;
@@ -326,7 +326,7 @@ function sc_L() { // functions (live on scroll)
         pf.sb.style.height = h + "px";
     }
 
-    if (b.pfs.top && (b.pfs.top < 0 || pf.x4)) {
+    if (b.pfs.top && (b.pfs.top < 0 || pf.x4) && !pf.x5) {
         if (!pf.x4) {
             pf.x4 = true;
             pf.rf4 = pos.y;
@@ -341,6 +341,7 @@ function sc_L() { // functions (live on scroll)
 
     if (b.fb.top && b.fb.top < aH) {
         e_Fd(pf.sb, true);
+        pf.x5 = true;
     }
 
     ///////////////////////////////////////////////////
