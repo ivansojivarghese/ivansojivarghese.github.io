@@ -890,6 +890,7 @@ function load_css() { // load up CSS (common)
     // c_css(".head_b", "height: calc(var(--doc-height) - 7rem);", false, null); // set landing page to full height (exclusive of url bar on mobile/tablet devices)
 
     c_css(".m_T.vh", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
+    c_css(".m_T.vhq", "margin-top: calc(" + (aH * 0.25) + "px)", false, null);
 
     if (vw.mB_L && !vw.z_S && tDevice) { // in landscape view (mobile), but NOT small viewport
         c_css(".err", "margin-top: calc((" + cH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
