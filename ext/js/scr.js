@@ -324,7 +324,7 @@ function sc_L() { // functions (live on scroll)
         pf.sb.style.height = h + "px";
     }
 
-    if (b.pfs.top && b.pfs.top < 0) {
+    if (b.pfs.top && (b.pfs.top < 0 || pf.x4)) {
         if (!pf.x4) {
             pf.x4 = true;
             pf.rf4 = pos.y;
