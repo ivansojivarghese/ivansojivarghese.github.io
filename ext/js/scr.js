@@ -318,7 +318,9 @@ function sc_L() { // functions (live on scroll)
             pf.rf3 = pos.y;
         }
         var h = (((pos.y - pf.rf3) / pf.rf2) * aH);
-        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px)";
+        if (!pf.x4) {
+            pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px)";
+        }
         pf.sb.style.height = h + "px";
     }
 
@@ -327,7 +329,8 @@ function sc_L() { // functions (live on scroll)
             pf.x4 = true;
             pf.rf4 = pos.y;
         }
-        pf.sb.style.top = (pos.y - pf.rf4) + "px";
+        // pf.sb.style.bottom = (pos.y - pf.rf4) + "px";
+        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (pos.y - pf.rf4) + "px)";
     }
 
     ///////////////////////////////////////////////////
