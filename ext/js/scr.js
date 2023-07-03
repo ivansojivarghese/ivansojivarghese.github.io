@@ -53,7 +53,7 @@ var im = { // #intro_main
         x3 : false,
         x4 : false,
         x5 : false,
-        x6 : false,
+        // x6 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -327,9 +327,7 @@ function sc_L() { // functions (live on scroll)
             pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px)";
         }
         pf.sb.style.height = h + "px";
-    } else if (!pf.x6 && pf.x5 && b.pf.top < 0) {
-        pf.x6 = true;
-    }
+    } 
 
     if (b.pfs.top && (b.pfs.top < 0 || pf.x4) && !pf.x5) {
         if (!pf.x4) {
@@ -340,10 +338,10 @@ function sc_L() { // functions (live on scroll)
 
         var t = ((pos.y - pf.rf4) / (pf.rf5 - aH));
         pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH * t) + "px)";
-
+        /*
         if (b.pf.top < aH && pf.x6) {
             e_Fd(pf.sb, true);
-        }
+        }*/
     }
 
     // footer blurb
