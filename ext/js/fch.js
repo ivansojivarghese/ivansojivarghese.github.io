@@ -51,7 +51,8 @@ var fchL = {
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
         bgC4 : document.getElementById("bg-cir4"),
-        ldP : document.getElementById("lead_point")
+        ldP : document.getElementById("lead_point"),
+        ft : document.getElementById("footer_main_sc")
     },
     bd = { // bounds
         b0 : null,
@@ -76,7 +77,8 @@ function loadUp() {
 }
 
 function load_css_e() { // load CSS styles (page specific)
-    var mg = "(" + aH + "px - 27.5rem) / 5"; // margin
+    var mg = "(" + aH + "px - 27.5rem) / 5", // margin
+        h = getBd(el.ft, "height"); // footer_main_sc height
 
     // c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
 
@@ -91,6 +93,7 @@ function load_css_e() { // load CSS styles (page specific)
 
     c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);
     c_css("#scroll_banner, #design_banner", "margin-top: " + (aH * 0.5) + "px", false, null);
+    c_css("#livescrollbar", "bottom: calc(" + h + "px)", false, null);
 
     // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 
