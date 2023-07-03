@@ -32,6 +32,7 @@ var im = { // #intro_main
         csa : document.getElementsByClassName("c_Info_a"),
         qis : document.getElementsByClassName("q_Info_scr"),
         pb : document.getElementById("profile_btn"),
+        m : documentg.getElementById("mid_sc"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
@@ -53,7 +54,7 @@ var im = { // #intro_main
         x3 : false,
         x4 : false,
         x5 : false,
-        // x6 : false,
+        x6 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -94,6 +95,7 @@ function sc_L() { // functions (live on scroll)
             pb : ld.pb.getBoundingClientRect(), // #profile_btn
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect(), // parallax arrow 4 (hidden)
+            md : ld.m.getBoundingClientRect(), // mid_sc
             pf : pf.el.getBoundingClientRect(), // prefooter_sc el.
             pfs : pf.sb.getBoundingClientRect(), // prefooter_sc scrollbar
             pfw1 : pf.w1.getBoundingClientRect(), // w1
@@ -338,10 +340,15 @@ function sc_L() { // functions (live on scroll)
 
         var t = ((pos.y - pf.rf4) / (pf.rf5 - aH));
         pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH * t) + "px)";
-        /*
-        if (b.pf.top < aH && pf.x6) {
-            e_Fd(pf.sb, true);
-        }*/
+
+    }
+
+    if (b.pf.bottom < b.md.bottom && !pf.x6) {
+        pf.x6 = true;
+        e_Fd(pf.sb, true);
+    } else if (b.pf.bottom > b.md.bottom && pf.x6) {
+        pf.x6 = false;
+        e_Fd(pf.sb, false);
     }
 
     // footer blurb
