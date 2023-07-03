@@ -336,6 +336,10 @@ function sc_L() { // functions (live on scroll)
 
         var t = ((pos.y - pf.rf4) / (pf.rf5 - aH));
         pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH * t) + "px)";
+
+        if (b.pf.top < aH) {
+            e_Fd(pf.sb, true);
+        }
     }
 
     // footer blurb
