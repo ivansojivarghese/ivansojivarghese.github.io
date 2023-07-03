@@ -52,6 +52,7 @@ var im = { // #intro_main
         x2 : false,
         x3 : false,
         x4 : false,
+        x5 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
