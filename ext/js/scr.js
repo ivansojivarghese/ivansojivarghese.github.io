@@ -327,7 +327,7 @@ function sc_L() { // functions (live on scroll)
             pf.x4 = true;
             pf.rf4 = pos.y;
         }
-        pf.sb.style.top = h + "px";
+        pf.sb.style.top = (pos.y - pf.rf4) + "px";
     }
 
     ///////////////////////////////////////////////////
