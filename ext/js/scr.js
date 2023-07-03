@@ -304,7 +304,7 @@ function sc_L() { // functions (live on scroll)
 
     // scrollbar
 
-    if (b.pf && b.pf.top < aH) {
+    if (b.pf.top && b.pf.top < aH) {
         var hm = getBd(document.getElementById("footer_main_sc"), "height");
             hpf = getBd(document.getElementById("prefooter_sc"), "height");
         pf.sb.style.bottom = "calc(" + (hm + hpf) + "px - " + b.pf.top + "px)";
