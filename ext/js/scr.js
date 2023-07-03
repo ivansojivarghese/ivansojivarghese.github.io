@@ -316,7 +316,7 @@ function sc_L() { // functions (live on scroll)
             pf.rf3 = pos.y;
         }
         pf.sb.style.bottom = "calc(" + (hm + hpf) + "px - " + (aH - b.pf.top) + "px)";
-        pf.sb.style.height = (pos.y - b.pf.top) + "px";
+        pf.sb.style.height = (((pos.y - pf.rf3) / pf.rf2) * aH) + "px";
     }
 
     ///////////////////////////////////////////////////
