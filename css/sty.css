@@ -1280,6 +1280,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     margin-left: 10%;
 }
 
+#footer_blurb a {
+    font-weight: bold;
+}
+
 /* ------------- */
 /*
 .footer {
