@@ -42,12 +42,9 @@ var im = { // #intro_main
     pf = { // #prefooter_sc
         w1 : document.getElementById("wow_head1"),
         w2 : document.getElementById("wow_head2"),
-        w3 : document.getElementById("wow_head3")
-        // yh : document.getElementById("you_head"),
-        // mh : document.getElementById("mde_head")
-        /*
-        x : false,
-        r : 0*/
+        w3 : document.getElementById("wow_head3"),
+        sc : document.getElementById("scroll_banner"),
+        x : false
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -85,7 +82,8 @@ function sc_L() { // functions (live on scroll)
             pL4 : im.Lp4.getBoundingClientRect(), // parallax arrow 4 (hidden)
             pfw1 : pf.w1.getBoundingClientRect(), // w1
             pfw2 : pf.w2.getBoundingClientRect(), // w2
-            pfw3 : pf.w3.getBoundingClientRect() // w3
+            pfw3 : pf.w3.getBoundingClientRect(), // w3
+            pfsc : pf.sc.getBoundingClientRect() // scroll_banner
         };
     for (i = 0; i <= ld.cs.length - 1; i++) {
         b["csI" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // c_info h5 bounds
@@ -294,6 +292,13 @@ function sc_L() { // functions (live on scroll)
 
     // pf.yh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // you
     // pf.mh.style.transform = "translateY(" + (pos.y * 0.2175) + "px)"; // made it!
+
+    // scroll
+
+    if (b.pfsc.top < aH && !pf.x) {
+        pf.x = true;
+        pf.sc.classList.add("inview");
+    }
 
     ///////////////////////////////////////////////////
 
