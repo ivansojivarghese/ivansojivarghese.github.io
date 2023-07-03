@@ -99,7 +99,8 @@ function sc_L() { // functions (live on scroll)
             pfw3 : pf.w3.getBoundingClientRect(), // w3
             pfsc : pf.sc.getBoundingClientRect(), // scroll_banner
             pfds : pf.ds.getBoundingClientRect(), // design_banner
-            fm : document.getElementById("footer_main_sc").getBoundingClientRect() // footer_main_sc
+            fm : document.getElementById("footer_main_sc").getBoundingClientRect(), // footer_main_sc
+            fb : document.getElementById("footer_blurb").getBoundingClientRect() // footer_blurb
         };
     for (i = 0; i <= ld.cs.length - 1; i++) {
         b["csI" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // c_info h5 bounds
@@ -331,9 +332,15 @@ function sc_L() { // functions (live on scroll)
             pf.rf4 = pos.y;
             pf.rf5 = b.pfds.bottom;
         }
-        // pf.sb.style.bottom = (pos.y - pf.rf4) + "px";
+
         var t = ((pos.y - pf.rf4) / (pf.rf5 - aH));
         pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH * t) + "px)";
+    }
+
+    // footer blurb
+
+    if (b.fb.top && b.fb.top < aH) {
+        e_Fd(pf.sb, true);
     }
 
     ///////////////////////////////////////////////////
