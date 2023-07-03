@@ -122,7 +122,7 @@
     opacity: 0.5;
 }
 
-.bg-circles .circle-0_5 {
+.circle-0_5 {
     height: 1.5rem;
     width: 1.5rem;
     left: 85%;
@@ -130,7 +130,7 @@
     animation: bounceTopHalf 4s ease-in-out infinite;
 }
 
-.bg-circles .circle-1 {
+.circle-1 {
     height: 1rem;
     width: 1rem;
     left: 55%;
@@ -138,7 +138,7 @@
     animation: swayRight 8s ease-in-out infinite;
 }
 
-.bg-circles .circle-2 {
+.circle-2 {
     height: 3rem;
     width: 3rem;
     left: 15%;
@@ -146,13 +146,13 @@
     animation: bounceTopHalf 10s ease-in-out infinite;
 }
 
-.bg-circles .circle-3 {
+.circle-3 {
     height: 8rem;
     width: 8rem;
     left: 50%;
 }
 
-.bg-circles .circle-4 {
+.circle-4 {
     height: 1.5rem;
     width: 1.5rem;
     left: 80%;
