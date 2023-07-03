@@ -232,7 +232,7 @@
     top: 289.8vh;
 }
 
-#scroll_banner h2 {
+#scroll_banner h2 { /* REFERENCED FROM locomotive.io */
     opacity: 0;
     transform: translateY(100%) rotateX(-80deg);
     transform-origin: center top;
