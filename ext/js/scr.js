@@ -46,6 +46,7 @@ var im = { // #intro_main
         sc : document.getElementById("scroll_banner"),
         ds : document.getElementById("design_banner"),
         xds : document.getElementsByClassName("xscroll"),
+        sb : document.getElementById("pf_scrollbar"),
         x : false,
         x2 : false,
         rf : 0
