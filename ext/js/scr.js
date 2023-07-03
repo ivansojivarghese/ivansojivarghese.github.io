@@ -46,7 +46,9 @@ var im = { // #intro_main
         sc : document.getElementById("scroll_banner"),
         ds : document.getElementById("design_banner"),
         xds : document.getElementsByClassName("xscroll"),
-        x : false
+        x : false,
+        x2 : false,
+        rf : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -283,8 +285,11 @@ function sc_L() { // functions (live on scroll)
     // design 
 
     if (b.pfds.top && b.pfds.top < aH) {
-        
-        pf.xds[0].style.transform = "";
+        if (!pf.x2) {
+            pf.x2 = true;
+            pf.rf = pos.y;
+        }
+        pf.xds[0].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.5) + "px)";
     }
 
     ///////////////////////////////////////////////////
