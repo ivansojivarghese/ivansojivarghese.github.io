@@ -242,6 +242,10 @@
     transform: none;
 }
 
+#design_banner .xscroll {
+    animation: none;
+}
+
 
 
 /* 565, -100, 276 */
