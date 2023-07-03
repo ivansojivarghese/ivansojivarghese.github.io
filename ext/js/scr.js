@@ -307,7 +307,7 @@ function sc_L() { // functions (live on scroll)
     if (b.pf.top && b.pf.top < aH) {
         var hm = getBd(document.getElementById("footer_main_sc"), "height");
             hpf = getBd(document.getElementById("prefooter_sc"), "height");
-        pf.sb.style.bottom = "calc(" + (hm + hpf) + "px - " + b.pf.top + "px)";
+        pf.sb.style.bottom = "calc(" + (hm + hpf) + "px - " + (aH - b.pf.top) + "px)";
         // c_css("#pf_scrollbar", "bottom: calc(" + (hm + hpf) + "px - " + b.pf.top + "px)", false, null);
     }
 
