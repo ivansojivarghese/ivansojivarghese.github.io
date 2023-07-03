@@ -1277,6 +1277,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 
 #footer_blurb p {
     padding-bottom: 0.5em;
+    margin-left: 10%;
 }
 
 /* ------------- */
