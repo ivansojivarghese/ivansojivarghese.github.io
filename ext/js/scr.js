@@ -343,10 +343,10 @@ function sc_L() { // functions (live on scroll)
 
     }
 
-    if (b.pf.bottom < b.md.bottom && !pf.x6) {
+    if (b.pfs.bottom < b.md.bottom && !pf.x6) {
         pf.x6 = true;
         e_Fd(pf.sb, true);
-    } else if (b.pf.bottom > b.md.bottom && pf.x6) {
+    } else if (b.pfs.bottom > b.md.bottom && pf.x6) {
         pf.x6 = false;
         e_Fd(pf.sb, false);
     }
