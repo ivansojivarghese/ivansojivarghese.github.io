@@ -929,6 +929,7 @@ function pL() { // site parameters loop
 
     if (rL && rL.i) {
         // if ((!hm.e && op.c.u && !eR.s) || pg.e) {
+        /*
         if (op.c.u && !eR.s && (!hm.e || pg.e)) {
             var arg = pg.e ? pg[pg.t].el : null;
             if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
@@ -940,7 +941,7 @@ function pL() { // site parameters loop
                 scr_t(true, arg); // enable scroll
                 op.s = false;
             }
-        }
+        }*/
 
         if ((op.er.d || op.er.ch) && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) { // display fix
         
