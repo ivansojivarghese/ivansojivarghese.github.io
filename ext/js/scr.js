@@ -94,7 +94,8 @@ function sc_L() { // functions (live on scroll)
             pfw2 : pf.w2.getBoundingClientRect(), // w2
             pfw3 : pf.w3.getBoundingClientRect(), // w3
             pfsc : pf.sc.getBoundingClientRect(), // scroll_banner
-            pfds : pf.ds.getBoundingClientRect() // design_banner
+            pfds : pf.ds.getBoundingClientRect(), // design_banner
+            fm : document.getElementById("footer_main_sc").getBoundingClientRect() // footer_main_sc
         };
     for (i = 0; i <= ld.cs.length - 1; i++) {
         b["csI" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // c_info h5 bounds
@@ -308,14 +309,14 @@ function sc_L() { // functions (live on scroll)
     // live section scrollbar
 
     if (b.pf.top && b.pf.top < aH) {
-        var hm = getBd(document.getElementById("footer_main_sc"), "height");
+        // var hm = getBd(document.getElementById("footer_main_sc"), "height");
             // hpf = getBd(document.getElementById("prefooter_sc"), "height");
         if (!pf.x3) {
             pf.x3 = true;
             pf.rf2 = b.pf.height;
             pf.rf3 = pos.y;
         }
-        pf.sb.style.bottom = "calc(" + (hm + b.pf.height) + "px - " + (aH - b.pf.top) + "px)";
+        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px)";
         pf.sb.style.height = (((pos.y - pf.rf3) / pf.rf2) * aH) + "px";
     }
 
