@@ -3,6 +3,7 @@
 var disp = document.getElementById("display_sc"), // display   
     fter = { // footer
         el : document.getElementById("footer_sc"), // element
+        elm : document.getElementById("footer_main_sc"), // element - main
         y : document.getElementById("f_yr"), // copyright year
         v : document.getElementsByClassName("f_vr") // site version
     },
@@ -928,12 +929,16 @@ function load_css() { // load up CSS (common)
 
 function load_jscss_N() { // load up JS/CSS (after page load; common)
     var h = getBd(fter.el, "height"),
+        hm = getBd(fter.elm, "height"),
         y = op.d.getFullYear(), // get copyright year
         i = 0;
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
     c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
+    if (document.getElementById("pf_scrollbar")) {
+        c_css("#pf_scrollbar", "bottom: calc(" + h + "px)", false, null);
+    }
     fter.y.innerHTML = y;
     while (fter.v[i]) { // add copyright year + site version no.
         fter.v[i].innerHTML = dev.version;
