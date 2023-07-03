@@ -305,6 +305,7 @@ function sc_L() { // functions (live on scroll)
     // scrollbar
 
     if (b.pf && b.pf.top < aH) {
+        var hpf = getBd(document.getElementById("prefooter_sc"), "height");
         c_css("#pf_scrollbar", "bottom: calc(" + (hm + hpf) + "px - " + b.pf.top + "px)", false, null);
     }
 
