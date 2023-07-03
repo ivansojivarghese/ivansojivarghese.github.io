@@ -330,7 +330,7 @@ function sc_L() { // functions (live on scroll)
             pf.rf4 = pos.y;
         }
         // pf.sb.style.bottom = (pos.y - pf.rf4) + "px";
-        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (pos.y - pf.rf4) + "px)";
+        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH) + "px)";
     }
 
     ///////////////////////////////////////////////////
