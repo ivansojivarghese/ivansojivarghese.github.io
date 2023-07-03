@@ -55,7 +55,8 @@ var im = { // #intro_main
         rf : 0,
         rf2 : 0,
         rf3 : 0,
-        rf4 : 0
+        rf4 : 0,
+        rf5 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -328,9 +329,11 @@ function sc_L() { // functions (live on scroll)
         if (!pf.x4) {
             pf.x4 = true;
             pf.rf4 = pos.y;
+            pf.rf5 = b.pfds.bottom;
         }
         // pf.sb.style.bottom = (pos.y - pf.rf4) + "px";
-        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH) + "px)";
+        var t = ((pos.y - pf.rf4) / (pf.rf5 - aH)) * aH;
+        pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH * t) + "px)";
     }
 
     ///////////////////////////////////////////////////
