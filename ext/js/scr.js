@@ -51,9 +51,11 @@ var im = { // #intro_main
         x : false,
         x2 : false,
         x3 : false,
+        x4 : false,
         rf : 0,
         rf2 : 0,
-        rf3 : 0
+        rf3 : 0,
+        rf4 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -90,6 +92,7 @@ function sc_L() { // functions (live on scroll)
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect(), // parallax arrow 4 (hidden)
             pf : pf.el.getBoundingClientRect(), // prefooter_sc el.
+            pfs : pf.sb.getBoundingClientRect(), // prefooter_sc scrollbar
             pfw1 : pf.w1.getBoundingClientRect(), // w1
             pfw2 : pf.w2.getBoundingClientRect(), // w2
             pfw3 : pf.w3.getBoundingClientRect(), // w3
@@ -317,6 +320,14 @@ function sc_L() { // functions (live on scroll)
         var h = (((pos.y - pf.rf3) / pf.rf2) * aH);
         pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px)";
         pf.sb.style.height = h + "px";
+    }
+
+    if (b.pfs.top && b.pfs.top < aH) {
+        if (!pf.x4) {
+            pf.x4 = true;
+            pf.rf4 = pos.y;
+        }
+        pf.sb.style.top = h + "px";
     }
 
     ///////////////////////////////////////////////////
