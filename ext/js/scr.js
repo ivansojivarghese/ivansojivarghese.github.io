@@ -294,6 +294,12 @@ function sc_L() { // functions (live on scroll)
         pf.xds[2].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.2) + "px)";
         pf.xds[3].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.1) + "px)";
         pf.xds[4].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.4) + "px)";
+    } else if (b.pfds.top && b.pfds.top > aH && pf.x2) {
+        pf.xds[0].style.transform = "transform: translateX(-3rem);";
+        pf.xds[1].style.transform = "transform: translateX(-2rem);";
+        pf.xds[2].style.transform = "transform: translateX(-4rem);";
+        pf.xds[3].style.transform = "transform: translateX(-9rem);";
+        pf.xds[4].style.transform = "transform: translateX(-2.5rem);";
     }
 
     ///////////////////////////////////////////////////
