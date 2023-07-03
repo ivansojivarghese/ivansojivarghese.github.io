@@ -20,7 +20,7 @@ var wH = window.outerHeight, // height
             college : "ntu", // name of institution
             course : "computer science", // course name
             location : "singapore", // geographic location/region/city/country/state
-            coords : "1.349°N 103.685°E", // geographic coords - last 2 decimals omitted for privacy
+            coords : "1.343°N 103.688°E", // geographic coords - last 2 decimals omitted for privacy
             distance : 97,
             hoursNo : 183,
             cappuccinosNo : 245
