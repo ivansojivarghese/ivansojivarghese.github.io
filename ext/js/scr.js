@@ -343,6 +343,9 @@ function sc_L() { // functions (live on scroll)
     if (b.fb.top && b.fb.top < aH) {
         e_Fd(pf.sb, true);
         pf.x5 = true;
+    } else if (b.fb.top && b.fb.top > aH && pf.x5) {
+        e_Fd(pf.sb, false);
+        pf.x5 = false;
     }
 
     ///////////////////////////////////////////////////
