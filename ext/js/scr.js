@@ -45,6 +45,7 @@ var im = { // #intro_main
         w3 : document.getElementById("wow_head3"),
         sc : document.getElementById("scroll_banner"),
         ds : document.getElementById("design_banner"),
+        xds : document.getElementsByClassName("xscroll"),
         x : false
     },
     sI_1 = { // stats numerals
@@ -84,10 +85,14 @@ function sc_L() { // functions (live on scroll)
             pfw1 : pf.w1.getBoundingClientRect(), // w1
             pfw2 : pf.w2.getBoundingClientRect(), // w2
             pfw3 : pf.w3.getBoundingClientRect(), // w3
-            pfsc : pf.sc.getBoundingClientRect() // scroll_banner
+            pfsc : pf.sc.getBoundingClientRect(), // scroll_banner
+            pfds : pf.ds.getBoundingClientRect() // design_banner
         };
     for (i = 0; i <= ld.cs.length - 1; i++) {
         b["csI" + (i + 1)] = ld.cs[i].getBoundingClientRect(); // c_info h5 bounds
+    }
+    for (j = 0; j <= pf.xds.length - 1; j++) {
+        b["pfxds" + (j + 1)] = pf.xds[j].getBoundingClientRect(); // design xscroll circles bounds
     }
 
     if (pos.aT) {
@@ -277,7 +282,9 @@ function sc_L() { // functions (live on scroll)
 
     // design 
 
-    
+    if (b.pfds.top && b.pfds.top < aH) {
+        pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
+    }
 
     ///////////////////////////////////////////////////
 
