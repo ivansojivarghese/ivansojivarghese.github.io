@@ -52,7 +52,8 @@ var im = { // #intro_main
         x2 : false,
         x3 : false,
         rf : 0,
-        rf2 : 0
+        rf2 : 0,
+        rf3 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -304,7 +305,7 @@ function sc_L() { // functions (live on scroll)
         pf.xds[2].style.transform = "translateX(-4rem)";
     }
 
-    // scrollbar
+    // live section scrollbar
 
     if (b.pf.top && b.pf.top < aH) {
         var hm = getBd(document.getElementById("footer_main_sc"), "height");
@@ -312,9 +313,10 @@ function sc_L() { // functions (live on scroll)
         if (!pf.x3) {
             pf.x3 = true;
             pf.rf2 = hpf;
+            pf.rf3 = pos.y;
         }
         pf.sb.style.bottom = "calc(" + (hm + hpf) + "px - " + (aH - b.pf.top) + "px)";
-        pf.sb.style.height = (aH - b.pf.top) + "px";
+        pf.sb.style.height = (pos.y - b.pf.top) + "px";
     }
 
     ///////////////////////////////////////////////////
