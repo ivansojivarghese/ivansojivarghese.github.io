@@ -305,7 +305,7 @@ div, .tint {
     font-weight: normal;
 }
 
-.f_wg-b, .em, .hm h5, .pill h4, .pill h5, .action {
+.f_wg-b, .em, .hm h5, .pill h4, .pill h5, .action, #footer_blurb a {
     font-weight: bold;
 }
 
@@ -1278,10 +1278,6 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 #footer_blurb p {
     padding-bottom: 0.5em;
     margin-left: 10%;
-}
-
-#footer_blurb a {
-    font-weight: bold;
 }
 
 /* ------------- */
