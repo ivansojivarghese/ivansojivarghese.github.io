@@ -321,14 +321,14 @@ function sc_L() { // functions (live on scroll)
             pf.rf2 = b.pf.height;
             pf.rf3 = pos.y;
         }
-        if (!pf.x6 && pf.x5 && b.pf.top < 0) {
-            pf.x6 = true;
-        }
+        
         var h = (((pos.y - pf.rf3) / pf.rf2) * aH);
         if (!pf.x4) {
             pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px)";
         }
         pf.sb.style.height = h + "px";
+    } else if (!pf.x6 && pf.x5 && b.pf.top < 0) {
+        pf.x6 = true;
     }
 
     if (b.pfs.top && (b.pfs.top < 0 || pf.x4) && !pf.x5) {
