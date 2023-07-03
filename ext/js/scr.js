@@ -283,7 +283,8 @@ function sc_L() { // functions (live on scroll)
     // design 
 
     if (b.pfds.top && b.pfds.top < aH) {
-        pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
+        
+        pf.xds[0].style.transform = "";
     }
 
     ///////////////////////////////////////////////////
