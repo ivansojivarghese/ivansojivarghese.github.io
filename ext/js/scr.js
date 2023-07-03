@@ -289,7 +289,11 @@ function sc_L() { // functions (live on scroll)
             pf.x2 = true;
             pf.rf = pos.y;
         }
-        pf.xds[0].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.5) + "px)";
+        pf.xds[0].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.3) + "px)";
+        pf.xds[1].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.5) + "px)";
+        pf.xds[2].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.2) + "px)";
+        pf.xds[3].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.1) + "px)";
+        pf.xds[4].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.4) + "px)";
     }
 
     ///////////////////////////////////////////////////
