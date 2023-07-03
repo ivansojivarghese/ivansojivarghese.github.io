@@ -232,6 +232,14 @@
     top: 289.8vh;
 }
 
+#scroll_banner h2 {
+    opacity: 0;
+    transform: translateY(100%) rotateX(-80deg);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    transition: opacity .8s cubic-bezier(.215,.61,.355,1),transform .8s cubic-bezier(.215,.61,.355,1);
+}
+
 /* 565, -100, 276 */
 
 /* 582, -90, 289.8 */
