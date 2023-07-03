@@ -244,6 +244,7 @@
 
 #design_banner .xscroll {
     animation: none;
+    opacity: 1;
 }
 
 
