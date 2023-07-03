@@ -240,6 +240,11 @@
     transition: opacity .8s cubic-bezier(.215,.61,.355,1),transform .8s cubic-bezier(.215,.61,.355,1);
 }
 
+#scroll_banner.inview h2 {
+    opacity: 1;
+    transform: none;
+}
+
 /* 565, -100, 276 */
 
 /* 582, -90, 289.8 */
