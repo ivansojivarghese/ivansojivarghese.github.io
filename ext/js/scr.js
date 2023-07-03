@@ -332,7 +332,7 @@ function sc_L() { // functions (live on scroll)
             pf.rf5 = b.pfds.bottom;
         }
         // pf.sb.style.bottom = (pos.y - pf.rf4) + "px";
-        var t = ((pos.y - pf.rf4) / (pf.rf5 - aH)) * aH;
+        var t = ((pos.y - pf.rf4) / (pf.rf5 - aH));
         pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH * t) + "px)";
     }
 
