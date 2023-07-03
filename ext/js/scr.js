@@ -44,6 +44,7 @@ var im = { // #intro_main
         w2 : document.getElementById("wow_head2"),
         w3 : document.getElementById("wow_head3"),
         sc : document.getElementById("scroll_banner"),
+        ds : document.getElementById("design_banner"),
         x : false
     },
     sI_1 = { // stats numerals
@@ -273,6 +274,10 @@ function sc_L() { // functions (live on scroll)
         pf.x = true;
         pf.sc.classList.add("inview");
     }
+
+    // design 
+
+    
 
     ///////////////////////////////////////////////////
 
