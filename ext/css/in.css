@@ -159,7 +159,7 @@
     animation: bounceTop 5s ease-in-out infinite;
 }
 
-#bg-cir5 {
+.circle-5 {
     height: 2rem;
     width: 2rem;
     opacity: 0.5;
