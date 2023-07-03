@@ -321,7 +321,7 @@ function sc_L() { // functions (live on scroll)
             pf.rf2 = b.pf.height;
             pf.rf3 = pos.y;
         }
-        if (!pf.x6 && b.pf.top < 0) {
+        if (!pf.x6 && pf.x5 && b.pf.top < 0) {
             pf.x6 = true;
         }
         var h = (((pos.y - pf.rf3) / pf.rf2) * aH);
