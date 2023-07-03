@@ -40,6 +40,7 @@ var im = { // #intro_main
         x3 : false
     },
     pf = { // #prefooter_sc
+        el : document.getElementById("prefooter_sc"),
         w1 : document.getElementById("wow_head1"),
         w2 : document.getElementById("wow_head2"),
         w3 : document.getElementById("wow_head3"),
@@ -85,6 +86,7 @@ function sc_L() { // functions (live on scroll)
             pb : ld.pb.getBoundingClientRect(), // #profile_btn
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect(), // parallax arrow 4 (hidden)
+            pf : pf.el.getBoundingClientRect(), // prefooter_sc el.
             pfw1 : pf.w1.getBoundingClientRect(), // w1
             pfw2 : pf.w2.getBoundingClientRect(), // w2
             pfw3 : pf.w3.getBoundingClientRect(), // w3
@@ -298,6 +300,12 @@ function sc_L() { // functions (live on scroll)
         pf.xds[0].style.transform = "translateX(-3rem)";
         pf.xds[1].style.transform = "translateX(-2rem)";
         pf.xds[2].style.transform = "translateX(-4rem)";
+    }
+
+    // scrollbar
+
+    if (b.pf && b.pf.top < aH) {
+        
     }
 
     ///////////////////////////////////////////////////
