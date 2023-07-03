@@ -32,7 +32,7 @@ var im = { // #intro_main
         csa : document.getElementsByClassName("c_Info_a"),
         qis : document.getElementsByClassName("q_Info_scr"),
         pb : document.getElementById("profile_btn"),
-        m : documentg.getElementById("mid_sc"),
+        m : document.getElementById("mid_sc"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
