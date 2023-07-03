@@ -90,7 +90,8 @@ function load_css_e() { // load CSS styles (page specific)
     c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
 
     c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);
-    c_css("#scroll_banner", "margin-top: " + (aH * 0.5) + "px", false, null);
+    c_css("#scroll_banner, #design_banner", "margin-top: " + (aH * 0.5) + "px", false, null);
+    // c_css("#design_banner", "", false, null);
 
     // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 

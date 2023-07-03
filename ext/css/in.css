@@ -235,10 +235,6 @@
 #scroll_banner h2 { /* REFERENCED FROM locomotive.io */
     opacity: 0;
     transform: translateY(100%) rotateX(-80deg);
-    /*
-    transform-origin: center top;
-    transform-style: preserve-3d;
-    transition: opacity .8s cubic-bezier(.215,.61,.355,1),transform .8s cubic-bezier(.215,.61,.355,1);*/
 }
 
 #scroll_banner.inview h2 {
