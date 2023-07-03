@@ -53,6 +53,7 @@ var im = { // #intro_main
         x3 : false,
         x4 : false,
         x5 : false,
+        x6 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -320,6 +321,9 @@ function sc_L() { // functions (live on scroll)
             pf.rf2 = b.pf.height;
             pf.rf3 = pos.y;
         }
+        if (!pf.x6 && b.pf.top < 0) {
+            pf.x6 = true;
+        }
         var h = (((pos.y - pf.rf3) / pf.rf2) * aH);
         if (!pf.x4) {
             pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px)";
@@ -337,7 +341,7 @@ function sc_L() { // functions (live on scroll)
         var t = ((pos.y - pf.rf4) / (pf.rf5 - aH));
         pf.sb.style.bottom = "calc(" + (b.fm.height + b.pf.height) + "px - " + (aH - b.pf.top) + "px + " + h + "px - " + (aH * t) + "px)";
 
-        if (b.pf.top < aH && pf.x5) {
+        if (b.pf.top < aH && pf.x6) {
             e_Fd(pf.sb, true);
         }
     }
