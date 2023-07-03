@@ -292,6 +292,11 @@ function sc_L() { // functions (live on scroll)
         pf.xds[0].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.3) + "px)";
         pf.xds[1].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.5) + "px)";
         pf.xds[2].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.2) + "px)";
+
+    } else if (b.pfds.top && b.pfds.top > aH) {
+        pf.xds[0].style.transform = "translateX(-3rem)";
+        pf.xds[1].style.transform = "translateX(-2rem)";
+        pf.xds[2].style.transform = "translateX(-4rem)";
     }
 
     ///////////////////////////////////////////////////
