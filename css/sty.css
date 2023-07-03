@@ -173,7 +173,7 @@ h1, h2, h3, h5, h6, p, ul {
     font-size: 0.85rem !important;
 }
 
-.t-u {
+.t-u, #footer_blurb a {
     text-decoration: underline;
 }
 /*
