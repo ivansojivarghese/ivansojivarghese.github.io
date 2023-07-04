@@ -469,4 +469,6 @@ function sc_L() { // functions (live on scroll)
     requestAnimationFrame(sc_L);
 }
 
-sc_L();
+if (!vw.pH && !vw.tB) { // only in mobile view
+    sc_L();
+}
