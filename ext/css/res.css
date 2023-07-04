@@ -57,6 +57,7 @@
     }
 
     #profile_greeting {
+        display: inline-block;
         width: calc(85vw - 12rem);
         display: inline-block;
     }
