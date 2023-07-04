@@ -97,7 +97,7 @@
 
 /* ---------- tablet/phablet ---- */ 
 
-@media screen and (min-width: 500px) and (orientation: portrait), (min-height: 500px) and (orientation: landscape) {
+@media screen and (min-width: 500px) and (orientation: portrait) {
     .mobile {
         display: none;
     }
@@ -120,7 +120,7 @@
         font-size: 22px;
     }
 }
-
+/*
 @media screen and (min-height: 500px) and (orientation: landscape) {
     html {
         font-size: 20px;
@@ -170,7 +170,7 @@
     .footer .attr {
         margin-top: 0.2em;
     }
-}
+}*/
 
 
 
