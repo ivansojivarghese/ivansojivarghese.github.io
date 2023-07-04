@@ -86,6 +86,10 @@ function load_css_e() { // load CSS styles (page specific)
 
     if (!vw.pH) { // mobile
         c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
+    } else if (vw.pH) { // phablet
+        el.i.classList.remove("m_Az");
+        el.i.classList.add("d_i");
+        el.i.classList.add("m_L-10");
     }
     c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
 
