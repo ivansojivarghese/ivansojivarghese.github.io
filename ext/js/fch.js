@@ -45,6 +45,7 @@ var fchL = {
         ac : false, // scroll arrow click check
         g : false, // gyro sensor check
         i : document.getElementById("profile_image"),
+        pb : document.getElementById("profile_banner"),
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
@@ -89,6 +90,8 @@ function load_css_e() { // load CSS styles (page specific)
         el.i.classList.remove("m_Az");
         el.i.classList.add("d_i");
         el.i.classList.add("m_L-10");
+
+        el.pb.classList.add("m_T");
     }
 
     c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
