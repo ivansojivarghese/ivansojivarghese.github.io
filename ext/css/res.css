@@ -83,4 +83,8 @@
     .q_Info {
         margin-top: 5rem !important;
     }
+
+    #mid_head {
+        padding-top: 1rem;
+    }
 }
