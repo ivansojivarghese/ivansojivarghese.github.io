@@ -15,7 +15,7 @@ var wH = window.outerHeight, // height
         z : 100, // zoom level, default
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
-            work : ["web dev", "designer"], // work labels
+            work : ["web dev", "designer", "shutterbug", "barista", "player"], // work labels
             workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
             college : "ntu", // name of institution
             course : "computer science", // course name
