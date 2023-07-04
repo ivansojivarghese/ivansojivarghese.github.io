@@ -579,7 +579,11 @@ a.md, span.md {
     visibility: hidden;
 }
 
-.d_n, .phablet, .desktop { /*display control*/
+.d_n {
+    display: none !important;
+}
+
+.phablet, .desktop { /*display control*/
     display: none;
 }
 
