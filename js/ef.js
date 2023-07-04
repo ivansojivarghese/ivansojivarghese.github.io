@@ -136,7 +136,7 @@ function e_wCycle(el, w) { // word typing effect
 
     if (direction == "forward") { // moving characters forward
         if (letter < word.length) {
-            wordToPrint += word(letter);
+            wordToPrint += word[letter];
             letter++;
 
             updateText(wordToPrint, el);
