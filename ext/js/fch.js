@@ -53,7 +53,8 @@ var fchL = {
         bgC : document.querySelectorAll(".bg-circle"),
         bgC4 : document.getElementById("bg-cir4"),
         ldP : document.getElementById("lead_point"),
-        ldP1 : document.getElementById("lead_point_1")
+        ldP1 : document.getElementById("lead_point_1"),
+        q1_t : document.getElementById("qIn1_typer")
     },
     bd = { // bounds
         b0 : null,
@@ -100,6 +101,9 @@ function load_css_e() { // load CSS styles (page specific)
         im.L.classList.remove("bC_d");
         im.L.classList.remove("c_w");
         el.ldP1.innerHTML = "i create";
+
+        el.q1_t.classList.remove("bC_L");
+        el.q1_t.classList.add("bC_d");
     }
 
     c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);

@@ -469,7 +469,7 @@ function sc_L() { // functions (live on scroll)
     requestAnimationFrame(sc_L);
 }
 
-function sc_LpH() {
+function sc_LpH() { // scroll loop - phablet
     var b = {
         q1 : ld.q1.getBoundingClientRect() // #q1 heading
     };
