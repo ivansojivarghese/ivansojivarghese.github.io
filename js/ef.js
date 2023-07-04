@@ -121,7 +121,7 @@ function i_Sp(t) { // return the required no. of iterations per second (for digi
 
 // REFERENCED FROM KIRUPA.COM @https://forum.kirupa.com/t/make-your-inputs-pop-with-the-typewriter-effect/646148
 
-var change = false;
+var change = false,
     words,
     hold;
 
