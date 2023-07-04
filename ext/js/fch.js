@@ -127,9 +127,14 @@ function load_js_e() { // load JS (page specific)
     // m.ft = m;
 
     for (var d in dev.info) { // loop through to concatenate information to text
-        if (i < _Lq && i !== 0) {
-            qInfo[i].innerHTML = dev.info[d];
-            i++;
+        if (i < _Lq) {
+            if (i !== 0) {
+                qInfo[i].innerHTML = dev.info[d];
+                i++;
+            } else {
+
+                // run typing effect
+            }
         }
     }
 }
