@@ -146,7 +146,7 @@ function e_wCycle(el, w) { // word typing effect
     } else {
         if (wordToPrint.length > 0) {
             wordToPrint = wordToPrint.slice(0, -1);
-            if (wordToPrint.length > 0) {
+            if (wordToPrint.length === 0) {
                 updateText("&nbsp;", el);
             } else {
                 updateText(wordToPrint, el);
