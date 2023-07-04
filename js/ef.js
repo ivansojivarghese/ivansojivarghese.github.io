@@ -149,7 +149,8 @@ function e_wCycle(el, w) { // word typing effect
 
             updateText(wordToPrint, el);
         } else {
-            wordToPrint = " ";
+            var n = document.createTextNode("\xC2\xA0");
+            wordToPrint = n;
             startOver();
         }
     }
