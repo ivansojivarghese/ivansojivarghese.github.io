@@ -185,6 +185,7 @@ function startOver() {
 function resetState() {
     letter = 0;
     direction = "forward";
+    change = false;
 }
 
 function updateText(text, el) {
