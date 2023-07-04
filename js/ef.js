@@ -144,12 +144,15 @@ function e_wCycle(el, w) { // word typing effect
             direction = "backward";
         }
     } else {
-        if (wordToPrint.length > 6) {
+        if (wordToPrint.length > 0) {
             wordToPrint = wordToPrint.slice(0, -1);
-
-            updateText(wordToPrint, el);
+            if (wordToPrint.length > 0) {
+                updateText("&nbsp;", el);
+            } else {
+                updateText(wordToPrint, el);
+            }
         } else {
-            updateText("&nbsp;", el);
+            
             startOver();
         }
     }
