@@ -818,12 +818,24 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/lead_arrow_forward_white.svg");
 }
 
+.work_img {
+    background-image: url("../svg/work.svg");
+}
+
 .work_w_img {
     background-image: url("../svg/work_white.svg");
 }
 
+.school_img {
+    background-image: url("../svg/school.svg");
+}
+
 .school_w_img {
     background-image: url("../svg/school_white.svg");
+}
+
+.location_img {
+    background-image: url("../svg/location.svg");
 }
 
 .location_w_img {
