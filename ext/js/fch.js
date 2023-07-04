@@ -52,7 +52,8 @@ var fchL = {
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
         bgC4 : document.getElementById("bg-cir4"),
-        ldP : document.getElementById("lead_point")
+        ldP : document.getElementById("lead_point"),
+        ldP1 : document.getElementById("lead_point_1")
     },
     bd = { // bounds
         b0 : null,
@@ -79,7 +80,7 @@ function loadUp() {
 function load_css_e() { // load CSS styles (page specific)
     var mg = "(" + aH + "px - 27.5rem) / 5"; // margin
 
-    if (!vw.pH) { // mobile
+    if (!vw.pH && !vw.tB) { // mobile
         c_css(".bg-circles", "height: calc(" + aH + "px + 8rem);", false, null);
         c_css(".bg-circles .circle-3", "top: calc(7rem + (" + mg + ") + 12rem);", false, null); // 7rem + profile_image top margin + inward offset of 2rem (rel. to p. image height)
         c_css("#bg-cir5", "top: calc(" + aH + "px + 6rem)", false, null);
@@ -92,6 +93,8 @@ function load_css_e() { // load CSS styles (page specific)
         el.i.classList.add("m_L-10");
 
         el.pb.classList.add("m_T");
+
+        el.ldP1.innerHTML = "i create";
     }
 
     c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);

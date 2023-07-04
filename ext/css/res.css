@@ -70,4 +70,8 @@
         margin-left: 15vw;
         width: 15rem;
     }
+
+    #lead_wrap {
+        padding-top: 3rem;
+    }
 }
