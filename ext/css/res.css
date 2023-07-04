@@ -72,6 +72,10 @@
     }
 
     #lead_wrap {
-        padding-top: 3rem;
+        padding-top: 5rem;
+    }
+
+    .c_Info_s {
+        margin-top: 0;
     }
 }
