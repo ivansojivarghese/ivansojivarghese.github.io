@@ -88,8 +88,12 @@
         padding-top: 1rem;
     }
 
+    #stats {
+        margin-top: 10rem;
+    }
+
     #mid_connect {
         width: 80%;
-        margin-top: calc(50vh - 8.5rem);
+        margin-top: 10rem;
     }
 }
