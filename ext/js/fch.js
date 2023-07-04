@@ -131,9 +131,12 @@ function load_js_e() { // load JS (page specific)
             if (i !== 0) {
                 qInfo[i].innerHTML = dev.info[d];
                 i++;
-            } else {
+            } else { // run typing effect
 
-                // run typing effect
+                setInterval(function() {
+                    e_wCycle(qInfo[0], dev.info.work);
+                }, 200);
+                
             }
         }
     }

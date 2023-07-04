@@ -121,7 +121,17 @@ function i_Sp(t) { // return the required no. of iterations per second (for digi
 
 // REFERENCED FROM KIRUPA.COM @https://forum.kirupa.com/t/make-your-inputs-pop-with-the-typewriter-effect/646148
 
-function e_wCycle() { // word typing effect
+var words;
+
+let count = 0;
+let letter = 0;
+let wordToPrint = "";
+let direction = "forward";
+
+function e_wCycle(el, w) { // word typing effect
+    if (words === undefined) {
+        words = w;
+    }
     let word = words[count];
 
     if (direction == "forward") { // moving characters forward
@@ -129,14 +139,14 @@ function e_wCycle() { // word typing effect
             wordToPrint += word(letter);
             letter++;
 
-            updateText(wordToPrint);
+            updateText(wordToPrint, el);
         } else { // moving backward
             direction = "backward";
         }
     } else {
         if (wordToPrint.length > 0) {
             wordToPrint = wordToPrint.slice(0, -1);
-            updateText(wordToPrint);
+            updateText(wordToPrint, el);
         }
     }
 }
