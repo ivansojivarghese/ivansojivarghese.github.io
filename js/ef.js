@@ -136,6 +136,11 @@ function e_wCycle() { // word typing effect
     } else {
         if (wordToPrint.length > 0) {
             wordToPrint = wordToPrint.slice(0, -1);
+            updateText(wordToPrint);
         }
     }
+}
+
+function updateText(text, el) {
+    el.textContent = text;
 }
