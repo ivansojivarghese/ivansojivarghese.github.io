@@ -38,7 +38,8 @@ var im = { // #intro_main
         rfd : 0,
         x : false,
         x2 : false,
-        x3 : false
+        x3 : false,
+        x4 : false
     },
     pf = { // #prefooter_sc
         el : document.getElementById("prefooter_sc"),
