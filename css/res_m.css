@@ -95,11 +95,6 @@
     }
 }
 
-
-
-
-
-
 /* ---------- tablet/phablet ---- */ 
 
 @media screen and (min-width: 500px) and (orientation: portrait), (min-height: 500px) and (orientation: landscape) {
@@ -110,13 +105,19 @@
     .phablet {
         display: block;
     }
-
+    /*
     .footer {
         font-size: 1.1rem;
     }
 
     p {
         font-size: 1.2rem;
+    }*/
+}
+
+@media screen and (min-width: 500px) and (orientation: portrait) {
+    html {
+        font-size: 22px;
     }
 }
 
@@ -171,11 +172,9 @@
     }
 }
 
-@media screen and (min-width: 500px) and (orientation: portrait) {
-    html {
-        font-size: 24px;
-    }
-}
+
+
+
 
 @media screen and (min-width: 500px) and (min-height: 700px) and (orientation: portrait) { /*special cases: notably folding touch devices*/
     html {
