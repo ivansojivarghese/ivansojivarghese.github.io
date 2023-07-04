@@ -149,7 +149,6 @@ function e_wCycle(el, w) { // word typing effect
 
             updateText(wordToPrint, el);
         } else {
-            var n = document.createTextNode("\u00A0");
             wordToPrint = n;
             startOver();
         }
