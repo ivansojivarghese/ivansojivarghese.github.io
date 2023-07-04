@@ -87,6 +87,9 @@ function load_css_e() { // load CSS styles (page specific)
 
         c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
         c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
+
+        c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
+        
     } else if (vw.pH) { // phablet
         el.i.classList.remove("m_Az");
         el.i.classList.add("d_i");
@@ -96,8 +99,6 @@ function load_css_e() { // load CSS styles (page specific)
 
         el.ldP1.innerHTML = "i create";
     }
-
-    c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
 
     c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);
     c_css("#scroll_banner, #design_banner", "margin-top: " + (aH * 0.5) + "px", false, null);
