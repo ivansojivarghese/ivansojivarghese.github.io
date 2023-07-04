@@ -176,6 +176,12 @@ h1, h2, h3, h5, h6, p, ul {
 .t-u, #footer_blurb a {
     text-decoration: underline;
 }
+
+.e_wS { /* word typing effect cursor stroke */
+    width: 0.15rem;
+    height: 1.8rem;
+}
+
 /*
 .h-d {
     height: var(--doc-height);
