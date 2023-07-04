@@ -292,11 +292,10 @@ function sc_L() { // functions (live on scroll)
     // q_info
 
     if (b.q1.top && b.q1.top < aH && ld.x4) { // heading 1
-
+        ld.x4 = false;
         ld.L = setInterval(function() {
             e_wCycle(qInfo[0], dev.info.work);
         }, op.t);
-
     }
 
     // prefooter_sc
