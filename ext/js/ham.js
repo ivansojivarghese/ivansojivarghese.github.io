@@ -284,15 +284,17 @@ function hamButtonLoad(m) {
         var j = 0,
             v = [1, 1.75, 2.5],
             showStroke = function() {
-                if (j < hm.k.length) {
-                    e_Fd(hm.k[j], false);
-                    hm.k[j].classList.add("z_F");
-                    hm.k[j].style.width = v[j] + "rem";
-                    j++;
-                } else {
-                    hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                    hm.bL = true;
-                    clearInterval(hm.bLS);
+                if (!hm.bL) {
+                    if (j < hm.k.length) {
+                        e_Fd(hm.k[j], false);
+                        hm.k[j].classList.add("z_F");
+                        hm.k[j].style.width = v[j] + "rem";
+                        j++;
+                    } else {
+                        hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                        hm.bL = true;
+                        clearInterval(hm.bLS);
+                    }
                 }
             };
 
@@ -301,23 +303,25 @@ function hamButtonLoad(m) {
     } else if (!m && hm.bL) { // hide
         var j = hm.k.length - 1,
             hideStroke = function() {
-                if (j >= 0) {
-                    e_Fd(hm.k[j], true);
-                    hm.k[j].classList.remove("z_F");
-                    hm.k[j].style.width = "";
-                    j--;
-                } else {
-                    hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                    hm.bL = false;
-                    clearInterval(hm.bLH);
+                if (hm.bL) {
+                    if (j >= 0) {
+                        e_Fd(hm.k[j], true);
+                        hm.k[j].classList.remove("z_F");
+                        hm.k[j].style.width = "";
+                        j--;
+                    } else {
+                        hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                        hm.bL = false;
+                        clearInterval(hm.bLH);
+                    }
                 }
             };
 
         hideStroke();
         hm.bLH = setInterval(hideStroke, (op.t / 2));
-
+        /*
         hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-        hm.bL = false;
+        hm.bL = false;*/
     }
 }
 
