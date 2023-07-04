@@ -110,12 +110,12 @@ function load_css_e() { // load CSS styles (page specific)
         el.q1_t.classList.remove("bC_L");
         el.q1_t.classList.add("bC_d");
 
-        for (j = 0; j <= (el.cIa.length - 1); j++) {
+        for (j = 0; j <= (el.cIa.length - 1); j++) { // change arrows
             el.cIa[j].classList.remove("lead_arrow_forward_w_img");
             el.cIa[j].classList.add("lead_arrow_forward_img");
         }
 
-        for (k = 0; k <= (el.qIc.length - 1); k++) {
+        for (k = 0; k <= (el.qIc.length - 1); k++) { // change icons
             el.qIc[k].classList.remove(qI_o[k]);
             el.qIc[k].classList.add(qI_c[k]);
         }
