@@ -98,6 +98,10 @@
 /* ---------- tablet/phablet ---- */ 
 
 @media screen and (min-width: 500px) and (orientation: portrait) {
+    html {
+        font-size: 22px;
+    }
+
     .mobile {
         display: none;
     }
@@ -115,11 +119,6 @@
     }*/
 }
 
-@media screen and (min-width: 500px) and (orientation: portrait) {
-    html {
-        font-size: 22px;
-    }
-}
 /*
 @media screen and (min-height: 500px) and (orientation: landscape) {
     html {
