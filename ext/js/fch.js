@@ -54,7 +54,8 @@ var fchL = {
         bgC4 : document.getElementById("bg-cir4"),
         ldP : document.getElementById("lead_point"),
         ldP1 : document.getElementById("lead_point_1"),
-        q1_t : document.getElementById("qIn1_typer")
+        q1_t : document.getElementById("qIn1_typer"),
+        cIa : document.getElementsByClassName("c_Info_arrows")
     },
     bd = { // bounds
         b0 : null,
@@ -104,6 +105,11 @@ function load_css_e() { // load CSS styles (page specific)
 
         el.q1_t.classList.remove("bC_L");
         el.q1_t.classList.add("bC_d");
+
+        for (j = 0; j <= (el.cIa.length - 1); j++) {
+            el.cIa[j].classList.remove("lead_arrow_forward_w_img");
+            el.cIa[j].classList.add("lead_arrow_forward_img");
+        }
     }
 
     c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);
