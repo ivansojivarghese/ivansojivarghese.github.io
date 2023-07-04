@@ -40,7 +40,8 @@ var im = { // #intro_main
         x : false,
         x2 : false,
         x3 : false,
-        x4 : false
+        x4 : false,
+        L : null
     },
     pf = { // #prefooter_sc
         el : document.getElementById("prefooter_sc"),
@@ -290,8 +291,12 @@ function sc_L() { // functions (live on scroll)
 
     // q_info
 
-    if (b.q1.top && b.q1.top < aH && ld.x4) {
-        e_wCycle(qInfo[0], dev.info.work);
+    if (b.q1.top && b.q1.top < aH && ld.x4) { // heading 1
+
+        ld.L = setInterval(function() {
+            e_wCycle(qInfo[0], dev.info.work);
+        }, op.t);
+
     }
 
     // prefooter_sc
