@@ -144,7 +144,7 @@ function e_wCycle(el, w) { // word typing effect
             direction = "backward";
         }
     } else {
-        if (wordToPrint.length > 0) {
+        if (wordToPrint.length > 1) {
             wordToPrint = wordToPrint.slice(0, -1);
 
             updateText(wordToPrint, el);
