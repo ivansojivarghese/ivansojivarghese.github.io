@@ -63,4 +63,8 @@
     #profile_greeting {
         width: calc(85vw - 12rem);
     }
+
+    #profile_greetingSec {
+        margin-left: 40vw;
+    }
 }
