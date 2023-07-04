@@ -55,7 +55,8 @@ var fchL = {
         ldP : document.getElementById("lead_point"),
         ldP1 : document.getElementById("lead_point_1"),
         q1_t : document.getElementById("qIn1_typer"),
-        cIa : document.getElementsByClassName("c_Info_arrows")
+        cIa : document.getElementsByClassName("c_Info_arrows"),
+        qIc : document.getElementsByClassName("q_Info_icons")
     },
     bd = { // bounds
         b0 : null,
@@ -93,6 +94,9 @@ function load_css_e() { // load CSS styles (page specific)
         c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
 
     } else if (vw.pH) { // phablet
+        var qI_o = ["work_w_img", "school_w_img", "location_w_img"],
+            qI_c = ["work_img", "school_img", "location_img"];
+
         el.i.classList.remove("m_Az");
         el.i.classList.add("d_i");
         el.i.classList.add("m_L-10");
@@ -109,6 +113,11 @@ function load_css_e() { // load CSS styles (page specific)
         for (j = 0; j <= (el.cIa.length - 1); j++) {
             el.cIa[j].classList.remove("lead_arrow_forward_w_img");
             el.cIa[j].classList.add("lead_arrow_forward_img");
+        }
+
+        for (k = 0; k <= (el.qIc.length - 1); k++) {
+            el.qIc[k].classList.remove(qI_o[k]);
+            el.qIc[k].classList.add(qI_c[k]);
         }
     }
 
