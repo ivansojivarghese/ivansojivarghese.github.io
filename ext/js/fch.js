@@ -132,7 +132,7 @@ function load_js_e() { // load JS (page specific)
                 qInfo[i].innerHTML = dev.info[d];
             } else { // run typing effect
 
-                // ld.x4 = true;
+                ld.x4 = true;
             }
             i++;
         }

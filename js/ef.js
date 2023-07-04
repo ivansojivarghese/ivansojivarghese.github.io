@@ -170,7 +170,6 @@ function startOver() {
 
 function resetState() {
     letter = 0;
-    // wordToPrint = "";
     direction = "forward";
 }
 
