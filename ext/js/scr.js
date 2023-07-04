@@ -30,6 +30,7 @@ var im = { // #intro_main
         csm : document.getElementById("c_Info-m"),
         cs : document.getElementsByClassName("c_Info_s"),
         csa : document.getElementsByClassName("c_Info_a"),
+        q1 : document.getElementById("qIn1"),
         qis : document.getElementsByClassName("q_Info_scr"),
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
@@ -89,6 +90,7 @@ function sc_L() { // functions (live on scroll)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
         b = { // element bounds
             e : im.elw.getBoundingClientRect(), // #intro_ws
+            q1 : ld.q1.getBoundingClientRect(), // #q1 heading
             L : im.L.getBoundingClientRect(), // #lead_sc
             Lp : im.Lp.getBoundingClientRect(), // #lead_point
             Lpf : im.Lpf.getBoundingClientRect(), // #lead_point_1
@@ -284,6 +286,12 @@ function sc_L() { // functions (live on scroll)
         ld.csa[1].setAttribute("onclick", "location.href='https://ivansojivarghese.github.io/code'");
         ld.csa[1].setAttribute("href", "javascript:void(0)");
         ld.csa[1].classList.remove("u-d");
+    }
+
+    // q_info
+
+    if (b.q1.top && b.q1.top < aH && ld.x4) {
+        e_wCycle(qInfo[0], dev.info.work);
     }
 
     // prefooter_sc
