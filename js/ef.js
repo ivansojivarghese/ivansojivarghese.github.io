@@ -165,14 +165,14 @@ function e_wCycle(el, w, v) { // word typing effect
                     updateText(wordToPrint, el);
                 }
             } else {
-                
-                startOver();
+                clearInterval(hold);
+                startOver(el, w);
             }
         }
     }
 }
 
-function startOver() {
+function startOver(el, w) {
     resetState();
 
     if (count < words.length - 1) {
@@ -180,6 +180,10 @@ function startOver() {
     } else {
         count = 0;
     }
+
+    hold = setInterval(function() { // reverse at faster speed
+        e_wCycle(el, w, hold)
+    }, op.t);
 }
 
 function resetState() {
