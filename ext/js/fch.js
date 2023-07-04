@@ -78,27 +78,23 @@ function loadUp() {
 function load_css_e() { // load CSS styles (page specific)
     var mg = "(" + aH + "px - 27.5rem) / 5"; // margin
 
-    // c_css("#profile_image, #intro_sc .content", "margin-top: calc((" + cH + "px - 27.5rem) / 5);", false, null); // margins are relative to the height
-
-    c_css(".bg-circles", "height: calc(" + aH + "px + 8rem);", false, null);
-    c_css(".bg-circles .circle-3", "top: calc(7rem + (" + mg + ") + 12rem);", false, null); // 7rem + profile_image top margin + inward offset of 2rem (rel. to p. image height)
-    c_css("#bg-cir5", "top: calc(" + aH + "px + 6rem)", false, null);
-
     if (!vw.pH) { // mobile
+        c_css(".bg-circles", "height: calc(" + aH + "px + 8rem);", false, null);
+        c_css(".bg-circles .circle-3", "top: calc(7rem + (" + mg + ") + 12rem);", false, null); // 7rem + profile_image top margin + inward offset of 2rem (rel. to p. image height)
+        c_css("#bg-cir5", "top: calc(" + aH + "px + 6rem)", false, null);
+
         c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
+        c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
     } else if (vw.pH) { // phablet
         el.i.classList.remove("m_Az");
         el.i.classList.add("d_i");
         el.i.classList.add("m_L-10");
     }
-    c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
 
     c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
 
     c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);
     c_css("#scroll_banner, #design_banner", "margin-top: " + (aH * 0.5) + "px", false, null);
-
-    // 0.72 + 1.8 + 2.8 + mg + 18 + mg + 7
 
     if (wD >= 290 && aH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
         if (!(wD >= 310 && aH <= 550)) { // if width/height NOT within 310px and 550px
