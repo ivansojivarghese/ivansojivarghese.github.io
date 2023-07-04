@@ -144,11 +144,13 @@ function e_wCycle(el, w) { // word typing effect
             direction = "backward";
         }
     } else {
-        if (wordToPrint.length > 1) {
+        if (wordToPrint.length > 0) {
             wordToPrint = wordToPrint.slice(0, -1);
 
             updateText(wordToPrint, el);
         } else {
+            var n = document.createTextNode("\u00A0");
+            wordToPrint = n;
             startOver();
         }
     }
@@ -166,7 +168,7 @@ function startOver() {
 
 function resetState() {
     letter = 0;
-    wordToPrint = " ";
+    // wordToPrint = "";
     direction = "forward";
 }
 
