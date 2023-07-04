@@ -469,6 +469,25 @@ function sc_L() { // functions (live on scroll)
     requestAnimationFrame(sc_L);
 }
 
+function sc_LpH() {
+    var b = {
+        q1 : ld.q1.getBoundingClientRect() // #q1 heading
+    };
+
+    if (b.q1.top && b.q1.top < aH && ld.x4) {
+        ld.x4 = false;
+        ld.L = setInterval(function() {
+            e_wCycle(qInfo[0], dev.info.work, ld.L);
+        }, op.t);
+    }
+
+    requestAnimationFrame(sc_LpH);
+}
+
+
+
 if (!vw.pH && !vw.tB) { // only in mobile view
     sc_L();
+} else if (vw.pH) { // phablet
+    sc_LpH();
 }
