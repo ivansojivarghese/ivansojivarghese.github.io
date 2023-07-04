@@ -89,7 +89,7 @@ function load_css_e() { // load CSS styles (page specific)
         c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
 
         c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
-        
+
     } else if (vw.pH) { // phablet
         el.i.classList.remove("m_Az");
         el.i.classList.add("d_i");
@@ -97,6 +97,8 @@ function load_css_e() { // load CSS styles (page specific)
 
         el.pb.classList.add("m_T");
 
+        im.L.classList.remove("bC_d");
+        im.L.classList.remove("c_w");
         el.ldP1.innerHTML = "i create";
     }
 
