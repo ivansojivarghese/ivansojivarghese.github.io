@@ -58,6 +58,7 @@
 
     #profile_greeting {
         width: calc(85vw - 12rem);
+        display: inline-block;
     }
 
     #profile_greetingSec {

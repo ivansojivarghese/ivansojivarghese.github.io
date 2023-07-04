@@ -588,7 +588,7 @@ a.md, span.md {
 }
 
 .d_i, a, .h_wd-s > div {
-    display: inline-block !important;
+    display: inline-block;
 }
 
 .l_ta {
