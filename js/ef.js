@@ -146,9 +146,7 @@ function e_wCycle(el, w) { // word typing effect
     } else {
         if (wordToPrint.length > 0) {
             wordToPrint = wordToPrint.slice(0, -1);
-            if (wordToPrint.length === 0) {
-                wordToPrint = "&nbsp"; // add blank spacing
-            }
+
             updateText(wordToPrint, el);
         } else {
             startOver();
@@ -168,7 +166,7 @@ function startOver() {
 
 function resetState() {
     letter = 0;
-    wordToPrint = "&nbsp";
+    wordToPrint = " ";
     direction = "forward";
 }
 
