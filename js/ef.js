@@ -150,8 +150,26 @@ function e_wCycle(el, w) { // word typing effect
                 wordToPrint = "&nbsp"; // add blank spacing
             }
             updateText(wordToPrint, el);
+        } else {
+            startOver();
         }
     }
+}
+
+function startOver() {
+    resetState();
+
+    if (count < words.length - 1) {
+        count++;
+    } else {
+        count = 0;
+    }
+}
+
+function resetState() {
+    letter = 0;
+    wordToPrint = "&nbsp";
+    direction = "forward";
 }
 
 function updateText(text, el) {
