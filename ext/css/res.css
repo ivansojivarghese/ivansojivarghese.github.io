@@ -59,4 +59,8 @@
     #link_3 {
         display: none;
     }
+
+    #profile_greeting {
+        width: calc(85vw - 12rem);
+    }
 }
