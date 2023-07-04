@@ -87,4 +87,9 @@
     #mid_head {
         padding-top: 1rem;
     }
+
+    #mid_connect {
+        width: 80%;
+        margin-top: calc(50vh - 8.5rem);
+    }
 }
