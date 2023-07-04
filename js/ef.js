@@ -152,5 +152,5 @@ function e_wCycle(el, w) { // word typing effect
 }
 
 function updateText(text, el) {
-    el.textContent = text;
+    el.innerHTML = text;
 }
