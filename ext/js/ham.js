@@ -284,7 +284,7 @@ function hamButtonLoad(m) {
         var j = 0,
             v = [1, 1.75, 2.5],
             showStroke = function() {
-                if (!hm.bL) {
+                if (!hm.bL && pos.aT) {
                     if (j < hm.k.length) {
                         e_Fd(hm.k[j], false);
                         hm.k[j].classList.add("z_F");
@@ -303,7 +303,7 @@ function hamButtonLoad(m) {
     } else if (!m && hm.bL) { // hide
         var j = hm.k.length - 1,
             hideStroke = function() {
-                if (hm.bL) {
+                if (hm.bL && !pos.aT) {
                     if (j >= 0) {
                         e_Fd(hm.k[j], true);
                         hm.k[j].classList.remove("z_F");
