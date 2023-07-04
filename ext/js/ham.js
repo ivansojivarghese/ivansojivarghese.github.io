@@ -299,7 +299,6 @@ function hamButtonLoad(m) {
         showStroke();
         hm.bLS = setInterval(showStroke, (op.t / 2));
     } else if (!m && hm.bL) { // hide
-        /*
         var j = hm.k.length - 1,
             hideStroke = function() {
                 if (j >= 0) {
@@ -315,7 +314,7 @@ function hamButtonLoad(m) {
             };
 
         hideStroke();
-        hm.bLH = setInterval(hideStroke, (op.t / 2));*/
+        hm.bLH = setInterval(hideStroke, (op.t / 2));
 
         hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
         hm.bL = false;
