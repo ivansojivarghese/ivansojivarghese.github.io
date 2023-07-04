@@ -127,7 +127,7 @@ function load_js_e() { // load JS (page specific)
     // m.ft = m;
 
     for (var d in dev.info) { // loop through to concatenate information to text
-        if (i < _Lq) {
+        if (i < _Lq && i !== 0) {
             qInfo[i].innerHTML = dev.info[d];
             i++;
         }
