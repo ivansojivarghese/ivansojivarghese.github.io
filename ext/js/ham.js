@@ -295,6 +295,9 @@ function hamButtonLoad(m) {
                         hm.bL = true;
                         clearInterval(hm.bLS);
                     }
+                } else {
+
+                    // hide visible strokes
                 }
             };
 
@@ -314,6 +317,9 @@ function hamButtonLoad(m) {
                         hm.bL = false;
                         clearInterval(hm.bLH);
                     }
+                } else {
+
+                    // show hidden strokes
                 }
             };
 
