@@ -116,3 +116,26 @@ function i_Sp(t) { // return the required no. of iterations per second (for digi
         // low distance = low value
         // high distance = high value
 }
+
+/////////////////////////////////////////
+
+// REFERENCED FROM KIRUPA.COM @https://forum.kirupa.com/t/make-your-inputs-pop-with-the-typewriter-effect/646148
+
+function e_wCycle() { // word typing effect
+    let word = words[count];
+
+    if (direction == "forward") { // moving characters forward
+        if (letter < word.length) {
+            wordToPrint += word(letter);
+            letter++;
+
+            updateText(wordToPrint);
+        } else { // moving backward
+            direction = "backward";
+        }
+    } else {
+        if (wordToPrint.length > 0) {
+            wordToPrint = wordToPrint.slice(0, -1);
+        }
+    }
+}
