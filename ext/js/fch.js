@@ -410,13 +410,15 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
         el.bgC[3].style.transform = "translate(0px, 0px)"; // circle 3
         
     } else {
-        el.bgC[0].style.transform = "translateX(" + gyroscopeX + "px)"; // circle 0.5
+        // el.bgC[0].style.transform = "translateX(" + gyroscopeX + "px)"; // circle 0.5
+        el.bgC[0].style.left = "calc(85%" + gyroscopeX + "%)"; // circle 0.5
+
         el.bgC[1].style.transform = "translateY(" + gyroscopeY + "px)"; // circle 1
         el.bgC[2].style.transform = "translateX(" + gyroscopeX + "px)"; // circle 2
 
         el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
 
-        el.bgC[4].style.transform = "translateX(" + gyroscopeX + "px)"; // circle 4 //
+        el.bgC[4].style.transform = "translateX(" + gyroscopeX + "px)"; // circle 4 
     }
 }
 
