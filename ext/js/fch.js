@@ -422,7 +422,11 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
         el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
 
         // el.bgC[4].style.transform = "translateX(" + gyroscopeX + "px)"; // circle 4 
-        el.bgC[4].style.left = (60 + (gyroscopeX / 3)) + "%"; // circle 4 
+        if (!el.ac) {
+            el.bgC[4].style.left = (60 + (gyroscopeX / 3)) + "%"; // circle 4 
+        } else {
+            el.bgC[4].style.left = (80 + (gyroscopeX / 3)) + "%"; // circle 4 
+        }
     }
 }
 
