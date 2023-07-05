@@ -413,7 +413,11 @@ function hamCheckStrokes(s) {
             res.i[res.i.length] = i; // indexes of focused strokes
         }
     }
-    res.i.sort(function(a, b){return b-a}); // sort in descending order
+    if (res.s === false) {
+        res.i.sort(function(a, b){return b-a}); // sort in descending order
+    } else if (res.s === true) {
+        res.i.sort(function(a, b){return a-b}); // sort in asc. order
+    }
     return res; // return false if at least 1 is still visible, otherwise returns true if at least 1 is still not visible
 }
 
