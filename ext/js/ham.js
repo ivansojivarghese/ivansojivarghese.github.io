@@ -334,7 +334,7 @@ function hamButtonLoad(m) {
         var h = hm.k.length - 1,
             hideStroke = function() {
                 if (hm.bL && !pos.aT) {
-                    if (h >= 0) {
+                    if (h >= 0 || !hamCheckStrokes(hm.k)) {
                         e_Fd(hm.k[h], true);
                         hm.k[h].classList.remove("z_F");
                         hm.k[h].style.width = "";
@@ -379,6 +379,22 @@ function hamButtonLoad(m) {
         hideStroke();
         hm.bLH = setInterval(hideStroke, (op.t / 2));
     }
+}
+
+function hamCheckStrokes(s) {
+    var res = {
+        s : true,
+        n : 0,
+        i : []
+    };
+    for (i = 0; i <= s.length - 1; i++) {
+        if (s[i].classList.contains("z_F")) {
+            res.s = false;
+            res.n++; // no. of strokes in focus
+            res.i[res.i.length] = i; // indexes of focused strokes
+        }
+    }
+    return res; // return false if at least 1 is still visible
 }
 
 function installBtnToggle(m) {
