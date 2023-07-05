@@ -231,7 +231,8 @@
 }
 
 #wow_head3 {
-    top: 289.8vh;
+    /*top: 289.8vh;*/
+    top: 126.2rem;
 }
 
 #scroll_banner h2 { /* REFERENCED FROM locomotive.io */
