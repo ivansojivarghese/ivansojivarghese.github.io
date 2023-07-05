@@ -302,7 +302,7 @@ function hamButtonLoad(m) {
                             hm.k[d].classList.add("z_F");
                             hm.k[d].style.width = v[d] + "rem";
 
-                            // console.log("d:" + d);
+                            // console.log("d:" + d); //
                         }
 
                     } else {
