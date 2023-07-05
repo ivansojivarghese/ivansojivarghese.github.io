@@ -320,14 +320,30 @@ function hamButtonLoad(m) {
                 } else {
 
                     // show hidden strokes
+
+                    var i = 0,
+                        v = [1, 1.75, 2.5],
+                        showStroke = function() {
+                            if (!hm.bL && pos.aT) {
+                                if (i < hm.k.length) {
+                                    e_Fd(hm.k[i], false);
+                                    hm.k[i].classList.add("z_F");
+                                    hm.k[i].style.width = v[i] + "rem";
+                                    k++;
+                                } else {
+                                    hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                                    hm.bL = true;
+                                    clearInterval(hm.bLS);
+                                }
+                            }
+                        };
+                    showStroke();
+                    hm.bLS = setInterval(showStroke, (op.t / 2));
                 }
             };
 
         hideStroke();
         hm.bLH = setInterval(hideStroke, (op.t / 2));
-        /*
-        hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-        hm.bL = false;*/
     }
 }
 
