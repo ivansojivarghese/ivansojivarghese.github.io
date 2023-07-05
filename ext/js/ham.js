@@ -104,7 +104,66 @@ function hm_L() {
         } else if (!hamCheckStrokes(hm.k, false).s) {
             // console.log("hiding");
 
-            
+            var h = hm.k.length - 1,
+            hideStroke = function() {
+                if (hm.bL && !pos.aT) {
+                    if (h >= 0 || !hamCheckStrokes(hm.k, false).s) {
+
+                        if (h >= 0) {
+                            e_Fd(hm.k[h], true);
+                            hm.k[h].classList.remove("z_F");
+                            hm.k[h].style.width = "";
+                            h--;
+
+                            // console.log("h:" + h);
+
+                        } else if (!hamCheckStrokes(hm.k, false).s) {
+                            var obj = hamCheckStrokes(hm.k, false),
+                                d = obj.i[0];
+
+                            e_Fd(hm.k[d], true);
+                            hm.k[d].classList.remove("z_F");
+                            hm.k[d].style.width = "";
+
+                            // console.log("d:" + d);
+                        }
+
+                    } else {
+                        hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                        hm.bL = false;
+                        clearInterval(hm.bLH);
+                    }
+                } else {
+
+                    // show hidden strokes
+
+                    var e = 0,
+                        v = [1, 1.75, 2.5],
+                        showStroke = function() {
+                            if (pos.aT) {
+                                if (e < hm.k.length) {
+                                    e_Fd(hm.k[e], false);
+                                    hm.k[e].classList.add("z_F");
+                                    hm.k[e].style.width = v[e] + "rem";
+                                    e++;
+                                } else {
+                                    hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                                    hm.bL = true;
+                                    h = hm.k.length - 1;
+                                    clearInterval(hm.bLSe);
+                                }
+                            }
+                        };
+                    if (!hm.x) {
+                        hm.x = true;
+                        showStroke();
+                        hm.bLSe = setInterval(showStroke, (op.t / 2));
+                    }
+                }
+            };
+
+            hideStroke();
+            hm.bLH = setInterval(hideStroke, (op.t / 2));
         }
     }
 }
