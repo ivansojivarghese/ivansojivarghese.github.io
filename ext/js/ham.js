@@ -334,12 +334,12 @@ function hamButtonLoad(m) {
                                     hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                                     hm.bL = true;
                                     j = hm.k.length - 1;
-                                    clearInterval(hm.bLS);
+                                    clearInterval(hm.bLSe);
                                 }
                             }
                         };
                     showStroke();
-                    hm.bLS = setInterval(showStroke, (op.t / 2));
+                    hm.bLSe = setInterval(showStroke, (op.t / 2));
                 }
             };
 
