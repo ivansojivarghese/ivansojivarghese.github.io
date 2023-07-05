@@ -3028,6 +3028,16 @@ window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt)
 
 });
 
+window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) => {
+    let displayMode = 'standalone';
+    if (evt.matches) {
+        displayMode = 'browser';
+    } else {
+        reL();
+    }
+
+});
+
 //////////////////////////////////////////
 /*
 pg.sc.c.addEventListener("touchstart", function(event) {
