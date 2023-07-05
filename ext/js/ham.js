@@ -414,7 +414,7 @@ function hamCheckStrokes(s, m) {
         i : []
     };
     for (i = 0; i <= s.length - 1; i++) {
-        if ((res.s !== true || !m) && s[i].classList.contains("z_F")) {
+        if ((res.s !== true && !m) && s[i].classList.contains("z_F")) {
             res.s = false;
             res.n++; // no. of strokes in focus
             res.i[res.i.length] = i; // indexes of focused strokes
