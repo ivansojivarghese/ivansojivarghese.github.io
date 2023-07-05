@@ -287,11 +287,13 @@ function hamButtonLoad(m) {
             v = [1, 1.75, 2.5],
             showStroke = function() {
                 if (!hm.bL && pos.aT) {
-                    if (j < hm.k.length) {
+                    if (j < hm.k.length || hamCheckStrokes(hm.k).s) {
+
                         e_Fd(hm.k[j], false);
                         hm.k[j].classList.add("z_F");
                         hm.k[j].style.width = v[j] + "rem";
                         j++;
+
                     } else {
                         hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                         hm.bL = true;
@@ -396,7 +398,7 @@ function hamButtonLoad(m) {
 
 function hamCheckStrokes(s) {
     var res = {
-        s : true,
+        s : null,
         n : 0,
         i : []
     };
@@ -405,10 +407,14 @@ function hamCheckStrokes(s) {
             res.s = false;
             res.n++; // no. of strokes in focus
             res.i[res.i.length] = i; // indexes of focused strokes
+        } else if (res.s !== false && !s[i].classList.contains("z_F")) {
+            res.s = true;
+            res.n++; // no. of strokes in focus
+            res.i[res.i.length] = i; // indexes of focused strokes
         }
     }
     res.i.sort(function(a, b){return b-a}); // sort in descending order
-    return res; // return false if at least 1 is still visible
+    return res; // return false if at least 1 is still visible, otherwise returns true if at least 1 is still not visible
 }
 
 function installBtnToggle(m) {
