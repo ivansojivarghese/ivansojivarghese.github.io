@@ -324,7 +324,7 @@ function hamButtonLoad(m) {
                     var i = 0,
                         v = [1, 1.75, 2.5],
                         showStroke = function() {
-                            if (!hm.bL && pos.aT) {
+                            if (pos.aT) {
                                 if (i < hm.k.length) {
                                     e_Fd(hm.k[i], false);
                                     hm.k[i].classList.add("z_F");
@@ -332,7 +332,7 @@ function hamButtonLoad(m) {
                                     i++;
                                 } else {
                                     hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                                    hm.bL = true;
+                                    // hm.bL = true;
                                     clearInterval(hm.bLS);
                                 }
                             }
