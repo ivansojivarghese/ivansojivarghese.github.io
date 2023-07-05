@@ -28,6 +28,7 @@ hm = { // hamburger menu object
     bL : false,
     bLS : null, // button strokes show loop
     bLH : null, // button strokes hide loop
+    x : false,
     id : 0 // input id
 };
 
@@ -338,8 +339,11 @@ function hamButtonLoad(m) {
                                 }
                             }
                         };
-                    showStroke();
-                    hm.bLSe = setInterval(showStroke, (op.t / 2));
+                    if (!hm.x) {
+                        hm.x = true;
+                        showStroke();
+                        hm.bLSe = setInterval(showStroke, (op.t / 2));
+                    }
                 }
             };
 
