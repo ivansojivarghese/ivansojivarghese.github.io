@@ -302,7 +302,7 @@ function hamButtonLoad(m) {
                             hm.k[d].classList.add("z_F");
                             hm.k[d].style.width = v[d] + "rem";
 
-                            console.log("d:" + d);
+                            // console.log("d:" + d);
                         }
 
                     } else {
@@ -323,7 +323,7 @@ function hamButtonLoad(m) {
                                     hm.k[i].style.width = "";
                                     i--;
           
-                                    console.log("i:" + i);
+                                    // console.log("i:" + i);
 
                                 } else {
                                     hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
@@ -355,7 +355,7 @@ function hamButtonLoad(m) {
                             hm.k[h].style.width = "";
                             h--;
 
-                            console.log("h:" + h);
+                            // console.log("h:" + h);
 
                         } else if (!hamCheckStrokes(hm.k).s) {
                             var obj = hamCheckStrokes(hm.k),
@@ -365,7 +365,7 @@ function hamButtonLoad(m) {
                             hm.k[d].classList.remove("z_F");
                             hm.k[d].style.width = "";
 
-                            console.log("d:" + d);
+                            // console.log("d:" + d);
                         }
 
                     } else {
