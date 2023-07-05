@@ -40,20 +40,14 @@ hm = { // hamburger menu object
 function hm_L() {
     if (rL.i) {
         if (hamCheckStrokes(hm.k, true).s && pos.aT && hm.zh) { // show strokes
-            console.log("showing");
+            // console.log("showing");
 
             // hm.sh = true;
             hm.bL = false;
 
             if (hm.x3) {
                 hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-            } else {
-                /*
-                setTimeout(function() {
-                    hm.x3 = true;
-                }, op.te);
-                */
-            }
+            } 
 
             var j = 0,
                 v = [1, 1.75, 2.5],
@@ -119,7 +113,7 @@ function hm_L() {
                 hm.bLS = setInterval(showStroke, (op.t / 2));
 
         } else if (!hamCheckStrokes(hm.k, false).s && !pos.aT) {
-            console.log("hiding");
+            // console.log("hiding");
 
             // hm.sh = false;
             // hm.bL = false;
