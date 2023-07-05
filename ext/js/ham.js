@@ -414,11 +414,11 @@ function hamCheckStrokes(s, m) {
         i : []
     };
     for (i = 0; i <= s.length - 1; i++) {
-        if ((res.s !== true && !m) && s[i].classList.contains("z_F")) {
+        if ((res.s !== true && !m) && !pos.aT && s[i].classList.contains("z_F")) {
             res.s = false;
             res.n++; // no. of strokes in focus
             res.i[res.i.length] = i; // indexes of focused strokes
-        } else if ((res.s !== false || m) && !s[i].classList.contains("z_F")) {
+        } else if ((res.s !== false || m) && pos.aT && !s[i].classList.contains("z_F")) {
             res.s = true;
             res.n++; // no. of strokes in focus
             res.i[res.i.length] = i; // indexes of focused strokes
