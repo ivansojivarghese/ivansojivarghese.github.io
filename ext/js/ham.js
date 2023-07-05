@@ -336,12 +336,24 @@ function hamButtonLoad(m) {
                 if (hm.bL && !pos.aT) {
                     if (h >= 0 || !hamCheckStrokes(hm.k).s) {
 
-                        e_Fd(hm.k[h], true);
-                        hm.k[h].classList.remove("z_F");
-                        hm.k[h].style.width = "";
-                        h--;
+                        if (h >= 0) {
+                            e_Fd(hm.k[h], true);
+                            hm.k[h].classList.remove("z_F");
+                            hm.k[h].style.width = "";
+                            h--;
 
-                        console.log("h:" + h);
+                            console.log("h:" + h);
+
+                        } else if (!hamCheckStrokes(hm.k).s) {
+                            var obj = hamCheckStrokes(hm.k),
+                                d = obj.i[0];
+
+                            e_Fd(hm.k[d], true);
+                            hm.k[d].classList.remove("z_F");
+                            hm.k[d].style.width = "";
+
+                            console.log("d:" + d);
+                        }
 
                     } else {
                         hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
