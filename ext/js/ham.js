@@ -44,6 +44,8 @@ function hm_L() {
             // hm.sh = true;
             hm.bL = false;
 
+            hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+
             var j = 0,
                 v = [1, 1.75, 2.5],
                 showStroke = function() {
@@ -121,6 +123,8 @@ function hm_L() {
 
             // hm.sh = false;
             // hm.bL = false;
+
+            hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
 
             var h = hm.k.length - 1,
             hideStroke = function() {
