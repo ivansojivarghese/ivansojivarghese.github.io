@@ -38,9 +38,73 @@ hm = { // hamburger menu object
 function hm_L() {
     if (rL.i) {
         if (hamCheckStrokes(hm.k, true).s) { // show strokes
-            console.log("showing");
+            // console.log("showing");
+
+            var j = 0,
+                v = [1, 1.75, 2.5],
+                showStroke = function() {
+                    if (!hm.bL && pos.aT) {
+                        if (j < hm.k.length || hamCheckStrokes(hm.k, true).s) {
+    
+                            if (j < hm.k.length) {
+                                e_Fd(hm.k[j], false);
+                                hm.k[j].classList.add("z_F");
+                                hm.k[j].style.width = v[j] + "rem";
+                                j++;
+                            } else if (hamCheckStrokes(hm.k, true).s) {
+                                var obj = hamCheckStrokes(hm.k, true),
+                                    d = obj.i[0];
+                                
+                                e_Fd(hm.k[d], false);
+                                hm.k[d].classList.add("z_F");
+                                hm.k[d].style.width = v[d] + "rem";
+    
+                                // console.log("d:" + d); 
+                            }
+    
+                        } else {
+                            hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                            hm.bL = true;
+                            clearInterval(hm.bLS);
+                        }
+                    } else {
+    
+                        // hide visible strokes
+                        var i = 0,
+                            hideStroke = function() {
+                                if (!pos.aT) {
+                                    if (i >= 0) {
+    
+                                        e_Fd(hm.k[i], true);
+                                        hm.k[i].classList.remove("z_F");
+                                        hm.k[i].style.width = "";
+                                        i--;
+              
+                                        // console.log("i:" + i);
+    
+                                    } else {
+                                        hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                                        hm.bL = false;
+                                        j = hm.k.length - 1;
+                                        clearInterval(hm.bLHe);
+                                    }
+                                }
+                            };
+                        if (!hm.x2) {
+                            hm.x2 = true;
+                            hideStroke();
+                            hm.bLHe = setInterval(hideStroke, (op.t / 2));
+                        }
+                    }
+                };
+
+                showStroke();
+                hm.bLS = setInterval(showStroke, (op.t / 2));
+
         } else if (!hamCheckStrokes(hm.k, false).s) {
-            console.log("hiding");
+            // console.log("hiding");
+
+            
         }
     }
 }
