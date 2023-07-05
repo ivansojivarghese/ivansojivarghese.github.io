@@ -221,11 +221,13 @@
 }
 
 #wow_head1 {
-    top: 582vh;
+    /*top: 582vh;*/
+    top: 253.5rem;
 }
 
 #wow_head2 {
-    top: -90vh;
+    /*top: -90vh;*/
+    top: 39.1rem;
 }
 
 #wow_head3 {
