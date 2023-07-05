@@ -101,7 +101,7 @@ function hm_L() {
     
                                     } else {
                                         hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                                        hm.bL = false;
+                                        hm.bL = (hamCheckStrokes(hm.k, false).s) ? false : true;
                                         j = hm.k.length - 1;
                                         clearInterval(hm.bLHe);
                                     }
