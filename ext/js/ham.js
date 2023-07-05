@@ -329,7 +329,7 @@ function hamButtonLoad(m) {
                                     e_Fd(hm.k[i], false);
                                     hm.k[i].classList.add("z_F");
                                     hm.k[i].style.width = v[i] + "rem";
-                                    k++;
+                                    i++;
                                 } else {
                                     hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                                     hm.bL = true;
