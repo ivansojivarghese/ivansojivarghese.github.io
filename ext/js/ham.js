@@ -287,15 +287,15 @@ function hamButtonLoad(m) {
             v = [1, 1.75, 2.5],
             showStroke = function() {
                 if (!hm.bL && pos.aT) {
-                    if (j < hm.k.length || hamCheckStrokes(hm.k).s) {
+                    if (j < hm.k.length || hamCheckStrokes(hm.k, true).s) {
 
                         if (j < hm.k.length) {
                             e_Fd(hm.k[j], false);
                             hm.k[j].classList.add("z_F");
                             hm.k[j].style.width = v[j] + "rem";
                             j++;
-                        } else if (hamCheckStrokes(hm.k).s) {
-                            var obj = hamCheckStrokes(hm.k),
+                        } else if (hamCheckStrokes(hm.k, true).s) {
+                            var obj = hamCheckStrokes(hm.k, true),
                                 d = obj.i[0];
                             
                             e_Fd(hm.k[d], false);
@@ -347,7 +347,7 @@ function hamButtonLoad(m) {
         var h = hm.k.length - 1,
             hideStroke = function() {
                 if (hm.bL && !pos.aT) {
-                    if (h >= 0 || !hamCheckStrokes(hm.k).s) {
+                    if (h >= 0 || !hamCheckStrokes(hm.k, false).s) {
 
                         if (h >= 0) {
                             e_Fd(hm.k[h], true);
@@ -357,8 +357,8 @@ function hamButtonLoad(m) {
 
                             // console.log("h:" + h);
 
-                        } else if (!hamCheckStrokes(hm.k).s) {
-                            var obj = hamCheckStrokes(hm.k),
+                        } else if (!hamCheckStrokes(hm.k, false).s) {
+                            var obj = hamCheckStrokes(hm.k, false),
                                 d = obj.i[0];
 
                             e_Fd(hm.k[d], true);
@@ -407,18 +407,18 @@ function hamButtonLoad(m) {
     }
 }
 
-function hamCheckStrokes(s) {
+function hamCheckStrokes(s, m) {
     var res = {
         s : null,
         n : 0,
         i : []
     };
     for (i = 0; i <= s.length - 1; i++) {
-        if (res.s !== true && s[i].classList.contains("z_F")) {
+        if ((res.s !== true || !m) && s[i].classList.contains("z_F")) {
             res.s = false;
             res.n++; // no. of strokes in focus
             res.i[res.i.length] = i; // indexes of focused strokes
-        } else if (res.s !== false && !s[i].classList.contains("z_F")) {
+        } else if ((res.s !== false || m) && !s[i].classList.contains("z_F")) {
             res.s = true;
             res.n++; // no. of strokes in focus
             res.i[res.i.length] = i; // indexes of focused strokes
