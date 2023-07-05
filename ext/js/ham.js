@@ -48,9 +48,11 @@ function hm_L() {
             if (hm.x3) {
                 hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
             } else {
+                /*
                 setTimeout(function() {
                     hm.x3 = true;
                 }, op.te);
+                */
             }
 
             var j = 0,
@@ -77,6 +79,7 @@ function hm_L() {
                             }
     
                         } else {
+                            hm.x3 = true;
                             hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                             hm.bL = true;
                             clearInterval(hm.bLS);
