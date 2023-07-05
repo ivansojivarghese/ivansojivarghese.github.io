@@ -3021,7 +3021,9 @@ getScreenLock();
 window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
     let displayMode = 'browser';
     if (evt.matches) {
-      displayMode = 'standalone';
+        displayMode = 'standalone';
+    } else {
+        reL();
     }
 
 });
