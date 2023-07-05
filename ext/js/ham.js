@@ -428,6 +428,8 @@ function hamCheckStrokes(s, m) {
         res.i.sort(function(a, b){return b-a}); // sort in descending order
     } else if (res.s === true) {
         res.i.sort(function(a, b){return a-b}); // sort in asc. order
+    } else if (res.s === null) {
+        res.i = 2;
     }
     return res; // return false if at least 1 is still visible, otherwise returns true if at least 1 is still not visible
 }
