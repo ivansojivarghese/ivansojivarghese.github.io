@@ -289,10 +289,14 @@ function hamButtonLoad(m) {
                 if (!hm.bL && pos.aT) {
                     if (j < hm.k.length || hamCheckStrokes(hm.k).s) {
 
-                        e_Fd(hm.k[j], false);
-                        hm.k[j].classList.add("z_F");
-                        hm.k[j].style.width = v[j] + "rem";
-                        j++;
+                        if (j < hm.k.length) {
+                            e_Fd(hm.k[j], false);
+                            hm.k[j].classList.add("z_F");
+                            hm.k[j].style.width = v[j] + "rem";
+                            j++;
+                        } else if (hamCheckStrokes(hm.k).s) {
+                            
+                        }
 
                     } else {
                         hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
