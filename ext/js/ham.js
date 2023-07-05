@@ -120,7 +120,7 @@ function hm_L() {
             console.log("hiding");
 
             // hm.sh = false;
-            hm.bL = false;
+            // hm.bL = false;
 
             var h = hm.k.length - 1,
             hideStroke = function() {
