@@ -42,7 +42,7 @@ function hm_L() {
             console.log("showing");
 
             // hm.sh = true;
-            hm.bL = true;
+            // hm.bL = true;
 
             var j = 0,
                 v = [1, 1.75, 2.5],
