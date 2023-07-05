@@ -42,6 +42,7 @@ function hm_L() {
             console.log("showing");
 
             // hm.sh = true;
+            hm.bL = true;
 
             var j = 0,
                 v = [1, 1.75, 2.5],
@@ -119,6 +120,7 @@ function hm_L() {
             console.log("hiding");
 
             // hm.sh = false;
+            hm.bL = false;
 
             var h = hm.k.length - 1,
             hideStroke = function() {
