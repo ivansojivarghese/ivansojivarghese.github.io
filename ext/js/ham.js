@@ -38,7 +38,7 @@ hm = { // hamburger menu object
 
 function hm_L() {
     if (rL.i) {
-        if (hamCheckStrokes(hm.k, true).s && pos.aT) { // show strokes
+        if (hamCheckStrokes(hm.k, true).s && pos.aT && hm.zH) { // show strokes
             console.log("showing");
 
             // hm.sh = true;
