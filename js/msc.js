@@ -3016,6 +3016,16 @@ async function getScreenLock() {
 
 getScreenLock();
 
+/////////////////////////////////////////
+
+window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
+    let displayMode = 'browser';
+    if (evt.matches) {
+      displayMode = 'standalone';
+    }
+
+});
+
 //////////////////////////////////////////
 /*
 pg.sc.c.addEventListener("touchstart", function(event) {
