@@ -45,6 +45,7 @@ var im = { // #intro_main
     },
     pf = { // #prefooter_sc
         el : document.getElementById("prefooter_sc"),
+        w : document.getElementById("pf_wow"),
         w1 : document.getElementById("wow_head1"),
         w2 : document.getElementById("wow_head2"),
         w3 : document.getElementById("wow_head3"),
@@ -103,6 +104,7 @@ function sc_L() { // functions (live on scroll)
             pL4 : im.Lp4.getBoundingClientRect(), // parallax arrow 4 (hidden)
             md : ld.m.getBoundingClientRect(), // mid_sc
             pf : pf.el.getBoundingClientRect(), // prefooter_sc el.
+            pfw : pf.w.getBoundingClientRect(), // prefooter_sc 'wow'
             pfs : pf.sb.getBoundingClientRect(), // prefooter_sc scrollbar
             pfw1 : pf.w1.getBoundingClientRect(), // w1
             pfw2 : pf.w2.getBoundingClientRect(), // w2
@@ -302,7 +304,7 @@ function sc_L() { // functions (live on scroll)
 
     // prefooter_sc
     
-    if (b.pf.top && b.pf.top < aH) {
+    if (b.pfw.top && b.pfw.top < aH) {
         if (!pf.x7) {
             pf.rf6 = pos.y;
             pf.x7 = true;
