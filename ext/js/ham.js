@@ -295,7 +295,14 @@ function hamButtonLoad(m) {
                             hm.k[j].style.width = v[j] + "rem";
                             j++;
                         } else if (hamCheckStrokes(hm.k).s) {
+                            var obj = hamCheckStrokes(hm.k),
+                                d = obj.i[0];
                             
+                            e_Fd(hm.k[d], false);
+                            hm.k[d].classList.add("z_F");
+                            hm.k[d].style.width = v[d] + "rem";
+
+                            console.log("d:" + d);
                         }
 
                     } else {
