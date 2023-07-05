@@ -335,6 +335,7 @@ function hamButtonLoad(m) {
             hideStroke = function() {
                 if (hm.bL && !pos.aT) {
                     if (h >= 0 || !hamCheckStrokes(hm.k).s) {
+                        
                         e_Fd(hm.k[h], true);
                         hm.k[h].classList.remove("z_F");
                         hm.k[h].style.width = "";
