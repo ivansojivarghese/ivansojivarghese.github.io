@@ -39,7 +39,7 @@ hm = { // hamburger menu object
 function hm_L() {
     if (rL.i) {
         if (hamCheckStrokes(hm.k, true).s && !hm.sh) { // show strokes
-            // console.log("showing");
+            console.log("showing");
 
             hm.sh = true;
 
@@ -105,7 +105,7 @@ function hm_L() {
                 hm.bLS = setInterval(showStroke, (op.t / 2));
 
         } else if (!hamCheckStrokes(hm.k, false).s && hm.sh) {
-            // console.log("hiding");
+            console.log("hiding");
 
             hm.sh = false;
 
