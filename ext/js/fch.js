@@ -406,9 +406,17 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
     gyroscopeY = (op.fN * x * 3);
 
     if (op.Lf.h) { // if tab/window hidden
+        el.bgC[0].style.left = "85%"; // circle 0.5
+        el.bgC[1].style.top = "2.5rem"; // circle 1
+        el.bgC[2].style.left = "15%"; // circle 2
 
         el.bgC[3].style.transform = "translate(0px, 0px)"; // circle 3
         
+        if (!el.ac) {
+            el.bgC[4].style.left = "60%"; // circle 4 
+        } else {
+            el.bgC[4].style.left = "80%"; // ci
+        }
     } else {
 
         el.bgC[0].style.left = (85 + (gyroscopeX / 3)) + "%"; // circle 0.5
