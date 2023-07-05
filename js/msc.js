@@ -2975,10 +2975,13 @@ async function installPrompt() {
     deferredPrompt = null; // We've used the prompt, and can't use it again, throw it away
 }
 
-const relatedApps = await navigator.getInstalledRelatedApps();
-relatedApps.forEach((app) => {
-  console.log(app.id, app.platform, app.url);
-});
+async function checkInstallation() {
+    const relatedApps = await navigator.getInstalledRelatedApps();
+    relatedApps.forEach((app) => {
+        console.log(app.id, app.platform, app.url);
+    });
+}
+checkInstallation();
 
 window.addEventListener('appinstalled', () => {
     
