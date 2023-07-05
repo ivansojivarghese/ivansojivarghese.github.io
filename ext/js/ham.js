@@ -49,17 +49,7 @@ function hm_L() {
             var j = 0,
                 v = [1, 1.75, 2.5],
                 showStroke = function() {
-                    /*
-                    if (j < hm.k.length) {
-                        e_Fd(hm.k[j], false);
-                        hm.k[j].classList.add("z_F");
-                        hm.k[j].style.width = v[j] + "rem";
-                        j++;
-                    } else {
-                        hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                        hm.bL = true;
-                        clearInterval(hm.bLS);
-                    }*/
+
                     if (!hm.bL && pos.aT) {
                         if (j < hm.k.length || hamCheckStrokes(hm.k, true).s) {
     
@@ -128,17 +118,7 @@ function hm_L() {
 
             var h = hm.k.length - 1,
             hideStroke = function() {
-                /*
-                if (h >= 0) {
-                    e_Fd(hm.k[h], true);
-                    hm.k[h].classList.remove("z_F");
-                    hm.k[h].style.width = "";
-                    h--;
-                } else {
-                    hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
-                    hm.bL = false;
-                    clearInterval(hm.bLH);
-                }*/
+
                 if (hm.bL && !pos.aT) {
                     if (h >= 0 || !hamCheckStrokes(hm.k, false).s) {
 
