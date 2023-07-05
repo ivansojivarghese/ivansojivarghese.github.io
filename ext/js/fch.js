@@ -421,7 +421,7 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
 
         el.bgC[3].style.transform = "translate(" + gyroscopeX + "px, " + gyroscopeY + "px)"; // circle 3
 
-        el.bgC[4].style.transform = "translateX(" + gyroscopeX + "px)"; // circle 4 
+        // el.bgC[4].style.transform = "translateX(" + gyroscopeX + "px)"; // circle 4 
     }
 }
 
