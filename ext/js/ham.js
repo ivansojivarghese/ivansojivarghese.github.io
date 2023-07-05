@@ -335,7 +335,7 @@ function hamButtonLoad(m) {
             hideStroke = function() {
                 if (hm.bL && !pos.aT) {
                     if (h >= 0 || !hamCheckStrokes(hm.k).s) {
-                        
+
                         e_Fd(hm.k[h], true);
                         hm.k[h].classList.remove("z_F");
                         hm.k[h].style.width = "";
@@ -395,6 +395,7 @@ function hamCheckStrokes(s) {
             res.i[res.i.length] = i; // indexes of focused strokes
         }
     }
+    res.i.sort(function(a, b){return b-a}); // sort in descending order
     return res; // return false if at least 1 is still visible
 }
 
