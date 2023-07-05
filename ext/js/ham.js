@@ -28,6 +28,7 @@ hm = { // hamburger menu object
     bL : false,
     bLS : null, // button strokes show loop
     bLH : null, // button strokes hide loop
+    sh : false, // button show/hide
     x : false,
     x2 : false,
     id : 0, // input id
@@ -37,8 +38,10 @@ hm = { // hamburger menu object
 
 function hm_L() {
     if (rL.i) {
-        if (hamCheckStrokes(hm.k, true).s) { // show strokes
+        if (hamCheckStrokes(hm.k, true).s && !hm.sh) { // show strokes
             // console.log("showing");
+
+            hm.sh = true;
 
             var j = 0,
                 v = [1, 1.75, 2.5],
@@ -101,8 +104,10 @@ function hm_L() {
                 showStroke();
                 hm.bLS = setInterval(showStroke, (op.t / 2));
 
-        } else if (!hamCheckStrokes(hm.k, false).s) {
+        } else if (!hamCheckStrokes(hm.k, false).s && hm.sh) {
             // console.log("hiding");
+
+            hm.sh = false;
 
             var h = hm.k.length - 1,
             hideStroke = function() {
