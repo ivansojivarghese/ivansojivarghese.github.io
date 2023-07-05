@@ -310,6 +310,8 @@ function hamButtonLoad(m) {
                                     hm.k[i].style.width = "";
                                     i--;
           
+                                    console.log("i:" + i);
+
                                 } else {
                                     hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                                     hm.bL = false;
@@ -337,6 +339,9 @@ function hamButtonLoad(m) {
                         hm.k[h].classList.remove("z_F");
                         hm.k[h].style.width = "";
                         h--;
+
+                        console.log("h:" + h);
+
                     } else {
                         hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                         hm.bL = false;
