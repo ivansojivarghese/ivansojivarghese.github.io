@@ -31,6 +31,7 @@ hm = { // hamburger menu object
     // sh : false, // button show/hide
     x : false,
     x2 : false,
+    x3 : false, // delay execution
     id : 0, // input id
     L : null
 };
@@ -44,7 +45,13 @@ function hm_L() {
             // hm.sh = true;
             hm.bL = false;
 
-            hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+            if (hm.x3) {
+                hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+            } else {
+                setTimeout(function() {
+                    hm.x3 = true;
+                }, op.te);
+            }
 
             var j = 0,
                 v = [1, 1.75, 2.5],
