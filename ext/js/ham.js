@@ -29,6 +29,7 @@ hm = { // hamburger menu object
     bLS : null, // button strokes show loop
     bLH : null, // button strokes hide loop
     x : false,
+    x2 : false,
     id : 0 // input id
 };
 
@@ -299,6 +300,35 @@ function hamButtonLoad(m) {
                 } else {
 
                     // hide visible strokes
+                    var i = 0,
+                        hideStroke = function() {
+                            if (!pos.aT) {
+                                if (i >= 0) {
+
+                                    e_Fd(hm.k[i], true);
+                                    hm.k[i].classList.remove("z_F");
+                                    hm.k[i].style.width = "";
+                                    i--;
+                                    
+                                    /*
+                                    e_Fd(hm.k[j], true);
+                                    hm.k[j].classList.remove("z_F");
+                                    hm.k[j].style.width = "";
+                                    j--;
+                                    */
+                                } else {
+                                    hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
+                                    hm.bL = false;
+                                    j = hm.k.length - 1;
+                                    clearInterval(hm.bLHe);
+                                }
+                            }
+                        };
+                    if (!hm.x2) {
+                        hm.x2 = true;
+                        hideStroke();
+                        hm.bLHe = setInterval(hideStroke, (op.t / 2));
+                    }
                 }
             };
 
