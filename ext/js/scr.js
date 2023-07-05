@@ -58,11 +58,13 @@ var im = { // #intro_main
         x4 : false,
         x5 : false,
         x6 : false,
+        x7 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
         rf4 : 0,
-        rf5 : 0
+        rf5 : 0,
+        rf6 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -299,11 +301,18 @@ function sc_L() { // functions (live on scroll)
     }
 
     // prefooter_sc
-    /*
-    pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
-    pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
-    pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
-    */
+    
+    if (b.pf.top && b.pf.top < aH) {
+        if (!pf.x7) {
+            pf.rf6 = pos.y;
+            pf.x7 = true;
+        }
+
+        pf.w1.style.transform = "translateY(" + (pos.y * -1) + "px)"; // 'wow' header, w
+        // pf.w2.style.transform = "translateY(" + (pos.y * 0.15) + "px)"; // o
+        pf.w3.style.transform = "translateY(" + (pos.y * -0.5) + "px)"; // w
+    }
+
     // scroll
 
     if (b.pfsc.bottom && b.pfsc.bottom < aH && !pf.x) {

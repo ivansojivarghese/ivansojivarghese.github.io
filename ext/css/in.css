@@ -223,6 +223,7 @@
 #wow_head1 {
     /*top: 582vh;*/
     /*top: 253.5rem;*/
+    top: 14rem;
 }
 
 #wow_head2 {
@@ -233,6 +234,7 @@
 #wow_head3 {
     /*top: 289.8vh;*/
     /*top: 126.2rem;*/
+    top: 7rem;
 }
 
 #scroll_banner h2 { /* REFERENCED FROM locomotive.io */
