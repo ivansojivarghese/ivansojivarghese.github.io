@@ -170,8 +170,8 @@ function load_js_e() { // load JS (page specific)
 }
 
 function js_live() { // update js - in live
-    var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
-    if (d > pos.st) {
+    // var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
+    // if (d > pos.st) {
         if (!el.ac) { 
             if ((!pg.msg.fo && pos.aT) && el.x) { // if page online AND not scrolled
                 el.lk3b.classList.remove("d_n");
@@ -206,7 +206,7 @@ function js_live() { // update js - in live
             el.x9 = false;
             hamButtonLoad(true); 
         }
-    }
+    // }
 }
 
 function load_eN() { // load, after cookie acceptance (page specific)
