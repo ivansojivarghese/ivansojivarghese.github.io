@@ -2974,7 +2974,7 @@ async function installPrompt() {
 
     deferredPrompt = null; // We've used the prompt, and can't use it again, throw it away
 }
-
+/*
 async function checkInstallation() {
     const relatedApps = await navigator.getInstalledRelatedApps();
     relatedApps.forEach((app) => {
@@ -2982,7 +2982,7 @@ async function checkInstallation() {
     });
 }
 checkInstallation();
-
+*/
 window.addEventListener('appinstalled', () => {
     
     op.pwa.i = true;
