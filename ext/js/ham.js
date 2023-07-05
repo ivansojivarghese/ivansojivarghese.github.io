@@ -30,9 +30,20 @@ hm = { // hamburger menu object
     bLH : null, // button strokes hide loop
     x : false,
     x2 : false,
-    id : 0 // input id
+    id : 0, // input id
+    L : null
 };
 
+
+function hm_L() {
+    if (rL.i) {
+        if (hamCheckStrokes(hm.k, true)) { // show strokes
+            
+        } else if (hamCheckStrokes(hm.k, false)) {
+
+        }
+    }
+}
 
 function i_ty(e) { // input type - touch, pen or mouse
     var t = e.pointerType; // obtain pointerType property of PointerEvent interface
@@ -482,3 +493,8 @@ window.addEventListener("mousemove", function() { // cursor movement through win
 window.addEventListener("pointerdown", function(event) { // detection of touch/pen or mouse input from user
     i_ty(event);
 }); 
+
+
+if (!vw.pH && !vw.tB) { // in mobile view
+    hm.L = setInterval(hm_L, op.Ls);
+}
