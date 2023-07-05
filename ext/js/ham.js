@@ -309,13 +309,7 @@ function hamButtonLoad(m) {
                                     hm.k[i].classList.remove("z_F");
                                     hm.k[i].style.width = "";
                                     i--;
-                                    
-                                    /*
-                                    e_Fd(hm.k[j], true);
-                                    hm.k[j].classList.remove("z_F");
-                                    hm.k[j].style.width = "";
-                                    j--;
-                                    */
+          
                                 } else {
                                     hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                                     hm.bL = false;
@@ -335,14 +329,14 @@ function hamButtonLoad(m) {
         showStroke();
         hm.bLS = setInterval(showStroke, (op.t / 2));
     } else if (!m && hm.bL) { // hide
-        var j = hm.k.length - 1,
+        var h = hm.k.length - 1,
             hideStroke = function() {
                 if (hm.bL && !pos.aT) {
-                    if (j >= 0) {
-                        e_Fd(hm.k[j], true);
-                        hm.k[j].classList.remove("z_F");
-                        hm.k[j].style.width = "";
-                        j--;
+                    if (h >= 0) {
+                        e_Fd(hm.k[h], true);
+                        hm.k[h].classList.remove("z_F");
+                        hm.k[h].style.width = "";
+                        h--;
                     } else {
                         hm.b.removeEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                         hm.bL = false;
@@ -352,19 +346,19 @@ function hamButtonLoad(m) {
 
                     // show hidden strokes
 
-                    var i = 0,
+                    var e = 0,
                         v = [1, 1.75, 2.5],
                         showStroke = function() {
                             if (pos.aT) {
-                                if (i < hm.k.length) {
-                                    e_Fd(hm.k[i], false);
-                                    hm.k[i].classList.add("z_F");
-                                    hm.k[i].style.width = v[i] + "rem";
-                                    i++;
+                                if (e < hm.k.length) {
+                                    e_Fd(hm.k[e], false);
+                                    hm.k[e].classList.add("z_F");
+                                    hm.k[e].style.width = v[e] + "rem";
+                                    e++;
                                 } else {
                                     hm.b.addEventListener("click", h_mTg); // hamburger menu toggle (open/close)
                                     hm.bL = true;
-                                    j = hm.k.length - 1;
+                                    h = hm.k.length - 1;
                                     clearInterval(hm.bLSe);
                                 }
                             }
