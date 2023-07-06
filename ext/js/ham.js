@@ -185,6 +185,14 @@ function hm_L() {
     }
 }
 
+function hmph_L() {
+    if (pos.aT) {
+        hm.bph.addEventListener("click", h_mTg_ph);
+    } else {
+        hm.bph.removeEventListener("click", h_mTg_ph);
+    }
+}
+
 function i_ty(e) { // input type - touch, pen or mouse
     var t = e.pointerType; // obtain pointerType property of PointerEvent interface
     up.t = t; // set to global variable
@@ -669,7 +677,8 @@ window.addEventListener("pointerdown", function(event) { // detection of touch/p
 if (!vw.pH && !vw.tB) { // in mobile view
     hm.L = setInterval(hm_L, op.Ls);
 }
-
-hm.bph.addEventListener("click", h_mTg_ph);
+if (vw.pH) { // phablet
+    hm.phL = setInterval(hmph_L, op.Ls);
+}
 
 
