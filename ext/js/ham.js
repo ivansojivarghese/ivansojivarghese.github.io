@@ -268,6 +268,9 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
                 installBtnToggle(true);
             }, op.te);
 
+            scr_t(false, null);
+            op.s = true;
+
             hm.e = true;
             setTimeout(function() { // latch set-up to avoid double call
                 hm.s = true;
