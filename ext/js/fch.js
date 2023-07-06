@@ -2,6 +2,7 @@
 // locally run JS fetching (respective to each page)
 
 var fchL = {
+        p = null,
         1 : { // #intro_sc profile image
             el : document.getElementById("profile_image"),
             u : 'ext/jpg/ivan_profile.jpg'
@@ -73,6 +74,12 @@ let gyroscope = null;
 var gyroscopeX = 0,
     gyroscopeY = 0;
 
+
+function live_update() {
+    if (vw.pH && wiD >= 700) {
+        timeNow(el.Ltd);
+    }
+}
 
 function loadUp() {
     var a, b;
@@ -457,3 +464,6 @@ window.addEventListener("visibilitychange", function() { // modify sensor usage
         }
     }
 });
+
+
+fchL.p = setInterval(live_update, op.Ls);
