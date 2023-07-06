@@ -48,6 +48,7 @@ var fchL = {
         pb : document.getElementById("profile_banner"),
         pgph : document.getElementById("pr_gt_ph"),
         Lt : document.getElementById("localTime"),
+        Ltd : document.getElementById("localTimeDet"),
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
@@ -118,7 +119,7 @@ function load_css_e() { // load CSS styles (page specific)
         el.q1_t.classList.add("bC_d");
 
         if (wiD >= 700) {
-            timeNow(el.Lt);
+            timeNow(el.Ltd);
 
             el.pgph.innerHTML = "Hello. I'm";
             el.Lt.classList.remove("d_n");
