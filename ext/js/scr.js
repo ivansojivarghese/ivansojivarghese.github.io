@@ -313,7 +313,7 @@ function sc_L() { // functions (live on scroll)
         }
 
         pf.w1.style.transform = "translateY(" + ((pos.y - pf.rf6) * -1.5) + "px)"; // 'wow' header, w
-        pf.w2.style.transform = "translateY(" + ((pos.y - pf.rf6) * -2) + "px)"; // o
+        // pf.w2.style.transform = "translateY(" + ((pos.y - pf.rf6) * -2) + "px)"; // o
         pf.w3.style.transform = "translateY(" + ((pos.y - pf.rf6) * -0.75) + "px)"; // w
     }
 
