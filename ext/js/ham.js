@@ -8,8 +8,10 @@ var up = { // [user] input
 
 hm = { // hamburger menu object
     b : document.getElementById("hamburger_button"), // button
+    bph : document.getElementById("hamburger_button_phablet"), // button (phablet)
     k : document.getElementsByClassName("st"), // button strokes
     sc : document.getElementById("ham_sc"), // menu screen
+    scph : document.getElementById("ham_phablet_sc"), // menu screen (phablet)
     f : 0, // button offset
     e : false, // code execution
     h : false, // latch (to prevent doubling)
@@ -258,6 +260,36 @@ function h_mBs(s) { // ham. menu stroke(s) dynamics
     }   
 }
 
+function h_mTg_ph() { // ham. menu toggle (phablet)
+    var c = hm.z;
+    if (c) { // open
+        if (!hm.h) {
+            setTimeout(function() {
+                installBtnToggle(true);
+            }, op.te);
+
+            hm.e = true;
+            setTimeout(function() { // latch set-up to avoid double call
+                hm.s = true;
+                hm.h = true;
+            }, op.te);
+
+            ////////////////////
+
+            e_Fd(hm.scph, false);
+            hm.scph.style.transform = "none";
+
+            ////////////////////
+
+            hm.z = false; // change status
+        }
+    } else { // close
+        if (hm.h) {
+
+        }
+    }
+}
+
 function h_mTg() { // ham. menu toggle
     var s = vw.tB, // get viewport resolution type (check for tablet/desktop)
         h = s ? hm.sc_t : hm.sc, // select mobile or tablet/desktop versions depending on viewport variables
@@ -266,13 +298,11 @@ function h_mTg() { // ham. menu toggle
         p = y / f, // offset percentile
         c = hm.z;  // open/close status
 
-        // t = hm.ft, // get button offset alignment time (max)
-
     if (c) { // open menu
 
         if (!hm.h) { 
 
-            h_mBs(c); // perform button [stroke] dynamisms
+            h_mBs(c); // perform button [stroke] dynamisms (mobile only)
 
             if (el.ac) {
                 el.lk3.classList.add("d_n");
@@ -292,30 +322,18 @@ function h_mTg() { // ham. menu toggle
             }, op.te);
             
             hm.e = true;
-            // hm.h = false;
             setTimeout(function() { // latch set-up to avoid double call
                 hm.s = true;
                 hm.h = true;
             }, op.te);
 
             if (y !== 0) { // if page has been scrolled (offset) from original
-            // op.s = true; 
 
                 im.el.style.transform = "none";
 
                 window.scrollTo(0, 0); // scroll to top (to allow full view of menu)
-
-                // op.s = true; // 'force' disable scroll (secondary)
-
-                // document.body.style.position = "fixed";
-
-                // document.documentElement.classList.remove("scB");
-
-                // console.log(p*t);
-
-                
+             
                 setTimeout(function() {
-                    // console.log(p);
 
                     if (p >= 0.55 && !pos.c && !hm.z) { // if offset greater than 55%, conduct secondary check using live-scroll (has to be false - i.e. page is stationary)
                         op.s = true; // 'force' disable scroll (secondary)
@@ -326,27 +344,14 @@ function h_mTg() { // ham. menu toggle
                     } else {
                         op.s = true;
                     }
-                    /*
-                    setTimeout(function() {
 
-                    }, (p * t));*/
-
-                    /*
-                    if (!op.b.f) {
-                        document.documentElement.classList.add("scB");
-                    }*/
-
-                }, /*(p * t)*/ 10); // delay function to allow 'pos.c' variable to update
+                }, 10); // delay function to allow 'pos.c' variable to update
 
             } else {
                 scr_t(false, null);
                 op.s = true;
             }
-            /*
-            if (hm.h) {
-                h_mBs(c); // perform button [stroke] dynamisms
-            }*/
-            // c_rep(h, "z-G", "z-F"); // bring forward in visibility
+
             im.el.classList.add("z-F");
 
             ////// 
@@ -358,20 +363,13 @@ function h_mTg() { // ham. menu toggle
             } else {
 
                 h.classList.remove("z-G");
-                // c_rep(h, "z_N", "z_G");
+
                 e_Fd(h, false); // reveal menu (fade in)
 
             }
 
             hm.z = false; // change status
 
-            /*
-            setTimeout(function() {
-                int_m.classList.add("h-fx");
-            }, 200);*/
-            
-
-            //////
         }
 
     } else { // close menu
@@ -638,3 +636,7 @@ window.addEventListener("pointerdown", function(event) { // detection of touch/p
 if (!vw.pH && !vw.tB) { // in mobile view
     hm.L = setInterval(hm_L, op.Ls);
 }
+
+hm.bph.addEventListener("click", h_mTg_ph);
+
+
