@@ -189,11 +189,11 @@ function hm_L() {
 function hmph_L() { // phablet loop
     if (pos.aT && !hm.x4) {
         hm.x4 = true;
-        hm.bph.style.opacity = 1;
+        hm.bph.classList.remove("o-img");
         hm.bph.addEventListener("click", h_mTg_ph);
     } else if (!pos.aT && hm.x4) {
         hm.x4 = false;
-        hm.bph.style.opacity = 0.5;
+        hm.bph.classList.add("o-img");
         hm.bph.removeEventListener("click", h_mTg_ph);
     }
 }
