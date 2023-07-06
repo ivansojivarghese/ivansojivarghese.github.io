@@ -34,6 +34,7 @@ var im = { // #intro_main
         qis : document.getElementsByClassName("q_Info_scr"),
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
+        Lpm : document.getElementById("lead_point_3"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
@@ -99,6 +100,7 @@ function sc_L() { // functions (live on scroll)
             Lp : im.Lp.getBoundingClientRect(), // #lead_point
             Lpf : im.Lpf.getBoundingClientRect(), // #lead_point_1
             Lps : im.Lps.getBoundingClientRect(), // #lead_point_2
+            Lpm : ld.Lpm.getBoundingClientRect(), // #lead_point_3
             pb : ld.pb.getBoundingClientRect(), // #profile_btn
             pL3 : im.Lp3.getBoundingClientRect(), // parallax arrow 3
             pL4 : im.Lp4.getBoundingClientRect(), // parallax arrow 4 (hidden)
@@ -271,7 +273,7 @@ function sc_L() { // functions (live on scroll)
         }
     }
 
-    if (ld.x3) { // hide c_Info
+    if (ld.x3 && b.Lpm.top < (aH * 0.5)) { // hide c_Info
         ld.csm.classList.add("o-img");
 
         ld.csa[0].setAttribute("onclick", "event.preventDefault()"); // 'photos'
