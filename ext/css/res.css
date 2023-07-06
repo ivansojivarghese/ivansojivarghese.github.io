@@ -98,3 +98,10 @@
         margin-top: 10rem;
     }
 }
+
+@media screen and (min-width: 500px) and (orientation: portrait) {
+    #intro_sc .logo-hybrid {
+        margin-top: 1.5rem;
+        margin-left: calc(90vw - 17.5rem);
+    }
+}
