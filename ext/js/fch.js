@@ -2,7 +2,6 @@
 // locally run JS fetching (respective to each page)
 
 var fchL = {
-        p : null,
         1 : { // #intro_sc profile image
             el : document.getElementById("profile_image"),
             u : 'ext/jpg/ivan_profile.jpg'
@@ -15,6 +14,9 @@ var fchL = {
             el : document.getElementsByClassName("logo-inverse"),
             u : 'logo/favicon_inverse_512.png'
         }
+    },
+    fch = {
+        L : null
     },
     qInfo = [ // quick information
         document.getElementById("qIn1"), // work
@@ -466,4 +468,4 @@ window.addEventListener("visibilitychange", function() { // modify sensor usage
 });
 
 
-fchL.p = setInterval(live_update, dev.i);
+fch.L = setInterval(live_update, dev.i);
