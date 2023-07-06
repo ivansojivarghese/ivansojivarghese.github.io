@@ -302,21 +302,6 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
 
             e_Fd(hm.scph, true);
             hm.scph.style.transform = "translateY(-30%)";
-            
-            /*
-            setTimeout(function() {
-                
-                setTimeout(function() {
-                    e_Fd(el.lk3b, false); // fade in
-                    load_eN();
-                    setTimeout(function() {
-                        el.lk3.classList.remove("z-G"); // show arrow
-                        el.lk3.addEventListener("click", peek);
-
-                    }, op.t);
-                }, 10);
-                
-            }, op.t);*/
 
             scr_t(true, null);    
             op.s = false;
