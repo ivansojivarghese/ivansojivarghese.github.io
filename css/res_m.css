@@ -111,15 +111,39 @@
     }
 }
 
+@media screen and (min-width: 525px) and (orientation: portrait) {
+    html {
+        font-size: 23px;
+    }
+}
+
 @media screen and (min-width: 550px) and (orientation: portrait) {
     html {
         font-size: 24px;
     }
 }
 
+@media screen and (min-width: 575px) and (orientation: portrait) {
+    html {
+        font-size: 25px;
+    }
+}
+
 @media screen and (min-width: 600px) and (orientation: portrait) {
     html {
         font-size: 26px;
+    }
+}
+
+@media screen and (min-width: 625px) and (orientation: portrait) {
+    html {
+        font-size: 27px;
+    }
+}
+
+@media screen and (min-width: 650px) and (orientation: portrait) {
+    html {
+        font-size: 28px;
     }
 }
 
