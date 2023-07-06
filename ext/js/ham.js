@@ -293,7 +293,40 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
         }
     } else { // close
         if (hm.h) {
+            hm.a = true; // set click activity to true
+            hm.z = true;
+            hm.m = false;
 
+            e_Fd(hm.tph, true);
+            hm.ba.style.transform = "rotate(90deg)";
+
+            e_Fd(hm.scph, true);
+            hm.scph.style.transform = "translateY(-30%)";
+            
+            /*
+            setTimeout(function() {
+                
+                setTimeout(function() {
+                    e_Fd(el.lk3b, false); // fade in
+                    load_eN();
+                    setTimeout(function() {
+                        el.lk3.classList.remove("z-G"); // show arrow
+                        el.lk3.addEventListener("click", peek);
+
+                    }, op.t);
+                }, 10);
+                
+            }, op.t);*/
+
+            scr_t(true, null);    
+            op.s = false;
+
+            hm.e = false;
+
+            setTimeout(function() {
+                hm.h = false;
+                hm.s = false;
+            }, op.t);
         }
     }
 }
@@ -388,7 +421,7 @@ function h_mTg() { // ham. menu toggle
             hm.z = true;
             hm.m = false; // hover effect requires add. 'mouse' [trigger]movement from user
             h_mBs(c); // perform button [stroke] dynamisms
-            // c_rep(h, "z-F", "z-G"); // bring forward in visibility
+            
             im.el.classList.remove("z-F");
 
             if (s) {
@@ -400,8 +433,6 @@ function h_mTg() { // ham. menu toggle
                 e_Fd(h, true); // hide menu
                 setTimeout(function() {
                     h.classList.add("z-G");
-
-                    // c_rep(h, "z_G", "z_N");
                     
                     if (el.ac) {
                         el.lk3.classList.remove("d_n");
