@@ -291,6 +291,7 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
             ////////////////////
 
             hm.tph.classList.remove("d_n");
+            hm.tph.classList.add("z-N");
             hm.scph.classList.remove("d_n");
             setTimeout(function() {
                 e_Fd(hm.tph, false);
@@ -318,6 +319,7 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
 
             setTimeout(function() {
                 hm.tph.classList.add("d_n");
+                hm.tph.classList.remove("z-N");
                 hm.scph.classList.add("d_n");
             }, op.t);
 
