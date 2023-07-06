@@ -2,7 +2,7 @@
 // locally run JS fetching (respective to each page)
 
 var fchL = {
-        p = null,
+        p : null,
         1 : { // #intro_sc profile image
             el : document.getElementById("profile_image"),
             u : 'ext/jpg/ivan_profile.jpg'
