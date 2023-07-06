@@ -32,6 +32,7 @@ hm = { // hamburger menu object
     x : false,
     x2 : false,
     x3 : false, // delay execution
+    x4 : false,
     id : 0, // input id
     L : null
 };
@@ -185,10 +186,12 @@ function hm_L() {
     }
 }
 
-function hmph_L() {
-    if (pos.aT) {
+function hmph_L() { // phablet loop
+    if (pos.aT && !hm.x4) {
+        hm.x4 = true;
         hm.bph.addEventListener("click", h_mTg_ph);
-    } else {
+    } else if (!pos.aT && hm.x4) {
+        hm.x4 = false;
         hm.bph.removeEventListener("click", h_mTg_ph);
     }
 }
