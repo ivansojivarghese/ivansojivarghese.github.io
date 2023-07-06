@@ -189,11 +189,11 @@ function hm_L() {
 function hmph_L() { // phablet loop
     if (pos.aT && !hm.x4) {
         hm.x4 = true;
-        e_Fd(hm.bph, false);
+        hm.bph.classList.remove("z_Os");
         hm.bph.addEventListener("click", h_mTg_ph);
     } else if (!pos.aT && hm.x4) {
         hm.x4 = false;
-        e_Fd(hm.bph, true);
+        hm.bph.classList.add("z_Os");
         hm.bph.removeEventListener("click", h_mTg_ph);
     }
 }
