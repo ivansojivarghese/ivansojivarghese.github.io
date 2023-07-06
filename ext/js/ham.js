@@ -13,6 +13,7 @@ hm = { // hamburger menu object
     k : document.getElementsByClassName("st"), // button strokes
     sc : document.getElementById("ham_sc"), // menu screen
     scph : document.getElementById("ham_phablet_sc"), // menu screen (phablet)
+    tph : document.getElementById("hm_ph_tint"), // tint (phablet)
     f : 0, // button offset
     e : false, // code execution
     h : false, // latch (to prevent doubling)
@@ -280,6 +281,7 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
 
             ////////////////////
 
+            e_Fd(hm_btn_ar, false);
             hm.ba.style.transform = "rotate(-90deg)";
 
             e_Fd(hm.scph, false);
