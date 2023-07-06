@@ -109,14 +109,18 @@
     .phablet {
         display: block;
     }
-    /*
-    .footer {
-        font-size: 1.1rem;
-    }
+}
 
-    p {
-        font-size: 1.2rem;
-    }*/
+@media screen and (min-width: 550px) and (orientation: portrait) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 600px) and (orientation: portrait) {
+    html {
+        font-size: 26px;
+    }
 }
 
 /*
@@ -187,11 +191,13 @@
     }
 }
 
+
+/*
 @media screen and (min-width: 590px) and (orientation: portrait) {
     html {
         font-size: 26px;
     }
-}
+}*/
 
 @media screen and (min-height: 590px) and (orientation: landscape) {
     html {
