@@ -99,11 +99,11 @@
     }
 }
 
-@media screen and (min-width: 500px) and (orientation: portrait) {
+@media screen and (min-width: 700px) and (orientation: portrait) {
     #profile_greetingSec {
         display: none;
     }
-    
+
     #intro_sc .logo-hybrid {
         margin-top: 1.5rem;
         margin-left: calc(90vw - 17.5rem);
