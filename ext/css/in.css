@@ -52,8 +52,14 @@
 }
 
 #ham_phablet_sc {
-    width: 10rem;
-    margin-left: calc(100vw - 10rem);
+    width: 15rem;
+    margin-left: calc(100vw - 15rem);
+}
+
+#ham_phablet_sc a {
+    margin-bottom: 2rem;
+    display: block;
+    width: fit-content;
 }
 
 #profile_image {
