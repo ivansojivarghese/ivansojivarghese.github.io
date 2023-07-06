@@ -118,6 +118,8 @@ function load_css_e() { // load CSS styles (page specific)
         el.q1_t.classList.add("bC_d");
 
         if (wiD >= 700) {
+            timeNow(el.Lt);
+
             el.pgph.innerHTML = "Hello. I'm";
             el.Lt.classList.remove("d_n");
             el.Lt.classList.add("d_i");

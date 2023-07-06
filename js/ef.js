@@ -1,4 +1,13 @@
 
+// other
+
+function timeNow(el) {
+    var d = new Date(),
+        h = (d.getHours()<10?'0':'') + d.getHours(),
+        m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+    el.innerHTML = h + ':' + m;
+}
+
 // effects
 
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
