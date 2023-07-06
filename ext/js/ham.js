@@ -14,15 +14,9 @@ hm = { // hamburger menu object
     sc : document.getElementById("ham_sc"), // menu screen
     scph : document.getElementById("ham_phablet_sc"), // menu screen (phablet)
     tph : document.getElementById("hm_ph_tint"), // tint (phablet)
-    // pwa_b : document.getElementsByClassName("dw_btns"), // pwa buttons
-    // pwa_h4 : document.getElementsByClassName("dw_btn_h4s"), // pwa button h4s
     f : 0, // button offset
     e : false, // code execution
     h : false, // latch (to prevent doubling)
-
-    // ft : 0, // "" offset (alignment/scroll) time
-    /////
-
     c : document.getElementById("ham_button-c"), // button strokes container
     sc_t : document.getElementById("ham-tB_sc"), // menu screen - tablet/desktop
     s : hm.s, // menu open status
@@ -623,37 +617,22 @@ function installBtnToggle(m) {
         if (op.pwa.a && !op.pwa.x && !op.pwa.i) {
             op.pwa.x = true;
 
-            // if (!vw.pH && !vw.tB) { // mobile
-                op.pwa.iBtn.style.transform = "none";
-                e_Fd(op.pwa.iBtn_h, false);
-                op.pwa.iBtn.classList.remove("o-img"); // show button
-                setTimeout(function() {
-                    op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
-                }, op.t);
-            /*
-            } else if (vw.pH) { // phablet
-                hm.pwa_b[0].style.transform = "none";
-                e_Fd(hm.pwa_h4[0], false);
-                hm.pwa_b[0].classList.remove("o-img"); // show button
-                setTimeout(function() {
-                    hm.pwa_b[0].addEventListener("click", installPrompt); // add click function
-                }, op.t);
-            }*/
+            op.pwa.iBtn.style.transform = "none";
+            e_Fd(op.pwa.iBtn_h, false);
+            op.pwa.iBtn.classList.remove("o-img"); // show button
+            setTimeout(function() {
+                op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+            }, op.t);
+            
         }
     } else {
         if (op.pwa.x) {
-            // if (!vw.pH && !vw.tB) { // mobile
-                op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
-                e_Fd(op.pwa.iBtn_h, true);
-                op.pwa.iBtn.style.transform = "translateX(calc(7.63rem - 5vw))";
-                op.pwa.iBtn.classList.add("o-img"); // hide button
-            /*
-            } else if (vw.pH) { // phablet
-                hm.pwa_b[0].removeEventListener("click", installPrompt); // remove click function
-                e_Fd(hm.pwa_h4[0], true);
-                hm.pwa_b[0].style.transform = "translateX(calc(7.63rem - 5vw))";
-                hm.pwa_b[0].classList.add("o-img"); // hide button
-            }*/
+
+            op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
+            e_Fd(op.pwa.iBtn_h, true);
+            op.pwa.iBtn.style.transform = "translateX(calc(7.63rem - 5vw))";
+            op.pwa.iBtn.classList.add("o-img"); // hide button
+            
             setTimeout(function() {
                 op.pwa.x = false;
             }, op.t);
