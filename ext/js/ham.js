@@ -280,7 +280,7 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
 
             ////////////////////
 
-            hm.ba.transform = "rotate(-90deg)";
+            hm.ba.style.transform = "rotate(-90deg)";
 
             e_Fd(hm.scph, false);
             hm.scph.style.transform = "none";
