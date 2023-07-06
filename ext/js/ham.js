@@ -281,11 +281,15 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
 
             ////////////////////
 
-            e_Fd(hm.tph, false);
-            hm.ba.style.transform = "rotate(-90deg)";
+            hm.tph.classList.remove("d_n");
+            hm.scph.classList.remove("d_n");
+            setTimeout(function() {
+                e_Fd(hm.tph, false);
+                hm.ba.style.transform = "rotate(-90deg)";
 
-            e_Fd(hm.scph, false);
-            hm.scph.style.transform = "none";
+                e_Fd(hm.scph, false);
+                hm.scph.style.transform = "none";
+            }, 10);
 
             ////////////////////
 
@@ -302,6 +306,11 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
 
             e_Fd(hm.scph, true);
             hm.scph.style.transform = "translateY(-30%)";
+
+            setTimeout(function() {
+                hm.tph.classList.add("d_n");
+                hm.scph.classList.add("d_n");
+            }, op.t);
 
             scr_t(true, null);    
             op.s = false;
