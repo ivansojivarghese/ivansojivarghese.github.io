@@ -466,4 +466,4 @@ window.addEventListener("visibilitychange", function() { // modify sensor usage
 });
 
 
-fchL.p = setInterval(live_update, op.Ls);
+fchL.p = setInterval(live_update, dev.i);
