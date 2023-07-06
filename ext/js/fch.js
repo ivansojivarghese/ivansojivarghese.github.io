@@ -120,6 +120,7 @@ function load_css_e() { // load CSS styles (page specific)
         if (wiD >= 700) {
             el.pgph.innerHTML = "Hello. I'm";
             el.Lt.classList.remove("d_n");
+            el.Lt.classList.remove("d_i");
         }
 
         for (j = 0; j <= (el.cIa.length - 1); j++) { // change arrows
