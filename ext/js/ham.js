@@ -620,19 +620,27 @@ function installBtnToggle(m) {
     if (m) {
         if (op.pwa.a && !op.pwa.x && !op.pwa.i) {
             op.pwa.x = true;
-            op.pwa.iBtn.style.transform = "none";
-            e_Fd(op.pwa.iBtn_h, false);
-            op.pwa.iBtn.classList.remove("o-img"); // show button
-            setTimeout(function() {
-                op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
-            }, op.t);
+            if (!vw.pH && !vw.tB) { // mobile
+                op.pwa.iBtn.style.transform = "none";
+                e_Fd(op.pwa.iBtn_h, false);
+                op.pwa.iBtn.classList.remove("o-img"); // show button
+                setTimeout(function() {
+                    op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+                }, op.t);
+            } else if (vw.pH) { // phablet
+                
+            }
         }
     } else {
         if (op.pwa.x) {
-            op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
-            e_Fd(op.pwa.iBtn_h, true);
-            op.pwa.iBtn.style.transform = "translateX(calc(7.63rem - 5vw))";
-            op.pwa.iBtn.classList.add("o-img"); // hide button
+            if (!vw.pH && !vw.tB) { // mobile
+                op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
+                e_Fd(op.pwa.iBtn_h, true);
+                op.pwa.iBtn.style.transform = "translateX(calc(7.63rem - 5vw))";
+                op.pwa.iBtn.classList.add("o-img"); // hide button
+            } else if (vw.pH) { // phablet
+
+            }
             setTimeout(function() {
                 op.pwa.x = false;
             }, op.t);
