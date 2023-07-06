@@ -9,6 +9,7 @@ var up = { // [user] input
 hm = { // hamburger menu object
     b : document.getElementById("hamburger_button"), // button
     bph : document.getElementById("hamburger_button_phablet"), // button (phablet)
+    ba : document.getElementById("hm_btn_ar"), // button arrow (phablet)
     k : document.getElementsByClassName("st"), // button strokes
     sc : document.getElementById("ham_sc"), // menu screen
     scph : document.getElementById("ham_phablet_sc"), // menu screen (phablet)
@@ -278,6 +279,8 @@ function h_mTg_ph() { // ham. menu toggle (phablet)
             }, op.te);
 
             ////////////////////
+
+            hm.ba.transform = "rotate(-90deg)";
 
             e_Fd(hm.scph, false);
             hm.scph.style.transform = "none";
