@@ -46,6 +46,7 @@ var fchL = {
         g : false, // gyro sensor check
         i : document.getElementById("profile_image"),
         pb : document.getElementById("profile_banner"),
+        pgph : document.getElementById("pr_gt_ph"),
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
@@ -93,6 +94,11 @@ function load_css_e() { // load CSS styles (page specific)
 
         c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
 
+        c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);
+        c_css("#scroll_banner, #design_banner", "margin-top: " + (aH * 0.5) + "px", false, null);
+
+        c_css("#ham_C", "margin-top: calc((" + aH + "px - 16rem) / 2);", false, null);
+
     } else if (vw.pH) { // phablet
         var qI_o = ["work_w_img", "school_w_img", "location_w_img"],
             qI_c = ["work_img", "school_img", "location_img"];
@@ -110,6 +116,10 @@ function load_css_e() { // load CSS styles (page specific)
         el.q1_t.classList.remove("bC_L");
         el.q1_t.classList.add("bC_d");
 
+        if (wiD >= 700) {
+            el.pgph.innerHTML = "Hello. I'm";
+        }
+
         for (j = 0; j <= (el.cIa.length - 1); j++) { // change arrows
             el.cIa[j].classList.remove("lead_arrow_forward_w_img");
             el.cIa[j].classList.add("lead_arrow_forward_img");
@@ -121,19 +131,16 @@ function load_css_e() { // load CSS styles (page specific)
         }
     }
 
-    c_css("#prefooter_sc", "padding-top: " + aH + "px", false, null);
-    c_css("#scroll_banner, #design_banner", "margin-top: " + (aH * 0.5) + "px", false, null);
-
-    if (wD >= 290 && aH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
-        if (!(wD >= 310 && aH <= 550)) { // if width/height NOT within 310px and 550px
-            c_css("#profile_image", "width: 17rem; height: 17rem;", false, null); // apply style mod
-            c_css("#link_3", "height: calc(" + aH + "px - (29.32rem + 2 * (" + mg + ")));", false, null);
-        } else {
-            c_css("#link_3", "height: calc(" + aH + "px - (26.32rem + ((480px - 27.5rem) / 3)));", false, null);
+    if (!vw.pH && !vw.tB) { // mobile
+        if (wD >= 290 && aH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
+            if (!(wD >= 310 && aH <= 550)) { // if width/height NOT within 310px and 550px
+                c_css("#profile_image", "width: 17rem; height: 17rem;", false, null); // apply style mod
+                c_css("#link_3", "height: calc(" + aH + "px - (29.32rem + 2 * (" + mg + ")));", false, null);
+            } else {
+                c_css("#link_3", "height: calc(" + aH + "px - (26.32rem + ((480px - 27.5rem) / 3)));", false, null);
+            }
         }
     }
-
-    c_css("#ham_C", "margin-top: calc((" + aH + "px - 16rem) / 2);", false, null);
 
     if (!op.b.s) { // if browser platform is NOT Safari
 
