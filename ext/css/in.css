@@ -51,6 +51,11 @@
     transform: rotate(90deg);
 }
 
+#ham_phablet_sc {
+    width: 10rem;
+    margin-left: calc(100vw - 10rem);
+}
+
 #profile_image {
     width: 18rem;
     height: 18rem;
