@@ -1109,10 +1109,10 @@ function errorCheck() { // check for errors
     translate_Check = checkTranslation();
     focus_Check = checkFocus();
     tDevice = isTouchSupported();
-
+    /*
     if (UMB) {
         browserCheck(true); // secondary check if online API is available
-    }
+    }*/
 
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
         op.spR = true;
