@@ -427,6 +427,7 @@ op = {
         e : false // edge
     },
     bN : false, // if browser check null
+    bNx : false,
     col : { // colors (hex)
         b : "#303030", // base
         p : "#007000", // predicate
@@ -949,6 +950,11 @@ function pL() { // site parameters loop
                 op.s = false;
             }
         }*/
+
+        if (UMB && !op.bNx) {
+            op.bNx = true;
+            browserCheck(true); // secondary check if online API is available
+        }
 
         if ((op.er.d || op.er.ch) && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) { // display fix
         
