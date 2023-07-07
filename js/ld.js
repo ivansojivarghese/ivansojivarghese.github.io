@@ -1123,7 +1123,7 @@ function errorCheck() { // check for errors
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
-    } else if (op.b.f) { // browser/platform support
+    } else if (op.b.f) { // browser/platform no support (firefox)
     
         eR.h = "pl";
     
