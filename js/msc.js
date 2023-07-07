@@ -2639,7 +2639,18 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         vw.mB_L = false;
                         // eR.s = false;
                         // STATIC ERRORS (UPDATE WHEN NEEDED!)
-                        if (!op.c.e) {
+                        if (op.b.f || op.sys === null || op.bN) { // check for platform support
+                            if (op.b.f) {
+                                eR.pl_e.h.innerHTML = "firefox is incompatible";
+                            } 
+                            if (op.bN) { // browser
+                                eR.pl_e.h.innerHTML = "conflicting hints";
+                            }
+                            if (op.sys === null) { // system
+                                eR.pl_e.h.innerHTML = "unknown system";
+                            }
+                            eR.p = "pl";
+                        } else if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
                         } else if (op.mt) {
                             eR.p = "mt"; // maintenance
