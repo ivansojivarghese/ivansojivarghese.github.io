@@ -41,6 +41,7 @@ eR = { // error
     or : document.getElementById("error_or"), // orientation change
     ck : document.getElementById("error_cke"), // cookies
     mt : document.getElementById("error_mt"), // maintenance
+    pl : document.getElementById("error_pl"), // platform/browser
     fC : document.getElementById("error_fC"), // focus
     fC_e : {
         x : false
@@ -1125,6 +1126,10 @@ function errorCheck() { // check for errors
     } else if (vw.mB_L && tDevice) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
+    } else if (op.b.f) { // browser/platform support
+
+        eR.h = "pl";
+
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
