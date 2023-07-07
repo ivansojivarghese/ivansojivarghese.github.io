@@ -32,6 +32,8 @@ function osCheck() {
             op.sys = "UNIX";
         } else if (op.uA.match(/Linux/i) && op.uA.match(/X11/i)) { // linux
             op.sys = "Linux";
+        } else {
+            op.sys = null; // unknown (unsupported)
         }
     }
 }
