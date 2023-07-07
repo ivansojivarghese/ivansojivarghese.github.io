@@ -960,46 +960,22 @@ function load_js() { // [compatibility/variables] load
 }
 
 function browserCheck() { // detect browser (platform)
-    if (UMB) { // online API check - https://updatemybrowser.org/browser
-        var browser = UMB.getCurrentBrowser(); // get current browser
-        switch (browser) {
-            case "chrome":
-                op.b.c = true;
-            break;
-            case "edge":
-                op.b.e = true;
-            break;
-            case "firefox":
-                op.b.f = true;
-            break;
-            case "safari":
-                op.b.s = true;
-            break;
-            case "opera":
-                op.b.o = true;
-            break;
-            default: // "ie", etc.
-                // unsupported
-            break;
-        }
-    } else {
-        var userAgent = navigator.userAgent;
-        if (userAgent.match(/chrome|chromium|crios/i)) { // Chrome
-            op.b.c = true; 
-        } else if (userAgent.match(/firefox|fxios/i)) { // Firefox
-            op.b.f = true;
-        } else if (userAgent.match(/safari/i) && (op.sys === "iOS" || op.sys === "MacOS")) { // Safari (only in iOS/MacOS systems)
-            op.b.s = true;
-        } 
-        if (userAgent.match(/opr\//i)) { // Opera
-            op.b.o = true;
-            op.b.c = false; // revoke true status(es) of other browsers - since userAgent contains them (matching elements) as well
-            op.b.s = false;
-        } else if (userAgent.match(/edg/i)) { // Edge
-            op.b.e = true;
-            op.b.c = false;
-            op.b.s = false;
-        }
+    var userAgent = navigator.userAgent;
+    if (userAgent.match(/chrome|chromium|crios/i)) { // Chrome
+        op.b.c = true; 
+    } else if (userAgent.match(/firefox|fxios/i)) { // Firefox
+        op.b.f = true;
+    } else if (userAgent.match(/safari/i) && (op.sys === "iOS" || op.sys === "MacOS")) { // Safari (only in iOS/MacOS systems)
+        op.b.s = true;
+    } 
+    if (userAgent.match(/opr\//i)) { // Opera
+        op.b.o = true;
+        op.b.c = false; // revoke true status(es) of other browsers - since userAgent contains them (matching elements) as well
+        op.b.s = false;
+    } else if (userAgent.match(/edg/i)) { // Edge
+        op.b.e = true;
+        op.b.c = false;
+        op.b.s = false;
     }
 }
 
