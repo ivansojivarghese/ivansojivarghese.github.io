@@ -1100,7 +1100,7 @@ function errorCheck() { // check for errors
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    eR.a = ["fC", "tr", "fS", "mt", "ck", "or", "ld", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
+    eR.a = ["fC", "tr", "fS", "mt", "ck", "or", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // msc.
     op.fS = checkFullScreen();
@@ -1123,13 +1123,13 @@ function errorCheck() { // check for errors
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
+    } else if (op.b.f) { // browser/platform support
+    
+        eR.h = "pl";
+    
     } else if (vw.mB_L && tDevice) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
-    } else if (op.b.f) { // browser/platform support
-
-        eR.h = "pl";
-
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
