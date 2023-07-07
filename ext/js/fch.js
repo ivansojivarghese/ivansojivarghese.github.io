@@ -78,7 +78,7 @@ var gyroscopeX = 0,
 
 
 function live_update() {
-    if (vw.pH && wiD >= 700) {
+    if (rL.i && vw.pH && wiD >= 700) {
         timeNow(el.Ltd);
     }
 }
