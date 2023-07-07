@@ -426,6 +426,7 @@ op = {
         o : false, // opera
         e : false // edge
     },
+    bN : false, // if browser check null
     col : { // colors (hex)
         b : "#303030", // base
         p : "#007000", // predicate

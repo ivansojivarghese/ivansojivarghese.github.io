@@ -1002,6 +1002,15 @@ function browserCheck(m) { // detect browser (platform)
             op.b.s = false;
         }
     }
+
+    for (var x in op.b) { // check for null values
+        if (x) {
+            op.bN = false;
+            break;
+        } else {
+            op.bN = true;
+        }
+    }
 }
 
 function vwP(w, h, r) { // check device[viewport] size/orientation parameters
@@ -1123,10 +1132,8 @@ function errorCheck() { // check for errors
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
-    } else if (op.b.f) { // browser/platform no support (firefox)
-    
+    } else if (op.b.f || op.sys === null || op.bN) { // browser/platform no support (firefox OR unknown system OR conflicting client hints [browser])
         eR.h = "pl";
-    
     } else if (vw.mB_L && tDevice) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
