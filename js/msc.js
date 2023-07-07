@@ -2325,7 +2325,7 @@ function checkSplitScreen() {
                 op.spR = false;
             } else if (!op.sp && (!eR.s || (eR.s && (eR.p === "ld" || translate_Check || checkFullScreen() || checkFocus()))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]))) { 
                 
-                if ((eR.p !== "ld" || eR.p !== "tr" || eR.p !== "fS" || eR.p !== "fC") && eR.s) {
+                if ((eR.p !== "ld" || eR.p !== "tr" || eR.p !== "fS" || eR.p !== "fC") && eR.s) { // if other errors
                     e_Fd(eR[eR.p], true);
                     setTimeout(function() {
                         eR[eR.p].classList.add("d_n");
