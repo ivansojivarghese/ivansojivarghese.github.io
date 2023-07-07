@@ -1004,7 +1004,7 @@ function browserCheck(m) { // detect browser (platform)
     }
 
     for (var x in op.b) { // check for null values
-        if (x) {
+        if (op.b[x]) {
             op.bN = false;
             break;
         } else {
