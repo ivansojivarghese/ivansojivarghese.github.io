@@ -42,6 +42,9 @@ eR = { // error
     ck : document.getElementById("error_cke"), // cookies
     mt : document.getElementById("error_mt"), // maintenance
     pl : document.getElementById("error_pl"), // platform/browser
+    pl_e : {
+        h : document.getElementById("error_plh4"), // h4
+    },
     fC : document.getElementById("error_fC"), // focus
     fC_e : {
         x : false
@@ -1133,6 +1136,15 @@ function errorCheck() { // check for errors
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
     } else if (op.b.f || op.sys === null || op.bN) { // browser/platform no support (firefox OR unknown system OR conflicting client hints [browser])
+        if (op.b.f) {
+            eR.pl_e.h.innerHTML = "firefox is incompatible";
+        } 
+        if (op.bN) { // browser
+            eR.pl_e.h.innerHTML = "conflicting hints";
+        }
+        if (op.sys === null) { // system
+            eR.pl_e.h.innerHTML = "unknown system";
+        }
         eR.h = "pl";
     } else if (vw.mB_L && tDevice) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.ld_e.x = true; // if on first load
