@@ -950,7 +950,7 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 
 function load_js() { // [compatibility/variables] load
     dev.sC_a = !tDevice ? [15, 85] : [20, 80]; // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
-    browserCheck();
+    browserCheck(false); // primary check
     errorCheck(); 
     pos.st = (op.e / 100) * aH; // set scroll-validity threshold
 
@@ -960,8 +960,8 @@ function load_js() { // [compatibility/variables] load
     // op.n = checkOnlineStatus();
 }
 
-function browserCheck() { // detect browser (platform)
-    if (UMB) {
+function browserCheck(m) { // detect browser (platform)
+    if (m) {
         var browser = UMB.getCurrentBrowser(); // get current browser
         switch (browser) {
             case "chrome":
@@ -1111,7 +1111,7 @@ function errorCheck() { // check for errors
     tDevice = isTouchSupported();
 
     if (UMB) {
-        browserCheck(); // secondary check if online API is available
+        browserCheck(true); // secondary check if online API is available
     }
 
     if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
