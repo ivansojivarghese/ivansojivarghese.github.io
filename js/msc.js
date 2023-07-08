@@ -972,8 +972,6 @@ function pL() { // site parameters loop
                 eR.pl_e.h.setAttribute("onclick", "location.href='" + op.bInfo.p.update_url + "'");
                 eR.pl_e.h.classList.add("u-p");
 
-                // href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/about'"
-
                 e_Fd(disp, true); // fade out display
 
                 pgTasks("sc", true);
