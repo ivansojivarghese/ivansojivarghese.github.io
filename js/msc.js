@@ -1248,7 +1248,7 @@ function pL() { // site parameters loop
     } 
 
     focus_Check = checkFocus();
-    if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
+    if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i && !developer) {
 
         setTimeout(function() {
             if (!eR.s && focus_Check && !op.fC && !ex.a && rL && rL.i) {
@@ -1272,7 +1272,7 @@ function pL() { // site parameters loop
             }
         }, (op.Ls * dev.t));
 
-    } else if ((!focus_Check || (translate_Check || checkFullScreen() || checkSplitScreen())) && eR.s && op.fC && ex.a && rL && rL.i) {
+    } else if ((!focus_Check || (translate_Check || checkFullScreen() || checkSplitScreen())) && eR.s && op.fC && ex.a && rL && rL.i && !developer) {
 
         setTimeout(function() {
             ex.a = false;
