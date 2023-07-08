@@ -990,6 +990,17 @@ function browserCheck(m) { // detect browser (platform)
                 op.bN = true;
             break;
         }
+        switch (op.bInfo.cSts) {
+            case "update":
+                
+            break;
+            case "warning":
+
+            break;
+            case "latest":
+
+            break;
+        }
     } else {
         var userAgent = navigator.userAgent;
         if (userAgent.match(/chrome|chromium|crios/i)) { // Chrome
