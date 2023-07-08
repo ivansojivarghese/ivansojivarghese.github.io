@@ -967,6 +967,8 @@ function pL() { // site parameters loop
                 op.pl = true;
                 eR.m.classList.remove("d_n"); // show error in display
                 eR.pl.classList.remove("d_n");   
+                eR.pl_e.p.innerHTML = "outdated";
+                eR.pl_e.h.innerHTML;
                 e_Fd(disp, true); // fade out display
 
                 pgTasks("sc", true);

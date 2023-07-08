@@ -43,6 +43,7 @@ eR = { // error
     mt : document.getElementById("error_mt"), // maintenance
     pl : document.getElementById("error_pl"), // platform/browser
     pl_e : {
+        p : document.getElementById("error_plp"), // p
         h : document.getElementById("error_plh4"), // h4
     },
     fC : document.getElementById("error_fC"), // focus
