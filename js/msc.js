@@ -406,6 +406,7 @@ op = {
     fS : false, // check if in full screen view, // fullscreen check (desktop only)
     sp : false, // check if in split view
     spR : false, // split-view, reload
+    pl : false, // unsupported platform check
     oR : false, // recent orientation change?
     wR : false, // window resize change?
     wRo : false, // window resize offline change?
@@ -959,8 +960,25 @@ function pL() { // site parameters loop
         
         if (!op.bNx) { // check if current platform is up-to-date
             op.bNx = true;
-            if (op.bInfo.cSts !== "latest") {
+            if (op.bInfo.cSts !== "latest" && (!eR.s) && !op.pl) { // if platform not updated
+                
                 console.log("browser update");
+
+                scr_t(false, null); // disable scrolling
+                op.s = true;
+                op.pl = true;
+                eR.m.classList.remove("d_n"); // show error in display
+                eR.pl.classList.remove("d_n");   
+                e_Fd(disp, true); // fade out display
+
+                pgTasks("sc", true);
+
+                setTimeout(function() {
+                    e_Fd(eR.pl, false);
+                }, 10);
+                eR.s = true;
+                eR.h = "pl";
+                eR.p = "pl";
             }
         }
 
