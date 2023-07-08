@@ -983,7 +983,7 @@ function browserCheck(m) { // detect browser (platform)
                 op.b.o = true;
             break;
             default: // "ie", etc.
-                // unsupported
+                op.bN = true;
             break;
         }
     } else {
@@ -1006,12 +1006,14 @@ function browserCheck(m) { // detect browser (platform)
         }
     }
 
-    for (var x in op.b) { // check for null values
-        if (op.b[x]) {
-            op.bN = false;
-            break;
-        } else {
-            op.bN = true;
+    if (!op.bN) {
+        for (var x in op.b) { // check for null values
+            if (op.b[x]) {
+                op.bN = false;
+                break;
+            } else {
+                op.bN = true;
+            }
         }
     }
 }
