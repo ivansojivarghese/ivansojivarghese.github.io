@@ -961,8 +961,6 @@ function pL() { // site parameters loop
         if (!op.bNx) { // check if current platform is up-to-date
             op.bNx = true;
             if (op.bInfo.cSts !== "latest" && (!eR.s) && !op.pl && !developer) { // if platform not updated
-                
-                console.log("browser update");
 
                 scr_t(false, null); // disable scrolling
                 op.s = true;
