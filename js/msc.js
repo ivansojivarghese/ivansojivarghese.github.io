@@ -428,6 +428,12 @@ op = {
     },
     bN : false, // if browser check null
     bNx : false,
+    bInfo : {
+        n : null, // name
+        cVer : null, // current version
+        cSts : null, // current status,
+        p : null // info
+    },
     col : { // colors (hex)
         b : "#303030", // base
         p : "#007000", // predicate

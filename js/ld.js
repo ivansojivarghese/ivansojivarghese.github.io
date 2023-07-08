@@ -966,6 +966,10 @@ function load_js() { // [compatibility/variables] load
 function browserCheck(m) { // detect browser (platform)
     if (m) {
         var browser = UMB.getCurrentBrowser(); // get current browser
+        op.bInfo.n = browser;
+        op.bInfo.cVer = UMB.getCurrentVersion(); // current version
+        op.bInfo.cSts = UMB.getStatus(); // update status
+        op.bInfo.p = UMB.getBrowserInfo(browser); // info
         switch (browser) {
             case "chrome":
                 op.b.c = true;
