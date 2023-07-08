@@ -1315,7 +1315,6 @@ rL.p.addEventListener("animationiteration", load_e); // read a function upon eve
 history.scrollRestoration = "manual"; // prevent automatic scroll rendering from browser (in memory)
 setTimeout(function() {
     if (UMB && !op.bNx) { // check if current platform is up-to-date
-        op.bNx = true;
         browserCheck(true); // secondary check if online API is available
     }
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
