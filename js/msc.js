@@ -2674,7 +2674,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         vw.mB_L = false;
                         // eR.s = false;
                         // STATIC ERRORS (UPDATE WHEN NEEDED!)
-                        if (op.b.f || op.sys === null || op.bN) { // check for platform support
+                        if (op.b.f || op.sys === null || op.bN || op.pl) { // check for platform support
                             if (op.b.f) {
                                 eR.pl_e.h.innerHTML = "firefox is incompatible";
                             } 
