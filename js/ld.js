@@ -992,10 +992,10 @@ function browserCheck(m) { // detect browser (platform)
         }
         switch (op.bInfo.cSts) {
             case "update":
-                
+                op.bN = true;
             break;
             case "warning":
-
+                op.bN = true;
             break;
             case "latest":
 
