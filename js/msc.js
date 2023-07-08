@@ -956,11 +956,11 @@ function pL() { // site parameters loop
                 op.s = false;
             }
         }*/
-        /*
+        
         if (UMB && !op.bNx) { // check if current platform is up-to-date
             op.bNx = true;
-            browserCheck(true); // secondary check if online API is available
-        }*/
+            
+        }
 
         if ((op.er.d || op.er.ch) && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) { // display fix
         

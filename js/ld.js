@@ -997,9 +997,6 @@ function browserCheck(m) { // detect browser (platform)
             case "warning":
                 op.bN = true;
             break;
-            case "latest":
-
-            break;
         }
     } else {
         var userAgent = navigator.userAgent;
