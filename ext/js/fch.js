@@ -86,7 +86,7 @@ function live_update() {
 
 function displayErrorCheck() {
     var b = Math.round(getBd(el.isc, "bottom"));
-    if (!vw.pH && !vw.tB && tDevice && (b !== aH)) { // if mobile
+    if (!vw.pH && !vw.tB && tDevice && pos.aT && (b !== aH)) { // if mobile
         return true;
     }
     return false;
