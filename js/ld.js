@@ -118,7 +118,7 @@ function docRead() {
                 }
                 spd = ((_speedconstant * amount) / di);
                 console.log("Time: " + Math.round(di * 1000) / 1000 + "s, estimated speed: " + Math.round(spd * 1000) / 1000 + "GHZ");
-                alert("RAM: " + navigator.deviceMemory + ", Cores: " + navigator.hardwareConcurrency + ", CPU: " + Math.round(spd * 1000) / 1000 + "GHZ");
+                // alert("RAM: " + navigator.deviceMemory + ", Cores: " + navigator.hardwareConcurrency + ", CPU: " + Math.round(spd * 1000) / 1000 + "GHZ");
 
                 if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668, 771 BELOW! @load_e function condition 2)
                     setCookie("testCookie", "true", op.c.t); // set a test cookie
