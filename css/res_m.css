@@ -100,13 +100,13 @@
 }
 
 /* ---------------------------- */
-
+/*
 @media screen and (min-width: 350px) and (min-height: 700px) and (orientation: portrait) {
     html {
         font-size: 18px;
     }
 }
-
+*/
 /* ---------------------------- */
 
 @media screen and (min-width: 370px) and (orientation: portrait), screen and (min-height: 370px) and (orientation: landscape) {
