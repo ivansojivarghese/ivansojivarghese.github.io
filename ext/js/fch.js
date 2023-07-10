@@ -47,6 +47,7 @@ var fchL = {
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
         g : false, // gyro sensor check
+        isc : document.getElementById("intro_sc"),
         i : document.getElementById("profile_image"),
         pb : document.getElementById("profile_banner"),
         pgph : document.getElementById("pr_gt_ph"),
@@ -81,6 +82,14 @@ function live_update() {
     if (rL.i && vw.pH && wiD >= 700) {
         timeNow(el.Ltd);
     }
+}
+
+function displayErrorCheck() {
+    var b = Math.round(getBd(el.isc, "bottom"));
+    if (!vw.pH && !vw.tB && tDevice && (b !== aH)) { // if mobile
+        return true;
+    }
+    return false;
 }
 
 function loadUp() {
