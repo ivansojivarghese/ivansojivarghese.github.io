@@ -41,6 +41,16 @@
     }
 }
 
+/* ---------------------------- */
+
+@media screen and (min-width: 270px) and (min-height: 600px) and (orientation: portrait) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* ---------------------------- */
+
 @media screen and (min-width: 290px) and (orientation: portrait), screen and (min-height: 290px) and (orientation: landscape) {
     html {
         font-size: 14px;
