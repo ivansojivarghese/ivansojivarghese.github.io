@@ -63,7 +63,8 @@ var fchL = {
         ldP1 : document.getElementById("lead_point_1"),
         q1_t : document.getElementById("qIn1_typer"),
         cIa : document.getElementsByClassName("c_Info_arrows"),
-        qIc : document.getElementsByClassName("q_Info_icons")
+        qIc : document.getElementsByClassName("q_Info_icons"),
+        mdh : document.getElementById("mid_sc_h")
     },
     bd = { // bounds
         b0 : null,
@@ -142,6 +143,8 @@ function load_css_e() { // load CSS styles (page specific)
             el.pgph.innerHTML = "Hello. I'm";
             el.Lt.classList.remove("d_n");
             el.Lt.classList.add("d_i");
+
+            el.mdh.classList.add("d_n");
         }
 
         for (j = 0; j <= (el.cIa.length - 1); j++) { // change arrows
