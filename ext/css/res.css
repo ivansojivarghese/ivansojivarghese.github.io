@@ -104,6 +104,10 @@
         display: none;
     }
 
+    #phablet_banner {
+        display: block !important;
+    }
+
     #profile_greeting {
         margin-left: 2vw;
     }
