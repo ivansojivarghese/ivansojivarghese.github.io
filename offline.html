@@ -349,28 +349,6 @@
 
             checkNetworkAndReload();
 
-            /*
-            const checkOnlineStatus = async () => { // check for internet connectivity
-                var res = false;
-                try {
-                    const url = "https://ivansojivarghese.github.io/";
-                    const online = await fetch(url + "msc/onlineResourceLocator.png", { // send a 'ping' signal to resource locator
-                        cache : "no-store",
-                        priority: "low"
-                    });
-                    res = online.status >= 200 && online.status < 300; // determine network status from return value
-                } catch (err) { // maybe offline?
-                    res = false;
-                } 
-                return res;
-            }
-            setTimeout(function() {
-                if (checkOnlineStatus()) { // reload when connected
-                    window.location.reload(true);
-                    window.location.assign(window.location.href); // FIREFOX support
-                }
-            }, 1000);*/
-
         </script>
     </body>
 </html>
