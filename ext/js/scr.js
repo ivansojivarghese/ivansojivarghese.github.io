@@ -534,15 +534,13 @@ function sc_LpH() { // scroll loop - phablet
                 ld.x5 = true;
                 ld.rf2 = pos.y;
             }
-            pf.xds[0].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.2) + "px)";
-            pf.xds[1].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.4) + "px)";
-            pf.xds[2].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.1) + "px)";
+            pf.xds[0].style.transform = "translateX(" + ((pos.y - ld.rf2) * 0.2) + "px)";
+            pf.xds[1].style.transform = "translateX(" + ((pos.y - ld.rf2) * 0.4) + "px)";
 
         } else if (b.pfds.top && b.pfds.top > aH && pf.x2) {
 
             pf.xds[0].style.transform = "translateX(-3rem)";
             pf.xds[1].style.transform = "translateX(-2rem)";
-            pf.xds[2].style.transform = "translateX(-4rem)";
 
         }
     }
