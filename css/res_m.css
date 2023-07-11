@@ -275,6 +275,12 @@
     }
 }
 
+@media screen and (min-width: 1025px) and (orientation: portrait) {
+    html {
+        font-size: 40px;
+    }
+}
+
 
 
 

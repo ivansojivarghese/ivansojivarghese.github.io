@@ -60,7 +60,6 @@
         /*width: calc(85vw - 12rem);*/
         width: 35vw;
         display: inline-block;
-        margin-left: 2vw;
     }
 
     #profile_greetingSec {
@@ -103,6 +102,10 @@
 @media screen and (min-width: 700px) and (orientation: portrait) {
     #profile_greetingSec, #lead_point, #c_Info-m, #lead_point_2, #profile_btn, #mid_sc_k, #mid_connect, #mid_sc_e {
         display: none;
+    }
+
+    #profile_greeting {
+        margin-left: 2vw;
     }
 
     #intro_sc .logo-hybrid {
