@@ -3100,18 +3100,6 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
 });
 
 
-window.addEventListener('load', async () => {
-
-    try {
-      await navigator.clipboard.writeText('');
-    }
-    catch (err) {
-      console.error('Could not write to clipboard', err);
-    }
-  
-});
-
-
 //////////////////////////////////////////
 /*
 pg.sc.c.addEventListener("touchstart", function(event) {
