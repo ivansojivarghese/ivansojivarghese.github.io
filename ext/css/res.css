@@ -104,7 +104,7 @@
 }
 
 @media screen and (min-width: 700px) and (orientation: portrait) {
-    #profile_greetingSec, #lead_point, #c_Info-m {
+    #profile_greetingSec, #lead_point, #c_Info-m, #lead_point_2, #profile_btn {
         display: none;
     }
 
@@ -115,5 +115,9 @@
 
     #lead_point_4 {
         display: block;
+    }
+
+    .q_Info {
+        margin-top: 1rem !important;
     }
 }
