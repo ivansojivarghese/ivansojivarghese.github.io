@@ -227,6 +227,30 @@
     }
 }
 
+@media screen and (min-width: 825px) and (orientation: portrait) {
+    html {
+        font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 850px) and (orientation: portrait) {
+    html {
+        font-size: 33px;
+    }
+}
+
+@media screen and (min-width: 875px) and (orientation: portrait) {
+    html {
+        font-size: 34px;
+    }
+}
+
+@media screen and (min-width: 900px) and (orientation: portrait) {
+    html {
+        font-size: 35px;
+    }
+}
+
 
 
 
