@@ -1,7 +1,7 @@
 
 /*responsive styling*/
 
-#lead_point_4 {
+#lead_point_4, #mid_sc_p {
     display: none;
 }
 
@@ -104,7 +104,7 @@
 }
 
 @media screen and (min-width: 700px) and (orientation: portrait) {
-    #profile_greetingSec, #lead_point, #c_Info-m, #lead_point_2, #profile_btn, #mid_sc_k {
+    #profile_greetingSec, #lead_point, #c_Info-m, #lead_point_2, #profile_btn, #mid_sc_k, #mid_connect {
         display: none;
     }
 
@@ -113,7 +113,7 @@
         margin-left: calc(90vw - 17.5rem);
     }
 
-    #lead_point_4 {
+    #lead_point_4, #mid_sc_p {
         display: block;
     }
 
