@@ -215,6 +215,18 @@
     }
 }
 
+@media screen and (min-width: 775px) and (orientation: portrait) {
+    html {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 800px) and (orientation: portrait) {
+    html {
+        font-size: 31px;
+    }
+}
+
 /*
 @media screen and (min-height: 500px) and (orientation: landscape) {
     html {
@@ -286,12 +298,6 @@
 
 
 
-/*
-@media screen and (min-width: 590px) and (orientation: portrait) {
-    html {
-        font-size: 26px;
-    }
-}*/
 
 @media screen and (min-height: 590px) and (orientation: landscape) {
     html {
@@ -304,12 +310,6 @@
         font-size: 23px;
     }
 }
-/*
-@media screen and (min-width: 700px) and (orientation: portrait) {
-    html {
-        font-size: 29px;
-    }
-}*/
 
 @media screen and (min-height: 700px) and (orientation: landscape) {
     html {
