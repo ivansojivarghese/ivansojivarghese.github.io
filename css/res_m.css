@@ -203,6 +203,18 @@
     }
 }
 
+@media screen and (min-width: 725px) and (orientation: portrait) {
+    html {
+        font-size: 28px;
+    }
+}
+
+@media screen and (min-width: 750px) and (orientation: portrait) {
+    html {
+        font-size: 29px;
+    }
+}
+
 /*
 @media screen and (min-height: 500px) and (orientation: landscape) {
     html {
