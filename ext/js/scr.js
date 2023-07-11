@@ -36,6 +36,7 @@ var im = { // #intro_main
         m : document.getElementById("mid_sc"),
         Lpm : document.getElementById("lead_point_3"),
         pbn : document.getElementById("phablet_banner"),
+        pds : document.getElementsByClassName("pscroll"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
@@ -534,14 +535,13 @@ function sc_LpH() { // scroll loop - phablet
                 ld.x5 = true;
                 ld.rf2 = pos.y;
             }
-            pf.xds[0].style.transform = "translateX(" + ((pos.y - ld.rf2) * 0.2) + "px)";
-            pf.xds[1].style.transform = "translateX(" + ((pos.y - ld.rf2) * 0.4) + "px)";
+            ld.pds[0].style.transform = "translateX(" + ((pos.y - ld.rf2) * 0.2) + "px)";
+            ld.pds[1].style.transform = "translateX(" + ((pos.y - ld.rf2) * 0.4) + "px)";
 
-        } else if (b.pfds.top && b.pfds.top > aH && pf.x2) {
+        } else if (b.pb.top && b.pb.top > aH && ld.x5) {
 
-            pf.xds[0].style.transform = "translateX(-3rem)";
-            pf.xds[1].style.transform = "translateX(-2rem)";
-
+            ld.pds[0].style.transform = "translateX(-3rem)";
+            ld.pds[1].style.transform = "translateX(-2rem)";
         }
     }
 
