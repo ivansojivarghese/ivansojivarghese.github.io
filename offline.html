@@ -336,7 +336,7 @@
                 try {
                     const response = await fetch('.');
                     // Verify we get a valid response from the server
-                    if (response.status >= 200 && response.status < 300) {
+                    if (response.status >= 200 && response.status < 300 && navigator.onLine) {
                         window.location.reload();
                         window.location.assign(window.location.href); // FIREFOX support
                         return;
