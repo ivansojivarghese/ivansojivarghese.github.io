@@ -322,10 +322,11 @@
 
             // Listen to changes in the network state, reload when online.
             // This handles the case when the device is completely offline.
-            /*
+            
             window.addEventListener('online', () => {
-                // window.location.reload();
-            });*/
+                window.location.reload();
+                window.location.assign(window.location.href); // FIREFOX support
+            });
 
             // Check if the server is responding and reload the page if it is.
             // This handles the case when the device is online, but the server
@@ -361,13 +362,13 @@
                 } 
                 return res;
             }
-
+            /*
             setTimeout(function() {
                 if (checkOnlineStatus()) { // reload when connected
                     window.location.reload(true);
                     window.location.assign(window.location.href); // FIREFOX support
                 }
-            }, 1000);
+            }, 1000);*/
 
         </script>
     </body>
