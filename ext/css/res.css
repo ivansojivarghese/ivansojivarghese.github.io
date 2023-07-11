@@ -5,6 +5,11 @@
     display: none;
 }
 
+#pLa-5 {
+    display: none;
+    right: 1.5rem;
+}
+
 @media screen and (min-width: 310px) and (max-height: 480px) and (orientation: portrait) { /* iPhone 4/5/SE modification */
     .head {
         padding-top: 1rem;
@@ -113,7 +118,7 @@
         margin-left: calc(90vw - 17.5rem);
     }
 
-    #lead_point_4, #mid_sc_p {
+    #lead_point_4, #mid_sc_p, #pLa-5 {
         display: block;
     }
 
