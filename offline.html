@@ -229,11 +229,31 @@
                 }
             }
 
+            /* ---------------------------- */
+
+            @media screen and (min-width: 250px) and (min-height: 600px) and (orientation: portrait) {
+                html {
+                    font-size: 13px;
+                }
+            }
+
+            /* ---------------------------- */
+
             @media screen and (min-width: 270px) and (orientation: portrait), screen and (min-height: 270px) and (orientation: landscape) {
                 html {
                     font-size: 13px;
                 }
             }
+
+            /* ---------------------------- */
+
+            @media screen and (min-width: 270px) and (min-height: 600px) and (orientation: portrait) {
+                html {
+                    font-size: 14px;
+                }
+            }
+
+            /* ---------------------------- */
 
             @media screen and (min-width: 290px) and (orientation: portrait), screen and (min-height: 290px) and (orientation: landscape) {
                 html {
@@ -241,11 +261,31 @@
                 }
             }
 
+            /* ---------------------------- */
+
+            @media screen and (min-width: 290px) and (min-height: 600px) and (orientation: portrait) {
+                html {
+                    font-size: 15px;
+                }
+            }
+
+            /* ---------------------------- */
+
             @media screen and (min-width: 310px) and (orientation: portrait), screen and (min-height: 310px) and (orientation: landscape) {
                 html {
                     font-size: 15px;
                 }
             }
+
+            /* ---------------------------- */
+
+            @media screen and (min-width: 310px) and (min-height: 700px) and (orientation: portrait) {
+                html {
+                    font-size: 17px;
+                }
+            }
+
+            /* ---------------------------- */
 
             @media screen and (min-width: 350px) and (orientation: portrait), screen and (min-height: 350px) and (orientation: landscape) {
                 html {
@@ -278,19 +318,19 @@
     <body>
         <h1>you're offline</h1>
         <p>and the web just isn't the same without you.</p>
-
-        <!-- Inline the page's JavaScript file. -->
         <script>
 
             // Listen to changes in the network state, reload when online.
             // This handles the case when the device is completely offline.
+            /*
             window.addEventListener('online', () => {
                 // window.location.reload();
-            });
+            });*/
 
             // Check if the server is responding and reload the page if it is.
             // This handles the case when the device is online, but the server
             // is offline or misbehaving.
+            /*
             async function checkNetworkAndReload() {
                 try {
                 const response = await fetch('.');
@@ -303,9 +343,31 @@
                 // Unable to connect to the server, ignore.
                 }
                 // window.setTimeout(checkNetworkAndReload, 2500);
-            }
+            }*/
 
             // checkNetworkAndReload();
+
+            const checkOnlineStatus = async () => { // check for internet connectivity
+                var res;
+                try {
+                    const url = "https://ivansojivarghese.github.io/";
+                    const online = await fetch(url + "msc/onlineResourceLocator.png", { // send a 'ping' signal to resource locator
+                        cache : "no-store",
+                        priority: "low"
+                    });
+                    res = online.status >= 200 && online.status < 300; // determine network status from return value
+                } catch (err) { // maybe offline?
+                    res = false;
+                } 
+                return res;
+            }
+
+            setTimeout(function() {
+                if (checkOnlineStatus()) { // reload when connected
+                    window.location.reload(true);
+                    window.location.assign(window.location.href); // FIREFOX support
+                }
+            }, 1000);
 
         </script>
     </body>
