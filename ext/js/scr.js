@@ -39,10 +39,12 @@ var im = { // #intro_main
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
+        rf2 : 0,
         x : false,
         x2 : false,
         x3 : false,
         x4 : false,
+        x5 : false,
         L : null
     },
     pf = { // #prefooter_sc
@@ -528,7 +530,20 @@ function sc_LpH() { // scroll loop - phablet
 
     if (wiD >= 700) {
         if (b.pb.top && b.pb.top < aH) {
-            console.log("moving");
+            if (!ld.x5) {
+                ld.x5 = true;
+                ld.rf2 = pos.y;
+            }
+            pf.xds[0].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.2) + "px)";
+            pf.xds[1].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.4) + "px)";
+            pf.xds[2].style.transform = "translateX(" + ((pos.y - pf.rf) * 0.1) + "px)";
+
+        } else if (b.pfds.top && b.pfds.top > aH && pf.x2) {
+
+            pf.xds[0].style.transform = "translateX(-3rem)";
+            pf.xds[1].style.transform = "translateX(-2rem)";
+            pf.xds[2].style.transform = "translateX(-4rem)";
+
         }
     }
 
