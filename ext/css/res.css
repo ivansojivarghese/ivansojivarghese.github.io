@@ -60,6 +60,7 @@
         /*width: calc(85vw - 12rem);*/
         width: 35vw;
         display: inline-block;
+        margin-left: 2vw;
     }
 
     #profile_greetingSec {
@@ -106,7 +107,8 @@
 
     #intro_sc .logo-hybrid {
         margin-top: 1.5rem;
-        margin-left: calc(90vw - 17.5rem);
+        /*margin-left: calc(90vw - 17.5rem);*/
+        margin-left: 25vw;
     }
 
     #lead_point_4, #mid_sc_p {

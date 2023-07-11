@@ -279,6 +279,7 @@
 #localTime {
     /*width: 8rem;*/
     width: 30vw;
+    margin-left: 2vw;
 }
 
 #lead_point_4 p {
