@@ -4,12 +4,6 @@
 #lead_point_4, #mid_sc_p {
     display: none;
 }
-/*
-#pLa-5 {
-    display: none;
-    top: auto;
-    right: 1.5rem;
-}*/
 
 @media screen and (min-width: 310px) and (max-height: 480px) and (orientation: portrait) { /* iPhone 4/5/SE modification */
     .head {
