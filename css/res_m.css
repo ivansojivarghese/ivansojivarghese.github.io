@@ -334,24 +334,24 @@
         font-size: 27px;
     }
 }
-
+/*
 @media screen and (min-width: 800px) and (orientation: portrait) {
     html {
         font-size: 32px;
     }
 }
-
+*/
 @media screen and (min-height: 800px) and (orientation: landscape) {
     html {
         font-size: 28px;
     }
 }
-
+/*
 @media screen and (min-width: 900px) and (orientation: portrait) {
     html {
         font-size: 36px;
     }
-}
+}*/
 
 /*iPad Pro - portrait */
 @media screen and (min-width: 1000px) and (min-height: 1300px) and (orientation: portrait) {
