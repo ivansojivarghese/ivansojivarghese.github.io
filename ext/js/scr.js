@@ -35,6 +35,7 @@ var im = { // #intro_main
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
         Lpm : document.getElementById("lead_point_3"),
+        pbn : document.getElementById("profile_banner"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
@@ -485,7 +486,8 @@ function sc_L() { // functions (live on scroll)
 function sc_LpH() { // scroll loop - phablet
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0, // obtain distance of scroll
         b = {
-            q1 : ld.q1.getBoundingClientRect() // #q1 heading
+            q1 : ld.q1.getBoundingClientRect(), // #q1 heading
+            pb : ld.pbn.getBoundingClientRect() // #profile_banner
         };
 
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
@@ -522,6 +524,12 @@ function sc_LpH() { // scroll loop - phablet
         ld.L = setInterval(function() {
             e_wCycle(qInfo[0], dev.info.work, ld.L);
         }, op.t);
+    }
+
+    if (wiD >= 700) {
+        if (b.pb.top && b.pb.top < aH) {
+            console.log("moving");
+        }
     }
 
     requestAnimationFrame(sc_LpH);
