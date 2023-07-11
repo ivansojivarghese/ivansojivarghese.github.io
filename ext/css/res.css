@@ -100,12 +100,16 @@
 }
 
 @media screen and (min-width: 700px) and (orientation: portrait) {
-    #profile_greetingSec {
+    #profile_greetingSec, #lead_point, #c_Info-m {
         display: none;
     }
 
     #intro_sc .logo-hybrid {
         margin-top: 1.5rem;
         margin-left: calc(90vw - 17.5rem);
+    }
+
+    #lead_point_4 {
+        display: block;
     }
 }
