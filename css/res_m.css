@@ -197,6 +197,10 @@
     html {
         font-size: 27px;
     }
+
+    p {
+        padding-right: 3em;
+    }
 }
 
 /*
