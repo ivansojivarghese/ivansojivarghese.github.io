@@ -348,7 +348,7 @@
             // checkNetworkAndReload();
 
             const checkOnlineStatus = async () => { // check for internet connectivity
-                var res;
+                var res = false;
                 try {
                     const url = "https://ivansojivarghese.github.io/";
                     const online = await fetch(url + "msc/onlineResourceLocator.png", { // send a 'ping' signal to resource locator
