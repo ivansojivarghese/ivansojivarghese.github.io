@@ -779,7 +779,7 @@ function load_e() { // end the loading sequence
                                 rL.xc.innerHTML = "aborted";
                             } else if (!cacheEnabled) {
                                 rL.n.classList.add("cache_img");
-                                rL.xc.innerHTML = "enable caching";
+                                rL.xc.innerHTML = "caching blocked";
                             } else {
                                 rL.n.classList.add("timeout_img");
                                 rL.xc.innerHTML = "timeout";
