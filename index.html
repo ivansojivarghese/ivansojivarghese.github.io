@@ -89,7 +89,7 @@
                                                 }
                                             });
 
-                        if (result === false) { // cache
+                        if (result === false && !op.b.s) { // check if caching (NOT in safari)
                             cacheEnabled = result;
                         } else if (result === null) { // fetch fail (timeout)
                             aborted = true;
