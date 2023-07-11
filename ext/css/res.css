@@ -120,4 +120,8 @@
     .q_Info {
         margin-top: 1rem !important;
     }
+
+    #stats {
+        margin-top: 3rem;
+    }
 }
