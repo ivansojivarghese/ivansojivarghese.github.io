@@ -144,7 +144,7 @@ function load_css_e() { // load CSS styles (page specific)
             el.Lt.classList.remove("d_n");
             el.Lt.classList.add("d_i");
 
-            el.mdh.classList.add("d_n");
+            el.mdh.innerHTML = "hours &";
         }
 
         for (j = 0; j <= (el.cIa.length - 1); j++) { // change arrows
