@@ -35,7 +35,7 @@ var im = { // #intro_main
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
         Lpm : document.getElementById("lead_point_3"),
-        pbn : document.getElementById("profile_banner"),
+        pbn : document.getElementById("phablet_banner"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
