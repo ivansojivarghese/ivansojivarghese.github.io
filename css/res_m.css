@@ -339,12 +339,14 @@
 
 
 
-/*iPad Pro - portrait */
+/*iPad Pro - portrait 
 @media screen and (min-width: 1000px) and (min-height: 1300px) and (orientation: portrait) {
     html {
         font-size: 38px;
     }
-}
+}*/
+
+
 
 /* ----- laptops (desktop) ----------- */
 
