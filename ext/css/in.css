@@ -1,6 +1,10 @@
 
 /* file-specific styling */
 
+#lead_point_4, #mid_sc_p {
+    display: none;
+}
+
 .q_Info h5.cr, #key-sm {
     position: relative;
 }
@@ -245,19 +249,10 @@
 }
 
 #wow_head1 {
-    /*top: 582vh;*/
-    /*top: 253.5rem;*/
     top: 14rem;
 }
-/*
-#wow_head2 {
-    /*top: -90vh;*/
-    /*top: 39.1rem;
-}*/
 
 #wow_head3 {
-    /*top: 289.8vh;*/
-    /*top: 126.2rem;*/
     top: 7rem;
 }
 
@@ -271,7 +266,7 @@
     transform: none;
 }
 
-#design_banner .xscroll {
+#design_banner .xscroll, #phablet_banner .pscroll {
     animation: none;
     opacity: 1;
 }
@@ -285,10 +280,3 @@
     width: 8rem;
 }
 
-
-
-/* 565, -100, 276 */
-
-/* 582, -90, 289.8 */
-
-/* 550, -117, 260 */
