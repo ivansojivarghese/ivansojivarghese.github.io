@@ -1103,9 +1103,9 @@
 
             async function test() {
 
-                // const url = 'https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c';
+                const url = 'https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c';
 
-                const url = 'https://www.bing.com/indexnow';
+                // const url = 'https://www.bing.com/indexnow';
 
                 const data = `{
                 "host": "https://ivansojivarghese.github.io/",
@@ -1122,7 +1122,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: data,
+                    // body: data,
                 });
 
                 const text = await response.text();
