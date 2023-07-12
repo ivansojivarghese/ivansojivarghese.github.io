@@ -1103,7 +1103,9 @@
 
             async function test() {
 
-                const url = 'https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c';
+                // const url = 'https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c';
+
+                const url = 'https://www.bing.com/indexnow';
 
                 const data = `{
                 "host": "https://ivansojivarghese.github.io/",
@@ -1116,7 +1118,7 @@
 
                 const response = await fetch(url, {
                     method: 'POST',
-                    mode: 'no-cors',
+                    // mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
