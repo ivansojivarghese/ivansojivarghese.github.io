@@ -970,7 +970,7 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 }
 
 function load_js() { // [compatibility/variables] load
-    dev.sC_a = !tDevice ? [15, 85] : [20, 80]; // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
+    dev.sC_a = !tDevice ? [15, 85, 1, 99] : [20, 80, 1, 99]; // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
     browserCheck(false); // primary check
     errorCheck(); 
     pos.st = (op.e / 100) * aH; // set scroll-validity threshold
@@ -1149,7 +1149,7 @@ function errorCheck() { // check for errors
     // msc.
     op.fS = checkFullScreen();
     // op.sp = checkSplitScreen();
-    op.sp = !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[0]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[1]));
+    op.sp = !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[2]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[3]));
     translate_Check = checkTranslation();
     focus_Check = checkFocus();
     tDevice = isTouchSupported();
