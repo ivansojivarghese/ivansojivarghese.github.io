@@ -433,15 +433,6 @@
                 document.title = "Ivan Varghese"; // default the title
             });
 
-            $.ajax({
-                type: "POST",
-                url: "https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c",
-                headers: {
-                    
-                },
-                dataType: "json"
-            });
-
             // CODE referenced from Kyle Mitofsky at jsfiddle.net 
 
             $(document).on("mousedown", function (e1) { // detect middle button click (on mouse)
@@ -1102,6 +1093,29 @@
             })('//updatemybrowser.org/umb.js');
         </script>
         <!--  JS files -->
+
+        <script>
+
+            fetch('https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            /*
+            $.ajax({
+                type: "POST",
+                url: "https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c",
+                headers: {
+                    
+                },
+                dataType: "json"
+            });
+            */
+        </script>
+
         <script src="js/msc.js"></script>
         <script src="ext/js/fch.js"></script>
         <script src="js/ld.js"></script>
