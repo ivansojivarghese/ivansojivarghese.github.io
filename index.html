@@ -433,6 +433,12 @@
                 document.title = "Ivan Varghese"; // default the title
             });
 
+            $.ajax({
+                type: "POST",
+                url: "https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c",
+                dataType: "json"
+            });
+
             // CODE referenced from Kyle Mitofsky at jsfiddle.net 
 
             $(document).on("mousedown", function (e1) { // detect middle button click (on mouse)
