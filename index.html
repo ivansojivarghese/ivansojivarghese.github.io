@@ -1108,12 +1108,12 @@
                 // const url = 'https://www.bing.com/indexnow';
 
                 const data = `{
-                "host": "https://ivansojivarghese.github.io/",
-                "key": "f1a377efc9d547d59bbdce927cbadd1c",
-                "keyLocation": "https://ivansojivarghese.github.io/f1a377efc9d547d59bbdce927cbadd1c.txt",
-                "urlList": [
-                    "https://ivansojivarghese.github.io/"
-                ]
+                    "host": "https://ivansojivarghese.github.io/",
+                    "key": "f1a377efc9d547d59bbdce927cbadd1c",
+                    "keyLocation": "https://ivansojivarghese.github.io/f1a377efc9d547d59bbdce927cbadd1c.txt",
+                    "urlList": [
+                        "https://ivansojivarghese.github.io/"
+                    ]
                 }`;
 
                 const response = await fetch(url, {
@@ -1122,7 +1122,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    // body: data,
+                    body: data,
                 });
 
                 const text = await response.text();
