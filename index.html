@@ -1101,28 +1101,34 @@
                 mode: "no-cors"
             });*/
 
-            const url = 'https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c';
+            async function test() {
 
-            const data = `{
-            "host": "https://ivansojivarghese.github.io/",
-            "key": "f1a377efc9d547d59bbdce927cbadd1c",
-            "keyLocation": "https://ivansojivarghese.github.io/f1a377efc9d547d59bbdce927cbadd1c.txt",
-            "urlList": [
-                "https://ivansojivarghese.github.io/"
-            ]
-            }`;
+                const url = 'https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c';
 
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: data,
-            });
+                const data = `{
+                "host": "https://ivansojivarghese.github.io/",
+                "key": "f1a377efc9d547d59bbdce927cbadd1c",
+                "keyLocation": "https://ivansojivarghese.github.io/f1a377efc9d547d59bbdce927cbadd1c.txt",
+                "urlList": [
+                    "https://ivansojivarghese.github.io/"
+                ]
+                }`;
 
-            const text = await response.text();
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: data,
+                });
 
-            console.log(text);
+                const text = await response.text();
+
+                console.log(text);
+
+            }
+
+            test();
 
         </script>
 
