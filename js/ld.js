@@ -1191,7 +1191,8 @@ function errorCheck() { // check for errors
     } else if (vw.mB_L && tDevice) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
-    } else if (op.pSpd < op.pMin) { // device compatibility (speed/rendering)
+
+    } else if (op.pSpd < op.pMin && rL.i) { // device compatibility (speed/rendering)
 
         console.log("speed error");
 
