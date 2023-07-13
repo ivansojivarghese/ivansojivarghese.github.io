@@ -156,8 +156,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ssl.bing.com crossorigin.me cors-anywhere.herokuapp.com youtube.com; 
-        connect-src 'self' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ssl.bing.com crossorigin.me cors-anywhere.herokuapp.com youtube.com; 
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org; 
+        connect-src 'self' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org; 
         img-src 'self'; 
         style-src 'self' 'unsafe-inline'; 
         frame-ancestors 'none';
@@ -1093,49 +1093,6 @@
             })('//updatemybrowser.org/umb.js');
         </script>
         <!--  JS files -->
-
-        <script>
-            /*
-            fetch('https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c', {
-                method: "POST",
-                mode: "no-cors"
-            });*/
-            /*
-            async function test() {
-
-                const url = 'https://www.bing.com/indexnow?url=https://ivansojivarghese.github.io/&key=f1a377efc9d547d59bbdce927cbadd1c';
-
-                // const url = 'https://www.bing.com/indexnow';
-
-                const data = `{
-                    "host": "https://ivansojivarghese.github.io/",
-                    "key": "f1a377efc9d547d59bbdce927cbadd1c",
-                    "keyLocation": "https://ivansojivarghese.github.io/f1a377efc9d547d59bbdce927cbadd1c.txt",
-                    "urlList": [
-                        "https://ivansojivarghese.github.io/"
-                    ]
-                }`;
-
-                const response = await fetch(url, {
-                    method: 'POST',
-                    // mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': '*'
-                    },
-                    body: data,
-                });
-
-                const text = await response.text();
-
-                console.log(text);
-
-            }
-
-            test();*/
-
-        </script>
-
         <script src="js/msc.js"></script>
         <script src="ext/js/fch.js"></script>
         <script src="js/ld.js"></script>
