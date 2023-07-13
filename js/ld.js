@@ -691,6 +691,8 @@ function docRead() {
 function load_e() { // end the loading sequence
     if (!devError) {
 
+        op.pSpd = mean(op.pSpda); // store value
+
         if (op.ne.t3s) { // timeout 3
 
             rL.i_s = true;
