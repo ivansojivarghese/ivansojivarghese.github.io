@@ -304,6 +304,7 @@ op = {
     Ls : op.Ls,
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
+    pMin : 10, // min. processor speed
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
         e : null, // enabled check

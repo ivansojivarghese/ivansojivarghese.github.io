@@ -691,9 +691,13 @@ function docRead() {
 function load_e() { // end the loading sequence
     if (!devError) {
 
-        op.pSpd = mean(op.pSpda); // store value
+        op.pSpd = mean(op.pSpda); // store avg. clock speed
 
-        if (op.ne.t3s) { // timeout 3
+        if (op.pSpd < op.pMin) { // device compatibility (speed/rendering) error check
+
+            errorCheck();
+
+        } else if (op.ne.t3s) { // timeout 3
 
             rL.i_s = true;
             rL.r_s = false;
@@ -1187,6 +1191,10 @@ function errorCheck() { // check for errors
     } else if (vw.mB_L && tDevice) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
+    } else if (op.pSpd < op.pMin) { // device compatibility (speed/rendering)
+
+        console.log("speed error");
+
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
