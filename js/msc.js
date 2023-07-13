@@ -302,6 +302,8 @@ op = {
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
+    pSpda : [], 
+    pSpd : 0, // device processor speed (average estimated in GHZ)
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
         e : null, // enabled check

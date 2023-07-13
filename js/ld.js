@@ -97,28 +97,34 @@ function docRead() {
             }
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!devError) {
-                /*
-                var lead_B = pg.sc.d.getBoundingClientRect(),
-                    lead_Bt = lead_B.top;
 
-                console.log(lead_Bt);*/
-                var _speedconstant = 1.15600e-8; //if speed=(c*a)/t, then constant=(s*t)/a and time=(a*c)/s
-                var d = new Date();
-                var amount = 150000000;
-                var estprocessor = 1.7; //average processor speed, in GHZ
-                console.log("JSBenchmark by Aaron Becker, running loop " + amount + " times.     Estimated time (for " + estprocessor + "ghz processor) is " + (Math.round(((_speedconstant * amount) / estprocessor) * 100) / 100) + "s");
-                for (var i = amount; i > 0; i--) {}
-                var newd = new Date();
-                var accnewd = Number(String(newd.getSeconds()) + "." + String(newd.getMilliseconds()));
-                var accd = Number(String(d.getSeconds()) + "." + String(d.getMilliseconds()));
-                var di = accnewd - accd;
-                //console.log(accnewd,accd,di);
-                if (d.getMinutes() != newd.getMinutes()) {
-                di = (60 * (newd.getMinutes() - d.getMinutes())) + di
-                }
-                spd = ((_speedconstant * amount) / di);
-                console.log("Time: " + Math.round(di * 1000) / 1000 + "s, estimated speed: " + Math.round(spd * 1000) / 1000 + "GHZ");
-                // alert("RAM: " + navigator.deviceMemory + ", Cores: " + navigator.hardwareConcurrency + ", CPU: " + Math.round(spd * 1000) / 1000 + "GHZ");
+                (function() { // estimate processor speed
+
+                    // JSBenchmark by Aaron Becker: @ https://stackoverflow.com/questions/19754792/measure-cpu-performance-via-js
+
+                    var _speedconstant = 1.15600e-8; //if speed=(c*a)/t, then constant=(s*t)/a and time=(a*c)/s
+                    var d = new Date();
+                    var amount = 150000000;
+                    var estprocessor = 1.7; //average processor speed, in GHZ
+
+                    // console.log("JSBenchmark by Aaron Becker, running loop " + amount + " times.     Estimated time (for " + estprocessor + "ghz processor) is " + (Math.round(((_speedconstant * amount) / estprocessor) * 100) / 100) + "s");
+                    
+                    for (var i = amount; i > 0; i--) {}
+                    var newd = new Date();
+                    var accnewd = Number(String(newd.getSeconds()) + "." + String(newd.getMilliseconds()));
+                    var accd = Number(String(d.getSeconds()) + "." + String(d.getMilliseconds()));
+                    var di = accnewd - accd;
+
+                    if (d.getMinutes() != newd.getMinutes()) {
+                        di = (60 * (newd.getMinutes() - d.getMinutes())) + di
+                    }
+                    spd = ((_speedconstant * amount) / di);
+
+                    // console.log("Time: " + Math.round(di * 1000) / 1000 + "s, estimated speed: " + Math.round(spd * 1000) / 1000 + "GHZ");
+
+                    op.pSpda[op.pSpda.length] = Math.round(spd * 1000) / 1000; // store instantaneous calculated speed
+                })();
+
 
                 if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668, 771 BELOW! @load_e function condition 2)
                     setCookie("testCookie", "true", op.c.t); // set a test cookie
