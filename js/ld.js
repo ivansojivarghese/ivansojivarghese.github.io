@@ -693,6 +693,8 @@ function load_e() { // end the loading sequence
 
         op.pSpd = mean(op.pSpda); // store avg. clock speed
 
+        // check hardwareConcurrency, screen frame rate (fps) readings as well to combine into performance score, use in function
+
         if (op.pSpd < op.pMin) { // device compatibility (speed/rendering) error check
 
             errorCheck();
