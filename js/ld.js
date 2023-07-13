@@ -122,7 +122,9 @@ function docRead() {
 
                     // console.log("Time: " + Math.round(di * 1000) / 1000 + "s, estimated speed: " + Math.round(spd * 1000) / 1000 + "GHZ");
 
-                    op.pSpda[op.pSpda.length] = Math.round(spd * 1000) / 1000; // store instantaneous calculated speed
+                    if ((Math.round(spd * 1000) / 1000) > 0) {
+                        op.pSpda[op.pSpda.length] = Math.round(spd * 1000) / 1000; // store instantaneous calculated speed
+                    }
                 })();
 
 
