@@ -357,6 +357,7 @@ op = {
     pSpd : 0, // device processor speed (average estimated in GHZ)
     pMin : 10, // min. processor speed
     pCores : navigator.hardwareConcurrency, // no. of cpu logical cores
+    pCoresMin : null,
     sfra : [],
     sfr : 0, // screen refresh rate
     sfrMin : 50, // fps min.
@@ -514,7 +515,8 @@ function devicePerformance() { // estimate device performance using parameters
 
 
     // op.pSpd >= 10 GHZ
-    // op.sfr >= 60 fps
+    // op.sfr >= 50 fps
+    // op.pCores >= 
 
     // return 
 }
