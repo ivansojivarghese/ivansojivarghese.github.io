@@ -355,7 +355,7 @@ op = {
     Ls : op.Ls,
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
-    pMin : [8, 20], // min./rec. processor speed
+    pMin : [8, 15], // min./rec. processor speed
     pCores : navigator.hardwareConcurrency, // no. of cpu logical cores
     pCoresMin : [2, 6], // cores min./rec.
     sfra : [],
@@ -512,13 +512,16 @@ op.fN = num_Fs(op.f); // convert to number
 
 function devicePerformance(p, r, c) { // estimate device performance using parameters
 
+    var pScore = (p >= op.pMin[0]) ? ((p - op.pMin[0] / (op.pMin[1] - op.pMin[0])) * 100) : 0, // performance score 
+        rScore = (r >= op.sfrMin[0]) ? ((r - op.sfrMin[0] / (op.sfrMin[1] - op.sfrMin[0])) * 100) : 0, // screen refresh rate score
+        cScore = (c >= op.pCoresMin[0]) ? ((c - op.pCoresMin[0] / (op.pCoresMin[1] - op.pCoresMin[0])) * 100) : 0; // logic cores score
 
     // MINS
     // 60% 1. p >= 8 GHZ
     // 30% 2. r >= 50 fps
     // 10% 3. c >= 2 cores
     // RECS
-    // 60% 1. p >= 20 GHZ
+    // 60% 1. p >= 15 GHZ
     // 30% 2. r >= 60 fps
     // 10% 3. c >= 6 cores
 
