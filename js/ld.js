@@ -706,6 +706,7 @@ function load_e() { // end the loading sequence
 
         op.pSpd = mean(op.pSpda); // store avg. clock speed
         op.sfr = mean(op.sfra); // "" avg. screen refresh rate
+        // op.pCores;
 
         // check hardwareConcurrency, screen frame rate (fps) readings as well to combine into performance score, use in function
 
