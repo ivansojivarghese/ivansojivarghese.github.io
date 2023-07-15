@@ -358,6 +358,8 @@ op = {
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
     pMin : 10, // min. processor speed
+    sfra : [],
+    sfr : 0, // screen refresh rate
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
         e : null, // enabled check

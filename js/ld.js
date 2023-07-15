@@ -127,6 +127,8 @@ function docRead() {
                     }
                 })();
 
+                
+
 
                 if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668, 771 BELOW! @load_e function condition 2)
                     setCookie("testCookie", "true", op.c.t); // set a test cookie
