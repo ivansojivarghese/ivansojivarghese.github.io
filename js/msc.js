@@ -520,16 +520,22 @@ function devicePerformance(p, r, c) { // estimate device performance using param
         pScore = 0.6;
     } else if (pScore > 0) {
         pScore = pScore * 0.6; // 60%
+    } else {
+
     }
     if (rScore > 100) {
         rScore = 0.3;
     } else if (rScore > 0) {
         rScore = rScore * 0.3; // 30%
+    } else {
+
     }
     if (cScore > 100) {
         cScore = 0.1;
     } else if (cScore > 0) {
         cScore = cScore * 0.1; // 10%
+    } else {
+        
     }
     
     // MINS
