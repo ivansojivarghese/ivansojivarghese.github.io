@@ -358,6 +358,7 @@ op = {
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
     pMin : 10, // min. processor speed
+    pCores : navigator.hardwareConcurrency, // no. of cpu logical cores
     sfra : [],
     sfr : 0, // screen refresh rate
     sfrx : false, // execution
