@@ -512,9 +512,9 @@ op.fN = num_Fs(op.f); // convert to number
 
 function devicePerformance(p, r, c) { // estimate device performance using parameters
 
-    var pScore = (p >= op.pMin[0]) ? ((p - op.pMin[0] / (op.pMin[1] - op.pMin[0])) * 100) : 0, // performance score 
-        rScore = (r >= op.sfrMin[0]) ? ((r - op.sfrMin[0] / (op.sfrMin[1] - op.sfrMin[0])) * 100) : 0, // screen refresh rate score
-        cScore = (c >= op.pCoresMin[0]) ? ((c - op.pCoresMin[0] / (op.pCoresMin[1] - op.pCoresMin[0])) * 100) : 0; // logic cores score
+    var pScore = (p >= op.pMin[0]) ? (((p - op.pMin[0]) / (op.pMin[1] - op.pMin[0])) * 100) : 0, // performance score 
+        rScore = (r >= op.sfrMin[0]) ? (((r - op.sfrMin[0]) / (op.sfrMin[1] - op.sfrMin[0])) * 100) : 0, // screen refresh rate score
+        cScore = (c >= op.pCoresMin[0]) ? (((c - op.pCoresMin[0]) / (op.pCoresMin[1] - op.pCoresMin[0])) * 100) : 0; // logic cores score
 
     if (pScore > 100) {
         pScore = 0.6;
