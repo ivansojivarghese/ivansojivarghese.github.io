@@ -355,12 +355,12 @@ op = {
     Ls : op.Ls,
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
-    pMin : 10, // min. processor speed
+    pMin : [8, 20], // min./rec. processor speed
     pCores : navigator.hardwareConcurrency, // no. of cpu logical cores
-    pCoresMin : 4,
+    pCoresMin : [2, 6], // cores min./rec.
     sfra : [],
     sfr : 0, // screen refresh rate
-    sfrMin : 50, // fps min.
+    sfrMin : [50, 60], // fps min./rec.
     sfrx : false, // execution
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
@@ -512,11 +512,15 @@ op.fN = num_Fs(op.f); // convert to number
 
 function devicePerformance(p, r, c) { // estimate device performance using parameters
 
-    
 
-    // op.pSpd >= 10 GHZ
-    // op.sfr >= 50 fps
-    // op.pCores >= 4 cores
+    // MINS
+    // 60% 1. p >= 8 GHZ
+    // 30% 2. r >= 50 fps
+    // 10% 3. c >= 2 cores
+    // RECS
+    // 60% 1. p >= 20 GHZ
+    // 30% 2. r >= 60 fps
+    // 10% 3. c >= 6 cores
 
     // return 
 }
