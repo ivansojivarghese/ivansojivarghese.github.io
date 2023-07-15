@@ -132,15 +132,6 @@ function renderCallback() {
     console.log("render");
 }*/
 
-function devicePerformance() { // estimate device performance using parameters
-
-
-
-    // op.pMin
-
-    // return 
-}
-
 // CODE REFERENCED FROM CARLOS DELGADO @ https://ourcodeworld.com/articles/read/1390/how-to-determine-the-screen-refresh-rate-in-hz-of-the-monitor-with-javascript-in-the-browser#disqus_thread
 
 /**
@@ -368,6 +359,7 @@ op = {
     pCores : navigator.hardwareConcurrency, // no. of cpu logical cores
     sfra : [],
     sfr : 0, // screen refresh rate
+    sfrMin : 50, // fps min.
     sfrx : false, // execution
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
@@ -514,6 +506,20 @@ op.zoomDefault = !approxNum(op.zoom, dev.z) ? true : false; // set zoom default 
 op.zoomUndefault = op.zoomDefault ? true : false;
 
 op.fN = num_Fs(op.f); // convert to number
+
+/////////////////////////////////////////////////////////
+
+function devicePerformance() { // estimate device performance using parameters
+
+
+
+    // op.pSpd >= 10 GHZ
+    // op.sfr >= 60 fps
+
+    // return 
+}
+
+/////////////////////////////////////////////////////////
 
 const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
 const cos_signal = checkOnlineStatus_abort.signal;
