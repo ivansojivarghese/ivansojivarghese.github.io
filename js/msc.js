@@ -132,7 +132,14 @@ function renderCallback() {
     console.log("render");
 }*/
 
+function devicePerformance() { // estimate device performance using parameters
 
+
+
+    // op.pMin
+
+    // return 
+}
 
 // CODE REFERENCED FROM CARLOS DELGADO @ https://ourcodeworld.com/articles/read/1390/how-to-determine-the-screen-refresh-rate-in-hz-of-the-monitor-with-javascript-in-the-browser#disqus_thread
 

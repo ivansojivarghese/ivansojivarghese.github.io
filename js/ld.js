@@ -707,11 +707,11 @@ function load_e() { // end the loading sequence
         op.pSpd = mean(op.pSpda); // store avg. clock speed
         op.sfr = mean(op.sfra); // "" avg. screen refresh rate
         // op.pCores;
-
         // check hardwareConcurrency, screen frame rate (fps) readings as well to combine into performance score, use in function
 
-        if (op.pSpd < op.pMin) { // device compatibility (speed/rendering) error check
+        if (devicePerformance()) { // device compatibility (speed/rendering) error check
 
+            console.log("low performance");
             errorCheck();
 
         } else if (op.ne.t3s) { // timeout 3
