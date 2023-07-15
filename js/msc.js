@@ -521,21 +521,21 @@ function devicePerformance(p, r, c) { // estimate device performance using param
     } else if (pScore > 0) {
         pScore = pScore * 0.6; // 60%
     } else {
-
+        pScore = -1;
     }
     if (rScore > 100) {
         rScore = 0.3;
     } else if (rScore > 0) {
         rScore = rScore * 0.3; // 30%
     } else {
-
+        rScore = -1;
     }
     if (cScore > 100) {
         cScore = 0.1;
     } else if (cScore > 0) {
         cScore = cScore * 0.1; // 10%
     } else {
-        
+        cScore = -1;
     }
     
     // MINS
@@ -547,7 +547,11 @@ function devicePerformance(p, r, c) { // estimate device performance using param
     // 30% 2. r >= 60 fps
     // 10% 3. c >= 6 cores
 
-    return (pScore + rScore + cScore);
+    if (pScore !== -1 && rScore !== -1 && cScore !== -1) {
+        return (pScore + rScore + cScore);
+    } else {
+        return 0;
+    }
 }
 
 /////////////////////////////////////////////////////////
