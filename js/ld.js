@@ -710,7 +710,8 @@ function load_e() { // end the loading sequence
 
         if (devicePerformance(op.pSpd, op.sfr, op.pCores)) { // device compatibility (speed/rendering) error check
 
-            console.log("low performance");
+            console.log(devicePerformance(op.pSpd, op.sfr, op.pCores));
+            // console.log("low performance");
             errorCheck();
 
         } else if (op.ne.t3s) { // timeout 3
