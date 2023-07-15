@@ -134,7 +134,9 @@ function docRead() {
                 getScreenRefreshRate(function(FPS){ // average screen refresh rate
                     // console.log(`${FPS} FPS`);
                     if (!op.sfrx) {
-                        op.sfra[op.sfra.length] = FPS; // array of values
+                        if (FPS > 0) {
+                            op.sfra[op.sfra.length] = FPS; // array of values
+                        }
                     } else {
                         op.sfa = FPS; // live
                     }
