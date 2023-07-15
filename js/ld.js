@@ -128,6 +128,17 @@ function docRead() {
                 })();
 
                 
+                // Warning: the method will be executed forever, ideal for live counters
+                // CODE REFERENCED FROM CARLOS DELGADO @https://ourcodeworld.com/articles/read/1390/how-to-determine-the-screen-refresh-rate-in-hz-of-the-monitor-with-javascript-in-the-browser#disqus_thread
+
+                getScreenRefreshRate(function(FPS){ // average screen refresh rate
+                    // console.log(`${FPS} FPS`);
+                    if (!op.sfrx) {
+                        op.sfra[op.sfra.length] = FPS; // array of values
+                    } else {
+                        op.sfa = FPS; // live
+                    }
+                }, true);
 
 
                 if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668, 771 BELOW! @load_e function condition 2)
