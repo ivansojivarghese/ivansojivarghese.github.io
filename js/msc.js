@@ -516,6 +516,22 @@ function devicePerformance(p, r, c) { // estimate device performance using param
         rScore = (r >= op.sfrMin[0]) ? ((r - op.sfrMin[0] / (op.sfrMin[1] - op.sfrMin[0])) * 100) : 0, // screen refresh rate score
         cScore = (c >= op.pCoresMin[0]) ? ((c - op.pCoresMin[0] / (op.pCoresMin[1] - op.pCoresMin[0])) * 100) : 0; // logic cores score
 
+    if (pScore > 100) {
+        pScore = 0.6;
+    } else {
+        pScore = pScore * 0.6; // 60%
+    }
+    if (rScore > 100) {
+        rScore = 0.3;
+    } else {
+        rScore = rScore * 0.3; // 30%
+    }
+    if (cScore > 100) {
+        cScore = 0.1;
+    } else {
+        cScore = cScore * 0.1; // 10%
+    }
+    
     // MINS
     // 60% 1. p >= 8 GHZ
     // 30% 2. r >= 50 fps
@@ -525,7 +541,7 @@ function devicePerformance(p, r, c) { // estimate device performance using param
     // 30% 2. r >= 60 fps
     // 10% 3. c >= 6 cores
 
-    // return 
+    return (pScore + rScore + cScore);
 }
 
 /////////////////////////////////////////////////////////
