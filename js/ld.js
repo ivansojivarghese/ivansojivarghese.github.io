@@ -710,7 +710,7 @@ function load_e() { // end the loading sequence
         op.sfr = mean(op.sfra) ? mean(op.sfra) : 0; // "" avg. screen refresh rate
         // check hardwareConcurrency, screen frame rate (fps) readings as well to combine into performance score, use in function
 
-        if (devicePerformance(op.pSpd, op.sfr, op.pCores)) { // device compatibility (speed/rendering) error check
+        if (devicePerformance(op.pSpd, op.sfr, op.pCores) >= 0) { // device compatibility (speed/rendering) error check
 
             console.log(devicePerformance(op.pSpd, op.sfr, op.pCores));
             // console.log("low performance");
