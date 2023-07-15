@@ -704,8 +704,8 @@ function docRead() {
 function load_e() { // end the loading sequence
     if (!devError) {
 
-        op.pSpd = mean(op.pSpda); // store avg. clock speed
-        op.sfr = mean(op.sfra); // "" avg. screen refresh rate
+        op.pSpd = mean(op.pSpda) ? mean(op.pSpda) : 0; // store avg. clock speed
+        op.sfr = mean(op.sfra) ? mean(op.sfra) : 0; // "" avg. screen refresh rate
         // check hardwareConcurrency, screen frame rate (fps) readings as well to combine into performance score, use in function
 
         if (devicePerformance(op.pSpd, op.sfr, op.pCores)) { // device compatibility (speed/rendering) error check
