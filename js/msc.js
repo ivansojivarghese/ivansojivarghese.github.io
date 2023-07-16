@@ -512,27 +512,27 @@ op.fN = num_Fs(op.f); // convert to number
 
 function devicePerformance(p, r, c) { // estimate device performance using parameters
 
-    var pScore = (p >= op.pMin[0]) ? (((p - op.pMin[0]) / (op.pMin[1] - op.pMin[0])) * 100) : 0, // performance score 
-        rScore = (r >= op.sfrMin[0]) ? (((r - op.sfrMin[0]) / (op.sfrMin[1] - op.sfrMin[0])) * 100) : 0, // screen refresh rate score
-        cScore = (c >= op.pCoresMin[0]) ? (((c - op.pCoresMin[0]) / (op.pCoresMin[1] - op.pCoresMin[0])) * 100) : 0; // logic cores score
+    var pScore = (p >= op.pMin[0]) ? ((((p - op.pMin[0]) / (op.pMin[1] - op.pMin[0])) * 100) + 1) : 0, // performance score 
+        rScore = (r >= op.sfrMin[0]) ? ((((r - op.sfrMin[0]) / (op.sfrMin[1] - op.sfrMin[0])) * 100) + 1) : 0, // screen refresh rate score
+        cScore = (c >= op.pCoresMin[0]) ? ((((c - op.pCoresMin[0]) / (op.pCoresMin[1] - op.pCoresMin[0])) * 100) + 1) : 0; // logic cores score
 
     if (pScore > 100) {
         pScore = 0.6;
-    } else if (pScore >= 0) {
+    } else if (pScore > 0) {
         pScore = pScore * 0.6; // 60%
     } else {
         pScore = -1;
     }
     if (rScore > 100) {
         rScore = 0.3;
-    } else if (rScore >= 0) {
+    } else if (rScore > 0) {
         rScore = rScore * 0.3; // 30%
     } else {
         rScore = -1;
     }
     if (cScore > 100) {
         cScore = 0.1;
-    } else if (cScore >= 0) {
+    } else if (cScore > 0) {
         cScore = cScore * 0.1; // 10%
     } else {
         cScore = -1;
