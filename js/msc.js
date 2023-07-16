@@ -479,6 +479,7 @@ op = {
     te : 500, // transition duration (extended)
     // Ls : 1000/60, // loop (interval) speed - sec./rev.
     e : 2, // use loop speed (modifier) base value OR/AND site operations variable value
+    vwM : 1.25, // viewport dimensions min. ratio
     f : window.getComputedStyle(document.body).getPropertyValue('font-size'), // get root font-size
     b : { // browser check (major platforms) 
         c : false, // chrome
@@ -2707,6 +2708,21 @@ window.addEventListener("resize", function(e) {
         return false;
     }
 });
+
+
+function viewportValid() { // check if viewport dimensions are proper/supported/non-square
+    if (vw.pH || (!vw.pH && !vw.tB)) {
+        if (wiH >= (wiD * op.vwM)) {
+            return true;
+        }
+    } else if (vw.tB) {
+        if (wiD >= (wiH * op.vwM)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 

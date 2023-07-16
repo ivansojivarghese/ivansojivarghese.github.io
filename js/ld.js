@@ -709,14 +709,14 @@ function load_e() { // end the loading sequence
         op.pSpd = mean(op.pSpda) ? mean(op.pSpda) : 0; // store avg. clock speed
         op.sfr = mean(op.sfra) ? mean(op.sfra) : 0; // "" avg. screen refresh rate
         // check hardwareConcurrency, screen frame rate (fps) readings as well to combine into performance score, use in function
-
+        /*
         if (devicePerformance(op.pSpd, op.sfr, op.pCores) >= 0) { // device compatibility (speed/rendering) error check
 
             console.log(devicePerformance(op.pSpd, op.sfr, op.pCores));
             // console.log("low performance");
             errorCheck();
 
-        } else if (op.ne.t3s) { // timeout 3
+        } else*/ if (op.ne.t3s) { // timeout 3
 
             rL.i_s = true;
             rL.r_s = false;
@@ -1187,7 +1187,7 @@ function errorCheck() { // check for errors
     focus_Check = checkFocus();
     tDevice = isTouchSupported();
 
-    if (op.sp) { // check if screen/window/tab is split (20:80 ratio max)
+    if (op.sp || !viewportValid()) { // check if screen/window/tab is split (20:80 ratio max)
         op.spR = true;
         eR.h = "sp";
     } else if (op.zoomDefault && !vw.z_L && !tDevice) { // if viewport zoom not defaulted (100%)
