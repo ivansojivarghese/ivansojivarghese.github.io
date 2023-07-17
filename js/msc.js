@@ -360,7 +360,7 @@ op = {
     pCoresMin : [2, 6], // cores min./rec.
     sfra : [],
     sfr : 0, // screen refresh rate
-    sfrMin : [0, 60], // fps min./rec.
+    sfrMin : [1, 60], // fps min./rec.
     sfrx : false, // execution
     c : { // cookies
         u : false, // [user] cookies-enabled-acceptance
