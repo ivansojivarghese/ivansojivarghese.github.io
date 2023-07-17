@@ -80,6 +80,7 @@ rL = { // page/resource loader
     e3 : false,
     e4 : false,
     e5 : false,
+    e6 : false,
     o_c : false, // orientation-change check (during load)
     s : false, // int load status
     y : false, // ready (render) load status
@@ -709,231 +710,237 @@ function load_e() { // end the loading sequence
         op.pSpd = mean(op.pSpda) ? mean(op.pSpda) : 0; // store avg. clock speed
         op.sfr = mean(op.sfra) ? mean(op.sfra) : 0; // "" avg. screen refresh rate
         // check hardwareConcurrency, screen frame rate (fps) readings as well to combine into performance score, use in function
+
+        if (op.sfr && !rL.e6) {
+            rL.e6 = true;
+        }
         
-        if (devicePerformance(op.pSpd, op.sfr, op.pCores) >= 0) { // device compatibility (speed/rendering) error check
+        if (rL.e6) {
+            if (devicePerformance(op.pSpd, op.sfr, op.pCores) >= 0) { // device compatibility (speed/rendering) error check
 
-            console.log(devicePerformance(op.pSpd, op.sfr, op.pCores));
-            // console.log("low performance");
-            errorCheck();
+                console.log(devicePerformance(op.pSpd, op.sfr, op.pCores));
+                // console.log("low performance");
+                errorCheck();
 
-        } else if (op.ne.t3s) { // timeout 3
+            } else if (op.ne.t3s) { // timeout 3
 
-            rL.i_s = true;
-            rL.r_s = false;
+                rL.i_s = true;
+                rL.r_s = false;
 
-            op.ne.s = 0;
-            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-            if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
-                changeSVGColor(op.col.b, rL.xea, false); // default the arrow
-                rL.xea.style.transform = "rotate(0deg)";
-            }
-
-            if (svg.t) {
-                c_rep(rL.n, ["wifi_find_img", "wifi_img", "wifi_slow_img", "wifi_off_img"], "timeout_img");
-            }
-            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
-                rL.xc.innerHTML = "timeout";
-            } else {
-                rL.xc.innerHTML = "";
-            }
-
-            rL.d.style.animationName = "loadR_end"; // set ending animation detail
-            setTimeout(function() {
-                e_Fd(rL.r, true); // hide loading ring
-
-                setTimeout(function() {
-                    rL.r.classList.add("aniM-p"); // stop animation in the rings
-                    rL.p.classList.add("aniM-p");
-                    rL.c.classList.add("aniM-p");
-
-                    rL.dt.classList.remove("d_n");
-                    rL.dt.classList.add("md"); 
-                    e_Fd(rL.dt, false); // show load dot (in red)
-                    e_Fd(rL.n, false);
-                    e_Fd(rL.x, false);
-                }, op.t);
-            }, op.te - op.t);
-
-            rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
-            setTimeout(function() {
-                window.stop(); // stop all network resource(s) fetching
-                clearInterval(_Ld); // stop loading process
-                clearInterval(op.ne.L); // clear network check loop
-
-                checkOnlineStatus_abort.abort(); // abort any existing fetching
-                estimateNetworkSpeed_abort.abort();
-            }, op.te);
-
-        } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
-
-            rL.i_s = false;
-            rL.r_s = false;
-
-            rL.d.style.animationName = "loadR_end"; // set ending animation detail
-            load_css_e(); // load css styles to 'head' (indiv.)
-            setTimeout(function() {
-                if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t))) {
-                    rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
+                op.ne.s = 0;
+                rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
+                    changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                    rL.xea.style.transform = "rotate(0deg)";
                 }
-                // er_C(); // check for errors
+
+                if (svg.t) {
+                    c_rep(rL.n, ["wifi_find_img", "wifi_img", "wifi_slow_img", "wifi_off_img"], "timeout_img");
+                }
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) {
+                    rL.xc.innerHTML = "timeout";
+                } else {
+                    rL.xc.innerHTML = "";
+                }
+
+                rL.d.style.animationName = "loadR_end"; // set ending animation detail
+                setTimeout(function() {
+                    e_Fd(rL.r, true); // hide loading ring
+
+                    setTimeout(function() {
+                        rL.r.classList.add("aniM-p"); // stop animation in the rings
+                        rL.p.classList.add("aniM-p");
+                        rL.c.classList.add("aniM-p");
+
+                        rL.dt.classList.remove("d_n");
+                        rL.dt.classList.add("md"); 
+                        e_Fd(rL.dt, false); // show load dot (in red)
+                        e_Fd(rL.n, false);
+                        e_Fd(rL.x, false);
+                    }, op.t);
+                }, op.te - op.t);
+
+                rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
+                setTimeout(function() {
+                    window.stop(); // stop all network resource(s) fetching
+                    clearInterval(_Ld); // stop loading process
+                    clearInterval(op.ne.L); // clear network check loop
+
+                    checkOnlineStatus_abort.abort(); // abort any existing fetching
+                    estimateNetworkSpeed_abort.abort();
+                }, op.te);
+
+            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
+
+                rL.i_s = false;
+                rL.r_s = false;
+
+                rL.d.style.animationName = "loadR_end"; // set ending animation detail
+                load_css_e(); // load css styles to 'head' (indiv.)
+                setTimeout(function() {
+                    if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t))) {
+                        rL.el.classList.add("z_O"); // hide in view - timed to coexist with ending (animation) detail
+                    }
+                    // er_C(); // check for errors
+
+                    setTimeout(function() {
+                        if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t)) || eR.s) {
+                            rL.el.classList.add("d_n"); // remove loader from display
+                        }
+                        if (!cacheEnabled || aborted) {
+                            rL.r.classList.add("d_n"); // hide rings
+                            rL.dt.classList.remove("d_n"); // show dot
+                        }
+
+                        rL.r.classList.add("aniM-p"); // stop animation in the rings
+                        rL.p.classList.add("aniM-p");
+                        rL.c.classList.add("aniM-p");
+
+                        if (op.ne.t0_5s || (!op.c.e && (op.Ld.dom > op.Ld.t)) || (!cacheEnabled || aborted) && !eR.s) { // timeout 0.5 | UPDATE LINE 716 ABOVE!
+
+                            rL.el.classList.remove("d_n"); // show loader
+                            rL.el.classList.remove("z_O"); 
+
+                            rL.dt.classList.add("aniM-f"); 
+                            rL.dt.classList.add("md"); // load_dot to red
+                            e_Fd(rL.dt, false); // show load dot (in red)
+
+                            op.ne.s = 0;
+                            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                            if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
+                                changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                                rL.xea.style.transform = "rotate(0deg)";
+                            }
+
+                            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
+                                if (aborted) {
+                                    rL.n.classList.add("abort_img");
+                                    rL.xc.innerHTML = "aborted";
+                                } else if (!cacheEnabled) {
+                                    rL.n.classList.add("cache_img");
+                                    rL.xc.innerHTML = "caching blocked";
+                                } else {
+                                    rL.n.classList.add("timeout_img");
+                                    rL.xc.innerHTML = "timeout";
+                                }
+                                // rL.n.classList.add("timeout_img");
+                                // rL.xc.innerHTML = "timeout";
+                                e_Fd(rL.n, false); // show icon 
+                                e_Fd(rL.x, false); // show message 
+                            } else if (svg.t) {
+                                if (aborted) {
+                                    rL.n.classList.add("abort_img");
+                                } else if (!cacheEnabled) {
+                                    rL.n.classList.add("cache_img");
+                                } else {
+                                    rL.n.classList.add("timeout_img");
+                                }
+                                // rL.n.classList.add("timeout_img");
+                                e_Fd(rL.n, false); // show icon 
+                            }
+
+                            setTimeout(function() {
+                                window.stop(); // stop all network resource(s) fetching
+                                clearInterval(_Ld); // stop loading process
+                                clearInterval(op.ne.L); // clear network check loop
+
+                                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                estimateNetworkSpeed_abort.abort();
+                            }, op.te);
+
+                        } else if (eR.h && (eR.h === eR.p)) { // if error is detected
+
+                            if (eR[eR.h].classList.contains("d_n")) {
+                                eR.m.classList.remove("d_n");
+                                eR[eR.h].classList.remove("d_n");
+                            }
+                            e_Fd(eR[eR.h], false); // show the error
+
+                            setTimeout(function() {
+                                window.stop(); // stop all network resource(s) fetching
+                                clearInterval(_Ld); // stop loading process
+                                clearInterval(op.ne.L); // clear network check loop
+
+                                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                                estimateNetworkSpeed_abort.abort();
+                            }, op.te);
+
+                        } else {
+                            disp.classList.remove("d_n"); // show the page
+                            setTimeout(function() {
+                                e_Fd(disp, false);  
+                                if (op.c.u) { // if cookie-use accepted
+                                    load_eN(); // complete any due tasks (page-specific)
+                                    scr_t(true, null); // enable scrolling
+                                    op.s = false;
+                                } else {
+                                    setTimeout(function() {
+                                        /*
+                                        pg.msg.t.classList.remove("md"); // add tint
+                                        e_Sdv(pg.msg.ckA, true); 
+                                        */
+                                        if (!pg.msg.k && !pg.msg.c && !pg.cond.a && !hm.s && (!getCookie("cookiesAccepted") || getCookie("cookiesAccepted") === "false")) {
+                                            msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
+                                        }
+                                    }, op.te);
+                                }
+                                if (getCookie("initialAccess") === "true") {
+                                    var u = dev.uH.getBoundingClientRect();
+                                    uHeight = Math.round(u.height);
+                                }
+                            }, 10);
+                        }
+
+                        // load_js_eN(); // load js, after page load
+                        load_jscss_N(); // load js/css (common), after page load
+
+                        rL.i = true; // page fully loaded
+                    }, op.t); // give time for opacity .trs to completely hide element
+                }, op.te - op.t);
+                rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
+
+            } else if (!op.ne.x4 && (!getCookie("testCookie") || vw.mB_L || vw.z_S || op.zoomDefault)) {
+
+                countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
+                rL.s = true; // page loaded
+                op.ne.x4 = true;
+                e_Fd(rL.m, false); // show load-box (either flow)
+            
+            } else if (op.ne.t0_5s) { // timeout
+
+                rL.el.classList.remove("d_n"); // show loader
+                rL.el.classList.remove("z_O"); 
+
+                rL.dt.classList.add("aniM-f"); 
+                rL.dt.classList.add("md"); // load_dot to red
+                e_Fd(rL.dt, false); // show load dot (in red)
+
+                op.ne.s = 0;
+                rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
+                if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
+                    changeSVGColor(op.col.b, rL.xea, false); // default the arrow
+                    rL.xea.style.transform = "rotate(0deg)";
+                }
+
+                if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
+                    rL.n.classList.add("timeout_img");
+                    rL.xc.innerHTML = "timeout";
+                    e_Fd(rL.n, false); // show icon 
+                    e_Fd(rL.x, false); // show message 
+                } else if (svg.t) {
+                    rL.n.classList.add("timeout_img");
+                    e_Fd(rL.n, false); // show icon 
+                }
 
                 setTimeout(function() {
-                    if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t)) || eR.s) {
-                        rL.el.classList.add("d_n"); // remove loader from display
-                    }
-                    if (!cacheEnabled || aborted) {
-                        rL.r.classList.add("d_n"); // hide rings
-                        rL.dt.classList.remove("d_n"); // show dot
-                    }
+                    window.stop(); // stop all network resource(s) fetching
+                    clearInterval(_Ld); // stop loading process
+                    clearInterval(op.ne.L); // clear network check loop
 
-                    rL.r.classList.add("aniM-p"); // stop animation in the rings
-                    rL.p.classList.add("aniM-p");
-                    rL.c.classList.add("aniM-p");
-
-                    if (op.ne.t0_5s || (!op.c.e && (op.Ld.dom > op.Ld.t)) || (!cacheEnabled || aborted) && !eR.s) { // timeout 0.5 | UPDATE LINE 716 ABOVE!
-
-                        rL.el.classList.remove("d_n"); // show loader
-                        rL.el.classList.remove("z_O"); 
-
-                        rL.dt.classList.add("aniM-f"); 
-                        rL.dt.classList.add("md"); // load_dot to red
-                        e_Fd(rL.dt, false); // show load dot (in red)
-
-                        op.ne.s = 0;
-                        rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-                        if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
-                            changeSVGColor(op.col.b, rL.xea, false); // default the arrow
-                            rL.xea.style.transform = "rotate(0deg)";
-                        }
-
-                        if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
-                            if (aborted) {
-                                rL.n.classList.add("abort_img");
-                                rL.xc.innerHTML = "aborted";
-                            } else if (!cacheEnabled) {
-                                rL.n.classList.add("cache_img");
-                                rL.xc.innerHTML = "caching blocked";
-                            } else {
-                                rL.n.classList.add("timeout_img");
-                                rL.xc.innerHTML = "timeout";
-                            }
-                            // rL.n.classList.add("timeout_img");
-                            // rL.xc.innerHTML = "timeout";
-                            e_Fd(rL.n, false); // show icon 
-                            e_Fd(rL.x, false); // show message 
-                        } else if (svg.t) {
-                            if (aborted) {
-                                rL.n.classList.add("abort_img");
-                            } else if (!cacheEnabled) {
-                                rL.n.classList.add("cache_img");
-                            } else {
-                                rL.n.classList.add("timeout_img");
-                            }
-                            // rL.n.classList.add("timeout_img");
-                            e_Fd(rL.n, false); // show icon 
-                        }
-
-                        setTimeout(function() {
-                            window.stop(); // stop all network resource(s) fetching
-                            clearInterval(_Ld); // stop loading process
-                            clearInterval(op.ne.L); // clear network check loop
-
-                            checkOnlineStatus_abort.abort(); // abort any existing fetching
-                            estimateNetworkSpeed_abort.abort();
-                        }, op.te);
-
-                    } else if (eR.h && (eR.h === eR.p)) { // if error is detected
-
-                        if (eR[eR.h].classList.contains("d_n")) {
-                            eR.m.classList.remove("d_n");
-                            eR[eR.h].classList.remove("d_n");
-                        }
-                        e_Fd(eR[eR.h], false); // show the error
-
-                        setTimeout(function() {
-                            window.stop(); // stop all network resource(s) fetching
-                            clearInterval(_Ld); // stop loading process
-                            clearInterval(op.ne.L); // clear network check loop
-
-                            checkOnlineStatus_abort.abort(); // abort any existing fetching
-                            estimateNetworkSpeed_abort.abort();
-                        }, op.te);
-
-                    } else {
-                        disp.classList.remove("d_n"); // show the page
-                        setTimeout(function() {
-                            e_Fd(disp, false);  
-                            if (op.c.u) { // if cookie-use accepted
-                                load_eN(); // complete any due tasks (page-specific)
-                                scr_t(true, null); // enable scrolling
-                                op.s = false;
-                            } else {
-                                setTimeout(function() {
-                                    /*
-                                    pg.msg.t.classList.remove("md"); // add tint
-                                    e_Sdv(pg.msg.ckA, true); 
-                                    */
-                                    if (!pg.msg.k && !pg.msg.c && !pg.cond.a && !hm.s && (!getCookie("cookiesAccepted") || getCookie("cookiesAccepted") === "false")) {
-                                        msg_toggle(pg.msg.ckA, null, true, true, null); // show cookie-acceptance message
-                                    }
-                                }, op.te);
-                            }
-                            if (getCookie("initialAccess") === "true") {
-                                var u = dev.uH.getBoundingClientRect();
-                                uHeight = Math.round(u.height);
-                            }
-                        }, 10);
-                    }
-
-                    // load_js_eN(); // load js, after page load
-                    load_jscss_N(); // load js/css (common), after page load
-
-                    rL.i = true; // page fully loaded
-                }, op.t); // give time for opacity .trs to completely hide element
-            }, op.te - op.t);
-            rL.p.removeEventListener("animationiteration", load_e); // remove listening event from primary loading ring
-
-        } else if (!op.ne.x4 && (!getCookie("testCookie") || vw.mB_L || vw.z_S || op.zoomDefault)) {
-
-            countdownTimerSec((op.Ld.t / 1000), op.ne.t0_5, null, timeout0_5); // timeout 0.5
-            rL.s = true; // page loaded
-            op.ne.x4 = true;
-            e_Fd(rL.m, false); // show load-box (either flow)
-        
-        } else if (op.ne.t0_5s) { // timeout
-
-            rL.el.classList.remove("d_n"); // show loader
-            rL.el.classList.remove("z_O"); 
-
-            rL.dt.classList.add("aniM-f"); 
-            rL.dt.classList.add("md"); // load_dot to red
-            e_Fd(rL.dt, false); // show load dot (in red)
-
-            op.ne.s = 0;
-            rL.xep.innerHTML = op.ne.s.toFixed(1) + " mbps"; // 0mbps speed
-            if (networkTrend(op.ne.b) || !networkTrend(op.ne.b)) {
-                changeSVGColor(op.col.b, rL.xea, false); // default the arrow
-                rL.xea.style.transform = "rotate(0deg)";
+                    checkOnlineStatus_abort.abort(); // abort any existing fetching
+                    estimateNetworkSpeed_abort.abort();
+                }, op.te);
             }
-
-            if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t) { // check if fonts are downloaded
-                rL.n.classList.add("timeout_img");
-                rL.xc.innerHTML = "timeout";
-                e_Fd(rL.n, false); // show icon 
-                e_Fd(rL.x, false); // show message 
-            } else if (svg.t) {
-                rL.n.classList.add("timeout_img");
-                e_Fd(rL.n, false); // show icon 
-            }
-
-            setTimeout(function() {
-                window.stop(); // stop all network resource(s) fetching
-                clearInterval(_Ld); // stop loading process
-                clearInterval(op.ne.L); // clear network check loop
-
-                checkOnlineStatus_abort.abort(); // abort any existing fetching
-                estimateNetworkSpeed_abort.abort();
-            }, op.te);
         }
     }
 }
