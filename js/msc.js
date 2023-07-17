@@ -528,9 +528,9 @@ function devicePerformance(p, r, c) { // estimate device performance using param
         rScore = 0.3;
     } else if (rScore > 0) {
         rScore = rScore * 0.3; // 30%
-    } /*else {
+    } else {
         rScore = -1;
-    }*/
+    }
     if (cScore > 100) {
         cScore = 0.1;
     } else if (cScore > 0) {
