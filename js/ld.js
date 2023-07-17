@@ -716,11 +716,15 @@ function load_e() { // end the loading sequence
         }
         
         if (rL.e6) {
-            if (devicePerformance(op.pSpd, op.sfr, op.pCores) >= 0) { // device compatibility (speed/rendering) error check
+            if (devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) { // device compatibility (speed/rendering) error check (no performance)
 
-                console.log(devicePerformance(op.pSpd, op.sfr, op.pCores));
-                // console.log("low performance");
+                // console.log(devicePerformance(op.pSpd, op.sfr, op.pCores));
+                console.log("no performance");
                 errorCheck();
+
+            } else if (devicePerformance(op.pSpd, op.sfr, op.pCores) <= 0.5) { // low performance
+
+                console.log("low performance");
 
             } else if (op.ne.t3s) { // timeout 3
 
