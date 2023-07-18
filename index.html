@@ -477,8 +477,10 @@
                 },'slow');
             }
 
-            $("#scrolltop_btn").on('click', function() {
-                scrollToAnchor('topPos');
+            $(document).on("ready", function() {
+                $("#scrolltop_btn").on('click', function() {
+                    scrollToAnchor('topPos');
+                });
             });
 
         </script>
