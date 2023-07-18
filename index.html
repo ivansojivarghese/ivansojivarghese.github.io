@@ -456,7 +456,7 @@
                 disabledEvent(e);
                 return false;
             });
-
+            /*
             $(document).on("ready", function() {
                 function scrollToAnchor(aid){
                     const destination = $("a[name='"+ aid +"']");
@@ -468,6 +468,17 @@
                 $("#scrolltop_btn").on('click', '.smooth-link', function(){
                     scrollToAnchor('topPos');
                 });
+            });*/
+
+            function scrollToAnchor(selector){
+                const destination = $("a[name='"+ selector +"']");
+                $('html,body').animate({
+                    scrollTop: destination.offset().top
+                },'slow');
+            }
+
+            $("#scrolltop_btn").on('click', function() {
+                scrollToAnchor('topPos');
             });
 
         </script>
