@@ -719,7 +719,7 @@ function load_e() { // end the loading sequence
             if (devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) { // device compatibility (speed/rendering) error check (no performance)
 
                 console.log("no performance");
-                // errorCheck();
+                errorCheck();
 
             } else if (devicePerformance(op.pSpd, op.sfr, op.pCores) <= 0.5) { // low performance
 
