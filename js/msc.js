@@ -2809,7 +2809,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 eR.pl_e.h.innerHTML = "unknown system";
                             }
                             eR.p = "pl";
-                        } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i) { // device compatibility (incompatible speed/rendering)
+                        } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0)) { // device compatibility (incompatible speed/rendering)
                             eR.h = "dp";
                         } else if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
