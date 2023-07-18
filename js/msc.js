@@ -1117,7 +1117,6 @@ function pL() { // site parameters loop
                 setCookie("cacheReload", null, -1); // delete
             } else if (op.er.dp) {
                 pg.msg.net_t.innerHTML = "low performance"; 
-                setCookie("lowPerformance", null, -1); // delete
             }
     
             msg_toggle(pg.msg.net, null, true, false, false); // show message

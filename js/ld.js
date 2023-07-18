@@ -735,6 +735,8 @@ function load_e() { // end the loading sequence
 
             } else if (op.ne.t3s) { // timeout 3
 
+                setCookie("lowPerformance", null, -1); // delete if good performance
+
                 rL.i_s = true;
                 rL.r_s = false;
 
