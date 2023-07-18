@@ -456,19 +456,6 @@
                 disabledEvent(e);
                 return false;
             });
-            /*
-            $(document).on("ready", function() {
-                function scrollToAnchor(aid){
-                    const destination = $("a[name='"+ aid +"']");
-                    $('html,body').animate({
-                        scrollTop: destination.offset().top
-                    },'slow');
-                }
-
-                $("#scrolltop_btn").on('click', '.smooth-link', function(){
-                    scrollToAnchor('topPos');
-                });
-            });*/
 
             function scrollToAnchor(selector){
                 const destination = $("a[name='"+ selector +"']");
@@ -476,12 +463,6 @@
                     scrollTop: destination.offset().top
                 },'slow');
             }
-
-            $(document).on("ready", function() {
-                $("#scrolltop_btn").on('click', function() {
-                    scrollToAnchor('topPos');
-                });
-            });
 
         </script>
 
@@ -1123,6 +1104,14 @@
                 </div>
             </div>
         </div>
+        <!-- scroll to top -->
+        <script>
+            $(document).on("ready", function() {
+                $("#scrolltop_btn").on('click', function() {
+                    scrollToAnchor('topPos');
+                });
+            });
+        </script>
         <!-- Browser Detection, © 2023 Nabble, All rights reserved -->
         <script>
             var _umb = {
