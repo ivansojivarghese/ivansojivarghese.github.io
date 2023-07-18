@@ -2798,7 +2798,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         vw.mB_L = false;
                         // eR.s = false;
                         // STATIC ERRORS (UPDATE WHEN NEEDED!)
-                        if (op.b.f || op.sys === null || op.bN || op.pl) { // check for platform support
+                        if ((op.b.f || op.sys === null || op.bN || op.pl) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0 && rL.i)) { // check for platform support
                             if (op.b.f) {
                                 eR.pl_e.h.innerHTML = "firefox is incompatible";
                             } 
@@ -2809,6 +2809,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 eR.pl_e.h.innerHTML = "unknown system";
                             }
                             eR.p = "pl";
+                        } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i) { // device compatibility (incompatible speed/rendering)
+                            eR.h = "dp";
                         } else if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
                         } else if (op.mt) {

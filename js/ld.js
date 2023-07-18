@@ -1228,10 +1228,7 @@ function errorCheck() { // check for errors
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i) { // device compatibility (incompatible speed/rendering)
-
-        console.log("speed error");
         eR.h = "dp";
-
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
