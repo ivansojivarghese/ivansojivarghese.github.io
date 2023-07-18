@@ -2145,12 +2145,14 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             } else {
                 pg.msg.c = false;
             }
-            if (t && t_m) {
-                pg.msg.t.classList.remove("a"); // remove low tint
-                pg.msg.t.classList.add("md"); // remove tint
-            } else if (t) {
-                pg.msg.t.classList.add("md"); 
-            }
+            setTimeout(function() {
+                if (t && t_m) {
+                    pg.msg.t.classList.remove("a"); // remove low tint
+                    pg.msg.t.classList.add("md"); // remove tint
+                } else if (t) {
+                    pg.msg.t.classList.add("md"); 
+                }
+            }, 10);
             setTimeout(function() {
                 if (!pg.msg.c) { // ensure no other messages
                     el.classList.add("d_n");
