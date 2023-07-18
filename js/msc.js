@@ -1495,7 +1495,14 @@ function pL() { // site parameters loop
                 
                 msg_toggle(pg.msg.net, null, true, true, true);
             } else if (!pg.msg.ce && !pg.msg.k && !pg.cond.a && !hm.s && op.c.e && !pg.msg.fo) {
-                op.nc = true; // network changed
+                // op.nc = true; // network changed
+
+                if (rL.i) {
+                    op.nc = true; // network changed
+                    pg.msg.fo = true;
+                } else if (op.ne.off) {
+                    op.nc = true;
+                }
 
                 msg_toggle(pg.msg.net, null, false, true, true);
 
