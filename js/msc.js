@@ -340,7 +340,7 @@ focus_Check = checkFocus();
 ////////////////////////////////////////
 
 osCheck();
-console.log(op.sys);
+// console.log(op.sys);
 var aH;
 if (getCookie("maxHeight") && tDevice) {
     aH = getCookie("maxHeight"); // get height from cookie
