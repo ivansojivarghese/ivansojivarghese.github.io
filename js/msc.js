@@ -3010,11 +3010,11 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
         }, op.t);
     }*/
 });
-
+/*
 function scrollToTop() {
     document.documentElement.classList.add("scB");
     window.scrollTo(0, 0);
-}
+}*/
 
 //////////////////////////////////////////
 
