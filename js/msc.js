@@ -2712,7 +2712,7 @@ window.addEventListener("resize", function(e) {
 
 function viewportValid() { // check if viewport dimensions are proper/supported/non-square
     if (vw.pH || (!vw.pH && !vw.tB)) {
-        if (wiH >= (wiD * op.vwM)) {
+        if ((wiH >= (wiD * op.vwM) && !vw.mB_L) || (wiD >= (wiH * op.vwM) && vw.mB_L)) {
             return true;
         }
     } else if (vw.tB) {
