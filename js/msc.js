@@ -1124,6 +1124,7 @@ function pL() { // site parameters loop
             pg.msg.ioS = op.d.getTime();
             op.er.d = false;
             op.er.ch = false;
+            op.er.dp = false;
         }
     }
     /*
