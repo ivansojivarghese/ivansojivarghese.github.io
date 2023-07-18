@@ -2810,7 +2810,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             }
                             eR.p = "pl";
                         } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0)) { // device compatibility (incompatible speed/rendering)
-                            eR.h = "dp";
+                            eR.p = "dp";
                         } else if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
                         } else if (op.mt) {
