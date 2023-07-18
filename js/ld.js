@@ -169,6 +169,8 @@ function docRead() {
                                 op.er.d = true;
                             } else if (getCookie("cacheReload") === "true") {
                                 op.er.ch = true;    
+                            } else if (getCookie("lowPerformance") === "true") {
+                                op.er.dp = true;
                             }
 
                             if (!rL.e2) { 
@@ -720,17 +722,13 @@ function load_e() { // end the loading sequence
         if (rL.e6) {
             if (devicePerformance(op.pSpd, op.sfr, op.pCores) === 0 && !rL.e7) { // device compatibility (speed/rendering) error check (no performance)
 
-                console.log("no performance");
-
                 rL.e7 = true;
-                errorCheck();
+                errorCheck(); // show error message
 
             } else if (devicePerformance(op.pSpd, op.sfr, op.pCores) <= 0.5 && !rL.e7) { // low performance
 
-                console.log("low performance"); // show message
-
                 rL.e7 = true;
-                // set cookie to show message
+                setCookie("lowPerformance", "true", op.c.t); // set cookie to show message
 
             } else if (op.ne.t3s) { // timeout 3
 

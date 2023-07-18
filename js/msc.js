@@ -444,7 +444,8 @@ op = {
     },
     er : { // errors (fixes) - as messages
         d : false, // display (render)
-        ch : false  // caching
+        ch : false,  // caching
+        dp : false
     },
     r : null, // resource link origin
     n : null, // online status (internet connectivity)
@@ -1094,7 +1095,7 @@ function pL() { // site parameters loop
             }
         }
 
-        if ((op.er.d || op.er.ch) && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) { // display fix
+        if ((op.er.d || op.er.ch || op.er.dp) && op.c.u && (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo)) { // display fix
         
             // edit message contents
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("negate")) { // UPDATE ACROSS ALL MESSAGES!
@@ -1113,6 +1114,9 @@ function pL() { // site parameters loop
             } else if (op.er.ch) {
                 pg.msg.net_t.innerHTML = "cache reload"; 
                 setCookie("cacheReload", null, -1); // delete
+            } else if (op.er.dp) {
+                pg.msg.net_t.innerHTML = "performance"; 
+                setCookie("lowPerformance", null, -1); // delete
             }
     
             msg_toggle(pg.msg.net, null, true, false, false); // show message
