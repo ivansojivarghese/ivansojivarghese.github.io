@@ -457,6 +457,8 @@
                 return false;
             });
 
+            // REFERENCED FROM Alvaro Trigo: https://alvarotrigo.com/blog/jquery-smooth-scroll/ 
+
             function scrollToAnchor(selector){
                 const destination = $("a[name='"+ selector +"']");
                 $('html,body').animate({
