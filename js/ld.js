@@ -38,6 +38,7 @@ eR = { // error
     ld_e : { // extension
         x : false // execution
     },
+    dp : document.getElementById("error_dp"), // low performance
     or : document.getElementById("error_or"), // orientation change
     ck : document.getElementById("error_cke"), // cookies
     mt : document.getElementById("error_mt"), // maintenance
@@ -1188,7 +1189,7 @@ function errorCheck() { // check for errors
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    eR.a = ["fC", "tr", "fS", "mt", "ck", "or", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
+    eR.a = ["fC", "tr", "fS", "mt", "ck", "or", "dp", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // msc.
     op.fS = checkFullScreen();
@@ -1222,9 +1223,10 @@ function errorCheck() { // check for errors
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
 
-    } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i) { // device compatibility (speed/rendering)
+    } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i) { // device compatibility (incompatible speed/rendering)
 
         console.log("speed error");
+        eR.h = "dp";
 
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
