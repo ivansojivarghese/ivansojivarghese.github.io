@@ -719,8 +719,6 @@ function load_e() { // end the loading sequence
             rL.e6 = true;
             performance = devicePerformance(op.pSpd, op.sfr, op.pCores);
         }
-
-        performance = 0.25;
         
         if (rL.e6) {
             if (performance === 0 && !rL.e7) { // device compatibility (speed/rendering) error check (no performance)
