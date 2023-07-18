@@ -1213,7 +1213,7 @@ function errorCheck() { // check for errors
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
-    } else if ((op.b.f || op.sys === null || op.bN) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0) && !(vw.mB_L && tDevice)) { // browser/platform no support (firefox OR unknown system OR conflicting client hints [browser])
+    } else if ((op.b.f || op.sys === null || op.bN) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0 && rL.i) && !(vw.mB_L && tDevice)) { // browser/platform no support (firefox OR unknown system OR conflicting client hints [browser])
         if (op.b.f) {
             eR.pl_e.h.innerHTML = "firefox";
         } 
