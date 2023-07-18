@@ -1069,6 +1069,19 @@ function browserCheck(m) { // detect browser (platform)
         }
     } else {
         var userAgent = navigator.userAgent;
+        
+        // REFERENCED FROM DAVID Nguyen: @https://codepen.io/sptnkh/pen/OamEJz
+        if (userAgent.match(/FBAN|FBAV/i) || typeof FB_IAB !== 'undefined') { // Facebook in-app browser detected
+            op.b.fbApp = true;
+        }
+        if (userAgent.match(/instagram/i)) { // @ https://codesandbox.io/embed/detect-in-app-browser-s4owq?codemirror=1
+            // instagram browser
+            op.b.iGApp = true;
+        }
+        if (userAgent.match(/line/i)) {
+            // line browser
+            op.b.LnApp = true;
+        }
         if (userAgent.match(/chrome|chromium|crios/i)) { // Chrome
             op.b.c = true; 
         } else if (userAgent.match(/firefox|fxios/i)) { // Firefox

@@ -488,7 +488,10 @@ op = {
         f : false, // firefox
         s : false, // safari
         o : false, // opera
-        e : false // edge
+        e : false, // edge
+        fbApp : false, // facebook app
+        iGApp : false, // instagram app
+        LnApp : false // line app
     },
     bN : false, // if browser check null
     bNx : false,
