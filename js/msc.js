@@ -69,6 +69,7 @@ var wH = window.outerHeight, // height
         },
         msg : { // messages
             io : false, // in-out message? (show + hide)
+            temp : false, // temporary messsage?
             ioS : 0, // in-out start time
             r : 3000, // response time (avg.)
             re : 5000, // ext. response time
@@ -2097,6 +2098,11 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             }
             pg.msg.el.classList.remove("d_n"); // show page
             el.classList.remove("d_n");
+            if (!t && !t_m) { // if temporary message
+                pg.msg.temp = true;
+            } else { // if permanent
+                pg.msg.temp = false;
+            }
             setTimeout(function() {
                 e_Sdv(el, s); // show message
                 if (t && t_m) {
@@ -2107,14 +2113,16 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 } else { // no tint + show->hide message
                     pg.msg.t.classList.add("d_n"); 
                     setTimeout(function() { // hide message after time
-                        if (pg.msg.io && pg.msg.ioS) {
-                            pg.msg.io = false;
-                            pg.msg.ioS = false;
+                        if (pg.msg.temp) {
+                            if (pg.msg.io && pg.msg.ioS) {
+                                pg.msg.io = false;
+                                pg.msg.ioS = false;
+                            }
+                            msg_toggle(el, null, false, true, null);
+                            setTimeout(function() {
+                                pg.msg.t.classList.remove("d_n"); 
+                            }, op.t);
                         }
-                        msg_toggle(el, null, false, true, null);
-                        setTimeout(function() {
-                            pg.msg.t.classList.remove("d_n"); 
-                        }, op.t);
                     }, pg.msg.r);   
                 }
             }, 10); // after short delay
