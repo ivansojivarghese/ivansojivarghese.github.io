@@ -1046,7 +1046,7 @@ function pL() { // site parameters loop
 
     if (pg.msg.io && pg.msg.ioS) { // hide buggy io messages
         var e = op.d.getTime();
-        if ((e - pg.msg.ioS) > pg.msg.re) { // check for buggy messages (beyond ext. res. time)
+        if ((e - pg.msg.ioS) > pg.msg.re && pg.msg.temp) { // check for buggy messages (beyond ext. res. time)
             msg_toggle(pg.msg.net, null, false, true, null); // hide message
             pg.msg.io = false;
             pg.msg.ioS = 0;
@@ -1498,7 +1498,6 @@ function pL() { // site parameters loop
                 op.nc = true; // network changed
 
                 msg_toggle(pg.msg.net, null, false, true, true);
-                console.log("hide 2");
 
                 setTimeout(function() {
                     if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
