@@ -457,6 +457,19 @@
                 return false;
             });
 
+            $(document).on("ready", function() {
+                function scrollToAnchor(aid){
+                    const destination = $("a[name='"+ aid +"']");
+                    $('html,body').animate({
+                        scrollTop: destination.offset().top
+                    },'slow');
+                }
+
+                $("#scrolltop_btn").on('click', '.smooth-link', function(){
+                    scrollToAnchor('demo');
+                });
+            });
+
         </script>
 
         <!-- Advertising - Google Adsense 
