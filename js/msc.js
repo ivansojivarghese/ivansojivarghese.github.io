@@ -1498,6 +1498,7 @@ function pL() { // site parameters loop
                 op.nc = true; // network changed
 
                 msg_toggle(pg.msg.net, null, false, true, true);
+                console.log("hide 2");
 
                 setTimeout(function() {
                     if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
