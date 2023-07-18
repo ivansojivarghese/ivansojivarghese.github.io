@@ -3011,6 +3011,10 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
     }*/
 });
 
+function scrollToTop() {
+    window.scrollTo(0, 0);
+}
+
 //////////////////////////////////////////
 
 window.addEventListener("visibilitychange", async function() { // stop network check if tab/window in background
@@ -3250,7 +3254,6 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
     }
 
 });
-
 
 //////////////////////////////////////////
 /*
