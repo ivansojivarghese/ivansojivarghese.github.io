@@ -718,13 +718,13 @@ function load_e() { // end the loading sequence
         if (rL.e6) {
             if (devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) { // device compatibility (speed/rendering) error check (no performance)
 
-                // console.log(devicePerformance(op.pSpd, op.sfr, op.pCores));
                 console.log("no performance");
-                errorCheck();
+                // errorCheck();
 
             } else if (devicePerformance(op.pSpd, op.sfr, op.pCores) <= 0.5) { // low performance
 
-                console.log("low performance");
+                console.log("low performance"); // show message
+                // set cookie to show message
 
             } else if (op.ne.t3s) { // timeout 3
 
@@ -1222,7 +1222,7 @@ function errorCheck() { // check for errors
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
 
-    } else if (op.pSpd < op.pMin && rL.i) { // device compatibility (speed/rendering)
+    } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && rL.i) { // device compatibility (speed/rendering)
 
         console.log("speed error");
 
