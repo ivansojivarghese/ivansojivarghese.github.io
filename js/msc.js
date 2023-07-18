@@ -2119,6 +2119,9 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 }
             }, 10); // after short delay
         } else { // hide
+
+            console.log("hide");
+
             e_Sdv(el, s); // hide message
             if (el === pg.msg.ckA) {
                 scr_t(true, null); // enable scrolling
