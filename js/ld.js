@@ -1222,7 +1222,7 @@ function errorCheck() { // check for errors
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
 
-    } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && rL.i) { // device compatibility (speed/rendering)
+    } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i) { // device compatibility (speed/rendering)
 
         console.log("speed error");
 
