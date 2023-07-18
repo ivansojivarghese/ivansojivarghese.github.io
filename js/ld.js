@@ -710,22 +710,23 @@ function docRead() {
 
 function load_e() { // end the loading sequence
     if (!devError) {
-
+        var performance = 0;
         op.pSpd = mean(op.pSpda) ? mean(op.pSpda) : 0; // store avg. clock speed
         op.sfr = mean(op.sfra) ? mean(op.sfra) : 0; // "" avg. screen refresh rate
         // check hardwareConcurrency, screen frame rate (fps) readings as well to combine into performance score, use in function
 
         if (op.sfr && !rL.e6) {
             rL.e6 = true;
+            performance = devicePerformance(op.pSpd, op.sfr, op.pCores);
         }
         
         if (rL.e6) {
-            if (devicePerformance(op.pSpd, op.sfr, op.pCores) === 0 && !rL.e7) { // device compatibility (speed/rendering) error check (no performance)
+            if (performance === 0 && !rL.e7) { // device compatibility (speed/rendering) error check (no performance)
 
                 rL.e7 = true;
                 errorCheck(); // show error message
 
-            } else if (devicePerformance(op.pSpd, op.sfr, op.pCores) <= 0.5 && !rL.e7) { // low performance
+            } else if (performance <= 0.5 && !rL.e7) { // low performance
 
                 rL.e7 = true;
                 setCookie("lowPerformance", "true", op.c.t); // set cookie to show message
