@@ -89,7 +89,7 @@
                                                 }
                                             });
 
-                        if (result === false && !op.b.s) { // check if caching (NOT in safari)
+                        if (result === false && !op.b.s && !op.b.fbApp && !op.b.iGApp && !op.b.LnApp) { // check if caching (NOT in safari)
                             cacheEnabled = result;
                         } else if (result === null) { // fetch fail (timeout)
                             aborted = true;
