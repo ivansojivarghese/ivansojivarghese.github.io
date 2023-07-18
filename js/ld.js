@@ -1213,11 +1213,6 @@ function errorCheck() { // check for errors
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
         eR.h = "vL";
-    } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i) { // device compatibility (incompatible speed/rendering)
-
-        console.log("speed error");
-        eR.h = "dp";
-
     } else if ((op.b.f || op.sys === null || op.bN) && !(vw.mB_L && tDevice)) { // browser/platform no support (firefox OR unknown system OR conflicting client hints [browser])
         if (op.b.f) {
             eR.pl_e.h.innerHTML = "firefox";
@@ -1232,6 +1227,11 @@ function errorCheck() { // check for errors
     } else if (vw.mB_L && tDevice) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
+    } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i) { // device compatibility (incompatible speed/rendering)
+
+        console.log("speed error");
+        eR.h = "dp";
+
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
