@@ -82,6 +82,7 @@ rL = { // page/resource loader
     e4 : false,
     e5 : false,
     e6 : false,
+    e7 : false,
     o_c : false, // orientation-change check (during load)
     s : false, // int load status
     y : false, // ready (render) load status
@@ -717,14 +718,18 @@ function load_e() { // end the loading sequence
         }
         
         if (rL.e6) {
-            if (devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) { // device compatibility (speed/rendering) error check (no performance)
+            if (devicePerformance(op.pSpd, op.sfr, op.pCores) === 0 && !rL.e7) { // device compatibility (speed/rendering) error check (no performance)
 
                 console.log("no performance");
+
+                rL.e7 = true;
                 errorCheck();
 
-            } else if (devicePerformance(op.pSpd, op.sfr, op.pCores) <= 0.5) { // low performance
+            } else if (devicePerformance(op.pSpd, op.sfr, op.pCores) <= 0.5 && !rL.e7) { // low performance
 
                 console.log("low performance"); // show message
+
+                rL.e7 = true;
                 // set cookie to show message
 
             } else if (op.ne.t3s) { // timeout 3
