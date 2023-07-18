@@ -41,6 +41,10 @@
     html {
         font-size: 13px;
     }
+
+    .oe_wd {
+        width: 90% !important;
+    }
 }
 
 /* ---------------------------- */
@@ -56,6 +60,10 @@
 @media screen and (min-width: 270px) and (min-height: 600px) and (orientation: portrait) {
     html {
         font-size: 14px;
+    }
+
+    .oe_wd {
+        width: 90% !important;
     }
 }
 
@@ -73,6 +81,10 @@
     html {
         font-size: 15px;
     }
+
+    .oe_wd {
+        width: 90% !important;
+    }
 }
 
 /* ---------------------------- */
@@ -88,6 +100,10 @@
 @media screen and (min-width: 310px) and (min-height: 700px) and (orientation: portrait) {
     html {
         font-size: 17px;
+    }
+
+    .oe_wd {
+        width: 90% !important;
     }
 }
 
