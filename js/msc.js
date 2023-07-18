@@ -2113,8 +2113,11 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             setTimeout(function() {
                 e_Sdv(el, s); // show message
                 if (t && t_m) {
-                    pg.msg.t.classList.add("a"); // add low tint
-                    pg.msg.t.classList.remove("md"); // add tint (if applicable)
+                    pg.msg.t.classList.remove("d_n"); 
+                    setTimeout(function() {
+                        pg.msg.t.classList.add("a"); // add low tint
+                        pg.msg.t.classList.remove("md"); // add tint (if applicable)
+                    }, 10);
                 } else if (t) {
                     pg.msg.t.classList.remove("md"); 
                 } else { // no tint + show->hide message
@@ -2129,10 +2132,6 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                             setTimeout(function() {
                                 pg.msg.t.classList.remove("d_n"); 
                             }, op.t);
-                        } else {
-                            if (t && t_m) {
-                                pg.msg.t.classList.remove("d_n"); 
-                            }
                         }
                     }, pg.msg.r);   
                 }
