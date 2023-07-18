@@ -260,6 +260,10 @@ div, .tint {
     width: 80% !important;
 }
 
+.oe_wd {
+    width: 85% !important;
+}
+
 .m_wd-15 { /*marginalised width - accounting 15% of margin*/
     width: 85%;
 }

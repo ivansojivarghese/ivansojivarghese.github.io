@@ -1115,7 +1115,7 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "cache reload"; 
                 setCookie("cacheReload", null, -1); // delete
             } else if (op.er.dp) {
-                pg.msg.net_t.innerHTML = "performance"; 
+                pg.msg.net_t.innerHTML = "low performance"; 
                 setCookie("lowPerformance", null, -1); // delete
             }
     
