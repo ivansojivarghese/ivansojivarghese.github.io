@@ -777,6 +777,10 @@ div.locator_img {
     transform: translateY(30%);
 }
 
+.msg.down.c-x {
+    transform: translateY(30%) translateX(-50%);
+}
+
 .pill {
     width: 8em;
     height: 2em;
