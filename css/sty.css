@@ -1289,7 +1289,11 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }*/
 
 
+/* -------------- */
 
+#navbar a {
+    display: inline-block;
+}
 
 /* -------------- */
 /*
