@@ -135,7 +135,12 @@
     #profile_greetingSec, #lead_point, #c_Info-m, #lead_point_2, #profile_btn, #mid_sc_k, #mid_connect, #mid_sc_e {
         display: none;
     }
-    
+
+    #lead_wrap {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+    }
+
     #profile_image {
         width: 12rem;
         height: 12rem;
