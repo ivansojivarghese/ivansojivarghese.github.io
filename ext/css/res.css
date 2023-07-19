@@ -166,4 +166,8 @@
         position: relative;
         top: -3rem;
     }
+
+    .q_Info h6 {
+        margin-bottom: 1em;
+    }
 }
