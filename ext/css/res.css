@@ -146,4 +146,9 @@
     #profile_greetingFull {
         font-size: 1.6rem;
     }
+
+    #profile_banner {
+        display: inline-block;
+        width: calc(100vw - 13rem - 5vw);
+    }
 }
