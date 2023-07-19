@@ -168,7 +168,7 @@ function load_css_e() { // load CSS styles (page specific)
         el.ldw.classList.add("p_Bz");
 
         c_css("#intro_sc", "height: calc(" + aH + "px - 5.5rem)", false, null);
-        c_css(".q_Info, .q_Info > div", "margin: 0", false, null);
+        c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);
     }
 
     if (!vw.pH && !vw.tB) { // mobile
