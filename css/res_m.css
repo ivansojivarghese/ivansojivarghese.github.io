@@ -151,7 +151,7 @@
     }
 }
 
-/* ---------- tablet/phablet ---- */ 
+/* ---------- phablet ---- */ 
 
 @media screen and (min-width: 500px) and (orientation: portrait) {
     html {
@@ -316,9 +316,23 @@
 
 
 
+/* ---------- tablet ---- */ 
+
 @media screen and (min-height: 500px) and (orientation: landscape) {
     html {
         font-size: 22px;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .phablet {
+        display: none;
+    }
+
+    .tablet {
+        display: block;
     }
 }
 
