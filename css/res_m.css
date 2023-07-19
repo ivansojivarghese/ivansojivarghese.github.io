@@ -360,6 +360,10 @@
     #ckA_msg .attr {
         padding-left: 1.5rem;
     }
+
+    #net_msg_pill {
+        width: 20rem !important;
+    }
 }
 
 /*
