@@ -322,6 +322,7 @@ div, .tint {
 #navbar a {
     margin: 1.25rem 0;
     margin-right: 1rem;
+    width: 5rem;
 }
 
 #navbar h5 {
@@ -621,7 +622,7 @@ a.md, span.md {
     text-align: left;
 }
 
-.c_ta, .pill, .error_main, #load_sc {
+.c_ta, .pill, .error_main, #load_sc, #navbar a {
     text-align: center;
 }
 
