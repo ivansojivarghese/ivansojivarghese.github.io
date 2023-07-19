@@ -162,7 +162,7 @@ function load_css_e() { // load CSS styles (page specific)
         el.pb.classList.remove("m_L-10");
         el.pb.classList.remove("m_wd");
 
-        c_css("#intro_sc", "height: calc(" + aH + " - 5.5rem)", false, null);
+        c_css("#intro_sc", "height: calc(" + aH + "px - 5.5rem)", false, null);
     }
 
     if (!vw.pH && !vw.tB) { // mobile
