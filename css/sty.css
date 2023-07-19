@@ -595,7 +595,7 @@ a.md, span.md {
     display: none !important;
 }
 
-.phablet, .desktop { /*display control*/
+.phablet, .tablet, .desktop { /*display control*/
     display: none;
 }
 
