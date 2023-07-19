@@ -340,6 +340,10 @@
     .tablet {
         display: block;
     }
+
+    .head {
+        padding: 0;
+    }
 }
 
 /*
