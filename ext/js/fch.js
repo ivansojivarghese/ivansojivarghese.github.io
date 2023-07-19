@@ -166,6 +166,7 @@ function load_css_e() { // load CSS styles (page specific)
         pg.sc.d.classList.add("h-f");
         c_rep(el.ldw, "m_L-20", "m_L-10");
 
+        pg.sc.e.classList.add("h-f");
         pg.sc.e.classList.add("bC_d");
         pg.sc.e.classList.add("c_w");
 
