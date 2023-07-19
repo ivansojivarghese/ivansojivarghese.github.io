@@ -65,7 +65,8 @@ var wH = window.outerHeight, // height
         sc : { // sections
             m : document.getElementById("main_sc"), // main
             c : document.getElementById("content_sc"), // content
-            d : document.getElementById("lead_sc") // lead
+            d : document.getElementById("lead_sc"), // lead
+            e : document.getElementById("mid_sc")
         },
         msg : { // messages
             io : false, // in-out message? (show + hide)
