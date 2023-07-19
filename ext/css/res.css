@@ -136,6 +136,10 @@
         display: none;
     }
 
+    #lead_point_4 {
+        display: block;
+    }
+
     #lead_wrap {
         padding-top: 5rem;
         padding-bottom: 4rem;
