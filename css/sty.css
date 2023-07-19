@@ -319,6 +319,10 @@ div, .tint {
     font-weight: bold;
 }
 
+#navbar h5 {
+    font-size: 1.5rem;
+}
+
 .fL-r, .h_wd-s div:nth-child(2) {
     float: right;
 }
