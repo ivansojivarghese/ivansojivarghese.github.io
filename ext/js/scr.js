@@ -552,6 +552,6 @@ function sc_LpH() { // scroll loop - phablet
 
 if (!vw.pH && !vw.tB) { // only in mobile view
     sc_L();
-} else if (vw.pH) { // phablet
+} else if (vw.pH || vw.tB) { // phablet
     sc_LpH();
 }
