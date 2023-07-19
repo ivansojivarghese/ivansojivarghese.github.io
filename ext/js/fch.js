@@ -159,6 +159,8 @@ function load_css_e() { // load CSS styles (page specific)
     } else if (vw.tB) { // tablet
 
         el.i.classList.remove("m_Az");
+
+        c_css("#intro_sc", "height: calc(" + aH + " - 5.5rem)", false, null);
     }
 
     if (!vw.pH && !vw.tB) { // mobile

@@ -135,5 +135,15 @@
     #profile_image {
         width: 12rem;
         height: 12rem;
+        margin-left: 5%;
+        display: inline-block;
+    }
+
+    #intro_sc .logo-hybrid {
+        height: 2rem;
+    }
+
+    #profile_greetingFull {
+        font-size: 1.6rem;
     }
 }
