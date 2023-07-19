@@ -130,3 +130,10 @@
         margin-top: 3rem;
     }
 }
+
+@media screen and (min-height: 500px) and (orientation: landscape) {
+    #profile_image {
+        width: 12rem;
+        height: 12rem;
+    }
+}
