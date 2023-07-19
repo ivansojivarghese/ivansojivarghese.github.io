@@ -322,12 +322,17 @@ div, .tint {
 #navbar a {
     margin: 1.25rem 0;
     margin-right: 1rem;
-    width: 5rem;
+    width: 4rem;
 }
 
 #navbar h5 {
-    font-size: 1.5rem;
-    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    padding: 0.65rem 0;
+}
+
+#navbar .wrap {
+    width: 20rem;
+    margin-left: calc(100vw - 21rem);
 }
 
 .fL-r, .h_wd-s div:nth-child(2) {
