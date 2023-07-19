@@ -315,7 +315,7 @@ div, .tint {
     font-weight: normal;
 }
 
-.f_wg-b, .em, .hm h5, .pill h4, .pill h5, .action, #footer_blurb a {
+.f_wg-b, .em, .hm h5, .pill h4, .pill h5, .action, #navbar a, #footer_blurb a {
     font-weight: bold;
 }
 
@@ -1287,13 +1287,6 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
         transform: rotate(720deg);
     }
 }*/
-
-
-/* -------------- */
-
-#navbar a {
-    display: inline-block;
-}
 
 /* -------------- */
 /*
