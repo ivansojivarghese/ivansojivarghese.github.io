@@ -348,6 +348,18 @@
     .head_b {
         padding-top: 5.5rem;
     }
+
+    #ckA_msg {
+        width: 20rem;
+    }
+
+    .ham.mini.bt {
+        margin-left: calc(20rem - (1.8rem + 2em));
+    }
+
+    #ckA_msg .attr {
+        padding-left: 1.5rem;
+    }
 }
 
 /*
