@@ -59,6 +59,7 @@ var fchL = {
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
         bgC4 : document.getElementById("bg-cir4"),
+        ldw : document.getElementById("lead_wrap"),
         ldP : document.getElementById("lead_point"),
         ldP1 : document.getElementById("lead_point_1"),
         q1_t : document.getElementById("qIn1_typer"),
@@ -162,7 +163,12 @@ function load_css_e() { // load CSS styles (page specific)
         el.pb.classList.remove("m_L-10");
         el.pb.classList.remove("m_wd");
 
+        pg.sc.d.classList.add("h-f");
+        c_rep(el.ldw, "m_L-20", "m_L-10");
+        el.ldw.classList.add("p_Bz");
+
         c_css("#intro_sc", "height: calc(" + aH + "px - 5.5rem)", false, null);
+        c_css(".q_Info, .q_Info > div", "margin: 0", false, null);
     }
 
     if (!vw.pH && !vw.tB) { // mobile
