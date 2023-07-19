@@ -165,10 +165,10 @@ function load_css_e() { // load CSS styles (page specific)
 
         pg.sc.d.classList.add("h-f");
         c_rep(el.ldw, "m_L-20", "m_L-10");
-        el.ldw.classList.add("p_Bz");
 
         c_css("#intro_sc", "height: calc(" + aH + "px - 5.5rem)", false, null);
         c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);
+        c_css("#lead_wrap", "padding-bottom: 0", false, null);
     }
 
     if (!vw.pH && !vw.tB) { // mobile
