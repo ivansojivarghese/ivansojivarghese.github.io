@@ -975,6 +975,7 @@ function load_css() { // load up CSS (common)
     
     if (vw.tB) { // if tablet or desktop
         pg.msg.ckA.classList.add("c-x");
+        pg.msg.ckA_wrap.classList.remove("m_L-1");
     }
 
     if (op.b.f) { // if FIREFOX browser

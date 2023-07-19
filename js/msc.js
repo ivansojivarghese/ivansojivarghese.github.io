@@ -80,6 +80,7 @@ var wH = window.outerHeight, // height
             el : document.getElementById("msg_sc"), // el
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
+            ckA_wrap : document.getElementById("ckA_msg_wrap"), // "" wrap
             net : document.getElementById("net_msg"), // network
             net_p : document.getElementById("net_msg_pill"), // network - pill
             net_i : document.getElementById("net_msg-i"), // network - icon
