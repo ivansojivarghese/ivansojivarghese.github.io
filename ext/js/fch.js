@@ -156,6 +156,9 @@ function load_css_e() { // load CSS styles (page specific)
             el.qIc[k].classList.remove(qI_o[k]);
             el.qIc[k].classList.add(qI_c[k]);
         }
+    } else if (vw.tB) { // tablet
+
+        el.i.classList.remove("m_Az");
     }
 
     if (!vw.pH && !vw.tB) { // mobile
