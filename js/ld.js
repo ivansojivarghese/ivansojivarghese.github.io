@@ -961,7 +961,6 @@ function load_css() { // load up CSS (common)
     c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
     c_css(".trs_e", "transition-duration: " + (op.te / 1000) + "s;", false, null); // transition duration [ext.] (convert to sec.)
     c_css("#loadR-e", "animation-duration: " + (op.te / 1000) + "s;", false, null); // loading ring (end) animation dur.
-    // c_css(".head_b", "height: calc(var(--doc-height) - 7rem);", false, null); // set landing page to full height (exclusive of url bar on mobile/tablet devices)
 
     c_css(".m_T.vh", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
     c_css(".m_T.vhq", "margin-top: calc(" + (aH * 0.25) + "px)", false, null);
@@ -972,13 +971,11 @@ function load_css() { // load up CSS (common)
     if (vw.mB_L && !vw.z_S && tDevice) { // in landscape view (mobile), but NOT small viewport
         c_css(".err", "margin-top: calc((" + cH + "px - " + (num_Fs(op.f) * (0.9 + 2.52 + 1.65)) + "px) / 2);", false, null); // approx. height of text elements container (centre-align)
         eR[eR.h].children[0].classList.remove("c-y"); // modify styling (remove centre-alignment)
-    } /*else if (vw.mB_L && !vw.z_S) { // landscape, small
-        rL.dt.style.transform = "translateX(-50%) translateY(-100%)";
-    }*/
-    /*
+    } 
+    
     if (vw.tB) { // if tablet or desktop
-        hm.sc.classList.remove("active"); // de-activate hamburger menu
-    }*/
+        pg.msg.ckA.classList.add("c-x");
+    }
 
     if (op.b.f) { // if FIREFOX browser
         eR.z_e.h.innerHTML = "<span class='em'>zooming</span> is unpermitted"; // change #error_z information
@@ -986,18 +983,6 @@ function load_css() { // load up CSS (common)
         eR_t.z.innerHTML = "reload";
         eR_t.z.classList.remove("d_n");
     }
-
-    /*
-    if (op.b.f) {
-        pg.cond.el.classList.add("h-fp");
-    } else {
-        pg.cond.el.classList.add("h-f");
-    }*/
-    
-    /*
-    if (!op.b.f) { // if browser platform is NOT Firefox
-        document.documentElement.classList.add("scB"); // add smooth scroll behaviour
-    }*/
 }
 
 function load_jscss_N() { // load up JS/CSS (after page load; common)
