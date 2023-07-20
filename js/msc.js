@@ -66,7 +66,8 @@ var wH = window.outerHeight, // height
             m : document.getElementById("main_sc"), // main
             c : document.getElementById("content_sc"), // content
             d : document.getElementById("lead_sc"), // lead
-            e : document.getElementById("mid_sc")
+            e : document.getElementById("mid_sc"),
+            f : document.getElementById("footer_main_sc")
         },
         msg : { // messages
             io : false, // in-out message? (show + hide)
