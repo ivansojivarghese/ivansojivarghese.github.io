@@ -290,6 +290,10 @@
     margin-top: 5rem;
 }
 
+#blend_sc div {
+    background-color: #303030;
+}
+
 #blend_sc div:nth-child(1) {
     width: 50vw;
     height: 4rem;
