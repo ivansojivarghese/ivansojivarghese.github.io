@@ -290,6 +290,31 @@
     margin-top: 5rem;
 }
 
+#blend_sc:nth-child(1) {
+    width: 50vw;
+    height: 4rem;
+}
+
+#blend_sc:nth-child(2) {
+    width: 40vw;
+    height: 3rem;
+}
+
+#blend_sc:nth-child(3) {
+    width: 30vw;
+    height: 2rem;
+}
+
+#blend_sc:nth-child(4) {
+    width: 20vw;
+    height: 1rem;
+}
+
+#blend_sc:nth-child(5) {
+    width: 10vw;
+    height: 0.5rem;
+}
+
 /* REFERENCED FROM Goodkatz: https://codepen.io/goodkatz/pen/LYPGxQz */
 
 .waves {
