@@ -173,7 +173,7 @@ h1, h2, h3, h5, h6, p, ul {
     font-size: 0.85rem !important;
 }
 
-.t-u, #footer_blurb a {
+.t-u, #footer_blurb a, #mid_tablet_sc a {
     text-decoration: underline;
 }
 
@@ -315,7 +315,7 @@ div, .tint {
     font-weight: normal;
 }
 
-.f_wg-b, .em, .hm h5, .pill h4, .pill h5, .action, #navbar h5, #footer_blurb a {
+.f_wg-b, .em, .hm h5, .pill h4, .pill h5, .action, #navbar h5, #footer_blurb a, #mid_tablet_sc a {
     font-weight: bold;
 }
 
@@ -1330,7 +1330,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     height: 1em;
 }
 
-#footer_blurb p {
+#footer_blurb p, #mid_tablet_sc p {
     padding-bottom: 0.5em;
     margin-left: 10%;
 }
