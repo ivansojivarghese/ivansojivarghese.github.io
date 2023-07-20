@@ -170,4 +170,8 @@
     .q_Info h6 {
         margin-bottom: 1em;
     }
+
+    #stats {
+        margin-top: calc((100vh - 14rem) / 2);
+    }
 }
