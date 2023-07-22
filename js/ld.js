@@ -996,7 +996,12 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
-    c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
+    if (!vw.pH && !vw.tB) {
+        c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
+    } else if (vw.tB) {
+        c_css("#footer_sc .w-s", "height: calc(" + h + "px - 4rem);", false, null); // set height of footer design element
+    }
+
     if (document.getElementById("pf_scrollbar") && document.getElementById("prefooter_sc")) {
         var hpf = getBd(document.getElementById("prefooter_sc"), "height");
         c_css("#pf_scrollbar", "bottom: calc(" + (hm + hpf) + "px - " + 0 + "px)", false, null);
