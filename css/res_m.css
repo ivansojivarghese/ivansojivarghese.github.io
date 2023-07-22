@@ -364,6 +364,27 @@
     #net_msg_pill {
         width: 20rem !important;
     }
+
+    #footer_sc, #footer_sc .m_T.ex {
+        margin-top: 0;
+    }
+
+    #footer_sc .content {
+        padding-top: 0 !important;
+    }
+
+    #footer_sc h2 {
+        display: none;
+    }
+
+    #footer_sc .logo-inverse {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    #footer_sc .logo-inverse, #footer_sc .logo-inverse + div {
+        margin-left: calc(100% - 4rem);
+    }
 }
 
 /*
