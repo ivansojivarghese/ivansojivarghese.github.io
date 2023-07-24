@@ -399,6 +399,10 @@
         width: calc(100% - 4.9rem);
     }
 
+    #footer_end {
+        width: calc(100% - 10rem);
+    }
+
     #footer_sc .img_iconBtn.tablet {
         display: inline-block;
     }

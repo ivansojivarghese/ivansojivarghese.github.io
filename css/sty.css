@@ -1343,6 +1343,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     display: none;
 }
 
+#footer_end {
+    width: calc(100% - 4rem);
+}
+
 /* ------------- */
 /*
 .footer {
