@@ -323,7 +323,7 @@ function sc_L() { // functions (live on scroll)
 
     // scroll
 
-    if (b.pfsc.bottom && ((b.pfsc.bottom / 2) < aH) && !pf.x) {
+    if (b.pfsc.top && (b.pfsc.top < aH) && !pf.x) {
         pf.x = true;
         pf.sc.classList.add("inview");
     }
