@@ -810,6 +810,10 @@ div.locator_img {
     width: 0.1em;
 }
 
+.link_h {
+    height: 0.1em;
+}
+
 .img_icon, #js_message_dot, #load_dot {
     width: 1.8rem;
     height: 1.8rem;
