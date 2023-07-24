@@ -386,6 +386,10 @@
         margin-left: calc(100% - 4rem);
     }
 
+    #footer_sc .content {
+        margin-left: 5% !important;
+    }
+
     #footer_sc p {
         font-size: 0.8rem;
     }
