@@ -179,7 +179,7 @@ function load_css_e() { // load CSS styles (page specific)
             timeNow(el.Ltd); // show time
             el.Lt.classList.remove("d_n");
 
-            userCity = ipAPI("city").json(); // get user's nearest city (API)
+            userCity = ipAPI("city"); // get user's nearest city (API)
         }
     }
 
