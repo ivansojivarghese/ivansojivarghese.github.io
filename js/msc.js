@@ -2517,11 +2517,11 @@ function checkSplitScreen() {
                 } else if (checkFocus()) {
                     b = "fC";
                     op.fC = true;
-                } /*else if (eR.p === "ld") {
+                } else if (eR.p === "ld") {
                     b = "ld";
-                }*/
+                }
 
-                if (!op.oR && !op.wR) {
+                if (!op.oR && !op.wR && b !== "ld") {
 
                     eR.s = true;
                     op.sp = true; // split screen active
