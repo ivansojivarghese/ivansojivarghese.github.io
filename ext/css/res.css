@@ -184,6 +184,12 @@
 
 @media screen and (min-height: 600px) and (orientation: landscape) {
     .waves {
-        top: -2vh
+        top: -2vh;
+    }
+}
+
+@media screen and (min-height: 700px) and (orientation: landscape) {
+    .waves {
+        top: 1vh;
     }
 }
