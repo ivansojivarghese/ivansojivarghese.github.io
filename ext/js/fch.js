@@ -177,6 +177,8 @@ function load_css_e() { // load CSS styles (page specific)
         if (vw.dk) { // if desktop
             timeNow(el.Ltd); // show time
             el.Lt.classList.remove("d_n");
+
+            getCityAPI(); // get user's nearest city (API)
         }
     }
 
@@ -199,6 +201,13 @@ function load_css_e() { // load CSS styles (page specific)
         c_css(".bt:active", "background-color: #E4E4E4;", false, null); // apply button active states
         c_css(".bt.md:active", "background-color: #565656;", false, null);*/
     }
+}
+
+async function getCityAPI() {  // 50,000 per month limit
+    const request = await fetch("https://ipinfo.io/json?token=38ec70e8a088d5");
+    const jsonResponse = await request.json();
+
+    console.log(jsonResponse.ip, jsonResponse.country)
 }
 
 function load_js_e() { // load JS (page specific)
