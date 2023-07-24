@@ -11,10 +11,12 @@ function timeNow(el) {
 // effects
 
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
-    if (s) { // check if class is present before removing
-        el.classList.add("z_O"); // fade out
-    } else {
-        el.classList.remove("z_O"); // fade in
+    if (el) {
+        if (s) { // check if class is present before removing
+            el.classList.add("z_O"); // fade out
+        } else {
+            el.classList.remove("z_O"); // fade in
+        }
     }
 }
 
