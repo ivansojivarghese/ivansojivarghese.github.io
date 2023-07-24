@@ -198,4 +198,9 @@
     .waves {
         display: none;
     }
+
+    #profile_banner {
+        top: 0;
+        margin-left: 2vw;
+    }
 }
