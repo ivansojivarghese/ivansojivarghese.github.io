@@ -162,7 +162,7 @@
     #profile_banner {
         display: inline-block;
         width: calc(100vw - 14rem - 5vw);
-        margin-left: 1rem;
+        margin-left: 4vw;
         position: relative;
         top: -3rem;
     }
