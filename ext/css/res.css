@@ -175,3 +175,9 @@
         margin-top: calc((100vh - 14rem) / 2);
     }
 }
+
+@media screen and (min-width: 940px) and (min-height: 600px) and (orientation: landscape) {
+    #lead_point_4 p {
+        padding-bottom: 1.5em;
+    }
+}
