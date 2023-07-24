@@ -405,6 +405,8 @@
 
     #footer_sc .img_iconBtn.tablet {
         display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     #dw_btn {
