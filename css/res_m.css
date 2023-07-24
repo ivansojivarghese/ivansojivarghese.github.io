@@ -476,6 +476,18 @@
     }
 }
 
+@media screen and (min-height: 775px) and (orientation: landscape) {
+    html {
+        font-size: 33px;
+    }
+}
+
+@media screen and (min-height: 800px) and (orientation: landscape) {
+    html {
+        font-size: 34px;
+    }
+}
+
 
 /*
 @media screen and (min-height: 650px) and (orientation: landscape) {
