@@ -489,43 +489,6 @@
 }
 
 
-/*
-@media screen and (min-height: 650px) and (orientation: landscape) {
-    html {
-        font-size: 23px;
-    }
-}
-
-@media screen and (min-height: 700px) and (orientation: landscape) {
-    html {
-        font-size: 24px;
-    }
-}
-
-@media screen and (min-height: 730px) and (orientation: landscape) {
-    html {
-        font-size: 25px;
-    }
-}
-
-@media screen and (min-height: 760px) and (orientation: landscape), (min-height: 740px) and (min-width: 1100px) and (orientation: landscape) {
-    html {
-        font-size: 26px;
-    }
-}
-
-@media screen and (min-height: 780px) and (min-width: 1100px) and (orientation: landscape) {
-    html {
-        font-size: 27px;
-    }
-}
-
-@media screen and (min-height: 800px) and (orientation: landscape) {
-    html {
-        font-size: 28px;
-    }
-}*/
-
 
 
 /*iPad Pro - portrait 
@@ -534,6 +497,7 @@
         font-size: 38px;
     }
 }*/
+
 
 
 

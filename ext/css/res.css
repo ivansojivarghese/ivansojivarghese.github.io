@@ -193,3 +193,9 @@
         top: 1vh;
     }
 }
+
+@media screen and (min-width: 1200px) and (min-height: 700px) and (orientation: landscape) { 
+    .waves {
+        display: none;
+    }
+}
