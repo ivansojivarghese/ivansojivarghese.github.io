@@ -996,9 +996,9 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
-    if (!vw.pH && !vw.tB) {
+    if ((!vw.pH && !vw.tB) || vw.pH) { // mobile or phablet
         c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
-    } else if (vw.tB) {
+    } else if (vw.tB) { // tablet
         c_css("#footer_sc .w-s", "height: calc(" + h + "px - 4rem);", false, null); // set height of footer design element
     }
 
