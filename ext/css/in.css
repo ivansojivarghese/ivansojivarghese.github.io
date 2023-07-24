@@ -1,6 +1,10 @@
 
 /* file-specific styling */
 
+.head .link_h {
+    width: 11rem;
+}
+
 #lead_point_4, #mid_sc_p {
     display: none;
 }
