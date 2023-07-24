@@ -2898,6 +2898,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                         // from tablet to phablet, etc.
 
+                        reL();
+
                         // make modifications if needed
 
                     }
@@ -2947,6 +2949,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     } else if (wiH >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
 
                         // from phablet to tablet, desktop, etc.
+
+                        reL();
 
                         // make modifications if needed
 
