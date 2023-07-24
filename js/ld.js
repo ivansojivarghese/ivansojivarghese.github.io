@@ -1110,8 +1110,9 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
         z_S : false, // viewport size - small
         z_L : false, //  viewport size - large
         mB_L : false, // mobile - landscape
-        pH : false, // phablet
-        tB : false // tablet - landscape
+        pH : false, // phablet - portrait
+        tB : false, // tablet - landscape
+        dk : false, // desktop (or hybrid desktop) - landscape
     };
     if (w > 3100) { // if width greater than 3100, larger than average (SEE also msc.js Line 1866)
         v.z_L = true;
@@ -1132,6 +1133,9 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
             v.mB_L = true;
         } else {
             v.tB = true; 
+        }
+        if ((w >= 1200 && h >= 700) || h >= 800) { // height more than 1200, width more than 700 OR height more than 800
+            v.dk = true;
         }
     }
     return v;
