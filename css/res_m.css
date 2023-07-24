@@ -385,6 +385,15 @@
     #footer_sc .logo-inverse, #footer_sc .logo-inverse + div {
         margin-left: calc(100% - 4rem);
     }
+
+    #footer_sc p {
+        font-size: 0.8rem;
+    }
+
+    #footer_sc .wrap {
+        left: 4.9rem;
+        width: calc(100% - 4.9rem);
+    }
 }
 
 /*
