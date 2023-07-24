@@ -506,13 +506,15 @@
 /* ----- laptops (desktop) ----------- */
 
 /* smallest laptops */
+/*
 @media screen and (min-width: 1200px) and (min-height: 700px) { 
     html {
         font-size: 26px;
     }
-}
+}*/
 
 /* 1280px by 800px / 1366px by 768px */
+/*
 @media screen and (min-width: 1250px) and (min-height: 750px) {
     html {
         font-size: 28px;
@@ -521,18 +523,19 @@
     .mobile, .phablet {
         display: none;
     }
-    /*
+    
     .desktop {
         display: block;
-    }*/
-}
+    }
+}*/
 
 /* 1368px by 912px - Surface Pro 7 */
+/*
 @media screen and (min-width: 1250px) and (min-height: 850px) {
     html {
         font-size: 33px;
     }
-}
+}*/
 
 /*iPad Pro - landscape */
 @media screen and (min-width: 1300px) and (min-height: 1000px) and (orientation: landscape) {
