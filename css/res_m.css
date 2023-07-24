@@ -398,6 +398,10 @@
         left: 4.9rem;
         width: calc(100% - 4.9rem);
     }
+
+    #footer_sc .img_iconBtn {
+        display: inline-block;
+    }
 }
 
 /*
