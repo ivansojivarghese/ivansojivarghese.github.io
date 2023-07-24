@@ -399,7 +399,7 @@
         width: calc(100% - 4.9rem);
     }
 
-    #footer_sc .img_iconBtn {
+    #footer_sc .img_iconBtn.tablet {
         display: inline-block;
     }
 }
