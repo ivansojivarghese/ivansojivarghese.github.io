@@ -132,6 +132,10 @@
 }
 
 @media screen and (min-height: 500px) and (orientation: landscape) {
+    #intro_main {
+        height: 100vh;
+    }
+
     #profile_greetingSec, #lead_point, #c_Info-m, #lead_point_2, #profile_btn, #mid_sc_k, #mid_connect, #mid_sc_e {
         display: none;
     }
