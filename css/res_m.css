@@ -555,10 +555,10 @@
     .mobile, .phablet {
         display: none;
     }
-
+    /*
     .desktop {
         display: block;
-    }
+    }*/
 }
 
 /* 1368px by 912px - Surface Pro 7 */
