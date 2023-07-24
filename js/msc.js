@@ -2898,6 +2898,14 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                         // from tablet to phablet, etc.
 
+                        eR.m.classList.remove("d_n"); // show orientation change
+                        eR.or.classList.remove("d_n");
+                        e_Fd(disp, true);
+                        setTimeout(function () {
+                            e_Fd(eR.or, false);
+                            disp.classList.add("d_n");
+                        }, 10);
+
                         reL();
 
                         // make modifications if needed
@@ -2949,6 +2957,14 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     } else if (wiH >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
 
                         // from phablet to tablet, desktop, etc.
+
+                        eR.m.classList.remove("d_n"); // show orientation change
+                        eR.or.classList.remove("d_n");
+                        e_Fd(disp, true);
+                        setTimeout(function () {
+                            e_Fd(eR.or, false);
+                            disp.classList.add("d_n");
+                        }, 10);
 
                         reL();
 
