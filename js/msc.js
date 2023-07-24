@@ -3143,6 +3143,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
     } else if (vw.pH) { // phablet
         op.pwa.iBtn = document.getElementsByClassName("dw_btns")[0];
         op.pwa.iBtn_h = document.getElementsByClassName("dw_btn_h4s")[0];
+    } else if (vw.tB) { // tablet
+        op.pwa.iBtn = document.getElementsByClassName("dw_btns")[1];
+        op.pwa.iBtn_h = null;
     }
 
     e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
