@@ -142,7 +142,7 @@ function load_css_e() { // load CSS styles (page specific)
             timeNow(el.Ltd);
 
             el.pgph.innerHTML = "Hello. I'm";
-            el.Lt.classList.remove("d_n");
+            el.Lt.classList.remove("d_n"); // show time
             el.Lt.classList.add("d_i");
 
             el.mdh.innerHTML = "hours &";
@@ -173,6 +173,11 @@ function load_css_e() { // load CSS styles (page specific)
         c_css("#intro_sc", "height: calc(" + aH + "px - 5.5rem)", false, null);
         c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);
         c_css("#lead_wrap", "padding-bottom: 0", false, null);
+
+        if (vw.dk) { // if desktop
+            timeNow(el.Ltd); // show time
+            el.Lt.classList.remove("d_n");
+        }
     }
 
     if (!vw.pH && !vw.tB) { // mobile
