@@ -412,13 +412,32 @@
     }
 }
 
-/*
-@media screen and (min-height: 590px) and (orientation: landscape) {
+@media screen and (min-height: 525px) and (orientation: landscape) {
     html {
-        font-size: 22px;
+        font-size: 23px;
     }
 }
-*/
+
+@media screen and (min-height: 550px) and (orientation: landscape) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-height: 575px) and (orientation: landscape) {
+    html {
+        font-size: 25px;
+    }
+}
+
+@media screen and (min-height: 600px) and (orientation: landscape) {
+    html {
+        font-size: 26px;
+    }
+}
+
+
+/*
 @media screen and (min-height: 650px) and (orientation: landscape) {
     html {
         font-size: 23px;
@@ -429,7 +448,7 @@
     html {
         font-size: 24px;
     }
-}
+}*/
 
 @media screen and (min-height: 730px) and (orientation: landscape) {
     html {
