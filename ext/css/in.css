@@ -144,6 +144,7 @@
 .overlay { /* REFERENCE TO: christy-varghese @https://christy-varghese.github.io/ */
     background-color: var(--white-alpha-25);
     backdrop-filter: var(--backdrop-filter-blur);
+    -webkit-backdrop-filter: var(--backdrop-filter-blur);
 }
 
 .bg-circle {
