@@ -179,7 +179,7 @@ function load_css_e() { // load CSS styles (page specific)
             timeNow(el.Ltd); // show time
             el.Lt.classList.remove("d_n");
 
-            ipAPI(userCity, "city"); // get user's nearest city (API)
+            userCity = ipAPI("city").json(); // get user's nearest city (API)
         }
     }
 
@@ -204,12 +204,11 @@ function load_css_e() { // load CSS styles (page specific)
     }
 }
 
-async function ipAPI(v, r) {  // 50,000 per month limit, https://ipinfo.io/ 
+async function ipAPI(r) {  // 50,000 per month limit, https://ipinfo.io/ 
     const request = await fetch("https://ipinfo.io/json?token=38ec70e8a088d5");
     const jsonResponse = await request.json();
-    v = jsonResponse[r];
+    return jsonResponse[r]; // set response to variable
 
-    // console.log(jsonResponse.ip, jsonResponse.country)
 }
 
 function load_js_e() { // load JS (page specific)
