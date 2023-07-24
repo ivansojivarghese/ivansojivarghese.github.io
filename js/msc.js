@@ -3184,7 +3184,10 @@ function hideInstallPromotion() { // de-activate install button
     if (op.pwa.i) { // if installed
         installBtnToggle(false);
     } else {
-        if (hm.e) {
+        if (hm.e && (vw.pH || (!vw.pH && !vw.tB))) {
+            op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
+            op.pwa.iBtn.classList.add("o-img"); // hide button
+        } else if (vw.tB) {
             op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
             op.pwa.iBtn.classList.add("o-img"); // hide button
         }
