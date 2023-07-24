@@ -391,7 +391,7 @@
     }
 
     #footer_sc p {
-        font-size: 0.8rem;
+        font-size: 0.8rem !important;
     }
 
     #footer_sc .wrap {
