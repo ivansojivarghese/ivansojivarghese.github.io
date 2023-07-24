@@ -3,6 +3,7 @@
 
 .head .link_h {
     width: 11rem;
+    left: calc(100vw - 11rem);
 }
 
 #lead_point_4, #mid_sc_p {
