@@ -3157,7 +3157,16 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 function showInstallPromotion() { // activate install button
     op.pwa.a = true;
-    if (hm.e) {
+    if (hm.e && (vw.pH || (!vw.pH && !vw.tB))) { // mobile/phablet - hamburger menu
+        if (op.pwa.x) {
+            op.pwa.iBtn.classList.remove("o-img"); // show button
+            setTimeout(function() {
+                op.pwa.iBtn.addEventListener("click", installPrompt); // add click functio
+            }, op.t);            
+        } else {
+            installBtnToggle(true);
+        }
+    } else if (vw.tB) {
         if (op.pwa.x) {
             op.pwa.iBtn.classList.remove("o-img"); // show button
             setTimeout(function() {
