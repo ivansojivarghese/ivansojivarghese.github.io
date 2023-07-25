@@ -183,7 +183,11 @@ function load_css_e() { // load CSS styles (page specific)
             el.Lt.classList.remove("d_n");
 
             ipAPI(); // get user IP information API
-            if (!ipAPIres.error && ipAPIres.online) { // if no errors, proceed
+            if (!ipAPIres.error) {
+
+                
+
+            } else if (ipAPIres.online) { // if no errors & online, proceed
                 var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
                     lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length); // get user longitude
 
