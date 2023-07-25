@@ -207,10 +207,20 @@ function load_css_e() { // load CSS styles (page specific)
 }
 
 async function ipAPI() {  // 50,000 per month limit, https://ipinfo.io/ 
+    /*
     const request = await fetch("https://ipinfo.io/json?token=38ec70e8a088d5");
     const jsonResponse = request.json();
 
-    ipAPIres = jsonResponse;
+    ipAPIres = jsonResponse;*/
+
+    await fetch("https://ipinfo.io/json?token=38ec70e8a088d5")
+        .then((response) => {
+            return response.json().then((data) => {
+                ipAPIres = data;
+            }).catch((error) => {
+                console.log(error);
+            });
+        })
 }
 
 function load_js_e() { // load JS (page specific)
