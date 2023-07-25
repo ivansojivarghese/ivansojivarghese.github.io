@@ -205,17 +205,10 @@ function load_css_e() { // load CSS styles (page specific)
 }
 
 async function ipAPI(r) {  // 50,000 per month limit, https://ipinfo.io/ 
-    /*
-    await fetch("https://ipinfo.io/json?token=38ec70e8a088d5")
-        .then((response) => response.json())
-        .then((result) => {
-            v = result[r];
-        });
-    */
     const request = await fetch("https://ipinfo.io/json?token=38ec70e8a088d5");
     const jsonResponse = request.json();
-    return jsonResponse[r]; // set response to variable
-    
+
+    userCity = jsonResponse[r]; // set response to variable
 }
 
 function load_js_e() { // load JS (page specific)
