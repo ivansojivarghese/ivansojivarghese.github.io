@@ -276,6 +276,8 @@ function load_js_e() { // load JS (page specific)
         var dkAPI = function() {
             if (ipAPIres.error) {
 
+                apiSuccess = false;
+
                 ///////
                 // SET a loop to continously check for variable within timeout time
 
@@ -289,6 +291,7 @@ function load_js_e() { // load JS (page specific)
                 var wtAPI = function() {
                     if (weatherAPIres.error) {
 
+                        apiSuccess = false;
                         /////////////
 
                     } else if (weatherAPIres.online) {
@@ -300,6 +303,7 @@ function load_js_e() { // load JS (page specific)
 
                     } else {
 
+                        apiSuccess = false;
                         ////////////
                     }
                 }
@@ -311,6 +315,7 @@ function load_js_e() { // load JS (page specific)
 
             } else {
 
+                apiSuccess = false;
                 ///////////
             }
         }
@@ -320,7 +325,7 @@ function load_js_e() { // load JS (page specific)
 }
 
 function js_load() { // check JS load progress (indiv.)
-    if (!apiSuccess) {
+    if (!apiSuccess) { // check load status of APIs
         return false;
     }
     return true;
