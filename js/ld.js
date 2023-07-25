@@ -781,7 +781,7 @@ function load_e() { // end the loading sequence
                     estimateNetworkSpeed_abort.abort();
                 }, op.te);
 
-            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
+            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && js_load() && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
 
                 rL.i_s = false;
                 rL.r_s = false;

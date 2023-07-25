@@ -81,6 +81,7 @@ var gyroscopeX = 0,
 
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
+    apiSuccess = false, // check
     ipAPIres = {},
     weatherAPIres = {};
 
@@ -316,6 +317,13 @@ function load_js_e() { // load JS (page specific)
 
         dkAPI();
     }
+}
+
+function js_load() { // check JS load progress (indiv.)
+    if (!apiSuccess) {
+        return false;
+    }
+    return true;
 }
 
 function js_live() { // update js - in live
