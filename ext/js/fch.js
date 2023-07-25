@@ -183,9 +183,9 @@ function load_css_e() { // load CSS styles (page specific)
             el.Lt.classList.remove("d_n");
 
             ipAPI(); // get user IP information API
-            if (!ipAPIres.error) {
+            if (ipAPIres.error) {
 
-                
+
 
             } else if (ipAPIres.online) { // if no errors & online, proceed
                 var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
