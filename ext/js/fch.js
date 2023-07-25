@@ -198,6 +198,8 @@ function load_css_e() { // load CSS styles (page specific)
                     weatherAPI(lat, lon, unit); // get user location weather information API
                 }
 
+                clearInterval(ipAPILoop);
+                
                 ipAPILoop = setInterval(dkAPI, dev.i);
             }
 
@@ -243,8 +245,6 @@ async function ipAPI() {  // 50,000 per month limit, https://ipinfo.io/
 }
 
 async function weatherAPI(lat, lon, unit) { // 1,000,000 per month, 60 per minute limits, https://openweathermap.org/
-    clearInterval(ipAPILoop);
-
     await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=" + unit + "&appid=62dfc011a0d14a0996e185364706fe76")
         .then((response) => {
             return response.json().then((data) => {
