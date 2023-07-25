@@ -79,7 +79,8 @@ let gyroscope = null;
 var gyroscopeX = 0,
     gyroscopeY = 0;
 
-var ipAPIres = {};
+var ipAPIres = {},
+    weatherAPIres = {};
 
 
 
@@ -182,6 +183,7 @@ function load_css_e() { // load CSS styles (page specific)
             el.Lt.classList.remove("d_n");
 
             ipAPI(); // get user IP information API
+            weatherAPI(); // get user location weather information API
         }
     }
 
@@ -206,6 +208,8 @@ function load_css_e() { // load CSS styles (page specific)
     }
 }
 
+////////////////////////////////////////////////////////////////////////////
+
 async function ipAPI() {  // 50,000 per month limit, https://ipinfo.io/ 
     await fetch("https://ipinfo.io/json?token=38ec70e8a088d5")
         .then((response) => {
@@ -216,6 +220,19 @@ async function ipAPI() {  // 50,000 per month limit, https://ipinfo.io/
             });
         })
 }
+
+async function weatherAPI() { // 1,000,000 per month, 60 per minute limits, https://openweathermap.org/
+    await fetch("https://api.openweathermap.org/data/2.5/weather?lat=1.3420&lon=103.6953&appid=62dfc011a0d14a0996e185364706fe76")
+        .then((response) => {
+            return response.json().then((data) => {
+                weatherAPIres = data;
+            }).catch((error) => {
+                console.log(error);
+            });
+        })
+}
+
+/////////////////////////////////////////////////////////////////////////////
 
 function load_js_e() { // load JS (page specific)
     var b = getBd(hm.b, "bottom"), // obtain 'bottom' bound of ham. button
