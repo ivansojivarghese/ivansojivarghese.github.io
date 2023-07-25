@@ -79,7 +79,9 @@ let gyroscope = null;
 var gyroscopeX = 0,
     gyroscopeY = 0;
 
-var userCity = "";
+var ipAPIres = {};
+
+
 
 function live_update() {
     if (rL.i && ((vw.pH && wiD >= 700) || (vw.dk))) {
@@ -204,11 +206,11 @@ function load_css_e() { // load CSS styles (page specific)
     }
 }
 
-async function ipAPI(r) {  // 50,000 per month limit, https://ipinfo.io/ 
+async function ipAPI() {  // 50,000 per month limit, https://ipinfo.io/ 
     const request = await fetch("https://ipinfo.io/json?token=38ec70e8a088d5");
     const jsonResponse = request.json();
 
-    userCity = jsonResponse[r]; // set response to variable
+    ipAPIres = jsonResponse;
 }
 
 function load_js_e() { // load JS (page specific)
