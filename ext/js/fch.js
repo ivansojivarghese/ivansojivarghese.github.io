@@ -190,6 +190,7 @@ function load_css_e() { // load CSS styles (page specific)
             var dkAPI = function() {
                 if (ipAPIres.error) {
 
+                    ///////
                     // SET a loop to continously check for variable within timeout time
 
                 } else if (ipAPIres.online) { // if no errors & online, proceed
@@ -199,16 +200,14 @@ function load_css_e() { // load CSS styles (page specific)
 
                     weatherAPI(lat, lon, unit); // get user location weather information API
 
-                    
+
 
                 } else if ((op.d.getTime() - apiInit) < apiTimeout) {
                     setTimeout(dkAPI, op.t); // recheck variable if API load still within timeout range
                 }
             }
 
-            if (!ipAPILoop) {
-                dkAPI();
-            }
+            dkAPI();
         }
     }
 
@@ -252,8 +251,9 @@ async function weatherAPI(lat, lon, unit) { // 1,000,000 per month, 60 per minut
         .then((response) => {
             return response.json().then((data) => {
                 weatherAPIres = data;
+                weatherAPIres.online = true;
             }).catch((error) => {
-                console.log(error);
+                weatherAPIres.error = true;
             });
         })
 }
