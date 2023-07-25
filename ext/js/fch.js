@@ -183,7 +183,12 @@ function load_css_e() { // load CSS styles (page specific)
             el.Lt.classList.remove("d_n");
 
             ipAPI(); // get user IP information API
-            weatherAPI(); // get user location weather information API
+            if (!ipAPIres.error) { // if no errors, proceed
+                var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
+                    lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length); // get user longitude
+
+                weatherAPI(lat, lon, null); // get user location weather information API
+            }
         }
     }
 
@@ -216,13 +221,13 @@ async function ipAPI() {  // 50,000 per month limit, https://ipinfo.io/
             return response.json().then((data) => {
                 ipAPIres = data;
             }).catch((error) => {
-                console.log(error);
+                ipAPIres.error = true;
             });
         })
 }
 
-async function weatherAPI() { // 1,000,000 per month, 60 per minute limits, https://openweathermap.org/
-    await fetch("https://api.openweathermap.org/data/2.5/weather?lat=1.3420&lon=103.6953&units=metric&appid=62dfc011a0d14a0996e185364706fe76")
+async function weatherAPI(lat, lon, unit) { // 1,000,000 per month, 60 per minute limits, https://openweathermap.org/
+    await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=metric&appid=62dfc011a0d14a0996e185364706fe76")
         .then((response) => {
             return response.json().then((data) => {
                 weatherAPIres = data;
