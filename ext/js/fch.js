@@ -199,7 +199,7 @@ function load_css_e() { // load CSS styles (page specific)
                     clearInterval(ipAPILoop);
                 }
 
-                ipAPILoop = setInterval(dkAPI, op.Ls);
+                ipAPILoop = setInterval(dkAPI, dev.i);
             }
 
             dkAPI();
