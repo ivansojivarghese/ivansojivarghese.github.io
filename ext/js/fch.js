@@ -222,7 +222,7 @@ async function ipAPI() {  // 50,000 per month limit, https://ipinfo.io/
 }
 
 async function weatherAPI() { // 1,000,000 per month, 60 per minute limits, https://openweathermap.org/
-    await fetch("https://api.openweathermap.org/data/2.5/weather?lat=1.3420&lon=103.6953&appid=62dfc011a0d14a0996e185364706fe76")
+    await fetch("https://api.openweathermap.org/data/2.5/weather?lat=1.3420&lon=103.6953&units=metric&appid=62dfc011a0d14a0996e185364706fe76")
         .then((response) => {
             return response.json().then((data) => {
                 weatherAPIres = data;
