@@ -180,57 +180,6 @@ function load_css_e() { // load CSS styles (page specific)
         c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);
         c_css("#lead_wrap", "padding-bottom: 0", false, null);
 
-        if (vw.dk) { // if desktop
-            timeNow(el.Ltd); // show time
-            el.Lt.classList.remove("d_n");
-
-            apiInit = op.d.getTime();
-            ipAPI(); // get user IP information API
-
-            var dkAPI = function() {
-                if (ipAPIres.error) {
-
-                    ///////
-                    // SET a loop to continously check for variable within timeout time
-
-                } else if (ipAPIres.online) { // if no errors & online, proceed
-                    var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
-                        lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
-                        unit = tempUnit(ipAPIres.country);
-
-                    weatherAPI(lat, lon, unit); // get user location weather information API
-
-                    var wtAPI = function() {
-                        if (weatherAPIres.error) {
-
-                            /////////////
-
-                        } else if (weatherAPIres.online) {
-
-                            // EDIT INFO TO HTML
-
-                        } else if ((op.d.getTime() - apiInit) < apiTimeout) {
-                            setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
-
-                        } else {
-
-                            ////////////
-                        }
-                    }
-
-                    wtAPI();
-
-                } else if ((op.d.getTime() - apiInit) < apiTimeout) {
-                    setTimeout(dkAPI, op.t); // recheck variable if API load still within timeout range
-    
-                } else {
-
-                    ///////////
-                }
-            }
-
-            dkAPI();
-        }
     }
 
     if (!vw.pH && !vw.tB) { // mobile
@@ -314,6 +263,58 @@ function load_js_e() { // load JS (page specific)
             }
             i++;
         }
+    }
+
+    if (vw.dk) { // if desktop
+        timeNow(el.Ltd); // show time
+        el.Lt.classList.remove("d_n");
+
+        apiInit = op.d.getTime();
+        ipAPI(); // get user IP information API
+
+        var dkAPI = function() {
+            if (ipAPIres.error) {
+
+                ///////
+                // SET a loop to continously check for variable within timeout time
+
+            } else if (ipAPIres.online) { // if no errors & online, proceed
+                var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
+                    lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
+                    unit = tempUnit(ipAPIres.country);
+
+                weatherAPI(lat, lon, unit); // get user location weather information API
+
+                var wtAPI = function() {
+                    if (weatherAPIres.error) {
+
+                        /////////////
+
+                    } else if (weatherAPIres.online) {
+
+                        // EDIT INFO TO HTML
+
+                    } else if ((op.d.getTime() - apiInit) < apiTimeout) {
+                        setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
+
+                    } else {
+
+                        ////////////
+                    }
+                }
+
+                wtAPI();
+
+            } else if ((op.d.getTime() - apiInit) < apiTimeout) {
+                setTimeout(dkAPI, op.t); // recheck variable if API load still within timeout range
+
+            } else {
+
+                ///////////
+            }
+        }
+
+        dkAPI();
     }
 }
 
