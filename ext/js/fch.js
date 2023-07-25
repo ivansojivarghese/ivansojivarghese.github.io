@@ -212,7 +212,8 @@ async function ipAPI(r) {  // 50,000 per month limit, https://ipinfo.io/
             v = result[r];
         });
     */
-    const jsonResponse = await request.json();
+    const request = await fetch("https://ipinfo.io/json?token=38ec70e8a088d5");
+    const jsonResponse = request.json();
     return jsonResponse[r]; // set response to variable
     
 }
