@@ -196,11 +196,12 @@ function load_css_e() { // load CSS styles (page specific)
                         unit = tempUnit(ipAPIres.country);
 
                     weatherAPI(lat, lon, unit); // get user location weather information API
+
+
                 }
 
-                clearInterval(ipAPILoop);
-                
-                ipAPILoop = setInterval(dkAPI, dev.i);
+                // ipAPILoop = setInterval(dkAPI, dev.i);
+                setTimeout(dkAPI, dev.i);
             }
 
             if (!ipAPILoop) {
