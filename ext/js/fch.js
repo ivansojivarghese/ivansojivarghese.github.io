@@ -185,7 +185,7 @@ function load_css_e() { // load CSS styles (page specific)
             ipAPI(); // get user IP information API
             if (ipAPIres.error) {
 
-
+                // SET a loop to continously check for variable within timeout time
 
             } else if (ipAPIres.online) { // if no errors & online, proceed
                 var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
