@@ -79,8 +79,9 @@ let gyroscope = null;
 var gyroscopeX = 0,
     gyroscopeY = 0;
 
-var ipAPIres = {},
-    ipAPILoop = null,
+var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
+    apiInit = 0, // init time for API load
+    ipAPIres = {},
     weatherAPIres = {};
 
 
@@ -183,6 +184,7 @@ function load_css_e() { // load CSS styles (page specific)
             timeNow(el.Ltd); // show time
             el.Lt.classList.remove("d_n");
 
+            apiInit = op.d.getTime();
             ipAPI(); // get user IP information API
 
             var dkAPI = function() {
@@ -197,10 +199,10 @@ function load_css_e() { // load CSS styles (page specific)
 
                     weatherAPI(lat, lon, unit); // get user location weather information API
 
+                    
 
-                } else {
-                    // ipAPILoop = setInterval(dkAPI, dev.i);
-                    setTimeout(dkAPI, dev.i);
+                } else if ((op.d.getTime() - apiInit) < apiTimeout) {
+                    setTimeout(dkAPI, op.t); // recheck variable if API load still within timeout range
                 }
             }
 
