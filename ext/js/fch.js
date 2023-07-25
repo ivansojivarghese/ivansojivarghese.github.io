@@ -200,7 +200,21 @@ function load_css_e() { // load CSS styles (page specific)
 
                     weatherAPI(lat, lon, unit); // get user location weather information API
 
+                    var wtAPI = function() {
+                        if (weatherAPIres.error) {
 
+                            /////////////
+
+                        } else if (weatherAPIres.online) {
+
+                            // EDIT INFO TO HTML
+
+                        } else if ((op.d.getTime() - apiInit) < apiTimeout) {
+                            setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
+                        }
+                    }
+
+                    wtAPI();
 
                 } else if ((op.d.getTime() - apiInit) < apiTimeout) {
                     setTimeout(dkAPI, op.t); // recheck variable if API load still within timeout range
