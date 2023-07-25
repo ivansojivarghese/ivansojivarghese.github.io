@@ -193,7 +193,7 @@ function load_css_e() { // load CSS styles (page specific)
                 } else if (ipAPIres.online) { // if no errors & online, proceed
                     var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
                         lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
-                        unit;
+                        unit = tempUnit(ipAPIres.country);
 
                     weatherAPI(lat, lon, unit); // get user location weather information API
                 }
@@ -253,6 +253,12 @@ async function weatherAPI(lat, lon, unit) { // 1,000,000 per month, 60 per minut
                 console.log(error);
             });
         })
+}
+
+function tempUnit(c) { // return unit of measure per user country location
+    for (var x in f_countries) {
+        
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////
