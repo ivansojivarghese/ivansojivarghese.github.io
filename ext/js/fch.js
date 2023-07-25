@@ -202,7 +202,9 @@ function load_css_e() { // load CSS styles (page specific)
                 ipAPILoop = setInterval(dkAPI, dev.i);
             }
 
-            dkAPI();
+            if (!ipAPILoop) {
+                dkAPI();
+            }
         }
     }
 
