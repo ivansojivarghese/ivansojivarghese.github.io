@@ -80,6 +80,7 @@ var gyroscopeX = 0,
     gyroscopeY = 0;
 
 var ipAPIres = {},
+    ipAPILoop = null,
     weatherAPIres = {};
 
 
@@ -183,16 +184,25 @@ function load_css_e() { // load CSS styles (page specific)
             el.Lt.classList.remove("d_n");
 
             ipAPI(); // get user IP information API
-            if (ipAPIres.error) {
 
-                // SET a loop to continously check for variable within timeout time
+            var dkAPI = function() {
+                if (ipAPIres.error) {
 
-            } else if (ipAPIres.online) { // if no errors & online, proceed
-                var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
-                    lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length); // get user longitude
+                    // SET a loop to continously check for variable within timeout time
 
-                weatherAPI(lat, lon, null); // get user location weather information API
+                } else if (ipAPIres.online) { // if no errors & online, proceed
+                    var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
+                        lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length); // get user longitude
+
+                    weatherAPI(lat, lon, null); // get user location weather information API
+
+                    clearInterval(ipAPILoop);
+                }
+
+                ipAPILoop = setInterval(dkAPI, op.Ls);
             }
+
+            dkAPI();
         }
     }
 
