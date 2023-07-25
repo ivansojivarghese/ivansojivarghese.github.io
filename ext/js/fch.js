@@ -211,6 +211,10 @@ function load_css_e() { // load CSS styles (page specific)
 
                         } else if ((op.d.getTime() - apiInit) < apiTimeout) {
                             setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
+
+                        } else {
+
+                            ////////////
                         }
                     }
 
@@ -218,6 +222,10 @@ function load_css_e() { // load CSS styles (page specific)
 
                 } else if ((op.d.getTime() - apiInit) < apiTimeout) {
                     setTimeout(dkAPI, op.t); // recheck variable if API load still within timeout range
+    
+                } else {
+
+                    ///////////
                 }
             }
 
