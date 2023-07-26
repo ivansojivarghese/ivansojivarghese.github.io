@@ -1343,7 +1343,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     font-size: 1rem;
 }
 
-#footer_sc .img_iconBtn {
+#footer_sc .img_iconBtn.tablet {
     display: none;
 }
 
