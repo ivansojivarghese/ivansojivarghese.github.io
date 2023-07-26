@@ -304,7 +304,7 @@ function load_js_e() { // load JS (page specific)
                         // EDIT INFO TO HTML
                         weather.r.innerHTML = Math.round(weatherAPIres.main.temp);
                         weather.u.innerHTML = (tempUnit(ipAPIres.country) === "metric") ? "C" : "F";
-                        weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png');";
+                        weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
 
                         apiSuccess = true;
 
