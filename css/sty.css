@@ -362,7 +362,7 @@ div, .tint {
     z-index: 0;
 }
 
-.trs {
+.trs, .trs_e.trs_md {
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
     transition-delay: 0s;
     transition-property: all;
