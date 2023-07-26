@@ -787,6 +787,11 @@ div.locator_img {
     top: calc(100vh - 2em - 1.5rem - 1.5em);
 }*/
 
+.up {
+    opacity: 0;
+    transform: translateY(-30%);
+}
+
 .msg.down {
     opacity: 0;
     transform: translateY(30%);
