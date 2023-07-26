@@ -289,7 +289,7 @@
 
 #localWeather {
     top: 8rem;
-    left: calc(100vw - 10rem);
+    left: calc(100vw - 9.6rem);
     width: 8rem;
     height: 1.8rem;
 }
@@ -301,7 +301,7 @@
 
 #localCity { 
     top: 9.8rem;
-    left: calc(100vw - 15rem);
+    left: calc(100vw - 14.6rem);
     width: 13rem;
 }
 
