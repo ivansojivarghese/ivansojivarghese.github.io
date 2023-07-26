@@ -83,7 +83,12 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
     apiSuccess = false, // check
     ipAPIres = {},
-    weatherAPIres = {};
+    weatherAPIres = {},
+    weather = {
+        r : document.getElementById("localWeatherReading"),
+        u : document.getElementById("localWeatherUnit"),
+        i : document.getElementById("localWeatherIcon")
+    };
 
 
 
@@ -297,6 +302,10 @@ function load_js_e() { // load JS (page specific)
                     } else if (weatherAPIres.online) {
 
                         // EDIT INFO TO HTML
+                        weather.r.innerHTML = Math.round(weatherAPIres.main.temp);
+                        weather.u.innerHTML = (tempUnit(ipAPIres.country) === "metric") ? "C" : "F";
+
+                        apiSuccess = true;
 
                     } else if ((op.d.getTime() - apiInit) < apiTimeout) {
                         setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
