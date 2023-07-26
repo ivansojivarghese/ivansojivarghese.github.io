@@ -85,6 +85,8 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     ipAPIres = {},
     weatherAPIres = {},
     weather = {
+        elw : document.getElementById("localWeather"),
+        elc : document.getElementById("localCity"),
         c : document.getElementById("localCityName"),
         r : document.getElementById("localWeatherReading"),
         u : document.getElementById("localWeatherUnit"),
@@ -319,8 +321,6 @@ function load_js_e() { // load JS (page specific)
 
                         weatherIcon();
 
-                        // weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
-
                     } else if ((op.d.getTime() - apiInit) < apiTimeout) {
                         setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
 
@@ -350,6 +350,9 @@ function load_js_e() { // load JS (page specific)
 function js_load() { // check JS load progress (indiv.)
     if (apiSuccess === false) { // check load status of APIs
         return false;
+    } else if (apiSuccess === null) { // if API fails to load
+        weather.elw.classList.add("d_n"); // don't display
+        weather.elc.classList.add("d_n");
     }
     return true;
 }
