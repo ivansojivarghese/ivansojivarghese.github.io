@@ -408,7 +408,7 @@
     }
 
     #footer_end {
-        width: calc(100% - 10rem);
+        width: calc(100% - 7rem);
     }
 
     #footer_sc .img_iconBtn.tablet {
