@@ -465,7 +465,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 }
             };
         el.lk4.classList.remove("z_wd"); // add width on link_4
-
+        s();
     }
 }
 
