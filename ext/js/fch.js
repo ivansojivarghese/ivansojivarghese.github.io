@@ -453,6 +453,17 @@ function load_eN() { // load, after cookie acceptance (page specific)
         }
     } else if (vw.dk) { // desktop
 
+        var w = 0;
+            s = function() {
+                if (w < el.n.length) {
+                    el.n[w].classList.remove("d_n");
+                    setTimeout(function() {
+                        el.n[w].classList.remove("up");
+                        w++;
+                        setTimeout(s, op.t)
+                    }, 10);
+                }
+            };
         el.lk4.classList.remove("z_wd"); // add width on link_4
 
     }
