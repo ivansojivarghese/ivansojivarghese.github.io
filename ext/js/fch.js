@@ -374,43 +374,40 @@ function js_load() { // check JS load progress (indiv.)
 }
 
 function js_live() { // update js - in live
-    // var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
-    // if (d > pos.st) {
-        if (!el.ac) { 
-            if ((!pg.msg.fo && pos.aT) && el.x) { // if page online AND not scrolled
-                el.lk3b.classList.remove("d_n");
-                load_eN(); // reload scroll arrow feature
-                el.x = false;
-            }
-        } else {
-            if ((!pos.aT && !el.x3) || pg.msg.fo) { // if scrolled OR offline
-                el.x3 = true;
-                el.lk3.removeEventListener("click", peek); 
-                e_Fd(el.lk3b, true); // fade out 
-                e_Fd(el.chev, true); 
-                setTimeout(function() {
-                    el.lk3b.style.height = "0px"; // set link to 0 height
-                }, op.t);
-            } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
-                e_Fd(el.lk3b, false); // fade in
-                load_eN();
-                setTimeout(function() {
-                    el.x3 = false;
-                }, op.t);
-            }
+    if (!el.ac) { 
+        if ((!pg.msg.fo && pos.aT) && el.x) { // if page online AND not scrolled
+            el.lk3b.classList.remove("d_n");
+            load_eN(); // reload scroll arrow feature
+            el.x = false;
         }
-        if (!pos.aT && !el.x9) { // hide hamburger button
-            el.x9 = true;
-            hamButtonLoad(false);
-        } else if (pos.aT && el.x9 && !el.x10) { // show
-            el.x9 = false;
-            el.x10 = true;
-            hamButtonLoad(true);
-        } else if (pos.aT && !pos.c && el.x10 && el.x2 && el.x9) { // show
-            el.x9 = false;
-            hamButtonLoad(true); 
+    } else {
+        if ((!pos.aT && !el.x3) || pg.msg.fo) { // if scrolled OR offline
+            el.x3 = true;
+            el.lk3.removeEventListener("click", peek); 
+            e_Fd(el.lk3b, true); // fade out 
+            e_Fd(el.chev, true); 
+            setTimeout(function() {
+                el.lk3b.style.height = "0px"; // set link to 0 height
+            }, op.t);
+        } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
+            e_Fd(el.lk3b, false); // fade in
+            load_eN();
+            setTimeout(function() {
+                el.x3 = false;
+            }, op.t);
         }
-    // }
+    }
+    if (!pos.aT && !el.x9) { // hide hamburger button
+        el.x9 = true;
+        hamButtonLoad(false);
+    } else if (pos.aT && el.x9 && !el.x10) { // show
+        el.x9 = false;
+        el.x10 = true;
+        hamButtonLoad(true);
+    } else if (pos.aT && !pos.c && el.x10 && el.x2 && el.x9) { // show
+        el.x9 = false;
+        hamButtonLoad(true); 
+    }
 }
 
 function load_eN() { // load, after cookie acceptance (page specific)
