@@ -193,10 +193,7 @@ function load_css_e() { // load CSS styles (page specific)
         if (vw.dk) { // desktop
             for (w = 0; w <= el.n.length - 1; w++) { // set up animating navbar elements
                 el.n[w].classList.add("up");
-                if (w < el.n.length - 1) {
-                    el.n[w].setAttribute("href", "");
-                    el.n[w].setAttribute("onclick", "");
-                }
+                el.n[w].classList.add("d_n");
             }
 
 
