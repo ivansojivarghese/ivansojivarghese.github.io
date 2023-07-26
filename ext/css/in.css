@@ -289,10 +289,13 @@
 
 #localWeather {
     top: 8rem;
-    left: calc(100vw - 8rem);
-    width: 6rem;
-    height: 2rem;
+    left: calc(100vw - 10rem);
+    width: 8rem;
     background-color: red;
+}
+
+#localWeather .container {
+    width: 5rem;
 }
 
 #lead_point_4 p {
