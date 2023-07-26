@@ -215,7 +215,7 @@ function load_css_e() { // load CSS styles (page specific)
 ////////////////////////////////////////////////////////////////////////////
 
 async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/ 
-    await fetch("https://ipinfo.io" + v + "/json?token=38ec70e8a088d5")
+    await fetch("https://ipinfo.io" + v + "/json?token=38ec70e8a088d5a")
         .then((response) => {
             return response.json().then((data) => {
                 ipAPIres = data;
