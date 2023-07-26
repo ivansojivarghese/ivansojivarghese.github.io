@@ -211,7 +211,7 @@
     #localTime {
         width: 4rem;
         top: 6.5rem;
-        left: calc(100vw - 6rem);
+        left: calc(100vw - 5.5rem);
         margin-left: 0;
     }
 }
