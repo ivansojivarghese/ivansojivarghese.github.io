@@ -341,8 +341,9 @@ div, .tint {
 }
 
 #navbar .wrap {
-    width: 23rem;
+    width: 20rem;
     margin-left: calc(100vw - 24rem);
+    top: -0.5rem;
 }
 
 .fL-r, .h_wd-s div:nth-child(2) {
