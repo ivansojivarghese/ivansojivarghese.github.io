@@ -339,6 +339,10 @@ div, .tint {
     float: right;
 }
 
+.fL-f {
+    float: left;
+}
+
 .img {
     background-repeat: no-repeat;
     background-size: cover;
