@@ -295,6 +295,7 @@
 
 #localWeather .container {
     padding: 0.4rem 0;
+    margin-left: 0.5rem;
 }
 
 #lead_point_4 p {
