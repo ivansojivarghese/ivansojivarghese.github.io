@@ -312,10 +312,15 @@
 #localCityName {
     padding: 0.3em 0;
 }
-
+/*
 #link_3c-wrap {
     left: 3vw;
     top: calc(100vh - 2.5rem - 1rem);
+}*/
+
+#link_3c {
+    left: 3vw;
+    top: calc(100vh - 3.5rem);
 }
 
 #lead_point_4 p {

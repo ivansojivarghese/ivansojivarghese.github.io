@@ -471,6 +471,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
             };
         el.lk4.classList.remove("z_wd"); // add width on link_4
         s(); // start navbar animations
+        scrollArrowIterate(true, el.lk3c, "0", "2.5rem", "")
+
         el.lk3c.style.height = "2.5rem";
     }
 }
