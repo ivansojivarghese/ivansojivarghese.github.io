@@ -277,7 +277,7 @@ function load_js_e() { // load JS (page specific)
         el.Lt.classList.remove("d_n");
 
         apiInit = op.d.getTime();
-        ipAPI("/103.17.110.127"); // get user IP information API
+        ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
 
         var dkAPI = function() {
             if (ipAPIres.error) {
