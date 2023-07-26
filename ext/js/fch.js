@@ -47,7 +47,7 @@ var fchL = {
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
         g : false, // gyro sensor check
-        n : document.querySelectorAll("#navbar .up"),
+        n : document.querySelectorAll(".navbarlinks"),
         isc : document.getElementById("intro_sc"),
         i : document.getElementById("profile_image"),
         pb : document.getElementById("profile_banner"),
@@ -198,6 +198,8 @@ function load_css_e() { // load CSS styles (page specific)
                     el.n[w].setAttribute("onclick", "");
                 }
             }
+
+
 
         }
 
