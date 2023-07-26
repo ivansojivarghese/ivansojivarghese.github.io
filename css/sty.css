@@ -1351,6 +1351,11 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     width: calc(100% - 4rem);
 }
 
+#scrolltop_btn {
+    display: inline-block !important;
+    margin: 0;
+}
+
 /* ------------- */
 /*
 .footer {
