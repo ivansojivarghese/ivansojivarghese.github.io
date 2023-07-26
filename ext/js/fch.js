@@ -190,6 +190,17 @@ function load_css_e() { // load CSS styles (page specific)
         c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);
         c_css("#lead_wrap", "padding-bottom: 0", false, null);
 
+        if (vw.dk) { // desktop
+            for (w = 0; w <= el.n.length - 1; w++) { // set up animating navbar elements
+                el.n[w].classList.add("up");
+                if (w < el.n.length - 1) {
+                    el.n[w].setAttribute("href", "");
+                    el.n[w].setAttribute("onclick", "");
+                }
+            }
+
+        }
+
     }
 
     if (!vw.pH && !vw.tB) { // mobile
