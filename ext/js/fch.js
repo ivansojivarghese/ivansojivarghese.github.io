@@ -457,8 +457,12 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
         var w = 0;
             s = function() {
-                if (w < el.n.length) {
-                    el.n[w].classList.remove("d_n");
+                if (w <= (el.n.length - 1)) {
+                    if (w === (el.n.length - 1)) {
+                        // add dark-mode function on button
+                    } else {
+                        el.n[w].classList.remove("d_n");
+                    }
                     setTimeout(function() {
                         el.n[w].classList.remove("up");
                         w++;
@@ -468,9 +472,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
             };
         el.lk4.classList.remove("z_wd"); // add width on link_4
         s(); // start navbar animations
-        scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null);
+        scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
 
-        // el.lk3c.style.height = "2.5rem";
     }
 }
 
