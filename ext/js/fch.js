@@ -311,7 +311,8 @@ function load_js_e() { // load JS (page specific)
 
                         var weatherIcon = async function() {
                             await fetch("https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png", { // weather icon
-                                cache: "only-if-cached"
+                                cache: "only-if-cached",
+                                mode: "same-origin"
                             }).then((response) => {
                                 weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
                                 apiSuccess = true;
