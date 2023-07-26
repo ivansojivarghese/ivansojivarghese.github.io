@@ -57,6 +57,7 @@ var fchL = {
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
+        lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
         bgC4 : document.getElementById("bg-cir4"),
@@ -452,7 +453,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         }
     } else if (vw.dk) { // desktop
 
-        
+        el.lk4.classList.remove("z_wd"); // add width on link_4
 
     }
 }
