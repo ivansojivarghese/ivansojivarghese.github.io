@@ -212,8 +212,8 @@ function load_css_e() { // load CSS styles (page specific)
 
 ////////////////////////////////////////////////////////////////////////////
 
-async function ipAPI() {  // 50,000 per month limit, https://ipinfo.io/ 
-    await fetch("https://ipinfo.io/102.214.136.0/json?token=38ec70e8a088d5")
+async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/ 
+    await fetch("https://ipinfo.io" + v + "/json?token=38ec70e8a088d5")
         .then((response) => {
             return response.json().then((data) => {
                 ipAPIres = data;
@@ -277,7 +277,7 @@ function load_js_e() { // load JS (page specific)
         el.Lt.classList.remove("d_n");
 
         apiInit = op.d.getTime();
-        ipAPI(); // get user IP information API
+        ipAPI("/103.17.110.127"); // get user IP information API
 
         var dkAPI = function() {
             if (ipAPIres.error) {
