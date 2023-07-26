@@ -302,11 +302,17 @@ function load_js_e() { // load JS (page specific)
                     } else if (weatherAPIres.online) {
 
                         // EDIT INFO TO HTML
-                        weather.r.innerHTML = Math.round(weatherAPIres.main.temp);
-                        weather.u.innerHTML = (tempUnit(ipAPIres.country) === "metric") ? "C" : "F";
-                        weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
+                        weather.r.innerHTML = Math.round(weatherAPIres.main.temp); // weather reading
+                        weather.u.innerHTML = (tempUnit(ipAPIres.country) === "metric") ? "C" : "F"; // weather unit
+                        fetch("url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')") // weather icon
+                            .then((response) => {
+                                weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
+                                apiSuccess = true;
+                            }).catch((error) => {
+                                apiSuccess = null;
+                            });
 
-                        apiSuccess = true;
+                        // weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
 
                     } else if ((op.d.getTime() - apiInit) < apiTimeout) {
                         setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
