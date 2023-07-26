@@ -426,14 +426,14 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     el.x4 = true;
                 }
                 el.bgC4.style.left = "60%";
-                scrollArrowIterate(true); // start iteration
+                scrollArrowIterate(true, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", true); // start iteration
                 el.ac = false;
             } else {
                 if (!el.x4) {
                     c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
                     el.x4 = true;
                 }
-                scrollArrowIterate(false); // start iteration (single)
+                scrollArrowIterate(false, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", true); // start iteration (single)
                 hm.k3 = true;
                 setTimeout(function() {
                     el.lk3.classList.remove("z-G");
@@ -475,23 +475,25 @@ function load_eN() { // load, after cookie acceptance (page specific)
     }
 }
 
-function scrollArrowIterate(m) {
+function scrollArrowIterate(m, el, t, h, ta, b, ch) {
     el.a = true;
-    el.lk3b.style.top = "1rem";
-    el.lk3b.style.height = "calc(100% - 2.5rem)"; // full height
+    el.style.top = t;
+    el.style.height = h; // full height
     if (m) { // repeating iterations
         setTimeout(function() {
             el.a = false;
-            el.lk3b.style.top = "auto";
-            el.lk3b.style.bottom = "1.5rem"; // reverse anchor
-            el.lk3b.style.height = 0; // zero height
+            el.style.top = ta;
+            el.style.bottom = b; // reverse anchor
+            el.style.height = 0; // zero height
             setTimeout(function() {
                 if (!pg.msg.fo && pos.aT) { // if NOT offline AND NOT scrolled
-                    scrollArrowIterate(m); // repeat
+                    scrollArrowIterate(m, el, t, h, ta, b, ch); // repeat
                 } else if (pg.msg.fo || !pos.aT) { // if offline OR scrolled
                     el.x = true;
-                    el.lk3b.classList.add("d_n");
-                    e_Fd(el.chev, true); // hide chevron
+                    el.classList.add("d_n");
+                    if (ch) {
+                        e_Fd(el.chev, true); // hide chevron
+                    }
                 }
             }, op.te);
         }, op.te);
