@@ -177,6 +177,12 @@ h1, h2, h3, h5, h6, p, ul {
     font-size: 0.85rem !important;
 }
 
+.text_overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .t-u, #footer_blurb a, #mid_tablet_sc a {
     text-decoration: underline;
 }

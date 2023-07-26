@@ -301,8 +301,12 @@
 
 #localCity { 
     top: 9.8rem;
-    left: calc(100vw - 10rem);
-    width: 8rem;
+    left: calc(100vw - 15rem);
+    width: 13rem;
+}
+
+#localCityName {
+    padding: 0.3em 0;
 }
 
 #lead_point_4 p {
