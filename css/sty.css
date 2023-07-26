@@ -242,7 +242,7 @@ div, .tint {
 }
 
 .z_wd { /* zero width*/
-    width: 0 !important;
+    width: 0;
 }
 
 .f_wd { /*fifth width*/

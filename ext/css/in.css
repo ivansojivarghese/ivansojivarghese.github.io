@@ -6,6 +6,10 @@
     right: 0;
 }
 
+#link_4.z_wd { /* zero width*/
+    width: 0;
+}
+
 #lead_point_4, #mid_sc_p {
     display: none;
 }
