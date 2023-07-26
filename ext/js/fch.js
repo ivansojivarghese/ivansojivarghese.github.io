@@ -475,22 +475,22 @@ function load_eN() { // load, after cookie acceptance (page specific)
     }
 }
 
-function scrollArrowIterate(m, el, t, h, ta, b, ch) {
+function scrollArrowIterate(m, e, t, h, ta, b, ch) {
     el.a = true;
-    el.style.top = t;
-    el.style.height = h; // full height
+    e.style.top = t;
+    e.style.height = h; // full height
     if (m) { // repeating iterations
         setTimeout(function() {
             el.a = false;
-            el.style.top = ta;
-            el.style.bottom = b; // reverse anchor
-            el.style.height = 0; // zero height
+            e.style.top = ta;
+            e.style.bottom = b; // reverse anchor
+            e.style.height = 0; // zero height
             setTimeout(function() {
                 if (!pg.msg.fo && pos.aT) { // if NOT offline AND NOT scrolled
-                    scrollArrowIterate(m, el, t, h, ta, b, ch); // repeat
+                    scrollArrowIterate(m, e, t, h, ta, b, ch); // repeat
                 } else if (pg.msg.fo || !pos.aT) { // if offline OR scrolled
                     el.x = true;
-                    el.classList.add("d_n");
+                    e.classList.add("d_n");
                     if (ch) {
                         e_Fd(ch, true); // hide chevron
                     }
