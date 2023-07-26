@@ -196,8 +196,6 @@ function load_css_e() { // load CSS styles (page specific)
                 el.n[w].classList.add("d_n");
             }
 
-
-
         }
 
     }
@@ -410,46 +408,52 @@ function js_live() { // update js - in live
 }
 
 function load_eN() { // load, after cookie acceptance (page specific)
-    // scroll arrow
-    var h = getBd(el.lk3, "height");
-    if (h >= 65) { // min. 65px height required
-        el.c4 = true;
-        el.bgC4.classList.remove("d_n"); // show circle 4
-        if (h >= 85) {
-            if (!el.x4) {
-                c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 4rem);", false, null); 
-                el.x4 = true;
+    if (!vw.tB && !vw.pH) { // mobile
+        // scroll arrow
+        var h = getBd(el.lk3, "height");
+        if (h >= 65) { // min. 65px height required
+            el.c4 = true;
+            el.bgC4.classList.remove("d_n"); // show circle 4
+            if (h >= 85) {
+                if (!el.x4) {
+                    c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 4rem);", false, null); 
+                    el.x4 = true;
+                }
+                el.bgC4.style.left = "60%";
+                scrollArrowIterate(true); // start iteration
+                el.ac = false;
+            } else {
+                if (!el.x4) {
+                    c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
+                    el.x4 = true;
+                }
+                scrollArrowIterate(false); // start iteration (single)
+                hm.k3 = true;
+                setTimeout(function() {
+                    el.lk3.classList.remove("z-G");
+                    el.lk3.addEventListener("click", peek); 
+                }, op.te);
+                el.ac = true;
             }
-            el.bgC4.style.left = "60%";
-            scrollArrowIterate(true); // start iteration
-            el.ac = false;
-        } else {
-            if (!el.x4) {
-                c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
-                el.x4 = true;
-            }
-            scrollArrowIterate(false); // start iteration (single)
-            hm.k3 = true;
-            setTimeout(function() {
-                el.lk3.classList.remove("z-G");
-                el.lk3.addEventListener("click", peek); 
-            }, op.te);
-            el.ac = true;
+            c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
+            e_Fd(el.chev, false); // show chevron
         }
-        c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
-        e_Fd(el.chev, false); // show chevron
-    }
-    if (!el.x2) { // show background circles + ham. button strokes at load
-        el.x2 = true;
-        setTimeout(function() {
-            if (pos.aT) {
-                el.x9 = false;
-                hamButtonLoad(true); // ham. button
-            }
-        }, op.t);
-        setTimeout(function() {
-            showCircle();
-        }, op.te);
+        if (!el.x2) { // show background circles + ham. button strokes at load
+            el.x2 = true;
+            setTimeout(function() {
+                if (pos.aT) {
+                    el.x9 = false;
+                    hamButtonLoad(true); // ham. button
+                }
+            }, op.t);
+            setTimeout(function() {
+                showCircle();
+            }, op.te);
+        }
+    } else if (vw.dk) { // desktop
+
+        
+
     }
 }
 
