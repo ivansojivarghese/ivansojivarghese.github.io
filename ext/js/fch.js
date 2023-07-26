@@ -57,6 +57,7 @@ var fchL = {
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
+        lk3c : document.getElementById("link_3c"),
         lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
@@ -196,6 +197,8 @@ function load_css_e() { // load CSS styles (page specific)
                 el.n[w].classList.add("up");
                 if (w < el.n.length - 1) {
                     el.n[w].classList.add("d_n");
+                } else {
+                    // remove dark-mode function on button
                 }
             }
 
@@ -467,7 +470,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 }
             };
         el.lk4.classList.remove("z_wd"); // add width on link_4
-        s();
+        s(); // start navbar animations
+        el.lk3c.style.height = "2.5rem";
     }
 }
 
