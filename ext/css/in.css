@@ -283,9 +283,16 @@
 }
 
 #localTime {
-    /*width: 8rem;*/
     width: 30vw;
     margin-left: 2vw;
+}
+
+#localWeather {
+    top: 8rem;
+    left: calc(100vw - 8rem);
+    width: 6rem;
+    height: 2rem;
+    background-color: red;
 }
 
 #lead_point_4 p {
