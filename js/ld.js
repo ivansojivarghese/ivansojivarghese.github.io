@@ -783,6 +783,8 @@ function load_e() { // end the loading sequence
 
             } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && js_load() && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
 
+                js_load();
+
                 rL.i_s = false;
                 rL.r_s = false;
 
