@@ -47,6 +47,7 @@ var fchL = {
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
         g : false, // gyro sensor check
+        n : document.querySelectorAll("#navbar .up"),
         isc : document.getElementById("intro_sc"),
         i : document.getElementById("profile_image"),
         pb : document.getElementById("profile_banner"),
