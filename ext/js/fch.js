@@ -426,14 +426,14 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     el.x4 = true;
                 }
                 el.bgC4.style.left = "60%";
-                scrollArrowIterate(true, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", true); // start iteration
+                scrollArrowIterate(true, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", el.chev); // start iteration
                 el.ac = false;
             } else {
                 if (!el.x4) {
                     c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
                     el.x4 = true;
                 }
-                scrollArrowIterate(false, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", true); // start iteration (single)
+                scrollArrowIterate(false, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", el.chev); // start iteration (single)
                 hm.k3 = true;
                 setTimeout(function() {
                     el.lk3.classList.remove("z-G");
@@ -492,7 +492,7 @@ function scrollArrowIterate(m, el, t, h, ta, b, ch) {
                     el.x = true;
                     el.classList.add("d_n");
                     if (ch) {
-                        e_Fd(el.chev, true); // hide chevron
+                        e_Fd(ch, true); // hide chevron
                     }
                 }
             }, op.te);
