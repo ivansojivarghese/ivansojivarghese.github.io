@@ -165,6 +165,10 @@ h1, h2, h3, h5, h6, p, ul {
     /*font-family: Poppins;*/
 }
 
+.compact {
+    letter-spacing: 0;
+}
+
 .copy {
     font-size: 1.1rem !important;
 }
