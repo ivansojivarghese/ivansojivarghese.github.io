@@ -291,6 +291,7 @@
     top: 8rem;
     left: calc(100vw - 9rem);
     width: 7rem;
+    height: 1.8rem;
 }
 
 #localWeather .container {
