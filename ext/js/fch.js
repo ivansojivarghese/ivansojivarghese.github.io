@@ -309,15 +309,14 @@ function load_js_e() { // load JS (page specific)
                         weather.u.innerHTML = (tempUnit(ipAPIres.country) === "metric") ? "C" : "F"; // weather unit
                         weather.c.innerHTML = ipAPIres.city; // weather city
 
-                        var weatherIcon = async function() {
-                            await fetch("https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png", { // weather icon
-                                cache: "force-cache"
-                            }).then((response) => {
-                                weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
-                                apiSuccess = true;
-                            }).catch((error) => {
-                                apiSuccess = null;
-                            });
+                        var weatherIcon = async function() { // weather icon
+                            await fetch("https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png")
+                                .then((response) => {
+                                    weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
+                                    apiSuccess = true;
+                                }).catch((error) => {
+                                    apiSuccess = null;
+                                });
                         }
 
                         weatherIcon();
