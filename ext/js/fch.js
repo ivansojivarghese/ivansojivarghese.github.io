@@ -394,7 +394,8 @@ function js_live() { // update js - in live
             if (!vw.pH && !vw.tB) {
                 e_Fd(el.chev, true); 
             } else if (vw.dk) {
-                e_Fd(eB, true); 
+                // e_Fd(eB, true); 
+                eB.classList.add("left");
             }
             setTimeout(function() {
                 e.style.height = "0px"; // set link to 0 height
