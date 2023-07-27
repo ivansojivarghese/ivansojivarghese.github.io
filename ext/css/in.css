@@ -80,6 +80,11 @@
     height: 18rem;
 }
 
+#wordsTyper {
+    top: 12rem;
+    left: calc(12rem + 5rem + 5vw);
+}
+
 #intro_sc .logo-hybrid {
     height: 2.8rem;
 }
