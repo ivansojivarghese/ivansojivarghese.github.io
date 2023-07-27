@@ -82,7 +82,7 @@
 
 #wordsTyper {
     top: 12rem;
-    left: calc(12rem + 5rem + 5vw);
+    left: calc(12rem + 5vw + 5vw);
 }
 
 #wordsTyperDet_cursor {
