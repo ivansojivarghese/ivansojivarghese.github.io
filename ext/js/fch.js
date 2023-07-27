@@ -505,7 +505,7 @@ function scrollArrowIterate(m, e, t, h, ta, b, ch) {
             e.style.bottom = b; // reverse anchor
             e.style.height = 0; // zero height
             setTimeout(function() {
-                if (!pg.msg.fo && pos.aT) { // if NOT offline AND NOT scrolled
+                if ((!pg.msg.fo && pos.aT) || vw.dk) { // if NOT offline AND NOT scrolled
                     scrollArrowIterate(m, e, t, h, ta, b, ch); // repeat
                 } else if (pg.msg.fo || !pos.aT) { // if offline OR scrolled
                     el.x = true;
