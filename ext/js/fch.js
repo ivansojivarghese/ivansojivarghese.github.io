@@ -56,6 +56,7 @@ var fchL = {
         pgph : document.getElementById("pr_gt_ph"),
         Lt : document.getElementById("localTime"),
         Ltd : document.getElementById("localTimeDet"),
+        Ltf : document.getElementById("localInfo"),
         lk3attach : false,
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
@@ -497,6 +498,10 @@ function load_eN() { // load, after cookie acceptance (page specific)
             ld.wdTL = setInterval(function() { // typing effect
                 e_wCycle(el.wdT, dev.info.work, ld.wdTL);
             }, op.t);
+
+            setTimeout(function() {
+                e_Fd(el.Ltf, false);
+            }, op.te);
 
             scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
             el.x12 = true;
