@@ -406,6 +406,8 @@ function js_live() { // update js - in live
             setTimeout(function() {
                 el.x3 = false;
             }, op.t);
+        } else if (!pos.aT && typeof eB.onclick == "peek") { // if scrolled & peek function not removed (bug fix)
+            eB.removeEventListener("click", peek);
         }
     }
     if (!pos.aT && !el.x9) { // hide hamburger button
