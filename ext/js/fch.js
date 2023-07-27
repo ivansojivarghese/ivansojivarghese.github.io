@@ -397,11 +397,9 @@ function js_live() { // update js - in live
                 // e_Fd(eB, true); 
                 eB.classList.add("left");
             }
-            if (!vw.dk) {
-                setTimeout(function() {
-                    e.style.height = "0px"; // set link to 0 height
-                }, op.t);
-            }
+            setTimeout(function() {
+                e.style.height = "0px"; // set link to 0 height
+            }, op.t);
         } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
             e_Fd(e, false); // fade in
             load_eN();
@@ -513,7 +511,9 @@ function scrollArrowIterate(m, e, t, h, ta, b, ch) {
                     scrollArrowIterate(m, e, t, h, ta, b, ch); // repeat
                 } else if (pg.msg.fo || !pos.aT) { // if offline OR scrolled
                     el.x = true;
-                    e.classList.add("d_n");
+                    if (!vw.dk) {
+                        e.classList.add("d_n");
+                    }
                     if (ch) {
                         e_Fd(ch, true); // hide chevron
                     }
