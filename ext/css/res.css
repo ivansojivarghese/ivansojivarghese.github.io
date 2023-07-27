@@ -214,4 +214,8 @@
         left: calc(100vw - 5.5rem);
         margin-left: 0;
     }
+
+    #intro_main {
+        background-color: #D7D7D7;
+    }
 }
