@@ -384,7 +384,7 @@ function js_live() { // update js - in live
             load_eN(); // reload scroll arrow feature
             el.x = false;
         }
-    } else if (el.ac || vw.dk) {
+    } else {
         if ((!pos.aT && !el.x3) || pg.msg.fo) { // if scrolled OR offline
             el.x3 = true;
             eB.removeEventListener("click", peek); 
@@ -483,6 +483,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
         scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
         el.lk3cb.classList.remove("left"); // show scroll peek button
         el.lk3cb.addEventListener("click", peek); // add function
+
+        el.ac = true;
     }
 }
 
