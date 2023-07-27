@@ -391,6 +391,8 @@ function js_live() { // update js - in live
             e_Fd(e, true); // fade out 
             if (!vw.pH && !vw.tB) {
                 e_Fd(el.chev, true); 
+            } else if (vw.dk) {
+                e_Fd(eB, true); 
             }
             setTimeout(function() {
                 e.style.height = "0px"; // set link to 0 height
