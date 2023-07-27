@@ -501,6 +501,11 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             setTimeout(function() { // show local weather/city information
                 e_Fd(el.Ltf, false);
+                
+                // add titles
+                weather.c.title = ipAPIres.city; // weather city name
+                weather.i.title = weatherAPIres.weather["0"].description; // weather description
+
             }, op.te);
 
             scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
