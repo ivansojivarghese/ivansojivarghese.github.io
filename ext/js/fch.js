@@ -377,7 +377,8 @@ function js_load() { // check JS load progress (indiv.)
 }
 
 function js_live() { // update js - in live
-    var e = (!vw.pH && !vw.tB) ? el.lk3b : el.lk3c,
+    var // e = (!vw.pH && !vw.tB) ? el.lk3b : el.lk3c,
+        e = el.lk3b,
         eB = (!vw.pH && !vw.tB) ? el.lk3 : el.lk3cb;
     if (!el.ac) { 
         if ((!pg.msg.fo && pos.aT) && el.x) { // if page online AND not scrolled
@@ -399,14 +400,7 @@ function js_live() { // update js - in live
                 e.style.height = "0px"; // set link to 0 height
             }, op.t);
         } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
-            if (vw.dk) {
-                e.classList.remove("d_n");
-                setTimeout(function() {
-                    e_Fd(e, false); // fade in
-                }, 10)
-            } else {
-                e_Fd(e, false); // fade in
-            }
+            e_Fd(e, false); // fade in
             load_eN();
             setTimeout(function() {
                 el.x3 = false;
