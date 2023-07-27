@@ -43,6 +43,7 @@ var fchL = {
         x9 : false,
         x10 : false,
         x11 : false,
+        x12 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -478,8 +479,11 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     }, 10);
                 }
             };
-        el.lk4.classList.remove("z_wd"); // add width on link_4
-        s(); // start navbar animations
+        if (!el.x12) { 
+            el.lk4.classList.remove("z_wd"); // add width on link_4
+            s(); // start navbar animations
+            el.x12 = true;
+        }
         scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
         el.lk3cb.classList.remove("left"); // show scroll peek button
         el.lk3cb.addEventListener("click", peek); // add function
