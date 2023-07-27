@@ -314,8 +314,8 @@
 
 #localCity { 
     top: 9.8rem;
-    left: calc(100vw - 14.6rem);
-    width: 13rem;
+    left: calc(100vw - 10.6rem);
+    width: 9rem;
 }
 
 #localCityName {
