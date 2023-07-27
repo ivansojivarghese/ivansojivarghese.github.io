@@ -66,6 +66,7 @@ var fchL = {
         ldw : document.getElementById("lead_wrap"),
         ldP : document.getElementById("lead_point"),
         ldP1 : document.getElementById("lead_point_1"),
+        ldP4 : document.getElementById("lead_point_4"),
         q1_t : document.getElementById("qIn1_typer"),
         cIa : document.getElementsByClassName("c_Info_arrows"),
         qIc : document.getElementsByClassName("q_Info_icons"),
@@ -475,6 +476,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         s(); // start navbar animations
         scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
         el.lk3cb.classList.remove("left"); // show scroll peek button
+        el.lk3cb.addEventListener("click", peek); // add function
     }
 }
 
@@ -504,7 +506,7 @@ function scrollArrowIterate(m, e, t, h, ta, b, ch) {
 }
 
 function peek() {
-    var b = el.ldP.getBoundingClientRect(), 
+    var b = (!vw.tB && !vw.pH) ? el.ldP.getBoundingClientRect() : el.ldP4.getBoundingClientRect(), 
         t = b.top;
     document.documentElement.classList.add("scB");
     window.scrollTo(0, (t - aH)); // scroll to reasonable point in content area
