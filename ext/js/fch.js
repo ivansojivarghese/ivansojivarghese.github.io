@@ -397,9 +397,11 @@ function js_live() { // update js - in live
                 // e_Fd(eB, true); 
                 eB.classList.add("left");
             }
-            setTimeout(function() {
-                e.style.height = "0px"; // set link to 0 height
-            }, op.t);
+            if (!vw.dk) {
+                setTimeout(function() {
+                    e.style.height = "0px"; // set link to 0 height
+                }, op.t);
+            }
         } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
             e_Fd(e, false); // fade in
             load_eN();
