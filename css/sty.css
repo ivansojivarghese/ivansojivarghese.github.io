@@ -303,13 +303,15 @@ div, .tint {
     opacity: 0.3;
 }
 
-.z_Ot {
+.up, .left, .msg.down, .z_Ot, .z_Oh {
     opacity: 0;
+}
+
+.z_Ot {
     transform: translateX(3rem);
 }
 
 .z_Oh {
-    opacity: 0;
     transform: translateX(30%);
 }
 
@@ -788,12 +790,14 @@ div.locator_img {
 }*/
 
 .up {
-    opacity: 0;
     transform: translateY(-30%);
 }
 
+.left {
+    transform: translateX(-30%);
+}
+
 .msg.down {
-    opacity: 0;
     transform: translateY(30%);
 }
 
