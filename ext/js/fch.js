@@ -58,6 +58,7 @@ var fchL = {
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
         lk3c : document.getElementById("link_3c"),
+        lk3cb : document.getElementById("link_3cbtn"),
         lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
@@ -473,7 +474,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         el.lk4.classList.remove("z_wd"); // add width on link_4
         s(); // start navbar animations
         scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
-
+        el.lk3cb.classList.remove("left"); // show scroll peek button
     }
 }
 
