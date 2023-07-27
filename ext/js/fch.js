@@ -56,6 +56,7 @@ var fchL = {
         pgph : document.getElementById("pr_gt_ph"),
         Lt : document.getElementById("localTime"),
         Ltd : document.getElementById("localTimeDet"),
+        lk3attach : false,
         lk3 : document.getElementById("link_3"),
         lk3a : document.getElementById("link_3a"),
         lk3b : document.getElementById("link_3b"),
@@ -392,6 +393,9 @@ function js_live() { // update js - in live
         if ((!pos.aT && !el.x3) || pg.msg.fo) { // if scrolled OR offline
             el.x3 = true;
             eB.removeEventListener("click", peek); 
+            if (eB === el.lk3) {
+                el.lk3attach = false;
+            }
             e_Fd(e, true); // fade out 
             if (!vw.pH && !vw.tB) {
                 e_Fd(el.chev, true); 
@@ -408,7 +412,7 @@ function js_live() { // update js - in live
             setTimeout(function() {
                 el.x3 = false;
             }, op.t);
-        } else if (!pos.aT && typeof eB.onclick == "peek") { // if scrolled & peek function not removed (bug fix)
+        } else if (!pos.aT && el.lk3attach && eB === el.lk3) { // if scrolled & peek function not removed (bug fix)
             eB.removeEventListener("click", peek);
         }
     }
@@ -450,6 +454,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 setTimeout(function() {
                     el.lk3.classList.remove("z-G");
                     el.lk3.addEventListener("click", peek); 
+                    el.lk3attach = true;
                 }, op.te);
                 el.ac = true;
             }

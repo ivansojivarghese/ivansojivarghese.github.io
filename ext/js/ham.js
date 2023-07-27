@@ -354,6 +354,7 @@ function h_mTg() { // ham. menu toggle
                 el.lk3.classList.add("d_n");
                 el.lk3.classList.add("z-G"); // hide arrow
                 el.lk3.removeEventListener("click", peek);
+                el.lk3attach = false;
                 e_Fd(el.lk3b, true); // fade out 
                 e_Fd(el.chev, true); 
                 el.lk3b.style.height = "0px"; // set link to 0 height
@@ -447,6 +448,7 @@ function h_mTg() { // ham. menu toggle
                             setTimeout(function() {
                                 el.lk3.classList.remove("z-G"); // show arrow
                                 el.lk3.addEventListener("click", peek);
+                                el.lk3attach = true;
                                 setTimeout(function() {
                                     if (el.c4 && !hm.e) {
                                         el.bgC[el.bgC.length - 1].classList.remove("d_n"); // bg-circle 5
