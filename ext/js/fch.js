@@ -399,7 +399,14 @@ function js_live() { // update js - in live
                 e.style.height = "0px"; // set link to 0 height
             }, op.t);
         } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
-            e_Fd(e, false); // fade in
+            if (vw.dk) {
+                e.classList.remove("d_n");
+                setTimeout(function() {
+                    e_Fd(e, false); // fade in
+                }, 10)
+            } else {
+                e_Fd(e, false); // fade in
+            }
             load_eN();
             setTimeout(function() {
                 el.x3 = false;
@@ -482,10 +489,12 @@ function load_eN() { // load, after cookie acceptance (page specific)
         if (!el.x12) { 
             el.lk4.classList.remove("z_wd"); // add width on link_4
             s(); // start navbar animations
+            el.lk3cb.classList.remove("left"); // show scroll peek button
             el.x12 = true;
+        } else {
+
         }
         scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
-        el.lk3cb.classList.remove("left"); // show scroll peek button
         el.lk3cb.addEventListener("click", peek); // add function
 
         el.ac = true;
