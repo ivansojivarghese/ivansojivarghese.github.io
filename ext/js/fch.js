@@ -376,23 +376,27 @@ function js_load() { // check JS load progress (indiv.)
 }
 
 function js_live() { // update js - in live
+    var e = (!vw.pH && !vw.tB) ? el.lk3b : el.lk3c,
+        eB = (!vw.pH && !vw.tB) ? el.lk3 : el.lk3cb;
     if (!el.ac) { 
         if ((!pg.msg.fo && pos.aT) && el.x) { // if page online AND not scrolled
-            el.lk3b.classList.remove("d_n");
+            e.classList.remove("d_n");
             load_eN(); // reload scroll arrow feature
             el.x = false;
         }
     } else {
         if ((!pos.aT && !el.x3) || pg.msg.fo) { // if scrolled OR offline
             el.x3 = true;
-            el.lk3.removeEventListener("click", peek); 
-            e_Fd(el.lk3b, true); // fade out 
-            e_Fd(el.chev, true); 
+            eB.removeEventListener("click", peek); 
+            e_Fd(e, true); // fade out 
+            if (!vw.pH && !vw.tB) {
+                e_Fd(el.chev, true); 
+            }
             setTimeout(function() {
-                el.lk3b.style.height = "0px"; // set link to 0 height
+                e.style.height = "0px"; // set link to 0 height
             }, op.t);
         } else if (pos.aT && el.x3 && !pg.msg.fo) { // back to top AND online
-            e_Fd(el.lk3b, false); // fade in
+            e_Fd(e, false); // fade in
             load_eN();
             setTimeout(function() {
                 el.x3 = false;
