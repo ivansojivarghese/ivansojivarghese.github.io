@@ -484,12 +484,12 @@ function load_eN() { // load, after cookie acceptance (page specific)
         if (!el.x12) { 
             el.lk4.classList.remove("z_wd"); // add width on link_4
             s(); // start navbar animations
-            el.lk3cb.classList.remove("left"); // show scroll peek button
             el.x12 = true;
         } else {
-
+            
         }
         scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
+        el.lk3cb.classList.remove("left"); // show scroll peek button
         el.lk3cb.addEventListener("click", peek); // add function
 
         el.ac = true;
