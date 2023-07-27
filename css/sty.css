@@ -192,6 +192,11 @@ h1, h2, h3, h5, h6, p, ul {
     height: 1.8rem;
 }
 
+.e_wSe {
+    width: 0.2rem;
+    height: 3rem;
+}
+
 /*
 .h-d {
     height: var(--doc-height);

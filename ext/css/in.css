@@ -85,6 +85,10 @@
     left: calc(12rem + 5rem + 5vw);
 }
 
+#wordsTyperDet_cursor {
+    top: 0.45rem;
+}
+
 #intro_sc .logo-hybrid {
     height: 2.8rem;
 }
