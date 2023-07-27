@@ -82,7 +82,7 @@
 
 #wordsTyper {
     top: 12rem;
-    left: calc(12rem + 5vw + 5vw);
+    left: calc(12rem + 5vw + ((100vw - (12rem + 5vw + 18rem)) / 2)); /* x centralise */
 }
 
 #wordsTyperDet_cursor {
