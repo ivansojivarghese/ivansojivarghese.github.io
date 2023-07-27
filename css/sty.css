@@ -794,7 +794,7 @@ div.locator_img {
 }
 
 .left {
-    transform: translateX(-30%);
+    transform: translateX(-2vw);
 }
 
 .msg.down {
