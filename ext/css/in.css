@@ -316,7 +316,16 @@
 #link_3c {
     left: 3vw;
     top: -0.5rem;
-    width: 0.1em;
+    width: 0.05em;
+}
+
+#link_3cbtn {
+    left: 4vw;
+    top: 1.4rem;
+}
+
+#link_3cH {
+    font-size: 0.7rem;
 }
 
 #lead_point_4 p {
