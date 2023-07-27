@@ -384,7 +384,7 @@ function js_live() { // update js - in live
             load_eN(); // reload scroll arrow feature
             el.x = false;
         }
-    } else {
+    } else if (el.ac || vw.dk) {
         if ((!pos.aT && !el.x3) || pg.msg.fo) { // if scrolled OR offline
             el.x3 = true;
             eB.removeEventListener("click", peek); 
