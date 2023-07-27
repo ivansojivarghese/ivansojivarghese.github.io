@@ -499,7 +499,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 e_wCycle(el.wdT, dev.info.work, ld.wdTL);
             }, op.t);
 
-            setTimeout(function() {
+            setTimeout(function() { // show local weather/city information
                 e_Fd(el.Ltf, false);
             }, op.te);
 
