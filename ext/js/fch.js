@@ -51,6 +51,7 @@ var fchL = {
         n : document.querySelectorAll(".navbarlinks"),
         isc : document.getElementById("intro_sc"),
         i : document.getElementById("profile_image"),
+        wdT : document.getElementById("wordsTyperDet"),
         pb : document.getElementById("profile_banner"),
         pgph : document.getElementById("pr_gt_ph"),
         Lt : document.getElementById("localTime"),
@@ -71,7 +72,8 @@ var fchL = {
         q1_t : document.getElementById("qIn1_typer"),
         cIa : document.getElementsByClassName("c_Info_arrows"),
         qIc : document.getElementsByClassName("q_Info_icons"),
-        mdh : document.getElementById("mid_sc_h")
+        mdh : document.getElementById("mid_sc_h"),
+        wdTL : null
     },
     bd = { // bounds
         b0 : null,
@@ -486,6 +488,11 @@ function load_eN() { // load, after cookie acceptance (page specific)
         if (!el.x12) { 
             el.lk4.classList.remove("z_wd"); // add width on link_4
             s(); // start navbar animations
+
+            ld.wdTL = setInterval(function() { // typing effect
+                e_wCycle(el.wdT, dev.info.work, ld.wdTL);
+            }, op.t);
+
             scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
             el.x12 = true;
         } 
