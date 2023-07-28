@@ -549,7 +549,7 @@ function sc_LpH() { // scroll loop - phablet
     }
 
     if (vw.dk) { // if desktop
-        var mb = window.getComputedStyle(im.pfg).getPropertyValue('margin-bottom'),
+        var mb = num_Fs(window.getComputedStyle(im.pfg).getPropertyValue('margin-bottom')),
             ghTransform = pos.y * -0.2,
             gh_mb_frc = Math.abs(ghTransform) / mb; // opacity decrease
 
