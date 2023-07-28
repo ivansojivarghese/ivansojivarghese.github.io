@@ -4,6 +4,7 @@
 var im = { // #intro_main
         wd : document.getElementById("wordsTyper"),
         gh : document.getElementById("logo-h"),
+        pfg : document.getElementById("profile_greetingFull"),
         el : document.getElementById("intro_main"),
         elw : document.getElementById("intro_ws"),
         b5 : document.getElementById("bg-cir5"),
@@ -548,6 +549,8 @@ function sc_LpH() { // scroll loop - phablet
     }
 
     if (vw.dk) { // if desktop
+        var mb = window.getComputedStyle(im.pfg).getPropertyValue('margin-bottom');
+
         im.wd.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
         im.gh.style.transform = "translateY(" + (pos.y * -0.2) + "px)";
     }
