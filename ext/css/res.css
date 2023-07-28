@@ -226,8 +226,8 @@
     }
 
     #educationInfo {
-        width: 10rem;
-        margin-left: calc(80vw - 10rem) !important;
+        width: 8.5rem;
+        margin-left: calc(80vw - 8.5rem) !important;
         padding-top: 1rem;
     }
 }
