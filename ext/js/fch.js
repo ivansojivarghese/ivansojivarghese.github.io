@@ -507,7 +507,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     // add titles
                     weather.c.title = ipAPIres.city; // weather city name
                     weather.i.title = weatherAPIres.weather["0"].main; // weather description
-                } else {
+                } else if ((op.d.getTime() - apiInit) < apiTimeout) {
                     f();
                 }
             };
