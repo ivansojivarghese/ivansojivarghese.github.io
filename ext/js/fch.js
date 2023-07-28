@@ -73,6 +73,7 @@ var fchL = {
         ldP : document.getElementById("lead_point"),
         ldP1 : document.getElementById("lead_point_1"),
         ldP4 : document.getElementById("lead_point_4"),
+        eInfo : document.getElementById("educationInfo"),
         q1_t : document.getElementById("qIn1_typer"),
         cIa : document.getElementsByClassName("c_Info_arrows"),
         qIc : document.getElementsByClassName("q_Info_icons"),
@@ -554,7 +555,7 @@ function scrollArrowIterate(m, e, t, h, ta, b, ch) {
 }
 
 function peek() {
-    var b = (!vw.tB && !vw.pH) ? el.ldP.getBoundingClientRect() : el.ldP4.getBoundingClientRect(), 
+    var b = (!vw.tB && !vw.pH) ? el.ldP.getBoundingClientRect() : el.eInfo.getBoundingClientRect(), 
         t = b.top;
     document.documentElement.classList.add("scB");
     window.scrollTo(0, (t - aH)); // scroll to reasonable point in content area
