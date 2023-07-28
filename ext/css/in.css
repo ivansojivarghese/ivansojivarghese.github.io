@@ -117,6 +117,10 @@
     top: -0.15em;
 }
 
+#educationInfo .cre {
+    margin-left: calc(1.8rem + 0.5em);
+}
+
 .q_Info h6 {
     font-size: 0.9rem;
     margin-left: 2.7rem;
