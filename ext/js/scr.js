@@ -5,6 +5,7 @@ var im = { // #intro_main
         wd : document.getElementById("wordsTyper"),
         gh : document.getElementById("logo-h"),
         pfg : document.getElementById("profile_greetingFull"),
+        pfi : document.getElementById("profile_image"),
         el : document.getElementById("intro_main"),
         elw : document.getElementById("intro_ws"),
         b5 : document.getElementById("bg-cir5"),
@@ -553,9 +554,17 @@ function sc_LpH() { // scroll loop - phablet
             ghTransform = pos.y * -0.2,
             gh_mb_frc = 1 - (Math.abs(ghTransform) / mb); // opacity decrease
 
-        im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
-        im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
-        im.pfg.style.opacity = gh_mb_frc; 
+        if (!pos.aT) { // during scroll
+            im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
+            im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
+            im.pfi.style.transform = "translateY(" + (pos.y * 0.125) + "px)";
+            im.pfg.style.opacity = gh_mb_frc;
+        } else { // default at top
+            im.wd.style.transform = "";
+            im.gh.style.transform = "";
+            im.pfi.style.transform = "";
+            im.pfg.style.opacity = 1;
+        }
     }
 
     requestAnimationFrame(sc_LpH);
