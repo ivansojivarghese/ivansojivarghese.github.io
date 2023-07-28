@@ -492,6 +492,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 }
             };
         if (!el.x12) { 
+            var f;
+
             el.lk4.classList.remove("z_wd"); // add width on link_4
             s(); // start navbar animations
 
@@ -499,14 +501,17 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 e_wCycle(el.wdT, dev.info.work, ld.wdTL);
             }, op.t);
 
-            setTimeout(function() { // show local weather/city information
-                e_Fd(el.Ltf, false);
-
-                // add titles
-                weather.c.title = ipAPIres.city; // weather city name
-                weather.i.title = weatherAPIres.weather["0"].main; // weather description
-
-            }, op.te);
+            f = function() { // show local weather/city information
+                if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage) {
+                    e_Fd(el.Ltf, false);
+                    // add titles
+                    weather.c.title = ipAPIres.city; // weather city name
+                    weather.i.title = weatherAPIres.weather["0"].main; // weather description
+                } else {
+                    f();
+                }
+            };
+            f();
 
             scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
             el.x12 = true;
