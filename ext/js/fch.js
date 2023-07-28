@@ -213,7 +213,7 @@ function load_css_e() { // load CSS styles (page specific)
             }
 
             c_rep(im.L, "h-f", "h-fd"); 
-            // c_css("#lead_wrap", "padding-bottom: calc(100vh - (" + el.ldwh + "px/2))", false, null);
+            c_css("#lead_wrap", "padding-bottom: calc(100vh - (17.4rem / 2))", false, null);
         }
 
     }
