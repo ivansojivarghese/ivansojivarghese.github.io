@@ -559,11 +559,15 @@ function sc_LpH() { // scroll loop - phablet
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
             im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.pfg.style.opacity = gh_mb_frc;
+
+            im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
         } else { // default at top
             im.wd.style.transform = "";
             im.gh.style.transform = "";
             im.pfi.style.transform = "";
             im.pfg.style.opacity = 1;
+
+            im.L.style.transform = "";
         }
     }
 
