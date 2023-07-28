@@ -199,7 +199,6 @@ function load_css_e() { // load CSS styles (page specific)
         pg.sc.e.classList.add("c_w");
 
         c_css("#intro_sc", "height: calc(" + aH + "px - 5.5rem)", false, null);
-        c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);
         c_css("#lead_wrap", "padding-bottom: 0", false, null);
 
         if (vw.dk) { // desktop
@@ -216,6 +215,9 @@ function load_css_e() { // load CSS styles (page specific)
             el.Ltf.classList.remove("d_n");
             c_rep(im.L, "h-f", "h-fd"); 
             c_css("#lead_wrap", "padding-top: calc(100vh - (17.4rem / 2))", false, null);
+
+        } else {
+            c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);
         }
 
     }
