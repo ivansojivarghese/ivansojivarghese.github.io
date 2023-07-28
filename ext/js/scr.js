@@ -553,7 +553,7 @@ function sc_LpH() { // scroll loop - phablet
             ghTransform = pos.y * -0.2,
             gh_mb_frc = Math.abs(ghTransform) / mb; // opacity decrease
 
-        im.wd.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+        im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
         im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
         im.pfg.style.opacity = gh_mb_frc; 
     }
