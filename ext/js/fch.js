@@ -287,7 +287,7 @@ function load_js_e() { // load JS (page specific)
 
     for (var d in dev.info) { // loop through to concatenate information to text
         if (i < _Lq) {
-            if (i !== 0 && i !== 6 && i !== 7) {
+            if (i !== 0 && i !== 6 && i !== 7 && ((i !== 3 && vw.dk) || !vw.dk)) {
                 qInfo[i].innerHTML = dev.info[d];
             } else { // run typing effect
                 ld.x4 = true;
