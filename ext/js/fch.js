@@ -405,6 +405,7 @@ function js_live() { // update js - in live
             } else if (vw.dk) {
                 // e_Fd(eB, true); 
                 eB.classList.add("left");
+                el.lk3c.classList.add("z_O");
             }
             setTimeout(function() {
                 e.style.height = "0px"; // set link to 0 height
@@ -522,6 +523,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         } 
         el.lk3cb.classList.remove("left"); // show scroll peek button
         el.lk3cb.addEventListener("click", peek); // add function
+        el.lk3c.classList.remove("z_O");
 
         el.ac = true;
     }
