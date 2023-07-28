@@ -212,6 +212,7 @@ function load_css_e() { // load CSS styles (page specific)
                 }
             }
 
+            el.Ltf.classList.remove("d_n");
             c_rep(im.L, "h-f", "h-fd"); 
             c_css("#lead_wrap", "padding-top: calc(100vh - (17.4rem / 2))", false, null);
         }
