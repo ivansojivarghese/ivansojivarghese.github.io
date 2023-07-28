@@ -510,7 +510,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     weather.c.title = ipAPIres.city; // weather city name
                     weather.i.title = weatherAPIres.weather["0"].main; // weather description
                 } else if ((op.d.getTime() - apiInit) < apiTimeout) {
-                    f();
+                    setTimeout(function() {
+                        f();
+                    }, op.t);
                 }
             };
             f();
