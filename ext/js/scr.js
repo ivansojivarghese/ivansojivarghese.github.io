@@ -551,13 +551,13 @@ function sc_LpH() { // scroll loop - phablet
 
     if (vw.dk) { // if desktop
         var mb = num_Fs(window.getComputedStyle(im.pfg).getPropertyValue('margin-bottom')),
-            ghTransform = pos.y * -0.2,
+            ghTransform = pos.y * -0.35,
             gh_mb_frc = 1 - (Math.abs(ghTransform) / mb); // opacity decrease
 
         if (!pos.aT) { // during scroll
             im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
-            im.pfi.style.transform = "translateY(" + (pos.y * 0.125) + "px)";
+            im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.pfg.style.opacity = gh_mb_frc;
         } else { // default at top
             im.wd.style.transform = "";
