@@ -221,13 +221,23 @@
         margin-left: 0;
     }
 
-    #intro_main {
+    #intro_main, #lead_wrap {
         background-color: #D7D7D7;
+    }
+
+    .q_Info {
+        background-color: #303030;
+        margin-top: calc(50vh - 3rem) !important;
     }
 
     #educationInfo {
         width: 8.5rem;
         margin-left: calc(80vw - 8.5rem) !important;
-        padding-top: 1rem;
+        padding-top: 3rem;
+    }
+
+    #lead_point_4 p {
+        padding-left: 4vw;
+        color: #303030;
     }
 }
