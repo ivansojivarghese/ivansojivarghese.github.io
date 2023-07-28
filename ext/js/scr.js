@@ -2,6 +2,7 @@
 // scroll-based loops/functions (local)
 
 var im = { // #intro_main
+        wd : document.getElementById("wordsTyper"),
         gh : document.getElementById("logo-h"),
         el : document.getElementById("intro_main"),
         elw : document.getElementById("intro_ws"),
@@ -547,7 +548,8 @@ function sc_LpH() { // scroll loop - phablet
     }
 
     if (vw.dk) { // if desktop
-        im.gh.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+        im.wd.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+        im.gh.style.transform = "translateY(" + (pos.y * -0.2) + "px)";
     }
 
     requestAnimationFrame(sc_LpH);
