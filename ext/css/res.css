@@ -224,4 +224,10 @@
     #intro_main {
         background-color: #D7D7D7;
     }
+
+    #educationInfo {
+        width: 10rem;
+        margin-left: calc(80vw - 10rem) !important;
+        padding-top: 1rem;
+    }
 }
