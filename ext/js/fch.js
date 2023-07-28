@@ -202,6 +202,8 @@ function load_css_e() { // load CSS styles (page specific)
         c_css("#lead_wrap", "padding-bottom: 0", false, null);
 
         if (vw.dk) { // desktop
+            var ldwh = num_Fs(window.getComputedStyle(el.ldw).getPropertyValue('height'));
+
             for (w = 0; w <= el.n.length - 1; w++) { // set up animating navbar elements
                 el.n[w].classList.add("up");
                 if (w < el.n.length - 1) {
@@ -212,6 +214,7 @@ function load_css_e() { // load CSS styles (page specific)
             }
 
             c_rep(im.L, "h-f", "h-fd"); 
+            c_css("#lead_wrap", "padding-bottom: calc(100vh - (" + ldwh + "px/2))", false, null);
         }
 
     }
