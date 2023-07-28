@@ -70,7 +70,6 @@ var fchL = {
         bgC : document.querySelectorAll(".bg-circle"),
         bgC4 : document.getElementById("bg-cir4"),
         ldw : document.getElementById("lead_wrap"),
-        ldwh : 0, // height
         ldP : document.getElementById("lead_point"),
         ldP1 : document.getElementById("lead_point_1"),
         ldP4 : document.getElementById("lead_point_4"),
@@ -203,7 +202,7 @@ function load_css_e() { // load CSS styles (page specific)
         c_css("#lead_wrap", "padding-bottom: 0", false, null);
 
         if (vw.dk) { // desktop
-            
+
             for (w = 0; w <= el.n.length - 1; w++) { // set up animating navbar elements
                 el.n[w].classList.add("up");
                 if (w < el.n.length - 1) {
@@ -214,7 +213,7 @@ function load_css_e() { // load CSS styles (page specific)
             }
 
             c_rep(im.L, "h-f", "h-fd"); 
-            c_css("#lead_wrap", "padding-bottom: calc(100vh - (" + el.ldwh + "px/2))", false, null);
+            // c_css("#lead_wrap", "padding-bottom: calc(100vh - (" + el.ldwh + "px/2))", false, null);
         }
 
     }
@@ -296,8 +295,6 @@ function load_js_e() { // load JS (page specific)
             i++;
         }
     }
-
-    el.ldwh = num_Fs(window.getComputedStyle(el.ldw).getPropertyValue('height'));
 
     if (vw.dk) { // if desktop
         timeNow(el.Ltd); // show time
