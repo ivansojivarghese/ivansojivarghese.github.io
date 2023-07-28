@@ -211,6 +211,7 @@ function load_css_e() { // load CSS styles (page specific)
                 }
             }
 
+            c_rep(im.L, "h-f", "h-fd"); 
         }
 
     }
