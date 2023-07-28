@@ -24,7 +24,9 @@ var fchL = {
         document.getElementById("qIn3"), // college
         document.getElementById("qIn4"), // course
         document.getElementById("qIn5"), // location
-        document.getElementById("qIn6") // coords
+        document.getElementById("qIn6"), // coords
+        document.getElementById("qIn7"), // cups
+        document.getElementById("qIn8") // coffee
     ],
     sInfo = [
         document.getElementById("sIn1"), // distance
