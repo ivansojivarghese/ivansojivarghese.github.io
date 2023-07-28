@@ -2,6 +2,7 @@
 // scroll-based loops/functions (local)
 
 var im = { // #intro_main
+        gh : document.getElementById("logo-h"),
         el : document.getElementById("intro_main"),
         elw : document.getElementById("intro_ws"),
         b5 : document.getElementById("bg-cir5"),
@@ -545,13 +546,16 @@ function sc_LpH() { // scroll loop - phablet
         }
     }
 
+    if (vw.dk) { // if desktop
+        im.gh.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+    }
+
     requestAnimationFrame(sc_LpH);
 }
 
 
-
 if (!vw.pH && !vw.tB) { // only in mobile view
     sc_L();
-} else if (vw.pH || vw.tB) { // phablet
+} else if (vw.pH || vw.tB) { // phablet/tablet
     sc_LpH();
 }

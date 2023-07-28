@@ -1403,6 +1403,7 @@ setTimeout(function() {
         }
     } catch (err) {
         // do something
+        console.log("UMB not defined");
     }
 
     /*
