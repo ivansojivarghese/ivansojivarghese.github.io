@@ -556,9 +556,10 @@ function scrollArrowIterate(m, e, t, h, ta, b, ch) {
 
 function peek() {
     var b = (!vw.tB && !vw.pH) ? el.ldP.getBoundingClientRect() : el.eInfo.getBoundingClientRect(), 
+        m = (!vw.tB && !vw.pH) ? 1 : (1 - 0.1),
         t = b.top;
     document.documentElement.classList.add("scB");
-    window.scrollTo(0, (t - aH)); // scroll to reasonable point in content area
+    window.scrollTo(0, m * (t - aH)); // scroll to reasonable point in content area
 }
 
 function showCircle() { // show background circles in view
