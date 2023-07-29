@@ -227,7 +227,7 @@
 
     .q_Info {
         background-color: #303030;
-        margin-top: calc(50vh - 3rem) !important;
+        margin-top: calc(100vh - 3rem) !important;
     }
 
     #educationInfo {

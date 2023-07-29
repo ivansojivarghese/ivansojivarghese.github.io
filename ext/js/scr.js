@@ -562,7 +562,7 @@ function sc_LpH() { // scroll loop - phablet
             im.pfg.style.opacity = gh_mb_frc;
 
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
-            ld.qIn.style.transform = "translateY(" + (pos.y * -0.2) + "px)";
+            ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
         } else { // default at top
             im.wd.style.transform = "";
             im.gh.style.transform = "";
