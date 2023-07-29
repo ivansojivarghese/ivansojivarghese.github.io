@@ -553,7 +553,10 @@ function sc_LpH() { // scroll loop - phablet
     if (vw.dk) { // if desktop
         var mb = num_Fs(window.getComputedStyle(im.pfg).getPropertyValue('margin-bottom')),
             ghTransform = pos.y * -0.35,
-            gh_mb_frc = 1 - (Math.abs(ghTransform) / mb); // opacity decrease
+            gh_mb_frc = 1 - (Math.abs(ghTransform) / mb), // opacity decrease
+            b = {
+                
+            };
 
         if (!pos.aT) { // during scroll
             im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
@@ -563,7 +566,6 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
-            // el.eInfo.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
         } else { // default at top
             im.wd.style.transform = "";
             im.gh.style.transform = "";
@@ -572,7 +574,6 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "";
             ld.qIn.style.transform = "";
-            // el.eInfo.style.transform = "";
         }
     }
 
