@@ -555,7 +555,8 @@ function sc_LpH() { // scroll loop - phablet
             ghTransform = pos.y * -0.35,
             gh_mb_frc = 1 - (Math.abs(ghTransform) / mb), // opacity decrease
             b = {
-                
+                wd : im.wd.getBoundingClientRect(),
+                q : ld.qIn.getBoundingClientRect()
             };
 
         if (!pos.aT) { // during scroll
@@ -566,6 +567,11 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
+
+            if (b.q.top < b.wd.bottom) { // if q_Info intersects wordsTyper
+
+                // start lead_point_4 opacity reduction
+            }
         } else { // default at top
             im.wd.style.transform = "";
             im.gh.style.transform = "";
