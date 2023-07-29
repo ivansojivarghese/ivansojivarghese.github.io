@@ -40,17 +40,20 @@ var im = { // #intro_main
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
         Lpm : document.getElementById("lead_point_3"),
+        Lp4 : document.getElementById("lead_point_4"),
         pbn : document.getElementById("phablet_banner"),
         pds : document.getElementsByClassName("pscroll"),
         rf : aH * op.svA[1],
         rfe : aH * op.svA[0],
         rfd : 0,
         rf2 : 0,
+        rf3 : 0,
         x : false,
         x2 : false,
         x3 : false,
         x4 : false,
         x5 : false,
+        x6 : false,
         L : null
     },
     pf = { // #prefooter_sc
@@ -556,7 +559,8 @@ function sc_LpH() { // scroll loop - phablet
             gh_mb_frc = 1 - (Math.abs(ghTransform) / mb), // opacity decrease
             b = {
                 wd : im.wd.getBoundingClientRect(),
-                q : ld.qIn.getBoundingClientRect()
+                q : ld.qIn.getBoundingClientRect(),
+                lp4 : ld.Lp4.getBoundingClientRect()
             };
 
         if (!pos.aT) { // during scroll
@@ -568,10 +572,18 @@ function sc_LpH() { // scroll loop - phablet
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
 
-            if (b.q.top < b.wd.bottom) { // if q_Info intersects wordsTyper
-
-                // start lead_point_4 opacity reduction
+            if (b.q.top < b.wd.top) {
+                ld.Lp4.style.opacity = 0;
+            } else if (b.q.top < b.wd.bottom) { // if q_Info intersects wordsTyper
+                if (!ld.x6) {
+                    ld.rf3 = b.q.top - b.lp4.top;  // start lead_point_4 opacity reduction
+                    ld.x6 = true;
+                }
+                ld.Lp4.style.opacity = "";
+            } else {
+                ld.Lp4.style.opacity = 1;
             }
+
         } else { // default at top
             im.wd.style.transform = "";
             im.gh.style.transform = "";
