@@ -591,14 +591,14 @@ function sc_LpH() { // scroll loop - phablet
             }
 
             if (b.q3.top < (aH / 2)) {
-                ld.eduI.style.transform = "transformY(2.5rem)";
+                ld.eduI.style.transform = "translateY(2.5rem)";
             } else if (b.q3.top < aH) { // if in view
                 if (!ld.x7) {
                     ld.rf4 = b.q3.top;  // start edu_info icon transform
                     ld.x7 = true;
                 }
                 var t = (b.q3.top / (ld.rf4 / 2));
-                ld.eduI.style.transform = "transformY(" + ((1 - t) * (2.5 * op.fN)) + "px)";
+                ld.eduI.style.transform = "translateY(" + ((1 - t) * (2.5 * op.fN)) + "px)";
             } else {
                 ld.eduI.style.transform = "";
             }
