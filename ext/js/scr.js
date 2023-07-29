@@ -34,6 +34,7 @@ var im = { // #intro_main
         csm : document.getElementById("c_Info-m"),
         cs : document.getElementsByClassName("c_Info_s"),
         csa : document.getElementsByClassName("c_Info_a"),
+        qIn : document.querySelector(".q_Info"),
         q1 : document.getElementById("qIn1"),
         qis : document.getElementsByClassName("q_Info_scr"),
         pb : document.getElementById("profile_btn"),
@@ -561,6 +562,7 @@ function sc_LpH() { // scroll loop - phablet
             im.pfg.style.opacity = gh_mb_frc;
 
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+            ld.qIn.style.transform = "translateY(" + (pos.y * -0.2) + "px)";
         } else { // default at top
             im.wd.style.transform = "";
             im.gh.style.transform = "";
@@ -568,6 +570,7 @@ function sc_LpH() { // scroll loop - phablet
             im.pfg.style.opacity = 1;
 
             im.L.style.transform = "";
+            ld.qIn.style.transform = "";
         }
     }
 
