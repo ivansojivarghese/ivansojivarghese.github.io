@@ -597,8 +597,8 @@ function sc_LpH() { // scroll loop - phablet
                     ld.rf4 = b.q3.top;  // start edu_info icon transform
                     ld.x7 = true;
                 }
-                var t = (b.q3.top / (ld.rf4 / 2));
-                ld.eduI.style.transform = "translateY(" + ((1 - t) * (2.5 * op.fN)) + "px)";
+                var t = (b.q3.top - (ld.rf4 / 2));
+                ld.eduI.style.transform = "translateY(" + ((1 - (t / (ld.rf4 / 2))) * (2.5 * op.fN)) + "px)";
             } else {
                 ld.eduI.style.transform = "";
             }
