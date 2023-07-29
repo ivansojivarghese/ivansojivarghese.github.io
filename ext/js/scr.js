@@ -572,7 +572,7 @@ function sc_LpH() { // scroll loop - phablet
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
 
-            if (b.q.top < b.wd.top) {
+            if (b.q.top < b.lp4.top) {
                 ld.Lp4.style.opacity = 0;
             } else if (b.q.top < b.wd.bottom) { // if q_Info intersects wordsTyper
                 if (!ld.x6) {
