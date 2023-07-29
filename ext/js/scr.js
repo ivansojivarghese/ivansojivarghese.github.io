@@ -36,7 +36,9 @@ var im = { // #intro_main
         csa : document.getElementsByClassName("c_Info_a"),
         qIn : document.querySelector(".q_Info"),
         q1 : document.getElementById("qIn1"),
+        q3 : document.getElementById("qIn3"),
         qis : document.getElementsByClassName("q_Info_scr"),
+        eduI : document.getElementById("educationIcon"),
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
         Lpm : document.getElementById("lead_point_3"),
@@ -48,12 +50,14 @@ var im = { // #intro_main
         rfd : 0,
         rf2 : 0,
         rf3 : 0,
+        rf4 : 0,
         x : false,
         x2 : false,
         x3 : false,
         x4 : false,
         x5 : false,
         x6 : false,
+        x7 : false,
         L : null
     },
     pf = { // #prefooter_sc
@@ -560,7 +564,8 @@ function sc_LpH() { // scroll loop - phablet
             b = {
                 wd : im.wd.getBoundingClientRect(),
                 q : ld.qIn.getBoundingClientRect(),
-                lp4 : ld.Lp4.getBoundingClientRect()
+                lp4 : ld.Lp4.getBoundingClientRect(),
+                q3 : ld.q3.getBoundingClientRect()
             };
 
         if (!pos.aT) { // during scroll
@@ -583,6 +588,19 @@ function sc_LpH() { // scroll loop - phablet
                 ld.Lp4.style.opacity = (r / ld.rf3);
             } else {
                 ld.Lp4.style.opacity = 1;
+            }
+
+            if (b.q3.top < (aH / 2)) {
+                ld.eduI.style.transform = "transformY(2.5rem)";
+            } else if (b.q3.top < aH) { // if in view
+                if (!ld.x7) {
+                    ld.rf4 = b.q3.top;  // start edu_info icon transform
+                    ld.x7 = true;
+                }
+                var t = (b.q3.top / (ld.rf4 / 2));
+                ld.eduI.style.transform = "transformY(" + ((1 - t) * (2.5 * op.fN)) + "px)";
+            } else {
+                ld.eduI.style.transform = "";
             }
 
         } else { // default at top
