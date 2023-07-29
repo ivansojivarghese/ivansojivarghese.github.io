@@ -563,7 +563,7 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
-            el.eInfo.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
+            // el.eInfo.style.transform = "translateY(" + (pos.y * 0.2) + "px)";
         } else { // default at top
             im.wd.style.transform = "";
             im.gh.style.transform = "";
@@ -572,7 +572,7 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "";
             ld.qIn.style.transform = "";
-            el.eInfo.style.transform = "";
+            // el.eInfo.style.transform = "";
         }
     }
 
