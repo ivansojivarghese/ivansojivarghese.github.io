@@ -579,7 +579,8 @@ function sc_LpH() { // scroll loop - phablet
                     ld.rf3 = b.q.top - b.lp4.top;  // start lead_point_4 opacity reduction
                     ld.x6 = true;
                 }
-                ld.Lp4.style.opacity = "";
+                var r = b.q.top - b.lp4.top;
+                ld.Lp4.style.opacity = (r / ld.rf3);
             } else {
                 ld.Lp4.style.opacity = 1;
             }
