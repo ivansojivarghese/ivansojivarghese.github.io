@@ -15,8 +15,10 @@ var wH = window.outerHeight, // height
         lat : "-33.696",
         lon : "151.102",
         degree : '1°20\'34"N 103°41\'19"E', // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
-        city : "Singapore",
-        country : "SG" // (ISO 3116 code)
+        // city : "Singapore",
+        // country : "SG" // (ISO 3116 code)
+        city : "Hornsby",
+        country : "AU"
     }
     dev = {
         mode : developer,  
