@@ -12,7 +12,7 @@ var wH = window.outerHeight, // height
     gps = { // CURRENT LOCATION (UPDATE WHEN NEEDED!)
         lat : "1.343",
         lon : "103.689",
-        degree : '1°20\'34" N 103°41\'19" E' // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
+        degree : '1°20\'34"N 103°41\'19"E' // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
     }
     dev = {
         mode : developer,  
