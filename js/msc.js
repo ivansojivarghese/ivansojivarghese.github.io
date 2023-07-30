@@ -25,7 +25,6 @@ var wH = window.outerHeight, // height
             college : !((wiD >= 1200 && wiH >= 700) || wiH >= 800) ? "ntu" : "mshs", // name of institution
             course : "computer science", // course name
             location : "singapore", // geographic location/region/city/country/state
-            // coords : gps.lat + "°" + gps.latD + " " + gps.lon + "°" + gps.lonD, // geographic coords - last 2 decimals omitted for privacy
             coords : gps.degree,
             distance : 97,
             hoursNo : 183,
