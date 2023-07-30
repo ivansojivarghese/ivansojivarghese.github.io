@@ -236,6 +236,11 @@
         padding-top: 10rem;
     }
 
+    #locationInfo {
+        text-align: center;
+        margin-top: 5rem;
+    }
+
     #lead_point_4 {
         font-weight: bold;
     }
