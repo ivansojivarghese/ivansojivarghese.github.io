@@ -216,6 +216,22 @@ function load_css_e() { // load CSS styles (page specific)
             c_rep(im.L, "h-f", "h-fd"); 
             c_css("#lead_wrap", "padding-top: calc(100vh - (17.4rem / 2))", false, null);
 
+            if (ipAPIres.online && weatherAPIres.online) {
+                if (ipAPIres.city === weatherAPIres.name) {
+
+                    // USER in same city
+                } else if () {
+
+                    // USER nearby (<50km), not in same city
+                } else if () {
+
+                    // USER in same country?
+                } else {
+
+                    // USER is international
+                }
+            }
+
         } else {
             c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);
         }
