@@ -12,12 +12,12 @@ var wH = window.outerHeight, // height
     gps = { // CURRENT LOCATION (UPDATE WHEN NEEDED!)
         // lat : "1.343",
         // lon : "103.689",
-        lat : "-33.696",
-        lon : "151.102",
+        lat : "-33.866",
+        lon : "151.209",
         degree : '1°20\'34"N 103°41\'19"E', // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
         // city : "Singapore",
         // country : "SG" // (ISO 3116 code)
-        city : "Hornsby",
+        city : "Sydney",
         country : "AU"
     }
     dev = {
