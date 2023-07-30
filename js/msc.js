@@ -9,6 +9,12 @@ var wH = window.outerHeight, // height
     uHeight = 0,
     Rd = [], // load-ready - boolean statuses for loading resource elements
     timer = {}, // keep track of timer instances
+    gps = { // CURRENT LOCATION (UPDATE WHEN NEEDED!)
+        lat : "1.343",
+        lon : "103.688",
+        latD : "N",
+        lonD : "E"
+    }
     dev = {
         mode : developer,  
         mtne : false, // maintenance check
@@ -20,7 +26,7 @@ var wH = window.outerHeight, // height
             college : (!vw.dk) ? "ntu" : "mshs", // name of institution
             course : "computer science", // course name
             location : "singapore", // geographic location/region/city/country/state
-            coords : "1.343°N 103.688°E", // geographic coords - last 2 decimals omitted for privacy
+            coords : gps.lat + "°" + gps.latD + " " + gps.lon + "°" + gps.lonD, // geographic coords - last 2 decimals omitted for privacy
             distance : 97,
             hoursNo : 183,
             cappuccinosNo : 245
