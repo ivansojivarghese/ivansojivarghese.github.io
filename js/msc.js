@@ -10,15 +10,11 @@ var wH = window.outerHeight, // height
     Rd = [], // load-ready - boolean statuses for loading resource elements
     timer = {}, // keep track of timer instances
     gps = { // CURRENT LOCATION (UPDATE WHEN NEEDED!)
-        // lat : "1.343",
-        // lon : "103.689",
-        lat : "-31.941",
-        lon : "115.859",
+        lat : "1.343",
+        lon : "103.689",
         degree : '1°20\'34"N 103°41\'19"E', // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
-        // city : "Singapore",
-        // country : "SG" // (ISO 3116 code)
-        city : "Perth",
-        country : "AU"
+        city : "Singapore",
+        country : "SG" // (ISO 3116 code)
     }
     dev = {
         mode : developer,  
