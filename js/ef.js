@@ -210,7 +210,7 @@ function updateText(text, el) {
 // JavaScript program to calculate Distance Between
 // Two Points on Earth
  
-function coordsDistance (lat1, lat2, lon1, lon2) { // REFERENCED FROM @https://www.geeksforgeeks.org/program-distance-two-points-earth/
+function coordsDistance(lat1, lat2, lon1, lon2) { // REFERENCED FROM @https://www.geeksforgeeks.org/program-distance-two-points-earth/
 
     // The math module contains a function
     // named toRadians which converts from

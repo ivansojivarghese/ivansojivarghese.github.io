@@ -95,6 +95,7 @@ var gyroscopeX = 0,
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
     apiSuccess = false, // check
+    nearbyCoordsDis = 50,
     ipAPIres = {},
     weatherAPIres = {},
     weather = {
@@ -217,20 +218,18 @@ function load_css_e() { // load CSS styles (page specific)
             c_css("#lead_wrap", "padding-top: calc(100vh - (17.4rem / 2))", false, null);
 
             if (ipAPIres.online && weatherAPIres.online) {
-                /*
-                if (ipAPIres.city === weatherAPIres.name) {
+                if (ipAPIres.city === gps.city && ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER in same city/region
 
-                    // USER in same city
-                } else if () {
+                    qInfo[4].innerHTML = "right next door!";
+                    
+                } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) >= nearbyCoordsDis)) { // IF USER in same country
 
-                    // USER nearby (<50km), not in same city
-                } else if () {
+                    qInfo[4].innerHTML = "around here...";
 
-                    // USER in same country?
                 } else {
 
                     // USER is international
-                }*/
+                }
             }
 
         } else {
