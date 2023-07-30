@@ -17,7 +17,7 @@ var wH = window.outerHeight, // height
         info : { // personal information - CHANGE WHEN NEEDED
             work : ["web dev", "designer", "shutterbug", "barista", "player"], // work labels
             workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
-            college : "ntu", // name of institution
+            college : (!vw.dk) ? "ntu" : "mshs", // name of institution
             course : "computer science", // course name
             location : "singapore", // geographic location/region/city/country/state
             coords : "1.343°N 103.688°E", // geographic coords - last 2 decimals omitted for privacy
