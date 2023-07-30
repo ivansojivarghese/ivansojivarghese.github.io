@@ -218,13 +218,17 @@ function load_css_e() { // load CSS styles (page specific)
             c_css("#lead_wrap", "padding-top: calc(100vh - (17.4rem / 2))", false, null);
 
             if (ipAPIres.online && weatherAPIres.online) {
-                if (ipAPIres.city === gps.city && ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER in same city/region
+                if (ipAPIres.city === gps.city && ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER in same city/region/country
 
                     qInfo[4].innerHTML = "in your city!";
                     
+                } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER is in same country & region, BUT different city
+
+                    qInfo[4].innerHTML = "closer than you think :)";
+
                 } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) >= nearbyCoordsDis)) { // IF USER in same country
 
-                    qInfo[4].innerHTML = "close by, but far ;)";
+                    qInfo[4].innerHTML = "quite near, but far ;)";
 
                 } else {
 
