@@ -228,7 +228,7 @@ function load_css_e() { // load CSS styles (page specific)
 
                 } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) >= nearbyCoordsDis)) { // IF USER in same country
 
-                    qInfo[4].innerHTML = "quite near, but far <span class='key-sm'>;</span>)";
+                    qInfo[4].innerHTML = "quite within, but far <span class='key-sm'>;</span>)";
 
                 } else {
 
