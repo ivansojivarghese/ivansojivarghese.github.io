@@ -11,9 +11,8 @@ var wH = window.outerHeight, // height
     timer = {}, // keep track of timer instances
     gps = { // CURRENT LOCATION (UPDATE WHEN NEEDED!)
         lat : "1.343",
-        lon : "103.688",
-        latD : "N",
-        lonD : "E"
+        lon : "103.689",
+        degree : '1° 20\' 34" N 103° 41\' 19" E' // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
     }
     dev = {
         mode : developer,  
@@ -26,7 +25,8 @@ var wH = window.outerHeight, // height
             college : (!vw.dk) ? "ntu" : "mshs", // name of institution
             course : "computer science", // course name
             location : "singapore", // geographic location/region/city/country/state
-            coords : gps.lat + "°" + gps.latD + " " + gps.lon + "°" + gps.lonD, // geographic coords - last 2 decimals omitted for privacy
+            // coords : gps.lat + "°" + gps.latD + " " + gps.lon + "°" + gps.lonD, // geographic coords - last 2 decimals omitted for privacy
+            coords : gps.degree,
             distance : 97,
             hoursNo : 183,
             cappuccinosNo : 245
