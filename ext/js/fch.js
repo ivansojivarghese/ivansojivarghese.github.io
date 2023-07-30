@@ -95,7 +95,7 @@ var gyroscopeX = 0,
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
     apiSuccess = false, // check
-    nearbyCoordsDis = 50,
+    nearbyCoordsDis = 50, // km
     ipAPIres = {},
     weatherAPIres = {},
     weather = {
@@ -220,7 +220,7 @@ function load_css_e() { // load CSS styles (page specific)
             if (ipAPIres.online && weatherAPIres.online) {
                 if (ipAPIres.city === gps.city && ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER in same city/region
 
-                    qInfo[4].innerHTML = "right next door!";
+                    qInfo[4].innerHTML = "in your city!";
                     
                 } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) >= nearbyCoordsDis)) { // IF USER in same country
 
