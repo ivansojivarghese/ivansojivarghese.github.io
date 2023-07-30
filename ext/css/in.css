@@ -312,8 +312,12 @@
 }
 
 #localWeather .container {
-    padding: 0.4rem 0;
+    padding: calc(0.4rem + 0.125em) 0;
     margin-left: 0.5rem;
+}
+
+#localWeather .compact {
+    line-height: 0.75em;
 }
 
 #localCity { 
