@@ -22,7 +22,7 @@ var wH = window.outerHeight, // height
         info : { // personal information - CHANGE WHEN NEEDED
             work : ["web dev", "designer", "shutterbug", "barista", "player"], // work labels
             workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
-            college : (!vw.dk) ? "ntu" : "mshs", // name of institution
+            college : !((wiH >= 1200 && wiH >= 700) || wiH >= 800) ? "ntu" : "mshs", // name of institution
             course : "computer science", // course name
             location : "singapore", // geographic location/region/city/country/state
             // coords : gps.lat + "°" + gps.latD + " " + gps.lon + "°" + gps.lonD, // geographic coords - last 2 decimals omitted for privacy
