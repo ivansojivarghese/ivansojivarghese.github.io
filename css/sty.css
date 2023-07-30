@@ -332,6 +332,13 @@ div, .tint {
     line-height: 1.5em !important;
 }
 
+.key-sm {
+    position: relative;
+    top: -0.15rem;
+    margin-left: 0.2em;
+    margin-right: 0.1em;
+}
+
 .f_wg-n {
     font-weight: normal;
 }

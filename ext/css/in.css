@@ -14,7 +14,7 @@
     display: none;
 }
 
-.q_Info h5.cr, #key-sm {
+.q_Info h5.cr {
     position: relative;
 }
 
@@ -156,12 +156,6 @@
     height: calc(50vh - 10.5rem);
     left: 4.8rem;
 }*/
-
-#key-sm {
-    top: -0.15rem;
-    margin-left: 0.2em;
-    margin-right: 0.1em;
-}
 
 .overlay { /* REFERENCE TO: christy-varghese @https://christy-varghese.github.io/ */
     background-color: var(--white-alpha-25);

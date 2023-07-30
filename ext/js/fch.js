@@ -224,11 +224,11 @@ function load_css_e() { // load CSS styles (page specific)
                     
                 } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER is in same country & region, BUT different city
 
-                    qInfo[4].innerHTML = "closer than you think :<span>)</span>";
+                    qInfo[4].innerHTML = "closer than you think <span class='key-sm'>:</span>)";
 
                 } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) >= nearbyCoordsDis)) { // IF USER in same country
 
-                    qInfo[4].innerHTML = "quite near, but far ;<span>)</span>";
+                    qInfo[4].innerHTML = "quite near, but far <span class='key-sm'>;</span>)";
 
                 } else {
 
