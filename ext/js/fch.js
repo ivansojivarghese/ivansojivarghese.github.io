@@ -217,6 +217,7 @@ function load_css_e() { // load CSS styles (page specific)
             c_css("#lead_wrap", "padding-top: calc(100vh - (17.4rem / 2))", false, null);
 
             if (ipAPIres.online && weatherAPIres.online) {
+                /*
                 if (ipAPIres.city === weatherAPIres.name) {
 
                     // USER in same city
@@ -229,7 +230,7 @@ function load_css_e() { // load CSS styles (page specific)
                 } else {
 
                     // USER is international
-                }
+                }*/
             }
 
         } else {
