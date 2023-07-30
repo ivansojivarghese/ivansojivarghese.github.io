@@ -250,6 +250,8 @@ async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/
         .then((response) => {
             return response.json().then((data) => {
                 ipAPIres = data;
+                ipAPIres.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
+                ipAPIres.lon = data.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude;
                 ipAPIres.online = true;
             }).catch((error) => {
                 ipAPIres.error = true;
@@ -319,8 +321,7 @@ function load_js_e() { // load JS (page specific)
                 var lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
                     lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
                     unit = tempUnit(ipAPIres.country);
-                ipAPIres.lat = lat;
-                ipAPIres.lon = lon;
+                
                 weatherAPI(lat, lon, unit); // get user location weather information API
 
                 var wtAPI = function() {
