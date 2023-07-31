@@ -336,7 +336,7 @@ function load_js_e() { // load JS (page specific)
         var dkAPI = function() {
             if (ipAPIres.error) {
 
-                apiSuccess = null; //
+                apiSuccess = null; 
 
                 ///////
                 // SET a loop to continously check for variable within timeout time
