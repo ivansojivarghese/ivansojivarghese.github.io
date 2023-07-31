@@ -323,7 +323,7 @@ function load_js_e() { // load JS (page specific)
     if (vw.dk) { // if desktop
         var b = 0;
         for (var c in gpsInfo) {
-            el.fC[b].innerHTML = gps[c];
+            el.fC[b].innerHTML = gpsInfo[c];
             b++;
         }
 
