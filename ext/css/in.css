@@ -378,6 +378,10 @@
     height: 0.5rem;
 }
 
+#fullCoords {
+    font-size: 2.7rem;
+}
+
 #coffeeCups {
     margin-top: 5rem;
     margin-left: 5vw;
