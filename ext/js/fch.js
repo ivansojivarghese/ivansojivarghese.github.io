@@ -324,9 +324,12 @@ function load_js_e() { // load JS (page specific)
         var b = 0;
         for (var c in gpsInfo) {
             if (b === 3) {
+                el.fC[b].innerHTML = gpsInfo[c];
                 el.fC[b + 1].innerHTML = "&nbsp;&nbsp;";
-            } 
-            el.fC[b].innerHTML = gpsInfo[c];
+                b++;
+            } else {
+                el.fC[b].innerHTML = gpsInfo[c];
+            }
             b++;
         }
 
