@@ -323,10 +323,8 @@ function load_js_e() { // load JS (page specific)
     if (vw.dk) { // if desktop
         var b = 0;
         for (var c in gps) {
-            if (c >= 4) {
-                el.fC[b].innerHTML = gps[c];
-                b++;
-            }
+            el.fC[b].innerHTML = gps[c];
+            b++;
         }
 
         timeNow(el.Ltd); // show time
