@@ -398,19 +398,19 @@
     transform: translateY(-1.25rem);
 }
 
-#fullCoords span:nth-child(5) {
+#fullCoords span:nth-child(6) {
     transform: translateY(-1.5rem);
 }
 
-#fullCoords span:nth-child(6) {
+#fullCoords span:nth-child(7) {
     transform: translateY(1rem);
 }
 
-#fullCoords span:nth-child(7) {
+#fullCoords span:nth-child(8) {
     transform: translateY(-0.75rem);
 }
 
-#fullCoords span:nth-child(8) {
+#fullCoords span:nth-child(9) {
     transform: translateY(-0.5rem);
 }
 
