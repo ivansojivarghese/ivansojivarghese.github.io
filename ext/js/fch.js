@@ -326,7 +326,7 @@ function load_js_e() { // load JS (page specific)
             if (b !== 4) {
                 el.fC[b].innerHTML = gpsInfo[c];
             } else {
-                el.fC[b].innerHTML = " ";
+                el.fC[b].innerHTML = "&nbsp;&nbsp;";
             }
             b++;
         }
