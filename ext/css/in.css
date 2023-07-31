@@ -378,6 +378,12 @@
     height: 0.5rem;
 }
 
+#coffeeCups {
+    margin-top: 5rem;
+    margin-left: 5vw;
+    width: 6rem;
+}
+
 /* REFERENCED FROM Goodkatz: https://codepen.io/goodkatz/pen/LYPGxQz */
 
 .waves {
