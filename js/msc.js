@@ -12,7 +12,15 @@ var wH = window.outerHeight, // height
     gps = { // CURRENT LOCATION (UPDATE WHEN NEEDED!)
         lat : "1.343",
         lon : "103.689",
-        degree : '1°20\'34"N 103°41\'19"E', // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
+        latDeg : "1°", // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
+        latMin : "20\'",
+        latSec : '34"',
+        latDir : "N",
+        lonDeg : "103°",
+        lonMin : "41\'",
+        lonSec : '19"',
+        lonDir : "E",
+        // degree : '1°20\'34"N 103°41\'19"E', 
         city : "Singapore",
         country : "SG" // (ISO 3116 code)
     }
@@ -27,7 +35,7 @@ var wH = window.outerHeight, // height
             college : !((wiD >= 1200 && wiH >= 700) || wiH >= 800) ? "ntu" : "mshs", // name of institution
             course : "computer science", // course name
             location : gps.city.toLowerCase(), // geographic location/region/city/country/state
-            coords : gps.degree,
+            coords : gps.latDeg + gps.latMin + gps.latSec + gps.latDir + " " + gps.lonDeg + gps.lonMin + gps.lonSec + gps.lonDir,
             distance : 97,
             hoursNo : 183,
             cappuccinosNo : 245
