@@ -78,6 +78,7 @@ var fchL = {
         cIa : document.getElementsByClassName("c_Info_arrows"),
         qIc : document.getElementsByClassName("q_Info_icons"),
         mdh : document.getElementById("mid_sc_h"),
+        fC : document.querySelectorAll("#fullCoords span"),
         wdTL : null
     },
     bd = { // bounds
@@ -320,6 +321,14 @@ function load_js_e() { // load JS (page specific)
     }
 
     if (vw.dk) { // if desktop
+        var b = 0;
+        for (var c in gps) {
+            if (c >= 4) {
+                el.fC[b].innerHTML = gps[c];
+                b++;
+            }
+        }
+
         timeNow(el.Ltd); // show time
         el.Lt.classList.remove("d_n");
 
