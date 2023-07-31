@@ -39,6 +39,7 @@ var im = { // #intro_main
         q3 : document.getElementById("qIn3"),
         qis : document.getElementsByClassName("q_Info_scr"),
         eduI : document.getElementById("educationIcon"),
+        lcF : document.getElementById("locationInfo"),
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
         Lpm : document.getElementById("lead_point_3"),
@@ -565,7 +566,8 @@ function sc_LpH() { // scroll loop - phablet
                 wd : im.wd.getBoundingClientRect(),
                 q : ld.qIn.getBoundingClientRect(),
                 lp4 : ld.Lp4.getBoundingClientRect(),
-                q3 : ld.q3.getBoundingClientRect()
+                q3 : ld.q3.getBoundingClientRect(),
+                lc : ld.lcF.getBoundingClientRect()
             };
 
         if (!pos.aT) { // during scroll
@@ -576,6 +578,13 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
+
+            if (b.lc.top && b.lc.top < aH) {
+                el.fC[0].style.transform = "translateY(" + (pos.y * -0.15) + "px)";
+                el.fC[1].style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+                el.fC[2].style.transform;
+                el.fC[3].style.transform;
+            }
 
             if (b.q.top < b.lp4.top) {
                 ld.Lp4.style.opacity = 0;
