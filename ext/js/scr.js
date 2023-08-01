@@ -582,12 +582,13 @@ function sc_LpH() { // scroll loop - phablet
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
 
             if (b.lc.top && b.lc.top < aH) {
+                var h = b.lc.height;
                 if (!ld.x8) {
                     ld.rf5 = pos.y;
                     ld.x8 = true;
                 }
-                el.fC[0].style.transform = "translateY(calc(1.5rem + " + (ld.rf5 - (pos.y * -0.15)) + "px)";
-                el.fC[1].style.transform = "translateY(calc(0.3rem + " + (ld.rf5 - (pos.y * -0.1)) + "px)";
+                el.fC[0].style.transform = "translateY(calc(1.5rem + " + ((1 - ((pos.y - ld.rf5) / h)) * (-1.5 * op.fN)) + "rem))";
+                // el.fC[1].style.transform = "translateY(calc(0.3rem + " + (pos.y - (pos.y * -0.1)) + "px)";
                 el.fC[2].style.transform;
                 el.fC[3].style.transform;
             }
