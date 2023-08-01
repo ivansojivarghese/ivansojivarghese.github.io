@@ -592,10 +592,10 @@ function sc_LpH() { // scroll loop - phablet
                 el.fC[2].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.65) + "rem)";
                 el.fC[3].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -1.25) + "rem)";
 
-                el.fC[4].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -1.5) + "rem)";
-                el.fC[5].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * 1) + "rem)";
-                el.fC[6].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.75) + "rem)";
-                el.fC[7].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.5) + "rem)";
+                el.fC[5].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -1.5) + "rem)";
+                el.fC[6].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * 1) + "rem)";
+                el.fC[7].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.75) + "rem)";
+                el.fC[8].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.5) + "rem)";
             }
 
             if (b.q.top < b.lp4.top) {
