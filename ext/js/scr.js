@@ -52,6 +52,7 @@ var im = { // #intro_main
         rf2 : 0,
         rf3 : 0,
         rf4 : 0,
+        rf5 : 0,
         x : false,
         x2 : false,
         x3 : false,
@@ -59,6 +60,7 @@ var im = { // #intro_main
         x5 : false,
         x6 : false,
         x7 : false,
+        x8 : false,
         L : null
     },
     pf = { // #prefooter_sc
@@ -580,8 +582,12 @@ function sc_LpH() { // scroll loop - phablet
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
 
             if (b.lc.top && b.lc.top < aH) {
-                el.fC[0].style.transform = "translateY(" + (pos.y * -0.15) + "px)";
-                el.fC[1].style.transform = "translateY(" + (pos.y * -0.1) + "px)";
+                if (!ld.x8) {
+                    ld.rf5 = pos.y;
+                    ld.x8 = true;
+                }
+                el.fC[0].style.transform = "translateY(calc(1.5rem + " + (ld.rf5 - (pos.y * -0.15)) + "px)";
+                el.fC[1].style.transform = "translateY(calc(0.3rem + " + (ld.rf5 - (pos.y * -0.1)) + "px)";
                 el.fC[2].style.transform;
                 el.fC[3].style.transform;
             }
