@@ -37,9 +37,11 @@ var im = { // #intro_main
         qIn : document.querySelector(".q_Info"),
         q1 : document.getElementById("qIn1"),
         q3 : document.getElementById("qIn3"),
+        q7 : document.getElementById("qIn7"),
         qis : document.getElementsByClassName("q_Info_scr"),
         eduI : document.getElementById("educationIcon"),
         lcF : document.getElementById("locationInfo"),
+        cFc : document.getElementById("coffeeCups"),
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
         Lpm : document.getElementById("lead_point_3"),
@@ -61,6 +63,7 @@ var im = { // #intro_main
         x6 : false,
         x7 : false,
         x8 : false,
+        x9 : false,
         L : null
     },
     pf = { // #prefooter_sc
@@ -569,7 +572,8 @@ function sc_LpH() { // scroll loop - phablet
                 q : ld.qIn.getBoundingClientRect(),
                 lp4 : ld.Lp4.getBoundingClientRect(),
                 q3 : ld.q3.getBoundingClientRect(),
-                lc : ld.lcF.getBoundingClientRect()
+                lc : ld.lcF.getBoundingClientRect(),
+                cf : ld.cFc.getBoundingClientRect()
             };
 
         if (!pos.aT) { // during scroll
@@ -581,7 +585,7 @@ function sc_LpH() { // scroll loop - phablet
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
 
-            if (b.lc.top && b.lc.top < aH) {
+            if (b.lc.top && b.lc.top < aH) { // COORDS parallax
                 var h = b.lc.height;
                 if (!ld.x8) {
                     ld.rf5 = pos.y;
@@ -596,6 +600,35 @@ function sc_LpH() { // scroll loop - phablet
                 el.fC[6].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * 1) + "rem)";
                 el.fC[7].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.75) + "rem)";
                 el.fC[8].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.5) + "rem)";
+            }
+
+            if (b.cf.top && b.cf.top < aH) { // CUPS 
+                if (getCookie("statsIncr") !== "true") { // check if cookie exists
+                    /*
+                    var b1 = getBd(sI_1.e, "top"), // get respective 'top' boundaries for each stat
+                        b2 = getBd(sI_2.e, "top"),
+                        b3 = getBd(sI_3.e, "top");
+        
+                    if (chkVL(b1) && (b1 < wH) && !sI_1.s) { // stats 1 (if within viewport visual)
+                        e_Ic(sI_1, null, sI_1.n);
+                        sI_1.s = true; // only execute each block once
+                    }
+                    if (chkVL(b2) && (b2 < wH) && !sI_2.s) { // stats 2
+                        e_Ic(sI_2, null, sI_2.n);
+                        sI_2.s = true;
+                    }
+                    if (chkVL(b3) && (b3 < wH) && !sI_3.s) { // stats 3
+                        e_Ic(sI_3, null, sI_3.n);
+                        sI_3.s = true;
+                        setCookie("statsIncr", "true", op.c.t); // create cookie to detemine if stats have been incremented by user (on initial usage)
+                    }*/
+
+                } else {
+                    if (!ld.x9) {
+                        ld.q7.innerHTML = sI_3.n; // apply automatically (no increment)
+                        ld.x9 = true; // apply once
+                    }
+                }
             }
 
             if (b.q.top < b.lp4.top) {
