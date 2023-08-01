@@ -587,7 +587,6 @@ function sc_LpH() { // scroll loop - phablet
                     ld.rf5 = pos.y;
                     ld.x8 = true;
                 }
-                // el.fC[0].style.transform = "translateY(calc(1.5rem + " + ((1 - ((pos.y - ld.rf5) / h)) * (-1.5 * op.fN)) + "rem))";
                 el.fC[0].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * 1.5) + "rem)";
 
                 // el.fC[1].style.transform = "translateY(calc(0.3rem + " + (pos.y - (pos.y * -0.1)) + "px)";
