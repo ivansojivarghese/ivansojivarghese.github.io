@@ -727,9 +727,14 @@ function getIndex(el) {
 }
 
 function totalWidth(els) {
-    var w = 0;
+    var w = 0, addon = 0;
     for (q = 0; q <= (els.length - 1); q++) {
-        w += num_Fs(els[q].style.width);
+        if (num_Fs(els[q].style.width)) {
+            addon = num_Fs(els[q].style.width);
+        } else {
+            addon = num_Fs(window.getComputedStyle(els[q]).getPropertyValue('width'))
+        }
+        w += addon;
     }
     if (w === 0) {
         return false;
