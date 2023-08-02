@@ -709,8 +709,8 @@ function sc_LpH() { // scroll loop - phablet
                         }*/ else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
                             
                             var iwd = getCSSProperty(targets[c], "width"),
-                                wd = wiD - target_bd.right,
-                                nwd = iwd + wd; // new (total) width
+                                wd = wiD - target_bd.left,
+                                nwd = (wd > iwd) ? wd : iwd; // new (total) width
                             
                             if (!targets[c].classList.contains("actv")) {
                                 targets[c].style.width = nwd + "px";
