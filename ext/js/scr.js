@@ -113,7 +113,8 @@ var im = { // #intro_main
         e : (!vw.dk) ? document.getElementById("sIn3") : document.getElementById("qIn7"),
         _L : undefined,
         s : false
-    };
+    },
+    wC_hold = []; // wordcloud holder
 
 
 function sc_L() { // functions (live on scroll)
@@ -673,8 +674,10 @@ function sc_LpH() { // scroll loop - phablet
                             // targets[c].classList.add("v_n"); // HIDE the element
 
                             targets[c].classList.add("o-img", "trs"); // make transparent
+                            wC_hold[c] = targets[c]; // add to hold
                             setTimeout(function() {
-                                targets[c].classList.remove("trs");
+                                wC_hold[c].classList.remove("trs");
+                                wC_hold[c] = undefined;
                             }, op.t);
                             targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                             
