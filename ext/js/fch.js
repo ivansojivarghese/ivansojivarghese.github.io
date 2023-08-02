@@ -418,20 +418,6 @@ function load_js_e() { // load JS (page specific)
 
         dkAPI(); // get desktop APIs
 
-        // desktop wordcloud feature
-
-        for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
-            for (b = 0; b <= el.wCh[a].length - 1; b++) {
-                var wd;
-                el.wCh[a][b].innerHTML = wInfo.h1[b];
-                wd = getBd(el.wCh[a][b], "width"); // get width
-                wInfo_s[a] += wd; // update total line width
-                if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
-                    el.wCh[a][b].classList.add("d_n");
-                }
-            }
-        }
-
 
     }
 }
@@ -585,6 +571,20 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
             el.x12 = true;
+
+            // desktop wordcloud feature
+
+            for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
+                for (b = 0; b <= el.wCh[a].length - 1; b++) {
+                    var wd;
+                    el.wCh[a][b].innerHTML = wInfo.h1[b];
+                    wd = getBd(el.wCh[a][b], "width"); // get width
+                    wInfo_s[a] += wd; // update total line width
+                    if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
+                        el.wCh[a][b].classList.add("d_n");
+                    }
+                }
+            }
         } 
         el.lk3cb.classList.remove("left"); // show scroll peek button
         el.lk3cb.addEventListener("click", peek); // add function
