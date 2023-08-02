@@ -683,9 +683,12 @@ function sc_LpH() { // scroll loop - phablet
                                     wC_hold.shift(); // remove from hold
                                 }, op.t);
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                            }  
 
-                            } else if (!targets[c].classList.contains("actv")) { // not activated yet
-                                
+                        } else if (target_bd.right > wiD) {
+                            var wd = wiD - totalWidth(targets);
+                            if (!targets[c].classList.contains("actv")) { // not activated yet
+                                el.wCh[a][wInfo_f[a]].style.width = wd + "px";
                             }
                         }
 
