@@ -692,7 +692,7 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                             } else {
                                 // targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
-                                targets[c].style.width = "50px";
+                                targets[c].style.width = (wiD - target_bd.left) + "px";
                             }
 
                         } else if (target_bd.right > wiD) { // RIGHT
