@@ -680,12 +680,14 @@ function sc_LpH() { // scroll loop - phablet
                                     wC_hold[0].classList.remove("trs");
                                     wC_hold.shift(); // remove from hold
                                 }, op.t);
-                                targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                                // targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                                 targets[c].classList.remove("actv");
 
                             } else { //
 
                             }
+
+                            targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
 
                         } else if (target_bd.right > wiD) { // RIGHT
 
