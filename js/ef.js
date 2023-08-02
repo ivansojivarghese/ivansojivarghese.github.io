@@ -8,6 +8,10 @@ function timeNow(el) {
     el.innerHTML = h + ':' + m;
 }
 
+function getCSSProperty(el, p) { // get css property values using window computed style method
+    return num_Fs(window.getComputedStyle(el).getPropertyValue(p));
+}
+
 // effects
 
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
