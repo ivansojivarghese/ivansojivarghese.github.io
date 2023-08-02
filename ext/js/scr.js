@@ -685,6 +685,7 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                                 */
                                 targets[c].classList.remove("actv");
+
                                 // targets[c].classList.add("deactv");
                             } 
 
@@ -696,7 +697,7 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = (wiD - target_bd.left) + "px";
                             }*/
 
-                        } /*else if (target_bd.right > wiD) { // RIGHT
+                        } else if (target_bd.right >= wiD) { // RIGHT
 
                             // var wd = wiD - totalWidth(targets);
                             var iwd = getCSSProperty(targets[c], "width"),
@@ -706,7 +707,7 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = nwd + "px";
                             }
 
-                        }*/ else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
+                        } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
                             /*
                             var iwd = getCSSProperty(targets[c], "width"),
                                 wd = wiD - target_bd.right,
