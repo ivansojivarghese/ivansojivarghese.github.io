@@ -685,6 +685,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         // new words (using comparison of live-width additions with viewport width)
                         if (totalWidth(targets) < wiD) { // ADD new words if space AVAILABLE
+                            el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
                             el.wCh[a][wInfo_f[a]].classList.add("v_s");
                             el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
