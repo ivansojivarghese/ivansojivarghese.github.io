@@ -712,7 +712,9 @@ function sc_LpH() { // scroll loop - phablet
                                 wd = wiD - target_bd.right,
                                 nwd = iwd + wd; // new (total) width
                             
-                            targets[c].style.width = nwd + "px";
+                            if (!targets[c].classList.contains("actv")) {
+                                targets[c].style.width = nwd + "px";
+                            }
 
                             // var iwd = getCSSProperty(targets[c], "width");
 
