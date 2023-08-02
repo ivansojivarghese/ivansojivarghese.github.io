@@ -681,6 +681,7 @@ function sc_LpH() { // scroll loop - phablet
                                     wC_hold.shift(); // remove from hold
                                 }, op.t);
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                                targets[c].classList.remove("actv");
 
                             } else { //
 
