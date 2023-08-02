@@ -677,7 +677,7 @@ function sc_LpH() { // scroll loop - phablet
                             wC_hold[c] = targets[c]; // add to hold
                             setTimeout(function() {
                                 wC_hold[c].classList.remove("trs");
-                                wC_hold[c] = undefined;
+                                wC_hold[c] = undefined; // remove from hold
                             }, op.t);
                             targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                             
