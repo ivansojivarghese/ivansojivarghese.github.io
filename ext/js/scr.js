@@ -660,7 +660,7 @@ function sc_LpH() { // scroll loop - phablet
                         targetsIndex = new Array(targets.length);
                     for (d = 0; d <= targets.length - 1; d++) { // UPDATE reference targets that are visible
                         for (e = 0; e <= targets.length - 1; e++) {
-                            targetsIndex[e] = getIndex(el); // targets[e].classList.contains("r");
+                            targetsIndex[e] = getIndex(targets[e]); // targets[e].classList.contains("r");
                         }
                     }
                     for (c = 0; c <= targets.length - 1; c++) {
@@ -700,7 +700,7 @@ function sc_LpH() { // scroll loop - phablet
 
 function getIndex(el) { // custom function
     for (f = 0; f <= (wInfo_n - 1); f++) {
-        if (targets[el].classList.contains("r" + f)) { // check for reference index, and return it
+        if (el.classList.contains("r" + f)) { // check for reference index, and return it
             return f;
         }
     }
