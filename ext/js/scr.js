@@ -55,6 +55,7 @@ var im = { // #intro_main
         rf3 : 0,
         rf4 : 0,
         rf5 : 0,
+        rf6 : 0,
         x : false,
         x2 : false,
         x3 : false,
@@ -64,10 +65,12 @@ var im = { // #intro_main
         x7 : false,
         x8 : false,
         x9 : false,
+        x10 : false,
         L : null
     },
     pf = { // #prefooter_sc
         el : document.getElementById("prefooter_sc"),
+        wc : document.getElementById("wordcloud_sc"),
         w : document.getElementById("pf_wow"),
         w1 : document.getElementById("wow_head1"),
         w2 : document.getElementById("wow_head2"),
@@ -573,7 +576,8 @@ function sc_LpH() { // scroll loop - phablet
                 lp4 : ld.Lp4.getBoundingClientRect(),
                 q3 : ld.q3.getBoundingClientRect(),
                 lc : ld.lcF.getBoundingClientRect(),
-                cf : ld.cFc.getBoundingClientRect()
+                cf : ld.cFc.getBoundingClientRect(),
+                wc : pf.wc.getBoundingClientRect()
             };
 
         if (!pos.aT) { // during scroll
@@ -642,6 +646,17 @@ function sc_LpH() { // scroll loop - phablet
                 ld.eduI.style.transform = "translateY(" + ((1 - (t / (ld.rf4 / 2))) * (2.5 * op.fN)) + "px)";
             } else {
                 ld.eduI.style.transform = "";
+            }
+
+            // WORDCLOUD
+
+            if (b.wc.top && b.wc.top < aH) { // transformation effect
+                if (!ld.x10) {
+                    ld.rf6 = pos.y;
+                    ld.x10 = true;
+                }
+                var targets = document.querySelectorAll("#wordcloud_sc span.v_s"); // select visible words on screen
+                targets.style.transform = "translateX(" + ((pos.y - ld.rf6) * 0.2) + "px)";
             }
 
         } else { // default at top
