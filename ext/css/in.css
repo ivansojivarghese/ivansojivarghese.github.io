@@ -421,6 +421,10 @@
     width: 6rem;
 }
 
+#wordcloud_sc span {
+    display: inline-block;
+}
+
 #wordcloudh1 {
 
 }

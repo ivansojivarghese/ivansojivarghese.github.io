@@ -581,9 +581,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     wd = getBd(el.wCh[a][b], "width"); // get width
                     wInfo_s[a] += wd; // update total line width
                     if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
-                        el.wCh[a][b].classList.add("d_n");
+                        el.wCh[a][b].classList.add("d_n"); // else, hide
                     } else {
-                        el.wCh[a][b].classList.remove("v_n");
+                        el.wCh[a][b].classList.remove("v_n"); // show if visible
                     }
                 }
             }
