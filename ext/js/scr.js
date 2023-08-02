@@ -688,7 +688,7 @@ function sc_LpH() { // scroll loop - phablet
                         } else if (target_bd.right > wiD) {
                             var wd = wiD - totalWidth(targets);
                             if (!targets[c].classList.contains("actv")) { // not activated yet
-                                el.wCh[a][wInfo_f[a]].style.width = wd + "px";
+                                el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px";
                             }
                         }
 
