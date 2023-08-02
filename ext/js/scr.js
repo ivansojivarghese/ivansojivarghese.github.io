@@ -714,7 +714,7 @@ function sc_LpH() { // scroll loop - phablet
                                     targets[c].classList.add("actv"); // activated (fully shown on screen)
                                 }
                             } else if (iwd <= wInfo_i[a][c]) {
-                                targets[c].style.width = wInfo_i[a][c] + "px";
+                                targets[c].style.width = (wInfo_i[a][c] * 0.9) + "px";
                             }
                             
                             /*else if (!targets[c].classList.contains("actv")) {
