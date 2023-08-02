@@ -669,7 +669,7 @@ function sc_LpH() { // scroll loop - phablet
                         var target_bd;
                         targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; // transform across user viewport during scroll
                         target_bd = targets[c].getBoundingClientRect(); // get live bounds 
-                        if (target_bd.left < 0) { // if HIDDEN away in viewport edges
+                        if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
 
                             // targets[c].classList.remove("v_s");
                             // targets[c].classList.add("v_n"); // HIDE the element
@@ -685,11 +685,13 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                             }  
 
-                        } else if (target_bd.right > wiD) {
+                        } else if (target_bd.right > wiD) { // RIGHT
                             var wd = wiD - totalWidth(targets);
                             if (!targets[c].classList.contains("actv")) { // not activated yet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px";
                             }
+                        } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE
+                            
                         }
 
                         // new words (using comparison of live-width additions with viewport width)
