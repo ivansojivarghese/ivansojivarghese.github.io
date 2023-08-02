@@ -706,13 +706,13 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = nwd + "px";
                             }
 
-                        }*/ else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
+                        }*/ else if (target_bd.right <= wiD && target_bd.left >= 0) { // CENTRE (not infringing of EDGES)
                             
                             var iwd = getCSSProperty(targets[c], "width"),
                                 wd = wiD - target_bd.left,
                                 nwd = (wd > iwd) ? wd : iwd; // new (total) width
                             
-                            if (!targets[c].classList.contains("actv")) {
+                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) {
                                 targets[c].style.width = nwd + "px";
                             }
 
