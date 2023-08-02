@@ -687,6 +687,8 @@ function sc_LpH() { // scroll loop - phablet
                         if (totalWidth(targets) < wiD) { // ADD new words if space AVAILABLE
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
                             el.wCh[a][wInfo_f[a]].classList.add("v_s");
+                            el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
+                            wInfo_f[a]++;
 
                             console.log("insert more");
                         }
