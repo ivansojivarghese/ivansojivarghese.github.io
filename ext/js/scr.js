@@ -729,7 +729,7 @@ function getIndex(el) {
 function totalWidth(els) {
     var w = 0;
     for (q = 0; q <= (els.length - 1); q++) {
-        w += els[q].style.width;
+        w += num_Fs(els[q].style.width);
     }
     return (w != 0) ? w : false;
 }
