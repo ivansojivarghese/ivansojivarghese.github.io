@@ -693,7 +693,7 @@ function sc_LpH() { // scroll loop - phablet
                         } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
                             var wd = wiD - totalWidth(targets);
                             if (!targets[c].classList.contains("actv")) {
-                                el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px";
+                                el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px"; //
                             }
                         }
 
