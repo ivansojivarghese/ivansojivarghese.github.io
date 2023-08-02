@@ -655,15 +655,22 @@ function sc_LpH() { // scroll loop - phablet
                     ld.rf6 = pos.y;
                     ld.x10 = true;
                 }
-                var targets = document.querySelectorAll("#wordcloud_sc span.v_s"); // select visible words on screen
-                for (c = 0; c <= targets.length - 1; c++) {
-                    var target_bd;
-                    targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; // transform across user viewport during scroll
-                    target_bd = targets[c].getBoundingClientRect(); // get live bounds 
-                    if (target_bd.right < 0) { // if HIDDEN away in viewport edges
-                        targets[c].classList.remove("v_s");
-                        targets[c].classList.add("v_n"); // HIDE the element
+                for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
+                    var targets = document.querySelectorAll("#wordcloud" + a + " span.v_s"); // select visible words on screen
+                    for (c = 0; c <= targets.length - 1; c++) {
+                        var target_bd;
+                        targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; // transform across user viewport during scroll
+                        target_bd = targets[c].getBoundingClientRect(); // get live bounds 
+                        if (target_bd.right < 0) { // if HIDDEN away in viewport edges
+                            targets[c].classList.remove("v_s");
+                            targets[c].classList.add("v_n"); // HIDE the element
+                            wInfo_s[a] -= target_bd.width; // UPDATE live LINE WIDTH
+                        }
                     }
+                }
+
+                if () { // SHOW NEW WORDS if SPACE is AVAILABLE
+
                 }
             }
 
