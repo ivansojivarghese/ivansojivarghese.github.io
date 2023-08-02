@@ -686,6 +686,7 @@ function sc_LpH() { // scroll loop - phablet
                             }  
 
                         } else if (target_bd.right > wiD) { // RIGHT
+
                             // var wd = wiD - totalWidth(targets);
                             var iwd = getCSSProperty(targets[c], "width"),
                                 wd = wiD - target_bd.right,
@@ -693,6 +694,7 @@ function sc_LpH() { // scroll loop - phablet
                             if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) { // not activated yet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = nwd + "px";
                             }
+
                         } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
                             /*
                             var iwd = getCSSProperty(targets[c], "width"),
@@ -718,7 +720,7 @@ function sc_LpH() { // scroll loop - phablet
                             el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
                             el.wCh[a][wInfo_f[a]].style.width = wd + "px";
                             el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; 
-                            el.wCh[a][wInfo_f[a] - 1].classList.add("actv"); // activated (fully shown on screen)
+                            el.wCh[a][wInfo_f[a]].classList.add("actv"); // activated (fully shown on screen)
                             wInfo_f[a]++;
 
                             console.log("insert more");
