@@ -731,7 +731,7 @@ function totalWidth(els) {
     for (q = 0; q <= (els.length - 1); q++) {
         w += els[q].style.width;
     }
-    return w;
+    return (w !== 0) ? w : 0;
 }
 
 
