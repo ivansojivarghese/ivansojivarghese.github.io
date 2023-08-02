@@ -662,7 +662,7 @@ function sc_LpH() { // scroll loop - phablet
                     target_bd = targets[c].getBoundingClientRect(); // get live bounds 
                     if (target_bd.right < 0) { // if HIDDEN away in viewport edges
                         targets[c].classList.remove("v_s");
-                        targets[c].classList.add("z_O");
+                        targets[c].classList.add("v_n"); // HIDE the element
                     }
                 }
             }
