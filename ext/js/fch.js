@@ -33,7 +33,7 @@ var fchL = {
         document.getElementById("sIn2"), // hours
         document.getElementById("sIn3"), // cappuccinos
     ],
-    wInfo = { // wordcloud h3 info
+    wInfo = { // wordcloud h3 info (MAX/MIN. 10 WORDS - UPDATE IF NEEDED)
         h1 : ["design ", "canva ", "wireframes ", "figma ", "ux ", "dreamweaver ", "ui ", "studio ", "experience ", "responsive "]
     }
     el = {
