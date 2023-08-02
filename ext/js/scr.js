@@ -671,9 +671,6 @@ function sc_LpH() { // scroll loop - phablet
                         target_bd = targets[c].getBoundingClientRect(); // get live bounds 
                         if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
 
-                            // targets[c].classList.remove("v_s");
-                            // targets[c].classList.add("v_n"); // HIDE the element
-
                             if (targets[c].classList.contains("actv")) { // if word has been activated?
 
                                 targets[c].classList.add("o-img", "trs"); // make transparent
@@ -683,7 +680,10 @@ function sc_LpH() { // scroll loop - phablet
                                     wC_hold.shift(); // remove from hold
                                 }, op.t);
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
-                            }  
+
+                            } else {
+
+                            }
 
                         } else if (target_bd.right > wiD) { // RIGHT
 
