@@ -656,8 +656,9 @@ function sc_LpH() { // scroll loop - phablet
                     ld.x10 = true;
                 }
                 var targets = document.querySelectorAll("#wordcloud_sc span.v_s"); // select visible words on screen
-                targets.style.transform = "translateX(" + ((pos.y - ld.rf6) * 0.2) + "px)";
+                targets.style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)";
             }
+
 
         } else { // default at top
             im.wd.style.transform = "";
