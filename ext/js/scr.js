@@ -691,7 +691,8 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px";
                             }
                         } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE
-                            
+
+                            //
                         }
 
                         // new words (using comparison of live-width additions with viewport width)
