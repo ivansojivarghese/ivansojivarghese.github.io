@@ -86,6 +86,7 @@ var im = { // #intro_main
         x5 : false,
         x6 : false,
         x7 : false,
+        x8 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -684,7 +685,7 @@ function sc_LpH() { // scroll loop - phablet
                         }
 
                         // new words (using comparison of live-width additions with viewport width)
-                        if (totalWidth(targets) < wiD) { // ADD new words if space AVAILABLE
+                        if (totalWidth(targets) < wiD && !pf.x8) { // ADD new words if space AVAILABLE
                             el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
                             el.wCh[a][wInfo_f[a]].classList.add("v_s");
@@ -692,6 +693,8 @@ function sc_LpH() { // scroll loop - phablet
                             wInfo_f[a]++;
 
                             console.log("insert more");
+
+                            pf.x8 = true;
                         }
                     }
                 }
