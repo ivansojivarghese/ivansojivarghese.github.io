@@ -425,8 +425,8 @@ function load_js_e() { // load JS (page specific)
                 var wd;
                 el.wCh[a][b].innerHTML = wInfo.h1[b];
                 wd = getBd(el.wCh[a][b], "width"); // get width
-                wInfo[a] += wd; // update total line width
-                if (wInfo[a] > wiD) { // check if within viewport width (single-line) space
+                wInfo_s[a] += wd; // update total line width
+                if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
                     el.wCh[a][b].classList.add("d_n");
                 }
             }
