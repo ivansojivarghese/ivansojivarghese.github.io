@@ -713,7 +713,7 @@ function sc_LpH() { // scroll loop - phablet
                                 if (wiD - target_bd.left >= wInfo_i[a][c]) {
                                     targets[c].classList.add("actv"); // activated (fully shown on screen)
                                 }
-                            } else if (iwd <= wInfo_i[a][c]) {
+                            } else if ((wiD - target_bd.left >= wInfo_i[a][c]) && iwd <= wInfo_i[a][c]) {
                                 targets[c].style.width = wInfo_i[a][c] + "px";
                             }
                             
