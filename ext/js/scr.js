@@ -674,7 +674,7 @@ function sc_LpH() { // scroll loop - phablet
                             // targets[c].classList.add("v_n"); // HIDE the element
 
                             targets[c].classList.add("o-img", "trs"); // make transparent
-                            wC_hold[c] = targets[c]; // add to hold
+                            wC_hold[wC_hold.length] = targets[c]; // add to hold
                             setTimeout(function() {
                                 wC_hold[0].classList.remove("trs");
                                 wC_hold.shift(); // remove from hold
