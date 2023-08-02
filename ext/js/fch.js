@@ -414,7 +414,8 @@ function load_js_e() { // load JS (page specific)
 
         // desktop wordcloud feature
 
-        for (a = 0; a <= el.wCh.length - 1; a++) { // load up keywords
+        // for (a = 0; a <= el.wCh.length - 1; a++) { // load up keywords
+        for (var a in el.wCh) {
             for (b = 0; b <= el.wCh["s" + (a + 1)].length - 1; b++) {
                 el.wCh["s" + (a + 1)][b].innerHTML = el.wInfo.h1[b];
             }
