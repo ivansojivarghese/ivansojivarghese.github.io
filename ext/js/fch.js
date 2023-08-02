@@ -41,6 +41,12 @@ var fchL = {
         s2 : 0,
         s3 : 0,
         s4 : 0
+    },
+    wInfo_i = { // wordcloud h3 indiv. widths
+        s1 : [],
+        s2 : [], 
+        s3 : [],  
+        s4 : []
     }
     el = {
         x : false, // code execution

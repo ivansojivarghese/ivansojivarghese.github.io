@@ -661,10 +661,10 @@ function sc_LpH() { // scroll loop - phablet
                         var target_bd;
                         targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; // transform across user viewport during scroll
                         target_bd = targets[c].getBoundingClientRect(); // get live bounds 
-                        if (target_bd.right < 0) { // if HIDDEN away in viewport edges
-                            targets[c].classList.remove("v_s");
-                            targets[c].classList.add("v_n"); // HIDE the element
-                            targets[c].classList.add("z_wd"); // 0px width
+                        if (target_bd.left < 0) { // if HIDDEN away in viewport edges
+                            // targets[c].classList.remove("v_s");
+                            // targets[c].classList.add("v_n"); // HIDE the element
+                            targets[c].style.width = ""; // dynamic width
                             
                         }
                     }
