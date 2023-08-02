@@ -736,7 +736,8 @@ function sc_LpH() { // scroll loop - phablet
                             
                             console.log(totalWidth(targets));
 
-                            var wd = wiD - totalWidth(targets) - pf.rf7;
+                            //var wd = wiD - totalWidth(targets) - pf.rf7;
+                            var wd = 1;
 
                             el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
