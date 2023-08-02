@@ -93,7 +93,7 @@ var im = { // #intro_main
         rf4 : 0,
         rf5 : 0,
         rf6 : 0,
-        rf7 : 1 // words cloud reveal safe zone margin
+        rf7 : 0 // words cloud reveal safe zone margin
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
