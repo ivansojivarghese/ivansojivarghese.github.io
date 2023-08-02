@@ -114,7 +114,7 @@ var im = { // #intro_main
         _L : undefined,
         s : false
     },
-    wC_hold = [], wC_holdi = []; // wordcloud holder/index
+    wC_hold = []; // wordcloud holder/index
 
 
 function sc_L() { // functions (live on scroll)
@@ -675,10 +675,9 @@ function sc_LpH() { // scroll loop - phablet
 
                             targets[c].classList.add("o-img", "trs"); // make transparent
                             wC_hold[c] = targets[c]; // add to hold
-                            wC_holdi[c] = c;
                             setTimeout(function() {
-                                wC_hold[wC_holdi[c]].classList.remove("trs");
-                                wC_hold[wC_holdi[c]] = undefined; // remove from hold
+                                wC_hold[0].classList.remove("trs");
+                                wC_hold.shift(); // remove from hold
                             }, op.t);
                             targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                             
