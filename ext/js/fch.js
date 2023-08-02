@@ -417,7 +417,7 @@ function load_js_e() { // load JS (page specific)
         // for (a = 0; a <= el.wCh.length - 1; a++) { // load up keywords
         for (var a in el.wCh) {
             for (b = 0; b <= el.wCh[a].length - 1; b++) {
-                el.wCh[a][b].innerHTML = el.wInfo.h1[b];
+                el.wCh[a][b].innerHTML = wInfo.h1[b];
             }
         }
     }
