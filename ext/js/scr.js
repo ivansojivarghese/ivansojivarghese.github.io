@@ -685,7 +685,7 @@ function sc_LpH() { // scroll loop - phablet
                         }
 
                         // new words (using comparison of live-width additions with viewport width)
-                        if (totalWidth(targets) < wiD && !pf.x8) { // ADD new words if space AVAILABLE
+                        if (totalWidth(targets) && totalWidth(targets) < wiD && !pf.x8) { // ADD new words if space AVAILABLE
                             el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
                             el.wCh[a][wInfo_f[a]].classList.add("v_s");
@@ -731,7 +731,7 @@ function totalWidth(els) {
     for (q = 0; q <= (els.length - 1); q++) {
         w += els[q].style.width;
     }
-    return (w !== 0) ? w : 0;
+    return (w !== 0) ? w : false;
 }
 
 
