@@ -668,7 +668,7 @@ function sc_LpH() { // scroll loop - phablet
 
                     for (c = 0; c <= targets.length - 1; c++) {
                         var target_bd;
-                        targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; // transform across user viewport during scroll
+                        targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; // transform across user viewport during scroll
                         target_bd = targets[c].getBoundingClientRect(); // get live bounds 
 
                         if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
