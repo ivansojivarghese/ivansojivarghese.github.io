@@ -690,10 +690,11 @@ function sc_LpH() { // scroll loop - phablet
                             if (!targets[c].classList.contains("actv")) { // not activated yet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px";
                             }
-                        } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE
-
+                        } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
                             var wd = wiD - totalWidth(targets);
-                            var a;
+                            if (!targets[c].classList.contains("actv")) {
+                                el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px";
+                            }
                         }
 
                         // new words (using comparison of live-width additions with viewport width)
