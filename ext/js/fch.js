@@ -582,6 +582,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     wInfo_s[a] += wd; // update total line width
                     if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
                         el.wCh[a][b].classList.add("d_n");
+                    } else {
+                        el.wCh[a][b].classList.remove("v_n");
                     }
                 }
             }
