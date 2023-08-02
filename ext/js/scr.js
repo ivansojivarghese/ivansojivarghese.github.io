@@ -657,7 +657,13 @@ function sc_LpH() { // scroll loop - phablet
                 }
                 var targets = document.querySelectorAll("#wordcloud_sc span.v_s"); // select visible words on screen
                 for (c = 0; c <= targets.length - 1; c++) {
-                    targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)";
+                    var target_bd;
+                    targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; // transform across user viewport during scroll
+                    target_bd = targets[c].getBoundingClientRect(); // get live bounds 
+                    if (target_bd.right < 0) { // if HIDDEN away in viewport edges
+                        targets[c].classList.remove("v_s");
+                        targets[c].classList.add("z_O");
+                    }
                 }
             }
 
