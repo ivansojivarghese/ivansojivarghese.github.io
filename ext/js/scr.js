@@ -664,7 +664,6 @@ function sc_LpH() { // scroll loop - phablet
                         if (target_bd.right < 0) { // if HIDDEN away in viewport edges
                             targets[c].classList.remove("v_s");
                             targets[c].classList.add("v_n"); // HIDE the element
-                            wInfo_s[a] -= target_bd.width; // UPDATE live LINE WIDTH
                         }
                     }
                 }
