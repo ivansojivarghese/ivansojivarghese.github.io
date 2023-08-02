@@ -705,6 +705,10 @@ function sc_LpH() { // scroll loop - phablet
                             var iwd = getCSSProperty(targets[c], "width");
 
                             if (!targets[c].classList.contains("actv") && (iwd <= wInfo_i[a][c])) { // not activated yet
+
+                                var r = wiD - target_bd.left - 1;
+                                targets[c].style.width = r + "px";
+
                                 // el.wCh[a][wInfo_f[a] - 1].style.width = (wiD - target_bd.left - pf.rf7) + "px"; // increase width
                             } 
                             
