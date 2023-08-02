@@ -715,7 +715,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             if (!targets[c].classList.contains("actv") && (iwd <= wInfo_i[a][c])) { // not activated yet
 
-                                var r = wiD - target_bd.left;
+                                // var r = wiD - target_bd.left;
                                 //targets[c].style.width = r + "px";
                                 // el.wCh[a][wInfo_f[a] - 1].style.width = (wiD - target_bd.left - pf.rf7) + "px"; // increase width
 
@@ -739,13 +739,14 @@ function sc_LpH() { // scroll loop - phablet
                             
                             console.log(totalWidth(targets));
 
-                            //var wd = wiD - totalWidth(targets) - pf.rf7;
-                            var wd = 1;
+                            var wd = wiD - totalWidth(targets) - pf.rf7;
+                            //var wd = 1;
 
                             el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
-                            el.wCh[a][wInfo_f[a]].classList.add("v_s");
+                            el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a");
                             el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
+                            // el.wCh[a][wInfo_f[a]].classList.add("p-a");
                             el.wCh[a][wInfo_f[a]].style.width = wd + "px";
                             el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; 
                             // el.wCh[a][wInfo_f[a]].classList.add("actv"); // activated (fully shown on screen)
