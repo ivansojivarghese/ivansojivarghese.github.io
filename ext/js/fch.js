@@ -586,6 +586,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     el.wCh[a][b].innerHTML = wInfo.h1[b];
                     wd = getBd(el.wCh[a][b], "width"); // get width
                     wInfo_s[a] += wd; // update total line width
+                    wInfo_i[a][b] = wd;
                     if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
                         el.wCh[a][b].classList.add("d_n"); // else, hide
                     } else {
