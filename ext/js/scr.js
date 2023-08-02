@@ -723,7 +723,8 @@ function sc_LpH() { // scroll loop - phablet
                             el.wCh[a][wInfo_f[a]].classList.add("actv"); // activated (fully shown on screen)
                             wInfo_f[a]++;
 
-                            console.log("insert more");
+                            
+                            // console.log("insert more");
 
                             pf.x8 = true;
                         }
