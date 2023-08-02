@@ -666,10 +666,12 @@ function sc_LpH() { // scroll loop - phablet
                             targetsIndex[e] = getIndex(targets[e]); // targets[e].classList.contains("r");
                         }
                     }
+
                     for (c = 0; c <= targets.length - 1; c++) {
                         var target_bd;
                         targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; // transform across user viewport during scroll
                         target_bd = targets[c].getBoundingClientRect(); // get live bounds 
+
                         if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
 
                             if (targets[c].classList.contains("actv")) { // if word has been activated?
@@ -680,22 +682,20 @@ function sc_LpH() { // scroll loop - phablet
                                     wC_hold[0].classList.remove("trs");
                                     wC_hold.shift(); // remove from hold
                                 }, op.t);
-                                //targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                                targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                                 targets[c].classList.remove("actv");
-                                targets[c].classList.add("deactv");
+                                // targets[c].classList.add("deactv");
+                            } 
 
-                            } else { //
-
-                            }
-
+                            /*
                             if (targets[c].classList.contains("actv") || targets[c].classList.contains("deactv")) {
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                             } else {
                                 // targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                                 targets[c].style.width = (wiD - target_bd.left) + "px";
-                            }
+                            }*/
 
-                        } else if (target_bd.right > wiD) { // RIGHT
+                        } /*else if (target_bd.right > wiD) { // RIGHT
 
                             // var wd = wiD - totalWidth(targets);
                             var iwd = getCSSProperty(targets[c], "width"),
@@ -705,7 +705,7 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = nwd + "px";
                             }
 
-                        } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
+                        }*/ else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
                             /*
                             var iwd = getCSSProperty(targets[c], "width"),
                                 wd = wiD - target_bd.right,
