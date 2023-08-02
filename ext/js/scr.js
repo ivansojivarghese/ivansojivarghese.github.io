@@ -675,7 +675,7 @@ function sc_LpH() { // scroll loop - phablet
                         if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
 
                             if (targets[c].classList.contains("actv")) { // if word has been activated?
-
+                                /*
                                 targets[c].classList.add("o-img", "trs"); // make transparent
                                 wC_hold[wC_hold.length] = targets[c]; // add to hold
                                 setTimeout(function() {
@@ -683,6 +683,7 @@ function sc_LpH() { // scroll loop - phablet
                                     wC_hold.shift(); // remove from hold
                                 }, op.t);
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                                */
                                 targets[c].classList.remove("actv");
                                 // targets[c].classList.add("deactv");
                             } 
@@ -743,13 +744,13 @@ function sc_LpH() { // scroll loop - phablet
 
                             el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
-                            el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a");
+                            el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
                             el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
                             el.wCh[a][wInfo_f[a]].style.width = wd + "px";
                             el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; 
                             wInfo_f[a]++;
 
-                            // console.log("insert more");
+                            console.log("insert more");
 
                             pf.x8 = true;
                         }
