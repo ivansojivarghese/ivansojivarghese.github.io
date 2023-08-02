@@ -644,6 +644,10 @@ a.md, span.md {
     visibility: hidden;
 }
 
+.v_s {
+    visibility: visible;
+}
+
 .d_n {
     display: none !important;
 }
