@@ -716,7 +716,7 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = nwd + "px";
                             }
 
-                            // var iwd = getCSSProperty(targets[c], "width");
+                            // var iwd = getCSSProperty(targets[c], "width"); //
 
                             /*
                             if (!targets[c].classList.contains("actv") && (iwd <= wInfo_i[a][c])) { // not activated yet
