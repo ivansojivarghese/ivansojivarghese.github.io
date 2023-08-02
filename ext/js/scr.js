@@ -672,7 +672,8 @@ function sc_LpH() { // scroll loop - phablet
                             // targets[c].classList.remove("v_s");
                             // targets[c].classList.add("v_n"); // HIDE the element
 
-                            targets[c].classList.add("o-img"); // make transparent
+                            targets[c].classList.add("o-img", "trs"); // make transparent
+                            targets[c].classList.remove("trs");
                             targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                             
                         }
