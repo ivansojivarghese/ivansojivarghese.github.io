@@ -36,7 +36,7 @@ var fchL = {
     wInfo = { // wordcloud h3 info (MAX/MIN. 10 WORDS - UPDATE IF NEEDED)
         h1 : ["design ", "canva ", "wireframes ", "figma ", "ux ", "dreamweaver ", "ui ", "studio ", "experience ", "responsive "]
     },
-    wInfo = { // wordcloud h3 info span total (live) widths
+    wInfo_s = { // wordcloud h3 info span total (live) widths
         s1 : 0,
         s2 : 0,
         s3 : 0,
