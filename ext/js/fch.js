@@ -35,6 +35,12 @@ var fchL = {
     ],
     wInfo = { // wordcloud h3 info (MAX/MIN. 10 WORDS - UPDATE IF NEEDED)
         h1 : ["design ", "canva ", "wireframes ", "figma ", "ux ", "dreamweaver ", "ui ", "studio ", "experience ", "responsive "]
+    },
+    wInfo = { // wordcloud h3 info span total (live) widths
+        s1 : 0,
+        s2 : 0,
+        s3 : 0,
+        s4 : 0
     }
     el = {
         x : false, // code execution
@@ -414,12 +420,19 @@ function load_js_e() { // load JS (page specific)
 
         // desktop wordcloud feature
 
-        // for (a = 0; a <= el.wCh.length - 1; a++) { // load up keywords
-        for (var a in el.wCh) {
+        for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
             for (b = 0; b <= el.wCh[a].length - 1; b++) {
+                var wd;
                 el.wCh[a][b].innerHTML = wInfo.h1[b];
+                wd = getBd(el.wCh[a][b], "width"); // get width
+                wInfo[a] += wd; // update total line width
+                if (wInfo[a] > wiD) { // check if within viewport width (single-line) space
+                    el.wCh[a][b].classList.add("d_n");
+                }
             }
         }
+
+
     }
 }
 
