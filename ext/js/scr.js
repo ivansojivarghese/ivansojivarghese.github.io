@@ -92,8 +92,7 @@ var im = { // #intro_main
         rf3 : 0,
         rf4 : 0,
         rf5 : 0,
-        rf6 : 0,
-        rf7 : 0 // words cloud reveal safe zone margin
+        rf6 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -714,7 +713,7 @@ function sc_LpH() { // scroll loop - phablet
                                 nwd = iwd + wd; // new (total) width
                             
                             targets[c].style.width = nwd + "px";
-                            
+
                             // var iwd = getCSSProperty(targets[c], "width");
 
                             /*
@@ -744,7 +743,7 @@ function sc_LpH() { // scroll loop - phablet
                             
                             console.log(totalWidth(targets));
 
-                            var wd = wiD - totalWidth(targets) - pf.rf7;
+                            var wd = wiD - totalWidth(targets);
 
                             el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
