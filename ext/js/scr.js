@@ -92,7 +92,8 @@ var im = { // #intro_main
         rf3 : 0,
         rf4 : 0,
         rf5 : 0,
-        rf6 : 0
+        rf6 : 0,
+        rf7 : 1 // words cloud reveal safe zone margin
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -704,7 +705,7 @@ function sc_LpH() { // scroll loop - phablet
                             var iwd = getCSSProperty(targets[c], "width");
 
                             if (!targets[c].classList.contains("actv") && (iwd <= wInfo_i[a][c])) { // not activated yet
-                                el.wCh[a][wInfo_f[a] - 1].style.width = (wiD - target_bd.left) + "px"; // increase width
+                                el.wCh[a][wInfo_f[a] - 1].style.width = (wiD - target_bd.left - pf.rf7) + "px"; // increase width
                             } 
                             
                             /*else if (!targets[c].classList.contains("actv")) {
@@ -717,7 +718,7 @@ function sc_LpH() { // scroll loop - phablet
                             
                             console.log(totalWidth(targets));
 
-                            var wd = wiD - totalWidth(targets);
+                            var wd = wiD - totalWidth(targets) - pf.rf7;
 
                             el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
