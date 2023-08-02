@@ -681,7 +681,7 @@ function sc_LpH() { // scroll loop - phablet
                                 }, op.t);
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
 
-                            } else {
+                            } else { //
 
                             }
 
