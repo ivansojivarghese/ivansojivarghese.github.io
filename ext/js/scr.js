@@ -680,14 +680,20 @@ function sc_LpH() { // scroll loop - phablet
                                     wC_hold[0].classList.remove("trs");
                                     wC_hold.shift(); // remove from hold
                                 }, op.t);
-                                // targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                                //targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                                 targets[c].classList.remove("actv");
+                                targets[c].classList.add("deactv");
 
                             } else { //
 
                             }
 
-                            targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                            if (targets[c].classList.contains("actv") || targets[c].classList.contains("deactv")) {
+                                targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                            } else {
+                                // targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                                targets[c].style.width = "50px";
+                            }
 
                         } else if (target_bd.right > wiD) { // RIGHT
 
