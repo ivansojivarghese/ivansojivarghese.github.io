@@ -33,9 +33,15 @@ var fchL = {
         document.getElementById("sIn2"), // hours
         document.getElementById("sIn3"), // cappuccinos
     ],
-    wInfo_n = 10,
+    wInfo_n = 10, // MAX/MIN no. of words in cloud lines
     wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
         h1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"]
+    },
+    wInfo_f = { // wordcloud h3 next index element
+        s1 : 0,
+        s2 : 0, 
+        s3 : 0,
+        s4 : 0
     },
     wInfo_s = { // wordcloud h3 info span total (live) widths
         s1 : 0,
@@ -594,6 +600,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
                         el.wCh[a][b].classList.add("v_s"); // show if visible
                         el.wCh[a][b].classList.add("r" + b); // index for reference
+                        wInfo_f[a]++;
                     }
                 }
             }
