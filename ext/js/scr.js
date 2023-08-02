@@ -656,15 +656,23 @@ function sc_LpH() { // scroll loop - phablet
                     ld.x10 = true;
                 }
                 for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
-                    var targets = document.querySelectorAll("#wordcloud" + a + " span.v_s"); // select visible words on screen
+                    var targets = document.querySelectorAll("#wordcloud" + a + " span.v_s"), // select visible words on screen
+                        targetsIndex = new Array(targets.length);
+                    for (d = 0; d <= targets.length - 1; d++) { // UPDATE reference targets that are visible
+                        for (e = 0; e <= targets.length - 1; e++) {
+                            targetsIndex[e] = getIndex(el); // targets[e].classList.contains("r");
+                        }
+                    }
                     for (c = 0; c <= targets.length - 1; c++) {
                         var target_bd;
                         targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; // transform across user viewport during scroll
                         target_bd = targets[c].getBoundingClientRect(); // get live bounds 
                         if (target_bd.left < 0) { // if HIDDEN away in viewport edges
+
                             // targets[c].classList.remove("v_s");
                             // targets[c].classList.add("v_n"); // HIDE the element
-                            targets[c].style.width = ""; // dynamic width
+
+                            targets[c].style.width = wInfo_i[a][]; // dynamic width
                             
                         }
                     }
@@ -688,6 +696,15 @@ function sc_LpH() { // scroll loop - phablet
     }
 
     requestAnimationFrame(sc_LpH);
+}
+
+function getIndex(el) { // custom function
+    for (f = 0; f <= (wInfo_n - 1); f++) {
+        if (targets[el].classList.contains("r" + f)) { // check for reference index, and return it
+            return f;
+        }
+    }
+    return null;
 }
 
 

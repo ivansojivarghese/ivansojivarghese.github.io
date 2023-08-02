@@ -33,7 +33,8 @@ var fchL = {
         document.getElementById("sIn2"), // hours
         document.getElementById("sIn3"), // cappuccinos
     ],
-    wInfo = { // wordcloud h3 info (MAX/MIN. 10 WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
+    wInfo_n = 10,
+    wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
         h1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"]
     },
     wInfo_s = { // wordcloud h3 info span total (live) widths
@@ -586,12 +587,13 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     el.wCh[a][b].innerHTML = wInfo.h1[b];
                     wd = getBd(el.wCh[a][b], "width"); // get width
                     wInfo_s[a] += wd; // update total line width
-                    wInfo_i[a][b] = wd;
+                    wInfo_i[a][b] = wd; // update indiv. word widths
                     if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
                         el.wCh[a][b].classList.add("d_n"); // else, hide
                     } else {
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
                         el.wCh[a][b].classList.add("v_s"); // show if visible
+                        el.wCh[a][b].classList.add("r" + b); // index for reference
                     }
                 }
             }
