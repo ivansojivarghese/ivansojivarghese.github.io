@@ -691,9 +691,10 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px";
                             }
                         } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
-                            var wd = wiD - totalWidth(targets);
-                            if (!targets[c].classList.contains("actv")) {
-                                el.wCh[a][wInfo_f[a] - 1].style.width = wd + "px"; //
+                            var iwd = getCSSProperty(targets[c], "width"),
+                                wd = wiD - target_bd.right;
+                            if (!targets[c].classList.contains("actv")) { // not activated yet
+                                el.wCh[a][wInfo_f[a] - 1].style.width = (wd + iwd) + "px"; //
                             }
                         }
 
