@@ -33,6 +33,9 @@ var fchL = {
         document.getElementById("sIn2"), // hours
         document.getElementById("sIn3"), // cappuccinos
     ],
+    wInfo = { // wordcloud h3 info
+        h1 : ["design ", "canva ", "wireframes ", "figma ", "ux ", "dreamweaver ", "ui ", "studio ", "experience ", "responsive "]
+    }
     el = {
         x : false, // code execution
         x2 : false, 
@@ -79,6 +82,9 @@ var fchL = {
         qIc : document.getElementsByClassName("q_Info_icons"),
         mdh : document.getElementById("mid_sc_h"),
         fC : document.querySelectorAll("#fullCoords span"),
+        wCh : {
+            s1 : document.querySelectorAll("#wordcloudh1 span")
+        },
         wdTL : null
     },
     bd = { // bounds
@@ -404,7 +410,15 @@ function load_js_e() { // load JS (page specific)
             }
         }
 
-        dkAPI();
+        dkAPI(); // get desktop APIs
+
+        // desktop wordcloud feature
+
+        for (a = 0; a <= el.wCh.length - 1; a++) { // load up keywords
+            for (b = 0; b <= el.wCh["s" + (a + 1)].length - 1; b++) {
+                el.wCh["s" + (a + 1)][b].innerHTML = el.wInfo.h1[b];
+            }
+        }
     }
 }
 
