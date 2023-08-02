@@ -683,13 +683,12 @@ function sc_LpH() { // scroll loop - phablet
                             
                         }
 
-                        // new words (using live width additions)
+                        // new words (using comparison of live-width additions with viewport width)
+                        if (totalWidth(targets) < wiD) {
+                            console.log("insert more");
+                        }
                     }
                 }
-                /*
-                if () { // SHOW NEW WORDS if SPACE is AVAILABLE //
-
-                }*/
             }
 
 
@@ -707,13 +706,23 @@ function sc_LpH() { // scroll loop - phablet
     requestAnimationFrame(sc_LpH);
 }
 
-function getIndex(el) { // custom function
+// custom functions
+
+function getIndex(el) {
     for (f = 0; f <= (wInfo_n - 1); f++) {
         if (el.classList.contains("r" + f)) { // check for reference index, and return it
             return f;
         }
     }
     return null;
+}
+
+function totalWidth(els) {
+    var w = 0;
+    for (q = 0; q <= (els.length - 1); q++) {
+        w += els[q].style.width;
+    }
+    return w;
 }
 
 
