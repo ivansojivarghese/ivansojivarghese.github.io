@@ -674,6 +674,7 @@ function sc_LpH() { // scroll loop - phablet
                         if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
 
                             if (targets[c].classList.contains("actv")) { // if word has been activated?
+                                
                                 /*
                                 targets[c].classList.add("o-img", "trs"); // make transparent
                                 wC_hold[wC_hold.length] = targets[c]; // add to hold
@@ -683,6 +684,7 @@ function sc_LpH() { // scroll loop - phablet
                                 }, op.t);
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                                 */
+
                                 targets[c].classList.remove("actv");
 
                                 // targets[c].classList.add("deactv");
@@ -714,6 +716,9 @@ function sc_LpH() { // scroll loop - phablet
                             
                             if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) {
                                 targets[c].style.width = nwd + "px";
+                            } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][c])) {
+                                targets[c].style.width = wInfo_i[a][c] + "px"; // full width
+                                targets[c].classList.add("actv"); // activated (fully shown on screen)
                             }
 
                             // var iwd = getCSSProperty(targets[c], "width"); //
