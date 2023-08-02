@@ -697,7 +697,7 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = (wiD - target_bd.left) + "px";
                             }*/
 
-                        } else if (target_bd.right >= wiD) { // RIGHT
+                        } /*else if (target_bd.right >= wiD) { // RIGHT
 
                             // var wd = wiD - totalWidth(targets);
                             var iwd = getCSSProperty(targets[c], "width"),
@@ -707,14 +707,17 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a] - 1].style.width = nwd + "px";
                             }
 
-                        } else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
-                            /*
+                        }*/ else if (target_bd.right < wiD && target_bd.left > 0) { // CENTRE (not infringing of EDGES)
+                            
                             var iwd = getCSSProperty(targets[c], "width"),
                                 wd = wiD - target_bd.right,
                                 nwd = iwd + wd; // new (total) width
-                            */
-                            var iwd = getCSSProperty(targets[c], "width");
+                            
+                            targets[c].style.width = nwd + "px";
+                            
+                            // var iwd = getCSSProperty(targets[c], "width");
 
+                            /*
                             if (!targets[c].classList.contains("actv") && (iwd <= wInfo_i[a][c])) { // not activated yet
 
                                 // var r = wiD - target_bd.left;
@@ -729,7 +732,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             } else if ((wiD - target_bd.left >= wInfo_i[a][c]) && iwd <= wInfo_i[a][c]) {
                                 targets[c].style.width = wInfo_i[a][c] + "px";
-                            }
+                            }*/
                             
                             /*else if (!targets[c].classList.contains("actv")) {
                                 el.wCh[a][wInfo_f[a] - 1].classList.add("actv"); // activated (fully shown on screen)
