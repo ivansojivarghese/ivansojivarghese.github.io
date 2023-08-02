@@ -717,6 +717,7 @@ function sc_LpH() { // scroll loop - phablet
                             el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
                             el.wCh[a][wInfo_f[a]].style.width = wd + "px";
                             el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; 
+                            el.wCh[a][wInfo_f[a] - 1].classList.add("actv"); // activated (fully shown on screen)
                             wInfo_f[a]++;
 
                             console.log("insert more");
