@@ -667,7 +667,7 @@ function sc_LpH() { // scroll loop - phablet
                     }
                     for (c = 0; c <= targets.length - 1; c++) {
                         var target_bd;
-                        targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; // transform across user viewport during scroll
+                        targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; // transform across user viewport during scroll
                         target_bd = targets[c].getBoundingClientRect(); // get live bounds 
                         if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
 
@@ -716,6 +716,7 @@ function sc_LpH() { // scroll loop - phablet
                             el.wCh[a][wInfo_f[a]].classList.add("v_s");
                             el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
                             el.wCh[a][wInfo_f[a]].style.width = wd + "px";
+                            el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)";
                             wInfo_f[a]++;
 
                             console.log("insert more");
