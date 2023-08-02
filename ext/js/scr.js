@@ -674,14 +674,19 @@ function sc_LpH() { // scroll loop - phablet
                             // targets[c].classList.remove("v_s");
                             // targets[c].classList.add("v_n"); // HIDE the element
 
-                            targets[c].classList.add("o-img", "trs"); // make transparent
-                            wC_hold[wC_hold.length] = targets[c]; // add to hold
-                            setTimeout(function() {
-                                wC_hold[0].classList.remove("trs");
-                                wC_hold.shift(); // remove from hold
-                            }, op.t);
-                            targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
-                            
+                            if (targets[c].classList.contains("actv")) { // if word has been activated?
+
+                                targets[c].classList.add("o-img", "trs"); // make transparent
+                                wC_hold[wC_hold.length] = targets[c]; // add to hold
+                                setTimeout(function() {
+                                    wC_hold[0].classList.remove("trs");
+                                    wC_hold.shift(); // remove from hold
+                                }, op.t);
+                                targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+
+                            } else if (!targets[c].classList.contains("actv")) { // not activated yet
+                                
+                            }
                         }
 
                         // new words (using comparison of live-width additions with viewport width)

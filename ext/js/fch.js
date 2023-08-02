@@ -598,7 +598,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         el.wCh[a][b].classList.add("d_n"); // else, hide
                     } else {
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
-                        el.wCh[a][b].classList.add("v_s"); // show if visible
+                        el.wCh[a][b].classList.add("v_s", "actv"); // show if visible + activated
                         el.wCh[a][b].classList.add("r" + b); // index for reference
                         wInfo_f[a]++;
                     }
