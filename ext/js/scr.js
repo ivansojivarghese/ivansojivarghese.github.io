@@ -668,7 +668,7 @@ function sc_LpH() { // scroll loop - phablet
                     }
                 }
                 /*
-                if () { // SHOW NEW WORDS if SPACE is AVAILABLE
+                if () { // SHOW NEW WORDS if SPACE is AVAILABLE //
 
                 }*/
             }
