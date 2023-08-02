@@ -33,8 +33,8 @@ var fchL = {
         document.getElementById("sIn2"), // hours
         document.getElementById("sIn3"), // cappuccinos
     ],
-    wInfo = { // wordcloud h3 info (MAX/MIN. 10 WORDS - UPDATE IF NEEDED)
-        h1 : ["design ", "canva ", "wireframes ", "figma ", "ux ", "dreamweaver ", "ui ", "studio ", "experience ", "responsive "]
+    wInfo = { // wordcloud h3 info (MAX/MIN. 10 WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
+        h1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"]
     },
     wInfo_s = { // wordcloud h3 info span total (live) widths
         s1 : 0,
