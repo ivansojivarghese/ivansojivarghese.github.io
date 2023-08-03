@@ -781,13 +781,12 @@ function sc_LpH() { // scroll loop - phablet
                             if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
 
                                 // begin deletions
-                                /*
+                                
                                 for (x = 0; x <= (wInfo_p[a] - 1); x++) { // initials
-                                    el.wCh[a][x].remove(); // REMOVE ALL from DOM
+                                    // el.wCh[a][x].remove(); // REMOVE ALL from DOM
 
-
-                                    // ADD THE SAME to END
-                                }*/
+                                    swap(el.wCh[a][x], null, false); // SHIFT THE NODES TO THE BOTTOM to END
+                                }
 
                                 /*
                                 targets[c].remove(); // REMOVE from DOM
@@ -800,7 +799,7 @@ function sc_LpH() { // scroll loop - phablet
                                 */
                             } else {
 
-                                
+
                             }
                         }
 
