@@ -788,6 +788,7 @@ function sc_LpH() { // scroll loop - phablet
                                     var endElm = document.querySelectorAll("#wordcloud" + a + " span");
                                     swap(el.wCh[a][x], endElm[endElm.length - 1], false); // SHIFT THE NODES TO THE BOTTOM to END
 
+                                    el.wCh[a][x].style.left = wInfo_s[a] + "px";
                                     el.wCh[a][x].classList.remove("v_n");
                                     el.wCh[a][x].classList.add("p-a", "v_s");
                                 }
