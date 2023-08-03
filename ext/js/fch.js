@@ -43,6 +43,12 @@ var fchL = {
         s3 : 0,
         s4 : 0
     },
+    wInfo_p = { // wordcloud h3 initial indexed elements
+        s1 : 0,
+        s2 : 0,
+        s3 : 0,
+        s4 : 0,
+    },
     wInfo_s = { // wordcloud h3 info span total (live) widths
         s1 : 0,
         s2 : 0,
@@ -600,7 +606,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
                         el.wCh[a][b].classList.add("v_s", "actv"); // show if visible + activated
                         el.wCh[a][b].classList.add("r" + b); // index for reference
-                        wInfo_f[a]++;
+                        wInfo_f[a]++; // next indexed word in sequence
+                        wInfo_p[a]++; // number of words at initial
                     }
                 }
             }

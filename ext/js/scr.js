@@ -750,7 +750,8 @@ function sc_LpH() { // scroll loop - phablet
                             
                             console.log(totalWidth(targets));
 
-                            var wd = wiD - totalWidth(targets);
+                            var wd = wiD - totalWidth(targets),
+                                lf = 0;
 
                             el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                             el.wCh[a][wInfo_f[a]].classList.remove("v_n");
@@ -758,6 +759,13 @@ function sc_LpH() { // scroll loop - phablet
                             el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
                             el.wCh[a][wInfo_f[a]].style.width = wd + "px";
                             el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; 
+
+                            for (k = wInfo_p[a]; k < wInfo_f[a]; k++) {
+                                lf += wInfo_i[a][k];
+                            }
+
+                            el.wCh[a][wInfo_f[a]].style.left = lf + "px";
+
                             wInfo_f[a]++;
 
                             console.log("insert more");
