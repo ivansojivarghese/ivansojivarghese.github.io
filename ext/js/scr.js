@@ -758,7 +758,7 @@ function sc_LpH() { // scroll loop - phablet
                             el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
                             el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
                             el.wCh[a][wInfo_f[a]].style.width = wd + "px";
-                            el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; 
+                            el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.4) + "px)"; 
 
                             for (k = 0; k < wInfo_f[a]; k++) {
                                 lf += wInfo_i[a][k];
@@ -770,7 +770,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             console.log("insert more");
 
-                            if (wInfo_f[a] === 5) {
+                            if (wInfo_f[a] === 6) {
                                 pf.x8 = true;
                             }
                             // 
