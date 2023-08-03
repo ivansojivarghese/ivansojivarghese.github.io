@@ -763,6 +763,8 @@ function sc_LpH() { // scroll loop - phablet
                         if (target_bd.right < 0) { // RIGHT ""
                             targets[c].classList.remove("v_s");
                             targets[c].classList.add("v_n");
+
+                            targets[c].remove(); // REMOVE from DOM
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
