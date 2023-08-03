@@ -768,8 +768,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         if (target_bd.right < 0) { // RIGHT ""
 
-                            var elm;
-
+                            // var elm;
                             // wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
 
                             targets[c].classList.remove("v_s");
@@ -782,10 +781,10 @@ function sc_LpH() { // scroll loop - phablet
                                 elm.style.left = wInfo_s[a] + "px"; // left pos.
                             }*/
 
-                            wInfo_d[a]++; // no of hidden words
+                            // wInfo_d[a]++; // no of hidden words
 
-                            if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
-
+                            
+                            // if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
                                 
                                 for (x = 0; x <= (wInfo_p[a] - 1); x++) { // (non-abs.) initials
 
@@ -808,10 +807,11 @@ function sc_LpH() { // scroll loop - phablet
                                 }
                                 wC_clone_hold.unshift(); // remove from array
                                 */
+                               /*
                             } else {
 
 
-                            }
+                            }*/
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
