@@ -830,8 +830,8 @@ function sc_LpH() { // scroll loop - phablet
                                     if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
                                         vnelm[v].classList.add("p-r");
                                     }
-                                    vnelm[v].classList.remove("v-n");
-                                    vnelm[v].classList.add("v-s");
+                                    vnelm[v].classList.remove("v_n");
+                                    vnelm[v].classList.add("v_s");
                                     
                                 }
                             }
