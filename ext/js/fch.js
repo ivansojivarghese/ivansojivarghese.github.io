@@ -266,6 +266,17 @@ function load_css_e() { // load CSS styles (page specific)
 
                     qInfo[4].innerHTML = "earth";
                 }
+
+            } else {
+
+                if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage) {
+
+                    qInfo[4].innerHTML = "earth";
+                } else {
+
+                    qInfo[4].innerHTML = gps.city;
+                }
+
             }
 
         } else {
