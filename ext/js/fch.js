@@ -35,7 +35,8 @@ var fchL = {
     ],
     wInfo_n = 10, // MAX/MIN no. of words in cloud lines
     wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
-        h1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"]
+        h1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"],
+        h2 : ["web&nbsp;", "html&nbsp;", "frontend&nbsp;", "js&nbsp;", "api&nbsp;", "sitemap&nbsp;", "css&nbsp;", "devtools&nbsp;", "seo&nbsp;", "dynamic&nbsp;"]
     },
     wInfo_f = { // wordcloud h3 next index element
         s1 : 0,
