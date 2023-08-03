@@ -763,7 +763,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         if (target_bd.right < 0) { // RIGHT ""
 
-                            wC_clone_hold[wC_clone_hold.length] = targets[c]; // clone the element node
+                            wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
 
                             targets[c].classList.remove("v_s");
                             targets[c].classList.add("v_n");
