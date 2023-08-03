@@ -784,13 +784,14 @@ function sc_LpH() { // scroll loop - phablet
                                 
                                 for (x = 0; x <= (wInfo_p[a] - 1); x++) { // (non-abs.) initials
                                     // el.wCh[a][x].remove(); // REMOVE from DOM
-
+                                    /*
                                     var endElm = document.querySelectorAll("#wordcloud" + a + " span");
                                     swap(el.wCh[a][x], endElm[endElm.length - 1], false); // SHIFT THE NODES TO THE BOTTOM to END
 
-                                    el.wCh[a][x].style.left = wInfo_s[a] + "px";
+                                    el.wCh[a][x].style.left = wInfo_s[a] + "px"; // ASSIGN Behind Final Line word
                                     el.wCh[a][x].classList.remove("v_n");
                                     el.wCh[a][x].classList.add("p-a", "v_s");
+                                    */
                                 }
 
                                 /*
