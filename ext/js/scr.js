@@ -774,8 +774,17 @@ function sc_LpH() { // scroll loop - phablet
                                 var wd = wiD - totalWidth(targets),
                                     lf = 0;
 
+
                                 el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                                 el.wCh[a][wInfo_f[a]].classList.remove("v_n");
+
+                                targets[c].classList.add("trs"); // make transparent
+                                wC_hold[wC_hold.length] = targets[c]; // add to hold
+                                setTimeout(function() {
+                                    wC_hold[0].classList.remove("trs", "z_O");
+                                    wC_hold.shift(); // remove from hold
+                                }, op.t);
+
                                 el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
                                 el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
                                 el.wCh[a][wInfo_f[a]].style.width = wd + "px";
