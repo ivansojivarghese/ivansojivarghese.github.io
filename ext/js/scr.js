@@ -762,6 +762,7 @@ function sc_LpH() { // scroll loop - phablet
                         }*/
 
                         if (target_bd.right < 0) { // RIGHT ""
+
                             var elm;
 
                             wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
@@ -775,9 +776,16 @@ function sc_LpH() { // scroll loop - phablet
                                 elm.style.left = wInfo_s[a] + "px"; // left pos.
                             }
 
-                            wInfo_d[a]++;
+                            wInfo_d[a]++; // no of hidden words
 
-                            if (wInfo_d > (Math.round(wInfo_n / 2))) { // if MORE than HALFWAY of line scrolled
+                            if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
+
+                                // begin deletions
+                                for (x = 0; x <= (wInfo_p[a] - 1); x++) { // initials
+                                    el.wCh[a][x].remove(); // REMOVE from DOM
+                                }
+
+                                /*
                                 targets[c].remove(); // REMOVE from DOM
                                 el.wChe[a].appendChild(elm); // append to last of line
                                 for (j = (c + 1); c <= (wInfo_n - 1); j++) { // SHIFT OTHER ELEMENTS inward to COVER FOR DELETION
@@ -785,6 +793,7 @@ function sc_LpH() { // scroll loop - phablet
                                     el.wCh[a].style.left = "";
                                 }
                                 wC_clone_hold.unshift(); // remove from array
+                                */
                             }
                         }
 
