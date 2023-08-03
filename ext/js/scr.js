@@ -114,7 +114,7 @@ var im = { // #intro_main
         _L : undefined,
         s : false
     },
-    wC_spd = -3, // wordcloud transformation speed
+    wC_spd = -1, // wordcloud transformation speed
     wC_hold = [], // wordcloud holder/index
     wC_clone_hold = []; // wordcloud clone holder
 
@@ -761,7 +761,7 @@ function sc_LpH() { // scroll loop - phablet
                             }
                         }*/
 
-                        if (target_bd.right < 0 ) { // RIGHT ""
+                        if (target_bd.right < 0) { // RIGHT ""
 
                             wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
 
