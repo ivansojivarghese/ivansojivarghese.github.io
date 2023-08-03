@@ -791,7 +791,7 @@ function sc_LpH() { // scroll loop - phablet
 
                                         console.log("wc: " + wC_hold[0]);
 
-                                        el.wCh[a][wInfo_p[a] + wC_hold[0]].classList.remove("z_O");
+                                        el.wCh[a][wC_hold[0]].classList.remove("z_O");
                                         wC_hold.shift(); // remove from hold
                                     }, 10);
                                 }
