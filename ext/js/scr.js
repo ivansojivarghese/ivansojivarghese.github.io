@@ -746,7 +746,7 @@ function sc_LpH() { // scroll loop - phablet
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
-                        if (totalWidth(targets) && (totalWidth(targets) < wiD) && !pf.x8) { // ADD new words if space AVAILABLE
+                        if (totalWidth(targets) && (totalWidth(targets) < wiD) /*&& !pf.x8*/) { // ADD new words if space AVAILABLE
                             
                             console.log(totalWidth(targets));
 
@@ -762,7 +762,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             console.log("insert more");
 
-                            pf.x8 = true;
+                            // pf.x8 = true;
                         }
                     }
                 }
