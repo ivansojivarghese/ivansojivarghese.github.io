@@ -262,7 +262,7 @@ function load_css_e() { // load CSS styles (page specific)
 
                     qInfo[4].innerHTML = "quite within, but far <span class='key-sm'>;</span>)";
 
-                } else if ((apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage) || (weather.c.innerHTML === qInfo[4].innerHTML)) {
+                } else if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage) {
 
                     qInfo[4].innerHTML = "earth";
                 }
@@ -345,7 +345,7 @@ function load_js_e() { // load JS (page specific)
 
     for (var d in dev.info) { // loop through to concatenate information to text
         if (i < _Lq) {
-            if (i !== 0 && i !== 6 && i !== 7 && ((i !== 3 && vw.dk) || !vw.dk)) {
+            if (i !== 0 && i !== 6 && i !== 7 && ((i !== 3 && i !== 4 && vw.dk) || !vw.dk)) {
                 qInfo[i].innerHTML = dev.info[d];
             } else { // run typing effect
                 ld.x4 = true;
