@@ -786,7 +786,7 @@ function sc_LpH() { // scroll loop - phablet
                             
                             // if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
                                 
-                                for (x = 0; x <= (wInfo_p[a] - 1); x++) { // (non-abs.) initials
+                                // for (x = 0; x <= (wInfo_p[a] - 1); x++) { // (non-abs.) initials
 
                                     /*
                                     var endElm = document.querySelectorAll("#wordcloud" + a + " span");
@@ -796,7 +796,7 @@ function sc_LpH() { // scroll loop - phablet
                                     el.wCh[a][x].classList.remove("v_n");
                                     el.wCh[a][x].classList.add("p-a", "v_s");
                                     */
-                                }
+                                // }
 
                                 /*
                                 targets[c].remove(); // REMOVE from DOM
@@ -812,6 +812,15 @@ function sc_LpH() { // scroll loop - phablet
 
 
                             }*/
+                        }
+
+                        if (wInfo_f[a] === wInfo_n) { // IF ALL ELEMENTS of LINE has been INSERTED into VIEW
+
+                            // SHIFT ALL '.v_n' class elements to AFTER LAST KEYWORD
+                            var vnelm = document.querySelectorAll("#wordcloud" + a + " span.v_n");
+                            for (v = 0; v <= 0; v++) {
+                                swap(vnelm[v], vnelm[vnelm.length - 1], false);
+                            }
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
@@ -837,7 +846,7 @@ function sc_LpH() { // scroll loop - phablet
                                     // wC_hold[wC_hold.length] = wInfo_f[a]; // add to hold
                                     wC_hold[a][wC_hold[a].length] = wInfo_f[a]; // add to hold
 
-                                    console.log("ah: " + a + wInfo_f[a]);
+                                    // console.log("ah: " + a + wInfo_f[a]);
 
                                     setTimeout(function() {
 

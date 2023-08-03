@@ -62,12 +62,6 @@ var fchL = {
         s3 : [],  
         s4 : []
     },
-    wInfo_d = { // wordcloud h3 no. of hidden elements (left side)
-        s1 : 0,
-        s2 : 0, 
-        s3 : 0,  
-        s4 : 0
-    },
     el = {
         x : false, // code execution
         x2 : false, 
