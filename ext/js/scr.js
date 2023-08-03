@@ -115,7 +115,12 @@ var im = { // #intro_main
         s : false
     },
     wC_spd = -3, // wordcloud transformation speed
-    wC_hold = [], // wordcloud holder/index
+    wC_hold = { // wordcloud holder/index
+        s1 : [],
+        s2 : [],
+        s3 : [],
+        s4 : []
+    }, 
     wC_clone_hold = []; // wordcloud clone holder
 
 
@@ -780,10 +785,9 @@ function sc_LpH() { // scroll loop - phablet
 
                             if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
 
-                                // begin deletions
                                 
                                 for (x = 0; x <= (wInfo_p[a] - 1); x++) { // (non-abs.) initials
-                                    // el.wCh[a][x].remove(); // REMOVE from DOM
+
                                     /*
                                     var endElm = document.querySelectorAll("#wordcloud" + a + " span");
                                     swap(el.wCh[a][x], endElm[endElm.length - 1], false); // SHIFT THE NODES TO THE BOTTOM to END
@@ -829,14 +833,15 @@ function sc_LpH() { // scroll loop - phablet
 
                                     // wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
 
-                                    wC_hold[wC_hold.length] = wInfo_f[a]; // add to hold
+                                    // wC_hold[wC_hold.length] = wInfo_f[a]; // add to hold
+                                    wC_hold[a][wC_hold[a].length] = wInfo_f[a]; // add to hold
 
                                     setTimeout(function() {
 
                                         // console.log("wc: " + wC_hold[0]);
 
-                                        el.wCh[a][wC_hold[0]].classList.remove("z_O");
-                                        wC_hold.shift(); // remove from hold
+                                        el.wCh[a][wC_hold[a][0]].classList.remove("z_O");
+                                        wC_hold[a].shift(); // remove from hold
                                     }, 10);
                                 }
 
