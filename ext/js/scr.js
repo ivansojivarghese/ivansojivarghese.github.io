@@ -781,7 +781,9 @@ function sc_LpH() { // scroll loop - phablet
 
                                     console.log("fa: " + wInfo_f[a] + ", gi " + getIndex(targets[c]));
 
-                                    wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
+                                    // wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
+
+                                    wC_hold[wC_hold.length] = wInfo_f[a]; // add to hold
 
                                     setTimeout(function() {
 
