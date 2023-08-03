@@ -115,10 +115,12 @@ var fchL = {
         mdh : document.getElementById("mid_sc_h"),
         fC : document.querySelectorAll("#fullCoords span"),
         wChe : {
-            s1 : document.getElementById("wordclouds1") //
+            s1 : document.getElementById("wordclouds1"), //
+            s2 : document.getElementById("wordclouds2") //
         },
         wCh : {
-            s1 : document.querySelectorAll("#wordclouds1 span") //
+            s1 : document.querySelectorAll("#wordclouds1 span"), //
+            s2 : document.querySelectorAll("#wordclouds2 span") //
         },
         wdTL : null
     },
