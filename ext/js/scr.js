@@ -824,8 +824,13 @@ function sc_LpH() { // scroll loop - phablet
 
                             if (vnelm.length) {
                                 for (v = 0; v <= (vnelm.length - 1); v++) {
-                                    swap(vnelm[v], npos[v], false);
+                                    swap(vnelm[v], npos[v], false); // SWAP POSITIONS TO THE BACK
                                     npos[npos.length] = vnelm[v];
+
+                                    if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
+                                        vnelm[v].classList.add("p-a");
+                                    }
+                                    
                                 }
                             }
 
