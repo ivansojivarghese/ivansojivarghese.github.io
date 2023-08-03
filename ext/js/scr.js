@@ -784,7 +784,7 @@ function sc_LpH() { // scroll loop - phablet
                                     wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
                                     setTimeout(function() {
 
-                                        console.log(wC_hold[0]);
+                                        console.log("wc: " + wC_hold[0]);
 
                                         el.wCh[a][wInfo_p[a] + wC_hold[0]].classList.remove("z_O");
                                         wC_hold.shift(); // remove from hold
