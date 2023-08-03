@@ -35,8 +35,8 @@ var fchL = {
     ],
     wInfo_n = 10, // MAX/MIN no. of words in cloud lines
     wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
-        h1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"],
-        h2 : ["web&nbsp;", "html&nbsp;", "frontend&nbsp;", "js&nbsp;", "api&nbsp;", "sitemap&nbsp;", "css&nbsp;", "devtools&nbsp;", "seo&nbsp;", "dynamic&nbsp;"]
+        s1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"],
+        s2 : ["web&nbsp;", "html&nbsp;", "frontend&nbsp;", "js&nbsp;", "api&nbsp;", "sitemap&nbsp;", "css&nbsp;", "devtools&nbsp;", "seo&nbsp;", "dynamic&nbsp;"]
     },
     wInfo_f = { // wordcloud h3 next index element
         s1 : 0,
@@ -612,7 +612,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
             for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
                 for (b = 0; b <= el.wCh[a].length - 1; b++) {
                     var wd;
-                    el.wCh[a][b].innerHTML = wInfo.h1[b];
+                    el.wCh[a][b].innerHTML = wInfo[a][b];
                     wd = getBd(el.wCh[a][b], "width"); // get width
                     wInfo_s[a] += wd; // update total line width
                     wInfo_i[a][b] = wd; // update indiv. word widths
