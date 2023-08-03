@@ -781,9 +781,13 @@ function sc_LpH() { // scroll loop - phablet
                             if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
 
                                 // begin deletions
+                                /*
                                 for (x = 0; x <= (wInfo_p[a] - 1); x++) { // initials
-                                    el.wCh[a][x].remove(); // REMOVE from DOM
-                                }
+                                    el.wCh[a][x].remove(); // REMOVE ALL from DOM
+
+
+                                    // ADD THE SAME to END
+                                }*/
 
                                 /*
                                 targets[c].remove(); // REMOVE from DOM
