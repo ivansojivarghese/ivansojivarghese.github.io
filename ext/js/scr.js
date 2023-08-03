@@ -777,6 +777,8 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                                 el.wCh[a][wInfo_f[a]].classList.remove("v_n");
 
+                                console.log("fa: " + wInfo_f[a]);
+
                                 if (el.wCh[a][wInfo_f[a]].classList.contains("z_O")) {
 
                                     console.log("fa: " + wInfo_f[a] + ", gi: " + getIndex(targets[c]));
