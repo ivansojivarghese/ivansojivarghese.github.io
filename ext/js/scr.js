@@ -836,6 +836,8 @@ function sc_LpH() { // scroll loop - phablet
                                     // wC_hold[wC_hold.length] = wInfo_f[a]; // add to hold
                                     wC_hold[a][wC_hold[a].length] = wInfo_f[a]; // add to hold
 
+                                    console.log("ah: " + a + wInfo_f[a]);
+
                                     setTimeout(function() {
 
                                         console.log("wc: " + a + wC_hold[a][0]);
