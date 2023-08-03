@@ -115,7 +115,8 @@ var im = { // #intro_main
         s : false
     },
     wC_spd = -3, // wordcloud transformation speed
-    wC_hold = []; // wordcloud holder/index
+    wC_hold = [], // wordcloud holder/index
+    wC_clone_hold = []; // wordcloud clone holder
 
 
 function sc_L() { // functions (live on scroll)
@@ -761,10 +762,15 @@ function sc_LpH() { // scroll loop - phablet
                         }*/
 
                         if (target_bd.right < 0) { // RIGHT ""
+
+                            wC_clone_hold[wC_clone_hold.length] = targets[c]; // clone the element node
+
                             targets[c].classList.remove("v_s");
                             targets[c].classList.add("v_n");
 
                             targets[c].remove(); // REMOVE from DOM
+
+                            el.wCh[a].appendChild(wC_clone_hold[0]); // append to last of line
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
