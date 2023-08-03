@@ -771,9 +771,9 @@ function sc_LpH() { // scroll loop - phablet
                             if (wInfo_f[a] < wInfo_n) {
                                 console.log(totalWidth(targets));
 
-                                var wd = wiD - totalWidth(targets),
+                                var rf = wInfo_f[a],
+                                    wd = wiD - totalWidth(targets),
                                     lf = 0;
-
 
                                 el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                                 el.wCh[a][wInfo_f[a]].classList.remove("v_n");
@@ -785,6 +785,9 @@ function sc_LpH() { // scroll loop - phablet
                                 }, op.t);*/
 
                                 el.wCh[a][wInfo_f[a]].classList.remove("z_O");
+                                setTimeout(function() {
+                                    el.wCh[a][rf].classList.remove("trs");
+                                }, op.t);
 
                                 el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
                                 el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
