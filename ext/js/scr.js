@@ -760,7 +760,7 @@ function sc_LpH() { // scroll loop - phablet
                             el.wCh[a][wInfo_f[a]].style.width = wd + "px";
                             el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -0.2) + "px)"; 
 
-                            for (k = wInfo_p[a]; k < wInfo_f[a]; k++) {
+                            for (k = 0; k < wInfo_f[a]; k++) {
                                 lf += wInfo_i[a][k];
                             }
 
