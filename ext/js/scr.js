@@ -769,10 +769,10 @@ function sc_LpH() { // scroll loop - phablet
                             wInfo_f[a]++;
 
                             console.log("insert more");
-
+                            /*
                             if (wInfo_f[a] === 6) {
                                 pf.x8 = true;
-                            }
+                            }*/
                             // 
                         }
                     }
