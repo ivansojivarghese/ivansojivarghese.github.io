@@ -120,8 +120,8 @@ var im = { // #intro_main
         s2 : [],
         s3 : [],
         s4 : []
-    }, 
-    wC_clone_hold = []; // wordcloud clone holder
+    }; 
+    // wC_clone_hold = []; // wordcloud clone holder
 
 
 function sc_L() { // functions (live on scroll)
@@ -770,16 +770,17 @@ function sc_LpH() { // scroll loop - phablet
 
                             var elm;
 
-                            wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
+                            // wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
 
                             targets[c].classList.remove("v_s");
                             targets[c].classList.add("v_n");
 
+                            /*
                             elm = wC_clone_hold[wC_clone_hold.length - 1];
                             if (!elm.classList.contains("p-a")) { // ADD abs. positioning if not existing 
                                 elm.classList.add("p-a");
                                 elm.style.left = wInfo_s[a] + "px"; // left pos.
-                            }
+                            }*/
 
                             wInfo_d[a]++; // no of hidden words
 
