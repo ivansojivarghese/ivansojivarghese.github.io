@@ -770,7 +770,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             console.log("insert more");
 
-                            if (wInfo_f[a] === 4) {
+                            if (wInfo_f[a] === 5) {
                                 pf.x8 = true;
                             }
                             // 
