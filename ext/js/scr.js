@@ -770,7 +770,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             targets[c].remove(); // REMOVE from DOM
 
-                            el.wCh[a].appendChild(wC_clone_hold[0]); // append to last of line
+                            el.wChe[a].appendChild(wC_clone_hold[0]); // append to last of line
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
