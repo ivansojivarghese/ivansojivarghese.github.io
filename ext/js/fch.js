@@ -615,7 +615,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         el.wCh[a][b].classList.add("d_n", "z_O", "trs"); // else, hide
                     } else {
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
-                        el.wCh[a][b].classList.add("v_s", "actv"); // show if visible + activated
+                        el.wCh[a][b].classList.add("v_s", "actv", "trs"); // show if visible + activated
                         el.wCh[a][b].classList.add("r" + b); // index for reference
                         wInfo_f[a]++; // next indexed word in sequence
                         wInfo_p[a]++; // number of words at initial
