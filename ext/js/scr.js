@@ -779,9 +779,10 @@ function sc_LpH() { // scroll loop - phablet
 
                                 if (el.wCh[a][wInfo_f[a]].classList.contains("z_O")) {
 
-                                    console.log("fa: " + wInfo_f[a]);
+                                    console.log("fa: " + wInfo_f[a] + ", gi " + getIndex(targets[c]));
 
                                     wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
+
                                     setTimeout(function() {
 
                                         console.log("wc: " + wC_hold[0]);
