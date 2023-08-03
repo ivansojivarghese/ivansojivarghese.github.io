@@ -86,7 +86,6 @@ var im = { // #intro_main
         x5 : false,
         x6 : false,
         x7 : false,
-        x8 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -746,34 +745,31 @@ function sc_LpH() { // scroll loop - phablet
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
-                        if (totalWidth(targets) && (totalWidth(targets) < wiD) && !pf.x8) { // ADD new words if space AVAILABLE
+                        if (totalWidth(targets) && (totalWidth(targets) < wiD)) { // ADD new words if space AVAILABLE
                             
-                            console.log(totalWidth(targets));
+                            if (wInfo_f[a] < wInfo_n) {
+                                console.log(totalWidth(targets));
 
-                            var wd = wiD - totalWidth(targets),
-                                lf = 0;
+                                var wd = wiD - totalWidth(targets),
+                                    lf = 0;
 
-                            el.wCh[a][wInfo_f[a]].classList.remove("d_n");
-                            el.wCh[a][wInfo_f[a]].classList.remove("v_n");
-                            el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
-                            el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
-                            el.wCh[a][wInfo_f[a]].style.width = wd + "px";
-                            el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -1) + "px)"; 
+                                el.wCh[a][wInfo_f[a]].classList.remove("d_n");
+                                el.wCh[a][wInfo_f[a]].classList.remove("v_n");
+                                el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
+                                el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
+                                el.wCh[a][wInfo_f[a]].style.width = wd + "px";
+                                el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -1) + "px)"; 
 
-                            for (k = 0; k < wInfo_f[a]; k++) {
-                                lf += wInfo_i[a][k];
+                                for (k = 0; k < wInfo_f[a]; k++) {
+                                    lf += wInfo_i[a][k];
+                                }
+
+                                el.wCh[a][wInfo_f[a]].style.left = lf + "px";
+
+                                wInfo_f[a]++;
+
+                                console.log("insert more");
                             }
-
-                            el.wCh[a][wInfo_f[a]].style.left = lf + "px";
-
-                            wInfo_f[a]++;
-
-                            console.log("insert more");
-                            /*
-                            if (wInfo_f[a] === 6) {
-                                pf.x8 = true;
-                            }*/
-                            // 
                         }
                     }
                 }
