@@ -771,13 +771,17 @@ function sc_LpH() { // scroll loop - phablet
                             if (wInfo_f[a] < wInfo_n) {
                                 console.log(totalWidth(targets));
 
-                                var rf = getIndex(targets[c]),
-                                    wd = wiD - totalWidth(targets),
+                                var wd = wiD - totalWidth(targets),
                                     lf = 0;
+
+                                wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
 
                                 el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                                 el.wCh[a][wInfo_f[a]].classList.remove("v_n");
-                                el.wCh[a][wInfo_f[a]].classList.remove("z_O");
+                                setTimeout(function() {
+                                    el.wCh[a][wC_hold[0]].classList.remove("z_O");
+                                    wC_hold.shift(); // remove from hold
+                                }, 10);
 
                                 el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
                                 el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
