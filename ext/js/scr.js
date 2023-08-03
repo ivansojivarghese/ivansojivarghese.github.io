@@ -761,7 +761,7 @@ function sc_LpH() { // scroll loop - phablet
                             }
                         }*/
 
-                        if (target_bd.right < 0) { // RIGHT ""
+                        if (target_bd.right < 0 ) { // RIGHT ""
 
                             wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
 
@@ -771,6 +771,8 @@ function sc_LpH() { // scroll loop - phablet
                             targets[c].remove(); // REMOVE from DOM
 
                             el.wChe[a].appendChild(wC_clone_hold[wC_clone_hold.length - 1]); // append to last of line
+
+                            wC_clone_hold.unshift(); // remove from array
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
