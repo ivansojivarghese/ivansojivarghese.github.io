@@ -828,7 +828,7 @@ function sc_LpH() { // scroll loop - phablet
                                     npos[npos.length] = vnelm[v];
 
                                     if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
-                                        vnelm[v].classList.add("p-a");
+                                        vnelm[v].classList.add("p-r");
                                     }
                                     
                                 }
