@@ -771,7 +771,7 @@ function sc_LpH() { // scroll loop - phablet
                             if (wInfo_f[a] < wInfo_n) {
                                 console.log(totalWidth(targets));
 
-                                var rf = wInfo_f[a],
+                                var rf = getIndex(targets[c]),
                                     wd = wiD - totalWidth(targets),
                                     lf = 0;
 
