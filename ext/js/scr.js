@@ -745,6 +745,19 @@ function sc_LpH() { // scroll loop - phablet
                             /*else if (!targets[c].classList.contains("actv")) {
                                 el.wCh[a][wInfo_f[a] - 1].classList.add("actv"); // activated (fully shown on screen)
                             }*/
+
+                        } else if (target_bd.right > wiD && target_bd.left >= 0) { // LEFT IN, but RIGHT OUT
+
+                            var iwd = getCSSProperty(targets[c], "width"),
+                                wd = wiD - target_bd.left,
+                                nwd = (wd > iwd) ? wd : iwd; // new (total) width
+                            
+                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) {
+                                targets[c].style.width = nwd + "px";
+                            } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][c])) {
+                                targets[c].style.width = wInfo_i[a][c] + "px"; // full width
+                                targets[c].classList.add("actv"); // activated (fully shown on screen)
+                            }
                         }
 
                         if (target_bd.right < 0) { // RIGHT ""
