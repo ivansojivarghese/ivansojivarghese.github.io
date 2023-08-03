@@ -699,14 +699,7 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = (wiD - target_bd.left) + "px";
                             }*/
 
-                        } else if (target_bd.right < 0) { // RIGHT ""
-
-                            targets[c].classList.remove("v_s");
-                            targets[c].classList.add("v_n");
-
-                        }
-                        
-                        /*else if (target_bd.right >= wiD) { // RIGHT
+                        } /*else if (target_bd.right >= wiD) { // RIGHT
 
                             // var wd = wiD - totalWidth(targets);
                             var iwd = getCSSProperty(targets[c], "width"),
@@ -751,6 +744,11 @@ function sc_LpH() { // scroll loop - phablet
                             /*else if (!targets[c].classList.contains("actv")) {
                                 el.wCh[a][wInfo_f[a] - 1].classList.add("actv"); // activated (fully shown on screen)
                             }*/
+                        }
+
+                        if (target_bd.right < 0) { // RIGHT ""
+                            targets[c].classList.remove("v_s");
+                            targets[c].classList.add("v_n");
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
