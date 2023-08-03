@@ -778,11 +778,14 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a]].classList.remove("v_n");
 
                                 if (el.wCh[a][wInfo_f[a]].classList.contains("z_O")) {
+
+                                    console.log(wInfo_f[a]);
+
                                     wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
                                     setTimeout(function() {
 
                                         console.log(wC_hold[0]);
-                                        
+
                                         el.wCh[a][wC_hold[0]].classList.remove("z_O");
                                         wC_hold.shift(); // remove from hold
                                     }, 10);
