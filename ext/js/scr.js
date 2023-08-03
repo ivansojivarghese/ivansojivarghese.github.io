@@ -769,23 +769,30 @@ function sc_LpH() { // scroll loop - phablet
                             targets[c].classList.remove("v_s");
                             targets[c].classList.add("v_n");
 
-                            targets[c].remove(); // REMOVE from DOM
-
                             elm = wC_clone_hold[wC_clone_hold.length - 1];
                             if (!elm.classList.contains("p-a")) { // ADD abs. positioning if not existing 
                                 elm.classList.add("p-a");
-                                elm.style.left = wInfo_s[a] + "px";
+                                elm.style.left = wInfo_s[a] + "px"; // left pos.
                             }
-                            el.wChe[a].appendChild(elm); // append to last of line
 
-                            wC_clone_hold.unshift(); // remove from array
+                            wInfo_d[a]++;
+
+                            if (wInfo_d > (Math.round(wInfo_n / 2))) { // if MORE than HALFWAY of line scrolled
+                                targets[c].remove(); // REMOVE from DOM
+                                el.wChe[a].appendChild(elm); // append to last of line
+                                for (j = (c + 1); c <= (wInfo_n - 1); j++) { // SHIFT OTHER ELEMENTS inward to COVER FOR DELETION
+                                    var lf = getCSSProperty(el.wCh[a][j], "left");
+                                    el.wCh[a].style.left = "";
+                                }
+                                wC_clone_hold.unshift(); // remove from array
+                            }
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //
                         if (totalWidth(targets) && (totalWidth(targets) < wiD)) { // ADD new words if space AVAILABLE
                             
                             if (wInfo_f[a] < wInfo_n) {
-                                console.log(totalWidth(targets));
+                                // console.log(totalWidth(targets));
 
                                 var wd = wiD - totalWidth(targets),
                                     lf = 0;
@@ -793,11 +800,11 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                                 el.wCh[a][wInfo_f[a]].classList.remove("v_n");
 
-                                console.log("fa: " + wInfo_f[a]);
+                                // console.log("fa: " + wInfo_f[a]);
 
                                 if (el.wCh[a][wInfo_f[a]].classList.contains("z_O")) {
 
-                                    console.log("fa: " + wInfo_f[a] + ", gi: " + getIndex(targets[c]));
+                                    // console.log("fa: " + wInfo_f[a] + ", gi: " + getIndex(targets[c]));
 
                                     // wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
 
@@ -805,7 +812,7 @@ function sc_LpH() { // scroll loop - phablet
 
                                     setTimeout(function() {
 
-                                        console.log("wc: " + wC_hold[0]);
+                                        // console.log("wc: " + wC_hold[0]);
 
                                         el.wCh[a][wC_hold[0]].classList.remove("z_O");
                                         wC_hold.shift(); // remove from hold
@@ -825,7 +832,7 @@ function sc_LpH() { // scroll loop - phablet
 
                                 wInfo_f[a]++;
 
-                                console.log("insert more");
+                                // console.log("insert more");
                             }
                         }
                     }
