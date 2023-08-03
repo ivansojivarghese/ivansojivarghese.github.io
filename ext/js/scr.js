@@ -823,10 +823,11 @@ function sc_LpH() { // scroll loop - phablet
                                 ],
                                 lpos = [
                                     getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
-                                ],
+                                ];
+                                /*
                                 wpos = [
                                     getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "width")
-                                ];
+                                ];*/
 
                             if (vnelm.length) {
                                 for (v = 0; v <= (vnelm.length - 1); v++) {
@@ -838,7 +839,7 @@ function sc_LpH() { // scroll loop - phablet
                                     }
 
                                     vnelm[v].style.width = wInfo_i[a][v] + "px"; // width
-                                    vnelm[v].style.left = (lpos[lpos.length - 1] + wpos[wpos.length - 1]) + "px"; // left
+                                    vnelm[v].style.left = (lpos[lpos.length - 1] + getCSSProperty(el.wCh[a][wInfo_f[a] - 1], 'width')) + "px"; // left
                                     // lpos[lpos.length] = 
 
                                     vnelm[v].classList.remove("v_n"); // vis.
