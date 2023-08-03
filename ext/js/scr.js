@@ -819,7 +819,7 @@ function sc_LpH() { // scroll loop - phablet
                             // SHIFT ALL '.v_n' class elements to AFTER LAST KEYWORD
                             var vnelm = document.querySelectorAll("#wordcloud" + a + " span.v_n");
                             if (vnelm.length) {
-                                for (v = 0; v <= 0; v++) {
+                                for (v = 0; v <= (vnelm.length - 1); v++) {
                                     swap(vnelm[v], vnelm[vnelm.length - 1], false);
                                 }
                             }
