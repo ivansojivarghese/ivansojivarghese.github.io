@@ -777,12 +777,14 @@ function sc_LpH() { // scroll loop - phablet
 
                                 el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                                 el.wCh[a][wInfo_f[a]].classList.remove("v_n");
-
+                                /*
                                 wC_hold[wC_hold.length] = targets[c]; // add to hold
                                 setTimeout(function() {
                                     wC_hold[0].classList.remove("trs", "z_O");
                                     wC_hold.shift(); // remove from hold
-                                }, op.t);
+                                }, op.t);*/
+
+                                el.wCh[a][wInfo_f[a]].classList.remove("z_O");
 
                                 el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
                                 el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
