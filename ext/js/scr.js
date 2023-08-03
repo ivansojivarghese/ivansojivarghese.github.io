@@ -838,7 +838,7 @@ function sc_LpH() { // scroll loop - phablet
 
                                     setTimeout(function() {
 
-                                        // console.log("wc: " + wC_hold[0]);
+                                        console.log("wc: " + wC_hold[0]);
 
                                         if (wC_hold[a][0]) {
                                             el.wCh[a][wC_hold[a][0]].classList.remove("z_O");
