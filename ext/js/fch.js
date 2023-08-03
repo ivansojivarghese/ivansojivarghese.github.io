@@ -262,7 +262,7 @@ function load_css_e() { // load CSS styles (page specific)
 
                     qInfo[4].innerHTML = "quite within, but far <span class='key-sm'>;</span>)";
 
-                } else if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage) {
+                } else if ((apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage) || (weather.c.innerHTML === qInfo[4].innerHTML)) {
 
                     qInfo[4].innerHTML = "earth";
                 }
