@@ -108,7 +108,7 @@ var fchL = {
         mdh : document.getElementById("mid_sc_h"),
         fC : document.querySelectorAll("#fullCoords span"),
         wChe : {
-            s1 : document.getElementById("#wordclouds1") //
+            s1 : document.getElementById("wordclouds1") //
         },
         wCh : {
             s1 : document.querySelectorAll("#wordclouds1 span") //
