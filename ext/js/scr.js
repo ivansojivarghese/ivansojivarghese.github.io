@@ -842,7 +842,7 @@ function sc_LpH() { // scroll loop - phablet
 
                                         var rn = a.slice(1); // get line number
 
-                                        console.log("wc: " + a + wC_hold[a][0]);
+                                        // console.log("wc: " + a + wC_hold[a][0]);
 
                                         if (wC_hold[a][0]) { // remove if defined
                                             el.wCh[a][wC_hold[a][0]].classList.remove("z_O");
