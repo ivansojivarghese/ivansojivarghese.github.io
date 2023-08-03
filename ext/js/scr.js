@@ -685,7 +685,8 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
                                 */
 
-                                targets[c].classList.remove("actv");
+                                targets[c].classList.remove("actv", "v_s");
+                                targets[c].classList.add("v_n");
 
                                 // targets[c].classList.add("deactv");
                             } 
