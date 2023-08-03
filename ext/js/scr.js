@@ -652,6 +652,8 @@ function sc_LpH() { // scroll loop - phablet
             // WORDCLOUD
 
             if (b.wc.top && b.wc.top < aH) { // transformation effect
+                var spd = -1;
+
                 if (!ld.x10) {
                     ld.rf6 = pos.y;
                     ld.x10 = true;
@@ -667,7 +669,7 @@ function sc_LpH() { // scroll loop - phablet
 
                     for (c = 0; c <= targets.length - 1; c++) {
                         var target_bd;
-                        targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * -1) + "px)"; // transform across user viewport during scroll
+                        targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * spd) + "px)"; // transform across user viewport during scroll
                         target_bd = targets[c].getBoundingClientRect(); // get live bounds 
 
                         if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
@@ -765,7 +767,7 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
                                 el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
                                 el.wCh[a][wInfo_f[a]].style.width = wd + "px";
-                                el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * -1) + "px)"; 
+                                el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * spd) + "px)"; 
 
                                 for (k = 0; k < wInfo_f[a]; k++) {
                                     lf += wInfo_i[a][k];
