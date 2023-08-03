@@ -820,6 +820,9 @@ function sc_LpH() { // scroll loop - phablet
                             var vnelm = document.querySelectorAll("#wordcloud" + a + " span.v_n"),
                                 npos = [
                                     el.wCh[a][wInfo_f[a] - 1]
+                                ],
+                                lpos = [
+                                    getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
                                 ];
 
                             if (vnelm.length) {
@@ -830,7 +833,12 @@ function sc_LpH() { // scroll loop - phablet
                                     if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
                                         vnelm[v].classList.add("p-r");
                                     }
-                                    vnelm[v].classList.remove("v_n");
+
+                                    vnelm[v].style.width = wInfo_i[a][v] + "px"; // width
+                                    vnelm[v].style.left = lpos[lpos.length - 1] + "px"; // left
+                                    // lpos[lpos.length] = 
+
+                                    vnelm[v].classList.remove("v_n"); // vis.
                                     vnelm[v].classList.add("v_s");
                                     
                                 }
