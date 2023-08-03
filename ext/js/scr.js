@@ -840,11 +840,18 @@ function sc_LpH() { // scroll loop - phablet
 
                                     setTimeout(function() {
 
+                                        var rn = a.slice(1); // get line number
+
                                         console.log("wc: " + a + wC_hold[a][0]);
 
-                                        if (wC_hold[a][0]) {
+                                        if (wC_hold[a][0]) { // remove if defined
                                             el.wCh[a][wC_hold[a][0]].classList.remove("z_O");
                                             wC_hold[a].shift(); // remove from hold
+
+                                        } else if (wC_hold["s" + (rn - 1)][0]) { // remove from previous line
+
+                                            el.wCh["s" + (rn - 1)][wC_hold["s" + (rn - 1)][0]].classList.remove("z_O");
+                                            wC_hold["s" + (rn - 1)].shift(); // remove from hold
                                         }
                                     }, 10);
                                 }
