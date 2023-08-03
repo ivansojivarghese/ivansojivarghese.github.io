@@ -653,7 +653,6 @@ function sc_LpH() { // scroll loop - phablet
             // WORDCLOUD
 
             if (b.wc.top && b.wc.top < aH) { // transformation effect
-                // var spd = -2;
 
                 if (!ld.x10) {
                     ld.rf6 = pos.y;
@@ -714,12 +713,13 @@ function sc_LpH() { // scroll loop - phablet
                             
                             var iwd = getCSSProperty(targets[c], "width"),
                                 wd = wiD - target_bd.left,
-                                nwd = (wd > iwd) ? wd : iwd; // new (total) width
+                                nwd = (wd > iwd) ? wd : iwd, // new (total) width
+                                rf = getIndex(targets[c]); // get ref. index
                             
-                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) {
+                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][rf])) {
                                 targets[c].style.width = nwd + "px";
-                            } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][c])) {
-                                targets[c].style.width = wInfo_i[a][c] + "px"; // full width
+                            } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][rf])) {
+                                targets[c].style.width = wInfo_i[a][rf] + "px"; // full width
                                 targets[c].classList.add("actv"); // activated (fully shown on screen)
                             }
 
@@ -746,7 +746,7 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a] - 1].classList.add("actv"); // activated (fully shown on screen)
                             }*/
 
-                        } else if (target_bd.right > wiD && target_bd.left >= 0) { // LEFT IN, but RIGHT OUT
+                        } /*else if (target_bd.right > wiD && target_bd.left >= 0) { // LEFT IN, but RIGHT OUT
 
                             var iwd = getCSSProperty(targets[c], "width"),
                                 wd = wiD - target_bd.left,
@@ -758,7 +758,7 @@ function sc_LpH() { // scroll loop - phablet
                                 targets[c].style.width = wInfo_i[a][c] + "px"; // full width
                                 targets[c].classList.add("actv"); // activated (fully shown on screen)
                             }
-                        }
+                        }*/
 
                         if (target_bd.right < 0) { // RIGHT ""
                             targets[c].classList.remove("v_s");
@@ -822,7 +822,7 @@ function getIndex(el) {
     return null;
 }
 
-function totalWidth(els) {
+function totalWidth(els) { // get total width of word elements in line
     var w = 0, addon = 0;
     for (q = 0; q <= (els.length - 1); q++) {
         if (num_Fs(els[q].style.width)) {
