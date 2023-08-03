@@ -716,10 +716,10 @@ function sc_LpH() { // scroll loop - phablet
                                 wd = wiD - target_bd.left,
                                 nwd = (wd > iwd) ? wd : iwd; // new (total) width
                             
-                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c + 1])) {
+                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) {
                                 targets[c].style.width = nwd + "px";
-                            } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][c + 1])) {
-                                targets[c].style.width = wInfo_i[a][c + 1] + "px"; // full width
+                            } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][c])) {
+                                targets[c].style.width = wInfo_i[a][c] + "px"; // full width
                                 targets[c].classList.add("actv"); // activated (fully shown on screen)
                             }
 
