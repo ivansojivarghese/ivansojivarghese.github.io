@@ -652,7 +652,7 @@ function sc_LpH() { // scroll loop - phablet
             // WORDCLOUD
 
             if (b.wc.top && b.wc.top < aH) { // transformation effect
-                var spd = -1;
+                var spd = -2;
 
                 if (!ld.x10) {
                     ld.rf6 = pos.y;
