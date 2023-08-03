@@ -839,7 +839,7 @@ function sc_LpH() { // scroll loop - phablet
                                     }
 
                                     vnelm[v].style.width = wInfo_i[a][v] + "px"; // width
-                                    vnelm[v].style.left = (lpos[lpos.length - 1] + getCSSProperty(el.wCh[a][wInfo_f[a] - 1], 'width')) + "px"; // left
+                                    vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
                                     // lpos[lpos.length] = 
 
                                     vnelm[v].classList.remove("v_n"); // vis.
