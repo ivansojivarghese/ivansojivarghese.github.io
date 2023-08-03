@@ -114,7 +114,7 @@ var im = { // #intro_main
         _L : undefined,
         s : false
     },
-    wC_spd = -2, // wordcloud transformation speed
+    wC_spd = -3, // wordcloud transformation speed
     wC_hold = []; // wordcloud holder/index
 
 
