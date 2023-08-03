@@ -658,7 +658,7 @@ function sc_LpH() { // scroll loop - phablet
                     ld.x10 = true;
                 }
                 for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
-                    var targets = document.querySelectorAll("#wordcloud" + a + " span.v_s"), // select visible words on screen
+                    var targets = document.querySelectorAll("#wordcloud" + a + " span.v_s.actv"), // select visible words on screen
                         targetsIndex = new Array(targets.length);
                     for (d = 0; d <= targets.length - 1; d++) { // UPDATE reference targets that are visible
                         for (e = 0; e <= targets.length - 1; e++) {
