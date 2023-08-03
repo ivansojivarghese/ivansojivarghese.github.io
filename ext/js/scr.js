@@ -814,7 +814,7 @@ function sc_LpH() { // scroll loop - phablet
                             }*/
                         }
 
-                        if (wInfo_f[a] === wInfo_n) { // IF ALL ELEMENTS of LINE has been INSERTED into VIEW
+                        if (wInfo_f[a] === wInfo_n && !wInfo_r[a]) { // IF ALL ELEMENTS of LINE has been INSERTED into VIEW
 
                             // SHIFT ALL '.v_n' class elements to AFTER LAST KEYWORD
                             var vnelm = document.querySelectorAll("#wordcloud" + a + " span.v_n");
@@ -823,6 +823,8 @@ function sc_LpH() { // scroll loop - phablet
                                     swap(vnelm[v], vnelm[vnelm.length - 1], false);
                                 }
                             }
+
+                            wInfo_r[a] = true;
                         }
 
                         // new words (using comparison of live-width additions with viewport width) //

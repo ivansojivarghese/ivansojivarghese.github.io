@@ -62,6 +62,12 @@ var fchL = {
         s3 : [],  
         s4 : []
     },
+    wInfo_r = { // wordcloud h3 RIGHT reload
+        s1 : false,
+        s2 : false,
+        s3 : false,
+        s4 : false
+    },
     el = {
         x : false, // code execution
         x2 : false, 
