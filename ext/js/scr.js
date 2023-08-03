@@ -778,7 +778,6 @@ function sc_LpH() { // scroll loop - phablet
                                 el.wCh[a][wInfo_f[a]].classList.remove("d_n");
                                 el.wCh[a][wInfo_f[a]].classList.remove("v_n");
 
-                                targets[c].classList.add("trs"); // make transparent
                                 wC_hold[wC_hold.length] = targets[c]; // add to hold
                                 setTimeout(function() {
                                     wC_hold[0].classList.remove("trs", "z_O");
