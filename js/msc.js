@@ -2072,6 +2072,19 @@ function chkVL(n, s) { // numeral - check for positive/non-zero value
     return res;
 }
 
+function swap(node1, node2, rep) { // swap(replace) or shift node positions
+    const afterNode2 = node2.nextElementSibling;
+    const parent = node2.parentNode;
+    if (rep) {
+        node1.replaceWith(node2);
+    }
+    parent.insertBefore(node1, afterNode2);
+}
+
+function getCSSProperty(el, p) { // get css property values using window computed style method
+    return num_Fs(window.getComputedStyle(el).getPropertyValue(p));
+}
+
 //////////////////////////////////////////
 
 function countdownTimerSec(d, t, e, p) { // count down (in sec.)

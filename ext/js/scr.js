@@ -798,6 +798,9 @@ function sc_LpH() { // scroll loop - phablet
                                 }
                                 wC_clone_hold.unshift(); // remove from array
                                 */
+                            } else {
+
+                                
                             }
                         }
 
