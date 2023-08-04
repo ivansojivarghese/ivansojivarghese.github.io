@@ -659,278 +659,6 @@ function sc_LpH() { // scroll loop - phablet
 
             // WORDCLOUD
 
-            if (b.wc.top && b.wc.top < aH) { // transformation effect
-
-                if (!ld.x10) {
-                    ld.rf6 = pos.y;
-                    ld.x10 = true;
-                }
-                for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
-                    var targets = document.querySelectorAll("#wordcloud" + a + " span.v_s"), // select visible words on screen
-                        targetsIndex = new Array(targets.length);
-                    for (d = 0; d <= targets.length - 1; d++) { // UPDATE reference targets that are visible
-                        for (e = 0; e <= targets.length - 1; e++) {
-                            targetsIndex[e] = getIndex(targets[e]); // targets[e].classList.contains("r");
-                        }
-                    }
-
-                    for (c = 0; c <= targets.length - 1; c++) {
-                        var target_bd;
-                        targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * wC_spd) + "px)"; // transform across user viewport during scroll
-                        target_bd = targets[c].getBoundingClientRect(); // get live bounds 
-
-                        if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
-
-                            if (targets[c].classList.contains("actv")) { // if word has been activated?
-                                
-                                /*
-                                targets[c].classList.add("o-img", "trs"); // make transparent
-                                wC_hold[wC_hold.length] = targets[c]; // add to hold
-                                setTimeout(function() {
-                                    wC_hold[0].classList.remove("trs");
-                                    wC_hold.shift(); // remove from hold
-                                }, op.t);
-                                targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
-                                */
-
-                                targets[c].classList.remove("actv");
-
-                                // targets[c].classList.add("deactv");
-                            } 
-
-                            /*
-                            if (targets[c].classList.contains("actv") || targets[c].classList.contains("deactv")) {
-                                targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
-                            } else {
-                                // targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
-                                targets[c].style.width = (wiD - target_bd.left) + "px";
-                            }*/
-
-                        } /*else if (target_bd.right >= wiD) { // RIGHT
-
-                            // var wd = wiD - totalWidth(targets);
-                            var iwd = getCSSProperty(targets[c], "width"),
-                                wd = wiD - target_bd.right,
-                                nwd = iwd + wd; // new (total) width
-                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) { // not activated yet
-                                el.wCh[a][wInfo_f[a] - 1].style.width = nwd + "px";
-                            }
-
-                        }*/ else if (target_bd.right <= wiD && target_bd.left >= 0) { // CENTRE (not infringing of EDGES)
-                            
-                            var iwd = getCSSProperty(targets[c], "width"),
-                                wd = wiD - target_bd.left,
-                                nwd = (wd > iwd) ? wd : iwd, // new (total) width
-                                rf = getIndex(targets[c]); // get ref. index
-                            
-                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][rf])) {
-                                targets[c].style.width = nwd + "px";
-                            } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][rf])) {
-                                targets[c].style.width = wInfo_i[a][rf] + "px"; // full width
-                                targets[c].classList.add("actv"); // activated (fully shown on screen)
-                            }
-
-                            // var iwd = getCSSProperty(targets[c], "width"); //
-
-                            /*
-                            if (!targets[c].classList.contains("actv") && (iwd <= wInfo_i[a][c])) { // not activated yet
-
-                                // var r = wiD - target_bd.left;
-                                //targets[c].style.width = r + "px";
-                                // el.wCh[a][wInfo_f[a] - 1].style.width = (wiD - target_bd.left - pf.rf7) + "px"; // increase width
-
-                                if (wiD - target_bd.left >= wInfo_i[a][c]) {
-                                    targets[c].classList.add("actv"); // activated (fully shown on screen)
-                                } else {
-                                    targets[c].style.width = (iwd + (r * 0.9)) + "px";
-                                }
-
-                            } else if ((wiD - target_bd.left >= wInfo_i[a][c]) && iwd <= wInfo_i[a][c]) {
-                                targets[c].style.width = wInfo_i[a][c] + "px";
-                            }*/
-                            
-                            /*else if (!targets[c].classList.contains("actv")) {
-                                el.wCh[a][wInfo_f[a] - 1].classList.add("actv"); // activated (fully shown on screen)
-                            }*/
-
-                        } /*else if (target_bd.right > wiD && target_bd.left >= 0) { // LEFT IN, but RIGHT OUT
-
-                            var iwd = getCSSProperty(targets[c], "width"),
-                                wd = wiD - target_bd.left,
-                                nwd = (wd > iwd) ? wd : iwd; // new (total) width
-                            
-                            if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) {
-                                targets[c].style.width = nwd + "px";
-                            } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][c])) {
-                                targets[c].style.width = wInfo_i[a][c] + "px"; // full width
-                                targets[c].classList.add("actv"); // activated (fully shown on screen)
-                            }
-                        }*/
-
-                        if (target_bd.right < 0) { // RIGHT ""
-
-                            // var elm;
-                            // wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
-
-                            targets[c].classList.remove("v_s");
-                            targets[c].classList.add("v_n");
-
-                            /*
-                            elm = wC_clone_hold[wC_clone_hold.length - 1];
-                            if (!elm.classList.contains("p-a")) { // ADD abs. positioning if not existing 
-                                elm.classList.add("p-a");
-                                elm.style.left = wInfo_s[a] + "px"; // left pos.
-                            }*/
-
-                            // wInfo_d[a]++; // no of hidden words
-
-                            
-                            // if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
-                                
-                                // for (x = 0; x <= (wInfo_p[a] - 1); x++) { // (non-abs.) initials
-
-                                    /*
-                                    var endElm = document.querySelectorAll("#wordcloud" + a + " span");
-                                    swap(el.wCh[a][x], endElm[endElm.length - 1], false); // SHIFT THE NODES TO THE BOTTOM to END
-
-                                    el.wCh[a][x].style.left = wInfo_s[a] + "px"; // ASSIGN Behind Final Line word
-                                    el.wCh[a][x].classList.remove("v_n");
-                                    el.wCh[a][x].classList.add("p-a", "v_s");
-                                    */
-                                // }
-
-                                /*
-                                targets[c].remove(); // REMOVE from DOM
-                                el.wChe[a].appendChild(elm); // append to last of line
-                                for (j = (c + 1); c <= (wInfo_n - 1); j++) { // SHIFT OTHER ELEMENTS inward to COVER FOR DELETION
-                                    var lf = getCSSProperty(el.wCh[a][j], "left");
-                                    el.wCh[a].style.left = "";
-                                }
-                                wC_clone_hold.unshift(); // remove from array
-                                */
-                               /*
-                            } else {
-
-
-                            }*/
-                        }
-
-                        if (wInfo_f[a] === wInfo_n && !wInfo_r[a]) { // IF ALL ELEMENTS of LINE has been INSERTED into VIEW
-
-                            // SHIFT ALL '.v_n' class elements to AFTER LAST KEYWORD
-                            var vnelm = document.querySelectorAll("#wordcloud" + a + " span.v_n"),
-                                vnI = getIndex(vnelm[0]), // get first index
-                                lpos = [
-                                    getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
-                                ];
-                            /*
-                            if (wC_a !== a) {
-                                pf.x8 = false;
-                                wC_a = a;
-                            }*/
-                            // if (!pf.x8) {
-                                var npos = [
-                                    el.wCh[a][wInfo_f[a] - 1]
-                                ];
-                                // pf.x8 = true;
-                            // }
-
-                            if (vnelm.length) {
-                                wInfo_r[a] = true;
-                            }
-
-                            if (vnelm.length) {
-                                for (v = 0, n = vnI; v <= (vnelm.length - 1); v++, n++) {
-                                    if (npos && npos[n]) {
-                                        swap(vnelm[v], npos[n], false); // SWAP POSITIONS TO THE BACK
-                                        npos[npos.length] = vnelm[v];
-
-                                        if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
-                                            vnelm[v].classList.add("p-r");
-                                        }
-    
-                                        vnelm[v].style.width = wInfo_i[a][n] + "px"; // width
-                                        if ((n + 1) <= wInfo_p[a]) { // initials
-                                            vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
-                                        } else { // others (hidden)
-                                            vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + cumulativeWidth(v, wInfo_i[a])) + "px";
-                                        }
-    
-                                        vnelm[v].classList.remove("v_n"); // vis.
-                                        vnelm[v].classList.add("v_s");
-    
-                                        if (v === (vnelm.length - 1)) { // at last elm.
-    
-                                            wInfo_r[a] = false;
-
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        // new words (using comparison of live-width additions with viewport width) //
-                        if (totalWidth(targets) && (totalWidth(targets) < wiD)) { // ADD new words if space AVAILABLE
-                            
-                            if (wInfo_f[a] < wInfo_n) {
-                                // console.log(totalWidth(targets));
-
-                                var wd = wiD - totalWidth(targets),
-                                    lf = 0;
-
-                                el.wCh[a][wInfo_f[a]].classList.remove("d_n");
-                                el.wCh[a][wInfo_f[a]].classList.remove("v_n");
-
-                                // console.log("fa: " + wInfo_f[a]);
-
-                                if (el.wCh[a][wInfo_f[a]].classList.contains("z_O")) {
-
-                                    // console.log("fa: " + wInfo_f[a] + ", gi: " + getIndex(targets[c]));
-
-                                    // wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
-
-                                    // wC_hold[wC_hold.length] = wInfo_f[a]; // add to hold
-                                    wC_hold[a][wC_hold[a].length] = wInfo_f[a]; // add to hold
-
-                                    // console.log("ah: " + a + wInfo_f[a]);
-
-                                    setTimeout(function() {
-
-                                        var rn = a.slice(1); // get line number
-
-                                        // console.log("wc: " + a + wC_hold[a][0]);
-
-                                        if (wC_hold[a][0]) { // remove if defined
-                                            el.wCh[a][wC_hold[a][0]].classList.remove("z_O");
-                                            wC_hold[a].shift(); // remove from hold
-
-                                        } else if (wC_hold["s" + (rn - 1)][0]) { // remove from previous line
-
-                                            el.wCh["s" + (rn - 1)][wC_hold["s" + (rn - 1)][0]].classList.remove("z_O");
-                                            wC_hold["s" + (rn - 1)].shift(); // remove from hold
-                                        }
-                                    }, 10);
-                                }
-
-                                el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
-                                el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
-                                el.wCh[a][wInfo_f[a]].style.width = wd + "px";
-                                el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * wC_spd) + "px)"; 
-
-                                for (k = 0; k < wInfo_f[a]; k++) {
-                                    lf += wInfo_i[a][k];
-                                }
-
-                                el.wCh[a][wInfo_f[a]].style.left = lf + "px";
-
-                                wInfo_f[a]++;
-
-                                // console.log("insert more");
-                            }
-                        }
-                    }
-                }
-            }
 
 
         } else { // default at top
@@ -990,4 +718,280 @@ if (!vw.pH && !vw.tB) { // only in mobile view
     sc_L();
 } else if (vw.pH || vw.tB) { // phablet/tablet
     sc_LpH();
+}
+
+
+function bin() {
+    if (b.wc.top && b.wc.top < aH) { // transformation effect
+
+        if (!ld.x10) {
+            ld.rf6 = pos.y;
+            ld.x10 = true;
+        }
+        for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
+            var targets = document.querySelectorAll("#wordcloud" + a + " span.v_s"), // select visible words on screen
+                targetsIndex = new Array(targets.length);
+            for (d = 0; d <= targets.length - 1; d++) { // UPDATE reference targets that are visible
+                for (e = 0; e <= targets.length - 1; e++) {
+                    targetsIndex[e] = getIndex(targets[e]); // targets[e].classList.contains("r");
+                }
+            }
+
+            for (c = 0; c <= targets.length - 1; c++) {
+                var target_bd;
+                targets[c].style.transform = "translateX(" + ((pos.y - ld.rf6) * wC_spd) + "px)"; // transform across user viewport during scroll
+                target_bd = targets[c].getBoundingClientRect(); // get live bounds 
+
+                if (target_bd.left < 0) { // if HIDDEN away in viewport edges (LEFT)
+
+                    if (targets[c].classList.contains("actv")) { // if word has been activated?
+                        
+                        /*
+                        targets[c].classList.add("o-img", "trs"); // make transparent
+                        wC_hold[wC_hold.length] = targets[c]; // add to hold
+                        setTimeout(function() {
+                            wC_hold[0].classList.remove("trs");
+                            wC_hold.shift(); // remove from hold
+                        }, op.t);
+                        targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                        */
+
+                        targets[c].classList.remove("actv");
+
+                        // targets[c].classList.add("deactv");
+                    } 
+
+                    /*
+                    if (targets[c].classList.contains("actv") || targets[c].classList.contains("deactv")) {
+                        targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                    } else {
+                        // targets[c].style.width = (wInfo_i[a][targetsIndex[c]] + target_bd.left) + "px"; // dynamic width
+                        targets[c].style.width = (wiD - target_bd.left) + "px";
+                    }*/
+
+                } /*else if (target_bd.right >= wiD) { // RIGHT
+
+                    // var wd = wiD - totalWidth(targets);
+                    var iwd = getCSSProperty(targets[c], "width"),
+                        wd = wiD - target_bd.right,
+                        nwd = iwd + wd; // new (total) width
+                    if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) { // not activated yet
+                        el.wCh[a][wInfo_f[a] - 1].style.width = nwd + "px";
+                    }
+
+                }*/ else if (target_bd.right <= wiD && target_bd.left >= 0) { // CENTRE (not infringing of EDGES)
+                    
+                    var iwd = getCSSProperty(targets[c], "width"),
+                        wd = wiD - target_bd.left,
+                        nwd = (wd > iwd) ? wd : iwd, // new (total) width
+                        rf = getIndex(targets[c]); // get ref. index
+                    
+                    if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][rf])) {
+                        targets[c].style.width = nwd + "px";
+                    } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][rf])) {
+                        targets[c].style.width = wInfo_i[a][rf] + "px"; // full width
+                        targets[c].classList.add("actv"); // activated (fully shown on screen)
+                    }
+
+                    // var iwd = getCSSProperty(targets[c], "width"); //
+
+                    /*
+                    if (!targets[c].classList.contains("actv") && (iwd <= wInfo_i[a][c])) { // not activated yet
+
+                        // var r = wiD - target_bd.left;
+                        //targets[c].style.width = r + "px";
+                        // el.wCh[a][wInfo_f[a] - 1].style.width = (wiD - target_bd.left - pf.rf7) + "px"; // increase width
+
+                        if (wiD - target_bd.left >= wInfo_i[a][c]) {
+                            targets[c].classList.add("actv"); // activated (fully shown on screen)
+                        } else {
+                            targets[c].style.width = (iwd + (r * 0.9)) + "px";
+                        }
+
+                    } else if ((wiD - target_bd.left >= wInfo_i[a][c]) && iwd <= wInfo_i[a][c]) {
+                        targets[c].style.width = wInfo_i[a][c] + "px";
+                    }*/
+                    
+                    /*else if (!targets[c].classList.contains("actv")) {
+                        el.wCh[a][wInfo_f[a] - 1].classList.add("actv"); // activated (fully shown on screen)
+                    }*/
+
+                } /*else if (target_bd.right > wiD && target_bd.left >= 0) { // LEFT IN, but RIGHT OUT
+
+                    var iwd = getCSSProperty(targets[c], "width"),
+                        wd = wiD - target_bd.left,
+                        nwd = (wd > iwd) ? wd : iwd; // new (total) width
+                    
+                    if (!targets[c].classList.contains("actv") && (nwd <= wInfo_i[a][c])) {
+                        targets[c].style.width = nwd + "px";
+                    } else if (!targets[c].classList.contains("actv") && (nwd > wInfo_i[a][c])) {
+                        targets[c].style.width = wInfo_i[a][c] + "px"; // full width
+                        targets[c].classList.add("actv"); // activated (fully shown on screen)
+                    }
+                }*/
+
+                if (target_bd.right < 0) { // RIGHT ""
+
+                    // var elm;
+                    // wC_clone_hold[wC_clone_hold.length] = targets[c].cloneNode(true); // clone the element node
+
+                    targets[c].classList.remove("v_s");
+                    targets[c].classList.add("v_n");
+
+                    /*
+                    elm = wC_clone_hold[wC_clone_hold.length - 1];
+                    if (!elm.classList.contains("p-a")) { // ADD abs. positioning if not existing 
+                        elm.classList.add("p-a");
+                        elm.style.left = wInfo_s[a] + "px"; // left pos.
+                    }*/
+
+                    // wInfo_d[a]++; // no of hidden words
+
+                    
+                    // if (wInfo_d[a] > wInfo_p[a]) { // if hidden elms. MORE than no. of initial elements
+                        
+                        // for (x = 0; x <= (wInfo_p[a] - 1); x++) { // (non-abs.) initials
+
+                            /*
+                            var endElm = document.querySelectorAll("#wordcloud" + a + " span");
+                            swap(el.wCh[a][x], endElm[endElm.length - 1], false); // SHIFT THE NODES TO THE BOTTOM to END
+
+                            el.wCh[a][x].style.left = wInfo_s[a] + "px"; // ASSIGN Behind Final Line word
+                            el.wCh[a][x].classList.remove("v_n");
+                            el.wCh[a][x].classList.add("p-a", "v_s");
+                            */
+                        // }
+
+                        /*
+                        targets[c].remove(); // REMOVE from DOM
+                        el.wChe[a].appendChild(elm); // append to last of line
+                        for (j = (c + 1); c <= (wInfo_n - 1); j++) { // SHIFT OTHER ELEMENTS inward to COVER FOR DELETION
+                            var lf = getCSSProperty(el.wCh[a][j], "left");
+                            el.wCh[a].style.left = "";
+                        }
+                        wC_clone_hold.unshift(); // remove from array
+                        */
+                       /*
+                    } else {
+
+
+                    }*/
+                }
+
+                if (wInfo_f[a] === wInfo_n && !wInfo_r[a]) { // IF ALL ELEMENTS of LINE has been INSERTED into VIEW
+
+                    // SHIFT ALL '.v_n' class elements to AFTER LAST KEYWORD
+                    var vnelm = document.querySelectorAll("#wordcloud" + a + " span.v_n"),
+                        vnI = getIndex(vnelm[0]), // get first index
+                        lpos = [
+                            getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
+                        ];
+                    /*
+                    if (wC_a !== a) {
+                        pf.x8 = false;
+                        wC_a = a;
+                    }*/
+                    // if (!pf.x8) {
+                        var npos = [
+                            el.wCh[a][wInfo_f[a] - 1]
+                        ];
+                        // pf.x8 = true;
+                    // }
+
+                    if (vnelm.length) {
+                        wInfo_r[a] = true;
+                    }
+
+                    if (vnelm.length) {
+                        for (v = 0, n = vnI; v <= (vnelm.length - 1); v++, n++) {
+                            if (npos && npos[n]) {
+                                swap(vnelm[v], npos[n], false); // SWAP POSITIONS TO THE BACK
+                                npos[npos.length] = vnelm[v];
+
+                                if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
+                                    vnelm[v].classList.add("p-r");
+                                }
+
+                                vnelm[v].style.width = wInfo_i[a][n] + "px"; // width
+                                if ((n + 1) <= wInfo_p[a]) { // initials
+                                    vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
+                                } else { // others (hidden)
+                                    vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + cumulativeWidth(v, wInfo_i[a])) + "px";
+                                }
+
+                                vnelm[v].classList.remove("v_n"); // vis.
+                                vnelm[v].classList.add("v_s");
+
+                                if (v === (vnelm.length - 1)) { // at last elm.
+
+                                    wInfo_r[a] = false;
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // new words (using comparison of live-width additions with viewport width) //
+                if (totalWidth(targets) && (totalWidth(targets) < wiD)) { // ADD new words if space AVAILABLE
+                    
+                    if (wInfo_f[a] < wInfo_n) {
+                        // console.log(totalWidth(targets));
+
+                        var wd = wiD - totalWidth(targets),
+                            lf = 0;
+
+                        el.wCh[a][wInfo_f[a]].classList.remove("d_n");
+                        el.wCh[a][wInfo_f[a]].classList.remove("v_n");
+
+                        // console.log("fa: " + wInfo_f[a]);
+
+                        if (el.wCh[a][wInfo_f[a]].classList.contains("z_O")) {
+
+                            // console.log("fa: " + wInfo_f[a] + ", gi: " + getIndex(targets[c]));
+
+                            // wC_hold[wC_hold.length] = getIndex(targets[c]); // add to hold
+
+                            // wC_hold[wC_hold.length] = wInfo_f[a]; // add to hold
+                            wC_hold[a][wC_hold[a].length] = wInfo_f[a]; // add to hold
+
+                            // console.log("ah: " + a + wInfo_f[a]);
+
+                            setTimeout(function() {
+
+                                var rn = a.slice(1); // get line number
+
+                                // console.log("wc: " + a + wC_hold[a][0]);
+
+                                if (wC_hold[a][0]) { // remove if defined
+                                    el.wCh[a][wC_hold[a][0]].classList.remove("z_O");
+                                    wC_hold[a].shift(); // remove from hold
+
+                                } else if (wC_hold["s" + (rn - 1)][0]) { // remove from previous line
+
+                                    el.wCh["s" + (rn - 1)][wC_hold["s" + (rn - 1)][0]].classList.remove("z_O");
+                                    wC_hold["s" + (rn - 1)].shift(); // remove from hold
+                                }
+                            }, 10);
+                        }
+
+                        el.wCh[a][wInfo_f[a]].classList.add("v_s", "p-a"); // add temp. abs. pos.
+                        el.wCh[a][wInfo_f[a]].classList.add("r" + wInfo_f[a]); // index for reference
+                        el.wCh[a][wInfo_f[a]].style.width = wd + "px";
+                        el.wCh[a][wInfo_f[a]].style.transform = "translateX(" + ((pos.y - ld.rf6) * wC_spd) + "px)"; 
+
+                        for (k = 0; k < wInfo_f[a]; k++) {
+                            lf += wInfo_i[a][k];
+                        }
+
+                        el.wCh[a][wInfo_f[a]].style.left = lf + "px";
+
+                        wInfo_f[a]++;
+
+                        // console.log("insert more");
+                    }
+                }
+            }
+        }
+    }
 }
