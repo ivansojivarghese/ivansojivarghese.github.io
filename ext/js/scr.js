@@ -931,9 +931,11 @@ function sc_LpH() { // scroll loop - phablet
 // custom functions
 
 function getIndex(el) {
-    for (f = 0; f <= (wInfo_n - 1); f++) {
-        if (el.classList.contains("r" + f)) { // check for reference index, and return it
-            return f;
+    if (el) {
+        for (f = 0; f <= (wInfo_n - 1); f++) {
+            if (el.classList.contains("r" + f)) { // check for reference index, and return it
+                return f;
+            }
         }
     }
     return null;
