@@ -114,7 +114,8 @@ var im = { // #intro_main
         e : (!vw.dk) ? document.getElementById("sIn3") : document.getElementById("qIn7"),
         _L : undefined,
         s : false
-    },
+    };
+    /*
     wC_spd = -7, // wordcloud transformation speed
     wC_hold = { // wordcloud holder/index
         s1 : [],
@@ -122,7 +123,7 @@ var im = { // #intro_main
         s3 : [],
         s4 : []
     },
-    wC_a = "";
+    wC_a = "";*/
 
 
 function sc_L() { // functions (live on scroll)
