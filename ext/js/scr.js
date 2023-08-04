@@ -861,10 +861,10 @@ function sc_LpH() { // scroll loop - phablet
                                     vnelm[v].classList.remove("v_n"); // vis.
                                     vnelm[v].classList.add("v_s");
 
-                                    if (v === (vnelm.length - 1)) { // at last elm.
+                                    // if (v === (vnelm.length - 1)) { // at last elm.
 
                                         wInfo_r[a] = false;
-                                    }
+                                    // }
                                 }
                             }
                         }
