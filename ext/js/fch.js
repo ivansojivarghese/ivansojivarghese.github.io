@@ -617,7 +617,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     wInfo_s[a] += wd; // update total line width
                     wInfo_i[a][b] = wd; // update indiv. word widths
                     if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
-                        el.wCh[a][b].classList.add("d_n", "z_O", "trs"); // else, hide
+                        // el.wCh[a][b].classList.add("d_n", "z_O", "trs"); // else, hide
+                        el.wCh[a][b].classList.add("z_O", "trs"); // else, hide
                     } else {
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
                         el.wCh[a][b].classList.add("v_s", "actv", "trs"); // show if visible + activated

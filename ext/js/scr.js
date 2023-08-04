@@ -865,25 +865,6 @@ function sc_LpH() { // scroll loop - phablet
 
                                         }
                                     }
-                                    /*
-                                    if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
-                                        vnelm[v].classList.add("p-r");
-                                    }
-
-                                    vnelm[v].style.width = wInfo_i[a][n] + "px"; // width
-                                    if ((n + 1) <= wInfo_p[a]) { // initials
-                                        vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
-                                    } else { // others (hidden)
-                                        vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + cumulativeWidth(v, wInfo_i[a])) + "px";
-                                    }
-
-                                    vnelm[v].classList.remove("v_n"); // vis.
-                                    vnelm[v].classList.add("v_s");
-
-                                    // if (v === (vnelm.length - 1)) { // at last elm.
-
-                                        wInfo_r[a] = false;*/
-                                    // }
                                 }
                             }
                         }
