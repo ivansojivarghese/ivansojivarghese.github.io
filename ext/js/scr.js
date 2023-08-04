@@ -842,7 +842,7 @@ function sc_LpH() { // scroll loop - phablet
                                     if ((v + 1) <= wInfo_p[a]) { // initials
                                         vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
                                     } else { // others (hidden)
-                                        vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + wInfo_i[a][0] + wInfo_i[a][1] + wInfo_i[a][2]) + "px";
+                                        vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + cumulativeWidth(v, wInfo_i[a])) + "px";
                                     }
                                         // lpos[lpos.length] = 
 
@@ -959,6 +959,14 @@ function totalWidth(els) { // get total width of word elements in line
     } else {
         return w;
     }
+}
+
+function cumulativeWidth(x, w) { // get width of elements till x-index
+    var c = 0;
+    for (i = 0; i < x; i++) {
+        c += w[i];
+    }
+    return c;
 }
 
 
