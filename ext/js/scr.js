@@ -842,7 +842,9 @@ function sc_LpH() { // scroll loop - phablet
 
                             if (vnelm.length) {
                                 for (v = 0, n = vnI; v <= (vnelm.length - 1); v++, n++) {
-                                    swap(vnelm[v], npos[n], false); // SWAP POSITIONS TO THE BACK
+                                    if (npos[n]) {
+                                        swap(vnelm[v], npos[n], false); // SWAP POSITIONS TO THE BACK
+                                    }
                                     npos[npos.length] = vnelm[v];
 
                                     if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
