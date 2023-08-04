@@ -828,12 +828,12 @@ function sc_LpH() { // scroll loop - phablet
                                 pf.x8 = false;
                                 wC_a = a;
                             }
-                            if (!pf.x8) {
+                            // if (!pf.x8) {
                                 var npos = [
                                     el.wCh[a][wInfo_f[a] - 1]
                                 ];
-                                pf.x8 = true;
-                            }
+                                // pf.x8 = true;
+                            // }
 
                             if (vnelm.length) {
                                 wInfo_r[a] = true;
