@@ -122,7 +122,6 @@ var im = { // #intro_main
         s3 : [],
         s4 : []
     },
-    npos = [],
     wC_a = "";
 
 
@@ -830,7 +829,7 @@ function sc_LpH() { // scroll loop - phablet
                                 wC_a = a;
                             }
                             if (!pf.x8) {
-                                npos = [
+                                var npos = [
                                     el.wCh[a][wInfo_f[a] - 1]
                                 ];
                                 pf.x8 = true;
