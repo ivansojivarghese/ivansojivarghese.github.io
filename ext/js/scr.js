@@ -819,15 +819,18 @@ function sc_LpH() { // scroll loop - phablet
                             // SHIFT ALL '.v_n' class elements to AFTER LAST KEYWORD
                             var vnelm = document.querySelectorAll("#wordcloud" + a + " span.v_n"),
                                 vnI = getIndex(vnelm[0]), // get first index
-                                npos = [
-                                    el.wCh[a][wInfo_f[a] - 1]
-                                ],
                                 lpos = [
                                     getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
                                 ];
 
                             if (vnelm.length) {
                                 wInfo_r[a] = true;
+                            }
+
+                            if (!wInfo_r[a]) {
+                                var npos = [
+                                        el.wCh[a][wInfo_f[a] - 1]
+                                    ];
                             }
 
                             if (vnelm.length) {
