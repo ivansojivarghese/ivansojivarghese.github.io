@@ -630,6 +630,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
                         // el.wCh[a][b].classList.add("d_n", "z_O", "trs"); // else, hide
                         // el.wCh[a][b].classList.add("z_O", "p-a", "trs_e"); // else, hide
+                        
+                        el.wCh[a][b].classList.add("d_n", "z_O", "p-a");
 
                     } else {
 
