@@ -86,7 +86,7 @@ var im = { // #intro_main
         x5 : false,
         x6 : false,
         x7 : false,
-        x8 : false,
+        // x8 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
