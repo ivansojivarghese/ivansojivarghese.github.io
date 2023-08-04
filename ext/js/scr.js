@@ -826,7 +826,9 @@ function sc_LpH() { // scroll loop - phablet
                                     getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
                                 ];
 
-                            wInfo_r[a] = true;
+                            if (vnelm.length) {
+                                wInfo_r[a] = true;
+                            }
 
                             if (vnelm.length) {
                                 for (v = 0, n = vnI; v <= (vnelm.length - 1); v++, n++) {
@@ -848,7 +850,7 @@ function sc_LpH() { // scroll loop - phablet
                                     vnelm[n].classList.add("v_s");
 
                                     if (v === (vnelm.length - 1)) { // at last elm.
-                                        
+
                                         wInfo_r[a] = false;
                                     }
                                 }
