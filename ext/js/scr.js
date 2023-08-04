@@ -86,6 +86,7 @@ var im = { // #intro_main
         x5 : false,
         x6 : false,
         x7 : false,
+        x8 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -121,7 +122,6 @@ var im = { // #intro_main
         s3 : [],
         s4 : []
     }; 
-    // wC_clone_hold = []; // wordcloud clone holder
 
 
 function sc_L() { // functions (live on scroll)
@@ -823,14 +823,15 @@ function sc_LpH() { // scroll loop - phablet
                                     getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
                                 ];
 
-                            if (vnelm.length) {
-                                wInfo_r[a] = true;
-                            }
-
-                            if (!wInfo_r[a]) {
+                            if (!pf.x8) {
                                 var npos = [
                                         el.wCh[a][wInfo_f[a] - 1]
                                     ];
+                                pf.x8 = true;
+                            }
+
+                            if (vnelm.length) {
+                                wInfo_r[a] = true;
                             }
 
                             if (vnelm.length) {
