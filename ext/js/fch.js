@@ -613,7 +613,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
             scrollArrowIterate(true, el.lk3c, "-0.5rem", "2.5rem", "auto", "-2rem", null); // scroll indicator
             el.x12 = true;
 
-            // desktop wordcloud feature
+            // desktop wordcloud feature - keywords insertions
 
             for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
                 for (b = 0; b <= el.wCh[a].length - 1; b++) {
@@ -624,7 +624,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     wInfo_s[a] += wd; // update total line width
                     wInfo_i[a][b] = wd; // update indiv. word widths
 
-                    el.wCh[a][b].classList.add("p-a");
+                    // el.wCh[a][b].classList.add("p-a");
 
                     if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
 
