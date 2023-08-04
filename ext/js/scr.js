@@ -818,37 +818,32 @@ function sc_LpH() { // scroll loop - phablet
 
                             // SHIFT ALL '.v_n' class elements to AFTER LAST KEYWORD
                             var vnelm = document.querySelectorAll("#wordcloud" + a + " span.v_n"),
+                                vnI = getIndex(vnelm[0]), // get first index
                                 npos = [
                                     el.wCh[a][wInfo_f[a] - 1]
                                 ],
                                 lpos = [
                                     getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
                                 ];
-                                /*
-                                wpos = [
-                                    getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "width")
-                                ];*/
 
                             if (vnelm.length) {
-                                for (v = 0; v <= (vnelm.length - 1); v++) {
-                                    swap(vnelm[v], npos[v], false); // SWAP POSITIONS TO THE BACK
-                                    npos[npos.length] = vnelm[v];
+                                for (v = 0, n = vnI; v <= (vnelm.length - 1); v++, n++) {
+                                    swap(vnelm[n], npos[n], false); // SWAP POSITIONS TO THE BACK
+                                    npos[npos.length] = vnelm[n];
 
-                                    if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
-                                        vnelm[v].classList.add("p-r");
+                                    if (!vnelm[n].classList.contains("p-a")) { // ADD STYLING
+                                        vnelm[n].classList.add("p-r");
                                     }
 
-                                    vnelm[v].style.width = wInfo_i[a][v] + "px"; // width
-                                    if ((v + 1) <= wInfo_p[a]) { // initials
-                                        vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
+                                    vnelm[n].style.width = wInfo_i[a][n] + "px"; // width
+                                    if ((n + 1) <= wInfo_p[a]) { // initials
+                                        vnelm[n].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
                                     } else { // others (hidden)
-                                        vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + cumulativeWidth(v, wInfo_i[a])) + "px";
+                                        vnelm[n].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + cumulativeWidth(v, wInfo_i[a])) + "px";
                                     }
-                                        // lpos[lpos.length] = 
 
-                                    vnelm[v].classList.remove("v_n"); // vis.
-                                    vnelm[v].classList.add("v_s");
-                                    
+                                    vnelm[n].classList.remove("v_n"); // vis.
+                                    vnelm[n].classList.add("v_s");
                                 }
                             }
 
