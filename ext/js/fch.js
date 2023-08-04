@@ -116,11 +116,15 @@ var fchL = {
         fC : document.querySelectorAll("#fullCoords span"),
         wChe : {
             s1 : document.getElementById("wordclouds1"), //
-            s2 : document.getElementById("wordclouds2") //
+            s2 : document.getElementById("wordclouds2"), //
+            s3 : document.getElementById("wordclouds3"), //
+            s4 : document.getElementById("wordclouds4") //
         },
         wCh : {
             s1 : document.querySelectorAll("#wordclouds1 span"), //
-            s2 : document.querySelectorAll("#wordclouds2 span") //
+            s2 : document.querySelectorAll("#wordclouds2 span"), //
+            s3 : document.querySelectorAll("#wordclouds3 span"), //
+            s4 : document.querySelectorAll("#wordclouds4 span") //
         },
         wdTL : null
     },
@@ -613,7 +617,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 for (b = 0; b <= el.wCh[a].length - 1; b++) {
                     var wd;
                     el.wCh[a][b].innerHTML = wInfo[a][b];
-                    
+
                     wd = getBd(el.wCh[a][b], "width"); // get width
                     wInfo_s[a] += wd; // update total line width
                     wInfo_i[a][b] = wd; // update indiv. word widths
