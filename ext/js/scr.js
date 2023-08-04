@@ -832,22 +832,22 @@ function sc_LpH() { // scroll loop - phablet
 
                             if (vnelm.length) {
                                 for (v = 0, n = vnI; v <= (vnelm.length - 1); v++, n++) {
-                                    swap(vnelm[n], npos[n], false); // SWAP POSITIONS TO THE BACK
-                                    npos[npos.length] = vnelm[n];
+                                    swap(vnelm[v], npos[n], false); // SWAP POSITIONS TO THE BACK
+                                    npos[npos.length] = vnelm[v];
 
-                                    if (!vnelm[n].classList.contains("p-a")) { // ADD STYLING
-                                        vnelm[n].classList.add("p-r");
+                                    if (!vnelm[v].classList.contains("p-a")) { // ADD STYLING
+                                        vnelm[v].classList.add("p-r");
                                     }
 
-                                    vnelm[n].style.width = wInfo_i[a][n] + "px"; // width
+                                    vnelm[v].style.width = wInfo_i[a][n] + "px"; // width
                                     if ((n + 1) <= wInfo_p[a]) { // initials
-                                        vnelm[n].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
+                                        vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1]) + "px"; // left
                                     } else { // others (hidden)
-                                        vnelm[n].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + cumulativeWidth(v, wInfo_i[a])) + "px";
+                                        vnelm[v].style.left = (lpos[lpos.length - 1] + wInfo_i[a][wInfo_f[a] - 1] + cumulativeWidth(v, wInfo_i[a])) + "px";
                                     }
 
-                                    vnelm[n].classList.remove("v_n"); // vis.
-                                    vnelm[n].classList.add("v_s");
+                                    vnelm[v].classList.remove("v_n"); // vis.
+                                    vnelm[v].classList.add("v_s");
 
                                     if (v === (vnelm.length - 1)) { // at last elm.
 
