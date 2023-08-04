@@ -823,11 +823,11 @@ function sc_LpH() { // scroll loop - phablet
                                 lpos = [
                                     getCSSProperty(el.wCh[a][wInfo_f[a] - 1], "left")
                                 ];
-                            
+                            /*
                             if (wC_a !== a) {
                                 pf.x8 = false;
                                 wC_a = a;
-                            }
+                            }*/
                             // if (!pf.x8) {
                                 var npos = [
                                     el.wCh[a][wInfo_f[a] - 1]
