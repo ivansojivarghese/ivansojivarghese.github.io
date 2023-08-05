@@ -43,7 +43,9 @@ var fchL = {
     },*/
     wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
         s1 : [],
-        s2 : []
+        s2 : [],
+        s3 : [],
+        s4 : []
     },
 
     wInfo_f = { // wordcloud h3 next index element
