@@ -429,6 +429,11 @@
     width: 97vw;
 }
 
+#pitch_sc .wrap {
+    height: 13rem;
+    margin-top: calc(75vh - 13rem);
+}
+
 /* REFERENCED FROM Goodkatz: https://codepen.io/goodkatz/pen/LYPGxQz */
 
 .waves {
