@@ -33,7 +33,7 @@ var wH = window.outerHeight, // height
         info : { // personal information - CHANGE WHEN NEEDED
             work : ["web dev", "designer", "shutterbug", "barista", "player"], // work labels
             workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
-            college : !(vw.tB && ((wiD >= 1200 && wiH >= 700) || wiH >= 800)) ? "ntu" : "mshs", // name of institution
+            college : !(window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200 && wiH >= 700) || wiH >= 800)) ? "ntu" : "mshs", // name of institution
             course : "computer science", // course name
             location : gps.city.toLowerCase(), // geographic location/region/city/country/state
             coords : gpsInfo.latDeg + gpsInfo.latMin + gpsInfo.latSec + gpsInfo.latDir + " " + gpsInfo.lonDeg + gpsInfo.lonMin + gpsInfo.lonSec + gpsInfo.lonDir,
