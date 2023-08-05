@@ -45,6 +45,7 @@ var fchL = {
         s1 : [],
         s2 : []
     },
+
     wInfo_f = { // wordcloud h3 next index element
         s1 : 0,
         s2 : 0, 
@@ -620,7 +621,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             // desktop wordcloud feature - keywords insertions
 
-            for (i in wInfo) { // LOAD from skills array (msc.js)
+            for (i = 0; i <= (wInfo - 1); i++) { // LOAD from skills array (msc.js)
                 for (j = 0; j <= (wInfo_n - 1); j++) {
                     wInfo[i][j] = dev.skills[i][j] + "&nbsp;";
                 }
