@@ -71,7 +71,7 @@ var im = { // #intro_main
     pf = { // #prefooter_sc
         el : document.getElementById("prefooter_sc"),
         wc : document.getElementById("wordcloud_sc"),
-        dw : document.getElementById("mid_desktop_wrap"),
+        dw : document.getElementById("mid_tablet_sc"),
         w : document.getElementById("pf_wow"),
         w1 : document.getElementById("wow_head1"),
         w2 : document.getElementById("wow_head2"),
