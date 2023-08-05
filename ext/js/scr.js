@@ -71,6 +71,7 @@ var im = { // #intro_main
     pf = { // #prefooter_sc
         el : document.getElementById("prefooter_sc"),
         wc : document.getElementById("wordcloud_sc"),
+        dw : document.getElementById("mid_desktop_wrap"),
         w : document.getElementById("pf_wow"),
         w1 : document.getElementById("wow_head1"),
         w2 : document.getElementById("wow_head2"),
@@ -86,12 +87,14 @@ var im = { // #intro_main
         x5 : false,
         x6 : false,
         x7 : false,
+        x8 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
         rf4 : 0,
         rf5 : 0,
-        rf6 : 0
+        rf6 : 0,
+        rf7 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -586,7 +589,8 @@ function sc_LpH() { // scroll loop - phablet
                 q3 : ld.q3.getBoundingClientRect(),
                 lc : ld.lcF.getBoundingClientRect(),
                 cf : ld.cFc.getBoundingClientRect(),
-                wc : pf.wc.getBoundingClientRect()
+                wc : pf.wc.getBoundingClientRect(),
+                dw : pf.dw.getBoundingClientRect()
             };
 
         if (!pos.aT) { // during scroll
@@ -657,6 +661,15 @@ function sc_LpH() { // scroll loop - phablet
                 ld.eduI.style.transform = "translateY(" + ((1 - (t / (ld.rf4 / 2))) * (2.5 * op.fN)) + "px)";
             } else {
                 ld.eduI.style.transform = "";
+            }
+
+            // PREFOOTER
+            if (b.dw.top && b.dw.top < aH) {
+                if (!pf.x8) {
+                    pf.rf7 = pos.y;
+                    pf.x8 = true;
+                }
+                pf.dw.style.transform = "translateY(" + ((pos.y - pf.rf7) * 0.2) + "px)";
             }
 
         } else { // default at top
