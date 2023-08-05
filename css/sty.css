@@ -206,6 +206,10 @@ h1, h2, h3, h5, h6, p, ul {
     height: 50vh;
 }
 
+.h-hvh {
+    height: 75vh;
+}
+
 .h-svh {
     height: 100svh;
 }
