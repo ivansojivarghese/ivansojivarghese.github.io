@@ -669,7 +669,7 @@ function sc_LpH() { // scroll loop - phablet
                     pf.rf7 = pos.y;
                     pf.x8 = true;
                 }
-                pf.dw.style.transform = "translateY(" + ((pos.y - pf.rf7) * 0.1) + "px)";
+                pf.dw.style.transform = "translateY(" + ((pos.y - pf.rf7) * 0.05) + "px)";
             }
 
         } else { // default at top
