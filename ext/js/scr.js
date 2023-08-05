@@ -674,6 +674,9 @@ function sc_LpH() { // scroll loop - phablet
             if (b.wd.top > b.q.top && b.wd.bottom < b.q.bottom) { // words typer
                 im.wd.classList.remove("z-N");
                 im.wd.classList.add("z-G");
+            } else {
+                im.wd.classList.add("z-N");
+                im.wd.classList.remove("z-G");
             }
 
         } else { // default at top
