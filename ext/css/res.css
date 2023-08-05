@@ -198,13 +198,11 @@
     }
 }
 
-@media screen and (min-width: 1200px) and (min-height: 700px) and (orientation: landscape) {
+@media screen and (min-width: 1200px) and (min-height: 700px) and (orientation: landscape), screen and (min-height: 800px) and (orientation: landscape) { 
     #wordsTyper {
         display: block !important;
     }
-}
-
-@media screen and (min-width: 1200px) and (min-height: 700px) and (orientation: landscape), screen and (min-height: 800px) and (orientation: landscape) { 
+    
     .waves, #workInfo, #qIn4, #qIn6, #blend_sc, #mid_sc, #mid_tablet_wrap {
         display: none;
     }
