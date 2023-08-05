@@ -600,7 +600,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
             }, op.t);
 
             f = function() { // show local weather/city information
-                if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage) {
+                if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage && ipAPIres.online && weatherAPIres.online) {
                     e_Fd(el.Ltf, false);
                     // add titles
                     weather.c.title = ipAPIres.city; // weather city name
