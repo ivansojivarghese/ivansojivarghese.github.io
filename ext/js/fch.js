@@ -40,14 +40,6 @@ var fchL = {
         s3 : [],
         s4 : []
     },
-
-
-    wInfo_f = { // wordcloud h3 next index element
-        s1 : 0,
-        s2 : 0, 
-        s3 : 0,
-        s4 : 0
-    },
     wInfo_p = { // wordcloud h3 initial indexed elements
         s1 : 0,
         s2 : 0,
@@ -66,12 +58,21 @@ var fchL = {
         s3 : [],  
         s4 : []
     },
+
+    /*
+    wInfo_f = { // wordcloud h3 next index element
+        s1 : 0,
+        s2 : 0, 
+        s3 : 0,
+        s4 : 0
+    },
     wInfo_r = { // wordcloud h3 RIGHT reload
         s1 : false,
         s2 : false,
         s3 : false,
         s4 : false
-    },
+    },*/
+
     el = {
         x : false, // code execution
         x2 : false, 
@@ -643,7 +644,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
                         el.wCh[a][b].classList.add("v_s", "actv"); // show if visible + activated
                         el.wCh[a][b].classList.add("r" + b); // index for reference
-                        
+
                         // wInfo_f[a]++; // next indexed word in sequence
 
                         wInfo_p[a]++; // number of words at initial
