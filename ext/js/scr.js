@@ -590,9 +590,9 @@ function sc_LpH() { // scroll loop - phablet
             };
 
         if (!pos.aT) { // during scroll
-            if (b.wd.bottom < (aH - (op.fN + (op.fN * 0.8)))) { // transform till bottom threshold
+            // if (b.wd.bottom < (aH - (op.fN + (op.fN * 0.8)))) { // transform till bottom threshold
                 im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
-            } 
+            // } 
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
             im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.pfg.style.opacity = gh_mb_frc;
