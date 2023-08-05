@@ -631,8 +631,6 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     wInfo_s[a] += wd; // update total line width
                     wInfo_i[a][b] = wd; // update indiv. word widths
 
-                    // el.wCh[a][b].classList.add("p-a");
-
                     if (wInfo_s[a] > wiD) { // check if within viewport width (single-line) space
 
                         // el.wCh[a][b].classList.add("d_n", "z_O", "trs"); // else, hide
@@ -645,7 +643,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
                         el.wCh[a][b].classList.add("v_s", "actv"); // show if visible + activated
                         el.wCh[a][b].classList.add("r" + b); // index for reference
-                        wInfo_f[a]++; // next indexed word in sequence
+                        
+                        // wInfo_f[a]++; // next indexed word in sequence
+
                         wInfo_p[a]++; // number of words at initial
                     }
                 }
