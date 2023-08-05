@@ -434,6 +434,11 @@
     margin-top: calc(75vh - 13rem);
 }
 
+#pitch_sc .container {
+    height: 13rem;
+    margin-top: calc((75vh - 13rem) / 2);
+}
+
 /* REFERENCED FROM Goodkatz: https://codepen.io/goodkatz/pen/LYPGxQz */
 
 .waves {
