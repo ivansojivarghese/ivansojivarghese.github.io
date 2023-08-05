@@ -86,13 +86,13 @@ var im = { // #intro_main
         x5 : false,
         x6 : false,
         x7 : false,
-        // x8 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
         rf4 : 0,
         rf5 : 0,
-        rf6 : 0
+        rf6 : 0,
+        rf7 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -591,8 +591,10 @@ function sc_LpH() { // scroll loop - phablet
             };
 
         if (!pos.aT) { // during scroll
-            if ((b.wd.bottom < (aH - (op.fN + (op.fN * 0.8)))) || !pos.r) { // transform till bottom threshold
+            if ((b.wd.bottom < (aH - (op.fN + (op.fN * 0.8)))) || (pos.y < pf.rf7)) { // transform till bottom threshold
                 im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
+            } else {
+                pf.rf7 = pos.y;
             }
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
             im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
