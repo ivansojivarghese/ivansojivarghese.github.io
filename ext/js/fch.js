@@ -623,7 +623,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
 
-                for (i = 0; i <= (wInfo[a].length - 1); i++) { // LOAD from skills array (msc.js)
+                for (i = 0; i <= (dev.skills[a].length - 1); i++) { // LOAD from skills array (msc.js)
                     wInfo[a][i] = dev.skills[a][i] + "&nbsp;";
                 }
 
