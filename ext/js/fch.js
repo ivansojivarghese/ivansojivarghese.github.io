@@ -33,20 +33,14 @@ var fchL = {
         document.getElementById("sIn2"), // hours
         document.getElementById("sIn3"), // cappuccinos
     ],
-    wInfo_n = 10, // MAX/MIN no. of words in cloud lines
-    /*
-    wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
-        s1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"],
-        s2 : ["web&nbsp;", "html&nbsp;", "frontend&nbsp;", "js&nbsp;", "api&nbsp;", "sitemap&nbsp;", "css&nbsp;", "devtools&nbsp;", "seo&nbsp;", "dynamic&nbsp;"],
-        s3 : ["lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;"],
-        s4 : ["lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;"]
-    },*/
+    wInfo_n = dev.skillsNum, // MAX/MIN no. of words in cloud lines
     wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
         s1 : [],
         s2 : [],
         s3 : [],
         s4 : []
     },
+
 
     wInfo_f = { // wordcloud h3 next index element
         s1 : 0,

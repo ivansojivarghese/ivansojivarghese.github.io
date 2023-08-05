@@ -41,6 +41,7 @@ var wH = window.outerHeight, // height
             hoursNo : 183,
             cappuccinosNo : 245
         },
+        skillsNum : 10, //
         skills : { // relevant skills (UPDATE IF NEEDED)
             s1 : ["design", "canva", "wireframes", "figma", "ux", "dreamweaver", "ui", "studio", "experience", "responsive"], // ux/ui
             s2 : ["web", "html", "frontend", "js", "api", "sitemap", "css", "devtools", "seo", "dynamic"], // web
