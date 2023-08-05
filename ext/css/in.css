@@ -431,6 +431,10 @@
     padding-top: 3rem;
 }
 
+#pitch_sc .img_icon {
+    margin-left: 0.2rem;
+}
+
 /* REFERENCED FROM Goodkatz: https://codepen.io/goodkatz/pen/LYPGxQz */
 
 .waves {
