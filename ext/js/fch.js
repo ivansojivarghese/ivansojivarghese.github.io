@@ -621,13 +621,12 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             // desktop wordcloud feature - keywords insertions
 
-            for (i = 0; i <= (wInfo.length - 1); i++) { // LOAD from skills array (msc.js)
-                for (j = 0; j <= (wInfo_n - 1); j++) {
-                    wInfo[i][j] = dev.skills[i][j] + "&nbsp;";
-                }
-            }
-
             for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
+
+                for (i = 0; i <= (wInfo[a].length - 1); i++) { // LOAD from skills array (msc.js)
+                    wInfo[a][i] = dev.skills[a][i] + "&nbsp;";
+                }
+
                 for (b = 0; b <= el.wCh[a].length - 1; b++) {
                     var wd;
                     el.wCh[a][b].innerHTML = wInfo[a][b];
