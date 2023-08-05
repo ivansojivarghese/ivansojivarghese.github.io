@@ -621,7 +621,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             // desktop wordcloud feature - keywords insertions
 
-            for (i = 0; i <= (wInfo - 1); i++) { // LOAD from skills array (msc.js)
+            for (i = 0; i <= (wInfo.length - 1); i++) { // LOAD from skills array (msc.js)
                 for (j = 0; j <= (wInfo_n - 1); j++) {
                     wInfo[i][j] = dev.skills[i][j] + "&nbsp;";
                 }
