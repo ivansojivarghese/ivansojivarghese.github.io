@@ -165,6 +165,10 @@ h1, h2, h3, h5, h6, p, ul {
     /*font-family: Poppins;*/
 }
 
+.rSpace {
+    padding-right: 1em;
+}
+
 .compact {
     letter-spacing: 0;
 }
@@ -1357,10 +1361,6 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }*/
 
 /* -------------- */
-/*
-#footer_sc p {
-    padding-right: 1.5rem;
-}*/
 
 #footer_sc .wrap {
     position: relative;

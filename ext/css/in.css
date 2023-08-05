@@ -425,18 +425,9 @@
     display: inline-block;
 }
 
-#pitch_sc .h-hvh {
-    width: 97vw;
-}
-
 #pitch_sc .wrap {
-    height: 13rem;
-    margin-top: calc(75vh - 13rem);
-}
-
-#pitch_sc .container {
-    height: 13rem;
-    margin-top: calc((75vh - 13rem) / 2);
+    height: 15rem;
+    padding-top: 3rem;
 }
 
 /* REFERENCED FROM Goodkatz: https://codepen.io/goodkatz/pen/LYPGxQz */
