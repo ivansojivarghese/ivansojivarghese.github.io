@@ -622,7 +622,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             for (i in wInfo) { // LOAD from skills array (msc.js)
                 for (j = 0; j <= (wInfo_n - 1); j++) {
-                    wInfo[i][j] = dev.info.skills[i][j] + "&nbsp;";
+                    wInfo[i][j] = dev.skills[i][j] + "&nbsp;";
                 }
             }
 
