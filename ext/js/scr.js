@@ -594,9 +594,8 @@ function sc_LpH() { // scroll loop - phablet
             };
 
         if (!pos.aT) { // during scroll
-            // if (b.wd.bottom < (aH - (op.fN + (op.fN * 0.8)))) { // transform till bottom threshold
-                im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
-            // } 
+
+            im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
             im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.pfg.style.opacity = gh_mb_frc;
@@ -670,6 +669,11 @@ function sc_LpH() { // scroll loop - phablet
                     pf.x8 = true;
                 }
                 pf.dw.style.transform = "translateY(" + ((pos.y - pf.rf7) * 0.05) + "px)";
+            }
+
+            if (b.wd.top > b.q.top && b.wd.bottom < b.q.bottom) { // words typer
+                im.wd.classList.remove("z-N");
+                im.wd.classList.add("z-G");
             }
 
         } else { // default at top
