@@ -206,12 +206,12 @@ h1, h2, h3, h5, h6, p, ul {
     height: 100svh;
 }
 
-.h-fh {
-    height: 50vh;
-}
-
 .h-f, .tint {
     height: 100vh;
+}
+
+.h-fh {
+    height: 150vh;
 }
 
 .h-fd {
