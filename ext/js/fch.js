@@ -34,11 +34,16 @@ var fchL = {
         document.getElementById("sIn3"), // cappuccinos
     ],
     wInfo_n = 10, // MAX/MIN no. of words in cloud lines
+    /*
     wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
         s1 : ["design&nbsp;", "canva&nbsp;", "wireframes&nbsp;", "figma&nbsp;", "ux&nbsp;", "dreamweaver&nbsp;", "ui&nbsp;", "studio&nbsp;", "experience&nbsp;", "responsive&nbsp;"],
         s2 : ["web&nbsp;", "html&nbsp;", "frontend&nbsp;", "js&nbsp;", "api&nbsp;", "sitemap&nbsp;", "css&nbsp;", "devtools&nbsp;", "seo&nbsp;", "dynamic&nbsp;"],
         s3 : ["lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;"],
         s4 : ["lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;", "lorem&nbsp;"]
+    },*/
+    wInfo = { // wordcloud h3 info (MAX/MIN. wInfo_n WORDS - UPDATE IF NEEDED, INCLUDE &nbsp; FOR EACH)
+        s1 : [],
+        s2 : []
     },
     wInfo_f = { // wordcloud h3 next index element
         s1 : 0,
@@ -614,6 +619,12 @@ function load_eN() { // load, after cookie acceptance (page specific)
             el.x12 = true;
 
             // desktop wordcloud feature - keywords insertions
+
+            for (i in wInfo) { // LOAD from skills array (msc.js)
+                for (j = 0; j <= (wInfo_n - 1); j++) {
+                    wInfo[i][j] = dev.info.skills[i][j] + "&nbsp;";
+                }
+            }
 
             for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
                 for (b = 0; b <= el.wCh[a].length - 1; b++) {

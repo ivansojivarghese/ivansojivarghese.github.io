@@ -39,7 +39,13 @@ var wH = window.outerHeight, // height
             coords : gpsInfo.latDeg + gpsInfo.latMin + gpsInfo.latSec + gpsInfo.latDir + " " + gpsInfo.lonDeg + gpsInfo.lonMin + gpsInfo.lonSec + gpsInfo.lonDir,
             distance : 97,
             hoursNo : 183,
-            cappuccinosNo : 245
+            cappuccinosNo : 245,
+            skills : [
+                ["design", "canva", "wireframes", "figma", "ux", "dreamweaver", "ui", "studio", "experience", "responsive"],
+                ["web", "html", "frontend", "js", "api", "sitemap", "css", "devtools", "seo", "dynamic"],
+                [],
+                []
+            ]
         },
         sC_a : [], // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
         cH : document.getElementById("control-height"), // dummy element, to check height changes relative to viewport
