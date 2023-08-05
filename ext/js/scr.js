@@ -591,7 +591,9 @@ function sc_LpH() { // scroll loop - phablet
             };
 
         if (!pos.aT) { // during scroll
-            im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
+            if (b.wd.bottom < (aH - (op.fN + (op.fN * 0.8)))) { 
+                im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
+            }
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
             im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.pfg.style.opacity = gh_mb_frc;
@@ -658,10 +660,6 @@ function sc_LpH() { // scroll loop - phablet
                 ld.eduI.style.transform = "";
             }
 
-            // WORDCLOUD
-
-
-
         } else { // default at top
             im.wd.style.transform = "";
             im.gh.style.transform = "";
@@ -677,7 +675,7 @@ function sc_LpH() { // scroll loop - phablet
 }
 
 // custom functions
-
+/*
 function getIndex(el) {
     if (el) {
         for (f = 0; f <= (wInfo_n - 1); f++) {
@@ -712,7 +710,7 @@ function cumulativeWidth(x, w) { // get width of elements till x-index
         c += w[i];
     }
     return c;
-}
+}*/
 
 
 if (!vw.pH && !vw.tB) { // only in mobile view
@@ -722,7 +720,7 @@ if (!vw.pH && !vw.tB) { // only in mobile view
 }
 
 
-function bin() {
+function uncalledCode() { // CODE NOT NEEDED (currently)
     if (b.wc.top && b.wc.top < aH) { // transformation effect
 
         if (!ld.x10) {
