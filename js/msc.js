@@ -42,8 +42,8 @@ var wH = window.outerHeight, // height
             cappuccinosNo : 245
         },
         skills : [
-            ["design", "canva", "wireframes", "figma", "ux", "dreamweaver", "ui", "studio", "experience", "responsive"],
-            ["web", "html", "frontend", "js", "api", "sitemap", "css", "devtools", "seo", "dynamic"],
+            ["design", "canva", "wireframes", "figma", "ux", "dreamweaver", "ui", "studio", "experience", "responsive"], // ux/ui
+            ["web", "html", "frontend", "js", "api", "sitemap", "css", "devtools", "seo", "dynamic"], // web
             [],
             []
         ],
