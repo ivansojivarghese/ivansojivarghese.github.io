@@ -46,7 +46,7 @@ var wH = window.outerHeight, // height
             s1 : ["design", "canva", "wireframe", "figma", "ux", "dreamweaver", "ui", "studio", "experience", "responsive"], // ux/ui
             s2 : ["web", "html", "frontend", "js", "api", "sitemap", "css", "devtools", "seo", "dynamic"], // web
             s3 : ["logic", "debug", "flow", "object", "algorithm", "python", "ai", "boolean", "array", "ascii"], // software
-            s4 : ["frame", "memory", "camera", "pen", "light", "a", "a", "shadow", "chocolate", "espresso"] // personal
+            s4 : ["frame", "memory", "camera", "pen", "light", "blur", "vision", "shadow", "chocolate", "espresso"] // personal
         },
         sC_a : [], // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
         cH : document.getElementById("control-height"), // dummy element, to check height changes relative to viewport
