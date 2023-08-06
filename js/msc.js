@@ -3334,8 +3334,14 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
 //////////////////////////////////////////
 
 window.addEventListener("touchstart", function() { // IF TOUCH detected on screen
-    op.s = true;
-    op.sc = false;
+    
+});
+
+window.addEventListener("touchend", function() { // IF TOUCH detected on screen
+    if (vw.dk) {
+        op.s = true;
+        op.sc = false;
+    }
 });
 
 /*
