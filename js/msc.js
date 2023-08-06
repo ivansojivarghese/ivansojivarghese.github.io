@@ -2201,19 +2201,18 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 }
             }, op.t);
             setCookie("displayErrorReload", null, -1); // delete
-            /*
-            } else {
-                setTimeout(function() {
-                    el.classList.add("d_n");
-                }, op.t);
-            }*/
         }
         
         if (el_s) { // internal element reveal (if applicable)
 
         }
 
-        // e_Sdv(el, s); // show cookie-acceptance message
+        if (ps.msg.ce) { // if extended
+            pg.msg.net_p.classList.remove("md"); // default
+            pg.msg.net_e.innerHTML = ""; // remove 
+            pg.msg.net_e.classList.add("d_n");
+            pg.msg.ce = false;
+        }
 
     } else if (rL.i) {
         if (s) { // if show
