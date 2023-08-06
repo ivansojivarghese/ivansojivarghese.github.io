@@ -3341,25 +3341,14 @@ window.addEventListener("touchstart", function() { // IF TOUCH detected on scree
     tch.e = true;
 });
 
-window.addEventListener("touchmove", function() { // IF TOUCH detected on screen
-    if (tch.e) {
-
-        // ONLY APPLY TO VERTICAL TOUCH DRAGS ONLY (USED FOR SCROLLING PURPOSE)
-
-        op.s = false; // allow scroll
-        op.sc = true;
-    }
-});
-
-/*
-pg.sc.c.addEventListener("touchstart", function(event) {
+window.addEventListener("touchstart", function(event) {
     if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
         tch.d = false;
         tch.yA = event.touches[0].clientY;
     }
 });
 
-pg.sc.c.addEventListener("touchmove", function(event) {
+window.addEventListener("touchmove", function(event) {
     if (event.touches.length === 1) {
         var drg = 0;
         tch.yB = event.touches[0].clientY;
@@ -3373,12 +3362,21 @@ pg.sc.c.addEventListener("touchmove", function(event) {
             } else if (drg > 0) { // scroll up
                 tch.dr = false;
             }
-            L_scroll(tch.drV, tch.dr); // perform the scroll
         }
     }
 });
 
-pg.sc.c.addEventListener("touchend", function(event) {
+window.addEventListener("touchmove", function() { // IF TOUCH detected on screen
+    if (tch.e) {
+
+        // ONLY APPLY TO VERTICAL TOUCH DRAGS ONLY (USED FOR SCROLLING PURPOSE)
+
+        op.s = false; // allow scroll
+        op.sc = true;
+    }
+});
+
+window.addEventListener("touchend", function(event) {
     if (event.touches.length === 0) {
         var drg = 0;
         if (tch.d) { // if dragging
@@ -3399,7 +3397,30 @@ pg.sc.c.addEventListener("touchend", function(event) {
         }
     }
 });
+
+/*
+
+pg.sc.c.addEventListener("touchmove", function(event) {
+    if (event.touches.length === 1) {
+        var drg = 0;
+        tch.yB = event.touches[0].clientY;
+        if (!tch.d) {
+            tch.d = true;
+        } else {
+            drg = tch.yB - tch.yA;
+            tch.drV = Math.abs(drg); // get abs of drg
+            if (drg < 0) { // scroll down
+                tch.dr = true;
+            } else if (drg > 0) { // scroll up
+                tch.dr = false;
+            }
+            L_scroll(tch.drV, tch.dr); // perform the scroll
+        }
+    }
+});
+
 */
+
 ////////////////////////////////////////////
 
 window.addEventListener("scroll", function() {
