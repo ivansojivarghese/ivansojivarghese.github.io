@@ -2433,6 +2433,9 @@ function SmoothScroll(target, speed, smooth) {
             if (!moving) {
                 update();
             }
+        } else if (tch.e) {
+            op.s = true; // prevent scroll
+            op.sc = false;
         }
     }
 
@@ -3338,8 +3341,11 @@ window.addEventListener("touchstart", function() { // IF TOUCH detected on scree
     tch.e = true;
 });
 
-window.addEventListener("touchend", function() { // IF TOUCH detected on screen
-    
+window.addEventListener("touchmove", function() { // IF TOUCH detected on screen
+    if (tch.e) {
+        op.s = false; // allow scroll
+        op.sc = true;
+    }
 });
 
 /*
