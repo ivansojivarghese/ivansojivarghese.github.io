@@ -2450,8 +2450,9 @@ function SmoothScroll(target, speed, smooth) {
             pg.msg.net_i.classList.add("info_w_img"); // set content
             pg.msg.net_p.classList.add("md");
             pg.msg.net_t.innerHTML = "scroll disabled";
-            pg.msg.net_e.innerHTML = "touchpoint detected"; // add text
+            pg.msg.net_e.innerHTML = "touch detected"; // add text
             pg.msg.net_e.classList.remove("d_n");
+            pg.msg.ce = true;
 
             msg_toggle(pg.msg.net, null, true, false, false); // show message
         }
