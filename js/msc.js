@@ -75,6 +75,7 @@ var wH = window.outerHeight, // height
         aTs : true // scrolled at top (delayed)
     },
     tch = { // touch
+        e : false, // enabled/used?
         yA : 0, // touch initial
         yB : 0, // touch end
         d : false, // drag check?
@@ -2421,7 +2422,7 @@ function SmoothScroll(target, speed, smooth) {
 	target.addEventListener('DOMMouseScroll', scrolled, { passive: false });
 
 	function scrolled(e) {
-        if (!op.s && op.sc) { // if scrolling enabled
+        if (!op.s && op.sc && !tch.e) { // if scrolling enabled
 		    e.preventDefault(); // disable default scrolling
 
             var delta = normalizeWheelDelta(e);
@@ -3332,6 +3333,11 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
 });
 
 //////////////////////////////////////////
+
+window.addEventListener("touchstart", function() { // IF TOUCH detected on screen
+    tch.e = true;
+});
+
 /*
 pg.sc.c.addEventListener("touchstart", function(event) {
     if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
