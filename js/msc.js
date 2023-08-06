@@ -3387,7 +3387,6 @@ window.addEventListener("touchend", function(event) {
             } else if (drg > 0) { // scroll up
                 tch.dr = false;
             }
-            L_scroll(tch.drV, tch.dr); // perform the scroll
         } else {
             tch.d = false;
             tch.dr = null; // reset
