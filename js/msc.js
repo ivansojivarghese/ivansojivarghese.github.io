@@ -2448,6 +2448,7 @@ function SmoothScroll(target, speed, smooth) {
                 pg.msg.net_i.classList.remove("wifi_w_img");
             }
             pg.msg.net_i.classList.add("info_w_img"); // set content
+            pg.msg.net_p.classList.add("md");
             pg.msg.net_t.innerHTML = "scroll disabled";
             pg.msg.net_e.innerHTML = "touchpoint detected"; // add text
             pg.msg.net_e.classList.remove("d_n");
