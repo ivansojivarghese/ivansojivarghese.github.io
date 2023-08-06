@@ -3343,6 +3343,9 @@ window.addEventListener("touchstart", function() { // IF TOUCH detected on scree
 
 window.addEventListener("touchmove", function() { // IF TOUCH detected on screen
     if (tch.e) {
+
+        // ONLY APPLY TO VERTICAL TOUCH DRAGS ONLY (USED FOR SCROLLING PURPOSE)
+
         op.s = false; // allow scroll
         op.sc = true;
     }
