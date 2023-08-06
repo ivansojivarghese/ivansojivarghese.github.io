@@ -2207,7 +2207,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
 
         }
 
-        if (ps.msg.ce) { // if extended
+        if (pg.msg.ce) { // if extended
             pg.msg.net_p.classList.remove("md"); // default
             pg.msg.net_e.innerHTML = ""; // remove 
             pg.msg.net_e.classList.add("d_n");
