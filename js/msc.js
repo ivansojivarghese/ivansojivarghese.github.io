@@ -3337,11 +3337,8 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
 
 //////////////////////////////////////////
 
-window.addEventListener("touchstart", function() { // IF TOUCH detected on screen
+window.addEventListener("touchstart", function(event) { // IF TOUCH detected on screen
     tch.e = true;
-});
-
-window.addEventListener("touchstart", function(event) {
     if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
         tch.d = false;
         tch.yA = event.touches[0].clientY;
@@ -3363,16 +3360,11 @@ window.addEventListener("touchmove", function(event) {
                 tch.dr = false;
             }
         }
-    }
-});
-
-window.addEventListener("touchmove", function() { // IF TOUCH detected on screen
-    if (tch.e) {
-
-        // ONLY APPLY TO VERTICAL TOUCH DRAGS ONLY (USED FOR SCROLLING PURPOSE)
-
-        op.s = false; // allow scroll
-        op.sc = true;
+        if (tch.e && tch.drV) { // ONLY APPLY TO VERTICAL TOUCH DRAGS ONLY (USED FOR SCROLLING PURPOSE)
+    
+            op.s = false; // allow scroll
+            op.sc = true;
+        }
     }
 });
 
@@ -3396,29 +3388,6 @@ window.addEventListener("touchend", function(event) {
         }
     }
 });
-
-/*
-
-pg.sc.c.addEventListener("touchmove", function(event) {
-    if (event.touches.length === 1) {
-        var drg = 0;
-        tch.yB = event.touches[0].clientY;
-        if (!tch.d) {
-            tch.d = true;
-        } else {
-            drg = tch.yB - tch.yA;
-            tch.drV = Math.abs(drg); // get abs of drg
-            if (drg < 0) { // scroll down
-                tch.dr = true;
-            } else if (drg > 0) { // scroll up
-                tch.dr = false;
-            }
-            L_scroll(tch.drV, tch.dr); // perform the scroll
-        }
-    }
-});
-
-*/
 
 ////////////////////////////////////////////
 
