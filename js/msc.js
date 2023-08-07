@@ -1179,6 +1179,8 @@ function pL() { // site parameters loop
             setCookie("cookiesAccepted", null, -1); // cookies deleted
             op.c.u = false;
 
+            msg_toggle(pg.msg.net, null, false, true, null); // hide message
+
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) { // UPDATE ACROSS ALL MESSAGES!
                 pg.msg.net_p.classList.remove("predicate"); 
                 pg.msg.net_p.classList.remove("balanced"); 
@@ -1191,13 +1193,15 @@ function pL() { // site parameters loop
             }
             pg.msg.net_i.classList.add("cookies_w_img"); // set content
             
-            if (navigator.cookieEnabled && !getCookie("testCookie") && !pg.msg.ce) { // if cookies 'deleted/removed'
+            if (navigator.cookieEnabled && !getCookie("testCookie")) { // if cookies 'deleted/removed'
+
                 pg.msg.net_t.innerHTML = "missing cookies";
                 pg.msg.net_p.classList.add("md");
                 pg.msg.net_e.innerHTML = "reload"; // add text
                 pg.msg.net_e.classList.remove("d_n");
                 pg.msg.net_e.addEventListener("click", reL); // add reload function
                 pg.msg.ce = true;
+
             } else {
                 pg.msg.net_t.innerHTML = "enable cookies";
             }
