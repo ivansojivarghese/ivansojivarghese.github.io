@@ -2185,8 +2185,6 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             setTimeout(function() {
                 e_Sdv(el, s); // show message
 
-                updateMsgIndex(msgIndex); // give update status
-
                 if (pg.msg.cep && pg.msg.net_p.classList.contains("md")) {
                     pg.msg.cep = false;
                 }
@@ -2202,6 +2200,9 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 } else { // no tint + show->hide message
                     pg.msg.t.classList.add("d_n"); 
                     setTimeout(function() { // hide message after time
+
+                        updateMsgIndex(msgIndex); // give update status
+
                         if (pg.msg.temp) {
                             if (pg.msg.io && pg.msg.ioS) {
                                 pg.msg.io = false;
