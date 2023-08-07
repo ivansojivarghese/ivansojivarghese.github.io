@@ -1169,7 +1169,7 @@ function pL() { // site parameters loop
         }, 10); 
     }*/
 
-    if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !eR.s && rL.i) { // if cookies are disabled
+    if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && pg.msg.c && !eR.s && rL.i) { // if cookies are disabled
         console.log("cookies deleted");
         
         if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
