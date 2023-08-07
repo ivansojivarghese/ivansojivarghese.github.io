@@ -102,6 +102,7 @@ var wH = window.outerHeight, // height
             fo : false, // offline-online sequence active?
             k : false, // if cookie message is active
             c : false, // check (if feature[pill] is active)
+            cp : false, // pill hint
             ce : false, // pill extended?
             cep : false, // pill extending hint
             el : document.getElementById("msg_sc"), // el
@@ -1175,6 +1176,7 @@ function pL() { // site parameters loop
         
         if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             op.c.e = false;
+            pg.msg.cp = true;
             pg.msg.c = true;
 
             setCookie("cookiesAccepted", null, -1); // cookies deleted
@@ -1234,6 +1236,9 @@ function pL() { // site parameters loop
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             if (getCookie("testCookie")) {
                 msg_toggle(pg.msg.net, null, false, true, null); // hide message
+            }
+            if (!getCookie("testCookie")) {
+                pg.msg.cp = true;
             }
             setTimeout(function() {
                 if (pg.msg.ce && getCookie("testCookie")) { // if extended
@@ -2161,6 +2166,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 op.s = true;
                 pg.msg.k = true;
             } else {
+                pg.msg.cp = true;
                 pg.msg.c = true;
             }
             pg.msg.el.classList.remove("d_n"); // show page
@@ -2215,7 +2221,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     pg.msg.c = false;
                 }, op.t);
             }*/
-            
+
             if (t && t_m) {
                 pg.msg.t.classList.remove("a"); // remove low tint
                 pg.msg.t.classList.add("md"); // remove tint
