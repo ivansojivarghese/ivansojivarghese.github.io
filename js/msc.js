@@ -94,6 +94,7 @@ var wH = window.outerHeight, // height
             f : document.getElementById("footer_main_sc")
         },
         msg : { // messages
+            p : [], // array tracker
             io : false, // in-out message? (show + hide)
             temp : false, // temporary messsage?
             ioS : 0, // in-out start time
@@ -2155,6 +2156,9 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
 
         if (s && !pg.msg.c) { // show
 
+            var msgIndex = pg.msg.p.length;
+            pg.msg.p[msgIndex] = false; // msg in queue
+
             if (!pg.msg.cep) {
                 pg.msg.net_p.classList.remove("md"); // default
                 pg.msg.net_e.innerHTML = ""; // remove 
@@ -2178,8 +2182,10 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 pg.msg.temp = false;
             }
 
-            setTimeout(function() {
+            setTimeout(function(msgIndex) {
                 e_Sdv(el, s); // show message
+
+                updateMsgIndex(msgIndex); // give update status
 
                 if (pg.msg.cep && pg.msg.net_p.classList.contains("md")) {
                     pg.msg.cep = false;
@@ -2269,6 +2275,10 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             setCookie("displayErrorReload", null, -1); // delete
         }
     }
+}
+
+function updateMsgIndex(d) {
+    pg.msg.p[d] = true;
 }
 
 function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
