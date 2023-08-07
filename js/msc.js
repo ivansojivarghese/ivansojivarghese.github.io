@@ -2146,7 +2146,7 @@ function nwCiArr(ar) { // create a comparison [previous index] array
 
 function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
     if (!eR.s && rL.i) { // when no errors
-        
+
         if (s && !pg.msg.c) { // show
 
             if (el === pg.msg.ckA) {
@@ -2213,7 +2213,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             }
             setTimeout(function() {
 
-                if (!pg.msg.c) { // ensure no other messages
+                if (!pg.msg.c || !pg.msg.cep) { // ensure no other messages (OR no other extended messages)
                     el.classList.add("d_n");
                     pg.msg.el.classList.add("d_n"); // hide page
 
