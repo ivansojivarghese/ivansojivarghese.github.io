@@ -219,6 +219,11 @@
         margin-left: 0;
     }
 
+    #localTimeDet {
+        letter-spacing: normal;
+        font-size: 1.25rem;
+    }
+
     #intro_main, #lead_wrap {
         background-color: #D7D7D7;
     }
