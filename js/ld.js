@@ -42,6 +42,7 @@ eR = { // error
     or : document.getElementById("error_or"), // orientation change
     ck : document.getElementById("error_cke"), // cookies
     mt : document.getElementById("error_mt"), // maintenance
+    vp : document.getElementById("error_vp"), // vpn
     pl : document.getElementById("error_pl"), // platform/browser
     pl_e : {
         p : document.getElementById("error_plp"), // p
@@ -1207,7 +1208,9 @@ function errorCheck() { // check for errors
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
-    eR.a = ["fC", "tr", "fS", "mt", "ck", "or", "dp", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
+
+    eR.a = ["fC", "tr", "fS", "mt", "ck", "vp", "or", "dp", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // msc.
     op.fS = checkFullScreen();
@@ -1242,6 +1245,8 @@ function errorCheck() { // check for errors
         eR.h = "ld";
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.h = "dp";
+    } else if (ipAPIres.online && (tz !== ipAPIres.timezone)) { // potential vpn usage (when rest-fetched + device time zones don't match)
+        eR.h = "vp";
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
