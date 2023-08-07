@@ -2438,7 +2438,7 @@ function SmoothScroll(target, speed, smooth) {
             op.s = true; // prevent scroll
             op.sc = false;
 
-            if (!pg.msg.c) {
+            if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) {
                 if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
                     pg.msg.net_p.classList.remove("predicate"); 
                     pg.msg.net_p.classList.remove("balanced");
