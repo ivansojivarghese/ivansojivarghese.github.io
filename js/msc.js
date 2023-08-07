@@ -2202,7 +2202,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     }, pg.msg.r);   
                 }
             }, 10); // after short delay
-            
+
         } else if (!s) { // hide
 
             e_Sdv(el, s); // hide message
@@ -2211,7 +2211,9 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 op.s = false;
                 pg.msg.k = false;
             } else {
-                pg.msg.c = false;
+                setTimeout(function() {
+                    pg.msg.c = false;
+                }, op.t);
             }
             if (t && t_m) {
                 pg.msg.t.classList.remove("a"); // remove low tint
