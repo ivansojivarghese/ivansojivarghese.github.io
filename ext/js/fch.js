@@ -601,12 +601,14 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             f = function() { // show local weather/city information
                 if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage && ipAPIres.online && weatherAPIres.online) {
+                    var unitTitle = (tempUnit(ipAPIres.country) === "metric") ? "Celsius" : "Fahrenheit";
+
                     e_Fd(el.Ltf, false);
 
                     // add titles
                     el.Ltd.title = op.d; // time
                     weather.c.title = ipAPIres.city; // weather city name
-                    weather.r.title = Math.round(weatherAPIres.main.temp) + "degrees "; // weather reading
+                    weather.r.title = Math.round(weatherAPIres.main.temp) + " degrees " + unitTitle; // weather reading
                     weather.i.title = weatherAPIres.weather["0"].main; // weather description
 
                 } else if ((op.d.getTime() - apiInit) < apiTimeout) {
