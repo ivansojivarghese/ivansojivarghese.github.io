@@ -2256,6 +2256,11 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     pg.msg.cp = checkMsgIndex(pg.msg.p) ? false : true;
                 }
 
+                if (pg.msg.p[pg.msg.p.length - 1] === true) { // if LAST message has completed display
+                    el.classList.add("d_n");
+                    pg.msg.el.classList.add("d_n"); // hide page
+                }
+ 
             }, op.t);
             setCookie("displayErrorReload", null, -1); // delete
         }
