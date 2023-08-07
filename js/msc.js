@@ -103,6 +103,7 @@ var wH = window.outerHeight, // height
             k : false, // if cookie message is active
             c : false, // check (if feature[pill] is active)
             ce : false, // pill extended?
+            cep : false, // pill extending hint
             el : document.getElementById("msg_sc"), // el
             t : document.getElementById("msg_tint"), // tint
             ckA : document.getElementById("ckA_msg"), // cookie-acceptance
@@ -1201,6 +1202,7 @@ function pL() { // site parameters loop
                 pg.msg.net_e.classList.remove("d_n");
                 pg.msg.net_e.addEventListener("click", reL); // add reload function
                 pg.msg.ce = true;
+                pg.msg.cep = true;
 
             } else {
                 pg.msg.net_t.innerHTML = "enable cookies";
@@ -1222,6 +1224,7 @@ function pL() { // site parameters loop
                     pg.msg.net_e.classList.remove("d_n");
                     pg.msg.net_e.addEventListener("click", reL);
                     pg.msg.ce = true;
+                    pg.msg.cep = true;
                 }
                 msg_toggle(pg.msg.net, null, true, true, true); // show message
             }, op.t);
@@ -2158,13 +2161,14 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             } else { // if permanent
                 pg.msg.temp = false;
             }
-            if (pg.msg.net_p.classList.contains("md")) {
-                // pg.msg.net_e.innerHTML = ""; // add 
-                pg.msg.net_e.classList.remove("d_n");
-                pg.msg.ce = true;
-            }
+
             setTimeout(function() {
                 e_Sdv(el, s); // show message
+
+                if (pg.msg.cep && pg.msg.net_p.classList.contains("md")) {
+                    pg.msg.cep = false;
+                }
+
                 if (t && t_m) {
                     pg.msg.t.classList.remove("d_n"); 
                     setTimeout(function() {
@@ -2211,11 +2215,12 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     el.classList.add("d_n");
                     pg.msg.el.classList.add("d_n"); // hide page
 
-                    if (pg.msg.ce) { // if extended
+                    if (pg.msg.ce && !pg.msg.cep) { // if extended
                         pg.msg.net_p.classList.remove("md"); // default
                         pg.msg.net_e.innerHTML = ""; // remove 
                         pg.msg.net_e.classList.add("d_n");
                         pg.msg.ce = false;
+                        pg.msg.cep = false;
                     }
                 }
 
