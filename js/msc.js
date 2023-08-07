@@ -256,10 +256,6 @@ function renderTime() {
 window.addEventListener("DOMContentLoaded", function() { // 1 - base html/css/scripts
     op.Ld.s = false;
     op.Ld.dom = renderTime();
-
-    apiInit = op.d.getTime(); // start API load time (at init)
-    ipAPI("/219.93.183.103"); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
-
 }); 
 window.addEventListener("load", function() { // 2 - full load
     op.Ld.s = true;
