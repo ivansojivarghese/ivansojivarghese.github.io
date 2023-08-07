@@ -2149,6 +2149,13 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
 
         if (s && !pg.msg.c) { // show
 
+            if (!pg.msg.cep) {
+                pg.msg.net_p.classList.remove("md"); // default
+                pg.msg.net_e.innerHTML = ""; // remove 
+                pg.msg.net_e.classList.add("d_n");
+                pg.msg.ce = false;
+            }
+
             if (el === pg.msg.ckA) {
                 scr_t(false, null); // disable scrolling
                 op.s = true;
@@ -2213,7 +2220,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             }
             setTimeout(function() {
 
-                if (!pg.msg.c || !pg.msg.cep) { // ensure no other messages (OR no other extended messages)
+                if (!pg.msg.c) { // ensure no other messages (OR no other extended messages)
                     el.classList.add("d_n");
                     pg.msg.el.classList.add("d_n"); // hide page
 
