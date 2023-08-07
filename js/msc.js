@@ -2210,11 +2210,12 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 scr_t(true, null); // enable scrolling
                 op.s = false;
                 pg.msg.k = false;
-            } else {
+            } /*else {
                 setTimeout(function() {
                     pg.msg.c = false;
                 }, op.t);
-            }
+            }*/
+            
             if (t && t_m) {
                 pg.msg.t.classList.remove("a"); // remove low tint
                 pg.msg.t.classList.add("md"); // remove tint
@@ -2234,6 +2235,10 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                         pg.msg.ce = false;
                         pg.msg.cep = false;
                     }
+                }
+
+                if (el !== pg.msg.ckA) {
+                    pg.msg.c = false;
                 }
 
             }, op.t);
