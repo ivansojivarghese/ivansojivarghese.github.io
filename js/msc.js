@@ -2480,6 +2480,7 @@ function SmoothScroll(target, speed, smooth) {
                 pg.msg.net_e.innerHTML = "touch detected"; // add text
                 pg.msg.net_e.classList.remove("d_n");
                 pg.msg.ce = true;
+                pg.msg.cep = true;
 
                 msg_toggle(pg.msg.net, null, true, false, false); // show message
             }
