@@ -1218,7 +1218,7 @@ function errorCheck() { // check for errors
     // msc. stuff
 
     apiInit = op.d.getTime(); // start API load time (at init)
-    ipAPI("/219.93.183.103"); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+    ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
 
     op.fS = checkFullScreen();
     op.sp = !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[2]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[3]));
