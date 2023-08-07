@@ -1251,6 +1251,7 @@ function pL() { // site parameters loop
                 op.c.e = true;
                 if (getCookie("testCookie")) {
                     pg.msg.c = false;
+                    pg.msg.cp = false;
                 } else {
                     pg.msg.c = true;
                 }
@@ -2245,6 +2246,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
 
                 if (el !== pg.msg.ckA) {
                     pg.msg.c = false;
+                    pg.msg.cp = false;
                 }
 
             }, op.t);
