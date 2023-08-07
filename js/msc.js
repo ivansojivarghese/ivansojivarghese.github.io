@@ -2182,7 +2182,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 pg.msg.temp = false;
             }
 
-            setTimeout(function(msgIndex) {
+            setTimeout(function() {
                 e_Sdv(el, s); // show message
 
                 updateMsgIndex(msgIndex); // give update status
