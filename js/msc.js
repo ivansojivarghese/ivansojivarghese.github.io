@@ -1252,7 +1252,7 @@ function pL() { // site parameters loop
                 op.c.e = true;
                 if (getCookie("testCookie")) {
                     pg.msg.c = false;
-                    pg.msg.cp = false;
+                    pg.msg.cp = checkMsgIndex(pg.msg.p) ? false : true;
                 } else {
                     pg.msg.c = true;
                 }
@@ -2252,7 +2252,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
 
                 if (el !== pg.msg.ckA) {
                     pg.msg.c = false;
-                    pg.msg.cp = false;
+                    pg.msg.cp = checkMsgIndex(pg.msg.p) ? false : true;
                 }
 
             }, op.t);
@@ -2279,6 +2279,17 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
 
 function updateMsgIndex(d) {
     pg.msg.p[d] = true;
+}
+
+function checkMsgIndex(ar) {
+    var res = true;
+    for (i = 0; i <= (ar.length - 1); i++) {
+        if (ar[i] === false) {
+            res = false;
+            break;
+        }
+    }
+    return res;
 }
 
 function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
