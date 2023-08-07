@@ -1253,7 +1253,7 @@ function errorCheck() { // check for errors
         eR.h = "dp";
     } else if (ipAPIres.online && (tz !== ipAPIres.timezone)) { // potential vpn usage (when rest-fetched + device time zones don't match)
         eR.h = "vp";
-        eR.vp_e.h.innerHTML = "ip timezone: " + ipAPIres.timezone;
+        eR.vp_e.h.innerHTML = "ip address: " + ipAPIres.ip;
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
