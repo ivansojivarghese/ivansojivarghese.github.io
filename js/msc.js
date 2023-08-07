@@ -2230,7 +2230,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             }
             setTimeout(function() {
 
-                if (!pg.msg.c) { // ensure no other messages (OR no other extended messages)
+                if (!pg.msg.c && !pg.msg.cp) { // ensure no other messages (OR no other extended messages)
                     el.classList.add("d_n");
                     pg.msg.el.classList.add("d_n"); // hide page
 
