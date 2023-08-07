@@ -2199,15 +2199,15 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 if (!pg.msg.c) { // ensure no other messages
                     el.classList.add("d_n");
                     pg.msg.el.classList.add("d_n"); // hide page
+
+                    if (pg.msg.ce) { // if extended
+                        pg.msg.net_p.classList.remove("md"); // default
+                        pg.msg.net_e.innerHTML = ""; // remove 
+                        pg.msg.net_e.classList.add("d_n");
+                        pg.msg.ce = false;
+                    }
                 }
 
-                if (pg.msg.ce) { // if extended
-                    pg.msg.net_p.classList.remove("md"); // default
-                    pg.msg.net_e.innerHTML = ""; // remove 
-                    pg.msg.net_e.classList.add("d_n");
-                    pg.msg.ce = false;
-                }
-                
             }, op.t);
             setCookie("displayErrorReload", null, -1); // delete
         }
@@ -2438,24 +2438,26 @@ function SmoothScroll(target, speed, smooth) {
             op.s = true; // prevent scroll
             op.sc = false;
 
-            if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
-                pg.msg.net_p.classList.remove("predicate"); 
-                pg.msg.net_p.classList.remove("balanced");
-            }
-            pg.msg.net_p.classList.add("negate"); // set color
-            if (pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img") || pg.msg.net_i.classList.contains("wifi_w_img")) {
-                pg.msg.net_i.classList.remove("wifi_off_w_img"); 
-                pg.msg.net_i.classList.remove("cookies_w_img");
-                pg.msg.net_i.classList.remove("wifi_w_img");
-            }
-            pg.msg.net_i.classList.add("info_w_img"); // set content
-            pg.msg.net_p.classList.add("md");
-            pg.msg.net_t.innerHTML = "scroll disabled";
-            pg.msg.net_e.innerHTML = "touch detected"; // add text
-            pg.msg.net_e.classList.remove("d_n");
-            pg.msg.ce = true;
+            if (!pg.msg.c) {
+                if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
+                    pg.msg.net_p.classList.remove("predicate"); 
+                    pg.msg.net_p.classList.remove("balanced");
+                }
+                pg.msg.net_p.classList.add("negate"); // set color
+                if (pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img") || pg.msg.net_i.classList.contains("wifi_w_img")) {
+                    pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+                    pg.msg.net_i.classList.remove("cookies_w_img");
+                    pg.msg.net_i.classList.remove("wifi_w_img");
+                }
+                pg.msg.net_i.classList.add("info_w_img"); // set content
+                pg.msg.net_p.classList.add("md");
+                pg.msg.net_t.innerHTML = "scroll disabled";
+                pg.msg.net_e.innerHTML = "touch detected"; // add text
+                pg.msg.net_e.classList.remove("d_n");
+                pg.msg.ce = true;
 
-            msg_toggle(pg.msg.net, null, true, false, false); // show message
+                msg_toggle(pg.msg.net, null, true, false, false); // show message
+            }
         }
     }
 
