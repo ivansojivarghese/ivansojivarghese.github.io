@@ -2146,7 +2146,9 @@ function nwCiArr(ar) { // create a comparison [previous index] array
 
 function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
     if (!eR.s && rL.i) { // when no errors
-        if (s) { // show
+        
+        if (s && !pg.msg.c) { // show
+
             if (el === pg.msg.ckA) {
                 scr_t(false, null); // disable scrolling
                 op.s = true;
