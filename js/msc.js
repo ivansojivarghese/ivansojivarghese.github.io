@@ -1206,7 +1206,9 @@ function pL() { // site parameters loop
                 pg.msg.net_t.innerHTML = "enable cookies";
             }
 
-            msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
+            setTimeout(function() {
+                msg_toggle(pg.msg.net, null, true, true, true); // disable page, show message
+            }, op.t);
 
         } else if ((pg.msg.c && !pg.msg.ce && !getCookie("testCookie")) && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
 
