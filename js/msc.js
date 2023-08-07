@@ -2195,23 +2195,25 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 pg.msg.t.classList.add("md"); 
             }
             setTimeout(function() {
+
                 if (!pg.msg.c) { // ensure no other messages
                     el.classList.add("d_n");
                     pg.msg.el.classList.add("d_n"); // hide page
                 }
+
+                if (pg.msg.ce) { // if extended
+                    pg.msg.net_p.classList.remove("md"); // default
+                    pg.msg.net_e.innerHTML = ""; // remove 
+                    pg.msg.net_e.classList.add("d_n");
+                    pg.msg.ce = false;
+                }
+                
             }, op.t);
             setCookie("displayErrorReload", null, -1); // delete
         }
         
         if (el_s) { // internal element reveal (if applicable)
 
-        }
-
-        if (pg.msg.ce) { // if extended
-            pg.msg.net_p.classList.remove("md"); // default
-            pg.msg.net_e.innerHTML = ""; // remove 
-            pg.msg.net_e.classList.add("d_n");
-            pg.msg.ce = false;
         }
 
     } else if (rL.i) {
