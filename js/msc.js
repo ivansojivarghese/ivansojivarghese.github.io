@@ -2158,6 +2158,11 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
             } else { // if permanent
                 pg.msg.temp = false;
             }
+            if (pg.msg.net_p.classList.contains("md")) {
+                // pg.msg.net_e.innerHTML = ""; // add 
+                pg.msg.net_e.classList.remove("d_n");
+                pg.msg.ce = true;
+            }
             setTimeout(function() {
                 e_Sdv(el, s); // show message
                 if (t && t_m) {
