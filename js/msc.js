@@ -2202,7 +2202,8 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                     }, pg.msg.r);   
                 }
             }, 10); // after short delay
-        } else { // hide
+            
+        } else if (!s) { // hide
 
             e_Sdv(el, s); // hide message
             if (el === pg.msg.ckA) {
