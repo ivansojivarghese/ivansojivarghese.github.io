@@ -145,11 +145,14 @@ let gyroscope = null;
 var gyroscopeX = 0,
     gyroscopeY = 0;
 
+    /*
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
     apiSuccess = false, // check
-    nearbyCoordsDis = 50, // km
     ipAPIres = {},
+*/
+
+var nearbyCoordsDis = 50, // km
     weatherAPIres = {},
     weather = {
         elw : document.getElementById("localWeather"),
@@ -321,7 +324,7 @@ function load_css_e() { // load CSS styles (page specific)
 }
 
 ////////////////////////////////////////////////////////////////////////////
-
+/*
 async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/ 
     await fetch("https://ipinfo.io" + v + "/json?token=38ec70e8a088d5")
         .then((response) => {
@@ -334,7 +337,7 @@ async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/
                 ipAPIres.error = true;
             });
         })
-}
+}*/
 
 async function weatherAPI(lat, lon, unit) { // 1,000,000 per month, 60 per minute limits, https://openweathermap.org/
     await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=" + unit + "&appid=62dfc011a0d14a0996e185364706fe76")
@@ -395,8 +398,10 @@ function load_js_e() { // load JS (page specific)
         timeNow(el.Ltd); // show time
         el.Lt.classList.remove("d_n");
 
+        /*
         apiInit = op.d.getTime();
         ipAPI("/219.93.183.103"); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+        */
 
         var dkAPI = function() {
             if (ipAPIres.error) {

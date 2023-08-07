@@ -139,6 +139,13 @@ var wH = window.outerHeight, // height
         f : []
     };
 
+    
+var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
+    apiInit = 0, // init time for API load
+    apiSuccess = false, // check
+    ipAPIres = {};
+
+
 /////////////////////////////////////////////////////
 /*
 function reqA() { // animation frames (rendering)
@@ -249,11 +256,33 @@ function renderTime() {
 window.addEventListener("DOMContentLoaded", function() { // 1 - base html/css/scripts
     op.Ld.s = false;
     op.Ld.dom = renderTime();
+
+    apiInit = op.d.getTime();
+    ipAPI("/219.93.183.103"); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+
 }); 
 window.addEventListener("load", function() { // 2 - full load
     op.Ld.s = true;
     op.Ld.a = renderTime();
 }); 
+
+/////////////////////////////////////////////////////////
+
+// APIs
+
+async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/ 
+    await fetch("https://ipinfo.io" + v + "/json?token=38ec70e8a088d5")
+        .then((response) => {
+            return response.json().then((data) => {
+                ipAPIres = data;
+                ipAPIres.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
+                ipAPIres.lon = data.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude;
+                ipAPIres.online = true;
+            }).catch((error) => {
+                ipAPIres.error = true;
+            });
+        })
+}
 
 /////////////////////////////////////////////////////////
 
