@@ -43,6 +43,9 @@ eR = { // error
     ck : document.getElementById("error_cke"), // cookies
     mt : document.getElementById("error_mt"), // maintenance
     vp : document.getElementById("error_vp"), // vpn
+    vp_e : {
+        h : document.getElementById("error_vph4"), // h4
+    },
     pl : document.getElementById("error_pl"), // platform/browser
     pl_e : {
         p : document.getElementById("error_plp"), // p
@@ -1250,6 +1253,7 @@ function errorCheck() { // check for errors
         eR.h = "dp";
     } else if (ipAPIres.online && (tz !== ipAPIres.timezone)) { // potential vpn usage (when rest-fetched + device time zones don't match)
         eR.h = "vp";
+        eR.vp_e.h.innerHTML = "ip timezone: " + ipAPIres.timezone;
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
