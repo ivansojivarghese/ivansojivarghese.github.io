@@ -1251,7 +1251,7 @@ function errorCheck() { // check for errors
         eR.h = "ld";
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.h = "dp";
-    } else if (ipAPIres.online && (tz !== ipAPIres.timezone)) { // potential vpn usage (when rest-fetched + device time zones don't match)
+    } else if (ipAPIres.online && (tz !== ipAPIres.timezone)) { // potential vpn usage (when REST-fetched + device time zones don't match)
         eR.h = "vp";
         eR.vp_e.h.innerHTML = "ip address: " + ipAPIres.ip;
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)

@@ -1249,6 +1249,18 @@
                 var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
             })('//updatemybrowser.org/umb.js');
         </script>
+        <!-- obtaining the IP Address, ipify (unlimited - 1 request per sec.) -->
+        <script type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP">
+            var ipifyAPIRes = {};
+            function getIP(json) {
+                try {
+                    ipifyAPIRes.ip =  json.ip;
+                    ipifyAPIRes.online = true;   
+                } catch (error) {
+                    ipifyAPIRes.error = true;   
+                }
+            }
+        </script>
         <!--  JS files -->
         <script src="js/msc.js"></script>
         <script src="ext/js/fahrenheit_countries.jsonc"></script>
