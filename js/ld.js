@@ -95,6 +95,18 @@ rL = { // page/resource loader
     i_s : false // [loader] information status
 };
 
+
+function langVar(c) { // return variant of language (en) per user country location
+    var res = "gb"; // default (en-GB)
+    for (var x in f_countries) {
+        if (f_countries[x].iso_A2 === c) { // if matches given list
+            res = "us"; // american (en-US)
+            break;
+        }
+    }
+    return res;
+}
+
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
