@@ -1452,6 +1452,7 @@ setTimeout(function() {
     }
 
     op.lang = engLangVar(); // set eng. language variant
+    
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
 

@@ -446,6 +446,7 @@ if (getCookie("maxHeight") && tDevice) {
 op = { 
     host : hostname,
     lang : "", // english language variant
+    txts : document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, li"),
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
