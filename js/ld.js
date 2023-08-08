@@ -96,7 +96,7 @@ rL = { // page/resource loader
 };
 
 
-function langVar(c) { // return variant of language (en) per user country location
+function engLangVar(c) { // return variant of language (eng) per user country location
     var res = "gb"; // default (en-GB)
     for (var x in f_countries) {
         if (f_countries[x].iso_A2 === c) { // if matches given list
@@ -1451,10 +1451,7 @@ setTimeout(function() {
         console.log("UMB not defined");
     }
 
-    /*
-    if (UMB !== undefined) { // check if current platform is up-to-date
-        browserCheck(true); // secondary check if online API is available
-    }*/
+    op.lang = engLangVar(); // set eng. language variant
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
 

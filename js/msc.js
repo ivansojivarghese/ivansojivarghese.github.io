@@ -445,6 +445,7 @@ if (getCookie("maxHeight") && tDevice) {
 
 op = { 
     host : hostname,
+    lang : "", // english language variant
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
