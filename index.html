@@ -467,6 +467,23 @@
                 },'slow');
             }
 
+            // LIVE APIs
+
+            // obtaining the IP Address, ipify (unlimited - 1 request per sec.)
+            var ipifyAPIRes = {};
+            $(function() {
+                $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+                    function(json) {
+                        try {
+                            ipifyAPIRes.ip =  json.ip;
+                            ipifyAPIRes.online = true;   
+                        } catch (error) {
+                            ipifyAPIRes.error = true;   
+                        }
+                    }
+                );
+            });
+
         </script>
 
         <!-- Advertising - Google Adsense 
@@ -1248,18 +1265,6 @@
                 var s = document.createElement('script'); s.async = true; s.src = u;
                 var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
             })('//updatemybrowser.org/umb.js');
-        </script>
-        <!-- obtaining the IP Address, ipify (unlimited - 1 request per sec.) -->
-        <script type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP">
-            var ipifyAPIRes = {};
-            function getIP(json) {
-                try {
-                    ipifyAPIRes.ip =  json.ip;
-                    ipifyAPIRes.online = true;   
-                } catch (error) {
-                    ipifyAPIRes.error = true;   
-                }
-            }
         </script>
         <!--  JS files -->
         <script src="js/msc.js"></script>
