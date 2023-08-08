@@ -6,6 +6,7 @@ function timeNow(el) {
         h = (d.getHours()<10?'0':'') + d.getHours(),
         m = (d.getMinutes()<10?'0':'') + d.getMinutes();
     el.innerHTML = h + ':' + m;
+    el.title = op.d;
 }
 
 // effects
