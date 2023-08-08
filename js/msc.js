@@ -145,7 +145,8 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiSuccess = false, // check
     ipAPIres = {},
     clientAPIres = {},
-    roamingAPIres = {};
+    roamingAPIres = {},
+    timeAPIres = {};
 
 
 /////////////////////////////////////////////////////
@@ -302,6 +303,18 @@ async function roamingAPI(lat, lon) { // unlimited, https://www.bigdatacloud.com
                 roamingAPIres.online = true;
             }).catch((error) => {
                 roamingAPIres.error = true;
+            });
+        })
+}
+
+async function timeAPI() { // unlimited, http://worldtimeapi.org/
+    await fetch("https://worldtimeapi.org/api/ip")
+        .then((response) => {
+            return response.json().then((data) => {
+                timeAPIres = data;
+                timeAPIres.online = true;
+            }).catch((error) => {
+                timeAPIres.error = true;
             });
         })
 }

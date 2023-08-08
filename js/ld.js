@@ -1223,6 +1223,7 @@ function errorCheck() { // check for errors
     if (ipAPIres.online) { // get USER ROAMING information using coords
         roamingAPI(ipAPIres.lat, ipAPIres.lon);
     }
+    timeAPI(); // GET USER time information (from IP Address, alternative to ipAPI)
 
     // msc. stuff
 
@@ -1257,8 +1258,7 @@ function errorCheck() { // check for errors
         eR.h = "ld";
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.h = "dp";
-
-    } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online && (tz )) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) { // potential vpn usage (when REST-fetched + device time zones don't match)
+    } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) { // potential vpn usage (when REST-fetched + device time zones don't match)
         
         var address = "";
         eR.h = "vp";
