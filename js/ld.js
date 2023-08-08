@@ -1220,6 +1220,9 @@ function errorCheck() { // check for errors
     apiInit = op.d.getTime(); // start API load time (at init)
     ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
     clientAPI(); // get user IP information + proxy usage status (no arguments)
+    if (ipAPIres.online) { // get USER ROAMING information using coords
+        roamingAPI(ipAPIres.lat, ipAPIres.lon);
+    }
 
     // msc. stuff
 
@@ -1254,7 +1257,6 @@ function errorCheck() { // check for errors
         eR.h = "ld";
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.h = "dp";
-
     } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) { // potential vpn usage (when REST-fetched + device time zones don't match)
         var address = "";
         eR.h = "vp";

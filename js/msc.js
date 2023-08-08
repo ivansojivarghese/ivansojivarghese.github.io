@@ -294,8 +294,8 @@ async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages
         })
 }
 
-async function roamingAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
-    await fetch("https://api-bdc.net/data/am-i-roaming")
+async function roamingAPI(lat, lon) { // unlimited, https://www.bigdatacloud.com/packages/free-api
+    await fetch("https://api-bdc.net/data/am-i-roaming?latitude=" + lat + "&longitude=" + lon)
         .then((response) => {
             return response.json().then((data) => {
                 roamingAPIres = data;
