@@ -1219,7 +1219,7 @@ function errorCheck() { // check for errors
 
     apiInit = op.d.getTime(); // start API load time (at init)
     ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
-    ipBDAPI(); // get user IP information + proxy usage status
+    ipBDAPI(); // get user IP information + proxy usage status (no arguments)
 
     // msc. stuff
 
@@ -1255,10 +1255,16 @@ function errorCheck() { // check for errors
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.h = "dp";
 
-    } else if (ipAPIres.online && (tz !== ipAPIres.timezone)) { // potential vpn usage (when REST-fetched + device time zones don't match)
-
+    } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIRes.online)) { // potential vpn usage (when REST-fetched + device time zones don't match)
+        var address = "";
         eR.h = "vp";
-        eR.vp_e.h.innerHTML = "ip address: " + ipAPIres.ip;
+        if (ipAPIres.online) { // check on multiple APIs to get IP address
+            address = ipAPIres.ip;
+        } else if (ipifyAPIRes.online) {
+            address = ipifyAPIRes.ip;
+        }
+
+        eR.vp_e.h.innerHTML = "ip address: " + address;
 
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
