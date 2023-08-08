@@ -372,7 +372,7 @@ div, .tint {
 
 h4.revert { /* h4 styling revert */
     text-transform: lowercase;
-    letter-spacing: normal;
+    letter-spacing: normal !important;
 }
 
 #navbar a {
