@@ -1358,6 +1358,19 @@ function errorPrecedence(n, p, a) { // check for priority of errors
     }
 }
 
+///////////////////////////////////////////////////////////
+
+function engLangUpdate(v) { // update eng. language variant
+    var change = (v === "us") ? true : false; // if american english is requested/required
+    if (change) {
+        for (i = 0; i <= (op.txts.length - 1); i++) { // loop through all STATIC text elements
+            op.txts[i].innerHTML;
+        }
+    }
+}
+
+///////////////////////////////////////////////////////////
+
 function intro_L() { // load up the landing page (#intro_sc)
     /*
     var a = getBd(hD.g_i, "height"), // get height of 'logo_hybrid.png'
@@ -1452,7 +1465,7 @@ setTimeout(function() {
     }
 
     op.lang = engLangVar(); // set eng. language variant
-    
+    engLangUpdate(op.lang); // update eng. language variant
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
 
