@@ -160,9 +160,8 @@ ul {
     margin-left: 1.5em;
 }
 
-h1, h2, h3, h5, h6, p, ul {
+h1, h2, h3, h5, h6, p, ul, h4.revert {
     font-family: Poppins, sans-serif;
-    /*font-family: Poppins;*/
 }
 
 .rSpace {
@@ -369,6 +368,11 @@ div, .tint {
 
 .f_wg-b, .em, .hm h5, .pill h4, .pill h5, .action, #navbar h5, #footer_blurb a, #mid_tablet_sc a {
     font-weight: bold;
+}
+
+h4.revert { /* h4 styling revert */
+    text-transform: lowercase;
+    letter-spacing: normal;
 }
 
 #navbar a {

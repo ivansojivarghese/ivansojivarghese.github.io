@@ -1269,9 +1269,10 @@ function errorCheck() { // check for errors
         } else if (clientAPIres.online) {
             address = clientAPIres.ipString;
         } else if (roamingAPIres.online) {
-            address = "null";
+            address = "not obtainable";
         }
 
+        eR.vp_e.h.classList.add("revert");
         eR.vp_e.h.innerHTML = "ip address: " + address;
 
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
