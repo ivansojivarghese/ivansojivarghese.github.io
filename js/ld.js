@@ -1364,7 +1364,7 @@ function engLangUpdate(v) { // update eng. language variant
     var change = (v === "us") ? true : false; // if american english is requested/required
     if (change) {
         for (i = 0; i <= (op.txts.length - 1); i++) { // loop through all STATIC text elements
-            op.txts[i].innerHTML;
+            op.txts[i].innerHTML; //
         }
     }
 }
