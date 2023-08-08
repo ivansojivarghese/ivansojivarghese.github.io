@@ -144,7 +144,7 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
     apiSuccess = false, // check
     ipAPIres = {},
-    ipBDAPIRes = {};
+    clientAPIRes = {};
 
 
 /////////////////////////////////////////////////////
@@ -281,14 +281,14 @@ async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/
         })
 }
 
-async function ipBDAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
-    await fetch("https://api-bdc.net/data/client-ip")
+async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
+    await fetch("https://api-bdc.net/data/client-info")
         .then((response) => {
             return response.json().then((data) => {
-                ipBDAPIRes = data;
-                ipBDAPIRes.online = true;
+                clientAPIRes = data;
+                clientAPIRes.online = true;
             }).catch((error) => {
-                ipBDAPIRes.error = true;
+                clientAPIRes.error = true;
             });
         })
 }
