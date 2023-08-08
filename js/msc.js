@@ -144,7 +144,8 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
     apiSuccess = false, // check
     ipAPIres = {},
-    clientAPIRes = {};
+    clientAPIres = {},
+    roamingAPIres = {};
 
 
 /////////////////////////////////////////////////////
@@ -285,10 +286,22 @@ async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages
     await fetch("https://api-bdc.net/data/client-info")
         .then((response) => {
             return response.json().then((data) => {
-                clientAPIRes = data;
-                clientAPIRes.online = true;
+                clientAPIres = data;
+                clientAPIres.online = true;
             }).catch((error) => {
-                clientAPIRes.error = true;
+                clientAPIres.error = true;
+            });
+        })
+}
+
+async function roamingAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
+    await fetch("https://api-bdc.net/data/am-i-roaming")
+        .then((response) => {
+            return response.json().then((data) => {
+                roamingAPIres = data;
+                roamingAPIres.online = true;
+            }).catch((error) => {
+                roamingAPIres.error = true;
             });
         })
 }

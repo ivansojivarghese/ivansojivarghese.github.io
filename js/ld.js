@@ -1255,15 +1255,17 @@ function errorCheck() { // check for errors
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.h = "dp";
 
-    } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIRes.online) || (ipBDAPIRes.online && ipBDAPIRes.isBehindProxy)) { // potential vpn usage (when REST-fetched + device time zones don't match)
+    } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) { // potential vpn usage (when REST-fetched + device time zones don't match)
         var address = "";
         eR.h = "vp";
         if (ipAPIres.online) { // check on multiple APIs to get IP address
             address = ipAPIres.ip;
-        } else if (ipifyAPIRes.online) {
-            address = ipifyAPIRes.ip;
-        } else if (ipBDAPIRes.online) {
-            address = ipBDAPIRes.ipString;
+        } else if (ipifyAPIres.online) {
+            address = ipifyAPIres.ip;
+        } else if (clientAPIres.online) {
+            address = clientAPIres.ipString;
+        } else if (roamingAPIres.online) {
+            address = "null";
         }
 
         eR.vp_e.h.innerHTML = "ip address: " + address;

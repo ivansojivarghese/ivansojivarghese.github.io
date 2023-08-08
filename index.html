@@ -470,15 +470,15 @@
             // LIVE APIs
 
             // obtaining the IP Address, ipify (unlimited - 1 request per sec.)
-            var ipifyAPIRes = {};
+            var ipifyAPIres = {};
             $(function() {
                 $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
                     function(json) {
                         try {
-                            ipifyAPIRes.ip =  json.ip;
-                            ipifyAPIRes.online = true;   
+                            ipifyAPIres.ip =  json.ip;
+                            ipifyAPIres.online = true;   
                         } catch (error) {
-                            ipifyAPIRes.error = true;   
+                            ipifyAPIres.error = true;   
                         }
                     }
                 );
