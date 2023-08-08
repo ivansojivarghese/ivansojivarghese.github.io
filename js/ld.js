@@ -1215,10 +1215,13 @@ function errorCheck() { // check for errors
 
     eR.a = ["fC", "tr", "fS", "mt", "ck", "vp", "or", "dp", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
-    // msc. stuff
+    // API stuff
 
     apiInit = op.d.getTime(); // start API load time (at init)
     ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+    ipBDAPI(); // get user IP information + proxy usage status
+
+    // msc. stuff
 
     op.fS = checkFullScreen();
     op.sp = !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[2]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[3]));
@@ -1251,9 +1254,12 @@ function errorCheck() { // check for errors
         eR.h = "ld";
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.h = "dp";
+
     } else if (ipAPIres.online && (tz !== ipAPIres.timezone)) { // potential vpn usage (when REST-fetched + device time zones don't match)
+
         eR.h = "vp";
         eR.vp_e.h.innerHTML = "ip address: " + ipAPIres.ip;
+
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         var j = true;
         eR.h = "ck";
