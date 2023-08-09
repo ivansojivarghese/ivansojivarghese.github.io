@@ -507,6 +507,11 @@
 
             $.getJSON(jsonloc.tzc, function(data) { // timezone to country code - https://gist.github.com/riamaria/d08b352bc671f6615bd9
                 try {
+
+                    for (const id in data.resources) {
+                        console.log(data.resources[id]._descriptor.name)
+                    }
+
                     tzConAPIres = data;
                     tzConAPIres.online = true;   
                 } catch (error) {
