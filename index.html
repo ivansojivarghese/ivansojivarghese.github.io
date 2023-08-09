@@ -157,8 +157,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org http://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com raw.githubusercontent.com gist.githubusercontent.com; 
-        connect-src 'self' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org http://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com raw.githubusercontent.com gist.githubusercontent.com; 
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org http://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com raw.githubusercontent.com gist.githubusercontent.com datahub.io; 
+        connect-src 'self' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org http://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com raw.githubusercontent.com gist.githubusercontent.com datahub.io; 
         img-src 'self' www.googletagmanager.com openweathermap.org; 
         style-src 'self' 'unsafe-inline'; 
         frame-ancestors 'none';
@@ -490,7 +490,8 @@
             var jsonloc = {
                     eng : 'https://raw.githubusercontent.com/hyperreality/American-British-English-Translator/master/data/british_spellings.json',
                     // tzc : 'https://gist.githubusercontent.com/riamaria/d08b352bc671f6615bd9/raw/57200f042af7f464e21f687e2fbb27b872c043ff/timezones-per-country.json'
-                    tzc : 'https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.json'
+                    // tzc : 'https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.json'
+                    tzc : 'https://datahub.io/core/country-list/datapackage.json'
                 },
                 engAPIres = {},
                 tzConAPIres = {};
