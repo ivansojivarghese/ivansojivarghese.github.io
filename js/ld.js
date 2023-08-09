@@ -1236,7 +1236,7 @@ function errorCheck() { // check for errors
         roamingAPI(ipAPIres.lat, ipAPIres.lon);
     }
     timeAPI(); // GET USER time information (from IP Address, alternative to ipAPI)
-    countryAPI(); // GET USER country information
+    countryAPI("/104.236.128.193"); // GET USER country information (from IP Address) (ENTER A region IP value for language testing, "/" + IP Address)
 
     // msc. stuff
 
