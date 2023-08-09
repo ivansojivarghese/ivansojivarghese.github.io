@@ -320,8 +320,8 @@ async function timeAPI() { // unlimited, http://worldtimeapi.org/
         })
 }
 
-async function countryAPI() { // unlimited, https://country.is/
-    await fetch("https://api.country.is/")
+async function countryAPI(v) { // unlimited, https://country.is/
+    await fetch("https://api.country.is/" + v)
         .then((response) => {
             return response.json().then((data) => {
                 countryAPIres = data;
