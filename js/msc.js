@@ -143,6 +143,7 @@ var wH = window.outerHeight, // height
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
     apiSuccess = false, // check
+    criticalAPI = false,
     ipAPIres = {},
     clientAPIres = {},
     roamingAPIres = {},

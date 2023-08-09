@@ -1245,6 +1245,7 @@ function errorCheck() { // check for errors
     translate_Check = checkTranslation();
     focus_Check = checkFocus();
     tDevice = isTouchSupported();
+    criticalAPI = js_load();
 
     if (op.sp || !viewportValid()) { // check if screen/window/tab is split (20:80 ratio max)
         op.spR = true;
@@ -1475,7 +1476,7 @@ setTimeout(function() {
         engLangUpdate(op.lang); // update eng. language variant
     } else {
         console.log("country API failed");
-        
+
         // fatal error
     }
 
