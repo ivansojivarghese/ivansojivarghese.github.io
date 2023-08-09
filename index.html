@@ -487,27 +487,25 @@
             // en-GB to en-US keyword translation
             // LIVE FETCH from github rep. - https://github.com/hyperreality/American-British-English-Translator
 
-            var jsonEng = "https://raw.githubusercontent.com/hyperreality/American-British-English-Translator/master/data/british_spellings.json",
-                jsonTzc = "https://gist.githubusercontent.com/riamaria/d08b352bc671f6615bd9/raw/57200f042af7f464e21f687e2fbb27b872c043ff/timezones-per-country.json",
-                jsonloc = {
+            var jsonloc = {
                     eng : 'https://raw.githubusercontent.com/hyperreality/American-British-English-Translator/master/data/british_spellings.json',
                     tzc : 'https://gist.githubusercontent.com/riamaria/d08b352bc671f6615bd9/raw/57200f042af7f464e21f687e2fbb27b872c043ff/timezones-per-country.json'
                 },
                 engAPIres = {},
                 tzConAPIres = {};
 
-            $.getJSON(jsonEng, function(data) { // british eng. to american eng. trs
+            $.getJSON(jsonloc.eng, function(data) { // british eng. to american eng. trs
                 try {
-                    engAPIres =  json.data;
+                    engAPIres = data;
                     engAPIres.online = true;   
                 } catch (error) {
                     engAPIres.error = true;   
                 }
             });
 
-            $.getJSON(jsonTzc, function(data) { // timezone to country code 
+            $.getJSON(jsonloc.tzc, function(data) { // timezone to country code - https://gist.github.com/riamaria/d08b352bc671f6615bd9
                 try {
-                    tzConAPIres =  json.data;
+                    tzConAPIres = data;
                     tzConAPIres.online = true;   
                 } catch (error) {
                     tzConAPIres.error = true;   
