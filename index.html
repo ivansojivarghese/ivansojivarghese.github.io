@@ -487,16 +487,29 @@
             // en-GB to en-US keyword translation
             // LIVE FETCH from github rep. - https://github.com/hyperreality/American-British-English-Translator
 
-            var rawbase = 'https://raw.githubusercontent.com/';
-            var jsonloc = 'hyperreality/American-British-English-Translator/master/data/british_spellings.json';
-            var engAPIres = {};
+            var rawbase = 'https://raw.githubusercontent.com/',
+                jsonloc = {
+                    eng : 'hyperreality/American-British-English-Translator/master/data/british_spellings.json',
+                    tzc : 'riamaria/d08b352bc671f6615bd9/raw/57200f042af7f464e21f687e2fbb27b872c043ff/timezones-per-country.json'
+                },
+                engAPIres = {},
+                tzConAPIres = {};
 
-            $.getJSON(rawbase + jsonloc, function(data) { // british eng. to american eng. trs
+            $.getJSON(rawbase + jsonloc.eng, function(data) { // british eng. to american eng. trs
                 try {
                     engAPIres =  json.data;
                     engAPIres.online = true;   
                 } catch (error) {
                     engAPIres.error = true;   
+                }
+            });
+
+            $.getJSON(rawbase + jsonloc.tzc, function(data) { // british eng. to american eng. trs
+                try {
+                    tzConAPIres =  json.data;
+                    tzConAPIres.online = true;   
+                } catch (error) {
+                    tzConAPIres.error = true;   
                 }
             });
 

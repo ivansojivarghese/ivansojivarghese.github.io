@@ -1366,11 +1366,9 @@ function engLangUpdate(v) { // update eng. language variant
         for (i = 0; i <= (op.txts.length - 1); i++) { // loop through all STATIC text elements
             let x = op.txts[i].replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
             let newArr = x.trim().split(" ");
-
             for (j = 0; j <= (newArr.length - 1); j++) {
                 console.log(newArr[i]);
             }
-
         }
     }
 }
