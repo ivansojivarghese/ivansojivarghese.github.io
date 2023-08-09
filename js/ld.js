@@ -1246,7 +1246,7 @@ function errorCheck() { // check for errors
     focus_Check = checkFocus();
     tDevice = isTouchSupported();
     
-    criticalAPI = js_load();
+    // criticalAPI = js_load();
 
     if (op.sp || !viewportValid()) { // check if screen/window/tab is split (20:80 ratio max)
         op.spR = true;
