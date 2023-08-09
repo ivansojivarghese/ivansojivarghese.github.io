@@ -1368,7 +1368,7 @@ function engLangUpdate(v) { // update eng. language variant
             let x = op.txts[i].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
             let newArr = x.trim().split(" ");
             for (j = 0; j <= (newArr.length - 1); j++) {
-                console.log(newArr[i]);
+                console.log(newArr[j]);
             }
         }
     }
