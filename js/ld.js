@@ -46,6 +46,10 @@ eR = { // error
     vp_e : {
         h : document.getElementById("error_vph4"), // h4
     },
+    ft : document.getElementById("error_ft"), // fatal error
+    ft_e : {
+        h : document.getElementById("error_fth4") // h4
+    },
     pl : document.getElementById("error_pl"), // platform/browser
     pl_e : {
         p : document.getElementById("error_plp"), // p
@@ -821,8 +825,8 @@ function load_e() { // end the loading sequence
                             rL.dt.classList.remove("d_n"); // show dot
                         }
                         if (js_load() === null) {
-                            eR.h;
-                            eR.p;
+                            eR.h = "ft";
+                            eR.p = "ft";
                         }
 
                         rL.r.classList.add("aniM-p"); // stop animation in the rings
