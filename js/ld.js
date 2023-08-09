@@ -1469,8 +1469,10 @@ setTimeout(function() {
         console.log("UMB not defined");
     }
 
-    op.lang = engLangVar(); // set eng. language variant
-    engLangUpdate(op.lang); // update eng. language variant
+    if (countryAPIres.online) {
+        op.lang = engLangVar(countryAPIres.country); // set eng. language variant
+        engLangUpdate(op.lang); // update eng. language variant
+    }
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
 
