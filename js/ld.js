@@ -47,9 +47,6 @@ eR = { // error
         h : document.getElementById("error_vph4"), // h4
     },
     ft : document.getElementById("error_ft"), // fatal error
-    ft_e : {
-        h : document.getElementById("error_fth4") // h4
-    },
     pl : document.getElementById("error_pl"), // platform/browser
     pl_e : {
         p : document.getElementById("error_plp"), // p
