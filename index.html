@@ -484,12 +484,20 @@
                 );
             });
 
+            // en-GB to en-US keyword translation
+            // LIVE FETCH from github rep. - https://github.com/hyperreality/American-British-English-Translator
+
             var rawbase = 'https://raw.githubusercontent.com/';
             var jsonloc = 'hyperreality/American-British-English-Translator/master/data/british_spellings.json';
+            var engAPIres = {};
 
-            $.getJSON(rawbase + jsonloc, function(data) {
-                console.log(data);
-                //do what you want with data
+            $.getJSON(rawbase + jsonloc, function(data) { // british eng. to american eng. trs
+                try {
+                    engAPIres =  json.data;
+                    engAPIres.online = true;   
+                } catch (error) {
+                    engAPIres.error = true;   
+                }
             });
 
         </script>
