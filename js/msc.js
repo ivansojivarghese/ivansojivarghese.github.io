@@ -3023,7 +3023,9 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                         vw.mB_L = false;
                         // eR.s = false;
-                        
+
+                        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
+
                         // STATIC ERRORS (UPDATE WHEN NEEDED!)
                         if ((op.b.f || op.sys === null || op.bN || op.pl) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0 && rL.i)) { // check for platform support
                             if (op.b.f) {
