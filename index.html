@@ -157,8 +157,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org http://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com; 
-        connect-src 'self' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org http://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com; 
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org http://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com githubusercontent.com; 
+        connect-src 'self' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org http://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com githubusercontent.com; 
         img-src 'self' www.googletagmanager.com openweathermap.org; 
         style-src 'self' 'unsafe-inline'; 
         frame-ancestors 'none';
@@ -482,6 +482,14 @@
                         }
                     }
                 );
+            });
+
+            var rawbase = 'https://raw.githubusercontent.com/';
+            var jsonloc = 'hyperreality/American-British-English-Translator/master/data/british_spellings.json';
+
+            $.getJSON(rawbase + jsonloc, function(data) {
+                console.log(data);
+                //do what you want with data
             });
 
         </script>
