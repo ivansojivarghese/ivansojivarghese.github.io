@@ -146,7 +146,8 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     ipAPIres = {},
     clientAPIres = {},
     roamingAPIres = {},
-    timeAPIres = {};
+    timeAPIres = {},
+    countryAPIres = {};
 
 
 /////////////////////////////////////////////////////
@@ -315,6 +316,18 @@ async function timeAPI() { // unlimited, http://worldtimeapi.org/
                 timeAPIres.online = true;
             }).catch((error) => {
                 timeAPIres.error = true;
+            });
+        })
+}
+
+async function countryAPI() { // unlimited, https://country.is/
+    await fetch("https://api.country.is/")
+        .then((response) => {
+            return response.json().then((data) => {
+                countryAPIres = data;
+                countryAPIres.online = true;
+            }).catch((error) => {
+                countryAPIres.error = true;
             });
         })
 }
