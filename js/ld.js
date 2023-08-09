@@ -797,7 +797,7 @@ function load_e() { // end the loading sequence
                     estimateNetworkSpeed_abort.abort();
                 }, op.te);
 
-            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && js_load() && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
+            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && (js_load() || (js_load() === null)) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
 
                 js_load();
 
@@ -819,6 +819,10 @@ function load_e() { // end the loading sequence
                         if (!cacheEnabled || aborted) {
                             rL.r.classList.add("d_n"); // hide rings
                             rL.dt.classList.remove("d_n"); // show dot
+                        }
+                        if (js_load() === null) {
+                            eR.h;
+                            eR.p;
                         }
 
                         rL.r.classList.add("aniM-p"); // stop animation in the rings
