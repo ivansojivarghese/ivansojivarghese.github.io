@@ -1465,13 +1465,18 @@ setTimeout(function() {
             browserCheck(true); // secondary check if online API is available
         }
     } catch (err) {
-        // do something
         console.log("UMB not defined");
+
+        // fatal error
     }
 
     if (countryAPIres.online) {
         op.lang = engLangVar(countryAPIres.country); // set eng. language variant
         engLangUpdate(op.lang); // update eng. language variant
+    } else {
+        console.log("country API failed");
+        
+        // fatal error
     }
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup

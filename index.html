@@ -487,12 +487,11 @@
             // LIVE JSON FETCHING - 
 
             var jsonloc = {
-                    eng : 'https://raw.githubusercontent.com/hyperreality/American-British-English-Translator/master/data/british_spellings.json',
+                    eng : 'https://raw.githubusercontent.com/hyperreality/American-British-English-Translator/master/data/british_spellings.json'
                     
                     // tzc : 'https://gist.githubusercontent.com/riamaria/d08b352bc671f6615bd9/raw/57200f042af7f464e21f687e2fbb27b872c043ff/timezones-per-country.json'
-
                     // tzc : 'https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.json',
-                    tzc : 'https://raw.githubusercontent.com/mledoze/countries/master/countries.json'
+                    // tzc : 'https://raw.githubusercontent.com/mledoze/countries/master/countries.json'
 
                 },
                 engAPIres = {},
@@ -506,15 +505,16 @@
                     engAPIres.error = true;   
                 }
             });
-
-            $.getJSON(jsonloc.tzc, function(data) { // timezone to country code - https://gist.github.com/riamaria/d08b352bc671f6615bd9
+            
+            /*
+            $.getJSON(jsonloc.tzc, function(data) { // timezone to country code
                 try {
                     tzConAPIres = data;
                     tzConAPIres.online = true;   
                 } catch (error) {
                     tzConAPIres.error = true;   //
                 }
-            });
+            });*/
 
         </script>
 
