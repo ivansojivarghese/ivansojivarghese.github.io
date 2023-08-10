@@ -1422,7 +1422,7 @@ function engLangUpdate(v) { // update eng. language variant
                         var word = h.toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
                             var tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
-                                x1 = org.indexOf(newArr[j]), // get first index of word
+                                x1 = op.txts[c].innerHTML.indexOf(newArr[j]), // get first index of word
                                 L = newArr[j].length, // length of word
                                 org1 = org.slice(0, x1), // original segment 1
                                 org2 = org.slice(x1 + L, org.length), // original segment 2
