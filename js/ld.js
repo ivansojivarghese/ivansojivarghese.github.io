@@ -1419,7 +1419,7 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = engAPIres[h].toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
-                            console.log(newArr[j]);
+                            console.log(newArr[j]); // 
                         }
                     }
                 }
