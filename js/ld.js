@@ -1376,10 +1376,12 @@ function engLangUpdate(v) { // update eng. language variant
             "class",
             "id",
             "em",
+            "a",
         ];
     if (change) {
         for (i = 0; i <= (op.txts.length - 1); i++) { // loop through all STATIC text elements
-            let x = op.txts[i].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
+            // let x = op.txts[i].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
+            let x = op.txts[i].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words
             let newArr = x.trim().split(" ");
             for (j = 0; j <= (newArr.length - 1); j++) {
                 const exemptionsCheck = exemptions.every(value => { // check if word is part of exemption list
