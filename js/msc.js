@@ -272,7 +272,7 @@ window.addEventListener("load", function() { // 2 - full load
 // APIs
 
 async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/ 
-    await fetch("https://ipinfo.io" + v + "/json?token=38ec70e8a088d5a") // 'a' added at end for TESTING
+    await fetch("https://ipinfo.io" + v + "/json?token=38ec70e8a088d5") // 'a' character may be added at end for TESTING
         .then((response) => {
             return response.json().then((data) => {
                 ipAPIres = data;
