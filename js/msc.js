@@ -3057,6 +3057,8 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             eR.p = "dp";
                         } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
                             eR.p = "vp"; // check for vpn/proxy
+                        } else if (js_load_e() || op.er.ft) { 
+                            eR.p = "ft"; // fatal error
                         } else if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
                         } else if (op.mt) {
