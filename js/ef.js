@@ -9,66 +9,6 @@ function timeNow(el) {
     el.title = op.d;
 }
 
-function wordType(w) { // determine the type of word - Capitalised, UPPER CASE, lower case
-    var ar = w.toString(),
-        invalid = false,
-        alpha = false,
-        c = false, // capitalised
-        u = false, // uppercase
-        L = false; // lowercase
-        
-    for (i = 0; i <= (ar.length - 1); i++) {
-        if (ar[i].match(/[a-z]/i)) { // ONLY check on alphabets
-            alpha = true;
-            if (i === 0) { // first letter
-                if (ar[i].toUpperCase() === ar[i]) { // CAPITAL
-                    c = true;
-                    if (i === (ar.length - 1)) { // if ONLY LETTER in WORD
-                        u = false;
-                    } else {
-                        u = true;
-                    }
-                } else if (ar[i].toLowerCase() === ar[i]) { // LOWER CASE
-                    L = true;
-                }
-            } else if (i === 1) { // second letter
-                if (ar[i].toUpperCase() === ar[i]) { // UPPER CASE
-                    if (c) { // IF CAPITAL
-                        c = false;
-                        u = true;  
-                    } else {
-                        invalid = true;
-                    }
-                } else if (ar[i].toLowerCase() === ar[i]) {
-                    if (c) { // IF CAPITAL
-                        c = true;
-                        u = false;  
-                    } else {
-                        L = true; // LOWER CASE
-                        c = false;
-                        u = false;  
-                    }
-                }
-            } else if (i > 1) { // break at second letter or higher
-                break;
-            }
-        } else if (!alpha) {
-            invalid = true;
-            break;
-        }
-    }
-
-    if (invalid) { // RETURN VALUE
-        return "Invalid";
-    } else if (c) {
-        return "Capital";
-    } else if (u) {
-        return "Uppercase";
-    } else if (L) {
-        return "Lowercase";
-    }
-}
-
 // effects
 
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
