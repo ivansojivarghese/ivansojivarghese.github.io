@@ -48,6 +48,8 @@ function wordType(w) { // determine the type of word - Capitalised, UPPER CASE, 
                         u = false;  
                     }
                 }
+            } else if (i > 1) { // second letter or higher
+                break;
             }
         } else if (!alpha) {
             invalid = true;
