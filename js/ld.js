@@ -1303,7 +1303,7 @@ function errorCheck() { // check for errors
     } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) { // potential vpn usage (when REST-fetched + device time zones don't match)
         
         var address = ""; // UPDATE LINE 827 ABOVE FOR CHANGES IN CONDITIONS
-        eR.h = "vp";
+        // eR.h = "vp";
         if (ipAPIres.online) { // check on multiple APIs to get IP address
             address = ipAPIres.ip;
         } else if (ipifyAPIres.online) {
