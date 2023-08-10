@@ -1407,14 +1407,12 @@ function engLangUpdate(v) { // update eng. language variant
             for (j = 0; j <= (newArr.length - 1); j++) {
                 var exemptionsCheck = false;
                 for (k = 0; k <= (exemptions.length - 1); k++) {
-                    if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) {
+                    if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) { // check for exemptions
                         exemptionsCheck = true;
                         break;
                     }
                 }
-                if (exemptionsCheck) {
-
-                } else {
+                if (!exemptionsCheck) { // if no exemptions made
                     console.log(newArr[j]);
                 }
             }
