@@ -1424,7 +1424,7 @@ function engLangUpdate(v) { // update eng. language variant
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
                             var wdType = wordType(newArr[j]); // determine type of word scanned
 
-                            console.log(wdType);
+                            console.log(newArr[j] + ", " + wdType);
 
                             // engAPIres[h]
                         }
