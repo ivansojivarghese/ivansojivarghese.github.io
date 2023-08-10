@@ -1425,7 +1425,7 @@ function engLangUpdate(v) { // update eng. language variant
                                 x1 = op.txts[c].innerHTML.indexOf(newArr[j]), // get first index of word
                                 L = newArr[j].length, // length of word
                                 org1 = op.txts[c].innerHTML.slice(0, x1), // original segment 1
-                                org2 = op.txts[c].innerHTML.slice(x1 + L, org.length), // original segment 2
+                                org2 = op.txts[c].innerHTML.slice(x1 + L, op.txts[c].innerHTML.length), // original segment 2
                                 newOrg = org1 + tag + org2, // new original
                                 wdType = wordType(newArr[j]), // determine type of word scanned
                                 repWd = ""; // replacement word
