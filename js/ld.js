@@ -1407,8 +1407,10 @@ function engLangUpdate(v) { // update eng. language variant
 
             let x = op.txts[i].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words (no numbers)
             let newArr = x.trim().split(" ");
+
             for (j = 0; j <= (newArr.length - 1); j++) {
-                var exemptionsCheck = false;
+                var 
+                    exemptionsCheck = false;
                 for (k = 0; k <= (exemptions.length - 1); k++) {
                     if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) { // check for exemptions
                         exemptionsCheck = true;
