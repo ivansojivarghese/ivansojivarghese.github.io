@@ -1405,6 +1405,7 @@ function engLangUpdate(v) { // update eng. language variant
 
             // let x = op.txts[c].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
 
+            var org = op.txts[c].innerHTML;
             let x = op.txts[c].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words (no numbers)
             let newArr = x.trim().split(" ");
 
@@ -1423,7 +1424,7 @@ function engLangUpdate(v) { // update eng. language variant
                             var wdType = wordType(newArr[j]), // determine type of word scanned
                                 repWd = ""; // replacement word
 
-
+                            op.txts[c];
 
                             switch (wdType) { // find a replacement based on original
                                 case "Capital":
