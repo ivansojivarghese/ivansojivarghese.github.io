@@ -16,6 +16,7 @@ function wordType(w) { // determine the type of word - Capitalised, UPPER CASE, 
         c = false, // capitalised
         u = false, // uppercase
         L = false; // lowercase
+        
     for (i = 0; i <= (ar.length - 1); i++) {
         if (ar[i].match(/[a-z]/i)) { // ONLY check on alphabets
             alpha = true;
