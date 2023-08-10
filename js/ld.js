@@ -1423,7 +1423,9 @@ function engLangUpdate(v) { // update eng. language variant
                         var word = h.toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
 
-                            console.log(newArr[j] + ", " + wordType(newArr[j])); 
+                            // console.log(newArr[j] + ", " + wordType(newArr[j])); 
+
+                            console.log(newArr[j]);
 
                             // engAPIres[h]
                         }
