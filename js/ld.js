@@ -1397,7 +1397,8 @@ function engLangUpdate(v) { // update eng. language variant
             "",
             "Ivan", // name(s)
             "Soji",
-            "Varghese"
+            "Varghese",
+            "online" // other
         ];
     if (change) {
         for (i = 0; i <= (op.txts.length - 1); i++) { // loop through all STATIC text elements
