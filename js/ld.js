@@ -1369,13 +1369,27 @@ function errorPrecedence(n, p, a) { // check for priority of errors
 ///////////////////////////////////////////////////////////
 
 function engLangUpdate(v) { // update eng. language variant
-    var change = (v === "us") ? true : false; // if american english is requested/required
+    var change = (v === "us") ? true : false, // if american english is requested/required
+        exemptions = [
+            " ",
+            "span",
+            "class",
+            "id",
+            "em",
+        ];
     if (change) {
         for (i = 0; i <= (op.txts.length - 1); i++) { // loop through all STATIC text elements
             let x = op.txts[i].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
             let newArr = x.trim().split(" ");
             for (j = 0; j <= (newArr.length - 1); j++) {
-                console.log(newArr[j]);
+                const exemptionsCheck = exemptions.every(value => { // check if word is part of exemption list
+                    return value === newArr[j];
+                  });
+                if (exemptionsCheck) {
+
+                } else {
+                    console.log(newArr[j]);
+                }
             }
         }
     }
