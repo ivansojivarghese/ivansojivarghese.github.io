@@ -1384,9 +1384,17 @@ function engLangUpdate(v) { // update eng. language variant
             let x = op.txts[i].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words
             let newArr = x.trim().split(" ");
             for (j = 0; j <= (newArr.length - 1); j++) {
+                /*
                 const exemptionsCheck = exemptions.every(value => { // check if word is part of exemption list
                     return value === newArr[j];
-                  });
+                  });*/
+                var exemptionsCheck = false;
+                for (k = 0; k <= (exemptions.length - 1); k++) {
+                    if (newArr[j] === exemptions[k]) {
+                        exemptionsCheck = true;
+                        break;
+                    }
+                }
                 if (exemptionsCheck) {
 
                 } else {
