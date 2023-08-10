@@ -1404,8 +1404,8 @@ function engLangUpdate(v) { // update eng. language variant
         for (c = 0, d = 0; c <= (op.txts.length - 1); c++) { // loop through all STATIC text elements
 
             // let x = op.txts[c].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
+            // var org = op.txts[c].innerHTML;
 
-            var org = op.txts[c].innerHTML;
             let x = op.txts[c].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words (no numbers)
             let newArr = x.trim().split(" ");
 
@@ -1424,8 +1424,8 @@ function engLangUpdate(v) { // update eng. language variant
                             var tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
                                 x1 = op.txts[c].innerHTML.indexOf(newArr[j]), // get first index of word
                                 L = newArr[j].length, // length of word
-                                org1 = org.slice(0, x1), // original segment 1
-                                org2 = org.slice(x1 + L, org.length), // original segment 2
+                                org1 = op.txts[c].innerHTML.slice(0, x1), // original segment 1
+                                org2 = op.txts[c].innerHTML.slice(x1 + L, org.length), // original segment 2
                                 newOrg = org1 + tag + org2, // new original
                                 wdType = wordType(newArr[j]), // determine type of word scanned
                                 repWd = ""; // replacement word
