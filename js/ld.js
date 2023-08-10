@@ -1456,6 +1456,10 @@ function engLangUpdate(v) { // update eng. language variant
 
                             // console.log(newArr[j] + ", " + wdType);
 
+                            if (count > 1) {
+
+                                // LOOP AGAIN? SAME WORD IN SAME ELEMENT
+                            }
                             d++;
                         }
                     }
