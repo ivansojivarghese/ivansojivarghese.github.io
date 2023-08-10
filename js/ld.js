@@ -1395,11 +1395,9 @@ function engLangUpdate(v) { // update eng. language variant
         exemptions = [
             " ",
             "",
-            "span",
-            "class",
-            "id",
-            "em",
-            "a",
+            "Ivan", // name(s)
+            "Soji",
+            "Varghese"
         ];
     if (change) {
         for (i = 0; i <= (op.txts.length - 1); i++) { // loop through all STATIC text elements
@@ -1409,7 +1407,7 @@ function engLangUpdate(v) { // update eng. language variant
             for (j = 0; j <= (newArr.length - 1); j++) {
                 var exemptionsCheck = false;
                 for (k = 0; k <= (exemptions.length - 1); k++) {
-                    if (newArr[j] === exemptions[k]) {
+                    if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) {
                         exemptionsCheck = true;
                         break;
                     }
