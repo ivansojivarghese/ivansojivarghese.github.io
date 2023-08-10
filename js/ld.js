@@ -798,7 +798,7 @@ function load_e() { // end the loading sequence
                     estimateNetworkSpeed_abort.abort();
                 }, op.te);
 
-            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && (js_load() || js_load_e() || op.er.ft) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
+            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && (js_load() || js_load_e() || op.er.ft) && (ipAPIres.online || (ipifyAPIres.online && timeAPIres.online) || clientAPIres.online || roamingAPIres.online) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
 
                 js_load();
 
@@ -817,10 +817,12 @@ function load_e() { // end the loading sequence
                         if (op.c.e || (op.ne.t0_5s || (!op.c.e && op.Ld.dom <= op.Ld.t)) || eR.s) {
                             rL.el.classList.add("d_n"); // remove loader from display
                         }
+
                         if (!cacheEnabled || aborted) {
                             rL.r.classList.add("d_n"); // hide rings
                             rL.dt.classList.remove("d_n"); // show dot
                         }
+
                         if (js_load_e() || op.er.ft) { // if a fatal error
                             eR.h = "ft";
                             eR.p = "ft";
