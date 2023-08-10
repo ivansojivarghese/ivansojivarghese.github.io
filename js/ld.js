@@ -823,27 +823,29 @@ function load_e() { // end the loading sequence
                             rL.dt.classList.remove("d_n"); // show dot
                         }
 
-                        if (js_load_e() || op.er.ft) { // if a fatal error
-                            eR.h = "ft";
-                            eR.p = "ft";
-                        } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
-                            
-                            var address = "";
-                            eR.h = "vp";
-                            eR.p = "vp";
+                        if (eR.h !== "ld") { // if not landscape error (mobile)
+                            if (js_load_e() || op.er.ft) { // if a fatal error
+                                eR.h = "ft";
+                                eR.p = "ft";
+                            } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
+                                
+                                var address = "";
+                                eR.h = "vp";
+                                eR.p = "vp";
 
-                            if (ipAPIres.online) { // check on multiple APIs to get IP address
-                                address = ipAPIres.ip;
-                            } else if (ipifyAPIres.online) {
-                                address = ipifyAPIres.ip;
-                            } else if (clientAPIres.online) {
-                                address = clientAPIres.ipString;
-                            } else if (roamingAPIres.online) {
-                                address = "not obtainable";
+                                if (ipAPIres.online) { // check on multiple APIs to get IP address
+                                    address = ipAPIres.ip;
+                                } else if (ipifyAPIres.online) {
+                                    address = ipifyAPIres.ip;
+                                } else if (clientAPIres.online) {
+                                    address = clientAPIres.ipString;
+                                } else if (roamingAPIres.online) {
+                                    address = "not obtainable";
+                                }
+                        
+                                eR.vp_e.h.classList.add("revert");
+                                eR.vp_e.h.innerHTML = "ip address: " + address;
                             }
-                    
-                            eR.vp_e.h.classList.add("revert");
-                            eR.vp_e.h.innerHTML = "ip address: " + address;
                         }
 
                         rL.r.classList.add("aniM-p"); // stop animation in the rings
