@@ -556,7 +556,8 @@ op = {
     er : { // errors (fixes) - as messages
         d : false, // display (render)
         ch : false,  // caching
-        dp : false
+        dp : false,
+        ft : false // fatal error
     },
     r : null, // resource link origin
     n : null, // online status (internet connectivity)

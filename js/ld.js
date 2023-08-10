@@ -798,7 +798,7 @@ function load_e() { // end the loading sequence
                     estimateNetworkSpeed_abort.abort();
                 }, op.te);
 
-            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && (js_load() || (js_load() === null && vw.dk)) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
+            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && (js_load() || js_load_e() || op.er.ft) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
 
                 js_load();
 
@@ -821,7 +821,7 @@ function load_e() { // end the loading sequence
                             rL.r.classList.add("d_n"); // hide rings
                             rL.dt.classList.remove("d_n"); // show dot
                         }
-                        if (js_load() === null && vw.dk) {
+                        if (js_load_e() || op.er.ft) { // if a fatal error
                             eR.h = "ft";
                             eR.p = "ft";
                         }
@@ -1473,8 +1473,7 @@ setTimeout(function() {
         }
     } catch (err) {
         console.log("UMB not defined");
-
-        // fatal error
+        op.er.ft = true; // fatal error
     }
 
     if (countryAPIres.online) {
@@ -1482,8 +1481,7 @@ setTimeout(function() {
         engLangUpdate(op.lang); // update eng. language variant
     } else {
         console.log("country API failed");
-
-        // fatal error
+        op.er.ft = true; // fatal error
     }
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup

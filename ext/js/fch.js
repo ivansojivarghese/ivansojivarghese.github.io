@@ -483,6 +483,10 @@ function js_load() { // check JS load progress (indiv.)
     }
 }
 
+function js_load_e() { // js_load extension (custom condition)
+    return (js_load() === null && vw.dk);
+}
+
 function js_live() { // update js - in live
     var // e = (!vw.pH && !vw.tB) ? el.lk3b : el.lk3c,
         e = el.lk3b,
