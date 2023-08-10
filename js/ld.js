@@ -1523,6 +1523,11 @@ setTimeout(function() {
         op.er.ft = true; // fatal error
     }
 
+    if (!engAPIres.online) { 
+        console.log("eng. language API failed");
+        op.er.ft = true; // fatal error
+    }
+
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
 
 }, op.t);
