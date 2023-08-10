@@ -824,6 +824,24 @@ function load_e() { // end the loading sequence
                         if (js_load_e() || op.er.ft) { // if a fatal error
                             eR.h = "ft";
                             eR.p = "ft";
+                        } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
+                            
+                            var address = "";
+                            eR.h = "vp";
+                            eR.p = "vp";
+
+                            if (ipAPIres.online) { // check on multiple APIs to get IP address
+                                address = ipAPIres.ip;
+                            } else if (ipifyAPIres.online) {
+                                address = ipifyAPIres.ip;
+                            } else if (clientAPIres.online) {
+                                address = clientAPIres.ipString;
+                            } else if (roamingAPIres.online) {
+                                address = "not obtainable";
+                            }
+                    
+                            eR.vp_e.h.classList.add("revert");
+                            eR.vp_e.h.innerHTML = "ip address: " + address;
                         }
 
                         rL.r.classList.add("aniM-p"); // stop animation in the rings
@@ -1372,6 +1390,7 @@ function engLangUpdate(v) { // update eng. language variant
     var change = (v === "us") ? true : false, // if american english is requested/required
         exemptions = [
             " ",
+            "",
             "span",
             "class",
             "id",
@@ -1381,13 +1400,9 @@ function engLangUpdate(v) { // update eng. language variant
     if (change) {
         for (i = 0; i <= (op.txts.length - 1); i++) { // loop through all STATIC text elements
             // let x = op.txts[i].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
-            let x = op.txts[i].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words
+            let x = op.txts[i].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words (no numbers)
             let newArr = x.trim().split(" ");
             for (j = 0; j <= (newArr.length - 1); j++) {
-                /*
-                const exemptionsCheck = exemptions.every(value => { // check if word is part of exemption list
-                    return value === newArr[j];
-                  });*/
                 var exemptionsCheck = false;
                 for (k = 0; k <= (exemptions.length - 1); k++) {
                     if (newArr[j] === exemptions[k]) {
