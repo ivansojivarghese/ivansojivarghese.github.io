@@ -3053,12 +3053,12 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 eR.pl_e.h.innerHTML = "unknown system";
                             }
                             eR.p = "pl";
+                        } else if (js_load_e() || op.er.ft) { 
+                            eR.p = "ft"; // fatal error
                         } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0)) { // device compatibility (incompatible speed/rendering)
                             eR.p = "dp";
                         } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
                             eR.p = "vp"; // check for vpn/proxy
-                        } else if (js_load_e() || op.er.ft) { 
-                            eR.p = "ft"; // fatal error
                         } else if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
                         } else if (op.mt) {
