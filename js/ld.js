@@ -1409,8 +1409,7 @@ function engLangUpdate(v) { // update eng. language variant
             let newArr = x.trim().split(" ");
 
             for (j = 0; j <= (newArr.length - 1); j++) {
-                var 
-                    exemptionsCheck = false;
+                var exemptionsCheck = false;
                 for (k = 0; k <= (exemptions.length - 1); k++) {
                     if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) { // check for exemptions
                         exemptionsCheck = true;
@@ -1418,15 +1417,31 @@ function engLangUpdate(v) { // update eng. language variant
                     }
                 }
                 if (!exemptionsCheck) { // if no exemptions made
-
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
-                            var wdType = wordType(newArr[j]); // determine type of word scanned
+                            var wdType = wordType(newArr[j]), // determine type of word scanned
+                                repWd = ""; // replacement word
+
+
+
+                            switch (wdType) { // find a replacement based on original
+                                case "Capital":
+                                    const str = word.charAt(0).toUpperCase() + word.slice(1);
+                                    repWd = str;
+                                break;
+                                case "Lowercase":
+                                    repWd = word.toLowerCase();
+                                break;
+                                case "Uppercase":
+                                    repWd = word.toUpperCase();
+                                break;
+                                case "Invalid":
+                                    repWd = null;
+                                break;
+                            }
 
                             console.log(newArr[j] + ", " + wdType);
-
-                            // engAPIres[h]
                         }
                     }
                 }
