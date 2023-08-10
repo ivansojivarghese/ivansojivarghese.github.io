@@ -1422,8 +1422,7 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
-
-                            // console.log(newArr[j] + ", " + wordType(newArr[j])); 
+                            var wdType = wordType(newArr[j]); // determine type of word scanned
 
                             console.log(newArr[j]);
 
