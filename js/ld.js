@@ -830,8 +830,8 @@ function load_e() { // end the loading sequence
                             } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
                                 
                                 var address = "";
-                                eR.h = "vp";
-                                eR.p = "vp";
+                                // eR.h = "vp";
+                                // eR.p = "vp";
 
                                 if (ipAPIres.online) { // check on multiple APIs to get IP address
                                     address = ipAPIres.ip;
