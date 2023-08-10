@@ -1421,10 +1421,18 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
-                            var wdType = wordType(newArr[j]), // determine type of word scanned
+                            var tag = "<span id='lg" + j + "'>" + newArr[j] + "</span>", // tagged original word
+                                x1 = org.indexOf(newArr[j]), // get first index of word
+                                L = newArr[j].length, // length of word
+                                org1 = org.slice(0, x1), // original segment 1
+                                org2 = org.slice(x1 + L, org.length), // original segment 2
+                                newOrg = org1 + tag + org2, // new original
+                                wdType = wordType(newArr[j]), // determine type of word scanned
                                 repWd = ""; // replacement word
 
-                            op.txts[c];
+                            op.txts[c].innerHTML = newOrg;
+
+                            // SAME WORDS IN SAME SENTENCE?
 
                             switch (wdType) { // find a replacement based on original
                                 case "Capital":
