@@ -1401,7 +1401,7 @@ function engLangUpdate(v) { // update eng. language variant
             "online" // other
         ];
     if (change) {
-        for (c = 0; c <= (op.txts.length - 1); c++) { // loop through all STATIC text elements
+        for (c = 0, d = 0; c <= (op.txts.length - 1); c++) { // loop through all STATIC text elements
 
             // let x = op.txts[c].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
 
@@ -1421,7 +1421,7 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
-                            var tag = "<span id='lg" + j + "'>" + newArr[j] + "</span>", // tagged original word
+                            var tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
                                 x1 = org.indexOf(newArr[j]), // get first index of word
                                 L = newArr[j].length, // length of word
                                 org1 = org.slice(0, x1), // original segment 1
@@ -1429,7 +1429,7 @@ function engLangUpdate(v) { // update eng. language variant
                                 newOrg = org1 + tag + org2, // new original
                                 wdType = wordType(newArr[j]), // determine type of word scanned
                                 repWd = ""; // replacement word
-
+                            d++;
                             op.txts[c].innerHTML = newOrg;
 
                             // SAME WORDS IN SAME SENTENCE?
