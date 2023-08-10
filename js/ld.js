@@ -1416,8 +1416,8 @@ function engLangUpdate(v) { // update eng. language variant
                 }
                 if (!exemptionsCheck) { // if no exemptions made
                     // console.log(newArr[j]);
-                    for (var h in engAPIres) {
-                        if (newArr[j].toLowerCase() === engAPIres[h].toLowerCase) {
+                    for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
+                        if (newArr[j].toLowerCase() === engAPIres[h].toLowerCase()) { // find a matching word
                             console.log(newArr[j]);
                         }
                     }
