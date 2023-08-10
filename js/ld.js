@@ -824,7 +824,7 @@ function load_e() { // end the loading sequence
                         if (js_load_e() || op.er.ft) { // if a fatal error
                             eR.h = "ft";
                             eR.p = "ft";
-                        } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
+                        } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
                             
                             var address = "";
                             eR.h = "vp";
