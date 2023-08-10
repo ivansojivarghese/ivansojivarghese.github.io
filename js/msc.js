@@ -459,6 +459,7 @@ if (getCookie("maxHeight") && tDevice) {
 
 op = { 
     host : hostname,
+    tz : Intl.DateTimeFormat().resolvedOptions().timeZone, // get user device registered time zone
     lang : "", // english language variant
     txts : document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, li, span"),
     sys : op.sys, // add from index
@@ -3039,7 +3040,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         vw.mB_L = false;
                         // eR.s = false;
 
-                        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
+                        // const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
 
                         // STATIC ERRORS (UPDATE WHEN NEEDED!)
                         if ((op.b.f || op.sys === null || op.bN || op.pl) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0 && rL.i)) { // check for platform support
@@ -3057,7 +3058,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             eR.p = "ft"; // fatal error
                         } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0)) { // device compatibility (incompatible speed/rendering)
                             eR.p = "dp";
-                        } else if ((ipAPIres.online && (tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
+                        } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
                             eR.p = "vp"; // check for vpn/proxy
                         } else if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
