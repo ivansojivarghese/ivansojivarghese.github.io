@@ -3014,6 +3014,19 @@ function wordType(w) { // determine the type of word - Capitalised, UPPER CASE, 
 }
 
 
+// Function to get index of occurrence - REFERENCE: https://www.geeksforgeeks.org/how-to-get-nth-occurrence-of-a-string-in-javascript/
+
+function getIndex(str, substr, ind) {
+    let Len = str.length,
+        i = -1;
+    while (ind-- && i++ < Len) {
+        i = str.indexOf(substr, i);
+        if (i < 0) break;
+    }
+    return i;
+}
+
+
 function viewportValid() { // check if viewport dimensions are proper/supported/non-square
     if (vw.pH || (!vw.pH && !vw.tB)) {
         if ((wiH >= (wiD * op.vwM) && !vw.mB_L) || (wiD >= (wiH * op.vwM) && vw.mB_L)) {

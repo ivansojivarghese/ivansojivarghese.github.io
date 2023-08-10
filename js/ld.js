@@ -1421,15 +1421,19 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
-                            var tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
-                                x1 = op.txts[c].innerHTML.indexOf(newArr[j]), // get first index of word
+                            var count = op.txts[c].innerHTML.count(newArr[j]), // count number of target keyword
+                                tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
+
+                                // x1 = op.txts[c].innerHTML.indexOf(newArr[j]), // get first index of word (with no duplicates)
+
+                                x1 = getIndex(op.txts[c].innerHTML, newArr[j], ind), // get index of word
                                 L = newArr[j].length, // length of word
                                 org1 = op.txts[c].innerHTML.slice(0, x1), // original segment 1
                                 org2 = op.txts[c].innerHTML.slice(x1 + L, op.txts[c].innerHTML.length), // original segment 2
                                 newOrg = org1 + tag + org2, // new original
                                 wdType = wordType(newArr[j]), // determine type of word scanned
                                 repWd = ""; // replacement word
-                            d++;
+            
                             op.txts[c].innerHTML = newOrg;
 
                             // SAME WORDS IN SAME SENTENCE?
@@ -1450,7 +1454,9 @@ function engLangUpdate(v) { // update eng. language variant
                                 break;
                             }
 
-                            console.log(newArr[j] + ", " + wdType);
+                            // console.log(newArr[j] + ", " + wdType);
+
+                            d++;
                         }
                     }
                 }
