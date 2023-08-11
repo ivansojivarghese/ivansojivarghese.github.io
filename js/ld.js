@@ -1075,11 +1075,17 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
     }
 }
 
+function kmToMiles(k) {
+    return Math.round((k / 1.609));
+}
+
 function load_js() { // [compatibility/variables] load
     dev.sC_a = !tDevice ? [15, 85, 1, 99] : [20, 80, 1, 99]; // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
     browserCheck(false); // primary check
     errorCheck(); 
     pos.st = (op.e / 100) * aH; // set scroll-validity threshold
+
+    dev.distance = (op.lang === "gb") ? 97 : kmToMiles(97); // km : miles
 
     // op.r = getSiteRes(); // get site resource origin
 

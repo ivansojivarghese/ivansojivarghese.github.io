@@ -37,7 +37,7 @@ var wH = window.outerHeight, // height
             course : "computer science", // course name
             location : gps.city.toLowerCase(), // geographic location/region/city/country/state
             coords : gpsInfo.latDeg + gpsInfo.latMin + gpsInfo.latSec + gpsInfo.latDir + " " + gpsInfo.lonDeg + gpsInfo.lonMin + gpsInfo.lonSec + gpsInfo.lonDir,
-            distance : (op.lang === "gb") ? 97 : 60, // km : miles
+            distance : 97,
             hoursNo : 183,
             cappuccinosNo : 245
         },
