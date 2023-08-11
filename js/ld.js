@@ -847,8 +847,8 @@ function load_e() { // end the loading sequence
                             } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
                                 
                                 var address = "";
-                                // eR.h = "vp";
-                                // eR.p = "vp";
+                                eR.h = "vp";
+                                eR.p = "vp";
 
                                 if (ipAPIres.online) { // check on multiple APIs to get IP address
                                     address = ipAPIres.ip;
@@ -1280,13 +1280,13 @@ function errorCheck() { // check for errors
     // API stuff
 
     apiInit = op.d.getTime(); // start API load time (at init)
-    ipAPI("/104.236.128.193"); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+    ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
     clientAPI(); // get user IP information + proxy usage status (no arguments)
     if (ipAPIres.online) { // get USER ROAMING information using coords
         roamingAPI(ipAPIres.lat, ipAPIres.lon);
     }
     timeAPI(); // GET USER time information (from IP Address, alternative to ipAPI)
-    countryAPI("104.236.128.193"); // GET USER country information (from IP Address) (ENTER A region IP value for language testing, IP Address)
+    countryAPI(""); // GET USER country information (from IP Address) (ENTER A region IP value for language testing, IP Address)
 
     // msc. stuff
 
@@ -1326,7 +1326,7 @@ function errorCheck() { // check for errors
     } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) { // potential vpn usage (when REST-fetched + device time zones don't match)
         
         var address = ""; // UPDATE LINE 827 ABOVE FOR CHANGES IN CONDITIONS
-        // eR.h = "vp";
+        eR.h = "vp";
         if (ipAPIres.online) { // check on multiple APIs to get IP address
             address = ipAPIres.ip;
         } else if (ipifyAPIres.online) {
