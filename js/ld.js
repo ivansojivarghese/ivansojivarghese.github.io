@@ -824,6 +824,20 @@ function load_e() { // end the loading sequence
                         }
 
                         if (eR.h !== "ld") { // if not landscape error (mobile)
+
+                            if (countryAPIres.online) {
+                                op.lang = engLangVar(countryAPIres.country); // set eng. language variant
+                                engLangUpdate(op.lang); // update eng. language variant
+                            } else {
+                                console.log("country API failed");
+                                op.er.ft = true; // fatal error
+                            }
+                        
+                            if (!engAPIres.online) { 
+                                console.log("eng. language API failed");
+                                op.er.ft = true; // fatal error
+                            }
+
                             if (js_load_e() || op.er.ft) { // if a fatal error
                                 eR.h = "ft";
                                 eR.p = "ft";
@@ -1608,7 +1622,7 @@ setTimeout(function() {
         console.log("UMB not defined");
         op.er.ft = true; // fatal error
     }
-
+    /*
     if (countryAPIres.online) {
         op.lang = engLangVar(countryAPIres.country); // set eng. language variant
         engLangUpdate(op.lang); // update eng. language variant
@@ -1620,7 +1634,7 @@ setTimeout(function() {
     if (!engAPIres.online) { 
         console.log("eng. language API failed");
         op.er.ft = true; // fatal error
-    }
+    }*/
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
 
