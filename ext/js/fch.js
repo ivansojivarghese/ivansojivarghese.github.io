@@ -376,7 +376,7 @@ function load_js_e() { // load JS (page specific)
 
     hm.f = b; // update the hamburger menu object properties
 
-    el.disUnit = (op.lang === "gb") ? "km" : "miles";
+    el.disUnit.innerHTML = (op.lang === "gb") ? "km" : "miles";
 
     for (var d in dev.info) { // loop through to concatenate information to text
         if (i < _Lq) {
