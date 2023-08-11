@@ -1458,6 +1458,10 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
 
+                        if (c === 29 && j === 22) {
+                            console.log(newArr[j]);
+                        }
+
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
 
                             var count = substrInStr(newArr[j], op.txts[c].innerHTML), // count number of target keyword in text
