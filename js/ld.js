@@ -1466,7 +1466,7 @@ function engLangUpdate(v) { // update eng. language variant
                                 op.txts[c].innerHTML = newOrg;
                             }
 
-                            console.log(count);
+                            console.log(newArr[j] + ", " + count);
                             // SAME WORDS IN SAME SENTENCE?
 
                             switch (wdType) { // find a replacement based on original
