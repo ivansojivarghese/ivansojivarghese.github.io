@@ -1519,7 +1519,7 @@ function engLangUpdate(v) { // update eng. language variant
                                 document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
                             }
 
-                            console.log(newArr[j] + ", " + count);
+                            // console.log(newArr[j] + ", " + count);
                             // SAME WORDS IN SAME SENTENCE?
 
                             d++;
