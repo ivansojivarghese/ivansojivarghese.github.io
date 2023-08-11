@@ -1406,10 +1406,20 @@ function engLangUpdate(v) { // update eng. language variant
             // let x = op.txts[c].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
             // var org = op.txts[c].innerHTML;
 
+            var duplicate = { // possible duplicate words in text?
+                t : null, // text ref.
+                w : null, // word
+                s : false // status
+            }; 
+
             let x = op.txts[c].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words (no numbers)
             let newArr = x.trim().split(" ");
 
             for (j = 0; j <= (newArr.length - 1); j++) {
+                if (duplicate.s) { // IF there is a DUPLICATE
+                    exemptions[exemptions.length] = duplicate.w;
+                }
+
                 var exemptionsCheck = false;
                 for (k = 0; k <= (exemptions.length - 1); k++) {
                     if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) { // check for exemptions
@@ -1441,6 +1451,10 @@ function engLangUpdate(v) { // update eng. language variant
                                     if (y < (x1.length - 1)) {
                                         d++; // ADVANCE increment
                                     }
+
+                                    duplicate.t = op.txts[c]; 
+                                    duplicate.w = newArr[j]; // FLAG as duplicate
+                                    duplicate.s = true;
                                 }
                             } else { // SINGLE occurrence 
                                 var L = newArr[j].length, // length of word
