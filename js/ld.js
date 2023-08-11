@@ -1406,7 +1406,7 @@ function errorPrecedence(n, p, a) { // check for priority of errors
 
 function engLangUpdate(v) { // update eng. language variant
     var change = (v === "us") ? true : false, // if american english is requested/required
-        exemptions = [ // DEFAULT
+        exemptions = [ // DEFAULT (UPDATE BELOW)
             " ",
             "",
             "Ivan", // name(s)
@@ -1527,9 +1527,6 @@ function engLangUpdate(v) { // update eng. language variant
 
                                 document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
                             }
-
-                            // console.log(newArr[j] + ", " + count);
-                            // SAME WORDS IN SAME SENTENCE?
 
                             d++;
                         }
