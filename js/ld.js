@@ -1435,9 +1435,10 @@ function engLangUpdate(v) { // update eng. language variant
                                         repWd = ""; // replacement word
                                     op.txts[c].innerHTML = newOrg; 
                                     x1 = substrInStrIndices(newArr[j], op.txts[c].innerHTML); // UPDATE location of other occurrences
-                                    
+                                    tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>"; // UPDATE tagged original word
+
                                     if (y < (x1.length - 1)) {
-                                        d++;
+                                        d++; // ADVANCE increment
                                     }
                                 }
                             } else { // SINGLE occurrence 
