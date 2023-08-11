@@ -631,7 +631,7 @@ function sc_LpH() { // scroll loop - phablet
             if (b.ds.top && b.ds.top < aH) { // DISTANCE 
                 if (getCookie("statsIncr") !== "true") { // check if cookie exists
                     
-                    if (chkVL(b3) && (b3 < wH) && !sI_1.s) { 
+                    if (chkVL(b1) && (b1 < wH) && !sI_1.s) { 
                         e_Ic(sI_1, null, sI_1.n);
                         sI_1.s = true;
                         setCookie("statsIncr", "true", op.c.t); // create cookie to detemine if stats have been incremented by user (on initial usage)
@@ -647,7 +647,7 @@ function sc_LpH() { // scroll loop - phablet
             if (b.hs.top && b.hs.top < aH) { // HOURS 
                 if (getCookie("statsIncr") !== "true") { // check if cookie exists
                     
-                    if (chkVL(b3) && (b3 < wH) && !sI_2.s) { 
+                    if (chkVL(b2) && (b2 < wH) && !sI_2.s) { 
                         e_Ic(sI_2, null, sI_2.n);
                         sI_2.s = true;
                         setCookie("statsIncr", "true", op.c.t); // create cookie to detemine if stats have been incremented by user (on initial usage)
