@@ -981,6 +981,14 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/coffee_white.svg");
 }
 
+.time_w_img {
+    background-image: url("../svg/time_white.svg");
+}
+
+.distance_w_img {
+    background-image: url("../svg/distance_white.svg");
+}
+
 .info_w_img {
     background-image: url("../svg/info_white.svg");
 }

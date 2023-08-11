@@ -43,7 +43,9 @@
                     lc : false,
                     lc_w : false,
                     sct : false,
-                    cfe : false
+                    cfe : false,
+                    tm_w : false,
+                    ds_w : false
                 },
                 img = {
                     p : false,
@@ -259,6 +261,8 @@
         <link rel="preload" href="svg/dark_mode.svg" as="image" type="image/svg+xml" onload="svg.dm = true;">
         <link rel="preload" href="svg/scrolltop.svg" as="image" type="image/svg+xml" onload="svg.sct = true;">
         <link rel="preload" href="svg/coffee_white.svg" as="image" type="image/svg+xml" onload="svg.cfe = true;">
+        <link rel="preload" href="svg/time_white.svg" as="image" type="image/svg+xml" onload="svg.tm_w = true;">
+        <link rel="preload" href="svg/distance_white.svg" as="image" type="image/svg+xml" onload="svg.ds_w = true;">
         <!-- Other Pages -->
         <link rel="prerender" href="https://ivansojivarghese.github.io/clicks">
         <link rel="prefetch" href="https://ivansojivarghese.github.io/clicks">
@@ -1037,6 +1041,22 @@
                                         <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                                     </h3>
                                 </div>
+
+
+                                <div id="distanceInfo" class="desktop">
+                                    <div class="q_Info_scr trs">
+                                        <div class="q_Info_icons img img_icon distance_w_img d_i"></div><h5 id="qIn7" class="cr">0</h5>
+                                    </div>
+                                    <h6 id="qIn8" class="q_Info_scr trs">km</h6>
+                                </div>
+                                <div id="hoursInfo" class="desktop">
+                                    <div class="q_Info_scr trs">
+                                        <div class="q_Info_icons img img_icon time_w_img d_i"></div><h5 id="qIn7" class="cr">0</h5>
+                                    </div>
+                                    <h6 id="qIn8" class="q_Info_scr trs">hours</h6>
+                                </div>
+
+
                                 <div id="coffeeCups" class="desktop">
                                     <div class="q_Info_scr trs">
                                         <div class="q_Info_icons img img_icon coffee_w_img d_i"></div><h5 id="qIn7" class="cr">0</h5>
