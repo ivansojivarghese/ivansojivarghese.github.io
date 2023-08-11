@@ -70,6 +70,8 @@ var im = { // #intro_main
         x8 : false,
         x9 : false,
         x10 : false,
+        x11 : false,
+        x12 : false,
         L : null
     },
     pf = { // #prefooter_sc
@@ -635,9 +637,9 @@ function sc_LpH() { // scroll loop - phablet
                         setCookie("statsIncr", "true", op.c.t); // create cookie to detemine if stats have been incremented by user (on initial usage)
                     }
                 } else {
-                    if (!ld.x9) {
+                    if (!ld.x11) {
                         ld.q9.innerHTML = sI_1.n; // apply automatically (no increment)
-                        ld.x9 = true; // apply once
+                        ld.x11 = true; // apply once
                     }
                 }
             }
@@ -651,9 +653,9 @@ function sc_LpH() { // scroll loop - phablet
                         setCookie("statsIncr", "true", op.c.t); // create cookie to detemine if stats have been incremented by user (on initial usage)
                     }
                 } else {
-                    if (!ld.x9) {
+                    if (!ld.x12) {
                         ld.q11.innerHTML = sI_2.n; // apply automatically (no increment)
-                        ld.x9 = true; // apply once
+                        ld.x12 = true; // apply once
                     }
                 }
             }
