@@ -62,6 +62,7 @@
                 var aborted = false; // check if resource fails to fetch
                 var loadedImages = 0;
                 var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png");
+                var allLoaded = false;
                 
                 async function preloadImages(e) { // pre-load heavy images
 
@@ -106,8 +107,8 @@
                 }
 
                 function imagesLoaded() {
-                    // do something
-                    console.log("hello!");
+                    
+                    allLoaded = true;
                 }
         </script>
         <!-- End Google Tag Manager -->
