@@ -38,6 +38,8 @@ var im = { // #intro_main
         q1 : document.getElementById("qIn1"),
         q3 : document.getElementById("qIn3"),
         q7 : document.getElementById("qIn7"),
+        q9 : document.getElementById("qIn9"),
+        q11 : document.getElementById("qIn11"),
         qis : document.getElementsByClassName("q_Info_scr"),
         eduI : document.getElementById("educationIcon"),
         lcF : document.getElementById("locationInfo"),
@@ -632,7 +634,7 @@ function sc_LpH() { // scroll loop - phablet
                     }
                 } else {
                     if (!ld.x9) {
-                        ld.q7.innerHTML = sI_1.n; // apply automatically (no increment)
+                        ld.q9.innerHTML = sI_1.n; // apply automatically (no increment)
                         ld.x9 = true; // apply once
                     }
                 }
@@ -648,7 +650,7 @@ function sc_LpH() { // scroll loop - phablet
                     }
                 } else {
                     if (!ld.x9) {
-                        ld.q7.innerHTML = sI_2.n; // apply automatically (no increment)
+                        ld.q11.innerHTML = sI_2.n; // apply automatically (no increment)
                         ld.x9 = true; // apply once
                     }
                 }
