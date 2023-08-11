@@ -428,9 +428,13 @@
 }
 
 #coffeeCups, #hoursInfo, #distanceInfo {
-    padding-bottom: 1.5rem;
+    padding-bottom: 3rem;
     display: inline-block;
 }   
+
+#hoursInfo, #coffeeCups {
+    margin-left: 1rem;
+}
 
 #wordcloud_sc span {
     display: inline-block;
