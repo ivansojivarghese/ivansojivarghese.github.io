@@ -117,6 +117,7 @@ var fchL = {
         ldP : document.getElementById("lead_point"),
         ldP1 : document.getElementById("lead_point_1"),
         ldP4 : document.getElementById("lead_point_4"),
+        disUnit : document.getElementById("distanceVariant"),
         eInfo : document.getElementById("educationInfo"),
         q1_t : document.getElementById("qIn1_typer"),
         cIa : document.getElementsByClassName("c_Info_arrows"),
@@ -374,6 +375,8 @@ function load_js_e() { // load JS (page specific)
         i = 0;
 
     hm.f = b; // update the hamburger menu object properties
+
+    el.disUnit = (op.lang === "gb") ? "km" : "miles";
 
     for (var d in dev.info) { // loop through to concatenate information to text
         if (i < _Lq) {
