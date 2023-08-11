@@ -415,11 +415,19 @@
     transform: translateY(-0.5rem);
 }
 
+#distanceInfo {
+
+}
+
+#hoursInfo {
+    
+}
+
 #coffeeCups {
     margin-top: 6rem;
     margin-left: 5vw;
     padding-bottom: 1.5rem;
-    width: 6rem;
+    width: 12rem;
 }
 
 #wordcloud_sc span {

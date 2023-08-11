@@ -26,7 +26,11 @@ var fchL = {
         document.getElementById("qIn5"), // location
         document.getElementById("qIn6"), // coords
         document.getElementById("qIn7"), // cups
-        document.getElementById("qIn8") // coffee
+        document.getElementById("qIn8"), // coffee
+        document.getElementById("qIn9"), // distance
+        document.getElementById("qIn10"), // 
+        document.getElementById("qIn11"), // time
+        document.getElementById("qIn12"), // 
     ],
     sInfo = [
         document.getElementById("sIn1"), // distance

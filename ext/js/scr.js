@@ -589,6 +589,8 @@ function sc_LpH() { // scroll loop - phablet
                 q3 : ld.q3.getBoundingClientRect(),
                 lc : ld.lcF.getBoundingClientRect(),
                 cf : ld.cFc.getBoundingClientRect(),
+
+
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect()
             };
@@ -618,6 +620,38 @@ function sc_LpH() { // scroll loop - phablet
                 el.fC[6].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * 1) + "rem)";
                 el.fC[7].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.75) + "rem)";
                 el.fC[8].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.5) + "rem)";
+            }
+
+            if (b.cf.top && b.cf.top < aH) { // DISTANCE 
+                if (getCookie("statsIncr") !== "true") { // check if cookie exists
+                    
+                    if (chkVL(b3) && (b3 < wH) && !sI_1.s) { 
+                        e_Ic(sI_1, null, sI_1.n);
+                        sI_1.s = true;
+                        setCookie("statsIncr", "true", op.c.t); // create cookie to detemine if stats have been incremented by user (on initial usage)
+                    }
+                } else {
+                    if (!ld.x9) {
+                        ld.q7.innerHTML = sI_1.n; // apply automatically (no increment)
+                        ld.x9 = true; // apply once
+                    }
+                }
+            }
+
+            if (b.cf.top && b.cf.top < aH) { // HOURS 
+                if (getCookie("statsIncr") !== "true") { // check if cookie exists
+                    
+                    if (chkVL(b3) && (b3 < wH) && !sI_2.s) { 
+                        e_Ic(sI_2, null, sI_2.n);
+                        sI_2.s = true;
+                        setCookie("statsIncr", "true", op.c.t); // create cookie to detemine if stats have been incremented by user (on initial usage)
+                    }
+                } else {
+                    if (!ld.x9) {
+                        ld.q7.innerHTML = sI_2.n; // apply automatically (no increment)
+                        ld.x9 = true; // apply once
+                    }
+                }
             }
 
             if (b.cf.top && b.cf.top < aH) { // CUPS 
