@@ -3053,6 +3053,12 @@ function substrInStrIndices(substr, str) {
     return indices;
 }
 
+// Function to return status if target is in array
+
+function findInArray(tgt, ar) {
+    return ar.includes(tgt);
+}
+
 /////////////////////////////////////////////////
 
 function viewportValid() { // check if viewport dimensions are proper/supported/non-square
