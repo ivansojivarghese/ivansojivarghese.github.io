@@ -407,7 +407,7 @@ function checkTranslation() {
     }
 
     if (!t && ta) { // universal check
-        if (fLang_el.innerHTML && fLang_el.innerHTML !== "Made with love.") {
+        if (fLang_el.innerHTML && fLang_el.innerHTML !== "Made with <span class='em'>love</span> by me.") {
             t = false;
         }
     }
@@ -3040,7 +3040,7 @@ function substrInStr(substr, str) {
     return d;
 }
 
-// Function to return indices of substrings in a string - REFERENCE: https://stackoverflow.com/questions/3410464/how-to-find-indices-of-all-occurrences-of-one-string-in-another-in-javascript
+// Function to return indices of substrings in a string - REFERENCE: Tim Down, https://stackoverflow.com/questions/3410464/how-to-find-indices-of-all-occurrences-of-one-string-in-another-in-javascript
 
 function substrInStrIndices(substr, str) {
     var sbs = substr,

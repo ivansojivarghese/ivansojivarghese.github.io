@@ -1423,11 +1423,9 @@ function engLangUpdate(v) { // update eng. language variant
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
                             var count = substrInStr(newArr[j], op.txts[c].innerHTML), // count number of target keyword in text
                                 tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
-                                x1 = (count > 1) ? substrInStrIndices(newArr[j], op.txts[c].innerHTML) : op.txts[c].innerHTML.indexOf(newArr[j]), // get indexes of the words OR get first index of word (with no duplicates)
-
-                                // x1 = getIndex(op.txts[c].innerHTML, newArr[j], 0), // get index of word
-
-                                L = newArr[j].length, // length of word
+                                x1 = (count > 1) ? substrInStrIndices(newArr[j], op.txts[c].innerHTML) : op.txts[c].innerHTML.indexOf(newArr[j]); // get indexes (array) of the words OR get first index of word (with no duplicates)
+                                
+                            var L = newArr[j].length, // length of word
                                 org1 = op.txts[c].innerHTML.slice(0, x1), // original segment 1
                                 org2 = op.txts[c].innerHTML.slice(x1 + L, op.txts[c].innerHTML.length), // original segment 2
                                 newOrg = org1 + tag + org2, // new original
@@ -1437,7 +1435,6 @@ function engLangUpdate(v) { // update eng. language variant
                             op.txts[c].innerHTML = newOrg;
 
                             // console.log(count);
-
                             // SAME WORDS IN SAME SENTENCE?
 
                             switch (wdType) { // find a replacement based on original
