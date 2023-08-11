@@ -1424,19 +1424,19 @@ function engLangUpdate(v) { // update eng. language variant
                             var count = substrInStr(newArr[j], op.txts[c].innerHTML), // count number of target keyword in text
                                 tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
                                 x1 = (count > 1) ? substrInStrIndices(newArr[j], op.txts[c].innerHTML) : op.txts[c].innerHTML.indexOf(newArr[j]); // get indexes (array) of the words OR get first index of word (with no duplicates)
-                            if (x1.length) {
-                                
-                            }
-                            var L = newArr[j].length, // length of word
-                                org1 = op.txts[c].innerHTML.slice(0, x1), // original segment 1
-                                org2 = op.txts[c].innerHTML.slice(x1 + L, op.txts[c].innerHTML.length), // original segment 2
-                                newOrg = org1 + tag + org2, // new original
-                                wdType = wordType(newArr[j]), // determine type of word scanned
-                                repWd = ""; // replacement word
-            
-                            op.txts[c].innerHTML = newOrg;
+                            if (x1.length) { // MULTIPLE occurrences
 
-                            // console.log(count);
+                            } else { // SINGLE occurrence 
+                                var L = newArr[j].length, // length of word
+                                    org1 = op.txts[c].innerHTML.slice(0, x1), // original segment 1
+                                    org2 = op.txts[c].innerHTML.slice(x1 + L, op.txts[c].innerHTML.length), // original segment 2
+                                    newOrg = org1 + tag + org2, // new original
+                                    wdType = wordType(newArr[j]), // determine type of word scanned
+                                    repWd = ""; // replacement word
+                                    op.txts[c].innerHTML = newOrg;
+                            }
+
+                            console.log(count);
                             // SAME WORDS IN SAME SENTENCE?
 
                             switch (wdType) { // find a replacement based on original
