@@ -1434,6 +1434,10 @@ function engLangUpdate(v) { // update eng. language variant
                     exemptions[exemptions.length] = duplicate.w;
                 }
 
+                if (c === 29 && j === 22) {
+                    console.log(newArr[j]);
+                }
+
                 var exemptionsCheck = false;
                 for (k = 0; k <= (exemptions.length - 1); k++) {
                     if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) { // check for exemptions
@@ -1445,7 +1449,7 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
 
-                        if (c === 29) {
+                        if (c === 29 && j === 22) {
                             console.log(newArr[j]);
                         }
 
@@ -1523,7 +1527,7 @@ function engLangUpdate(v) { // update eng. language variant
                                 document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
                             }
 
-                            console.log(newArr[j] + ", " + count);
+                            // console.log(newArr[j] + ", " + count);
                             // SAME WORDS IN SAME SENTENCE?
 
                             d++;
