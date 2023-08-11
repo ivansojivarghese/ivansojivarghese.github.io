@@ -1416,7 +1416,7 @@ function engLangUpdate(v) { // update eng. language variant
             let newArr = x.trim().split(" ");
 
             for (j = 0; j <= (newArr.length - 1); j++) {
-                if (duplicate.s && findInArray(duplicate.w, exemptions)) { // IF there is a DUPLICATE + DUPLICATE WORD NOT REFERENCED YET
+                if (duplicate.s && !findInArray(duplicate.w, exemptions)) { // IF there is a DUPLICATE + DUPLICATE WORD NOT REFERENCED YET
                     exemptions[exemptions.length] = duplicate.w;
                 }
 
