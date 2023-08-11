@@ -1454,14 +1454,14 @@ function engLangUpdate(v) { // update eng. language variant
 
                                     switch (wdType) { // find a replacement based on original
                                         case "Capital":
-                                            const str = word.charAt(0).toUpperCase() + word.slice(1);
+                                            const str = engAPIres[word].charAt(0).toUpperCase() + engAPIres[word].slice(1);
                                             repWd = str;
                                         break;
                                         case "Lowercase":
-                                            repWd = word.toLowerCase();
+                                            repWd = engAPIres[word].toLowerCase();
                                         break;
                                         case "Uppercase":
-                                            repWd = word.toUpperCase();
+                                            repWd = engAPIres[word].toUpperCase();
                                         break;
                                         case "Invalid":
                                             repWd = null;
@@ -1485,14 +1485,14 @@ function engLangUpdate(v) { // update eng. language variant
 
                                 switch (wdType) { // find a replacement based on original
                                     case "Capital":
-                                        const str = word.charAt(0).toUpperCase() + word.slice(1);
+                                        const str = engAPIres[word].charAt(0).toUpperCase() + engAPIres[word].slice(1);
                                         repWd = str;
                                     break;
                                     case "Lowercase":
-                                        repWd = word.toLowerCase();
+                                        repWd = engAPIres[word].toLowerCase();
                                     break;
                                     case "Uppercase":
-                                        repWd = word.toUpperCase();
+                                        repWd = engAPIres[word].toUpperCase();
                                     break;
                                     case "Invalid":
                                         repWd = null;
