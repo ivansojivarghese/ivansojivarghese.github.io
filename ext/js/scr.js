@@ -105,14 +105,14 @@ var im = { // #intro_main
     sI_1 = { // stats numerals
         a : 0, // initial   
         n : (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
-        e : document.getElementById("sIn1"), // element
+        e : (!vw.dk) ? document.getElementById("sIn1") : document.getElementById("qIn9"), // element
         _L : undefined, // spaces for _L (loop) iterations
         s : false // run (execution) status
     },
     sI_2 = {
         a : 0,
         n : 183, // hours
-        e : document.getElementById("sIn2"), 
+        e : (!vw.dk) ? document.getElementById("sIn2") : document.getElementById("qIn11"), 
         _L : undefined,
         s : false
     },
