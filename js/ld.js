@@ -1445,6 +1445,9 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
+
+                            console.log(newArr[j]);
+
                             var count = substrInStr(newArr[j], op.txts[c].innerHTML), // count number of target keyword in text
                                 tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
                                 x1 = (count > 1) ? substrInStrIndices(newArr[j], op.txts[c].innerHTML) : op.txts[c].innerHTML.indexOf(newArr[j]); // get indexes (array) of the words OR get first index of word (with no duplicates)
@@ -1622,6 +1625,7 @@ setTimeout(function() {
         console.log("UMB not defined");
         op.er.ft = true; // fatal error
     }
+
     /*
     if (countryAPIres.online) {
         op.lang = engLangVar(countryAPIres.country); // set eng. language variant
