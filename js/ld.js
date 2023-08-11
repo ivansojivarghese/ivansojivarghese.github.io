@@ -1443,10 +1443,6 @@ function engLangUpdate(v) { // update eng. language variant
                     exemptions[exemptions.length] = duplicate.w;
                 }
 
-                if (c === 29 && j === 22) {
-                    console.log(newArr[j]);
-                }
-
                 var exemptionsCheck = false;
                 for (k = 0; k <= (exemptions.length - 1); k++) {
                     if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) { // check for exemptions
@@ -1457,10 +1453,6 @@ function engLangUpdate(v) { // update eng. language variant
                 if (!exemptionsCheck) { // if no exemptions made
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
-
-                        if (c === 29 && j === 22) {
-                            console.log(newArr[j]);
-                        }
 
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
 
