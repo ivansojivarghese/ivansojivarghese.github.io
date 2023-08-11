@@ -1435,7 +1435,7 @@ function engLangUpdate(v) { // update eng. language variant
                                         repWd = ""; // replacement word
                                     op.txts[c].innerHTML = newOrg; 
                                     x1 = substrInStrIndices(newArr[j], op.txts[c].innerHTML); // UPDATE location of other occurrences
-                                    
+                                    d++;
                                 }
                             } else { // SINGLE occurrence 
                                 var L = newArr[j].length, // length of word
@@ -1468,10 +1468,6 @@ function engLangUpdate(v) { // update eng. language variant
 
                             // console.log(newArr[j] + ", " + wdType);
 
-                            if (count > 1) {
-
-                                // LOOP AGAIN? SAME WORD IN SAME ELEMENT
-                            }
                             d++;
                         }
                     }
