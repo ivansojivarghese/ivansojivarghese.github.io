@@ -894,7 +894,8 @@ function loadAbort() { // abort (by user) @load_dot
     op.ne.s = 0;
 
     if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
-        rL.xc.innerHTML = "cancelled";
+        var cancelVariant = (op.lang === "gb") ? "cancelled" : "canceled";
+        rL.xc.innerHTML = cancelVariant;
         op.ne.tc = true;
         e_Fd(rL.x, false); // show message when timeout
     }

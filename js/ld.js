@@ -302,7 +302,8 @@ function docRead() {
 
                                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
                                     if (getCookie("networkReload") === "true" || (op.Ld.b && op.ne.w)) {
-                                        rL.xc.innerHTML = "cancelled";
+                                        var cancelVariant = (op.lang === "gb") ? "cancelled" : "canceled";
+                                        rL.xc.innerHTML = cancelVariant;
                                         op.ne.tc = true;
                                     } else {
                                         rL.xc.innerHTML = "timeout";
@@ -448,7 +449,8 @@ function docRead() {
                                             rL.xc.innerHTML = "timeout";
                                             op.ne.x3 = true;
                                         } else {
-                                            rL.xc.innerHTML = "cancelled";
+                                            var cancelVariant = (op.lang === "gb") ? "cancelled" : "canceled";
+                                            rL.xc.innerHTML = cancelVariant;
                                             op.ne.x3 = true;
                                         }
                                     }
@@ -569,7 +571,8 @@ function docRead() {
                                             rL.xc.innerHTML = "timeout";
                                             op.ne.x3 = true;
                                         } else {
-                                            rL.xc.innerHTML = "cancelled";
+                                            var cancelVariant = (op.lang === "gb") ? "cancelled" : "canceled";
+                                            rL.xc.innerHTML = cancelVariant;
                                             op.ne.x3 = true;
                                         }
                                     }
