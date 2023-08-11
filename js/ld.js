@@ -1406,7 +1406,7 @@ function errorPrecedence(n, p, a) { // check for priority of errors
 
 function engLangUpdate(v) { // update eng. language variant
     var change = (v === "us") ? true : false, // if american english is requested/required
-        exemptions = [
+        exemptions = [ // DEFAULT
             " ",
             "",
             "Ivan", // name(s)
@@ -1425,6 +1425,15 @@ function engLangUpdate(v) { // update eng. language variant
                 w : null, // word
                 s : false // status
             }; 
+
+            exemptions = [ // DEFAULT
+                " ",
+                "",
+                "Ivan", // name(s)
+                "Soji",
+                "Varghese",
+                "online" // other
+            ];
 
             let x = op.txts[c].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words (no numbers)
             let newArr = x.trim().split(" ");
@@ -1448,10 +1457,6 @@ function engLangUpdate(v) { // update eng. language variant
                 if (!exemptionsCheck) { // if no exemptions made
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
-
-                        if (c === 29 && j === 22) {
-                            console.log(newArr[j]);
-                        }
 
                         if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
 
