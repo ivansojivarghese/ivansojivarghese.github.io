@@ -3026,6 +3026,21 @@ function getIndex(str, substr, ind) {
     return i;
 }
 
+// Function to count number of substrings in a string - REFERENCE: https://www.geeksforgeeks.org/how-to-count-string-occurrence-in-string-using-javascript/
+
+function substrInStr(substr, str) {
+    let s = str;
+    let f = substr;
+    let r = s.indexOf(f);
+    let d = 0;
+    while (r != -1) {
+        d++;
+        r = s.indexOf(f, r + 1);
+    }
+    return d;
+}
+
+/////////////////////////////////////////////////
 
 function viewportValid() { // check if viewport dimensions are proper/supported/non-square
     if (vw.pH || (!vw.pH && !vw.tB)) {
