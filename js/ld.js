@@ -1425,7 +1425,18 @@ function engLangUpdate(v) { // update eng. language variant
                                 tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
                                 x1 = (count > 1) ? substrInStrIndices(newArr[j], op.txts[c].innerHTML) : op.txts[c].innerHTML.indexOf(newArr[j]); // get indexes (array) of the words OR get first index of word (with no duplicates)
                             if (x1.length) { // MULTIPLE occurrences
+                                for (y = 0; y <= (x1.length - 1); y++) {
 
+                                    var L = newArr[j].length, // length of word
+                                        org1 = op.txts[c].innerHTML.slice(0, x1[y]), // original segment 1
+                                        org2 = op.txts[c].innerHTML.slice(x1[y] + L, op.txts[c].innerHTML.length), // original segment 2
+                                        newOrg = org1 + tag + org2, // new original
+                                        wdType = wordType(newArr[j]), // determine type of word scanned
+                                        repWd = ""; // replacement word
+                                    op.txts[c].innerHTML = newOrg; 
+                                    x1 = substrInStrIndices(newArr[j], op.txts[c].innerHTML); // UPDATE location of other occurrences
+                                    
+                                }
                             } else { // SINGLE occurrence 
                                 var L = newArr[j].length, // length of word
                                     org1 = op.txts[c].innerHTML.slice(0, x1), // original segment 1
@@ -1433,7 +1444,7 @@ function engLangUpdate(v) { // update eng. language variant
                                     newOrg = org1 + tag + org2, // new original
                                     wdType = wordType(newArr[j]), // determine type of word scanned
                                     repWd = ""; // replacement word
-                                    op.txts[c].innerHTML = newOrg;
+                                op.txts[c].innerHTML = newOrg;
                             }
 
                             console.log(count);
