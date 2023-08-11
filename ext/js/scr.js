@@ -44,6 +44,8 @@ var im = { // #intro_main
         eduI : document.getElementById("educationIcon"),
         lcF : document.getElementById("locationInfo"),
         cFc : document.getElementById("coffeeCups"),
+        dis : document.getElementById("distanceInfo"),
+        hrs : document.getElementById("hoursInfo"),
         pb : document.getElementById("profile_btn"),
         m : document.getElementById("mid_sc"),
         Lpm : document.getElementById("lead_point_3"),
@@ -591,8 +593,8 @@ function sc_LpH() { // scroll loop - phablet
                 q3 : ld.q3.getBoundingClientRect(),
                 lc : ld.lcF.getBoundingClientRect(),
                 cf : ld.cFc.getBoundingClientRect(),
-
-
+                ds : ld.dis.getBoundingClientRect(),
+                hs : ld.hrs.getBoundingClientRect(),
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect()
             };
@@ -624,7 +626,7 @@ function sc_LpH() { // scroll loop - phablet
                 el.fC[8].style.transform = "translateY(" + (((1 - (pos.y - ld.rf5) / h)) * -0.5) + "rem)";
             }
 
-            if (b.cf.top && b.cf.top < aH) { // DISTANCE 
+            if (b.ds.top && b.ds.top < aH) { // DISTANCE 
                 if (getCookie("statsIncr") !== "true") { // check if cookie exists
                     
                     if (chkVL(b3) && (b3 < wH) && !sI_1.s) { 
@@ -640,7 +642,7 @@ function sc_LpH() { // scroll loop - phablet
                 }
             }
 
-            if (b.cf.top && b.cf.top < aH) { // HOURS 
+            if (b.hs.top && b.hs.top < aH) { // HOURS 
                 if (getCookie("statsIncr") !== "true") { // check if cookie exists
                     
                     if (chkVL(b3) && (b3 < wH) && !sI_2.s) { 
