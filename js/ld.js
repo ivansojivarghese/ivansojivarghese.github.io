@@ -1427,6 +1427,8 @@ function engLangUpdate(v) { // update eng. language variant
                             if (x1.length) { // MULTIPLE occurrences
                                 for (y = 0; y <= (x1.length - 1); y++) {
 
+                                    tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>"; // UPDATE tagged original word
+
                                     var L = newArr[j].length, // length of word
                                         org1 = op.txts[c].innerHTML.slice(0, x1[y]), // original segment 1
                                         org2 = op.txts[c].innerHTML.slice(x1[y] + L, op.txts[c].innerHTML.length), // original segment 2
@@ -1435,7 +1437,6 @@ function engLangUpdate(v) { // update eng. language variant
                                         repWd = ""; // replacement word
                                     op.txts[c].innerHTML = newOrg; 
                                     x1 = substrInStrIndices(newArr[j], op.txts[c].innerHTML); // UPDATE location of other occurrences
-                                    tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>"; // UPDATE tagged original word
 
                                     if (y < (x1.length - 1)) {
                                         d++; // ADVANCE increment
