@@ -417,21 +417,20 @@
 
 #distanceInfo {
     width: 7rem;
-    padding-bottom: 1.5rem;
 }
 
 #hoursInfo {
     width: 8rem;
-    padding-bottom: 1.5rem;
 }
 
 #coffeeCups {
-    /*
-    margin-top: 6rem;
-    margin-left: 5vw;*/
-    padding-bottom: 1.5rem;
     width: 12rem;
 }
+
+#coffeeCups, #hoursInfo, #distanceInfo {
+    padding-bottom: 1.5rem;
+    display: inline-block;
+}   
 
 #wordcloud_sc span {
     display: inline-block;
