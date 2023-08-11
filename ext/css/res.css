@@ -252,4 +252,8 @@
         padding-left: 4vw;
         color: #303030;
     }
+
+    #coffeeCups, #hoursInfo, #distanceInfo {
+        display: inline-block;
+    }  
 }
