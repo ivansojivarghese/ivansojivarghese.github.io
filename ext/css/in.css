@@ -416,16 +416,19 @@
 }
 
 #distanceInfo {
-
+    width: 7rem;
+    padding-bottom: 1.5rem;
 }
 
 #hoursInfo {
-    
+    width: 8rem;
+    padding-bottom: 1.5rem;
 }
 
 #coffeeCups {
+    /*
     margin-top: 6rem;
-    margin-left: 5vw;
+    margin-left: 5vw;*/
     padding-bottom: 1.5rem;
     width: 12rem;
 }
