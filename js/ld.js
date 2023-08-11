@@ -1444,13 +1444,17 @@ function engLangUpdate(v) { // update eng. language variant
                 if (!exemptionsCheck) { // if no exemptions made
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
-                        if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
 
+                        if (j === 29) {
                             console.log(newArr[j]);
+                        }
+
+                        if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
 
                             var count = substrInStr(newArr[j], op.txts[c].innerHTML), // count number of target keyword in text
                                 tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
                                 x1 = (count > 1) ? substrInStrIndices(newArr[j], op.txts[c].innerHTML) : op.txts[c].innerHTML.indexOf(newArr[j]); // get indexes (array) of the words OR get first index of word (with no duplicates)
+                            
                             if (x1.length) { // MULTIPLE occurrences
                                 for (y = 0; y <= (x1.length - 1); y++) {
 
@@ -1519,7 +1523,7 @@ function engLangUpdate(v) { // update eng. language variant
                                 document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
                             }
 
-                            // console.log(newArr[j] + ", " + count);
+                            console.log(newArr[j] + ", " + count);
                             // SAME WORDS IN SAME SENTENCE?
 
                             d++;
