@@ -1445,7 +1445,7 @@ function engLangUpdate(v) { // update eng. language variant
                     for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
                         var word = h.toString();
 
-                        if (j === 29) {
+                        if (c === 29) {
                             console.log(newArr[j]);
                         }
 
