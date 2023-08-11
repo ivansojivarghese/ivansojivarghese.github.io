@@ -1448,10 +1448,6 @@ function engLangUpdate(v) { // update eng. language variant
                                     op.txts[c].innerHTML = newOrg; 
                                     x1 = substrInStrIndices(newArr[j], op.txts[c].innerHTML); // UPDATE location of other occurrences
 
-                                    if (y < (x1.length - 1)) {
-                                        d++; // ADVANCE increment
-                                    }
-
                                     duplicate.t = op.txts[c]; 
                                     duplicate.w = newArr[j]; // FLAG as duplicate
                                     duplicate.s = true;
@@ -1473,6 +1469,10 @@ function engLangUpdate(v) { // update eng. language variant
                                     }
 
                                     document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
+
+                                    if (y < (x1.length - 1)) {
+                                        d++; // ADVANCE increment
+                                    }
                                 }
                             } else { // SINGLE occurrence 
                                 var L = newArr[j].length, // length of word
