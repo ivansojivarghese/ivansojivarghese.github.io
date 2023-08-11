@@ -104,7 +104,7 @@ var im = { // #intro_main
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
-        n : 97, // km 
+        n : (op.lang === "gb") ? 97 : kmToMiles(97), // km 
         e : document.getElementById("sIn1"), // element
         _L : undefined, // spaces for _L (loop) iterations
         s : false // run (execution) status
