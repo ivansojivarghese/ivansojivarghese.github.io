@@ -3040,6 +3040,19 @@ function substrInStr(substr, str) {
     return d;
 }
 
+// Function to return indices of substrings in a string - REFERENCE: https://stackoverflow.com/questions/3410464/how-to-find-indices-of-all-occurrences-of-one-string-in-another-in-javascript
+
+function substrInStrIndices(substr, str) {
+    var sbs = substr,
+        regex = new RegExp(sbs, 'gi'), 
+        result, 
+        indices = [];
+    while ( (result = regex.exec(str)) ) {
+        indices.push(result.index);
+    }
+    return indices;
+}
+
 /////////////////////////////////////////////////
 
 function viewportValid() { // check if viewport dimensions are proper/supported/non-square
