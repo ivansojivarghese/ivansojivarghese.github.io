@@ -1455,6 +1455,24 @@ function engLangUpdate(v) { // update eng. language variant
                                     duplicate.t = op.txts[c]; 
                                     duplicate.w = newArr[j]; // FLAG as duplicate
                                     duplicate.s = true;
+
+                                    switch (wdType) { // find a replacement based on original
+                                        case "Capital":
+                                            const str = word.charAt(0).toUpperCase() + word.slice(1);
+                                            repWd = str;
+                                        break;
+                                        case "Lowercase":
+                                            repWd = word.toLowerCase();
+                                        break;
+                                        case "Uppercase":
+                                            repWd = word.toUpperCase();
+                                        break;
+                                        case "Invalid":
+                                            repWd = null;
+                                        break;
+                                    }
+
+                                    document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
                                 }
                             } else { // SINGLE occurrence 
                                 var L = newArr[j].length, // length of word
@@ -1464,28 +1482,28 @@ function engLangUpdate(v) { // update eng. language variant
                                     wdType = wordType(newArr[j]), // determine type of word scanned
                                     repWd = ""; // replacement word
                                 op.txts[c].innerHTML = newOrg;
+
+                                switch (wdType) { // find a replacement based on original
+                                    case "Capital":
+                                        const str = word.charAt(0).toUpperCase() + word.slice(1);
+                                        repWd = str;
+                                    break;
+                                    case "Lowercase":
+                                        repWd = word.toLowerCase();
+                                    break;
+                                    case "Uppercase":
+                                        repWd = word.toUpperCase();
+                                    break;
+                                    case "Invalid":
+                                        repWd = null;
+                                    break;
+                                }
+
+                                document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
                             }
 
                             console.log(newArr[j] + ", " + count);
                             // SAME WORDS IN SAME SENTENCE?
-
-                            switch (wdType) { // find a replacement based on original
-                                case "Capital":
-                                    const str = word.charAt(0).toUpperCase() + word.slice(1);
-                                    repWd = str;
-                                break;
-                                case "Lowercase":
-                                    repWd = word.toLowerCase();
-                                break;
-                                case "Uppercase":
-                                    repWd = word.toUpperCase();
-                                break;
-                                case "Invalid":
-                                    repWd = null;
-                                break;
-                            }
-
-                            // console.log(newArr[j] + ", " + wdType);
 
                             d++;
                         }
