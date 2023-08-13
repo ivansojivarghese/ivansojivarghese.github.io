@@ -1362,13 +1362,16 @@ function errorCheck() { // check for errors
         
         setInterval(function() {
             if (((windowCount - 1) < 1) && j) { // check if other tabs are closed
-                eR.dt_e.s.innerHTML = "no instances"; 
                 reL(); 
                 j = false;
             } else {
                 windowCount = parseInt(getCookie("num_windows"));
                 var w = ((windowCount - 1) > 1) ? " instances" : " instance";
-                eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
+                if ((windowCount - 1) > 0) {
+                    eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
+                } else {
+                    eR.dt_e.s.innerHTML = "no instances"; 
+                }
             }
         }, op.Ls);
         
