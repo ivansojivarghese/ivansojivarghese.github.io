@@ -1358,14 +1358,16 @@ function errorCheck() { // check for errors
         var w = ((windowCount - 1) > 1) ? " instances" : " instance";
         eR.h = "dt";
         eR.dt_e.s.innerHTML = (windowCount - 1) + w;
-        /*
+        
         setInterval(function() {
-            eR.dt_e.s.innerHTML = (windowCount) + w; // UPDATE INSTANCES
+            windowCount = parseInt(getCookie("num_windows"));
+            eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
+            /*
             if (parseInt(windowCount) === null) { // check if other tabs are closed
                 reL(); 
-            }
+            }*/
         }, op.Ls);
-        */
+        
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
     } else if (op.fS) { // check if fullscreen
