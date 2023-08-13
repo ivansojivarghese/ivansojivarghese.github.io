@@ -3430,12 +3430,12 @@ window.addEventListener("blur", function() { // window out of focus
 //////////////////////////////////////////
 
 window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only)
-    var windowCount = window.localStorage.getItem('num_windows');  
-    if (windowCount != null) {
+    windowCount = getCookie("num_windows");
+    if (parseInt(windowCount) > 1) {
         windowCount = parseInt(windowCount) - 1;
-        window.localStorage.setItem('num_windows', windowCount);
-    } else if (windowCount == 0) {
-        window.localStorage.setItem('num_windows', null);
+        setCookie("num_windows", windowCount, op.c.t);
+    } else if (parseInt(windowCount) === 1) {
+        setCookie("num_windows", null, -1);
     }
  }, false);
  
