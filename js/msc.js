@@ -3155,7 +3155,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         // STATIC ERRORS (UPDATE WHEN NEEDED!)
                         if ((op.b.f || op.sys === null || op.bN || op.pl) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0 && rL.i)) { // check for platform support
                             if (op.b.f) {
-                                eR.pl_e.h.innerHTML = "firefox is incompatible";
+                                eR.pl_e.h.innerHTML = "firefox";
                             } 
                             if (op.bN) { // browser
                                 eR.pl_e.h.innerHTML = "conflicting hints";
