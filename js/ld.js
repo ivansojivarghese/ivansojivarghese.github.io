@@ -1362,6 +1362,7 @@ function errorCheck() { // check for errors
         
         setInterval(function() {
             if (((windowCount - 1) < 1) && j) { // check if other tabs are closed
+                eR.dt_e.s.innerHTML = "no instances"; 
                 reL(); 
                 j = false;
             } else {
