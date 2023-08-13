@@ -1354,7 +1354,7 @@ function errorCheck() { // check for errors
                 j = false;
             }
         }, op.Ls);
-    } else if (windowCount) { // check for duplicate TABS (local broswer only)
+    } else if (windowCount && windowCount > 1) { // check for duplicate TABS (local broswer only)
         var w = (windowCount > 1) ? " instances" : " instance";
         eR.h = "dt";
         eR.dt_e.s.innerHTML = (windowCount) + w;
