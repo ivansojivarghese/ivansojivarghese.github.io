@@ -1361,6 +1361,7 @@ function errorCheck() { // check for errors
         
         setInterval(function() {
             windowCount = parseInt(getCookie("num_windows"));
+            var w = ((windowCount - 1) > 1) ? " instances" : " instance";
             eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
             /*
             if (parseInt(windowCount) === null) { // check if other tabs are closed
