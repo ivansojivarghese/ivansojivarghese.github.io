@@ -498,7 +498,8 @@ op = {
         r : (document.referrer === window.location.href) ? true : false, // page reload check
         fb : false, // page forward/backward nav. check
         n : false, // page nav. check (direct)
-        b : true // URL bar in view check
+        b : true, // URL bar in view check
+        t : false // tab active?
     },
     pwa : { // PWA support
         a : false, // pwa allowed?
@@ -3432,6 +3433,7 @@ window.addEventListener("blur", function() { // window out of focus
 var windowCount;
 
 window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only)
+    op.nav.t = false;
     windowCount = getCookie("num_windows");
     if (parseInt(windowCount) > 1) {
         windowCount = parseInt(windowCount) - 1;
@@ -3441,17 +3443,20 @@ window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection
     }
 }, false);
 
-window.addEventListener("unload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only)
-    windowCount = getCookie("num_windows");
-    if (parseInt(windowCount) > 1) {
-        windowCount = parseInt(windowCount) - 1;
-        setCookie("num_windows", windowCount, op.c.t);
-    } else if (parseInt(windowCount) === 1) {
-        setCookie("num_windows", null, -1);
+window.addEventListener("unload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only, mobile support)
+    if (op.nav.t) {
+        windowCount = getCookie("num_windows");
+        if (parseInt(windowCount) > 1) {
+            windowCount = parseInt(windowCount) - 1;
+            setCookie("num_windows", windowCount, op.c.t);
+        } else if (parseInt(windowCount) === 1) {
+            setCookie("num_windows", null, -1);
+        }
     }
 }, false);
 
 window.addEventListener("load", function() {
+    op.nav.t = true;
     windowCount = getCookie("num_windows");
     if (windowCount === null || windowCount === "") {
         setCookie("num_windows", 1, op.c.t);
