@@ -3439,11 +3439,12 @@ window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection
     }
  }, false);
  
-var windowCount = window.localStorage.getItem('num_windows');
-if (windowCount == null) {
-    window.localStorage.setItem('num_windows', 1);
+var windowCount = getCookie("num_windows");
+if (windowCount === null || windowCount === "") {
+    setCookie("num_windows", 1, op.c.t);
 } else {
-    window.localStorage.setItem('num_windows', parseInt(windowCount) + 1);
+    var c = parseInt(getCookie("num_windows"));
+    setCookie("num_windows", c++, op.c.t);
 }
 
 ////////////////////////////////////////////
