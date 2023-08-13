@@ -3429,57 +3429,20 @@ window.addEventListener("blur", function() { // window out of focus
 
 //////////////////////////////////////////
 
-/*
-localStorage.openSite = Date.now();
-if (getCookie("duplicatedNum") === "") {
-    setCookie("duplicatedNum", 0, null);
-}
-window.addEventListener("storage", function(e) {
-
-    console.log(e.key);
-
-    if (e.key === "openSite") {
-        localStorage.duplicateSite = Date.now();
-        op.c.x = true;
-    }
-    if (e.key === "duplicateSite") {
-        var n = Number(getCookie("duplicatedNum"));
-        if (!op.c.x) {
-            if (!op.nav.r) {
-                n++;
-            }
-            console.log("1: add");
-            setCookie("duplicatedNum", n, null);
-            op.c.x = true;
-        }        
-    } 
-});
-
-window.addEventListener("beforeunload", function() {
-
-    // localStorage; - duplicate tab detection
-
-    /*
-    if (op.c.uR) { // if unloading when cookie-deny redirect message is active
-        op.nav.fb = true; // automatically set forward/back nav. to true
-    }
-});
-*/
-
-window.addEventListener("beforeunload", function(e){
-    var windowCount = window.localStorage.getItem('num_windows');
-    if(windowCount != null) {
+window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only)
+    var windowCount = window.localStorage.getItem('num_windows');  
+    if (windowCount != null) {
         windowCount = parseInt(windowCount) - 1;
-       window.localStorage.setItem('num_windows', windowCount);
+        window.localStorage.setItem('num_windows', windowCount);
     }
  }, false);
  
- var windowCount = window.localStorage.getItem('num_windows');
- if(windowCount == null) {
-   window.localStorage.setItem('num_windows', 1);
- } else {
-   window.localStorage.setItem('num_windows', parseInt(windowCount) + 1);
- }
+var windowCount = window.localStorage.getItem('num_windows');
+if (windowCount == null) {
+    window.localStorage.setItem('num_windows', 1);
+} else {
+    window.localStorage.setItem('num_windows', parseInt(windowCount) + 1);
+}
 
 ////////////////////////////////////////////
 

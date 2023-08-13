@@ -42,6 +42,7 @@ eR = { // error
     or : document.getElementById("error_or"), // orientation change
     ck : document.getElementById("error_cke"), // cookies
     mt : document.getElementById("error_mt"), // maintenance
+    dt : document.getElementById("error_dt"), // duplicate tabs
     vp : document.getElementById("error_vp"), // vpn
     vp_e : {
         h : document.getElementById("error_vph4"), // h4
@@ -1275,7 +1276,7 @@ function errorCheck() { // check for errors
 
     // const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
 
-    eR.a = ["fC", "tr", "fS", "mt", "ck", "vp", "or", "dp", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
+    eR.a = ["fC", "tr", "fS", "mt", "dt", "ck", "vp", "or", "dp", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // API stuff
 
@@ -1349,6 +1350,10 @@ function errorCheck() { // check for errors
                 j = false;
             }
         }, op.Ls);
+    } else if (windowCount > 1) { // check for duplicate TABS (local broswer only)
+
+        eR.h = "dt";
+
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
     } else if (op.fS) { // check if fullscreen
