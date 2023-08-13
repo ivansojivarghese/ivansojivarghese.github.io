@@ -1355,9 +1355,9 @@ function errorCheck() { // check for errors
             }
         }, op.Ls);
     } else if (windowCount && windowCount > 1) { // check for duplicate TABS (local broswer only)
-        var w = (windowCount > 1) ? " instances" : " instance";
+        var w = ((windowCount - 1) > 1) ? " instances" : " instance";
         eR.h = "dt";
-        eR.dt_e.s.innerHTML = (windowCount) + w;
+        eR.dt_e.s.innerHTML = (windowCount - 1) + w;
         /*
         setInterval(function() {
             eR.dt_e.s.innerHTML = (windowCount) + w; // UPDATE INSTANCES
