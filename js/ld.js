@@ -1371,7 +1371,7 @@ function errorCheck() { // check for errors
                 if ((windowCount - 1) > 0) {
                     eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
                 } else {
-                    eR.dt_e.s.innerHTML = "no instances"; 
+                    eR.dt_e.s.innerHTML = "0 instances"; 
                 }
             }
         }, op.Ls);
