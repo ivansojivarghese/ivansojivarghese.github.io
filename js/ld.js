@@ -1356,7 +1356,7 @@ function errorCheck() { // check for errors
     } else if (parseInt(windowCount) > 0) { // check for duplicate TABS (local broswer only)
         var w = ((windowCount - 1) > 1) ? " instances" : " instance";
         eR.h = "dt";
-        eR.dt_e.s.innerHTML = (windowCount - 1) + w;
+        eR.dt_e.s.innerHTML = (windowCount) + w;
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
     } else if (op.fS) { // check if fullscreen
