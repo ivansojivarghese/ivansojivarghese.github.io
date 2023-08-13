@@ -3441,6 +3441,16 @@ window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection
     }
 }, false);
 
+window.addEventListener("unload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only)
+    windowCount = getCookie("num_windows");
+    if (parseInt(windowCount) > 1) {
+        windowCount = parseInt(windowCount) - 1;
+        setCookie("num_windows", windowCount, op.c.t);
+    } else if (parseInt(windowCount) === 1) {
+        setCookie("num_windows", null, -1);
+    }
+}, false);
+
 window.addEventListener("load", function() {
     windowCount = getCookie("num_windows");
     if (windowCount === null || windowCount === "") {
