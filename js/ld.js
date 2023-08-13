@@ -1360,7 +1360,7 @@ function errorCheck() { // check for errors
         eR.dt_e.s.innerHTML = (windowCount - 1) + w;
         
         setInterval(function() {
-            if (windowCount < 1) { // check if other tabs are closed
+            if ((windowCount - 1) < 1) { // check if other tabs are closed
                 reL(); 
             } else {
                 windowCount = parseInt(getCookie("num_windows"));
