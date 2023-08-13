@@ -106,6 +106,7 @@ function engLangVar(c) { // return variant of language (eng) per user country lo
     for (var x in f_countries) {
         if (f_countries[x].iso_A2 === c) { // if matches given list
             res = "us"; // american (en-US)
+            setCookie("usEng", "true", op.c.t);
             break;
         }
     }
@@ -306,7 +307,7 @@ function docRead() {
 
                                 if (isFontAvailable("Poppins") && isFontAvailable("Raleway") && svg.t && !op.ne.tc) { // check if fonts are downloaded
                                     if (getCookie("networkReload") === "true" || (op.Ld.b && op.ne.w)) {
-                                        var cancelVariant = (op.lang === "gb") ? "cancelled" : "canceled";
+                                        var cancelVariant = (op.lang === "gb" || !getCookie("usEng")) ? "cancelled" : "canceled";
                                         rL.xc.innerHTML = cancelVariant;
                                         op.ne.tc = true;
                                     } else {
@@ -453,7 +454,7 @@ function docRead() {
                                             rL.xc.innerHTML = "timeout";
                                             op.ne.x3 = true;
                                         } else {
-                                            var cancelVariant = (op.lang === "gb") ? "cancelled" : "canceled";
+                                            var cancelVariant = (op.lang === "gb" || !getCookie("usEng")) ? "cancelled" : "canceled";
                                             rL.xc.innerHTML = cancelVariant;
                                             op.ne.x3 = true;
                                         }
@@ -575,7 +576,7 @@ function docRead() {
                                             rL.xc.innerHTML = "timeout";
                                             op.ne.x3 = true;
                                         } else {
-                                            var cancelVariant = (op.lang === "gb") ? "cancelled" : "canceled";
+                                            var cancelVariant = (op.lang === "gb" || !getCookie("usEng")) ? "cancelled" : "canceled";
                                             rL.xc.innerHTML = cancelVariant;
                                             op.ne.x3 = true;
                                         }
