@@ -3429,7 +3429,7 @@ window.addEventListener("blur", function() { // window out of focus
 
 //////////////////////////////////////////
 
-var windowCount = getCookie("num_windows");
+var windowCount;
 
 window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only)
     windowCount = getCookie("num_windows");
@@ -3442,6 +3442,7 @@ window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection
 }, false);
 
 window.addEventListener("load", function() {
+    windowCount = getCookie("num_windows");
     if (windowCount === null || windowCount === "") {
         setCookie("num_windows", 1, op.c.t);
     } else {
