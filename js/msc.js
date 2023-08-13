@@ -3431,7 +3431,7 @@ window.addEventListener("blur", function() { // window out of focus
 
 window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only)
     var windowCount = window.localStorage.getItem('num_windows');  
-    if (windowCount != null) {
+    if (windowCount != null || windowCount !== 1) {
         windowCount = parseInt(windowCount) - 1;
         window.localStorage.setItem('num_windows', windowCount);
     }
