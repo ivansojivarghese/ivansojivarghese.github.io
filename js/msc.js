@@ -3444,7 +3444,7 @@ if (windowCount === null || windowCount === "") {
     setCookie("num_windows", 1, op.c.t);
 } else {
     var c = parseInt(getCookie("num_windows"));
-    setCookie("num_windows", c++, op.c.t);
+    setCookie("num_windows", (c + 1), op.c.t);
 }
 
 ////////////////////////////////////////////
