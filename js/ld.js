@@ -1353,7 +1353,7 @@ function errorCheck() { // check for errors
                 j = false;
             }
         }, op.Ls);
-    } else if (parseInt(windowCount) > 0) { // check for duplicate TABS (local broswer only)
+    } else if (parseInt(windowCount) > 1) { // check for duplicate TABS (local broswer only)
         var w = (windowCount > 1) ? " instances" : " instance";
         eR.h = "dt";
         eR.dt_e.s.innerHTML = (windowCount) + w;
