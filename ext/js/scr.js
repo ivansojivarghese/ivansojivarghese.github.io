@@ -105,21 +105,21 @@ var im = { // #intro_main
     sI_1 = { // stats numerals
         a : 0, // initial   
         // n : (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
-        n : dev.distance,
+        n : 97,
         e : (!vw.dk) ? document.getElementById("sIn1") : document.getElementById("qIn9"), // element
         _L : undefined, // spaces for _L (loop) iterations
         s : false // run (execution) status
     },
     sI_2 = {
         a : 0,
-        n : dev.hoursNo, // hours
+        n : 183, // hours
         e : (!vw.dk) ? document.getElementById("sIn2") : document.getElementById("qIn11"), 
         _L : undefined,
         s : false
     },
     sI_3 = {
         a : 0,
-        n : dev.cappuccinosNo, // cappuccinos
+        n : 245, // cappuccinos
         e : (!vw.dk) ? document.getElementById("sIn3") : document.getElementById("qIn7"),
         _L : undefined,
         s : false
