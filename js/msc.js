@@ -3467,18 +3467,18 @@ window.addEventListener("beforeunload", function() {
 */
 
 window.addEventListener("beforeunload", function(e){
-    var count = window.localStorage.getItem('num_windows');
-    if(count != null) {
-       count = parseInt(count) - 1;
-       window.localStorage.setItem('num_windows', count);
+    var windowCount = window.localStorage.getItem('num_windows');
+    if(windowCount != null) {
+        windowCount = parseInt(windowCount) - 1;
+       window.localStorage.setItem('num_windows', windowCount);
     }
  }, false);
  
- var count = window.localStorage.getItem('num_windows');
- if(count == null) {
+ var windowCount = window.localStorage.getItem('num_windows');
+ if(windowCount == null) {
    window.localStorage.setItem('num_windows', 1);
  } else {
-   window.localStorage.setItem('num_windows', parseInt(count) + 1);
+   window.localStorage.setItem('num_windows', parseInt(windowCount) + 1);
  }
 
 ////////////////////////////////////////////
