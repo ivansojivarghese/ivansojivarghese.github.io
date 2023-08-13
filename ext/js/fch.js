@@ -90,6 +90,7 @@ var fchL = {
         x10 : false,
         x11 : false,
         x12 : false,
+        x13 : false,
         c4 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
@@ -377,8 +378,8 @@ function load_js_e() { // load JS (page specific)
 
     hm.f = b; // update the hamburger menu object properties
 
-    el.disUnit.innerHTML = (op.lang === "gb") ? "km" : "miles";
-    el.q10.innerHTML = (op.lang === "gb") ? "km" : "miles";
+    // el.disUnit.innerHTML = (op.lang === "gb") ? "km" : "miles";
+    // el.q10.innerHTML = (op.lang === "gb") ? "km" : "miles";
 
     for (var d in dev.info) { // loop through to concatenate information to text
         if (i < _Lq) {
@@ -548,6 +549,16 @@ function js_live() { // update js - in live
 }
 
 function load_eN() { // load, after cookie acceptance (page specific)
+
+    if (!el.x13) { // common
+        sI_1.n = (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
+
+        el.disUnit.innerHTML = (op.lang === "gb") ? "km" : "miles";
+        el.q10.innerHTML = (op.lang === "gb") ? "km" : "miles";
+
+        el.x13 = true;
+    }
+
     if (!vw.tB && !vw.pH) { // mobile
         // scroll arrow
         var h = getBd(el.lk3, "height");

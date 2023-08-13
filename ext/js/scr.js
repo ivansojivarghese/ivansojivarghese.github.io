@@ -104,21 +104,22 @@ var im = { // #intro_main
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
-        n : (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
+        // n : (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
+        n : dev.distance,
         e : (!vw.dk) ? document.getElementById("sIn1") : document.getElementById("qIn9"), // element
         _L : undefined, // spaces for _L (loop) iterations
         s : false // run (execution) status
     },
     sI_2 = {
         a : 0,
-        n : 183, // hours
+        n : dev.hoursNo, // hours
         e : (!vw.dk) ? document.getElementById("sIn2") : document.getElementById("qIn11"), 
         _L : undefined,
         s : false
     },
     sI_3 = {
         a : 0,
-        n : 245, // cappuccinos
+        n : dev.cappuccinosNo, // cappuccinos
         e : (!vw.dk) ? document.getElementById("sIn3") : document.getElementById("qIn7"),
         _L : undefined,
         s : false
