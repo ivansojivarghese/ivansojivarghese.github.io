@@ -43,6 +43,9 @@ eR = { // error
     ck : document.getElementById("error_cke"), // cookies
     mt : document.getElementById("error_mt"), // maintenance
     dt : document.getElementById("error_dt"), // duplicate tabs
+    dt_e : {
+        s : document.getElementById("error_dtsp")
+    },
     vp : document.getElementById("error_vp"), // vpn
     vp_e : {
         h : document.getElementById("error_vph4"), // h4
@@ -1351,7 +1354,9 @@ function errorCheck() { // check for errors
             }
         }, op.Ls);
     } else if (parseInt(windowCount) > 0) { // check for duplicate TABS (local broswer only)
+        var w = ((windowCount - 1) > 1) ? " instances" : " instance";
         eR.h = "dt";
+        eR.dt_e.s.innerHTML = (windowCount - 1) + w;
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
     } else if (op.fS) { // check if fullscreen
