@@ -1358,6 +1358,7 @@ function errorCheck() { // check for errors
         eR.h = "dt";
         eR.dt_e.s.innerHTML = (windowCount) + w;
         setInterval(function() {
+            eR.dt_e.s.innerHTML = (windowCount) + w; // UPDATE INSTANCES
             if (parseInt(windowCount) === null) { // check if other tabs are closed
                 reL(); 
             }
