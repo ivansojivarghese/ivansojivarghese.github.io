@@ -1360,13 +1360,13 @@ function errorCheck() { // check for errors
         eR.dt_e.s.innerHTML = (windowCount - 1) + w;
         
         setInterval(function() {
-            windowCount = parseInt(getCookie("num_windows"));
-            var w = ((windowCount - 1) > 1) ? " instances" : " instance";
-            eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
-            /*
-            if (parseInt(windowCount) === null) { // check if other tabs are closed
+            if (windowCount < 1) { // check if other tabs are closed
                 reL(); 
-            }*/
+            } else {
+                windowCount = parseInt(getCookie("num_windows"));
+                var w = ((windowCount - 1) > 1) ? " instances" : " instance";
+                eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
+            }
         }, op.Ls);
         
     } else if (op.mt) { // check if site under maintenance
