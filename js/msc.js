@@ -3429,6 +3429,8 @@ window.addEventListener("blur", function() { // window out of focus
 
 //////////////////////////////////////////
 
+var windowCount = getCookie("num_windows");
+
 window.addEventListener("beforeunload", function(e) { // DUPLICATE TAB detection (LOCAL browsers only)
     windowCount = getCookie("num_windows");
     if (parseInt(windowCount) > 1) {
@@ -3447,8 +3449,6 @@ window.addEventListener("load", function() {
         setCookie("num_windows", (c + 1), op.c.t);
     }
 });
- 
-var windowCount = getCookie("num_windows");
 
 ////////////////////////////////////////////
 
