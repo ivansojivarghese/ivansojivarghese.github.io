@@ -1300,12 +1300,7 @@ function errorCheck() { // check for errors
     focus_Check = checkFocus();
     tDevice = isTouchSupported();
 
-    if (windowCount === null || windowCount === "") {
-        setCookie("num_windows", 1, op.c.t);
-    } else {
-        var c = parseInt(getCookie("num_windows"));
-        setCookie("num_windows", (c + 1), op.c.t);
-    }
+    windowCount = parseInt(getCookie("num_windows"));
     
     // criticalAPI = js_load();
 
@@ -1360,7 +1355,7 @@ function errorCheck() { // check for errors
                 j = false;
             }
         }, op.Ls);
-    } else if (parseInt(windowCount) > 1) { // check for duplicate TABS (local broswer only)
+    } else if (windowCount > 1) { // check for duplicate TABS (local broswer only)
         var w = (windowCount > 1) ? " instances" : " instance";
         eR.h = "dt";
         eR.dt_e.s.innerHTML = (windowCount) + w;
