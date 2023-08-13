@@ -1299,7 +1299,6 @@ function errorCheck() { // check for errors
     translate_Check = checkTranslation();
     focus_Check = checkFocus();
     tDevice = isTouchSupported();
-
     windowCount = parseInt(getCookie("num_windows"));
     
     // criticalAPI = js_load();
