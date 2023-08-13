@@ -1355,13 +1355,15 @@ function errorCheck() { // check for errors
             }
         }, op.Ls);
     } else if (windowCount && windowCount > 1) { // check for duplicate TABS (local broswer only)
+        var j = true;
         var w = ((windowCount - 1) > 1) ? " instances" : " instance";
         eR.h = "dt";
         eR.dt_e.s.innerHTML = (windowCount - 1) + w;
         
         setInterval(function() {
-            if ((windowCount - 1) < 1) { // check if other tabs are closed
+            if (((windowCount - 1) < 1) && j) { // check if other tabs are closed
                 reL(); 
+                j = false;
             } else {
                 windowCount = parseInt(getCookie("num_windows"));
                 var w = ((windowCount - 1) > 1) ? " instances" : " instance";
