@@ -1351,9 +1351,7 @@ function errorCheck() { // check for errors
             }
         }, op.Ls);
     } else if (parseInt(windowCount) > 0) { // check for duplicate TABS (local broswer only)
-
         eR.h = "dt";
-
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
     } else if (op.fS) { // check if fullscreen
