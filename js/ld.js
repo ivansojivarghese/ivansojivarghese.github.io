@@ -1373,7 +1373,7 @@ function errorCheck() { // check for errors
     } else if (((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) { // check for duplicate TABS (local broswer only - for desktops)
         
         if (duplicated) {
-            eR.dt_e.s.innerHTML = "on some instances";
+            eR.dt_e.s.innerHTML = "some instances";
         } else {
             var j = true;
             var w = ((windowCount - 1) > 1) ? " instances" : " instance";
