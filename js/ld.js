@@ -874,8 +874,13 @@ function load_e() { // end the loading sequence
                                 eR.p = "dt";
 
                                 if (duplicated) {
-                                    windowCount = "some";
+                                    // windowCount = "some";
+
+                                    eR.dt_e.s.innerHTML = "on some instances";
                                 }
+
+                                // var w = ((windowCount - 1) > 1) ? " instances" : " instance";
+                                // eR.dt_e.s.innerHTML = (windowCount - 1) + w;
                             }
                         }
 

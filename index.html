@@ -1272,6 +1272,9 @@
 
         <!-- Multiple tabs detection -->
         <script>
+
+            // REFERENCE: https://stackoverflow.com/questions/23690666/check-if-my-website-is-open-in-another-tab
+
             var duplicated = false;
             // Broadcast that you're opening a page.
             localStorage.openpages = Date.now();
@@ -1294,7 +1297,6 @@
             };
             window.addEventListener('storage', onLocalStorageEvent, false);
         </script>
-
         <!--  JS files -->
         <script src="js/msc.js"></script>
         <script src="ext/js/fahrenheit_countries.jsonc"></script>
