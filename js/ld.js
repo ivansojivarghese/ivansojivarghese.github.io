@@ -868,10 +868,14 @@ function load_e() { // end the loading sequence
                                 eR.vp_e.h.classList.add("revert");
                                 eR.vp_e.h.innerHTML = "ip address: " + address;
 
-                            } else if ((windowCount && windowCount > 1) && (vw.dk && !tDevice)) {
+                            } else if (((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) {
 
                                 eR.h = "dt";
                                 eR.p = "dt";
+
+                                if (duplicated) {
+                                    windowCount = "some";
+                                }
                             }
                         }
 
