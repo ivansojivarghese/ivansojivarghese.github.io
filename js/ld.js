@@ -1370,26 +1370,31 @@ function errorCheck() { // check for errors
                 j = false;
             }
         }, op.Ls);
-    } else if ((windowCount && windowCount > 1) && (vw.dk && !tDevice)) { // check for duplicate TABS (local broswer only - for desktops)
-        var j = true;
-        var w = ((windowCount - 1) > 1) ? " instances" : " instance";
-        eR.h = "dt";
-        eR.dt_e.s.innerHTML = (windowCount - 1) + w;
+    } else if (((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) { // check for duplicate TABS (local broswer only - for desktops)
         
-        setInterval(function() {
-            if (((windowCount - 1) < 1) && j) { // check if other tabs are closed
-                reL(); 
-                j = false;
-            } else {
-                windowCount = parseInt(getCookie("num_windows"));
-                var w = ((windowCount - 1) > 1) ? " instances" : " instance";
-                if ((windowCount - 1) > 0) {
-                    eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
+        if (duplicated) {
+            var j = true;
+            var w = ((windowCount - 1) > 1) ? " instances" : " instance";
+            eR.h = "dt";
+            eR.dt_e.s.innerHTML = (windowCount - 1) + w;
+            
+            setInterval(function() {
+                if (((windowCount - 1) < 1) && j) { // check if other tabs are closed
+                    reL(); 
+                    j = false;
                 } else {
-                    eR.dt_e.s.innerHTML = "0 instances"; 
+                    windowCount = parseInt(getCookie("num_windows"));
+                    var w = ((windowCount - 1) > 1) ? " instances" : " instance";
+                    if ((windowCount - 1) > 0) {
+                        eR.dt_e.s.innerHTML = (windowCount - 1) + w; // UPDATE INSTANCES
+                    } else {
+                        eR.dt_e.s.innerHTML = "0 instances"; 
+                    }
                 }
-            }
-        }, op.Ls);
+            }, op.Ls);
+        } else {
+            eR.dt_e.s.innerHTML = "on some instances";
+        }
         
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
