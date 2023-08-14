@@ -2562,7 +2562,7 @@ function scr_t(s, pg) { // scroll toggle
 // Partial form of locomotive scrolling
 
 function SmoothScroll_init() {
-	new SmoothScroll(document, 150, 25);
+	new SmoothScroll(document, 150, 30);
     /*
     Arguments (in order from left to right):
         target: the element to be scrolled smoothly - can be a div or document
