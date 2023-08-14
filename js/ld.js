@@ -1372,14 +1372,12 @@ function errorCheck() { // check for errors
         }, op.Ls);
     } else if (((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) { // check for duplicate TABS (local broswer only - for desktops)
         
-        if (duplicated) {
-            eR.dt_e.s.innerHTML = "some instances";
-        } else {
-            var j = true;
-            var w = ((windowCount - 1) > 1) ? " instances" : " instance";
-            eR.h = "dt";
-            eR.dt_e.s.innerHTML = (windowCount - 1) + w;
-            
+        var j = true;
+        var w = ((windowCount - 1) > 1) ? " instances" : " instance";
+        eR.h = "dt";
+        eR.dt_e.s.innerHTML = (windowCount - 1) + w;
+        
+        if (windowCount && windowCount > 1) {
             setInterval(function() {
                 if (((windowCount - 1) < 1) && j) { // check if other tabs are closed
                     reL(); 
@@ -1394,7 +1392,9 @@ function errorCheck() { // check for errors
                     }
                 }
             }, op.Ls);
-        }
+        } else if (duplicated) {
+            eR.dt_e.s.innerHTML = "some instances";
+        } 
         
     } else if (op.mt) { // check if site under maintenance
         eR.h = "mt";
