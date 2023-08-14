@@ -349,7 +349,7 @@ async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cg
                     if (b) { // break 2
                         b = false;
                         continue;
-                    } else if (data[i].concat(data[i + 1]) === "\n") { // break
+                    } else if (data[i] === "\n") { // break
                         cloudflareCDNres[h] = v; // create a value
                         v = "";
                         h = "";
