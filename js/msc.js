@@ -2253,9 +2253,13 @@ function countdownTimerSec(d, t, e, p) { // count down (in sec.)
 }
 
 function getBd(el, p) { // retrieve getBoundingClientRect (bounding rectangle)
-    var elB = el.getBoundingClientRect(),
-        elBp = elB[p]; // accessing specific property in bound(ed) object
-    return elBp;
+    if (el) {
+        var elB = el.getBoundingClientRect(),
+            elBp = elB[p]; // accessing specific property in bound(ed) object
+        return elBp;
+    } else {
+        return null;
+    }
 }
 
 function nwCiArr(ar) { // create a comparison [previous index] array
