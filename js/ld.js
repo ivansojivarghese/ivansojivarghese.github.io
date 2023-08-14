@@ -1292,7 +1292,7 @@ function errorCheck() { // check for errors
     }
     timeAPI(); // GET USER time information (from IP Address, alternative to ipAPI)
     countryAPI(""); // GET USER country information (from IP Address) (ENTER A region IP value for language testing, IP Address)
-    cloudflareCDN(); // cloudfare CDN service
+    cloudflareCDN(); // cloudfare CDN trace service
 
     // msc. stuff
 
