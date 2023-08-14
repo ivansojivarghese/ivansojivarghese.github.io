@@ -338,7 +338,7 @@ async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cg
     await fetch("https://www.cloudflare.com/cdn-cgi/trace")
         .then((response) => {
             return response.text().then((data) => {
-                cloudflareCDNres = data;
+                cloudflareCDNres.data = data;
                 cloudflareCDNres.online = true;
             }).catch((error) => {
                 cloudflareCDNres.error = true;
