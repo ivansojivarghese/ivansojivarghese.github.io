@@ -337,7 +337,7 @@ async function countryAPI(v) { // unlimited, https://country.is/
 async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cgi/trace
     await fetch("https://www.cloudflare.com/cdn-cgi/trace")
         .then((response) => {
-            return response.json().then((data) => {
+            return response.text().then((data) => {
                 cloudflareCDNres = data;
                 cloudflareCDNres.online = true;
             }).catch((error) => {
