@@ -346,14 +346,15 @@ async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cg
                     vC = false, // value check
                     b = false; // data break
                 for (i = 0; i <= _L; i++) {
+                    /*
                     if (b) { // break 2
                         b = false;
                         continue;
-                    } else if (data[i] === "\n") { // break
+                    } else*/ if (data[i] === "\n") { // break
                         cloudflareCDNres[h] = v; // create a value
                         v = "";
                         h = "";
-                        b = true;
+                        // b = true;
                         vC = false;
                     } else if (vC) { // value
                         v += data[i];
