@@ -1272,6 +1272,7 @@
 
         <!-- Multiple tabs detection -->
         <script>
+            var duplicated = false;
             // Broadcast that you're opening a page.
             localStorage.openpages = Date.now();
             var onLocalStorageEvent = function(e){
@@ -1284,7 +1285,7 @@
 
                     setTimeout(function() {
                         console.log("localStorage being used");
-                        var duplicated = true;
+                        duplicated = true;
 
                         // eR.p = "dt";
                         // eR.h = "dt";
