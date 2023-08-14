@@ -338,7 +338,35 @@ async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cg
     await fetch("https://www.cloudflare.com/cdn-cgi/trace")
         .then((response) => {
             return response.text().then((data) => {
-                cloudflareCDNres.data = data;
+                // cloudflareCDNres.data = data;
+                var _L = data.length - 1,
+                    p = "", // property
+                    v = "", // value
+                    h = "", // hold
+                    vC = false, // value check
+                    b = false; // data break
+                for (i = 0; i <= _L; i++) {
+                    if (b) { // break 2
+                        b = false;
+                        continue;
+                    } else if (data[i].concat(data[i + 1]) === "\n") { // break
+                        cloudflareCDNres[h] = v; // create a value
+                        v = "";
+                        h = "";
+                        b = true;
+                        vC = false;
+                    } else if (vC) { // value
+                        v += data[i];
+                    } else if (data[i] !== "=") { // property
+                        p += data[i];
+                    } else {
+                        h = p;
+                        cloudflareCDNres[h] = ""; // create a property
+                        p = "";
+                        vC = true;
+                        continue;
+                    }
+                }
                 cloudflareCDNres.online = true;
             }).catch((error) => {
                 cloudflareCDNres.error = true;
