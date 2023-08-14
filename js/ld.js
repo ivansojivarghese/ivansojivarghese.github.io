@@ -1329,7 +1329,7 @@ function errorCheck() { // check for errors
         eR.h = "ld";
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.h = "dp";
-    } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) { // potential vpn usage (when REST-fetched + device time zones don't match)
+    } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) { // potential vpn usage (when REST-fetched + device time zones don't match)
         
         var address = ""; // UPDATE LINE 827 ABOVE FOR CHANGES IN CONDITIONS
         eR.h = "vp";

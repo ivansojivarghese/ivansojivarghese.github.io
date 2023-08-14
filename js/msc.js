@@ -148,7 +148,8 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     clientAPIres = {},
     roamingAPIres = {},
     timeAPIres = {},
-    countryAPIres = {};
+    countryAPIres = {},
+    cloudflareCDNres = {};
 
 
 /////////////////////////////////////////////////////
@@ -329,6 +330,18 @@ async function countryAPI(v) { // unlimited, https://country.is/
                 countryAPIres.online = true;
             }).catch((error) => {
                 countryAPIres.error = true;
+            });
+        })
+}
+
+async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cgi/trace
+    await fetch("https://www.cloudflare.com/cdn-cgi/trace")
+        .then((response) => {
+            return response.json().then((data) => {
+                cloudflareCDNres = data;
+                cloudflareCDNres.online = true;
+            }).catch((error) => {
+                cloudflareCDNres.error = true;
             });
         })
 }
