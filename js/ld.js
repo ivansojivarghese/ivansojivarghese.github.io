@@ -876,7 +876,7 @@ function load_e() { // end the loading sequence
                                 if (duplicated) {
                                     // windowCount = "some";
 
-                                    eR.dt_e.s.innerHTML = "on some instances";
+                                    eR.dt_e.s.innerHTML = "some instances";
                                 }
 
                                 // var w = ((windowCount - 1) > 1) ? " instances" : " instance";
