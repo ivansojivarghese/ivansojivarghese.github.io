@@ -1270,16 +1270,22 @@
             })('//updatemybrowser.org/umb.js');
         </script>
 
-        <script type="text/javascript">
+        <!-- Multiple tabs detection -->
+        <script>
             // Broadcast that you're opening a page.
             localStorage.openpages = Date.now();
             var onLocalStorageEvent = function(e){
-                if(e.key == "openpages"){
+                if (e.key == "openpages"){
                     // Listen if anybody else is opening the same page!
                     localStorage.page_available = Date.now();
                 }
-                if(e.key == "page_available"){
-                    alert("One more page already open");
+                if (e.key == "page_available"){
+                    // alert("One more page already open");
+
+                    setTimeout(function() {
+                        eR.p = "dt";
+                        eR.h = "dt";
+                    }, op.t);
                 }
             };
             window.addEventListener('storage', onLocalStorageEvent, false);
