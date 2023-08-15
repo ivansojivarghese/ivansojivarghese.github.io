@@ -1165,6 +1165,8 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
+
+
     /*
     if (op.n && op.wRo) { // offline - prevent window resize reload
         setTimeout(function() {
@@ -3742,6 +3744,10 @@ window.addEventListener("pointerup", function() { // release/click up
 window.addEventListener("pointermove", function() { // release/click up
     op.p.e = true;
 });
+
+
+// UNIQUE TAB ID
+
 
 op.L = setInterval(pL, op.Ls); // check site paramters
 pos.L = setInterval(sL, op.Ls); // check live scroll pos.
