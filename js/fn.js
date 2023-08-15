@@ -32,4 +32,4 @@ setInterval(function() { // send 'pings' at intervals
     if (getCookie(tabID)) {
         setCookie(tabID + "_e", (parseInt(getCookie(tabID + "_e")) + 1), op.c.t);
     }
-}, 1000);
+}, (op.Ls * 60));
