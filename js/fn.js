@@ -24,4 +24,4 @@ function r_Ig(min, max) { // return random integer between 2 values (only min in
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-u_Id();
+u_Id();  // GET UNIQUE TAB ID

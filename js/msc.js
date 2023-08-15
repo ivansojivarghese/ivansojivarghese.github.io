@@ -3746,9 +3746,6 @@ window.addEventListener("pointermove", function() { // release/click up
 });
 
 
-// UNIQUE TAB ID
-
-
 op.L = setInterval(pL, op.Ls); // check site paramters
 pos.L = setInterval(sL, op.Ls); // check live scroll pos.
 pos.Lc = setInterval(c_Sr, (op.Ls * op.e)); // check scroll parameters (at half intervals)
