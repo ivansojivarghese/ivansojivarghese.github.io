@@ -2,7 +2,8 @@
 
 var apB_A = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], // latin alphabets
     uId_e = [], // entered (returned) unique ids
-    tabID = "";
+    tabID = "",
+    tabExp = 1; // expiry (days)
 
 
 function u_Id() { // create unique identifiers for characters (operators)
@@ -26,10 +27,11 @@ function r_Ig(min, max) { // return random integer between 2 values (only min in
 
 u_Id();  // GET UNIQUE TAB ID
 
-setCookie(tabID, "true", 1); // set a reference cookie
-
 setInterval(function() { // send 'pings' at intervals
     if (getCookie(tabID)) {
-        setCookie(tabID + "_e", (parseInt(getCookie(tabID + "_e")) + 1), 1);
+        setCookie(tabID + "_e", (parseInt(getCookie(tabID + "_e")) + 1), tabExp);
+    } else {
+        setCookie(tabID, "true", tabExp); // set a reference cookie
+        setCookie(tabID + "_e", "1", tabExp);
     }
 }, (op.Ls * 60));
