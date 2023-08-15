@@ -33,6 +33,8 @@ u_Id();  // GET UNIQUE TAB ID
 tabList[tabList.length] = tabID;
 
 tab_L = setInterval(function() { // send 'pings' at intervals
+    approxTabs = 0;
+
     if (getCookie(tabID)) {
         setCookie(tabID + "_e", (parseInt(getCookie(tabID + "_e")) + 1), tabExp);
     } else {
@@ -60,6 +62,7 @@ window.addEventListener("unload", function() { // tab unload
     setCookie(tabID, null, -1); // delete
     setCookie(tabID + "_e", null, -1);
     setCookie("num_tabs", null, -1);
+    tabList
 });
 
 window.addEventListener("beforeunload", function() {
