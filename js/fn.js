@@ -27,3 +27,9 @@ function r_Ig(min, max) { // return random integer between 2 values (only min in
 u_Id();  // GET UNIQUE TAB ID
 
 setCookie(tabID, "true", op.c.t); // set a reference cookie
+
+setInterval(function() { // send 'pings' at intervals
+    if (getCookie(tabID)) {
+        setCookie(tabID + "_e", (parseInt(getCookie(tabID + "_e")) + 1), op.c.t);
+    }
+}, 1000);
