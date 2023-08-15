@@ -144,6 +144,8 @@ function getCookie(n) { // obtain a cookie (if available)
     return ""; // return nothing if not found
 }
 
+// REFERENCE: https://stackoverflow.com/questions/3400759/how-can-i-list-all-cookies-for-the-current-page-with-javascript
+
 function listCookies() { // RETURNS an object with the listed cookies (site domain only, not third party)
     var theCookies = document.cookie.split('; ');
     var list = {};

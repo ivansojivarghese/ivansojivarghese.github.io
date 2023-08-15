@@ -4,7 +4,8 @@ var apB_A = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
     uId_e = [], // entered (returned) unique ids
     tabID = "",
     tabExp = 1, // expiry (days)
-    tab_L = null;
+    tab_L = null,
+    ckList = {};
 
 
 function u_Id() { // create unique identifiers for characters (operators)
@@ -35,7 +36,16 @@ tab_L = setInterval(function() { // send 'pings' at intervals
         setCookie(tabID, "true", tabExp); // set a reference cookie
         setCookie(tabID + "_e", "1", tabExp);
     }
+
+    ckList = listCookies();
+    for (var x in ckList) {
+        if (x.slice(-2) === "_e") {
+            
+        }
+    }
+
 }, (op.Ls * 60));
+
 
 window.addEventListener("unload", function() { // tab unload
     clearInterval(tab_L);
