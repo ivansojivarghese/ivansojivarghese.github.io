@@ -6,6 +6,7 @@ var apB_A = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
     tabExp = 1, // expiry (days)
     tab_L = null,
     approxTabs = 0,
+    tabList = [],
     ckList = {};
 
 
@@ -29,6 +30,7 @@ function r_Ig(min, max) { // return random integer between 2 values (only min in
 }
 
 u_Id();  // GET UNIQUE TAB ID
+tabList[tabList.length] = tabID;
 
 tab_L = setInterval(function() { // send 'pings' at intervals
     if (getCookie(tabID)) {
@@ -40,7 +42,10 @@ tab_L = setInterval(function() { // send 'pings' at intervals
 
     ckList = listCookies();
     for (var x in ckList) {
-        if (x.slice(-2) === "_e" && ((x.slice(0, 4) === tabID) && getCookie(tabID) === "false")) { // IF a TAB cookie
+        if (x.slice(-2) === "_e" && ((x.slice(0, 4) === tabID) && (getCookie(tabID) === "false" || !tabList.includes(tabID)))) { // IF a TAB cookie
+            if (!tabList.includes(tabID)) { // add tab to tablist if not existing
+                tabList[tabList.length] = tabID;
+            }
             setCookie(tabID, "true", tabExp);
             approxTabs++;
         }
