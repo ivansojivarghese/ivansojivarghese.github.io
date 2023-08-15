@@ -13,7 +13,7 @@ function u_Id() { // create unique identifiers for characters (operators)
             a = apB_A[r_Ig(0, apB_A.length - 1)], // return a random alphabet (A-Z)
             f = d + a; // 'd + a' returns the 'id'
     }
-    while (uId_e.indexOf(f) !== -1); // create another 'id' if uniqueness is not met - if similar id is found in global var.
+    while (uId_e.indexOf(f) !== -1 && !getCookie(f)); // create another 'id' if uniqueness is not met - if similar id is found in global var./cookie scope
 
     uId_e.push(f); // add to global var. for reference
 
@@ -25,3 +25,5 @@ function r_Ig(min, max) { // return random integer between 2 values (only min in
 }
 
 u_Id();  // GET UNIQUE TAB ID
+
+setCookie(tabID, "true", op.c.t); // set a reference cookie
