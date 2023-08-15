@@ -144,6 +144,15 @@ function getCookie(n) { // obtain a cookie (if available)
     return ""; // return nothing if not found
 }
 
+function listCookies() { // RETURNS an object with the listed cookies (site domain only, not third party)
+    var theCookies = document.cookie.split('; ');
+    var list = {};
+    for (var i = 1 ; i <= theCookies.length; i++) {
+        list[theCookies[i - 1].split("=")[0]] = theCookies[i - 1].split("=")[1];
+    }
+    return list;
+}
+
 
 uA_L = setInterval(function() {
     if (navigator.userAgent) {

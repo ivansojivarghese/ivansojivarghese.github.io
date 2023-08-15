@@ -37,7 +37,7 @@ tab_L = setInterval(function() { // send 'pings' at intervals
     }
 }, (op.Ls * 60));
 
-window.addEventListener("unload", function() {
+window.addEventListener("unload", function() { // tab unload
     clearInterval(tab_L);
     setCookie(tabID, null, -1); // delete
     setCookie(tabID + "_e", null, -1);
