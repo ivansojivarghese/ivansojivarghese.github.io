@@ -46,7 +46,7 @@ tab_L = setInterval(function() { // send 'pings' at intervals
             if (!tabList.includes(x.slice(0, 4))) { // add tab to tablist if not existing
                 tabList[tabList.length] = x.slice(0, 4);
             }
-            setCookie(tabID, "true", tabExp);
+            setCookie(x.slice(0, 4), "true", tabExp);
             approxTabs++;
         }
     }
