@@ -59,10 +59,12 @@ window.addEventListener("unload", function() { // tab unload
     clearInterval(tab_L);
     setCookie(tabID, null, -1); // delete
     setCookie(tabID + "_e", null, -1);
+    setCookie("num_tabs", null, -1);
 });
 
 window.addEventListener("beforeunload", function() {
     clearInterval(tab_L);
     setCookie(tabID, null, -1); // delete
     setCookie(tabID + "_e", null, -1);
+    setCookie("num_tabs", null, -1);
 });
