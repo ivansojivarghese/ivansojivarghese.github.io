@@ -1377,7 +1377,7 @@ function errorCheck() { // check for errors
         eR.h = "dt";
         eR.dt_e.s.innerHTML = (windowCount - 1) + w;
         
-        if (windowCount && windowCount > 1) {
+        if (windowCount && windowCount > 1 && (windowCount === parseInt(getCookie("num_tabs")))) {
             setInterval(function() {
                 if (((windowCount - 1) < 1) && j) { // check if other tabs are closed
                     reL(); 
