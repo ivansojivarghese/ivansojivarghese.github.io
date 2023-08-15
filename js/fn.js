@@ -34,17 +34,18 @@ tab_L = setInterval(function() { // send 'pings' at intervals
     if (getCookie(tabID)) {
         setCookie(tabID + "_e", (parseInt(getCookie(tabID + "_e")) + 1), tabExp);
     } else {
-        setCookie(tabID, "true", tabExp); // set a reference cookie
+        setCookie(tabID, "false", tabExp); // set a reference cookie
         setCookie(tabID + "_e", "1", tabExp);
     }
 
     ckList = listCookies();
     for (var x in ckList) {
-        if (x.slice(-2) === "_e") { // IF a TAB cookie
+        if (x.slice(-2) === "_e" && ((x.slice(0, 4) === tabID) && getCookie(tabID) === "false")) { // IF a TAB cookie
+            setCookie(tabID, "true", tabExp);
             approxTabs++;
         }
     }
-    setCookie("num_tabs", approxTabs, tabExp);
+    setCookie("num_tabs", approxTabs, tabExp); // output number of tabs
 
 }, (op.Ls * 60));
 
