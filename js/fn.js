@@ -33,7 +33,6 @@ u_Id();  // GET UNIQUE TAB ID
 tabList[tabList.length] = tabID;
 
 tab_L = setInterval(function() { // send 'pings' at intervals
-    approxTabs = 0;
 
     if (getCookie(tabID)) {
         setCookie(tabID + "_e", (parseInt(getCookie(tabID + "_e")) + 1), tabExp);
