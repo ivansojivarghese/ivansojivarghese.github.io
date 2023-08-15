@@ -5,6 +5,7 @@ var apB_A = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
     tabID = "",
     tabExp = 1, // expiry (days)
     tab_L = null,
+    approxTabs = 0,
     ckList = {};
 
 
@@ -39,10 +40,11 @@ tab_L = setInterval(function() { // send 'pings' at intervals
 
     ckList = listCookies();
     for (var x in ckList) {
-        if (x.slice(-2) === "_e") {
-            
+        if (x.slice(-2) === "_e") { // IF a TAB cookie
+            approxTabs++;
         }
     }
+    setCookie("num_tabs", approxTabs, tabExp);
 
 }, (op.Ls * 60));
 
