@@ -42,7 +42,7 @@ tab_L = setInterval(function() { // send 'pings' at intervals
 
     ckList = listCookies();
     for (var x in ckList) {
-        if (x.slice(-2) === "_e" && ((x.slice(0, 4) === tabID) && (getCookie(tabID) === "false" || !tabList.includes(tabID)))) { // IF a TAB cookie
+        if (x.slice(-2) === "_e" && ((x.slice(0, 4) === tabID) && (getCookie(tabID) === "false" || !tabList.includes(x.slice(0, 4))))) { // IF a TAB cookie
             if (!tabList.includes(tabID)) { // add tab to tablist if not existing
                 tabList[tabList.length] = tabID;
             }
