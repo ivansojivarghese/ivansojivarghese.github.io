@@ -49,6 +49,8 @@ tab_L = setInterval(function() { // send 'pings' at intervals
             }
             setCookie(x.slice(0, 4), "true", tabExp);
             approxTabs++;
+        } else if (getCookie(x.slice(0, 4)) === "true") {
+            approxTabs++;
         }
     }
     setCookie("num_tabs", approxTabs, tabExp); // output number of tabs
