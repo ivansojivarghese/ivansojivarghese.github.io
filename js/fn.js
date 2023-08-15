@@ -58,14 +58,17 @@ tab_L = setInterval(function() { // send 'pings' at intervals
 
 
 window.addEventListener("unload", function() { // tab unload
+    var d = tabList.indexOf(tabID);
+    tabList.splice(d, 1);
     clearInterval(tab_L);
     setCookie(tabID, null, -1); // delete
     setCookie(tabID + "_e", null, -1);
     setCookie("num_tabs", null, -1);
-    tabList
 });
 
 window.addEventListener("beforeunload", function() {
+    var d = tabList.indexOf(tabID);
+    tabList.splice(d, 1);
     clearInterval(tab_L);
     setCookie(tabID, null, -1); // delete
     setCookie(tabID + "_e", null, -1);
