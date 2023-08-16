@@ -870,7 +870,7 @@ function load_e() { // end the loading sequence
                                 eR.vp_e.h.classList.add("revert");
                                 eR.vp_e.h.innerHTML = "ip address: " + address;
 
-                            } else if (((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) {
+                            } else if ((((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) && !op.pwa.s) {
 
                                 eR.h = "dt";
                                 eR.p = "dt";
@@ -1378,7 +1378,7 @@ function errorCheck() { // check for errors
                 j = false;
             }
         }, op.Ls);
-    } else if (((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) { // check for duplicate TABS (local broswer only - for desktops)
+    } else if ((((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) && !op.pwa.s) { // check for duplicate TABS (local broswer only - for desktops)
         
         var j = true;
         var w = ((windowCount - 1) > 1) ? " instances" : " instance";
