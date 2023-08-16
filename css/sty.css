@@ -169,8 +169,8 @@ h1, h2, h3, h5, h6, p, ul, h4.revert {
 }
 
 .cursor.big {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.5rem;
+    height: 0.5rem;
     border: 0.1rem solid #303030;
 }
 
