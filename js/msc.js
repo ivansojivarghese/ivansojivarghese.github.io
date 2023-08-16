@@ -3773,9 +3773,7 @@ const positionElement = (e)=> {
   const mouseX = e.clientX;
    
   cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  // if () {
-    cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  // }
+  cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.35rem), calc(${mouseY}px - 0.35rem), 0)`;
 
   if (cursorSmall.classList.contains("z_O") || cursorBig.classList.contains("z_O")) {
     cursorSmall.classList.remove("z_O");
