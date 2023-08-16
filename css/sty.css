@@ -166,6 +166,7 @@ h1, h2, h3, h5, h6, p, ul, h4.revert {
 
 .cursor {
     pointer-events: none;
+    mix-blend-mode: exclusion;
 }
 
 .cursor.big {
