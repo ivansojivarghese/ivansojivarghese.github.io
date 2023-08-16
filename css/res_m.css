@@ -502,6 +502,10 @@
     .desktop {
         display: block;
     }
+
+    * {
+        cursor: none !important;
+    }
 }
 
 @media screen and (min-height: 825px) and (orientation: landscape) {
