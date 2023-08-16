@@ -6,6 +6,7 @@ var apB_A = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N
     tabExp = 1, // expiry (days)
     tab_L = null,
     approxTabs = 0,
+    liveTabs = 0,
     tabList = [],
     ckList = {};
 
@@ -43,6 +44,9 @@ tab_L = setInterval(function() { // send 'pings' at intervals
 
     ckList = listCookies();
     for (var x in ckList) {
+        if (x.slice(-2) === "_e") {
+            liveTabs++;
+        }
         if (x.slice(-2) === "_e" && (getCookie(x.slice(0, 4)) === "false" || !tabList.includes(x.slice(0, 4)))) { // IF a TAB cookie
             if (!tabList.includes(x.slice(0, 4))) { // add tab to tablist if not existing
                 tabList[tabList.length] = x.slice(0, 4);
@@ -51,7 +55,14 @@ tab_L = setInterval(function() { // send 'pings' at intervals
             approxTabs++;
         }
     }
-    setCookie("num_tabs", approxTabs, tabExp); // output number of tabs
+    if (liveTabs === approxTabs) {
+        setCookie("num_tabs", approxTabs, tabExp); // output number of tabs
+    } else if (liveTabs < approxTabs) {
+        setCookie("num_tabs", liveTabs, tabExp); // output number of tabs
+        approxTabs = liveTabs;
+    }
+
+    liveTabs = 0;
 
 }, (op.Ls * 60));
 
