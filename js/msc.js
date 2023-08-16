@@ -3775,6 +3775,10 @@ const positionElement = (e)=> {
   cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
   
   // cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+
+  if (cursorSmall.classList.contains("z_O")) {
+    cursorSmall.classList.remove("z_O");
+  }
 }
 
 window.addEventListener('mousemove', positionElement);
