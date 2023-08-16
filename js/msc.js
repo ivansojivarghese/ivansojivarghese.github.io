@@ -3136,7 +3136,22 @@ function viewportValid() { // check if viewport dimensions are proper/supported/
         }
         return false;
     } else {
-        viewportValid();
+        function getParam() {
+            if (wD > 0 && cH > 0) {
+                r = pgOr(wD, cH); // get screen orientation (using dimensions)
+                vw = vwP(wD, cH, r); // set device size/orientation params
+                clearInterval(op.Ld.prL);
+                viewportValid();
+            } else {
+                wD = window.outerWidth; // re-declare
+                cH = !op.pwa.s ? document.documentElement.clientHeight : window.innerHeight;
+                if (!op.Ld.x) {
+                    op.Ld.prL = setInterval(getParam, op.Ls);
+                    op.Ld.x = true;
+                }
+            }
+        }
+        getParam();
     }
 }
 
