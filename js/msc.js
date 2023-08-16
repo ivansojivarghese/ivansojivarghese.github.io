@@ -3124,16 +3124,20 @@ function findInArray(tgt, ar) {
 /////////////////////////////////////////////////
 
 function viewportValid() { // check if viewport dimensions are proper/supported/non-square
-    if (vw.pH || (!vw.pH && !vw.tB)) {
-        if ((wiH >= (wiD * op.vwM) && !vw.mB_L) || (wiD >= (wiH * op.vwM) && vw.mB_L)) {
-            return true;
+    if (vw) {
+        if (vw.pH || (!vw.pH && !vw.tB)) {
+            if ((wiH >= (wiD * op.vwM) && !vw.mB_L) || (wiD >= (wiH * op.vwM) && vw.mB_L)) {
+                return true;
+            }
+        } else if (vw.tB) {
+            if (wiD >= (wiH * op.vwM)) {
+                return true;
+            }
         }
-    } else if (vw.tB) {
-        if (wiD >= (wiH * op.vwM)) {
-            return true;
-        }
+        return false;
+    } else {
+        viewportValid();
     }
-    return false;
 }
 
 
