@@ -89,7 +89,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, ul {
 a {
     text-decoration: none;
     color: inherit;
-    /*cursor: pointer;*/
+    cursor: pointer;
 }
 /*
 a.n-link {
@@ -166,7 +166,7 @@ h1, h2, h3, h5, h6, p, ul, h4.revert {
 }
 
 .cursor {
-    transition-property: opacity;
+    transition-property: opacity !important;
 }
 
 .cursor.small {
