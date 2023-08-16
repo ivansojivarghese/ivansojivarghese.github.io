@@ -41,6 +41,7 @@
 
 html {
     font-size: 10px;
+    cursor: none !important;
 }
 /*
 :root { /*root (html) element
@@ -88,7 +89,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, ul {
 a {
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 /*
 a.n-link {
@@ -505,14 +506,14 @@ a.md, span.md {
 .b-rz {
     border-radius: 0.5rem;
 }
-
+/*
 .u-p {
     cursor: pointer;
 }
 
 .u-d {
     cursor: default;
-}
+}*/
 
 /* -------------- */
 /*
@@ -800,6 +801,10 @@ div.locator_img {
     z-index: 5000;
 }
 
+.z-P {
+    z-index: 10000;
+}
+
 /* -------------- */
 
 .text {
@@ -830,7 +835,7 @@ div.locator_img {
 .em a {
     border-bottom: 0.18em solid #303030;
     line-height: 0.9em;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .em a:active {

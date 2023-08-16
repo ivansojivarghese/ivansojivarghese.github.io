@@ -322,21 +322,22 @@ function sc_L() { // functions (live on scroll)
 
         ld.csa[0].setAttribute("onclick", "event.preventDefault()"); // 'photos'
         ld.csa[0].removeAttribute("href");
-        ld.csa[0].classList.add("u-d");
+        // ld.csa[0].classList.add("u-d");
 
         ld.csa[1].setAttribute("onclick", "event.preventDefault()"); // 'projects'
         ld.csa[1].removeAttribute("href");
-        ld.csa[1].classList.add("u-d");
+        // ld.csa[1].classList.add("u-d");
+
     } else { // show
         ld.csm.classList.remove("o-img");
 
         ld.csa[0].setAttribute("onclick", "location.href='https://ivansojivarghese.github.io/clicks'");
         ld.csa[0].setAttribute("href", "javascript:void(0)");
-        ld.csa[0].classList.remove("u-d");
+        // ld.csa[0].classList.remove("u-d");
 
         ld.csa[1].setAttribute("onclick", "location.href='https://ivansojivarghese.github.io/code'");
         ld.csa[1].setAttribute("href", "javascript:void(0)");
-        ld.csa[1].classList.remove("u-d");
+        // ld.csa[1].classList.remove("u-d");
     }
 
     // q_info

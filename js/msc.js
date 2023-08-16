@@ -1239,7 +1239,7 @@ function pL() { // site parameters loop
                 eR.pl_e.p.innerHTML = "outdated";
                 eR.pl_e.h.innerHTML = "update";
                 eR.pl_e.h.setAttribute("onclick", "location.href='" + op.bInfo.p.update_url + "'");
-                eR.pl_e.h.classList.add("u-p");
+                // eR.pl_e.h.classList.add("u-p");
 
                 e_Fd(disp, true); // fade out display
 
