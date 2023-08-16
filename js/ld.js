@@ -882,7 +882,7 @@ function load_e() { // end the loading sequence
 
                                     setInterval(function() {
                                         if ((parseInt(getCookie("num_tabs")) === 1) && !getCookie("num_windows")) {
-                                            // console.log("smRel");
+                                            console.log("smRel");
                                             reL();
                                         }
                                     }, op.Ls);
@@ -1406,7 +1406,7 @@ function errorCheck() { // check for errors
 
             setInterval(function() {
                 if ((parseInt(getCookie("num_tabs")) === 1) && !getCookie("num_windows")) {
-                    // console.log("smRel");
+                    console.log("smRel");
                     reL();
                 }
             }, op.Ls);

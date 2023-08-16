@@ -3766,18 +3766,18 @@ window.addEventListener("touchend", function(event) {
 // REFERENCE: https://blog.logrocket.com/creating-custom-mouse-cursor-css/
 
 const cursorSmall = document.querySelector('.cursor.small');
-// const cursorBig = document.querySelector('.big');
+const cursorBig = document.querySelector('.cursor.big');
 
 const positionElement = (e)=> {
   const mouseY = e.clientY;
   const mouseX = e.clientX;
    
   cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  
-  // cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+  cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 
-  if (cursorSmall.classList.contains("z_O")) {
+  if (cursorSmall.classList.contains("z_O") || cursorBig.classList.contains("z_O")) {
     cursorSmall.classList.remove("z_O");
+    cursorBig.classList.remove("z_O");
   }
 }
 
