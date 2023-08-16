@@ -877,6 +877,12 @@ function load_e() { // end the loading sequence
                                     // windowCount = "some";
 
                                     eR.dt_e.s.innerHTML = "some instances";
+
+                                    setInterval(function() {
+                                        if (parseInt(getCookie("num_tabs")) === 1) {
+                                            reL();
+                                        }
+                                    }, op.Ls);
                                 }
 
                                 // var w = ((windowCount - 1) > 1) ? " instances" : " instance";
@@ -1394,6 +1400,12 @@ function errorCheck() { // check for errors
             }, op.Ls);
         } else if (duplicated) {
             eR.dt_e.s.innerHTML = "some instances";
+
+            setInterval(function() {
+                if (parseInt(getCookie("num_tabs")) === 1) {
+                    reL();
+                }
+            }, op.Ls);
         } 
         
     } else if (op.mt) { // check if site under maintenance
