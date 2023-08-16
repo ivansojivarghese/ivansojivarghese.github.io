@@ -527,7 +527,9 @@ op = {
         dom : 0, // 'domcontentloaded'
         a : 0, // 'load',
         p : 0, // y-scrollPos
-        t : timeout // threshold for timeout (general)
+        t : timeout, // threshold for timeout (general)
+        x : false, // execution
+        prL : null
     },
     nav : { // navigation
         d : document.referrer, // check for previous URI
@@ -2816,8 +2818,24 @@ function checkSplitScreen() {
 
                 if (Number(getCookie("maxWidth")) === window.innerWidth && Number(getCookie("maxHeight")) === window.innerHeight) {
                     setTimeout(function() {
-                        r = pgOr(wD, cH); // get screen orientation (using dimensions)
-                        vw = vwP(wD, cH, r); // set device size/orientation params
+                        // r = pgOr(wD, cH); // get screen orientation (using dimensions)
+                        // vw = vwP(wD, cH, r); // set device size/orientation params
+
+                        function getParam() {
+                            if (wD > 0 && cH > 0) {
+                                r = pgOr(wD, cH); // get screen orientation (using dimensions)
+                                vw = vwP(wD, cH, r); // set device size/orientation params
+                                clearInterval(op.Ld.prL);
+                            } else {
+                                wD = window.outerWidth; // re-declare
+                                cH = !op.pwa.s ? document.documentElement.clientHeight : window.innerHeight;
+                                if (!op.Ld.x) {
+                                    op.Ld.prL = setInterval(getParam, op.Ls);
+                                    op.Ld.x = true;
+                                }
+                            }
+                        }
+                        getParam();
                         
                         if ((vw.mB_L && tDevice) || (!op.c.u && !tDevice)) { // if in landscape (mobile)
                             reL();

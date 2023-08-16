@@ -92,6 +92,8 @@ rL = { // page/resource loader
     e5 : false,
     e6 : false,
     e7 : false,
+    e8 : false,
+    prL : null, // param. loop
     o_c : false, // orientation-change check (during load)
     s : false, // int load status
     y : false, // ready (render) load status
@@ -1680,8 +1682,26 @@ if (getCookie("maxHeight") && (getCookie("maxHeight") < cH || (op.nav.r && getCo
     setCookie("maxHeight", cH, op.c.t); // update
     aH = getCookie("maxHeight");
 } 
-r = pgOr(wD, cH); // get screen orientation (using dimensions)
-vw = vwP(wD, cH, r); // set device size/orientation params
+
+function getParam() {
+    if (wD > 0 && cH > 0) {
+        r = pgOr(wD, cH); // get screen orientation (using dimensions)
+        vw = vwP(wD, cH, r); // set device size/orientation params
+        clearInterval(rL.prL);
+    } else {
+        wD = window.outerWidth; // re-declare
+        cH = !op.pwa.s ? document.documentElement.clientHeight : window.innerHeight;
+        if (!rL.e8) {
+            rL.prL = setInterval(getParam, op.Ls);
+            rL.e8 = true;
+        }
+    }
+}
+getParam();
+
+// r = pgOr(wD, cH); // get screen orientation (using dimensions)
+// vw = vwP(wD, cH, r); // set device size/orientation params
+
 op.c.e = navigator.cookieEnabled; // check for enabled cookies
 op.mt = mt_check(dev.version_up);
 load_js();
