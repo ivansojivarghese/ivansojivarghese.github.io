@@ -808,7 +808,7 @@ function load_e() { // end the loading sequence
                     estimateNetworkSpeed_abort.abort();
                 }, op.te);
 
-            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && allLoaded && (windowCount !== NaN) && (js_load() || js_load_e() || op.er.ft) && (ipAPIres.online || (ipifyAPIres.online && timeAPIres.online) || clientAPIres.online || roamingAPIres.online || (countryAPIres.online && cloudflareCDNres.online)) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
+            } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && (wD > 0 && cH > 0) && allLoaded && (windowCount !== NaN) && (js_load() || js_load_e() || op.er.ft) && (ipAPIres.online || (ipifyAPIres.online && timeAPIres.online) || clientAPIres.online || roamingAPIres.online || (countryAPIres.online && cloudflareCDNres.online)) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
 
                 js_load();
 
