@@ -3776,8 +3776,12 @@ const positionElement = (e)=> {
   cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.25rem), calc(${mouseY}px - 0.25rem), 0)`;
 
   if (cursorSmall.classList.contains("z_O") || cursorBig.classList.contains("z_O")) {
-    cursorSmall.classList.remove("z_O");
-    cursorBig.classList.remove("z_O");
+    cursorSmall.classList.remove("d_n");
+    cursorBig.classList.remove("d_n");
+    setTimeout(function() {
+        cursorSmall.classList.remove("z_O");
+        cursorBig.classList.remove("z_O");
+    }, 10);
   }
 }
 
