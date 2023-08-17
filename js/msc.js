@@ -3770,20 +3770,22 @@ const cursorBig = document.querySelector('.cursor.big');
 var cursorActive = false;
 
 const positionElement = (e)=> {
-  const mouseY = e.clientY;
-  const mouseX = e.clientX;
-   
-  cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-  cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.25rem), calc(${mouseY}px - 0.25rem), 0)`;
+    if (!tch.e) {
+        const mouseY = e.clientY;
+        const mouseX = e.clientX;
 
-  if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n")) {
-    cursorSmall.classList.remove("d_n");
-    cursorBig.classList.remove("d_n");
-    cursorActive = true;
-  } else if (cursorSmall.classList.contains("z_O") && cursorBig.classList.contains("z_O") && cursorActive) {
-    cursorSmall.classList.remove("z_O");
-    cursorBig.classList.remove("z_O");
-  }
+        cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.25rem), calc(${mouseY}px - 0.25rem), 0)`;
+
+        if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n")) {
+            cursorSmall.classList.remove("d_n");
+            cursorBig.classList.remove("d_n");
+        cursorActive = true;
+        } else if (cursorSmall.classList.contains("z_O") && cursorBig.classList.contains("z_O") && cursorActive) {
+            cursorSmall.classList.remove("z_O");
+            cursorBig.classList.remove("z_O");
+        }
+    }
 }
 
 window.addEventListener('mousemove', positionElement);
