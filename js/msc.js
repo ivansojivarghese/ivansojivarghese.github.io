@@ -3839,15 +3839,44 @@ window.addEventListener("scroll", function() {
     op.p.e = true;
 });
 
-window.addEventListener("pointerdown", function() { // tap/click down
+window.addEventListener("pointerdown", function(e) { // tap/click down
     op.p.e = false;
+    switch (e.pointerType) {
+      case "pen":
+        if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent pen
+            if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
+                pg.msg.net_p.classList.remove("predicate"); 
+                pg.msg.net_p.classList.remove("balanced");
+            }
+            pg.msg.net_p.classList.add("negate"); // set color
+            if (pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img") || pg.msg.net_i.classList.contains("wifi_w_img")) {
+                pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+                pg.msg.net_i.classList.remove("cookies_w_img");
+                pg.msg.net_i.classList.remove("wifi_w_img");
+            }
+            pg.msg.net_i.classList.add("info_w_img"); // set content
+            pg.msg.net_p.classList.add("md");
+            pg.msg.net_t.innerHTML = "event disabled";
+            pg.msg.net_e.innerHTML = "pen detected"; // add text
+            pg.msg.net_e.classList.remove("d_n");
+            pg.msg.ce = true;
+            pg.msg.cep = true;
+
+            msg_toggle(pg.msg.net, null, true, false, false); // show message
+
+            e.preventDefault();
+        }
+    break;
+    default:
+        console.log(`pointerType ${e.pointerType} is not supported`);
+    }
 });
 
-window.addEventListener("pointerup", function() { // release/click up
+window.addEventListener("pointerup", function(e) { // release/click up
     op.p.e = true;
 });
 
-window.addEventListener("pointermove", function() { // release/click up
+window.addEventListener("pointermove", function(e) { // release/click up
     op.p.e = true;
 });
 
