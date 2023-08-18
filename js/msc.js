@@ -3774,7 +3774,7 @@ var cursorActive = false,
     touchActive = false;
 
 const positionElement = (e)=> {
-    if (!tch.e || touchActive) { // IF NO TOUCH
+    if (!tch.e || (touchActive && !tch.s)) { // IF NO TOUCH
         const mouseY = e.clientY;
         const mouseX = e.clientX;
 
