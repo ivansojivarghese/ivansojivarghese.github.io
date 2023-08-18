@@ -3759,8 +3759,10 @@ window.addEventListener("touchend", function(event) {
             tch.yA = 0;
             tch.yB = 0;
             tch.drV = 0;
-            tch.s = false;
         }
+        setTimeout(function() {
+            tch.s = false;
+        }, 10);
     }
 });
 
