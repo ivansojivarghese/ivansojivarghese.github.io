@@ -3767,15 +3767,40 @@ window.addEventListener("touchend", function(event) {
 
 const cursorSmall = document.querySelector('.cursor.small');
 const cursorBig = document.querySelector('.cursor.big');
-var cursorActive = false;
+var cursorActive = false,
+    touchActive = false;
 
 const positionElement = (e)=> {
     if (!tch.e) { // IF NO TOUCH
         const mouseY = e.clientY;
         const mouseX = e.clientX;
 
-        cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.25rem), calc(${mouseY}px - 0.25rem), 0)`;
+        if (!touchActive) {
+            cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.25rem), calc(${mouseY}px - 0.25rem), 0)`;
+        } else {
+            if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent mousemove/cursor
+                if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
+                    pg.msg.net_p.classList.remove("predicate"); 
+                    pg.msg.net_p.classList.remove("balanced");
+                }
+                pg.msg.net_p.classList.add("negate"); // set color
+                if (pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img") || pg.msg.net_i.classList.contains("wifi_w_img")) {
+                    pg.msg.net_i.classList.remove("wifi_off_w_img"); 
+                    pg.msg.net_i.classList.remove("cookies_w_img");
+                    pg.msg.net_i.classList.remove("wifi_w_img");
+                }
+                pg.msg.net_i.classList.add("info_w_img"); // set content
+                pg.msg.net_p.classList.add("md");
+                pg.msg.net_t.innerHTML = "cursor disabled";
+                pg.msg.net_e.innerHTML = "touch detected"; // add text
+                pg.msg.net_e.classList.remove("d_n");
+                pg.msg.ce = true;
+                pg.msg.cep = true;
+    
+                msg_toggle(pg.msg.net, null, true, false, false); // show message
+            }
+        }
 
         if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n")) {
             cursorSmall.classList.remove("d_n");
@@ -3785,29 +3810,10 @@ const positionElement = (e)=> {
             cursorSmall.classList.remove("z_O");
             cursorBig.classList.remove("z_O");
         }
-    } else { // IF TOUCH DETECTED
 
-        if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent mousemove/cursor
-            if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
-                pg.msg.net_p.classList.remove("predicate"); 
-                pg.msg.net_p.classList.remove("balanced");
-            }
-            pg.msg.net_p.classList.add("negate"); // set color
-            if (pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img") || pg.msg.net_i.classList.contains("wifi_w_img")) {
-                pg.msg.net_i.classList.remove("wifi_off_w_img"); 
-                pg.msg.net_i.classList.remove("cookies_w_img");
-                pg.msg.net_i.classList.remove("wifi_w_img");
-            }
-            pg.msg.net_i.classList.add("info_w_img"); // set content
-            pg.msg.net_p.classList.add("md");
-            pg.msg.net_t.innerHTML = "cursor disabled";
-            pg.msg.net_e.innerHTML = "touch detected"; // add text
-            pg.msg.net_e.classList.remove("d_n");
-            pg.msg.ce = true;
-            pg.msg.cep = true;
+    } else if (tch.e) { // IF TOUCH DETECTED
 
-            msg_toggle(pg.msg.net, null, true, false, false); // show message
-        }
+        touchActive = true;
     }
 }
 
