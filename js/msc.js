@@ -3771,14 +3771,17 @@ var cursorActive = false,
     touchActive = false;
 
 const positionElement = (e)=> {
-    if (!tch.e) { // IF NO TOUCH
+    if (!tch.e || touchActive) { // IF NO TOUCH
         const mouseY = e.clientY;
         const mouseX = e.clientX;
 
-        if (!touchActive) {
+        if (!touchActive) { // if NO TOUCH BEFORE CURSOR
             cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
             cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.25rem), calc(${mouseY}px - 0.25rem), 0)`;
         } else {
+
+            // remove cursor from view
+
             if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent mousemove/cursor
                 if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
                     pg.msg.net_p.classList.remove("predicate"); 
@@ -3811,7 +3814,7 @@ const positionElement = (e)=> {
             cursorBig.classList.remove("z_O");
         }
 
-    } else if (tch.e) { // IF TOUCH DETECTED
+    } else if (tch.e && !touchActive) { // IF TOUCH DETECTED
 
         touchActive = true;
     }
