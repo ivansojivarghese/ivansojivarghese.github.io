@@ -76,6 +76,7 @@ var wH = window.outerHeight, // height
     },
     tch = { // touch
         e : false, // enabled/used?
+        s : false, // status
         yA : 0, // touch initial
         yB : 0, // touch end
         d : false, // drag check?
@@ -3711,6 +3712,7 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
 
 window.addEventListener("touchstart", function(event) { // IF TOUCH detected on screen
     tch.e = true;
+    tch.s = true;
     if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
         tch.d = false;
         tch.yA = event.touches[0].clientY;
@@ -3757,6 +3759,7 @@ window.addEventListener("touchend", function(event) {
             tch.yA = 0;
             tch.yB = 0;
             tch.drV = 0;
+            tch.s = false;
         }
     }
 });
