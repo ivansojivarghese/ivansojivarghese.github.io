@@ -3772,6 +3772,7 @@ window.addEventListener("touchend", function(event) {
 
 const cursorSmall = document.querySelector('.cursor.small');
 const cursorBig = document.querySelector('.cursor.big');
+const hoverBtns = document.querySelectorAll('a, .hoverB');
 var cursorActive = false,
     touchActive = false;
 
@@ -3828,7 +3829,21 @@ const positionElement = (e)=> {
     }
 }
 
+function hoverInit() { // desktop hover effect
+    cursorBig.classList.add("extra");
+}
+
 window.addEventListener('mousemove', positionElement);
+
+if (vw.dk) {
+    for (i = 0; i <= hoverBtns.length - 1; i++) {
+        hoverBtns[i].addEventListener('onmouseenter', hoverInit);
+    }
+
+    for (i = 0; i <= hoverBtns.length - 1; i++) {
+        hoverBtns[i].addEventListener('onmouseleave', hwllo);
+    }
+}
 
 ////////////////////////////////////////////
 
