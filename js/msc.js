@@ -3840,11 +3840,11 @@ function hoverEnd() {
 window.addEventListener('mousemove', positionElement);
 
 for (i = 0; i <= hoverBtns.length - 1; i++) {
-    hoverBtns[i].addEventListener('onmouseenter', hoverInit);
+    hoverBtns[i].addEventListener('mouseenter', hoverInit);
 }
 
 for (i = 0; i <= hoverBtns.length - 1; i++) {
-    hoverBtns[i].addEventListener('onmouseleave', hoverEnd);
+    hoverBtns[i].addEventListener('mouseleave', hoverEnd);
 }
 
 ////////////////////////////////////////////
