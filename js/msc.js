@@ -3854,7 +3854,7 @@ function hoverEnd(e) {
 window.addEventListener('mousemove', positionElement);
 
 for (i = 0; i <= hoverBtns.length - 1; i++) {
-    hoverBtns[i].addEventListener('mouseout', hoverInit);
+    hoverBtns[i].addEventListener('mousemove', hoverInit);
 }
 
 for (i = 0; i <= hoverBtns.length - 1; i++) {
