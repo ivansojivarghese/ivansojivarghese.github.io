@@ -3839,14 +3839,12 @@ function hoverEnd() {
 
 window.addEventListener('mousemove', positionElement);
 
-if (vw.dk) {
-    for (i = 0; i <= hoverBtns.length - 1; i++) {
-        hoverBtns[i].addEventListener('onmouseenter', hoverInit);
-    }
+for (i = 0; i <= hoverBtns.length - 1; i++) {
+    hoverBtns[i].addEventListener('onmouseenter', hoverInit);
+}
 
-    for (i = 0; i <= hoverBtns.length - 1; i++) {
-        hoverBtns[i].addEventListener('onmouseleave', hoverEnd);
-    }
+for (i = 0; i <= hoverBtns.length - 1; i++) {
+    hoverBtns[i].addEventListener('onmouseleave', hoverEnd);
 }
 
 ////////////////////////////////////////////
