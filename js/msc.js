@@ -3854,11 +3854,11 @@ function hoverEnd(e) {
 window.addEventListener('mousemove', positionElement);
 
 for (i = 0; i <= hoverBtns.length - 1; i++) {
-    hoverBtns[i].addEventListener('mouseover', hoverInit);
+    hoverBtns[i].addEventListener('mouseout', hoverInit);
 }
 
 for (i = 0; i <= hoverBtns.length - 1; i++) {
-    hoverBtns[i].addEventListener('mouseout', hoverEnd);
+    hoverBtns[i].addEventListener('mouseleave', hoverEnd);
 }
 
 ////////////////////////////////////////////
