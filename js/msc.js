@@ -3774,7 +3774,8 @@ const cursorSmall = document.querySelector('.cursor.small');
 const cursorBig = document.querySelector('.cursor.big');
 const hoverBtns = document.querySelectorAll('a, .hoverB');
 var cursorActive = false,
-    touchActive = false;
+    touchActive = false,
+    hoverActive = false;
 
 const positionElement = (e)=> {
     if (vw.dk) { // ONLY IN DESKTOP
@@ -3784,7 +3785,9 @@ const positionElement = (e)=> {
 
             if (!touchActive) { // if NO TOUCH BEFORE CURSOR
                 cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-                cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
+                if (!hoverActive) {
+                    cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
+                }
             } else {
 
                 cursorSmall.classList.add("d_n");
@@ -3835,6 +3838,8 @@ function hoverInit(e) { // desktop hover effect
 
     cursorBig.classList.add("extra");
     cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
+
+    hoverActive = true;
 }
 
 function hoverEnd(e) {
@@ -3842,6 +3847,8 @@ function hoverEnd(e) {
     const mouseX = e.clientX;
 
     cursorBig.classList.remove("extra");
+
+    hoverActive = false;
 }
 
 window.addEventListener('mousemove', positionElement);
