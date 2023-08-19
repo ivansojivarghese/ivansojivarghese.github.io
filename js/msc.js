@@ -611,6 +611,7 @@ op = {
     p : { // pointer (press/tap/click)
         e : true, // execution boolean
         L : false, // check boolean - for long (extended) press/tap/click
+        s : false, // use of stylus?
         tA : 0, // time - initial (at pointerdown)
         tB : 0 // time - final (at pointerup)
     },
@@ -3894,6 +3895,8 @@ window.addEventListener("pointerdown", function(e) { // tap/click down
             pg.msg.ce = true;
             pg.msg.cep = true;
 
+            op.p.s = true;
+
             msg_toggle(pg.msg.net, null, true, true, true); // show a permanent message
 
             // msg_toggle(pg.msg.net, null, true, false, false); // show message
@@ -3902,8 +3905,10 @@ window.addEventListener("pointerdown", function(e) { // tap/click down
     break;
     case "mouse":
     case "touch": // revoke above message if shown
-
-        msg_toggle(pg.msg.net, null, false, true, true); // hide/revoke //
+        if (op.p.s) {
+            msg_toggle(pg.msg.net, null, false, true, true); // hide/revoke //
+            op.p.s = false;
+        }
     break;
     /*
     default:
