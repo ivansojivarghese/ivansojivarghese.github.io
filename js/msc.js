@@ -3784,7 +3784,7 @@ const positionElement = (e)=> {
 
             if (!touchActive) { // if NO TOUCH BEFORE CURSOR
                 cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-                cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.25rem), calc(${mouseY}px - 0.25rem), 0)`;
+                cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
             } else {
 
                 cursorSmall.classList.add("d_n");
@@ -3829,11 +3829,18 @@ const positionElement = (e)=> {
     }
 }
 
-function hoverInit() { // desktop hover effect
+function hoverInit(e) { // desktop hover effect
+    const mouseY = e.clientY;
+    const mouseX = e.clientX;
+
     cursorBig.classList.add("extra");
+    cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
 }
 
-function hoverEnd() {
+function hoverEnd(e) {
+    const mouseY = e.clientY;
+    const mouseX = e.clientX;
+
     cursorBig.classList.remove("extra");
 }
 
