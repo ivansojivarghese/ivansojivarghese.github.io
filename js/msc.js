@@ -3874,7 +3874,7 @@ window.addEventListener("scroll", function() {
 window.addEventListener("pointerdown", function(e) { // tap/click down
     op.p.e = false;
     switch (e.pointerType) {
-      case "pen":
+    case "pen": // stylus/pen/pencil
         if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent pen
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
                 pg.msg.net_p.classList.remove("predicate"); 
@@ -3894,10 +3894,16 @@ window.addEventListener("pointerdown", function(e) { // tap/click down
             pg.msg.ce = true;
             pg.msg.cep = true;
 
-            msg_toggle(pg.msg.net, null, true, false, false); // show message
+            msg_toggle(pg.msg.net, null, true, true, true); // show a permanent message
 
-            e.preventDefault();
+            // msg_toggle(pg.msg.net, null, true, false, false); // show message
+            // e.preventDefault();
         }
+    break;
+    case "mouse":
+    case "touch": // revoke above message if shown
+
+        msg_toggle(pg.msg.net, null, false, true, true); // hide/revoke
     break;
     /*
     default:
