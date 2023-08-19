@@ -3903,7 +3903,7 @@ window.addEventListener("pointerdown", function(e) { // tap/click down
     case "mouse":
     case "touch": // revoke above message if shown
 
-        msg_toggle(pg.msg.net, null, false, true, true); // hide/revoke
+        msg_toggle(pg.msg.net, null, false, true, true); // hide/revoke //
     break;
     /*
     default:
