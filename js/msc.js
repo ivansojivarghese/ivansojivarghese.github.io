@@ -3820,8 +3820,9 @@ const positionElement = (e)=> {
                 cursorSmall.classList.remove("d_n");
                 cursorBig.classList.remove("d_n");
                 cursorActive = true;
-            } else if (cursorSmall.classList.contains("z_O") && cursorBig.classList.contains("z_O") && cursorActive) {
+            } else if (cursorSmall.classList.contains("z_O") && cursorActive) {
                 cursorSmall.classList.remove("z_O");
+            } else if (cursorBig.classList.contains("z_O") && rL.i) {
                 cursorBig.classList.remove("z_O");
             }
 
