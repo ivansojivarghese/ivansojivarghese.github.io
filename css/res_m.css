@@ -508,6 +508,10 @@
     * {
         cursor: none !important;
     }
+
+    a:hover, .hoverB:hover {
+        opacity: 0.75;
+    }
 }
 
 @media screen and (min-height: 825px) and (orientation: landscape) {
