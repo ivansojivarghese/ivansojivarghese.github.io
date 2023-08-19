@@ -3833,6 +3833,10 @@ function hoverInit() { // desktop hover effect
     cursorBig.classList.add("extra");
 }
 
+function hoverEnd() {
+    cursorBig.classList.remove("extra");
+}
+
 window.addEventListener('mousemove', positionElement);
 
 if (vw.dk) {
@@ -3841,7 +3845,7 @@ if (vw.dk) {
     }
 
     for (i = 0; i <= hoverBtns.length - 1; i++) {
-        hoverBtns[i].addEventListener('onmouseleave', hwllo);
+        hoverBtns[i].addEventListener('onmouseleave', hoverEnd);
     }
 }
 
