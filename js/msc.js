@@ -3867,8 +3867,9 @@ window.addEventListener("pointerdown", function(e) { // tap/click down
             e.preventDefault();
         }
     break;
+    /*
     default:
-        console.log(`pointerType ${e.pointerType} is not supported`);
+        console.log(`pointerType ${e.pointerType} is not supported`);*/
     }
 });
 
