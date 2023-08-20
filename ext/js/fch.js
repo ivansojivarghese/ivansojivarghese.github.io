@@ -110,6 +110,7 @@ var fchL = {
         lk3b : document.getElementById("link_3b"),
         lk3c : document.getElementById("link_3c"),
         lk3cb : document.getElementById("link_3cbtn"),
+        lk3cbs : document.querySelectorAll("#link_3cbtn span"),
         lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
@@ -522,6 +523,7 @@ function js_live() { // update js - in live
                 eB.classList.add("left");
                 eB.classList.remove("hoverB", "revert");
                 eB.removeEventListener("mousemove", hoverInit);
+                eB.removeEventListener("mousemove", peekDesktop);
                 el.lk3c.classList.add("z_O");
             }
             setTimeout(function() {
@@ -700,6 +702,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         el.lk3cb.classList.remove("left"); // show scroll peek button
         el.lk3cb.classList.add("hoverB", "revert"); // 
         el.lk3cb.addEventListener("mousemove", hoverInit);
+        el.lk3cb.addEventListener("mousemove", peekDesktop);
         el.lk3cb.addEventListener("click", peek); // add function
         el.lk3c.classList.remove("z_O");
 
@@ -740,6 +743,13 @@ function peek() {
         t = (!vw.tB && !vw.pH) ? b.top : b.bottom;
     document.documentElement.classList.add("scB");
     window.scrollTo(0, m * (t - aH)); // scroll to reasonable point in content area
+}
+
+function peekDesktop() { // 'scroll' letter transform effect
+    var pos = [0.1, 0.2, 0.4, 0.8, 1.6]; // respective 'croll' phrase alphabet pos. transformations
+    for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
+        el.lk3cbs[i].style.transform = pos[i] + "rem";
+    }
 }
 
 function showCircle() { // show background circles in view
