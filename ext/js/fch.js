@@ -753,6 +753,12 @@ function peekDesktop() { // 'scroll' letter transform effect
     }
 }
 
+function peekDesktopLeave() {
+    for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
+        el.lk3cbs[i].style.transform = "none";
+    }
+}
+
 function showCircle() { // show background circles in view
     if (!el.x6 || el.x7) {
         var _L = el.bgC.length - 1,
