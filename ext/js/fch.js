@@ -703,6 +703,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         el.lk3cb.classList.add("hoverB", "revert"); // 
         el.lk3cb.addEventListener("mousemove", hoverInit);
         el.lk3cb.addEventListener("mousemove", peekDesktop);
+        el.lk3cb.addEventListener("mouseleave", peekDesktopLeave);
         el.lk3cb.addEventListener("click", peek); // add function
         el.lk3c.classList.remove("z_O");
 
@@ -746,7 +747,7 @@ function peek() {
 }
 
 function peekDesktop() { // 'scroll' letter transform effect
-    var pos = [0.1, 0.2, 0.4, 0.8, 1.6]; // respective 'croll' phrase alphabet pos. transformations
+    var pos = [0.1, 0.2, 0.3, 0.4, 0.5]; // respective 'croll' phrase alphabet pos. transformations
     for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
         el.lk3cbs[i].style.transform = "translateY(" + pos[i] + "rem)";
     }
