@@ -224,7 +224,7 @@
         font-size: 27px;
     }
 
-    p {
+    p, ul {
         padding-right: 3em;
     }
 }
@@ -421,8 +421,8 @@
         margin-left: 0 !important;
     }
 
-    p {
-        padding-right: 2.5em;
+    p, ul {
+        padding-right: 3em;
     }
 }
 
