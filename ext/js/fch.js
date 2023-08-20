@@ -748,7 +748,7 @@ function peek() {
 function peekDesktop() { // 'scroll' letter transform effect
     var pos = [0.1, 0.2, 0.4, 0.8, 1.6]; // respective 'croll' phrase alphabet pos. transformations
     for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
-        el.lk3cbs[i].style.transform = pos[i] + "rem";
+        el.lk3cbs[i].style.transform = "translateY(" + pos[i] + "rem)";
     }
 }
 
