@@ -833,7 +833,7 @@ function load_e() { // end the loading sequence
                             rL.dt.classList.remove("d_n"); // show dot
                         }
 
-                        if (eR.h !== "ld" || eR.h !== "sp") { // if not landscape error (mobile)
+                        if (eR.h !== "ld") { // if not landscape error (mobile)
 
                             if (countryAPIres.online) {
                                 op.lang = engLangVar(countryAPIres.country); // set eng. language variant
