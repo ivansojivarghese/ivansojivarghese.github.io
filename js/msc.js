@@ -1151,6 +1151,9 @@ function sL() { // scroll pos. loop
         pos.aT = true;
         pos.aTs = true;
         pos.r = true;
+
+        op.as = false;
+
         /*
         setTimeout(function() {
             if (pos.aT) {
