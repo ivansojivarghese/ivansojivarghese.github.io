@@ -2669,6 +2669,8 @@ function SmoothScroll(target, speed, smooth) {
 
                 msg_toggle(pg.msg.net, null, true, false, false); // show message
             }
+        } else if (op.as) {
+            window.scrollTo(0, 0);
         }
     }
 
