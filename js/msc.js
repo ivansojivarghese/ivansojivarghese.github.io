@@ -1172,7 +1172,7 @@ function pL() { // site parameters loop
     if (op.p.e) {
         op.p.tA = op.d.getTime();
     }
-
+    /*
     if (rL.i) {
         if ((((getBd(pg.sc.c, "bottom") - aH) < op.sDis) || (Math.abs(getBd(pg.sc.c, "top")) < op.sDis)) && op.asV) { // extreme-ends scrolling
             op.as = true;
@@ -1180,7 +1180,7 @@ function pL() { // site parameters loop
             op.as = false;
             op.asV = true;
         }
-    }
+    }*/
 
     /*
     if (op.n && op.wRo) { // offline - prevent window resize reload
