@@ -2,6 +2,7 @@
 var uA_L,
     tDevice, // check if device is touch-based
     op = { // site 'options'
+        as : false, // anchor scrolling?
         sys : "", // operating system
         uA : navigator.userAgent, // user agent
         Ls : 1000/60, // loop (interval) speed - sec./rev.

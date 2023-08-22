@@ -2622,7 +2622,7 @@ function SmoothScroll(target, speed, smooth) {
     target.addEventListener('DOMMouseScroll', scrolled, { passive: false });
 
     function scrolled(e) {
-        if (!op.s && op.sc && !tch.e) { // if scrolling enabled
+        if (!op.s && op.sc && !tch.e && !op.as) { // if scrolling enabled
             e.preventDefault(); // disable default scrolling
 
             var delta = normalizeWheelDelta(e);
