@@ -652,8 +652,14 @@ function installBtnToggle(m) {
 
             op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
             e_Fd(op.pwa.iBtn_h, true);
-            op.pwa.iBtn.style.transform = "translateX(calc(7.63rem - 5vw))";
+            if (!vw.dk) {
+                op.pwa.iBtn.style.transform = "translateX(calc(7.63rem - 5vw))";
+            }
             op.pwa.iBtn.classList.add("o-img"); // hide button
+            op.pwa.iBtn.classList.remove("hoverB");
+
+            op.pwa.iBtn.removeEventListener('mousemove', hoverInit);
+            // op.pwa.iBtn.removeEventListener('mouseleave', hoverEnd);
             
             setTimeout(function() {
                 op.pwa.x = false;
