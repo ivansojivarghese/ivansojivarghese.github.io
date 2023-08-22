@@ -1172,7 +1172,7 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-    if (((pg.sc.c.getBd("bottom") - aH) < op.sDis) || (Math.abs(pg.sc.c.getBd("top")) < op.sDis)) {
+    if (((getBd(pg.sc.c, "bottom") - aH) < op.sDis) || (Math.abs(getBd(pg.sc.c, "top")) < op.sDis)) { // extreme-ends scrolling
         op.as = true;
     }
 
