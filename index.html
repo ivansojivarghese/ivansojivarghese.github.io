@@ -466,6 +466,10 @@
             // REFERENCED FROM Alvaro Trigo: https://alvarotrigo.com/blog/jquery-smooth-scroll/ 
 
             function scrollToAnchor(selector){
+
+                scr_t(false, null); // disable scrolling
+                op.s = true;
+
                 const destination = $("a[name='"+ selector +"']");
                 $('html,body').animate({
                     scrollTop: destination.offset().top
