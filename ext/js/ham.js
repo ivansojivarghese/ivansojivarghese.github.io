@@ -637,8 +637,13 @@ function installBtnToggle(m) {
             op.pwa.iBtn.style.transform = "none";
             e_Fd(op.pwa.iBtn_h, false);
             op.pwa.iBtn.classList.remove("o-img"); // show button
+            op.pwa.iBtn.classList.add("hoverB");
             setTimeout(function() {
                 op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+
+                op.pwa.iBtn.addEventListener('mousemove', hoverInit);
+                op.pwa.iBtn.addEventListener('mouseleave', hoverEnd);
+
             }, op.t);
             
         }
