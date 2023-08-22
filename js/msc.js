@@ -3600,8 +3600,9 @@ function showInstallPromotion() { // activate install button
     if (hm.e && (vw.pH || (!vw.pH && !vw.tB))) { // mobile/phablet - hamburger menu
         if (op.pwa.x) {
             op.pwa.iBtn.classList.remove("o-img"); // show button
+            op.pwa.iBtn.classList.add("hoverB");
             setTimeout(function() {
-                op.pwa.iBtn.addEventListener("click", installPrompt); // add click functio
+                op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
             }, op.t);            
         } else {
             installBtnToggle(true);
@@ -3609,8 +3610,9 @@ function showInstallPromotion() { // activate install button
     } else if (vw.tB) {
         if (op.pwa.x) {
             op.pwa.iBtn.classList.remove("o-img"); // show button
+            op.pwa.iBtn.classList.add("hoverB");
             setTimeout(function() {
-                op.pwa.iBtn.addEventListener("click", installPrompt); // add click functio
+                op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
             }, op.t);            
         } else {
             installBtnToggle(true);
@@ -3627,9 +3629,11 @@ function hideInstallPromotion() { // de-activate install button
         if (hm.e && (vw.pH || (!vw.pH && !vw.tB))) {
             op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
             op.pwa.iBtn.classList.add("o-img"); // hide button
+            op.pwa.iBtn.classList.remove("hoverB");
         } else if (vw.tB) {
             op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
             op.pwa.iBtn.classList.add("o-img"); // hide button
+            op.pwa.iBtn.classList.remove("hoverB");
         }
     }
 
