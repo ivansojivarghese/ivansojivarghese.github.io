@@ -465,11 +465,7 @@
 
             // REFERENCED FROM Alvaro Trigo: https://alvarotrigo.com/blog/jquery-smooth-scroll/ 
 
-            function scrollToAnchor(selector){
-
-                scr_t(false, null); // disable scrolling
-                op.s = true;
-
+            function scrollToAnchor(selector) {
                 const destination = $("a[name='"+ selector +"']");
                 $('html,body').animate({
                     scrollTop: destination.offset().top
@@ -850,7 +846,8 @@
                     </div>
                 </div>
                 <div id="content_sc">
-                    <a name="topPos" class="d_n"></a>
+                    <a name="topPos" class="d_n p-a"></a>
+                    <!-- <a name="topPosDesktop" class="d_n p-a"></a> -->
                     <div id="intro_main">
                         <div id="hm_ph_tint" class="tint phablet trs z_O d_n"></div>
                         <div class="head z-K">
