@@ -846,8 +846,7 @@
                     </div>
                 </div>
                 <div id="content_sc">
-                    <a name="topPos" class="d_n p-a"></a>
-                    <!-- <a name="topPosDesktop" class="d_n p-a"></a> -->
+                    <a name="topPos" class="d_n"></a>
                     <div id="intro_main">
                         <div id="hm_ph_tint" class="tint phablet trs z_O d_n"></div>
                         <div class="head z-K">
@@ -1257,7 +1256,11 @@
         <!-- scroll to top -->
         <script>
             $("#scrolltop_btn").on('click', function() {
-                scrollToAnchor('topPos');
+                if (vw.dk) {
+                    window.scrollTo(0, 0);
+                } else {
+                    scrollToAnchor('topPos');
+                }
             });
         </script>
         <!-- Browser Detection, © 2023 Nabble, All rights reserved -->
