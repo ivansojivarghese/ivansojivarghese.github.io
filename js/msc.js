@@ -500,7 +500,9 @@ op = {
     lang : "", // english language variant
     // txts : document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, li, span"),
     txts : document.querySelectorAll(".lang, li"), // target variable keywords (eng.)
-    as : op.as,
+    as : op.as, // anchor scroll check
+    sDis : 150, // avg. scrolling distance
+    sSmooth : 25, // scroll smoothness (default)
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
@@ -1170,7 +1172,9 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-
+    if (((pg.sc.c.getBd("bottom") - aH) < op.sDis) || (Math.abs(pg.sc.c.getBd("top")) < op.sDis)) {
+        op.as = true;
+    }
 
     /*
     if (op.n && op.wRo) { // offline - prevent window resize reload
@@ -2596,7 +2600,7 @@ function scr_t(s, pg) { // scroll toggle
 // Partial form of locomotive scrolling
 
 function SmoothScroll_init() {
-	new SmoothScroll(document, 150, 25);
+	new SmoothScroll(document, op.sDis, op.sSmooth);
     /*
     Arguments (in order from left to right):
         target: the element to be scrolled smoothly - can be a div or document
