@@ -500,6 +500,7 @@ op = {
     lang : "", // english language variant
     // txts : document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, li, span"),
     txts : document.querySelectorAll(".lang, li"), // target variable keywords (eng.)
+    as : op.as,
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
