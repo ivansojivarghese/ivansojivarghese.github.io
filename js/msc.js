@@ -2693,6 +2693,7 @@ function SmoothScroll(target, speed, smooth) {
             target.scrollTop += delta;
         } else {
             target.scrollTop = 0;
+            pos = 0;
         }
     
         if (Math.abs(delta) > 0.5) {
