@@ -3622,6 +3622,10 @@ function showInstallPromotion() { // activate install button
             op.pwa.iBtn.classList.add("hoverB");
             setTimeout(function() {
                 op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+
+                op.pwa.iBtn.addEventListener('mousemove', hoverInit);
+                op.pwa.iBtn.addEventListener('mouseleave', hoverEnd);
+
             }, op.t);            
         } else {
             installBtnToggle(true);
@@ -3632,6 +3636,10 @@ function showInstallPromotion() { // activate install button
             op.pwa.iBtn.classList.add("hoverB");
             setTimeout(function() {
                 op.pwa.iBtn.addEventListener("click", installPrompt); // add click function
+
+                op.pwa.iBtn.addEventListener('mousemove', hoverInit);
+                op.pwa.iBtn.addEventListener('mouseleave', hoverEnd);
+
             }, op.t);            
         } else {
             installBtnToggle(true);
@@ -3649,10 +3657,17 @@ function hideInstallPromotion() { // de-activate install button
             op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
             op.pwa.iBtn.classList.add("o-img"); // hide button
             op.pwa.iBtn.classList.remove("hoverB");
+
+            op.pwa.iBtn.removeEventListener('mousemove', hoverInit);
+            // op.pwa.iBtn.removeEventListener('mouseleave', hoverEnd);
+
         } else if (vw.tB) {
             op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
             op.pwa.iBtn.classList.add("o-img"); // hide button
             op.pwa.iBtn.classList.remove("hoverB");
+
+            op.pwa.iBtn.removeEventListener('mousemove', hoverInit);
+            // op.pwa.iBtn.removeEventListener('mouseleave', hoverEnd);
         }
     }
 
