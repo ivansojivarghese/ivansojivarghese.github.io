@@ -652,7 +652,7 @@ function installBtnToggle(m) {
 
             op.pwa.iBtn.removeEventListener("click", installPrompt); // remove click function
             e_Fd(op.pwa.iBtn_h, true);
-            if (!vw.dk) {
+            if (!vw.dk && !vw.tB) {
                 op.pwa.iBtn.style.transform = "translateX(calc(7.63rem - 5vw))";
             }
             op.pwa.iBtn.classList.add("o-img"); // hide button
