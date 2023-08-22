@@ -1173,11 +1173,13 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-    if ((((getBd(pg.sc.c, "bottom") - aH) < op.sDis) || (Math.abs(getBd(pg.sc.c, "top")) < op.sDis)) && op.asV) { // extreme-ends scrolling
-        op.as = true;
-    } else {
-        op.as = false;
-        op.asV = true;
+    if (rL.i) {
+        if ((((getBd(pg.sc.c, "bottom") - aH) < op.sDis) || (Math.abs(getBd(pg.sc.c, "top")) < op.sDis)) && op.asV) { // extreme-ends scrolling
+            op.as = true;
+        } else {
+            op.as = false;
+            op.asV = true;
+        }
     }
 
     /*
