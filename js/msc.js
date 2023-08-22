@@ -501,7 +501,7 @@ op = {
     // txts : document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, li, span"),
     txts : document.querySelectorAll(".lang, li"), // target variable keywords (eng.)
     as : op.as, // anchor scroll check
-    asV : false, 
+    // asV : false, 
     sDis : 150, // avg. scrolling distance
     sSmooth : 25, // scroll smoothness (default)
     sys : op.sys, // add from index
@@ -2633,7 +2633,7 @@ function SmoothScroll(target, speed, smooth) {
     target.addEventListener('DOMMouseScroll', scrolled, { passive: false });
 
     function scrolled(e) {
-        if (!op.s && op.sc && !tch.e && !op.as) { // if scrolling enabled
+        if (!op.s && op.sc && !tch.e) { // if scrolling enabled
             e.preventDefault(); // disable default scrolling
 
             var delta = normalizeWheelDelta(e);
@@ -2669,8 +2669,6 @@ function SmoothScroll(target, speed, smooth) {
 
                 msg_toggle(pg.msg.net, null, true, false, false); // show message
             }
-        } else if (op.as) {
-            window.scrollTo(0, 0);
         }
     }
 
@@ -2691,7 +2689,11 @@ function SmoothScroll(target, speed, smooth) {
     
         var delta = (pos - target.scrollTop) / smooth;
     
-        target.scrollTop += delta;
+        if (!op.as) {
+            target.scrollTop += delta;
+        } else {
+            target.scrollTop = 0;
+        }
     
         if (Math.abs(delta) > 0.5) {
             requestFrame(update);
