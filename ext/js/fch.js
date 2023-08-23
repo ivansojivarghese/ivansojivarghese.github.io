@@ -756,14 +756,20 @@ function peekDesktop() { // 'scroll' letter transform effect
         el.lk3cbs[i].style.transform = "translateY(calc(-" + pos[i] + "rem + 0.7rem))";
     }*/
 
+    var alpha = ["d", "o", "w", "n"];
+
     for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
-        el.lk3cbs[i].style.transform = "scale(2)";
+        if (alpha[i]) {
+            el.lk3cbs[i].innerHTML = alpha[i];
+        } else {
+            el.lk3cbs[i].classList.add("z_O");
+        }
     }
 }
 
 function peekDesktopLeave() {
     for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
-        el.lk3cbs[i].style.transform = "none";
+        // el.lk3cbs[i].style.transform = "none";
     }
 }
 
