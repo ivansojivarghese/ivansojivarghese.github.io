@@ -749,10 +749,15 @@ function peek() {
 function peekDesktop() { // 'scroll' letter transform effect
     // var pos = [0.1, 0.2, 0.3, 0.4, 0.5]; // respective 'croll' phrase alphabet pos. transformations
     // var pos = [2.6, 2.2, 1.8, 1.4, 1.0];
-    var pos = [1.4, 1.0, 0.7, 1.2, 1.6, 2.0];
+    // var pos = [1.4, 1.0, 0.7, 1.2, 1.6, 2.0];
+    /*
     for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
         // el.lk3cbs[i].style.transform = "translateY(" + pos[i] + "rem)";
         el.lk3cbs[i].style.transform = "translateY(calc(-" + pos[i] + "rem + 0.7rem))";
+    }*/
+
+    for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
+        el.lk3cbs[i].style.transform = "scale(2)";
     }
 }
 
