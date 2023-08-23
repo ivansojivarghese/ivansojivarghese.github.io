@@ -758,7 +758,7 @@ function peekDesktop() { // 'scroll' letter transform effect
 
     var alpha = ["d", "o", "w", "n"];
 
-    for (i = (el.lk3cbs.length - 1); i <= 0; i--) {
+    for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
         if (alpha[i]) {
             el.lk3cbs[i].innerHTML = alpha[i];
         } else {
