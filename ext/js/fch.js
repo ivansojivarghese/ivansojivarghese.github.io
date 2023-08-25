@@ -794,10 +794,6 @@ function peekDesktop() { // 'scroll' letter transform effect
 }
 
 function peekDesktopLeave() {
-    /*
-    for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
-        // el.lk3cbs[i].style.transform = "none";
-    }*/
 
     if (!el.scBi && el.scBh) {
         el.scBi = true;
@@ -809,7 +805,6 @@ function peekDesktopLeave() {
         }
         j = m - j;
 
-        // el.lk3cbs[j].classList.remove("scr_e");
         if (el.lk3cbs[j].classList.contains("z_O")) {
             el.lk3cbs[j].classList.add("scr");
             el.lk3cbs[j].classList.remove("z_O");
@@ -818,15 +813,10 @@ function peekDesktopLeave() {
         }
 
         if ((m + j) < c) {
-            // el.lk3cbs[m + j].classList.remove("z_F");
             el.lk3cbs[m + j].classList.add("z_O");
             el.lk3cbs[m + j].classList.remove("z_F");
             el.lk3cbs[m + j].classList.remove("up");
             el.lk3cbs[m + j].classList.remove("ex");
-            /*
-            if (el.lk3cbs[m + j].classList.contains("z_O")) {
-                el.lk3cbs[m + j].classList.remove("z_O");
-            }*/
 
             if (j < (m - 1)) {
                 setTimeout(function() {
