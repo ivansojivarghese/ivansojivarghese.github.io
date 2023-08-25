@@ -783,20 +783,48 @@ function peekDesktop() { // 'scroll' letter transform effect
                 setTimeout(function() {
                     el.scBi = false;
                     peekDesktop();
-                }, (op.t / 2));
+                }, (op.t / 8));
             }
         }
     }
-
-    /*
-    for (i = 0; i <= (el.lk3cbs.length - 5); i++) {
-        el.lk3cbs[i].classList.add("z_O", "up");
-    }*/
 }
 
 function peekDesktopLeave() {
+    /*
     for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
         // el.lk3cbs[i].style.transform = "none";
+    }*/
+
+    if (!el.scBi) {
+        el.scBi = true;
+        var j = 0, m = 6, c = 11;
+        for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
+            if (!el.lk3cbs[i].classList.contains("z_F")) {
+                j++;
+            }
+        }
+        j = m - j;
+
+        // el.lk3cbs[j].classList.remove("scr_e");
+        if (!el.lk3cbs[j].classList.contains("z_F")) {
+            el.lk3cbs[j].classList.remove("z_O", "up", "ex");
+        }
+
+        if ((m + j) < c) {
+            // el.lk3cbs[m + j].classList.remove("z_F");
+            el.lk3cbs[m + j].classList.remove("up", "ex", "z_F");
+            /*
+            if (el.lk3cbs[m + j].classList.contains("z_O")) {
+                el.lk3cbs[m + j].classList.remove("z_O");
+            }*/
+
+            if (j < (m - 1)) {
+                setTimeout(function() {
+                    el.scBi = false;
+                    peekDesktopLeave();
+                }, (op.t / 8));
+            }
+        }
     }
 }
 
