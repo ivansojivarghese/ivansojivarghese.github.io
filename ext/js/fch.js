@@ -803,7 +803,7 @@ function peekDesktopLeave() {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
-            if (!el.lk3cbs[i].classList.contains("z_F")) {
+            if (el.lk3cbs[i].classList.contains("z_O")) {
                 j++;
             }
         }
