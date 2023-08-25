@@ -766,7 +766,9 @@ function peekDesktop() { // 'scroll' letter transform effect
     j = m - j;
 
     el.lk3cbs[j].classList.remove("scr");
-    el.lk3cbs[j].classList.add("z_O", "up", "ex");
+    if (!el.lk3cbs[j].classList.contains("z_F")) {
+        el.lk3cbs[j].classList.add("z_O", "up", "ex");
+    }
 
     if ((m + j) < c) {
         el.lk3cbs[m + j].classList.remove("z_O");
@@ -775,7 +777,7 @@ function peekDesktop() { // 'scroll' letter transform effect
             el.lk3cbs[m + j].classList.remove("z_O");
         }
         if (j < (m - 1)) {
-            setTimeout(peekDesktop(), (op.t / 2));
+            setTimeout(peekDesktop(), op.t);
         }
     }
 
