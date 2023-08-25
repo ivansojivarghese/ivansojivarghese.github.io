@@ -760,7 +760,7 @@ function peekDesktop() { // 'scroll' letter transform effect
 
     if (!el.scBi) {
         el.scBi = true;
-        var j = 0, m = 6, c = 10;
+        var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
             if (el.lk3cbs[i].classList.contains("scr")) {
                 j++;
