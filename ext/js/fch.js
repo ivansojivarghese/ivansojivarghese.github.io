@@ -811,12 +811,16 @@ function peekDesktopLeave() {
 
         // el.lk3cbs[j].classList.remove("scr_e");
         if (!el.lk3cbs[m + j].classList.contains("z_F")) {
-            el.lk3cbs[m + j].classList.remove("z_O", "up", "ex");
+            el.lk3cbs[m + j].classList.remove("z_O");
+            el.lk3cbs[m + j].classList.remove("up");
+            el.lk3cbs[m + j].classList.remove("ex");
         }
 
         if ((m + j) < c) {
             // el.lk3cbs[m + j].classList.remove("z_F");
-            el.lk3cbs[m + j].classList.remove("up", "ex", "z_F");
+            el.lk3cbs[m + j].classList.remove("z_F");
+            el.lk3cbs[m + j].classList.remove("up");
+            el.lk3cbs[m + j].classList.remove("ex");
             /*
             if (el.lk3cbs[m + j].classList.contains("z_O")) {
                 el.lk3cbs[m + j].classList.remove("z_O");
