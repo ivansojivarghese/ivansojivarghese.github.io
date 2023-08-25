@@ -818,6 +818,7 @@ function peekDesktopLeave() {
 
         if ((m + j) < c) {
             // el.lk3cbs[m + j].classList.remove("z_F");
+            el.lk3cbs[m + j].classList.add("z_O");
             el.lk3cbs[m + j].classList.remove("z_F");
             el.lk3cbs[m + j].classList.remove("up");
             el.lk3cbs[m + j].classList.remove("ex");
