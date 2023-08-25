@@ -765,6 +765,7 @@ function peekDesktop() { // 'scroll' letter transform effect
     }
     j = m - j;
 
+    el.lk3cbs[j].classList.remove("scr");
     el.lk3cbs[j].classList.add("z_O", "up", "ex");
 
     if ((m + j) < c) {
