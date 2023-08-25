@@ -111,7 +111,8 @@ var fchL = {
         lk3c : document.getElementById("link_3c"),
         lk3cb : document.getElementById("link_3cbtn"),
         lk3cbs : document.querySelectorAll("#link_3cbtn span"),
-        scBi : false,
+        scBi : false, // scroll down button hover intervaling
+        scBh : false, // "" full hover effect status
         lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
@@ -758,7 +759,7 @@ function peekDesktop() { // 'scroll' letter transform effect
     }*/
     // var alpha = ["d", "o", "w", "n"];
 
-    if (!el.scBi) {
+    if (!el.scBi && !el.scBh) {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
@@ -786,6 +787,7 @@ function peekDesktop() { // 'scroll' letter transform effect
                 }, (op.t / 8));
             } else {
                 el.scBi = false;
+                el.scBh = true;
             }
         }
     }
@@ -797,7 +799,7 @@ function peekDesktopLeave() {
         // el.lk3cbs[i].style.transform = "none";
     }*/
 
-    if (!el.scBi) {
+    if (!el.scBi && el.scBh) {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
@@ -827,6 +829,7 @@ function peekDesktopLeave() {
                 }, (op.t / 8));
             } else {
                 el.scBi = false;
+                el.scBh = false;
             }
         }
     }
