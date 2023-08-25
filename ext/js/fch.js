@@ -825,6 +825,8 @@ function peekDesktopLeave() {
                     el.scBi = false;
                     peekDesktopLeave();
                 }, (op.t / 8));
+            } else {
+                el.scBi = false;
             }
         }
     }
