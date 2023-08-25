@@ -784,6 +784,8 @@ function peekDesktop() { // 'scroll' letter transform effect
                     el.scBi = false;
                     peekDesktop();
                 }, (op.t / 8));
+            } else {
+                el.scBi = false;
             }
         }
     }
