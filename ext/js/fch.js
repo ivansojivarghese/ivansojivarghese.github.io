@@ -785,10 +785,10 @@ function peekDesktop() { // 'scroll' letter transform effect
                     el.scBi = false;
                     peekDesktop();
                 }, (op.t / 8));
-            } else {
-                el.scBi = false;
-                el.scBh = true;
             }
+        } else {
+            el.scBi = false;
+            el.scBh = true;
         }
     }
 }
@@ -827,10 +827,10 @@ function peekDesktopLeave() {
                     el.scBi = false;
                     peekDesktopLeave();
                 }, (op.t / 8));
-            } else {
-                el.scBi = false;
-                el.scBh = false;
             }
+        } else {
+            el.scBi = false;
+            el.scBh = false;
         }
     }
 }
