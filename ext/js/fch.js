@@ -810,10 +810,10 @@ function peekDesktopLeave() {
         j = m - j;
 
         // el.lk3cbs[j].classList.remove("scr_e");
-        if (!el.lk3cbs[m + j].classList.contains("z_F")) {
-            el.lk3cbs[m + j].classList.remove("z_O");
-            el.lk3cbs[m + j].classList.remove("up");
-            el.lk3cbs[m + j].classList.remove("ex");
+        if (!el.lk3cbs[m].classList.contains("z_F")) {
+            el.lk3cbs[m].classList.remove("z_O");
+            el.lk3cbs[m].classList.remove("up");
+            el.lk3cbs[m].classList.remove("ex");
         }
 
         if ((m + j) < c) {
