@@ -783,7 +783,7 @@ function peekDesktop() { // 'scroll' letter transform effect
                 setTimeout(function() {
                     el.scBi = false;
                     peekDesktop();
-                }, op.t);
+                }, (op.t / 2));
             }
         }
     }
