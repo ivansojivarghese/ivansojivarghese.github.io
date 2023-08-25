@@ -755,12 +755,31 @@ function peekDesktop() { // 'scroll' letter transform effect
         // el.lk3cbs[i].style.transform = "translateY(" + pos[i] + "rem)";
         el.lk3cbs[i].style.transform = "translateY(calc(-" + pos[i] + "rem + 0.7rem))";
     }*/
+    // var alpha = ["d", "o", "w", "n"];
 
-    var alpha = ["d", "o", "w", "n"];
+    var j = 0, m = 6, c = 10;
+    for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
+        if (el.lk3cbs[i].classList.contains("scr")) {
+            j++;
+        }
+    }
+    j = m - j;
 
+    el.lk3cbs[j].classList.add("z_O", "up", "ex");
+
+    if ((m + j) <= c) {
+        el.lk3cbs[m + j].classList.remove("z_O");
+        el.lk3cbs[m + j].classList.add("up", "ex");
+    }
+
+    if (j < (m - 1)) {
+        setTimeout(peekDesktop(), (op.t / 2));
+    }
+
+    /*
     for (i = 0; i <= (el.lk3cbs.length - 5); i++) {
         el.lk3cbs[i].classList.add("z_O", "up");
-    }
+    }*/
 }
 
 function peekDesktopLeave() {

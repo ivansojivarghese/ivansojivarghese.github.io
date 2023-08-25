@@ -888,6 +888,10 @@ div.locator_img {
     transform: translateY(-30%);
 }
 
+.up.ex {
+    transform: translateY(-100%);
+}
+
 .left {
     transform: translateX(-2vw);
 }
