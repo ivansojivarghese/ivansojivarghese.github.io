@@ -854,19 +854,17 @@ function peekDesktopLeave() {
     } else {
         el.isc.addEventListener("mouseenter", function() {
 
-            if (el.scBe) {
-                el.scBe = false;
+            if (!el.scBe) {
+                
+                if (!el.scBi && el.scBh && !el.scBe) {
+                    peekDesktopLeave();
+                }
+                el.lk3cb.removeEventListener("mousemove", peekDesktop);
+                el.lk3cb.addEventListener("mouseenter", peekDesktop);
+
+                el.lk3cb.removeEventListener("mouseleave", peekDesktopLeave);
+                el.lk3cb.addEventListener("mouseout", peekDesktopLeave); //
             }
-
-            if (!el.scBi && el.scBh && !el.scBe) {
-                peekDesktopLeave();
-            }
-
-            el.lk3cb.removeEventListener("mousemove", peekDesktop);
-            el.lk3cb.addEventListener("mouseenter", peekDesktop);
-
-            el.lk3cb.removeEventListener("mouseleave", peekDesktopLeave);
-            el.lk3cb.addEventListener("mouseout", peekDesktopLeave); //
 
         }, true);
     }
