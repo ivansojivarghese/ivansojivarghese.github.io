@@ -117,6 +117,7 @@ var fchL = {
         scBi : false, // scroll down button hover intervaling
         scBh : false, // "" full hover effect status
         scBe : false, // "" on hover status
+        scBy : false, // "" hover completion?
         lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
@@ -818,7 +819,7 @@ function peekDesktopLeave() {
 
     el.scBe = false;
 
-    if (!el.scBi && el.scBh && !el.scBe && !hoverActive) {
+    if (!el.scBi && el.scBh && !el.scBe && (!hoverActive || el.scBy)) {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
@@ -844,12 +845,15 @@ function peekDesktopLeave() {
             if (j < (m - 1)) {
                 setTimeout(function() {
                     el.scBi = false;
+                    el.scBy = true;
                     peekDesktopLeave();
                 }, (op.t / 8));
             }
         } else {
             el.scBi = false;
             el.scBh = false;
+
+            el.scBy = false;
         }
 
     } else {
