@@ -416,9 +416,10 @@ function load_js_e() { // load JS (page specific)
         el.Lt.classList.remove("d_n");
 
         // cursor interaction 'dots'
-        while (el.cisX < wiD) {
+        while (el.cisX < wiD) { // x-axis
             const div = document.createElement("div");
             div.classList.add("cursorInt");
+            div.style.left = el.cisX + "px";
             el.cis.appendChild(div);
             el.cisX += (0.2 * op.fN);
         }
