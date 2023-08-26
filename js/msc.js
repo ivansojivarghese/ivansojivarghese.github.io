@@ -1254,6 +1254,11 @@ function pL() { // site parameters loop
                 eR.pl.classList.remove("d_n");   
                 eR.pl_e.p.innerHTML = "outdated";
                 eR.pl_e.h.innerHTML = "update";
+
+                eR.pl_e.h.classList.add("hoverB");
+                eR.pl_e.h.addEventListener('mousemove', hoverInit);
+                eR.pl_e.h.addEventListener('mouseleave', hoverEnd);
+
                 eR.pl_e.h.setAttribute("onclick", "location.href='" + op.bInfo.p.update_url + "'");
                 // eR.pl_e.h.classList.add("u-p");
 
@@ -1344,7 +1349,7 @@ function pL() { // site parameters loop
                 pg.msg.net_p.classList.add("md");
                 pg.msg.net_e.innerHTML = "reload"; // add text
                 pg.msg.net_e.classList.remove("d_n");
-                pg.msg.net_e.addEventListener("click", reL); // add reload function
+                // pg.msg.net_e.addEventListener("click", reL); // add reload function
                 pg.msg.ce = true;
                 pg.msg.cep = true;
 
@@ -1366,7 +1371,7 @@ function pL() { // site parameters loop
                     pg.msg.net_p.classList.add("md");
                     pg.msg.net_e.innerHTML = "reload"; // add text
                     pg.msg.net_e.classList.remove("d_n");
-                    pg.msg.net_e.addEventListener("click", reL);
+                    // pg.msg.net_e.addEventListener("click", reL);
                     pg.msg.ce = true;
                     pg.msg.cep = true;
                 }
@@ -1387,7 +1392,7 @@ function pL() { // site parameters loop
                     pg.msg.net_p.classList.remove("md");
                     pg.msg.net_e.innerHTML = ""; // add text
                     pg.msg.net_e.classList.add("d_n");
-                    pg.msg.net_e.removeEventListener("click", reL);
+                    // pg.msg.net_e.removeEventListener("click", reL);
                     pg.msg.ce = false;
                 }
                 op.c.e = true;
