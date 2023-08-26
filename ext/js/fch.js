@@ -117,7 +117,7 @@ var fchL = {
         scBi : false, // scroll down button hover intervaling
         scBh : false, // "" full hover effect status
         scBe : false, // "" on hover status
-        scBy : false, // "" hover completion?
+        // scBy : false, // "" hover completion?
         lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
@@ -866,16 +866,13 @@ function peekDesktopLeave() {
                 }
                 el.lk3cb.removeEventListener("mousemove", peekDesktop);
                 el.lk3cb.addEventListener("mouseenter", peekDesktop);
-
-                el.lk3cb.removeEventListener("mouseleave", peekDesktopLeave);
-                el.lk3cb.addEventListener("mouseout", peekDesktopLeave); //
             }
 
         }, true);
 
         el.isc.addEventListener("mousemove", function() {
 
-            if (el.scBe && el.scBh && !el.scBi && !hoverActive) {
+            if (el.scBe && el.scBh && !el.scBi) {
                 peekDesktopLeave();
             }
 
