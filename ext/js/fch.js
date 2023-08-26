@@ -117,6 +117,7 @@ var fchL = {
         scBi : false, // scroll down button hover intervaling
         scBh : false, // "" full hover effect status
         scBe : false, // "" on hover status
+        scBeK : false,
         lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
@@ -724,6 +725,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         el.lk3cb.addEventListener("mousemove", hoverInit);
         el.lk3cb.addEventListener("mousemove", peekDesktop);
         el.lk3cb.addEventListener("mouseleave", peekDesktopLeave);
+        el.lk3cb.addEventListener("mouseleave", peekDesktopLeaveVar);
         el.lk3cb.addEventListener("click", peek); // add function
         el.lk3c.classList.remove("z_O");
 
@@ -778,6 +780,7 @@ function peekDesktop() { // 'scroll' letter transform effect
     // var alpha = ["d", "o", "w", "n"];
 
     el.scBe = true;
+    el.scBeK = true;
 
     if (!el.scBi && !el.scBh && el.scBe) {
         el.scBi = true;
@@ -876,6 +879,10 @@ function peekDesktopLeave() {
 
         }, true);
     }
+}
+
+function peekDesktopLeaveVar() {
+    el.scBeK = false;
 }
 
 function showCircle() { // show background circles in view
