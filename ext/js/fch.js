@@ -97,6 +97,9 @@ var fchL = {
         g : false, // gyro sensor check
         n : document.querySelectorAll(".navbarlinks"),
         isc : document.getElementById("intro_sc"),
+        cis : document.getElementById("cursorIntSpace"),
+        cisX : 0,
+        cisY : 0,
         i : document.getElementById("profile_image"),
         wdT : document.getElementById("wordsTyperDet"),
         pb : document.getElementById("profile_banner"),
@@ -411,6 +414,14 @@ function load_js_e() { // load JS (page specific)
 
         timeNow(el.Ltd); // show time
         el.Lt.classList.remove("d_n");
+
+        // cursor interaction 'dots'
+        while (el.cisX < wiD) {
+            const div = document.createElement("div");
+            div.classList.add("cursorInt");
+            el.cis.appendChild(div);
+            el.cisX += (0.2 * op.fN);
+        }
 
         /*
         apiInit = op.d.getTime();
@@ -836,10 +847,15 @@ function peekDesktopLeave() {
 
     } else {
         el.isc.addEventListener("mousemove", function() {
+
+            if (el.scBe) {
+                el.scBe = false;
+            }
+
             if (!el.scBi && el.scBh && !el.scBe) {
                 peekDesktopLeave();
             }
-        });
+        }, true);
     }
 }
 
