@@ -543,7 +543,7 @@ function js_live() { // update js - in live
                 eB.classList.add("left");
                 eB.classList.remove("hoverB", "revert");
                 eB.removeEventListener("mousemove", hoverInit);
-                eB.removeEventListener("onmouseenter", peekDesktop);
+                eB.removeEventListener("mousemove", peekDesktop);
                 el.lk3c.classList.add("z_O");
             }
             setTimeout(function() {
@@ -722,7 +722,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
         el.lk3cb.classList.remove("left"); // show scroll peek button
         el.lk3cb.classList.add("hoverB", "revert"); // 
         el.lk3cb.addEventListener("mousemove", hoverInit);
-        el.lk3cb.addEventListener("onmouseenter", peekDesktop);
+        el.lk3cb.addEventListener("mousemove", peekDesktop);
         el.lk3cb.addEventListener("mouseleave", peekDesktopLeave);
         el.lk3cb.addEventListener("click", peek); // add function
         el.lk3c.classList.remove("z_O");
