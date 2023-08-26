@@ -423,9 +423,9 @@ function load_js_e() { // load JS (page specific)
                 div.style.top = el.cisY + "px";
                 div.style.left = el.cisX + "px";
                 el.cis.appendChild(div);
-                el.cisX += (0.2 * op.fN);
+                el.cisX += (0.4 * op.fN);
             }
-            el.cisY += (0.2 * op.fN);
+            el.cisY += (0.4 * op.fN);
             el.cisX = 0;
         }
 
