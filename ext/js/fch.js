@@ -830,7 +830,11 @@ function peekDesktopLeave() {
         }
 
     } else {
-        el.isc.addEventListener("mousemove", peekDesktopLeave);
+        el.isc.addEventListener("mousemove", function() {
+            if (!el.scBi && el.scBh) {
+                peekDesktopLeave();
+            }
+        });
     }
 }
 
