@@ -426,6 +426,7 @@ function load_js_e() { // load JS (page specific)
                 el.cisX += (0.2 * op.fN);
             }
             el.cisY += (0.2 * op.fN);
+            el.cisX = 0;
         }
 
         /*
