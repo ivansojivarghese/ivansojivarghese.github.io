@@ -113,6 +113,7 @@ var fchL = {
         lk3cbs : document.querySelectorAll("#link_3cbtn span"),
         scBi : false, // scroll down button hover intervaling
         scBh : false, // "" full hover effect status
+        scBe : false, // "" on hover status
         lk4 : document.getElementById("link_4"),
         chev : document.getElementById("chev_d"),
         bgC : document.querySelectorAll(".bg-circle"),
@@ -759,6 +760,8 @@ function peekDesktop() { // 'scroll' letter transform effect
     }*/
     // var alpha = ["d", "o", "w", "n"];
 
+    el.scBe = true;
+
     if (!el.scBi && !el.scBh) {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
@@ -794,6 +797,8 @@ function peekDesktop() { // 'scroll' letter transform effect
 }
 
 function peekDesktopLeave() {
+
+    el.scBe = false;
 
     if (!el.scBi && el.scBh) {
         el.scBi = true;
@@ -831,7 +836,7 @@ function peekDesktopLeave() {
 
     } else {
         el.isc.addEventListener("mousemove", function() {
-            if (!el.scBi && el.scBh) {
+            if (!el.scBi && el.scBh && !el.scBe) {
                 peekDesktopLeave();
             }
         });
