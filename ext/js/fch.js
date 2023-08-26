@@ -818,7 +818,7 @@ function peekDesktopLeave() {
 
     el.scBe = false;
 
-    if (!el.scBi && el.scBh && !el.scBe) {
+    if (!el.scBi && el.scBh && !el.scBe && !hoverActive) {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
