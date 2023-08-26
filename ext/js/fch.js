@@ -852,7 +852,7 @@ function peekDesktopLeave() {
         }
 
     } else {
-        el.isc.addEventListener("onmouseenter", function() {
+        el.isc.addEventListener("mouseenter", function() {
 
             if (el.scBe) {
                 el.scBe = false;
@@ -862,6 +862,17 @@ function peekDesktopLeave() {
                 peekDesktopLeave();
             }
         }, true);
+        /*
+        el.isc.addEventListener("mouseenter", function() {
+
+            if (el.scBe) {
+                el.scBe = false;
+            }
+
+            if (!el.scBi && el.scBh && !el.scBe) {
+                peekDesktopLeave();
+            }
+        }, true);*/
     }
 }
 
