@@ -153,6 +153,7 @@
         height: 12rem;
         margin-left: 5%;
         display: inline-block;
+        position: relative;
     }
 
     #intro_sc .logo-hybrid {
