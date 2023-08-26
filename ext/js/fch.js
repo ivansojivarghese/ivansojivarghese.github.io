@@ -873,7 +873,7 @@ function peekDesktopLeave() {
 
         el.isc.addEventListener("mousemove", function() {
 
-            if (el.scBe && el.scBh && !el.scBi) {
+            if (el.scBe && el.scBh && !el.scBi && !el.scBeK) {
                 peekDesktopLeave();
             }
 
