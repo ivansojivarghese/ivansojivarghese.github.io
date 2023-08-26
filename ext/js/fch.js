@@ -853,7 +853,7 @@ function peekDesktopLeave() {
             el.scBi = false;
             el.scBh = false;
 
-            el.scBy = false;
+            el.scBy = false; //
         }
 
     } else {
