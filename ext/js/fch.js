@@ -415,7 +415,7 @@ function load_js_e() { // load JS (page specific)
         timeNow(el.Ltd); // show time
         el.Lt.classList.remove("d_n");
 
-        // cursor interaction 'dots'
+        // ADD cursor interaction 'dots'
         while (el.cisY < aH) { // y-axis
             while (el.cisX < wiD) { // x-axis
                 const div = document.createElement("div");
@@ -779,7 +779,7 @@ function peekDesktop() { // 'scroll' letter transform effect
 
     el.scBe = true;
 
-    if (!el.scBi && !el.scBh) {
+    if (!el.scBi && !el.scBh && el.scBe) {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
@@ -817,7 +817,7 @@ function peekDesktopLeave() {
 
     el.scBe = false;
 
-    if (!el.scBi && el.scBh) {
+    if (!el.scBi && el.scBh && !el.scBe) {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
