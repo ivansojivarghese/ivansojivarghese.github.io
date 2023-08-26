@@ -1,6 +1,15 @@
 
 /* file-specific styling */
 
+div.cursorInt {
+    width: 0.1rem;
+    height: 0.1rem;
+    background: #E3E3E3;
+    margin-top: 0.1rem;
+    margin-left: 0.1rem;
+    position: absolute;
+}
+
 .head .link_h {
     width: 11rem;
     right: 0;
