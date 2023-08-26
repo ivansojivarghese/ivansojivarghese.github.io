@@ -2,11 +2,11 @@
 /* file-specific styling */
 
 div.cursorInt {
-    width: 0.2rem;
-    height: 0.2rem;
+    width: 0.15rem;
+    height: 0.15rem;
     background: #E3E3E3;
-    margin-top: 0.2rem;
-    margin-left: 0.2rem;
+    margin-top: 0.15rem;
+    margin-left: 0.15rem;
     position: absolute;
 }
 
