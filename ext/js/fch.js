@@ -865,6 +865,9 @@ function peekDesktopLeave() {
             el.lk3cb.removeEventListener("mousemove", peekDesktop);
             el.lk3cb.addEventListener("mouseenter", peekDesktop);
 
+            el.lk3cb.removeEventListener("mouseleave", peekDesktopLeave);
+            el.lk3cb.addEventListener("mouseout", peekDesktopLeave);
+
         }, true);
     }
 }
