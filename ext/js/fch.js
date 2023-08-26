@@ -420,6 +420,7 @@ function load_js_e() { // load JS (page specific)
             while (el.cisX < wiD) { // x-axis
                 const div = document.createElement("div");
                 div.classList.add("cursorInt");
+                div.style.top = el.cisY + "px";
                 div.style.left = el.cisX + "px";
                 el.cis.appendChild(div);
                 el.cisX += (0.2 * op.fN);
