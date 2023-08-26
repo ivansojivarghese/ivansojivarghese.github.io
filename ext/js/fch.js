@@ -861,18 +861,11 @@ function peekDesktopLeave() {
             if (!el.scBi && el.scBh && !el.scBe) {
                 peekDesktopLeave();
             }
+
+            el.lk3cb.removeEventListener("mousemove", peekDesktop);
+            el.lk3cb.addEventListener("mouseenter", peekDesktop);
+
         }, true);
-        /*
-        el.isc.addEventListener("mouseenter", function() {
-
-            if (el.scBe) {
-                el.scBe = false;
-            }
-
-            if (!el.scBi && el.scBh && !el.scBe) {
-                peekDesktopLeave();
-            }
-        }, true);*/
     }
 }
 
