@@ -819,7 +819,7 @@ function peekDesktopLeave() {
 
     el.scBe = false;
 
-    if (!el.scBi && el.scBh && !el.scBe && (!hoverActive || el.scBy)) {
+    if (!el.scBi && el.scBh && !el.scBe) {
         el.scBi = true;
         var j = 0, m = 6, c = 11;
         for (i = 0; i <= (el.lk3cbs.length - 1); i++) {
@@ -845,7 +845,7 @@ function peekDesktopLeave() {
             if (j < (m - 1)) {
                 setTimeout(function() {
                     el.scBi = false;
-                    el.scBy = true;
+                    // el.scBy = true;
                     peekDesktopLeave();
                 }, (op.t / 8));
             }
@@ -853,7 +853,7 @@ function peekDesktopLeave() {
             el.scBi = false;
             el.scBh = false;
 
-            el.scBy = false; //
+            // el.scBy = false; //
         }
 
     } else {
