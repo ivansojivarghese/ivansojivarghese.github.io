@@ -1036,6 +1036,24 @@ function cursorDotsInt(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
 
+    var boundaryYU = mouseY - (0.5 * op.fN),
+        boundaryYL = mouseY + (0.5 * op.fN),
+        boundaryXU = mouseX + (0.5 * op.fN),
+        boundaryXL = mouseX - (0.5 * op.fN);
+
+    var cursorDots = document.getElementsByClassName("cursorInt");
+
+    for (i = 0; i <= cursorDots.length - 1; i++) {
+        var dotBoundaryT = getBd(cursorDots[i], "top"),
+            dotBoundaryR = getBd(cursorDots[i], "right"),
+            dotBoundaryB = getBd(cursorDots[i], "bottom"),
+            dotBoundaryL = getBd(cursorDots[i], "left");
+
+        if (dotBoundaryT < boundaryYU || dotBoundaryR < boundaryXU || dotBoundaryB > boundaryYL || dotBoundaryL > boundaryXL) {
+            cursorDots[i].style.opacity = "0";
+        }
+    }
+
     console.log("x: " + mouseX + ", y: " + mouseY);
 }
 
