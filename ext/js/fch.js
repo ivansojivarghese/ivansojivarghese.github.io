@@ -421,7 +421,7 @@ function load_js_e() { // load JS (page specific)
             while (el.cisX < wiD) { // x-axis
                 const div = document.createElement("div");
                 div.classList.add("cursorInt");
-                div.classList.add("trs", "z_O");
+                // div.classList.add("trs", "z_O");
                 div.style.top = el.cisY + "px";
                 div.style.left = el.cisX + "px";
                 el.cis.appendChild(div);
