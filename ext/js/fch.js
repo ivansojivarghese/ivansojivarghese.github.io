@@ -1036,7 +1036,7 @@ function cursorDotsInt(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
 
-    console.log("mousing!");
+    console.log("x: " + mouseX + ", y: " + mouseY);
 }
 
 
