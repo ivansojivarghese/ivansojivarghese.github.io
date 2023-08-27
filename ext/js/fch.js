@@ -422,10 +422,9 @@ function load_js_e() { // load JS (page specific)
             while (el.cisX < wiD) { // x-axis
                 const div = document.createElement("div");
                 div.classList.add("cursorInt");
-                // div.classList.add("trs", "z_O");
+                div.setAttribute("id", "cursorInt_" + "X" + (el.cisX + ((0.5 * 0.75) * op.fN)) + "Y" + (el.cisY + ((0.5 * 0.75) * op.fN)));
                 div.style.top = el.cisY + "px";
                 div.style.left = el.cisX + "px";
-                div.addEventListener("mousemove", cursorDotsInt);
                 el.cis.appendChild(div);
                 el.cisX += (0.5 * op.fN);
             }
@@ -1037,7 +1036,6 @@ function cursorDotsInt(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
 
-    /*
     var boundaryYU = mouseY - (0.5 * op.fN),
         boundaryYL = mouseY + (0.5 * op.fN),
         boundaryXU = mouseX + (0.5 * op.fN),
@@ -1054,15 +1052,15 @@ function cursorDotsInt(e) {
         if (dotBoundaryT < boundaryYU || dotBoundaryR < boundaryXU || dotBoundaryB > boundaryYL || dotBoundaryL > boundaryXL) {
             cursorDots[i].style.opacity = "0";
         }
-    }*/
+    }
 
-    e.target.style.opacity = "0";
+    // e.target.style.opacity = "0";
 
     console.log("x: " + mouseX + ", y: " + mouseY);
 }
 
-
 // el.imn.addEventListener("mousemove", cursorDotsInt);
+
 
 window.addEventListener("visibilitychange", function() { // modify sensor usage
     if (el.g) {
