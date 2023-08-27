@@ -1031,6 +1031,13 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
     }
 }
 
+function cursorDotsInt(e) {
+    console.log("mousing!");
+}
+
+
+el.cis.addEventListener("mousemove", cursorDotsInt);
+
 window.addEventListener("visibilitychange", function() { // modify sensor usage
     if (el.g) {
         if (document.hidden) { // hidden document
