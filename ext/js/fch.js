@@ -1032,11 +1032,14 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
 }
 
 function cursorDotsInt(e) {
+    const mouseY = e.clientY;
+    const mouseX = e.clientX;
+
     console.log("mousing!");
 }
 
 
-el.cis.addEventListener("mousemove", cursorDotsInt);
+el.isc.addEventListener("mousemove", cursorDotsInt);
 
 window.addEventListener("visibilitychange", function() { // modify sensor usage
     if (el.g) {
