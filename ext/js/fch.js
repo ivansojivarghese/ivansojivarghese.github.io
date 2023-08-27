@@ -97,6 +97,7 @@ var fchL = {
         g : false, // gyro sensor check
         n : document.querySelectorAll(".navbarlinks"),
         isc : document.getElementById("intro_sc"),
+        imn : document.getElementById("intro_main"),
         cis : document.getElementById("cursorIntSpace"),
         cisX : 0,
         cisY : 0,
@@ -1039,7 +1040,7 @@ function cursorDotsInt(e) {
 }
 
 
-el.isc.addEventListener("mousemove", cursorDotsInt);
+el.imn.addEventListener("mousemove", cursorDotsInt);
 
 window.addEventListener("visibilitychange", function() { // modify sensor usage
     if (el.g) {
