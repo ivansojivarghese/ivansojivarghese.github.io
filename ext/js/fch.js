@@ -1054,9 +1054,6 @@ function cursorDotsInt(e) {
     var cursorDotsX,
         cursorDotsY;
 
-    // var 
-    // var cursorDots = document.querySelectorAll(".cursorInt#cursorInt_X" + () + "Y" + ());
-
     for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis [triangulation]
         var segmentIndex1 = cursorDots[j].getAttribute("id").indexOf("X"),
             segmentIndex2 = cursorDots[j].getAttribute("id").indexOf("Y"),
@@ -1067,14 +1064,19 @@ function cursorDotsInt(e) {
 
             cursorDots[j].style.background = "red";
         }
-
-        // boundaryXL
-        // boundaryXU
-        /*
-        if () {
-
-        }*/
     }
+    /*
+    for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis [triangulation]
+        var segmentIndex1 = cursorDots[j].getAttribute("id").indexOf("X"),
+            segmentIndex2 = cursorDots[j].getAttribute("id").indexOf("Y"),
+            segment = cursorDots[j].getAttribute("id").slice((segmentIndex1 + 1), segmentIndex2); // get x-pos of dot
+
+        if (segment > boundaryXL && segment < boundaryXU) {
+            console.log("x in segment");
+
+            cursorDots[j].style.background = "red";
+        }
+    }*/
 
 
     /*
