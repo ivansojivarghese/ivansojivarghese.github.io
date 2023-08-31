@@ -1075,7 +1075,7 @@ function cursorDotsInt(e) {
     }
 
 
-
+    /*
     for (i = 0; i <= cursorDots.length - 1; i++) {
         var dotBoundaryT = getBd(cursorDots[i], "top"),
             dotBoundaryR = getBd(cursorDots[i], "right"),
@@ -1089,10 +1089,10 @@ function cursorDotsInt(e) {
 
     // e.target.style.opacity = "0";
 
-    console.log("x: " + mouseX + ", y: " + mouseY);
+    console.log("x: " + mouseX + ", y: " + mouseY);*/
 }
 
-// el.imn.addEventListener("mousemove", cursorDotsInt);
+el.imn.addEventListener("mousemove", cursorDotsInt);
 
 
 window.addEventListener("visibilitychange", function() { // modify sensor usage
