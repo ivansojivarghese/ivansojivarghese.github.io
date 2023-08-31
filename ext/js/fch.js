@@ -163,6 +163,8 @@ let gyroscope = null;
 var gyroscopeX = 0,
     gyroscopeY = 0;
 
+var cursorDots;
+
     /*
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
@@ -429,12 +431,16 @@ function load_js_e() { // load JS (page specific)
                 div.style.left = el.cisX + "px";
                 el.cis.appendChild(div);
                 el.cisX += (0.5 * op.fN);
-                el.cisXNum++;
+                if (el.cisYNum === 0) {
+                    el.cisXNum++;
+                }
             }
             el.cisY += (0.5 * op.fN);
             el.cisX = 0;
             el.cisYNum++;
         }
+
+        cursorDots = document.getElementsByClassName("cursorInt");
 
         /*
         apiInit = op.d.getTime();
@@ -1045,8 +1051,7 @@ function cursorDotsInt(e) {
         boundaryXU = mouseX + (0.5 * op.fN),
         boundaryXL = mouseX - (0.5 * op.fN);
 
-    var cursorDots = document.getElementsByClassName("cursorInt"),
-        cursorDotsX,
+    var cursorDotsX,
         cursorDotsY;
 
     // var 
@@ -1058,11 +1063,13 @@ function cursorDotsInt(e) {
 
         boundaryXL
         boundaryXU
-        /*
+        
         if () {
 
-        }*/
+        }
     }
+
+
 
     for (i = 0; i <= cursorDots.length - 1; i++) {
         var dotBoundaryT = getBd(cursorDots[i], "top"),
