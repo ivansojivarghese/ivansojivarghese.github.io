@@ -1057,16 +1057,21 @@ function cursorDotsInt(e) {
     // var 
     // var cursorDots = document.querySelectorAll(".cursorInt#cursorInt_X" + () + "Y" + ());
 
-    for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis
+    for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis [triangulation]
+        var segmentIndex1 = cursorDots[j].getAttribute("id").indexOf("X"),
+            segmentIndex2 = cursorDots[j].getAttribute("id").indexOf("Y"),
+            segment = cursorDots[j].getAttribute("id").slice((segmentIndex1 + 1), segmentIndex2); // get x-pos of dot
 
-        var segment;
+        if (segment > boundaryXL && segment < boundaryXU) {
+            console.log("x in segment");
+        }
 
-        boundaryXL
-        boundaryXU
-        
+        // boundaryXL
+        // boundaryXU
+        /*
         if () {
 
-        }
+        }*/
     }
 
 
