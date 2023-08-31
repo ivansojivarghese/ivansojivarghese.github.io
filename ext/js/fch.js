@@ -1045,21 +1045,23 @@ function cursorDotsInt(e) {
         boundaryXU = mouseX + (0.5 * op.fN),
         boundaryXL = mouseX - (0.5 * op.fN);
 
-    var cursorDotsX,
+    var cursorDots = document.getElementsByClassName("cursorInt"),
+        cursorDotsX,
         cursorDotsY;
 
-    // var cursorDots = document.getElementsByClassName("cursorInt");
+    // var 
     // var cursorDots = document.querySelectorAll(".cursorInt#cursorInt_X" + () + "Y" + ());
 
-    for (j = 0; j <= 10; j++) { // dots in x-axis
+    for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis
+
+        var segment;
+
         boundaryXL
         boundaryXU
-
-        var segment = 
-
+        /*
         if () {
 
-        }
+        }*/
     }
 
     for (i = 0; i <= cursorDots.length - 1; i++) {
