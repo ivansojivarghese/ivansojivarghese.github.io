@@ -1064,6 +1064,8 @@ function cursorDotsInt(e) {
 
         if (segment > boundaryXL && segment < boundaryXU) {
             console.log("x in segment");
+
+            cursorDots[j].style.background = "red";
         }
 
         // boundaryXL
