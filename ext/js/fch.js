@@ -101,6 +101,8 @@ var fchL = {
         cis : document.getElementById("cursorIntSpace"),
         cisX : 0,
         cisY : 0,
+        cisXNum : 0,
+        cisYNum : 0,
         i : document.getElementById("profile_image"),
         wdT : document.getElementById("wordsTyperDet"),
         pb : document.getElementById("profile_banner"),
@@ -427,9 +429,11 @@ function load_js_e() { // load JS (page specific)
                 div.style.left = el.cisX + "px";
                 el.cis.appendChild(div);
                 el.cisX += (0.5 * op.fN);
+                el.cisXNum++;
             }
             el.cisY += (0.5 * op.fN);
             el.cisX = 0;
+            el.cisYNum++;
         }
 
         /*
@@ -1041,7 +1045,22 @@ function cursorDotsInt(e) {
         boundaryXU = mouseX + (0.5 * op.fN),
         boundaryXL = mouseX - (0.5 * op.fN);
 
-    var cursorDots = document.getElementsByClassName("cursorInt");
+    var cursorDotsX,
+        cursorDotsY;
+
+    // var cursorDots = document.getElementsByClassName("cursorInt");
+    // var cursorDots = document.querySelectorAll(".cursorInt#cursorInt_X" + () + "Y" + ());
+
+    for (j = 0; j <= 10; j++) { // dots in x-axis
+        boundaryXL
+        boundaryXU
+
+        var segment = 
+
+        if () {
+
+        }
+    }
 
     for (i = 0; i <= cursorDots.length - 1; i++) {
         var dotBoundaryT = getBd(cursorDots[i], "top"),
