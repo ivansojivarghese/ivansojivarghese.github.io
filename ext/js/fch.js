@@ -1046,8 +1046,8 @@ function cursorDotsInt(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
 
-    var boundaryYU = mouseY - (0.5 * op.fN),
-        boundaryYL = mouseY + (0.5 * op.fN),
+    var boundaryYU = mouseY + (0.5 * op.fN),
+        boundaryYL = mouseY - (0.5 * op.fN),
         boundaryXU = mouseX + (0.5 * op.fN),
         boundaryXL = mouseX - (0.5 * op.fN);
 
