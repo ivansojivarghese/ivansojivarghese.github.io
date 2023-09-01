@@ -1067,13 +1067,13 @@ function cursorDotsInt(e) {
     }
     
     for (k = 0; k <= (el.cisYNum - 1); k++) { // dots in y-axis [triangulation]
-        var segmentIndex1 = cursorDots[(k * el.cisYNum)].getAttribute("id").indexOf("Y"),
-            segment = Number(cursorDots[(k * el.cisYNum)].getAttribute("id").slice((segmentIndex1 + 1))); // get y-pos of dot
+        var segmentIndex1 = cursorDots[(k * el.cisXNum)].getAttribute("id").indexOf("Y"),
+            segment = Number(cursorDots[(k * el.cisXNum)].getAttribute("id").slice((segmentIndex1 + 1))); // get y-pos of dot
 
         if (segment > boundaryYL && segment < boundaryYU) {
             console.log("y in segment");
 
-            cursorDots[(k * el.cisYNum)].style.background = "red";
+            cursorDots[(k * el.cisXNum)].style.background = "red";
         }
     }
 
