@@ -441,7 +441,7 @@ function load_js_e() { // load JS (page specific)
             el.cisYNum++;
         }
 
-        cursorDots = document.getElementsByClassName("cursorInt");
+        cursorDots = document.getElementsByClassName("cursorInt"); //
 
         /*
         apiInit = op.d.getTime();
