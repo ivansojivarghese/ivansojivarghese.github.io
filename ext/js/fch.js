@@ -1051,8 +1051,9 @@ function cursorDotsInt(e) {
         boundaryXU = mouseX + (0.5 * op.fN),
         boundaryXL = mouseX - (0.5 * op.fN);
 
-    var cursorDotsX,
-        cursorDotsY;
+    var cursorDotsX = [],
+        cursorDotsY = [],
+        cursorDotsW = [];
 
     for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis [triangulation]
         var segmentIndex1 = cursorDots[j].getAttribute("id").indexOf("X"),
@@ -1062,7 +1063,9 @@ function cursorDotsInt(e) {
         if (segment > boundaryXL && segment < boundaryXU) {
             console.log("x in segment");
 
-            cursorDots[j].style.background = "red";
+            cursorDotsX[cursorDotsX.length] = j; // add to x array
+
+            // cursorDots[j].style.background = "red";
         }
     }
     
@@ -1073,10 +1076,20 @@ function cursorDotsInt(e) {
         if (segment > boundaryYL && segment < boundaryYU) {
             console.log("y in segment");
 
-            cursorDots[(k * el.cisXNum)].style.background = "red";
+            cursorDotsY[cursorDotsY.length] = (k * el.cisXNum); // add to y array
+
+            // cursorDots[(k * el.cisXNum)].style.background = "red";
         }
     }
 
+    for (const dotX of cursorDotsX) {
+        for (const dotY of cursorDotsY) {
+            if (dotX === dotY) {
+                var tgt = dotX;
+                cursorDots[tgt].style.background = "red";
+            }
+        }
+    }
 
     /*
     for (i = 0; i <= cursorDots.length - 1; i++) {
