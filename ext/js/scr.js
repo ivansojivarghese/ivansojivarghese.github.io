@@ -18,6 +18,7 @@ var im = { // #intro_main
         Lp2 : document.getElementById("pLa-2"),
         Lp3 : document.getElementById("pLa-3"),
         Lp4 : document.getElementById("pLa-4"),
+        dotsIn : [],
         s2 : false,
         s3 : false,
         s4 : false,
@@ -601,9 +602,22 @@ function sc_LpH() { // scroll loop - phablet
                 hs : ld.hrs.getBoundingClientRect(),
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect()
-            };
+            },
+            cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)), // return random cursorDot index
+            cDu = true;
+
+        while (cDu) {
+            if (!im.dotsIn.includes(cD)) {
+                im.dotsIn[im.dotsIn.length] = cD; // add value to array (if not duplicated)
+                cDu = false;
+            } else {
+                cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)); // try again
+            }
+        }
 
         if (!pos.aT) { // during scroll
+
+            // INTRO
 
             im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
@@ -612,6 +626,8 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
+
+            cursorDots[cD].classList.add("z_O");
 
             if (b.lc.top && b.lc.top < aH) { // COORDS parallax
                 var h = b.lc.height;
