@@ -1084,10 +1084,7 @@ function cursorDotsInt(e) {
 
     for (const dotX of cursorDotsX) {
         for (const dotY of cursorDotsY) {
-            if (dotX === dotY) {
-                var tgt = dotX;
-                cursorDots[tgt].style.background = "red";
-            }
+            cursorDots[dotX + dotY].style.background = "red";
         }
     }
 
