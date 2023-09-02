@@ -1135,6 +1135,13 @@ function cursorDotsInt(e) {
         }
     }
 
+    for (const dotX of cursorDotsX2) { // triangulate to cursor and apply effect(s)
+        for (const dotY of cursorDotsY2) {
+            // cursorDots[dotX + dotY].style.opacity = "0.5";
+            cursorDots[dotX + dotY].style.background = "blue";
+        }
+    }
+
     /*
     for (i = 0; i <= cursorDots.length - 1; i++) {
         var dotBoundaryT = getBd(cursorDots[i], "top"),
