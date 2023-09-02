@@ -635,7 +635,7 @@ function sc_LpH() { // scroll loop - phablet
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
 
             for (b = el.cisYNum; b >= (el.cisYNum - rows); b--) {
-                var r = 1;
+                var r = 0;
                 while (r <= el.cisXNum) {
                     cursorDots[r + (b * el.cisXNum)].classList.add("z_O");
                     r++;
