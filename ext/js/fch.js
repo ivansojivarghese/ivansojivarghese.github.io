@@ -1052,20 +1052,17 @@ function cursorDotsInt(e) {
         boundaryXL = mouseX - (0.5 * op.fN);
 
     var cursorDotsX = [],
-        cursorDotsY = [],
-        cursorDotsW = [];
+        cursorDotsY = [];
 
     for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis [triangulation]
         var segmentIndex1 = cursorDots[j].getAttribute("id").indexOf("X"),
             segmentIndex2 = cursorDots[j].getAttribute("id").indexOf("Y"),
             segment = Number(cursorDots[j].getAttribute("id").slice((segmentIndex1 + 1), segmentIndex2)); // get x-pos of dot
 
-        if (segment > boundaryXL && segment < boundaryXU) {
-            console.log("x in segment");
+        if (segment > boundaryXL && segment < boundaryXU) { // if within boundaries
 
             cursorDotsX[cursorDotsX.length] = j; // add to x array
 
-            // cursorDots[j].style.background = "red";
         }
     }
     
@@ -1074,17 +1071,15 @@ function cursorDotsInt(e) {
             segment = Number(cursorDots[(k * el.cisXNum)].getAttribute("id").slice((segmentIndex1 + 1))); // get y-pos of dot
 
         if (segment > boundaryYL && segment < boundaryYU) {
-            console.log("y in segment");
 
             cursorDotsY[cursorDotsY.length] = (k * el.cisXNum); // add to y array
 
-            // cursorDots[(k * el.cisXNum)].style.background = "red";
         }
     }
 
-    for (const dotX of cursorDotsX) {
+    for (const dotX of cursorDotsX) { // triangulate to cursor and apply effect(s)
         for (const dotY of cursorDotsY) {
-            cursorDots[dotX + dotY].style.background = "red";
+            cursorDots[dotX + dotY].style.opacity = "0.1";
         }
     }
 
