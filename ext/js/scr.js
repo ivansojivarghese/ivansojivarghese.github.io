@@ -603,6 +603,7 @@ function sc_LpH() { // scroll loop - phablet
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect()
             },
+            cD = 0,
             // cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)), // return random cursorDot index
             cDu = true;
         /*
