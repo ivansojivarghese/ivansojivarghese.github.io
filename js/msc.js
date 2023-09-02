@@ -501,6 +501,8 @@ op = {
     // txts : document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, li, span"),
     txts : document.querySelectorAll(".lang, li"), // target variable keywords (eng.)
     as : op.as, // anchor scroll check
+    ps : false, // peek scroll check
+    psV : 0, // peek value
     // asV : false, 
     sDis : 150, // avg. scrolling distance
     sSmooth : 25, // scroll smoothness (default)
@@ -2697,8 +2699,11 @@ function SmoothScroll(target, speed, smooth) {
     
         var delta = (pos - target.scrollTop) / smooth;
     
-        if (!op.as) {
+        if (!op.as && !op.ps) {
             target.scrollTop += delta;
+        } else if (op.ps) {
+            target.scrollTop = op.psV;
+            pos = op.psV;
         } else {
             target.scrollTop = 0;
             pos = 0;

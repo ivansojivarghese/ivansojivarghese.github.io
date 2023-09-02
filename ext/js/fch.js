@@ -776,8 +776,11 @@ function peek() {
     var b = (!vw.tB && !vw.pH) ? el.ldP.getBoundingClientRect() : el.ldP4.getBoundingClientRect(), 
         m = (!vw.tB && !vw.pH) ? 1 : (1 - 0.1),
         t = (!vw.tB && !vw.pH) ? b.top : b.bottom;
+    op.psV = m * (t - aH);
     document.documentElement.classList.add("scB");
-    window.scrollTo(0, m * (t - aH)); // scroll to reasonable point in content area
+    window.scrollTo(0, op.psV); // scroll to reasonable point in content area
+
+    op.ps = true;
 }
 
 function peekDesktop() { // 'scroll' letter transform effect
