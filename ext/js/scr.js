@@ -636,9 +636,9 @@ function sc_LpH() { // scroll loop - phablet
 
             for (b = el.cisYNum; b >= (el.cisYNum - rows); b--) {
                 var r = 0;
-                while (r <= el.cisXNum) {
+                while (r > (-1 * el.cisXNum)) {
+                    r--;
                     cursorDots[r + (b * el.cisXNum)].classList.add("z_O");
-                    r++;
                 }
             }
 
