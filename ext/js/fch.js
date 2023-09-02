@@ -1135,10 +1135,24 @@ function cursorDotsInt(e) {
         }
     }
 
-    for (const dotX of cursorDotsX2) { // triangulate to cursor and apply effect(s)
+    for (const dotX of cursorDotsX2) { // 
         for (const dotY of cursorDotsY2) {
             // cursorDots[dotX + dotY].style.opacity = "0.5";
             cursorDots[dotX + dotY].style.background = "blue";
+        }
+    }
+
+    for (const dotX of cursorDotsX3) { // 
+        for (const dotY of cursorDotsY3) {
+            // cursorDots[dotX + dotY].style.opacity = "0.5";
+            cursorDots[dotX + dotY].style.background = "yellow";
+        }
+    }
+
+    for (const dotX of cursorDotsX4) { // 
+        for (const dotY of cursorDotsY4) {
+            // cursorDots[dotX + dotY].style.opacity = "0.5";
+            cursorDots[dotX + dotY].style.background = "green";
         }
     }
 
