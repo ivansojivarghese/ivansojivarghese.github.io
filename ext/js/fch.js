@@ -1130,40 +1130,40 @@ function cursorDotsInt(e) {
 
     for (const dotX of cursorDotsX) { // triangulate to cursor and apply effect(s)
         for (const dotY of cursorDotsY) {
-            //cursorDots[dotX + dotY].style.opacity = boundaries[0];
-            cursorDots[dotX + dotY].style.background = "red";
+            cursorDots[dotX + dotY].style.opacity = boundaries[0];
+            //cursorDots[dotX + dotY].style.background = "red";
             setTimeout(function() {
-                cursorDots[dotX + dotY].style.background = "";
+                cursorDots[dotX + dotY].style.opacity = "";
             }, dev.i);
         }
     }
 
     for (const dotX of cursorDotsX2) { // 
         for (const dotY of cursorDotsY2) {
-            //cursorDots[dotX + dotY].style.opacity = boundaries[1];
-            cursorDots[dotX + dotY].style.background = "blue";
+            cursorDots[dotX + dotY].style.opacity = boundaries[1];
+            //cursorDots[dotX + dotY].style.background = "blue";
             setTimeout(function() {
-                cursorDots[dotX + dotY].style.background = "";
+                cursorDots[dotX + dotY].style.opacity = "";
             }, dev.i);
         }
     }
 
     for (const dotX of cursorDotsX3) { // 
         for (const dotY of cursorDotsY3) {
-            //cursorDots[dotX + dotY].style.opacity = boundaries[2];
-            cursorDots[dotX + dotY].style.background = "yellow";
+            cursorDots[dotX + dotY].style.opacity = boundaries[2];
+            //cursorDots[dotX + dotY].style.background = "yellow";
             setTimeout(function() {
-                cursorDots[dotX + dotY].style.background = "";
+                cursorDots[dotX + dotY].style.opacity = "";
             }, dev.i);
         }
     }
 
     for (const dotX of cursorDotsX4) { // 
         for (const dotY of cursorDotsY4) {
-            //cursorDots[dotX + dotY].style.opacity = boundaries[3];
-            cursorDots[dotX + dotY].style.background = "green";
+            cursorDots[dotX + dotY].style.opacity = boundaries[3];
+            //cursorDots[dotX + dotY].style.background = "green";
             setTimeout(function() {
-                cursorDots[dotX + dotY].style.background = "";
+                cursorDots[dotX + dotY].style.opacity = "";
             }, dev.i);
         }
     }
