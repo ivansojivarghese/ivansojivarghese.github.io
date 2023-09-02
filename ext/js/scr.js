@@ -602,8 +602,8 @@ function sc_LpH() { // scroll loop - phablet
                 hs : ld.hrs.getBoundingClientRect(),
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect()
-            },
-            cDRatio = (aH / el.cisYNum);
+            };
+            // cDRatio = (aH / el.cisYNum);
 
             // cD = 0,
             // cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)), // return random cursorDot index
@@ -624,7 +624,7 @@ function sc_LpH() { // scroll loop - phablet
 
             // INTRO
 
-            var rows = Math.round(pos.y / cDRatio);
+            // var rows = Math.round(pos.y / cDRatio);
 
             im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
@@ -634,14 +634,14 @@ function sc_LpH() { // scroll loop - phablet
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
 
+            /*
             for (q = el.cisYNum; q >= (el.cisYNum - rows); q--) {
                 var r = 0;
                 while (r > (-1 * el.cisXNum)) {
                     r--;
                     cursorDots[r + (q * el.cisXNum)].classList.add("z_O");
                 }
-            }
-
+            }*/
             // cursorDots[cD].classList.add("z_O");
 
             if (b.lc.top && b.lc.top < aH) { // COORDS parallax
