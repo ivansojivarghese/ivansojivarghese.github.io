@@ -1169,6 +1169,10 @@ function sL() { // scroll pos. loop
         }, op.t);
     }
 
+    if (op.ps && (Math.round(pos.y) === Math.round(op.psV))) { // reset after peek (if applicable)
+        op.ps = false;
+    }
+
     // console.log(pos.s);
 }
 
