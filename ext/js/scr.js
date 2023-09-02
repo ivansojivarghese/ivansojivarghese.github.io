@@ -634,6 +634,8 @@ function sc_LpH() { // scroll loop - phablet
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
 
+            c_css(".cursorInt", "opacity: 0 !important;", false, null);
+
             /*
             for (q = el.cisYNum; q >= (el.cisYNum - rows); q--) {
                 var r = 0;
