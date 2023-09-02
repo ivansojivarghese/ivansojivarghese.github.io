@@ -602,7 +602,9 @@ function sc_LpH() { // scroll loop - phablet
                 hs : ld.hrs.getBoundingClientRect(),
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect()
-            };
+            },
+            cDRatio = (aH / el.cisYNum);
+
             // cD = 0,
             // cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)), // return random cursorDot index
             // cDu = true;
@@ -622,6 +624,8 @@ function sc_LpH() { // scroll loop - phablet
 
             // INTRO
 
+            var rows = Math.round(pos.y / cDRatio);
+
             im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
             im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
@@ -629,6 +633,14 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "translateY(" + (pos.y * -0.1) + "px)";
             ld.qIn.style.transform = "translateY(" + (pos.y * -0.75) + "px)";
+
+            for (b = el.cisYNum; b >= (el.cisYNum - rows); b--) {
+                var r = 1;
+                while (r <= el.cisXNum) {
+                    cursorDots[r + (b * el.cisXNum)].classList.add("z_O");
+                    r++;
+                }
+            }
 
             // cursorDots[cD].classList.add("z_O");
 
