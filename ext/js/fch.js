@@ -1047,7 +1047,7 @@ function cursorDotsInt(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
 
-    var boundaryYU = mouseY + (0.5 * op.fN),
+    var boundaryYU = mouseY + (0.5 * op.fN), // set level 1 boundary
         boundaryYL = mouseY - (0.5 * op.fN),
         boundaryXU = mouseX + (0.5 * op.fN),
         boundaryXL = mouseX - (0.5 * op.fN);
@@ -1080,7 +1080,8 @@ function cursorDotsInt(e) {
 
     for (const dotX of cursorDotsX) { // triangulate to cursor and apply effect(s)
         for (const dotY of cursorDotsY) {
-            cursorDots[dotX + dotY].style.opacity = "0.5";
+            // cursorDots[dotX + dotY].style.opacity = "0.5";
+            cursorDots[dotX + dotY].style.background = "red";
         }
     }
 
