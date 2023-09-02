@@ -747,7 +747,7 @@ function load_e() { // end the loading sequence
             performance = devicePerformance(op.pSpd, op.sfr, op.pCores);
         }
 
-        console.log(performance);
+        // console.log(performance);
         
         if (rL.e6) {
             if (performance === 0 && !rL.e7) { // device compatibility (speed/rendering) error check (no performance)
@@ -759,6 +759,8 @@ function load_e() { // end the loading sequence
 
                 rL.e7 = true;
                 setCookie("lowPerformance", "true", op.c.t); // set cookie to show message
+
+                setCookie("highPerformance", null, -1); // delete high performance check
 
             } else if (op.ne.t3s) { // timeout 3
 
@@ -811,6 +813,10 @@ function load_e() { // end the loading sequence
                 }, op.te);
 
             } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && (wD > 0 && cH > 0) && allLoaded && (windowCount !== NaN) && (js_load() || js_load_e() || op.er.ft) && (ipAPIres.online || (ipifyAPIres.online && timeAPIres.online) || clientAPIres.online || roamingAPIres.online || (countryAPIres.online && cloudflareCDNres.online)) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
+
+                if (performance > 0.7) {
+                    setCookie("highPerformance", "true", op.c.t); // set cookie to show message
+                }
 
                 js_load();
 
