@@ -1133,12 +1133,12 @@ function cursorDotsInt(e) {
             cursorDots[dotX + dotY].style.opacity = boundaries[0];
             //cursorDots[dotX + dotY].style.background = "red";
             setTimeout(function() {
-                cursorDots[dotX + dotY].style.opacity = "";
+                cursorDots[dotX + dotY].style.opacity = ""; // revert effect after user res. time
             }, dev.i);
         }
     }
 
-    for (const dotX of cursorDotsX2) { // 
+    for (const dotX of cursorDotsX2) { // apply effects to other boundaries
         for (const dotY of cursorDotsY2) {
             cursorDots[dotX + dotY].style.opacity = boundaries[1];
             //cursorDots[dotX + dotY].style.background = "blue";
@@ -1168,21 +1168,6 @@ function cursorDotsInt(e) {
         }
     }
 
-    /*
-    for (i = 0; i <= cursorDots.length - 1; i++) {
-        var dotBoundaryT = getBd(cursorDots[i], "top"),
-            dotBoundaryR = getBd(cursorDots[i], "right"),
-            dotBoundaryB = getBd(cursorDots[i], "bottom"),
-            dotBoundaryL = getBd(cursorDots[i], "left");
-
-        if (dotBoundaryT < boundaryYU || dotBoundaryR < boundaryXU || dotBoundaryB > boundaryYL || dotBoundaryL > boundaryXL) {
-            cursorDots[i].style.opacity = "0";
-        }
-    }
-
-    // e.target.style.opacity = "0";
-
-    console.log("x: " + mouseX + ", y: " + mouseY);*/
 }
 
 el.imn.addEventListener("mousemove", cursorDotsInt);
