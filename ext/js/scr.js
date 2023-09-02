@@ -603,7 +603,7 @@ function sc_LpH() { // scroll loop - phablet
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect()
             },
-            cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)), // return random cursorDot index
+            // cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)), // return random cursorDot index
             cDu = true;
         /*
         while (cDu) {
@@ -616,6 +616,8 @@ function sc_LpH() { // scroll loop - phablet
         }*/
 
         if (!pos.aT) { // during scroll
+
+            cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum));
 
             // INTRO
 
