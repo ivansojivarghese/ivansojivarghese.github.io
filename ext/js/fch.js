@@ -1047,23 +1047,61 @@ function cursorDotsInt(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
 
-    var boundaryYU = mouseY + (0.5 * op.fN), // set level 1 boundary
-        boundaryYL = mouseY - (0.5 * op.fN),
-        boundaryXU = mouseX + (0.5 * op.fN),
-        boundaryXL = mouseX - (0.5 * op.fN);
+    var boundaries = [0.5, 0.625, 0.75, 0.875]; // level 1, 2, 3 & 4 boundaries
+
+    var boundaryYU = mouseY + (boundaries[0] * op.fN), // set level 1 boundary
+        boundaryYL = mouseY - (boundaries[0] * op.fN),
+        boundaryXU = mouseX + (boundaries[0] * op.fN),
+        boundaryXL = mouseX - (boundaries[0] * op.fN),
+
+        boundary2YU = mouseY + (boundaries[1] * op.fN), // set level 2 boundary
+        boundary2YL = mouseY - (boundaries[1] * op.fN),
+        boundary2XU = mouseX + (boundaries[1] * op.fN),
+        boundary2XL = mouseX - (boundaries[1] * op.fN),
+
+        boundary3YU = mouseY + (boundaries[2] * op.fN), // set level 3 boundary
+        boundary3YL = mouseY - (boundaries[2] * op.fN),
+        boundary3XU = mouseX + (boundaries[2] * op.fN),
+        boundary3XL = mouseX - (boundaries[2] * op.fN),
+
+        boundary4YU = mouseY + (boundaries[3] * op.fN), // set level 4 boundary
+        boundary4YL = mouseY - (boundaries[3] * op.fN),
+        boundary4XU = mouseX + (boundaries[3] * op.fN),
+        boundary4XL = mouseX - (boundaries[3] * op.fN);
 
     var cursorDotsX = [],
-        cursorDotsY = [];
+        cursorDotsY = [],
+
+        cursorDotsX2 = [],
+        cursorDotsY2 = [],
+
+        cursorDotsX3 = [],
+        cursorDotsY3 = [],
+
+        cursorDotsX4 = [],
+        cursorDotsY4 = [];
 
     for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis [triangulation]
         var segmentIndex1 = cursorDots[j].getAttribute("id").indexOf("X"),
             segmentIndex2 = cursorDots[j].getAttribute("id").indexOf("Y"),
             segment = Number(cursorDots[j].getAttribute("id").slice((segmentIndex1 + 1), segmentIndex2)); // get x-pos of dot
 
-        if (segment > boundaryXL && segment < boundaryXU) { // if within boundaries
+        if (segment > boundaryXL && segment < boundaryXU) { // if within boundary 1
 
             cursorDotsX[cursorDotsX.length] = j; // add to x array
 
+        } else if (segment > boundary2XL && segment < boundary2XU) { // boundary 2
+
+            cursorDotsX2[cursorDotsX2.length] = j; // add to x array
+
+        } else if (segment > boundary3XL && segment < boundary3XU) { // boundary 3
+
+            cursorDotsX3[cursorDotsX3.length] = j; // add to x array
+            
+        } else if (segment > boundary4XL && segment < boundary4XU) { // boundary 4
+
+            cursorDotsX4[cursorDotsX4.length] = j; // add to x array
+            
         }
     }
     
@@ -1071,9 +1109,21 @@ function cursorDotsInt(e) {
         var segmentIndex1 = cursorDots[(k * el.cisXNum)].getAttribute("id").indexOf("Y"),
             segment = Number(cursorDots[(k * el.cisXNum)].getAttribute("id").slice((segmentIndex1 + 1))); // get y-pos of dot
 
-        if (segment > boundaryYL && segment < boundaryYU) {
+        if (segment > boundaryYL && segment < boundaryYU) { // boundary 1
 
             cursorDotsY[cursorDotsY.length] = (k * el.cisXNum); // add to y array
+
+        } else if (segment > boundary2YL && segment < boundary2YU) {
+
+            cursorDotsY2[cursorDotsY2.length] = (k * el.cisXNum); // add to y array
+
+        } else if (segment > boundary3YL && segment < boundary3YU) {
+
+            cursorDotsY3[cursorDotsY3.length] = (k * el.cisXNum); // add to y array
+
+        } else if (segment > boundary4YL && segment < boundary4YU) {
+
+            cursorDotsY4[cursorDotsY4.length] = (k * el.cisXNum); // add to y array
 
         }
     }
