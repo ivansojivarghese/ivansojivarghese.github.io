@@ -605,7 +605,7 @@ function sc_LpH() { // scroll loop - phablet
             },
             cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)), // return random cursorDot index
             cDu = true;
-
+        /*
         while (cDu) {
             if (!im.dotsIn.includes(cD)) {
                 im.dotsIn[im.dotsIn.length] = cD; // add value to array (if not duplicated)
@@ -613,7 +613,7 @@ function sc_LpH() { // scroll loop - phablet
             } else {
                 cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)); // try again
             }
-        }
+        }*/
 
         if (!pos.aT) { // during scroll
 
