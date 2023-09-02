@@ -1044,127 +1044,131 @@ function bgCirclesMove(e) { // live gyro-based movement of bg. circles
 }
 
 function cursorDotsInt(e) {
-    const mouseY = e.clientY;
-    const mouseX = e.clientX;
 
-    var boundaries = [0.5, 0.625, 0.75, 0.875]; // level 1, 2, 3 & 4 boundaries
+    if (getCookie("highPerformance") === "true") {
 
-    var boundaryYU = mouseY + (boundaries[0] * op.fN), // set level 1 boundary
-        boundaryYL = mouseY - (boundaries[0] * op.fN),
-        boundaryXU = mouseX + (boundaries[0] * op.fN),
-        boundaryXL = mouseX - (boundaries[0] * op.fN),
+        const mouseY = e.clientY;
+        const mouseX = e.clientX;
 
-        boundary2YU = mouseY + (boundaries[1] * op.fN), // set level 2 boundary
-        boundary2YL = mouseY - (boundaries[1] * op.fN),
-        boundary2XU = mouseX + (boundaries[1] * op.fN),
-        boundary2XL = mouseX - (boundaries[1] * op.fN),
+        var boundaries = [0.5, 0.625, 0.75, 0.875]; // level 1, 2, 3 & 4 boundaries
 
-        boundary3YU = mouseY + (boundaries[2] * op.fN), // set level 3 boundary
-        boundary3YL = mouseY - (boundaries[2] * op.fN),
-        boundary3XU = mouseX + (boundaries[2] * op.fN),
-        boundary3XL = mouseX - (boundaries[2] * op.fN),
+        var boundaryYU = mouseY + (boundaries[0] * op.fN), // set level 1 boundary
+            boundaryYL = mouseY - (boundaries[0] * op.fN),
+            boundaryXU = mouseX + (boundaries[0] * op.fN),
+            boundaryXL = mouseX - (boundaries[0] * op.fN),
 
-        boundary4YU = mouseY + (boundaries[3] * op.fN), // set level 4 boundary
-        boundary4YL = mouseY - (boundaries[3] * op.fN),
-        boundary4XU = mouseX + (boundaries[3] * op.fN),
-        boundary4XL = mouseX - (boundaries[3] * op.fN);
+            boundary2YU = mouseY + (boundaries[1] * op.fN), // set level 2 boundary
+            boundary2YL = mouseY - (boundaries[1] * op.fN),
+            boundary2XU = mouseX + (boundaries[1] * op.fN),
+            boundary2XL = mouseX - (boundaries[1] * op.fN),
 
-    var cursorDotsX = [],
-        cursorDotsY = [],
+            boundary3YU = mouseY + (boundaries[2] * op.fN), // set level 3 boundary
+            boundary3YL = mouseY - (boundaries[2] * op.fN),
+            boundary3XU = mouseX + (boundaries[2] * op.fN),
+            boundary3XL = mouseX - (boundaries[2] * op.fN),
 
-        cursorDotsX2 = [],
-        cursorDotsY2 = [],
+            boundary4YU = mouseY + (boundaries[3] * op.fN), // set level 4 boundary
+            boundary4YL = mouseY - (boundaries[3] * op.fN),
+            boundary4XU = mouseX + (boundaries[3] * op.fN),
+            boundary4XL = mouseX - (boundaries[3] * op.fN);
 
-        cursorDotsX3 = [],
-        cursorDotsY3 = [],
+        var cursorDotsX = [],
+            cursorDotsY = [],
 
-        cursorDotsX4 = [],
-        cursorDotsY4 = [];
+            cursorDotsX2 = [],
+            cursorDotsY2 = [],
 
-    for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis [triangulation]
-        var segmentIndex1 = cursorDots[j].getAttribute("id").indexOf("X"),
-            segmentIndex2 = cursorDots[j].getAttribute("id").indexOf("Y"),
-            segment = Number(cursorDots[j].getAttribute("id").slice((segmentIndex1 + 1), segmentIndex2)); // get x-pos of dot
+            cursorDotsX3 = [],
+            cursorDotsY3 = [],
 
-        if (segment > boundaryXL && segment < boundaryXU) { // if within boundary 1
+            cursorDotsX4 = [],
+            cursorDotsY4 = [];
 
-            cursorDotsX[cursorDotsX.length] = j; // add to x array
+        for (j = 0; j <= (el.cisXNum - 1); j++) { // dots in x-axis [triangulation]
+            var segmentIndex1 = cursorDots[j].getAttribute("id").indexOf("X"),
+                segmentIndex2 = cursorDots[j].getAttribute("id").indexOf("Y"),
+                segment = Number(cursorDots[j].getAttribute("id").slice((segmentIndex1 + 1), segmentIndex2)); // get x-pos of dot
 
-        } else if (segment > boundary2XL && segment < boundary2XU) { // boundary 2
+            if (segment > boundaryXL && segment < boundaryXU) { // if within boundary 1
 
-            cursorDotsX2[cursorDotsX2.length] = j; // add to x array
+                cursorDotsX[cursorDotsX.length] = j; // add to x array
 
-        } else if (segment > boundary3XL && segment < boundary3XU) { // boundary 3
+            } else if (segment > boundary2XL && segment < boundary2XU) { // boundary 2
 
-            cursorDotsX3[cursorDotsX3.length] = j; // add to x array
-            
-        } else if (segment > boundary4XL && segment < boundary4XU) { // boundary 4
+                cursorDotsX2[cursorDotsX2.length] = j; // add to x array
 
-            cursorDotsX4[cursorDotsX4.length] = j; // add to x array
-            
+            } else if (segment > boundary3XL && segment < boundary3XU) { // boundary 3
+
+                cursorDotsX3[cursorDotsX3.length] = j; // add to x array
+                
+            } else if (segment > boundary4XL && segment < boundary4XU) { // boundary 4
+
+                cursorDotsX4[cursorDotsX4.length] = j; // add to x array
+                
+            }
         }
-    }
-    
-    for (k = 0; k <= (el.cisYNum - 1); k++) { // dots in y-axis [triangulation]
-        var segmentIndex1 = cursorDots[(k * el.cisXNum)].getAttribute("id").indexOf("Y"),
-            segment = Number(cursorDots[(k * el.cisXNum)].getAttribute("id").slice((segmentIndex1 + 1))); // get y-pos of dot
+        
+        for (k = 0; k <= (el.cisYNum - 1); k++) { // dots in y-axis [triangulation]
+            var segmentIndex1 = cursorDots[(k * el.cisXNum)].getAttribute("id").indexOf("Y"),
+                segment = Number(cursorDots[(k * el.cisXNum)].getAttribute("id").slice((segmentIndex1 + 1))); // get y-pos of dot
 
-        if (segment > boundaryYL && segment < boundaryYU) { // boundary 1
+            if (segment > boundaryYL && segment < boundaryYU) { // boundary 1
 
-            cursorDotsY[cursorDotsY.length] = (k * el.cisXNum); // add to y array
+                cursorDotsY[cursorDotsY.length] = (k * el.cisXNum); // add to y array
 
-        } else if (segment > boundary2YL && segment < boundary2YU) {
+            } else if (segment > boundary2YL && segment < boundary2YU) {
 
-            cursorDotsY2[cursorDotsY2.length] = (k * el.cisXNum); // add to y array
+                cursorDotsY2[cursorDotsY2.length] = (k * el.cisXNum); // add to y array
 
-        } else if (segment > boundary3YL && segment < boundary3YU) {
+            } else if (segment > boundary3YL && segment < boundary3YU) {
 
-            cursorDotsY3[cursorDotsY3.length] = (k * el.cisXNum); // add to y array
+                cursorDotsY3[cursorDotsY3.length] = (k * el.cisXNum); // add to y array
 
-        } else if (segment > boundary4YL && segment < boundary4YU) {
+            } else if (segment > boundary4YL && segment < boundary4YU) {
 
-            cursorDotsY4[cursorDotsY4.length] = (k * el.cisXNum); // add to y array
+                cursorDotsY4[cursorDotsY4.length] = (k * el.cisXNum); // add to y array
 
+            }
         }
-    }
 
-    for (const dotX of cursorDotsX) { // triangulate to cursor and apply effect(s)
-        for (const dotY of cursorDotsY) {
-            cursorDots[dotX + dotY].style.opacity = boundaries[0];
-            //cursorDots[dotX + dotY].style.background = "red";
-            setTimeout(function() {
-                cursorDots[dotX + dotY].style.opacity = ""; // revert effect after user res. time
-            }, dev.i);
+        for (const dotX of cursorDotsX) { // triangulate to cursor and apply effect(s)
+            for (const dotY of cursorDotsY) {
+                cursorDots[dotX + dotY].style.opacity = boundaries[0];
+                //cursorDots[dotX + dotY].style.background = "red";
+                setTimeout(function() {
+                    cursorDots[dotX + dotY].style.opacity = ""; // revert effect after user res. time
+                }, dev.i);
+            }
         }
-    }
 
-    for (const dotX of cursorDotsX2) { // apply effects to other boundaries
-        for (const dotY of cursorDotsY2) {
-            cursorDots[dotX + dotY].style.opacity = boundaries[1];
-            //cursorDots[dotX + dotY].style.background = "blue";
-            setTimeout(function() {
-                cursorDots[dotX + dotY].style.opacity = "";
-            }, dev.i);
+        for (const dotX of cursorDotsX2) { // apply effects to other boundaries
+            for (const dotY of cursorDotsY2) {
+                cursorDots[dotX + dotY].style.opacity = boundaries[1];
+                //cursorDots[dotX + dotY].style.background = "blue";
+                setTimeout(function() {
+                    cursorDots[dotX + dotY].style.opacity = "";
+                }, dev.i);
+            }
         }
-    }
 
-    for (const dotX of cursorDotsX3) { // 
-        for (const dotY of cursorDotsY3) {
-            cursorDots[dotX + dotY].style.opacity = boundaries[2];
-            //cursorDots[dotX + dotY].style.background = "yellow";
-            setTimeout(function() {
-                cursorDots[dotX + dotY].style.opacity = "";
-            }, dev.i);
+        for (const dotX of cursorDotsX3) { // 
+            for (const dotY of cursorDotsY3) {
+                cursorDots[dotX + dotY].style.opacity = boundaries[2];
+                //cursorDots[dotX + dotY].style.background = "yellow";
+                setTimeout(function() {
+                    cursorDots[dotX + dotY].style.opacity = "";
+                }, dev.i);
+            }
         }
-    }
 
-    for (const dotX of cursorDotsX4) { // 
-        for (const dotY of cursorDotsY4) {
-            cursorDots[dotX + dotY].style.opacity = boundaries[3];
-            //cursorDots[dotX + dotY].style.background = "green";
-            setTimeout(function() {
-                cursorDots[dotX + dotY].style.opacity = "";
-            }, dev.i);
+        for (const dotX of cursorDotsX4) { // 
+            for (const dotY of cursorDotsY4) {
+                cursorDots[dotX + dotY].style.opacity = boundaries[3];
+                //cursorDots[dotX + dotY].style.background = "green";
+                setTimeout(function() {
+                    cursorDots[dotX + dotY].style.opacity = "";
+                }, dev.i);
+            }
         }
     }
 
