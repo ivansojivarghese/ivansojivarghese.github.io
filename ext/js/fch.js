@@ -1080,7 +1080,7 @@ function cursorDotsInt(e) {
 
     for (const dotX of cursorDotsX) { // triangulate to cursor and apply effect(s)
         for (const dotY of cursorDotsY) {
-            cursorDots[dotX + dotY].style.opacity = "0.1";
+            cursorDots[dotX + dotY].style.opacity = "0.5";
         }
     }
 
