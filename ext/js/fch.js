@@ -163,7 +163,8 @@ let gyroscope = null;
 var gyroscopeX = 0,
     gyroscopeY = 0;
 
-var cursorDots;
+var cursorDotsSize = 0.75,
+    cursorDots;
 
     /*
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
@@ -427,16 +428,16 @@ function load_js_e() { // load JS (page specific)
                 const div = document.createElement("div");
                 div.classList.add("cursorInt");
                 div.classList.add("trs");
-                div.setAttribute("id", "cursorInt_" + "X" + (el.cisX + ((0.5 * 0.75) * op.fN)) + "Y" + (el.cisY + ((0.5 * 0.75) * op.fN)));
+                div.setAttribute("id", "cursorInt_" + "X" + (el.cisX + ((cursorDotsSize * 0.75) * op.fN)) + "Y" + (el.cisY + ((cursorDotsSize * 0.75) * op.fN)));
                 div.style.top = el.cisY + "px";
                 div.style.left = el.cisX + "px";
                 el.cis.appendChild(div);
-                el.cisX += (0.5 * op.fN);
+                el.cisX += (cursorDotsSize * op.fN);
                 if (el.cisYNum === 0) {
                     el.cisXNum++;
                 }
             }
-            el.cisY += (0.5 * op.fN);
+            el.cisY += (cursorDotsSize * op.fN);
             el.cisX = 0;
             el.cisYNum++;
         }
