@@ -163,7 +163,7 @@ let gyroscope = null;
 var gyroscopeX = 0,
     gyroscopeY = 0;
 
-var cursorDotsSize = 0.75,
+var cursorDotsSize = 1,
     cursorDots;
 
     /*
