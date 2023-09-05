@@ -1054,29 +1054,30 @@ function cursorDotsInt(e) {
         const mouseY = e.clientY;
         const mouseX = e.clientX;
 
-        const opacityLv1 = 0.5;
+        const opacityLv1 = 0.5; // base level 1 opacity val.
 
         var boundaries = [opacityLv1, (opacityLv1 * 1.25), (opacityLv1 * 1.5), (opacityLv1 * 1.75)]; // level 1, 2, 3 & 4 boundaries
+        var segBoundaries = [cursorDotsSize, (cursorDotsSize * 1.25), (cursorDotsSize * 1.5), (cursorDotsSize * 1.75)];
 
-        var boundaryYU = mouseY + (boundaries[0] * op.fN), // set level 1 boundary
-            boundaryYL = mouseY - (boundaries[0] * op.fN),
-            boundaryXU = mouseX + (boundaries[0] * op.fN),
-            boundaryXL = mouseX - (boundaries[0] * op.fN),
+        var boundaryYU = mouseY + (segBoundaries[0] * op.fN), // set level 1 boundary
+            boundaryYL = mouseY - (segBoundaries[0] * op.fN),
+            boundaryXU = mouseX + (segBoundaries[0] * op.fN),
+            boundaryXL = mouseX - (segBoundaries[0] * op.fN),
 
-            boundary2YU = mouseY + (boundaries[1] * op.fN), // set level 2 boundary
-            boundary2YL = mouseY - (boundaries[1] * op.fN),
-            boundary2XU = mouseX + (boundaries[1] * op.fN),
-            boundary2XL = mouseX - (boundaries[1] * op.fN),
+            boundary2YU = mouseY + (segBoundaries[1] * op.fN), // set level 2 boundary
+            boundary2YL = mouseY - (segBoundaries[1] * op.fN),
+            boundary2XU = mouseX + (segBoundaries[1] * op.fN),
+            boundary2XL = mouseX - (segBoundaries[1] * op.fN),
 
-            boundary3YU = mouseY + (boundaries[2] * op.fN), // set level 3 boundary
-            boundary3YL = mouseY - (boundaries[2] * op.fN),
-            boundary3XU = mouseX + (boundaries[2] * op.fN),
-            boundary3XL = mouseX - (boundaries[2] * op.fN),
+            boundary3YU = mouseY + (segBoundaries[2] * op.fN), // set level 3 boundary
+            boundary3YL = mouseY - (segBoundaries[2] * op.fN),
+            boundary3XU = mouseX + (segBoundaries[2] * op.fN),
+            boundary3XL = mouseX - (segBoundaries[2] * op.fN),
 
-            boundary4YU = mouseY + (boundaries[3] * op.fN), // set level 4 boundary
-            boundary4YL = mouseY - (boundaries[3] * op.fN),
-            boundary4XU = mouseX + (boundaries[3] * op.fN),
-            boundary4XL = mouseX - (boundaries[3] * op.fN);
+            boundary4YU = mouseY + (segBoundaries[3] * op.fN), // set level 4 boundary
+            boundary4YL = mouseY - (segBoundaries[3] * op.fN),
+            boundary4XU = mouseX + (segBoundaries[3] * op.fN),
+            boundary4XL = mouseX - (segBoundaries[3] * op.fN);
 
         var cursorDotsX = [],
             cursorDotsY = [],
