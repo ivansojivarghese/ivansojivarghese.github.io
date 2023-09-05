@@ -1056,8 +1056,8 @@ function cursorDotsInt(e) {
 
         const opacityLv1 = 0.5; // base level 1 opacity val.
 
-        var boundaries = [opacityLv1, (opacityLv1 * 1.25), (opacityLv1 * 1.5), (opacityLv1 * 1.75)]; // level 1, 2, 3 & 4 boundaries
-        var segBoundaries = [cursorDotsSize, (cursorDotsSize * 1.25), (cursorDotsSize * 1.5), (cursorDotsSize * 1.75)];
+        var boundaries = [opacityLv1, (opacityLv1 * 1.25), (opacityLv1 * 1.5), (opacityLv1 * 1.75)]; // level 1, 2, 3 & 4 boundaries (opacity)
+        var segBoundaries = [cursorDotsSize, (cursorDotsSize * 1.25), (cursorDotsSize * 1.5), (cursorDotsSize * 1.75)]; // "" (distance)
 
         var boundaryYU = mouseY + (segBoundaries[0] * op.fN), // set level 1 boundary
             boundaryYL = mouseY - (segBoundaries[0] * op.fN),

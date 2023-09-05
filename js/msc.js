@@ -3869,7 +3869,7 @@ const positionElement = (e)=> {
                 }
             }
 
-            if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n")) {
+            if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n") && !touchActive) {
                 cursorSmall.classList.remove("d_n");
                 cursorBig.classList.remove("d_n");
                 cursorActive = true;
