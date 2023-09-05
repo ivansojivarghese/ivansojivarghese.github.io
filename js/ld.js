@@ -762,6 +762,11 @@ function load_e() { // end the loading sequence
 
                 setCookie("highPerformance", null, -1); // delete high performance check
 
+            } else if (performance > 0.7 && !rL.e7) {
+
+                rL.e7 = true;
+                setCookie("highPerformance", "true", op.c.t); // set cookie to show message
+
             } else if (op.ne.t3s) { // timeout 3
 
                 setCookie("lowPerformance", null, -1); // delete if good performance
@@ -813,10 +818,10 @@ function load_e() { // end the loading sequence
                 }, op.te);
 
             } else if ((rL.s && !op.ne.w && op.n) || ((vw.mB_L || vw.z_S || op.zoomDefault) && (wD > 0 && cH > 0) && allLoaded && (windowCount !== NaN) && (js_load() || js_load_e() || op.er.ft) && (ipAPIres.online || (ipifyAPIres.online && timeAPIres.online) || clientAPIres.online || roamingAPIres.online || (countryAPIres.online && cloudflareCDNres.online)) && isFontAvailable("Poppins") && isFontAvailable("Raleway"))) { // only if status is true (default)
-
+                /*
                 if (performance > 0.7) {
                     setCookie("highPerformance", "true", op.c.t); // set cookie to show message
-                }
+                }*/
 
                 js_load();
 
