@@ -99,6 +99,7 @@ var fchL = {
         isc : document.getElementById("intro_sc"),
         imn : document.getElementById("intro_main"),
         cis : document.getElementById("cursorIntSpace"),
+        cbs : document.getElementById("cursorBlendSpace"),
         cisX : 0,
         cisY : 0,
         cisXNum : 0,
@@ -165,6 +166,8 @@ var gyroscopeX = 0,
 
 var cursorDotsSize = 1,
     cursorDots;
+
+var cursorBlendDotsRatios = [0.8, 0.6, 0.4, 0.2, 0.1]; // intervals
 
     /*
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
@@ -443,6 +446,13 @@ function load_js_e() { // load JS (page specific)
         }
 
         cursorDots = document.getElementsByClassName("cursorInt"); //
+
+        // ADD cursor BLEND 'dots'
+        for (i = 1; i <= cursorBlendDotsRatios.length; i++) {
+            var dotsFreq = Math.round(el.cisXNum * cursorBlendDotsRatios[i - 1]);
+
+            console.log(dotsFreq);
+        }
 
         /*
         apiInit = op.d.getTime();
