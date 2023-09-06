@@ -454,20 +454,22 @@ function load_js_e() { // load JS (page specific)
         // ADD cursor BLEND 'dots' (between intro_sc and lead_sc)
         for (i = 1; i <= cursorBlendDotsRatios.length; i++) {
             var dotsFreq = Math.round(el.cisXNum * cursorBlendDotsRatios[i - 1]),
-                count = 0;
+                count = 0,
+                top = 0;
             while (count < dotsFreq) {
                 var randomNum = Math.floor(Math.random() * (cursorDotsXArray.length)); // get random x-pos
 
                 const div = document.createElement("div");
                 div.classList.add("cursorInt");
                 div.classList.add("trs");
-                div.style.top = el.cisY + "px";
+                div.style.top = top + "px";
                 div.style.left = cursorDotsXArray[randomNum] + "px";
                 div.setAttribute("id", "cursorInt_" + "X" + (cursorDotsXArray[randomNum] + ((cursorDotsSize * 0.75) * op.fN)) + "Y" + (el.cisY + ((cursorDotsSize * 0.75) * op.fN)));
 
                 el.cbs.appendChild(div);
                 count++;
             }
+            top += (cursorDotsSize * op.fN);
             el.cisY += (cursorDotsSize * op.fN);
 
             console.log(dotsFreq);
