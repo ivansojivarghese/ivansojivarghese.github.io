@@ -92,6 +92,7 @@ var fchL = {
         x12 : false,
         x13 : false,
         c4 : false,
+        c5 : false,
         a : true, // scroll arrow anchor status
         ac : false, // scroll arrow click check
         g : false, // gyro sensor check
@@ -390,162 +391,167 @@ function tempUnit(c) { // return unit of measure per user country location
 /////////////////////////////////////////////////////////////////////////////
 
 function load_js_e() { // load JS (page specific)
-    var b = getBd(hm.b, "bottom"), // obtain 'bottom' bound of ham. button
-        _Lq = qInfo.length, // number of elements
-        i = 0;
 
-    hm.f = b; // update the hamburger menu object properties
+    if (!el.c5) {
 
-    // el.disUnit.innerHTML = (op.lang === "gb") ? "km" : "miles";
-    // el.q10.innerHTML = (op.lang === "gb") ? "km" : "miles";
+        el.c5 = true;
 
-    for (var d in dev.info) { // loop through to concatenate information to text
-        if (i < _Lq) {
-            if (i !== 0 && i !== 6 && i !== 7 && ((i !== 3 && i !== 4 && vw.dk) || !vw.dk)) {
-                qInfo[i].innerHTML = dev.info[d];
-            } else { // run typing effect
-                ld.x4 = true;
+        var b = getBd(hm.b, "bottom"), // obtain 'bottom' bound of ham. button
+            _Lq = qInfo.length, // number of elements
+            i = 0;
+
+        hm.f = b; // update the hamburger menu object properties
+
+        // el.disUnit.innerHTML = (op.lang === "gb") ? "km" : "miles";
+        // el.q10.innerHTML = (op.lang === "gb") ? "km" : "miles";
+
+        for (var d in dev.info) { // loop through to concatenate information to text
+            if (i < _Lq) {
+                if (i !== 0 && i !== 6 && i !== 7 && ((i !== 3 && i !== 4 && vw.dk) || !vw.dk)) {
+                    qInfo[i].innerHTML = dev.info[d];
+                } else { // run typing effect
+                    ld.x4 = true;
+                }
+                i++;
             }
-            i++;
         }
-    }
 
-    if (vw.dk) { // if desktop
-        var b = 0;
-        for (var c in gpsInfo) {
-            if (b === 3) {
-                el.fC[b].innerHTML = gpsInfo[c];
-                el.fC[b + 1].innerHTML = "&nbsp;&nbsp;";
+        if (vw.dk) { // if desktop
+            var b = 0;
+            for (var c in gpsInfo) {
+                if (b === 3) {
+                    el.fC[b].innerHTML = gpsInfo[c];
+                    el.fC[b + 1].innerHTML = "&nbsp;&nbsp;";
+                    b++;
+                } else {
+                    el.fC[b].innerHTML = gpsInfo[c];
+                }
                 b++;
-            } else {
-                el.fC[b].innerHTML = gpsInfo[c];
             }
-            b++;
-        }
 
-        timeNow(el.Ltd); // show time
-        el.Lt.classList.remove("d_n");
+            timeNow(el.Ltd); // show time
+            el.Lt.classList.remove("d_n");
 
-        // ADD cursor interaction 'dots'
-        while (el.cisY < aH) { // y-axis
-            while (el.cisX < wiD) { // x-axis
-                const div = document.createElement("div");
-                div.classList.add("cursorInt");
-                div.classList.add("trs");
-                div.setAttribute("id", "cursorInt_" + "X" + (el.cisX + ((cursorDotsSize * 0.75) * op.fN)) + "Y" + (el.cisY + ((cursorDotsSize * 0.75) * op.fN)));
-                div.style.top = el.cisY + "px";
-                div.style.left = el.cisX + "px";
-                if (el.cisYNum === 0) {
-                    cursorDotsXArray[cursorDotsXArray.length] = el.cisX; // add to x-array
-                }
-                el.cis.appendChild(div);
-                el.cisX += (cursorDotsSize * op.fN);
-                if (el.cisYNum === 0) {
-                    el.cisXNum++;
-                }
-            }
-            el.cisY += (cursorDotsSize * op.fN);
-            el.cisX = 0;
-            el.cisYNum++;
-        }
-
-        cursorDots = document.getElementsByClassName("cursorInt"); //
-
-        // ADD cursor BLEND 'dots' (between intro_sc and lead_sc)
-        var top = 0;
-
-        for (i = 1; i <= cursorBlendDotsRatios.length; i++) {
-            var dotsFreq = Math.round(el.cisXNum * cursorBlendDotsRatios[i - 1]),
-                count = 0;
-            while (count < dotsFreq) {
-                var randomNum = Math.floor(Math.random() * (cursorDotsXArray.length)); // get random x-pos
-
-                const div = document.createElement("div");
-                div.classList.add("cursorInt");
-                div.classList.add("trs");
-                div.style.top = top + "px";
-                div.style.left = cursorDotsXArray[randomNum] + "px";
-                div.setAttribute("id", "cursorInt_" + "X" + (cursorDotsXArray[randomNum] + ((cursorDotsSize * 0.75) * op.fN)) + "Y" + (el.cisY + ((cursorDotsSize * 0.75) * op.fN)));
-
-                el.cbs.appendChild(div);
-                count++;
-            }
-            top += (cursorDotsSize * op.fN);
-            el.cisY += (cursorDotsSize * op.fN);
-
-            console.log(dotsFreq);
-        }
-
-        /*
-        apiInit = op.d.getTime();
-        ipAPI("/219.93.183.103"); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
-        */
-
-        var dkAPI = function() {
-            if (ipAPIres.error) {
-
-                apiSuccess = null; 
-
-                ///////
-                // SET a loop to continously check for variable within timeout time
-
-            } else if (ipAPIres.online) { // if no errors & online, proceed
-                var // lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
-                    // lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
-                    unit = tempUnit(ipAPIres.country);
-                
-                weatherAPI(ipAPIres.lat, ipAPIres.lon, unit); // get user location weather information API
-
-                var wtAPI = function() {
-                    if (weatherAPIres.error) {
-
-                        apiSuccess = null;
-                        /////////////
-
-                    } else if (weatherAPIres.online) {
-
-                        // EDIT INFO TO HTML
-                        weather.r.innerHTML = Math.round(weatherAPIres.main.temp); // weather reading
-                        weather.u.innerHTML = (tempUnit(ipAPIres.country) === "metric") ? "C" : "F"; // weather unit
-                        weather.c.innerHTML = ipAPIres.city; // weather city
-
-                        var weatherIcon = async function() { // weather icon
-                            await fetch("https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png")
-                                .then((response) => {
-                                    weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
-                                    apiSuccess = true;
-                                }).catch((error) => {
-                                    apiSuccess = null;
-                                });
-                        }
-
-                        weatherIcon();
-
-                    } else if ((op.d.getTime() - apiInit) < apiTimeout) {
-                        setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
-
-                    } else {
-
-                        apiSuccess = null;
-                        ////////////
+            // ADD cursor interaction 'dots'
+            while (el.cisY < aH) { // y-axis
+                while (el.cisX < wiD) { // x-axis
+                    const div = document.createElement("div");
+                    div.classList.add("cursorInt");
+                    div.classList.add("trs");
+                    div.setAttribute("id", "cursorInt_" + "X" + (el.cisX + ((cursorDotsSize * 0.75) * op.fN)) + "Y" + (el.cisY + ((cursorDotsSize * 0.75) * op.fN)));
+                    div.style.top = el.cisY + "px";
+                    div.style.left = el.cisX + "px";
+                    if (el.cisYNum === 0) {
+                        cursorDotsXArray[cursorDotsXArray.length] = el.cisX; // add to x-array
+                    }
+                    el.cis.appendChild(div);
+                    el.cisX += (cursorDotsSize * op.fN);
+                    if (el.cisYNum === 0) {
+                        el.cisXNum++;
                     }
                 }
-
-                wtAPI();
-
-            } else if ((op.d.getTime() - apiInit) < apiTimeout) {
-                setTimeout(dkAPI, op.t); // recheck variable if API load still within timeout range
-
-            } else {
-
-                apiSuccess = null;
-                ///////////
+                el.cisY += (cursorDotsSize * op.fN);
+                el.cisX = 0;
+                el.cisYNum++;
             }
+
+            cursorDots = document.getElementsByClassName("cursorInt"); //
+
+            // ADD cursor BLEND 'dots' (between intro_sc and lead_sc)
+            var top = 0;
+
+            for (i = 1; i <= cursorBlendDotsRatios.length; i++) {
+                var dotsFreq = Math.round(el.cisXNum * cursorBlendDotsRatios[i - 1]),
+                    count = 0;
+                while (count < dotsFreq) {
+                    var randomNum = Math.floor(Math.random() * (cursorDotsXArray.length)); // get random x-pos
+
+                    const div = document.createElement("div");
+                    div.classList.add("cursorInt");
+                    div.classList.add("trs");
+                    div.style.top = top + "px";
+                    div.style.left = cursorDotsXArray[randomNum] + "px";
+                    div.setAttribute("id", "cursorInt_" + "X" + (cursorDotsXArray[randomNum] + ((cursorDotsSize * 0.75) * op.fN)) + "Y" + (el.cisY + ((cursorDotsSize * 0.75) * op.fN)));
+
+                    el.cbs.appendChild(div);
+                    count++;
+                }
+                top += (cursorDotsSize * op.fN);
+                el.cisY += (cursorDotsSize * op.fN);
+
+                console.log(dotsFreq);
+            }
+
+            /*
+            apiInit = op.d.getTime();
+            ipAPI("/219.93.183.103"); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+            */
+
+            var dkAPI = function() {
+                if (ipAPIres.error) {
+
+                    apiSuccess = null; 
+
+                    ///////
+                    // SET a loop to continously check for variable within timeout time
+
+                } else if (ipAPIres.online) { // if no errors & online, proceed
+                    var // lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
+                        // lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
+                        unit = tempUnit(ipAPIres.country);
+                    
+                    weatherAPI(ipAPIres.lat, ipAPIres.lon, unit); // get user location weather information API
+
+                    var wtAPI = function() {
+                        if (weatherAPIres.error) {
+
+                            apiSuccess = null;
+                            /////////////
+
+                        } else if (weatherAPIres.online) {
+
+                            // EDIT INFO TO HTML
+                            weather.r.innerHTML = Math.round(weatherAPIres.main.temp); // weather reading
+                            weather.u.innerHTML = (tempUnit(ipAPIres.country) === "metric") ? "C" : "F"; // weather unit
+                            weather.c.innerHTML = ipAPIres.city; // weather city
+
+                            var weatherIcon = async function() { // weather icon
+                                await fetch("https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png")
+                                    .then((response) => {
+                                        weather.i.style.backgroundImage = "url('https://openweathermap.org/img/wn/" + weatherAPIres.weather["0"].icon + "@2x.png')";
+                                        apiSuccess = true;
+                                    }).catch((error) => {
+                                        apiSuccess = null;
+                                    });
+                            }
+
+                            weatherIcon();
+
+                        } else if ((op.d.getTime() - apiInit) < apiTimeout) {
+                            setTimeout(wtAPI, op.t); // recheck variable if API load still within timeout range
+
+                        } else {
+
+                            apiSuccess = null;
+                            ////////////
+                        }
+                    }
+
+                    wtAPI();
+
+                } else if ((op.d.getTime() - apiInit) < apiTimeout) {
+                    setTimeout(dkAPI, op.t); // recheck variable if API load still within timeout range
+
+                } else {
+
+                    apiSuccess = null;
+                    ///////////
+                }
+            }
+
+            dkAPI(); // get desktop APIs
+
         }
-
-        dkAPI(); // get desktop APIs
-
-
     }
 }
 
