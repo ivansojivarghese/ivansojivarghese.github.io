@@ -165,6 +165,7 @@ var gyroscopeX = 0,
     gyroscopeY = 0;
 
 var cursorDotsSize = 1,
+    cursorDotsXArray = [],
     cursorDots;
 
 var cursorBlendDotsRatios = [0.8, 0.6, 0.4, 0.2, 0.1]; // intervals
@@ -434,6 +435,9 @@ function load_js_e() { // load JS (page specific)
                 div.setAttribute("id", "cursorInt_" + "X" + (el.cisX + ((cursorDotsSize * 0.75) * op.fN)) + "Y" + (el.cisY + ((cursorDotsSize * 0.75) * op.fN)));
                 div.style.top = el.cisY + "px";
                 div.style.left = el.cisX + "px";
+                if (el.cisYNum === 0) {
+                    cursorDotsXArray[cursorDotsXArray.length] = el.cisX; // add to x-array
+                }
                 el.cis.appendChild(div);
                 el.cisX += (cursorDotsSize * op.fN);
                 if (el.cisYNum === 0) {
@@ -452,12 +456,19 @@ function load_js_e() { // load JS (page specific)
             var dotsFreq = Math.round(el.cisXNum * cursorBlendDotsRatios[i - 1]),
                 count = 0;
             while (count < dotsFreq) {
+                var randomNum = Math.floor(Math.random() * (cursorDotsXArray.length)); // get random x-pos
 
-                
+                const div = document.createElement("div");
+                div.classList.add("cursorInt");
+                div.classList.add("trs");
+                div.style.top = el.cisY + "px";
+                div.style.left = cursorDotsXArray[randomNum] + "px";
+                div.setAttribute("id", "cursorInt_" + "X" + (cursorDotsXArray[randomNum] + ((cursorDotsSize * 0.75) * op.fN)) + "Y" + (el.cisY + ((cursorDotsSize * 0.75) * op.fN)));
 
-                el.cis.appendChild(div);
+                el.cbs.appendChild(div);
                 count++;
             }
+            el.cisY += (cursorDotsSize * op.fN);
 
             console.log(dotsFreq);
         }
