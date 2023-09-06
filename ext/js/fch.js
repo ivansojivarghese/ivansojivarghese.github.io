@@ -462,9 +462,16 @@ function load_js_e() { // load JS (page specific)
 
             for (i = 1; i <= cursorBlendDotsRatios.length; i++) {
                 var dotsFreq = Math.round(el.cisXNum * cursorBlendDotsRatios[i - 1]),
+                    dotsAlloc = [], // allocated dot spaces
                     count = 0;
+
                 while (count < dotsFreq) {
                     var randomNum = Math.floor(Math.random() * (cursorDotsXArray.length)); // get random x-pos
+
+                    while (dotsAlloc.includes(randomNum)) {
+                        randomNum = Math.floor(Math.random() * (cursorDotsXArray.length)); // get random x-pos again if duplicated
+                    }
+                    dotsAlloc[dotsAlloc.length] = randomNum;
 
                     const div = document.createElement("div");
                     div.classList.add("cursorInt");
