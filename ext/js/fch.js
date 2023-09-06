@@ -451,7 +451,7 @@ function load_js_e() { // load JS (page specific)
 
         cursorDots = document.getElementsByClassName("cursorInt"); //
 
-        // ADD cursor BLEND 'dots'
+        // ADD cursor BLEND 'dots' (between intro_sc and lead_sc)
         for (i = 1; i <= cursorBlendDotsRatios.length; i++) {
             var dotsFreq = Math.round(el.cisXNum * cursorBlendDotsRatios[i - 1]),
                 count = 0;
