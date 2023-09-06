@@ -392,7 +392,7 @@ function tempUnit(c) { // return unit of measure per user country location
 
 function load_js_e() { // load JS (page specific)
 
-    if (!el.c5) {
+    if (!el.c5) { // once
 
         el.c5 = true;
 
