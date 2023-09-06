@@ -169,7 +169,7 @@ var cursorDotsSize = 1,
     cursorDotsXArray = [],
     cursorDots;
 
-var cursorBlendDotsRatios = [0.9, 0.8, 0.6, 0.4, 0.2, 0.1]; // intervals
+var cursorBlendDotsRatios = [0.9, 0.8, 0.6, 0.4, 0.2, 0.1, 0.05]; // intervals
 
     /*
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
