@@ -3,6 +3,7 @@
 
 var im = { // #intro_main
         nav : document.getElementsByClassName("navbarlinks"), 
+        Li : document.getElementById("localInfo"),
         wd : document.getElementById("wordsTyper"),
         gh : document.getElementById("logo-h"),
         pfg : document.getElementById("profile_greetingFull"),
@@ -609,6 +610,7 @@ function sc_LpH() { // scroll loop - phablet
         if (!pos.aT) { // during scroll
 
             // INTRO
+            im.Li.style.opacity = "0";
 
             im.nav[0].style.transform = "translateY(" + (pos.y * 0.25) + "px)"; // NAV
             im.nav[1].style.transform = "translateY(" + (pos.y * 0.1) + "px)";
@@ -752,6 +754,8 @@ function sc_LpH() { // scroll loop - phablet
 
             im.L.style.transform = "";
             ld.qIn.style.transform = "";
+
+            im.Li.style.opacity = "1";
         }
     }
 
