@@ -610,11 +610,11 @@ function sc_LpH() { // scroll loop - phablet
 
             // INTRO
 
-            im.nav[0].style.transform = "translateY(" + (pos.y * 0.05) + "px)"; // NAV
+            im.nav[0].style.transform = "translateY(" + (pos.y * 0.25) + "px)"; // NAV
             im.nav[1].style.transform = "translateY(" + (pos.y * 0.1) + "px)";
-            im.nav[2].style.transform = "translateY(" + (pos.y * 0.15) + "px)";
-            im.nav[3].style.transform = "translateY(" + (pos.y * 0.2) + "px)";
-            im.nav[4].style.transform = "translateY(" + (pos.y * 0.25) + "px)";
+            im.nav[2].style.transform = "translateY(" + (pos.y * 0.2) + "px)";
+            im.nav[3].style.transform = "translateY(" + (pos.y * 0.15) + "px)";
+            im.nav[4].style.transform = "translateY(" + (pos.y * 0.05) + "px)";
 
             im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
