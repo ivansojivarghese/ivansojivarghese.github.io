@@ -2,6 +2,7 @@
 // scroll-based loops/functions (local)
 
 var im = { // #intro_main
+        nav : document.getElementsByClassName("navbarlinks"), 
         wd : document.getElementById("wordsTyper"),
         gh : document.getElementById("logo-h"),
         pfg : document.getElementById("profile_greetingFull"),
@@ -603,28 +604,17 @@ function sc_LpH() { // scroll loop - phablet
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect()
             };
-            // cDRatio = (aH / el.cisYNum);
 
-            // cD = 0,
-            // cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)), // return random cursorDot index
-            // cDu = true;
-        /*
-        while (cDu) {
-            if (!im.dotsIn.includes(cD)) {
-                im.dotsIn[im.dotsIn.length] = cD; // add value to array (if not duplicated)
-                cDu = false;
-            } else {
-                cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum)); // try again
-            }
-        }*/
 
         if (!pos.aT) { // during scroll
 
-            // cD = Math.floor(Math.random() * (el.cisXNum * el.cisYNum));
-
             // INTRO
 
-            // var rows = Math.round(pos.y / cDRatio);
+            im.nav[0].style.transform = "translateY(" + (pos.y * 0.05) + "px)"; // NAV
+            im.nav[1].style.transform = "translateY(" + (pos.y * 0.1) + "px)";
+            im.nav[2].style.transform = "translateY(" + (pos.y * 0.15) + "px)";
+            im.nav[3].style.transform = "translateY(" + (pos.y * 0.2) + "px)";
+            im.nav[4].style.transform = "translateY(" + (pos.y * 0.25) + "px)";
 
             im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
