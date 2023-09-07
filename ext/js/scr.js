@@ -761,7 +761,7 @@ function sc_LpH() { // scroll loop - phablet
             im.Li.classList.remove("d_n");
             setTimeout(function() {
                 im.Li.style.opacity = "1";
-            }, 10);
+            }, op.t);
         }
     }
 
