@@ -611,9 +611,6 @@ function sc_LpH() { // scroll loop - phablet
 
             // INTRO
             im.Li.style.opacity = "0";
-            setTimeout(function() {
-                im.Li.classList.add("d_n");
-            }, op.t);
 
             im.nav[0].style.transform = "translateY(" + (pos.y * 0.25) + "px)"; // NAV
             im.nav[1].style.transform = "translateY(" + (pos.y * 0.1) + "px)";
@@ -758,10 +755,7 @@ function sc_LpH() { // scroll loop - phablet
             im.L.style.transform = "";
             ld.qIn.style.transform = "";
 
-            im.Li.classList.remove("d_n");
-            setTimeout(function() {
-                im.Li.style.opacity = "1";
-            }, op.t);
+            im.Li.style.opacity = "1";
         }
     }
 
