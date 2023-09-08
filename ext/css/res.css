@@ -236,13 +236,13 @@
 
     #educationInfo {
         width: 8.5rem;
-        margin-left: calc(50vw - 8.5rem) !important;
-        padding-top: 10rem;
+        margin-left: calc(30vw - 8.5rem) !important;
+        padding-top: 5rem;
     }
 
     #locationInfo {
         text-align: center;
-        margin-top: 5rem;
+        margin-top: 10rem;
     }
 
     #lead_point_4 {
