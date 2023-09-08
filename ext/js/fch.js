@@ -423,6 +423,8 @@ function load_js_e() { // load JS (page specific)
                     el.fC[b].innerHTML = gpsInfo[c];
                     el.fC[b + 1].innerHTML = "&nbsp;&nbsp;";
                     b++;
+                } else if (b === 2 || b === 7) {
+                    el.fC[b].innerHTML = "XX";
                 } else {
                     el.fC[b].innerHTML = gpsInfo[c];
                 }
