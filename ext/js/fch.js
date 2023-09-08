@@ -486,7 +486,7 @@ function load_js_e() { // load JS (page specific)
                 top += (cursorDotsSize * op.fN);
                 el.cisY += (cursorDotsSize * op.fN);
 
-                console.log(dotsFreq);
+                // console.log(dotsFreq);
             }
 
             /*
