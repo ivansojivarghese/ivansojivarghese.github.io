@@ -677,6 +677,10 @@ a.md, span.md {
     padding-top: 3rem !important;
 }
 
+.p_T.ult {
+    padding-top: 10rem !important;
+}
+
 .p_B {
     padding-bottom: 1rem !important;
 }
