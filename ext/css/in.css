@@ -393,35 +393,43 @@ div.cursorInt {
 }
 
 #fullCoords span:nth-child(1) {
-    transform: translateY(1.5rem);
+    /*transform: translateY(1.5rem);*/
+    transform: translateY(0.5rem);
 }
 
 #fullCoords span:nth-child(2) {
-    transform: translateY(0.3rem);
+    /*transform: translateY(0.3rem);*/
+    transform: translateY(0.15rem);
 }
 
 #fullCoords span:nth-child(3) {
-    transform: translateY(-0.65rem);
+    /*transform: translateY(-0.65rem);*/
+    transform: translateY(-0.3rem);
 }
 
 #fullCoords span:nth-child(4) {
-    transform: translateY(-1.25rem);
+    /*transform: translateY(-1.25rem);*/
+    transform: translateY(-1rem);
 }
 
 #fullCoords span:nth-child(6) {
-    transform: translateY(-1.5rem);
-}
-
-#fullCoords span:nth-child(7) {
-    transform: translateY(1rem);
-}
-
-#fullCoords span:nth-child(8) {
+    /*transform: translateY(-1.5rem);*/
     transform: translateY(-0.75rem);
 }
 
+#fullCoords span:nth-child(7) {
+    /*transform: translateY(1rem);*/
+    transform: translateY(0.3rem);
+}
+
+#fullCoords span:nth-child(8) {
+    /*transform: translateY(-0.75rem);*/
+    transform: translateY(-0.4rem);
+}
+
 #fullCoords span:nth-child(9) {
-    transform: translateY(-0.5rem);
+    /*transform: translateY(-0.5rem);*/
+    transform: translateY(-0.2rem);
 }
 
 #distanceInfo {
