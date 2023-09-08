@@ -136,6 +136,10 @@
         height: 100vh;
     }
 
+    #intro_sc {
+        background-color: #D7D7D7;
+    }
+
     #profile_greetingSec, #lead_point, #c_Info-m, #lead_point_2, #profile_btn, #mid_sc_k, #mid_connect, #mid_sc_e {
         display: none;
     }
