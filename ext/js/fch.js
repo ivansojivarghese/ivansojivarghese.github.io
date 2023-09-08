@@ -424,7 +424,7 @@ function load_js_e() { // load JS (page specific)
                     el.fC[b + 1].innerHTML = "&nbsp;&nbsp;";
                     b++;
                 } else if (b === 2 || b === 7) { // location masks
-                    el.fC[b].innerHTML = "XX";
+                    el.fC[b].innerHTML = 'xx"';
                 } else {
                     el.fC[b].innerHTML = gpsInfo[c];
                 }
