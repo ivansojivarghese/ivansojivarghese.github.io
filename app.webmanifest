@@ -80,6 +80,13 @@
            "purpose": "any",
            "color_scheme": "light"
        },
+       {
+            "src": "favicon/monochrome-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "monochrome",
+            "color_scheme": "light"
+        },
         {
             "src": "favicon/maskable-512x512.png",
             "type": "image/png",
