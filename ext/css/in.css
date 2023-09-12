@@ -515,3 +515,9 @@ div.cursorInt {
 #random_sc {
     height: calc(100vh + 7rem);
 }
+
+#random_box {
+    width: 10rem;
+    height: 10rem;
+    margin: 5rem auto 0;
+}
