@@ -511,3 +511,7 @@ div.cursorInt {
         transform: translate3d(85px,0,0);
     }
 }
+
+#random_sc {
+    height: calc(100vh + 7rem);
+}
