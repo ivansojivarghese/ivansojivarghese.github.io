@@ -590,7 +590,7 @@ a.md, span.md {
 }
 
 .m_L-20 {
-    margin-left: 20%;
+    margin-left: 20% !important;
 }
 
 .m_R-1 {
