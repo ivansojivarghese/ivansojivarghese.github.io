@@ -89,6 +89,7 @@ var im = { // #intro_main
         ds : document.getElementById("design_banner"),
         xds : document.getElementsByClassName("xscroll"),
         sb : document.getElementById("pf_scrollbar"),
+        rb : document.getElementById("random_box"),
         x : false,
         x2 : false,
         x3 : false,
@@ -603,7 +604,8 @@ function sc_LpH() { // scroll loop - phablet
                 ds : ld.dis.getBoundingClientRect(),
                 hs : ld.hrs.getBoundingClientRect(),
                 wc : pf.wc.getBoundingClientRect(),
-                dw : pf.dw.getBoundingClientRect()
+                dw : pf.dw.getBoundingClientRect(),
+                rb : pf.rb.getBoundingClientRect()
             };
 
 
@@ -747,6 +749,13 @@ function sc_LpH() { // scroll loop - phablet
                 im.wd.classList.add("z-N");
                 im.wd.classList.remove("z-G");
             }
+
+            // RANDOM_SC
+            if (b.rb.top && b.rb.top < aH) {
+                var w = (aH - b.rb.top) / op.fN;
+                pf.rb.style.width = "calc(5rem + " + w + "rem)";
+            }
+
 
         } else { // default at top
             im.wd.style.transform = "";
