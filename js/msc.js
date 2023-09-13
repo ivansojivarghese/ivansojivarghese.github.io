@@ -18,11 +18,11 @@ var wH = window.outerHeight, // height
     gpsInfo = {
         latDeg : "1°", // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
         latMin : "20\'",
-        latSec : '34"',
+        latSec : 'xx"',
         latDir : "N",
         lonDeg : "103°",
         lonMin : "41\'",
-        lonSec : '19"',
+        lonSec : 'xx"',
         lonDir : "E"
     },
     dev = {
