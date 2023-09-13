@@ -756,9 +756,8 @@ function sc_LpH() { // scroll loop - phablet
                 pf.rb.style.width = "calc(5rem + " + w + "rem)"; // width increase
                 pf.rb.style.height = "calc(5rem + " + w + "rem)"; // height ""
 
-                pf.rb.style.transform = "translateY(" + (w / 4) + "rem)";
+                pf.rb.style.transform = "translateY(" + (w / 4) + "rem)"; // parallax
             }
-
 
         } else { // default at top
             im.wd.style.transform = "";
