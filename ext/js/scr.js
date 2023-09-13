@@ -753,7 +753,10 @@ function sc_LpH() { // scroll loop - phablet
             // RANDOM_SC
             if (b.rb.top && b.rb.top < aH) {
                 var w = (aH - b.rb.top) / op.fN;
-                pf.rb.style.width = "calc(5rem + " + w + "rem)";
+                pf.rb.style.width = "calc(5rem + " + w + "rem)"; // width increase
+                pf.rb.style.height = "calc(5rem + " + w + "rem)"; // height ""
+
+                pf.rb.style.transform = "translate()";
             }
 
 
