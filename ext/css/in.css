@@ -517,7 +517,8 @@ div.cursorInt {
 }
 
 #random_box {
-    width: 10rem;
-    height: 10rem;
+    width: 5rem;
+    height: 5rem;
     margin: 5rem auto 0;
+    border-radius: 0.25rem;
 }
