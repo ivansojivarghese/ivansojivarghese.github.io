@@ -763,10 +763,11 @@ function sc_LpH() { // scroll loop - phablet
                 pf.rb.style.transform = "translateY(" + (w / 4) + "rem)"; // parallax
 
                 if (b.rb.top < (aH / 2)) { // internal circles movement
-                    
-                    pf.rf8 = b.rbc1.left;
 
-                    pf.rbc[0].style.transform = "translateX(2rem)";
+                    var rbLeft = b.rb.left;
+                    pf.rf8 = b.rbc1.left; // left capture (circle 1)
+
+                    pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem)";
                 }
             }
 
