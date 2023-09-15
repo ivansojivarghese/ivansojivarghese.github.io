@@ -90,7 +90,7 @@ var im = { // #intro_main
         xds : document.getElementsByClassName("xscroll"),
         sb : document.getElementById("pf_scrollbar"),
         rb : document.getElementById("random_box"),
-        rbc : document.querySelectorAll("random_boxCircle"),
+        rbc : document.querySelectorAll(".random_boxCircle"),
         x : false,
         x2 : false,
         x3 : false,
