@@ -105,7 +105,8 @@ var im = { // #intro_main
         rf4 : 0,
         rf5 : 0,
         rf6 : 0,
-        rf7 : 0
+        rf7 : 0,
+        rf8 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -762,6 +763,9 @@ function sc_LpH() { // scroll loop - phablet
                 pf.rb.style.transform = "translateY(" + (w / 4) + "rem)"; // parallax
 
                 if (b.rb.top < (aH / 2)) { // internal circles movement
+                    
+                    pf.rf8 = b.rbc1.left;
+
                     pf.rbc[0].style.transform = "translateX(2rem)";
                 }
             }
