@@ -90,6 +90,7 @@ var im = { // #intro_main
         xds : document.getElementsByClassName("xscroll"),
         sb : document.getElementById("pf_scrollbar"),
         rb : document.getElementById("random_box"),
+        rbc : document.querySelectorAll("random_boxCircle"),
         x : false,
         x2 : false,
         x3 : false,
@@ -605,7 +606,9 @@ function sc_LpH() { // scroll loop - phablet
                 hs : ld.hrs.getBoundingClientRect(),
                 wc : pf.wc.getBoundingClientRect(),
                 dw : pf.dw.getBoundingClientRect(),
-                rb : pf.rb.getBoundingClientRect()
+                rb : pf.rb.getBoundingClientRect(),
+                rbc1 : pf.rbc[0].getBoundingClientRect(),
+                rbc2 : pf.rbc[1].getBoundingClientRect()
             };
 
 
@@ -757,6 +760,10 @@ function sc_LpH() { // scroll loop - phablet
                 pf.rb.style.height = "calc(5rem + " + w + "rem)"; // height ""
 
                 pf.rb.style.transform = "translateY(" + (w / 4) + "rem)"; // parallax
+
+                if (b.rb.top < (aH / 2)) { // internal circles
+                    pf.rb[0].style.transform = "";
+                }
             }
 
         } else { // default at top

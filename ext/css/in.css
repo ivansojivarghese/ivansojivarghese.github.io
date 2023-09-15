@@ -523,7 +523,11 @@ div.cursorInt {
     border-radius: 0.25rem;
 }
 
-#random_box .r-circle {
+.random_boxCircle {
     width: 2rem;
     height: 2rem;
+}
+
+.random_boxCircle:first-child {
+    transform: translateX(2rem) translateY(-2rem);
 }
