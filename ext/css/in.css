@@ -522,3 +522,8 @@ div.cursorInt {
     margin: 5rem auto 0;
     border-radius: 0.25rem;
 }
+
+#random_box .r-circle {
+    width: 2rem;
+    height: 2rem;
+}
