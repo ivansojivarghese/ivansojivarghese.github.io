@@ -761,7 +761,7 @@ function sc_LpH() { // scroll loop - phablet
 
                 pf.rb.style.transform = "translateY(" + (w / 4) + "rem)"; // parallax
 
-                if (b.rb.top < (aH / 2)) { // internal circles
+                if (b.rb.top < (aH / 2)) { // internal circles movement
                     pf.rbc[0].style.transform = "translateX(2rem)";
                 }
             }
