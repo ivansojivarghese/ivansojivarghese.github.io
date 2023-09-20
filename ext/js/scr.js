@@ -99,6 +99,7 @@ var im = { // #intro_main
         x6 : false,
         x7 : false,
         x8 : false,
+        x9 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -765,7 +766,10 @@ function sc_LpH() { // scroll loop - phablet
                 if (b.rb.top < (aH / 2)) { // internal circles movement
 
                     var rbLeft = b.rb.left;
-                    pf.rf8 = b.rbc1.left; // left capture (circle 1)
+                    if (!pf.x9) {
+                        pf.rf8 = b.rbc1.left; // left capture (circle 1)
+                        pf.x9 = true;
+                    }
 
                     pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem)";
                 }
