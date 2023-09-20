@@ -768,6 +768,7 @@ function sc_LpH() { // scroll loop - phablet
                     var rbLeft = b.rb.left;
                     if (!pf.x9) {
                         pf.rf8 = b.rbc1.left; // left capture (circle 1)
+                        e_Fd(pf.rbc[0], false);
                         pf.x9 = true;
                     }
 
