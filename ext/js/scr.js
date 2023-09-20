@@ -773,6 +773,9 @@ function sc_LpH() { // scroll loop - phablet
                     }
 
                     pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem)";
+                } else {
+                    e_Fd(pf.rbc[0], true); // reverse effect
+                    pf.rbc[0].style.transform = "";
                 }
             }
 
