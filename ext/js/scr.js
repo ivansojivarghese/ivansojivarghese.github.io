@@ -779,7 +779,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.x9 = true;
                     }
 
-                    pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / op.fN) + "rem)";
+                    pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
 
                 } else {
 
