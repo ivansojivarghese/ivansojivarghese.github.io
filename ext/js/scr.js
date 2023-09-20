@@ -772,12 +772,12 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rf8 = b.rbc1.left; // left capture (circle 1)
                         pf.rf9 = b.rb.top;
                         pf.rf10 = pos.y;
-                        
-                        e_Fd(pf.rbc[0], false);
-                        e_Fd(pf.rbc[1], false);
 
                         pf.x9 = true;
                     }
+
+                    e_Fd(pf.rbc[0], false);
+                    e_Fd(pf.rbc[1], false);
 
                     pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
 
