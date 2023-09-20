@@ -772,6 +772,8 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rf9 = b.rb.top;
                         
                         e_Fd(pf.rbc[0], false);
+                        e_Fd(pf.rbc[1], false);
+
                         pf.x9 = true;
                     }
 
@@ -780,6 +782,8 @@ function sc_LpH() { // scroll loop - phablet
                 } else {
 
                     e_Fd(pf.rbc[0], true); // reverse effect
+                    e_Fd(pf.rbc[1], true);
+
                     pf.rbc[0].style.transform = "";
                 }
             }
