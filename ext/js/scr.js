@@ -107,7 +107,8 @@ var im = { // #intro_main
         rf5 : 0,
         rf6 : 0,
         rf7 : 0,
-        rf8 : 0
+        rf8 : 0,
+        rf9 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -768,12 +769,16 @@ function sc_LpH() { // scroll loop - phablet
                     var rbLeft = b.rb.left;
                     if (!pf.x9) {
                         pf.rf8 = b.rbc1.left; // left capture (circle 1)
+                        pf.rf9 = b.rb.top;
+                        
                         e_Fd(pf.rbc[0], false);
                         pf.x9 = true;
                     }
 
-                    pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem)";
+                    pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pos.y - pf.rf9) / op.fN) + "rem)";
+
                 } else {
+
                     e_Fd(pf.rbc[0], true); // reverse effect
                     pf.rbc[0].style.transform = "";
                 }
