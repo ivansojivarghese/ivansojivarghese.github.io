@@ -788,6 +788,7 @@ function sc_LpH() { // scroll loop - phablet
                     e_Fd(pf.rbc[1], true);
 
                     pf.rbc[0].style.transform = "";
+                    pf.rbc[1].style.left = "";
                 }
             }
 
