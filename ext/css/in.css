@@ -533,6 +533,7 @@ div.cursorInt {
 }
 
 .random_boxCircle:nth-child(2) {
+    left: 100%;
     top: 50%;
     transform: translateY(-50%);
 }
