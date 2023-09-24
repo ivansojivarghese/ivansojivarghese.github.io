@@ -511,7 +511,7 @@ op = {
     Ls : op.Ls,
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
-    pMin : [6, 15], // min./rec. processor speed
+    pMin : [8, 15], // min./rec. processor speed
     pCores : navigator.hardwareConcurrency, // no. of cpu logical cores
     pCoresMin : [2, 6], // cores min./rec.
     sfra : [],
