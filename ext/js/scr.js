@@ -780,7 +780,7 @@ function sc_LpH() { // scroll loop - phablet
                     e_Fd(pf.rbc[1], false);
 
                     pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
-                    pf.rbc[1].style.left = "70%";
+                    pf.rbc[1].style.left = (100 - (((pf.rf10 + pf.rf9) - pos.y) * pf.rf9)) + "%";
 
                 } else {
 
