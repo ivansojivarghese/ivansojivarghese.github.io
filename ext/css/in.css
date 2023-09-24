@@ -531,3 +531,8 @@ div.cursorInt {
 .random_boxCircle:first-child {
     transform: translateX(2rem) translateY(-2rem);
 }
+
+.random_boxCircle:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
