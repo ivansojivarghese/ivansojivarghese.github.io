@@ -660,18 +660,20 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 scrollArrowIterate(true, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", el.chev); // start iteration
                 el.ac = false;
             } else {
-                if (!el.x4) {
-                    c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
-                    el.x4 = true;
+                if (!hm.e) { // hamburger menu is not active
+                    if (!el.x4) {
+                        c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
+                        el.x4 = true;
+                    }
+                    scrollArrowIterate(false, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", el.chev); // start iteration (single)
+                    hm.k3 = true;
+                    setTimeout(function() {
+                        el.lk3.classList.remove("z-G");
+                        el.lk3.addEventListener("click", peek); 
+                        el.lk3attach = true;
+                    }, op.te);
+                    el.ac = true;
                 }
-                scrollArrowIterate(false, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", el.chev); // start iteration (single)
-                hm.k3 = true;
-                setTimeout(function() {
-                    el.lk3.classList.remove("z-G");
-                    el.lk3.addEventListener("click", peek); 
-                    el.lk3attach = true;
-                }, op.te);
-                el.ac = true;
             }
             c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
             e_Fd(el.chev, false); // show chevron
