@@ -660,11 +660,11 @@ function load_eN() { // load, after cookie acceptance (page specific)
                 scrollArrowIterate(true, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", el.chev); // start iteration
                 el.ac = false;
             } else {
+                if (!el.x4) {
+                    c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
+                    el.x4 = true;
+                }
                 if (!hm.e) { // hamburger menu is not active
-                    if (!el.x4) {
-                        c_css(".bg-circles .circle-4", "top: calc(" + aH + "px - 3.5rem);", false, null); 
-                        el.x4 = true;
-                    }
                     scrollArrowIterate(false, el.lk3b, "1rem", "calc(100% - 2.5rem)", "auto", "1.5rem", el.chev); // start iteration (single)
                     hm.k3 = true;
                     setTimeout(function() {
