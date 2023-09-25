@@ -672,8 +672,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         el.lk3.addEventListener("click", peek); 
                         el.lk3attach = true;
                     }, op.te);
-                    el.ac = true;
                 }
+                el.ac = true;
             }
             c_rep(el.lk3a, "h-z", "h-fp"); // show 'scroll-down' box 
             e_Fd(el.chev, false); // show chevron
