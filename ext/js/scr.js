@@ -109,7 +109,9 @@ var im = { // #intro_main
         rf7 : 0,
         rf8 : 0,
         rf9 : 0,
-        rf10 : 0
+        rf10 : 0,
+        rf11 : 0,
+        rf12 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -782,9 +784,12 @@ function sc_LpH() { // scroll loop - phablet
                     pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
                     pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
 
-                    if (b.rbc1.right > b.rbc2.left && b.rbc1.bottom > b.rbc2.top && b.rbc1.left < b.rbc2.right && b.rbc1.top < b.rbc2.bottom) {
+                    if (b.rbc1.right > b.rbc2.left && b.rbc1.bottom > b.rbc2.top && b.rbc1.left < b.rbc2.right && b.rbc1.top < b.rbc2.bottom) { // collision between the 2 circles
                         pf.rbc[0].style.background = "red";
                         pf.rbc[1].style.background = "blue";
+
+                        pf.rf11 = ((pf.rf8 - rbLeft) / op.fN);
+                        pf.rf12 = ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37));
                     }
 
                 } else {
