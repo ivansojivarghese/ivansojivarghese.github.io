@@ -100,6 +100,7 @@ var im = { // #intro_main
         x7 : false,
         x8 : false,
         x9 : false,
+        x10 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -781,8 +782,12 @@ function sc_LpH() { // scroll loop - phablet
                     e_Fd(pf.rbc[0], false);
                     e_Fd(pf.rbc[1], false);
 
-                    pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
-                    pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
+                    if (!pf.x10) {
+                        pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
+                        pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
+                    } else {
+                        pf.rbc[0].style.transform = "translateX(" + (pf.rf11 - (pos.y / op.fN)) + "rem) translateY(" + pf.rf12 + "rem)";
+                    }
 
                     if (b.rbc1.right > b.rbc2.left && b.rbc1.bottom > b.rbc2.top && b.rbc1.left < b.rbc2.right && b.rbc1.top < b.rbc2.bottom) { // collision between the 2 circles
                         pf.rbc[0].style.background = "red";
@@ -791,7 +796,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rf11 = ((pf.rf8 - rbLeft) / op.fN);
                         pf.rf12 = ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37));
 
-                        pf.rbc[0].style.transform = "translateX(" + (pf.rf11 - (pos.y / op.fN)) + "rem) translateY(" + pf.rf12 + "rem)";
+                        pf.x10 = true;
                     }
 
                 } else {
