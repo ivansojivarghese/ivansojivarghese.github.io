@@ -112,7 +112,9 @@ var im = { // #intro_main
         rf9 : 0,
         rf10 : 0,
         rf11 : 0,
-        rf12 : 0
+        rf12 : 0,
+        rf13 : 0,
+        rf14 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -786,7 +788,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
                     } else {
-                        pf.rbc[0].style.transform = "translateX(" + (pf.rf11) + "rem) translateY(" + pf.rf12 + "rem)";
+                        pf.rbc[0].style.transform = "translateX(" + (pf.rf11) + "rem) translateY(" + (pf.rf12 - ((pos.y - pf.rf14) / op.fN)) + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
                     }
 
@@ -796,6 +798,9 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.rf11 = ((pf.rf8 - rbLeft) / op.fN);
                         pf.rf12 = ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37));
+
+                        pf.rf13;
+                        pf.rf14 = pos.y;
 
                         pf.x10 = true;
                     }
