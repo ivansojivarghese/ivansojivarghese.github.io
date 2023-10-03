@@ -790,7 +790,7 @@ function sc_LpH() { // scroll loop - phablet
                     } else {
 
                         var yBounce = (pf.rf12 - ((pos.y - pf.rf14) / op.fN)),
-                            xBounce = ((pf.rf11 - rbLeft) / op.fN) - (Math.cos(degToRad(10)) * (pf.rf12 - yBounce));
+                            xBounce = ((pf.rf8 - rbLeft) / op.fN) - (Math.cos(degToRad(5)) * (pf.rf12 - yBounce));
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
