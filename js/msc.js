@@ -3050,11 +3050,6 @@ window.addEventListener("resize", function(e) {
 });
 
 
-function degToRad(deg) { // DEGREE to RADIANS
-    return deg * (Math.PI / 180.0);
-}
-
-
 function wordType(w) { // determine the type of word - Capitalised, UPPER CASE, lower case
     var ar = w.toString(),
         invalid = false,
