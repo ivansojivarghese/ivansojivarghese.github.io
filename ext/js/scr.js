@@ -790,9 +790,9 @@ function sc_LpH() { // scroll loop - phablet
                     } else {
 
                         var yBounce = (pf.rf12 - ((pos.y - pf.rf14) / op.fN)),
-                            xBounce = Math.cos(degToRad(20)) * (pf.rf12 - yBounce);
+                            xBounce = pf.rf11 - (Math.cos(degToRad(20)) * (pf.rf12 - yBounce));
 
-                        pf.rbc[0].style.transform = "translateX(" + (pf.rf11) + "rem) translateY(" + yBounce + "rem)";
+                        pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
                     }
 
