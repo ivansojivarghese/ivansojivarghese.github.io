@@ -788,7 +788,11 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
                     } else {
-                        pf.rbc[0].style.transform = "translateX(" + (pf.rf11) + "rem) translateY(" + (pf.rf12 - ((pos.y - pf.rf14) / op.fN)) + "rem)";
+
+                        var yBounce = (pf.rf12 - ((pos.y - pf.rf14) / op.fN)),
+                            xBounce = Math.cos(degToRad(20)) * (pf.rf12 - yBounce);
+
+                        pf.rbc[0].style.transform = "translateX(" + (pf.rf11) + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
                     }
 
