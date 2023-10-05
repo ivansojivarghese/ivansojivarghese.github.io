@@ -101,6 +101,7 @@ var im = { // #intro_main
         x8 : false,
         x9 : false,
         x10 : false,
+        x11 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -787,12 +788,19 @@ function sc_LpH() { // scroll loop - phablet
                     if (!pf.x10) {
                         pf.rbc[0].style.transform = "translateX(" + ((pf.rf8 - rbLeft) / op.fN) + "rem) translateY(" + ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37)) + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
-                    } else {
+                    } else if (!pf.x11) {
 
                         var yBounce = (pf.rf12 - ((pos.y - pf.rf14) / op.fN)),
                             xBounce = ((pf.rf8 - rbLeft) / op.fN) - ((3 * Math.cos(2 * Math.PI)) * (pf.rf12 - yBounce));
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
+                        pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
+
+                    } else {
+
+                        var yBounce = (pf.rf12 - ((pos.y - pf.rf14) / op.fN));
+
+                        pf.rbc[0].style.transform = "translateX(" + 0 + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
                     }
 
@@ -808,7 +816,9 @@ function sc_LpH() { // scroll loop - phablet
                     }
 
                     if ((b.rbc1.left < b.rb.left) && pf.x10) {
-                        pf.rbc[0].style.background = "red";
+                        // pf.rbc[0].style.background = "red";
+
+                        pf.x11 = true;
                     }
 
                 } else {
