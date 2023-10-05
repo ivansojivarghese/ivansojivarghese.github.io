@@ -807,7 +807,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.x10 = true;
                     }
 
-                    if ((b.rbc1.left.left < b.rb.left) && pf.x10) {
+                    if ((b.rbc1.left < b.rb.left) && pf.x10) {
                         pf.rbc[0].style.background = "red";
                     }
 
