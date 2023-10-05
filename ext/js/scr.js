@@ -102,6 +102,7 @@ var im = { // #intro_main
         x9 : false,
         x10 : false,
         x11 : false,
+        x12 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -823,6 +824,11 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rf15 = pos.y;
 
                         pf.x11 = true;
+                    }
+
+                    if ((b.rbc1.top < 0) && pf.x11) {
+
+                        pf.x12 = true;
                     }
 
                 } else {
