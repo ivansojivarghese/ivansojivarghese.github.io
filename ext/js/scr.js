@@ -797,8 +797,6 @@ function sc_LpH() { // scroll loop - phablet
                     }
 
                     if (b.rbc1.right > b.rbc2.left && b.rbc1.bottom > b.rbc2.top && b.rbc1.left < b.rbc2.right && b.rbc1.top < b.rbc2.bottom) { // collision between the 2 circles
-                        // pf.rbc[0].style.background = "red";
-                        // pf.rbc[1].style.background = "blue";
 
                         pf.rf11 = ((pf.rf8 - rbLeft) / op.fN);
                         pf.rf12 = ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37));
@@ -807,6 +805,10 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rf14 = pos.y;
 
                         pf.x10 = true;
+                    }
+
+                    if ((b.rbc1.left.left < b.rb.left) && pf.x10) {
+                        pf.rbc[0].style.background = "red";
                     }
 
                 } else {
