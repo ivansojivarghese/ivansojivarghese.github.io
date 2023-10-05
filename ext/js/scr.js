@@ -836,7 +836,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.x11 = true;
                     }
 
-                    if ((b.rbc1.top < 0) && pf.x11) {
+                    if ((b.rbc1.top < 0) && pf.x11 & !pf.x12) {
 
                         pf.rf16 = (pf.rf12 - ((pos.y - pf.rf14) / op.fN));
                         pf.rf17 = pos.y;
