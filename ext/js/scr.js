@@ -809,7 +809,7 @@ function sc_LpH() { // scroll loop - phablet
 
                     } else {
 
-                        var yBounce = (pf.rf16 - ((pos.y - pf.rf14) / op.fN));
+                        var yBounce = (pos.y - pf.rf16) / (op.fN);
                             xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
