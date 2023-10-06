@@ -1739,7 +1739,7 @@ setTimeout(function() {
         }
     } catch (err) {
         if (!getCookie("UMBResult")) {
-            console.log("UMB not defined"); //
+            console.log("UMB not defined"); 
             op.er.ft = true; // fatal error 
         }
     }
