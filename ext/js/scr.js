@@ -89,6 +89,7 @@ var im = { // #intro_main
         ds : document.getElementById("design_banner"),
         xds : document.getElementsByClassName("xscroll"),
         sb : document.getElementById("pf_scrollbar"),
+        rsc : document.getElementById("random_sc"), 
         rb : document.getElementById("random_box"),
         rbc : document.querySelectorAll(".random_boxCircle"),
         x : false,
@@ -777,6 +778,8 @@ function sc_LpH() { // scroll loop - phablet
                 var w = !pf.x14 ? (aH - b.rb.top) / op.fN : pf.rf20;
                 pf.rb.style.width = "calc(5rem + " + w + "rem)"; // width increase
                 pf.rb.style.height = "calc(5rem + " + w + "rem)"; // height ""
+
+                pf.rsc.style.height = "calc(100vh + 7rem + " + w + "rem)"; // section height increase
 
                 pf.rb.style.transform = "translateY(" + (w / 4) + "rem)"; // parallax
 
