@@ -103,6 +103,7 @@ var im = { // #intro_main
         x10 : false,
         x11 : false,
         x12 : false,
+        x13 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -119,7 +120,8 @@ var im = { // #intro_main
         rf14 : 0,
         rf15 : 0,
         rf16 : 0,
-        rf17 : 0
+        rf17 : 0,
+        rf18 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
