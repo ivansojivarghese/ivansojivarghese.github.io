@@ -817,7 +817,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
                     }
 
-                    if (b.rbc1.right > b.rbc2.left /*&& b.rbc1.bottom > b.rbc2.top && b.rbc1.left < b.rbc2.right && b.rbc1.top < b.rbc2.bottom*/) { // collision between the 2 circles
+                    if (b.rbc1.right > b.rbc2.left && !pf.x10 /*&& b.rbc1.bottom > b.rbc2.top && b.rbc1.left < b.rbc2.right && b.rbc1.top < b.rbc2.bottom*/) { // collision between the 2 circles
 
                         pf.rf11 = ((pf.rf8 - rbLeft) / op.fN);
                         pf.rf12 = ((pf.rf9 - ((pf.rf10 + pf.rf9) - pos.y)) / (op.fN * 1.37));
