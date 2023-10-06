@@ -844,6 +844,13 @@ function sc_LpH() { // scroll loop - phablet
                         pf.x12 = true;
                     }
 
+                    if ((b.rbc1.right > b.rb.right) && pf.x12) {
+
+                        pf.r18 = pos.y;
+
+                        pf.x13 = true;
+                    }
+
                 } else {
 
                     e_Fd(pf.rbc[0], true); // reverse effect
