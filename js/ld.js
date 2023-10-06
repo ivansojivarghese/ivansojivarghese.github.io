@@ -848,15 +848,20 @@ function load_e() { // end the loading sequence
 
                         if (eR.h !== "ld" && eR.h !== "sp") { // if not landscape error (mobile)
 
-                            if (countryAPIres.online) {
+                            if (getCookie("countryAPIresult")) {
+                                op.lang = engLangVar(getCookie((("countryAPIresult")))); // set eng. language variant
+                                engLangUpdate(op.lang); // update eng. language variant
+                            } else if (countryAPIres.online) {
                                 op.lang = engLangVar(countryAPIres.country); // set eng. language variant
                                 engLangUpdate(op.lang); // update eng. language variant
+
+                                setCookie("countryAPIresult", countryAPIres.country, op.c.t); // create cookie
                             } else {
                                 console.log("country API failed");
                                 op.er.ft = true; // fatal error
                             }
                         
-                            if (!engAPIres.online) { 
+                            if (!engAPIres.online && op.lang !== "gb") { 
                                 console.log("eng. language API failed");
                                 op.er.ft = true; // fatal error
                             }
