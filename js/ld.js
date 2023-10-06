@@ -1738,7 +1738,7 @@ setTimeout(function() {
             setCookie("UMBResult", UMB.getStatus(), op.c.t);
         }
     } catch (err) {
-        if (getCookie("UMBResult")) {
+        if (!getCookie("UMBResult")) {
             console.log("UMB not defined");
             op.er.ft = true; // fatal error
         }
