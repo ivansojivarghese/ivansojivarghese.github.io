@@ -1734,10 +1734,14 @@ setTimeout(function() {
     try {
         if (UMB !== undefined) { // check if current platform is up-to-date
             browserCheck(true); // secondary check if online API is available
+
+            setCookie("UMBResult", UMB.getStatus(), op.c.t);
         }
     } catch (err) {
-        console.log("UMB not defined");
-        op.er.ft = true; // fatal error
+        if (getCookie("UMBResult")) {
+            console.log("UMB not defined");
+            op.er.ft = true; // fatal error
+        }
     }
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
