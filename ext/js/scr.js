@@ -121,7 +121,8 @@ var im = { // #intro_main
         rf15 : 0,
         rf16 : 0,
         rf17 : 0,
-        rf18 : 0
+        rf18 : 0,
+        rf19 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -821,7 +822,7 @@ function sc_LpH() { // scroll loop - phablet
                     } else {
 
                         var yBounce = pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3));
-                            xBounce = ((pos.y - pf.rf18) / (op.fN / 4));
+                            xBounce = pf.rf18 - ((pos.y - pf.rf19) / (op.fN / 4));
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
@@ -857,7 +858,8 @@ function sc_LpH() { // scroll loop - phablet
 
                     if ((b.rbc1.right > b.rb.right) && pf.x12) {
 
-                        pf.rf18 = pos.y;
+                        pf.rf18 = ((pos.y - pf.rf15) / (op.fN / 4));
+                        pf.rf19 = pos.y;
 
                         pf.x13 = true;
                     }
