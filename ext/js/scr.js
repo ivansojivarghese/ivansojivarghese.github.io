@@ -104,6 +104,7 @@ var im = { // #intro_main
         x11 : false,
         x12 : false,
         x13 : false,
+        x14 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -122,7 +123,8 @@ var im = { // #intro_main
         rf16 : 0,
         rf17 : 0,
         rf18 : 0,
-        rf19 : 0
+        rf19 : 0,
+        rf20 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -772,7 +774,7 @@ function sc_LpH() { // scroll loop - phablet
 
             // RANDOM_SC
             if (b.rb.top && b.rb.top < aH) {
-                var w = (aH - b.rb.top) / op.fN;
+                var w = !pf.x14 ? (aH - b.rb.top) / op.fN : pf.rf20;
                 pf.rb.style.width = "calc(5rem + " + w + "rem)"; // width increase
                 pf.rb.style.height = "calc(5rem + " + w + "rem)"; // height ""
 
@@ -810,6 +812,9 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
+
+                        pf.x14 = true;
+                        pf.rf20 = w;
 
                     } else if (!pf.x13) {
 
