@@ -808,6 +808,14 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
 
+                    } else if (!pf.x13) {
+
+                        var yBounce = pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3));
+                            xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
+
+                        pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
+                        pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
+
                     } else {
 
                         var yBounce = pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3));
@@ -815,6 +823,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
+
                     }
 
                     if (b.rbc1.right > b.rbc2.left && !pf.x10 /*&& b.rbc1.bottom > b.rbc2.top && b.rbc1.left < b.rbc2.right && b.rbc1.top < b.rbc2.bottom*/) { // collision between the 2 circles
