@@ -1251,7 +1251,7 @@ function pL() { // site parameters loop
         
         if (!op.bNx) { // check if current platform is up-to-date
             op.bNx = true;
-            if (op.bInfo.cSts !== "latest" && (!eR.s) && !op.pl && !developer) { // if platform not updated
+            if ((op.bInfo.cSts !== "latest" || getCookie("UMBResult") !== "latest") && (!eR.s) && !op.pl && !developer) { // if platform not updated
 
                 scr_t(false, null); // disable scrolling
                 op.s = true;

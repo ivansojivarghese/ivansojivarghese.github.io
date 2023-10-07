@@ -1146,7 +1146,7 @@ function browserCheck(m) { // detect browser (platform)
         op.bInfo.cVer = UMB.getCurrentVersion(); // current version
         op.bInfo.cSts = UMB.getStatus(); // update status
         op.bInfo.p = UMB.getBrowserInfo(browser); // info
-        if (!getCookie("UMBResult")) { // set a cookie
+        if (!getCookie("UMBResult") || getCookie("UMBResult") !== UMB.getStatus()) { // set a cookie (if not defined OR different value)
             setCookie("UMBResult", UMB.getStatus(), op.c.t);
         }
         switch (browser) {
