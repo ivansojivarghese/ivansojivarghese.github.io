@@ -472,6 +472,11 @@ div.cursorInt {
     line-height: 0.8em;
 }
 
+#pitch_sc .lightbulb_img {
+    width: 10rem;
+    height: 10rem;
+}
+
 /* REFERENCED FROM Goodkatz: https://codepen.io/goodkatz/pen/LYPGxQz */
 
 .waves {
