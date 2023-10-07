@@ -1039,6 +1039,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/download.svg");
 }
 
+.lightbulb_img {
+    background-image: url("../svg/light_bulb.svg");
+}
+
 .coffee_w_img {
     background-image: url("../svg/coffee_white.svg");
 }
