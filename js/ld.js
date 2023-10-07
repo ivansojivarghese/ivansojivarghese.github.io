@@ -1146,6 +1146,9 @@ function browserCheck(m) { // detect browser (platform)
         op.bInfo.cVer = UMB.getCurrentVersion(); // current version
         op.bInfo.cSts = UMB.getStatus(); // update status
         op.bInfo.p = UMB.getBrowserInfo(browser); // info
+        if (!getCookie("UMBResult")) { // set a cookie
+            setCookie("UMBResult", UMB.getStatus(), op.c.t);
+        }
         switch (browser) {
             case "chrome":
                 op.b.c = true;
@@ -1734,14 +1737,12 @@ setTimeout(function() {
     try {
         if (UMB !== undefined) { // check if current platform is up-to-date
             browserCheck(true); // secondary check if online API is available
-
-            setCookie("UMBResult", UMB.getStatus(), op.c.t);
         }
     } catch (err) {
         if (!getCookie("UMBResult")) {
             console.log("UMB not defined"); 
             op.er.ft = true; // fatal error 
-        }
+        } 
     }
 
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
