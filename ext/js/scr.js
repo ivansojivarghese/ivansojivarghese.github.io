@@ -123,6 +123,7 @@ var im = { // #intro_main
         rf15 : 0,
         rf16 : 0,
         rf17 : 0,
+        rf17a : 0,
         rf18 : 0,
         rf19 : 0,
         rf20 : 0
@@ -821,8 +822,9 @@ function sc_LpH() { // scroll loop - phablet
 
                     } else if (!pf.x13) {
 
-                        var yBounce = pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3));
-                            xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
+                        var yBounce = pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3)),
+                            // xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
+                            xBounce = pf.rf17a;
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
@@ -860,7 +862,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.rf16 = (pf.rf12 - ((pos.y - pf.rf14) / op.fN));
                         pf.rf17 = pos.y;
-                        // pf.rf17a = ((pf.rf8 - rbLeft) / op.fN) - ((3 * Math.cos(2 * Math.PI)) * (pf.rf12 - yBounce));
+                        pf.rf17a = ((pos.y - pf.rf15) / (op.fN / 4));
 
                         pf.x12 = true;
                     }
