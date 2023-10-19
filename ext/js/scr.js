@@ -776,11 +776,12 @@ function sc_LpH() { // scroll loop - phablet
 
             // RANDOM_SC
             if (b.rb.top && b.rb.top < aH) {
-                var w = !pf.x14 ? (aH - b.rb.top) / op.fN : pf.rf20;
+                var w = !pf.x14 ? (aH - b.rb.top) / op.fN : pf.rf20,
+                    h = !pf.x14 ? (aH - b.rb.top) / op.fN : (((aH - b.rb.top) / op.fN) + 5);
                 pf.rb.style.width = "calc(5rem + " + w + "rem)"; // width increase
-                pf.rb.style.height = "calc(5rem + " + ((aH - b.rb.top) / op.fN) + "rem)"; // height ""
+                pf.rb.style.height = "calc(5rem + " + h + "rem)"; // height ""
 
-                pf.rsc.style.height = "calc(100vh + 7rem + " + w + "rem)"; // section height increase
+                pf.rsc.style.height = "calc(100vh + 7rem + " + h + "rem)"; // section height increase
 
                 pf.rb.style.transform = "translateY(" + (w / 4) + "rem)"; // parallax
 
