@@ -778,7 +778,7 @@ function sc_LpH() { // scroll loop - phablet
             if (b.rb.top && b.rb.top < aH) {
                 var w = !pf.x14 ? (aH - b.rb.top) / op.fN : pf.rf20;
                 pf.rb.style.width = "calc(5rem + " + w + "rem)"; // width increase
-                pf.rb.style.height = "calc(5rem + " + w + "rem)"; // height ""
+                pf.rb.style.height = "calc(5rem + " + ((aH - b.rb.top) / op.fN) + "rem)"; // height ""
 
                 pf.rsc.style.height = "calc(100vh + 7rem + " + w + "rem)"; // section height increase
 
