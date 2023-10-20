@@ -828,7 +828,7 @@ function sc_LpH() { // scroll loop - phablet
 
                     } else if (!pf.x13) {
 
-                        var yBounce = !pf.x12a ? pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3)) : 18,
+                        var yBounce = !pf.x12a ? pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3)) : ((pos.y - b.rb.top) / op.fN),
                             // xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
                             // xBounce = pf.rf17a;
                             xBounce = ((b.rb.width / op.fN) - 16) / 2;
