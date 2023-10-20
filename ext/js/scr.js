@@ -835,7 +835,7 @@ function sc_LpH() { // scroll loop - phablet
                             // xBounce = pf.rf17a;
                             xBounce = ((b.rb.width / op.fN) - 16) / 2;
 
-                        if (!pf.x12a) {
+                        if (!pf.x12a) { //
                             e_Fd(pf.rbc_t1, false); // reveal text
                             pf.rbc[0].classList.add("extra"); // upgrade circle to text box
                             pf.x12a = true;
