@@ -104,6 +104,7 @@ var im = { // #intro_main
         x10 : false,
         x11 : false,
         x12 : false,
+        x12a : false,
         x13 : false,
         x14 : false,
         rf : 0,
@@ -830,7 +831,10 @@ function sc_LpH() { // scroll loop - phablet
                             // xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
                             xBounce = pf.rf17a;
 
-                        pf.rbc[0].classList.add("extra");
+                        if (!pf.x12a) {
+                            pf.rbc[0].classList.add("extra");
+                            pf.x12a = true;
+                        }
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
