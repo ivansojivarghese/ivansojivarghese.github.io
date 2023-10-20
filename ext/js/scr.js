@@ -92,6 +92,7 @@ var im = { // #intro_main
         rsc : document.getElementById("random_sc"), 
         rb : document.getElementById("random_box"),
         rbc : document.querySelectorAll(".random_boxCircle"),
+        rbc_t1 : document.getElementById("rbc_t1"),
         x : false,
         x2 : false,
         x3 : false,
@@ -832,7 +833,8 @@ function sc_LpH() { // scroll loop - phablet
                             xBounce = pf.rf17a;
 
                         if (!pf.x12a) {
-                            pf.rbc[0].classList.add("extra");
+                            e_Fd(pf.rbc_t1, false); // reveal text
+                            pf.rbc[0].classList.add("extra"); // upgrade circle to text box
                             pf.x12a = true;
                         }
 
