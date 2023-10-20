@@ -533,6 +533,12 @@ div.cursorInt {
     height: 2rem;
 }
 
+.random_boxCircle.extra {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 0.5rem;
+}
+
 .random_boxCircle:first-child {
     transform: translateX(2rem) translateY(-2rem);
 }

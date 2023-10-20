@@ -780,7 +780,7 @@ function sc_LpH() { // scroll loop - phablet
                     h = (aH - b.rb.top) / op.fN;
 
                     // h = !pf.x14 ? (aH - b.rb.top) / op.fN : (((aH - b.rb.top) / op.fN) + 5);
-                    
+
                 pf.rb.style.width = "calc(5rem + " + w + "rem)"; // width increase
                 pf.rb.style.height = "calc(5rem + " + h + "rem)"; // height ""
 
@@ -829,6 +829,8 @@ function sc_LpH() { // scroll loop - phablet
                         var yBounce = pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3)),
                             // xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
                             xBounce = pf.rf17a;
+
+                        pf.rbc[0].classList.add("extra");
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
