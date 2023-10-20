@@ -1262,6 +1262,7 @@ function pL() { // site parameters loop
                 eR.pl_e.h.innerHTML = "update";
 
                 eR.pl_e.h.classList.add("hoverB");
+                eR.pl_e.h.classList.add("trs");
                 eR.pl_e.h.addEventListener('mousemove', hoverInit);
                 eR.pl_e.h.addEventListener('mouseleave', hoverEnd);
 
