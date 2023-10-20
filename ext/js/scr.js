@@ -117,7 +117,9 @@ var im = { // #intro_main
         rf7 : 0,
         rf8 : 0,
         rf9 : 0,
+        rf9a : 0,
         rf10 : 0,
+        rf10a : 0,
         rf11 : 0,
         rf12 : 0,
         rf13 : 0,
@@ -828,7 +830,7 @@ function sc_LpH() { // scroll loop - phablet
 
                     } else if (!pf.x13) {
 
-                        var yBounce = !pf.x12a ? pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3)) : ((pos.y - b.rb.top) / op.fN),
+                        var yBounce = !pf.x12a ? pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3)) : ((pf.rf9a - pf.rf10a) / op.fN),
                             // xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
                             // xBounce = pf.rf17a;
                             xBounce = ((b.rb.width / op.fN) - 16) / 2;
@@ -837,6 +839,8 @@ function sc_LpH() { // scroll loop - phablet
                             e_Fd(pf.rbc_t1, false); // reveal text
                             pf.rbc[0].classList.add("extra"); // upgrade circle to text box
                             pf.x12a = true;
+                            pf.rf9a = pos.y;
+                            pf.rf10a = b.rb.top;
                         }
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
