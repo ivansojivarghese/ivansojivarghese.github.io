@@ -865,6 +865,8 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rf17 = pos.y;
                         pf.rf17a = ((pos.y - pf.rf15) / (op.fN / 4));
 
+                        // convert to text
+
                         pf.x12 = true;
                     }
 
