@@ -534,9 +534,13 @@ div.cursorInt {
 }
 
 .random_boxCircle.extra {
-    width: 15rem;
-    height: 15rem;
+    width: 16rem;
+    height: 18rem;
     border-radius: 0.5rem;
+}
+
+.random_boxCircle h1 {
+    padding: 2rem;
 }
 
 .random_boxCircle:first-child {
