@@ -19,6 +19,7 @@
             // (heavy resource) pre-load
 
             var svg = {
+                    cld : false,
                     lb : false,
                     d : false,
                     dm : false,
@@ -265,6 +266,7 @@
         <link rel="preload" href="svg/time_white.svg" as="image" type="image/svg+xml" onload="svg.tm_w = true;">
         <link rel="preload" href="svg/distance_white.svg" as="image" type="image/svg+xml" onload="svg.ds_w = true;">
         <link rel="preload" href="svg/light_bulb.svg" as="image" type="image/svg+xml" onload="svg.lb = true;">
+        <link rel="preload" href="svg/cloud.svg" as="image" type="image/svg+xml" onload="svg.cld = true;">
         <!-- Other Pages -->
         <link rel="prerender" href="https://ivansojivarghese.github.io/clicks">
         <link rel="prefetch" href="https://ivansojivarghese.github.io/clicks">
@@ -1205,6 +1207,9 @@
                                 </h1>
                             </div>
                             <div class="bC_m random_boxCircle b-r p-a trs z_O"></div>
+                            <div id="landscape_parallax">
+                                <div class="img"></div>
+                            </div>
                         </div>
                     </div>
                     <div id="mid_tablet_sc" class="tablet h-f">
