@@ -831,7 +831,7 @@ function sc_LpH() { // scroll loop - phablet
                         var yBounce = pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3)),
                             // xBounce = ((pos.y - pf.rf15) / (op.fN / 4));
                             // xBounce = pf.rf17a;
-                            xBounce = 5;
+                            xBounce = ((b.rb.width / op.fN) - 16) / 2;
 
                         if (!pf.x12a) {
                             e_Fd(pf.rbc_t1, false); // reveal text
