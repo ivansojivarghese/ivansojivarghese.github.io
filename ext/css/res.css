@@ -205,7 +205,7 @@
         display: block !important;
     }
     
-    .waves, #workInfo, #qIn4, #qIn6, #blend_sc, #mid_sc, #mid_tablet_wrap {
+    .waves, #workInfo, #qIn4, #qIn6, #blend_sc, #mid_sc, #mid_tablet_wrap, #mid_tablet_sc {
         display: none;
     }
 
