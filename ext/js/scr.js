@@ -901,8 +901,8 @@ function sc_LpH() { // scroll loop - phablet
                     // LANDSCAPE PARALLAXING
                     if (b.ldpr.top < aH) {
                         // clouds
-                        var a = ((pos.y - pf.rf9a) / op.fN) / 3;
                         for (i = 0; i < ld_cloud_n; i++) {
+                            var a = ((pos.y - pf.rf9a) / op.fN) / getRandomInt(1, 6);
                             el.Ldpllx_ci[i].style.transform = "translateX(" + (el.Ldpllx_caX[i] + a) + "rem) translateY(" + el.Ldpllx_ca[i] + "rem)";
                         }
                     }
