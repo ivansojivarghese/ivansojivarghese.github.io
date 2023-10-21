@@ -879,11 +879,14 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.rf16 = (pf.rf12 - ((pos.y - pf.rf14) / op.fN));
                         pf.rf17 = pos.y;
-                        pf.rf17a = ((pos.y - pf.rf15) / (op.fN / 4));
-
-                        // convert to text
+                        pf.rf17a = ((pos.y - pf.rf15) / (op.fN / 4)); // convert to text
 
                         pf.x12 = true;
+                    }
+
+                    if (pf.x12a) {
+                        var a = (-1 * ((pos.y - pf.rf9a) / op.fN));
+                        el.Ldpllx_c.style.transform = "translateY(calc(5rem + " + a + "rem))";
                     }
 
                     if ((b.rbc1.right > b.rb.right) && pf.x12 && !pf.x13) {
@@ -893,6 +896,10 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.x13 = true;
                     }
+
+                    // LANDSCAPE PARALLAXING
+
+
 
                 } else {
 

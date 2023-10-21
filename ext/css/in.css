@@ -553,6 +553,10 @@ div.cursorInt {
     transform: translateY(-50%);
 }
 
+#landscape_parallax {
+    transform: translateY(5rem);
+}
+
 #landscape_parallax .cloud_img {
     width: 10rem;
     height: 10rem;
