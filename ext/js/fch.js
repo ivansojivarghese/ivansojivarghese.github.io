@@ -331,9 +331,10 @@ function load_css_e() { // load CSS styles (page specific)
             // LANDSCAPE PARALLAX
             
             for (i = 0; i < ld_cloud_n; i++) {
+                var randomY = getRandomInt(0, 3); // get random translateY value
                 const div = document.createElement("DIV");
                 div.setAttribute("class", "img cloud_img p-a");
-                div.style.transform = "translateX(" + ((i - 1) * ld_cloud_d) + "rem)";
+                div.style.transform = "translateX(" + ((i - 1) * ld_cloud_d) + "rem) translateY(" + randomY + "rem)";
                 el.Ldpllx_c.appendChild(div);
             }
 
