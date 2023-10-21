@@ -152,7 +152,8 @@ var fchL = {
             s4 : document.querySelectorAll("#wordclouds4 span") //
         },
         wdTL : null,
-        Ldpllx : document.getElementById("landscape_parallax")
+        Ldpllx : document.getElementById("landscape_parallax"),
+        Ldpllx_c : document.getElementsByClassName("#landscape_parallax .clouds")
     },
     bd = { // bounds
         b0 : null,
@@ -331,7 +332,7 @@ function load_css_e() { // load CSS styles (page specific)
             for (i = 0; i < ld_cloud_n; i++) {
                 const div = document.createElement("DIV");
                 div.setAttribute("class", "img cloud_img p-a");
-                el.Ldpllx.appendChild(div);
+                el.Ldpllx_c.appendChild(div);
             }
 
         } else {
