@@ -153,7 +153,7 @@ var fchL = {
         },
         wdTL : null,
         Ldpllx : document.getElementById("landscape_parallax"),
-        Ldpllx_c : document.getElementsByClassName("#landscape_parallax .clouds")
+        Ldpllx_c : document.querySelector("#landscape_parallax .clouds")
     },
     bd = { // bounds
         b0 : null,
