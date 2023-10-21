@@ -572,4 +572,6 @@ div.cursorInt {
 
 #landscape_parallax .ground {
     background-color: #3F704D;
+    height: 1rem;
+    bottom: 1rem;
 }
