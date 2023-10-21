@@ -558,7 +558,13 @@ div.cursorInt {
     top: 70rem;
 }
 
-#landscape_parallax .cloud_img {
+#landscape_parallax .img {
     width: 10rem;
     height: 10rem;
+    display: inline-block;
+}
+
+#landscape_parallax .terrain {
+    top: 18rem;
+    text-align: center;
 }
