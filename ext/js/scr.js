@@ -887,7 +887,7 @@ function sc_LpH() { // scroll loop - phablet
 
                     if (pf.x12a) {
                         var a = (-1 * ((pos.y - pf.rf9a) / op.fN));
-                        el.Ldpllx.style.transform = "translateY(calc(5rem + " + (a / 2) + "rem))";
+                        el.Ldpllx.style.transform = "translateY(calc(5rem + " + (a / 3) + "rem))";
                     }
 
                     if ((b.rbc1.right > b.rb.right) && pf.x12 && !pf.x13) {
