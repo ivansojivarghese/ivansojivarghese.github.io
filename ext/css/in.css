@@ -562,6 +562,7 @@ div.cursorInt {
     width: 10rem;
     height: 10rem;
     display: inline-block;
+    position: relative;
 }
 
 #landscape_parallax .terrain {
