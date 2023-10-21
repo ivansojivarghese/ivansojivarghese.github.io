@@ -336,8 +336,8 @@ function load_css_e() { // load CSS styles (page specific)
             for (i = 0; i < ld_cloud_n; i++) {
                 var randomY = getRandomInt(0, 3); // get random translateY value
                 const div = document.createElement("DIV");
-                Ldpllx_ca[i] = randomY; // y transform
-                Ldpllx_caX[i] = ((i - 1) * ld_cloud_d); // x transform
+                el.Ldpllx_ca[i] = randomY; // y transform
+                el.Ldpllx_caX[i] = ((i - 1) * ld_cloud_d); // x transform
                 div.setAttribute("class", "img cloud_img p-a");
                 div.style.transform = "translateX(" + ((i - 1) * ld_cloud_d) + "rem) translateY(" + randomY + "rem)";
                 el.Ldpllx_c.appendChild(div);
