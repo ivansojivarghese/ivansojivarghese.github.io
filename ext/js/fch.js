@@ -288,7 +288,8 @@ function load_css_e() { // load CSS styles (page specific)
 
         if (vw.dk) { // desktop
 
-            var ld_cloud_w = 10 * op.fN // width in rem (px) of element
+            var ld_cloud_d = 10,
+                ld_cloud_w = ld_cloud_d * op.fN // width in rem (px) of element
                 ld_cloud_n = Math.ceil(wD / ld_cloud_w) + 1;
 
             for (w = 0; w <= el.n.length - 1; w++) { // set up animating navbar elements
@@ -332,6 +333,7 @@ function load_css_e() { // load CSS styles (page specific)
             for (i = 0; i < ld_cloud_n; i++) {
                 const div = document.createElement("DIV");
                 div.setAttribute("class", "img cloud_img p-a");
+                div.style.transform = "translateX(" + ((i - 1) * ld_cloud_d) + "rem)";
                 el.Ldpllx_c.appendChild(div);
             }
 
