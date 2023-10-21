@@ -1051,6 +1051,18 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/cloud.svg");
 }
 
+.forest_img {
+    background-image: url("../svg/forest.svg");
+}
+
+.nature_img {
+    background-image: url("../svg/nature.svg");
+}
+
+.landscape_img {
+    background-image: url("../svg/landscape.svg");
+}
+
 .coffee_w_img {
     background-image: url("../svg/coffee_white.svg");
 }
