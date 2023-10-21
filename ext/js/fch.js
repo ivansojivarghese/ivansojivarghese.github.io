@@ -153,7 +153,10 @@ var fchL = {
         },
         wdTL : null,
         Ldpllx : document.getElementById("landscape_parallax"),
-        Ldpllx_c : document.querySelector("#landscape_parallax .clouds") // 
+        Ldpllx_c : document.querySelector("#landscape_parallax .clouds"), // 
+        Ldpllx_ca : [], // translateY values array
+        Ldpllx_caX : [], // translateX values array
+        Ldpllx_ci : null
     },
     bd = { // bounds
         b0 : null,
@@ -333,10 +336,14 @@ function load_css_e() { // load CSS styles (page specific)
             for (i = 0; i < ld_cloud_n; i++) {
                 var randomY = getRandomInt(0, 3); // get random translateY value
                 const div = document.createElement("DIV");
+                Ldpllx_ca[i] = randomY; // y transform
+                Ldpllx_caX[i] = ((i - 1) * ld_cloud_d); // x transform
                 div.setAttribute("class", "img cloud_img p-a");
                 div.style.transform = "translateX(" + ((i - 1) * ld_cloud_d) + "rem) translateY(" + randomY + "rem)";
                 el.Ldpllx_c.appendChild(div);
             }
+
+            el.Ldpllx_ci = document.querySelectorAll("#landscape_parallax .cloud_img"); // get all clouds
 
         } else {
             c_css(".q_Info, .q_Info > div", "margin: 0 !important", false, null);

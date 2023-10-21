@@ -633,7 +633,8 @@ function sc_LpH() { // scroll loop - phablet
                 dw : pf.dw.getBoundingClientRect(),
                 rb : pf.rb.getBoundingClientRect(),
                 rbc1 : pf.rbc[0].getBoundingClientRect(),
-                rbc2 : pf.rbc[1].getBoundingClientRect()
+                rbc2 : pf.rbc[1].getBoundingClientRect(),
+                ldpr : el.Ldpllx.getBoundingClientRect()
             };
 
 
@@ -898,8 +899,10 @@ function sc_LpH() { // scroll loop - phablet
                     }
 
                     // LANDSCAPE PARALLAXING
-
-
+                    if (b.ldpr.top < aH) {
+                        var a = (pos.y - pf.rf9a) / op.fN;
+                        el.Ldpllx_ci[0].style.transform = "translateX(" + (el.Ldpllx_caX[0] + a) + "rem) translateY(" + el.Ldpllx_ca[0] + "rem)";
+                    }
 
                 } else {
 
