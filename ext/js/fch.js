@@ -151,7 +151,8 @@ var fchL = {
             s3 : document.querySelectorAll("#wordclouds3 span"), //
             s4 : document.querySelectorAll("#wordclouds4 span") //
         },
-        wdTL : null
+        wdTL : null,
+        Ldpllx : document.getElementById("landscape_parallax")
     },
     bd = { // bounds
         b0 : null,
@@ -286,6 +287,9 @@ function load_css_e() { // load CSS styles (page specific)
 
         if (vw.dk) { // desktop
 
+            var ld_cloud_w = 10 * op.fN // width in rem (px) of element
+                ld_cloud_n = Math.ceil(wD / ld_cloud_w) + 1;
+
             for (w = 0; w <= el.n.length - 1; w++) { // set up animating navbar elements
                 el.n[w].classList.add("up");
                 if (w < el.n.length - 1) {
@@ -320,6 +324,14 @@ function load_css_e() { // load CSS styles (page specific)
             } else {
 
                 qInfo[4].innerHTML = "earth";
+            }
+
+            // LANDSCAPE PARALLAX
+            
+            for (i = 0; i < ld_cloud_n; i++) {
+                const div = document.createElement("DIV");
+                div.setAttribute("class", "img cloud_img p-a");
+                el.Ldpllx.appendChild(div);
             }
 
         } else {
