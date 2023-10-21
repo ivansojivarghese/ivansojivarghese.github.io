@@ -108,6 +108,7 @@ var im = { // #intro_main
         x12a : false,
         x13 : false,
         x14 : false,
+        x15 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -130,7 +131,8 @@ var im = { // #intro_main
         rf17a : 0,
         rf18 : 0,
         rf19 : 0,
-        rf20 : 0
+        rf20 : 0,
+        rf21 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -634,7 +636,8 @@ function sc_LpH() { // scroll loop - phablet
                 rb : pf.rb.getBoundingClientRect(),
                 rbc1 : pf.rbc[0].getBoundingClientRect(),
                 rbc2 : pf.rbc[1].getBoundingClientRect(),
-                ldpr : el.Ldpllx.getBoundingClientRect()
+                ldpr : el.Ldpllx.getBoundingClientRect(),
+                ldg : el.Ldpllx_g.getBoundingClientRect()
             };
 
 
@@ -782,7 +785,7 @@ function sc_LpH() { // scroll loop - phablet
             // RANDOM_SC
             if (b.rb.top && b.rb.top < aH) {
                 var w = !pf.x14 ? (aH - b.rb.top) / op.fN : pf.rf20,
-                    h = (aH - b.rb.top) / op.fN;
+                    h = !pf.x15 ? (aH - b.rb.top) / op.fN : (aH - pf.rf21) / op.fN;
 
                     // h = !pf.x14 ? (aH - b.rb.top) / op.fN : (((aH - b.rb.top) / op.fN) + 5);
 
@@ -905,6 +908,11 @@ function sc_LpH() { // scroll loop - phablet
                             var a = ((pos.y - pf.rf9a) / op.fN) / el.Ldpllx_caXe[i];
                             el.Ldpllx_ci[i].style.transform = "translateX(" + (el.Ldpllx_caX[i] + a) + "rem) translateY(" + el.Ldpllx_ca[i] + "rem)";
                         }
+                    }
+
+                    if (b.ldg.top < aH && !pf.x15) {
+                        pf.rf21 = b.rb.top;
+                        pf.x15 = true;
                     }
 
                 } else {

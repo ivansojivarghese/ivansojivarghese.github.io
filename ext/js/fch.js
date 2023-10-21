@@ -157,7 +157,8 @@ var fchL = {
         Ldpllx_ca : [], // translateY values array
         Ldpllx_caX : [], // translateX values array
         Ldpllx_caXe : [], // translateX values array (extra)
-        Ldpllx_ci : null
+        Ldpllx_ci : null,
+        Ldpllx_g : document.querySelector("#landscape_parallax .ground")
     },
     bd = { // bounds
         b0 : null,
