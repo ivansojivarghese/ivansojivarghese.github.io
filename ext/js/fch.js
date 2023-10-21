@@ -340,7 +340,7 @@ function load_css_e() { // load CSS styles (page specific)
                 el.Ldpllx_ca[i] = randomY; // y transform
                 el.Ldpllx_caX[i] = ((i - 1) * ld_cloud_d); // x transform
                 el.Ldpllx_caXe[i] = getRandomInt(1, 6); // x-transform extra
-                div.setAttribute("class", "img cloud_img p-a");
+                div.setAttribute("class", "img cloud_img trs p-a");
                 div.style.transform = "translateX(" + ((i - 1) * ld_cloud_d) + "rem) translateY(" + randomY + "rem)";
                 el.Ldpllx_c.appendChild(div);
             }
