@@ -156,6 +156,7 @@ var fchL = {
         Ldpllx_c : document.querySelector("#landscape_parallax .clouds"), // 
         Ldpllx_ca : [], // translateY values array
         Ldpllx_caX : [], // translateX values array
+        Ldpllx_caXe : [], // translateX values array (extra)
         Ldpllx_ci : null
     },
     bd = { // bounds
@@ -338,6 +339,7 @@ function load_css_e() { // load CSS styles (page specific)
                 const div = document.createElement("DIV");
                 el.Ldpllx_ca[i] = randomY; // y transform
                 el.Ldpllx_caX[i] = ((i - 1) * ld_cloud_d); // x transform
+                el.Ldpllx_caXe[i] = getRandomInt(1, 6); // x-transform extra
                 div.setAttribute("class", "img cloud_img p-a");
                 div.style.transform = "translateX(" + ((i - 1) * ld_cloud_d) + "rem) translateY(" + randomY + "rem)";
                 el.Ldpllx_c.appendChild(div);

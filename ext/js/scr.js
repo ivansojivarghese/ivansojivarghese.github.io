@@ -902,7 +902,7 @@ function sc_LpH() { // scroll loop - phablet
                     if (b.ldpr.top < aH) {
                         // clouds
                         for (i = 0; i < ld_cloud_n; i++) {
-                            var a = ((pos.y - pf.rf9a) / op.fN) / getRandomInt(1, 6);
+                            var a = ((pos.y - pf.rf9a) / op.fN) / el.Ldpllx_caXe[i];
                             el.Ldpllx_ci[i].style.transform = "translateX(" + (el.Ldpllx_caX[i] + a) + "rem) translateY(" + el.Ldpllx_ca[i] + "rem)";
                         }
                     }
