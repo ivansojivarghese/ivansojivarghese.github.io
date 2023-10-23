@@ -853,8 +853,8 @@ function sc_LpH() { // scroll loop - phablet
 
                         if (pf.x12) {
 
-                            var colChange = function(a, b) {
-                                    return (((pf.rf17b - (b.ldpr.top - pos.y)) / pf.rf17b) * (b - a)) + a;
+                            var colChange = function(a, b, c) {
+                                    return (((pf.rf17b - (c - pos.y)) / pf.rf17b) * (b - a)) + a;
                                 },
                                 def = 48, // #303030
                                 rCol = 135, // #87CEEB
@@ -862,7 +862,7 @@ function sc_LpH() { // scroll loop - phablet
                                 bCol = 235;
 
                             // RANDOM BOX BACK. COL. CHANGE
-                            pf.rb.style.backgroundColor = "rgb(" + colChange(def, rCol) + ", " + colChange(def, gCol) + ", " + colChange(def, bCol) + ")";
+                            pf.rb.style.backgroundColor = "rgb(" + colChange(def, rCol, b.ldpr.top) + ", " + colChange(def, gCol, b.ldpr.top) + ", " + colChange(def, bCol, b.ldpr.top) + ")";
 
                             // 48, 48, 48
                             // 135, 206, 235
