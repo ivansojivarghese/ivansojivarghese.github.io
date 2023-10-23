@@ -129,6 +129,7 @@ var im = { // #intro_main
         rf16 : 0,
         rf17 : 0,
         rf17a : 0,
+        rf17b : 0,
         rf18 : 0,
         rf19 : 0,
         rf20 : 0,
@@ -850,6 +851,23 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
 
+                        if (pf.x12) {
+
+                            var colChange = function(a, b) {
+                                    return (((pf.rf17b - (b.ldpr.top - pos.y)) / pf.rf17b) * (b - a)) + a;
+                                },
+                                def = 48, // #303030
+                                rCol = 135, // #87CEEB
+                                gCol = 206,
+                                bCol = 235;
+
+                            // RANDOM BOX BACK. COL. CHANGE
+                            pf.rb.style.backgroundColor = "rgb(" + colChange(def, rCol) + ", " + colChange(def, gCol) + ", " + colChange(def, bCol) + ")";
+
+                            // 48, 48, 48
+                            // 135, 206, 235
+                        }
+
                     } else {
 
                         var yBounce = pf.rf16 + 2 + ((pos.y - pf.rf17) / (op.fN / 3));
@@ -884,6 +902,8 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rf16 = (pf.rf12 - ((pos.y - pf.rf14) / op.fN));
                         pf.rf17 = pos.y;
                         pf.rf17a = ((pos.y - pf.rf15) / (op.fN / 4)); // convert to text
+
+                        pf.rf17b = b.ldpr.top - pf.rf17;
 
                         pf.x12 = true;
                     }
