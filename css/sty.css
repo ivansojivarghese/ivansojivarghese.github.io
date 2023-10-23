@@ -1063,6 +1063,14 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/landscape.svg");
 }
 
+.apartment_img {
+    background-image: url("../svg/apartment.svg");
+}
+
+.store_img {
+    background-image: url("../svg/store.svg");
+}
+
 .coffee_w_img {
     background-image: url("../svg/coffee_white.svg");
 }
