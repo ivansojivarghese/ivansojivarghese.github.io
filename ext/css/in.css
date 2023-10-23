@@ -558,6 +558,10 @@ div.cursorInt {
     top: 70rem;
 }
 
+#landscape_parallax .cloud_img {
+    position: absolute;
+}
+
 #landscape_parallax .img {
     width: 10rem;
     height: 10rem;
