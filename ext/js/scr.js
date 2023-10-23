@@ -854,7 +854,7 @@ function sc_LpH() { // scroll loop - phablet
                         if (pf.x12) {
 
                             var colChange = function(a, b, c) {
-                                    return (((pf.rf17b - (c - pos.y)) / pf.rf17b) * (b - a)) + a;
+                                    return (((pf.rf17b - c) / pf.rf17b) * (b - a)) + a;
                                 },
                                 def = 48, // #303030
                                 rCol = 135, // #87CEEB
