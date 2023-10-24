@@ -869,6 +869,12 @@ function sc_LpH() { // scroll loop - phablet
                                 gV = (gColCh <= gCol) ? gColCh : gCol,
                                 bV = (bColCh <= bCol) ? bColCh : bCol;
 
+                            var transport = function() {
+                                var r = getRandomInt(0, 3);
+                                pf.ld_tr[r].style.transitionDuration = "4s";
+                                pf.ld_tr[r].style.transform = "translateX(calc(100vw + 2rem))";
+                            };
+
                             // RANDOM BOX BACK. COL. CHANGE
                             pf.rb.style.backgroundColor = "rgb(" + rV + ", " + gV + ", " + bV + ")";
 
@@ -876,7 +882,7 @@ function sc_LpH() { // scroll loop - phablet
                             // 135, 206, 235
 
                             // TRANSPORTATION elements
-                            pf.ld_tr;
+                            setInterval(transport, 1000);
 
                         }
 

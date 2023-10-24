@@ -454,6 +454,12 @@ h4.revert { /* h4 styling revert */
     transition-property: all;   
 }
 
+.trs_linear {
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    transition-property: all;  
+}
+
 .c_w {
     color: #FFF;
 }
