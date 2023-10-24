@@ -911,14 +911,14 @@ function sc_LpH() { // scroll loop - phablet
                         var transport = function() {
                             var r = getRandomInt(0, 3),
                                 s = getRandomInt(2, 5);
-                            pf.ld_tr[r].classList.remove("z_Os");
+                            pf.ld_tr[r].classList.remove("v_n");
                             setTimeout(function() {
                                 pf.ld_tr[r].style.transitionDuration = s + "s";
                                 pf.ld_tr[r].style.transform = "translateX(calc(100vw + 2rem))";
                             }, 10);
                             setTimeout(function() {
                                 pf.ld_tr[r].style.transitionDuration = 0 + "s";
-                                pf.ld_tr[r].classList.add("z_Os");
+                                pf.ld_tr[r].classList.add("v_n");
                                 pf.ld_tr[r].style.transform = "none";
                             }, ((s * 1000) + 20));
 
