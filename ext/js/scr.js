@@ -918,6 +918,8 @@ function sc_LpH() { // scroll loop - phablet
                             }
                             while (pf.ld_tra.includes(r));
 
+                            pf.ld_tr[r].style.transitionDuration = 0 + "s";
+                            pf.ld_tr[r].classList.remove("z_O");
                             pf.ld_tr[r].classList.remove("v_n");
                             setTimeout(function() {
                                 pf.ld_tr[r].style.transitionDuration = s + "s";
@@ -925,7 +927,8 @@ function sc_LpH() { // scroll loop - phablet
                                 pf.ld_tra[pf.ld_tra.length] = r; // add to active array
                             }, 10);
                             setTimeout(function() {
-                                pf.ld_tr[r].style.transitionDuration = 0 + "s";
+                                pf.ld_tr[r].style.transitionDuration = 0.2 + "s";
+                                pf.ld_tr[r].classList.add("z_O");
                                 pf.ld_tr[r].classList.add("v_n");
                                 pf.ld_tr[r].style.transform = "none";
 
