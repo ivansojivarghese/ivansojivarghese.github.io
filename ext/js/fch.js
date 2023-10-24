@@ -729,7 +729,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     setTimeout(function() {
                         el.n[w].classList.remove("up");
                         w++;
-                        setTimeout(s, (op.t / 2))
+                        setTimeout(s, (op.t / 4))
                     }, 10);
                 }
             };
