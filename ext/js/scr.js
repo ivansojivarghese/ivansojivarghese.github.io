@@ -93,6 +93,7 @@ var im = { // #intro_main
         rb : document.getElementById("random_box"),
         rbc : document.querySelectorAll(".random_boxCircle"),
         rbc_t1 : document.getElementById("rbc_t1"),
+        ld_tr : document.querySelectorAll("#landscape_parallax .img.mini"),
         x : false,
         x2 : false,
         x3 : false,
@@ -873,6 +874,10 @@ function sc_LpH() { // scroll loop - phablet
 
                             // 48, 48, 48
                             // 135, 206, 235
+
+                            // TRANSPORTATION elements
+                            pf.ld_tr;
+
                         }
 
                     } else {
