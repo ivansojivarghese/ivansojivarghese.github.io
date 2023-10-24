@@ -909,9 +909,16 @@ function sc_LpH() { // scroll loop - phablet
                     if ((b.rbc1.top < 0) && pf.x11 & !pf.x12) {
 
                         var transport = function() {
-                            var r = getRandomInt(0, 3);
-                            pf.ld_tr[r].style.transitionDuration = "3s";
+                            var r = getRandomInt(0, 3),
+                                s = getRandomInt(2, 5);
+                            pf.ld_tr[r].classList.remove("z_Os");
+                            pf.ld_tr[r].style.transitionDuration = s + "s";
                             pf.ld_tr[r].style.transform = "translateX(calc(100vw + 2rem))";
+
+                            setTimeout(function() {
+                                pf.ld_tr[r].classList.add("z_Os");
+                                pf.ld_tr[r].style.transform = "none";
+                            }, ((s * 1000) + 10));
 
                             setTimeout(transport, 5000);
                         };
