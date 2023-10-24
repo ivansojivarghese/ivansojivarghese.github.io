@@ -570,6 +570,11 @@ div.cursorInt {
     height: 2rem;
 }
 
+#bicyle_img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 #landscape_parallax .cloud_img {
     position: absolute;
 }
