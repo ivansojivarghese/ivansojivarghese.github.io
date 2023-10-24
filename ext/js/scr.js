@@ -929,7 +929,7 @@ function sc_LpH() { // scroll loop - phablet
                                 pf.ld_tr[r].classList.add("v_n");
                                 pf.ld_tr[r].style.transform = "none";
 
-                                pf.ld_tra.push(pf.ld_tra.splice(pf.ld_tra.indexOf(element), 1)[0]); // push target to last
+                                pf.ld_tra.push(pf.ld_tra.splice(pf.ld_tra.indexOf(r), 1)[0]); // push target to last
                                 pf.ld_tra.pop(); // remove from active array
 
                             }, ((s * 1000) + 20));
