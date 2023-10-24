@@ -565,6 +565,11 @@ div.cursorInt {
     position: relative;
 }
 
+#landscape_parallax .img.mini {
+    width: 2rem;
+    height: 2rem;
+}
+
 #landscape_parallax .cloud_img {
     position: absolute;
 }
