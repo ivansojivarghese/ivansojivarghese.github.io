@@ -436,7 +436,7 @@ function load_js_e() { // load JS (page specific)
                 if (i !== 0 && i !== 6 && i !== 7 && ((i !== 3 && i !== 4 && vw.dk) || !vw.dk)) {
                     qInfo[i].innerHTML = dev.info[d];
                 } else if (ld) { // run typing effect
-                    ld.x4 = true;
+                    ld.x4 = true; //
                 }
                 i++;
             }
