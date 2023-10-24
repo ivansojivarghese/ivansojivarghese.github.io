@@ -869,20 +869,11 @@ function sc_LpH() { // scroll loop - phablet
                                 gV = (gColCh <= gCol) ? gColCh : gCol,
                                 bV = (bColCh <= bCol) ? bColCh : bCol;
 
-                            var transport = function() {
-                                var r = getRandomInt(0, 3);
-                                pf.ld_tr[r].style.transitionDuration = "4s";
-                                pf.ld_tr[r].style.transform = "translateX(calc(100vw + 2rem))";
-                            };
-
                             // RANDOM BOX BACK. COL. CHANGE
                             pf.rb.style.backgroundColor = "rgb(" + rV + ", " + gV + ", " + bV + ")";
 
                             // 48, 48, 48
                             // 135, 206, 235
-
-                            // TRANSPORTATION elements
-                            setInterval(transport, 1000);
 
                         }
 
@@ -917,11 +908,21 @@ function sc_LpH() { // scroll loop - phablet
 
                     if ((b.rbc1.top < 0) && pf.x11 & !pf.x12) {
 
+                        var transport = function() {
+                            var r = getRandomInt(0, 3);
+                            pf.ld_tr[r].style.transitionDuration = "3s";
+                            pf.ld_tr[r].style.transform = "translateX(calc(100vw + 2rem))";
+
+                            setTimeout(transport, 5000);
+                        };
+
                         pf.rf16 = (pf.rf12 - ((pos.y - pf.rf14) / op.fN));
                         pf.rf17 = pos.y;
                         pf.rf17a = ((pos.y - pf.rf15) / (op.fN / 4)); // convert to text
 
                         pf.rf17b = b.ldpr.top;
+
+                        transport();
 
                         pf.x12 = true;
                     }
