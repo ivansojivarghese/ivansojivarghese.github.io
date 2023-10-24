@@ -1071,6 +1071,18 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/store.svg");
 }
 
+.bicycle_img {
+    background-image: url("../svg/bicycle.svg");
+}
+
+.van_img {
+    background-image: url("../svg/van.svg");
+}
+
+.truck_img {
+    background-image: url("../svg/truck.svg");
+}
+
 .coffee_w_img {
     background-image: url("../svg/coffee_white.svg");
 }
