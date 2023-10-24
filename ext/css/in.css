@@ -556,6 +556,7 @@ div.cursorInt {
 #landscape_parallax {
     transform: translateY(5rem);
     top: 70rem;
+    height: 18rem;
 }
 
 #landscape_parallax .img {
