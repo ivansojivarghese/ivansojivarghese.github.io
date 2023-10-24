@@ -929,12 +929,12 @@ function sc_LpH() { // scroll loop - phablet
                             setTimeout(function() {
                                 pf.ld_tr[r].style.transitionDuration = 0.2 + "s";
                                 pf.ld_tr[r].classList.add("z_O");
-                                pf.ld_tr[r].classList.add("v_n");
-                                pf.ld_tr[r].style.transform = "none";
-
-                                pf.ld_tra.push(pf.ld_tra.splice(pf.ld_tra.indexOf(r), 1)[0]); // push target to last
-                                pf.ld_tra.pop(); // remove from active array
-
+                                // pf.ld_tr[r].classList.add("v_n");
+                                setTimeout(function() {
+                                    pf.ld_tr[r].style.transform = "none";
+                                    pf.ld_tra.push(pf.ld_tra.splice(pf.ld_tra.indexOf(r), 1)[0]); // push target to last
+                                    pf.ld_tra.pop(); // remove from active array
+                                }, 200);
                             }, ((s * 1000) + 500));
 
                             setTimeout(transport, 5000);
