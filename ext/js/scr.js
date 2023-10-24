@@ -94,6 +94,7 @@ var im = { // #intro_main
         rbc : document.querySelectorAll(".random_boxCircle"),
         rbc_t1 : document.getElementById("rbc_t1"),
         ld_tr : document.querySelectorAll("#landscape_parallax .img.mini"),
+        ld_tra : [],
         x : false,
         x2 : false,
         x3 : false,
@@ -908,18 +909,29 @@ function sc_LpH() { // scroll loop - phablet
 
                     if ((b.rbc1.top < 0) && pf.x11 & !pf.x12) {
 
-                        var transport = function() {
-                            var r = getRandomInt(0, 3),
-                                s = getRandomInt(2, 5);
+                        var transport = function() { 
+                            var r, // elements in focus
+                                s = getRandomInt(2, 10); // approx. duration
+                            
+                            do {
+                                r = getRandomInt(0, 3);
+                            }
+                            while (pf.ld_tra.includes(r));
+
                             pf.ld_tr[r].classList.remove("v_n");
                             setTimeout(function() {
                                 pf.ld_tr[r].style.transitionDuration = s + "s";
                                 pf.ld_tr[r].style.transform = "translateX(calc(100vw + 2rem))";
+                                pf.ld_tra[pf.ld_tra.length] = r; // add to active array
                             }, 10);
                             setTimeout(function() {
                                 pf.ld_tr[r].style.transitionDuration = 0 + "s";
                                 pf.ld_tr[r].classList.add("v_n");
                                 pf.ld_tr[r].style.transform = "none";
+
+                                pf.ld_tra.push(pf.ld_tra.splice(pf.ld_tra.indexOf(element), 1)[0]); // push target to last
+                                pf.ld_tra.pop(); // remove from active array
+
                             }, ((s * 1000) + 20));
 
                             setTimeout(transport, 5000);
