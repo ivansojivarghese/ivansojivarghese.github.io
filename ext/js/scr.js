@@ -917,6 +917,7 @@ function sc_LpH() { // scroll loop - phablet
                                 pf.ld_tr[r].style.transform = "translateX(calc(100vw + 2rem))";
                             }, 10);
                             setTimeout(function() {
+                                pf.ld_tr[r].style.transitionDuration = 0 + "s";
                                 pf.ld_tr[r].classList.add("z_Os");
                                 pf.ld_tr[r].style.transform = "none";
                             }, ((s * 1000) + 20));
