@@ -96,6 +96,7 @@ var im = { // #intro_main
         ld_tr : document.querySelectorAll("#landscape_parallax .img.mini"),
         ld_tra : [],
         ld_p : document.querySelector("#landscape_parallax .plane_img"),
+        ld_pL : null,
         x : false,
         x2 : false,
         x3 : false,
@@ -945,10 +946,12 @@ function sc_LpH() { // scroll loop - phablet
                             // pf.ld_p.style.transitionDuration = "3s";
 
                             var w = 0;
-                            setInterval(function() {
+                            pf.ld_pL = setInterval(function() {
                                 pf.ld_p.style.transform = "translate(" + w + "px, " + (-1 * ((-0.00015 * Math.pow(w, 2)) + (0.525 * w))) + "px)";
                                 if (w < (wiD + (2 * op.fN))) {
                                     w++;
+                                } else {
+                                    clearInterval(pf.ld_pL);
                                 }
                             }, 10);
 
