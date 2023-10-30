@@ -951,16 +951,6 @@ function sc_LpH() { // scroll loop - phablet
 
                         transport();
 
-                        // FLYING PLANE ANIMATION
-                        pf.ld_p.style.transitionDuration = "2s";
-                        pf.ld_p.style.transform = "translateX(" + (wiD + (2 * op.fN)) + "px)";
-
-                        pf.ld_pL = setInterval(function() {
-                            var w = getBd(pf.ld_p, "left"),
-                                h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
-                                pf.ld_p.style.bottom = ((h + (op.fN * 2)) / op.fN) + "rem";
-                        }, 10);
-
                         pf.x12 = true;
                     }
 
@@ -984,6 +974,16 @@ function sc_LpH() { // scroll loop - phablet
                             var a = ((pos.y - pf.rf9a) / op.fN) / el.Ldpllx_caXe[i];
                             el.Ldpllx_ci[i].style.transform = "translateX(" + (el.Ldpllx_caX[i] + a) + "rem) translateY(" + el.Ldpllx_ca[i] + "rem)";
                         }
+
+                        // FLYING PLANE ANIMATION
+                        pf.ld_p.style.transitionDuration = "2s";
+                        pf.ld_p.style.transform = "translateX(" + (wiD + (2 * op.fN)) + "px)";
+
+                        pf.ld_pL = setInterval(function() {
+                            var w = getBd(pf.ld_p, "left"),
+                                h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
+                                pf.ld_p.style.bottom = ((h + (op.fN * 2)) / op.fN) + "rem";
+                        }, 10);
                     }
 
                     if (b.ldg.bottom < aH && !pf.x15) {
