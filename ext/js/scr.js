@@ -941,20 +941,6 @@ function sc_LpH() { // scroll loop - phablet
 
                             setTimeout(transport, 5000);
 
-                            // FLYING PLANE ANIMATION
-
-                            // pf.ld_p.style.transitionDuration = "3s";
-
-                            var w = 0;
-                            pf.ld_pL = setInterval(function() {
-                                pf.ld_p.style.transform = "translate(" + w + "px, " + (-1 * ((-0.00015 * Math.pow(w, 2)) + (0.525 * w))) + "px)";
-                                if (w < (wiD + (2 * op.fN))) {
-                                    w++;
-                                } else {
-                                    clearInterval(pf.ld_pL);
-                                }
-                            }, 10);
-
                         };
 
                         pf.rf16 = (pf.rf12 - ((pos.y - pf.rf14) / op.fN));
@@ -964,6 +950,14 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rf17b = b.ldpr.top;
 
                         transport();
+
+                        // FLYING PLANE ANIMATION
+                        pf.ld_p.style.transitionDuration = "5s";
+                        pf.ld_p.style.transform = "translateX(" + (wiD + (2 * op.fN)) + "px)";
+
+                        pf.ld_pL = setInterval(function() {
+                            
+                        }, 10);
 
                         pf.x12 = true;
                     }
