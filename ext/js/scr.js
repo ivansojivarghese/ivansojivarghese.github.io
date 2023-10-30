@@ -956,7 +956,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.ld_p.style.transform = "translateX(" + (wiD + (2 * op.fN)) + "px)";
 
                         pf.ld_pL = setInterval(function() {
-                            var w = getBd(pf.ld_pL, "left"),
+                            var w = getBd(pf.ld_p, "left"),
                                 h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
                                 pf.ld_p.style.bottom = ((h + (op.fN * 2)) / op.fN) + "rem";
                         }, 10);
