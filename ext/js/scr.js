@@ -980,11 +980,11 @@ function sc_LpH() { // scroll loop - phablet
                         pf.ld_p.style.transitionDelay = "2s";
                         // pf.ld_p.style.left = (wiD + (2 * op.fN)) + "px";
 
-                        var w = 500;
+                        var w = (wiD + (2 * op.fN));
                         // pf.ld_pL = setInterval(function() {
                             // w++;
-                            var h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
-                            pf.ld_p.style.transform = "translateX(" + w + "px) translateY(" + (-1 * ((h + (op.fN * 2)) / op.fN)) + "rem)";
+                        var h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
+                        pf.ld_p.style.transform = "translateX(" + w + "px) translateY(" + (-1 * ((h + (op.fN * 2)) / op.fN)) + "rem)";
                         // }, 10);
                     }
 
