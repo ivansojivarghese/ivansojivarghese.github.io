@@ -978,12 +978,12 @@ function sc_LpH() { // scroll loop - phablet
                         // FLYING PLANE ANIMATION
                         pf.ld_p.style.transitionDuration = "10s";
                         pf.ld_p.style.transitionDelay = "2s";
-                        pf.ld_p.style.left = (wiD + (2 * op.fN)) + "px";
+                        // pf.ld_p.style.left = (wiD + (2 * op.fN)) + "px";
 
                         pf.ld_pL = setInterval(function() {
                             var w = getBd(pf.ld_p, "left"),
                                 h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
-                                pf.ld_p.style.transform = "translateY(" + (-1 * ((h + (op.fN * 2)) / op.fN)) + "rem)";
+                                pf.ld_p.style.transform = "translateX(" + (w + 1) + "px) translateY(" + (-1 * ((h + (op.fN * 2)) / op.fN)) + "rem)";
                         }, 10);
                     }
 
