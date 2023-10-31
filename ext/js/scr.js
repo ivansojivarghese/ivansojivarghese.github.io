@@ -979,10 +979,10 @@ function sc_LpH() { // scroll loop - phablet
 
                         var w = (wiD + (2 * op.fN)),
                             h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w) + (op.fN * 2),
-                            angle = Math.atan(h / w) * (180 / Math.PI);
+                            angle = -1 * Math.atan(h / w) * (180 / Math.PI);
 
-                        console.log(angle);
-                        // pf.ld_p.style.transform = "rotate()";
+                        // console.log(angle);
+                        pf.ld_p.style.transform = "rotate(" + angle + "deg)";
 
                         pf.ld_p.style.transitionDuration = "2s";
                         pf.ld_p.style.transitionDelay = "2s";
