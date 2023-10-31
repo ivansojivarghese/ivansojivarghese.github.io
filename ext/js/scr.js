@@ -974,6 +974,11 @@ function sc_LpH() { // scroll loop - phablet
                             var a = ((pos.y - pf.rf9a) / op.fN) / el.Ldpllx_caXe[i];
                             el.Ldpllx_ci[i].style.transform = "translateX(" + (el.Ldpllx_caX[i] + a) + "rem) translateY(" + el.Ldpllx_ca[i] + "rem)";
                         }
+                    }
+
+                    if (b.ldg.bottom < aH && !pf.x15) {
+                        pf.rf21 = b.rb.top;
+                        pf.x15 = true;
 
                         // FLYING PLANE ANIMATION
 
@@ -986,14 +991,8 @@ function sc_LpH() { // scroll loop - phablet
 
                         setTimeout(function() {
                             pf.ld_p.style.transitionDuration = "2s";
-                            pf.ld_p.style.transitionDelay = "2s";
                             pf.ld_p.style.transform = "rotate(" + angle + "deg) translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
                         }, 10);
-                    }
-
-                    if (b.ldg.bottom < aH && !pf.x15) {
-                        pf.rf21 = b.rb.top;
-                        pf.x15 = true;
                     }
 
                 } else {
