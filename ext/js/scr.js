@@ -980,10 +980,11 @@ function sc_LpH() { // scroll loop - phablet
                         pf.ld_p.style.transitionDelay = "2s";
                         // pf.ld_p.style.left = (wiD + (2 * op.fN)) + "px";
 
+                        var w = 0;
                         pf.ld_pL = setInterval(function() {
-                            var w = getBd(pf.ld_p, "left"),
-                                h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
-                                pf.ld_p.style.transform = "translateX(" + (w + 1) + "px) translateY(" + (-1 * ((h + (op.fN * 2)) / op.fN)) + "rem)";
+                            w++;
+                            var h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
+                                pf.ld_p.style.transform = "translateX(" + w + "px) translateY(" + (-1 * ((h + (op.fN * 2)) / op.fN)) + "rem)";
                         }, 10);
                     }
 
