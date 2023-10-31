@@ -976,7 +976,7 @@ function sc_LpH() { // scroll loop - phablet
                         }
 
                         // FLYING PLANE ANIMATION
-                        pf.ld_p.style.transitionDuration = "10s";
+                        pf.ld_p.style.transitionDuration = "2s";
                         pf.ld_p.style.transitionDelay = "2s";
                         // pf.ld_p.style.left = (wiD + (2 * op.fN)) + "px";
 
