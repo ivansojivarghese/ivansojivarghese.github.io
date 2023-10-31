@@ -990,7 +990,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.ld_p.style.transform = "rotate(" + angle + "deg)";
 
                         setTimeout(function() {
-                            pf.ld_p.style.transitionDuration = "2s";
+                            pf.ld_p.style.transitionDuration = "3s";
                             pf.ld_p.style.transitionDelay = "2s";
                             pf.ld_p.style.transform = "rotate(" + angle + "deg) translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
                         }, 10);
