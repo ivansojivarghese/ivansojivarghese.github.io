@@ -984,9 +984,11 @@ function sc_LpH() { // scroll loop - phablet
                         // console.log(angle);
                         pf.ld_p.style.transform = "rotate(" + angle + "deg)";
 
-                        pf.ld_p.style.transitionDuration = "2s";
-                        pf.ld_p.style.transitionDelay = "2s";
-                        pf.ld_p.style.transform = "translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
+                        setTimeout(function() {
+                            pf.ld_p.style.transitionDuration = "2s";
+                            pf.ld_p.style.transitionDelay = "2s";
+                            pf.ld_p.style.transform = "rotate(" + angle + "deg) translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
+                        }, 10);
                     }
 
                     if (b.ldg.bottom < aH && !pf.x15) {
