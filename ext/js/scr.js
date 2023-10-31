@@ -976,16 +976,17 @@ function sc_LpH() { // scroll loop - phablet
                         }
 
                         // FLYING PLANE ANIMATION
+
+                        var w = (wiD + (2 * op.fN)),
+                            h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w) + (op.fN * 2),
+                            angle = Math.atan(h / w);
+
+                        console.log(angle);
+                        // pf.ld_p.style.transform = "rotate()";
+
                         pf.ld_p.style.transitionDuration = "2s";
                         pf.ld_p.style.transitionDelay = "2s";
-                        // pf.ld_p.style.left = (wiD + (2 * op.fN)) + "px";
-
-                        var w = (wiD + (2 * op.fN));
-                        // pf.ld_pL = setInterval(function() {
-                            // w++;
-                        var h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w);
-                        pf.ld_p.style.transform = "translateX(" + w + "px) translateY(" + (-1 * ((h + (op.fN * 2)) / op.fN)) + "rem)";
-                        // }, 10);
+                        pf.ld_p.style.transform = "translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
                     }
 
                     if (b.ldg.bottom < aH && !pf.x15) {
