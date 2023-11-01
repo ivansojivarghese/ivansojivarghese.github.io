@@ -979,8 +979,12 @@ function sc_LpH() { // scroll loop - phablet
 
                     if (b.ldg.top < aH && !pf.x15a) {
                         // FLYING PLANE ANIMATION
-
                         pf.x15a = true;
+
+                        var aValue = (aH - (op.fN * 4)) / ((wiD / 2) * ((wiD / 2) - wiD)),
+                            bValue = ((aH - (op.fN * 4)) - (aValue * Math.pow((wiD / 2), 2))) / (wiD / 2); // derive a parabolic model based off device height/width
+
+                        console.log(aValue + ', ' + bValue);    
 
                         /*
                         var w = (wiD + (2 * op.fN)),
@@ -994,7 +998,7 @@ function sc_LpH() { // scroll loop - phablet
                             // pf.ld_p.style.transitionDelay = "2s";
                             pf.ld_p.style.transform = "rotate(" + angle + "deg) translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
                         }, 10);*/
-                        
+
                     }
 
                     if (b.ldg.bottom < aH && !pf.x15) {
