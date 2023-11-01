@@ -987,7 +987,7 @@ function sc_LpH() { // scroll loop - phablet
                                 return (aValue * Math.pow(x, 2)) + (bValue * x);
                             };
 
-                        pf.ld_p.style.transform = "translateX(" + 100 + "px) translateY(" + (-1 * model(100)) + "px)";
+                        pf.ld_p.style.transform = "translateX(" + (wiD / 4) + "px) translateY(" + (-1 * model(wiD / 4)) + "px)";
 
                         /*
                         var w = (wiD + (2 * op.fN)),
