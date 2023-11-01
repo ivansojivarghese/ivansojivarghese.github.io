@@ -981,10 +981,13 @@ function sc_LpH() { // scroll loop - phablet
                         // FLYING PLANE ANIMATION
                         pf.x15a = true;
 
-                        var aValue = (aH - (op.fN * 4)) / ((wiD / 2) * ((wiD / 2) - wiD)),
-                            bValue = ((aH - (op.fN * 4)) - (aValue * Math.pow((wiD / 2), 2))) / (wiD / 2); // derive a parabolic model based off device height/width
+                        var aValue = (aH - (op.fN * 4)) / ((wiD / 2) * ((wiD / 2) - wiD)), // get value of 'a' from 'y=ax(x-wiD)'
+                            bValue = ((aH - (op.fN * 4)) - (aValue * Math.pow((wiD / 2), 2))) / (wiD / 2), // get value of 'b' from 'ax^2 + bx = y' ; derive a parabolic model based off device height/width
+                            model = function(x) {
+                                return (aValue * Math.pow(x, 2)) + (bValue * x);
+                            };
 
-                        console.log(aValue + ', ' + bValue);    
+                        pf.ld_p.style.transform = "translateX(" + 100 + "px) translateY(" + model(100) + "px)";
 
                         /*
                         var w = (wiD + (2 * op.fN)),
