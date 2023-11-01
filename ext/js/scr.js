@@ -982,6 +982,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.x15a = true;
 
+                        /*
                         var w = (wiD + (2 * op.fN)),
                             h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w) + (op.fN * 2),
                             angle = -1 * Math.atan(h / w) * (180 / Math.PI);
@@ -992,7 +993,8 @@ function sc_LpH() { // scroll loop - phablet
                             pf.ld_p.style.transitionDuration = "3s";
                             // pf.ld_p.style.transitionDelay = "2s";
                             pf.ld_p.style.transform = "rotate(" + angle + "deg) translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
-                        }, 10);
+                        }, 10);*/
+                        
                     }
 
                     if (b.ldg.bottom < aH && !pf.x15) {
