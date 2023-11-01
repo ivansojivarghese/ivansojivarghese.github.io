@@ -113,6 +113,7 @@ var im = { // #intro_main
         x13 : false,
         x14 : false,
         x15 : false,
+        x15a : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -976,11 +977,10 @@ function sc_LpH() { // scroll loop - phablet
                         }
                     }
 
-                    if (b.ldg.bottom < aH && !pf.x15) {
-                        pf.rf21 = b.rb.top;
-                        pf.x15 = true;
-
+                    if (b.ldg.top < aH && !pf.x15a) {
                         // FLYING PLANE ANIMATION
+
+                        pf.x15a = true;
 
                         var w = (wiD + (2 * op.fN)),
                             h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w) + (op.fN * 2),
@@ -993,6 +993,11 @@ function sc_LpH() { // scroll loop - phablet
                             // pf.ld_p.style.transitionDelay = "2s";
                             pf.ld_p.style.transform = "rotate(" + angle + "deg) translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
                         }, 10);
+                    }
+
+                    if (b.ldg.bottom < aH && !pf.x15) {
+                        pf.rf21 = b.rb.top;
+                        pf.x15 = true;
                     }
 
                 } else {
