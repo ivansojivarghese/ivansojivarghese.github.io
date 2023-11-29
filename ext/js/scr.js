@@ -989,15 +989,21 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.ld_p.style.transitionDuration = "1s";
 
-                        var i = wiD,
-                            j = 1;
-                        pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
+                        var liveX = 1;
+                            // j = 1;
+                        // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
+
+                        pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
                         var k = setInterval(function() {
-                            i = (i / j);
-                            j++;
-                            console.log(wiD / i);
-                            if ((wiD / i) < (wiD / 2)) {
-                                pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
+                            // i = (i / j);
+                            // j++;
+                            // console.log(wiD / i);
+
+                            liveX += 60;
+
+                            if (liveX < (wiD / 2)) {
+                                // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
+                                pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
                             } else {
                                 clearInterval(k);
                             }
