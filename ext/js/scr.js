@@ -999,6 +999,8 @@ function sc_LpH() { // scroll loop - phablet
 
                         xLoop = setInterval(function() {
                             liveX += dev.t; // default fps increment
+                            inAngle = -1 * (90 - (Math.atan(model(liveX) / liveX) * (180 / Math.PI))); // initial angle
+
                             var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
