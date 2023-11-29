@@ -1010,7 +1010,7 @@ function sc_LpH() { // scroll loop - phablet
                             liveX += dev.t; // default fps increment
                             conAngle = angleMod * (inAngle + ((90 - (Math.atan(model(liveX) / ((wiD / xDivideMod) - liveX)) * (180 / Math.PI))))); // initial angle
 
-                            console.log(xDivideMod + ", " + conAngle + ", " + (Math.atan(model(liveX) / (wiD / xDivideMod))));
+                            console.log(xDivideMod + ", " + conAngle + ", " + (Math.atan(model(liveX) / ((wiD / xDivideMod) - liveX))));
 
                             var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
