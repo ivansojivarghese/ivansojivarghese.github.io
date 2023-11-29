@@ -989,33 +989,26 @@ function sc_LpH() { // scroll loop - phablet
                             inVel = 0.1, // initial
                             fnVel = 1,
                             liveX = 1,
+                            xDivide = 1.85,
                             xLoop = null;
 
                         pf.ld_p.style.transitionDuration = inVel + "s"; // set initial velocity (low duration)
-
-                            // j = 1;
-                        // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
 
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
 
                         xLoop = setInterval(function() {
                             liveX += dev.t; // default fps increment
-                            var u = (liveX <= (wiD / (1.85))) ? (((liveX / (wiD / 2)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / 2)) / (wiD / 2)) * (fnVel - inVel)));
+                            var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
-                            console.log(u);
-
-                            if (liveX <= (wiD + dev.t)) {
-                                
-                                // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
-
+                            if (liveX <= (wiD + dev.t)) { // run till after end of viewport
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
-
                             } else {
                                 clearInterval(xLoop);
                             }
-                        }, 100);
+                        }, (inVel * 1000));
+
 
                         /* // ROTATIONS OF THE PLANE
                         var w = (wiD + (2 * op.fN)),
