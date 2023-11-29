@@ -987,19 +987,21 @@ function sc_LpH() { // scroll loop - phablet
                                 return (aValue * Math.pow(x, 2)) + (bValue * x);
                             };
 
-                        pf.ld_p.style.transitionDuration = "1s";
+                        pf.ld_p.style.transitionDuration = "0.1s"; // set initial velocity
 
                         var liveX = 1;
+
                             // j = 1;
                         // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
 
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
                         var k = setInterval(function() {
+
                             // i = (i / j);
                             // j++;
                             // console.log(wiD / i);
 
-                            liveX += 60;
+                            liveX += 60; // default fps
 
                             if (liveX < (wiD / 2)) {
                                 // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
