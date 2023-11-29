@@ -1005,7 +1005,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             console.log(u);
 
-                            if (liveX <= wiD) {
+                            if (liveX <= (wiD + dev.t)) {
                                 
                                 // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
 
