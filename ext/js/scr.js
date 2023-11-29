@@ -996,8 +996,9 @@ function sc_LpH() { // scroll loop - phablet
                             i = (i / j);
                             j++;
                             console.log(wiD / i);
-                            pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
-                            if ((wiD / i) >= (wiD / 2)) {
+                            if ((wiD / i) < (wiD / 2)) {
+                                pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
+                            } else {
                                 clearInterval(k);
                             }
                         }, 1000);
