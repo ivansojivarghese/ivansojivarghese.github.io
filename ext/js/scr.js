@@ -985,32 +985,42 @@ function sc_LpH() { // scroll loop - phablet
                             bValue = ((aH - (op.fN * 4)) - (aValue * Math.pow((wiD / 2), 2))) / (wiD / 2), // get value of 'b' from 'ax^2 + bx = y' ; derive a parabolic model based off device height/width
                             model = function(x) {
                                 return (aValue * Math.pow(x, 2)) + (bValue * x);
-                            };
+                            },
 
-                        pf.ld_p.style.transitionDuration = "0.1s"; // set initial velocity
+                            // maxHeight = model(wiD / 2); // get max height of flight
 
-                        var liveX = 1;
+                            inVel = 0.1, // initial
+                            fnVel = 1,
+                            liveX = 1,
+                            xLoop = null;
+
+                        pf.ld_p.style.transitionDuration = inVel + "s"; // set initial velocity (low duration)
 
                             // j = 1;
                         // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
 
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
-                        var k = setInterval(function() {
+                        xLoop = setInterval(function() {
 
                             // i = (i / j);
                             // j++;
                             // console.log(wiD / i);
 
                             liveX += 60; // default fps
+                            var u = (((liveX / (wiD / 2)) * (fnVel - inVel)) + inVel);
+                            pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
-                            if (liveX < (wiD / 2)) {
-
+                            if (liveX <= (wiD / 2)) {
+                                
                                 // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
 
+                                setInterval(xLoop, (u * 1000)); // update interval
+
                             } else {
-                                clearInterval(k);
+                                clearInterval(xLoop);
                             }
+
                         }, 100);
 
                         /*
