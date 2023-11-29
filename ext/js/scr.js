@@ -986,9 +986,6 @@ function sc_LpH() { // scroll loop - phablet
                             model = function(x) {
                                 return (aValue * Math.pow(x, 2)) + (bValue * x);
                             },
-
-                            // maxHeight = model(wiD / 2); // get max height of flight
-
                             inVel = 0.1, // initial
                             fnVel = 1,
                             liveX = 1,
@@ -1014,7 +1011,7 @@ function sc_LpH() { // scroll loop - phablet
                                 
                                 // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
-                                clearInterval(xLoop); // clear original loop
+                                // clearInterval(xLoop); // clear original loop
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
 
                             } else {
