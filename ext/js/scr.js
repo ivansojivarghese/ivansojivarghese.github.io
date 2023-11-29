@@ -991,6 +991,7 @@ function sc_LpH() { // scroll loop - phablet
                             liveX = 1,
                             xDivide = 1.85,
                             inAngle = -1 * (90 - (Math.atan(model(dev.t) / dev.t) * (180 / Math.PI))), // initial angle
+                            conAngle = 0,
                             xLoop = null;
 
                         pf.ld_p.style.transitionDuration = inVel + "s"; // set initial velocity (low duration)
@@ -999,13 +1000,13 @@ function sc_LpH() { // scroll loop - phablet
 
                         xLoop = setInterval(function() {
                             liveX += dev.t; // default fps increment
-                            inAngle = -1 * (90 - (Math.atan(model(liveX) / liveX) * (180 / Math.PI))); // initial angle
+                            conAngle = inAngle + ((90 - (Math.atan(model(liveX) / liveX) * (180 / Math.PI)))); // initial angle
 
                             var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
                             if (liveX <= (wiD + dev.t)) { // run till after end of viewport
-                                pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
+                                pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + conAngle + "deg)";
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
                             } else {
                                 clearInterval(xLoop);
