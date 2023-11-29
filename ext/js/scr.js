@@ -987,9 +987,11 @@ function sc_LpH() { // scroll loop - phablet
                                 return (aValue * Math.pow(x, 2)) + (bValue * x);
                             };
 
-                        pf.ld_p.style.transform = "translateX(" + (wiD / 4) + "px) translateY(" + (-1 * model(wiD / 4)) + "px)";
-                        setTimeout(function() {
-                            pf.ld_p.style.transform = "translateX(" + (wiD / 2) + "px) translateY(" + (-1 * model(wiD / 2)) + "px)";
+                        var i = 16;
+                        pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
+                        setInterval(function() {
+                            i--;
+                            pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
                         }, 2000);
 
                         /*
