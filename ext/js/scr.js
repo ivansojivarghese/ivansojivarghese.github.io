@@ -995,6 +995,7 @@ function sc_LpH() { // scroll loop - phablet
                         setInterval(function() {
                             i = (i / j);
                             j++;
+                            console.log(wiD / i);
                             pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
                         }, 1000);
 
