@@ -999,10 +999,9 @@ function sc_LpH() { // scroll loop - phablet
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
 
                         xLoop = setInterval(function() {
+                            var angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1;
                             liveX += dev.t; // default fps increment
-                            conAngle = inAngle + ((90 - (Math.atan(model(liveX) / (wiD / xDivide)) * (180 / Math.PI)))); // initial angle
-
-                            // add-on 0 at start, mid at mid, full at full
+                            conAngle = angleMod * (inAngle + ((90 - (Math.atan(model(liveX) / (wiD / xDivide)) * (180 / Math.PI))))); // initial angle
 
                             var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
