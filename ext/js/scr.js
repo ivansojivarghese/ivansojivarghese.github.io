@@ -998,10 +998,14 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
 
+                            // 1.85 to 1
+
                         xLoop = setInterval(function() {
-                            var angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1;
+                            var angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1,
+                                xDivideMod = xDivide - ((liveX / (wiD / xDivide)) * (xDivide - 1));
+
                             liveX += dev.t; // default fps increment
-                            conAngle = angleMod * (inAngle + ((90 - (Math.atan(model(liveX) / (wiD / xDivide)) * (180 / Math.PI))))); // initial angle
+                            conAngle = angleMod * (inAngle + ((90 - (Math.atan(model(liveX) / (wiD / xDivideMod)) * (180 / Math.PI))))); // initial angle
 
                             console.log(conAngle + ", " + (Math.atan(model(liveX) / (wiD / xDivide))));
 
