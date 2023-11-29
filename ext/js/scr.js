@@ -1000,7 +1000,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         xLoop = setInterval(function() {
                             liveX += dev.t; // default fps increment
-                            var u = (liveX <= (wiD / (5 / 3))) ? (((liveX / (wiD / 2)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / 2)) / (wiD / 2)) * (fnVel - inVel)));
+                            var u = (liveX <= (wiD / (2))) ? (((liveX / (wiD / 2)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / 2)) / (wiD / 2)) * (fnVel - inVel)));
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
                             console.log(u);
