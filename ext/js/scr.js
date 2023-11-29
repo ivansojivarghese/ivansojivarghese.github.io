@@ -989,10 +989,12 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.ld_p.style.transitionDuration = "1s";
 
-                        var i = wiD;
+                        var i = wiD,
+                            j = 1;
                         pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
                         setInterval(function() {
-                            i = i / 2;
+                            i = (i / j);
+                            j++;
                             pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
                         }, 1000);
 
