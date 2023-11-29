@@ -990,11 +990,12 @@ function sc_LpH() { // scroll loop - phablet
                             fnVel = 1,
                             liveX = 1,
                             xDivide = 1.85,
+                            inAngle = -1 * (90 - (Math.atan(model(dev.t) / dev.t) * (180 / Math.PI))), // initial angle
                             xLoop = null;
 
                         pf.ld_p.style.transitionDuration = inVel + "s"; // set initial velocity (low duration)
 
-                        pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
+                        pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
 
                         xLoop = setInterval(function() {
                             liveX += dev.t; // default fps increment
