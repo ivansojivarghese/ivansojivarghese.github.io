@@ -1007,17 +1007,16 @@ function sc_LpH() { // scroll loop - phablet
                             var u = (((liveX / (wiD / 2)) * (fnVel - inVel)) + inVel);
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
-                            if (liveX <= (wiD / 2)) {
+                            if (liveX <= (wiD)) {
                                 
                                 // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
+
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
-                                // clearInterval(xLoop); // clear original loop
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
 
                             } else {
                                 clearInterval(xLoop);
                             }
-
                         }, 100);
 
                         /*
