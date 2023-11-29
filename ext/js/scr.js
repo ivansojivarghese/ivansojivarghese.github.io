@@ -1004,12 +1004,14 @@ function sc_LpH() { // scroll loop - phablet
                             liveX += 60; // default fps
 
                             if (liveX < (wiD / 2)) {
+
                                 // pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px)";
+
                             } else {
                                 clearInterval(k);
                             }
-                        }, 1000);
+                        }, 100);
 
                         /*
                         var w = (wiD + (2 * op.fN)),
