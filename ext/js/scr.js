@@ -987,14 +987,14 @@ function sc_LpH() { // scroll loop - phablet
                                 return (aValue * Math.pow(x, 2)) + (bValue * x);
                             };
 
-                        pf.ld_p.style.transitionDuration = "2s";
+                        pf.ld_p.style.transitionDuration = "1s";
 
-                        var i = 16;
+                        var i = wiD;
                         pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
                         setInterval(function() {
                             i--;
                             pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
-                        }, 2000);
+                        }, 1000);
 
                         /*
                         var w = (wiD + (2 * op.fN)),
