@@ -992,11 +992,14 @@ function sc_LpH() { // scroll loop - phablet
                         var i = wiD,
                             j = 1;
                         pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
-                        setInterval(function() {
+                        var k = setInterval(function() {
                             i = (i / j);
                             j++;
                             console.log(wiD / i);
                             pf.ld_p.style.transform = "translateX(" + (wiD / i) + "px) translateY(" + (-1 * model(wiD / i)) + "px)";
+                            if ((wiD / i) >= (wiD / 2)) {
+                                clearInterval(k);
+                            }
                         }, 1000);
 
                         /*
