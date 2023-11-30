@@ -1046,10 +1046,10 @@ function sc_LpH() { // scroll loop - phablet
 
                 } else {
 
-                    e_Fd(pf.rbc[0], true); // reverse effect
+                    // e_Fd(pf.rbc[0], true); // reverse effect
                     e_Fd(pf.rbc[1], true);
 
-                    pf.rbc[0].style.transform = "";
+                    // pf.rbc[0].style.transform = "";
                     pf.rbc[1].style.left = "";
                 }
             }
