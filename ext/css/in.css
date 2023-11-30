@@ -624,7 +624,11 @@ div.cursorInt {
 }
 
 #random5_sc a {
-    margin-right: 5rem;
+    margin-right: 6rem;
+}
+
+#random5_sc a:nth-child(4) {
+    margin: 0;
 }
 
 #random5_sc h5 {
