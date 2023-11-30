@@ -117,6 +117,7 @@ var im = { // #intro_main
         x15 : false,
         x15a : false,
         x16 : false,
+        x17 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -896,6 +897,11 @@ function sc_LpH() { // scroll loop - phablet
 
                     }
 
+                    if (pf.rbc[1].style.left < 0 && !pf.x17) {
+                        e_Fd(pf.rbc[1], true);
+                        pf.x17 = true;
+                    }
+
                     if (b.rbc1.right > b.rbc2.left && !pf.x10 /*&& b.rbc1.bottom > b.rbc2.top && b.rbc1.left < b.rbc2.right && b.rbc1.top < b.rbc2.bottom*/) { // collision between the 2 circles
 
                         pf.rf11 = ((pf.rf8 - rbLeft) / op.fN);
@@ -1047,10 +1053,11 @@ function sc_LpH() { // scroll loop - phablet
                 } else {
 
                     // e_Fd(pf.rbc[0], true); // reverse effect
-                    e_Fd(pf.rbc[1], true);
+
+                    //e_Fd(pf.rbc[1], true);
 
                     // pf.rbc[0].style.transform = "";
-                    pf.rbc[1].style.left = "";
+                    //pf.rbc[1].style.left = "";
                 }
             }
 
