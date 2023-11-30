@@ -622,3 +622,11 @@ div.cursorInt {
 #random4_sc .key-sm {
     top: 0.25rem;
 }
+
+#random5_sc a {
+    margin-right: 5rem;
+}
+
+#random5_sc h5 {
+    font-weight: bold;
+}
