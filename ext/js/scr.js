@@ -992,6 +992,7 @@ function sc_LpH() { // scroll loop - phablet
                             xDivide = 2,
                             inAngle = -1 * (90 - (Math.atan(model(dev.t) / dev.t) * (180 / Math.PI))), // initial angle
                             conAngle = 0,
+                            angleMod = 1,
                             xLoop = null;
 
                         pf.ld_p.style.transitionDuration = inVel + "s"; // set initial velocity (low duration)
@@ -999,51 +1000,24 @@ function sc_LpH() { // scroll loop - phablet
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
 
                         xLoop = setInterval(function() {
-                            var // angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1,
-                                angleMod = -1;
-                                /*
-                                xDivideMod = xDivide - ((liveX / (wiD / xDivide)) * (xDivide - 1));
-                            if (xDivideMod < 1) {
-                                xDivideMod = 1;
-                            }*/
 
                             liveX += dev.t; // default fps increment
-
-                            console.log((Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI)));
 
                             conAngle = (liveX <= ((wiD / xDivide) - dev.t)) ? angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI))))) : 0; // initial angle
                             if (liveX > (wiD / xDivide)) {
                                 conAngle = angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI)))));
                             }
 
-                            // console.log(conAngle + ", " + liveX + ", " + (model(wiD / 2) - model(liveX)) + ", " + ((wiD / 2) - liveX));
-                            // console.log(xDivideMod + ", " + conAngle + ", " + (Math.atan(model(liveX) / ((wiD / xDivideMod) - liveX))));
-
                             var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
                             if (liveX <= (wiD + dev.t)) { // run till after end of viewport
-                            // if (liveX <= (wiD / xDivide)) { // DEV
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + conAngle + "deg)";
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
                             } else {
                                 clearInterval(xLoop);
                             }
                         }, (inVel * 1000));
-
-
-                        /* // ROTATIONS OF THE PLANE
-                        var w = (wiD + (2 * op.fN)),
-                            h = (-0.00015 * Math.pow(w, 2)) + (0.525 * w) + (op.fN * 2),
-                            angle = -1 * Math.atan(h / w) * (180 / Math.PI);
-
-                        pf.ld_p.style.transform = "rotate(" + angle + "deg)";
-
-                        setTimeout(function() {
-                            pf.ld_p.style.transitionDuration = "3s";
-                            // pf.ld_p.style.transitionDelay = "2s";
-                            pf.ld_p.style.transform = "rotate(" + angle + "deg) translateX(" + w + "px) translateY(" + (-1 * (h / op.fN)) + "rem)";
-                        }, 10);*/
 
                     }
 
