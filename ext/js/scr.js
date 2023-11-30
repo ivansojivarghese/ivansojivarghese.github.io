@@ -1000,7 +1000,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         xLoop = setInterval(function() {
                             var // angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1,
-                                angleMod = 1;
+                                angleMod = -1;
                                 /*
                                 xDivideMod = xDivide - ((liveX / (wiD / xDivide)) * (xDivide - 1));
                             if (xDivideMod < 1) {
