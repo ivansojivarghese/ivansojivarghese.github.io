@@ -1015,7 +1015,7 @@ function sc_LpH() { // scroll loop - phablet
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + conAngle + "deg)";
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
                             } else {
-                                clearInterval(xLoop);
+                                clearInterval(xLoop); //
                             }
                         }, (inVel * 1000)); //
 
