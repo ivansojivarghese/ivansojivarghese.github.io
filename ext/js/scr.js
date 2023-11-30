@@ -197,7 +197,6 @@ function sc_L() { // functions (live on scroll)
             pfw3 : pf.w3.getBoundingClientRect(), // w3
             pfsc : pf.sc.getBoundingClientRect(), // scroll_banner
             pfds : pf.ds.getBoundingClientRect(), // design_banner
-            r2sc : pf.r2sc.getBoundingClientRect(), // random2_sc 
             fm : document.getElementById("footer_main_sc").getBoundingClientRect(), // footer_main_sc
             fb : document.getElementById("footer_blurb").getBoundingClientRect() // footer_blurb
         };
@@ -646,7 +645,8 @@ function sc_LpH() { // scroll loop - phablet
                 rbc1 : pf.rbc[0].getBoundingClientRect(),
                 rbc2 : pf.rbc[1].getBoundingClientRect(),
                 ldpr : el.Ldpllx.getBoundingClientRect(),
-                ldg : el.Ldpllx_g.getBoundingClientRect()
+                ldg : el.Ldpllx_g.getBoundingClientRect(),
+                r2sc : pf.r2sc.getBoundingClientRect(), // random2_sc 
             };
 
 
