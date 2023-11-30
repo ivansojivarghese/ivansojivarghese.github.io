@@ -90,6 +90,7 @@ var im = { // #intro_main
         xds : document.getElementsByClassName("xscroll"),
         sb : document.getElementById("pf_scrollbar"),
         rsc : document.getElementById("random_sc"), 
+        r2sc : document.getElementById("random2_sc"),
         rb : document.getElementById("random_box"),
         rbc : document.querySelectorAll(".random_boxCircle"),
         rbc_t1 : document.getElementById("rbc_t1"),
@@ -1019,6 +1020,10 @@ function sc_LpH() { // scroll loop - phablet
                             }
                         }, (inVel * 1000)); //
 
+                    }
+
+                    if () {
+                        
                     }
 
                     if (b.ldg.bottom < aH && !pf.x15) { //
