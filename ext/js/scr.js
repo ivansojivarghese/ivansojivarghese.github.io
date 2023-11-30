@@ -994,8 +994,6 @@ function sc_LpH() { // scroll loop - phablet
                             conAngle = 0,
                             xLoop = null;
 
-                        console.log(inAngle);
-
                         pf.ld_p.style.transitionDuration = inVel + "s"; // set initial velocity (low duration)
 
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
@@ -1011,7 +1009,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             console.log((Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI)));
 
-                            conAngle = angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI))))); // initial angle
+                            conAngle = (liveX <= ((wiD / xDivide) - dev.t)) ? angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI))))) : 0; // initial angle
 
                             // console.log(conAngle + ", " + liveX + ", " + (model(wiD / 2) - model(liveX)) + ", " + ((wiD / 2) - liveX));
                             // console.log(xDivideMod + ", " + conAngle + ", " + (Math.atan(model(liveX) / ((wiD / xDivideMod) - liveX))));
