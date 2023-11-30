@@ -1024,13 +1024,13 @@ function sc_LpH() { // scroll loop - phablet
 
                     }
 
-                    if (b.r2sc.top < aH) { // random3 boundary boxes
-                        pf.bdx[1].style.transform = "translateY(" + (pos.y * -0.1) + "rem)";
-                    }
-
                     if (b.ldg.bottom < aH && !pf.x15) { //
                         pf.rf21 = b.rb.top;
                         pf.x15 = true;
+                    }
+
+                    if (b.r2sc.top < aH && pf.x15) { // random3 boundary boxes
+                        pf.bdx[1].style.transform = "translateY(" + (pos.y * -0.1) + "rem)";
                     }
 
                 } else {
