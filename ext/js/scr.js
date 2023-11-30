@@ -1020,8 +1020,8 @@ function sc_LpH() { // scroll loop - phablet
                             var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
-                            // if (liveX <= (wiD + dev.t)) { // run till after end of viewport
-                            if (liveX <= (wiD / xDivide)) { // DEV
+                            if (liveX <= (wiD + dev.t)) { // run till after end of viewport
+                            // if (liveX <= (wiD / xDivide)) { // DEV
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + conAngle + "deg)";
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
                             } else {
