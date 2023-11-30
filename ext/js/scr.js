@@ -1010,6 +1010,9 @@ function sc_LpH() { // scroll loop - phablet
                             console.log((Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI)));
 
                             conAngle = (liveX <= ((wiD / xDivide) - dev.t)) ? angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI))))) : 0; // initial angle
+                            if (liveX > (wiD / xDivide)) {
+                                conAngle = angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI)))));
+                            }
 
                             // console.log(conAngle + ", " + liveX + ", " + (model(wiD / 2) - model(liveX)) + ", " + ((wiD / 2) - liveX));
                             // console.log(xDivideMod + ", " + conAngle + ", " + (Math.atan(model(liveX) / ((wiD / xDivideMod) - liveX))));
