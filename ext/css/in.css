@@ -600,6 +600,7 @@ div.cursorInt {
     height: 15rem;
     background-color: #303030;
     position: absolute;
+    mix-blend-mode: exclusion;
 }
 
 .boundarybox:nth-child(2) {
