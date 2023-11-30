@@ -618,3 +618,7 @@ div.cursorInt {
 #random4_sc .textbox {
     transform: translate(25vw, 10rem);
 }
+
+#random4_sc .textbox {
+    top: 0.25rem;
+}
