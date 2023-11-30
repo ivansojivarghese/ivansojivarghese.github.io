@@ -992,7 +992,7 @@ function sc_LpH() { // scroll loop - phablet
                             xDivide = 2,
                             inAngle = -1 * (90 - (Math.atan(model(dev.t) / dev.t) * (180 / Math.PI))), // initial angle
                             conAngle = 0,
-                            angleMod = 1,
+                            angleMod = -1,
                             xLoop = null;
 
                         pf.ld_p.style.transitionDuration = inVel + "s"; // set initial velocity (low duration)
