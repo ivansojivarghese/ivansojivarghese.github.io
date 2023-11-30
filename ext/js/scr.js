@@ -897,7 +897,7 @@ function sc_LpH() { // scroll loop - phablet
 
                     }
 
-                    if (pf.rbc[1].style.left < 0 && !pf.x17) {
+                    if (window.getComputedStyle(pf.rbc[1]).getPropertyValue("left") < 0 && !pf.x17) {
                         e_Fd(pf.rbc[1], true);
                         pf.x17 = true;
                     }
