@@ -1003,13 +1003,13 @@ function sc_LpH() { // scroll loop - phablet
                             // 1.85 to 1
 
                         xLoop = setInterval(function() {
-                            var // angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1,
+                            var angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1,
                                 xDivideMod = xDivide - ((liveX / (wiD / xDivide)) * (xDivide - 1));
                             if (xDivideMod < 1) {
                                 xDivideMod = 1;
                             }
 
-                            angleMod = 1;
+                            // angleMod = 1;
 
                             liveX += (dev.t / 5); // default fps increment
 
