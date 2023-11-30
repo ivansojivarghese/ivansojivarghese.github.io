@@ -1040,7 +1040,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.bdx[1].style.transform = "translateY(" + ((pos.y - pf.rf22) * -0.2) + "px)";
                         pf.bdx[0].style.transform = "translateY(" + ((pos.y - pf.rf22) * -0.1) + "px)";
 
-                        pf.bdx[1].style.left = (3 - ((pos.y - pf.rf22) / op.fN)) + "rem";
+                        pf.bdx[1].style.left = (3 - ((pos.y - pf.rf22) / (op.fN * 10))) + "rem";
 
                     }
 
