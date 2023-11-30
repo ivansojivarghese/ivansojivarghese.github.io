@@ -1037,8 +1037,8 @@ function sc_LpH() { // scroll loop - phablet
                             pf.x16 = true;
                         }
 
-                        pf.bdx[1].style.transform = "translateY(" + ((pos.y - pf.rf22) * -0.1) + "px)";
-                        pf.bdx[0].style.transform = "translateY(" + ((pos.y - pf.rf22) * -0.05) + "px)";
+                        pf.bdx[1].style.transform = "translateY(" + ((pos.y - pf.rf22) * -0.2) + "px)";
+                        pf.bdx[0].style.transform = "translateY(" + ((pos.y - pf.rf22) * -0.1) + "px)";
 
                     }
 
