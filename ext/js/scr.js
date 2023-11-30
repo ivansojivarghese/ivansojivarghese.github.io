@@ -994,6 +994,8 @@ function sc_LpH() { // scroll loop - phablet
                             conAngle = 0,
                             xLoop = null;
 
+                        console.log(inAngle);
+
                         pf.ld_p.style.transitionDuration = inVel + "s"; // set initial velocity (low duration)
 
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
