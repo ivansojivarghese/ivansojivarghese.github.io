@@ -989,7 +989,7 @@ function sc_LpH() { // scroll loop - phablet
                             inVel = 0.1, // initial
                             fnVel = 1,
                             liveX = 1,
-                            xDivide = 1.85,
+                            xDivide = 2,
                             inAngle = -1 * (90 - (Math.atan(model(dev.t) / dev.t) * (180 / Math.PI))), // initial angle
                             conAngle = 0,
                             xLoop = null;
