@@ -590,3 +590,8 @@ div.cursorInt {
     height: 2rem;
     bottom: 0rem;
 }
+
+#random2_sc .textbox {
+    height: 13rem;
+    width: 21rem;
+}
