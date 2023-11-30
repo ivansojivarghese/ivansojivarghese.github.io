@@ -1021,7 +1021,7 @@ function sc_LpH() { // scroll loop - phablet
 
                     }
 
-                    if (b.ldg.bottom < aH && !pf.x15) {
+                    if (b.ldg.bottom < aH && !pf.x15) { //
                         pf.rf21 = b.rb.top;
                         pf.x15 = true;
                     }
