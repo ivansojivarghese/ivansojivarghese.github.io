@@ -594,3 +594,9 @@ div.cursorInt {
 #random2_sc .textbox {
     transform: translate(50vw, 10rem);
 }
+
+.boundarybox {
+    width: 5rem;
+    height: 10rem;
+    background-color: #303030;
+}
