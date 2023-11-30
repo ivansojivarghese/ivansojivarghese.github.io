@@ -625,6 +625,7 @@ div.cursorInt {
 
 #random5_sc a {
     margin-right: 6rem;
+    text-decoration: underline;
 }
 
 #random5_sc a:nth-child(4) {
