@@ -609,3 +609,7 @@ div.cursorInt {
 .boundarybox:nth-child(3) {
     left: 6rem;
 }
+
+#boundarycontainer {
+    transform: translate(35vw, 10rem);
+}
