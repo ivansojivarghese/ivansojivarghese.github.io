@@ -116,6 +116,7 @@ var im = { // #intro_main
         x14 : false,
         x15 : false,
         x15a : false,
+        x16 : false,
         rf : 0,
         rf2 : 0,
         rf3 : 0,
@@ -140,7 +141,8 @@ var im = { // #intro_main
         rf18 : 0,
         rf19 : 0,
         rf20 : 0,
-        rf21 : 0
+        rf21 : 0,
+        rf22: 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -1029,8 +1031,14 @@ function sc_LpH() { // scroll loop - phablet
                         pf.x15 = true;
                     }
 
-                    if (b.r2sc.top < aH && pf.x15) { // random3 boundary boxes
-                        pf.bdx[1].style.transform = "translateY(" + (pos.y * -0.1) + "rem)";
+                    if (b.r2sc.top < aH) { // random3 boundary boxes
+                        if (!pf.x16) {
+                            pf.rf22 = pos.y;
+                            pf.x16 = true;
+                        }
+
+                        pf.bdx[1].style.transform = "translateY(" + (pf.rf22 + (pos.y * -0.1)) + "rem)";
+
                     }
 
                 } else {
