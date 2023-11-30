@@ -1008,7 +1008,7 @@ function sc_LpH() { // scroll loop - phablet
                             }
 
                             liveX += (dev.t / 5); // default fps increment
-                            conAngle = angleMod * (inAngle + ((90 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI))))); // initial angle
+                            conAngle = angleMod * (inAngle + ((90 + (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI))))); // initial angle
                             /*if ((model(wiD / xDivide) - model(liveX))) {
 
                             }*/
