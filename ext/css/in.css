@@ -596,7 +596,16 @@ div.cursorInt {
 }
 
 .boundarybox {
-    width: 5rem;
-    height: 10rem;
+    width: 3rem;
+    height: 15rem;
     background-color: #303030;
+    position: absolute;
+}
+
+.boundarybox:nth-child(2) {
+    left: 3rem;
+}
+
+.boundarybox:nth-child(3) {
+    left: 6rem;
 }
