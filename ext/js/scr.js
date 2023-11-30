@@ -91,6 +91,7 @@ var im = { // #intro_main
         sb : document.getElementById("pf_scrollbar"),
         rsc : document.getElementById("random_sc"), 
         r2sc : document.getElementById("random2_sc"),
+        bdx : document.getElementsByClassName("boundarybox"),
         rb : document.getElementById("random_box"),
         rbc : document.querySelectorAll(".random_boxCircle"),
         rbc_t1 : document.getElementById("rbc_t1"),
@@ -196,6 +197,7 @@ function sc_L() { // functions (live on scroll)
             pfw3 : pf.w3.getBoundingClientRect(), // w3
             pfsc : pf.sc.getBoundingClientRect(), // scroll_banner
             pfds : pf.ds.getBoundingClientRect(), // design_banner
+            r2sc : pf.r2sc.getBoundingClientRect(), // random2_sc 
             fm : document.getElementById("footer_main_sc").getBoundingClientRect(), // footer_main_sc
             fb : document.getElementById("footer_blurb").getBoundingClientRect() // footer_blurb
         };
@@ -1022,8 +1024,8 @@ function sc_LpH() { // scroll loop - phablet
 
                     }
 
-                    if () {
-                        
+                    if (b.r2sc.top < aH) { // random3 boundary boxes
+                        pf.bdx[1].style.transform = "translateY(" + (pos.y * -0.1) + "rem)";
                     }
 
                     if (b.ldg.bottom < aH && !pf.x15) { //
