@@ -999,7 +999,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
 
-                        xLoop = setInterval(function() {
+                        xLoop = setInterval(function() { //
 
                             liveX += dev.t; // default fps increment
 
