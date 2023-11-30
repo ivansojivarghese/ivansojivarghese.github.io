@@ -628,10 +628,18 @@ div.cursorInt {
     text-decoration: underline;
 }
 
+#random5_sc .c_ta {
+    top: calc(50% - 3.5rem);
+}
+
 #random5_sc a:nth-child(4) {
     margin: 0;
 }
 
 #random5_sc h5 {
     font-weight: bold;
+}
+
+#random5_sc h2 {
+    transform: translateY(3.5rem);
 }
