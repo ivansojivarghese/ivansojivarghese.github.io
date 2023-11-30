@@ -1017,7 +1017,7 @@ function sc_LpH() { // scroll loop - phablet
                             } else {
                                 clearInterval(xLoop);
                             }
-                        }, (inVel * 1000));
+                        }, (inVel * 1000)); //
 
                     }
 
