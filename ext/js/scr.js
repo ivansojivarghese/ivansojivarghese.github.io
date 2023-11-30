@@ -999,11 +999,13 @@ function sc_LpH() { // scroll loop - phablet
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
 
                         xLoop = setInterval(function() {
-                            var angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1,
+                            var // angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1,
+                                angleMod = 1;
+                                /*
                                 xDivideMod = xDivide - ((liveX / (wiD / xDivide)) * (xDivide - 1));
                             if (xDivideMod < 1) {
                                 xDivideMod = 1;
-                            }
+                            }*/
 
                             liveX += dev.t; // default fps increment
 
