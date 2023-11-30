@@ -592,6 +592,5 @@ div.cursorInt {
 }
 
 #random2_sc .textbox {
-    height: 13rem;
-    width: 21rem;
+    transform: translate(20rem, 10rem);
 }
