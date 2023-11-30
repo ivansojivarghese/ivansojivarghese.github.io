@@ -1000,8 +1000,6 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + inAngle + "deg)";
 
-                            // 1.85 to 1
-
                         xLoop = setInterval(function() {
                             var angleMod = (liveX <= (wiD / xDivide)) ? -1 : 1,
                                 xDivideMod = xDivide - ((liveX / (wiD / xDivide)) * (xDivide - 1));
@@ -1009,7 +1007,7 @@ function sc_LpH() { // scroll loop - phablet
                                 xDivideMod = 1;
                             }
 
-                            liveX += (dev.t / 5); // default fps increment
+                            liveX += dev.t; // default fps increment
 
                             console.log((Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI)));
 
