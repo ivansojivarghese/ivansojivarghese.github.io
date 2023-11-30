@@ -1013,7 +1013,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             }*/
 
-                            console.log(liveX + ", " + (model(wiD / xDivide) - model(liveX)) + ", " + ((wiD / xDivide) - liveX));
+                            console.log(liveX + ", " + (model(wiD / 2) - model(2)) + ", " + ((wiD / 2) - liveX));
                             // console.log(xDivideMod + ", " + conAngle + ", " + (Math.atan(model(liveX) / ((wiD / xDivideMod) - liveX))));
 
                             var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
