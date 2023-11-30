@@ -1017,7 +1017,7 @@ function sc_LpH() { // scroll loop - phablet
                             pf.ld_p.style.transitionDuration = u + "s";  // slower duration as flight progresses up
 
                             // if (liveX <= (wiD + dev.t)) { // run till after end of viewport
-                            if (liveX <= (wiD / 2)) { // DEV
+                            if (liveX <= (wiD / 1.85)) { // DEV
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + conAngle + "deg)";
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
                             } else {
