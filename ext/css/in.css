@@ -614,3 +614,7 @@ div.cursorInt {
 #boundarycontainer {
     transform: translate(35vw, 10rem);
 }
+
+#random4_sc .textbox {
+    transform: translate(20vw, 10rem);
+}
