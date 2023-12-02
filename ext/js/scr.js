@@ -666,7 +666,7 @@ function sc_LpH() { // scroll loop - phablet
             im.nav[3].style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.nav[4].style.transform = "translateY(" + (pos.y * 0.05) + "px)";
 
-            if (((b.wd.bottom + (op.fN / 2)) < aH) || im.s10) {
+            if (((b.wd.bottom + (op.fN / 2)) < aH) || (im.s10 && pos.y < ld.rf7)) {
                 im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
             } else if (!im.s10) {
                 ld.rf7 = pos.y;
