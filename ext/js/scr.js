@@ -29,6 +29,7 @@ var im = { // #intro_main
         s7 : false,
         s8 : false,
         s9 : false,
+        s10 : false,
         p : 0,
         sM : 0.25 // scroll mod.
         // s : true, // code execution status
@@ -63,6 +64,7 @@ var im = { // #intro_main
         rf4 : 0,
         rf5 : 0,
         rf6 : 0,
+        rf7 : 0,
         x : false,
         x2 : false,
         x3 : false,
@@ -143,7 +145,7 @@ var im = { // #intro_main
         rf19 : 0,
         rf20 : 0,
         rf21 : 0,
-        rf22: 0
+        rf22 : 0
     },
     sI_1 = { // stats numerals
         a : 0, // initial   
@@ -664,8 +666,11 @@ function sc_LpH() { // scroll loop - phablet
             im.nav[3].style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.nav[4].style.transform = "translateY(" + (pos.y * 0.05) + "px)";
 
-            if ((b.wd.bottom + (op.fN / 2)) < aH) {
+            if (((b.wd.bottom + (op.fN / 2)) < aH) || im.s10) {
                 im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
+            } else if (!im.s10) {
+                ld.rf7 = pos.y;
+                im.s10 = true;
             }
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
             im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
