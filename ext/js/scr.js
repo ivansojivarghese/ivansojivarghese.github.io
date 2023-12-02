@@ -822,6 +822,8 @@ function sc_LpH() { // scroll loop - phablet
                     e_Fd(pf.rbc[0], false);
                     if (!pf.rf17) {
                         e_Fd(pf.rbc[1], false);
+                    } else {
+                        e_Fd(pf.rbc[1], true);
                     }
 
                     if (!pf.x10) {
@@ -923,7 +925,7 @@ function sc_LpH() { // scroll loop - phablet
                         pf.x11 = true;
                     }
 
-                    if ((b.rbc1.top < 0) && pf.x11 & !pf.x12) {
+                    if ((b.rbc1.top < 0) && pf.x11 & !pf.x12) { // transport elements
 
                         var transport = function() { 
                             var r, // elements in focus
@@ -1018,7 +1020,7 @@ function sc_LpH() { // scroll loop - phablet
 
                             conAngle = (liveX <= ((wiD / xDivide) - dev.t)) ? angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI))))) : 0; // initial angle
                             if (liveX > (wiD / xDivide)) {
-                                conAngle = angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI)))));
+                                conAngle = angleMod * (inAngle + (Math.abs(inAngle) - (0 - (Math.atan((model(wiD / xDivide) - model(liveX)) / ((wiD / xDivide) - liveX)) * (180 / Math.PI))))); // angle change at halfway
                             }
 
                             var u = (liveX <= (wiD / xDivide)) ? (((liveX / (wiD / xDivide)) * (fnVel - inVel)) + inVel) : (fnVel - (((liveX - (wiD / xDivide)) / (wiD / xDivide)) * (fnVel - inVel)));
@@ -1028,7 +1030,7 @@ function sc_LpH() { // scroll loop - phablet
                                 pf.ld_p.style.transform = "translateX(" + liveX + "px) translateY(" + (-1 * model(liveX)) + "px) rotate(" + conAngle + "deg)";
                                 setInterval(xLoop, (u * 1000)); // restart loop with updated interval
                             } else {
-                                clearInterval(xLoop); //
+                                clearInterval(xLoop); // end loop after function progress completed
                             }
                         }, (inVel * 1000)); //
 
