@@ -664,7 +664,9 @@ function sc_LpH() { // scroll loop - phablet
             im.nav[3].style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.nav[4].style.transform = "translateY(" + (pos.y * 0.05) + "px)";
 
-            im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
+            if (b.wd.bottom < aH) {
+                im.wd.style.transform = "translateY(" + (pos.y * 0.05) + "px)";
+            }
             im.gh.style.transform = "translateY(" + (ghTransform) + "px)";
             im.pfi.style.transform = "translateY(" + (pos.y * 0.15) + "px)";
             im.pfg.style.opacity = gh_mb_frc;
