@@ -902,6 +902,11 @@ function sc_LpH() { // scroll loop - phablet
                                 rV = (rColCh <= rCol) ? rColCh : rCol,
                                 gV = (gColCh <= gCol) ? gColCh : gCol,
                                 bV = (bColCh <= bCol) ? bColCh : bCol;
+                            if (rV < def || gV < def || bV < def) {
+                                rV = def;
+                                gV = def;
+                                bV = def;
+                            }
 
                             // RANDOM BOX BACK. COL. CHANGE
                             pf.rb.style.backgroundColor = "rgb(" + rV + ", " + gV + ", " + bV + ")";
@@ -1144,6 +1149,16 @@ if (!vw.pH && !vw.tB) { // only in mobile view
     sc_L();
 } else if (vw.pH || vw.tB) { // phablet/tablet
     sc_LpH();
+}
+
+
+function nightSky(b) { // create stars in the night sky
+    console.log(b.width);
+    console.log(b.height); 
+
+    const div = document.createElement("DIV");
+    const div2 = document.createElement("DIV");
+    const div3 = document.createElement("DIV");
 }
 
 
@@ -1422,7 +1437,3 @@ function uncalledCode() { // CODE NOT NEEDED (currently)
     }
 }
 
-function nightSky(b) { // create stars in the night sky
-    console.log(b.width);
-    console.log(b.height); 
-}
