@@ -93,7 +93,7 @@ var im = { // #intro_main
         sb : document.getElementById("pf_scrollbar"),
         rsc : document.getElementById("random_sc"), 
         r2sc : document.getElementById("random2_sc"),
-        // sn : document.getElementById("stary_night"),
+        sn : document.getElementById("stary_night"),
         bdx : document.getElementsByClassName("boundarybox"),
         rb : document.getElementById("random_box"),
         rbc : document.querySelectorAll(".random_boxCircle"),
@@ -870,7 +870,7 @@ function sc_LpH() { // scroll loop - phablet
                             pf.rf9a = pos.y;
                             pf.rf10a = b.rb.top;
 
-                            // pf.sn.style.height = yBounce + "rem";
+                            pf.sn.style.height = yBounce + "rem";
                         }
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
