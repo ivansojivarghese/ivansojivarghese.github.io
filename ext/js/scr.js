@@ -878,6 +878,9 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.sn.style.height = yBounce + "rem";
 
+                        nightSky(getBd(pf.sn));
+                        // add stars to night sky
+
                         if (pf.x12) {
 
                             var colChange = function(a, b, c) {
@@ -1412,4 +1415,9 @@ function uncalledCode() { // CODE NOT NEEDED (currently)
             }
         }
     }
+}
+
+function nightSky(b) {
+    console.log(b.width);
+    console.log(b.height); 
 }
