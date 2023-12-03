@@ -517,6 +517,11 @@ div.cursorInt {
     }
 }
 
+#moon_main {
+    width: 3rem;
+    height: 3rem;
+}
+
 #random_sc {
     height: calc(100vh + 7rem);
 }

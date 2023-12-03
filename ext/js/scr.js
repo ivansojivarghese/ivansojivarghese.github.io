@@ -881,7 +881,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         if (!pf.x12b) {
                             
-                            nightSky(pf.sn.getBoundingClientRect());
+                            nightSky(w);
                             // add stars to night sky
                             pf.x12b = true;
                         }
@@ -1152,13 +1152,19 @@ if (!vw.pH && !vw.tB) { // only in mobile view
 }
 
 
-function nightSky(b) { // create stars in the night sky
-    console.log(b.width);
-    console.log(b.height); 
+function nightSky(w) { // create stars in the night sky
+    var ref = w * 0.2;
 
     const div = document.createElement("DIV");
     const div2 = document.createElement("DIV");
     const div3 = document.createElement("DIV");
+
+    div.setAttribute("class", "p-a");
+    div.setAttribute("id", "moon_main");
+    div.style.width = ref + "rem";
+    div.style.height = ref + "rem";
+
+    pf.sn.appendChild(div);
 }
 
 
