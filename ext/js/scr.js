@@ -93,7 +93,7 @@ var im = { // #intro_main
         sb : document.getElementById("pf_scrollbar"),
         rsc : document.getElementById("random_sc"), 
         r2sc : document.getElementById("random2_sc"),
-        sn : document.getElementById("stary_night"),
+        // sn : document.getElementById("stary_night"),
         bdx : document.getElementsByClassName("boundarybox"),
         rb : document.getElementById("random_box"),
         rbc : document.querySelectorAll(".random_boxCircle"),
