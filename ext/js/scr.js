@@ -878,7 +878,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.sn.style.height = yBounce + "rem";
 
-                        nightSky(getBd(pf.sn));
+                        nightSky(pf.sn.getBoundingClientRect());
                         // add stars to night sky
 
                         if (pf.x12) {
@@ -1417,7 +1417,7 @@ function uncalledCode() { // CODE NOT NEEDED (currently)
     }
 }
 
-function nightSky(b) {
+function nightSky(b) { // create stars in the night sky
     console.log(b.width);
     console.log(b.height); 
 }
