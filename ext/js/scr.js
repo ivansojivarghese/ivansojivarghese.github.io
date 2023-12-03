@@ -870,7 +870,7 @@ function sc_LpH() { // scroll loop - phablet
                             pf.rf9a = pos.y;
                             pf.rf10a = b.rb.top;
 
-                            pf.sn.style.height = yBounce + "rem";
+                            // pf.sn.style.height = yBounce + "rem";
                         }
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
