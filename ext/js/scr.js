@@ -115,6 +115,7 @@ var im = { // #intro_main
         x11 : false,
         x12 : false,
         x12a : false,
+        x12b : false,
         x13 : false,
         x14 : false,
         x15 : false,
@@ -876,10 +877,12 @@ function sc_LpH() { // scroll loop - phablet
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
 
-                        pf.sn.style.height = yBounce + "rem";
-
-                        nightSky(pf.sn.getBoundingClientRect());
-                        // add stars to night sky
+                        if (!pf.x12b) {
+                            pf.sn.style.height = yBounce + "rem";
+                            nightSky(pf.sn.getBoundingClientRect());
+                            // add stars to night sky
+                            pf.x12b = true;
+                        }
 
                         if (pf.x12) {
 
