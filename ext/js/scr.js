@@ -870,11 +870,13 @@ function sc_LpH() { // scroll loop - phablet
                             pf.rf9a = pos.y;
                             pf.rf10a = b.rb.top;
 
-                            pf.sn.style.height = yBounce + "rem";
+                            // pf.sn.style.height = yBounce + "rem";
                         }
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
+
+                        pf.sn.style.height = yBounce + "rem";
 
                         if (pf.x12) {
 
