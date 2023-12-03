@@ -1159,12 +1159,20 @@ function nightSky(w) { // create stars in the night sky
     const div2 = document.createElement("DIV");
     const div3 = document.createElement("DIV");
 
-    div.setAttribute("class", "p-a");
-    div.setAttribute("id", "moon_main");
+    div.setAttribute("class", "p-a moon_main");
     div.style.width = ref + "rem";
     div.style.height = ref + "rem";
 
     pf.sn.appendChild(div);
+
+    div2.setAttribute("class", "p-a b-r moon_main bC_L");
+
+    div3.setAttribute("class", "p-a b-r moon_main bC_d");
+    div3.style.top = "0.5rem";
+    div3.style.left = "0.5rem";
+
+    pf.sn.appendChild(div2);
+    pf.sn.appendChild(div3);
 }
 
 
