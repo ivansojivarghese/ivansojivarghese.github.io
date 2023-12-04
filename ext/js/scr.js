@@ -1017,6 +1017,9 @@ function sc_LpH() { // scroll loop - phablet
                     }
 
                     if (b.ldg.top < aH && !pf.x15a) {
+
+                        e_Fd(pf.sn, false); // show the night sky
+
                         // FLYING PLANE ANIMATION
                         pf.x15a = true;
 
@@ -1159,7 +1162,7 @@ function nightSky(w, h) { // create stars in the night sky
     const div2 = document.createElement("DIV");
     const div3 = document.createElement("DIV");
 
-    div.setAttribute("class", "p-a moon_main");
+    div.setAttribute("class", "p-a moon_main z_O");
     div.style.top = ref + "rem";
     div.style.left = ref + "rem";
 
