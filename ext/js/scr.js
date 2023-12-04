@@ -1162,11 +1162,12 @@ function nightSky(w, h) { // create stars in the night sky
     const div2 = document.createElement("DIV");
     const div3 = document.createElement("DIV");
 
-    div.setAttribute("class", "p-a moon_main trs z_O");
+    div.setAttribute("class", "p-a moon_main");
     div.style.top = ref + "rem";
     div.style.left = ref + "rem";
 
     pf.sn.appendChild(div);
+    pf.sn.setAttribute("class", " trs z_O");
 
     div2.setAttribute("class", "p-a b-r moon_main bC_L");
 
