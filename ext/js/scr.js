@@ -1160,8 +1160,8 @@ function nightSky(w) { // create stars in the night sky
     const div3 = document.createElement("DIV");
 
     div.setAttribute("class", "p-a moon_main");
-    div.style.width = ref + "rem";
-    div.style.height = ref + "rem";
+    div.style.top = ref + "rem";
+    div.style.left = ref + "rem";
 
     pf.sn.appendChild(div);
 
