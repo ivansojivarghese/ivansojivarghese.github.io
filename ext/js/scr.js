@@ -1171,8 +1171,8 @@ function nightSky(w) { // create stars in the night sky
     div3.style.top = "-0.5rem";
     div3.style.left = "0.5rem";
 
-    pf.sn.appendChild(div2);
-    pf.sn.appendChild(div3);
+    div.appendChild(div2);
+    div.appendChild(div3);
 }
 
 
