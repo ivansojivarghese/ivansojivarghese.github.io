@@ -872,18 +872,18 @@ function sc_LpH() { // scroll loop - phablet
                             pf.rf10a = b.rb.top;
 
                             // pf.sn.style.height = yBounce + "rem";
+                        } else {
+                            if (!pf.x12b) {
+                                nightSky(w, yBounce);
+                                // add stars to night sky
+                                pf.x12b = true;
+                            }
                         }
 
                         pf.rbc[0].style.transform = "translateX(" + xBounce + "rem) translateY(" + yBounce + "rem)";
                         pf.rbc[1].style.left = ((((pf.rf10 + pf.rf9) - (pos.y * 0.975)) / pf.rf9) * 100) + "%";
 
                         pf.sn.style.height = yBounce + "rem";
-
-                        if (!pf.x12b) {
-                            nightSky(w);
-                            // add stars to night sky
-                            pf.x12b = true;
-                        }
 
                         if (pf.x12) {
 
@@ -1003,13 +1003,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.rf18 = ((pos.y - pf.rf15) / (op.fN / 4));
                         pf.rf19 = pos.y;
-                        /*
-                        if (!pf.x12b) {
-                            nightSky(w);
-                            // add stars to night sky
-                            pf.x12b = true;
-                        }
-                        */
+
                         pf.x13 = true;
                     }
 
@@ -1157,9 +1151,8 @@ if (!vw.pH && !vw.tB) { // only in mobile view
 }
 
 
-function nightSky(w) { // create stars in the night sky
-    var h = (pf.sn.getBoundingClientRect().height) / op.fN,
-        ref = w * 0.2,
+function nightSky(w, h) { // create stars in the night sky
+    var ref = w * 0.2,
         maxStars = 4;
 
     const div = document.createElement("DIV");
