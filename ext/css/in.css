@@ -615,7 +615,7 @@ div.cursorInt {
 }
 
 #random2_sc .textbox {
-    transform: translate(50vw, 10rem);
+    transform: translate(50vw, 15rem);
 }
 
 .boundarybox {
@@ -635,11 +635,11 @@ div.cursorInt {
 }
 
 #boundarycontainer {
-    transform: translate(35vw, 10rem);
+    transform: translate(35vw, 15rem);
 }
 
 #random4_sc .textbox {
-    transform: translate(25vw, 10rem);
+    transform: translate(25vw, 15rem);
 }
 
 #random4_sc .key-sm {
@@ -652,7 +652,7 @@ div.cursorInt {
 }
 
 #random5_sc .c_ta {
-    top: calc(50% - 3.5rem);
+    top: 50%;
 }
 
 #random5_sc a:nth-child(4) {
@@ -664,5 +664,5 @@ div.cursorInt {
 }
 
 #random5_sc h2 {
-    transform: translateY(3.5rem);
+    transform: translateY(5rem);
 }
