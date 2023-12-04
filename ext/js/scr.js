@@ -991,7 +991,9 @@ function sc_LpH() { // scroll loop - phablet
 
                         transport();
 
-                        pf.x12 = true;
+                        if (pf.x14) {
+                            pf.x12 = true;
+                        }
                     }
 
                     if (pf.x12a) {
