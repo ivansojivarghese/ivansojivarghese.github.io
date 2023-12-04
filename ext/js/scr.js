@@ -1179,7 +1179,7 @@ function nightSky(w, h) { // create stars in the night sky
     div.appendChild(div3);
 
     for (i = 0; i < maxStars; i++) { // add stars to the night sky
-        var maxD, maxX, maxY, buffer = 1, aDur = getRandomInt(3, 6);
+        var maxD, maxX, maxY, buffer = 1, minDur = 3, aDur = getRandomInt(minDur, (minDur * 3) - 1);
         const star = document.createElement("DIV");
         star.setAttribute("class", "p-a b-r star bC_L")
         star.style.animationDuration = aDur + "s";
