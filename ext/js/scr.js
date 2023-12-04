@@ -1167,7 +1167,6 @@ function nightSky(w, h) { // create stars in the night sky
     div.style.left = ref + "rem";
 
     pf.sn.appendChild(div);
-    pf.sn.setAttribute("class", " trs z_O");
 
     div2.setAttribute("class", "p-a b-r moon_main bC_L");
 
