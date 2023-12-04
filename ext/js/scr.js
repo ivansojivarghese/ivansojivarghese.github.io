@@ -881,7 +881,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         if (!pf.x12b) {
                             
-                            nightSky(w);
+                            nightSky(w, yBounce);
                             // add stars to night sky
                             pf.x12b = true;
                         }
@@ -1152,8 +1152,9 @@ if (!vw.pH && !vw.tB) { // only in mobile view
 }
 
 
-function nightSky(w) { // create stars in the night sky
-    var ref = w * 0.2;
+function nightSky(w, h) { // create stars in the night sky
+    var ref = w * 0.2,
+        maxStars = 4;
 
     const div = document.createElement("DIV");
     const div2 = document.createElement("DIV");
@@ -1171,8 +1172,22 @@ function nightSky(w) { // create stars in the night sky
     div3.style.top = "-0.5rem";
     div3.style.left = "0.5rem";
 
-    div.appendChild(div2);
+    div.appendChild(div2); // add the moon 
     div.appendChild(div3);
+
+    for (i = 0; i < maxStars; i++) { // add stars to the night sky
+        const star = document.createElement("DIV");
+        star.setAttribute("class", "p-a b-r star bC_L")
+        switch (i) {
+            case (0): // star 1 in first quadrant of moon pos.
+                var maxD = ref / 2;
+                star.style.top = getRandomInt(1, maxD) +  "rem";
+                star.style.left = getRandomInt(1, maxD) + "rem";
+            break;
+        }
+    }
+
+    // pf.sn.
 }
 
 

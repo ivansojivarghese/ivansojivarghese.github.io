@@ -522,6 +522,11 @@ div.cursorInt {
     height: 3rem;
 }
 
+.star {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
 #random_sc {
     height: calc(100vh + 7rem);
 }
