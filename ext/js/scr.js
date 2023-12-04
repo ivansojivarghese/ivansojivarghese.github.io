@@ -1176,13 +1176,24 @@ function nightSky(w, h) { // create stars in the night sky
     div.appendChild(div3);
 
     for (i = 0; i < maxStars; i++) { // add stars to the night sky
+        var maxD, maxX, maxY;
         const star = document.createElement("DIV");
         star.setAttribute("class", "p-a b-r star bC_L")
         switch (i) {
-            case (0): // star 1 in first quadrant of moon pos.
-                var maxD = ref / 2;
+            case 0: // star 1 in first quadrant of moon pos.
+                maxD = ref - 2;
                 star.style.top = getRandomInt(1, maxD) +  "rem";
                 star.style.left = getRandomInt(1, maxD) + "rem";
+            break;
+            case 1:
+            case 2: // stars 2 & 3, 2nd quadrant
+                maxX = ref + 3;
+                maxY = ref;
+                star.style.top = getRandomInt(1, maxY - 2) +  "rem";
+                star.style.left = getRandomInt(maxX + 2, w - 2) + "rem";
+            break;
+            case 3: // star 4
+
             break;
         }
         pf.sn.appendChild(star);
