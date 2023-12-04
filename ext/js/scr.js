@@ -881,7 +881,7 @@ function sc_LpH() { // scroll loop - phablet
 
                         if (!pf.x12b) {
                             
-                            nightSky(w, yBounce);
+                            nightSky(w);
                             // add stars to night sky
                             pf.x12b = true;
                         }
@@ -1152,8 +1152,9 @@ if (!vw.pH && !vw.tB) { // only in mobile view
 }
 
 
-function nightSky(w, h) { // create stars in the night sky
-    var ref = w * 0.2,
+function nightSky(w) { // create stars in the night sky
+    var h = (pf.sn.getBoundingClientRect().height) / op.fN,
+        ref = w * 0.2,
         maxStars = 4;
 
     const div = document.createElement("DIV");
