@@ -1193,7 +1193,10 @@ function nightSky(w, h) { // create stars in the night sky
                 star.style.left = getRandomInt(maxX + 2, w - 2) + "rem";
             break;
             case 3: // star 4
-
+                maxX = ref + 3;
+                maxY = ref + 3;
+                star.style.top = getRandomInt(maxY + 2, h - 2) +  "rem";
+                star.style.left = getRandomInt(maxX + 2, w - 2) + "rem";
             break;
         }
         pf.sn.appendChild(star);
