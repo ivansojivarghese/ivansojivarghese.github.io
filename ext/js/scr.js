@@ -1175,27 +1175,27 @@ function nightSky(w, h) { // create stars in the night sky
     div.appendChild(div3);
 
     for (i = 0; i < maxStars; i++) { // add stars to the night sky
-        var maxD, maxX, maxY;
+        var maxD, maxX, maxY, buffer = 1;
         const star = document.createElement("DIV");
         star.setAttribute("class", "p-a b-r star bC_L")
         switch (i) {
             case 0: // star 1 in first quadrant of moon pos.
-                maxD = ref - 2;
-                star.style.top = getRandomInt(1, maxD) +  "rem";
-                star.style.left = getRandomInt(1, maxD) + "rem";
+                maxD = ref - buffer;
+                star.style.top = getRandomInt(buffer, maxD) +  "rem";
+                star.style.left = getRandomInt(buffer, maxD) + "rem";
             break;
             case 1:
             case 2: // stars 2 & 3, 2nd quadrant
                 maxX = ref + 3;
                 maxY = ref;
-                star.style.top = getRandomInt(1, maxY - 2) +  "rem";
-                star.style.left = getRandomInt(maxX + 2, w - 2) + "rem";
+                star.style.top = getRandomInt(buffer, maxY - buffer) +  "rem";
+                star.style.left = getRandomInt(maxX + buffer, w - buffer) + "rem";
             break;
             case 3: // star 4
                 maxX = ref + 3;
                 maxY = ref + 3;
-                star.style.top = getRandomInt(maxY + 2, h - 2) +  "rem";
-                star.style.left = getRandomInt(maxX + 2, w - 2) + "rem";
+                star.style.top = getRandomInt(maxY + buffer, h - buffer) +  "rem";
+                star.style.left = getRandomInt(maxX + buffer, w - buffer) + "rem";
             break;
         }
         pf.sn.appendChild(star);
