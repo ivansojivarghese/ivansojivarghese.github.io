@@ -1185,9 +1185,8 @@ function nightSky(w, h) { // create stars in the night sky
                 star.style.left = getRandomInt(1, maxD) + "rem";
             break;
         }
+        pf.sn.appendChild(star);
     }
-
-    // pf.sn.
 }
 
 
