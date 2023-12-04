@@ -879,6 +879,12 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.sn.style.height = yBounce + "rem";
 
+                        if (!pf.x12b) {
+                            nightSky(w);
+                            // add stars to night sky
+                            pf.x12b = true;
+                        }
+
                         if (pf.x12) {
 
                             var colChange = function(a, b, c) {
@@ -997,13 +1003,13 @@ function sc_LpH() { // scroll loop - phablet
 
                         pf.rf18 = ((pos.y - pf.rf15) / (op.fN / 4));
                         pf.rf19 = pos.y;
-
+                        /*
                         if (!pf.x12b) {
                             nightSky(w);
                             // add stars to night sky
                             pf.x12b = true;
                         }
-
+                        */
                         pf.x13 = true;
                     }
 
