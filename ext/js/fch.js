@@ -777,7 +777,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
             el.x12 = true;
 
             // desktop wordcloud feature - keywords insertions
-            var line = 1;
+            // var line = 1;
 
             for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
 
@@ -814,9 +814,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
                     }
                 }
 
-                wordCloudTransform(line, el.wCh[a], wInfo_p[a]); // start wordclouding feature 
+                // wordCloudTransform(line, el.wCh[a], wInfo_p[a]); // start wordclouding feature 
 
-                line++;
+                // line++;
             }
         } 
         
@@ -861,7 +861,7 @@ function wordCloudTransform(d, g, a) {
             setTimeout(function() {
                 targetWords[0].classList.add("d_n");
             }, op.t);
-            
+
             // v_n d_n z_O p-a h6
             console.log(targetWords);
         }

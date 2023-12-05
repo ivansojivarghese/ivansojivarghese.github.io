@@ -110,6 +110,7 @@ var im = { // #intro_main
         x6 : false,
         x7 : false,
         x8 : false,
+        x8a : false,
         x9 : false,
         x10 : false,
         x11 : false,
@@ -784,6 +785,14 @@ function sc_LpH() { // scroll loop - phablet
                 ld.eduI.style.transform = "translateY(" + ((1 - (t / (ld.rf4 / 2))) * (2.5 * op.fN)) + "px)";
             } else {
                 ld.eduI.style.transform = "";
+            }
+
+            // WORDCLOUD
+            if (b.wc.top && b.wc.top < aH && !pf.x8a) {
+                pf.x8a = true;
+                for (i = 0; i < el.wCh.length; i++) {
+                    wordCloudTransform(i + 1, el.wCh[a], wInfo_p[a]); // start wordclouding feature 
+                }
             }
 
             // PREFOOTER
