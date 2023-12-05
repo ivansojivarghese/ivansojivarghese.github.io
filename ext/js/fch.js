@@ -841,6 +841,8 @@ function wordCloudTransform(d, g, a) {
         singleArr = [],
         comboArr = [];
 
+    console.log(getHidden);
+
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
             singleArr[singleArr.length] = wInfo_i["s" + d][i];
