@@ -841,8 +841,6 @@ function wordCloudTransform(d, g, a) {
         singleArr = [],
         comboArr = [];
 
-    console.log(getHidden);
-
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
             singleArr[singleArr.length] = wInfo_i["s" + d][i];
@@ -861,7 +859,7 @@ function wordCloudTransform(d, g, a) {
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
             targetWords[0].classList.add("z_O", "p-a");
             setTimeout(function() {
-                targetWords[0].classList.add("d_n", "v_n");
+                targetWords[0].classList.add("d_n", "v_n", "h" + getHidden);
             }, op.t);
 
             hElement.classList.remove("v_n", "d_n", "p-a", "h" + getHidden); // show hidden word
@@ -871,7 +869,9 @@ function wordCloudTransform(d, g, a) {
             }, op.t);
 
             // v_n d_n z_O p-a h6
-            console.log(targetWords);
+            // console.log(targetWords);
+
+            // hElement = 
         }
     }
 
