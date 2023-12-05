@@ -798,7 +798,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         // el.wCh[a][b].classList.add("d_n", "z_O", "trs"); // else, hide
                         // el.wCh[a][b].classList.add("z_O", "p-a", "trs_e"); // else, hide
                         
-                        el.wCh[a][b].classList.add("d_n", "z_O", "p-a");
+                        el.wCh[a][b].classList.add("d_n", "z_O", "p-a", "trs");
                         el.wCh[a][b].classList.add("h" + b);
 
                     } else {
@@ -856,7 +856,8 @@ function wordCloudTransform(d, g, a) {
                     break;
                 }
             }
-            targetWords[0].classList.remove("v_n", "actv", "r" + id);
+            targetWords[0].classList.remove("v_s", "actv", "r" + id);
+            targetWords[0].classList.add("z_O");
             // v_n d_n z_O p-a h6
             console.log(targetWords);
         }
