@@ -868,6 +868,8 @@ function wordCloudTransform(d, g, a) {
                 hElement.classList.remove("z_O");
             }, op.t);
 
+            console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
+
             // v_n d_n z_O p-a h6
             // console.log(targetWords);
 
