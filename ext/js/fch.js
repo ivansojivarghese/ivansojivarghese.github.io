@@ -856,7 +856,7 @@ function wordCloudTransform(d, g, a) {
         }
     }   
 
-    console.log(comboArr);
+    console.log(hElementWidth + ", " + comboArr);
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
