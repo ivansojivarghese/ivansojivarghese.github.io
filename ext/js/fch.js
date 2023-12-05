@@ -847,13 +847,17 @@ function wordCloudTransform(d, g, a) {
         }
 
         if (i === (active - 2) && singleArr.length) { // last
-            var targetWidth = Math.min(...singleArr);
+            var targetWidth = Math.min(...singleArr),
+                id = 0;
             for (j = 0; j < (active - 1); j++) {
                 if (targetWidth === wInfo_i["s" + d][j]) {
                     targetWords[targetWords.length] = el.wCh["s" + d][j];
+                    id = j;
                     break;
                 }
             }
+            targetWords[0].classList.remove("v_n", "actv", "r" + id);
+            // v_n d_n z_O p-a h6
             console.log(targetWords);
         }
     }
