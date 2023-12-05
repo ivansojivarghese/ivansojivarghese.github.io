@@ -780,6 +780,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
             for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
 
+                var line = 1;
+
                 for (i = 0; i <= (dev.skills[a].length - 1); i++) { // LOAD from skills array (msc.js)
                     wInfo[a][i] = dev.skills[a][i] + "&nbsp;";
                 }
@@ -812,6 +814,10 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         wInfo_p[a]++; // number of words at initial
                     }
                 }
+
+                wordCloudTransform(line, el.wCh[a], wInfo_p[a]); // start wordclouding feature 
+
+                line++;
             }
         } 
         
@@ -825,6 +831,20 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
         el.ac = true;
     }
+}
+
+function wordCloudTransform(d, g, a) {
+    var active = a, 
+        getHidden = getRandomInt(active, dev.skillsNum),
+        hElement = document.querySelector("#wordclouds" + d + " .span .h" + getHidden),
+        hElementWidth = 0;
+    hElement.classList.remove("d_n");
+    hElementWidth = hElement.getBoundingClientRect().width;
+    console.log(hElementWidth);
+    /*
+    for (i = 0; i < g.length; i++) {
+
+    }*/
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
