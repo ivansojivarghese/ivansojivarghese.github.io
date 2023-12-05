@@ -858,7 +858,7 @@ function wordCloudTransform(d, g, a) {
             }
 
             if (!targetWords[0].classList.contains("r" + id)) { // if target does not match intended target
-                for (k = 0; k < (active - 1); k++) { // find the target again
+                for (k = 0; k < dev.skillsNum; k++) { // find the target again
                     if (el.wCh["s" + d][k].classList.contains("r" + id)) {
                         targetWords[0] = el.wCh["s" + d][k];
                         break;
