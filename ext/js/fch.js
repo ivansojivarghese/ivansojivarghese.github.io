@@ -805,7 +805,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
 
                         el.wCh[a][b].classList.remove("h" + b);
                         el.wCh[a][b].classList.remove("v_n"); // show if visible
-                        el.wCh[a][b].classList.add("v_s", "actv"); // show if visible + activated
+                        el.wCh[a][b].classList.add("v_s", "actv", "trs"); // show if visible + activated
                         el.wCh[a][b].classList.add("r" + b); // index for reference
 
                         // wInfo_f[a]++; // next indexed word in sequence
@@ -857,7 +857,11 @@ function wordCloudTransform(d, g, a) {
                 }
             }
             targetWords[0].classList.remove("v_s", "actv", "r" + id);
-            targetWords[0].classList.add("z_O");
+            targetWords[0].classList.add("z_O", "v_n", "p-a");
+            setTimeout(function() {
+                targetWords[0].classList.add("d_n");
+            }, op.t);
+            
             // v_n d_n z_O p-a h6
             console.log(targetWords);
         }
