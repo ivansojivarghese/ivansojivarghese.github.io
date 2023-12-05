@@ -842,7 +842,7 @@ function wordCloudTransform(d, g, a) {
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
 
-            // 
+            // get target word
 
             break;
         }
@@ -851,11 +851,14 @@ function wordCloudTransform(d, g, a) {
     for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
         var rmd = (active - 1) - i, cnt = 1;
         while (cnt <= rmd) {
-            comboArr[comboArr.length] = wInfo_i["s" + d][i] + wInfo_i["s" + d][i + cnt];
+            var val = wInfo_i["s" + d][i] + wInfo_i["s" + d][i + cnt];
+            if (val >= hElementWidth) {
+                comboArr[comboArr.length] = val;
+            }
             cnt++;
         }
 
-
+        // get target words
     }   
 
     console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
