@@ -836,7 +836,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
 function wordCloudTransform(d, g, a) {
     var active = a, 
         getHidden = getRandomInt(active, dev.skillsNum),
-        hElement = document.querySelector("#wordclouds" + d + " .span .h" + getHidden),
+        hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
         hElementWidth = 0;
     hElement.classList.remove("d_n");
     hElementWidth = hElement.getBoundingClientRect().width;
