@@ -840,10 +840,13 @@ function wordCloudTransform(d, g, a) {
     hElement.classList.remove("d_n");
     hElementWidth = hElement.getBoundingClientRect().width;
 
-    /*
+    console.log(hElementWidth);
+
+    // wInfo_i[d];
+
     for (i = 0; i < g.length; i++) {
 
-    }*/
+    }
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
