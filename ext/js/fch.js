@@ -836,17 +836,27 @@ function wordCloudTransform(d, g, a) {
     var active = a, 
         getHidden = getRandomInt(active, dev.skillsNum),
         hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
-        hElementWidth = 0;
-    hElement.classList.remove("d_n");
-    hElementWidth = hElement.getBoundingClientRect().width;
+        hElementWidth = wInfo_i[d][getHidden],
+        comboArr = [];
 
-    console.log(hElementWidth);
+    for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
+        if (wInfo_i[d][i] >= hElementWidth) {
 
-    // wInfo_i[d];
+            // 
 
-    for (i = 0; i < g.length; i++) {
-
+            break;
+        }
     }
+
+    for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
+        var rmd = (active - 1) - i, cnt = 1;
+        while (cnt <= rmd) {
+            comboArr[comboArr.length] = wInfo_i[d][i] + wInfo_i[d][i + cnt];
+            i++;
+        }
+    }   
+
+    console.log(comboArr);
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
