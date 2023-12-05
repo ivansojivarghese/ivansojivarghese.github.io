@@ -837,6 +837,7 @@ function wordCloudTransform(d, g, a) {
         getHidden = getRandomInt(active, dev.skillsNum),
         hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
         hElementWidth = wInfo_i["s" + d][getHidden],
+        targetWords = [],
         comboArr = [];
 
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
@@ -845,24 +846,28 @@ function wordCloudTransform(d, g, a) {
             // get target word
             console.log(el.wCh["s" + d][i].innerHTML);
 
+            targetWords[targetWords.length] = el.wCh["s" + d][i].innerHTML;
+
             break;
         }
     }
 
-    for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
-        var rmd = (active - 1) - i, cnt = 1;
-        while (cnt <= rmd) {
-            var val = wInfo_i["s" + d][i] + wInfo_i["s" + d][i + cnt];
-            if (val >= hElementWidth) {
-                comboArr[comboArr.length] = val;
+    if (!targetWords.length) {
+        for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
+            var rmd = (active - 1) - i, cnt = 1;
+            while (cnt <= rmd) {
+                var val = wInfo_i["s" + d][i] + wInfo_i["s" + d][i + cnt];
+                if (val >= hElementWidth) {
+                    comboArr[comboArr.length] = val;
+                }
+                cnt++;
             }
-            cnt++;
-        }
 
-        // get target words
-    }   
+            // get target words
+        }   
 
-    console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
+        console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
+    }
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
