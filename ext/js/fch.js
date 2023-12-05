@@ -857,9 +857,9 @@ function wordCloudTransform(d, g, a) {
                 }
             }
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
-            targetWords[0].classList.add("z_O", "p-a");
+            targetWords[0].classList.add("z_O", "p-a", "h" + getHidden);
             setTimeout(function() {
-                targetWords[0].classList.add("d_n", "v_n", "h" + getHidden);
+                targetWords[0].classList.add("d_n", "v_n");
             }, op.t);
 
             hElement.classList.remove("v_n", "d_n", "p-a", "h" + getHidden); // show hidden word
