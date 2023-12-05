@@ -843,12 +843,7 @@ function wordCloudTransform(d, g, a) {
 
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
-
             singleArr[singleArr.length] = wInfo_i["s" + d][i];
-
-            // get target word
-            // console.log(el.wCh["s" + d][i].innerHTML);
-            // targetWords[targetWords.length] = el.wCh["s" + d][i].innerHTML;
         }
 
         if (i === (active - 2) && singleArr.length) { // last
@@ -870,7 +865,7 @@ function wordCloudTransform(d, g, a) {
             // get target words
         }   
 
-        console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
+        // console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
     }
 }
 
