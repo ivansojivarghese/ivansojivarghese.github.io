@@ -847,7 +847,7 @@ function wordCloudTransform(d, g, a) {
         }
 
         if (i === (active - 2) && singleArr.length) { // last
-            console.log(Math.min(...singleArr));
+            targetWords[targetWords.length] = Math.min(...singleArr);
         }
     }
 
