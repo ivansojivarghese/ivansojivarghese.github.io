@@ -843,6 +843,7 @@ function wordCloudTransform(d, g, a) {
         if (wInfo_i["s" + d][i] >= hElementWidth) {
 
             // get target word
+            console.log(el.wCh["s" + d][i].innerHTML);
 
             break;
         }
