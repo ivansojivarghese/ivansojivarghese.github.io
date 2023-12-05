@@ -777,10 +777,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
             el.x12 = true;
 
             // desktop wordcloud feature - keywords insertions
+            var line = 1;
 
             for (var a in el.wCh) { // load up (& initial show some) keywords on all lines
-
-                var line = 1;
 
                 for (i = 0; i <= (dev.skills[a].length - 1); i++) { // LOAD from skills array (msc.js)
                     wInfo[a][i] = dev.skills[a][i] + "&nbsp;";
@@ -840,7 +839,7 @@ function wordCloudTransform(d, g, a) {
         hElementWidth = 0;
     hElement.classList.remove("d_n");
     hElementWidth = hElement.getBoundingClientRect().width;
-    console.log(hElementWidth);
+
     /*
     for (i = 0; i < g.length; i++) {
 
