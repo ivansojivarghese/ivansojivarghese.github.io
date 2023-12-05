@@ -854,6 +854,7 @@ function wordCloudTransform(d, g, a) {
                     break;
                 }
             }
+            console.log(targetWords);
         }
     }
 
