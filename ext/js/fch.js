@@ -847,7 +847,13 @@ function wordCloudTransform(d, g, a) {
         }
 
         if (i === (active - 2) && singleArr.length) { // last
-            targetWords[targetWords.length] = Math.min(...singleArr);
+            var targetWidth = Math.min(...singleArr);
+            for (j = 0; j < (active - 1); j++) {
+                if (targetWidth === wInfo_i["s" + d][j]) {
+                    targetWords[targetWords.length] = el.wCh["s" + d][j];
+                    break;
+                }
+            }
         }
     }
 
