@@ -856,17 +856,23 @@ function wordCloudTransform(d, g, a) {
                     break;
                 }
             }
+
+            if (!targetWords[0].classList.contains("r" + id)) { // if target does not match intended target
+                for (k = 0; k < (active - 1); k++) { // find the target again
+                    if (el.wCh["s" + d][k].classList.contains("r" + id)) {
+                        targetWords[0] = el.wCh["s" + d][k];
+                        break;
+                    }
+                }
+            }
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
             targetWords[0].classList.add("z_O", "d_n", "v_n", "p-a", "h" + getHidden);
 
             hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
             hElement.classList.add("actv", "v_s", "r" + id);
-            //setTimeout(function() {
-                // hElement.classList.remove("d_n");
             setTimeout(function() {
                 hElement.classList.remove("z_O");
             }, op.t);
-            //}, 10);
 
             console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
 
