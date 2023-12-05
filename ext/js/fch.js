@@ -852,7 +852,7 @@ function wordCloudTransform(d, g, a) {
         var rmd = (active - 1) - i, cnt = 1;
         while (cnt <= rmd) {
             comboArr[comboArr.length] = wInfo_i["s" + d][i] + wInfo_i["s" + d][i + cnt];
-            i++;
+            cnt++;
         }
     }   
 
