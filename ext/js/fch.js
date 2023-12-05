@@ -836,7 +836,7 @@ function wordCloudTransform(d, g, a) {
     var active = a, 
         getHidden = getRandomInt(active, dev.skillsNum),
         hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
-        hElementWidth = wInfo_i[d][getHidden],
+        hElementWidth = wInfo_i["s" + d][getHidden],
         comboArr = [];
 
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
