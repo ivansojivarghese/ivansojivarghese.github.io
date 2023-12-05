@@ -854,9 +854,11 @@ function wordCloudTransform(d, g, a) {
             comboArr[comboArr.length] = wInfo_i["s" + d][i] + wInfo_i["s" + d][i + cnt];
             cnt++;
         }
+
+
     }   
 
-    console.log(hElementWidth + ", " + comboArr + ", " + Math.min(comboArr));
+    console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
