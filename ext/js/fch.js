@@ -859,14 +859,14 @@ function wordCloudTransform(d, g, a) {
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
             targetWords[0].classList.add("z_O", "d_n", "v_n", "p-a", "h" + getHidden);
 
-            hElement.classList.remove("v_n", "p-a", "h" + getHidden); // show hidden word
+            hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
             hElement.classList.add("actv", "v_s", "r" + id);
+            //setTimeout(function() {
+                // hElement.classList.remove("d_n");
             setTimeout(function() {
-                hElement.classList.remove("d_n");
-                setTimeout(function() {
-                    hElement.classList.remove("z_O");
-                }, op.t);
-            }, 10);
+                hElement.classList.remove("z_O");
+            }, op.t);
+            //}, 10);
 
             console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
 
