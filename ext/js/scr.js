@@ -790,7 +790,7 @@ function sc_LpH() { // scroll loop - phablet
             // WORDCLOUD
             if (b.wc.top && b.wc.top < aH && !pf.x8a) {
                 pf.x8a = true;
-                for (i = 0; i < el.wCh.length; i++) {
+                for (i = 0; i < 4; i++) {
                     wordCloudTransform(i + 1, el.wCh[a], wInfo_p[a]); // start wordclouding feature 
                 }
             }
