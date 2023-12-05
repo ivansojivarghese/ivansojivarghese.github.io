@@ -838,21 +838,25 @@ function wordCloudTransform(d, g, a) {
         hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
         hElementWidth = wInfo_i["s" + d][getHidden],
         targetWords = [],
+        singleArr = [],
         comboArr = [];
 
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
 
+            singleArr[singleArr.length] = wInfo_i["s" + d][i];
+
             // get target word
-            console.log(el.wCh["s" + d][i].innerHTML);
+            // console.log(el.wCh["s" + d][i].innerHTML);
+            // targetWords[targetWords.length] = el.wCh["s" + d][i].innerHTML;
+        }
 
-            targetWords[targetWords.length] = el.wCh["s" + d][i].innerHTML;
-
-            break;
+        if (i === (active - 2) && singleArr.length) { // last
+            console.log(Math.min(...singleArr));
         }
     }
 
-    if (!targetWords.length) {
+    if (!singleArr.length) {
         for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
             var rmd = (active - 1) - i, cnt = 1;
             while (cnt <= rmd) {
