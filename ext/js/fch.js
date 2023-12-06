@@ -878,17 +878,15 @@ function wordCloudTransform(d, g, a) {
     }
 
     if (!singleArr.length) {
-        var ids = [
-            []
-        ];
+        var ids = [];
         for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
             var rmd = (active - 1) - i, cnt = 1;
             while (cnt <= rmd) {
                 var val = wInfo_i["s" + d][i] + wInfo_i["s" + d][i + cnt];
                 if (val >= hElementWidth) {
                     comboArr[comboArr.length] = val;
-                    ids[ids.length][0] = i;
-                    ids[ids.length][1] = i + cnt; // get target words
+                    ids[ids.length] = [i, i + cnt];
+                    // ids[ids.length][1] = i + cnt; // get target words
                 }
                 cnt++;
             }
