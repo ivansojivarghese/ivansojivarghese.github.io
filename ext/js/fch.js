@@ -874,7 +874,7 @@ function wordCloudTransform(d, a) {
                 hElement.classList.remove("z_O");
             }, op.t);
 
-            console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
+            // console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
         }
     }
 
@@ -913,6 +913,31 @@ function wordCloudTransform(d, a) {
                     }
                 }
 
+                if (!newComboArr.length) { // if no active combinations exist
+                    var act = document.querySelectorAll("#wordclouds" + d + " span.actv"),
+                        actIds = [];
+                    for (e = 0; e < act.length; e++) {
+                        for (b = 0; b < dev.skillsNum; b++) {
+                            if (act[e] === el.wCh["s" + d][b]) {
+                                actIds[e] = b; // link up with variable elements
+                            }
+                        }
+                    }
+                    // get the combos from the active words
+                    for (i = 0; i < (act.length - 1); i++) {
+                        rmd = (act.length - 1) - i;
+                        cnt = 1;
+                        while (cnt <= rmd) {
+                            var val = wInfo_i["s" + d][actIds[i]] + wInfo_i["s" + d][actIds[i] + cnt];
+                            if (val >= hElementWidth) {
+                                newComboArr[newComboArr.length] = val;
+                                ids[ids.length] = [actIds[i], actIds[i] + cnt];
+                            }
+                            cnt++;
+                        }
+                    }
+                }
+
                 targetWidth = Math.min(...newComboArr); // target width with active words (min.)
 
                 for (j = 0; j < (comboArr.length); j++) { // find the match
@@ -928,7 +953,7 @@ function wordCloudTransform(d, a) {
                 hiddenWords[hiddenWords.length] = idWords[1];
 
                 console.log(targetWords[0].innerHTML + ", " + targetWords[1].innerHTML + ", " + hElement.innerHTML);
-
+                
                 for (m = 0; m < targetWords.length; m++) {
                     if (!targetWords[m].classList.contains("r" + idWords[m])) { // if target does not match intended target
                         for (k = 0; k < dev.skillsNum; k++) { // find the target again
