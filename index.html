@@ -1357,7 +1357,10 @@
         <!-- scrollbar (desktop) -->
         <script>
             $(".scrollBarFunction").scroll(function() {
-                console.log("scrolling");
+                if (!pos.sBc) {
+                    e_Fd(pos.sB, false);
+                    pos.sBc = true;
+                }
             });
         </script>
         <!-- scroll to top -->
