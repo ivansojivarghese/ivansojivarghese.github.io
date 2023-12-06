@@ -911,7 +911,6 @@ function wordCloudTransform(d, a) {
 
                 console.log(targetWords[0].innerHTML + ", " + targetWords[1].innerHTML + ", " + hElement.innerHTML);
 
-                /*
                 for (m = 0; m < targetWords.length; m++) {
                     if (!targetWords[m].classList.contains("r" + idWords[m])) { // if target does not match intended target
                         for (k = 0; k < dev.skillsNum; k++) { // find the target again
@@ -921,7 +920,7 @@ function wordCloudTransform(d, a) {
                             }
                         }
                     }
-                }*/
+                }
                 
                 for (m = 0; m < targetWords.length; m++) {
                     targetWords[m].classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
