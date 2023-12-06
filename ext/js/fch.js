@@ -937,10 +937,10 @@ function wordCloudTransform(d, a) {
         //console.log(targetWords);
         // console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
     }
-
+    /*
     setInterval(function() {
         wordCloudTransform(d, active);
-    }, 3000);
+    }, 3000);*/
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
