@@ -919,13 +919,14 @@ function wordCloudTransform(d, a) {
                             }
                         }
                     }
-                }
+                }*/
                 
                 for (m = 0; m < targetWords.length; m++) {
                     targetWords[m].classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
                     targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
                 }
-
+                
+                /*
                 hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
                 hElement.classList.add("actv", "v_s", "r" + idWords[0]);
 
