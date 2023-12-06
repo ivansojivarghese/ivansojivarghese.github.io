@@ -832,7 +832,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
     }
 }
 
-function wordCloudTransform(d, a) {
+function wordCloudTransform(d) {
     var //active = a, 
         //getHidden = getRandomInt(active, dev.skillsNum),
         active = 0, 
@@ -841,13 +841,23 @@ function wordCloudTransform(d, a) {
         //hElementWidth = wInfo_i["s" + d][getHidden],
         hElement = null,
         hElementWidth = 0,
+        hWords = [],
         targetWords = [],
         singleArr = [],
         comboArr = [];
 
+    for (j = 0; j < dev.skillsNum; j++) { // find out which words (in a line) are hidden
+        if (el.wCh["s" + d][j].classList.contains("h" + j)) {
+            hWords[hWords.length] = j;
+        }
+    }
+
     wInfo_p["s" + d] = document.querySelectorAll("#wordclouds" + d + " span.actv").length; // update number of active elements
     active = wInfo_p["s" + d];
-    getHidden = getRandomInt(active, dev.skillsNum);
+
+    // getHidden = getRandomInt(active, dev.skillsNum);
+    getHidden = hWords[getRandomInt(0, hWords.length)];
+
     hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden);
     hElementWidth = wInfo_i["s" + d][getHidden];
 
