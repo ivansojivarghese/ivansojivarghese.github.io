@@ -841,6 +841,8 @@ function wordCloudTransform(d, a) {
         singleArr = [],
         comboArr = [];
 
+    wInfo_p["s" + d] = document.querySelectorAll("#wordclouds" + d + " span.actv").length;
+
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
             singleArr[singleArr.length] = wInfo_i["s" + d][i];
@@ -952,7 +954,7 @@ function wordCloudTransform(d, a) {
                 }
                 hiddenWords[hiddenWords.length] = idWords[1];
 
-                console.log(targetWords[0].innerHTML + ", " + targetWords[1].innerHTML + ", " + hElement.innerHTML);
+                // console.log(targetWords[0].innerHTML + ", " + targetWords[1].innerHTML + ", " + hElement.innerHTML);
                 
                 for (m = 0; m < targetWords.length; m++) {
                     if (!targetWords[m].classList.contains("r" + idWords[m])) { // if target does not match intended target
@@ -977,7 +979,7 @@ function wordCloudTransform(d, a) {
                     hElement.classList.remove("z_O");
                 }, op.t);*/
 
-                wInfo_p["s" + d]--;
+                // wInfo_p["s" + d]--;
             }
         }   
 
