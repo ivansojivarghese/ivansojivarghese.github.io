@@ -58,6 +58,7 @@ var wH = window.outerHeight, // height
         t : 60 // iterations per sec.
     },
     pos = { // scroll pos. (window)
+        sB : document.getElementById("scrollBar"),
         y : 0, // y-pos
         yA : 0, // y-pos (secondary - comparison)
         a : [0, 0, 0], // comparison array (between consecutive 'n' y-pos values)
@@ -1183,7 +1184,9 @@ function sL() { // scroll pos. loop
         op.ps = false;
     }
 
-    console.log(pos.c);
+    if (pos.c) { // if scrolling, show scrollbar
+        e_Fd(pos.sB, false);
+    }
 }
 
 function pL() { // site parameters loop
