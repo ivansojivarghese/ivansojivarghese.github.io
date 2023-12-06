@@ -465,10 +465,6 @@
                 document.title = "Ivan Varghese"; // default the title
             });
 
-            $(".scrollBarFunction").scroll(function() {
-                console.log("scrolling");
-            });
-
             // CODE referenced from Kyle Mitofsky at jsfiddle.net 
 
             $(document).on("mousedown", function (e1) { // detect middle button click (on mouse)
@@ -1358,6 +1354,12 @@
                 </div>
             </div>
         </div>
+        <!-- scrollbar (desktop) -->
+        <script>
+            $(".scrollBarFunction").scroll(function() {
+                console.log("scrolling");
+            });
+        </script>
         <!-- scroll to top -->
         <script>
             $("#scrolltop_btn").on('click', function() {
