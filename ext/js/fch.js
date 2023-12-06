@@ -986,7 +986,16 @@ function wordCloudTransform(d) {
                 }
                 
                 for (m = 0; m < targetWords.length; m++) {
-                    targetWords[m].classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
+                    if (targetWords[m].classList.contains("r" + idWords[m])) { // if containing
+                        targetWords[m].classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
+                    } else {
+                        for (b = 0; b < dev.skillsNum; b++) {
+                            if (targetWords[m].classList.contains("r" + b)) {
+                                targetWords[m].classList.remove("v_s", "actv", "r" + b); // remove active word
+                                break;
+                            }
+                        }
+                    }
                     targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
                 }
 
