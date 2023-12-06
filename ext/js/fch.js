@@ -986,6 +986,7 @@ function wordCloudTransform(d) {
                 }
                 
                 for (m = 0; m < targetWords.length; m++) {
+                    var hAdd = true;
                     if (targetWords[m].classList.contains("r" + idWords[m])) { // if containing
                         targetWords[m].classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
                     } else {
@@ -996,7 +997,15 @@ function wordCloudTransform(d) {
                             }
                         }
                     }
-                    targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
+                    for (j = 0; j < dev.skillsNum; j++) { // if target el. contains .h[n] class
+                        if (targetWords[m].classList.contains("h" + j)) {
+                            hAdd = false;
+                            break;
+                        }
+                    }
+                    if (hAdd) {
+                        targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
+                    }
                 }
 
                 if (hElement.classList.contains("h" + getHidden)) { // if containing
