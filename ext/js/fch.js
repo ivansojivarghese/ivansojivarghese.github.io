@@ -847,8 +847,10 @@ function wordCloudTransform(d) {
         comboArr = [];
 
     for (j = 0; j < dev.skillsNum; j++) { // find out which words (in a line) are hidden
-        if (el.wCh["s" + d][j].classList.contains("h" + j)) {
-            hWords[hWords.length] = j;
+        for (b = 0; b < dev.skillsNum; b++) {
+            if (el.wCh["s" + d][j].classList.contains("h" + b)) {
+                hWords[hWords.length] = b;
+            }
         }
     }
 
