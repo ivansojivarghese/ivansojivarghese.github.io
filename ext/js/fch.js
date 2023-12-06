@@ -873,7 +873,6 @@ function wordCloudTransform(d, a) {
             setTimeout(function() {
                 hElement.classList.remove("z_O");
             }, op.t);
-
         }
     }
 
@@ -907,7 +906,7 @@ function wordCloudTransform(d, a) {
                     targetWords[targetWords.length] = el.wCh["s" + d][ids[j][k]];
                 }
                 hiddenWords[hiddenWords.length] = idWords[1];
-
+                /*
                 for (m = 0; m < targetWords.length; m++) {
                     if (!targetWords[m].classList.contains("r" + idWords[m])) { // if target does not match intended target
                         for (k = 0; k < dev.skillsNum; k++) { // find the target again
@@ -918,7 +917,7 @@ function wordCloudTransform(d, a) {
                         }
                     }
                 }
-
+                
                 for (m = 0; m < targetWords.length; m++) {
                     targetWords[m].classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
                     targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
@@ -931,7 +930,7 @@ function wordCloudTransform(d, a) {
                     hElement.classList.remove("z_O");
                 }, op.t);
 
-                active--;
+                active--;*/
             }
         }   
 
