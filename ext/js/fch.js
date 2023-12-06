@@ -907,7 +907,7 @@ function wordCloudTransform(d, a) {
                 }
                 hiddenWords[hiddenWords.length] = idWords[1];
 
-                console.log(targetWords + ", " + hiddenWords);
+                console.log(targetWords[0].innerHTML + ", " + targetWords[1].innerHTML + ", " + hiddenWords);
 
                 /*
                 for (m = 0; m < targetWords.length; m++) {
