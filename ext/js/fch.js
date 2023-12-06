@@ -999,7 +999,16 @@ function wordCloudTransform(d) {
                     targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
                 }
 
-                hElement.classList.remove("z_O", "d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
+                if (hElement.classList.contains("h" + getHidden)) { // if containing
+                    hElement.classList.remove("z_O", "d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
+                } else {
+                    for (b = 0; b < dev.skillsNum; b++) {
+                        if (hElement.classList.contains("h" + b)) {
+                            hElement.classList.remove("z_O", "d_n", "v_n", "p-a", "h" + b); // remove active word
+                            break;
+                        }
+                    }
+                }
                 hElement.classList.add("actv", "v_s", "r" + idWords[0]);
 
                 console.log("test");
