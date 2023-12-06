@@ -940,7 +940,7 @@ function wordCloudTransform(d, a) {
 
     setInterval(function() {
         wordCloudTransform(d, active);
-    }, 1000);
+    }, 3000);
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
