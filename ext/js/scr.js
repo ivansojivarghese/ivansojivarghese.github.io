@@ -792,11 +792,11 @@ function sc_LpH() { // scroll loop - phablet
                 pf.x8a = true;
                 var wordClouding = function() {
                         for (i = 0; i < 4; i++) {
-                            wordCloudTransform(i + 1, el.wCh["s" + (i + 1)], wInfo_p["s" + (i + 1)]); // start wordclouding feature 
+                            wordCloudTransform(i + 1, wInfo_p["s" + (i + 1)]); // start wordclouding feature 
                         }
                     };
                 wordClouding();
-                setInterval(wordClouding, 1000);
+                // setInterval(wordClouding, 1000);
             }
 
             // PREFOOTER

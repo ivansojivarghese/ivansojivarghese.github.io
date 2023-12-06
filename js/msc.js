@@ -42,7 +42,7 @@ var wH = window.outerHeight, // height
             cappuccinosNo : 245
         },
         skillsNum : 10, // num. of skills per line (UPDATE)
-        skills : { // relevant skills (UPDATE IF NEEDED)
+        skills : { // relevant skills (UPDATE IF NEEDED, WORDS MUST NOT EXCEED 2 WORDS (5-6 CHARACTERS) IN LENGTH)
             s1 : ["design", "canva", "wireframe", "figma", "ux", "dreamweaver", "ui", "studio", "experience", "responsive"], // ux/ui
             s2 : ["web", "html", "frontend", "js", "api", "sitemap", "css", "devtools", "seo", "dynamic"], // web
             s3 : ["logic", "debug", "flow", "object", "algorithm", "python", "ai", "boolean", "array", "ascii"], // software

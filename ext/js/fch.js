@@ -832,7 +832,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
     }
 }
 
-function wordCloudTransform(d, g, a) {
+function wordCloudTransform(d, a) {
     var active = a, 
         getHidden = getRandomInt(active, dev.skillsNum),
         hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
@@ -886,7 +886,6 @@ function wordCloudTransform(d, g, a) {
                 if (val >= hElementWidth) {
                     comboArr[comboArr.length] = val;
                     ids[ids.length] = [i, i + cnt];
-                    // ids[ids.length][1] = i + cnt; // get target words
                 }
                 cnt++;
             }
@@ -894,7 +893,8 @@ function wordCloudTransform(d, g, a) {
             if (i === (active - 2) && comboArr.length) { // if last
                 var targetWidth = Math.min(...comboArr),
                     id = 0,
-                    idWords = [];
+                    idWords = [],
+                    hiddenWords = [getHidden];
                 targetWords = []; // reset
                 for (j = 0; j < (comboArr.length); j++) {
                     if (targetWidth === comboArr[j]) {
@@ -906,13 +906,31 @@ function wordCloudTransform(d, g, a) {
                 for (k = 0; k < idWords.length; k++) {
                     targetWords[targetWords.length] = el.wCh["s" + d][ids[j][k]];
                 }
+                hiddenWords[hiddenWords.length] = idWords[1];
+
+                for (m = 0; m < targetWords.length; m++) {
+                    targetWords[m].classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
+                    targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
+                }
+
+                hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
+                hElement.classList.add("actv", "v_s", "r" + idWords[0]);
+
+                setTimeout(function() {
+                    hElement.classList.remove("z_O");
+                }, op.t);
+
+                active--;
             }
         }   
 
-        console.log(targetWords);
-
+        //console.log(targetWords);
         // console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
     }
+
+    setInterval(function() {
+        wordCloudTransform(d, active);
+    }, 1000);
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
