@@ -1189,7 +1189,7 @@ function sL() { // scroll pos. loop
         e_Fd(pos.sB, false);
         pos.sBc = true;
     } else if (!pos.c && pos.sBc) {
-        e_Fd(pos.sB, false);
+        e_Fd(pos.sB, true);
         pos.sBc = false;
     }
 }
