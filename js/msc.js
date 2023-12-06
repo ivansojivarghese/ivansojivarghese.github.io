@@ -69,6 +69,7 @@ var wH = window.outerHeight, // height
         m : 0, // no. of comparison matches (count)
         n : 0, // no. of comparison increments (count)
         c : false, // scrolling change/activity status
+        cE : false, // scrolling activity (ext.)
         r : true, /// scrolling direction - true if down
         L : null, // loop variables
         Lc : null,
@@ -1188,7 +1189,7 @@ function sL() { // scroll pos. loop
     if (pos.c && !pos.sBc) { // if scrolling, show scrollbar
         e_Fd(pos.sB, false);
         pos.sBc = true;
-    } else if (!pos.c && pos.sBc) { ////
+    } else if (!pos.c && pos.sBc && !pos.cE) { ////
         e_Fd(pos.sB, true);
         pos.sBc = false;
     }

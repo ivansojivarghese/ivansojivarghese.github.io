@@ -1357,10 +1357,14 @@
         <!-- scrollbar (desktop) -->
         <script>
             $(".scrollBarFunction").scroll(function() {
+                pos.cE = true; // scrolling (extended) : true
                 if (!pos.sBc) {
                     e_Fd(pos.sB, false);
                     pos.sBc = true;
                 }
+                setInterval(function() {
+                    pos.cE = false;
+                }, 1000);
             });
         </script>
         <!-- scroll to top -->
