@@ -1183,7 +1183,7 @@ function sL() { // scroll pos. loop
         op.ps = false;
     }
 
-    // console.log(pos.s);
+    console.log(pos.s);
 }
 
 function pL() { // site parameters loop
