@@ -463,7 +463,9 @@
 
             $(document).scroll(function() {
                 document.title = "Ivan Varghese"; // default the title
+            });
 
+            $(".scrollBarFunction").scroll(function() {
                 console.log("scrolling");
             });
 
@@ -805,7 +807,7 @@
                         </div>
                     </div> 
                 </div>
-                <div id="cond_sc" class="bC_L ovy-s h-f p-f trs z-G z_O">
+                <div id="cond_sc" class="scrollBarFunction bC_L ovy-s h-f p-f trs z-G z_O">
                     <div class="head bC_L">
                         <div class="ham bt trs hoverB" onclick="popU_toggle(pg.t, pg.w, true, !op.c.u)">
                             <div class="stroke bC_d"></div>
