@@ -906,6 +906,9 @@ function wordCloudTransform(d, a) {
                     targetWords[targetWords.length] = el.wCh["s" + d][ids[j][k]];
                 }
                 hiddenWords[hiddenWords.length] = idWords[1];
+
+                console.log(targetWords + ", " + hiddenWords);
+
                 /*
                 for (m = 0; m < targetWords.length; m++) {
                     if (!targetWords[m].classList.contains("r" + idWords[m])) { // if target does not match intended target
@@ -930,7 +933,9 @@ function wordCloudTransform(d, a) {
                     hElement.classList.remove("z_O");
                 }, op.t);
 
-                active--;*/
+                wInfo_p["s" + d]--;
+                
+                */
             }
         }   
 
