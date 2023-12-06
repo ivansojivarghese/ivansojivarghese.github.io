@@ -856,13 +856,11 @@ function wordCloudTransform(d) {
 
     wInfo_p["s" + d] = document.querySelectorAll("#wordclouds" + d + " span.actv").length; // update number of active elements
     active = wInfo_p["s" + d];
-
-    // getHidden = getRandomInt(active, dev.skillsNum);
     getHidden = hWords[getRandomInt(0, hWords.length)];
-
     hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden);
     hElementWidth = wInfo_i["s" + d][getHidden];
 
+    // check if only 1 word is needed for replacement
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
             singleArr[singleArr.length] = wInfo_i["s" + d][i];
@@ -899,8 +897,8 @@ function wordCloudTransform(d) {
             // console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
         }
     }
-
-    if (!singleArr.length) {
+    /*
+    if (!singleArr.length) { // 2 words needed for replacement
         var ids = [];
         for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
             var rmd = (active - 1) - i, cnt = 1;
@@ -994,10 +992,7 @@ function wordCloudTransform(d) {
 
                 hElement.classList.remove("z_O", "d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
                 hElement.classList.add("actv", "v_s", "r" + idWords[0]);
-                /*
-                setTimeout(function() {
-                    hElement.classList.remove("z_O");
-                }, op.t);*/
+                
 
                 // wInfo_p["s" + d]--;
             }
@@ -1005,7 +1000,7 @@ function wordCloudTransform(d) {
 
         //console.log(targetWords);
         // console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
-    }
+    }*/
     /*
     setInterval(function() {
         wordCloudTransform(d, active);
