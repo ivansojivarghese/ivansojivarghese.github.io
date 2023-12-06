@@ -867,7 +867,7 @@ function wordCloudTransform(d, a) {
             }
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
             targetWords[0].classList.add("z_O", "d_n", "v_n", "p-a", "h" + getHidden);
-
+            
             hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
             hElement.classList.add("actv", "v_s", "r" + id);
             setTimeout(function() {
@@ -928,10 +928,10 @@ function wordCloudTransform(d, a) {
                     targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
                 }
 
-                /*
                 hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
                 hElement.classList.add("actv", "v_s", "r" + idWords[0]);
-
+                
+                /*
                 setTimeout(function() {
                     hElement.classList.remove("z_O");
                 }, op.t);
