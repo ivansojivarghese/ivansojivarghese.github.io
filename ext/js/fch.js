@@ -931,14 +931,11 @@ function wordCloudTransform(d, a) {
                 hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
                 hElement.classList.add("actv", "v_s", "r" + idWords[0]);
 
-                /*
                 setTimeout(function() {
                     hElement.classList.remove("z_O");
-                }, op.t);*/
+                }, op.t);
 
                 wInfo_p["s" + d]--;
-                
-                
             }
         }   
 
