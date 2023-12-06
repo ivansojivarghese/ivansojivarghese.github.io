@@ -897,7 +897,7 @@ function wordCloudTransform(d) {
             // console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
         }
     }
-    /*
+    
     if (!singleArr.length) { // 2 words needed for replacement
         var ids = [];
         for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
@@ -1000,11 +1000,7 @@ function wordCloudTransform(d) {
 
         //console.log(targetWords);
         // console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
-    }*/
-    /*
-    setInterval(function() {
-        wordCloudTransform(d, active);
-    }, 3000);*/
+    }
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
