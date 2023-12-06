@@ -892,13 +892,31 @@ function wordCloudTransform(d, a) {
             }
 
             if (i === (active - 2) && comboArr.length) { // if last
-                var targetWidth = Math.min(...comboArr),
+                var // targetWidth = Math.min(...comboArr), 
+                    targetWidth = 0,
                     id = 0,
+                    newComboArr = [],
                     idWords = [],
                     hiddenWords = [getHidden];
                 targetWords = []; // reset
-                for (j = 0; j < (comboArr.length); j++) {
-                    if (targetWidth === comboArr[j]) {
+
+                for (j = 0; j < (comboArr.length); j++) { // 2 words in combo need to be active in display (and fit dimensions)
+                    var res = true;
+                    for (m = 0; m < ids[j].length; m++) {
+                        if (!el.wCh["s" + d][ids[j][m]].classList.contains("actv")) { // no active detected
+                            res = false;
+                            break;
+                        }
+                    }
+                    if (res) { 
+                        newComboArr[newComboArr.length] = comboArr[j];
+                    }
+                }
+
+                targetWidth = Math.min(...newComboArr); // target width with active words (min.)
+
+                for (j = 0; j < (comboArr.length); j++) { // find the match
+                    if (targetWidth === comboArr[j]) { 
                         id = j;
                         break;
                     }
