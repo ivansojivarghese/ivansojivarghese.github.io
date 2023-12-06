@@ -874,27 +874,44 @@ function wordCloudTransform(d, g, a) {
                 hElement.classList.remove("z_O");
             }, op.t);
 
-            console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
-
-            // v_n d_n z_O p-a h6
-            // console.log(targetWords);
-
         }
     }
 
     if (!singleArr.length) {
+        var ids = [
+            []
+        ];
         for (i = 0; i < (active - 1); i++) { // 2nd pass, get combos of widths of 2 words to check fit with target. return the min. value combo.
             var rmd = (active - 1) - i, cnt = 1;
             while (cnt <= rmd) {
                 var val = wInfo_i["s" + d][i] + wInfo_i["s" + d][i + cnt];
                 if (val >= hElementWidth) {
                     comboArr[comboArr.length] = val;
+                    ids[ids.length][0] = i;
+                    ids[ids.length][1] = i + cnt; // get target words
                 }
                 cnt++;
             }
 
-            // get target words
+            if (i === (active - 2) && comboArr.length) { // if last
+                var targetWidth = Math.min(...comboArr),
+                    id = 0,
+                    idWords = [];
+                targetWords = []; // reset
+                for (j = 0; j < (comboArr.length); j++) {
+                    if (targetWidth === comboArr[j]) {
+                        id = j;
+                        break;
+                    }
+                }
+                idWords = ids[j];
+                for (k = 0; k < idWords.length; k++) {
+                    targetWords[targetWords.length] = el.wCh["s" + d][ids[j][k]];
+                }
+            }
         }   
+
+        console.log(targetWords);
 
         // console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
     }
