@@ -837,8 +837,10 @@ function wordCloudTransform(d, a) {
         //getHidden = getRandomInt(active, dev.skillsNum),
         active = 0, 
         getHidden = 0,
-        hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
-        hElementWidth = wInfo_i["s" + d][getHidden],
+        //hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
+        //hElementWidth = wInfo_i["s" + d][getHidden],
+        hElement = null,
+        hElementWidth = 0,
         targetWords = [],
         singleArr = [],
         comboArr = [];
@@ -846,6 +848,8 @@ function wordCloudTransform(d, a) {
     wInfo_p["s" + d] = document.querySelectorAll("#wordclouds" + d + " span.actv").length; // update number of active elements
     active = wInfo_p["s" + d];
     getHidden = getRandomInt(active, dev.skillsNum);
+    hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden);
+    hElementWidth = wInfo_i["s" + d][getHidden];
 
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
