@@ -1182,7 +1182,7 @@ function sL() { // scroll pos. loop
     }
 
     if (pos.c && op.ps && (Math.round(pos.y) === Math.round(op.psV))) { // reset after peek (if applicable)
-        op.ps = false;
+        op.ps = false; //
     }
 
     if (pos.c && !pos.sBc) { // if scrolling, show scrollbar
