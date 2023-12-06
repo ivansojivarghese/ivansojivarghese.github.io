@@ -833,15 +833,19 @@ function load_eN() { // load, after cookie acceptance (page specific)
 }
 
 function wordCloudTransform(d, a) {
-    var active = a, 
-        getHidden = getRandomInt(active, dev.skillsNum),
+    var //active = a, 
+        //getHidden = getRandomInt(active, dev.skillsNum),
+        active = 0, 
+        getHidden = 0,
         hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
         hElementWidth = wInfo_i["s" + d][getHidden],
         targetWords = [],
         singleArr = [],
         comboArr = [];
 
-    wInfo_p["s" + d] = document.querySelectorAll("#wordclouds" + d + " span.actv").length;
+    wInfo_p["s" + d] = document.querySelectorAll("#wordclouds" + d + " span.actv").length; // update number of active elements
+    active = wInfo_p["s" + d];
+    getHidden = getRandomInt(active, dev.skillsNum);
 
     for (i = 0; i < (active - 1); i++) { // 1st pass, check if any (single) words fit width of hidden target
         if (wInfo_i["s" + d][i] >= hElementWidth) {
