@@ -992,6 +992,8 @@ function wordCloudTransform(d) {
 
                 hElement.classList.remove("z_O", "d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
                 hElement.classList.add("actv", "v_s", "r" + idWords[0]);
+
+                console.log("test");
             }
         }   
 
