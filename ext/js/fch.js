@@ -1004,7 +1004,11 @@ function wordCloudTransform(d) {
                         }
                     }
                     if (hAdd) {
-                        targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
+                        if (wordCloudCheck(targetWords[m], hiddenWords[m])) {
+                            targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
+                        } else {
+
+                        }
                     }
                 }
 
@@ -1018,7 +1022,11 @@ function wordCloudTransform(d) {
                         }
                     }
                 }
-                hElement.classList.add("actv", "v_s", "r" + idWords[0]);
+                if (wordCloudCheck(hElement, idWords[0])) {
+                    hElement.classList.add("actv", "v_s", "r" + idWords[0]);
+                } else {
+                    
+                }
 
                 console.log("test");
             }
@@ -1027,6 +1035,14 @@ function wordCloudTransform(d) {
         //console.log(targetWords);
         // console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
     }
+}
+
+function wordCloudCheck(el, a) {
+    var res = true;
+    if (el.classList.contains("h" + a) || el.classList.contains("r" + a)) {
+        res = false;
+    }
+    return res;
 }
 
 function scrollArrowIterate(m, e, t, h, ta, b, ch) {
