@@ -1004,10 +1004,22 @@ function wordCloudTransform(d) {
                         }
                     }
                     if (hAdd) {
-                        if (wordCloudCheck(d, hiddenWords[m])) {
+                        if (wordCloudCheck(d, hiddenWords[m])) { // check for duplicate
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
-                        } else {
-
+                        } else { // choose another number that is not taken
+                            var existNum = [],
+                                missingNum = [];
+                            for (c = 0; c < dev.skillsNum; c++) { // get existing numbers in other spans
+                                for (d = 0; d < dev.skillsNum; d++) {
+                                    if (el.wCh["s" + d][c].classList.contains("h" + d)) {
+                                        existNum[existNum.length] = d;
+                                    } else if (el.wCh["s" + d][c].classList.contains("r" + d)) {
+                                        existNum[existNum.length] = d;
+                                    }
+                                }
+                            }
+                            missingNum = findMissingInt(existNum);
+                            targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + missingNum[getRandomInt(0, missingNum.length)]);
                         }
                     }
                 }
@@ -1022,10 +1034,10 @@ function wordCloudTransform(d) {
                         }
                     }
                 }
-                if (wordCloudCheck(d, idWords[0])) {
+                if (wordCloudCheck(d, idWords[0])) { // check for duplicate
                     hElement.classList.add("actv", "v_s", "r" + idWords[0]);
                 } else {
-
+                    // hElement.classList.add("actv", "v_s", "r" + );
                 }
 
                 console.log("test");

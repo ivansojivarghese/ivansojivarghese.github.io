@@ -9,6 +9,13 @@ function timeNow(el) {
     el.title = op.d;
 }
 
+function findMissingInt(nums) {
+    for (let n = 1; n<= nums.length + 1; n++) {
+        if (nums.indexOf(n) === -1) 
+        return n;
+    }
+}
+
 // effects
 
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
