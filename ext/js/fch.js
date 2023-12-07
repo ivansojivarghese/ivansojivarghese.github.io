@@ -1053,7 +1053,7 @@ function wordCloudTransform(d) {
                     hElement.classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
                 }
 
-                console.log("test");
+                // console.log("test");
             }
         }   
 
