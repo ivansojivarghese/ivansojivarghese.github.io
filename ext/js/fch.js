@@ -62,6 +62,7 @@ var fchL = {
         s3 : [],  
         s4 : []
     },
+    wInfo_ref = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 
     /*
     wInfo_f = { // wordcloud h3 next index element
@@ -1018,7 +1019,7 @@ function wordCloudTransform(d) {
                                     }
                                 }
                             }
-                            missingNum = findMissingInt(existNum);
+                            missingNum = findMissingInt(existNum, wInfo_ref);
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + missingNum[getRandomInt(0, missingNum.length)]);
                         }
                     }
@@ -1048,7 +1049,7 @@ function wordCloudTransform(d) {
                             }
                         }
                     }
-                    missingNum = findMissingInt(existNum);
+                    missingNum = findMissingInt(existNum, wInfo_ref);
                     hElement.classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
                 }
 

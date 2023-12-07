@@ -9,11 +9,15 @@ function timeNow(el) {
     el.title = op.d;
 }
 
-function findMissingInt(nums) {
-    for (let n = 1; n<= nums.length + 1; n++) {
-        if (nums.indexOf(n) === -1) 
-        return n;
+function findMissingInt(nums, ref) { // find missing int val. from 0-9 range
+    var match = ref;
+        res = [];
+    for (i = 0; i < nums.length; i++) {
+        if (match.indexOf(nums[i]) === -1) {
+            res[res.length] = nums[i];
+        }
     }
+    return res;
 }
 
 // effects
