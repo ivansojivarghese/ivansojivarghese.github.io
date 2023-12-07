@@ -12,9 +12,9 @@ function timeNow(el) {
 function findMissingInt(nums, ref) { // find missing int val. from 0-9 range
     var match = ref;
         res = [];
-    for (i = 0; i < nums.length; i++) {
-        if (match.indexOf(nums[i]) === -1) {
-            res[res.length] = nums[i];
+    for (i = 0; i < match.length; i++) {
+        if (nums.indexOf(match[i]) === -1) {
+            res[res.length] = match[i];
         }
     }
     return res;
