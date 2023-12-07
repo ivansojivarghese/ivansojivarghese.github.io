@@ -1010,11 +1010,11 @@ function wordCloudTransform(d) {
                             var existNum = [],
                                 missingNum = [];
                             for (c = 0; c < dev.skillsNum; c++) { // get existing numbers in other spans
-                                for (d = 0; d < dev.skillsNum; d++) {
-                                    if (el.wCh["s" + d][c].classList.contains("h" + d)) {
-                                        existNum[existNum.length] = d;
-                                    } else if (el.wCh["s" + d][c].classList.contains("r" + d)) {
-                                        existNum[existNum.length] = d;
+                                for (e = 0; e < dev.skillsNum; e++) {
+                                    if (el.wCh["s" + d][c].classList.contains("h" + e)) {
+                                        existNum[existNum.length] = e;
+                                    } else if (el.wCh["s" + d][c].classList.contains("r" + e)) {
+                                        existNum[existNum.length] = e;
                                     }
                                 }
                             }
@@ -1040,11 +1040,11 @@ function wordCloudTransform(d) {
                     var existNum = [],
                         missingNum = [];
                     for (c = 0; c < dev.skillsNum; c++) { // get existing numbers in other spans
-                        for (d = 0; d < dev.skillsNum; d++) {
-                            if (el.wCh["s" + d][c].classList.contains("h" + d)) {
-                                existNum[existNum.length] = d;
-                            } else if (el.wCh["s" + d][c].classList.contains("r" + d)) {
-                                existNum[existNum.length] = d;
+                        for (e = 0; e < dev.skillsNum; e++) {
+                            if (el.wCh["s" + d][c].classList.contains("h" + e)) {
+                                existNum[existNum.length] = e;
+                            } else if (el.wCh["s" + d][c].classList.contains("r" + e)) {
+                                existNum[existNum.length] = e;
                             }
                         }
                     }
