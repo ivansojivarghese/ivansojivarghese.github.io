@@ -1067,7 +1067,7 @@ function wordCloudTransform(d) {
             } else {
                 acArr[acArr.length] = k;
             }
-        }
+        } // 
     }
 
     console.log(acArr);
