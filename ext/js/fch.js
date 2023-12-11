@@ -1095,7 +1095,7 @@ function wordCloudTransform(d) {
             }
         } // 
     }
-    if (ctvWid < (wiD / 2)) { // potential underflowing, less than half of screen width
+    if (ctvWid < (wiD / 1.75)) { // potential underflowing, less than half of screen width
 
         // look at prev. 5 iterations, show numbers which have not been shown
 
