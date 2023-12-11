@@ -63,6 +63,7 @@ var fchL = {
         s4 : []
     },
     wInfo_ref = [], // reference array to find missing values
+    prArr = [], // previous arrays (max. 5)
 
     /*
     wInfo_f = { // wordcloud h3 next index element
@@ -1093,6 +1094,15 @@ function wordCloudTransform(d) {
                 acArr[acArr.length] = k;
             }
         } // 
+    }
+    if (ctvWid < (wiD / 2)) { // potential underflowing, less than half of screen width
+
+        // look at prev. 5 iterations, show numbers which have not been shown
+        
+    } else { // add to records
+        if (prArr.length < 5) {
+            prArr[prArr.length] = acArr;
+        }
     }
 
     console.log(acArr); // only show the elements in the array
