@@ -62,7 +62,7 @@ var fchL = {
         s3 : [],  
         s4 : []
     },
-    wInfo_ref = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    wInfo_ref = [],
 
     /*
     wInfo_f = { // wordcloud h3 next index element
@@ -197,7 +197,9 @@ var nearbyCoordsDis = 50, // km
         i : document.getElementById("localWeatherIcon")
     };
 
-
+for (i = 0; i < dev.skillsNum; i++) {
+    wInfo_ref[wInfo_ref.length] = i;
+}
 
 function live_update() {
     if (rL.i && ((vw.pH && wiD >= 700) || (vw.dk))) {
