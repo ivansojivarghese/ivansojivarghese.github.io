@@ -1072,14 +1072,39 @@ function wordCloudTransform(d) {
 
     for (j = 0; j < dev.skillsNum; j++) {
         if (acArr.indexOf(j) !== -1) { // display
-            if (!el.wCh["s" + d][j].classList.contains("actv")) {
+            if (!el.wCh["s" + d][j].classList.contains("actv")) { // show hidden word
+
                 // classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
+
             }
         } else { // hide
-            if (el.wCh["s" + d][j].classList.contains("actv")) {
-                // classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
-                el.wCh["s" + d][j].classList.remove("actv");
-                el.wCh["s" + d][j].classList.add("d_n");
+            if (el.wCh["s" + d][j].classList.contains("actv")) { // remove active word
+
+                // classList.remove("v_s", "actv", "r" + idWords[m]); 
+
+                var index = 0; // r-index
+                for (c = 0; c < dev.skillsNum; c++) {
+                    if (el.wCh["s" + d][j].classList.contains("r" + c)) {
+                        index = c;
+                    }
+                }
+
+                var existNum = [],
+                    missingNum = [];
+                for (c = 0; c < dev.skillsNum; c++) { // get existing numbers in other spans
+                    for (e = 0; e < dev.skillsNum; e++) {
+                        if (el.wCh["s" + d][c].classList.contains("h" + e)) {
+                            existNum[existNum.length] = e;
+                        } else if (el.wCh["s" + d][c].classList.contains("r" + e)) {
+                            existNum[existNum.length] = e;
+                        }
+                    }
+                }
+                missingNum = findMissingInt(existNum, wInfo_ref);
+
+
+                el.wCh["s" + d][j].classList.remove("v_s", "actv", "r" + index);
+                el.wCh["s" + d][j].classList.add("z_O", "d_n", "v_n", "p-a", "h" + missingNum[getRandomInt(0, missingNum.length)]);
             }
         }
     }
