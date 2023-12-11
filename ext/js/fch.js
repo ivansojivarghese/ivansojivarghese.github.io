@@ -1109,7 +1109,7 @@ function wordCloudTransform(d) {
             }
         }
 
-        console.log(allNums);
+        // console.log(allNums);
 
         // return the missing numbers
         missingNum = findMissingInt(allNums, wInfo_ref);
@@ -1125,7 +1125,7 @@ function wordCloudTransform(d) {
         }
     }
 
-    // console.log(acArr); // only show the elements in the array
+    console.log(acArr); // only show the elements in the array
 
     for (j = 0; j < dev.skillsNum; j++) {
         if (acArr.indexOf(j) !== -1) { // display
