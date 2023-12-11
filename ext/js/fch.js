@@ -900,7 +900,7 @@ function wordCloudTransform(d) {
             }, op.t);
 
             // console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
-            console.log(id);
+            //console.log(id);
         }
     }
     
@@ -1055,7 +1055,7 @@ function wordCloudTransform(d) {
                 if (wordCloudCheck(d, idWords[0])) { // check for duplicate
                     hElement.classList.add("actv", "v_s", "r" + idWords[0]);
 
-                    console.log(idWords[0]);
+                    //console.log(idWords[0]);
 
                 } else {
                     var existNum = [],
@@ -1094,6 +1094,8 @@ function wordCloudTransform(d) {
             }
         } // 
     }
+
+    console.log(acArr); // only show the elements in the array
 
     for (j = 0; j < dev.skillsNum; j++) {
         if (acArr.indexOf(j) !== -1) { // display
@@ -1136,8 +1138,6 @@ function wordCloudTransform(d) {
             }
         }
     }
-
-    console.log(acArr); // only show the elements in the array
 }
 
 function wordCloudCheck(d, a) {
