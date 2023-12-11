@@ -1059,7 +1059,7 @@ function wordCloudTransform(d) {
     var acArr = []; // active array
     var ctvWid = 0; // cumulative width
     for (k = 0; k < dev.skillsNum; k++) {  // detect for overflow in line
-        if (el.wCh[k].classList.contains("actv")) {
+        if (el.wCh["s" + k].classList.contains("actv")) {
             ctvWid += wInfo_i[k];
             if (ctvWid > wiD) {
                 ctvWid -= wInfo_i[k];
