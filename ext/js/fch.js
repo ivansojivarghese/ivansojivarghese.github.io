@@ -1113,7 +1113,7 @@ function wordCloudTransform(d) {
 
         // return the missing numbers
         missingNum = findMissingInt(allNums, wInfo_ref);
-        
+
         acArr = acArr.concat(missingNum);
         
     } else { // add to records
@@ -1130,6 +1130,16 @@ function wordCloudTransform(d) {
     for (j = 0; j < dev.skillsNum; j++) {
         if (acArr.indexOf(j) !== -1) { // display
             if (!el.wCh["s" + d][j].classList.contains("actv")) { // show hidden word
+
+                var index = 0; // r-index
+                for (c = 0; c < dev.skillsNum; c++) {
+                    if (el.wCh["s" + d][j].classList.contains("h" + c)) {
+                        index = c;
+                    }
+                }
+
+                el.wCh["s" + d][j].classList.remove("z_O", "d_n", "v_n", "p-a", "h" + index);
+                el.wCh["s" + d][j].classList.add("actv", "v_s", "r" + index);
 
                 // classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
 
