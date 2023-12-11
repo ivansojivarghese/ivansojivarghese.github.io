@@ -1114,7 +1114,7 @@ function wordCloudTransform(d) {
         // return the missing numbers
         missingNum = findMissingInt(allNums, wInfo_ref);
 
-        console.log(missingNum);
+        acArr.push(missingNum);
         
     } else { // add to records
         if (prArr.length < 5) {
