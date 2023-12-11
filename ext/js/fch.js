@@ -1113,8 +1113,8 @@ function wordCloudTransform(d) {
 
         // return the missing numbers
         missingNum = findMissingInt(allNums, wInfo_ref);
-
-        acArr.push(missingNum);
+        
+        acArr = acArr.concat(missingNum);
         
     } else { // add to records
         if (prArr.length < 5) {
