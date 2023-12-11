@@ -62,7 +62,7 @@ var fchL = {
         s3 : [],  
         s4 : []
     },
-    wInfo_ref = [],
+    wInfo_ref = [], // reference array to find missing values
 
     /*
     wInfo_f = { // wordcloud h3 next index element
@@ -890,6 +890,8 @@ function wordCloudTransform(d) {
             }
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
             targetWords[0].classList.add("z_O", "d_n", "v_n", "p-a", "h" + getHidden);
+
+            console.log(getHidden);
             
             hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
             hElement.classList.add("actv", "v_s", "r" + id);
@@ -1009,6 +1011,9 @@ function wordCloudTransform(d) {
                     if (hAdd) {
                         if (wordCloudCheck(d, hiddenWords[m])) { // check for duplicate
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
+
+                            console.log(hiddenWords[m]);
+
                         } else { // choose another number that is not taken
                             var existNum = [],
                                 missingNum = [];
@@ -1023,6 +1028,8 @@ function wordCloudTransform(d) {
                             }
                             missingNum = findMissingInt(existNum, wInfo_ref);
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + missingNum[getRandomInt(0, missingNum.length)]);
+
+                            console.log(missingNum[getRandomInt(0, missingNum.length)]);
                         }
                     }
                 }
@@ -1104,6 +1111,7 @@ function wordCloudTransform(d) {
                 }
                 missingNum = findMissingInt(existNum, wInfo_ref);
 
+                console.log(missingNum[getRandomInt(0, missingNum.length)]);
 
                 el.wCh["s" + d][j].classList.remove("v_s", "actv", "r" + index);
                 el.wCh["s" + d][j].classList.add("z_O", "d_n", "v_n", "p-a", "h" + missingNum[getRandomInt(0, missingNum.length)]);
