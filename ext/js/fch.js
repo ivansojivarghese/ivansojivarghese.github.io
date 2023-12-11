@@ -1060,9 +1060,9 @@ function wordCloudTransform(d) {
     var ctvWid = 0; // cumulative width
     for (k = 0; k < dev.skillsNum; k++) {  // detect for overflow in line
         if (el.wCh["s" + d][k].classList.contains("actv")) {
-            ctvWid += wInfo_i[k];
+            ctvWid += wInfo_i["s" + d][k];
             if (ctvWid > wiD) {
-                ctvWid -= wInfo_i[k];
+                ctvWid -= wInfo_i["s" + d][k];
                 break;
             } else {
                 acArr[acArr.length] = k;
