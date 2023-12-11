@@ -1099,7 +1099,8 @@ function wordCloudTransform(d) {
 
         // look at prev. 5 iterations, show numbers which have not been shown
 
-        var allNums = [];
+        var allNums = [],
+            missingNum = [];
         for (b = 0; b < prArr.length; b++) {
             for (c = 0; c < prArr[b].length; c++) {
                 if (allNums.indexOf(prArr[b][c]) === -1) {
@@ -1109,17 +1110,22 @@ function wordCloudTransform(d) {
         }
 
         console.log(allNums);
+
+        // return the missing numbers
+        missingNum = findMissingInt(allNums, wInfo_ref);
+
+        console.log(missingNum);
         
     } else { // add to records
         if (prArr.length < 5) {
             prArr[prArr.length] = acArr;
         } else {
             prArr.shift(); // remove first instance
-            prArr[prArr.length] = acArr;
+            prArr[prArr.length] = acArr; // update 5th instance
         }
     }
 
-    console.log(acArr); // only show the elements in the array
+    // console.log(acArr); // only show the elements in the array
 
     for (j = 0; j < dev.skillsNum; j++) {
         if (acArr.indexOf(j) !== -1) { // display
