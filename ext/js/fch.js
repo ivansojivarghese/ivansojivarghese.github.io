@@ -1052,14 +1052,25 @@ function wordCloudTransform(d) {
                     missingNum = findMissingInt(existNum, wInfo_ref);
                     hElement.classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
                 }
-
-                // console.log("test");
             }
         }   
-
-        //console.log(targetWords);
-        // console.log(hElementWidth + ", " + comboArr + ", " + Math.min(...comboArr));
     }
+
+    var acArr = []; // active array
+    var ctvWid = 0; // cumulative width
+    for (k = 0; k < dev.skillsNum; k++) {  // detect for overflow in line
+        if (el.wCh[k].classList.contains("actv")) {
+            ctvWid += wInfo_i[k];
+            if (ctvWid > wiD) {
+                ctvWid -= wInfo_i[k];
+                break;
+            } else {
+                acArr[acArr.length] = k;
+            }
+        }
+    }
+
+    console.log(acArr);
 }
 
 function wordCloudCheck(d, a) {
