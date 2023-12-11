@@ -1059,7 +1059,8 @@ function wordCloudTransform(d) {
 
                 } else {
                     var existNum = [],
-                        missingNum = [];
+                        missingNum = [],
+                        randNum = 0;
                     for (c = 0; c < dev.skillsNum; c++) { // get existing numbers in other spans
                         for (e = 0; e < dev.skillsNum; e++) {
                             if (el.wCh["s" + d][c].classList.contains("h" + e)) {
@@ -1070,7 +1071,9 @@ function wordCloudTransform(d) {
                         }
                     }
                     missingNum = findMissingInt(existNum, wInfo_ref);
-                    hElement.classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
+                    randNum = (missingNum.length !== 0) ? missingNum[getRandomInt(0, missingNum.length)] : id;
+
+                    hElement.classList.add("actv", "v_s", "r" + randNum);
 
                     console.log(missingNum[getRandomInt(0, missingNum.length)]);
                 }
