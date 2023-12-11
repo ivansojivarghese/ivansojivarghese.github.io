@@ -1071,7 +1071,7 @@ function wordCloudTransform(d) {
     }
 
     for (j = 0; j < dev.skillsNum; j++) {
-        if (acArr.findIndex(j) !== -1) { // display
+        if (acArr.indexOf(j) !== -1) { // display
             if (!el.wCh["s" + d][j].classList.contains("actv")) {
                 // classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
             }
