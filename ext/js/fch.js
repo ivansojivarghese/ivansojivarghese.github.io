@@ -1069,7 +1069,22 @@ function wordCloudTransform(d) {
             }
         } // 
     }
-    console.log(acArr);
+
+    for (j = 0; j < dev.skillsNum; j++) {
+        if (acArr.findIndex(j) !== -1) { // display
+            if (!el.wCh["s" + d][j].classList.contains("actv")) {
+                // classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
+            }
+        } else { // hide
+            if (el.wCh["s" + d][j].classList.contains("actv")) {
+                // classList.remove("v_s", "actv", "r" + idWords[m]); // remove active word
+                el.wCh["s" + d][j].classList.remove("actv");
+                el.wCh["s" + d][j].classList.add("d_n");
+            }
+        }
+    }
+
+    console.log(acArr); // only show the elements in the array
 }
 
 function wordCloudCheck(d, a) {
