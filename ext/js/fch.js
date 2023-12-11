@@ -1113,6 +1113,9 @@ function wordCloudTransform(d) {
     } else { // add to records
         if (prArr.length < 5) {
             prArr[prArr.length] = acArr;
+        } else {
+            prArr.shift(); // remove first instance
+            prArr[prArr.length] = acArr;
         }
     }
 
