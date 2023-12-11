@@ -1032,7 +1032,7 @@ function wordCloudTransform(d) {
 
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + randNum);
 
-                            console.log(missingNum[getRandomInt(0, missingNum.length)]);
+                            // console.log(missingNum[getRandomInt(0, missingNum.length)]);
 
                             // console.log(missingNum[getRandomInt(0, missingNum.length)]);
                             // el.wCh["s" + d][j].classList.remove("v_s", "actv", "r" + index);
