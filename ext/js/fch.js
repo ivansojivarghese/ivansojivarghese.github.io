@@ -1098,6 +1098,17 @@ function wordCloudTransform(d) {
     if (ctvWid < (wiD / 2)) { // potential underflowing, less than half of screen width
 
         // look at prev. 5 iterations, show numbers which have not been shown
+
+        var allNums = [];
+        for (b = 0; b < prArr.length; b++) {
+            for (c = 0; c < prArr[b].length; c++) {
+                if (allNums.indexOf(prArr[b][c]) === -1) {
+                    allNums[allNums.length] = prArr[b][c];
+                }
+            }
+        }
+
+        console.log(allNums);
         
     } else { // add to records
         if (prArr.length < 5) {
