@@ -1058,18 +1058,16 @@ function wordCloudTransform(d) {
 
     var acArr = []; // active array
     var ctvWid = 0; // cumulative width
-    for (b = 1; b <= 4; b++) {
-        for (k = 0; k < dev.skillsNum; k++) {  // detect for overflow in line
-            if (el.wCh["s" + b][k].classList.contains("actv")) {
-                ctvWid += wInfo_i[k];
-                if (ctvWid > wiD) {
-                    ctvWid -= wInfo_i[k];
-                    break;
-                } else {
-                    acArr[acArr.length] = k;
-                }
-            } // 
-        }
+    for (k = 0; k < dev.skillsNum; k++) {  // detect for overflow in line
+        if (el.wCh["s" + d][k].classList.contains("actv")) {
+            ctvWid += wInfo_i[k];
+            if (ctvWid > wiD) {
+                ctvWid -= wInfo_i[k];
+                break;
+            } else {
+                acArr[acArr.length] = k;
+            }
+        } // 
     }
     console.log(acArr);
 }
