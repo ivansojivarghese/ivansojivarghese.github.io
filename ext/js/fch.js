@@ -973,9 +973,8 @@ function wordCloudTransform(d) {
                     }
                 }
                 idWords = (ids[j] !== undefined) ? ids[j] : ids[ids.length - 1];
-                j = ids.length - 1;
                 for (k = 0; k < idWords.length; k++) {
-                    targetWords[targetWords.length] = el.wCh["s" + d][idWords[j][k]];
+                    targetWords[targetWords.length] = el.wCh["s" + d][idWords[k]];
                 }
                 hiddenWords[hiddenWords.length] = idWords[1];
 
