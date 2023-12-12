@@ -893,11 +893,13 @@ function wordCloudTransform(d) {
 
             var index = checkForClassesInt(targetWords[0], "h", "r");
 
-            if (index[0] !== null) {
-                targetWords[0].classList.remove("h" + index[0]);
-            }
-            if (index[1] !== null) {
-                targetWords[0].classList.remove("r" + index[1]);
+            if (index !== null) {
+                if (index[0] !== null) {
+                    targetWords[0].classList.remove("h" + index[0]);
+                }
+                if (index[1] !== null) {
+                    targetWords[0].classList.remove("r" + index[1]);
+                }
             }
 
             console.log(targetWords[0].classList);
