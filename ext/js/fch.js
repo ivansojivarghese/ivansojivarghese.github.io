@@ -1136,27 +1136,28 @@ function wordCloudTransform(d) {
 
     console.log(acArr); // only show the elements in the array
 
+    ctvWid = 0;
+
     for (j = 0; j < dev.skillsNum; j++) {
         if (acArr.indexOf(j) !== -1) { // display
             if (!el.wCh["s" + d][j].classList.contains("actv")) { // show hidden word
 
-                var index = 0; // r-index
-                for (c = 0; c < dev.skillsNum; c++) {
-                    if (el.wCh["s" + d][j].classList.contains("h" + c)) {
-                        index = c;
+                ctvWid += wInfo_i["s" + d][j];
+                if (ctvWid < wiD) {
+                    var index = 0; // r-index
+                    for (c = 0; c < dev.skillsNum; c++) {
+                        if (el.wCh["s" + d][j].classList.contains("h" + c)) {
+                            index = c;
+                        }
                     }
+
+                    el.wCh["s" + d][j].classList.remove("z_O", "d_n", "v_n", "p-a", "h" + index);
+                    el.wCh["s" + d][j].classList.add("actv", "v_s", "r" + index);
                 }
-
-                el.wCh["s" + d][j].classList.remove("z_O", "d_n", "v_n", "p-a", "h" + index);
-                el.wCh["s" + d][j].classList.add("actv", "v_s", "r" + index);
-
-                // classList.add("actv", "v_s", "r" + missingNum[getRandomInt(0, missingNum.length)]);
 
             }
         } else { // hide
             if (el.wCh["s" + d][j].classList.contains("actv")) { // remove active word
-
-                // classList.remove("v_s", "actv", "r" + idWords[m]); 
 
                 var index = 0; // r-index
                 for (c = 0; c < dev.skillsNum; c++) {
@@ -1179,8 +1180,6 @@ function wordCloudTransform(d) {
                 }
                 missingNum = findMissingInt(existNum, wInfo_ref);
                 randNum = (missingNum.length !== 0) ? missingNum[getRandomInt(0, missingNum.length)] : index;
-
-                // console.log(missingNum[getRandomInt(0, missingNum.length)]);
 
                 el.wCh["s" + d][j].classList.remove("v_s", "actv", "r" + index);
                 el.wCh["s" + d][j].classList.add("z_O", "d_n", "v_n", "p-a", "h" + randNum);
