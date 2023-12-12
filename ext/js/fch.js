@@ -1115,7 +1115,13 @@ function wordCloudTransform(d) {
         missingNum = findMissingInt(allNums, wInfo_ref);
         acArr = removeDuplicates(acArr.concat(missingNum)); // prevent duplicates
 
-        console.log("concat");
+        ctvWid = 0;
+        for (d = 0; d < acArr.length; d++) {
+            ctvWid += wInfo_i["s" + d][acArr[d]];
+            if (ctvWid > wiD) {
+                console.log("alert");
+            }
+        }
         
     } else { // add to records
         if (prArr.length < 5) {
