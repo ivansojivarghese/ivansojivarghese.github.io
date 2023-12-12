@@ -896,9 +896,11 @@ function wordCloudTransform(d) {
                 for (c = 0; c < dev.skillsNum; c++) {
                     if (el.wCh["s" + d][a].classList.contains("h" + c)) {
                         index = c;
+                        break;
                     }
                     if (el.wCh["s" + d][a].classList.contains("r" + c)) {
                         rIndex = c;
+                        break;
                     }
                 }
             }
