@@ -28,14 +28,12 @@ function removeDuplicates(arr) { // remove duplicates from array (REFERENCE: htt
 function checkForClassesInt(el, c1, c2) { // check for classes with attached integer
     var index1 = null, index2 = null, res = [];
     for (c = 0; c < dev.skillsNum; c++) {
-        if (el.classList.contains(c1 + c)) {
+        if (el.classList.contains(c1 + c) && index1 === null) {
             index1 = c;
-            break;
         }
         if (c2) {
-            if (el.classList.contains(c2 + c)) {
+            if (el.classList.contains(c2 + c) && index2 === null) {
                 index2 = c;
-                break;
             }
         }
     }
