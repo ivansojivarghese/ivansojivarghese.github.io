@@ -890,6 +890,9 @@ function wordCloudTransform(d) {
                 }
             }
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
+
+            console.log(targetWords[0].classList);
+
             targetWords[0].classList.add("z_O", "d_n", "v_n", "p-a", "h" + getHidden);
 
             console.log(getHidden);
