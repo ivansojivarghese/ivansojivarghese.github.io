@@ -1106,7 +1106,7 @@ function wordCloudTransform(d) {
                 if (allNums.indexOf(prArr[b][c]) === -1) {
                     allNums[allNums.length] = prArr[b][c];
                 }
-            }
+            } //
         }
 
         // console.log(allNums);
