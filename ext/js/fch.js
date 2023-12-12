@@ -1120,7 +1120,7 @@ function wordCloudTransform(d) {
             ctvWid += wInfo_i["s" + d][acArr[e]];
             if (ctvWid > wiD) {
                 ctvWid -= wInfo_i["s" + d][acArr[e]];
-                console.log("alert");
+                console.log("alert"); //
             }
         }
         
