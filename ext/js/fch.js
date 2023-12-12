@@ -891,6 +891,17 @@ function wordCloudTransform(d) {
             }
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
 
+            var index = null; // r-index
+            for (c = 0; c < dev.skillsNum; c++) {
+                if (el.wCh["s" + d][j].classList.contains("h" + c)) {
+                    index = c;
+                    break;
+                }
+            }
+            if (index !== null) {
+                targetWords[0].classList.remove("h" + index);
+            }
+
             console.log(targetWords[0].classList);
 
             targetWords[0].classList.add("z_O", "d_n", "v_n", "p-a", "h" + getHidden);
