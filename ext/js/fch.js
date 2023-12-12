@@ -1195,6 +1195,9 @@ function wordCloudCheck(d, a) {
             res = false;
         }
     }
+
+    console.log(a + ", " + res);
+
     return res;
 }
 
