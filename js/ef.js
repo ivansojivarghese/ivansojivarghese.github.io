@@ -39,8 +39,12 @@ function checkForClassesInt(el, c1, c2) { // check for classes with attached int
             }
         }
     }
-    res[0] = index1;
-    res[1] = index2;
+    if (!index1 && !index2) { // if both null
+        res = null;
+    } else {
+        res[0] = index1;
+        res[1] = index2;
+    }
     return res;
 }
 

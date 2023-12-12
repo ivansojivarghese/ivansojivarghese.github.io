@@ -892,17 +892,7 @@ function wordCloudTransform(d) {
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
 
             var index = checkForClassesInt(targetWords[0], "h", "r");
-            /*
-            for (c = 0; c < dev.skillsNum; c++) {
-                if (targetWords[0].classList.contains("h" + c)) {
-                    index = c;
-                    break;
-                }
-                if (targetWords[0].classList.contains("r" + c)) {
-                    rIndex = c;
-                    break;
-                }
-            }*/
+
             if (index[0] !== null) {
                 targetWords[0].classList.remove("h" + index[0]);
             }
