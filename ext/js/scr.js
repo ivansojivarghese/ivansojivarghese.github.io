@@ -792,9 +792,9 @@ function sc_LpH() { // scroll loop - phablet
                 pf.x8a = true;
                 var wordClouding = function() {
                         wordCloudTransform(1);
-                        //wordCloudTransform(2);
-                        //wordCloudTransform(3);
-                        //wordCloudTransform(4);
+                        wordCloudTransform(2);
+                        wordCloudTransform(3);
+                        wordCloudTransform(4);
                     };
                 wordClouding();
                 setInterval(wordClouding, 1000);
