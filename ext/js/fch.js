@@ -1134,7 +1134,7 @@ function wordCloudTransform(d) {
         }
     }
 
-    console.log(acArr); // only show the elements in the array
+    // console.log(acArr); // only show the elements in the array
 
     ctvWid = 0;
 
