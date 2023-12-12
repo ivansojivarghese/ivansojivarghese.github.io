@@ -1114,7 +1114,9 @@ function wordCloudTransform(d) {
         // return the missing numbers
         missingNum = findMissingInt(allNums, wInfo_ref);
 
-        acArr = acArr.concat(missingNum);
+        acArr = removeDuplicates(acArr.concat(missingNum));
+
+        // prevent duplicates
         
     } else { // add to records
         if (prArr.length < 5) {

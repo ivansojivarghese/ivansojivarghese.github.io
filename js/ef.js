@@ -20,6 +20,11 @@ function findMissingInt(nums, ref) { // find missing int val. from 0-9 range
     return res;
 }
 
+function removeDuplicates(arr) { // remove duplicates from array (REFERENCE: https://www.geeksforgeeks.org/how-to-remove-duplicate-elements-from-javascript-array/)
+    return arr.filter((item,
+        index) => arr.indexOf(item) === index);
+}
+
 // effects
 
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
