@@ -913,9 +913,6 @@ function wordCloudTransform(d) {
             setTimeout(function() {
                 hElement.classList.remove("z_O");
             }, op.t);
-
-            // console.log(targetWords[0].innerHTML + ", " + hElement.innerHTML);
-            //console.log(id);
         }
     }
     
@@ -1158,22 +1155,23 @@ function wordCloudTransform(d) {
 
                 ctvWid += wInfo_i["s" + d][j];
                 if (ctvWid < wiD) {
-                    var index = 0; // r-index
+                    var index = null; // r-index
                     for (c = 0; c < dev.skillsNum; c++) {
                         if (el.wCh["s" + d][j].classList.contains("h" + c)) {
                             index = c;
                         }
                     }
-
-                    el.wCh["s" + d][j].classList.remove("z_O", "d_n", "v_n", "p-a", "h" + index);
-                    el.wCh["s" + d][j].classList.add("actv", "v_s", "r" + index);
+                    if (index !== null) {
+                        el.wCh["s" + d][j].classList.remove("z_O", "d_n", "v_n", "p-a", "h" + index);
+                        el.wCh["s" + d][j].classList.add("actv", "v_s", "r" + index);
+                    }
                 }
 
             }
         } else { // hide
             if (el.wCh["s" + d][j].classList.contains("actv")) { // remove active word
 
-                var index = 0; // r-index
+                var index = null; // r-index
                 for (c = 0; c < dev.skillsNum; c++) {
                     if (el.wCh["s" + d][j].classList.contains("r" + c)) {
                         index = c;
@@ -1193,10 +1191,11 @@ function wordCloudTransform(d) {
                     }
                 }
                 missingNum = findMissingInt(existNum, wInfo_ref);
-                randNum = (missingNum.length !== 0) ? missingNum[getRandomInt(0, missingNum.length)] : index;
-
-                el.wCh["s" + d][j].classList.remove("v_s", "actv", "r" + index);
-                el.wCh["s" + d][j].classList.add("z_O", "d_n", "v_n", "p-a", "h" + randNum);
+                randNum = (missingNum.length !== 0) ? missingNum[getRandomInt(0, missingNum.length)] : (index !== null) ? index : null;
+                if (index !== null) {
+                    el.wCh["s" + d][j].classList.remove("v_s", "actv", "r" + index);
+                    el.wCh["s" + d][j].classList.add("z_O", "d_n", "v_n", "p-a", "h" + randNum);
+                }
             }
         }
     }
