@@ -1121,7 +1121,6 @@ function wordCloudTransform(d) {
             if (ctvWid > wiD) {
                 ctvWid -= wInfo_i["s" + d][acArr[e]];
                 acArr.pop();
-                console.log("alert"); //
                 break;
             }
         }
