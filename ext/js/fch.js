@@ -1116,8 +1116,8 @@ function wordCloudTransform(d) {
         acArr = removeDuplicates(acArr.concat(missingNum)); // prevent duplicates
 
         ctvWid = 0;
-        for (d = 0; d < acArr.length; d++) {
-            ctvWid += wInfo_i["s" + d][acArr[d]];
+        for (e = 0; e < acArr.length; e++) {
+            ctvWid += wInfo_i["s" + d][acArr[e]];
             if (ctvWid > wiD) {
                 console.log("alert");
             }
