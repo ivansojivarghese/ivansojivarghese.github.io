@@ -891,15 +891,20 @@ function wordCloudTransform(d) {
             }
             targetWords[0].classList.remove("v_s", "actv", "r" + id); // remove active word
 
-            var index = null; // r-index
+            var index = null, rIndex = null;
             for (c = 0; c < dev.skillsNum; c++) {
                 if (el.wCh["s" + d][j].classList.contains("h" + c)) {
                     index = c;
-                    break;
+                }
+                if (el.wCh["s" + d][j].classList.contains("r" + c)) {
+                    rIndex = c;
                 }
             }
             if (index !== null) {
                 targetWords[0].classList.remove("h" + index);
+            }
+            if (rIndex !== null) {
+                targetWords[0].classList.remove("r" + index);
             }
 
             console.log(targetWords[0].classList);
