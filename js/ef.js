@@ -25,6 +25,25 @@ function removeDuplicates(arr) { // remove duplicates from array (REFERENCE: htt
         index) => arr.indexOf(item) === index);
 }
 
+function checkForClassesInt(el, c1, c2) { // check for classes with attached integer
+    var index1 = null, index2 = null, res = [];
+    for (c = 0; c < dev.skillsNum; c++) {
+        if (el.classList.contains(c1 + c)) {
+            index1 = c;
+            break;
+        }
+        if (c2) {
+            if (el.classList.contains(c2 + c)) {
+                index2 = c;
+                break;
+            }
+        }
+    }
+    res[0] = index1;
+    res[1] = index2;
+    return res;
+}
+
 // effects
 
 function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
