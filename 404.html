@@ -85,29 +85,6 @@
                 color: inherit;
                 /*cursor: pointer;*/
             }
-
-            .cursor {
-                pointer-events: none;
-                mix-blend-mode: exclusion;
-            }
-
-            .cursor.big {
-                width: 0.6rem;
-                height: 0.6rem;
-                border: 0.05rem solid #303030;
-            }
-
-            .cursor.big.extra {
-                width: 1.5rem;
-                height: 1.5rem;
-                border: 0.1rem solid #303030
-            }
-
-            .cursor.small {
-                width: 0.3rem;
-                height: 0.3rem;
-                transition-property: opacity !important;
-            }
             
         </style>
         <style>
@@ -468,6 +445,30 @@
                 }
             }
             
+        </style>
+        <style>
+            .cursor {
+                pointer-events: none;
+                mix-blend-mode: exclusion;
+            }
+
+            .cursor.big {
+                width: 0.6rem;
+                height: 0.6rem;
+                border: 0.05rem solid #303030;
+            }
+
+            .cursor.big.extra {
+                width: 1.5rem;
+                height: 1.5rem;
+                border: 0.1rem solid #303030
+            }
+
+            .cursor.small {
+                width: 0.3rem;
+                height: 0.3rem;
+                transition-property: opacity !important;
+            }
         </style>
         <script>
             var tch = { // touch
