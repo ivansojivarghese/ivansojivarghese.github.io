@@ -556,15 +556,12 @@
     }
 }
 
-
-
-
-/*iPad Pro - portrait 
-@media screen and (min-width: 1000px) and (min-height: 1300px) and (orientation: portrait) {
+/*iPad Pro - landscape */
+@media screen and (min-height: 1000px) and (min-width: 1300px) and (orientation: landscape) {
     html {
-        font-size: 38px;
+        font-size: 42px;
     }
-}*/
+}
 
 
 
