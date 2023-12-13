@@ -1020,6 +1020,9 @@ function wordCloudTransform(d) {
                     }
                     if (hAdd) {
                         if (wordCloudCheck(d, hiddenWords[m])) { // check for duplicate
+
+                            targetWords[m].classList.add("c_n");
+
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
 
                             // console.log(hiddenWords[m]);
@@ -1040,13 +1043,10 @@ function wordCloudTransform(d) {
                             missingNum = findMissingInt(existNum, wInfo_ref);
                             randNum = (missingNum.length !== 0) ? missingNum[getRandomInt(0, missingNum.length)] : getHidden;
 
+                            targetWords[m].classList.add("c_n");
+
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + randNum);
 
-                            // console.log(missingNum[getRandomInt(0, missingNum.length)]);
-
-                            // console.log(missingNum[getRandomInt(0, missingNum.length)]);
-                            // el.wCh["s" + d][j].classList.remove("v_s", "actv", "r" + index);
-                            // el.wCh["s" + d][j].classList.add("z_O", "d_n", "v_n", "p-a", "h" + randNum);
                         }
                     }
                 }
