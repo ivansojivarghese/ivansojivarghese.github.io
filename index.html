@@ -1379,7 +1379,7 @@
 
             setInterval(function () {
                 if (!$(".scrollBarFunction").hasClass("z_O")) {
-                    var parentHeight = $(".scrollBarFunction.z_K").children(".scrollBarContainer").getBoundingClientRect().height;
+                    var parentHeight = $(".scrollBarFunction.z_K").children("div")[0].getBoundingClientRect().height;
                     
                     // .closest(".scrollBarFunction").children(".scrollBarContainer").getBoundingClientRect().height;
 
