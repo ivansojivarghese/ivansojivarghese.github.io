@@ -1368,22 +1368,10 @@
                     pos.cE = false;
                 }, 1000); // check every sec.
             });
-            /*
-            $(".scrollBarFunction .scrollBarActivate").click(function(event) {
-                if (!event.target.parentElement.hasClass("z_O")) {
-                    var elHeight = event.target.parentElement.children(".scrollBarContainer").getBoundingClientRect().height;
-
-                    console.log(elHeight);
-                }
-            });*/
 
             setInterval(function () {
                 if (!$(".scrollBarFunction").hasClass("z_O")) {
-                    var parentHeight = $(".scrollBarFunction.z_K").children("div")[0].getBoundingClientRect().height;
-                    
-                    // .closest(".scrollBarFunction").children(".scrollBarContainer").getBoundingClientRect().height;
-
-                    // console.log("elHeight");
+                    var parentHeight = document.querySelector(".scrollBarFunction.z_K .scrollBarContainer").getBoundingClientRect().height;
 
                     console.log(parentHeight);
                 }
