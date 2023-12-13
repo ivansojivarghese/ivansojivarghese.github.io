@@ -576,6 +576,27 @@
             var wiD = window.innerWidth,
                 wiH = window.innerHeight;
 
+                op = { // site 'options'
+                    as : false, // anchor scrolling?
+                    sys : "", // operating system
+                    uA : navigator.userAgent, // user agent
+                    Ls : 1000/60, // loop (interval) speed - sec./rev.
+                    // i : 60, // iterations (per sec.)
+                    pwa : {
+                        s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") ? true : false // check whether if opened as app
+                    },
+                    Lf : {
+                        fb : document.hasFocus()
+                    },
+                    p : { // pointer (press/tap/click)
+                        e : true, // execution boolean
+                        L : false, // check boolean - for long (extended) press/tap/click
+                        s : false, // use of stylus?
+                        tA : 0, // time - initial (at pointerdown)
+                        tB : 0 // time - final (at pointerup)
+                    }
+                };
+
             const cursorSmall = document.querySelector('.cursor.small');
             const cursorBig = document.querySelector('.cursor.big');
             const hoverBtns = document.querySelectorAll('a, .hoverB');
