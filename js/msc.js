@@ -1211,15 +1211,12 @@ function sL() { // scroll pos. loop
     if (scrollBarB.bottom > aH) {
         scrollTr = aH - (4 * op.fN);
     }
-
-    pos.sB.style.transform = "translateY(" + scrollTr + "px)";
-    */
     scrollHeight = contentHeight - pos.y - aH - (op.fN * 4);
     scrollTranslate = 1 - ((scrollHeight - (op.fN * 4) + aH) / (contentHeight));
     scrollTr = (((scrollTranslate * (aH - (4 * op.fN)))) >= 0) ? ((scrollTranslate * (aH - (4 * op.fN)))) : 0;
     if (scrollBarB.bottom > aH) {
         scrollTr = aH - (4 * op.fN);
-    }
+    }*/
 
     scrollTr = (pos.y / (contentHeight - aH)) * (aH - (4 * op.fN));
 
