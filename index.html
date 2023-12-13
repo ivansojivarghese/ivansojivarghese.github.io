@@ -1371,17 +1371,20 @@
 
             setInterval(function () {
                 if (!$(".scrollBarFunction").hasClass("z_O")) {
-                    var parentHeight = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer").getBoundingClientRect().height;
+                    var parentHeight = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer").getBoundingClientRect().height,
+                        scrollTr = 0;
 
                     console.log(parentHeight);
 
                     if (parentHeight <= window.innerHeight) { // hide scrollbar
                         e_Fd(pos.sB, true);
-                    } else {
-
+                    } else { // show/move scrollbar
+                        e_Fd(pos.sB, false);
+                        scrollTr = (pos.y / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
+                        pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
                     }
                 }
-            }, 1000);
+            }, op.Ls);
 
         </script>
         <!-- scroll to top -->
