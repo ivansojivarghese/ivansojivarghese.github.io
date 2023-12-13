@@ -470,7 +470,75 @@
             
         </style>
         <script>
-            var wiD = window.innerWidth;
+            var tch = { // touch
+                e : false, // enabled/used?
+                s : false, // status
+                yA : 0, // touch initial
+                yB : 0, // touch end
+                d : false, // drag check?
+                dr : null, // drag direction up?
+                drV : 0 // drag value
+            };
+
+            window.addEventListener("touchstart", function(event) { // IF TOUCH detected on screen
+                tch.e = true;
+                tch.s = true;
+                if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
+                    tch.d = false;
+                    tch.yA = event.touches[0].clientY;
+                }
+            });
+
+            window.addEventListener("touchmove", function(event) {
+                if (event.touches.length === 1) {
+                    var drg = 0;
+                    tch.yB = event.touches[0].clientY;
+                    if (!tch.d) {
+                        tch.d = true;
+                    } else {
+                        drg = tch.yB - tch.yA;
+                        tch.drV = Math.abs(drg); // get abs of drg
+                        if (drg < 0) { // scroll down
+                            tch.dr = true;
+                        } else if (drg > 0) { // scroll up
+                            tch.dr = false;
+                        }
+                    }
+                    if (tch.e && tch.drV) { // ONLY APPLY TO VERTICAL TOUCH DRAGS ONLY (USED FOR SCROLLING PURPOSE)
+                
+                        op.s = false; // allow scroll
+                        op.sc = true;
+                    }
+                }
+            });
+
+            window.addEventListener("touchend", function(event) {
+                if (event.touches.length === 0) {
+                    var drg = 0;
+                    if (tch.d) { // if dragging
+                        drg = tch.yB - tch.yA;
+                        tch.drV = Math.abs(drg); // get abs of drg
+                        if (drg < 0) { // scroll down
+                            tch.dr = true;
+                        } else if (drg > 0) { // scroll up
+                            tch.dr = false;
+                        }
+                    } else {
+                        tch.d = false;
+                        tch.dr = null; // reset
+                        tch.yA = 0;
+                        tch.yB = 0;
+                        tch.drV = 0;
+                    }
+                    setTimeout(function() {
+                        tch.s = false;
+                    }, 10);
+                }
+            });
+        </script>
+        <script>
+            var wiD = window.innerWidth,
+                wiH = window.innerHeight;
 
             const cursorSmall = document.querySelector('.cursor.small');
             const cursorBig = document.querySelector('.cursor.big');
