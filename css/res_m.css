@@ -611,9 +611,21 @@
     }
 }
 
+@media screen and (min-height: 1500px) and (orientation: landscape) {
+    html {
+        font-size: 63.75px;
+    }
+}
+
 @media screen and (min-height: 1600px) and (orientation: landscape) {
     html {
         font-size: 67.5px;
+    }
+}
+
+@media screen and (min-height: 1700px) and (orientation: landscape) {
+    html {
+        font-size: 71.25px;
     }
 }
 
