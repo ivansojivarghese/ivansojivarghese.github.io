@@ -439,14 +439,6 @@
                 .desktop {
                     display: block;
                 }
-                /*
-                #scrolltop_btn {
-                    display: inline-block;
-                }
-                
-                * {
-                    cursor: none !important;
-                }*/
 
                 a:hover, .hoverB:hover {
                     opacity: 0.75;
@@ -455,10 +447,6 @@
                 .hoverB.revert:hover {
                     opacity: 1;
                 }
-                /*
-                #footer_end {
-                    width: calc(100% - 10rem);
-                }*/
             }
 
             @media screen and (min-height: 825px) and (orientation: landscape) {
@@ -474,8 +462,8 @@
             }
             
         </style>
-        <!-- 
         <style>
+            /*
             .cursor {
                 pointer-events: none;
                 mix-blend-mode: exclusion;
@@ -519,9 +507,13 @@
                 display: none !important;
             }
 
-            .z_O { /*zero opacity*/
+            .z_O { 
                 opacity: 0 !important;
             }
+
+            .bC_t {
+                background-color: transparent;
+            }*/
 
             .trs {
                 transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -530,260 +522,15 @@
                 transition-duration: 0.2s;
             }
 
-            .bC_t {
-                background-color: transparent;
-            }
-        </style> -->
+        </style> 
     </head>
     <body>
+        <!-- 
         <div class="cursor small bC_d b-r p-f z-P d_n z_O trs"></div>
-        <div class="cursor big bC_t b-r p-f z-P d_n z_O trs"></div>
+        <div class="cursor big bC_t b-r p-f z-P d_n z_O trs"></div> -->
         <h1>404</h1>
         <p>we couldn't find what you're looking for. 
             try <a class="trs" href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/'">again</a>.
         </p>
-        <!-- 
-        <script>
-            var tch = { // touch
-                e : false, // enabled/used?
-                s : false, // status
-                yA : 0, // touch initial
-                yB : 0, // touch end
-                d : false, // drag check?
-                dr : null, // drag direction up?
-                drV : 0 // drag value
-            };
-
-            window.addEventListener("touchstart", function(event) { // IF TOUCH detected on screen
-                tch.e = true;
-                tch.s = true;
-                if (event.touches.length === 1) { // ensure only 1 touch on screen at all times
-                    tch.d = false;
-                    tch.yA = event.touches[0].clientY;
-                }
-            });
-
-            window.addEventListener("touchmove", function(event) {
-                if (event.touches.length === 1) {
-                    var drg = 0;
-                    tch.yB = event.touches[0].clientY;
-                    if (!tch.d) {
-                        tch.d = true;
-                    } else {
-                        drg = tch.yB - tch.yA;
-                        tch.drV = Math.abs(drg); // get abs of drg
-                        if (drg < 0) { // scroll down
-                            tch.dr = true;
-                        } else if (drg > 0) { // scroll up
-                            tch.dr = false;
-                        }
-                    }
-                    if (tch.e && tch.drV) { // ONLY APPLY TO VERTICAL TOUCH DRAGS ONLY (USED FOR SCROLLING PURPOSE)
-                
-                        op.s = false; // allow scroll
-                        op.sc = true;
-                    }
-                }
-            });
-
-            window.addEventListener("touchend", function(event) {
-                if (event.touches.length === 0) {
-                    var drg = 0;
-                    if (tch.d) { // if dragging
-                        drg = tch.yB - tch.yA;
-                        tch.drV = Math.abs(drg); // get abs of drg
-                        if (drg < 0) { // scroll down
-                            tch.dr = true;
-                        } else if (drg > 0) { // scroll up
-                            tch.dr = false;
-                        }
-                    } else {
-                        tch.d = false;
-                        tch.dr = null; // reset
-                        tch.yA = 0;
-                        tch.yB = 0;
-                        tch.drV = 0;
-                    }
-                    setTimeout(function() {
-                        tch.s = false;
-                    }, 10);
-                }
-            });
-        </script>
-        <script>
-            var wiD = window.innerWidth,
-                wiH = window.innerHeight,
-                op = { // site 'options'
-                    as : false, // anchor scrolling?
-                    sys : "", // operating system
-                    uA : navigator.userAgent, // user agent
-                    Ls : 1000/60, // loop (interval) speed - sec./rev.
-                    // i : 60, // iterations (per sec.)
-                    Lf : {
-                        fb : document.hasFocus()
-                    },
-                    p : { // pointer (press/tap/click)
-                        e : true, // execution boolean
-                        L : false, // check boolean - for long (extended) press/tap/click
-                        s : false, // use of stylus?
-                        tA : 0, // time - initial (at pointerdown)
-                        tB : 0 // time - final (at pointerup)
-                    }
-                },
-                rL = {
-                    i : false // load status
-                };
-
-            const cursorSmall = document.querySelector('.cursor.small');
-            const cursorBig = document.querySelector('.cursor.big');
-            const hoverBtns = document.querySelectorAll('a, .hoverB');
-            var cursorActive = false,
-                touchActive = false,
-                hoverActive = false;
-
-            const positionElement = (e)=> {
-                if ((window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200 && wiH >= 700) || wiH >= 800))) { // ONLY IN DESKTOP PARAMs
-                    if (!tch.e || (touchActive && !tch.s)) { // IF NO TOUCH
-                        const mouseY = e.clientY;
-                        const mouseX = e.clientX;
-
-                        if (!touchActive) { // if NO TOUCH BEFORE CURSOR
-                            cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-                            if (!hoverActive) {
-                                cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
-                            }
-                        } else {
-
-                            cursorSmall.classList.add("d_n");
-                            cursorBig.classList.add("d_n"); // remove cursor from view
-
-                            if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent mousemove/cursor
-                                if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
-                                    pg.msg.net_p.classList.remove("predicate"); 
-                                    pg.msg.net_p.classList.remove("balanced");
-                                }
-                                pg.msg.net_p.classList.add("negate"); // set color
-                                if (pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img") || pg.msg.net_i.classList.contains("wifi_w_img")) {
-                                    pg.msg.net_i.classList.remove("wifi_off_w_img"); 
-                                    pg.msg.net_i.classList.remove("cookies_w_img");
-                                    pg.msg.net_i.classList.remove("wifi_w_img");
-                                }
-                                pg.msg.net_i.classList.add("info_w_img"); // set content
-                                pg.msg.net_p.classList.add("md");
-                                pg.msg.net_t.innerHTML = "cursor disabled";
-                                pg.msg.net_e.innerHTML = "touch detected"; // add text
-                                pg.msg.net_e.classList.remove("d_n");
-                                pg.msg.ce = true;
-                                pg.msg.cep = true;
-                    
-                                msg_toggle(pg.msg.net, null, true, false, false); // show message
-                            }
-                        }
-
-                        if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n") && !touchActive) {
-                            cursorSmall.classList.remove("d_n");
-                            cursorBig.classList.remove("d_n");
-                            cursorActive = true;
-                        } else if (cursorSmall.classList.contains("z_O") && cursorActive) {
-                            cursorSmall.classList.remove("z_O");
-                        } else if (cursorBig.classList.contains("z_O") && rL.i) {
-                            cursorBig.classList.remove("z_O");
-                        }
-
-                        } else if (tch.e && !touchActive) { // IF TOUCH DETECTED
-
-                            touchActive = true;
-                        }
-                    }
-                }
-
-                function hoverInit(e) { // desktop hover effect
-                    const mouseY = e.clientY;
-                    const mouseX = e.clientX;
-
-                    cursorBig.classList.add("extra");
-                    cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
-
-                    hoverActive = true;
-                }
-
-                function hoverEnd(e) {
-                    const mouseY = e.clientY;
-                    const mouseX = e.clientX;
-
-                    cursorBig.classList.remove("extra");
-
-                    hoverActive = false;
-                }
-
-                window.addEventListener('mousemove', positionElement);
-
-                for (i = 0; i <= hoverBtns.length - 1; i++) {
-                    hoverBtns[i].addEventListener('mousemove', hoverInit);
-                }
-
-                for (i = 0; i <= hoverBtns.length - 1; i++) {
-                    hoverBtns[i].addEventListener('mouseleave', hoverEnd);
-                }
-
-                window.addEventListener("scroll", function() {
-                    if (!pos.yA) {
-                        pos.yA = pos.y; // add a secondary y-pos for comparison during scroll (distance)
-                    }
-                    op.p.e = true;
-                });
-
-                window.addEventListener("pointerdown", function(e) { // tap/click down
-                    op.p.e = false;
-                    switch (e.pointerType) {
-                    case "pen": // stylus/pen/pencil
-                        if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent pen
-                            if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
-                                pg.msg.net_p.classList.remove("predicate"); 
-                                pg.msg.net_p.classList.remove("balanced");
-                            }
-                            pg.msg.net_p.classList.add("negate"); // set color
-                            if (pg.msg.net_i.classList.contains("wifi_off_w_img") || pg.msg.net_i.classList.contains("cookies_w_img") || pg.msg.net_i.classList.contains("wifi_w_img")) {
-                                pg.msg.net_i.classList.remove("wifi_off_w_img"); 
-                                pg.msg.net_i.classList.remove("cookies_w_img");
-                                pg.msg.net_i.classList.remove("wifi_w_img");
-                            }
-                            pg.msg.net_i.classList.add("info_w_img"); // set content
-                            pg.msg.net_p.classList.add("md");
-                            pg.msg.net_t.innerHTML = "event disabled";
-                            pg.msg.net_e.innerHTML = "pen detected"; // add text
-                            pg.msg.net_e.classList.remove("d_n");
-                            pg.msg.ce = true;
-                            pg.msg.cep = true;
-
-                            op.p.s = true;
-
-                            msg_toggle(pg.msg.net, null, true, true, true); // show a permanent message
-
-                            // msg_toggle(pg.msg.net, null, true, false, false); // show message
-                            // e.preventDefault();
-                        }
-                    break;
-                    case "mouse":
-                    case "touch": // revoke above message if shown
-                        if (op.p.s) {
-                            msg_toggle(pg.msg.net, null, false, true, true); // hide/revoke //
-                            op.p.s = false;
-                        }
-                    break;
-                    /*
-                    default:
-                        console.log(`pointerType ${e.pointerType} is not supported`);*/
-                    }
-                });
-
-                window.addEventListener("pointerup", function(e) { // release/click up
-                    op.p.e = true;
-                });
-
-                window.addEventListener("pointermove", function(e) { // release/click up
-                    op.p.e = true;
-                });
-        </script> -->
     </body>
 </html>
