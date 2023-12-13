@@ -1198,9 +1198,7 @@ function sL() { // scroll pos. loop
         pos.sBc = false;
     }
 
-    // move scrollbar
-
-    scrollTr = (pos.y / (contentHeight - aH)) * (aH - (4 * op.fN));
+    scrollTr = (pos.y / (contentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
     pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 }
 

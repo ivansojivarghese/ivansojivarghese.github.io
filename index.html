@@ -811,7 +811,7 @@
                             <div class="stroke bC_d"></div>
                         </div>
                     </div>
-                    <div class="head_b">
+                    <div class="head_b scrollBarContainer">
                         <div class="m_L-10 m_wd p_Bdxx">
                             <div id="tnc" class="d_n">
                                 <h3>t&c</h3>
@@ -1365,8 +1365,17 @@
                 }
                 setInterval(function() {
                     pos.cE = false;
-                }, 1000);
+                }, 1000); // check every sec.
             });
+
+            setInterval(function () {
+                if ($(".scrollBarFunction").not.hasClass("z_O")) {
+                    var elHeight = $(this).closest(".scrollBarFunction").children(".scrollBarContainer").getBoundingClientRect().height;
+
+                    console.log(elHeight);
+                }
+            }, op.Ls);
+
         </script>
         <!-- scroll to top -->
         <script>
