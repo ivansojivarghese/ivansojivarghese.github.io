@@ -563,7 +563,11 @@
     }
 }
 
-
+@media screen and (min-height: 1050px) and (orientation: landscape) {
+    html {
+        font-size: 40px;
+    }
+}
 
 
 /* ----- laptops (desktop) ----------- */
