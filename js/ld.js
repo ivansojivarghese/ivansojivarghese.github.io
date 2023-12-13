@@ -1231,7 +1231,7 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
         tB : false, // tablet - landscape
         dk : false, // desktop (or hybrid desktop) - landscape
     };
-    if (w > 3100) { // if width greater than 3100, larger than average (SEE also msc.js Line 1866)
+    if (w > 3250) { // if width greater than 3250, larger than average (SEE also msc.js Line 1866)
         v.z_L = true;
     }
     if (r.o === "portrait") { // portrait view (for mobile and tablet)
