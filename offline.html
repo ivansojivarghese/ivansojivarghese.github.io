@@ -427,6 +427,22 @@
                 }
             }
 
+            /* ---------------------- desktop / hybrid ------------------ */
+
+            @media screen and (min-width: 1200px) and (min-height: 700px) and (orientation: landscape), screen and (min-height: 800px) and (orientation: landscape) { 
+                .desktop {
+                    display: block;
+                }
+
+                a:hover, .hoverB:hover {
+                    opacity: 0.75;
+                }
+
+                .hoverB.revert:hover {
+                    opacity: 1;
+                }
+            }
+
             @media screen and (min-height: 825px) and (orientation: landscape) {
                 html {
                     font-size: 35px;
@@ -438,9 +454,18 @@
                     font-size: 36px;
                 }
             }
-
             
         </style>
+        <style>
+
+            .trs {
+                transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+                transition-delay: 0s;
+                transition-property: all;
+                transition-duration: 0.2s;
+            }
+
+        </style> 
     </head>
     <body>
         <h1>you're offline</h1>
