@@ -806,7 +806,7 @@
                 </div>
                 <div id="cond_sc" class="scrollBarFunction bC_L ovy-s h-f p-f trs z-G z_O">
                     <div class="head bC_L">
-                        <div class="ham bt trs hoverB" onclick="popU_toggle(pg.t, pg.w, true, !op.c.u)">
+                        <div class="ham bt trs hoverB scrollBarActivate" onclick="popU_toggle(pg.t, pg.w, true, !op.c.u)">
                             <div class="stroke bC_d"></div>
                             <div class="stroke bC_d"></div>
                         </div>
@@ -1357,6 +1357,7 @@
         </div>
         <!-- scrollbar (desktop) -->
         <script>
+        
             $(".scrollBarFunction").scroll(function() {
                 pos.cE = true; // scrolling (extended) : true
                 if (!pos.sBc) {
@@ -1368,13 +1369,22 @@
                 }, 1000); // check every sec.
             });
 
+            $(".scrollBarFunction .scrollBarActivate").click(function(event) {
+                if (!event.target.parent().hasClass("z_O")) {
+                    var elHeight = event.target.parent().children(".scrollBarContainer").getBoundingClientRect().height;
+
+                    console.log(elHeight);
+                }
+            });
+
+            /*
             setInterval(function () {
                 if (!$(".scrollBarFunction").hasClass("z_O")) {
                     var elHeight = $(this).closest(".scrollBarFunction").children(".scrollBarContainer").getBoundingClientRect().height;
 
                     console.log(elHeight);
                 }
-            }, op.Ls);
+            }, op.Ls);*/
 
         </script>
         <!-- scroll to top -->
