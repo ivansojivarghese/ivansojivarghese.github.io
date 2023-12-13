@@ -1374,8 +1374,14 @@
                     var parentHeight = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer").getBoundingClientRect().height;
 
                     console.log(parentHeight);
+
+                    if (parentHeight <= window.innerHeight) { // hide scrollbar
+                        e_Fd(pos.sB, true);
+                    } else {
+
+                    }
                 }
-            }, op.Ls);
+            }, 1000);
 
         </script>
         <!-- scroll to top -->
