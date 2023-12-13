@@ -1201,7 +1201,7 @@ function sL() { // scroll pos. loop
     }
 
     // move scrollbar
-
+    /*
     scrollHeight = contentHeight - pos.y - (4 * op.fN);
     scrollTranslate = 1 - ((scrollHeight - aH) / (contentHeight));
     scrollTr = (((scrollTranslate * aH)) >= 0) ? ((scrollTranslate * (aH - (4 * op.fN)))) : 0;
@@ -1213,6 +1213,17 @@ function sL() { // scroll pos. loop
     }
 
     pos.sB.style.transform = "translateY(" + scrollTr + "px)";
+    */
+    scrollHeight = contentHeight - pos.y - aH - (op.fN * 4);
+    scrollTranslate = 1 - ((scrollHeight - (op.fN * 4) + aH) / (contentHeight));
+    scrollTr = (((scrollTranslate * (aH - (4 * op.fN)))) >= 0) ? ((scrollTranslate * (aH - (4 * op.fN)))) : 0;
+    if (scrollBarB.bottom > aH) {
+        scrollTr = aH - (4 * op.fN);
+    }
+
+    scrollTr = (pos.y / (contentHeight)) * (aH - (4 * op.fN));
+
+    pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 }
 
 function pL() { // site parameters loop
