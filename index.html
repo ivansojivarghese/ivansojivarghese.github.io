@@ -1360,7 +1360,8 @@
             var condScrollBar = false,
                 scrollBarPos = 0;
             $(".scrollBarFunction").scroll(function() {
-                var parentTop = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer").getBoundingClientRect().top;
+                var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer"),
+                    parentTop = parent.getBoundingClientRect().top;
                 
                 scrollBarPos = Math.abs(parentTop); // get scroll dis.
                 pos.cE = true; // scrolling (extended) : true
@@ -1377,7 +1378,8 @@
                 if (!$(".scrollBarFunction").hasClass("z_O")) {
                     condScrollBar = true;
 
-                    var parentHeight = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer").getBoundingClientRect().height,
+                    var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer"),
+                        parentHeight = parent.getBoundingClientRect().height,
                         scrollTr = 0;
 
                     if (parentHeight <= window.innerHeight) { // hide scrollbar
