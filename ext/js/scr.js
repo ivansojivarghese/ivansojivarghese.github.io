@@ -1111,6 +1111,11 @@ function sc_LpH() { // scroll loop - phablet
             }
 
         } else { // default at top
+            im.nav[0].style.transform = "translateY(" + (0) + "px)"; // NAV
+            im.nav[1].style.transform = "translateY(" + (0) + "px)";
+            im.nav[2].style.transform = "translateY(" + (0) + "px)";
+            im.nav[3].style.transform = "translateY(" + (0) + "px)";
+
             im.wd.style.transform = "";
             im.gh.style.transform = "";
             im.pfi.style.transform = "";
