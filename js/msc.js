@@ -1203,7 +1203,7 @@ function sL() { // scroll pos. loop
     scrollHeight = contentHeight - aH - pos.y;
     scrollTranslate = aH / scrollHeight;
 
-    pos.sB.style.transform = "translateY(" + (scrollTranslate - (4 * op.fN)) + "px)";
+    pos.sB.style.transform = "translateY(" + (scrollTranslate * aH) + "px)";
 }
 
 function pL() { // site parameters loop
