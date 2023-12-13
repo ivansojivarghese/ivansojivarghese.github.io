@@ -587,29 +587,39 @@
     }
 }
 
+@media screen and (min-height: 1250px) and (orientation: landscape) {
+    html {
+        font-size: 52.5px;
+    }
+}
+
+@media screen and (min-height: 1300px) and (orientation: landscape) {
+    html {
+        font-size: 55px;
+    }
+}
+
+@media screen and (min-height: 1350px) and (orientation: landscape) {
+    html {
+        font-size: 57.5px;
+    }
+}
+
 @media screen and (min-height: 1400px) and (orientation: landscape) {
     html {
         font-size: 60px;
     }
 }
 
-@media screen and (min-height: 1800px) and (orientation: landscape) {
+@media screen and (min-height: 1600px) and (orientation: landscape) {
     html {
-        font-size: 70px;
+        font-size: 67.5px;
     }
 }
 
-
-
-/*
-@media screen and (min-width: 2700px) {
+/* iMac Pro Retina */
+@media screen and (min-height: 1800px) and (orientation: landscape) { 
     html {
-        font-size: 54px;
+        font-size: 75px;
     }
 }
-
-@media screen and (min-width: 2900px) {
-    html {
-        font-size: 55px;
-    }
-}*/
