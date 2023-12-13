@@ -259,3 +259,26 @@
         display: inline-block;
     }  
 }
+
+/*iPad Pro - landscape */
+@media screen and (min-height: 1000px) and (min-width: 1300px) and (orientation: landscape) {
+    #hoursInfo, #coffeeCups {
+        margin-left: -0.5rem;
+    }
+
+    #pitch_sc .rSpace {
+        padding-right: 0.5em;
+    }
+
+    #pitch_sc p {
+        padding-right: 1em;
+    }
+
+    #pitch_sc .m_L-3 {
+        margin-left: 1em !important;
+    }
+
+    #random2_sc .textbox {
+        transform: translate(40vw, 15rem);
+    }
+}
