@@ -1379,9 +1379,13 @@
 
             setInterval(function () {
                 if (!$(".scrollBarFunction").hasClass("z_O")) {
-                    // var elHeight = $(this).closest(".scrollBarFunction").children(".scrollBarContainer").getBoundingClientRect().height;
+                    var parentHeight = $(".scrollBarFunction.z_K").children(".scrollBarContainer").getBoundingClientRect().height;
+                    
+                    // .closest(".scrollBarFunction").children(".scrollBarContainer").getBoundingClientRect().height;
 
-                    console.log("elHeight");
+                    // console.log("elHeight");
+
+                    console.log(parentHeight);
                 }
             }, op.Ls);
 
