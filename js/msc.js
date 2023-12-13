@@ -1221,7 +1221,7 @@ function sL() { // scroll pos. loop
         scrollTr = aH - (4 * op.fN);
     }
 
-    scrollTr = (pos.y / (contentHeight)) * (aH - (4 * op.fN));
+    scrollTr = (pos.y / (contentHeight - aH)) * (aH - (4 * op.fN));
 
     pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 }
