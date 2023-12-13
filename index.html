@@ -1359,7 +1359,7 @@
         <script>
             var condScrollBar = false,
                 scrollBarPos = 0;
-            $(".scrollBarFunction.z-Kk").scroll(function() {
+            $(".scrollBarFunction").scroll(function() {
                 var parentTop = document.querySelector(".scrollBarFunction.z-Kk").getBoundingClientRect().top;
                 
                 scrollBarPos = Math.abs(parentTop); // get scroll dis.
@@ -1383,6 +1383,7 @@
                     if (parentHeight <= window.innerHeight) { // hide scrollbar
                         e_Fd(pos.sB, true);
                     } else { // show/move scrollbar
+                        // e_Fd(pos.sB, false);
                         scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
                         pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
                     }
