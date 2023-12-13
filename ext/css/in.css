@@ -647,8 +647,9 @@ div.cursorInt {
 }
 
 #random5_sc a {
-    margin-right: 6rem;
+    /*margin-right: 6rem;*/
     text-decoration: underline;
+    margin-right: 10vw;
 }
 
 #random5_sc .c_ta {
