@@ -1352,7 +1352,7 @@ function errorCheck() { // check for errors
     if (op.sp || !viewportValid()) { // check if screen/window/tab is split (20:80 ratio max)
         op.spR = true;
         eR.h = "sp";
-    } else if (op.zoomDefault && !vw.z_L && !tDevice) { // if viewport zoom not defaulted (100%)
+    } else if (op.zoomDefault && !vw.z_L && !tDevice && !developer) { // if viewport zoom not defaulted (100%)
         eR.h = "z";
     } else if (vw.z_S || (vw.mB_L && !tDevice)) { // if viewport size is too small (or incompatible)
         eR.h = "vs";
