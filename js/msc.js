@@ -1199,7 +1199,9 @@ function sL() { // scroll pos. loop
     }
 
     scrollTr = (pos.y / (contentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
-    pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
+    if (!condScrollBar) {
+        pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
+    }
 }
 
 function pL() { // site parameters loop
