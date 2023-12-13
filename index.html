@@ -1360,7 +1360,7 @@
             var condScrollBar = false,
                 scrollBarPos = 0;
             $(".scrollBarFunction").scroll(function() {
-                var parentTop = document.querySelector(".scrollBarFunction.z-Kk").getBoundingClientRect().top;
+                var parentTop = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer").getBoundingClientRect().top;
                 
                 scrollBarPos = Math.abs(parentTop); // get scroll dis.
                 pos.cE = true; // scrolling (extended) : true
