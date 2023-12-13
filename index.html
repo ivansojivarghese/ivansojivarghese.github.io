@@ -1389,7 +1389,7 @@
                         pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
                     }
                 } else {
-                    if (condScrollBar) {
+                    if (condScrollBar && pos.y === 0) {
                         e_Fd(pos.sB, false);
                     }
                     condScrollBar = false;
