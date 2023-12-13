@@ -1357,8 +1357,11 @@
         </div>
         <!-- scrollbar (desktop) -->
         <script>
-        
-            $(".scrollBarFunction").scroll(function() {
+            var scrollBarPos = 0;
+            $(".scrollBarFunction.z-Kk").scroll(function() {
+                var parentTop = document.querySelector(".scrollBarFunction.z-Kk").getBoundingClientRect().top;
+                
+                scrollBarPos = Math.abs(parentTop); // get scroll dis.
                 pos.cE = true; // scrolling (extended) : true
                 if (!pos.sBc) {
                     e_Fd(pos.sB, false);
@@ -1374,12 +1377,10 @@
                     var parentHeight = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer").getBoundingClientRect().height,
                         scrollTr = 0;
 
-                    console.log(parentHeight);
-
                     if (parentHeight <= window.innerHeight) { // hide scrollbar
                         e_Fd(pos.sB, true);
                     } else { // show/move scrollbar
-                        scrollTr = (pos.y / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
+                        scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
                         pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
                     }
                 }
