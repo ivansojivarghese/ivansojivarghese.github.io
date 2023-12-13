@@ -1370,8 +1370,8 @@
             });
 
             $(".scrollBarFunction .scrollBarActivate").click(function(event) {
-                if (!event.target.parent().hasClass("z_O")) {
-                    var elHeight = event.target.parent().children(".scrollBarContainer").getBoundingClientRect().height;
+                if (!event.target.parentElement.hasClass("z_O")) {
+                    var elHeight = event.target.parentElement.children(".scrollBarContainer").getBoundingClientRect().height;
 
                     console.log(elHeight);
                 }
