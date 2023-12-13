@@ -433,6 +433,34 @@
                 }
             }
 
+            /* ---------------------- desktop / hybrid ------------------ */
+
+            @media screen and (min-width: 1200px) and (min-height: 700px) and (orientation: landscape), screen and (min-height: 800px) and (orientation: landscape) { 
+                .desktop {
+                    display: block;
+                }
+
+                #scrolltop_btn {
+                    display: inline-block;
+                }
+
+                * {
+                    cursor: none !important;
+                }
+
+                a:hover, .hoverB:hover {
+                    opacity: 0.75;
+                }
+
+                .hoverB.revert:hover {
+                    opacity: 1;
+                }
+
+                #footer_end {
+                    width: calc(100% - 10rem);
+                }
+            }
+
             @media screen and (min-height: 825px) and (orientation: landscape) {
                 html {
                     font-size: 35px;
@@ -444,6 +472,8 @@
                     font-size: 36px;
                 }
             }
+
+
             
         </style>
         <style>
