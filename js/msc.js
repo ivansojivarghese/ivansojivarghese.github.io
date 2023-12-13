@@ -1201,9 +1201,9 @@ function sL() { // scroll pos. loop
 
     // move scrollbar
 
-    scrollHeight = contentHeight - aH - pos.y;
-    scrollTranslate = aH / scrollHeight;
-    scrollTr = (((scrollTranslate * aH) - (4 * op.fN)) > 0) ? ((scrollTranslate * aH) - (4 * op.fN)) : 0;
+    scrollHeight = contentHeight - pos.y - (4 * op.fN);
+    scrollTranslate = 1 - ((scrollHeight - aH) / (contentHeight));
+    scrollTr = (((scrollTranslate * aH)) >= 0) ? ((scrollTranslate * (aH - (4 * op.fN)))) : 0;
 
     pos.sB.style.transform = "translateY(" + scrollTr + "px)";
 }
