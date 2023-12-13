@@ -1162,6 +1162,7 @@ function getRandomInt(min, max) {
 
 function sL() { // scroll pos. loop
     var contentHeight = pg.sc.c.getBoundingClientRect().height,
+        scrollTr = 0,
         scrollHeight,
         scrollTranslate;
 
@@ -1202,8 +1203,9 @@ function sL() { // scroll pos. loop
 
     scrollHeight = contentHeight - aH - pos.y;
     scrollTranslate = aH / scrollHeight;
+    scrollTr = (((scrollTranslate * aH) - (4 * op.fN)) > 0) ? ((scrollTranslate * aH) - (4 * op.fN)) : 0;
 
-    pos.sB.style.transform = "translateY(" + ((scrollTranslate * aH) - (4 * op.fN)) + "px)";
+    pos.sB.style.transform = "translateY(" + scrollTr + "px)";
 }
 
 function pL() { // site parameters loop
