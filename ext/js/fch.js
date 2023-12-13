@@ -837,12 +837,8 @@ function load_eN() { // load, after cookie acceptance (page specific)
 }
 
 function wordCloudTransform(d) {
-    var //active = a, 
-        //getHidden = getRandomInt(active, dev.skillsNum),
-        active = 0, 
+    var active = 0, 
         getHidden = 0,
-        //hElement = document.querySelector("#wordclouds" + d + " span.h" + getHidden),
-        //hElementWidth = wInfo_i["s" + d][getHidden],
         hElement = null,
         hElementWidth = 0,
         hWords = [],
@@ -902,8 +898,9 @@ function wordCloudTransform(d) {
                 }
             }
 
-            console.log(targetWords[0].classList);
+            // console.log(targetWords[0].classList);
 
+            targetWords[0].classList.add("c_n");
             targetWords[0].classList.add("z_O", "d_n", "v_n", "p-a", "h" + getHidden);
 
             // console.log(getHidden);
