@@ -1368,23 +1368,22 @@
                     pos.cE = false;
                 }, 1000); // check every sec.
             });
-
+            /*
             $(".scrollBarFunction .scrollBarActivate").click(function(event) {
                 if (!event.target.parentElement.hasClass("z_O")) {
                     var elHeight = event.target.parentElement.children(".scrollBarContainer").getBoundingClientRect().height;
 
                     console.log(elHeight);
                 }
-            });
+            });*/
 
-            /*
             setInterval(function () {
-                if (!$(".scrollBarFunction").hasClass("z_O")) {
-                    var elHeight = $(this).closest(".scrollBarFunction").children(".scrollBarContainer").getBoundingClientRect().height;
+                if (!$(".scrollBarFunction").classList.contains("z_O")) {
+                    // var elHeight = $(this).closest(".scrollBarFunction").children(".scrollBarContainer").getBoundingClientRect().height;
 
-                    console.log(elHeight);
+                    console.log("elHeight");
                 }
-            }, op.Ls);*/
+            }, op.Ls);
 
         </script>
         <!-- scroll to top -->
