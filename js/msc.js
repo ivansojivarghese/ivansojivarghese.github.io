@@ -1205,6 +1205,9 @@ function sL() { // scroll pos. loop
     scrollHeight = contentHeight - pos.y - (4 * op.fN);
     scrollTranslate = 1 - ((scrollHeight - aH) / (contentHeight));
     scrollTr = (((scrollTranslate * aH)) >= 0) ? ((scrollTranslate * (aH - (4 * op.fN)))) : 0;
+    if (pos.y === 0) {
+        scrollTr = 0;
+    }
     if (scrollBarB.bottom > aH) {
         scrollTr = aH - (4 * op.fN);
     }
