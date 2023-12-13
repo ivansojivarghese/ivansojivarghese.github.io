@@ -1193,7 +1193,7 @@ function sL() { // scroll pos. loop
     if (pos.c && !pos.sBc) { // if scrolling, show scrollbar
         e_Fd(pos.sB, false);
         pos.sBc = true;
-    } else if (!pos.c && pos.sBc && !pos.cE) { ////
+    } else if (!pos.c && pos.sBc && !pos.cE && !condScrollBar) { ////
         e_Fd(pos.sB, true);
         pos.sBc = false;
     }
