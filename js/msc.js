@@ -1162,10 +1162,7 @@ function getRandomInt(min, max) {
 
 function sL() { // scroll pos. loop
     var contentHeight = pg.sc.c.getBoundingClientRect().height,
-        scrollBarB = pos.sB.getBoundingClientRect(),
-        scrollTr = 0,
-        scrollHeight,
-        scrollTranslate;
+        scrollTr = 0;
 
     pos.y = window.scrollY; // update
     if (pos.y === 0) {
@@ -1181,6 +1178,7 @@ function sL() { // scroll pos. loop
                 pos.c = false;
             }
         }, op.te);*/
+
     } else if (pos.aT = true) {
         pos.aT = false;
         setTimeout(function() {
@@ -1201,25 +1199,8 @@ function sL() { // scroll pos. loop
     }
 
     // move scrollbar
-    /*
-    scrollHeight = contentHeight - pos.y - (4 * op.fN);
-    scrollTranslate = 1 - ((scrollHeight - aH) / (contentHeight));
-    scrollTr = (((scrollTranslate * aH)) >= 0) ? ((scrollTranslate * (aH - (4 * op.fN)))) : 0;
-    if (pos.y === 0) {
-        scrollTr = 0;
-    }
-    if (scrollBarB.bottom > aH) {
-        scrollTr = aH - (4 * op.fN);
-    }
-    scrollHeight = contentHeight - pos.y - aH - (op.fN * 4);
-    scrollTranslate = 1 - ((scrollHeight - (op.fN * 4) + aH) / (contentHeight));
-    scrollTr = (((scrollTranslate * (aH - (4 * op.fN)))) >= 0) ? ((scrollTranslate * (aH - (4 * op.fN)))) : 0;
-    if (scrollBarB.bottom > aH) {
-        scrollTr = aH - (4 * op.fN);
-    }*/
 
     scrollTr = (pos.y / (contentHeight - aH)) * (aH - (4 * op.fN));
-
     pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 }
 
