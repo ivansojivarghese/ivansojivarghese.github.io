@@ -604,32 +604,36 @@
 }*/
 
 /*iPad Pro - landscape */
+/*
 @media screen and (min-width: 1300px) and (min-height: 1000px) and (orientation: landscape) {
     html {
         font-size: 38px;
     }
-}
+}*/
 
 /*1440px by 900px / 1536px by 864px */
+/*
 @media screen and (min-width: 1400px) and (min-height: 850px) {
     html {
         font-size: 31.5px;
     }
-}
+}*/
 
 /*1600px by 900px */
+/*
 @media screen and (min-width: 1550px) and (min-height: 850px) {
     html {
         font-size: 32px;
     }
-}
+}*/
 
 /*1680px by 1080px / 1920px by 1080px */
+/*
 @media screen and (min-width: 1650px) and (min-height: 1000px) {
     html {
         font-size: 40px;
     }
-}
+}*/
 
 /*1920px by 1200px */
 @media screen and (min-width: 1900px) and (min-height: 1100px) {
