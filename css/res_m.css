@@ -565,83 +565,23 @@
 
 @media screen and (min-height: 1050px) and (orientation: landscape) {
     html {
-        font-size: 40px;
+        font-size: 45px;
+    }
+}
+
+@media screen and (min-height: 1100px) and (orientation: landscape) {
+    html {
+        font-size: 46px;
     }
 }
 
 
-/* ----- laptops (desktop) ----------- */
 
-/* smallest laptops */
-/*
-@media screen and (min-width: 1200px) and (min-height: 700px) { 
-    html {
-        font-size: 26px;
-    }
-}*/
 
-/* 1280px by 800px / 1366px by 768px */
-/*
-@media screen and (min-width: 1250px) and (min-height: 750px) {
-    html {
-        font-size: 28px;
-    }
 
-    .mobile, .phablet {
-        display: none;
-    }
-    
-    .desktop {
-        display: block;
-    }
-}*/
 
-/* 1368px by 912px - Surface Pro 7 */
-/*
-@media screen and (min-width: 1250px) and (min-height: 850px) {
-    html {
-        font-size: 33px;
-    }
-}*/
 
-/*iPad Pro - landscape */
-/*
-@media screen and (min-width: 1300px) and (min-height: 1000px) and (orientation: landscape) {
-    html {
-        font-size: 38px;
-    }
-}*/
 
-/*1440px by 900px / 1536px by 864px */
-/*
-@media screen and (min-width: 1400px) and (min-height: 850px) {
-    html {
-        font-size: 31.5px;
-    }
-}*/
-
-/*1600px by 900px */
-/*
-@media screen and (min-width: 1550px) and (min-height: 850px) {
-    html {
-        font-size: 32px;
-    }
-}*/
-
-/*1680px by 1080px / 1920px by 1080px */
-/*
-@media screen and (min-width: 1650px) and (min-height: 1000px) {
-    html {
-        font-size: 40px;
-    }
-}*/
-
-/*1920px by 1200px */
-@media screen and (min-width: 1900px) and (min-height: 1100px) {
-    html {
-        font-size: 44px;
-    }
-}
 
 /*2560px by 1440px */
 @media screen and (min-width: 2500px) and (min-height: 1400px) {
