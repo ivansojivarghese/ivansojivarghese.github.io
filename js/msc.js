@@ -1247,7 +1247,10 @@ function pL() { // site parameters loop
         liveCPU = mean(op.pSpda.slice(-5)), // get live CPU usage values (previous 5)
         livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
 
-    op.sSmooth = op.sSmooth * (livePerformance / op.iPef);
+    if (livePerformance && op.iPef) { 
+        var newSmooth = op.sSmooth * (livePerformance / op.iPef);
+        op.sSmooth = newSmooth;
+    }
 
     /*
     if () { // scroll-smoothness throttling based on live device performance
