@@ -1304,9 +1304,11 @@ function pL() { // site parameters loop
                 setTimeout(function() {
                     e_Fd(eR.pl, false);
                 }, 10);
+                eR.title = "Error: Outdated platform";
                 eR.s = true;
                 eR.h = "pl";
                 eR.p = "pl";
+                document.title = eR.title;
             }
         }
 
@@ -1456,9 +1458,11 @@ function pL() { // site parameters loop
         setTimeout(function() {
             e_Fd(eR.tr, false);
         }, 10);
+        eR.title = "Error: Translation usage";
         eR.s = true;
         eR.h = "tr";
         eR.p = "tr";
+        document.title = eR.title;
     } else if ((!translate_Check || (checkFullScreen() || checkSplitScreen())) && eR.s && op.tr && rL && rL.i) {
         if (eR.tr_e.x) {
             reL(); // reload if on first load
@@ -1488,9 +1492,11 @@ function pL() { // site parameters loop
                     setTimeout(function() {
                         e_Fd(eR.ld, false);
                     }, 10);
+                    eR.title = "Error: Landscape mode";
                     eR.s = true;
                     eR.h = "ld";
                     eR.p = "ld";
+                    document.title = eR.title;
                 } else if (checkFullScreen() || checkSplitScreen()) {
 
                     scr_t(false, null); // disable scrolling
@@ -1498,9 +1504,11 @@ function pL() { // site parameters loop
 
                     var b = "";
                     if (checkSplitScreen()) {
+                        eR.title = "Error: Split window";
                         b = "sp";
                         op.sp = true;
                     } else if (checkFullScreen()) {
+                        eR.title = "Error: Fullscreen usage";
                         b = "fS";
                         op.fS = true;
                     }
@@ -1512,17 +1520,21 @@ function pL() { // site parameters loop
                     setTimeout(function() {
                         e_Fd(eR[b], false);
                     }, 10);
+                    
                     eR.s = true;
 
                     eR.h = b;
                     eR.p = b;
 
+                    document.title = eR.title;
                 } else {
                     eR.m.classList.add("d_n"); // hide error in display
                     eR.tr.classList.add("d_n"); 
                     eR.s = false;
                     eR.h = "";
                     eR.p = "";
+
+                    document.title = "Ivan Varghese";
                 }
             }, op.t);
         }
@@ -1541,9 +1553,11 @@ function pL() { // site parameters loop
         setTimeout(function() {
             e_Fd(eR.fS, false);
         }, 10);
+        eR.title = "Error: Fullscreen usage";
         eR.s = true;
         eR.h = "fS";
         eR.p = "fS";
+        document.title = eR.title;
     } else if (!checkFullScreen() && eR.s && op.fS && rL && rL.i) {
         if (eR.fS_e.x) {
             reL(); // reload if on first load
@@ -1573,15 +1587,19 @@ function pL() { // site parameters loop
                     setTimeout(function() {
                         e_Fd(eR.ld, false);
                     }, 10);
+                    eR.title = "Error: Landscape mode";
                     eR.s = true;
                     eR.h = "ld";
                     eR.p = "ld";
+                    document.title = eR.title;
                 } else {
                     eR.m.classList.add("d_n"); // show error in display
                     eR.fS.classList.add("d_n"); 
                     eR.s = false;
                     eR.h = "";
                     eR.p = "";
+
+                    document.title = "Ivan Varghese";
                 }
             }, op.t);
         }
@@ -1610,9 +1628,11 @@ function pL() { // site parameters loop
                 setTimeout(function() {
                     e_Fd(eR.fC, false);
                 }, 10);
+                eR.title = "Error: Out of focus";
                 eR.s = true;
                 eR.h = "fC";
                 eR.p = "fC";
+                document.title = eR.title;
             }
         }, (op.Ls * dev.t));
 
@@ -1649,9 +1669,11 @@ function pL() { // site parameters loop
                         setTimeout(function() {
                             e_Fd(eR.ld, false);
                         }, 10);
+                        eR.title = "Error: Landscape mode";
                         eR.s = true;
                         eR.h = "ld";
                         eR.p = "ld";
+                        document.title = eR.title;
                     } else if (translate_Check || checkFullScreen() || checkSplitScreen()) { // other errors
 
                         scr_t(false, null); // disable scrolling
@@ -1659,12 +1681,15 @@ function pL() { // site parameters loop
 
                         var b = "";
                         if (checkSplitScreen()) {
+                            eR.title = "Error: Split window";
                             b = "sp";
                             op.sp = true;
                         } else if (checkFullScreen()) {
+                            eR.title = "Error: Fullscreen usage";
                             b = "fS";
                             op.fS = true;
                         } else if (translate_Check) {
+                            eR.title = "Error: Translation usage";
                             b = "tr";
                             op.tr = true;
                         }
@@ -1681,12 +1706,16 @@ function pL() { // site parameters loop
                         eR.h = b;
                         eR.p = b;
 
+                        document.title = eR.title;
+
                     } else {
                         eR.m.classList.add("d_n"); // hide error in display
                         eR.fC.classList.add("d_n"); 
                         eR.s = false;
                         eR.h = "";
                         eR.p = "";
+
+                        document.title = "Ivan Varghese";
                     }
                 }, op.t);
             }
@@ -2846,7 +2875,7 @@ function checkSplitScreen() {
                 }
 
                 if (!op.oR && !op.wR && b !== "ld") {
-
+                    eR.title = "Error: Split window";
                     eR.s = true;
                     op.sp = true; // split screen active
                     scr_t(false, null); // disable scrolling
@@ -2874,7 +2903,7 @@ function checkSplitScreen() {
                     }
 
                     eR.p = "sp";
-
+                    document.title = eR.title;
                     return true;
                 }
 
@@ -2923,6 +2952,9 @@ function checkSplitScreen() {
                                 eR.p = "";
                                 scr_t(true, null); // enable scrolling
                                 op.s = false;
+
+                                document.title = "Ivan Varghese";
+
                             }, op.t);
                         }
                     }, 10);
@@ -2956,7 +2988,7 @@ window.addEventListener("resize", function(e) {
             var pE = eR.p,
                 p = errorPrecedence("z", eR.p, eR.a);
             if (!eR.s || (eR.s && p !== false && p !== undefined)) {
-
+                eR.title = "Error: Undefaulted zoom";
                 eR.p = "z"; // zoom error
                 scr_t(false, null); // disable scrolling
                 op.s = true;
@@ -2985,6 +3017,7 @@ window.addEventListener("resize", function(e) {
                     }, op.t);
                 } 
                 eR.s = true;
+                document.title = eR.title;
 
                 setTimeout(function() {
                     e_Fd(eR.z, false);  // show message
@@ -3021,6 +3054,7 @@ window.addEventListener("resize", function(e) {
                 eR.z.classList.add("d_n"); 
                 eR.s = false;
                 eR.p = "";
+                document.title = "Ivan Varghese";
             }, op.t);  
 
         }
@@ -3308,21 +3342,29 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 eR.pl_e.h.innerHTML = "unknown system";
                             }
                             eR.p = "pl";
+                            eR.title = "Error: Unsupported platform";
                         } else if (js_load_e() || op.er.ft) { 
                             eR.p = "ft"; // fatal error
+                            eR.title = "Error: Fatal callback";
                         } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0)) { // device compatibility (incompatible speed/rendering)
                             eR.p = "dp";
+                            eR.title = "Error: Low device performance";
                         } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
                             eR.p = "vp"; // check for vpn/proxy
+                            eR.title = "Error: VPN usage";
                         } else if (!op.c.e) {
                             eR.p = "ck"; // check for cookies
+                            eR.title = "Error: Cookies disabled";
                         } else if (op.mt) {
                             eR.p = "mt"; // maintenance
+                            eR.title = "Error: Under maintenance";
                         } else if (op.fS) {
                             eR.p = "fS"; // full screen
+                            eR.title = "Error: Fullscreen usage";
                             op.fS = true;
                         } else if (translate_Check) {
                             eR.p = "tr"; // translate
+                            eR.title = "Error: Translation usage";
                             op.tr = true;
                         } else {
                             eR.p = "";
@@ -3339,9 +3381,11 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 e_Fd(eR[eR.p], false);
                             }, 10);
                             eR.s = true;
+                            document.title = eR.title;
                         } else {
                             eR.m.classList.add("d_n");
                             eR.s = false;
+                            document.title = "Ivan Varghese";
                         }
                         if (aborted || !cacheEnabled) { // show load
                             rL.el.classList.remove("d_n");
@@ -3396,9 +3440,13 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                     if (wiH < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
 
+                        eR.title = "Error: Landscape mode";
+
                         scr_t(false, null); // disable scrolling
                         op.s = true;
                         eR.s = true;
+
+                        document.title = eR.title;
 
                         vw.mB_L = true; // set variable
 
@@ -3467,8 +3515,12 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         e_Fd(eR.or, false);
                     }, 10);
 
+                    eR.title = "Error: Orientation change";
+
                     eR.s = true;
                     eR.p = "or";
+
+                    document.title = eR.title;
 
                 } else {
 
