@@ -1234,7 +1234,7 @@ function pL() { // site parameters loop
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
         op.pSpdL = op.pSpda.length;
         op.pSpda = [];
-    } else if (!op.getPefCon) {
+    } else if (!op.getPefCon) { // get (live) subsequent frame-rate/CPU usage values every 3 sec.
         op.getPefCon = true;
         setTimeout(function() {
             op.getPefCon = false;
@@ -1243,7 +1243,7 @@ function pL() { // site parameters loop
             op.getPef();
         }
     }
-    var liveSfr = mean(op.sfra.slice(-1 * (dev.t * 3))), // get screen refresh rates from last 3 seconds (mean)
+    var liveSfr = mean(op.sfra.slice(-1 * (dev.i * 3))), // get screen refresh rates from last 3 seconds (mean)
         liveCPU = mean(op.pSpda), // get live CPU power
         livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
     console.log(livePerformance);    
