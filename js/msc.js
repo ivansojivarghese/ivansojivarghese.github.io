@@ -1239,9 +1239,9 @@ function pL() { // site parameters loop
         op.getPef();
         setTimeout(function() {
             op.getPefCon = false;
-        }, (dev.t * 3));
+        }, (dev.i * 3));
     }
-    var liveSfr = mean(op.sfra.slice(-1 * (dev.t * 3))), // get screen refresh rates from last 3 seconds (mean)
+    var liveSfr = mean(op.sfra.slice(-1 * (dev.i * 3))), // get screen refresh rates from last 3 seconds (mean)
         liveCPU = mean(op.pSpda), // get live CPU power
         livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
     console.log(livePerformance);    
