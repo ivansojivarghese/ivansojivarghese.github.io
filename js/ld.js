@@ -870,11 +870,15 @@ function load_e() { // end the loading sequence
                             if (js_load_e() || op.er.ft) { // if a fatal error
                                 eR.h = "ft";
                                 eR.p = "ft";
+                                eR.title = "Error: Fatal callback";
+
                             } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) {
                                 
                                 var address = "";
                                 eR.h = "vp";
                                 eR.p = "vp";
+
+                                eR.title = "Error: VPN usage";
 
                                 if (ipAPIres.online) { // check on multiple APIs to get IP address
                                     address = ipAPIres.ip;
@@ -893,6 +897,8 @@ function load_e() { // end the loading sequence
 
                                 eR.h = "dt";
                                 eR.p = "dt";
+
+                                eR.title = "Error: Duplicated instances";
 
                                 if (duplicated) {
                                     // windowCount = "some";
@@ -975,6 +981,8 @@ function load_e() { // end the loading sequence
                                 eR[eR.h].classList.remove("d_n");
                             }
                             e_Fd(eR[eR.h], false); // show the error
+
+                            document.title = eR.title;
 
                             setTimeout(function() {
                                 window.stop(); // stop all network resource(s) fetching
