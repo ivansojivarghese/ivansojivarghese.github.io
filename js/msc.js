@@ -513,6 +513,7 @@ op = {
     uA : op.uA,
     Ls : op.Ls,
     getPef : null, // get device performance function
+    getPefCon : false, // "" usage control
     iPef : 0, // initial device performance
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
@@ -1233,11 +1234,15 @@ function pL() { // site parameters loop
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
         op.pSpdL = op.pSpda.length;
         op.pSpda = [];
-    } else {
+    } else if (!op.getPefCon) {
+        op.getPefCon = true;
         op.getPef();
+        setTimeout(function() {
+            op.getPefCon = false;
+        }, (dev.t * 3));
     }
     var liveSfr = mean(op.sfra.slice(-1 * (dev.t * 3))), // get screen refresh rates from last 3 seconds (mean)
-        liveCPU = mean(op.pSpda.slice(-1 * (op.pSpdL))), // get live CPU power
+        liveCPU = mean(op.pSpda), // get live CPU power
         livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
     console.log(livePerformance);    
 /*
