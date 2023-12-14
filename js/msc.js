@@ -1230,10 +1230,13 @@ function pL() { // site parameters loop
 
     if (!op.iPef) { // capture initial device performance value, to be used as reference
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
+        op.pSpda = [];
+    } else {
+        op.getPef();
     }
     var liveSfr = mean(op.sfra.slice(-1 * (dev.t * 3))), // get screen refresh rates from last 3 seconds (mean)
-        liveCPU = 0, // get live CPU power
-        livePerformance = devicePerformance(op.pSpd, liveSfr, op.pCores);
+        liveCPU = mean(op.pSpda.slice(-1 * (dev.t * 3))), // get live CPU power
+        livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
     console.log(livePerformance);    
 /*
     if () { // scroll-smoothness throttling based on live device performance
