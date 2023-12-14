@@ -16,6 +16,7 @@ var disp = document.getElementById("display_sc"), // display
     vw; // viewport variables
 
 eR = { // error
+    title : "", // document title
     a : [], // error precedence array
     s : eR.s, // status
     h : "", // hold-value placement (error page id)
@@ -1350,13 +1351,17 @@ function errorCheck() { // check for errors
     // criticalAPI = js_load();
 
     if (op.sp || !viewportValid()) { // check if screen/window/tab is split (20:80 ratio max)
+        eR.title = "Error: Split window";
         op.spR = true;
         eR.h = "sp";
     } else if (op.zoomDefault && !vw.z_L && !tDevice && !developer) { // if viewport zoom not defaulted (100%)
+        eR.title = "Error: Undefaulted zoom";
         eR.h = "z";
     } else if (vw.z_S || (vw.mB_L && !tDevice)) { // if viewport size is too small (or incompatible)
+        eR.title = "Error: Incompatible viewport";
         eR.h = "vs";
     } else if (vw.z_L) { // if viewport size is too large
+        eR.title = "Error: Incompatible viewport";
         eR.h = "vL";
     } else if ((op.b.f || op.sys === null || op.bN) && !(vw.mB_L && tDevice)) { // browser/platform no support (firefox OR unknown system OR conflicting client hints [browser])
         if (op.b.f) {
@@ -1368,14 +1373,18 @@ function errorCheck() { // check for errors
         if (op.sys === null) { // system
             eR.pl_e.h.innerHTML = "unknown system";
         }
+        eR.title = "Error: Unsupported platform";
         eR.h = "pl";
     } else if (vw.mB_L && tDevice) { // determine if viewport in landscape mode: when height (in landscape) below 500 (assumption that phone average viewport width is below 500)
+        eR.title = "Error: Landscape mode";
         eR.ld_e.x = true; // if on first load
         eR.h = "ld";
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
+        eR.title = "Error: Low device performance";
         eR.h = "dp";
     } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) { // potential vpn usage (when REST-fetched + device time zones don't match)
-        
+        eR.title = "Error: VPN usage";
+
         var address = ""; // UPDATE LINE 827 ABOVE FOR CHANGES IN CONDITIONS
         eR.h = "vp";
         if (ipAPIres.online) { // check on multiple APIs to get IP address
@@ -1392,6 +1401,7 @@ function errorCheck() { // check for errors
         eR.vp_e.h.innerHTML = "ip address: " + address;
 
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
+        eR.title = "Error: Cookies disabled";
         var j = true;
         eR.h = "ck";
         setInterval(function() {
@@ -1401,7 +1411,7 @@ function errorCheck() { // check for errors
             }
         }, op.Ls);
     } else if ((((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) && !op.pwa.s) { // check for duplicate TABS (local broswer only - for desktops)
-        
+        eR.title = "Error: Duplicated instances";
         var er_dt_on = document.querySelector("#error_dt h4.revert");
         var j = true;
         var w = ((windowCount - 1) > 1) ? " instances" : " instance";
@@ -1439,14 +1449,18 @@ function errorCheck() { // check for errors
         }
         
     } else if (op.mt) { // check if site under maintenance
+        eR.title = "Error: Under maintenance";
         eR.h = "mt";
     } else if (op.fS && !developer) { // check if fullscreen
+        eR.title = "Error: Fullscreen usage";
         eR.fS_e.x = op.fS; // if on first load
         eR.h = "fS";
     } else if (translate_Check) { // check if translated
+        eR.title = "Error: Translation usage";
         eR.tr_e.x = translate_Check; // first load
         eR.h = "tr";
     } else if (focus_Check && !developer) { // check if focused (and NOT developer mode)
+        eR.title = "Error: Out of focus";
         eR.fC_e.x = focus_Check; 
         er.h = "fC";
     } else if (!eR.e) { // if no errors detected (and block not executed yet)
@@ -1464,12 +1478,14 @@ function errorCheck() { // check for errors
             }
         }
         if (eR.h && isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+            document.title = eR.title;
             eR.s = true;
             eR.p = eR.h;
             rL.y = true;
             eR.m.classList.remove("d_n"); // display the error
             eR[eR.h].classList.remove("d_n");
         } else if (eR.h && !isFontAvailable("Poppins") && !isFontAvailable("Raleway")) {
+            document.title = eR.title;
             eR.s = true;
             eR.p = eR.h;
             _Le = setInterval(function() {
