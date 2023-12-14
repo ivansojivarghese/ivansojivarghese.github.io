@@ -516,6 +516,7 @@ op = {
     iPef : 0, // initial device performance
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
+    pSpdL : 0, // "" initial array length
     pMin : [8, 15], // min./rec. processor speed
     pCores : navigator.hardwareConcurrency, // no. of cpu logical cores
     pCoresMin : [2, 6], // cores min./rec.
@@ -1230,12 +1231,13 @@ function pL() { // site parameters loop
 
     if (!op.iPef) { // capture initial device performance value, to be used as reference
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
+        op.pSpdL = op.pSpda.length;
         op.pSpda = [];
     } else {
         op.getPef();
     }
     var liveSfr = mean(op.sfra.slice(-1 * (dev.t * 3))), // get screen refresh rates from last 3 seconds (mean)
-        liveCPU = mean(op.pSpda.slice(-1 * (dev.t * 3))), // get live CPU power
+        liveCPU = mean(op.pSpda.slice(-1 * (op.pSpdL))), // get live CPU power
         livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
     console.log(livePerformance);    
 /*
