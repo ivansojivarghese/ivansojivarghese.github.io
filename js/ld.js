@@ -168,7 +168,7 @@ function docRead() {
                     } else {
                         op.sfa = FPS; // live
                     }
-                }, false);
+                }, true);
 
 
                 if (!vw.mB_L && !vw.z_S && !op.zoomDefault) { // if NOT mobile landscape OR small display or undefaulted zoom (UPDATE VARIABLES AT LINE 668, 771 BELOW! @load_e function condition 2)
