@@ -512,6 +512,7 @@ op = {
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
+    iPef : 0, // initial device performance
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
     pMin : [8, 15], // min./rec. processor speed
@@ -1224,6 +1225,17 @@ function pL() { // site parameters loop
         setTimeout(function() {
             op.wRo = false;
         }, op.ne.bD);
+    }*/
+
+    if (!op.iPef) { // capture initial device performance value, to be used as reference
+        op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
+    }
+    var liveSfr = mean(op.sfra.slice(-1 * (dev.t * 3))), // get screen refresh rates from last 3 seconds (mean)
+        livePerformance = devicePerformance(op.pSpd, liveSfr, op.pCores);
+    console.log(livePerformance);    
+/*
+    if () { // scroll-smoothness throttling based on live device performance
+
     }*/
 
     if (op.Lf.h) { // if document hidden
