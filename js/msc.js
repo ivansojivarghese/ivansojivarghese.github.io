@@ -227,7 +227,7 @@ function getScreenRefreshRate(callback, runIndefinitely){
         window.setTimeout(function(){
             window.cancelAnimationFrame(requestId);
             requestId = null;
-        }, 500);
+        }, dev.i);
     }
 }
 
