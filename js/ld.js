@@ -1193,7 +1193,12 @@ function browserCheck(m) { // detect browser (platform)
         if (userAgent.match(/FBAN|FBAV/i) || typeof FB_IAB !== 'undefined') { // Facebook in-app browser detected
             op.b.fbApp = true;
 
-            alert(op.b.fbApp);
+            // unsupported
+            eR.pl_e.h.innerHTML = "facebook";
+            eR.title = "Error: Unsupported platform";
+            eR.h = "pl";
+
+            // alert(op.b.fbApp);
         }
         if (userAgent.match(/instagram/i)) { // @ https://codesandbox.io/embed/detect-in-app-browser-s4owq?codemirror=1
             // instagram browser
