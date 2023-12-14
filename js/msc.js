@@ -1252,7 +1252,7 @@ function pL() { // site parameters loop
     if (livePerformance && op.iPef) { 
         var newSmooth = op.sSmoothDef * (livePerformance / op.iPef);
         op.sSmooth = newSmooth;
-        new SmoothScroll(document, op.sDis, op.sSmooth);
+        // new SmoothScroll(document, op.sDis, op.sSmooth);
     }
 
     /*
@@ -2793,7 +2793,7 @@ function SmoothScroll(target, speed, smooth) {
     function update() {
         moving = true;
     
-        var delta = (pos - target.scrollTop) / smooth;
+        var delta = (pos - target.scrollTop) / op.sSmooth;
     
         if (!op.as && !op.ps) {
             target.scrollTop += delta;
