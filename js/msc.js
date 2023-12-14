@@ -1244,7 +1244,7 @@ function pL() { // site parameters loop
         }
     }
     var liveSfr = mean(op.sfra.slice(-1 * (dev.i * 3))), // get screen refresh rates from last 3 seconds (mean)
-        liveCPU = mean(op.pSpda), // get live CPU power
+        liveCPU = mean(op.pSpda.slice(-5)), // get live CPU usage values (previous 5)
         livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
     console.log(livePerformance);    
 /*
