@@ -508,7 +508,8 @@ op = {
     psV : 0, // peek value
     // asV : false, 
     sDis : 150, // avg. scrolling distance
-    sSmooth : 25, // scroll smoothness (default)
+    sSmoothDef : 25, // scroll smoothness (default/reference)
+    sSmooth : 25, // scroll smoothness (changing)
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
@@ -1248,7 +1249,7 @@ function pL() { // site parameters loop
         livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
 
     if (livePerformance && op.iPef) { 
-        var newSmooth = op.sSmooth * (livePerformance / op.iPef);
+        var newSmooth = op.sSmoothDef * (livePerformance / op.iPef);
         op.sSmooth = newSmooth;
     }
 
