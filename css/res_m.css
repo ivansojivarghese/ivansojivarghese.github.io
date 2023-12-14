@@ -611,9 +611,21 @@
     }
 }
 
+@media screen and (min-height: 1450px) and (orientation: landscape) {
+    html {
+        font-size: 61.875px;
+    }
+}
+
 @media screen and (min-height: 1500px) and (orientation: landscape) {
     html {
         font-size: 63.75px;
+    }
+}
+
+@media screen and (min-height: 1550px) and (orientation: landscape) {
+    html {
+        font-size: 65.625px;
     }
 }
 
@@ -623,9 +635,21 @@
     }
 }
 
+@media screen and (min-height: 1650px) and (orientation: landscape) {
+    html {
+        font-size: 69.375px;
+    }
+}
+
 @media screen and (min-height: 1700px) and (orientation: landscape) {
     html {
         font-size: 71.25px;
+    }
+}
+
+@media screen and (min-height: 1750px) and (orientation: landscape) {
+    html {
+        font-size: 73.125px;
     }
 }
 
@@ -637,3 +661,27 @@
 }
 
 /* REFERENCE: https://gs.statcounter.com/screen-resolution-stats/desktop/worldwide */
+
+@media screen and (min-height: 1850px) and (orientation: landscape) {
+    html {
+        font-size: 76.875px;
+    }
+}
+
+@media screen and (min-height: 1900px) and (orientation: landscape) { 
+    html {
+        font-size: 78.75px;
+    }
+}
+
+@media screen and (min-height: 1950px) and (orientation: landscape) {
+    html {
+        font-size: 80.625px;
+    }
+}
+
+@media screen and (min-height: 2000px) and (orientation: landscape) { 
+    html {
+        font-size: 82.5px;
+    }
+}
