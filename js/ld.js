@@ -896,6 +896,8 @@ function load_e() { // end the loading sequence
 
                             } else if ((((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) && !op.pwa.s) {
 
+                                var er_dt_on = document.querySelector("#error_dt h4.revert");
+
                                 eR.h = "dt";
                                 eR.p = "dt";
 
@@ -912,6 +914,10 @@ function load_e() { // end the loading sequence
                                             reL();
                                         }
                                     }, op.Ls);
+                                }
+
+                                if (eR.dt_e.s.innerHTML === "") {
+                                    er_dt_on.classList.add("d_n");
                                 }
 
                                 // var w = ((windowCount - 1) > 1) ? " instances" : " instance";
@@ -1428,7 +1434,8 @@ function errorCheck() { // check for errors
         }, op.Ls);
     } else if ((((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) && !op.pwa.s) { // check for duplicate TABS (local broswer only - for desktops)
         eR.title = "Error: Duplicated instances";
-        var er_dt_on = document.querySelector("#error_dt h4.revert");
+        var er_dt_on = document.querySelector("#error_dt h4.revert"),
+            er_dt_cl = document.querySelector("#error_dt h4.attr");
         var j = true;
         var w = ((windowCount - 1) > 1) ? " instances" : " instance";
         eR.h = "dt";
@@ -1462,6 +1469,10 @@ function errorCheck() { // check for errors
 
         if (eR.dt_e.s.innerHTML === "") {
             er_dt_on.classList.add("d_n");
+        }
+
+        if (parseInt(getCookie("num_tabs")) > 1) {
+            er_dt_cl.classList.add("d_n");
         }
         
     } else if (op.mt) { // check if site under maintenance

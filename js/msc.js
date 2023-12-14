@@ -1251,14 +1251,8 @@ function pL() { // site parameters loop
 
     if (livePerformance && op.iPef) { 
         var newSmooth = op.sSmoothDef * (livePerformance / op.iPef);
-        op.sSmooth = newSmooth;
-        // new SmoothScroll(document, op.sDis, op.sSmooth);
+        op.sSmooth = newSmooth; // scroll smoothness based on device performance: low = less smooth
     }
-
-    /*
-    if () { // scroll-smoothness throttling based on live device performance
-
-    }*/
 
     if (op.Lf.h) { // if document hidden
         setTimeout(function() {
@@ -2716,8 +2710,8 @@ function SmoothScroll_init() {
     /*
     Arguments (in order from left to right):
         target: the element to be scrolled smoothly - can be a div or document
-        speed: the amout of pixels to be scrolled per mousewheel step
-        smooth: the smoothness factor, the higher the value, the more smooth.
+        speed: the amout of pixels to be scrolled per mousewheel step 
+        smooth: the smoothness factor, the higher the value, the more smooth. (referencing from live global variable)
     */
 }
 
