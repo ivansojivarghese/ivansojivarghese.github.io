@@ -1229,7 +1229,7 @@ function pL() { // site parameters loop
         }, op.ne.bD);
     }*/
 
-    if (!op.iPef) { // capture initial device performance value, to be used as reference
+    if (!op.iPef && op.pSpd && op.sfr && op.pCores) { // capture initial device performance value, to be used as reference
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
         op.pSpdL = op.pSpda.length;
         op.pSpda = [];
