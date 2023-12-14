@@ -55,7 +55,8 @@ var wH = window.outerHeight, // height
         version_up : "2.5", // version upgrade (if applicable, during maintenance)
         v : 1, // max view time (days)
         i : 1000, // interface timeout (max.)
-        t : 60 // iterations per sec.
+        t : 60, // iterations per sec.
+        sSmooth : 25 // scroll smoothness
     },
     pos = { // scroll pos. (window)
         sB : document.getElementById("scrollBar"),
@@ -508,8 +509,8 @@ op = {
     psV : 0, // peek value
     // asV : false, 
     sDis : 150, // avg. scrolling distance
-    sSmoothDef : 25, // scroll smoothness (default/reference)
-    sSmooth : 25, // scroll smoothness (changing)
+    sSmoothDef : dev.sSmooth, // scroll smoothness (default/reference)
+    sSmooth : dev.sSmooth, // scroll smoothness (active)
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
@@ -1251,6 +1252,7 @@ function pL() { // site parameters loop
     if (livePerformance && op.iPef) { 
         var newSmooth = op.sSmoothDef * (livePerformance / op.iPef);
         op.sSmooth = newSmooth;
+        new SmoothScroll(document, op.sDis, op.sSmooth);
     }
 
     /*
