@@ -1236,10 +1236,12 @@ function pL() { // site parameters loop
         op.pSpda = [];
     } else if (!op.getPefCon) {
         op.getPefCon = true;
-        op.getPef();
         setTimeout(function() {
             op.getPefCon = false;
         }, (dev.i * 3));
+        if (op.getPef) {
+            op.getPef();
+        }
     }
     var liveSfr = mean(op.sfra.slice(-1 * (dev.i * 3))), // get screen refresh rates from last 3 seconds (mean)
         liveCPU = mean(op.pSpda), // get live CPU power
