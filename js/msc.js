@@ -512,6 +512,7 @@ op = {
     sys : op.sys, // add from index
     uA : op.uA,
     Ls : op.Ls,
+    getPef : null, // get device performance function
     iPef : 0, // initial device performance
     pSpda : [], 
     pSpd : 0, // device processor speed (average estimated in GHZ)
@@ -1231,6 +1232,7 @@ function pL() { // site parameters loop
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
     }
     var liveSfr = mean(op.sfra.slice(-1 * (dev.t * 3))), // get screen refresh rates from last 3 seconds (mean)
+        liveCPU = 0, // get live CPU power
         livePerformance = devicePerformance(op.pSpd, liveSfr, op.pCores);
     console.log(livePerformance);    
 /*

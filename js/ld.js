@@ -126,7 +126,7 @@ function docRead() {
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!devError) {
 
-                (function() { // estimate processor speed
+                op.getPef = function() { // estimate processor speed
 
                     // JSBenchmark by Aaron Becker: @ https://stackoverflow.com/questions/19754792/measure-cpu-performance-via-js
 
@@ -153,8 +153,9 @@ function docRead() {
                     if ((Math.round(spd * 1000) / 1000) > 0) {
                         op.pSpda[op.pSpda.length] = Math.round(spd * 1000) / 1000; // store instantaneous calculated speed
                     }
-                })();
+                };
 
+                op.getPef();
                 
                 // Warning: the method will be executed forever, ideal for live counters
                 // CODE REFERENCED FROM CARLOS DELGADO @https://ourcodeworld.com/articles/read/1390/how-to-determine-the-screen-refresh-rate-in-hz-of-the-monitor-with-javascript-in-the-browser#disqus_thread
