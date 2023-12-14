@@ -1246,7 +1246,9 @@ function pL() { // site parameters loop
     var liveSfr = mean(op.sfra.slice(-1 * (dev.i * 3))), // get screen refresh rates from last 3 seconds (mean)
         liveCPU = mean(op.pSpda.slice(-5)), // get live CPU usage values (previous 5)
         livePerformance = devicePerformance(liveCPU, liveSfr, op.pCores);
-  
+
+    op.sSmooth = op.sSmooth * (livePerformance / op.iPef);
+
     /*
     if () { // scroll-smoothness throttling based on live device performance
 
