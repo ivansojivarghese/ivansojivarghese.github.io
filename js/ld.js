@@ -1524,7 +1524,7 @@ function errorCheck() { // check for errors
                 }
             }
             if (notTabIncr > 1) { // anomaly exists if live tabs (time ticks) are not increasing simultaneously
-                eR.dt_e.x = true;
+                eR.dt_e.x = true; //
             }
             if (!eR.dt_e.x) { // if existing anomal(ies)
                 er_dt_cl.innerHTML = "use a single tab";
