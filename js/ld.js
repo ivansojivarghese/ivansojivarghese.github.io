@@ -897,7 +897,8 @@ function load_e() { // end the loading sequence
                             } else if ((((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) && !op.pwa.s) {
 
                                 var er_dt_on = document.querySelector("#error_dt h4.revert"),
-                                    er_dt_cl = document.querySelector("#error_dt h4.attr");
+                                    er_dt_cl = document.querySelector("#error_dt h4.attr"),
+                                    dt_anomaly = false; // dup. tab anomalies check
 
                                 eR.h = "dt";
                                 eR.p = "dt";
@@ -921,9 +922,34 @@ function load_e() { // end the loading sequence
                                     er_dt_on.classList.add("d_n");
                                 }
 
-                                if (parseInt(getCookie("num_tabs")) > 1) {
-                                    er_dt_cl.classList.add("d_n");
+                                // detect if (multiple) unique tabID_e values are increasing (which mean no anomalies)
+                                var tabListIncr = [],
+                                    tabListIncr2 = [];
+                                for (i = 0; i < tabList.length; i++) { // tab list 1
+                                    var val = parseInt(getCookie(tabList[i] + "_e"));
+                                    tabListIncr[tabListIncr.length] = val;
                                 }
+
+                                setInterval(function() {
+                                    var notTabIncr = 0;
+                                    for (i = 0; i < tabList.length; i++) { // tab list 2
+                                        var val = parseInt(getCookie(tabList[i] + "_e"));
+                                        tabListIncr2[tabListIncr2.length] = val;
+                                    }
+                                    for (j = 0; j < tabList.length; j++) { // comparing tab lists 1 & 2
+                                        if (tabListIncr2[j] <= tabListIncr[j]) {
+                                            notTabIncr++;
+                                        }
+                                    }
+                                    if (notTabIncr > 0) { // anomaly exists if live tabs (time ticks) are not increasing simultaneously
+                                        dt_anomaly = true;
+                                    }
+                                    if (!dt_anomaly) { // if no anomal(ies)
+                                        er_dt_cl.classList.add("d_n");
+                                    } else {
+                                        er_dt_cl.classList.remove("z_O");
+                                    }
+                                }, (dev.i * 2));
 
                                 // var w = ((windowCount - 1) > 1) ? " instances" : " instance";
                                 // eR.dt_e.s.innerHTML = (windowCount - 1) + w;
@@ -1475,10 +1501,35 @@ function errorCheck() { // check for errors
         if (eR.dt_e.s.innerHTML === "") {
             er_dt_on.classList.add("d_n");
         }
-
-        if (parseInt(getCookie("num_tabs")) > 1) {
-            er_dt_cl.classList.add("d_n");
+        
+        // detect if (multiple) unique tabID_e values are increasing (which mean no anomalies)
+        var tabListIncr = [],
+        tabListIncr2 = [];
+        for (i = 0; i < tabList.length; i++) { // tab list 1
+            var val = parseInt(getCookie(tabList[i] + "_e"));
+            tabListIncr[tabListIncr.length] = val;
         }
+
+        setInterval(function() {
+            var notTabIncr = 0;
+            for (i = 0; i < tabList.length; i++) { // tab list 2
+                var val = parseInt(getCookie(tabList[i] + "_e"));
+                tabListIncr2[tabListIncr2.length] = val;
+            }
+            for (j = 0; j < tabList.length; j++) { // comparing tab lists 1 & 2
+                if (tabListIncr2[j] <= tabListIncr[j]) {
+                    notTabIncr++;
+                }
+            }
+            if (notTabIncr > 0) { // anomaly exists if live tabs (time ticks) are not increasing simultaneously
+                dt_anomaly = true;
+            }
+            if (!dt_anomaly) { // if no anomal(ies)
+                er_dt_cl.classList.add("d_n");
+            } else {
+                er_dt_cl.classList.remove("z_O");
+            }
+        }, (dev.i * 2));
         
     } else if (op.mt) { // check if site under maintenance
         eR.title = "Error: Under maintenance";
