@@ -911,7 +911,7 @@ function load_e() { // end the loading sequence
                                     eR.dt_e.s.innerHTML = "some instances";
 
                                     setInterval(function() {
-                                        if ((parseInt(getCookie("num_tabs")) === 1) && !getCookie("num_windows") && tabList.length === 1) {
+                                        if ((parseInt(getCookie("num_tabs")) === 1) && !getCookie("num_windows") && tabList.length === 1 && rL.i) {
                                             console.log("smRel");
                                             reL();
                                         }
@@ -1491,7 +1491,7 @@ function errorCheck() { // check for errors
             eR.dt_e.s.innerHTML = "some instances";
 
             setInterval(function() {
-                if ((parseInt(getCookie("num_tabs")) === 1) && !getCookie("num_windows") && tabList.length === 1) {
+                if ((parseInt(getCookie("num_tabs")) === 1) && !getCookie("num_windows") && tabList.length === 1 && rL.i) {
                     console.log("smRel");
                     reL();
                 }
