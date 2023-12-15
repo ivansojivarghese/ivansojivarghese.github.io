@@ -945,9 +945,10 @@ function load_e() { // end the loading sequence
                                         eR.dt_e.x = true;
                                     }
                                     
-                                    if (eR.dt_e.x) { // if existing anomal(ies)
-                                        er_dt_cl.classList.remove("z_O");
+                                    if (!eR.dt_e.x) { // if existing anomal(ies)
+                                        er_dt_cl.innerHTML = "use a single tab";
                                     }
+                                    er_dt_cl.classList.remove("z_O");
                                 }, (dev.i * 5));
 
                                 // var w = ((windowCount - 1) > 1) ? " instances" : " instance";
@@ -1523,9 +1524,10 @@ function errorCheck() { // check for errors
             if (notTabIncr > 1) { // anomaly exists if live tabs (time ticks) are not increasing simultaneously
                 eR.dt_e.x = true;
             }
-            if (eR.dt_e.x) { // if existing anomal(ies)
-                er_dt_cl.classList.remove("z_O");
+            if (!eR.dt_e.x) { // if existing anomal(ies)
+                er_dt_cl.innerHTML = "use a single tab";
             }
+            er_dt_cl.classList.remove("z_O");
         }, (dev.i * 5));
         
     } else if (op.mt) { // check if site under maintenance
