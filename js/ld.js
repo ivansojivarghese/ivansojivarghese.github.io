@@ -944,9 +944,8 @@ function load_e() { // end the loading sequence
                                     if (notTabIncr > 1) { // anomaly exists if live tabs (time ticks) are not increasing simultaneously
                                         eR.dt_e.x = true;
                                     }
-                                    if (!eR.dt_e.x) { // if no anomal(ies)
-                                        er_dt_cl.classList.add("d_n");
-                                    } else {
+                                    
+                                    if (eR.dt_e.x) { // if existing anomal(ies)
                                         er_dt_cl.classList.remove("z_O");
                                     }
                                 }, (dev.i * 5));
@@ -1524,9 +1523,7 @@ function errorCheck() { // check for errors
             if (notTabIncr > 1) { // anomaly exists if live tabs (time ticks) are not increasing simultaneously
                 eR.dt_e.x = true;
             }
-            if (!eR.dt_e.x) { // if no anomal(ies)
-                er_dt_cl.classList.add("d_n");
-            } else {
+            if (eR.dt_e.x) { // if existing anomal(ies)
                 er_dt_cl.classList.remove("z_O");
             }
         }, (dev.i * 5));
