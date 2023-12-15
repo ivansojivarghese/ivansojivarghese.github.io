@@ -949,7 +949,7 @@ function load_e() { // end the loading sequence
                                     } else {
                                         er_dt_cl.classList.remove("z_O");
                                     }
-                                }, (dev.i * 2));
+                                }, (dev.i * 5));
 
                                 // var w = ((windowCount - 1) > 1) ? " instances" : " instance";
                                 // eR.dt_e.s.innerHTML = (windowCount - 1) + w;
@@ -1529,7 +1529,7 @@ function errorCheck() { // check for errors
             } else {
                 er_dt_cl.classList.remove("z_O");
             }
-        }, (dev.i * 2));
+        }, (dev.i * 5));
         
     } else if (op.mt) { // check if site under maintenance
         eR.title = "Error: Under maintenance";
