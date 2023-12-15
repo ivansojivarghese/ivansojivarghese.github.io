@@ -947,6 +947,8 @@ function load_e() { // end the loading sequence
                                     
                                     if (!eR.dt_e.x) { // if existing anomal(ies)
                                         er_dt_cl.innerHTML = "use a single tab";
+                                    } else {
+                                        er_dt_cl.innerHTML = "clear your cookies";
                                     }
                                     er_dt_cl.classList.remove("z_O");
                                 }, (dev.i * 5));
@@ -1526,6 +1528,8 @@ function errorCheck() { // check for errors
             }
             if (!eR.dt_e.x) { // if existing anomal(ies)
                 er_dt_cl.innerHTML = "use a single tab";
+            } else {
+                er_dt_cl.innerHTML = "clear your cookies";
             }
             er_dt_cl.classList.remove("z_O");
         }, (dev.i * 5));
