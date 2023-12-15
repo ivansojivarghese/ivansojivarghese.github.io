@@ -45,7 +45,8 @@ eR = { // error
     mt : document.getElementById("error_mt"), // maintenance
     dt : document.getElementById("error_dt"), // duplicate tabs
     dt_e : {
-        s : document.getElementById("error_dtsp")
+        s : document.getElementById("error_dtsp"),
+        x : false // dup. tab anomalies check
     },
     vp : document.getElementById("error_vp"), // vpn
     vp_e : {
@@ -897,8 +898,7 @@ function load_e() { // end the loading sequence
                             } else if ((((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) && !op.pwa.s) {
 
                                 var er_dt_on = document.querySelector("#error_dt h4.revert"),
-                                    er_dt_cl = document.querySelector("#error_dt h4.attr"),
-                                    dt_anomaly = false; // dup. tab anomalies check
+                                    er_dt_cl = document.querySelector("#error_dt h4.attr");
 
                                 eR.h = "dt";
                                 eR.p = "dt";
@@ -942,9 +942,9 @@ function load_e() { // end the loading sequence
                                         }
                                     }
                                     if (notTabIncr > 0) { // anomaly exists if live tabs (time ticks) are not increasing simultaneously
-                                        dt_anomaly = true;
+                                        eR.dt_e.x = true;
                                     }
-                                    if (!dt_anomaly) { // if no anomal(ies)
+                                    if (!eR.dt_e.x) { // if no anomal(ies)
                                         er_dt_cl.classList.add("d_n");
                                     } else {
                                         er_dt_cl.classList.remove("z_O");
@@ -1522,9 +1522,9 @@ function errorCheck() { // check for errors
                 }
             }
             if (notTabIncr > 0) { // anomaly exists if live tabs (time ticks) are not increasing simultaneously
-                dt_anomaly = true;
+                eR.dt_e.x = true;
             }
-            if (!dt_anomaly) { // if no anomal(ies)
+            if (!eR.dt_e.x) { // if no anomal(ies)
                 er_dt_cl.classList.add("d_n");
             } else {
                 er_dt_cl.classList.remove("z_O");
