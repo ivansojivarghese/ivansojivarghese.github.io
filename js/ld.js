@@ -932,6 +932,7 @@ function load_e() { // end the loading sequence
 
                                 setInterval(function() {
                                     var notTabIncr = 0;
+                                    tabListIncr2 = [];
                                     for (i = 0; i < tabList.length; i++) { // tab list 2
                                         var val = parseInt(getCookie(tabList[i] + "_e"));
                                         tabListIncr2[tabListIncr2.length] = val;
@@ -1514,6 +1515,7 @@ function errorCheck() { // check for errors
 
         setInterval(function() {
             var notTabIncr = 0;
+            tabListIncr2 = [];
             for (i = 0; i < tabList.length; i++) { // tab list 2
                 var val = parseInt(getCookie(tabList[i] + "_e"));
                 tabListIncr2[tabListIncr2.length] = val;
