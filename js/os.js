@@ -25,8 +25,12 @@ op.darkMode = isDarkMode();
 
 function toggleColorMode(e) { // light/dark modes toggling
     var icon = null;
+
+    toggleColorMode_e(); // perform page specific actions
+
     if (!op.darkMode) { // if light, change to dark
         icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
+
         op.darkMode = true;
 
         // needs to be generic to use in all pages
@@ -37,23 +41,13 @@ function toggleColorMode(e) { // light/dark modes toggling
         icon.classList.remove("dark_mode_img");
         icon.classList.add("light_mode_img");
 
-        // download_w_img
-
     } else { // if dark, change to light
         icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
-
-        // needs to be generic to use in all pages
-        /*
-        c_css(".lightBackground", "background-color: #303030 !important;", false, null);
-        c_css(".darkBackground", "background-color: #FFF !important;", false, null);
-        c_css(".darkText", "color: #FFF !important;", false, null);
-        */
 
         icon.classList.remove("light_mode_img");
         icon.classList.add("dark_mode_img");
         
         op.darkMode = false;
-
     }
 }
 

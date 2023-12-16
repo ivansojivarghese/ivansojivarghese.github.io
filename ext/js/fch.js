@@ -202,6 +202,26 @@ for (i = 0; i < dev.skillsNum; i++) {
     wInfo_ref[wInfo_ref.length] = i;
 }
 
+////////////////////////////
+
+function toggleColorMode_e() { // toggle between light and dark modes (page specific)
+    var dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img");
+
+    if (!op.darkMode) { // if light, change to dark
+
+        dw_img.classList.remove("download_img");
+        dw_img.classList.add("download_w_img");
+
+    } else { // if dark, change to light
+
+        dw_img.classList.remove("download_w_img");
+        dw_img.classList.add("download_img");
+
+    }
+}
+
+////////////////////////////
+
 function live_update() {
     if (rL.i && ((vw.pH && wiD >= 700) || (vw.dk))) {
         timeNow(el.Ltd);
