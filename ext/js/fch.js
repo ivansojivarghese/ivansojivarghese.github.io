@@ -1,7 +1,7 @@
 
 // locally run JS fetching (respective to each page)
 
-var fchL = {
+var fchL = { // load up images (from HTML context)
         1 : { // #intro_sc profile image
             el : document.getElementById("profile_image"),
             u : 'ext/jpg/ivan_profile.jpg'
