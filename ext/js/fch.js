@@ -213,15 +213,16 @@ var hamScZdx = function() {
         setTimeout(function() {
             if (hm.z) {
                 h_sc.classList.remove("z-N"); // when ham_sc closes
+                lk3.classList.remove("z-G");
             } else {
                 h_sc.classList.add("z-N"); // when ham_sc opens
+                lk3.classList.add("z-G");
             }
         }, op.t);
     };
 
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
     var h_sc = document.getElementById("ham_sc"),
-        i_sc = document.getElementById("intro_sc"),
         lk3 = document.getElementById("link_3"),
         ham_b = document.getElementById("hamburger_button"),
         dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
