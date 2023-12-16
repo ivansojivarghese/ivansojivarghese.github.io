@@ -206,23 +206,28 @@ for (i = 0; i < dev.skillsNum; i++) {
 
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
     var dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
-        ch_img = (!op.darkMode) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"); // chevron
+        ch_img = (!op.darkMode) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"), // chevron
+        logo_h_img = (!op.darkMode) ? document.querySelector(".logo_hybrid") : document.querySelector(".logo-hybrid-inverse"); // logo-hybrid
 
     if (!op.darkMode) { // if light, change to dark
 
         dw_img.classList.remove("download_img");
         ch_img.classList.remove("chevron_down_img");
+        logo_h_img.classList.remove("logo_hybrid");
 
         dw_img.classList.add("download_w_img");
         ch_img.classList.add("chevron_down_w_img");
+        logo_h_img.classList.add("logo-hybrid-inverse")
 
     } else { // if dark, change to light
 
         dw_img.classList.remove("download_w_img");
         ch_img.classList.remove("chevron_down_w_img");
+        logo_h_img.classList.remove("logo-hybrid-inverse")
 
         dw_img.classList.add("download_img");
         ch_img.classList.add("chevron_down_img");
+        logo_h_img.classList.add("logo_hybrid")
 
     }
 }
