@@ -247,7 +247,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         h_sc.classList.add("z-N");
         lk3.classList.remove("z-G");
 
-        ham_b.addEventListener("click", hamScZdx);
+        ham_b.addEventListener("click", hamScZdx); //
 
         ///////////////////////////////////////
 
