@@ -211,7 +211,7 @@ for (i = 0; i < dev.skillsNum; i++) {
 var hamScZdx = function() {
         var h_sc = document.getElementById("ham_sc"),
             lk3 = document.getElementById("link_3");
-        if (!hm.z) {
+        if (!lk3.classList.contains("z-G")) {
             lk3.classList.add("z-G");
         } else {
             lk3.classList.remove("z-G");
