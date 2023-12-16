@@ -215,26 +215,10 @@ var hamScZdx = function() {
         if (hm.s) {
             h_sc.classList.remove("z-N"); // when ham_sc closes
             lk3.classList.remove("z_Os");
-            // e_Fd(lk3, false);
         } else {
             h_sc.classList.add("z-N"); // when ham_sc opens
             lk3.classList.add("z_Os");
         }
-
-        /*
-        if (hm.z) {
-            lk3.classList.add("z-G");
-        } else {
-            lk3.classList.remove("z-G");
-        }
-        setTimeout(function() {
-            if (hm.z) {
-                h_sc.classList.remove("z-N"); // when ham_sc closes
-            } else {
-                lk3.classList.remove("z-G");
-                h_sc.classList.add("z-N"); // when ham_sc opens
-            }
-        }, op.t);*/
     };
 
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
@@ -265,6 +249,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
     } else { // if dark, change to light
 
         ham_b.removeEventListener("click", hamScZdx);
+        lk3.classList.remove("z_Os");
 
         setTimeout(function() {
             h_sc.classList.remove("z-N");
