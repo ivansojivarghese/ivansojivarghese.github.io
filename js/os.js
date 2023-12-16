@@ -24,7 +24,7 @@ function isDarkMode() { // dark mode detection
 op.darkMode = isDarkMode();
 
 function toggleColorMode(e) { // light/dark modes toggling
-    var icon = e.target || e.target.children[0];
+    var icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
     if (!op.darkMode) { // if light, change to dark
         // needs to be generic to use in all pages
         /*
