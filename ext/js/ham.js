@@ -351,7 +351,7 @@ function h_mTg() { // ham. menu toggle
             h_mBs(c); // perform button [stroke] dynamisms (mobile only)
 
             if (el.ac) {
-                el.lk3.classList.add("d_n");
+                // el.lk3.classList.add("d_n");
                 el.lk3.classList.add("z-G"); // hide arrow
                 el.lk3.removeEventListener("click", peek);
                 el.lk3attach = false;
@@ -441,7 +441,7 @@ function h_mTg() { // ham. menu toggle
                     h.classList.add("z-G");
                     
                     if (el.ac) {
-                        el.lk3.classList.remove("d_n");
+                        // el.lk3.classList.remove("d_n");
                         setTimeout(function() {
                             e_Fd(el.lk3b, false); // fade in
                             load_eN();
