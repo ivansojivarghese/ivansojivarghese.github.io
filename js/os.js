@@ -24,9 +24,9 @@ function isDarkMode() { // dark mode detection
 op.darkMode = isDarkMode();
 
 function toggleColorMode(e) { // light/dark modes toggling
-    var icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
+    var icon = null;
     if (!op.darkMode) { // if light, change to dark
-
+        icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
         op.darkMode = true;
 
         // needs to be generic to use in all pages
@@ -40,7 +40,8 @@ function toggleColorMode(e) { // light/dark modes toggling
         // download_w_img
 
     } else { // if dark, change to light
-
+        icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
+        
         // needs to be generic to use in all pages
         /*
         c_css(".lightBackground", "background-color: #303030 !important;", false, null);
