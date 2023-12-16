@@ -13,6 +13,10 @@ var fchL = {
         3 : { // favicon inverse
             el : document.getElementsByClassName("logo-inverse"),
             u : 'logo/favicon_inverse_512.png'
+        },
+        4 : { // logo_hybrid_inverse
+            el : document.getElementsByClassName("logo-hybrid-inverse"),
+            u : 'logo/logo_hybrid_inverse.png'
         }
     },
     fch = {
