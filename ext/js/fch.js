@@ -249,7 +249,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
     } else { // if dark, change to light
 
         ham_b.removeEventListener("click", hamScZdx);
-        lk3.classList.remove("z_Os");
+        lk3.classList.remove("z_Os"); //
 
         setTimeout(function() {
             h_sc.classList.remove("z-N");
