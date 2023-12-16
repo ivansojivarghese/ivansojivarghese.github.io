@@ -207,10 +207,18 @@ for (i = 0; i < dev.skillsNum; i++) {
 }
 
 ////////////////////////////
-/*
+
 var hamScZdx = function() {
         var h_sc = document.getElementById("ham_sc"),
             lk3 = document.getElementById("link_3");
+
+        if (hm.s) {
+            h_sc.classList.remove("z-N"); // when ham_sc closes
+        } else {
+            h_sc.classList.add("z-N"); // when ham_sc closes
+        }
+
+        /*
         if (hm.z) {
             lk3.classList.add("z-G");
         } else {
@@ -223,8 +231,8 @@ var hamScZdx = function() {
                 lk3.classList.remove("z-G");
                 h_sc.classList.add("z-N"); // when ham_sc opens
             }
-        }, op.t);
-    };*/
+        }, op.t);*/
+    };
 
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
     var h_sc = document.getElementById("ham_sc"),
@@ -239,7 +247,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         h_sc.classList.add("z-N");
         lk3.classList.remove("z-G");
 
-        // ham_b.addEventListener("click", hamScZdx);
+        ham_b.addEventListener("click", hamScZdx);
 
         ///////////////////////////////////////
 
@@ -253,7 +261,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
     } else { // if dark, change to light
 
-        // ham_b.removeEventListener("click", hamScZdx);
+        ham_b.removeEventListener("click", hamScZdx);
 
         setTimeout(function() {
             h_sc.classList.remove("z-N");
