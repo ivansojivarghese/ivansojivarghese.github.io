@@ -208,11 +208,11 @@ for (i = 0; i < dev.skillsNum; i++) {
 
 ////////////////////////////
 
-var hamScZdx = function() {
-    setTimeout(function() {
-        h_sc.classList.remove("z-N");
-    }, op.t);
-}
+var hamScZdx = function(el) {
+        setTimeout(function(el) {
+            el.classList.remove("z-N");
+        }, op.t);
+    };
 
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
     var h_sc = document.getElementById("ham_sc"),
@@ -228,7 +228,9 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         h_sc.classList.add("z-N");
         lk3.classList.remove("z-G");
 
-        ham_b.addEventListener("click", hamScZdx);
+        ham_b.addEventListener("click", function() {
+            hamScZdx(h_sc);
+        });
 
         ///////////////////////////////////////
 
@@ -242,7 +244,9 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
     } else { // if dark, change to light
 
-        ham_b.removeEventListener("click", hamScZdx);
+        ham_b.removeEventListener("click", function() {
+            hamScZdx(h_sc);
+        });
 
         setTimeout(function() {
             h_sc.classList.remove("z-N");
