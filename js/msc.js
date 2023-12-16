@@ -142,7 +142,8 @@ var wH = window.outerHeight, // height
     ex = { // executions
         a : false,
         f : []
-    };
+    },
+    c_cssL = []; // c_css function loops
 
     
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
@@ -2634,11 +2635,13 @@ function c_css(n, r, e, t, v, p) { // create new CSS class - dynamically using J
         }, t);
     }
     if (v !== undefined && p !== undefined) { // remove it when (some) object-variable changes
-        var str = p.toString();
-        setInterval(function() {
+        var str = p.toString(),
+            ix = c_cssL.length;
+        c_cssL[ix] = setInterval(function() {
             if (!v[str]) {
                 console.log("remove");
                 style.remove();
+                clearInterval(c_cssL[ix]);
             }
         }, op.Ls);
     }

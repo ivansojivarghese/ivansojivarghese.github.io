@@ -205,7 +205,7 @@ for (i = 0; i < dev.skillsNum; i++) {
 ////////////////////////////
 
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
-    var dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img");
+    var dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"); // install button
 
     if (!op.darkMode) { // if light, change to dark
 
