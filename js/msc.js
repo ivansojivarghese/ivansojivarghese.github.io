@@ -2623,7 +2623,7 @@ function changeSVGColor(color, el, trs_e) {
     }
 }
 
-function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
+function c_css(n, r, e, t, v) { // create new CSS class - dynamically using JS
     var style = document.createElement("STYLE"); // create 'style' tag
     style.type = "text/css"; 
     style.innerHTML = n + " { " + r + " }"; // combine name + rule(s)
@@ -2632,6 +2632,13 @@ function c_css(n, r, e, t) { // create new CSS class - dynamically using JS
         setTimeout(function() {
             style.remove(); // remove style element after stipulated time
         }, t);
+    }
+    if (v) { // remove it when (some) variable changes
+        setInterval(function() {
+            if (!v) {
+                style.remove();
+            }
+        }, op.Ls);
     }
 }
 

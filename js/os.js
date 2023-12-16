@@ -26,23 +26,32 @@ op.darkMode = isDarkMode();
 function toggleColorMode(e) { // light/dark modes toggling
     var icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
     if (!op.darkMode) { // if light, change to dark
+
+        op.darkMode = true;
+
         // needs to be generic to use in all pages
-        /*
-        var allLightBackgrounds = document.querySelectorAll(".lightBackground"),
-            allLightTexts = document.querySelectorAll(""),
-            allDarkBackgrounds = document.querySelectorAll(".darkBackground"),
-            allDarkTexts = document.querySelectorAll(".darkText");
-        */
-        c_css(".lightBackground", "background-color: #303030 !important;", false, null);
-        c_css(".darkBackground", "background-color: #FFF !important;", false, null);
-        c_css(".darkText", "color: #FFF !important;", false, null);
+        c_css(".lightBackground", "background-color: #303030 !important;", false, null, op.darkMode);
+        c_css(".darkBackground", "background-color: #FFF !important;", false, null, op.darkMode);
+        c_css(".darkText", "color: #FFF !important;", false, null, op.darkMode);
 
         icon.classList.remove("dark_mode_img");
         icon.classList.add("light_mode_img");
-        
-        op.darkMode = true;
+
+        // download_w_img
 
     } else { // if dark, change to light
+
+        // needs to be generic to use in all pages
+        /*
+        c_css(".lightBackground", "background-color: #303030 !important;", false, null);
+        c_css(".darkBackground", "background-color: #FFF !important;", false, null);
+        c_css(".darkText", "color: #FFF !important;", false, null);
+        */
+
+        icon.classList.remove("light_mode_img");
+        icon.classList.add("dark_mode_img");
+        
+        op.darkMode = false;
 
     }
 }
