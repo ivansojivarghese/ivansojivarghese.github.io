@@ -210,6 +210,7 @@ for (i = 0; i < dev.skillsNum; i++) {
 
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
     var h_sc = document.getElementById("ham_sc"),
+        i_sc = document.getElementById("intro_sc"),
         lk3 = document.getElementById("link_3"),
         dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
         ch_img = (!op.darkMode) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"), // chevron
@@ -217,6 +218,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
     if (!op.darkMode) { // if light, change to dark
 
+        i_sc.classList.add("z-N", "p-r");
         h_sc.classList.add("z-N");
         lk3.classList.remove("z-G");
 
@@ -233,6 +235,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
     } else { // if dark, change to light
 
         setTimeout(function() {
+            i_sc.classList.remove("z-N", "p-r");
             h_sc.classList.remove("z-N");
             lk3.classList.add("z-G");
         }, op.t);
