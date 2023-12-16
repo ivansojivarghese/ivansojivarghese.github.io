@@ -209,7 +209,8 @@ for (i = 0; i < dev.skillsNum; i++) {
 ////////////////////////////
 
 var hamScZdx = function() {
-        var h_sc = document.getElementById("ham_sc");
+        var h_sc = document.getElementById("ham_sc"),
+            lk3 = document.getElementById("link_3");
         setTimeout(function() {
             if (hm.z) {
                 h_sc.classList.remove("z-N"); // when ham_sc closes
