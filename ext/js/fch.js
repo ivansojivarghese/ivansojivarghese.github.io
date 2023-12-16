@@ -213,7 +213,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
         dw_img.classList.remove("download_img");
         ch_img.classList.remove("chevron_down_img");
-        logo_h_img.classList.remove("logo_hybrid");
+        logo_h_img.classList.remove("logo-hybrid");
 
         dw_img.classList.add("download_w_img");
         ch_img.classList.add("chevron_down_w_img");
@@ -227,7 +227,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
         dw_img.classList.add("download_img");
         ch_img.classList.add("chevron_down_img");
-        logo_h_img.classList.add("logo_hybrid")
+        logo_h_img.classList.add("logo-hybrid")
 
     }
 }
