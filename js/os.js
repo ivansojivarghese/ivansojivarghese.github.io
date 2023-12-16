@@ -26,11 +26,12 @@ op.darkMode = isDarkMode();
 function toggleColorMode() { // light/dark modes toggling
     if (!op.darkMode) { // if light, change to dark
         // needs to be generic to use in all pages
-        
+        /*
         var allLightBackgrounds = document.querySelectorAll(".lightBackground"),
             allLightTexts = document.querySelectorAll(""),
             allDarkBackgrounds = document.querySelectorAll(".darkBackground"),
             allDarkTexts = document.querySelectorAll(".darkText");
+        */
         c_css(".lightBackground", "background-color: #303030 !important;", false, null);
         c_css(".darkBackground", "background-color: #FFF !important;", false, null);
         c_css(".darkText", "color: #FFF !important;", false, null);
