@@ -2633,7 +2633,7 @@ function c_css(n, r, e, t, v, p) { // create new CSS class - dynamically using J
             style.remove(); // remove style element after stipulated time
         }, t);
     }
-    if (v !== null && p !== null) { // remove it when (some) object-variable changes
+    if (v !== undefined && p !== undefined) { // remove it when (some) object-variable changes
         var str = p.toString();
         setInterval(function() {
             if (!v[str]) {
