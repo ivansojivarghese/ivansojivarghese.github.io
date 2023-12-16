@@ -44,6 +44,7 @@ function toggleColorMode(e) { // light/dark modes toggling
     } else { // if dark, change to light
 
     }
+    e.stopPropagation();
 }
 
 ///////////////////////////////////////////////////
