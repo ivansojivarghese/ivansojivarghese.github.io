@@ -38,6 +38,7 @@ function toggleColorMode(e) { // light/dark modes toggling
         c_css(".darkText", "color: #FFF !important;", false, null);
 
         icon.classList.remove("dark_mode_img");
+        icon.classList.add("light_mode_img");
         
         op.darkMode = true;
 
