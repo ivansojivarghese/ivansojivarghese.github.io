@@ -499,6 +499,7 @@ if (getCookie("maxHeight") && tDevice) {
 }
 
 op = { 
+    darkMode : op.darkMode,
     host : hostname,
     tz : Intl.DateTimeFormat().resolvedOptions().timeZone, // get user device registered time zone
     lang : "", // english language variant
