@@ -33,6 +33,8 @@ function toggleColorMode(e) { // light/dark modes toggling
 
         op.darkMode = true;
 
+        c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t); // remove 'trs' effect on text
+
         // needs to be generic to use in all pages
         c_css(".lightBackground", "background-color: #303030 !important;", false, null, op, "darkMode");
         c_css(".darkBackground", "background-color: #FFF !important;", false, null, op, "darkMode");
@@ -43,6 +45,8 @@ function toggleColorMode(e) { // light/dark modes toggling
 
     } else { // if dark, change to light
         icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
+
+        c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t);
 
         icon.classList.remove("light_mode_img");
         icon.classList.add("dark_mode_img");
