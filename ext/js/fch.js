@@ -218,7 +218,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
     if (!op.darkMode) { // if light, change to dark
 
-        i_sc.classList.add("z-N", "p-r");
+        i_sc.classList.add("z-N", "p-r"); //
         h_sc.classList.add("z-N");
         lk3.classList.remove("z-G");
 
