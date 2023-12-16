@@ -2633,9 +2633,9 @@ function c_css(n, r, e, t, v, p) { // create new CSS class - dynamically using J
             style.remove(); // remove style element after stipulated time
         }, t);
     }
-    if (v !== null && p !== null) { // remove it when (some) variable changes
+    if (v !== null && p !== null) { // remove it when (some) object-variable changes
         setInterval(function() {
-            if (!v["" + p]) {
+            if (!v[p.toString()]) {
                 style.remove();
             }
         }, op.Ls);
