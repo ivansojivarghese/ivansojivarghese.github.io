@@ -19,6 +19,8 @@ function isDarkMode() { // dark mode detection
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
+op.darkMode = isDarkMode();
+
 function osCheck() {
     if (op.uA) {
         if (op.uA.match(/iPhone|iPad|iPod/i)) { // iOS
