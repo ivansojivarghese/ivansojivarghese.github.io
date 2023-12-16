@@ -1051,6 +1051,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/chevron_down.svg");
 }
 
+.chevron_down_w_img {
+    background-image: url("../svg/chevron_down_white.svg");
+}
+
 .dark_mode_img {
     background-image: url("../svg/dark_mode.svg");
 }

@@ -2639,7 +2639,7 @@ function c_css(n, r, e, t, v, p) { // create new CSS class - dynamically using J
             ix = c_cssL.length;
         c_cssL[ix] = setInterval(function() {
             if (!v[str]) {
-                console.log("remove");
+                // console.log("remove");
                 style.remove();
                 clearInterval(c_cssL[ix]);
             }
