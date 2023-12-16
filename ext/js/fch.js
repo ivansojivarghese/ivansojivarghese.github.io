@@ -214,8 +214,11 @@ var hamScZdx = function() {
 
         if (hm.s) {
             h_sc.classList.remove("z-N"); // when ham_sc closes
+            lk3.classList.remove("z_Os");
+            // e_Fd(lk3, false);
         } else {
-            h_sc.classList.add("z-N"); // when ham_sc closes
+            h_sc.classList.add("z-N"); // when ham_sc opens
+            lk3.classList.add("z_Os");
         }
 
         /*
@@ -247,7 +250,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         h_sc.classList.add("z-N");
         lk3.classList.remove("z-G");
 
-        ham_b.addEventListener("click", hamScZdx); //
+        ham_b.addEventListener("click", hamScZdx); 
 
         ///////////////////////////////////////
 
