@@ -99,7 +99,7 @@ div.cursorInt {
     top: 0.45rem;
 }
 
-#intro_sc .logo-hybrid {
+#intro_sc .logo-hybrid, #intro_sc .logo-hybrid-inverse {
     height: 2.8rem;
 }
 
