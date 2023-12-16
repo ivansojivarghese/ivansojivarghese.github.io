@@ -205,17 +205,24 @@ for (i = 0; i < dev.skillsNum; i++) {
 ////////////////////////////
 
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
-    var dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"); // install button
+    var dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
+        ch_img = (!op.darkMode) ? document.querySelector("chevron_down_img") : document.querySelector("chevron_down_w_img"); // chevron
 
     if (!op.darkMode) { // if light, change to dark
 
         dw_img.classList.remove("download_img");
+        ch_img.classList.remove("chevron_down_img");
+
         dw_img.classList.add("download_w_img");
+        ch_img.classList.add("chevron_down_w_img");
 
     } else { // if dark, change to light
 
         dw_img.classList.remove("download_w_img");
+        ch_img.classList.remove("chevron_down_w_img");
+
         dw_img.classList.add("download_img");
+        ch_img.classList.add("chevron_down_img");
 
     }
 }
