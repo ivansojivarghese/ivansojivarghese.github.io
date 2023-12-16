@@ -232,7 +232,10 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
     } else { // if dark, change to light
 
-        // h_sc.classList.add("z-N");
+        setTimeout(function() {
+            h_sc.classList.remove("z-N");
+            lk3.classList.add("z-G");
+        }, op.t);
 
         ///////////////////////////////////////
 
