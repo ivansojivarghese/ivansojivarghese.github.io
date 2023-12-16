@@ -2637,6 +2637,7 @@ function c_css(n, r, e, t, v, p) { // create new CSS class - dynamically using J
         var str = p.toString();
         setInterval(function() {
             if (!v[str]) {
+                console.log("remove");
                 style.remove();
             }
         }, op.Ls);
