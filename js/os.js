@@ -30,9 +30,9 @@ function toggleColorMode(e) { // light/dark modes toggling
         op.darkMode = true;
 
         // needs to be generic to use in all pages
-        c_css(".lightBackground", "background-color: #303030 !important;", false, null, op.darkMode);
-        c_css(".darkBackground", "background-color: #FFF !important;", false, null, op.darkMode);
-        c_css(".darkText", "color: #FFF !important;", false, null, op.darkMode);
+        c_css(".lightBackground", "background-color: #303030 !important;", false, null, op, "darkMode");
+        c_css(".darkBackground", "background-color: #FFF !important;", false, null, op, "darkMode");
+        c_css(".darkText", "color: #FFF !important;", false, null, op, "darkMode");
 
         icon.classList.remove("dark_mode_img");
         icon.classList.add("light_mode_img");
@@ -41,7 +41,7 @@ function toggleColorMode(e) { // light/dark modes toggling
 
     } else { // if dark, change to light
         icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
-        
+
         // needs to be generic to use in all pages
         /*
         c_css(".lightBackground", "background-color: #303030 !important;", false, null);
