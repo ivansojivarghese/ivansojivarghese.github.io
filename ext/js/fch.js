@@ -211,7 +211,11 @@ for (i = 0; i < dev.skillsNum; i++) {
 var hamScZdx = function() {
         var h_sc = document.getElementById("ham_sc");
         setTimeout(function() {
-            h_sc.classList.remove("z-N");
+            if (!hm.z) {
+                h_sc.classList.remove("z-N"); // when ham_sc closes
+            } else {
+                h_sc.classList.add("z-N"); // when ham_sc opens
+            }
         }, op.t);
     };
 
