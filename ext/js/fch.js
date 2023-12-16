@@ -208,19 +208,27 @@ for (i = 0; i < dev.skillsNum; i++) {
 
 ////////////////////////////
 
+var hamScZdx = function() {
+    setTimeout(function() {
+        h_sc.classList.remove("z-N");
+    }, op.t);
+}
+
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
     var h_sc = document.getElementById("ham_sc"),
         i_sc = document.getElementById("intro_sc"),
         lk3 = document.getElementById("link_3"),
+        ham_b = document.getElementById("hamburger_button"),
         dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
         ch_img = (!op.darkMode) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"), // chevron
         logo_h_img = (!op.darkMode) ? document.querySelector(".logo-hybrid") : document.querySelector(".logo-hybrid-inverse"); // logo-hybrid
 
     if (!op.darkMode) { // if light, change to dark
 
-        // i_sc.classList.add("z-N", "p-r"); //
         h_sc.classList.add("z-N");
         lk3.classList.remove("z-G");
+
+        ham_b.addEventListener("click", hamScZdx);
 
         ///////////////////////////////////////
 
@@ -234,8 +242,9 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
     } else { // if dark, change to light
 
+        ham_b.removeEventListener("click", hamScZdx);
+
         setTimeout(function() {
-            // i_sc.classList.remove("z-N", "p-r");
             h_sc.classList.remove("z-N");
             lk3.classList.add("z-G");
         }, op.t);
