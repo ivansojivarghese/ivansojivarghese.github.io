@@ -668,3 +668,12 @@ div.cursorInt {
     transform: translateY(5rem);
 }
 
+#intro_link {
+    width: 2.5rem;
+    height: 2.5rem;
+    z-index: 10;
+    position: relative;
+    top: -15vh;
+    margin-left: calc(5% + 10.5rem);
+}
+
