@@ -672,8 +672,8 @@ div.cursorInt {
     width: 2.5rem;
     height: 2.5rem;
     z-index: 10;
-    position: relative;
-    top: -15vh;
+    position: absolute;
+    top: calc(100vh - 1.25rem);
     margin-left: calc(5% + 10.5rem);
 }
 
