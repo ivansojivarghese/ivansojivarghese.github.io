@@ -1067,6 +1067,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/scrolltop.svg");
 }
 
+.scrolltop_w_img {
+    background-image: url("../svg/scrolltop_white.svg");
+}
+
 .download_img {
     background-image: url("../svg/download.svg");
 }
