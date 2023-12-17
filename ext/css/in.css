@@ -67,7 +67,7 @@ div.cursorInt {
     margin-left: calc(100vw - (5rem + 1.5rem));
 }
 
-#hamburger_button_phablet .lead_arrow_forward_img {
+#hamburger_button_phablet .lead_arrow_forward_img, #hamburger_button_phablet .lead_arrow_forward_w_img {
     width: 2.5rem;
     height: 2.5rem;
     transform: rotate(90deg);
