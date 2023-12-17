@@ -157,7 +157,7 @@
         position: relative;
     }
 
-    #intro_sc .logo-hybrid {
+    #intro_sc .logo-hybrid, #intro_sc .logo-hybrid-inverse {
         height: 2rem;
     }
 
