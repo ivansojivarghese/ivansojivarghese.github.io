@@ -112,7 +112,7 @@
         margin-left: 2vw;
     }
 
-    #intro_sc .logo-hybrid {
+    #intro_sc .logo-hybrid, #intro_sc .logo-hybrid-inverse {
         margin-top: 1.5rem;
         /*margin-left: calc(90vw - 17.5rem);*/
         margin-left: 25vw;
