@@ -243,6 +243,8 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             l_img = (!op.darkMode) ? document.querySelector(".location_img") : document.querySelector(".location_w_img");
         pl3 = document.getElementById("hm_btn_ar");
         dw_img = (!op.darkMode) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
+    } else if (vw.tB) {
+        dw_img = (!op.darkMode) ? document.querySelector("#dw_btn.tablet .download_img") : document.querySelector("#dw_btn.tablet .download_w_img");
     }
 
     if (!op.darkMode) { // if light, change to dark
