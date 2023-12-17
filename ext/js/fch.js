@@ -237,7 +237,10 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         logo_inv_img = (!op.darkMode) ? document.querySelector(".logo-inverse") : document.querySelector(".logo-inverse-dark"); // logo_inv
 
     if (vw.pH) { // if phablet
-        var c_Info_a = document.querySelectorAll(".c_Info_arrows");
+        var c_Info_a = document.querySelectorAll(".c_Info_arrows"),
+            w_img = (!op.darkMode) ? document.querySelector(".work_img") : document.querySelector(".work_w_img"),
+            s_img = (!op.darkMode) ? document.querySelector(".school_img") : document.querySelector(".school_w_img"),
+            l_img = (!op.darkMode) ? document.querySelector(".location_img") : document.querySelector(".location_w_img");
         pl3 = document.getElementById("hm_btn_ar");
         dw_img = (!op.darkMode) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
     }
@@ -269,6 +272,14 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
                 c_Info_a[i].classList.remove("lead_arrow_forward_img");
                 c_Info_a[i].classList.add("lead_arrow_forward_w_img");
             }
+
+            w_img.classList.remove("work_img");
+            s_img.classList.remove("school_img");
+            l_img.classList.remove("location_img");
+
+            w_img.classList.add("work_w_img");
+            s_img.classList.add("school_w_img");
+            l_img.classList.add("location_w_img");
         }
 
     } else { // if dark, change to light
@@ -301,6 +312,14 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
                 c_Info_a[i].classList.remove("lead_arrow_forward_w_img");
                 c_Info_a[i].classList.add("lead_arrow_forward_img");
             }
+
+            w_img.classList.remove("work_w_img");
+            s_img.classList.remove("school_w_img");
+            l_img.classList.remove("location_w_img");
+
+            w_img.classList.add("work_img");
+            s_img.classList.add("school_img");
+            l_img.classList.add("location_img");
         }
 
     }
