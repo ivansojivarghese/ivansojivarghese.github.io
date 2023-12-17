@@ -232,7 +232,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
         ch_img = (!op.darkMode) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"), // chevron
         logo_h_img = (!op.darkMode) ? document.querySelector(".logo-hybrid") : document.querySelector(".logo-hybrid-inverse"), // logo-hybrid
-        logo_inv_img = (!op.darkMode) ? document.querySelector(".logo-inverse") : document.querySelector(""); // logo_inv
+        logo_inv_img = (!op.darkMode) ? document.querySelector(".logo-inverse") : document.querySelector(".logo-inverse-dark"); // logo_inv
 
     if (!op.darkMode) { // if light, change to dark
 
