@@ -236,6 +236,10 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         logo_h_img = (!op.darkMode) ? document.querySelector(".logo-hybrid") : document.querySelector(".logo-hybrid-inverse"), // logo-hybrid
         logo_inv_img = (!op.darkMode) ? document.querySelector(".logo-inverse") : document.querySelector(".logo-inverse-dark"); // logo_inv
 
+    if (vw.pH) { // if phablet
+        dw_img = (!op.darkMode) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
+    }
+
     if (!op.darkMode) { // if light, change to dark
 
         h_sc.classList.add("z-N");
