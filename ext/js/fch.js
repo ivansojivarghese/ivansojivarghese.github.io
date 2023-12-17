@@ -229,6 +229,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
     var h_sc = document.getElementById("ham_sc"),
         lk3 = document.getElementById("link_3"),
         ham_b = document.getElementById("hamburger_button"),
+        ft_cnt = document.querySelector("#footer_sc .content"), // footer content
         dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
         ch_img = (!op.darkMode) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"), // chevron
         logo_h_img = (!op.darkMode) ? document.querySelector(".logo-hybrid") : document.querySelector(".logo-hybrid-inverse"), // logo-hybrid
@@ -238,6 +239,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
         h_sc.classList.add("z-N");
         lk3.classList.remove("z-G");
+        ft_cnt.classList.add("p-r", "z-N");
 
         ham_b.addEventListener("click", hamScZdx); 
 
@@ -261,6 +263,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         setTimeout(function() {
             h_sc.classList.remove("z-N");
             lk3.classList.add("z-G");
+            ft_cnt.classList.remove("p-r", "z-N");
         }, op.t);
 
         ///////////////////////////////////////

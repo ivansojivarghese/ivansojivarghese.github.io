@@ -40,6 +40,8 @@ function toggleColorMode(e) { // light/dark modes toggling
         c_css(".darkBackground", "background-color: #FFF !important;", false, null, op, "darkMode");
         c_css(".darkText", "color: #FFF !important;", false, null, op, "darkMode");
 
+        c_css("#footer_sc .bC_mL", "background: #3D3D3D !important;", false, null, op, "darkMode");
+
         icon.classList.remove("dark_mode_img");
         icon.classList.add("light_mode_img");
 
