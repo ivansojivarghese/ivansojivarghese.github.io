@@ -17,6 +17,10 @@ var fchL = { // load up images (from HTML context)
         4 : { // logo_hybrid_inverse
             el : document.getElementsByClassName("logo-hybrid-inverse"),
             u : 'logo/logo_hybrid_inverse.png'
+        },
+        5 : {
+            el : document.getElementsByClassName("favicon-dark"),
+            u : 'logo/favicon_dark_512.png'
         }
     },
     fch = {

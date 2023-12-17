@@ -1654,3 +1654,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 .logo-hybrid-inverse {
     background-image: url("../logo/logo_hybrid_inverse.png") !important;
 }
+
+.favicon-dark {
+    background-image: url("../logo/favicon_dark_512.png") !important;
+}
