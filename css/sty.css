@@ -1632,11 +1632,11 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../logo/favicon.png");
 }*/
 
-.logo-inverse, .logo-inverse + div {
+.logo-inverse, .logo-inverse + div, .logo-inverse-dark, .logo-inverse-dark + div {
     margin-left: calc(100% - 6rem);
 }
 
-.logo-inverse {
+.logo-inverse, .logo-inverse-dark {
     width: 6rem;
     height: 6rem;
 }
