@@ -285,6 +285,11 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             l_img.classList.add("location_w_img");
         } else if (vw.tB) {
             intro_L.classList.remove("d_n");
+
+            c_css("#blend_sc div:nth-child(2)", "margin-left: 10vw;", false, null, op, "darkMode");
+            c_css("#blend_sc div:nth-child(3)", "margin-left: 25vw;", false, null, op, "darkMode");
+            c_css("#blend_sc div:nth-child(4)", "margin-left: 40vw;", false, null, op, "darkMode");
+            c_css("#blend_sc div:nth-child(5)", "margin-left: 50vw;", false, null, op, "darkMode");
         }
 
     } else { // if dark, change to light
