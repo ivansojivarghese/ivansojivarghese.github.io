@@ -237,6 +237,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         logo_inv_img = (!op.darkMode) ? document.querySelector(".logo-inverse") : document.querySelector(".logo-inverse-dark"); // logo_inv
 
     if (vw.pH) { // if phablet
+        var c_Info_a = document.querySelector(".c_Info_arrows");
         pl3 = document.getElementById("hm_btn_ar");
         dw_img = (!op.darkMode) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
     }
@@ -263,6 +264,11 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         logo_inv_img.classList.add("logo-inverse-dark");
         pl3.classList.add("lead_arrow_forward_w_img");
 
+        if (vw.pH) {
+            c_Info_a.classList.remove("lead_arrow_forward_img");
+            c_Info_a.classList.add("lead_arrow_forward_w_img");
+        }
+
     } else { // if dark, change to light
 
         ham_b.removeEventListener("click", hamScZdx);
@@ -287,6 +293,11 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         logo_h_img.classList.add("logo-hybrid");
         logo_inv_img.classList.add("logo-inverse");
         pl3.classList.add("lead_arrow_forward_img");
+
+        if (vw.pH) {
+            c_Info_a.classList.remove("lead_arrow_forward_w_img");
+            c_Info_a.classList.add("lead_arrow_forward_img");
+        }
 
     }
 }
