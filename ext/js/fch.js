@@ -237,6 +237,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         logo_inv_img = (!op.darkMode) ? document.querySelector(".logo-inverse") : document.querySelector(".logo-inverse-dark"); // logo_inv
 
     if (vw.pH) { // if phablet
+        pl3 = document.getElementById("hm_btn_ar");
         dw_img = (!op.darkMode) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
     }
 
