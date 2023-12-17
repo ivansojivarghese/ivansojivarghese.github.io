@@ -229,6 +229,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
     var h_sc = document.getElementById("ham_sc"),
         lk3 = document.getElementById("link_3"),
         ham_b = document.getElementById("hamburger_button"),
+        pl3 = document.getElementById("pLa-3"),
         ft_cnt = document.querySelector("#footer_sc .content"), // footer content
         dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
         ch_img = (!op.darkMode) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"), // chevron
@@ -249,11 +250,13 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         ch_img.classList.remove("chevron_down_img");
         logo_h_img.classList.remove("logo-hybrid");
         logo_inv_img.classList.remove("logo-inverse");
+        pl3.classList.remove("lead_arrow_forward_img");
 
         dw_img.classList.add("download_w_img");
         ch_img.classList.add("chevron_down_w_img");
         logo_h_img.classList.add("logo-hybrid-inverse");
         logo_inv_img.classList.add("logo-inverse-dark");
+        pl3.classList.add("lead_arrow_forward_w_img");
 
     } else { // if dark, change to light
 
@@ -272,11 +275,13 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         ch_img.classList.remove("chevron_down_w_img");
         logo_h_img.classList.remove("logo-hybrid-inverse");
         logo_inv_img.classList.remove("logo-inverse-dark");
+        pl3.classList.remove("lead_arrow_forward_w_img");
 
         dw_img.classList.add("download_img");
         ch_img.classList.add("chevron_down_img");
         logo_h_img.classList.add("logo-hybrid");
         logo_inv_img.classList.add("logo-inverse");
+        pl3.classList.add("lead_arrow_forward_img");
 
     }
 }
