@@ -265,8 +265,10 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         pl3.classList.add("lead_arrow_forward_w_img");
 
         if (vw.pH) {
-            c_Info_a.classList.remove("lead_arrow_forward_img");
-            c_Info_a.classList.add("lead_arrow_forward_w_img");
+            for (i = 0; i < c_Info_a.length; i++) {
+                c_Info_a[i].classList.remove("lead_arrow_forward_img");
+                c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+            }
         }
 
     } else { // if dark, change to light
@@ -295,8 +297,10 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         pl3.classList.add("lead_arrow_forward_img");
 
         if (vw.pH) {
-            c_Info_a.classList.remove("lead_arrow_forward_w_img");
-            c_Info_a.classList.add("lead_arrow_forward_img");
+            for (i = 0; i < c_Info_a.length; i++) {
+                c_Info_a[i].classList.remove("lead_arrow_forward_w_img");
+                c_Info_a[i].classList.add("lead_arrow_forward_img");
+            }
         }
 
     }
