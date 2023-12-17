@@ -286,6 +286,8 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         } else if (vw.tB) {
             intro_L.classList.remove("d_n");
 
+            c_css("#blend_sc div", "background-color: #3D3D3D;", false, null, op, "darkMode");
+
             c_css("#blend_sc div:nth-child(2)", "margin-left: 10vw;", false, null, op, "darkMode");
             c_css("#blend_sc div:nth-child(3)", "margin-left: 25vw;", false, null, op, "darkMode");
             c_css("#blend_sc div:nth-child(4)", "margin-left: 40vw;", false, null, op, "darkMode");
