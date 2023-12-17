@@ -32,7 +32,7 @@ function toggleColorMode(e) { // light/dark modes toggling
     if (!op.darkMode) { // if light, change to dark
         icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
 
-        op.darkMode = true;
+        op.darkMode = true; //
 
         c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t); // remove 'trs' effect on text
 
