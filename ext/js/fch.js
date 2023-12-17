@@ -283,7 +283,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             w_img.classList.add("work_w_img");
             s_img.classList.add("school_w_img");
             l_img.classList.add("location_w_img");
-        } else if (vw.tB) {
+        } else if (vw.tB && !vw.dk) {
             intro_L.classList.remove("d_n");
 
             c_css("#blend_sc div", "background-color: #3D3D3D;", false, null, op, "darkMode");
@@ -332,7 +332,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             w_img.classList.add("work_img");
             s_img.classList.add("school_img");
             l_img.classList.add("location_img");
-        } else if (vw.tB) {
+        } else if (vw.tB && !vw.dk) {
             intro_L.classList.add("d_n");
         }
 
