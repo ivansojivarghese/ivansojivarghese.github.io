@@ -50,6 +50,10 @@ function toggleColorMode(e) { // light/dark modes toggling
         icon.classList.remove("dark_mode_img");
         icon.classList.add("light_mode_img");
 
+        if (vw.dk) {
+            icon.parentElement.title = "Light mode";
+        }
+
     } else { // if dark, change to light
         icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
 
@@ -57,6 +61,10 @@ function toggleColorMode(e) { // light/dark modes toggling
 
         icon.classList.remove("light_mode_img");
         icon.classList.add("dark_mode_img");
+
+        if (vw.dk) {
+            icon.parentElement.title = "Dark mode";
+        }
 
         scrolltop_img.classList.remove("scrolltop_w_img");
 
