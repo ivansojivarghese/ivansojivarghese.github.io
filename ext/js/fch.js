@@ -1071,6 +1071,10 @@ function wordCloudTransform(d) {
             targetWords[0].classList.add("c_n");
             targetWords[0].classList.add("z_O", "d_n", "v_n", "p-a", "h" + getHidden);
 
+            setTimeout(function() {
+                targetWords[0].classList.remove("c_n");
+            }, op.t);
+
             // console.log(getHidden);
             
             hElement.classList.remove("d_n", "v_n", "p-a", "h" + getHidden); // show hidden word
@@ -1193,6 +1197,10 @@ function wordCloudTransform(d) {
 
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
 
+                            setTimeout(function() {
+                                targetWords[0].classList.remove("c_n");
+                            }, op.t);
+
                             // console.log(hiddenWords[m]);
 
                         } else { // choose another number that is not taken
@@ -1214,6 +1222,10 @@ function wordCloudTransform(d) {
                             targetWords[m].classList.add("c_n");
 
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + randNum);
+
+                            setTimeout(function() {
+                                targetWords[0].classList.remove("c_n");
+                            }, op.t);
 
                         }
                     }
