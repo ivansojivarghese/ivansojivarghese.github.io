@@ -253,11 +253,21 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             pitch_d_val = 10;
 
         if (pitch_d.children.length === 0) {
+            var val_ar = [];
             for (j = 0; j < pitch_d_val; j++) {
                 var div = document.createElement("DIV"),
-                    max = Math.floor(wiD / op.fN);
+                    max = Math.floor(wiD / op.fN),
+                    rdn = getRandomInt(0, max);
+                if (val_ar.indexOf(rdn) === -1) { // if not existing
+                    val_ar[val_ar.length] = rdn;
+                } else { // if existing
+                    rdn = getRandomInt(0, max); // get new
+                    while (val_ar.indexOf(rdn) !== -1) {
+                        rdn = getRandomInt(0, max); // get another if again existing
+                    }
+                }
                 div.setAttribute("class", "cursorInt");
-                div.style.left = getRandomInt(0, max) + "rem";
+                div.style.left = rdn + "rem";
                 pitch_d.appendChild(div);
             }
         }
