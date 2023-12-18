@@ -270,7 +270,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         logo_inv_img.classList.add("logo-inverse-dark");
         pl3.classList.add("lead_arrow_forward_w_img");
 
-        if (vw.pH) {
+        if (vw.pH) { // phablet
             for (i = 0; i < c_Info_a.length; i++) {
                 c_Info_a[i].classList.remove("lead_arrow_forward_img");
                 c_Info_a[i].classList.add("lead_arrow_forward_w_img");
@@ -283,7 +283,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             w_img.classList.add("work_w_img");
             s_img.classList.add("school_w_img");
             l_img.classList.add("location_w_img");
-        } else if (vw.tB && !vw.dk) {
+        } else if (vw.tB && !vw.dk) { // tablet
             intro_L.classList.remove("d_n");
 
             c_css("#blend_sc div", "background-color: #3D3D3D;", false, null, op, "darkMode");
@@ -292,6 +292,10 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             c_css("#blend_sc div:nth-child(3)", "margin-left: 25vw;", false, null, op, "darkMode");
             c_css("#blend_sc div:nth-child(4)", "margin-left: 40vw;", false, null, op, "darkMode");
             c_css("#blend_sc div:nth-child(5)", "margin-left: 50vw;", false, null, op, "darkMode");
+
+        } else if (vw.dk) { // desktop
+
+            c_css("div.cursorInt", "background-color: #3D3D3D;", false, null, op, "darkMode");
         }
 
     } else { // if dark, change to light
