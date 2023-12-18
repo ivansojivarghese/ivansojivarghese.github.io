@@ -296,6 +296,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         } else if (vw.dk) { // desktop
 
             c_css("div.cursorInt", "background-color: #3D3D3D;", false, null, op, "darkMode");
+            c_css("#localWeather .img_icon.d_i", "background-color: #969696", false, null, op, "darkMode");
             c_css("#link_4, #wordsTyperDet, #wordsTyperDet_cursor", "opacity: 0.5;", false, null, op, "darkMode");
         }
 
