@@ -248,8 +248,20 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         dw_img = (!op.darkMode) ? document.querySelector("#dw_btn.tablet .download_img") : document.querySelector("#dw_btn.tablet .download_w_img");
     } else if (vw.dk) {
         var c_Info_a = document.querySelectorAll("#pitch_sc .img_icon"),
-            lb_img = (!op.darkMode) ? document.querySelector(".lightbulb_img") : document.querySelector(".lightbulb_w_img");
-    }
+            lb_img = (!op.darkMode) ? document.querySelector(".lightbulb_img") : document.querySelector(".lightbulb_w_img"),
+            pitch_d = document.querySelector("#pitch_dark"),
+            pitch_d_val = 10;
+
+        if (pitch_d.children.length === 0) {
+            for (j = 0; j < pitch_d_val; j++) {
+                var div = document.createElement("DIV"),
+                    max = Math.floor(wiD / op.fN);
+                div.setAttribute("class", "cursorInt");
+                div.style.left = getRandomInt(0, max) + "rem";
+                pitch_d.appendChild(div);
+            }
+        }
+    } 
 
     if (!op.darkMode) { // if light, change to dark
 
@@ -272,6 +284,8 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         logo_h_img.classList.add("logo-hybrid-inverse");
         logo_inv_img.classList.add("logo-inverse-dark");
         pl3.classList.add("lead_arrow_forward_w_img");
+
+        ////////////////////////////////////////
 
         if (vw.pH) { // phablet
             for (i = 0; i < c_Info_a.length; i++) {
@@ -298,22 +312,9 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
         } else if (vw.dk) { // desktop
 
-            var pitch_d = document.querySelector("#pitch_dark"),
-                pitch_d_val = 10;
-
             for (i = 0; i < c_Info_a.length; i++) {
                 c_Info_a[i].classList.remove("lead_arrow_forward_img");
                 c_Info_a[i].classList.add("lead_arrow_forward_w_img");
-            }
-
-            if (pitch_d.children.length === 0) {
-                for (j = 0; j < pitch_d_val; j++) {
-                    var div = document.createElement("DIV"),
-                        max = Math.floor(wiD / op.fN);
-                    div.setAttribute("class", "cursorInt");
-                    div.style.left = getRandomInt(0, max) + "rem";
-                    pitch_d.appendChild(div);
-                }
             }
 
             c_css("div.cursorInt", "background-color: #3D3D3D;", false, null, op, "darkMode");
@@ -321,6 +322,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             c_css("#link_4, #wordsTyperDet, #wordsTyperDet_cursor, #lightbulb_w_img", "opacity: 0.5;", false, null, op, "darkMode");
 
             lb_img.classList.remove("lightbulb_img");
+            pitch_d.classList.remove("d_n");
 
             lb_img.classList.add("lightbulb_w_img");
         }
@@ -376,6 +378,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             lb_img.classList.remove("lightbulb_w_img");
 
             lb_img.classList.add("lightbulb_img");
+            pitch_d.classList.add("d_n");
         } 
 
     }
