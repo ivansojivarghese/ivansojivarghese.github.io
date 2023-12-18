@@ -812,11 +812,19 @@ function sc_LpH() { // scroll loop - phablet
             }
 
             if (b.wd.top > b.q.top && b.wd.bottom < b.q.bottom) { // words typer
-                im.wd.classList.remove("z-N");
-                im.wd.classList.add("z-G");
+                if (!op.darkMode) {
+                    im.wd.classList.remove("z-N");
+                    im.wd.classList.add("z-G");
+                } else {
+                    im.wd.classList.add("trs", "z_O");
+                }
             } else {
-                im.wd.classList.add("z-N");
-                im.wd.classList.remove("z-G");
+                if (!op.darkMode) {
+                    im.wd.classList.add("z-N");
+                    im.wd.classList.remove("z-G");
+                } else {
+                    im.wd.classList.remove("trs", "z_O");
+                }
             }
 
             // RANDOM_SC
