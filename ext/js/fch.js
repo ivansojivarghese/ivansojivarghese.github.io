@@ -298,9 +298,22 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
         } else if (vw.dk) { // desktop
 
+            var pitch_d = document.querySelector("#pitch_dark"),
+                pitch_d_val = 10;
+
             for (i = 0; i < c_Info_a.length; i++) {
                 c_Info_a[i].classList.remove("lead_arrow_forward_img");
                 c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+            }
+
+            if (pitch_d.children.length === 0) {
+                for (j = 0; j < pitch_d_val; j++) {
+                    var div = document.createElement("DIV"),
+                        max = Math.floor(wiD / op.fN);
+                    div.setAttribute("class", "cursorInt");
+                    div.style.left = getRandomInt(0, max) + "rem";
+                    pitch_d.appendChild(div);
+                }
             }
 
             c_css("div.cursorInt", "background-color: #3D3D3D;", false, null, op, "darkMode");
