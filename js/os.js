@@ -21,6 +21,14 @@ function isDarkMode() { // dark mode detection
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
+    if (matches) {
+        console.log("change to dark mode!");
+    } else {
+        console.log("change to light mode!");
+    }
+});
+
 op.darkMode = isDarkMode();
 
 function toggleColorMode(e) { // light/dark modes toggling
