@@ -825,7 +825,7 @@ function sc_LpH() { // scroll loop - phablet
                 if (!op.darkMode) {
                     im.wd.classList.add("z-N");
                     im.wd.classList.remove("z-G");
-                } else if (op.darkMode && b.wd.top > b.wc.top) {
+                } else if (op.darkMode && ((b.wd.top > b.wc.top && pos.r) || (b.wd.bottom < b.q.bottom && !pos.r))) {
                     im.wd.classList.remove("z_O");
                     setTimeout(function() {
                         im.wd.classList.remove("trs");
