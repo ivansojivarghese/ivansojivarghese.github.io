@@ -493,12 +493,12 @@
         display: none;
     }
 
-    #footer_sc .logo-inverse {
+    #footer_sc .logo-inverse, #footer_sc .logo-inverse-dark {
         height: 4rem;
         width: 4rem;
     }
 
-    #footer_sc .logo-inverse, #footer_sc .logo-inverse + div {
+    #footer_sc .logo-inverse, #footer_sc .logo-inverse + div, #footer_sc .logo-inverse-dark, #footer_sc .logo-inverse-dark + div {
         margin-left: calc(100% - 4rem);
     }
 
