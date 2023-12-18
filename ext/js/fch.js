@@ -247,7 +247,8 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
         var intro_L = document.getElementById("intro_link");
         dw_img = (!op.darkMode) ? document.querySelector("#dw_btn.tablet .download_img") : document.querySelector("#dw_btn.tablet .download_w_img");
     } else if (vw.dk) {
-        var c_Info_a = document.querySelectorAll("#pitch_sc .img_icon");
+        var c_Info_a = document.querySelectorAll("#pitch_sc .img_icon"),
+            lb_img = (!op.darkMode) ? document.querySelector(".lightbulb_img") : document.querySelector(".lightbulb_w_img");
     }
 
     if (!op.darkMode) { // if light, change to dark
@@ -305,6 +306,10 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             c_css("div.cursorInt", "background-color: #3D3D3D;", false, null, op, "darkMode");
             c_css("#localWeather .img_icon.d_i", "background-color: #969696", false, null, op, "darkMode");
             c_css("#link_4, #wordsTyperDet, #wordsTyperDet_cursor", "opacity: 0.5;", false, null, op, "darkMode");
+
+            lb_img.classList.remove("lightbulb_img");
+
+            lb_img.classList.add("lightbulb_w_img");
         }
 
     } else { // if dark, change to light
@@ -350,9 +355,15 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
                 c_Info_a[i].classList.remove("lead_arrow_forward_img");
                 c_Info_a[i].classList.add("lead_arrow_forward_w_img");
             }
-            
+
             intro_L.classList.add("d_n");
-        }
+
+        } else if (vw.dk) {
+
+            lb_img.classList.remove("lightbulb_w_img");
+
+            lb_img.classList.add("lightbulb_img");
+        } 
 
     }
 }
