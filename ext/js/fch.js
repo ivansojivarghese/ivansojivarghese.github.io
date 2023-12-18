@@ -243,9 +243,11 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             l_img = (!op.darkMode) ? document.querySelector(".location_img") : document.querySelector(".location_w_img");
         pl3 = document.getElementById("hm_btn_ar");
         dw_img = (!op.darkMode) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
-    } else if (vw.tB) {
+    } else if (vw.tB && !vw.dk) {
         var intro_L = document.getElementById("intro_link");
         dw_img = (!op.darkMode) ? document.querySelector("#dw_btn.tablet .download_img") : document.querySelector("#dw_btn.tablet .download_w_img");
+    } else if (vw.dk) {
+        var c_Info_a = document.querySelectorAll("#pitch_sc .img_icon");
     }
 
     if (!op.darkMode) { // if light, change to dark
@@ -295,6 +297,11 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
         } else if (vw.dk) { // desktop
 
+            for (i = 0; i < c_Info_a.length; i++) {
+                c_Info_a[i].classList.remove("lead_arrow_forward_img");
+                c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+            }
+
             c_css("div.cursorInt", "background-color: #3D3D3D;", false, null, op, "darkMode");
             c_css("#localWeather .img_icon.d_i", "background-color: #969696", false, null, op, "darkMode");
             c_css("#link_4, #wordsTyperDet, #wordsTyperDet_cursor", "opacity: 0.5;", false, null, op, "darkMode");
@@ -339,6 +346,11 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             s_img.classList.add("school_img");
             l_img.classList.add("location_img");
         } else if (vw.tB && !vw.dk) {
+            for (i = 0; i < c_Info_a.length; i++) {
+                c_Info_a[i].classList.remove("lead_arrow_forward_img");
+                c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+            }
+            
             intro_L.classList.add("d_n");
         }
 
