@@ -823,7 +823,10 @@ function sc_LpH() { // scroll loop - phablet
                     im.wd.classList.add("z-N");
                     im.wd.classList.remove("z-G");
                 } else {
-                    im.wd.classList.remove("trs", "z_O");
+                    im.wd.classList.remove("z_O");
+                    setTimeout(function() {
+                        im.wd.classList.remove("trs");
+                    }, op.t);
                 }
             }
 
