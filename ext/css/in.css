@@ -472,7 +472,7 @@ div.cursorInt {
     line-height: 0.8em;
 }
 
-#pitch_sc .lightbulb_img {
+#pitch_sc .lightbulb_img, #pitch_sc .lightbulb_w_img {
     width: 10rem;
     height: 10rem;
 }
