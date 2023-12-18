@@ -819,7 +819,7 @@ function sc_LpH() { // scroll loop - phablet
                     im.wd.classList.add("trs");
                     setTimeout(function() {
                         im.wd.classList.add("z_O");
-                    }, 10);
+                    }, op.t);
                 }
             } else {
                 if (!op.darkMode) {
