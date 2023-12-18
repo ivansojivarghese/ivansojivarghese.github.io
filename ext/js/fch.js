@@ -1198,7 +1198,7 @@ function wordCloudTransform(d) {
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + hiddenWords[m]);
 
                             setTimeout(function() {
-                                targetWords[0].classList.remove("c_n");
+                                targetWords[m].classList.remove("c_n");
                             }, op.t);
 
                             // console.log(hiddenWords[m]);
@@ -1224,7 +1224,7 @@ function wordCloudTransform(d) {
                             targetWords[m].classList.add("z_O", "d_n", "v_n", "p-a", "h" + randNum);
 
                             setTimeout(function() {
-                                targetWords[0].classList.remove("c_n");
+                                targetWords[m].classList.remove("c_n");
                             }, op.t);
 
                         }
