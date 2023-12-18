@@ -251,6 +251,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             lb_img = (!op.darkMode) ? document.querySelector(".lightbulb_img") : document.querySelector(".lightbulb_w_img"),
             pitch_d = document.querySelector("#pitch_dark"),
             pitch_d_val = 10;
+        dw_img = (!op.darkMode) ? document.querySelector("#footer_sc .download_img") : document.querySelector("#footer_sc .download_w_img");
 
         if (pitch_d.children.length === 0) {
             var val_ar = [];
