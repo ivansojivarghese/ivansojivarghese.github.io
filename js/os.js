@@ -39,7 +39,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
     toggleColorMode_e(init); // perform page specific actions
 
-    if (!op.darkMode) { // if light, change to dark
+    if (!op.darkMode || init) { // if light, change to dark
         if (e !== null) {
             icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
         } else {
