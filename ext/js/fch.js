@@ -225,6 +225,14 @@ var hamScZdx = function() {
         }
     };
 
+function getColorModeIcon() { // get icon (light/dark mode) in mobile/phablet modes
+    if (vw.pH) { // phablet
+        return document.querySelector("#ham_phablet_sc #dm_btn .img_icon");
+    } else { // mobile
+        // return document.querySelector("#ham_phablet_sc #dm_btn .img_icon");
+    }
+}
+
 function toggleColorMode_e() { // toggle between light and dark modes (page specific)
     var h_sc = document.getElementById("ham_sc"),
         lk3 = document.getElementById("link_3"),

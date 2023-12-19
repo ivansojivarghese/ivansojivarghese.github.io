@@ -46,7 +46,7 @@ function toggleColorMode(e) { // light/dark modes toggling
             if (vw.tB || vw.dk) { // tablet OR desktop
                 icon = document.querySelector(".head #dm_btn .img_icon");
             } else if (vw.pH || !vw.pH) { // mobile or phablet
-                
+                icon = getColorModeIcon();
             }
         }
 
