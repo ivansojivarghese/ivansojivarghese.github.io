@@ -347,6 +347,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             pitch_d.classList.remove("d_n");
 
             lb_img.classList.add("lightbulb_w_img");
+
+        } else { // mobile
+
+            c_css("#link_1", "opacity: 0.1;", false, null, op, "darkMode");
         }
 
     } else { // if dark, change to light
@@ -401,6 +405,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             lb_img.classList.add("lightbulb_img");
             pitch_d.classList.add("d_n");
+
         } 
 
     }
