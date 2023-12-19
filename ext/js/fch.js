@@ -378,14 +378,14 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
             s_img.classList.add("school_img");
             l_img.classList.add("location_img");
         } else if (vw.tB && !vw.dk) {
-            for (i = 0; i < c_Info_a.length; i++) {
-                c_Info_a[i].classList.remove("lead_arrow_forward_img");
-                c_Info_a[i].classList.add("lead_arrow_forward_w_img");
-            }
 
             intro_L.classList.add("d_n");
 
         } else if (vw.dk) {
+            for (i = 0; i < c_Info_a.length; i++) {
+                c_Info_a[i].classList.remove("lead_arrow_forward_img");
+                c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+            }
 
             lb_img.classList.remove("lightbulb_w_img");
 
