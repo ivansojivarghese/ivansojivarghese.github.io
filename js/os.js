@@ -52,6 +52,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
         if (e !== null) {
             icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
+
+            setCookie("darkMode", "true", op.c.t);
         } else {
             if (vw.tB || vw.dk) { // tablet OR desktop
                 icon = document.querySelector(".head #dm_btn .img_icon");
@@ -91,6 +93,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
         if (e !== null) {
             icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
+
+            setCookie("darkMode", "false", op.c.t);
         } else {
             if (vw.tB || vw.dk) { // tablet OR desktop
                 icon = document.querySelector(".head #dm_btn .img_icon");

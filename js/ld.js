@@ -1154,7 +1154,16 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
-    if (op.darkMode) { // if dark mode
+    if (!getCookie("darkMode")) { // if no manual control from user
+        if (op.darkMode) { // if dark mode
+            toggleColorMode(null, true); // start-up with preset color theme
+        }
+    } else {
+        if (getCookie("darkMode") === "true") { // manual: dark mode
+            op.darkMode = true;
+        } else if (getCookie("darkMode") === "false") { // manual: light mode
+            op.darkMode = false;
+        }
         toggleColorMode(null, true); // start-up with preset color theme
     }
 
