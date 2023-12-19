@@ -34,7 +34,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ m
 op.darkMode = isDarkMode();
 
 function toggleColorMode(e, init) { // light/dark modes toggling
-    var scrolltop_img = (!op.darkMode) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
+    var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
         icon = null;
 
     toggleColorMode_e(init); // perform page specific actions
