@@ -24,8 +24,10 @@ function isDarkMode() { // dark mode detection
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
     if (matches) { // change to dark mode
         toggleColorMode(null);
+        op.darkMode = true;
     } else { // change to light mode
         toggleColorMode(null);
+        op.darkMode = false;
     }
 });
 
