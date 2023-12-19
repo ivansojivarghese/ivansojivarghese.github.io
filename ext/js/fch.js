@@ -256,10 +256,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         dw_img = (!op.darkMode || init) ? document.querySelector("#dw_btn.tablet .download_img") : document.querySelector("#dw_btn.tablet .download_w_img");
     } else if (vw.dk) {
         var c_Info_a = document.querySelectorAll("#pitch_sc .img_icon"),
-            lb_img = (!op.darkMode) ? document.querySelector(".lightbulb_img") : document.querySelector(".lightbulb_w_img"),
+            lb_img = (!op.darkMode || init) ? document.querySelector(".lightbulb_img") : document.querySelector(".lightbulb_w_img"),
             pitch_d = document.querySelector("#pitch_dark"),
             pitch_d_val = 10;
-        dw_img = (!op.darkMode) ? document.querySelector("#footer_sc .download_img") : document.querySelector("#footer_sc .download_w_img");
+        dw_img = (!op.darkMode || init) ? document.querySelector("#footer_sc .download_img") : document.querySelector("#footer_sc .download_w_img");
 
         if (pitch_d.children.length === 0) {
             var val_ar = [];
