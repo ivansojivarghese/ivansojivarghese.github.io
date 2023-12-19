@@ -70,7 +70,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         icon.classList.add("light_mode_img");
 
         if (vw.dk) {
-            icon.parentElement.title = "Light mode";
+            icon.parentElement.title = "Light theme";
         }
 
     } else { // if dark, change to light
