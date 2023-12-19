@@ -381,7 +381,7 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
             intro_L.classList.add("d_n");
 
-        } else if (vw.dk) {
+        } else if (vw.dk) { //
             for (i = 0; i < c_Info_a.length; i++) {
                 c_Info_a[i].classList.remove("lead_arrow_forward_w_img");
                 c_Info_a[i].classList.add("lead_arrow_forward_img");
