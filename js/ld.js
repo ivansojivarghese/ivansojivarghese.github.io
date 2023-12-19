@@ -1155,7 +1155,7 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
     if (op.darkMode) { // if dark mode
-        toggleColorMode(null); // start-up with preset color theme
+        toggleColorMode(null, true); // start-up with preset color theme
     }
 
     if ((!vw.pH && !vw.tB) || vw.pH) { // mobile or phablet

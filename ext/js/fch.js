@@ -233,16 +233,16 @@ function getColorModeIcon() { // get icon (light/dark mode) in mobile/phablet mo
     }
 }
 
-function toggleColorMode_e() { // toggle between light and dark modes (page specific)
+function toggleColorMode_e(init) { // toggle between light and dark modes (page specific)
     var h_sc = document.getElementById("ham_sc"),
         lk3 = document.getElementById("link_3"),
         ham_b = document.getElementById("hamburger_button"),
         pl3 = document.getElementById("pLa-3"),
         ft_cnt = document.querySelector("#footer_sc .content"), // footer content
-        dw_img = (!op.darkMode) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
-        ch_img = (!op.darkMode) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"), // chevron
-        logo_h_img = (!op.darkMode) ? document.querySelector(".logo-hybrid") : document.querySelector(".logo-hybrid-inverse"), // logo-hybrid
-        logo_inv_img = (!op.darkMode) ? document.querySelector(".logo-inverse") : document.querySelector(".logo-inverse-dark"); // logo_inv
+        dw_img = (!op.darkMode || init) ? document.querySelector(".download_img") : document.querySelector(".download_w_img"), // download 
+        ch_img = (!op.darkMode || init) ? document.querySelector(".chevron_down_img") : document.querySelector(".chevron_down_w_img"), // chevron
+        logo_h_img = (!op.darkMode || init) ? document.querySelector(".logo-hybrid") : document.querySelector(".logo-hybrid-inverse"), // logo-hybrid
+        logo_inv_img = (!op.darkMode || init) ? document.querySelector(".logo-inverse") : document.querySelector(".logo-inverse-dark"); // logo_inv
 
     if (vw.pH) { // if phablet
         var c_Info_a = document.querySelectorAll(".c_Info_arrows"),
