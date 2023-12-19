@@ -1164,7 +1164,6 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
             toggleColorMode(null, true); 
         } else if (getCookie("darkMode") === "false") { // manual: light mode
             op.darkMode = false;
-            toggleColorMode(null, false); 
         }
     }
 
