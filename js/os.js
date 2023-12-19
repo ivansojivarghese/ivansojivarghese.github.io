@@ -38,15 +38,15 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         icon = null,
 
         fvc = document.querySelectorAll(".favicons"),
-        fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"];
-        fvc_L = [];
+        fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"]; // dark favicons
+        fvc_L = ["safari-pinned-tab.svg", "apple-touch-icon.png", "favicon.ico", "favicon/favicon.svg", "favicon/android-chrome-512x512.png", "favicon/android-chrome-192x192.png", "favicon/favicon-32x32.png", "favicon/favicon-16x16.png"]; // light favicons
 
 
     toggleColorMode_e(init); // perform page specific actions
 
     if (!op.darkMode || init) { // if light, change to dark
 
-        for (i = 0; i < fvc.length; i++) {
+        for (i = 0; i < fvc.length; i++) { // change favicon
             fvc[i].setAttribute("href", fvc_d[i]); 
         }
 
@@ -84,6 +84,11 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         }
 
     } else { // if dark, change to light
+
+        for (i = 0; i < fvc.length; i++) { // change favicon
+            fvc[i].setAttribute("href", fvc_L[i]); 
+        }
+
         if (e !== null) {
             icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
         } else {
