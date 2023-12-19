@@ -383,8 +383,8 @@ function toggleColorMode_e() { // toggle between light and dark modes (page spec
 
         } else if (vw.dk) {
             for (i = 0; i < c_Info_a.length; i++) {
-                c_Info_a[i].classList.remove("lead_arrow_forward_img");
-                c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+                c_Info_a[i].classList.remove("lead_arrow_forward_w_img");
+                c_Info_a[i].classList.add("lead_arrow_forward_img");
             }
 
             lb_img.classList.remove("lightbulb_w_img");
