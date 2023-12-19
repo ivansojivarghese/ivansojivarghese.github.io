@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="512px" height="512px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
-<style>
-    @media (prefers-color-scheme: light) {
-        #background {
-            fill: #303030;
-        }
-    }
-</style>
 <g><path id="background" style="opacity:0.999" fill="#808080" d="M 105.5,-0.5 C 205.5,-0.5 305.5,-0.5 405.5,-0.5C 469.167,6.5 504.5,41.8333 511.5,105.5C 511.5,205.5 511.5,305.5 511.5,405.5C 504.5,469.167 469.167,504.5 405.5,511.5C 305.5,511.5 205.5,511.5 105.5,511.5C 41.8333,504.5 6.5,469.167 -0.5,405.5C -0.5,305.5 -0.5,205.5 -0.5,105.5C 6.5,41.8333 41.8333,6.5 105.5,-0.5 Z"/></g>
 <g><path class="stroke" style="opacity:1" fill="#fff" d="M 118.5,98.5 C 137.5,98.5 156.5,98.5 175.5,98.5C 175.5,117.5 175.5,136.5 175.5,155.5C 156.5,155.5 137.5,155.5 118.5,155.5C 118.5,136.5 118.5,117.5 118.5,98.5 Z"/></g>
 <g><path class="stroke" style="opacity:1" fill="#fff" d="M 118.5,186.5 C 137.5,186.5 156.5,186.5 175.5,186.5C 175.5,261.167 175.5,335.833 175.5,410.5C 156.5,410.5 137.5,410.5 118.5,410.5C 118.5,335.833 118.5,261.167 118.5,186.5 Z"/></g>
