@@ -139,19 +139,12 @@ function applyManifest() {
     var cfg = document.getElementById("msConfig"), // browser config.
         tCol = document.getElementById("msTcol"), // broswer tile col.
         tImg = document.getElementById("msTimg"), // browser tile img.
-        m = document.getElementById("mft"), // get appropriate manifest
-        d = isDarkMode();
+        m = document.getElementById("mft"); // get appropriate manifest
 
     if (op.sys === "Android") {
 
         m.setAttribute("href", "app.webmanifest");
 
-        /*
-        if (d) {
-            m.setAttribute("href", "app_dark.webmanifest");
-        } else {
-            m.setAttribute("href", "app.webmanifest");
-        }*/
     } else if (op.sys === "iOS") {
 
         
@@ -164,20 +157,6 @@ function applyManifest() {
         tCol.setAttribute("content", "#303030");
         tImg.setAttribute("content", "favicon/windows/mstile-144x144.png?1");
 
-        /*
-        if (d) {
-            m.setAttribute("href", "app_windows_dark.webmanifest"); 
-
-            cfg.setAttribute("content", "browserconfig_dark.xml"); // add tile designs
-            tCol.setAttribute("content", "#808080");
-            tImg.setAttribute("content", "favicon/windows/dark/mstile-144x144.png?1");
-        } else {
-            m.setAttribute("href", "app_windows.webmanifest");
-
-            cfg.setAttribute("content", "browserconfig.xml");
-            tCol.setAttribute("content", "#303030");
-            tImg.setAttribute("content", "favicon/windows/mstile-144x144.png?1");
-        }*/
     }
 }
 
