@@ -282,7 +282,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         }
     } 
 
-    if (!op.darkMode) { // if light, change to dark
+    if (!op.darkMode || init) { // if light, change to dark
 
         if (hm.s) { // if open
             h_sc.classList.add("z-N");
