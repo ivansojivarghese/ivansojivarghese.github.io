@@ -229,7 +229,7 @@ function getColorModeIcon() { // get icon (light/dark mode) in mobile/phablet mo
     if (vw.pH) { // phablet
         return document.querySelector("#ham_phablet_sc #dm_btn .img_icon");
     } else { // mobile
-        // return document.querySelector("#ham_phablet_sc #dm_btn .img_icon");
+        return document.querySelector("#ham_sc #dm_btn .img_icon");
     }
 }
 
