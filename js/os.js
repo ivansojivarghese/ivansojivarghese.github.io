@@ -35,11 +35,21 @@ op.darkMode = isDarkMode();
 
 function toggleColorMode(e, init) { // light/dark modes toggling
     var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
-        icon = null;
+        icon = null,
+
+        fvc = document.querySelectorAll(".favicons"),
+        fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"];
+        fvc_L = [];
+
 
     toggleColorMode_e(init); // perform page specific actions
 
     if (!op.darkMode || init) { // if light, change to dark
+
+        for (i = 0; i < fvc.length; i++) {
+            fvc[i].setAttribute("href", fvc_d[i]); 
+        }
+
         if (e !== null) {
             icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
         } else {
