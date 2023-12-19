@@ -22,10 +22,10 @@ function isDarkMode() { // dark mode detection
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
-    if (matches) {
-        console.log("change to dark mode!");
-    } else {
-        console.log("change to light mode!");
+    if (matches) { // change to dark mode
+        toggleColorMode(null);
+    } else { // change to light mode
+        toggleColorMode(null);
     }
 });
 
@@ -38,7 +38,15 @@ function toggleColorMode(e) { // light/dark modes toggling
     toggleColorMode_e(); // perform page specific actions
 
     if (!op.darkMode) { // if light, change to dark
-        icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
+        if (e !== null) {
+            icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
+        } else {
+            if (vw.tB || vw.dk) { // tablet OR desktop
+                icon = document.querySelector(".head #dm_btn .img_icon");
+            } else if (vw.pH || !vw.pH) { // mobile or phablet
+                
+            }
+        }
 
         op.darkMode = true; //
 
@@ -64,7 +72,15 @@ function toggleColorMode(e) { // light/dark modes toggling
         }
 
     } else { // if dark, change to light
-        icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
+        if (e !== null) {
+            icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
+        } else {
+            if (vw.tB || vw.dk) { // tablet OR desktop
+                icon = document.querySelector(".head #dm_btn .img_icon");
+            } else if (vw.pH || !vw.pH) { // mobile or phablet
+                
+            }
+        }
 
         c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t);
 
