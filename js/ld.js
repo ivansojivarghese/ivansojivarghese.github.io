@@ -1154,6 +1154,8 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
+    toggleColorMode(null); // start-up with preset color theme
+
     if ((!vw.pH && !vw.tB) || vw.pH) { // mobile or phablet
         c_css("#footer_sc .w-s", "height: calc(" + h + "px - 6rem);", false, null); // set height of footer design element
     } else if (vw.tB) { // tablet
