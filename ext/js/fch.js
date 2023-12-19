@@ -250,7 +250,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             s_img = (!op.darkMode) ? document.querySelector(".school_img") : document.querySelector(".school_w_img"),
             l_img = (!op.darkMode) ? document.querySelector(".location_img") : document.querySelector(".location_w_img");
         pl3 = document.getElementById("hm_btn_ar");
-        dw_img = (!op.darkMode) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
+        dw_img = (!op.darkMode || init) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
     } else if (vw.tB && !vw.dk) {
         var intro_L = document.getElementById("intro_link");
         dw_img = (!op.darkMode) ? document.querySelector("#dw_btn.tablet .download_img") : document.querySelector("#dw_btn.tablet .download_w_img");
