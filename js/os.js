@@ -23,12 +23,12 @@ function isDarkMode() { // dark mode detection
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
     if (matches) { // change to dark mode
-        if (!getCookie("darkMode")) {
+        if (!getCookie("darkMode") && !op.darkMode) {
             toggleColorMode(null);
             op.darkMode = true;
         }
     } else { // change to light mode
-        if (!getCookie("darkMode")) {
+        if (!getCookie("darkMode") && op.darkMode) {
             toggleColorMode(null);
             op.darkMode = false;
         }
