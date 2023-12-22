@@ -1384,6 +1384,9 @@
         <!-- incognito mode detection -->
         <script src="https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@v1.3.0/dist/es5/detectIncognito.min.js"></script>
         <script>
+
+            // REFERENCE: https://github.com/Joe12387/detectIncognito?tab=readme-ov-file 
+
             detectIncognito().then((result) => {
                 console.log(result.browserName, result.isPrivate);
             });
