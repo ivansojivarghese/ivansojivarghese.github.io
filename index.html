@@ -1409,9 +1409,9 @@
                         // Read the light levels in lux 
                         // < 50 is dark room
                         
-                        if (sensor.illuminance < 50) {
+                        if (sensor.illuminance < 50 && !op.darkMode) {
                             op.darkMode = true; // set to dark mode automatically
-                        } else {
+                        } else if (op.darkMode) {
                             op.darkMode = false;
                         }
                     }
