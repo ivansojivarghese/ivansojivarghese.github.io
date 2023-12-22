@@ -151,6 +151,7 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiSuccess = false, // check
     criticalAPI = false,
     ipAPIres = {},
+    ipAPI2res = {},
     clientAPIres = {},
     roamingAPIres = {},
     timeAPIres = {},
@@ -296,13 +297,12 @@ async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
     await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138")
     .then((response) => {
         return response.json().then((data) => {
-            /*
-            ipAPIres = data;
-            ipAPIres.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
-            ipAPIres.lon = data.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude;
-            ipAPIres.online = true;*/
+            ipAPI2res = data;
+            // ipAPIres.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
+            // ipAPIres.lon = data.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude;
+            ipAPI2res.online = true;
         }).catch((error) => {
-            // ipAPIres.error = true;
+            ipAPI2res.error = true;
         });
     })
 }
