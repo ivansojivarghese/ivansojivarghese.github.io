@@ -1381,6 +1381,13 @@
                 var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
             })('//updatemybrowser.org/umb.js');
         </script>
+        <!-- incognito mode detection -->
+        <script src="https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@v1.3.0/dist/es5/detectIncognito.min.js"></script>
+        <script>
+            detectIncognito().then((result) => {
+                console.log(result.browserName, result.isPrivate);
+            });
+        </script>
 
         <!-- Multiple tabs detection -->
         <script>
