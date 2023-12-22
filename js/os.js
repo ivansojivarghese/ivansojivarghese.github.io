@@ -115,7 +115,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         icon.classList.add("dark_mode_img");
 
         if (vw.dk) {
-            icon.parentElement.title = "Dark mode";
+            icon.parentElement.title = "Dark theme";
         }
 
         scrolltop_img.classList.remove("scrolltop_w_img");
