@@ -1402,9 +1402,10 @@
                 sensor.addEventListener("reading", (event) => {
                     window.alert("Current light level:", sensor.illuminance);
                 });
+                /*
                 sensor.addEventListener("error", (event) => {
                     console.log(event.error.name, event.error.message);
-                });
+                });*/
                 sensor.start();
             }
         </script>
