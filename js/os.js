@@ -254,3 +254,33 @@ uA_L = setInterval(function() {
         clearInterval(uA_L);
     }
 }, op.Ls);
+
+
+// Dark mode detection (using device ambient light sensor | EXPERIMENTAL) 
+
+// REFERENCE: https://deanhume.com/ambient-light-sensor/
+
+if (window.AmbientLightSensor) {
+    try {
+        const sensor = new AmbientLightSensor();
+        // Detect changes in the light
+        sensor.onreading = () => {
+
+            // Read the light levels in lux 
+            // < 50 is dark room
+            
+            if (sensor.illuminance < 50 && !op.darkMode) {
+                toggleColorMode(null);
+                op.darkMode = true; // set to dark mode automatically
+            } else if (op.darkMode) {
+                toggleColorMode(null);
+                op.darkMode = false;
+            }
+        }
+        
+        sensor.start();
+
+    } catch(err) {
+        console.log(err.name, err.message);
+    }
+}
