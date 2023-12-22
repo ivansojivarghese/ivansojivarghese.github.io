@@ -1258,6 +1258,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     transform: rotate(-45deg);
 }
 
+#ckA_msg {
+    border-top: 0.2rem solid #303030;
+}
+
 /* ------------- */
 
 .error_main h4, .error_main p, p.error {
