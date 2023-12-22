@@ -1398,47 +1398,30 @@
         <!-- Dark mode detection (using device ambient light sensor | EXPERIMENTAL) -->
         <script>
 
+            // REFERENCE: https://deanhume.com/ambient-light-sensor/
+
             if (window.AmbientLightSensor) {
                 try {
                     const sensor = new AmbientLightSensor();
                     // Detect changes in the light
                     sensor.onreading = () => {
-                        window.alert(sensor.illuminance);
 
                         // Read the light levels in lux 
                         // < 50 is dark room
-                        /*
+                        
                         if (sensor.illuminance < 50) {
-                            document.body.className = 'darkLight';
+                            op.darkMode = true; // set to dark mode automatically
                         } else {
-                            document.body.className = 'brightLight';
-                        }*/
+                            op.darkMode = false;
+                        }
                     }
-
-                    // Has an error occured?
-                    // sensor.onerror = event => document.getElementById("details").innerHTML = event.error.message;
                     
                     sensor.start();
 
                 } catch(err) {
-                    details.innerHTML = err.message;
+                    console.log(err.name, err.message);
                 }
             }
-
-            /*
-            if ("AmbientLightSensor" in window) {
-
-                window.alert("ambient light");
-
-                const sensor = new AmbientLightSensor();
-                sensor.addEventListener("reading", (event) => {
-                    window.alert("Current light level:", sensor.illuminance);
-                });
-                sensor.addEventListener("error", (event) => {
-                    console.log(event.error.name, event.error.message);
-                });
-                sensor.start();
-            }*/
         </script>
         <!-- Multiple tabs detection -->
         <script>
