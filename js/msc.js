@@ -296,7 +296,8 @@ async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/
 async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
     await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138", 
     {
-        mode: 'no-cors'
+        method: "GET",
+        mode: "no-cors"
     })
     .then(async (response) => {
         try {
