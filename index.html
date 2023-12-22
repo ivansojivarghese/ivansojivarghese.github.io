@@ -1397,6 +1397,35 @@
         </script>
         <!-- Dark mode detection (using device ambient light sensor | EXPERIMENTAL) -->
         <script>
+
+            if (window.AmbientLightSensor) {
+                try {
+                    const sensor = new AmbientLightSensor();
+                    // Detect changes in the light
+                    sensor.onreading = () => {
+                        window.alert(sensor.illuminance);
+
+                        // Read the light levels in lux 
+                        // < 50 is dark room
+                        /*
+                        if (sensor.illuminance < 50) {
+                            document.body.className = 'darkLight';
+                        } else {
+                            document.body.className = 'brightLight';
+                        }*/
+                    }
+
+                    // Has an error occured?
+                    // sensor.onerror = event => document.getElementById("details").innerHTML = event.error.message;
+                    
+                    sensor.start();
+
+                } catch(err) {
+                    details.innerHTML = err.message;
+                }
+            }
+
+            /*
             if ("AmbientLightSensor" in window) {
 
                 window.alert("ambient light");
@@ -1409,7 +1438,7 @@
                     console.log(event.error.name, event.error.message);
                 });
                 sensor.start();
-            }
+            }*/
         </script>
         <!-- Multiple tabs detection -->
         <script>
