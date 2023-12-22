@@ -1410,8 +1410,10 @@
                         // < 50 is dark room
                         
                         if (sensor.illuminance < 50 && !op.darkMode) {
+                            toggleColorMode(null);
                             op.darkMode = true; // set to dark mode automatically
                         } else if (op.darkMode) {
+                            toggleColorMode(null);
                             op.darkMode = false;
                         }
                     }
