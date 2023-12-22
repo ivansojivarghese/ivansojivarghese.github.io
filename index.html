@@ -1398,6 +1398,9 @@
         <!-- Dark mode detection (using device ambient light sensor | EXPERIMENTAL) -->
         <script>
             if ("AmbientLightSensor" in window) {
+
+                window.alert("ambient light");
+
                 const sensor = new AmbientLightSensor();
                 sensor.addEventListener("reading", (event) => {
                     window.alert("Current light level:", sensor.illuminance);
