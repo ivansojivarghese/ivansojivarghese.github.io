@@ -292,6 +292,10 @@ async function ipAPI(v) {  // 50,000 per month limit, https://ipinfo.io/
         })
 }
 
+async function ipAPI2(v) { // 
+
+}
+
 async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
     await fetch("https://api-bdc.net/data/client-info")
         .then((response) => {

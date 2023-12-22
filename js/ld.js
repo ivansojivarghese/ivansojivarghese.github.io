@@ -1400,7 +1400,8 @@ function errorCheck() { // check for errors
 
     apiInit = op.d.getTime(); // start API load time (at init)
     ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
-    
+
+    // pAPI2(); 
 
 
     clientAPI(); // get user IP information + proxy usage status (no arguments)
@@ -1873,3 +1874,32 @@ setTimeout(function() {
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
 
 }, op.t);
+
+
+// Dark mode detection (using device ambient light sensor | EXPERIMENTAL) 
+// REFERENCE: https://deanhume.com/ambient-light-sensor/
+
+if (window.AmbientLightSensor) {
+    try {
+        const sensor = new AmbientLightSensor();
+        // Detect changes in the light
+        sensor.onreading = () => {
+
+            // Read the light levels in lux 
+            // < 50 is dark room
+            
+            if (sensor.illuminance < 50 && !op.darkMode) {
+                toggleColorMode(null);
+                op.darkMode = true; // set to dark mode automatically
+            } else if (op.darkMode) {
+                toggleColorMode(null);
+                op.darkMode = false;
+            }
+        }
+        
+        sensor.start();
+
+    } catch(err) {
+        console.log(err.name, err.message);
+    }
+}
