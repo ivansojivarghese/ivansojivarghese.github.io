@@ -1395,7 +1395,19 @@
                 }
             });
         </script>
-
+        <!-- Dark mode detection (using device ambient light sensor) -->
+        <script>
+            if ("AmbientLightSensor" in window) {
+                const sensor = new AmbientLightSensor();
+                sensor.addEventListener("reading", (event) => {
+                    window.alert("Current light level:", sensor.illuminance);
+                });
+                sensor.addEventListener("error", (event) => {
+                    console.log(event.error.name, event.error.message);
+                });
+                sensor.start();
+            }
+        </script>
         <!-- Multiple tabs detection -->
         <script>
 
