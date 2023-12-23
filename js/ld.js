@@ -1157,6 +1157,8 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
     if (!getCookie("darkMode")) { // if no manual control from user
         if (op.darkMode) { // if dark mode
             toggleColorMode(null, true); // start-up with preset color theme
+        } else {
+            autoDarkMode(); // EXPERIMENTAL: Check device ambient light to activate dark mode
         }
     } else {
         if (getCookie("darkMode") === "true") { // manual: dark mode
@@ -1874,31 +1876,32 @@ setTimeout(function() {
 
 }, op.t);
 
-
 // Dark mode detection (using device ambient light sensor | EXPERIMENTAL) 
 // REFERENCE: https://deanhume.com/ambient-light-sensor/
 
-if (window.AmbientLightSensor) {
-    try {
-        const sensor = new AmbientLightSensor();
-        // Detect changes in the light
-        sensor.onreading = () => {
+function autoDarkMode() {
+    if (window.AmbientLightSensor) {
+        try {
+            const sensor = new AmbientLightSensor();
+            // Detect changes in the light
+            sensor.onreading = () => {
 
-            // Read the light levels in lux 
-            // < 50 is dark room
-            
-            if (sensor.illuminance < 50 && !op.darkMode) {
-                toggleColorMode(null);
-                op.darkMode = true; // set to dark mode automatically
-            } else if (op.darkMode) {
-                toggleColorMode(null);
-                op.darkMode = false;
+                // Read the light levels in lux 
+                // < 50 is dark room
+                
+                if (sensor.illuminance < 50 && !op.darkMode) {
+                    toggleColorMode(null);
+                    op.darkMode = true; // set to dark mode automatically
+                } else if (op.darkMode) {
+                    toggleColorMode(null);
+                    op.darkMode = false;
+                }
             }
-        }
-        
-        sensor.start();
+            
+            sensor.start();
 
-    } catch(err) {
-        console.log(err.name, err.message);
+        } catch(err) {
+            console.log(err.name, err.message);
+        }
     }
 }
