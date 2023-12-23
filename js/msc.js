@@ -310,7 +310,7 @@ async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
 }
 
 async function ipAPI3() {
-    await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138")
+    // await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138")
 }
 
 async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
