@@ -1404,6 +1404,8 @@ function errorCheck() { // check for errors
     ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
     if (ipAPIres.online) {
         ipAPI2(ipAPIres.ip); // get IP information API 2
+
+        
     }
     clientAPI(); // get user IP information + proxy usage status (no arguments)
     if (ipAPIres.online) { // get USER ROAMING information using coords

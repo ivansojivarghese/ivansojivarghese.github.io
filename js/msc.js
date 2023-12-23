@@ -301,6 +301,7 @@ async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
                 ipAPI2res = data;
                 ipAPI2res.lat = ipAPI2res.location.latitude;
                 ipAPI2res.lon = ipAPI2res.location.longitude;
+                ipAPI2res.city = ipAPI2res.city.names.en;
                 ipAPI2res.online = true;
             } catch (error) {
                 ipAPI2res.error = true;
@@ -309,7 +310,7 @@ async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
 }
 
 async function ipAPI3() {
-
+    await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138")
 }
 
 async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
