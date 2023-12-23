@@ -308,8 +308,8 @@ async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
         })
 }
 
-async function name() {
-    
+async function ipAPI3() {
+
 }
 
 async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
