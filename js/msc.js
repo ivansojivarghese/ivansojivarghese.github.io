@@ -311,7 +311,7 @@ async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
 }
 
 async function ipAPI3() {
-    await fetch("https://api.ipgeolocation.io/ipgeo")
+    await fetch("https://api.ipgeolocation.io/ipgeo?apiKey=0bbc4727966a4b7286fc20fab600a35a")
         .then(async (response) => {
             try {
                 const data = await response.json();
