@@ -316,12 +316,28 @@ async function ipAPI3() {
             try {
                 const data = await response.json();
                 ipAPI3res = data;
-                //ipAPI3res.lat = ipAPI2res.location.latitude;
-                //ipAPI3res.lon = ipAPI2res.location.longitude;
-                //ipAPI3res.city = ipAPI2res.city.names.en;
+                ipAPI3res.lat = ipAPI3res.latitude;
+                ipAPI3res.lon = ipAPI3res.longitude;
                 ipAPI3res.online = true;
             } catch (error) {
                 ipAPI3res.error = true;
+            }
+        })
+}
+
+async function ipAPI4(v) {
+    await fetch("https://api.apilayer.com/ip_to_location/" + v + "apikey=AbGoz7Dv1wwNGSqQNDX6YwVeaz4ctXwb")
+        .then(async (response) => {
+            try {
+                const data = await response.json();
+                ipAPI4res = data;
+
+                ///ipAPI3res.lat = ipAPI3res.latitude;
+                //ipAPI3res.lon = ipAPI3res.longitude;
+
+                ipAPI4res.online = true;
+            } catch (error) {
+                ipAPI4res.error = true;
             }
         })
 }
