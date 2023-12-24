@@ -1405,7 +1405,7 @@ function errorCheck() { // check for errors
     if (ipAPIres.online) {
         ipAPI2(ipAPIres.ip); // get IP information API 2
         if (ipAPIres.city !== ipAPI2res.city) {
-            
+            ipAPI3();   
         }
     }
     clientAPI(); // get user IP information + proxy usage status (no arguments)
