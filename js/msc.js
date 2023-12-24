@@ -331,10 +331,8 @@ async function ipAPI4(v) {
             try {
                 const data = await response.json();
                 ipAPI4res = data;
-
-                ///ipAPI3res.lat = ipAPI3res.latitude;
-                //ipAPI3res.lon = ipAPI3res.longitude;
-
+                ipAPI4res.lat = ipAPI4res.latitude;
+                ipAPI4res.lon = ipAPI4res.longitude;
                 ipAPI4res.online = true;
             } catch (error) {
                 ipAPI4res.error = true;
