@@ -326,7 +326,7 @@ async function ipAPI3() {
 }
 
 async function ipAPI4(v) {
-    await fetch("https://api.apilayer.com/ip_to_location/" + v + "apikey=AbGoz7Dv1wwNGSqQNDX6YwVeaz4ctXwb")
+    await fetch("https://api.apilayer.com/ip_to_location/" + v + "?apikey=AbGoz7Dv1wwNGSqQNDX6YwVeaz4ctXwb")
         .then(async (response) => {
             try {
                 const data = await response.json();
