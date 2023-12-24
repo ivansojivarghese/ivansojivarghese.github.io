@@ -153,6 +153,7 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     ipAPIres = {},
     ipAPI2res = {},
     ipAPI3res = {},
+    ipAPI4res = {},
     clientAPIres = {},
     roamingAPIres = {},
     timeAPIres = {},
