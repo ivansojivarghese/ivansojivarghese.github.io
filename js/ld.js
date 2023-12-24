@@ -1409,8 +1409,18 @@ function errorCheck() { // check for errors
                 ipAPI3();   
             }
             setTimeout(function() {
-                if (ipAPI3res.city !== ipAPI2res.city && ipAPI3res.city !== ipAPIres.city) {
+                if (ipAPI3res.city !== ipAPI2res.city && ipAPI3res.city !== ipAPIres.city) { // if none matching
                     ipAPI4(ipAPIres.ip);
+                } else { // if one matching
+                    /*
+                    if (ipAPI3res.city === ipAPIres.city) { // ip3 with ip1
+                        
+                    } else */
+                    if (ipAPI3res.city === ipAPI2res.city) { // ip3 with ip2
+                        ipAPIres.city = ipAPI2res.city;
+                        ipAPIres.lat = ipAPI2res.location.latitude;
+                        ipAPIres.lon = ipAPI2res.location.longitude;
+                    }
                 }
             }, dev.i);
         }, dev.i);
