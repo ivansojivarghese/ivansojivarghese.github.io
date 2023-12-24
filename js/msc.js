@@ -152,6 +152,7 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     criticalAPI = false,
     ipAPIres = {},
     ipAPI2res = {},
+    ipAPI3res = {},
     clientAPIres = {},
     roamingAPIres = {},
     timeAPIres = {},
@@ -310,7 +311,19 @@ async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
 }
 
 async function ipAPI3() {
-    // await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138")
+    await fetch("https://api.ipgeolocation.io/ipgeo")
+        .then(async (response) => {
+            try {
+                const data = await response.json();
+                ipAPI3res = data;
+                //ipAPI3res.lat = ipAPI2res.location.latitude;
+                //ipAPI3res.lon = ipAPI2res.location.longitude;
+                //ipAPI3res.city = ipAPI2res.city.names.en;
+                ipAPI3res.online = true;
+            } catch (error) {
+                ipAPI3res.error = true;
+            }
+        })
 }
 
 async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
