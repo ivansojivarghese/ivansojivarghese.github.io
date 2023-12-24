@@ -1408,7 +1408,7 @@ function errorCheck() { // check for errors
             if (ipAPIres.city !== ipAPI2res.city) {
                 ipAPI3();   
             }
-        }, dev.i);
+        }, (dev.i * 3));
     }
     clientAPI(); // get user IP information + proxy usage status (no arguments)
     if (ipAPIres.online) { // get USER ROAMING information using coords
