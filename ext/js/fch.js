@@ -754,7 +754,53 @@ function load_js_e() { // load JS (page specific)
                     ///////
                     // SET a loop to continously check for variable within timeout time
 
-                } else if (ipAPIres.online) { // if no errors & online, proceed
+                } else if (ipAPIres.online && !ipAPIres.verified) { // verify IP API 1
+                
+                    ipAPI2(ipAPIres.ip); // get IP information API 2
+
+                    setTimeout(function() {
+                        if (ipAPIres.city !== ipAPI2res.city) {
+                            ipAPI3();   
+                        } else {
+                            ipAPIres.verified = true;
+                        }
+                        setTimeout(function() {
+                            if (ipAPI3res.city !== ipAPI2res.city && ipAPI3res.city !== ipAPIres.city) { // if none matching
+
+                                ipAPI4(ipAPIres.ip);
+
+                                setTimeout(function() {
+                                    if (ipAPI4res.city === ipAPI3res.city) { // ip4 with ip3
+                                        ipAPI4res.city = ipAPI3res.city;
+                                        ipAPI4res.lat = ipAPI3res.location.latitude;
+                                        ipAPI4res.lon = ipAPI3res.location.longitude;
+                                    } else if (ipAPI4res.city === ipAPI2res.city) { // ip4 with ip2
+                                        ipAPI4res.city = ipAPI2res.city;
+                                        ipAPI4res.lat = ipAPI2res.location.latitude;
+                                        ipAPI4res.lon = ipAPI2res.location.longitude;
+                                    } else if (ipAPI4res.city === ipAPIres.city) { // ip4 with ip1
+                                        // ipAPIres.city = ipAPIres.city;
+                                    }
+
+                                    ipAPIres.verified = true;
+                                }, dev.i);
+
+                            } else { // if one matching
+                                if (ipAPI3res.city === ipAPI2res.city) { // ip3 with ip2
+                                    ipAPIres.city = ipAPI2res.city;
+                                    ipAPIres.lat = ipAPI2res.location.latitude;
+                                    ipAPIres.lon = ipAPI2res.location.longitude;
+                                } else if (ipAPI3res.city === ipAPIres.city) { // ip3 with ip1
+                                    // ipAPIres.city = ipAPIres.city;
+                                }
+
+                                ipAPIres.verified = true;
+                            }
+                        }, dev.i);
+                    }, dev.i);
+
+                } else if (ipAPIres.online && ipAPIres.verified) { // if no errors & online, proceed
+
                     var // lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
                         // lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
                         unit = tempUnit(ipAPIres.country);
