@@ -525,6 +525,8 @@ function load_css_e() { // load CSS styles (page specific)
             c_rep(im.L, "h-f", "h-fd"); 
             c_css("#lead_wrap", "padding-top: calc(100vh - (17.4rem / 2))", false, null);
 
+            console.log("ipapi1");
+
             if (ipAPIres.online && weatherAPIres.online) {
                 if (ipAPIres.city === gps.city && ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER in same city/region/country
 
@@ -742,6 +744,9 @@ function load_js_e() { // load JS (page specific)
             */
 
             var dkAPI = function() {
+
+                console.log("ipapi2");
+
                 if (ipAPIres.error) {
 
                     apiSuccess = null; 
@@ -963,6 +968,9 @@ function load_eN() { // load, after cookie acceptance (page specific)
             }, op.t);
 
             f = function() { // show local weather/city information
+
+                console.log("ipapi3");
+
                 if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage && ipAPIres.online && weatherAPIres.online) {
                     const singulars = [0, 1, -0, -1];
                     const singularsCheck = singulars.every(value => { // check if return temperature reading is a singular value
