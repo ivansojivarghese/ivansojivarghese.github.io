@@ -777,18 +777,31 @@ function load_js_e() { // load JS (page specific)
                                         ipAPIres.lat = ipAPI3res.latitude;
                                         ipAPIres.lon = ipAPI3res.longitude;
                                         ipAPIres.timezone = ipAPI3res.time_zone.name;
+
+                                        ipAPIres.verified = true;
+
+                                        dkAPI();
+
                                     } else if (ipAPI4res.city === ipAPI2res.city) { // ip4 with ip2
                                         ipAPIres.city = ipAPI2res.city;
                                         ipAPIres.lat = ipAPI2res.location.latitude;
                                         ipAPIres.lon = ipAPI2res.location.longitude;
                                         ipAPIres.timezone = ipAPI2res.location.time_zone;
+
+                                        ipAPIres.verified = true;
+
+                                        dkAPI();
+
                                     } else if (ipAPI4res.city === ipAPIres.city) { // ip4 with ip1
                                         // ipAPIres.city = ipAPIres.city;
+
+                                        ipAPIres.verified = true;
+
+                                        dkAPI();
+
+                                    } else { // no consistent matches
+                                        
                                     }
-
-                                    ipAPIres.verified = true;
-
-                                    dkAPI();
                                 }, dev.i);
 
                             } else { // if one matching
