@@ -51,6 +51,7 @@ eR = { // error
     vp : document.getElementById("error_vp"), // vpn
     vp_e : {
         h : document.getElementById("error_vph4"), // h4
+        h2 : document.getElementById("error_vph4_2")
     },
     ft : document.getElementById("error_ft"), // fatal error
     pl : document.getElementById("error_pl"), // platform/browser
@@ -876,7 +877,8 @@ function load_e() { // end the loading sequence
 
                             } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone) && (op.tz !== timeAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) {
                                 
-                                var address = "";
+                                var address = "",
+                                    timezone = "";
                                 eR.h = "vp";
                                 eR.p = "vp";
 
@@ -884,16 +886,21 @@ function load_e() { // end the loading sequence
 
                                 if (ipAPIres.online) { // check on multiple APIs to get IP address
                                     address = ipAPIres.ip;
+                                    timezone = ipAPIres.timezone;
                                 } else if (ipifyAPIres.online) {
                                     address = ipifyAPIres.ip;
+                                    timezone = ipAPIres.timezone;
                                 } else if (clientAPIres.online) {
                                     address = clientAPIres.ipString;
+                                    timezone = ipAPIres.timezone;
                                 } else if (roamingAPIres.online) {
                                     address = "not obtainable";
+                                    timezone = "unknown";
                                 }
                         
                                 eR.vp_e.h.classList.add("revert");
                                 eR.vp_e.h.innerHTML = "ip address: " + address;
+                                eR.vp_e.h2.innerHTML = "time zone: " + timezone;
 
                             } else if ((((windowCount && windowCount > 1) || duplicated) && (vw.dk && !tDevice)) && !op.pwa.s) {
 
@@ -1496,20 +1503,26 @@ function errorCheck() { // check for errors
     } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone) && (op.tz !== timeAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) { // potential vpn usage (when REST-fetched + device time zones don't match)
         eR.title = "Error: VPN usage";
 
-        var address = ""; // UPDATE LINE 827 ABOVE FOR CHANGES IN CONDITIONS
+        var address = "", // UPDATE LINE 827 ABOVE FOR CHANGES IN CONDITIONS
+            timezone = "";
         eR.h = "vp";
         if (ipAPIres.online) { // check on multiple APIs to get IP address
             address = ipAPIres.ip;
+            timezone = ipAPIres.timezone;
         } else if (ipifyAPIres.online) {
             address = ipifyAPIres.ip;
+            timezone = ipAPIres.timezone;
         } else if (clientAPIres.online) {
             address = clientAPIres.ipString;
+            timezone = ipAPIres.timezone;
         } else if (roamingAPIres.online) {
             address = "not obtainable";
+            timezone = "unknown";
         }
 
         eR.vp_e.h.classList.add("revert");
         eR.vp_e.h.innerHTML = "ip address: " + address;
+        eR.vp_e.h2.innerHTML = "time zone: " + timezone;
 
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         eR.title = "Error: Cookies disabled";
