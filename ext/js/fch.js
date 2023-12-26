@@ -773,13 +773,13 @@ function load_js_e() { // load JS (page specific)
 
                                 setTimeout(function() {
                                     if (ipAPI4res.city === ipAPI3res.city) { // ip4 with ip3
-                                        ipAPI4res.city = ipAPI3res.city;
-                                        ipAPI4res.lat = ipAPI3res.location.latitude;
-                                        ipAPI4res.lon = ipAPI3res.location.longitude;
+                                        ipAPIres.city = ipAPI3res.city;
+                                        ipAPIres.lat = ipAPI3res.location.latitude;
+                                        ipAPIres.lon = ipAPI3res.location.longitude;
                                     } else if (ipAPI4res.city === ipAPI2res.city) { // ip4 with ip2
-                                        ipAPI4res.city = ipAPI2res.city;
-                                        ipAPI4res.lat = ipAPI2res.location.latitude;
-                                        ipAPI4res.lon = ipAPI2res.location.longitude;
+                                        ipAPIres.city = ipAPI2res.city;
+                                        ipAPIres.lat = ipAPI2res.location.latitude;
+                                        ipAPIres.lon = ipAPI2res.location.longitude;
                                     } else if (ipAPI4res.city === ipAPIres.city) { // ip4 with ip1
                                         // ipAPIres.city = ipAPIres.city;
                                     }
