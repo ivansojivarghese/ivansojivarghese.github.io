@@ -774,12 +774,14 @@ function load_js_e() { // load JS (page specific)
                                 setTimeout(function() {
                                     if (ipAPI4res.city === ipAPI3res.city) { // ip4 with ip3
                                         ipAPIres.city = ipAPI3res.city;
-                                        ipAPIres.lat = ipAPI3res.location.latitude;
-                                        ipAPIres.lon = ipAPI3res.location.longitude;
+                                        ipAPIres.lat = ipAPI3res.latitude;
+                                        ipAPIres.lon = ipAPI3res.longitude;
+                                        ipAPIres.timezone = ipAPI3res.time_zone.name;
                                     } else if (ipAPI4res.city === ipAPI2res.city) { // ip4 with ip2
                                         ipAPIres.city = ipAPI2res.city;
                                         ipAPIres.lat = ipAPI2res.location.latitude;
                                         ipAPIres.lon = ipAPI2res.location.longitude;
+                                        ipAPIres.timezone = ipAPI2res.location.time_zone;
                                     } else if (ipAPI4res.city === ipAPIres.city) { // ip4 with ip1
                                         // ipAPIres.city = ipAPIres.city;
                                     }
@@ -794,6 +796,7 @@ function load_js_e() { // load JS (page specific)
                                     ipAPIres.city = ipAPI2res.city;
                                     ipAPIres.lat = ipAPI2res.location.latitude;
                                     ipAPIres.lon = ipAPI2res.location.longitude;
+                                    ipAPIres.timezone = ipAPI2res.location.time_zone;
                                 } else if (ipAPI3res.city === ipAPIres.city) { // ip3 with ip1
                                     // ipAPIres.city = ipAPIres.city;
                                 }
