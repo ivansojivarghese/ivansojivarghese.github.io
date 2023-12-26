@@ -1409,6 +1409,7 @@ function errorCheck() { // check for errors
     // API stuff
 
     apiInit = op.d.getTime(); // start API load time (at init)
+    clientAPI(); // get user IP information + proxy usage status (no arguments)
     ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
 
     /*
@@ -1450,7 +1451,8 @@ function errorCheck() { // check for errors
         }, dev.i);
     }*/
     
-    clientAPI(); // get user IP information + proxy usage status (no arguments)
+    // clientAPI(); // get user IP information + proxy usage status (no arguments)
+
     if (ipAPIres.online) { // get USER ROAMING information using coords
         roamingAPI(ipAPIres.lat, ipAPIres.lon);
     }
