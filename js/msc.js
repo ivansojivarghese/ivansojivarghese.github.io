@@ -312,7 +312,7 @@ async function ipAPI2(v) { // Free usage, unlimited, https://www.findip.net/
         })
 }
 
-async function ipAPI3() {
+async function ipAPI3() { // 30,000 per month, 1,000 per day limit
     await fetch("https://api.ipgeolocation.io/ipgeo?apiKey=0bbc4727966a4b7286fc20fab600a35a")
         .then(async (response) => {
             try {
@@ -327,7 +327,7 @@ async function ipAPI3() {
         })
 }
 
-async function ipAPI4(v) {
+async function ipAPI4(v) { // 10,000 per month
     await fetch("https://api.apilayer.com/ip_to_location/" + v + "?apikey=AbGoz7Dv1wwNGSqQNDX6YwVeaz4ctXwb")
         .then(async (response) => {
             try {
