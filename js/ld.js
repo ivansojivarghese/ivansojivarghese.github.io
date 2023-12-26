@@ -1410,7 +1410,7 @@ function errorCheck() { // check for errors
 
     apiInit = op.d.getTime(); // start API load time (at init)
     clientAPI(); // get user IP information + proxy usage status (no arguments)
-    ipAPI(""); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+    ipAPI(clientAPIres.ipString); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
 
     /*
     if (ipAPIres.online) {
