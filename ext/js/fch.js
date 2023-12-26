@@ -763,6 +763,8 @@ function load_js_e() { // load JS (page specific)
                             ipAPI3();   
                         } else {
                             ipAPIres.verified = true;
+
+                            dkAPI();
                         }
                         setTimeout(function() {
                             if (ipAPI3res.city !== ipAPI2res.city && ipAPI3res.city !== ipAPIres.city) { // if none matching
@@ -783,6 +785,8 @@ function load_js_e() { // load JS (page specific)
                                     }
 
                                     ipAPIres.verified = true;
+
+                                    dkAPI();
                                 }, dev.i);
 
                             } else { // if one matching
@@ -795,6 +799,8 @@ function load_js_e() { // load JS (page specific)
                                 }
 
                                 ipAPIres.verified = true;
+
+                                dkAPI();
                             }
                         }, dev.i);
                     }, dev.i);
