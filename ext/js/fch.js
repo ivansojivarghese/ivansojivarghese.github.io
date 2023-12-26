@@ -800,7 +800,8 @@ function load_js_e() { // load JS (page specific)
                                         dkAPI();
 
                                     } else { // no consistent matches
-                                        
+
+                                        ipAPIres.failed = true;
                                     }
                                 }, dev.i);
 
@@ -821,7 +822,7 @@ function load_js_e() { // load JS (page specific)
                         }, dev.i);
                     }, dev.i);
 
-                } else if (ipAPIres.online && ipAPIres.verified) { // if no errors & online, proceed
+                } else if ((ipAPIres.online && ipAPIres.verified) || ipAPIres.failed) { // if no errors & online, proceed
 
                     var // lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
                         // lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
