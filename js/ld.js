@@ -899,6 +899,7 @@ function load_e() { // end the loading sequence
                                 }
                         
                                 eR.vp_e.h.classList.add("revert");
+                                eR.vp_e.h2.classList.add("revert");
                                 eR.vp_e.h.innerHTML = "ip address: " + address;
                                 eR.vp_e.h2.innerHTML = "time zone: " + timezone;
 
@@ -1521,8 +1522,10 @@ function errorCheck() { // check for errors
         }
 
         eR.vp_e.h.classList.add("revert");
+        eR.vp_e.h2.classList.add("revert");
         eR.vp_e.h.innerHTML = "ip address: " + address;
         eR.vp_e.h2.innerHTML = "time zone: " + timezone;
+
 
     } else if (!op.c.e) { // check if cookies have been disabled (or not detected)
         eR.title = "Error: Cookies disabled";
