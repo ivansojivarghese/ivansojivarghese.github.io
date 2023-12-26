@@ -287,9 +287,9 @@ async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
             return response.json().then((data) => {
                 ipAPIres = data;
 
-                ipAPI2res.lat = ipAPI2res.location.latitude;
-                ipAPI2res.lon = ipAPI2res.location.longitude;
-                ipAPI2res.city = ipAPI2res.city.names.en;
+                ipAPIres.lat = ipAPI2res.location.latitude;
+                ipAPIres.lon = ipAPI2res.location.longitude;
+                ipAPIres.city = ipAPI2res.city.names.en;
 
                 /*
                 ipAPIres.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
@@ -311,8 +311,8 @@ async function ipAPI2(v) {  // 50,000 per month limit, https://ipinfo.io/
                 const data = await response.json();
                 ipAPI2res = data;
 
-                ipAPIres.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
-                ipAPIres.lon = data.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude;
+                ipAPI2res.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
+                ipAPI2res.lon = data.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude;
 
                 /*
                 ipAPI2res.lat = ipAPI2res.location.latitude;
