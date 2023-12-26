@@ -1412,7 +1412,7 @@ function errorCheck() { // check for errors
     clientAPI(); // get user IP information + proxy usage status (no arguments)
     setTimeout(function() {
         ipAPI(clientAPIres.ipString); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
-    }, 10);
+    }, dev.i);
 
     /*
     if (ipAPIres.online) {
