@@ -755,6 +755,8 @@ function load_js_e() { // load JS (page specific)
                     // SET a loop to continously check for variable within timeout time
 
                 } else if (ipAPIres.online && !ipAPIres.verified) { // verify IP API 1
+
+                    apiSuccess = null;
                 
                     ipAPI2(ipAPIres.ip); // get IP information API 2
 
