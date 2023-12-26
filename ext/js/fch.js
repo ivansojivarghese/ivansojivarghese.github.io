@@ -889,7 +889,7 @@ function js_load() { // check JS load progress (indiv.)
     } else if (apiSuccess === null) { // if API fails to load
         weather.elw.classList.add("d_n"); // don't display
         weather.elc.classList.add("d_n");
-        return null;
+        return true;
     } else if (apiSuccess && weather.c.innerHTML !== "-" && weather.i.style.backgroundImage) { // if API loaded up
         return true;
     }
