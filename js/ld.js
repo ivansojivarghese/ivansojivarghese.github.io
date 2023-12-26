@@ -652,7 +652,7 @@ function docRead() {
                                 }
                             }
                             
-                        } else if (rdS(Rd) && !rL.e5 && rL.y && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
+                        } else if (rdS(Rd) && !rL.e5 && rL.y && ipAPIres.verified && loadS_res(res_ar)) { // show webpage once all processes (requests, etc.) are complete
                             // if (!op.ne.w) {
                             // rL.s = true; // set load status to true
                             // }
