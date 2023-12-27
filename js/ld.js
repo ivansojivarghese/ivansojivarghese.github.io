@@ -885,7 +885,7 @@ function load_e() { // end the loading sequence
                                 eR.title = "Error: VPN usage";
 
                                 if (ipAPIres.online) { // check on multiple APIs to get IP address
-                                    address = ipAPIres.ip;
+                                    address = clientAPIres.ipString;
                                     timezone = ipAPIres.timezone;
                                 } else if (ipifyAPIres.online) {
                                     address = ipifyAPIres.ip;
@@ -1512,7 +1512,7 @@ function errorCheck() { // check for errors
             timezone = "";
         eR.h = "vp";
         if (ipAPIres.online) { // check on multiple APIs to get IP address
-            address = ipAPIres.ip;
+            address = clientAPIres.ipString;
             timezone = ipAPIres.timezone;
         } else if (ipifyAPIres.online) {
             address = ipifyAPIres.ip;

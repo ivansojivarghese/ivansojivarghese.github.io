@@ -756,7 +756,7 @@ function load_js_e() { // load JS (page specific)
 
                 } else if (ipAPIres.online && !ipAPIres.verified) { // verify IP API 1
                 
-                    ipAPI2(ipAPIres.ip); // get IP information API 2
+                    ipAPI2(clientAPIres.ipString); // get IP information API 2
 
                     setTimeout(function() {
                         if (ipAPIres.city !== ipAPI2res.city) {
@@ -769,7 +769,7 @@ function load_js_e() { // load JS (page specific)
                         setTimeout(function() {
                             if (ipAPI3res.city !== ipAPI2res.city && ipAPI3res.city !== ipAPIres.city) { // if none matching
 
-                                ipAPI4(ipAPIres.ip);
+                                ipAPI4(clientAPIres.ipString);
 
                                 setTimeout(function() {
                                     if (ipAPI4res.city === ipAPI3res.city) { // ip4 with ip3
