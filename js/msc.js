@@ -154,6 +154,7 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     ipAPI2res = {},
     ipAPI3res = {},
     ipAPI4res = {},
+    sunAPIres = {},
     clientAPIres = {},
     roamingAPIres = {},
     timeAPIres = {},
@@ -354,6 +355,20 @@ async function ipAPI4(v) { // 10,000 per month
             } catch (error) {
                 ipAPI4res.error = true;
             }
+        })
+}
+
+async function sunAPI(lat, lon) { // unlimited, https://sunrisesunset.io/api/
+    await fetch("https://api.sunrisesunset.io/json?lat=" + lat + "&lng=" + lon)
+        .then((response) => {
+            return response.json().then((data) => {
+                sunAPIres = data;
+                //sunAPIres.sunrise = sunAPIres.results;
+                //sunAPIres.sunset = sunAPIres.results;
+                sunAPIres.online = true;
+            }).catch((error) => {
+                sunAPIres.error = true;
+            });
         })
 }
 
