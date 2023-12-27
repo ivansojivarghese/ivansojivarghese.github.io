@@ -363,8 +363,8 @@ async function sunAPI(lat, lon) { // unlimited, https://sunrisesunset.io/api/
         .then((response) => {
             return response.json().then((data) => {
                 sunAPIres = data;
-                //sunAPIres.sunrise = sunAPIres.results;
-                //sunAPIres.sunset = sunAPIres.results;
+                sunAPIres.sunrise = sunAPIres.results.first_light;
+                sunAPIres.sunset = sunAPIres.results.last_light;
                 sunAPIres.online = true;
             }).catch((error) => {
                 sunAPIres.error = true;
