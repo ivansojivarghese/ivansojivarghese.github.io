@@ -305,7 +305,7 @@ async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
 }
 
 async function ipAPI2(v) {  // 50,000 per month limit, https://ipinfo.io/
-    await fetch("https://ipinfo.io" + v + "/json?token=38ec70e8a088d5")
+    await fetch("https://ipinfo.io/" + v + "/json?token=38ec70e8a088d5")
         .then(async (response) => {
             try {
                 const data = await response.json();
