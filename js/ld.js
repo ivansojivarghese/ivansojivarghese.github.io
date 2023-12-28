@@ -1162,6 +1162,11 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
 
     // c_css("#cond_sc", "height: " + wH + "px;", false, null);
 
+    if (ipAPIres.online) { // get USER ROAMING information using coords
+        roamingAPI(ipAPIres.lat, ipAPIres.lon);
+        sunAPI(ipAPIres.lat, ipAPIres.lon); // get sunrise/sunset info of location
+    }
+
     if (!getCookie("darkMode")) { // if no manual control from user
         if (op.darkMode) { // if dark mode
             toggleColorMode(null, true); // start-up with preset color theme
@@ -1415,11 +1420,11 @@ function errorCheck() { // check for errors
     }, dev.i);
     
     // clientAPI(); // get user IP information + proxy usage status (no arguments)
-
+    /*
     if (ipAPIres.online) { // get USER ROAMING information using coords
         roamingAPI(ipAPIres.lat, ipAPIres.lon);
         sunAPI(ipAPIres.lat, ipAPIres.lon); // get sunrise/sunset info of location
-    }
+    }*/
     timeAPI(); // GET USER time information (from IP Address, alternative to ipAPI)
     countryAPI(""); // GET USER country information (from IP Address) (ENTER A region IP value for language testing, IP Address)
     cloudflareCDN(); // cloudfare CDN trace service
