@@ -1412,6 +1412,9 @@ function errorCheck() { // check for errors
     clientAPI(); // get user IP information + proxy usage status (no arguments)
     setTimeout(function() {
         ipAPI(clientAPIres.ipString); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+        setTimeout(function() {
+            sunAPI(ipAPIres.lat, ipAPIres.lon); // get sunrise/sunset info of location
+        }, dev.i);
     }, dev.i);
 
     /*
