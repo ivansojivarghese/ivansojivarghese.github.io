@@ -54,7 +54,18 @@ function timeToDetails(t) { // return time string in hrs, min, sec.
             res[0] = "0";
         }
     }
+    for (m = 0; m < res.length; m++) {
+        res[m] = Number(res[m]);
+    }
     return res;
+}
+
+function checkWithinTime(start, end) { // check if current time is within 2 fixed points
+    var d = new Date(), // current time
+        hr = d.getHours(),
+        min = d.getMinutes(),
+        sec = d.getSeconds();
+    return (hr >= start[0] && hr <= start[0]) && (min >= start[1] && min <= start[1]) && (sec >= start[2] && sec <= start[2]);
 }
 
 function r_Ig(min, max) { // return random integer between 2 values (only min inclusive)
