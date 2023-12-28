@@ -1416,45 +1416,6 @@ function errorCheck() { // check for errors
             sunAPI(ipAPIres.lat, ipAPIres.lon); // get sunrise/sunset info of location
         }, dev.i);
     }, dev.i);
-
-    /*
-    if (ipAPIres.online) {
-        ipAPI2(ipAPIres.ip); // get IP information API 2
-        setTimeout(function() {
-            if (ipAPIres.city !== ipAPI2res.city) {
-                ipAPI3();   
-            }
-            setTimeout(function() {
-                if (ipAPI3res.city !== ipAPI2res.city && ipAPI3res.city !== ipAPIres.city) { // if none matching
-
-                    ipAPI4(ipAPIres.ip);
-
-                    setTimeout(function() {
-                        if (ipAPI4res.city === ipAPI3res.city) { // ip4 with ip3
-                            ipAPI4res.city = ipAPI3res.city;
-                            ipAPI4res.lat = ipAPI3res.location.latitude;
-                            ipAPI4res.lon = ipAPI3res.location.longitude;
-                        } else if (ipAPI4res.city === ipAPI2res.city) { // ip4 with ip2
-                            ipAPI4res.city = ipAPI2res.city;
-                            ipAPI4res.lat = ipAPI2res.location.latitude;
-                            ipAPI4res.lon = ipAPI2res.location.longitude;
-                        } else if (ipAPI4res.city === ipAPIres.city) { // ip4 with ip1
-                            // ipAPIres.city = ipAPIres.city;
-                        }
-                    }, dev.i);
-
-                } else { // if one matching
-                    if (ipAPI3res.city === ipAPI2res.city) { // ip3 with ip2
-                        ipAPIres.city = ipAPI2res.city;
-                        ipAPIres.lat = ipAPI2res.location.latitude;
-                        ipAPIres.lon = ipAPI2res.location.longitude;
-                    } else if (ipAPI3res.city === ipAPIres.city) { // ip3 with ip1
-                        // ipAPIres.city = ipAPIres.city;
-                    }
-                }
-            }, dev.i);
-        }, dev.i);
-    }*/
     
     // clientAPI(); // get user IP information + proxy usage status (no arguments)
 
@@ -1946,10 +1907,12 @@ function autoDarkMode() {
             // Detect changes in the light
             sensor.onreading = () => {
 
+                var daytime = checkWithinTime(timeToDetails(sunAPIres.sunrise), timeToDetails(sunAPIres.sunset)); // check if user time is daytime
+
                 // Read the light levels in lux 
                 // < 50 is dark room
                 
-                if (sensor.illuminance < 50 && !op.darkMode) {
+                if (sensor.illuminance < 50 && !op.darkMode && !daytime) {
                     toggleColorMode(null);
                     op.darkMode = true; // set to dark mode automatically
                 } else if (op.darkMode) {
