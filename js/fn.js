@@ -46,7 +46,7 @@ function timeToDetails(t) { // return time string in hrs, min, sec.
     if (mod) { // convert to 24-hour time
         var hr = Number(res[0]);
         if (hr < 12) {
-            res[0] = toString(Number(res[0]) + 12);
+            res[0] = String(Number(res[0]) + 12);
         } 
     } else {
         var hr = Number(res[0]);
