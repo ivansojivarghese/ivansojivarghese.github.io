@@ -1160,7 +1160,7 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
         y = op.d.getFullYear(), // get copyright year
         i = 0;
 
-    // c_css("#cond_sc", "height: " + wH + "px;", false, null);
+    // c_css("#cond_sc", "height: " + wH + "px;", false, null); //
 
     if (ipAPIres.online) { // get USER ROAMING information using coords
         roamingAPI(ipAPIres.lat, ipAPIres.lon);
