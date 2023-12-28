@@ -65,7 +65,26 @@ function checkWithinTime(start, end) { // check if current time is within 2 fixe
         hr = d.getHours(),
         min = d.getMinutes(),
         sec = d.getSeconds();
-    return (hr >= start[0] && hr <= start[0]) && (min >= start[1] && min <= start[1]) && (sec >= start[2] && sec <= start[2]);
+    if (hr > start[0] && hr < end[0]) { // if within
+        return true;
+    } else if (hr === start[0]) { // if on start
+        if (min > start[1]) {
+            return true;
+        } else if (min === start[1]) {
+            if (sec >= start[2]) {
+                return true;
+            }
+        }
+    } else if (hr === end[0]) { // if on end
+        if (min < end[1]) {
+            return true;
+        } else if (min === end[1]) {
+            if (sec <= end[2]) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 function r_Ig(min, max) { // return random integer between 2 values (only min inclusive)
