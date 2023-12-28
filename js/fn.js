@@ -27,6 +27,35 @@ function u_Id() { // create unique identifiers for characters (operators)
     tabID = f;
 }
 
+function timeToDetails(t) { // return time string in hrs, min, sec.
+    var res = ["", "", ""],
+        tgt = 0,
+        mod = false;
+    for (i = 0; i < t.length; i++) {
+        if (t[i] === ":") { // switching
+            tgt++; 
+        } else if (t[i] === "A" || t[i] === "P") { // am/pm
+            if (t[i] === "P") {
+                mod = true;
+            }
+            break;
+        } else if (t[i] !== " ") {
+            res[tgt] += t[i];
+        }
+    }
+    if (mod) { // convert to 24-hour time
+        var hr = Number(res[0]);
+        if (hr < 12) {
+            res[0] = toString(Number(res[0]) + 12);
+        } 
+    } else {
+        var hr = Number(res[0]);
+        if (hr === 12) {
+            res[0] = "0";
+        }
+    }
+}
+
 function r_Ig(min, max) { // return random integer between 2 values (only min inclusive)
     return Math.floor(Math.random() * (max - min)) + min;
 }
