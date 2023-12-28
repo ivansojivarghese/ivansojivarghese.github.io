@@ -1314,7 +1314,7 @@ function pL() { // site parameters loop
         }, op.ne.bD);
     }*/
 
-    console.log(navigator.userActivation.isActive);
+    console.log(navigator.userActivation.isActive + ", " + navigator.userActivation.hasBeenActive);
 
     if (!op.iPef && op.pSpd && op.sfr && op.pCores) { // capture initial device performance value, to be used as reference
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
