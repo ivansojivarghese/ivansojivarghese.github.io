@@ -143,7 +143,8 @@ var wH = window.outerHeight, // height
         a : false,
         f : []
     },
-    c_cssL = []; // c_css function loops
+    c_cssL = [], // c_css function loops
+    screenLockStatus = false;
 
     
 var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
@@ -1314,7 +1315,10 @@ function pL() { // site parameters loop
         }, op.ne.bD);
     }*/
 
-    console.log(navigator.userActivation.isActive + ", " + navigator.userActivation.hasBeenActive);
+    if (navigator.userActivation.hasBeenActive && !screenLockStatus) { // if page interaction detected
+        getScreenLock(); // lock the screen
+        screenLockStatus = true;
+    }
 
     if (!op.iPef && op.pSpd && op.sfr && op.pCores) { // capture initial device performance value, to be used as reference
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
@@ -3941,7 +3945,7 @@ async function getScreenLock() {
     }
 }
 
-getScreenLock();
+// getScreenLock();
 
 /////////////////////////////////////////
 
