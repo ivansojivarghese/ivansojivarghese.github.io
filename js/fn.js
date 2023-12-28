@@ -54,6 +54,7 @@ function timeToDetails(t) { // return time string in hrs, min, sec.
             res[0] = "0";
         }
     }
+    return res;
 }
 
 function r_Ig(min, max) { // return random integer between 2 values (only min inclusive)
