@@ -1907,6 +1907,9 @@ setTimeout(function() {
 function autoDarkMode() {
     if (window.AmbientLightSensor) {
         try {
+            var hamAuto = document.querySelector(".ham_auto");
+            e_Fd(hamAuto, false);
+
             const sensor = new AmbientLightSensor();
             // Detect changes in the light
             sensor.onreading = () => {
