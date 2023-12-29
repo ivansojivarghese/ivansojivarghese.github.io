@@ -1031,7 +1031,7 @@ function load_e() { // end the loading sequence
                             }
                             e_Fd(eR[eR.h], false); // show the error
 
-                            document.title = eR.title;
+                            // document.title = eR.title;
 
                             setTimeout(function() {
                                 window.stop(); // stop all network resource(s) fetching
@@ -1609,14 +1609,14 @@ function errorCheck() { // check for errors
             }
         }
         if (eR.h && isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
-            document.title = eR.title;
+            // document.title = eR.title;
             eR.s = true;
             eR.p = eR.h;
             rL.y = true;
             eR.m.classList.remove("d_n"); // display the error
             eR[eR.h].classList.remove("d_n");
         } else if (eR.h && !isFontAvailable("Poppins") && !isFontAvailable("Raleway")) {
-            document.title = eR.title;
+            // document.title = eR.title;
             eR.s = true;
             eR.p = eR.h;
             _Le = setInterval(function() {

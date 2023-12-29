@@ -1425,7 +1425,7 @@ function pL() { // site parameters loop
                 eR.s = true;
                 eR.h = "pl";
                 eR.p = "pl";
-                document.title = eR.title;
+                // document.title = eR.title;
             }
         }
 
@@ -1579,7 +1579,7 @@ function pL() { // site parameters loop
         eR.s = true;
         eR.h = "tr";
         eR.p = "tr";
-        document.title = eR.title;
+        // document.title = eR.title;
     } else if ((!translate_Check || (checkFullScreen() || checkSplitScreen())) && eR.s && op.tr && rL && rL.i) {
         if (eR.tr_e.x) {
             reL(); // reload if on first load
@@ -1613,7 +1613,7 @@ function pL() { // site parameters loop
                     eR.s = true;
                     eR.h = "ld";
                     eR.p = "ld";
-                    document.title = eR.title;
+                    // document.title = eR.title;
                 } else if (checkFullScreen() || checkSplitScreen()) {
 
                     scr_t(false, null); // disable scrolling
@@ -1643,7 +1643,7 @@ function pL() { // site parameters loop
                     eR.h = b;
                     eR.p = b;
 
-                    document.title = eR.title;
+                    // document.title = eR.title;
                 } else {
                     eR.m.classList.add("d_n"); // hide error in display
                     eR.tr.classList.add("d_n"); 
@@ -1674,7 +1674,7 @@ function pL() { // site parameters loop
         eR.s = true;
         eR.h = "fS";
         eR.p = "fS";
-        document.title = eR.title;
+        // document.title = eR.title;
     } else if (!checkFullScreen() && eR.s && op.fS && rL && rL.i) {
         if (eR.fS_e.x) {
             reL(); // reload if on first load
@@ -1708,7 +1708,7 @@ function pL() { // site parameters loop
                     eR.s = true;
                     eR.h = "ld";
                     eR.p = "ld";
-                    document.title = eR.title;
+                    // document.title = eR.title;
                 } else {
                     eR.m.classList.add("d_n"); // show error in display
                     eR.fS.classList.add("d_n"); 
@@ -1749,7 +1749,7 @@ function pL() { // site parameters loop
                 eR.s = true;
                 eR.h = "fC";
                 eR.p = "fC";
-                document.title = eR.title;
+                // document.title = eR.title;
             }
         }, (op.Ls * dev.t));
 
@@ -1790,7 +1790,7 @@ function pL() { // site parameters loop
                         eR.s = true;
                         eR.h = "ld";
                         eR.p = "ld";
-                        document.title = eR.title;
+                        // document.title = eR.title;
                     } else if (translate_Check || checkFullScreen() || checkSplitScreen()) { // other errors
 
                         scr_t(false, null); // disable scrolling
@@ -1823,7 +1823,7 @@ function pL() { // site parameters loop
                         eR.h = b;
                         eR.p = b;
 
-                        document.title = eR.title;
+                        // document.title = eR.title;
 
                     } else {
                         eR.m.classList.add("d_n"); // hide error in display
@@ -3031,7 +3031,7 @@ function checkSplitScreen() {
                     }
 
                     eR.p = "sp";
-                    document.title = eR.title;
+                    // document.title = eR.title;
                     return true;
                 }
 
@@ -3145,7 +3145,7 @@ window.addEventListener("resize", function(e) {
                     }, op.t);
                 } 
                 eR.s = true;
-                document.title = eR.title;
+                // document.title = eR.title;
 
                 setTimeout(function() {
                     e_Fd(eR.z, false);  // show message
@@ -3509,7 +3509,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                                 e_Fd(eR[eR.p], false);
                             }, 10);
                             eR.s = true;
-                            document.title = eR.title;
+                            // document.title = eR.title;
                         } else {
                             eR.m.classList.add("d_n");
                             eR.s = false;
@@ -3574,7 +3574,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                         op.s = true;
                         eR.s = true;
 
-                        document.title = eR.title;
+                        // document.title = eR.title;
 
                         vw.mB_L = true; // set variable
 
@@ -3648,7 +3648,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                     eR.s = true;
                     eR.p = "or";
 
-                    document.title = eR.title;
+                    // document.title = eR.title;
 
                 } else {
 
