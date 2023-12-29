@@ -1336,7 +1336,8 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
         } else {
             v.tB = true; 
         }
-        if ((w >= 1200 && h >= 700) || h >= 800) { // height more than 1200, width more than 700 OR height more than 800
+        // if ((w >= 1200 && h >= 700) || h >= 800) { // width more than 1200, OR height more than 700
+        if ((w >= 1200) || h >= 800) { // width more than 1200, OR height more than 700
             v.dk = true;
         }
     }
