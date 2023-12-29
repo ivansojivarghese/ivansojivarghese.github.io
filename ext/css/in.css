@@ -47,6 +47,12 @@ div.cursorInt {
     text-align: center;
 }
 
+#ham_auto {
+    width: 3rem;
+    margin-left: calc(5% + 0.6rem);
+    bottom: 4rem;
+}
+
 #ham_footer {
     height: 5rem;
 }
