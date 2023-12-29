@@ -1907,12 +1907,16 @@ setTimeout(function() {
 function autoDarkMode() {
     if (window.AmbientLightSensor) {
         try {
-            var hamAuto = document.querySelector(".ham_auto");
-            e_Fd(hamAuto, false);
-
+            
             const sensor = new AmbientLightSensor();
             // Detect changes in the light
             sensor.onreading = () => {
+
+                if (!op.autoDark) {
+                    var hamAuto = document.querySelector(".ham_auto");
+                    e_Fd(hamAuto, false);
+                    op.autoDark = true;
+                }
 
                 var daytime = checkWithinTime(timeToDetails(sunAPIres.sunrise), timeToDetails(sunAPIres.sunset)); // check if user time is daytime
 
