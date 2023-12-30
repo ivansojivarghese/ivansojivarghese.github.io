@@ -49,8 +49,15 @@ div.cursorInt {
 
 .ham_auto {
     width: 3rem;
-    margin-left: calc(5% + 0.6rem);
     bottom: 4rem;
+}
+
+.mobile .ham_auto {
+    margin-left: calc(5% + 0.6rem);
+}
+
+.phablet .ham_auto {
+    margin-left: calc(1em + 0.6rem);
 }
 
 #ham_footer {
