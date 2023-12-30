@@ -1232,6 +1232,16 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     bottom: 4rem;
 }
 
+.tablet .ham_auto {
+    width: 2rem;
+    bottom: 3.75rem;
+    margin-left: calc(100vw - 3.25rem);
+}
+
+.tablet .ham_auto .attr {
+    font-size: 0.5rem !important;
+}
+
 .print_sc {
     display: none;
 }
