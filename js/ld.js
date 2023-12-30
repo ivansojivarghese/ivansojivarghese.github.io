@@ -1913,7 +1913,14 @@ function autoDarkMode() {
             sensor.onreading = () => {
 
                 if (!op.autoDark) {
-                    var hamAuto = document.querySelector(".ham_auto");
+                    var hamAuto;
+                    if (vw.tB) {
+                        hamAuto = document.querySelector(".tablet .ham_auto");
+                    } else if (vw.pH) {
+                        hamAuto = document.querySelector(".phablet .ham_auto");
+                    } else {
+                        hamAuto = document.querySelector(".mobile .ham_auto");
+                    }
                     e_Fd(hamAuto, false);
                     op.autoDark = true;
                 }
