@@ -22,15 +22,18 @@ function isDarkMode() { // dark mode detection
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
+    op.darkChange = true;
     if (matches) { // change to dark mode
         if (!getCookie("darkMode") && !op.darkMode) {
             toggleColorMode(null);
             op.darkMode = true;
+            op.darkChange = false;
         }
     } else { // change to light mode
         if (!getCookie("darkMode") && op.darkMode) {
             toggleColorMode(null);
             op.darkMode = false;
+            op.darkChange = false;
         }
     }
 });
@@ -45,8 +48,12 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"]; // dark favicons
         fvc_L = ["safari-pinned-tab.svg", "apple-touch-icon.png", "favicon.ico", "favicon/favicon.svg", "favicon/android-chrome-512x512.png", "favicon/android-chrome-192x192.png", "favicon/favicon-32x32.png", "favicon/favicon-16x16.png"]; // light favicons
 
-
     toggleColorMode_e(init); // perform page specific actions
+
+    if (e || op.darkChange) { // if manually controlled
+        var hamAuto = document.querySelector(".ham_auto");
+        e_Fd(hamAuto, true); // remove 'auto' label
+    }
 
     if (!op.darkMode || init) { // if light, change to dark
 
