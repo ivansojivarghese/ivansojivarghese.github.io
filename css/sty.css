@@ -1227,6 +1227,11 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     margin-bottom: 0;
 }
 
+.ham_auto {
+    width: 3rem;
+    bottom: 4rem;
+}
+
 .print_sc {
     display: none;
 }

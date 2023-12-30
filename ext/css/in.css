@@ -47,11 +47,6 @@ div.cursorInt {
     text-align: center;
 }
 
-.ham_auto {
-    width: 3rem;
-    bottom: 4rem;
-}
-
 .mobile .ham_auto {
     margin-left: calc(5% + 0.6rem);
 }
