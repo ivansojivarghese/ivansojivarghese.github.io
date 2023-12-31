@@ -1489,6 +1489,12 @@
                 e_Fd(puller, false);
             }
 
+            function endRefresh() {
+                const puller = document.querySelector('.puller');
+
+                e_Fd(puller, true);
+            }
+
             let _startY;
             const contentBody = document.querySelector('body');
             
@@ -1507,8 +1513,12 @@
                     
                     if (y > (_startY + (wiH / 4))) { 
                         simulateRefreshAction(); // refresh contentBody.
-                    }
+                    } 
                 }
+            }, {passive: true});
+
+            contentBody.addEventListener('touchend', e => {
+                endRefresh();
             }, {passive: true});
 
         </script>
