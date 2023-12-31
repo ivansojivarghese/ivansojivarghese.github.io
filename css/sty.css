@@ -241,6 +241,9 @@ body.refreshing .refresher.shrink {
     border-radius: 3rem;
     width: 12rem;
     text-align: center;
+    width: 11rem;
+    height: 3rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 0.47rem 1.41rem;
 }
 
 .refresher {
