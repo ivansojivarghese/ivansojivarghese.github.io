@@ -1438,6 +1438,40 @@
         </script>
         <!-- Custom pull-to-refresh -->
         <script>
+
+            // REFERENCE: https://developer.chrome.com/blog/overscroll-behavior, https://github.com/ebidel/demos/blob/master/chatbox.html
+
+            async function simulateRefreshAction() {
+                const sleep = (timeout) => new Promise(resolve => setTimeout(resolve, timeout));
+
+                const transitionEnd = function(propertyName, node) {
+                    return new Promise(resolve => {
+                    function callback(e) {
+                        e.stopPropagation();
+                        if (e.propertyName === propertyName) {
+                        node.removeEventListener('transitionend', callback);
+                        resolve(e);
+                        }
+                    }
+                    node.addEventListener('transitionend', callback);
+                    });
+                }
+
+                const refresher = document.querySelector('.refresher');
+
+                document.body.classList.add('refreshing');
+                await sleep(2000);
+
+                refresher.classList.add('shrink');
+                await transitionEnd('transform', refresher);
+                refresher.classList.add('done');
+
+                refresher.classList.remove('shrink');
+                document.body.classList.remove('refreshing');
+                await sleep(0); // let new styles settle.
+                refresher.classList.remove('done');
+            }
+
             let _startY;
             const contentBody = document.querySelector('body');
             
