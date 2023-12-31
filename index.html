@@ -1457,6 +1457,11 @@
                 visibility: visible;
             }
 
+            body.refreshing .refresher.shrink {
+                transform: translate3d(0,150%,0) scale(0);
+                opacity: 0;
+            }
+
             .refresher {
                 pointer-events: none;
                 --refresh-width: 55px;
