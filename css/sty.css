@@ -49,6 +49,10 @@ html {
 
 body {
     width: 100vw; /*takes full dimensions*/
+    padding-top: env(safe-area-inset-top);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
     /*font-family: "Raleway", "Segoe UI", sans-serif; /*Google Font, installed (offline) font, fallback font*/
 }
 
