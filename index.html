@@ -616,7 +616,7 @@
                 <div class="loading-bar"></div>
                 <div class="loading-bar"></div>
             </div>
-            <div class="puller">
+            <div class="puller trs z_O">
                 <p class="f_wg-b p_z">pull to refresh</p>
             </div>
             <div id="load_sc" class="loader h-fp trs z-K"> 
@@ -1486,8 +1486,7 @@
             function startRefresh() {
                 const puller = document.querySelector('.puller');
 
-                document.body.classList.add('refreshing');
-                puller.classList.add('shrink');
+                e_Fd(puller, false);
             }
 
             let _startY;

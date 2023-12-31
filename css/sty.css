@@ -214,13 +214,13 @@ body.refreshing {
     touch-action: none; /* prevent scrolling */
 }
 
-body.refreshing .refresher, body.refreshing .puller {
+body.refreshing .refresher {
     transform: translate3d(0,150%,0) scale(1);
     z-index: 10000;
     visibility: visible;
 }
 
-body.refreshing .refresher.shrink, body.refreshing .puller.shrink {
+body.refreshing .refresher.shrink {
     transform: translate3d(0,150%,0) scale(0);
     opacity: 0;
 }
@@ -234,10 +234,10 @@ body.refreshing .refresher.shrink, body.refreshing .puller.shrink {
     display: inline-flex;
     justify-content: space-evenly;
     align-items: center;
-    visibility: hidden;
 }
 
 .puller {
+    z-index: 10000;
     border-radius: 3rem;
     width: 12rem;
     text-align: center;
@@ -249,6 +249,7 @@ body.refreshing .refresher.shrink, body.refreshing .puller.shrink {
 
 .refresher {
     /*--refresh-width: 55px;*/
+    visibility: hidden;
     --refresh-width: 3rem;
     width: var(--refresh-width);
     height: var(--refresh-width);
