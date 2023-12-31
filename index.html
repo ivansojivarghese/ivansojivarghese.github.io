@@ -1451,6 +1451,12 @@
                 touch-action: none; /* prevent scrolling */
             }
 
+            body.refreshing .refresher {
+                transform: translate3d(0,150%,0) scale(1);
+                z-index: 1;
+                visibility: visible;
+            }
+
             .refresher {
                 pointer-events: none;
                 --refresh-width: 55px;
