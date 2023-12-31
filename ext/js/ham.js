@@ -350,6 +350,10 @@ function h_mTg() { // ham. menu toggle
 
             h_mBs(c); // perform button [stroke] dynamisms (mobile only)
 
+            if (!op.darkMode && !el.ac) {
+                el.lk3.classList.add("z_Os");
+            }
+
             if (el.ac) {
                 // el.lk3.classList.add("d_n");
                 el.lk3.classList.add("z_Os");
@@ -441,6 +445,10 @@ function h_mTg() { // ham. menu toggle
                 setTimeout(function() {
                     h.classList.add("z-G");
                     
+                    if (!op.darkMode && !el.ac) {
+                        el.lk3.classList.remove("z_Os");
+                    }
+
                     if (el.ac) {
                         // el.lk3.classList.remove("d_n");
                         el.lk3.classList.remove("z_Os");
