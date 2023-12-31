@@ -1478,6 +1478,8 @@
                 document.body.classList.remove('refreshing');
                 await sleep(0); // let new styles settle.
                 refresher.classList.remove('done');
+
+                reL();
             }
 
             let _startY;
