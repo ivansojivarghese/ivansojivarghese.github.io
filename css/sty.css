@@ -220,7 +220,7 @@ body.refreshing .refresher, body.refreshing .puller {
     visibility: visible;
 }
 
-body.refreshing .refresher.shrink {
+body.refreshing .refresher.shrink, body.refreshing .puller.shrink {
     transform: translate3d(0,150%,0) scale(0);
     opacity: 0;
 }
