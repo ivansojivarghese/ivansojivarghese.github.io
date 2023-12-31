@@ -1318,8 +1318,6 @@ function pL() { // site parameters loop
         }, op.ne.bD);
     }*/
 
-    window.alert(op.pwa.s);
-
     if (navigator.userActivation.hasBeenActive && !screenLockStatus) { // if page interaction detected
         getScreenLock(); // lock the screen
         screenLockStatus = true;
