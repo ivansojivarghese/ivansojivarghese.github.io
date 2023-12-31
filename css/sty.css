@@ -212,7 +212,7 @@ body.refreshing {
 
 body.refreshing .refresher {
     transform: translate3d(0,150%,0) scale(1);
-    z-index: 1;
+    z-index: 10000;
     visibility: visible;
 }
 
