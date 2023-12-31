@@ -1467,12 +1467,10 @@
                 }
 
                 const refresher = document.querySelector('.refresher');
-                const puller = document.querySelector('.puller');
 
                 document.body.classList.add('refreshing');
                 await sleep(2000);
 
-                puller.classList.add('shrink');
                 refresher.classList.add('shrink');
                 await transitionEnd('transform', refresher);
                 refresher.classList.add('done');
@@ -1483,6 +1481,11 @@
                 refresher.classList.remove('done');
 
                 reL();
+            }
+
+            function startRefresh() {
+                const puller = document.querySelector('.puller');
+                puller.classList.add('shrink');
             }
 
             let _startY;
@@ -1499,7 +1502,7 @@
 
                 if (document.scrollingElement.scrollTop === 0 && y > _startY && !document.body.classList.contains('refreshing')) {
 
-
+                    startRefresh();
 
                     // show ux feedback (pull down to refresh)
                     /*
