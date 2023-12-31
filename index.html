@@ -1485,6 +1485,8 @@
 
             function startRefresh() {
                 const puller = document.querySelector('.puller');
+
+                document.body.classList.add('refreshing');
                 puller.classList.add('shrink');
             }
 
