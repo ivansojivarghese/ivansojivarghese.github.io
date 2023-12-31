@@ -225,27 +225,36 @@ body.refreshing .refresher.shrink {
     opacity: 0;
 }
 
-.refresher {
+.refresher, .puller {
     pointer-events: none;
-    /*--refresh-width: 55px;*/
-    --refresh-width: 3rem;
     background: #fff;
-    width: var(--refresh-width);
-    height: var(--refresh-width);
-    border-radius: 50%; 
     position: absolute;
-    left: calc(50% - var(--refresh-width) / 2);
-    /*
-    padding: 8px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12),
-                0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
     transition: all 300ms cubic-bezier(0,0,0.2,1);
     will-change: transform, opacity;
     display: inline-flex;
     justify-content: space-evenly;
     align-items: center;
     visibility: hidden;
+}
+
+.puller {
+    border-radius: 3rem;
+    width: 12rem;
+    text-align: center;
+}
+
+.refresher {
+    /*--refresh-width: 55px;*/
+    --refresh-width: 3rem;
+    width: var(--refresh-width);
+    height: var(--refresh-width);
+    border-radius: 50%; 
+    left: calc(50% - var(--refresh-width) / 2);
+    /*
+    padding: 8px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
     padding: 0.5rem;
     box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.14), 0 0.06rem 0.3rem 0 rgba(0, 0, 0, 0.12), 0 0.18rem 0.06rem -0.12rem rgba(0, 0, 0, 0.2);
 }
