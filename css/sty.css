@@ -214,7 +214,7 @@ body.refreshing {
     touch-action: none; /* prevent scrolling */
 }
 
-body.refreshing .refresher {
+body.refreshing .refresher, body.refreshing .puller {
     transform: translate3d(0,150%,0) scale(1);
     z-index: 10000;
     visibility: visible;
