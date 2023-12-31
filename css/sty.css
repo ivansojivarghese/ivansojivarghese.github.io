@@ -278,26 +278,26 @@ body.refreshing .refresher.shrink {
     height: 1.06rem;
     border-radius: 0.24rem;
     animation: loading 1s ease-in-out infinite;
-    background-color: #303030;
+    /*background-color: #303030;*/
 }
 
 .loading-bar:nth-child(1) {
-    /*background-color: #3498db;*/
+    background-color: #3498db;
     animation-delay: 0s;
 }
 
 .loading-bar:nth-child(2) {
-    /*background-color: #c0392b;*/
+    background-color: #c0392b;
     animation-delay: 0.09s;
 }
 
 .loading-bar:nth-child(3) {
-    /*background-color: #f1c40f;*/
+    background-color: #f1c40f;
     animation-delay: .18s;
 }
 
 .loading-bar:nth-child(4) {
-    /*background-color: #27ae60;*/
+    background-color: #27ae60;
     animation-delay: .27s;
 }
 
