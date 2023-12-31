@@ -1472,6 +1472,7 @@
                 document.body.classList.add('refreshing');
                 await sleep(2000);
 
+                puller.classList.add('shrink');
                 refresher.classList.add('shrink');
                 await transitionEnd('transform', refresher);
                 refresher.classList.add('done');
