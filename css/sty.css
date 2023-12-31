@@ -245,7 +245,7 @@ body.refreshing .refresher.shrink {
     height: 3rem;
     box-shadow: rgba(149, 157, 165, 0.2) 0 0.47rem 1.41rem;
     left: calc(50% - 11rem / 2);
-    top: 1rem;
+    top: -1rem;
 }
 
 .refresher {

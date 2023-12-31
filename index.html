@@ -1487,12 +1487,14 @@
                 const puller = document.querySelector('.puller');
 
                 e_Fd(puller, false);
+                puller.style.top = "1rem";
             }
 
             function endRefresh() {
                 const puller = document.querySelector('.puller');
 
                 e_Fd(puller, true);
+                puller.style.top = "-1rem";
             }
 
             let _startY;
