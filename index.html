@@ -1437,6 +1437,12 @@
             window.addEventListener('storage', onLocalStorageEvent, false);
         </script>
         <!-- Custom pull-to-refresh -->
+        <style>
+            body.refreshing {
+                filter: blur(1px);
+                touch-action: none; /* prevent scrolling */
+            }
+        </style>
         <script>
 
             // REFERENCE: https://developer.chrome.com/blog/overscroll-behavior, https://github.com/ebidel/demos/blob/master/chatbox.html
