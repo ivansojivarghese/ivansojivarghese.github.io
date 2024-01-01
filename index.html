@@ -617,7 +617,7 @@
                 <div class="loading-bar"></div>
             </div>
             <div class="puller lightBackground trs z_O">
-                <p class="f_wg-b p_z darkText">pull to refresh</p>
+                <p class="f_wg-b p_z darkText trs z_O">pull to refresh</p>
             </div>
             <div id="load_sc" class="loader h-fp trs z-K"> 
                 <div id="load_C">
@@ -1492,9 +1492,13 @@
 
             function endRefresh() {
                 const puller = document.querySelector('.puller');
+                const pullerP = document.querySelector('.puller p');
 
-                e_Fd(puller, true);
-                puller.style.top = "-1rem";
+                e_Fd(pullerP, true);
+                puller.style.width = "3rem";
+
+                //e_Fd(puller, true);
+                //puller.style.top = "-1rem";
             }
 
             var refreshX = false;
@@ -1523,7 +1527,7 @@
                         }
                         if (y > (_startY + (wiH / 4))) { 
                             endRefresh();
-                            simulateRefreshAction(); // refresh contentBody.
+                            // simulateRefreshAction(); // refresh contentBody.
                         } 
                     }
                 }
