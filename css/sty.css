@@ -214,18 +214,18 @@ body.refreshing {
     touch-action: none; /* prevent scrolling */
 }
 
-body.refreshing .refresher {
+body.refreshing .puller {
     transform: translate3d(0,150%,0) scale(1);
     z-index: 10000;
     visibility: visible;
 }
 
-body.refreshing .refresher.shrink {
+body.refreshing .puller.shrink {
     transform: translate3d(0,150%,0) scale(0);
     opacity: 0;
 }
 
-.refresher, .puller, .pullerRefresher {
+.puller, .pullerRefresher {
     pointer-events: none;
     background: #fff;
     position: absolute;
@@ -254,18 +254,19 @@ body.refreshing .refresher.shrink {
     border-radius: 50%;
 }
 
-.refresher {
+.puller {
     visibility: hidden;
+    /*
     --refresh-width: 3rem;
     width: var(--refresh-width);
     height: var(--refresh-width);
     border-radius: 50%; 
-    left: calc(50% - var(--refresh-width) / 2);
+    left: calc(50% - var(--refresh-width) / 2);*/
     padding: 0.5rem;
     box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.14), 0 0.06rem 0.3rem 0 rgba(0, 0, 0, 0.12), 0 0.18rem 0.06rem -0.12rem rgba(0, 0, 0, 0.2);
 }
 
-.refresher.done {
+.puller.done {
     transition: none;
 }
 

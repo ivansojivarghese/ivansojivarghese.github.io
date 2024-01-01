@@ -1474,19 +1474,19 @@
                     });
                 }
 
-                const refresher = document.querySelector('.refresher');
+                const puller = document.querySelector('.puller');
 
                 document.body.classList.add('refreshing');
                 await sleep(2000);
 
-                refresher.classList.add('shrink');
-                await transitionEnd('transform', refresher);
-                refresher.classList.add('done');
+                puller.classList.add('shrink');
+                await transitionEnd('transform', puller);
+                puller.classList.add('done');
 
-                refresher.classList.remove('shrink');
+                puller.classList.remove('shrink');
                 document.body.classList.remove('refreshing');
                 await sleep(0); // let new styles settle.
-                refresher.classList.remove('done');
+                puller.classList.remove('done');
 
                 reL();
             }
@@ -1541,7 +1541,7 @@
                         }
                         if (y > (_startY + (wiH / 4))) { 
                             endRefresh();
-                            // simulateRefreshAction(); // refresh contentBody.
+                            simulateRefreshAction(); // refresh contentBody.
                         } 
                     }
                 }
@@ -1555,8 +1555,6 @@
                     puller.style.top = "-1rem";
                     e_Fd(puller, true);
                 }
-
-                // endRefresh();
 
             }, {passive: true});
 
