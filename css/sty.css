@@ -213,10 +213,10 @@ h1, h2, h3, h5, h6, p, ul, h4.revert {
 body.refreshing {
     touch-action: none; /* prevent scrolling */
 }
-
+/*
 body.refreshing .puller {
     visibility: visible;
-}
+}*/
 
 body.refreshing .puller.shrink {
     transform: scale(0);
