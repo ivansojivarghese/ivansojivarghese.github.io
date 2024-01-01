@@ -1456,6 +1456,8 @@
 
             // REFERENCE: https://developer.chrome.com/blog/overscroll-behavior, https://github.com/ebidel/demos/blob/master/chatbox.html
 
+            var dotsLoad = false;
+
             async function simulateRefreshAction() {
                 const sleep = (timeout) => new Promise(resolve => setTimeout(resolve, timeout));
 
@@ -1497,6 +1499,8 @@
             }
 
             function endRefresh() {
+                dotsLoad = true;
+
                 const puller = document.querySelector('.puller');
                 const pullerP = document.querySelector('.puller p');
                 const pullerDiv = document.querySelector('.puller div');
@@ -1504,7 +1508,6 @@
                 e_Fd(pullerP, true);
                 puller.style.width = "3rem";
                 puller.style.left = "calc(50% - 3rem / 2)";
-                // puller.style.top = "1rem";
 
                 e_Fd(pullerDiv, false);
 
@@ -1546,8 +1549,15 @@
 
             contentBody.addEventListener('touchend', e => {
                 refreshX = false;
-                puller.style.top = "1rem";
-                endRefresh();
+                if (dotsLoad) {
+                    puller.style.top = "2rem";
+                } else {
+                    puller.style.top = "-1rem";
+                    e_Fd(puller, true);
+                }
+
+                // endRefresh();
+
             }, {passive: true});
 
         </script>
