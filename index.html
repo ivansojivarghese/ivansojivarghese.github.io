@@ -1511,8 +1511,9 @@
 
                 if (document.scrollingElement.scrollTop === 0 && y > _startY && !document.body.classList.contains('refreshing') && op.pwa.s) {
 
-                    startRefresh(); // show ux feedback (pull down to refresh)
-                    
+                    if (y > (_startY + (wiH / 8))) {
+                        startRefresh(); // show ux feedback (pull down to refresh)
+                    }   
                     if (y > (_startY + (wiH / 4))) { 
                         simulateRefreshAction(); // refresh contentBody.
                     } 
