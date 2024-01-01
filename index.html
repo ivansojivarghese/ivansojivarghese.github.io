@@ -617,8 +617,8 @@
                 <div class="loading-bar"></div>
                 <div class="loading-bar"></div>
             </div> -->
-            <div class="puller lightBackground trs z_O">
-                <p class="f_wg-b p_z darkText trs">pull to refresh</p>
+            <div class="puller trs z_O">
+                <p class="f_wg-b p_z trs">pull to refresh</p>
                 <div class="pullerRefresher trs z_O">
                     <div class="loading-bar"></div>
                     <div class="loading-bar"></div>
@@ -1480,7 +1480,7 @@
                 document.body.classList.add('refreshing');
                 await sleep(2000);
 
-                // puller.classList.add('shrink');
+                puller.classList.add('shrink');
 
                 await transitionEnd('transform', puller);
 
