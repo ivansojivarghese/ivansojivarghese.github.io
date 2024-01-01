@@ -248,6 +248,12 @@ body.refreshing .refresher.shrink {
     top: -1rem;
 }
 
+.pullerRefresher {
+    height: 3rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
 .refresher {
     /*--refresh-width: 55px;*/
     visibility: hidden;
