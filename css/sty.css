@@ -225,7 +225,7 @@ body.refreshing .refresher.shrink {
     opacity: 0;
 }
 
-.refresher, .puller {
+.refresher, .puller, .pullerRefresher {
     pointer-events: none;
     background: #fff;
     position: absolute;
