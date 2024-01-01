@@ -1479,14 +1479,14 @@
                 document.body.classList.add('refreshing');
                 await sleep(2000);
 
-                puller.classList.add('shrink');
+                // puller.classList.add('shrink');
                 await transitionEnd('transform', puller);
-                puller.classList.add('done');
+                // puller.classList.add('done');
 
-                puller.classList.remove('shrink');
+                // puller.classList.remove('shrink');
                 document.body.classList.remove('refreshing');
                 await sleep(0); // let new styles settle.
-                puller.classList.remove('done');
+                // puller.classList.remove('done');
 
                 reL();
             }
