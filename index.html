@@ -1484,14 +1484,14 @@
 
                 await transitionEnd('transform', puller);
 
-                // puller.classList.add('done');
+                puller.classList.add('done');
 
-                // puller.classList.remove('shrink');
+                puller.classList.remove('shrink');
 
                 document.body.classList.remove('refreshing');
                 await sleep(0); // let new styles settle.
 
-                // puller.classList.remove('done');
+                puller.classList.remove('done');
 
                 reL();
             }

@@ -263,10 +263,10 @@ body.refreshing .puller.shrink {
     padding: 0.5rem;
     box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.14), 0 0.06rem 0.3rem 0 rgba(0, 0, 0, 0.12), 0 0.18rem 0.06rem -0.12rem rgba(0, 0, 0, 0.2);
 }*/
-/*
+
 .puller.done {
     transition: none;
-}*/
+}
 
 .loading-bar {
     width: 0.24rem;
