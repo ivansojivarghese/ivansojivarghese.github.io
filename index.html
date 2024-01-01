@@ -1514,6 +1514,7 @@
                     if (y > (_startY + (wiH / 8))) {
                         startRefresh(); // show ux feedback (pull down to refresh)
                     }  else if (y > (_startY + (wiH / 4))) { 
+                        endRefresh();
                         simulateRefreshAction(); // refresh contentBody.
                     } 
                 }
