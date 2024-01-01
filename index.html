@@ -1546,6 +1546,7 @@
 
             contentBody.addEventListener('touchend', e => {
                 refreshX = false;
+                puller.style.top = "1rem";
                 endRefresh();
             }, {passive: true});
 
