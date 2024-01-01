@@ -1500,6 +1500,7 @@
             var refreshX = false;
             let _startY;
             const contentBody = document.querySelector('body');
+            const puller = document.querySelector('.puller');
             
             contentBody.addEventListener('touchstart', e => {
                 _startY = e.touches[0].pageY;
@@ -1518,7 +1519,7 @@
                             startRefresh(); // show ux feedback (pull down to refresh)
                         }
                         if (refreshX) { // ux feedback movement to user touch-drag
-
+                            puller.style.top = "calc(1rem + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
                         }
                         if (y > (_startY + (wiH / 4))) { 
                             endRefresh();
