@@ -610,12 +610,13 @@
         <div data-nosnippet id="main_sc">
             <div class="cursor small bC_d b-r p-f z-P d_n z_O trs"></div>
             <div class="cursor big bC_t b-r p-f z-P d_n z_O trs"></div>
+            <!--
             <div class="refresher d_n">
                 <div class="loading-bar"></div>
                 <div class="loading-bar"></div>
                 <div class="loading-bar"></div>
                 <div class="loading-bar"></div>
-            </div>
+            </div> -->
             <div class="puller lightBackground trs z_O">
                 <p class="f_wg-b p_z darkText trs">pull to refresh</p>
                 <div class="pullerRefresher trs z_O">
@@ -1480,12 +1481,16 @@
                 await sleep(2000);
 
                 // puller.classList.add('shrink');
+
                 await transitionEnd('transform', puller);
+
                 // puller.classList.add('done');
 
                 // puller.classList.remove('shrink');
+
                 document.body.classList.remove('refreshing');
                 await sleep(0); // let new styles settle.
+
                 // puller.classList.remove('done');
 
                 reL();
@@ -1510,9 +1515,6 @@
                 puller.style.left = "calc(50% - 3rem / 2)";
 
                 e_Fd(pullerDiv, false);
-
-                //e_Fd(puller, true);
-                //puller.style.top = "-1rem";
             }
 
             var refreshX = false;
