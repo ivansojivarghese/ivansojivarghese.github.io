@@ -610,7 +610,7 @@
         <div data-nosnippet id="main_sc">
             <div class="cursor small bC_d b-r p-f z-P d_n z_O trs"></div>
             <div class="cursor big bC_t b-r p-f z-P d_n z_O trs"></div>
-            <div class="refresher lightBackground">
+            <div class="refresher">
                 <div class="loading-bar"></div>
                 <div class="loading-bar"></div>
                 <div class="loading-bar"></div>
@@ -1516,6 +1516,9 @@
                         if (!refreshX) {
                             refreshX = true;
                             startRefresh(); // show ux feedback (pull down to refresh)
+                        }
+                        if (refreshX) { // ux feedback movement to user touch-drag
+
                         }
                         if (y > (_startY + (wiH / 4))) { 
                             endRefresh();
