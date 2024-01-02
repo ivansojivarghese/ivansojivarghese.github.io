@@ -757,7 +757,7 @@ op = {
         p : null // info
     },
     col : { // colors (hex)
-        b : !op.darkMode ? "#303030" : "#FFF", // base
+        b : "#303030", // base
         p : "#007000", // predicate
         n : "#A10000" // negate
     },
