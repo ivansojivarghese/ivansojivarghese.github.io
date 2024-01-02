@@ -1176,11 +1176,7 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
     } else {
         if (getCookie("darkMode") === "true") { // manual: dark mode
             op.darkMode = true;
-            if (!op.fixDark) {
-                toggleColorMode(null, true); 
-            } else {
-                toggleColorMode_e(true);
-            }
+            toggleColorMode(null, true); 
         } else if (getCookie("darkMode") === "false") { // manual: light mode
             op.darkMode = false;
         }
