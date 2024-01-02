@@ -92,6 +92,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
         c_css("#ckA_msg", "border-top: 0.2rem solid #FFF", false, null, op, "darkMode"); //
 
+        c_css(".load_r", "border-top-color: #FFF;", false, null, op, "darkMode");
+
         c_css("#footer_sc .bC_mL", "background: #3D3D3D !important; z-index: 10 !important;", false, null, op, "darkMode");
 
         scrolltop_img.classList.remove("scrolltop_img");
