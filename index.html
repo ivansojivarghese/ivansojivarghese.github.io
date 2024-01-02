@@ -1478,11 +1478,12 @@
                 const puller = document.querySelector('.puller');
 
                 document.body.classList.add('refreshing');
-                await sleep(2000);
 
                 reL();
 
                 puller.classList.add('shrink');
+
+                // await sleep(2000);
 
                 // await transitionEnd('transform', puller);
 
