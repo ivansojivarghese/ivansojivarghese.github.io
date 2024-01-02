@@ -1488,12 +1488,15 @@
 
                 // puller.classList.remove('shrink');
 
+                reL();
+
                 document.body.classList.remove('refreshing');
+
                 await sleep(0); // let new styles settle.
 
                 puller.classList.remove('done');
 
-                reL();
+                // reL();
             }
 
             function startRefresh() {
