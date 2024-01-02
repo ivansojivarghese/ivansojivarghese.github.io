@@ -585,6 +585,7 @@ op = {
     darkMode : op.darkMode,
     autoDark : false,
     darkChange : false,
+    fixDark : false,
     host : hostname,
     tz : Intl.DateTimeFormat().resolvedOptions().timeZone, // get user device registered time zone
     lang : "", // english language variant
