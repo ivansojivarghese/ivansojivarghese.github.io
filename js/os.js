@@ -142,12 +142,6 @@ function toggleColorMode(e, init) { // light/dark modes toggling
     }
 }
 
-if (getCookie("darkMode") === "true" && !op.darkMode) { // advanced setting
-    toggleColorMode(null);
-    op.darkMode = true;
-    op.darkChange = false;
-}
-
 ///////////////////////////////////////////////////
 
 function osCheck() {
