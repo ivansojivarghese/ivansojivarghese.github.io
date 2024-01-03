@@ -875,7 +875,7 @@ function load_e() { // end the loading sequence
                                 eR.p = "ft";
                                 eR.title = "Error: Fatal callback";
 
-                            } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone) && (op.tz !== timeAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) {
+                            } else if ((ipAPIres.online && (op.tz !== ipAPIres.location.time_zone) && (op.tz !== timeAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) {
                                 
                                 var address = "",
                                     timezone = "";
@@ -886,13 +886,13 @@ function load_e() { // end the loading sequence
 
                                 if (ipAPIres.online) { // check on multiple APIs to get IP address
                                     address = clientAPIres.ipString;
-                                    timezone = ipAPIres.timezone;
+                                    timezone = ipAPIres.location.time_zone;
                                 } else if (ipifyAPIres.online) {
                                     address = ipifyAPIres.ip;
-                                    timezone = ipAPIres.timezone;
+                                    timezone = ipAPIres.location.time_zone;
                                 } else if (clientAPIres.online) {
                                     address = clientAPIres.ipString;
-                                    timezone = ipAPIres.timezone;
+                                    timezone = ipAPIres.location.time_zone;
                                 } else if (roamingAPIres.online) {
                                     address = "not obtainable";
                                     timezone = "unknown";
@@ -1473,7 +1473,7 @@ function errorCheck() { // check for errors
     } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0) && !rL.i && rL.e7) { // device compatibility (incompatible speed/rendering)
         eR.title = "Error: Low device performance";
         eR.h = "dp";
-    } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone) && (op.tz !== timeAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) { // potential vpn usage (when REST-fetched + device time zones don't match)
+    } else if ((ipAPIres.online && (op.tz !== ipAPIres.location.time_zone) && (op.tz !== timeAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming) || (countryAPIres.online && cloudflareCDNres.online && (countryAPIres.country !== cloudflareCDNres.loc))) { // potential vpn usage (when REST-fetched + device time zones don't match)
         eR.title = "Error: VPN usage";
 
         var address = "", // UPDATE LINE 827 ABOVE FOR CHANGES IN CONDITIONS
@@ -1481,13 +1481,13 @@ function errorCheck() { // check for errors
         eR.h = "vp";
         if (ipAPIres.online) { // check on multiple APIs to get IP address
             address = clientAPIres.ipString;
-            timezone = ipAPIres.timezone;
+            timezone = ipAPIres.location.time_zone;
         } else if (ipifyAPIres.online) {
             address = ipifyAPIres.ip;
-            timezone = ipAPIres.timezone;
+            timezone = ipAPIres.location.time_zone;
         } else if (clientAPIres.online) {
             address = clientAPIres.ipString;
-            timezone = ipAPIres.timezone;
+            timezone = ipAPIres.location.time_zone;
         } else if (roamingAPIres.online) {
             address = "not obtainable";
             timezone = "unknown";
