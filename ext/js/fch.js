@@ -528,15 +528,15 @@ function load_css_e() { // load CSS styles (page specific)
             // console.log("ipapi1");
 
             if (ipAPIres.online && weatherAPIres.online) {
-                if (ipAPIres.city === gps.city && ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER in same city/region/country
+                if (ipAPIres.city === gps.city && ipAPIres.country.iso_code === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER in same city/region/country
 
                     qInfo[4].innerHTML = "in your city!";
                     
-                } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER is in same country & region, BUT different city
+                } else if (ipAPIres.country.iso_code === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) < nearbyCoordsDis)) { // IF USER is in same country & region, BUT different city
 
                     qInfo[4].innerHTML = "closer than you think <span class='key-sm'>:</span>)";
 
-                } else if (ipAPIres.country === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) >= nearbyCoordsDis)) { // IF USER in same country
+                } else if (ipAPIres.country.iso_code === gps.country && (coordsDistance(gps.lat, ipAPIres.lat, gps.lon, ipAPIres.lon) >= nearbyCoordsDis)) { // IF USER in same country
 
                     qInfo[4].innerHTML = "quite within, but far <span class='key-sm'>;</span>)";
 
@@ -826,7 +826,7 @@ function load_js_e() { // load JS (page specific)
 
                     var // lat = ipAPIres.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude
                         // lon = ipAPIres.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude
-                        unit = tempUnit(ipAPIres.country);
+                        unit = tempUnit(ipAPIres.country.iso_code);
                     
                     weatherAPI(ipAPIres.lat, ipAPIres.lon, unit); // get user location weather information API
 
@@ -840,7 +840,7 @@ function load_js_e() { // load JS (page specific)
 
                             // EDIT INFO TO HTML
                             weather.r.innerHTML = Math.round(weatherAPIres.main.temp); // weather reading
-                            weather.u.innerHTML = (tempUnit(ipAPIres.country) === "metric") ? "C" : "F"; // weather unit
+                            weather.u.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F"; // weather unit
                             weather.c.innerHTML = ipAPIres.city; // weather city
 
                             var weatherIcon = async function() { // weather icon
@@ -1046,7 +1046,7 @@ function load_eN() { // load, after cookie acceptance (page specific)
                         return value === Math.round(weatherAPIres.main.temp);
                       });
 
-                    var unitTitle = (tempUnit(ipAPIres.country) === "metric") ? "Celsius" : "Fahrenheit",
+                    var unitTitle = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "Celsius" : "Fahrenheit",
                         unitSingular = (singularsCheck) ? " degree " : " degrees ";
 
                     e_Fd(el.Ltf, false);
