@@ -1521,9 +1521,11 @@
 
                 await sleep(200);
 
-                reL();
+                window.addEventListener("beforeunload", function() {
+                    puller.classList.add('shrink');
+                });
 
-                puller.classList.add('shrink');
+                reL();
 
                 // await transitionEnd('transform', puller);
 
