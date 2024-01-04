@@ -728,13 +728,17 @@ function docRead() {
                         e_Fd(rL.m, false); // show load-box (either flow)
                     }
                 }
-            } else if (op.pwa.s) {
+            } else if (!devError && op.pwa.s) {
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
                 normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
-                e_Fd(pwa_body, false);
+                setTimeout(function() {
+                    e_Fd(pwa_body, false);
+                }, 10);
+
                 rL.i = true;
+
             } else {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
                 rL.s = true; // page loaded
