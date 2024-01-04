@@ -738,6 +738,9 @@ function docRead() {
                 clientAPI();
                 setTimeout(function() {
                     ipAPI(clientAPIres.ipString);
+                    setTimeout(function() {
+                        weatherAPI(ipAPIres.lat, ipAPIres.lon, ipAPIres.country.iso_code);
+                    }, op.t);
                 }, op.t);
 
                 normal_body.classList.add("d_n");
