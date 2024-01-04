@@ -737,7 +737,7 @@ function docRead() {
 
                 clientAPI();
                 setTimeout(function() {
-                    ipAPI();
+                    ipAPI(clientAPIres.ipString);
                 }, op.t);
 
                 normal_body.classList.add("d_n");
