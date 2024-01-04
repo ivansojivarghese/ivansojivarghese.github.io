@@ -4,7 +4,7 @@
 .pwa .navbar {
     position: absolute;
     bottom: 0;
-    height: 5rem;
+    height: 4rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -12,14 +12,16 @@
 }
 
 .pwa .navbar .button {
-    height: 4rem;
+    height: 3rem;
     width: 3rem;
     text-align: center;
     background: blue;
 }
 
 .pwa .navbar .button .img {
-    height: 3rem;
+    height: 2rem;
+    width: 2rem;
+    margin: 0 auto;
 }
 
 .pwa .navbar .button p {
