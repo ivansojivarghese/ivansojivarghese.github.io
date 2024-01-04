@@ -25,6 +25,7 @@
 .pwa .navbar .button p {
     font-size: 0.85rem;
     padding: 0.075rem 0;
+    font-weight: bold;
 }
 
 .pwa .navbar .button.clicks .img {
