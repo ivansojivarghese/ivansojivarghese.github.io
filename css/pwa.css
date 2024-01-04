@@ -28,3 +28,19 @@
     font-size: 0.85rem;
     padding: 0.075rem 0;
 }
+
+.pwa .navbar .button.clicks .img {
+    background-image: url("../pwa/clicks.png");
+}
+
+.pwa .navbar .button.code .img {
+    background-image: url("../pwa/code.png");
+}
+
+.pwa .navbar .button.diary .img {
+    background-image: url("../pwa/diary.png");
+}
+
+.pwa .navbar .button.about .img {
+    background-image: url("../pwa/about.png");
+}
