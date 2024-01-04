@@ -736,6 +736,7 @@ function docRead() {
                 const normal_body = document.querySelector('.non-pwa');
                 normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
+                document.title = "Ivan";
                 setTimeout(function() {
                     e_Fd(pwa_body, false);
                 }, 10);
