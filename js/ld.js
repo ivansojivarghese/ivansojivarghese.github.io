@@ -730,6 +730,8 @@ function docRead() {
                 }
             } else if (op.pwa.s) {
                 const pwa_body = document.querySelector('.pwa');
+                const normal_body = document.querySelector('.non-pwa');
+                normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
                 e_Fd(pwa_body, false);
                 rL.i = true;
