@@ -1,6 +1,6 @@
 
-function navButtonActive(b) {
-    if (!this.classList.contains("buttonActive")) {
-        
+function navButtonActive(b, e) {
+    if (!e.currentTarget.classList.contains("buttonActive")) {
+
     }
 }
