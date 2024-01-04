@@ -10,3 +10,9 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+.pwa .navbar .button {
+    height: 4rem;
+    width: 3rem;
+    background: blue;
+}
