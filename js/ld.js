@@ -122,9 +122,7 @@ function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
 
-            // if (!vw.pH && !vw.tB) {
             op.pwa.s = true;
-            // }
 
             if (op.pwa.s) {
                 rL.e4 = true;
@@ -736,6 +734,10 @@ function docRead() {
             } else if (!devError && op.pwa.s) { // pwa
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
+
+                clientAPI();
+                ipAPI();
+
                 normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
                 document.title = "Ivan";
