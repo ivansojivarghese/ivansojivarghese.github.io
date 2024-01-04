@@ -1,6 +1,11 @@
 
 /* pwa styles */
 
+.pwa .sections {
+    background-color: #F4F4F4;
+    height: calc(100vh - 4rem);
+}
+
 .pwa .navbar {
     position: absolute;
     bottom: 0;
