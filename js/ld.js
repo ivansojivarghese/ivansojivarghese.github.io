@@ -731,7 +731,7 @@ function docRead() {
                         e_Fd(rL.m, false); // show load-box (either flow)
                     }
                 }
-            } else if (!devError && op.pwa.s) { // pwa
+            } else if (!devError && op.pwa.s && !rL.i) { // pwa
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
 
@@ -748,6 +748,7 @@ function docRead() {
                 }, 10);
 
                 rL.i = true; // end load
+                rL.s = true;
 
             } else {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
