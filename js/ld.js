@@ -121,6 +121,9 @@ function engLangVar(c) { // return variant of language (eng) per user country lo
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
+
+            op.pwa.s = true;
+
             if (op.pwa.s) {
                 rL.e4 = true;
             } else {
@@ -130,7 +133,7 @@ function docRead() {
                 }
             }
         case "complete": // if DOM, styles, images and scripts all loaded
-            if (!devError && !op.pwa.s) {
+            if (!devError && !op.pwa.s) { // normal web
 
                 op.getPef = function() { // estimate processor speed
 
@@ -728,7 +731,7 @@ function docRead() {
                         e_Fd(rL.m, false); // show load-box (either flow)
                     }
                 }
-            } else if (!devError && op.pwa.s) {
+            } else if (!devError && op.pwa.s) { // pwa
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
                 normal_body.classList.add("d_n");
@@ -737,7 +740,7 @@ function docRead() {
                     e_Fd(pwa_body, false);
                 }, 10);
 
-                rL.i = true;
+                rL.i = true; // end load
 
             } else {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
