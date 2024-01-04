@@ -121,6 +121,9 @@ function engLangVar(c) { // return variant of language (eng) per user country lo
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
+
+            console.log(op.pwa.s);
+
             if (!rL.e4) {
                 rL.e4 = true;
                 e_Fd(rL.m, false); // show load-box
