@@ -22,6 +22,15 @@
     margin: 0 auto;
 }
 
+.pwa .navbar .button .img .active {
+    position: absolute;
+    z-index: -10;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: #F4F4F4;
+}
+
 .pwa .navbar .button p {
     font-size: 0.85rem;
     padding: 0.075rem 0;
