@@ -731,6 +731,8 @@ function docRead() {
             } else if (op.pwa.s) {
                 const pwa_body = document.querySelector('.pwa');
                 pwa_body.classList.remove("d_n");
+                e_Fd(pwa_body, false);
+                rL.i = true;
             } else {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
                 rL.s = true; // page loaded
