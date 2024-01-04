@@ -6,6 +6,11 @@
     height: calc(100vh - 4rem);
 }
 
+.pwa .home .banner {
+    background-color: #303030;
+    color: #FFF;
+}
+
 .pwa .navbar {
     position: absolute;
     bottom: 0;
