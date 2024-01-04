@@ -9,6 +9,20 @@
 .pwa .home .banner {
     background-color: #303030;
     color: #FFF;
+    display: flex;
+    height: 5rem;
+}
+
+.pwa .home .weather {
+    width: 6rem;
+    margin-right: 1rem;
+}
+
+.pwa .home .banner p {
+    font-size: 1.5rem;
+    padding: 1.75rem 0;
+    font-weight: bold;
+    
 }
 
 .pwa .navbar {
