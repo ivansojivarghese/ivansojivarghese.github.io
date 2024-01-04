@@ -736,7 +736,7 @@ function docRead() {
                 const normal_body = document.querySelector('.non-pwa');
 
                 clientAPI();
-                ipAPI();
+                // ipAPI();
 
                 normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
