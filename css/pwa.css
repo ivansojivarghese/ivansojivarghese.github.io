@@ -1,6 +1,10 @@
 
 /* pwa styles */
 
+.pwa .logo-hybrid {
+    height: 2.5rem;
+}
+
 .pwa .sections {
     background-color: #F4F4F4;
     height: calc(100% - 4rem);
