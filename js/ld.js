@@ -732,18 +732,23 @@ function docRead() {
                     }
                 }
             } else if (!devError && op.pwa.s && !rL.i) { // pwa
-                var weather_L = null;
+                var ip_L = null, weather_L = null;
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
 
                 clientAPI();
                 setTimeout(function() {
                     ipAPI(clientAPIres.ipString);
-                    weather_L = setInterval(function() {
+                    ip_L = setInterval(function() {
                         if (ipAPIres.online) {
                             weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
-                            fetchPWAInfo();
-                            clearInterval(weather_L);
+                            clearInterval(ip_L);
+                            weather_L = setInterval(function() {
+                                if (weatherAPIres.online) {
+                                    clearInterval(weather_L);
+                                    fetchPWAInfo();
+                                }
+                            }, op.t);
                         }
                     }, op.t);
                 }, op.t);
