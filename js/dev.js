@@ -95,6 +95,7 @@ if (!developer) { // anti-debugging features
             delete after;
         }
         if (!devError && devActivity) {
+            console.log("reL");
             reL(); // reload after devTools are closed
         }
         setTimeout(check, checkInterval); // check every 100ms

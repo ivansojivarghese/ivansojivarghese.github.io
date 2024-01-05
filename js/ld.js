@@ -188,6 +188,7 @@ function docRead() {
                         if (getCookie("maxHeight")) {
                             if (Number(getCookie("maxHeight")) !== window.innerHeight) {
                                 setCookie("maxHeight", null, -1);
+                                console.log("reL");
                                 reL();
                             }
                         } else if (getCookie("initialAccess") === "true") {
@@ -443,6 +444,7 @@ function docRead() {
                                     }
                                     op.ne.reCon = true;
                                     setTimeout(function() {
+                                        console.log("reL");
                                         reL();
                                     }, op.te);
                                 }, op.ne.bD); // reload page after interval
@@ -1544,6 +1546,7 @@ function errorCheck() { // check for errors
         eR.h = "ck";
         setInterval(function() {
             if (navigator.cookieEnabled && j) { // check if cookies enabled
+                console.log("reL");
                 reL(); 
                 j = false;
             }
@@ -1560,6 +1563,7 @@ function errorCheck() { // check for errors
         if (windowCount && windowCount > 1 && (windowCount === parseInt(getCookie("num_tabs")))) {
             setInterval(function() {
                 if (((windowCount - 1) < 1) && j) { // check if other tabs are closed
+                    console.log("reL");
                     reL(); 
                     j = false;
                 } else {
