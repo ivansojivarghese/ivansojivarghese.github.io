@@ -23,7 +23,7 @@ function timeOfDay() {
 function fetchPWAInfo() {
     const temp = document.querySelector('.pwa .weather #temp');
     const unit = document.querySelector('.pwa .weather #unit');
-    const greeting = document.querySelector('.pwa .weather #greeting');
+    const greeting = document.querySelector('.pwa .banner #greeting');
 
     greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
