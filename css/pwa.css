@@ -44,6 +44,9 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    max-width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .pwa .navbar .button {
