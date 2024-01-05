@@ -1787,7 +1787,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }*/
 
 .logo-hybrid {
-    background-image: url("../logo/logo_hybrid.png");
+    background-image: url("../logo/logo_hybrid.png") !important;
 }
 
 .logo-hybrid-inverse {

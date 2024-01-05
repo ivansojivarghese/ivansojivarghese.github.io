@@ -25,9 +25,11 @@
     margin-bottom: 1em;
 }
 
-.pwa .logo-hybrid {
+.pwa .logo-full {
+    background-image: url("../logo/logo_hybrid.png") !important;
     height: 2.5rem;
     margin-bottom: 2rem;
+    background-size: contain;
 }
 
 .pwa .sections {
