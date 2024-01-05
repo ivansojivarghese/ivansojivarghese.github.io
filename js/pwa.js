@@ -42,9 +42,9 @@ function timeOfDay() {
 function fetchPWAInfo() {
     const temp = document.querySelector('.pwa .weather #temp');
     const unit = document.querySelector('.pwa .weather #unit');
-    // const greeting = document.querySelector('.pwa .banner #greeting');
+    const greeting = document.querySelector('.pwa .home #greeting');
 
-    // greeting.innerHTML = timeOfDay();
+    greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 }
