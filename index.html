@@ -421,9 +421,10 @@
                 op.Ld.c = e.persisted; // check if browser has cached the page (forward/back navigation)
                 if (op.Ld.c) {
                     setCookie("cacheReload", "true", op.c.t); // set 'cache reload' cookie
-                    reL();
 
                     console.log("reL");
+
+                    reL();
                 }
             }
 
