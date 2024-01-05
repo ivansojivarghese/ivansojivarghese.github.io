@@ -34,7 +34,7 @@
 
 .pwa .sections {
     background-color: #F4F4F4;
-    height: calc(100% - 4rem);
+    /*height: calc(100% - 4rem);*/
 }
 
 .pwa .home .banner {
