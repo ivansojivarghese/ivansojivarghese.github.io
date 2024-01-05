@@ -1,8 +1,13 @@
 
 /* pwa styles */
 
+.pwa .paragraph {
+    line-height: 1.5em;
+}
+
 .pwa .logo-hybrid {
     height: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .pwa .sections {
