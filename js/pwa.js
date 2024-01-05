@@ -6,7 +6,14 @@ function navButtonActive(b, e) {
     for (i = 0; i < buttons.length; i++) { // remove from other non-targets
         if (buttons[i] !== target) {
             if (buttons[i].classList.contains("buttonActive")) {
-                buttons[i].children[0].style.backgroundImage = "url('../pwa/" + b + ".png')";
+                var old;
+                for (j = 0; j < buttons[i].classList.length; j++) {
+                    if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive") {
+                        old = buttons[i].classList[j];
+                        break;
+                    }
+                }
+                buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
                 e_Fd(buttons[i].children[0].children[0], true); 
                 buttons[i].classList.remove("buttonActive");
             }
