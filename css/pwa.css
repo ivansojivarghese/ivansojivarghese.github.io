@@ -1,6 +1,16 @@
 
 /* pwa styles */
 
+.pwa .container {
+    display: flex;
+}
+
+.pwa .home .wrap {
+    width: 4rem;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+}
+
 .pwa .paragraph {
     line-height: 1.5em;
     padding-bottom: 1.5em;
