@@ -46,7 +46,7 @@ function fetchPWAInfo() {
     const unit = document.querySelector('.pwa .weather #unit');
     const greeting = document.querySelector('.pwa .home #greeting');
 
-    sections.style.height = dev.uH.getBoundingClientRect().height + "px";
+    sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
 
     greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
