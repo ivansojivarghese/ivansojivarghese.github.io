@@ -252,7 +252,7 @@ document.body.addEventListener("keypress", setActivityTime);
 document.body.addEventListener("scroll", setActivityTime);
 document.body.addEventListener("touchstart", setActivityTime);
 const refresh = () => {
-    if (new Date().getTime() - time >= (dev.v * 24 * 60 * 60 * 1000)) { // max-duration limit in ms. (from days)
+    if ((new Date().getTime() - time >= (dev.v * 24 * 60 * 60 * 1000)) && !op.pwa.s) { // max-duration limit in ms. (from days)
         console.log("reL");
         reL(); // reload
     } else {
