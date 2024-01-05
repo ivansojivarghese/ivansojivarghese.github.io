@@ -742,7 +742,7 @@ function docRead() {
                     weather_L = setInterval(function() {
                         if (ipAPIres.online) {
                             weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
-                            fetchInfo();
+                            fetchPWAInfo();
                             clearInterval(weather_L);
                         }
                     }, op.t);

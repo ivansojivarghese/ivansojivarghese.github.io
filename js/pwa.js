@@ -8,7 +8,7 @@ function navButtonActive(b, e) {
     }
 }
 
-function fetchInfo() {
+function fetchPWAInfo() {
     const temp = document.querySelector('.pwa .weather #temp');
     const unit = document.querySelector('.pwa .weather #unit');
 
