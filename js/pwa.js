@@ -1,7 +1,19 @@
 
 function navButtonActive(b, e) {
     var target = e.currentTarget;
-    if (!target.classList.contains("buttonActive")) {
+    const buttons = document.querySelectorAll('.pwa .navbar .button');
+
+    for (i = 0; i < buttons.length; i++) { // remove from other non-targets
+        if (buttons[i] !== target) {
+            if (buttons[i].classList.contains("buttonActive")) {
+                buttons[i].children[0].style.backgroundImage = "url('../pwa/" + b + ".png')";
+                e_Fd(buttons[i].children[0].children[0], true); 
+                buttons[i].classList.remove("buttonActive");
+            }
+        }
+    }
+
+    if (!target.classList.contains("buttonActive")) { // set on target
         target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
         e_Fd(target.children[0].children[0], false); 
         target.classList.add("buttonActive");
