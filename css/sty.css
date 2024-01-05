@@ -1784,11 +1784,11 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../logo/favicon_inverse.png");
     width: 2.5rem;
     height: 2.5rem;
-}
-/*
+}*/
+
 .logo-hybrid {
     background-image: url("../logo/logo_hybrid.png");
-}*/
+}
 
 .logo-hybrid-inverse {
     background-image: url("../logo/logo_hybrid_inverse.png") !important;
