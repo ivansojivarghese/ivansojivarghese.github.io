@@ -7,8 +7,6 @@
 }
 
 .pwa .home .banner {
-    background-color: #303030;
-    color: #FFF;
     display: flex;
     height: 5rem;
 }
