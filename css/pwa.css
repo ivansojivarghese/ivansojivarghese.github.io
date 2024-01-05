@@ -3,6 +3,16 @@
 
 .pwa .paragraph {
     line-height: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.pwa h5 {
+    font-weight: bold;
+    line-height: 0.85em;
+}
+
+.pwa h6 {
+    margin-bottom: 1em;
 }
 
 .pwa .logo-hybrid {
