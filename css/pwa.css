@@ -16,7 +16,7 @@
 }
 
 .pwa .home .weather {
-    width: 6rem;
+    width: 7rem;
     margin-right: 1rem;
 }
 
@@ -24,6 +24,11 @@
     font-size: 1.5rem;
     padding: 1.75rem 0;
     font-weight: bold;   
+    background-color: #FFF;
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;;
 }
 
 .pwa .navbar {
