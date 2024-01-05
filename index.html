@@ -422,6 +422,8 @@
                 if (op.Ld.c) {
                     setCookie("cacheReload", "true", op.c.t); // set 'cache reload' cookie
                     reL();
+
+                    console.log("reL");
                 }
             }
 
@@ -1525,7 +1527,7 @@
                     puller.classList.add('shrink');
                 });
 
-                console.log("pulltorefresh");
+                console.log("reL");
 
                 reL();
 
