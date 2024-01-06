@@ -68,7 +68,7 @@ function fetchPWAInfo() {
         var random1 = getRandomInt(1, 5),
             random2 = getRandomInt(0, 10),
             wd = 0,
-            textColor = [], hsb = [], step = 0.01, bright = 0;
+            textColor = [], hsb = [], rgb = [], step = 0.01, bright = 0;
         if (selectedWords.indexOf(dev.skills["s" + random1][random2]) === -1) {
             selectedWords[selectedWords.length] = dev.skills["s" + random1][random2];
             wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
@@ -88,6 +88,9 @@ function fetchPWAInfo() {
                     bright = getBrightness(HSBToRGB(hsb[0], hsb[1], hsb[2]));
                 }
             }
+
+            rgb = HSBToRGB(hsb[0], hsb[1], hsb[2]);
+            wordcloud[i].style.color = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
 
             // console.log();
 
@@ -124,11 +127,11 @@ function randomRGB() {
     return [r, g, b];
 }
 
-function getBrightness(r, g, b) {
+function getBrightness(r, g, b) { // REF: https://mixable.blog/adjust-text-color-to-be-readable-on-light-and-dark-backgrounds-of-user-interfaces/
     return ((r * 299) + (g * 587) + (b * 114)) / 1000;
 }
 
-const RGBToHSB = (r, g, b) => {
+const RGBToHSB = (r, g, b) => { // REF: https://www.30secondsofcode.org/js/s/rgb-to-hsb/
     r /= 255;
     g /= 255;
     b /= 255;
@@ -139,7 +142,7 @@ const RGBToHSB = (r, g, b) => {
     return [60 * (h < 0 ? h + 6 : h), v && (n / v) * 100, v * 100];
 };
 
-const HSBToRGB = (h, s, b) => {
+const HSBToRGB = (h, s, b) => { // REF: https://www.30secondsofcode.org/js/s/hsb-to-rgb/
     s /= 100;
     b /= 100;
     const k = (n) => (n + h / 60) % 6;
