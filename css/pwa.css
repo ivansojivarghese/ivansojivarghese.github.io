@@ -3,6 +3,9 @@
 
 .pwa .container {
     display: flex;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .pwa .home .wrap {
@@ -14,6 +17,12 @@
 .pwa .paragraph {
     line-height: 1.5em;
     padding-bottom: 1.5em;
+}
+
+.pwa .content h1 {
+    line-height: 0.85em;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .pwa .content h2 {
