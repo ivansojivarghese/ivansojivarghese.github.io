@@ -9,60 +9,6 @@
    "dir" : "ltr",
    "categories" : ["developer", "developer tools", "development", "education", "books & reference", "design", "lifestyle", "personalization", "photo", "photo & video", "multimedia", "multimedia design", "network", "networking", "productivity", "reference"],
    "description" : "An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!",
-   "shortcuts" : [
-        {
-            "name" : "Clicks",
-            "short_name" : "Clicks",
-            "url" :  "https://ivansojivarghese.github.io/clicks",
-            "description" : "",
-            "icons" : [
-                {
-                    "src": "favicon/clicks_pwa.png",
-                    "type": "image/png",
-                    "sizes": "192x192"
-                }
-            ]
-        },
-        {
-            "name" : "Code",
-            "short_name" : "Code",
-            "url" :  "https://ivansojivarghese.github.io/code",
-            "description" : "",
-            "icons" : [
-                {
-                    "src": "favicon/code_pwa.png",
-                    "type": "image/png",
-                    "sizes": "192x192"
-                }
-            ]
-        },
-        {
-            "name" : "Diary",
-            "short_name" : "Diary",
-            "url" :  "https://ivansojivarghese.github.io/diary",
-            "description" : "",
-            "icons" : [
-                {
-                    "src": "favicon/diary_pwa.png",
-                    "type": "image/png",
-                    "sizes": "192x192"
-                }
-            ]
-        },
-        {
-            "name" : "About",
-            "short_name" : "About",
-            "url" :  "https://ivansojivarghese.github.io/about",
-            "description" : "",
-            "icons" : [
-                {
-                    "src": "favicon/about_pwa.png",
-                    "type": "image/png",
-                    "sizes": "192x192"
-                }
-            ]
-        }
-   ],
    "screenshots" : [],
    "icons" : [
         {
