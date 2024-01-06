@@ -52,3 +52,17 @@ function fetchPWAInfo() {
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 }
+
+function startLoadPWA() {
+    const stat1 = document.querySelector('.pwa .home #stat1');
+    const stat2 = document.querySelector('.pwa .home #stat2');
+    const stat3 = document.querySelector('.pwa .home #stat3');
+
+    sI_1.e = stat1;
+    sI_2.e = stat2;
+    sI_3.e = stat3;
+
+    e_Ic(sI_1, null, sI_1.n);
+    e_Ic(sI_2, null, sI_2.n);
+    e_Ic(sI_3, null, sI_3.n);
+}

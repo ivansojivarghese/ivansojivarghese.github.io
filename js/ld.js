@@ -758,6 +758,7 @@ function docRead() {
                 document.title = "Ivan";
                 setTimeout(function() {
                     e_Fd(pwa_body, false);
+                    startLoadPWA();
                 }, 10);
 
                 rL.i = true; // end load
