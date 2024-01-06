@@ -91,6 +91,7 @@
     max-width: 500px;
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
 }
 
 .pwa .navbar .button {
