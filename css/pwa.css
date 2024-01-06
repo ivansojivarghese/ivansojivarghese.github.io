@@ -9,7 +9,7 @@
 .pwa .container {
     display: flex;
     margin-bottom: 0.5rem;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
     margin-top: 1rem;
 }
@@ -34,6 +34,7 @@
 .pwa .content h2 {
     font-size: 4rem;
     margin-top: 1rem;
+    margin-bottom: 3rem;
     width: 100%;
 }
 
@@ -82,7 +83,7 @@
 }
 
 .pwa .home .key-sm {
-    
+    top: 0.3rem;
 }
 
 .pwa .navbar {
