@@ -38,6 +38,8 @@
 
 .pwa .sections {
     background-color: #F4F4F4;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .pwa .home .banner {
