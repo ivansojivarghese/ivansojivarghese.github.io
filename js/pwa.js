@@ -68,8 +68,9 @@ function fetchPWAInfo() {
             wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
             wd = getBd(wordcloud[i], "width");
             if (wd > ((0.9 * wiD) - op.fN)) {
-                wordcloud[i].innerHTML = "";
+                wordcloud[i].remove();
             }
+            
             // add random text colors suitable for dark+light themes
         }
     }
