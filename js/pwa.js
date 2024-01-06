@@ -51,6 +51,8 @@ function fetchPWAInfo() {
     const greeting = document.querySelector('.pwa .home #greeting');
     const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
 
+    var selectedWords = [];
+
     sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
 
     greeting.innerHTML = timeOfDay();
@@ -60,7 +62,12 @@ function fetchPWAInfo() {
     for (i = 0; i < wordcloud.length; i++) { // get words from skills in msc.js
         var random1 = getRandomInt(1, 5),
             random2 = getRandomInt(0, 10);
-        wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
+        if (selectedWords.indexOf(dev.skills["s" + random1][random2]) === -1 && wInfo_i["s" + random1][random2] < ((0.9 * wiD) - op.fN)) {
+            selectedWords[selectedWords.length] = dev.skills["s" + random1][random2];
+            wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
+
+            // add random text colors suitable for dark+light themes
+        }
     }
 }
 

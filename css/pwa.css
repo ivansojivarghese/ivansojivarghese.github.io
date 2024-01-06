@@ -1,6 +1,11 @@
 
 /* pwa styles */
 
+.pwa .content {
+    margin-right: 1em;
+    width: calc(100% - 1em);
+}
+
 .pwa .container {
     display: flex;
     margin-bottom: 0.5rem;
