@@ -1,4 +1,8 @@
 
+var sI_1 = {},
+    sI_2 = {},
+    sI_3 = {};
+
 function navButtonActive(b, e) {
     var target = e.currentTarget;
     const buttons = document.querySelectorAll('.pwa .navbar .button');
