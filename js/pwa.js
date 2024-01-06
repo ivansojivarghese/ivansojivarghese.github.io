@@ -59,6 +59,13 @@ function fetchPWAInfo() {
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
+    for (var a in el.wCh) {
+        for (b = 0; b <= el.wCh[a].length - 1; b++) {
+            var wd = getBd(el.wCh[a][b], "width"); // get width
+            wInfo_i[a][b] = wd; // update indiv. word widths
+        }
+    }
+
     for (i = 0; i < wordcloud.length; i++) { // get words from skills in msc.js
         var random1 = getRandomInt(1, 5),
             random2 = getRandomInt(0, 10);
