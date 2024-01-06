@@ -102,8 +102,6 @@ sections.addEventListener("scroll", function(event) {
     sectionScroll = true;
     sectionScrollPos = sections.scrollTop;
 
-    console.log(sectionScrollPos);
-
     // Clear our timeout throughout the scroll
 	window.clearTimeout(isScrolling);
 
