@@ -68,6 +68,7 @@ function fetchPWAInfo() {
             wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
             wd = getBd(wordcloud[i], "width");
             if (wd > ((0.9 * wiD) - op.fN)) {
+                wordcloud[i].style.display = "none";
                 wordcloud[i].remove();
             }
             
