@@ -80,12 +80,14 @@ function fetchPWAInfo() {
             if (bright < 127) {
                 while (bright < 127 && hsb[2] >= 0 && hsb[2] <= 100) {
                     hsb[2] += step;
-                    bright = getBrightness(HSBToRGB(hsb[0], hsb[1], hsb[2]));
+                    var rgb2 = HSBToRGB(hsb[0], hsb[1], hsb[2]);
+                    bright = getBrightness(rgb2[0], rgb2[1], rgb2[2]);
                 }
             } else {
                 while (bright > 127 && hsb[2] >= 0 && hsb[2] <= 100) {
                     hsb[2] -= step;
-                    bright = getBrightness(HSBToRGB(hsb[0], hsb[1], hsb[2]));
+                    var rgb2 = HSBToRGB(hsb[0], hsb[1], hsb[2]);
+                    bright = getBrightness(rgb2[0], rgb2[1], rgb2[2]);
                 }
             }
 
