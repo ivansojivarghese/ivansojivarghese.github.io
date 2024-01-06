@@ -68,13 +68,28 @@ function fetchPWAInfo() {
         var random1 = getRandomInt(1, 5),
             random2 = getRandomInt(0, 10),
             wd = 0,
-            textColor = [];
+            textColor = [], hsb = [], step = 0.01, bright = 0;
         if (selectedWords.indexOf(dev.skills["s" + random1][random2]) === -1) {
             selectedWords[selectedWords.length] = dev.skills["s" + random1][random2];
             wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
  
             textColor = randomRGB(); // add random text colors suitable for dark+light themes
-            console.log(RGBToHSB(textColor[0], textColor[1], textColor[2]));
+            hsb = RGBToHSB(textColor[0], textColor[1], textColor[2]);
+            bright = getBrightness(textColor[0], textColor[1], textColor[2]);
+
+            if (bright < 127) {
+                while (bright < 127 && hsb[2] >= 0 && hsb[2] <= 1) {
+                    hsb[2] += step;
+                    bright = getBrightness(HSBToRGB(hsb[0], hsb[1], hsb[2]));
+                }
+            } else {
+                while (bright > 127 && hsb[2] >= 0 && hsb[2] <= 1) {
+                    hsb[2] -= step;
+                    bright = getBrightness(HSBToRGB(hsb[0], hsb[1], hsb[2]));
+                }
+            }
+
+            // console.log();
 
             wd = getBd(wordcloud[i], "width");
             if (wd > ((0.9 * wiD) - op.fN)) {
@@ -109,6 +124,10 @@ function randomRGB() {
     return [r, g, b];
 }
 
+function getBrightness(r, g, b) {
+    return ((r * 299) + (g * 587) + (b * 114)) / 1000;
+}
+
 const RGBToHSB = (r, g, b) => {
     r /= 255;
     g /= 255;
@@ -118,6 +137,14 @@ const RGBToHSB = (r, g, b) => {
     const h =
         n === 0 ? 0 : n && v === r ? (g - b) / n : v === g ? 2 + (b - r) / n : 4 + (r - g) / n;
     return [60 * (h < 0 ? h + 6 : h), v && (n / v) * 100, v * 100];
+};
+
+const HSBToRGB = (h, s, b) => {
+    s /= 100;
+    b /= 100;
+    const k = (n) => (n + h / 60) % 6;
+    const f = (n) => b * (1 - s * Math.max(0, Math.min(k(n), 4 - k(n), 1)));
+    return [255 * f(5), 255 * f(3), 255 * f(1)];
 };
 
 var isScrolling; // REFERENCE: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
