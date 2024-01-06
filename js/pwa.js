@@ -78,6 +78,10 @@ function fetchPWAInfo() {
             }
             
             // add random text colors suitable for dark+light themes
+            
+        } else {
+            wordcloud[i].style.display = "none";
+            wordcloud[i].remove();
         }
     }
 }
