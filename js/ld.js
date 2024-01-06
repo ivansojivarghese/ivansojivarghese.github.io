@@ -760,7 +760,7 @@ function docRead() {
 
                 normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
-                document.title = "Ivan";
+                document.title = "Ivan Varghese";
                 setTimeout(function() {
                     e_Fd(pwa_body, false);
                     startLoadPWA();
