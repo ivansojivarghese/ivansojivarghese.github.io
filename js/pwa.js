@@ -67,7 +67,7 @@ function fetchPWAInfo() {
             selectedWords[selectedWords.length] = dev.skills["s" + random1][random2];
             wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
             wd = getBd(wordcloud[i], "width");
-            if (wd < ((0.9 * wiD) - op.fN)) {
+            if (wd > ((0.9 * wiD) - op.fN)) {
                 wordcloud[i].innerHTML = "";
             }
             // add random text colors suitable for dark+light themes
