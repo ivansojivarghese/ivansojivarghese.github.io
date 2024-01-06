@@ -3,6 +3,8 @@ var sI_1 = {},
     sI_2 = {},
     sI_3 = {};
 
+var sectionScroll = false;
+
 const sections = document.querySelector('.pwa .sections');
 
 function navButtonActive(b, e) {
@@ -93,6 +95,20 @@ function startLoadPWA() {
     e_Ic(sI_3, null, sI_3.n);
 }
 
+var isScrolling; // REFERENCE: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
+
 sections.addEventListener("scroll", function() {
-    pos.c = true;
-});
+    sectionScroll = true;
+
+    // Clear our timeout throughout the scroll
+	window.clearTimeout(isScrolling);
+
+	// Set a timeout to run after scrolling ends
+	isScrolling = setTimeout(function() {
+
+		// Run the callback
+		sectionScroll = false;
+
+	}, dev.t);
+
+}, false);

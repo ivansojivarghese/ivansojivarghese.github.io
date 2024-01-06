@@ -1302,8 +1302,8 @@ function pL() { // site parameters loop
         op.p.tA = op.d.getTime();
     }
 
-    console.log(pos.c);
-    
+    console.log(sectionScroll);
+
     /*
     if (rL.i) {
         if ((((getBd(pg.sc.c, "bottom") - aH) < op.sDis) || (Math.abs(getBd(pg.sc.c, "top")) < op.sDis)) && op.asV) { // extreme-ends scrolling
