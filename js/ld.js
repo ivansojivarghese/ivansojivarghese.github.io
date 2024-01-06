@@ -1453,6 +1453,8 @@ function errorCheck() { // check for errors
         bLeft = Math.round(b.left),
         bRight = Math.round(b.right);
 
+    var client_L = null;
+
     // const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
 
     eR.a = ["fC", "tr", "fS", "mt", "dt", "ck", "vp", "or", "dp", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
@@ -1461,9 +1463,12 @@ function errorCheck() { // check for errors
 
     apiInit = op.d.getTime(); // start API load time (at init)
     clientAPI(); // get user IP information + proxy usage status (no arguments)
-    setTimeout(function() {
-        ipAPI(clientAPIres.ipString); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
-    }, dev.i);
+    client_L = setInterval(function() {
+        if (clientAPIres.online) {
+            clearInterval(client_L);
+            ipAPI(clientAPIres.ipString); // get user IP information API (ENTER A region IP value for testing, "/" + IP Address)
+        }
+    }, op.t);
     
     // clientAPI(); // get user IP information + proxy usage status (no arguments)
     /*
