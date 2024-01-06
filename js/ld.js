@@ -750,6 +750,10 @@ function docRead() {
                                         if (weatherAPIres.online) {
                                             clearInterval(weather_L);
                                             fetchPWAInfo();
+                                            setTimeout(function() {
+                                                e_Fd(pwa_body, false);
+                                                startLoadPWA();
+                                            }, 10);
                                         }
                                     }, op.t);
                                 }
@@ -761,10 +765,6 @@ function docRead() {
                 normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
                 document.title = "Ivan Varghese";
-                setTimeout(function() {
-                    e_Fd(pwa_body, false);
-                    startLoadPWA();
-                }, 10);
 
                 rL.i = true; // end load
                 rL.s = true;
