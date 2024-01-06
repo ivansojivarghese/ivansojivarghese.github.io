@@ -3,7 +3,8 @@ var sI_1 = {},
     sI_2 = {},
     sI_3 = {};
 
-var sectionScroll = false;
+var sectionScroll = false,
+    sectionScrollPos = 0;
 
 const sections = document.querySelector('.pwa .sections');
 
@@ -97,8 +98,11 @@ function startLoadPWA() {
 
 var isScrolling; // REFERENCE: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
 
-sections.addEventListener("scroll", function() {
+sections.addEventListener("scroll", function(event) {
     sectionScroll = true;
+    sectionScrollPos = sections.scrollTop;
+
+    console.log(sectionScrollPos);
 
     // Clear our timeout throughout the scroll
 	window.clearTimeout(isScrolling);
