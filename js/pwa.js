@@ -3,6 +3,8 @@ var sI_1 = {},
     sI_2 = {},
     sI_3 = {};
 
+const sections = document.querySelector('.pwa .sections');
+
 function navButtonActive(b, e) {
     var target = e.currentTarget;
     const buttons = document.querySelectorAll('.pwa .navbar .button');
@@ -90,3 +92,7 @@ function startLoadPWA() {
     e_Ic(sI_2, null, sI_2.n);
     e_Ic(sI_3, null, sI_3.n);
 }
+
+sections.addEventListener("scroll", function() {
+    pos.c = true;
+});
