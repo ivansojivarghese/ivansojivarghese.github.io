@@ -33,6 +33,8 @@
 
 .pwa .content h2 {
     font-size: 4rem;
+    margin-top: 1rem;
+    width: 100%;
 }
 
 .pwa .content h5 {
