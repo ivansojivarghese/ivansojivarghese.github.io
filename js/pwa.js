@@ -49,12 +49,19 @@ function fetchPWAInfo() {
     const temp = document.querySelector('.pwa .weather #temp');
     const unit = document.querySelector('.pwa .weather #unit');
     const greeting = document.querySelector('.pwa .home #greeting');
+    const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
 
     sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
 
     greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
+
+    for (i = 0; i < wordcloud.length; i++) { // get words from skills in msc.js
+        var random1 = getRandomInt(1, 5),
+            random2 = getRandomInt(0, 10);
+        wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
+    }
 }
 
 function startLoadPWA() {
