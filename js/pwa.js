@@ -78,12 +78,12 @@ function fetchPWAInfo() {
             bright = getBrightness(textColor[0], textColor[1], textColor[2]);
 
             if (bright < 127) {
-                while (bright < 127 && hsb[2] >= 0 && hsb[2] <= 1) {
+                while (bright < 127 && hsb[2] >= 0 && hsb[2] <= 100) {
                     hsb[2] += step;
                     bright = getBrightness(HSBToRGB(hsb[0], hsb[1], hsb[2]));
                 }
             } else {
-                while (bright > 127 && hsb[2] >= 0 && hsb[2] <= 1) {
+                while (bright > 127 && hsb[2] >= 0 && hsb[2] <= 100) {
                     hsb[2] -= step;
                     bright = getBrightness(HSBToRGB(hsb[0], hsb[1], hsb[2]));
                 }
