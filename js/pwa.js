@@ -59,20 +59,17 @@ function fetchPWAInfo() {
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
-    for (var a in el.wCh) {
-        for (b = 0; b <= el.wCh[a].length - 1; b++) {
-            var wd = getBd(el.wCh[a][b], "width"); // get width
-            wInfo_i[a][b] = wd; // update indiv. word widths
-        }
-    }
-
     for (i = 0; i < wordcloud.length; i++) { // get words from skills in msc.js
         var random1 = getRandomInt(1, 5),
-            random2 = getRandomInt(0, 10);
-        if (selectedWords.indexOf(dev.skills["s" + random1][random2]) === -1 && wInfo_i["s" + random1][random2] < ((0.9 * wiD) - op.fN)) {
+            random2 = getRandomInt(0, 10),
+            wd = 0;
+        if (selectedWords.indexOf(dev.skills["s" + random1][random2]) === -1) {
             selectedWords[selectedWords.length] = dev.skills["s" + random1][random2];
             wordcloud[i].innerHTML = dev.skills["s" + random1][random2];
-
+            wd = getBd(wordcloud[i], "width");
+            if (wd < ((0.9 * wiD) - op.fN)) {
+                wordcloud[i].innerHTML = "";
+            }
             // add random text colors suitable for dark+light themes
         }
     }
