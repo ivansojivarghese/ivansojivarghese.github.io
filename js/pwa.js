@@ -9,7 +9,7 @@ var sectionScroll = false,
 const sections = document.querySelector('.pwa .sections');
 
 function navButtonActive(b, e) {
-    var target = e.currentTarget;
+    var target = e.currentTarget || e;
     const buttons = document.querySelectorAll('.pwa .navbar .button');
 
     for (i = 0; i < buttons.length; i++) { // remove from other non-targets
@@ -58,9 +58,13 @@ function fetchPWAInfo() {
     const greeting = document.querySelector('.pwa .home #greeting');
     const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
 
+    const homeBtn = document.querySelector('.pwa .navbar .button.home');
+
     var selectedWords = [];
 
     sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
+
+    navButtonActive('home', homeBtn);
 
     greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
