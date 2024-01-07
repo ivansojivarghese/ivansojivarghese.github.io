@@ -88,12 +88,12 @@
 	 background: white;
 	 transform: translate(-30%, -50%);
 }
- .weather-container ul li .icon-container.cloudy .cloud {
-	 position: absolute;
-	 background: white;
-	 top: 50%;
-	 left: 50%;
-	 transform: translate(-30%, -50%);
+.weather-container ul li .icon-container.cloudy .cloud {
+	position: absolute;
+	background: white;
+	top: 1.5rem;
+	left: 50%;
+	transform: translate(-30%, -50%);
 }
 .weather-container ul li .icon-container.snowy .cloud {
 	position: absolute;
