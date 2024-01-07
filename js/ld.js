@@ -774,24 +774,6 @@ function docRead() {
 
                                                 }, 10);
                                             });
-
-                                            /*
-                                            $(tempIcon).on("load", function() {
-                                                fetchPWAInfo();
-                                                setTimeout(function() {
-
-                                                    puller.classList.add('shrinkDown');
-
-                                                    setTimeout(function() {
-                                                        resetRefresh();
-                                                        pwa_Load = true;
-                                                    }, op.t);
-
-                                                    e_Fd(pwa_body, false);
-                                                    startLoadPWA();
-
-                                                }, 10);
-                                            });*/
                                         }
                                     }, op.t);
                                 }

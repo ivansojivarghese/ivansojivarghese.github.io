@@ -50,18 +50,18 @@
  .weather-container ul li .icon-container.bad-weather {
 	 background: #b1b2bf;
 }
- .weather-container ul li .icon-container.partly-cloudy .cloud {
-	 transform: scale(0.75);
-	 position: absolute;
-	 top: 57px;
-	 left: 43px;
-	 background-color: white;
+.weather-container ul li .icon-container.partly-cloudy .cloud {
+	transform: scale(0.75);
+	position: absolute;
+	left: 0.78rem;
+	top: 1.04rem;
+	background-color: white;
 }
- .weather-container ul li .icon-container.partly-cloudy .sun .shadow {
-	 position: absolute;
-	 top: 55px;
-	 left: -14px;
-	 height: 45px;
+.weather-container ul li .icon-container.partly-cloudy .sun .shadow {
+	position: absolute;
+	top: 1.1rem;
+	left: -0.28rem;
+	height: 0.9rem;
 }
  .weather-container ul li .icon-container.partly-cloudy .moon .shadow {
 	 position: absolute;
