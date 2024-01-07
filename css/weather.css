@@ -116,8 +116,8 @@
 	left: 1.8rem;
 	transform: scale(0.35);
 }
- .weather-container ul li .icon-container.rain.mostly-cloudy .sun {
-	 top: -20px;
+.weather-container ul li .icon-container.rain.mostly-cloudy .sun {
+	top: -0.1rem;
 }
  .weather-container ul li .icon-container.rain.snowy .snow {
 	 transform: scale(0.7);
