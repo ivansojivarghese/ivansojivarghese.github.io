@@ -155,29 +155,29 @@
 	 height: 20px;
 	 width: 4px;
 }
- .weather-container ul li .icon-container.rain .cloud {
-	 position: absolute;
-	 background: white;
-	 top: 30px;
-	 left: 50%;
-	 transform: translate(-30%, 0%) scale(0.9);
+.weather-container ul li .icon-container.rain .cloud {
+	position: absolute;
+	background: white;
+	top: 0.85rem;
+	left: 50%;
+	transform: translate(-30%, 0%) scale(0.9);
 }
  .weather-container ul li .icon-container.rain .rain-drop {
 	 position: absolute;
 	 transform: scale(0.25);
 }
- .weather-container ul li .icon-container.rain .rain-drop:first-child {
-	 top: 66px;
-	 left: 34px;
+.weather-container ul li .icon-container.rain .rain-drop:first-child {
+	top: 1.52rem;
+	left: 0.68rem;
 }
- .weather-container ul li .icon-container.rain .rain-drop:nth-child(2) {
-	 top: 81px;
-	 left: 50%;
-	 transform: translate(-50%, 0) scale(0.25);
+.weather-container ul li .icon-container.rain .rain-drop:nth-child(2) {
+	top: 1.82rem;
+	left: 50%;
+	transform: translate(-50%, 0) scale(0.25);
 }
- .weather-container ul li .icon-container.rain .rain-drop:nth-child(3) {
-	 top: 66px;
-	 left: 65px;
+.weather-container ul li .icon-container.rain .rain-drop:nth-child(3) {
+	top: 1.52rem;
+	left: 1.3rem;
 }
  .weather-container ul li .icon-container.thunderstorms .lightning {
 	 position: absolute;
@@ -295,23 +295,23 @@
 	 border-radius: 50%;
 	 background: #46b7e0;
 }
- .rain-drop {
-	 width: 50px;
-	 height: 50px;
-	 background: #01e5ff;
-	 border-radius: 50%;
-	 position: relative;
+.rain-drop {
+	width: 1rem;
+	height: 1rem;
+	background: #01e5ff;
+	border-radius: 50%;
+	position: relative;
 }
- .rain-drop:after {
-	 content: "";
-	 position: absolute;
-	 top: -10%;
-	 left: 50%;
-	 width: 50%;
-	 height: 50%;
-	 border-radius: 2px;
-	 background: inherit;
-	 transform: translate(-50%, 0) rotate(45deg);
+.rain-drop:after {
+	content: "";
+	position: absolute;
+	top: -10%;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+	border-radius: 0.04rem;
+	background: inherit;
+	transform: translate(-50%, 0) rotate(45deg);
 }
 .snow {
 	height: 0.8rem;
