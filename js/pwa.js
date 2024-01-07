@@ -34,12 +34,7 @@ function navButtonActive(b, e) {
         e_Fd(target.children[0].children[0], false); 
         target.classList.add("buttonActive");
 
-        /*
-        navigator.vibrate([
-            100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100,
-          ]); // Vibrate 'SOS' in Morse.*/
-
-        navigator.vibrate(200); // vibrate for 200ms
+        navigator.vibrate(100); // vibrate for 200ms
     }
 }
 
