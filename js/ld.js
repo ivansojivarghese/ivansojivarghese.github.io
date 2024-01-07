@@ -763,6 +763,8 @@ function docRead() {
                                                     resetRefresh();
                                                 }, op.t);
 
+                                                rL.i = true; // end load
+
                                                 e_Fd(pwa_body, false);
                                                 startLoadPWA();
 
@@ -779,7 +781,6 @@ function docRead() {
                 pwa_body.classList.remove("d_n");
                 document.title = "Ivan Varghese";
 
-                rL.i = true; // end load
                 rL.s = true;
 
             } else if (devError) {
