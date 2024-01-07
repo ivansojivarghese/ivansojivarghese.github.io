@@ -732,7 +732,7 @@ function docRead() {
                     }
                 }
             } else if (!devError && op.pwa.s && !rL.i) { // pwa
-                var client_L = null, ip_L = null, weather_L = null, pwa_Load = false;
+                var client_L = null, ip_L = null, weather_L = null;
 
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');

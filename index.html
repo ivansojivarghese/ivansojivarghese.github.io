@@ -1637,6 +1637,8 @@
             let _startY;
             const contentBody = document.querySelector('body');
             const puller = document.querySelector('.puller');
+
+            var pwa_Load = false;
             
             contentBody.addEventListener('touchstart', e => {
                 _startY = e.touches[0].pageY;
