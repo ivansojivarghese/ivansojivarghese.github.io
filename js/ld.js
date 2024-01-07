@@ -758,8 +758,7 @@ function docRead() {
                                             clearInterval(weather_L);
 
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
-                                            $(tempIcon).load("weather/partly_cloudy.html");
-                                            $(tempIcon).on("load", function() {
+                                            $(tempIcon).load("weather/partly_cloudy.html", function() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
@@ -775,6 +774,24 @@ function docRead() {
 
                                                 }, 10);
                                             });
+
+                                            /*
+                                            $(tempIcon).on("load", function() {
+                                                fetchPWAInfo();
+                                                setTimeout(function() {
+
+                                                    puller.classList.add('shrinkDown');
+
+                                                    setTimeout(function() {
+                                                        resetRefresh();
+                                                        pwa_Load = true;
+                                                    }, op.t);
+
+                                                    e_Fd(pwa_body, false);
+                                                    startLoadPWA();
+
+                                                }, 10);
+                                            });*/
                                         }
                                     }, op.t);
                                 }
