@@ -72,7 +72,7 @@
 .weather-container ul li .icon-container.mostly-cloudy .sun {
 	transform: scale(0.5);
 	position: absolute;
-	top: -0.1rem;
+	top: 0rem;
 	left: 0.9rem;
 }
  .weather-container ul li .icon-container.mostly-cloudy .moon {
@@ -81,12 +81,12 @@
 	 top: -15px;
 	 left: 55px;
 }
- .weather-container ul li .icon-container.mostly-cloudy .cloud {
-	 position: absolute;
-	 top: 50%;
-	 left: 50%;
-	 background: white;
-	 transform: translate(-30%, -50%);
+.weather-container ul li .icon-container.mostly-cloudy .cloud {
+	position: absolute;
+	top: 1.5rem;
+	left: 50%;
+	background: white;
+	transform: translate(-30%, -50%);
 }
 .weather-container ul li .icon-container.cloudy .cloud {
 	position: absolute;
