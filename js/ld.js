@@ -757,7 +757,10 @@ function docRead() {
                                             fetchPWAInfo();
                                             setTimeout(function() {
 
-                                                puller.classList.add('shrink');
+                                                puller.classList.add('shrinkDown');
+                                                e_Fd(puller, true);
+
+                                                // resetRefresh()
 
                                                 e_Fd(pwa_body, false);
                                                 startLoadPWA();

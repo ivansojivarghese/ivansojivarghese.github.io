@@ -5,7 +5,7 @@
     margin-right: 1rem;
 }
 
-.pwa .puller.shrink {
+.puller.shrinkDown {
     transform: scale(0);
     opacity: 0;
 }
