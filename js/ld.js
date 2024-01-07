@@ -759,7 +759,9 @@ function docRead() {
 
                                                 puller.classList.add('shrinkDown');
 
-                                                resetRefresh();
+                                                setTimeout(function() {
+                                                    resetRefresh();
+                                                }, op.t);
 
                                                 e_Fd(pwa_body, false);
                                                 startLoadPWA();
