@@ -98,7 +98,7 @@
 .weather-container ul li .icon-container.snowy .cloud {
 	position: absolute;
 	background: white;
-	top: 0.6rem;
+	top: 0.85rem;
 	left: 50%;
 	transform: translate(-30%, 0%) scale(0.9);
 }
@@ -107,12 +107,12 @@
 	 background: white;
 }
 .weather-container ul li .icon-container.snowy .snow:first-child {
-	top: 1.33rem;
+	top: 1.58rem;
 	left: 1.2rem;
 	transform: scale(0.7);
 }
 .weather-container ul li .icon-container.snowy .snow:nth-child(2) {
-	top: 1.46rem;
+	top: 1.71rem;
 	left: 1.8rem;
 	transform: scale(0.35);
 }
