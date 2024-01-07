@@ -732,7 +732,8 @@ function docRead() {
                     }
                 }
             } else if (!devError && op.pwa.s && !rL.i) { // pwa
-                var client_L = null, ip_L = null, weather_L = null;
+                var client_L = null, ip_L = null, weather_L = null, pwa_Load = false;
+
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
 
@@ -761,9 +762,8 @@ function docRead() {
 
                                                 setTimeout(function() {
                                                     resetRefresh();
+                                                    pwa_Load = true;
                                                 }, op.t);
-
-                                                rL.i = true; // end load
 
                                                 e_Fd(pwa_body, false);
                                                 startLoadPWA();
@@ -781,6 +781,7 @@ function docRead() {
                 pwa_body.classList.remove("d_n");
                 document.title = "Ivan Varghese";
 
+                rL.i = true; // end load
                 rL.s = true;
 
             } else if (devError) {
