@@ -154,6 +154,10 @@
     font-weight: bold;
 }
 
+.pwa .navbar .button.home .img {
+    background-image: url("../pwa/home.png");
+}
+
 .pwa .navbar .button.clicks .img {
     background-image: url("../pwa/clicks.png");
 }
