@@ -759,21 +759,22 @@ function docRead() {
 
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
                                             $(tempIcon).load("weather/mostly_sunny.html");
-
-                                            fetchPWAInfo();
-                                            setTimeout(function() {
-
-                                                puller.classList.add('shrinkDown');
-
+                                            $(tempIcon).on("load", function() {
+                                                fetchPWAInfo();
                                                 setTimeout(function() {
-                                                    resetRefresh();
-                                                    pwa_Load = true;
-                                                }, op.t);
 
-                                                e_Fd(pwa_body, false);
-                                                startLoadPWA();
+                                                    puller.classList.add('shrinkDown');
 
-                                            }, 10);
+                                                    setTimeout(function() {
+                                                        resetRefresh();
+                                                        pwa_Load = true;
+                                                    }, op.t);
+
+                                                    e_Fd(pwa_body, false);
+                                                    startLoadPWA();
+
+                                                }, 10);
+                                            });
                                         }
                                     }, op.t);
                                 }

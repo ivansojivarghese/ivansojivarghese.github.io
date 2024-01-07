@@ -1,35 +1,19 @@
 
 /* REFERENCE: https://codepen.io/semajtwin/pen/NxzOza?editors=1100 @ James Grima */
 
-/* @import url(https://fonts.googleapis.com/css?family=Roboto);
- *, *:before, *:after {
-	 box-sizing: border-box;
-}
- html {
-	 font-family: 'Roboto', sans-serif;
-	 font-size: 14px;
-	 text-align: center;
-}
- h1 {
-	 margin-top: 30px;
-	 color: #E4E3E3;
-	 font-weight: 100;
-}
- */
-
 .weather-container {
 	width: 100%;
 	margin: 0 auto;
 }
- .weather-container:after {
-	 content: "";
-	 display: table;
-	 clear: both;
+.weather-container:after {
+	content: "";
+	display: table;
+	clear: both;
 }
- .weather-container ul {
-	 margin: 0;
-	 padding: 0;
-	 list-style: none;
+.weather-container ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
  .weather-container ul li .icon-container {
 	background: #46b7e0;
@@ -44,13 +28,6 @@
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
 }
-/*
- .weather-container ul li .icon-container .weather-type {
-	 position: absolute;
-	 left: 0;
-	 bottom: 10px;
-	 width: 100%;
-}*/
 .weather-container ul li .icon-container.mostly-sunny .cloud, .weather-container ul li .icon-container.isolated-clouds .cloud {
 	transform: scale(0.45);
 	position: absolute;
