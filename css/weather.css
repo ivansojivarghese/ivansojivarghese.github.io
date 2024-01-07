@@ -1,4 +1,6 @@
+
 /* REFERENCE: https://codepen.io/semajtwin/pen/NxzOza?editors=1100 @ James Grima */
+
 /* @import url(https://fonts.googleapis.com/css?family=Roboto);
  *, *:before, *:after {
 	 box-sizing: border-box;
@@ -14,6 +16,12 @@
 	 font-weight: 100;
 }
  */
+
+.icon-container {
+	width: 2rem;
+	height: 2rem;
+}
+
  .weather-container {
 	 width: 510px;
 	 margin: 0 auto;
