@@ -755,6 +755,9 @@ function docRead() {
                                             clearInterval(weather_L);
                                             fetchPWAInfo();
                                             setTimeout(function() {
+
+                                                puller.classList.add('shrink');
+
                                                 e_Fd(pwa_body, false);
                                                 startLoadPWA();
                                             }, 10);
