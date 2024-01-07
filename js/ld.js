@@ -758,15 +758,11 @@ function docRead() {
                                             setTimeout(function() {
 
                                                 puller.classList.add('shrinkDown');
-                                                e_Fd(puller, true);
 
-                                                // resetRefresh()
+                                                resetRefresh();
 
                                                 e_Fd(pwa_body, false);
                                                 startLoadPWA();
-
-                                                rL.i = true; // end load
-                                                rL.s = true;
 
                                             }, 10);
                                         }
@@ -780,6 +776,9 @@ function docRead() {
                 normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
                 document.title = "Ivan Varghese";
+
+                rL.i = true; // end load
+                rL.s = true;
 
             } else if (devError) {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");

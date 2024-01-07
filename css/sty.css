@@ -237,7 +237,6 @@ body.refreshing .puller.shrink {
 .puller {
     z-index: 10000;
     border-radius: 3rem;
-    width: 12rem;
     text-align: center;
     width: 11rem;
     height: 3rem;

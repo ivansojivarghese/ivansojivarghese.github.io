@@ -1615,6 +1615,24 @@
                 e_Fd(pullerDiv, false);
             }
 
+            function resetRefresh() {
+                dotsLoad = false;
+
+                const puller = document.querySelector('.puller');
+                const pullerP = document.querySelector('.puller p');
+                const pullerDiv = document.querySelector('.puller div');
+
+                e_Fd(puller, true);
+                puller.classList.remove("shrinkDown");
+
+                e_Fd(pullerDiv, true);
+
+                puller.style.top = "-1rem";
+                puller.style.width = "11rem";
+                puller.style.left = "calc(50% - 11rem / 2)";
+                e_Fd(pullerP, false);
+            }
+
             var refreshX = false;
             let _startY;
             const contentBody = document.querySelector('body');
