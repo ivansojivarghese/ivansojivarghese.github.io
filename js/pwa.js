@@ -34,7 +34,7 @@ function navButtonActive(b, e) {
         e_Fd(target.children[0].children[0], false); 
         target.classList.add("buttonActive");
 
-        navigator.vibrate(100); // vibrate for 200ms
+        navigator.vibrate(50); // vibrate
     }
 }
 
