@@ -94,8 +94,6 @@ function fetchPWAInfo() {
             rgb = HSBToRGB(hsb[0], hsb[1], hsb[2]);
             wordcloud[i].style.color = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
 
-            // console.log();
-
             wd = getBd(wordcloud[i], "width");
             if (wd > ((0.9 * wiD) - op.fN)) {
                 wordcloud[i].style.display = "none";
@@ -113,9 +111,14 @@ function startLoadPWA() {
     const stat2 = document.querySelector('.pwa .home #stat2');
     const stat3 = document.querySelector('.pwa .home #stat3');
 
+    const disVar = document.querySelector('.pwa #distanceVariantPWA');
+
     sI_1.e = stat1;
     sI_2.e = stat2;
     sI_3.e = stat3;
+
+    sI_1.n = (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
+    disVar.innerHTML = (op.lang === "gb") ? "km" : "miles";
 
     e_Ic(sI_1, null, sI_1.n);
     e_Ic(sI_2, null, sI_2.n);
