@@ -756,6 +756,10 @@ function docRead() {
                                     weather_L = setInterval(function() {
                                         if (weatherAPIres.online && countryAPIres.online) {
                                             clearInterval(weather_L);
+
+                                            const tempIcon = document.querySelector('.pwa .weatherIcon');
+                                            $(tempIcon).load("weather/mostly_sunny.html");
+
                                             fetchPWAInfo();
                                             setTimeout(function() {
 

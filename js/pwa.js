@@ -53,7 +53,6 @@ function timeOfDay() {
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
 
-    const tempIcon = document.querySelector('.pwa .weatherIcon');
     const temp = document.querySelector('.pwa .weather #temp');
     const unit = document.querySelector('.pwa .weather #unit');
     const greeting = document.querySelector('.pwa .home #greeting');
@@ -64,7 +63,6 @@ function fetchPWAInfo() {
     sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
 
     greeting.innerHTML = timeOfDay();
-    $(tempIcon).load("weather/mostly_sunny.html");
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
