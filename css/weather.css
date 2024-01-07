@@ -95,26 +95,26 @@
 	 left: 50%;
 	 transform: translate(-30%, -50%);
 }
- .weather-container ul li .icon-container.snowy .cloud {
-	 position: absolute;
-	 background: white;
-	 top: 30px;
-	 left: 50%;
-	 transform: translate(-30%, 0%) scale(0.9);
+.weather-container ul li .icon-container.snowy .cloud {
+	position: absolute;
+	background: white;
+	top: 0.6rem;
+	left: 50%;
+	transform: translate(-30%, 0%) scale(0.9);
 }
  .weather-container ul li .icon-container.snowy .snow {
 	 position: absolute;
 	 background: white;
 }
- .weather-container ul li .icon-container.snowy .snow:first-child {
-	 top: 80px;
-	 left: 60px;
-	 transform: scale(0.7);
+.weather-container ul li .icon-container.snowy .snow:first-child {
+	top: 1.33rem;
+	left: 1.2rem;
+	transform: scale(0.7);
 }
- .weather-container ul li .icon-container.snowy .snow:nth-child(2) {
-	 top: 73px;
-	 left: 90px;
-	 transform: scale(0.35);
+.weather-container ul li .icon-container.snowy .snow:nth-child(2) {
+	top: 1.46rem;
+	left: 1.8rem;
+	transform: scale(0.35);
 }
  .weather-container ul li .icon-container.rain.mostly-cloudy .sun {
 	 top: -20px;
@@ -313,11 +313,11 @@
 	 background: inherit;
 	 transform: translate(-50%, 0) rotate(45deg);
 }
- .snow {
-	 height: 40px;
-	 width: 6px;
-	 background: #bebebe;
-	 position: relative;
+.snow {
+	height: 0.8rem;
+	width: 0.12rem;
+	background: #bebebe;
+	position: relative;
 }
  .snow:before, .snow:after {
 	 content: "";
