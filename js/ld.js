@@ -736,6 +736,10 @@ function docRead() {
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
 
+                const puller = document.querySelector('.puller');
+                e_Fd(puller, false);
+                endRefresh();
+
                 clientAPI();
                 setTimeout(function() {
                     client_L = setInterval(function() {
