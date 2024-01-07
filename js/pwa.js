@@ -117,6 +117,7 @@ function startLoadPWA() {
     sI_2.e = stat2;
     sI_3.e = stat3;
 
+    op.lang = engLangVar(countryAPIres.country);
     sI_1.n = (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
     disVar.innerHTML = (op.lang === "gb") ? "km" : "miles";
 

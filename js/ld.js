@@ -743,6 +743,7 @@ function docRead() {
                 endRefresh();
 
                 clientAPI();
+                countryAPI("");
                 setTimeout(function() {
                     client_L = setInterval(function() {
                         if (clientAPIres.online) {
@@ -753,7 +754,7 @@ function docRead() {
                                     weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
                                     clearInterval(ip_L);
                                     weather_L = setInterval(function() {
-                                        if (weatherAPIres.online) {
+                                        if (weatherAPIres.online && countryAPIres.online) {
                                             clearInterval(weather_L);
                                             fetchPWAInfo();
                                             setTimeout(function() {
