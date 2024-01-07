@@ -33,6 +33,10 @@ function navButtonActive(b, e) {
         target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
         e_Fd(target.children[0].children[0], false); 
         target.classList.add("buttonActive");
+
+        navigator.vibrate([
+            100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100,
+          ]); // Vibrate 'SOS' in Morse.
     }
 }
 
