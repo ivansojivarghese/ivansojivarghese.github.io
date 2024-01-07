@@ -17,14 +17,9 @@
 }
  */
 
-.icon-container {
-	width: 2rem;
-	height: 2rem;
-}
-
- .weather-container {
-	 width: 510px;
-	 margin: 0 auto;
+.weather-container {
+	width: 100%;
+	margin: 0 auto;
 }
  .weather-container:after {
 	 content: "";
@@ -37,25 +32,25 @@
 	 list-style: none;
 }
  .weather-container ul li .icon-container {
-	 width: 150px;
-	 height: 150px;
-	 background: #46b7e0;
-	 float: left;
-	 margin: 10px;
-	 padding: 10px;
-	 text-align: center;
-	 color: white;
-	 text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
-	 box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-	 position: relative;
-	 overflow: hidden;
+	background: #46b7e0;
+	float: left;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	width: 2rem;
+    height: 2rem;
+    padding: 0.35rem 0.5rem;
+    margin: calc((5rem - 2.7rem) / 2) 0;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
 }
+/*
  .weather-container ul li .icon-container .weather-type {
 	 position: absolute;
 	 left: 0;
 	 bottom: 10px;
 	 width: 100%;
-}
+}*/
  .weather-container ul li .icon-container.mostly-sunny .cloud, .weather-container ul li .icon-container.isolated-clouds .cloud {
 	 transform: scale(0.45);
 	 position: absolute;
@@ -257,16 +252,16 @@
 	 top: 67px;
 	 left: 76px;
 }
- .sun, .moon {
-	 width: 100px;
-	 height: 100px;
-	 position: relative;
-	 margin: 0 auto;
-	 overflow: hidden;
+.sun, .moon {
+	width: 2rem;
+	height: 2rem;
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
 }
- .sun {
-	 background: #fdda3f;
-	 border-radius: 50%;
+.sun {
+	background: #fdda3f;
+	border-radius: 50%;
 }
  .cloud {
 	 width: 50px;

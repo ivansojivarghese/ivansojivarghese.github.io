@@ -81,14 +81,18 @@
 
 .pwa .home .weatherIcon {
     width: 3rem;
+}
+
+/*
+.pwa .home .weatherIcon {
+    width: 3rem;
     padding: 0.35rem 0.5rem;
-    padding-left: 0.5rem;
     height: 2rem;
     margin: calc((5rem - 2.7rem) / 2) 0;
     background: #46b7e0;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
-}
+}*/
 
 .pwa .home .banner p {
     font-size: 1.5rem;
