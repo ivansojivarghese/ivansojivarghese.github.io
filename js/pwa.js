@@ -64,7 +64,7 @@ function fetchPWAInfo() {
     sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
 
     greeting.innerHTML = timeOfDay();
-    $(tempIcon).load("weather/sunny.html");
+    $(tempIcon).load("weather/mostly_sunny.html");
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
