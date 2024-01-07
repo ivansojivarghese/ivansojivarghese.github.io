@@ -69,11 +69,11 @@
 	 left: 15px;
 	 height: 31px;
 }
- .weather-container ul li .icon-container.mostly-cloudy .sun {
-	 transform: scale(0.5);
-	 position: absolute;
-	 top: -5px;
-	 left: 45px;
+.weather-container ul li .icon-container.mostly-cloudy .sun {
+	transform: scale(0.5);
+	position: absolute;
+	top: -0.1rem;
+	left: 0.9rem;
 }
  .weather-container ul li .icon-container.mostly-cloudy .moon {
 	 transform: scale(0.5) rotate(-5deg);
@@ -247,17 +247,17 @@
 	border-radius: 0% 20% 20% 0%;
 	position: relative;
 }
- .cloud.with-shadow .shadow {
-	 position: absolute;
-	 z-index: 10;
-	 width: 50px;
-	 left: 0px;
-	 height: 35px;
-	 top: -2px;
+.cloud.with-shadow .shadow {
+	position: absolute;
+	z-index: 10;
+	width: 1rem;
+	left: 0;
+	top: -0.04rem;
+	height: 0.7rem;
 }
- .cloud.with-shadow:before {
-	 z-index: 15;
-	 border-right: 2px solid rgba(208, 208, 208, 0.1);
+.cloud.with-shadow:before {
+	z-index: 15;
+	border-right: 0.04rem solid rgba(208, 208, 208, 0.1);
 }
  .cloud:before, .cloud:after {
 	 content: "";
