@@ -737,6 +737,7 @@ function docRead() {
                 const normal_body = document.querySelector('.non-pwa');
 
                 const puller = document.querySelector('.puller');
+                puller.style.top = "2rem";
                 e_Fd(puller, false);
                 endRefresh();
 
@@ -760,6 +761,10 @@ function docRead() {
 
                                                 e_Fd(pwa_body, false);
                                                 startLoadPWA();
+
+                                                rL.i = true; // end load
+                                                rL.s = true;
+
                                             }, 10);
                                         }
                                     }, op.t);
@@ -772,9 +777,6 @@ function docRead() {
                 normal_body.classList.add("d_n");
                 pwa_body.classList.remove("d_n");
                 document.title = "Ivan Varghese";
-
-                rL.i = true; // end load
-                rL.s = true;
 
             } else if (devError) {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
