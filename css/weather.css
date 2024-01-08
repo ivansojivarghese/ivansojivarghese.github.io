@@ -362,8 +362,8 @@
 	 top: -0.48rem;
 }
  .mist .mist-line > div {
-	 width: 0.52rem;
-	 height: 0.32rem;
+	 width: 0.32rem;
+	 height: 0.17rem;
 	 border-radius: 50%;
 	 float: left;
 	 border: 0.12rem solid #e3e3e3;
@@ -371,7 +371,7 @@
 }
  .mist .mist-line > div:nth-child(even) {
 	 clip-path: inset(0 0 50% 0);
-	 margin-top: 0.08rem;
+	 margin-top: 0.12rem;
 }
  .mist .mist-line > div:nth-child(odd) {
 	 clip-path: inset(50% 0 0 0);
