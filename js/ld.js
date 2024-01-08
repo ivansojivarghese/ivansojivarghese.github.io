@@ -758,7 +758,7 @@ function docRead() {
                                             clearInterval(weather_L);
 
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
-                                            $(tempIcon).load("weather/showers.html", function() {
+                                            $(tempIcon).load("weather/thunderstorms.html", function() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
