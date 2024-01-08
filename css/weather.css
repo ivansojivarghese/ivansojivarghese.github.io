@@ -334,9 +334,9 @@
 	 transform: rotate(-60deg);
 }
  .mist {
-	 width: 100px;
-	 height: 100px;
-	 clip-path: inset(0 15px 0 10px);
+	 width: 2rem;
+	 height: 2rem;
+	 clip-path: inset(0 0.3rem 0 0.2rem);
 }
  .mist .mist-line {
 	 position: relative;
@@ -347,31 +347,31 @@
 	 clear: both;
 }
  .mist .mist-line:nth-child(1) {
-	 top: 0px;
+	 top: 0;
 }
  .mist .mist-line:nth-child(2) {
-	 top: -6px;
+	 top: -0.12rem;
 }
  .mist .mist-line:nth-child(3) {
-	 top: -12px;
+	 top: -0.24rem;
 }
  .mist .mist-line:nth-child(4) {
-	 top: -18px;
+	 top: -0.36rem;
 }
  .mist .mist-line:nth-child(5) {
-	 top: -24px;
+	 top: -0.48rem;
 }
  .mist .mist-line > div {
-	 width: 26px;
-	 height: 16px;
+	 width: 0.52rem;
+	 height: 0.32rem;
 	 border-radius: 50%;
 	 float: left;
-	 border: 6px solid #e3e3e3;
-	 margin-left: -7px;
+	 border: 0.12rem solid #e3e3e3;
+	 margin-left: -0.14rem;
 }
  .mist .mist-line > div:nth-child(even) {
 	 clip-path: inset(0 0 50% 0);
-	 margin-top: 4px;
+	 margin-top: 0.08rem;
 }
  .mist .mist-line > div:nth-child(odd) {
 	 clip-path: inset(50% 0 0 0);
