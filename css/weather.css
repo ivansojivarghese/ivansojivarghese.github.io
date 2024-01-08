@@ -213,7 +213,7 @@
 	 position: absolute;
 }
  .weather-container ul li .icon-container.blizzard-weather .blizzard {
-	 margin: 0.9rem auto 0;
+	 margin: 0.8rem auto 0;
 }
  .weather-container ul li .icon-container.blizzard-weather .snow {
 	 transform: scale(0.5);
