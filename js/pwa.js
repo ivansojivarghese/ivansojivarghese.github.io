@@ -119,7 +119,8 @@ function startLoadPWA() {
     const stat2 = document.querySelector('.pwa .home #stat2');
     const stat3 = document.querySelector('.pwa .home #stat3');
 
-    var pwa_L = null;
+    var pwa_L = null,
+        stats_e = false;
 
     const disVar = document.querySelector('.pwa #distanceVariantPWA');
 
@@ -133,7 +134,8 @@ function startLoadPWA() {
 
     pwa_L = setInterval(function() {
         var statsTop = stats.getBoundingClientRect();
-        if (statsTop.top < aH) {
+        if (statsTop.top < aH && !stats_e) {
+            stats_e = true;
             e_Ic(sI_1, null, sI_1.n);
             e_Ic(sI_2, null, sI_2.n);
             e_Ic(sI_3, null, sI_3.n);
