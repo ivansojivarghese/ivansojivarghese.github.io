@@ -31,13 +31,13 @@
 .weather-container ul li .icon-container.mostly-sunny .cloud, .weather-container ul li .icon-container.isolated-clouds .cloud {
 	transform: scale(0.45);
 	position: absolute;
-	top: 1.3rem;
+	top: 1.5rem;
 	left: 0.5rem;
 	background-color: white;
 }
 .weather-container ul li .icon-container.mostly-sunny .shadow, .weather-container ul li .icon-container.isolated-clouds .shadow {
 	position: absolute;
-	top: 1.38rem;
+	top: 1.58rem;
 	left: -0.96rem;
 	height: 0.64rem;
 }
