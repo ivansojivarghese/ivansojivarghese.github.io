@@ -78,12 +78,12 @@
  .weather-container ul li .icon-container.mostly-cloudy .moon {
 	 transform: scale(0.5) rotate(-5deg);
 	 position: absolute;
-	 top: -0.2rem;
+	 top: -0.1rem;
 	 left: 1.1rem;
 }
 .weather-container ul li .icon-container.mostly-cloudy .cloud {
 	position: absolute;
-	top: 1.5rem;
+	top: 1.7rem;
 	left: 50%;
 	background: white;
 	transform: translate(-30%, -50%);
@@ -98,7 +98,7 @@
 .weather-container ul li .icon-container.snowy .cloud {
 	position: absolute;
 	background: white;
-	top: 0.85rem;
+	top: 0.8rem;
 	left: 50%;
 	transform: translate(-30%, 0%) scale(0.9);
 }
@@ -131,26 +131,26 @@
  .weather-container ul li .icon-container.rain.snowy .rain-snow {
 	 position: absolute;
 	 transform: scale(0.25);
-	 top: 1.88rem;
+	 top: 1.93rem;
 	 left: 1.4rem;
 }
  .weather-container ul li .icon-container.rain.sleet-weather .rain-snow {
 	 transform: scale(0.25);
 	 position: absolute;
-	 top: 1.54rem;
+	 top: 1.44rem;
 	 left: 0.5rem;
 }
  .weather-container ul li .icon-container.rain.sleet-weather .sleet {
 	 position: absolute;
 }
  .weather-container ul li .icon-container.rain.sleet-weather .sleet:first-child {
-	 top: 1.92rem;
+	 top: 1.82rem;
 	 left: 1.28rem;
 	 height: 0.48rem;
 	 width: 0.08rem;
 }
  .weather-container ul li .icon-container.rain.sleet-weather .sleet:last-child {
-	 top: 1.92rem;
+	 top: 1.82rem;
 	 left: 1.78rem;
 	 height: 0.4rem;
 	 width: 0.08rem;
@@ -158,7 +158,7 @@
 .weather-container ul li .icon-container.rain .cloud {
 	position: absolute;
 	background: white;
-	top: 0.85rem;
+	top: 0.8rem;
 	left: 50%;
 	transform: translate(-30%, 0%) scale(0.9);
 }
@@ -167,12 +167,12 @@
 	 transform: scale(0.25);
 }
 .weather-container ul li .icon-container.rain .rain-drop:first-child {
-	top: 1.52rem;
+	top: 1.47rem;
 	left: 0.68rem;
 }
 .weather-container ul li .icon-container.rain .rain-drop:nth-child(2) {
-	top: 1.92rem;
-	left: 49%;
+	top: 1.87rem;
+	left: 48%;
 	transform: translate(-50%, 0) scale(0.25);
 }
 .weather-container ul li .icon-container.rain .rain-drop:nth-child(3) {
