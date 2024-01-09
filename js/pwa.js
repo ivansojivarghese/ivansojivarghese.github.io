@@ -8,6 +8,10 @@ var sectionScroll = false,
 
 const sections = document.querySelector('.pwa .sections');
 
+screen.orientation.addEventListener("change", function() {
+    
+});
+
 function navButtonActive(b, e) {
     var target = e.currentTarget || e;
     const buttons = document.querySelectorAll('.pwa .navbar .button');
