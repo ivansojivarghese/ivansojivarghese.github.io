@@ -113,9 +113,13 @@ function fetchPWAInfo() {
 }
 
 function startLoadPWA() {
+    const stats = document.querySelector('.pwa .home .stats.container');
+
     const stat1 = document.querySelector('.pwa .home #stat1');
     const stat2 = document.querySelector('.pwa .home #stat2');
     const stat3 = document.querySelector('.pwa .home #stat3');
+
+    var pwa_L = null;
 
     const disVar = document.querySelector('.pwa #distanceVariantPWA');
 
@@ -127,9 +131,14 @@ function startLoadPWA() {
     sI_1.n = (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
     disVar.innerHTML = (op.lang === "gb") ? "km" : "miles";
 
-    e_Ic(sI_1, null, sI_1.n);
-    e_Ic(sI_2, null, sI_2.n);
-    e_Ic(sI_3, null, sI_3.n);
+    pwa_L = setInterval(function() {
+        var statsTop = stats.getBoundingClientRect();
+        if (statsTop.top < aH) {
+            e_Ic(sI_1, null, sI_1.n);
+            e_Ic(sI_2, null, sI_2.n);
+            e_Ic(sI_3, null, sI_3.n);
+        }
+    }, dev.i);
 }
 
 function randomRGB() {
