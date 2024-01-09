@@ -62,6 +62,8 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
+    console.log(r.o);
+
     sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
 
     navButtonActive('home', homeBtn);
