@@ -65,9 +65,9 @@
 }
  .weather-container ul li .icon-container.partly-cloudy .moon .shadow {
 	 position: absolute;
-	 top: 70px;
-	 left: 15px;
-	 height: 31px;
+	 top: 1.2rem;
+	 left: -0.28rem;
+	 height: 0.9rem;
 }
 .weather-container ul li .icon-container.mostly-cloudy .sun {
 	transform: scale(0.5);
@@ -204,7 +204,7 @@
 	 left: 1.1rem;
 	 height: 0.6rem;
 	 width: 0.5rem;
-	 -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+	 clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
  .weather-container ul li .icon-container.fog-mist .mist {
 	 transform: translate(-45%, -40%);
