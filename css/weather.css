@@ -172,7 +172,7 @@
 }
 .weather-container ul li .icon-container.rain .rain-drop:nth-child(2) {
 	top: 1.92rem;
-	left: 50%;
+	left: 49%;
 	transform: translate(-50%, 0) scale(0.25);
 }
 .weather-container ul li .icon-container.rain .rain-drop:nth-child(3) {
