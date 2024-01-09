@@ -811,8 +811,41 @@ function docRead() {
                                                         break;
                                                     }
                                                 break;
-                                                case "":
-
+                                                case "Mist":
+                                                case "Smoke":
+                                                case "Haze":
+                                                case "Dust":
+                                                case "Fog":
+                                                case "Sand":
+                                                case "Ash":
+                                                case "Squall":
+                                                case "Tornado":
+                                                    if (day) {
+                                                        icon = "fog";
+                                                    } else {
+                                                        icon = "fog_night";
+                                                    }
+                                                break;
+                                                case "Snow":
+                                                    switch (weatherDes) {
+                                                        case "snow":
+                                                        case "light snow":
+                                                            if (day) {
+                                                                icon = "snowy";
+                                                            } else {
+                                                                icon = "snowy_night";
+                                                            }
+                                                        break;
+                                                        case "sleet":
+                                                        case "light shower sleet":
+                                                        case "shower sleet":
+                                                            if (day) {
+                                                                icon = "sleet";
+                                                            } else {
+                                                                icon = "sleet_night";
+                                                            }
+                                                        break;
+                                                    }
                                                 break;
                                             }
 
