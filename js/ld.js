@@ -758,7 +758,7 @@ function docRead() {
                                             clearInterval(weather_L);
 
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
-                                            $(tempIcon).load("weather/isolated_clouds.html", function() {
+                                            $(tempIcon).load("weather/partly_cloudy_night.html", function() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
