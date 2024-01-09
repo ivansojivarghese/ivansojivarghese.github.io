@@ -760,6 +760,9 @@ function docRead() {
                                             console.log(weatherAPIres.weather[0].main);
                                             console.log(weatherAPIres.weather[0].description);
 
+                                            console.log(weatherAPIres.sys.sunrise);
+                                            console.log(weatherAPIres.sys.sunset);
+
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
                                             $(tempIcon).load("weather/showers_night.html", function() {
                                                 fetchPWAInfo();
