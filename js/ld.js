@@ -757,14 +757,73 @@ function docRead() {
                                         if (weatherAPIres.online && countryAPIres.online) {
                                             clearInterval(weather_L);
 
-                                            console.log(weatherAPIres.weather[0].main);
-                                            console.log(weatherAPIres.weather[0].description);
+                                            const weatherMain = weatherAPIres.weather[0].main;
+                                            const weatherDes = weatherAPIres.weather[0].description;
+                                            const sunrise = weatherAPIres.sys.sunrise;
+                                            const sunset = weatherAPIres.sys.sunset;
 
-                                            console.log(weatherAPIres.sys.sunrise);
-                                            console.log(weatherAPIres.sys.sunset);
+                                            var day = true,
+                                                icon = "";
+
+                                            if ((new Date().valueOf() / 1000) < sunset) {
+                                                day = true;
+                                            } else {
+                                                day = false;
+                                            }
+
+                                            switch (weatherMain) {
+                                                case "Clear":
+                                                    if (day) {
+                                                        icon = "sunny";
+                                                    } else {
+                                                        icon = "clear";
+                                                    }
+                                                break;
+                                                case "Clouds":
+                                                    switch (weatherDes) {
+                                                        case "few clouds":
+                                                            if (day) {
+                                                                icon = "mostly_sunny";
+                                                            } else {
+                                                                icon = "isolated_clouds";
+                                                            }
+                                                        break;
+                                                        case "scattered clouds":
+                                                            if (day) {
+                                                                icon = "partly_cloudy";
+                                                            } else {
+                                                                icon = "partly_cloudy_night";
+                                                            }
+                                                        break;
+                                                        case "broken clouds":
+                                                            if (day) {
+                                                                icon = "mostly_cloudy";
+                                                            } else {
+                                                                icon = "mostly_cloudy_night";
+                                                            }
+                                                        break;
+                                                        case "overcast clouds":
+                                                            if (day) {
+                                                                icon = "cloudy";
+                                                            } else {
+                                                                icon = "cloudy_night";
+                                                            }
+                                                        break;
+                                                    }
+                                                break;
+                                                case "":
+
+                                                break;
+                                            }
+
+                                            // console.log(weatherAPIres.weather[0].main);
+                                            // console.log(weatherAPIres.weather[0].description);
+
+                                            //console.log(weatherAPIres.sys.sunrise);
+                                            //console.log(weatherAPIres.sys.sunset);
 
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
-                                            $(tempIcon).load("weather/showers_night.html", function() {
+                                            $(tempIcon).load("weather/" + icon + ".html", function() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
