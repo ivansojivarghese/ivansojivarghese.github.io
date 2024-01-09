@@ -845,15 +845,48 @@ function docRead() {
                                                                 icon = "sleet_night";
                                                             }
                                                         break;
+                                                        case "light rain and snow":
+                                                        case "rain and snow":
+                                                        case "light shower snow":
+                                                        case "shower snow":
+                                                            if (day) {
+                                                                icon = "snowy_rain";
+                                                            } else {
+                                                                icon = "snowy_rain_night";
+                                                            }
+                                                        break;
+                                                        case "heavy snow":
+                                                        case "heavy shower snow":
+                                                            if (day) {
+                                                                icon = "blizzard";
+                                                            } else {
+                                                                icon = "blizzard_night";
+                                                            }
+                                                        break;
+                                                    }
+                                                break;
+                                                case "Rain":
+                                                    if (day) {
+                                                        icon = "rainy";
+                                                    } else {
+                                                        icon = "rainy_night";
+                                                    }
+                                                break;
+                                                case "Drizzle":
+                                                    if (day) {
+                                                        icon = "showers";
+                                                    } else {
+                                                        icon = "showers_night";
+                                                    }
+                                                break;
+                                                case "Thunderstorm":
+                                                    if (day) {
+                                                        icon = "thunderstorms";
+                                                    } else {
+                                                        icon = "thunderstorms_night";
                                                     }
                                                 break;
                                             }
-
-                                            // console.log(weatherAPIres.weather[0].main);
-                                            // console.log(weatherAPIres.weather[0].description);
-
-                                            //console.log(weatherAPIres.sys.sunrise);
-                                            //console.log(weatherAPIres.sys.sunset);
 
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
                                             $(tempIcon).load("weather/" + icon + ".html", function() {
