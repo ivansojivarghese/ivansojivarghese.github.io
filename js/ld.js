@@ -757,8 +757,10 @@ function docRead() {
                                         if (weatherAPIres.online && countryAPIres.online) {
                                             clearInterval(weather_L);
 
+                                            
+
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
-                                            $(tempIcon).load("weather/mostly_cloudy_night.html", function() {
+                                            $(tempIcon).load("weather/showers_night.html", function() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
