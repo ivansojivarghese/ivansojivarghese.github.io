@@ -757,7 +757,8 @@ function docRead() {
                                         if (weatherAPIres.online && countryAPIres.online) {
                                             clearInterval(weather_L);
 
-                                            
+                                            console.log(weatherAPIres.weather.main);
+                                            console.log(weatherAPIres.weather.description);
 
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
                                             $(tempIcon).load("weather/showers_night.html", function() {
