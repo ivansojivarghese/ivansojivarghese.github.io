@@ -78,8 +78,8 @@
  .weather-container ul li .icon-container.mostly-cloudy .moon {
 	 transform: scale(0.5) rotate(-5deg);
 	 position: absolute;
-	 top: -15px;
-	 left: 55px;
+	 top: -0.2rem;
+	 left: 1.1rem;
 }
 .weather-container ul li .icon-container.mostly-cloudy .cloud {
 	position: absolute;
