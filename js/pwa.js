@@ -9,7 +9,12 @@ var sectionScroll = false,
 const sections = document.querySelector('.pwa .sections');
 
 screen.orientation.addEventListener("change", function() {
-    console.log(r.o);
+    if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // P to L
+        console.log("landscape");
+    }
+    if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // L to P
+        console.log("portrait");
+    }
 });
 
 function navButtonActive(b, e) {
