@@ -50,11 +50,8 @@ function navButtonActive(b, e) {
         e_Fd(target.children[0].children[0], false); 
         target.classList.add("buttonActive");
 
-        hoverEnd();
-
         target.classList.remove("hoverB");
         target.removeEventListener('mousemove', hoverInit);
-        target.removeEventListener('mouseleave', hoverEnd);
 
         navigator.vibrate(50); // vibrate
     }
