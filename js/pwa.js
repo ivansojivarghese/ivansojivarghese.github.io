@@ -9,11 +9,12 @@ var sectionScroll = false,
 const sections = document.querySelector('.pwa .sections');
 
 screen.orientation.addEventListener("change", function() {
+    const sections = document.querySelector('.pwa .sections');
     if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // P to L
-        c_css(".pwa .sections", "height: 100svh;", false, null);
+        sections.style.height = "100svh";
     }
     if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // L to P
-        c_css(".pwa .sections", "height: calc(" + dev.uH.getBoundingClientRect().height + " - 4rem);", false, null);
+        sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + " - 4rem);";
     }
 });
 
