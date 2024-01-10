@@ -39,6 +39,8 @@ function navButtonActive(b, e) {
                 buttons[i].classList.remove("buttonActive");
 
                 target.classList.add("hoverB");
+                target.addEventListener('mousemove', hoverInit);
+                target.addEventListener('mouseleave', hoverEnd);
             }
         }
     }
@@ -49,6 +51,8 @@ function navButtonActive(b, e) {
         target.classList.add("buttonActive");
 
         target.classList.remove("hoverB");
+        target.removeEventListener('mousemove', hoverInit);
+        target.removeEventListener('mouseleave', hoverEnd);
 
         navigator.vibrate(50); // vibrate
     }
