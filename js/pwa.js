@@ -37,6 +37,8 @@ function navButtonActive(b, e) {
                 buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
                 e_Fd(buttons[i].children[0].children[0], true); 
                 buttons[i].classList.remove("buttonActive");
+
+                target.classList.add("hoverB");
             }
         }
     }
@@ -45,6 +47,8 @@ function navButtonActive(b, e) {
         target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
         e_Fd(target.children[0].children[0], false); 
         target.classList.add("buttonActive");
+
+        target.classList.remove("hoverB");
 
         navigator.vibrate(50); // vibrate
     }
