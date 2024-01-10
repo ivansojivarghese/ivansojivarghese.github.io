@@ -216,6 +216,8 @@
         border-radius: 1rem;
         left: 1rem;
         background-color: #FFF;
+        max-width: 20rem;
+        max-height: 20rem;
     }
 
     .pwa .sections {
