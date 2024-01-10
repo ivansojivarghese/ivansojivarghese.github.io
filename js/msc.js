@@ -1285,16 +1285,9 @@ function sL() { // scroll pos. loop
     if (pos.c && !pos.sBc) { // if scrolling, show scrollbar
         e_Fd(pos.sB, false);
         pos.sBc = true;
-    } else if (!pos.c && pos.sBc && !pos.cE && ((!condScrollBar && !op.pwa.s) || (condScrollBar && op.pwa.s))) { ////
-        if (!op.pwa.s) {
-            e_Fd(pos.sB, true);
-            pos.sBc = false;
-        } else {
-            setTimeout(function() { 
-                e_Fd(pos.sB, true);
-                pos.sBc = false;
-            }, dev.i);
-        }
+    } else if (!pos.c && pos.sBc && !pos.cE && !condScrollBar /*((!condScrollBar && !op.pwa.s) || (condScrollBar && op.pwa.s))*/ ) { ////
+        e_Fd(pos.sB, true);
+        pos.sBc = false;
     }
 
     scrollTr = (pos.y / (contentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
