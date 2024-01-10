@@ -14,7 +14,7 @@ screen.orientation.addEventListener("change", function() {
         sections.style.height = "100svh";
     }
     if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // L to P
-        if (window.innerWidth < (450 + (2 * op.fN))) {
+        if (window.innerWidth < 490) {
             sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
         }
     }
@@ -75,7 +75,7 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
-    if (r.o === "portrait" && wiD < (450 + (2 * op.fN))) {
+    if (r.o === "portrait" && wiD < 490) {
         sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
     }
 
