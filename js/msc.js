@@ -3387,314 +3387,317 @@ function viewportValid() { // check if viewport dimensions are proper/supported/
 
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
-    var id = op.oRa.length; // set id to orientation
-    op.oRa[id] = true;
+    if (!op.pwa.s) {
 
-    scr_t(false, null); // disable scrolling
-    op.s = true;
-    op.oR = true;
-    setTimeout(function() {
-        if ((op.oRa.length - 1) === id) {
-            op.oR = false;
-        }
-    }, op.te);
+        var id = op.oRa.length; // set id to orientation
+        op.oRa[id] = true;
 
-    if (eR.p !== "sp") { // if NOT split screen
-
-        rL.el.classList.add("d_n");
-        eR.m.classList.add("d_n");
-        disp.classList.add("z_Os");
-
-        // uHeight = Math.round(u.height);
-
-        if (rL.i && !rL.o_c && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // portrait to landscape
-            op.Ld.p = pos.y;
-        }
-
-        pgTasks("sc", true);
-
+        scr_t(false, null); // disable scrolling
+        op.s = true;
+        op.oR = true;
         setTimeout(function() {
+            if ((op.oRa.length - 1) === id) {
+                op.oR = false;
+            }
+        }, op.te);
 
-            wH = window.outerHeight; // update on window size variables
-            wD = window.outerWidth; 
-            cH = document.documentElement.clientHeight;
+        if (eR.p !== "sp") { // if NOT split screen
 
-            wiD = window.innerWidth;
-            wiH = window.innerHeight;
+            rL.el.classList.add("d_n");
+            eR.m.classList.add("d_n");
+            disp.classList.add("z_Os");
 
-            if (rL.i && !rL.o_c) { // if page had loaded?
+            // uHeight = Math.round(u.height);
 
-                if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // landscape to portrait
+            if (rL.i && !rL.o_c && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // portrait to landscape
+                op.Ld.p = pos.y;
+            }
 
-                    window.scrollTo(0, op.Ld.p);
+            pgTasks("sc", true);
 
-                    if (wiD < 500 && (eR.ld_e.x || rL.o_c) && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
+            setTimeout(function() {
 
-                        if (eR.ld_e.x && !rL.o_c) {
-                            eR.ld.classList.add("d_n");
-                            e_Fd(eR.ld, true);
-                            if (!vw.mB_L) {
-                                eR.m.classList.remove("d_n");
-                                eR.or.classList.remove("d_n");
-                                e_Fd(eR.or, false);
-                            } else {
-                                c_css(".err", "margin-top: 0;", false, null); // style tag
-                                eR.m.classList.remove("d_n");
-                                eR.or.classList.remove("d_n");
-                                e_Fd(eR.or, false);
-                                reL();
-                            }
-                        } else {
-                            eR.m.classList.add("d_n");
-                            if (!rL.o_c) {
+                wH = window.outerHeight; // update on window size variables
+                wD = window.outerWidth; 
+                cH = document.documentElement.clientHeight;
+
+                wiD = window.innerWidth;
+                wiH = window.innerHeight;
+
+                if (rL.i && !rL.o_c) { // if page had loaded?
+
+                    if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // landscape to portrait
+
+                        window.scrollTo(0, op.Ld.p);
+
+                        if (wiD < 500 && (eR.ld_e.x || rL.o_c) && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // if loaded on this error
+
+                            if (eR.ld_e.x && !rL.o_c) {
                                 eR.ld.classList.add("d_n");
+                                e_Fd(eR.ld, true);
+                                if (!vw.mB_L) {
+                                    eR.m.classList.remove("d_n");
+                                    eR.or.classList.remove("d_n");
+                                    e_Fd(eR.or, false);
+                                } else {
+                                    c_css(".err", "margin-top: 0;", false, null); // style tag
+                                    eR.m.classList.remove("d_n");
+                                    eR.or.classList.remove("d_n");
+                                    e_Fd(eR.or, false);
+                                    reL();
+                                }
+                            } else {
+                                eR.m.classList.add("d_n");
+                                if (!rL.o_c) {
+                                    eR.ld.classList.add("d_n");
+                                } else {
+                                    eR.or.classList.add("d_n");
+                                }
+                                reL(); // reload to portrait
+                            }
+
+                        } else if (wiD < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
+
+                            vw.mB_L = false;
+                            // eR.s = false;
+
+                            // const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
+
+                            // STATIC ERRORS (UPDATE WHEN NEEDED!)
+                            if ((op.b.f || op.sys === null || op.bN || op.pl) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0 && rL.i)) { // check for platform support
+                                if (op.b.f) {
+                                    eR.pl_e.h.innerHTML = "firefox";
+                                } 
+                                if (op.bN) { // browser
+                                    eR.pl_e.h.innerHTML = "conflicting hints";
+                                }
+                                if (op.sys === null) { // system
+                                    eR.pl_e.h.innerHTML = "unknown system";
+                                }
+                                eR.p = "pl";
+                                eR.title = "Error: Unsupported platform";
+                            } else if (js_load_e() || op.er.ft) { 
+                                eR.p = "ft"; // fatal error
+                                eR.title = "Error: Fatal callback";
+                            } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0)) { // device compatibility (incompatible speed/rendering)
+                                eR.p = "dp";
+                                eR.title = "Error: Low device performance";
+                            } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
+                                eR.p = "vp"; // check for vpn/proxy
+                                eR.title = "Error: VPN usage";
+                            } else if (!op.c.e) {
+                                eR.p = "ck"; // check for cookies
+                                eR.title = "Error: Cookies disabled";
+                            } else if (op.mt) {
+                                eR.p = "mt"; // maintenance
+                                eR.title = "Error: Under maintenance";
+                            } else if (op.fS) {
+                                eR.p = "fS"; // full screen
+                                eR.title = "Error: Fullscreen usage";
+                                op.fS = true;
+                            } else if (translate_Check) {
+                                eR.p = "tr"; // translate
+                                eR.title = "Error: Translation usage";
+                                op.tr = true;
+                            } else {
+                                eR.p = "";
+                            }
+
+                            if (eR.p) {
+                                eR.m.classList.remove("d_n");
+                                eR.ld.classList.add("d_n");
+                                if (eR.p !== "or") {
+                                    eR.or.classList.add("d_n");
+                                }
+                                eR[eR.p].classList.remove("d_n"); // show error message
+                                setTimeout(function() {
+                                    e_Fd(eR[eR.p], false);
+                                }, 10);
+                                eR.s = true;
+                                // document.title = eR.title;
+                            } else {
+                                eR.m.classList.add("d_n");
+                                eR.s = false;
+                                document.title = "Ivan Varghese";
+                            }
+                            if (aborted || !cacheEnabled) { // show load
+                                rL.el.classList.remove("d_n");
+                            } else if (!rL.o_c) {
+                                eR.ld.classList.add("d_n");
+                                e_Fd(eR.ld, true); // fade error out
                             } else {
                                 eR.or.classList.add("d_n");
+                                e_Fd(eR.or, true); // fade error out
                             }
-                            reL(); // reload to portrait
-                        }
+                            disp.classList.remove("z_Os");
 
-                    } else if (wiD < 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) { // remove error on mobile portrait (from landscape to portrait)
-
-                        vw.mB_L = false;
-                        // eR.s = false;
-
-                        // const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
-
-                        // STATIC ERRORS (UPDATE WHEN NEEDED!)
-                        if ((op.b.f || op.sys === null || op.bN || op.pl) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0 && rL.i)) { // check for platform support
-                            if (op.b.f) {
-                                eR.pl_e.h.innerHTML = "firefox";
-                            } 
-                            if (op.bN) { // browser
-                                eR.pl_e.h.innerHTML = "conflicting hints";
-                            }
-                            if (op.sys === null) { // system
-                                eR.pl_e.h.innerHTML = "unknown system";
-                            }
-                            eR.p = "pl";
-                            eR.title = "Error: Unsupported platform";
-                        } else if (js_load_e() || op.er.ft) { 
-                            eR.p = "ft"; // fatal error
-                            eR.title = "Error: Fatal callback";
-                        } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0)) { // device compatibility (incompatible speed/rendering)
-                            eR.p = "dp";
-                            eR.title = "Error: Low device performance";
-                        } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
-                            eR.p = "vp"; // check for vpn/proxy
-                            eR.title = "Error: VPN usage";
-                        } else if (!op.c.e) {
-                            eR.p = "ck"; // check for cookies
-                            eR.title = "Error: Cookies disabled";
-                        } else if (op.mt) {
-                            eR.p = "mt"; // maintenance
-                            eR.title = "Error: Under maintenance";
-                        } else if (op.fS) {
-                            eR.p = "fS"; // full screen
-                            eR.title = "Error: Fullscreen usage";
-                            op.fS = true;
-                        } else if (translate_Check) {
-                            eR.p = "tr"; // translate
-                            eR.title = "Error: Translation usage";
-                            op.tr = true;
-                        } else {
-                            eR.p = "";
-                        }
-
-                        if (eR.p) {
-                            eR.m.classList.remove("d_n");
-                            eR.ld.classList.add("d_n");
-                            if (eR.p !== "or") {
-                                eR.or.classList.add("d_n");
-                            }
-                            eR[eR.p].classList.remove("d_n"); // show error message
                             setTimeout(function() {
-                                e_Fd(eR[eR.p], false);
+                                e_Fd(disp, false); // fade in display
+
+                                if (op.c.u) {
+                                    pgTasks("sc", false);
+                                }
+
+                                if (!eR.s && !pg.cond.a && !hm.s && op.c.u) { 
+                                    scr_t(true, null); // enable scrolling
+                                    op.s = false;
+                                }
+
+                            }, op.t);
+
+                        } else if (wiD >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
+
+                            // from tablet to phablet, etc.
+                            if (eR.p && eR.s) {
+                                eR[eR.p].classList.add("d_n");
+                            }
+
+                            eR.m.classList.remove("d_n"); // show orientation change
+                            eR.or.classList.remove("d_n");
+                            e_Fd(disp, true);
+                            setTimeout(function () {
+                                e_Fd(eR.or, false);
+                                disp.classList.add("d_n");
                             }, 10);
-                            eR.s = true;
-                            // document.title = eR.title;
-                        } else {
-                            eR.m.classList.add("d_n");
-                            eR.s = false;
-                            document.title = "Ivan Varghese";
+
+                            reL();
+
+                            // make modifications if needed
+
                         }
-                        if (aborted || !cacheEnabled) { // show load
-                            rL.el.classList.remove("d_n");
-                        } else if (!rL.o_c) {
-                            eR.ld.classList.add("d_n");
-                            e_Fd(eR.ld, true); // fade error out
-                        } else {
-                            eR.or.classList.add("d_n");
-                            e_Fd(eR.or, true); // fade error out
-                        }
-                        disp.classList.remove("z_Os");
-
-                        setTimeout(function() {
-                            e_Fd(disp, false); // fade in display
-
-                            if (op.c.u) {
-                                pgTasks("sc", false);
-                            }
-
-                            if (!eR.s && !pg.cond.a && !hm.s && op.c.u) { 
-                                scr_t(true, null); // enable scrolling
-                                op.s = false;
-                            }
-
-                        }, op.t);
-
-                    } else if (wiD >= 500 && (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
-
-                        // from tablet to phablet, etc.
-                        if (eR.p && eR.s) {
-                            eR[eR.p].classList.add("d_n");
-                        }
-
-                        eR.m.classList.remove("d_n"); // show orientation change
-                        eR.or.classList.remove("d_n");
-                        e_Fd(disp, true);
-                        setTimeout(function () {
-                            e_Fd(eR.or, false);
-                            disp.classList.add("d_n");
-                        }, 10);
-
-                        reL();
-
-                        // make modifications if needed
-
                     }
-                }
-                
-                if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // portrait to landscape
+                    
+                    if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // portrait to landscape
 
-                    // op.Ld.p = scrollY;
+                        // op.Ld.p = scrollY;
 
-                    if (wiH < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
+                        if (wiH < 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) { // show error on mobile landscape (mobile portrait to mobile landscape)
 
-                        eR.title = "Error: Landscape mode";
+                            eR.title = "Error: Landscape mode";
+
+                            scr_t(false, null); // disable scrolling
+                            op.s = true;
+                            eR.s = true;
+
+                            // document.title = eR.title;
+
+                            vw.mB_L = true; // set variable
+
+                            if (eR[eR.p]) {
+                                if (!eR[eR.p].classList.contains("d_n") && !eR[eR.p].classList.contains("z_O")) { // set any other error(s) beforehand to null display
+                                    eR[eR.p].classList.add("d_n");
+                                }
+                            }
+
+                            eR.p = "ld";
+                            
+                            disp.classList.add("z_Os");
+                            e_Fd(disp, true); // fade main display out
+
+                            pgTasks("sc", true);
+
+                            eR.m.classList.remove("d_n");
+                            if (!rL.o_c && !eR.ld_e.x) {
+                                eR.ld.classList.remove("d_n");
+                            } else {
+                                eR.or.classList.remove("d_n");
+                            }
+
+                            setTimeout(function() {
+                                if (!rL.o_c && !eR.ld_e.x) {
+                                    e_Fd(eR.ld, false); // fade in error
+                                } else {
+                                    c_css(".err", "margin-top: 0;", false, null); // style tag
+                                    e_Fd(eR.or, false); // fade in error
+                                }
+                            }, op.t);
+
+                        } else if (wiH >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
+
+                            // from phablet to tablet, desktop, etc.
+                            if (eR.p && eR.s) {
+                                eR[eR.p].classList.add("d_n");
+                            }
+
+                            eR.m.classList.remove("d_n"); // show orientation change
+                            eR.or.classList.remove("d_n");
+                            e_Fd(disp, true);
+                            setTimeout(function () {
+                                e_Fd(eR.or, false);
+                                disp.classList.add("d_n");
+                            }, 10);
+
+                            reL();
+
+                            // make modifications if needed
+
+                        }
+                    }
+                } else if (!rL.o_c) { // if page not loaded (or preloading)
+
+                    if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
+                        c_css(".err", "margin-top: 0;", false, null); // style tag
+                        rL.o_c = true;
 
                         scr_t(false, null); // disable scrolling
                         op.s = true;
+
+                        eR.m.classList.remove("d_n");
+                        eR.or.classList.remove("d_n");
+                        setTimeout(function() {
+                            e_Fd(eR.or, false);
+                        }, 10);
+
+                        eR.title = "Error: Orientation change";
+
                         eR.s = true;
+                        eR.p = "or";
 
                         // document.title = eR.title;
 
-                        vw.mB_L = true; // set variable
+                    } else {
 
-                        if (eR[eR.p]) {
-                            if (!eR[eR.p].classList.contains("d_n") && !eR[eR.p].classList.contains("z_O")) { // set any other error(s) beforehand to null display
-                                eR[eR.p].classList.add("d_n");
-                            }
-                        }
-
-                        eR.p = "ld";
-                        
-                        disp.classList.add("z_Os");
-                        e_Fd(disp, true); // fade main display out
-
-                        pgTasks("sc", true);
-
-                        eR.m.classList.remove("d_n");
-                        if (!rL.o_c && !eR.ld_e.x) {
-                            eR.ld.classList.remove("d_n");
-                        } else {
-                            eR.or.classList.remove("d_n");
-                        }
-
-                        setTimeout(function() {
-                            if (!rL.o_c && !eR.ld_e.x) {
-                                e_Fd(eR.ld, false); // fade in error
-                            } else {
-                                c_css(".err", "margin-top: 0;", false, null); // style tag
-                                e_Fd(eR.or, false); // fade in error
-                            }
-                        }, op.t);
-
-                    } else if (wiH >= 500 && (screen.orientation.angle == 90 || screen.orientation.angle == 270)) {
-
-                        // from phablet to tablet, desktop, etc.
-                        if (eR.p && eR.s) {
-                            eR[eR.p].classList.add("d_n");
-                        }
-
-                        eR.m.classList.remove("d_n"); // show orientation change
-                        eR.or.classList.remove("d_n");
-                        e_Fd(disp, true);
-                        setTimeout(function () {
-                            e_Fd(eR.or, false);
-                            disp.classList.add("d_n");
-                        }, 10);
-
-                        reL();
-
-                        // make modifications if needed
+                        rL.o_c = true;
+                        c_css("#load_C", "margin-top: calc((" + wiH + "px - 8rem) / 2);", false, null);
+                        rL.el.classList.remove("d_n");
+                        eR.m.classList.add("d_n");
 
                     }
+
+                    window.stop(); // stop all network resource(s) fetching
+                    clearInterval(_Ld); // stop loading process
+                    clearInterval(op.ne.L); // clear network check loop
+
+                    checkOnlineStatus_abort.abort(); // abort any existing fetching
+                    estimateNetworkSpeed_abort.abort();
+
+                } else if (rL.o_c) {
+                    reL();
                 }
-            } else if (!rL.o_c) { // if page not loaded (or preloading)
+            }, op.t);
 
-                if (isFontAvailable("Poppins") && isFontAvailable("Raleway")) {
-                    c_css(".err", "margin-top: 0;", false, null); // style tag
-                    rL.o_c = true;
+        } /*else {
+            
+            rL.el.classList.add("d_n");
+            eR.m.classList.add("d_n");
+            disp.classList.add("z_Os");
 
-                    scr_t(false, null); // disable scrolling
-                    op.s = true;
+            setTimeout(function() {
+                wH = window.outerHeight; // update on window size variables
+                wD = window.outerWidth; 
+                cH = document.documentElement.clientHeight;
 
-                    eR.m.classList.remove("d_n");
-                    eR.or.classList.remove("d_n");
-                    setTimeout(function() {
-                        e_Fd(eR.or, false);
-                    }, 10);
+                wiD = window.innerWidth;
+                wiH = window.innerHeight;
 
-                    eR.title = "Error: Orientation change";
+                scr_t(false, null); // disable scrolling
+                op.s = true;
 
-                    eR.s = true;
-                    eR.p = "or";
+                document.body.style.backgroundColor = "red";
 
-                    // document.title = eR.title;
-
-                } else {
-
-                    rL.o_c = true;
-                    c_css("#load_C", "margin-top: calc((" + wiH + "px - 8rem) / 2);", false, null);
-                    rL.el.classList.remove("d_n");
-                    eR.m.classList.add("d_n");
-
-                }
-
-                window.stop(); // stop all network resource(s) fetching
-                clearInterval(_Ld); // stop loading process
-                clearInterval(op.ne.L); // clear network check loop
-
-                checkOnlineStatus_abort.abort(); // abort any existing fetching
-                estimateNetworkSpeed_abort.abort();
-
-            } else if (rL.o_c) {
-                reL();
-            }
-        }, op.t);
-
-    } /*else {
-        
-        rL.el.classList.add("d_n");
-        eR.m.classList.add("d_n");
-        disp.classList.add("z_Os");
-
-        setTimeout(function() {
-            wH = window.outerHeight; // update on window size variables
-            wD = window.outerWidth; 
-            cH = document.documentElement.clientHeight;
-
-            wiD = window.innerWidth;
-            wiH = window.innerHeight;
-
-            scr_t(false, null); // disable scrolling
-            op.s = true;
-
-            document.body.style.backgroundColor = "red";
-
-        }, op.t);
-    }*/
+            }, op.t);
+        }*/
+    }
 });
 
 //////////////////////////////////////////
