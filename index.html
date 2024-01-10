@@ -1480,7 +1480,8 @@
             });
 
             setInterval(function () {
-                if (!$(".scrollBarFunction").hasClass("z_O")) {
+                var scrollBarF = op.pwa.s ? ".pwa .scrollBarFunction" : ".non-pwa .scrollBarFunction";
+                if (!$(scrollBarF).hasClass("z_O")) {
                     condScrollBar = true;
 
                     var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer"),
