@@ -152,7 +152,7 @@ function startLoadPWA() {
             e_Ic(sI_2, null, sI_2.n);
             e_Ic(sI_3, null, sI_3.n);
         }
-    }, dev.i);
+    }, (1000 / dev.t));
 }
 
 function randomRGB() {
