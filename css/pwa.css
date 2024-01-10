@@ -211,6 +211,27 @@
 
 @media screen and (min-height: 490px) and (orientation: landscape) {
     .pwa .navbar {
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 1rem;
+        left: 1rem;
+        background-color: #FFF;
+    }
 
+    .pwa .sections {
+        width: 100vw;
+    }
+
+    .pwa .sections > div {
+        padding-left: 5rem;
+        width: calc(100% - 5rem);
+    }
+
+    .pwa .navbar .button {
+        margin-bottom: calc((450px - 15rem) / 6);
+    }
+
+    .pwa .navbar .button:first-child {
+        margin-top: calc((450px - 15rem) / 6);
     }
 }
