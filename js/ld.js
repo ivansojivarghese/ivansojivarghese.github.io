@@ -125,11 +125,6 @@ function docRead() {
             op.pwa.s = true;
 
             if (op.pwa.s) {
-                if (document.querySelector('.non-pwa').classList.contains("d_n")) {
-                    pos.sB = document.querySelector('.pwa #scrollBar');
-                } else {
-                    pos.sB = document.querySelector('.non-pwa #scrollBar');
-                }
 
                 rL.e4 = true;
             } else {
@@ -937,6 +932,15 @@ function docRead() {
                 checkOnlineStatus_abort.abort(); // abort any existing fetching
                 estimateNetworkSpeed_abort.abort();
             }
+
+            //////////////////////////////////////////
+
+            if (document.querySelector('.non-pwa').classList.contains("d_n")) {
+                pos.sB = document.querySelector('.pwa #scrollBar');
+            } else {
+                pos.sB = document.querySelector('.non-pwa #scrollBar');
+            }
+
         break;
     }
 }
