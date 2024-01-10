@@ -3220,7 +3220,6 @@ window.addEventListener("resize", function(e) {
                     if ((eR.p !== "ld") && !op.sp && op.n && !op.wRo && (((displayErrorCheck()) || (wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.outerWidth || (wH !== window.outerHeight && (Math.round(u.height) !== uHeight))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[2]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[3])))) {
                         pg.sc.m.classList.add("d_n"); // remove page from display (for slow networks)
                         setCookie("displayErrorReload", "true", op.c.t); // show potential message
-                        console.log("rel");
                         reL();
                     } else if (!op.n && !op.wRo) { // if offline
                         op.wRo = true;

@@ -9,7 +9,7 @@ var sectionScroll = false,
 const sections = document.querySelector('.pwa .sections');
 
 screen.orientation.addEventListener("change", function() {
-    // console.log(r.o);
+    console.log(r.o);
 });
 
 function navButtonActive(b, e) {
