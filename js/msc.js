@@ -4116,6 +4116,8 @@ function hoverEnd(e) {
     if (e) {
         const mouseY = e.clientY;
         const mouseX = e.clientX;
+    } else {
+        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
     }
 
     cursorBig.classList.remove("extra");
