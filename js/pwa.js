@@ -38,9 +38,9 @@ function navButtonActive(b, e) {
                 e_Fd(buttons[i].children[0].children[0], true); 
                 buttons[i].classList.remove("buttonActive");
 
-                target.classList.add("hoverB");
-                target.addEventListener('mousemove', hoverInit);
-                target.addEventListener('mouseleave', hoverEnd);
+                buttons[i].classList.add("hoverB");
+                buttons[i].addEventListener('mousemove', hoverInit);
+                buttons[i].addEventListener('mouseleave', hoverEnd);
             }
         }
     }
