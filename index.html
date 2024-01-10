@@ -1462,7 +1462,7 @@
             var condScrollBar = false,
                 scrollBarPos = 0;
             $(".scrollBarFunction").scroll(function() {
-                var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer"),
+                var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer'),
                     parentTop = parent.getBoundingClientRect().top;
                 
                 scrollBarPos = Math.abs(parentTop); // get scroll dis.
