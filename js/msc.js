@@ -1282,6 +1282,8 @@ function sL() { // scroll pos. loop
         op.ps = false; //
     }
 
+    console.log(pos.c);
+
     if (pos.c && !pos.sBc) { // if scrolling, show scrollbar
         e_Fd(pos.sB, false);
         pos.sBc = true;

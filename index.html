@@ -1491,11 +1491,6 @@
                     } else { // show/move scrollbar
                         scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
                         pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
-                        if (op.pwa.s) {
-                            setTimeout(function() {
-                                e_Fd(pos.sB, true);
-                            }, dev.i);
-                        }
                     }
                 } else {
                     if (condScrollBar && pos.y) {
