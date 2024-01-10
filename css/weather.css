@@ -131,7 +131,7 @@
  .weather-container ul li .icon-container.rain.snowy .rain-snow {
 	 position: absolute;
 	 transform: scale(0.25);
-	 top: 1.93rem;
+	 top: 1.88rem;
 	 left: 1.4rem;
 }
  .weather-container ul li .icon-container.rain.sleet-weather .rain-snow {
@@ -167,7 +167,7 @@
 	 transform: scale(0.25);
 }
 .weather-container ul li .icon-container.rain .rain-drop:first-child {
-	top: 1.47rem;
+	top: 1.52rem;
 	left: 0.68rem;
 }
 .weather-container ul li .icon-container.rain .rain-drop:nth-child(2) {
@@ -176,7 +176,7 @@
 	transform: translate(-50%, 0) scale(0.25);
 }
 .weather-container ul li .icon-container.rain .rain-drop:nth-child(3) {
-	top: 1.47rem;
+	top: 1.52rem;
 	left: 1.3rem;
 }
  .weather-container ul li .icon-container.thunderstorms .lightning {
