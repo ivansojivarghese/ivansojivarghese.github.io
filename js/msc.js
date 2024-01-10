@@ -3193,7 +3193,7 @@ window.addEventListener("resize", function(e) {
         return true;
 
     } else {
-        console.log("just resizing");
+        // console.log("just resizing");
 
         var u = dev.uH.getBoundingClientRect(), 
             b = dev.cH.getBoundingClientRect(), // bounding rectangle

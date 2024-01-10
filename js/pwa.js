@@ -10,10 +10,10 @@ const sections = document.querySelector('.pwa .sections');
 
 screen.orientation.addEventListener("change", function() {
     if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // P to L
-        console.log("landscape");
+        c_css(".pwa .sections", "height: 100svh;", false, null);
     }
     if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // L to P
-        console.log("portrait");
+        c_css(".pwa .sections", "height: calc(" + dev.uH.getBoundingClientRect().height + " - 4rem);", false, null);
     }
 });
 
