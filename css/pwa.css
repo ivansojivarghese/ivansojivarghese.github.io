@@ -208,3 +208,9 @@
         width: 92.5%;
     }
 }
+
+@media screen and (min-height: 490px) and (orientation: landscape) {
+    .pwa .navbar {
+
+    }
+}
