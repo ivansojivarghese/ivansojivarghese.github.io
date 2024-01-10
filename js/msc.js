@@ -1282,12 +1282,10 @@ function sL() { // scroll pos. loop
         op.ps = false; //
     }
 
-    console.log(pos.c);
-
     if (pos.c && !pos.sBc) { // if scrolling, show scrollbar
         e_Fd(pos.sB, false);
         pos.sBc = true;
-    } else if (!pos.c && pos.sBc && !pos.cE && !condScrollBar) { ////
+    } else if (!pos.c && pos.sBc && !pos.cE && ((!condScrollBar && !op.pwa.s) || (condScrollBar && op.pwa.s))) { ////
         e_Fd(pos.sB, true);
         pos.sBc = false;
     }
