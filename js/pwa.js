@@ -72,7 +72,7 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
-    if (r.o === "portrait") {
+    if (r.o === "portrait" && wiD < 450) {
         sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
     }
 
