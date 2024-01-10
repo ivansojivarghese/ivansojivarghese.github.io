@@ -110,6 +110,7 @@
     align-items: center;
     justify-content: space-evenly;
     max-width: 450px;
+    max-height: 450px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
@@ -166,7 +167,7 @@
     .pwa .sections {
         height: 100svh;
     }
-    
+
     .sections > div {
         padding-bottom: 5.5rem;
     }
@@ -200,5 +201,10 @@
 
     .pwa .navbar .button:first-child {
         margin-top: calc((100svh - 15rem) / 6);
+    }
+
+    .pwa .m_L-10 {
+        margin-left: 7.5% !important;
+        width: 92.5%;
     }
 }

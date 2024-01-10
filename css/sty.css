@@ -459,6 +459,10 @@ div, .tint {
     width: 90%;
 }
 
+.m_wd-7_5 { /*marginalised width - to account for 7.5% left margin*/
+    width: 92.5%;
+}
+
 .z_Os {
     opacity: 0 !important;
     transition-duration: 0s !important;
@@ -721,6 +725,10 @@ a.md, span.md {
 
 .m_L-5 {
     margin-left: 5% !important;
+}
+
+.m_L-7_5 {
+    margin-left: 7.5% !important;
 }
 
 .m_L-10 {
