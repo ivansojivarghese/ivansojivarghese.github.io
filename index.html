@@ -1461,6 +1461,8 @@
         <script>
             var condScrollBar = false,
                 scrollBarPos = 0;
+
+            var pwaScrollTimeout = null;
             
             $(".scrollBarFunction").scroll(function() {
                 var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer'),
@@ -1477,9 +1479,11 @@
                 }, 1000); // check every sec.
 
                 if (op.pwa.s) {
-                    setTimeout(function() {
+                    pwaScrollTimeout = setTimeout(function() {
                         if (!pos.cE) {
                             e_Fd(pos.sB, true);
+                        } else {
+                            clearTimeout(pwaScrollTimeout);
                         }
                     }, dev.i);
                 }
