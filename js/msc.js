@@ -3961,6 +3961,7 @@ window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt)
     if (evt.matches) {
         displayMode = 'standalone';
     } else {
+        console.log("rel");
         reL();
     }
 
@@ -3971,6 +3972,7 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
     if (evt.matches) {
         displayMode = 'browser';
     } else {
+        console.log("rel");
         reL();
     }
 
