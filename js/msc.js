@@ -163,12 +163,12 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     countryAPIres = {},
     cloudflareCDNres = {};
 
-
+/*
 if (document.querySelector('.non-pwa').classList.contains("d_n")) {
     pos.sB = document.querySelector('.pwa #scrollBar');
 } else {
     pos.sB = document.querySelector('.non-pwa #scrollBar');
-}
+}*/
 
 /////////////////////////////////////////////////////
 /*
