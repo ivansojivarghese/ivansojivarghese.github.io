@@ -109,7 +109,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    max-width: 500px;
+    max-width: 450px;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
@@ -160,6 +160,18 @@
 
 .pwa .navbar .button.about .img {
     background-image: url("../pwa/about.png");
+}
+
+@media screen and (min-width: 450px) and (orientation: portrait) {
+    .sections > div {
+        padding-bottom: 5.5rem;
+    }
+
+    .pwa .navbar {
+        border-radius: 1rem;
+        bottom: 1.5rem;
+        background-color: #FFF;
+    }
 }
 
 @media screen and (orientation: landscape) {
