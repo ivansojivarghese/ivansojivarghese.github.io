@@ -64,6 +64,7 @@ function timeOfDay() {
 
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
+    const navbar = document.querySelector('.pwa .navbar');
 
     const temp = document.querySelector('.pwa .weather #temp');
     const unit = document.querySelector('.pwa .weather #unit');
@@ -74,9 +75,12 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
-    if (r.o === "portrait" && wiD < 450) {
+    if (r.o === "portrait" && wiD < (450 + (2 * op.fN))) {
         sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
-    }
+    } /*else if (r.o === "portrait" && wiD >= (450 + (2 * op.fN))) {
+        sections.style.height = "100svh";
+        navbar.classList.add("floating");
+    }*/
 
     navButtonActive('home', homeBtn);
 
