@@ -739,6 +739,8 @@ function docRead() {
                 const normal_body = document.querySelector('.non-pwa');
 
                 const pwa_scrollF = document.querySelector('.pwa .scrollBarFunction');
+                const pwa_home = document.querySelector('.pwa .home');
+                pwa_home.classList.add("scrollBarContainer");
                 pwa_scrollF.classList.add("z-I");
 
                 const puller = document.querySelector('.puller');

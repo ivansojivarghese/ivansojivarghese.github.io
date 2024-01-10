@@ -645,7 +645,7 @@
             <div class="pwa p-a h-f d_n trs z_O">
                 <div id="scrollBar" class="desktop trs z_O"></div>
                 <div class="sections scrollBarFunction">
-                    <div class="home scrollBarContainer">
+                    <div class="home">
                         <div class="banner">
                             <div></div>
                             <div class="weatherIcon"></div>
@@ -1461,8 +1461,6 @@
         <script>
             var condScrollBar = false,
                 scrollBarPos = 0;
-
-            console.log(op.pwa.s);
             
             $(".scrollBarFunction").scroll(function() {
                 var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer'),
@@ -1493,6 +1491,11 @@
                     } else { // show/move scrollbar
                         scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
                         pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
+                        if (op.pwa.s) {
+                            setTimeout(function() {
+                                e_Fd(pos.sB, true);
+                            }, dev.i);
+                        }
                     }
                 } else {
                     if (condScrollBar && pos.y) {
