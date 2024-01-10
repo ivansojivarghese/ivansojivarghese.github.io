@@ -1680,7 +1680,6 @@ function pL() { // site parameters loop
         // document.title = eR.title;
     } else if (!checkFullScreen() && eR.s && op.fS && rL && rL.i) {
         if (eR.fS_e.x) {
-            console.log("rel");
             reL(); // reload if on first load
             eR.fS_e.x = false;
             op.fS = false;
@@ -2980,7 +2979,6 @@ function checkSplitScreen() {
         if (!op.oR && !op.wR) {
             
             if (viewportValid() && op.spR && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && !((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[2]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[3]))) {
-                console.log("rel");
                 reL();
                 op.spR = false;
             } else if (!op.sp && (!eR.s || (eR.s && (eR.p === "ld" || translate_Check || checkFullScreen() || checkFocus()))) && !(bTop > window.screen.availHeight || bBottom > window.screen.availHeight || bLeft > window.screen.availWidth || bRight > window.screen.availWidth) && ((((bTop / window.screen.availHeight) * 100) > dev.sC_a[0]) || (((bBottom / window.screen.availHeight) * 100) < dev.sC_a[1]) || (((bLeft / window.screen.availWidth) * 100) > dev.sC_a[2]) || (((bRight / window.screen.availWidth) * 100) < dev.sC_a[3]))) { 
@@ -3064,7 +3062,6 @@ function checkSplitScreen() {
                         getParam();
                         
                         if ((vw.mB_L && tDevice) || (!op.c.u && !tDevice)) { // if in landscape (mobile)
-                            console.log("rel");
                             reL();
                             op.sp = false;
                         } else {
@@ -3207,7 +3204,7 @@ window.addEventListener("resize", function(e) {
 
         
         setTimeout(function() {
-            if (!op.oR) {
+            if (!op.oR && !op.pwa.s) {
                 if ((wH !== window.outerHeight && wD !== window.outerWidth) || wD !== window.outerWidth || (wH !== window.outerHeight && (Math.round(u.height) !== uHeight))) { // check for change in width/height values before proceeding (viewport resizing, no orientation changing)
 
                     var id = op.wRa.length; // set id to resize
@@ -3965,7 +3962,6 @@ window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt)
     if (evt.matches) {
         displayMode = 'standalone';
     } else {
-        console.log("rel");
         reL();
     }
 
@@ -3976,7 +3972,6 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
     if (evt.matches) {
         displayMode = 'browser';
     } else {
-        console.log("rel");
         reL();
     }
 
