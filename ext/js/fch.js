@@ -256,7 +256,13 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         var logo_h_img_pwa = (!op.darkMode || init) ? document.querySelector(".pwa .logo-full") : document.querySelector(".pwa .logo-hybrid-inverse"), // pwa
             sig_pwa = (!op.darkMode || init) ? document.querySelector(".pwa .signature") : document.querySelector(".pwa .signature_w"), // signature
 
-            weather_icon = document.querySelector('.pwa .weatherIcon .icon-container');
+            weather_icon = document.querySelector('.pwa .weatherIcon .icon-container'),
+
+            home_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .home') : document.querySelector('.pwa .navbar .home_dark'),
+            clicks_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .clicks') : document.querySelector('.pwa .navbar .clicks_dark'),
+            code_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .code') : document.querySelector('.pwa .navbar .code_dark'),
+            diary_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .diary') : document.querySelector('.pwa .navbar .diary_dark'),
+            about_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .about') : document.querySelector('.pwa .navbar .about_dark');
     }
 
     if (vw.pH) { // if phablet
