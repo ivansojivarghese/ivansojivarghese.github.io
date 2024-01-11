@@ -8,15 +8,20 @@ var sectionScroll = false,
 
 const sections = document.querySelector('.pwa .sections');
 
+var oriHeight_L = null;
+
 screen.orientation.addEventListener("change", function() {
     const sections = document.querySelector('.pwa .sections');
     if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // P to L
         sections.style.height = "100svh";
     }
     if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // L to P
-        if (window.innerWidth < 490) {
-            sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
-        }
+        oriHeight_L = setInterval(function() {
+            if (window.innerWidth < 490) {
+                sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
+                clearInterval(oriHeight_L);
+            }
+        }, op.t);
     }
 });
 
@@ -41,7 +46,7 @@ function navButtonActive(b, e) {
                 buttons[i].classList.add("hoverB");
                 buttons[i].addEventListener('mousemove', hoverInit);
                 buttons[i].addEventListener('mouseleave', hoverEnd);
-                
+
             }
         }
     }
