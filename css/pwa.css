@@ -189,6 +189,26 @@
     background-image: url("../pwa/about.png");
 }
 
+.pwa .navbar .button.home_dark .img {
+    background-image: url("../pwa/home_dark.png");
+}
+
+.pwa .navbar .button.clicks_dark .img {
+    background-image: url("../pwa/clicks_dark.png");
+}
+
+.pwa .navbar .button.code_dark .img {
+    background-image: url("../pwa/code_dark.png");
+}
+
+.pwa .navbar .button.diary_dark .img {
+    background-image: url("../pwa/diary_dark.png");
+}
+
+.pwa .navbar .button.about_dark .img {
+    background-image: url("../pwa/about_dark.png");
+}
+
 @media screen and (min-width: 490px) and (orientation: portrait) {
     .pwa .navbar {
         border-radius: 1rem;
