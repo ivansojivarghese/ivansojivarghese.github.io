@@ -16,6 +16,9 @@ screen.orientation.addEventListener("change", function() {
         sections.style.height = "100svh";
     }
     if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // L to P
+        if (window.innerWidth < 490) {
+            sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
+        }
         oriHeight_L = setInterval(function() {
             if (window.innerWidth < 490) {
                 sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
