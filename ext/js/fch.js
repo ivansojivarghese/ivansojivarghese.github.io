@@ -326,7 +326,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             about_icon.classList.add("about_dark");
 
             weather_icon.style.borderRadius = "0.5rem";
-            navbar_pwa.style.background = "#3D3D3D !important";
+            navbar_pwa.style.color = "red !important";
         }
 
         if (hm.s) { // if open
