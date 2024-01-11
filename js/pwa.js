@@ -94,6 +94,25 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
+    // dark mode
+
+    if (!getCookie("darkMode")) { // if no manual control from user
+        if (op.darkMode) { // if dark mode
+            toggleColorMode(null, true); // start-up with preset color theme
+        } else {
+            autoDarkMode(); // EXPERIMENTAL: Check device ambient light to activate dark mode
+        }
+    } else {
+        if (getCookie("darkMode") === "true") { // manual: dark mode
+            op.darkMode = true;
+            toggleColorMode(null, true); 
+        } else if (getCookie("darkMode") === "false") { // manual: light mode
+            op.darkMode = false;
+        }
+    }
+
+    // home
+
     if (r.o === "portrait" && window.innerWidth < 490) {
         sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
     }
