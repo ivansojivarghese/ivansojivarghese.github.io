@@ -21,6 +21,14 @@ var fchL = { // load up images (from HTML context)
         5 : {
             el : document.getElementsByClassName("logo-inverse-dark"),
             u : 'logo/favicon_dark_512.png'
+        },
+        6 : {
+            el : document.getElementsByClassName("signature"),
+            u : 'ext/png/signature.png'
+        },
+        7 : {
+            el : document.getElementsByClassName("signature_w"),
+            u : 'ext/png/signature_white.png'
         }
     },
     fch = {
