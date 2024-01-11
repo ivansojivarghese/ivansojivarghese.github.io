@@ -24,7 +24,7 @@ screen.orientation.addEventListener("change", function() {
                 sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
                 clearInterval(oriHeight_L);
             }
-        }, op.t);
+        }, 10);
     }
 });
 
