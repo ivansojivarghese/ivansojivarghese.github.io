@@ -144,6 +144,16 @@ function fetchPWAInfo() {
             wordcloud[i].remove();
         }
     }
+
+    // about
+
+    const aboutS1 = document.querySelector('.pwa .about #span1');
+    const aboutS2 = document.querySelector('.pwa .about #span2');
+    const aboutS3 = document.querySelector('.pwa .about #span3');
+
+    aboutS1.innerHTML = dev.info.work[0];
+    aboutS2.innerHTML = dev.info.work[1];
+    aboutS3.innerHTML = gps.city.toLowerCase();
 }
 
 function startLoadPWA() {
