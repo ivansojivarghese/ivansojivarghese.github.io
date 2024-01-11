@@ -51,7 +51,10 @@ function navButtonActive(b, e) {
         target.classList.add("buttonActive");
 
         target.classList.remove("hoverB");
-        // target.removeEventListener('mousemove', hoverInit);
+        target.removeEventListener('mousemove', hoverInit);
+
+        cursorBig.classList.remove("extra");
+        hoverActive = false;
 
         navigator.vibrate(50); // vibrate
     }
