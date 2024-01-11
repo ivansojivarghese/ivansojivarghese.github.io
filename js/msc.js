@@ -4121,6 +4121,13 @@ function hoverEnd(e) {
     hoverActive = false;
 }
 
+function hoverMiddle(e) {
+    const mouseY = e.clientY;
+    const mouseX = e.clientX;
+
+    cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
+}
+
 window.addEventListener('mousemove', positionElement);
 
 for (i = 0; i <= hoverBtns.length - 1; i++) {
@@ -4129,6 +4136,10 @@ for (i = 0; i <= hoverBtns.length - 1; i++) {
 
 for (i = 0; i <= hoverBtns.length - 1; i++) {
     hoverBtns[i].addEventListener('mouseleave', hoverEnd);
+}
+
+for (i = 0; i <= hoverBtns.length - 1; i++) {
+    hoverBtns[i].addEventListener('click', hoverMiddle);
 }
 
 ////////////////////////////////////////////
