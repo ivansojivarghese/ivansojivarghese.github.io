@@ -4138,11 +4138,11 @@ for (i = 0; i <= hoverBtns.length - 1; i++) {
     hoverBtns[i].addEventListener('mouseleave', hoverEnd);
 }
 
-if (op.pwa.s) {
+//if (op.pwa.s) {
     for (i = 0; i <= hoverBtns.length - 1; i++) {
         hoverBtns[i].addEventListener('click', hoverMiddle);
     }
-}
+//}
 
 ////////////////////////////////////////////
 
