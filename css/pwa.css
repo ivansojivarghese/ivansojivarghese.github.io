@@ -158,6 +158,10 @@
     margin: 0.5rem 0 1rem;
 }
 
+.pwa .img_iconBtn {
+    margin-right: 1rem;
+}
+
 .pwa .about .content h5 {
     margin-bottom: 0.75em;
 }
