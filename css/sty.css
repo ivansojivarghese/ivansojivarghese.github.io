@@ -1765,10 +1765,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }*/
 
 /* -------------- */
-/*
-#profile_image {
+
+.profile_image {
     background-image: url("../ext/jpg/ivan_profile.jpg");
-}*/
+}
 
 .logo-hybrid, .logo-hybrid-inverse {
     background-size: contain;

@@ -3,7 +3,7 @@
 
 var fchL = { // load up images (from HTML context)
         1 : { // #intro_sc profile image
-            el : document.getElementById("profile_image"),
+            el : document.getElementsByClassName("profile_image"),
             u : 'ext/jpg/ivan_profile.jpg'
         },
         2 : { // logo_hybrid
