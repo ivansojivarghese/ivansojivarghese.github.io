@@ -37,7 +37,7 @@ function navButtonActive(b, e) {
             if (buttons[i].classList.contains("buttonActive")) {
                 var old;
                 for (j = 0; j < buttons[i].classList.length; j++) {
-                    if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive") {
+                    if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive" && buttons[i].classList[j] !== "trs" && buttons[i].classList[j] !== "hoverB") {
                         old = buttons[i].classList[j];
                         break;
                     }
