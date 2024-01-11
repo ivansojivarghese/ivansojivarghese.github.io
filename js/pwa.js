@@ -105,10 +105,8 @@ function fetchPWAInfo() {
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
     for (i = 0; i < wordcloud.length; i++) { // get words from skills in msc.js
-        var //random1 = getRandomInt(1, 5),
-            //random2 = getRandomInt(0, 10),
-            random1 = 1,
-            random2 = 5,
+        var random1 = getRandomInt(1, 5),
+            random2 = getRandomInt(0, 10),
             wd = 0,
             textColor = [], hsb = [], rgb = [], step = 0.01, bright = 0;
         if (selectedWords.indexOf(dev.skills["s" + random1][random2]) === -1) {
