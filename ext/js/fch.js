@@ -254,7 +254,9 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
     if (op.pwa.s) {
         var logo_h_img_pwa = (!op.darkMode || init) ? document.querySelector(".pwa .logo-full") : document.querySelector(".pwa .logo-hybrid-inverse"), // pwa
-            sig_pwa = (!op.darkMode || init) ? document.querySelector(".pwa .signature") : document.querySelector(".pwa .signature_w"); // signature
+            sig_pwa = (!op.darkMode || init) ? document.querySelector(".pwa .signature") : document.querySelector(".pwa .signature_w"), // signature
+
+            weather_icon = document.querySelector('.pwa .weatherIcon .icon-container');
     }
 
     if (vw.pH) { // if phablet
@@ -303,6 +305,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             logo_h_img_pwa.classList.add("logo-hybrid-inverse");
             sig_pwa.classList.add("signature_w");
+
+            weather_icon.style.borderRadius = "0.5rem";
         }
 
         if (hm.s) { // if open
