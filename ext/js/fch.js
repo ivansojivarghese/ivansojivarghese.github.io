@@ -309,8 +309,20 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             logo_h_img_pwa.classList.remove("logo-full");
             sig_pwa.classList.remove("signature");
 
+            home_icon.classList.remove("home");
+            clicks_icon.classList.remove("clicks");
+            code_icon.classList.remove("code");
+            diary_icon.classList.remove("diary");
+            about_icon.classList.remove("about");
+
             logo_h_img_pwa.classList.add("logo-hybrid-inverse");
             sig_pwa.classList.add("signature_w");
+
+            home_icon.classList.add("home_dark");
+            clicks_icon.classList.add("clicks_dark");
+            code_icon.classList.add("code_dark");
+            diary_icon.classList.add("diary_dark");
+            about_icon.classList.add("about_dark");
 
             weather_icon.style.borderRadius = "0.5rem";
         }
