@@ -92,7 +92,7 @@ div.cursorInt {
     width: fit-content;
 }
 
-#profile_image {
+.profile_image {
     width: 18rem;
     height: 18rem;
 }
