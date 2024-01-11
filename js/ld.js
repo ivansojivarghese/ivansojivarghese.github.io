@@ -747,6 +747,8 @@ function docRead() {
 
                 c_css("#scrollBar", "right: 0.2rem; width: 0.2rem;", false, null);
 
+                deleteAllCookies();
+
                 const puller = document.querySelector('.puller');
                 puller.style.top = "2rem";
                 e_Fd(puller, false);
