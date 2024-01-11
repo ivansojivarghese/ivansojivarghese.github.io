@@ -70,7 +70,7 @@
     overflow-x: hidden;
 }
 
-.pwa .home .banner {
+.pwa .banner {
     display: flex;
     height: 5rem;
 }
