@@ -119,6 +119,10 @@ function fetchPWAInfo() {
         }
     }
 
+    // navbar 
+
+    navbar.style.backgroundColor = "#3D3D3D !important";
+
     // home
 
     if (r.o === "portrait" && window.innerWidth < 490) {
