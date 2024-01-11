@@ -898,6 +898,7 @@ function docRead() {
 
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
                                             $(tempIcon).load("weather/" + icon + ".html", function() {
+                                                pwa_body.classList.remove("d_n");
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
@@ -908,13 +909,8 @@ function docRead() {
                                                         pwa_Load = true;
                                                     }, op.t);
 
-                                                    pwa_body.classList.remove("d_n");
-
-                                                    setTimeout(function() {
-                                                        e_Fd(pwa_body, false);
-                                                    }, 10);
+                                                    e_Fd(pwa_body, false);
                                                     startLoadPWA();
-
                                                 }, 10);
                                             });
                                         }

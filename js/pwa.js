@@ -137,12 +137,10 @@ function fetchPWAInfo() {
             wordcloud[i].style.color = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
 
             wd = getBd(wordcloud[i], "width");
-            setTimeout(function() {
-                if (wd > ((0.9 * wiD) - op.fN)) {
-                    wordcloud[i].style.display = "none";
-                    wordcloud[i].remove();
-                }
-            }, 10);
+            if (wd > ((0.9 * wiD) - op.fN)) {
+                wordcloud[i].style.display = "none";
+                wordcloud[i].remove();
+            }
         } else {
             wordcloud[i].style.display = "none";
             wordcloud[i].remove();
