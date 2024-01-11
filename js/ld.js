@@ -908,7 +908,11 @@ function docRead() {
                                                         pwa_Load = true;
                                                     }, op.t);
 
-                                                    e_Fd(pwa_body, false);
+                                                    pwa_body.classList.remove("d_n");
+
+                                                    setTimeout(function() {
+                                                        e_Fd(pwa_body, false);
+                                                    }, 10);
                                                     startLoadPWA();
 
                                                 }, 10);
@@ -922,7 +926,6 @@ function docRead() {
                 }, op.t);
 
                 normal_body.classList.add("d_n");
-                pwa_body.classList.remove("d_n");
                 document.title = "Ivan Varghese";
 
                 rL.i = true; // end load
