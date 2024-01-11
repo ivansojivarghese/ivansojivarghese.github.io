@@ -161,20 +161,6 @@
     background-image: url("../pwa/about.png");
 }
 
-.pwa .signature, .pwa .signature_w {
-    background-position: center;
-    width: 6rem;
-    height: 5rem;
-}
-
-.signature {
-    background-image: url("../ext/png/signature.png");
-}
-
-.signature_w {
-    background-image: url("../ext/png/signature_white.png");
-}
-
 @media screen and (min-width: 490px) and (orientation: portrait) {
     .pwa .navbar {
         border-radius: 1rem;

@@ -1804,3 +1804,17 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 .logo-inverse-dark {
     background-image: url("../logo/favicon_dark_512.png") !important;
 }
+
+.signature, .signature_w {
+    background-position: center;
+    width: 6rem;
+    height: 5rem;
+}
+
+.signature {
+    background-image: url("../ext/png/signature.png");
+}
+
+.signature_w {
+    background-image: url("../ext/png/signature_white.png");
+}
