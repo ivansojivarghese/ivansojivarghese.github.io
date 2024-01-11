@@ -146,6 +146,10 @@
     height: 15rem;
 }
 
+.pwa .h3dup {
+    font-size: 3rem;
+}
+
 .pwa .navbar .button.home .img {
     background-image: url("../pwa/home.png");
 }
