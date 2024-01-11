@@ -4125,7 +4125,11 @@ function hoverMiddle(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
 
+    cursorBig.classList.remove("extra");
+
     cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
+
+    hoverActive = false;
 }
 
 window.addEventListener('mousemove', positionElement);
