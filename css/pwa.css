@@ -63,6 +63,9 @@
 
 .pwa .logo-full {
     background-image: url("../logo/logo_hybrid.png") !important;
+}
+
+.pwa .logo-full, .pwa .logo-hybrid-inverse {
     height: 2.5rem;
     margin-bottom: 2rem;
     background-size: contain;
