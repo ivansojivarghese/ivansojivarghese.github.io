@@ -122,7 +122,9 @@ function docRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "interactive":
 
-            op.pwa.s = true;
+            if (!vw.dk) {
+                op.pwa.s = true;
+            }
 
             if (op.pwa.s) {
 
