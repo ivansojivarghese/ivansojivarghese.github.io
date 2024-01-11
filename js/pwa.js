@@ -155,7 +155,7 @@ function fetchPWAInfo() {
     aboutS1.innerHTML = dev.info.work[0];
     aboutS2.innerHTML = dev.info.work[1];
     aboutS3.innerHTML = gps.city.toLowerCase();
-    aboutS4.innerHTML;
+    aboutS4.innerHTML = new Date().getFullYear() - 2018;
 }
 
 function startLoadPWA() {
