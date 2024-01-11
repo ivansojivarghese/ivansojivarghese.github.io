@@ -45,7 +45,7 @@ function navButtonActive(b, e) {
                 if (!op.darkMode) {
                     buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
                 } else {
-                    buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + "_dark.png')";
+                    buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
                 }
                 e_Fd(buttons[i].children[0].children[0], true); 
                 buttons[i].classList.remove("buttonActive");
@@ -121,7 +121,7 @@ function fetchPWAInfo() {
 
     // navbar 
 
-    
+
 
     // home
 
