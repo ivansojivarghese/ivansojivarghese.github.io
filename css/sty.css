@@ -1818,3 +1818,9 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 .signature_w {
     background-image: url("../ext/png/signature_white.png");
 }
+
+/* --------------------- */
+
+.lightBackground.shade {
+    background-color: #3D3D3D !important;
+}
