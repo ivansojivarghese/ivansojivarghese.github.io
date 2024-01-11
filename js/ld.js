@@ -740,7 +740,7 @@ function docRead() {
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
 
-                const load_layer = document.querySelector('load_layer');
+                // const load_layer = document.querySelector('load_layer');
 
                 const pwa_scrollF = document.querySelector('.pwa .scrollBarFunction');
                 const pwa_home = document.querySelector('.pwa .home');
@@ -928,10 +928,12 @@ function docRead() {
                 }, op.t);
 
                 normal_body.classList.add("d_n");
+                
+                /*
                 load_layer.classList.remove("d_n");
                 setTimeout(function() {
                     e_Fd(load_layer, false);
-                }, 10);
+                }, 10);*/
 
                 document.title = "Ivan Varghese";
 
