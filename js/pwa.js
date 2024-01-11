@@ -42,7 +42,11 @@ function navButtonActive(b, e) {
                         break;
                     }
                 }
-                buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
+                if (!op.darkMode) {
+                    buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
+                } else {
+                    buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + "_dark.png')";
+                }
                 e_Fd(buttons[i].children[0].children[0], true); 
                 buttons[i].classList.remove("buttonActive");
 
@@ -55,7 +59,11 @@ function navButtonActive(b, e) {
     }
 
     if (!target.classList.contains("buttonActive")) { // set on target
-        target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
+        if (!op.darkMode) {
+            target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
+        } else {
+            target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active_dark.png')";
+        }
         e_Fd(target.children[0].children[0], false); 
         target.classList.add("buttonActive");
 
