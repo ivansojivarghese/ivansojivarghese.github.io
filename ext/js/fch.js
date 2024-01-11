@@ -252,6 +252,11 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         logo_h_img = (!op.darkMode || init) ? document.querySelector(".logo-hybrid") : document.querySelector(".logo-hybrid-inverse"), // logo-hybrid
         logo_inv_img = (!op.darkMode || init) ? document.querySelector(".logo-inverse") : document.querySelector(".logo-inverse-dark"); // logo_inv
 
+    if (op.pwa.s) {
+        var logo_h_img_pwa = (!op.darkMode || init) ? document.querySelector(".pwa .logo-full") : document.querySelector(".pwa .logo-hybrid-inverse"), // pwa
+            sig_pwa = (!op.darkMode || init) ? document.querySelector(".pwa .signature") : document.querySelector(".pwa .signature_w"); // signature
+    }
+
     if (vw.pH) { // if phablet
         var c_Info_a = document.querySelectorAll(".c_Info_arrows"),
             w_img = (!op.darkMode || init) ? document.querySelector(".work_img") : document.querySelector(".work_w_img"),
@@ -291,6 +296,14 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
     } 
 
     if (!op.darkMode || init) { // if light, change to dark
+
+        if (op.pwa.s) {
+            logo_h_img_pwa.classList.remove("logo-full");
+            sig_pwa.classList.remove("signature");
+
+            logo_h_img_pwa.classList.add("logo-hybrid-inverse");
+            sig_pwa.classList.add("signature_w");
+        }
 
         if (hm.s) { // if open
             h_sc.classList.add("z-N");
