@@ -779,7 +779,7 @@ function docRead() {
                                             var day = true,
                                                 icon = "";
 
-                                            if ((new Date().valueOf() / 1000) < sunset) {
+                                            if (((new Date().valueOf() / 1000) > sunrise) && ((new Date().valueOf() / 1000) < sunset)) {
                                                 day = true;
                                             } else {
                                                 day = false;
