@@ -59,7 +59,7 @@ function navButtonActive(b, e, v) {
         }
     }
 
-    if (!target.classList.contains("buttonActive") || (target.classList.contains("buttonActive") && (target.classList.contains(b + "_active") || target.classList.contains(b + "_active_dark")))) { // set on target
+    if (!target.classList.contains("buttonActive") || (target.classList.contains("buttonActive") && (target.classList.contains(b) || target.classList.contains(b + "_dark")))) { // set on target
         if (!op.darkMode) {
             target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
         } else {
