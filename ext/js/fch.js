@@ -271,7 +271,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
         for (a = 0; a < icons.length; a++) {
             if (icons[a].classList.contains("buttonActive")) {
-                active_icon = icon[a];
+                active_icon = icons[a];
                 for (b = 0; b < icons[a].classList.length; b++) {
                     var str = icons[a].classList[b];
                     for (c = 0; c < tabs.length; c++) {
