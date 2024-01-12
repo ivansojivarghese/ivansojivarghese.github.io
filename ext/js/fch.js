@@ -348,7 +348,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             weather_icon.style.borderRadius = "0.5rem";
             navbar_pwa.classList.add("shade");
 
-            navButtonActive('home', active_icon, true);
+            navButtonActive(active_icon_name, active_icon, true);
         }
 
         if (hm.s) { // if open
