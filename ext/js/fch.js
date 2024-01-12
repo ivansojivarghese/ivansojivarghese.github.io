@@ -275,7 +275,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
                 for (b = 0; b < icons[a].classList.length; b++) {
                     var str = icons[a].classList[b];
                     for (c = 0; c < tabs.length; c++) {
-                        if (str.indexOf(tabs[c])) {
+                        if (str.indexOf(tabs[c]) !== -1) {
                             active_icon_name = tabs[c];
                             break;
                         }
