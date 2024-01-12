@@ -263,7 +263,27 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             clicks_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .clicks') : document.querySelector('.pwa .navbar .clicks_dark'),
             code_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .code') : document.querySelector('.pwa .navbar .code_dark'),
             diary_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .diary') : document.querySelector('.pwa .navbar .diary_dark'),
-            about_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .about') : document.querySelector('.pwa .navbar .about_dark');
+            about_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .about') : document.querySelector('.pwa .navbar .about_dark'),
+
+            icons = document.querySelectorAll('.pwa .navbar .button'),
+            active_icon = null,
+            active_icon_name = "";
+
+        for (a = 0; a < icons.length; a++) {
+            if (icons[a].classList.contains("buttonActive")) {
+                active_icon = icon[a];
+                for (b = 0; b < icons[a].classList.length; b++) {
+                    var str = icons[a].classList[b];
+                    for (c = 0; c < tabs.length; c++) {
+                        if (str.indexOf(tabs[c])) {
+                            active_icon_name = tabs[c];
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+        }
     }
 
     if (vw.pH) { // if phablet
@@ -327,6 +347,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             weather_icon.style.borderRadius = "0.5rem";
             navbar_pwa.classList.add("shade");
+
+            navButtonActive('home', active_icon, true);
         }
 
         if (hm.s) { // if open

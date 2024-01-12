@@ -8,7 +8,8 @@ var sectionScroll = false,
 
 const sections = document.querySelector('.pwa .sections');
 
-var oriHeight_L = null;
+var oriHeight_L = null,
+    tabs = ["home", "clicks", "code", "diary", "about"];
 
 screen.orientation.addEventListener("change", function() {
     const sections = document.querySelector('.pwa .sections');
@@ -28,7 +29,7 @@ screen.orientation.addEventListener("change", function() {
     }
 });
 
-function navButtonActive(b, e) {
+function navButtonActive(b, e, v) {
     var target = e.currentTarget || e;
     const buttons = document.querySelectorAll('.pwa .navbar .button');
 
@@ -58,7 +59,7 @@ function navButtonActive(b, e) {
         }
     }
 
-    if (!target.classList.contains("buttonActive")) { // set on target
+    if (!target.classList.contains("buttonActive") || (target.classList.contains("buttonActive") && (target.classList.contains(b + "_active") || target.classList.contains(b + "_active_dark")))) { // set on target
         if (!op.darkMode) {
             target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
         } else {
@@ -73,7 +74,9 @@ function navButtonActive(b, e) {
         cursorBig.classList.remove("extra");
         hoverActive = false;
 
-        navigator.vibrate(50); // vibrate
+        if (!v) {
+            navigator.vibrate(50); // vibrate
+        }
     }
 }
 
@@ -129,7 +132,7 @@ function fetchPWAInfo() {
         sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
     }
 
-    navButtonActive('home', homeBtn);
+    navButtonActive('home', homeBtn, true);
 
     greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
