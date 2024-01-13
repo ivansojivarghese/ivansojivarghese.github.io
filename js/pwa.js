@@ -9,7 +9,9 @@ var sectionScroll = false,
 const sections = document.querySelector('.pwa .sections');
 
 var oriHeight_L = null,
-    tabs = ["home", "clicks", "code", "diary", "about"];
+    tabs = ["home", "clicks", "code", "diary", "about"],
+    defTab = tabs[0],
+    activeTab = defTab;
 
 screen.orientation.addEventListener("change", function() {
     const sections = document.querySelector('.pwa .sections');
@@ -78,6 +80,23 @@ function navButtonActive(b, e, v) {
             navigator.vibrate(50); // vibrate
         }
     }
+
+    if (b) { // navigate to section
+        const targetSection = document.querySelector('.pwa .sections .' + b);
+        const activeSection = document.querySelector('.pwa .sections .' + activeTab);
+        e_Fd(activeSection, true);
+        activeSection.classList.remove("scrollBarContainer");
+        targetSection.classList.remove("d_n");
+        targetSection.classList.add("scrollBarContainer");
+        setTimeout(function() {
+            e_Fd(targetSection, false);
+        }, 10);
+        setTimeout(function() {
+            activeSection.classList.add("d_n");
+        }, op.t);
+
+        activeTab = b;
+    }
 }
 
 function timeOfDay() {
@@ -121,10 +140,6 @@ function fetchPWAInfo() {
             op.darkMode = false;
         }
     }
-
-    // navbar 
-
-
 
     // home
 
