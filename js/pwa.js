@@ -67,6 +67,11 @@ function navButtonActive(b, e, v) {
         } else if ((!op.darkMode && op.darkChange && target.classList.contains("buttonActive")) || (op.darkMode && !op.darkChange && !target.classList.contains("buttonActive"))) {
             target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active_dark.png')";
         }
+
+        if (!v && !target.classList.contains("buttonActive")) {
+            navigator.vibrate(50); // vibrate
+        }
+
         e_Fd(target.children[0].children[0], false); 
         target.classList.add("buttonActive");
 
@@ -75,10 +80,6 @@ function navButtonActive(b, e, v) {
 
         cursorBig.classList.remove("extra");
         hoverActive = false;
-
-        if (!v && !target.classList.contains("buttonActive")) {
-            navigator.vibrate(50); // vibrate
-        }
     }
 
     if (b && !v) { // navigate to section
