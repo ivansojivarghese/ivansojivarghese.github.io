@@ -178,6 +178,7 @@
 .pwa .about .social_media > div {
     display: flex;
     padding-left: 1em;
+    margin-bottom: 1em;
 }
 
 .pwa .about .social_media p {
@@ -203,6 +204,14 @@
 
 .pwa .about .social_media .facebook {
     background-image: url("../socials/facebook.png");
+}
+
+.pwa .about .social_media .linkedin {
+    background-image: url("../socials/linkedin.png");
+}
+
+.pwa .about .social_media .github {
+    background-image: url("../socials/github.png");
 }
 
 .pwa .navbar .button.home .img {
