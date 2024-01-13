@@ -73,10 +73,14 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
             setCookie("darkMode", "true", op.c.t);
         } else {
-            if (vw.tB || vw.dk) { // tablet OR desktop
-                icon = document.querySelector(".head #dm_btn .img_icon");
-            } else if (vw.pH || !vw.pH) { // mobile or phablet
-                icon = getColorModeIcon();
+            if (!op.pwa.s) {
+                if (vw.tB || vw.dk) { // tablet OR desktop
+                    icon = document.querySelector(".head #dm_btn .img_icon");
+                } else if (vw.pH || !vw.pH) { // mobile or phablet
+                    icon = getColorModeIcon();
+                }
+            } else {
+                icon = document.querySelector('.pwa .about .dark_mode_img');
             }
         }
 
@@ -118,10 +122,14 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
             setCookie("darkMode", "false", op.c.t);
         } else {
-            if (vw.tB || vw.dk) { // tablet OR desktop
-                icon = document.querySelector(".head #dm_btn .img_icon");
-            } else if (vw.pH || !vw.pH) { // mobile or phablet
-                icon = getColorModeIcon();
+            if (!op.pwa.s) {
+                if (vw.tB || vw.dk) { // tablet OR desktop
+                    icon = document.querySelector(".head #dm_btn .img_icon");
+                } else if (vw.pH || !vw.pH) { // mobile or phablet
+                    icon = getColorModeIcon();
+                }
+            } else {
+                icon = document.querySelector('.pwa .about .light_mode_img');
             }
         }
 
