@@ -1569,11 +1569,12 @@
                 if (!$(scrollBarF).hasClass("z_O")) {
                     condScrollBar = true;
 
-                    var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer"),
-                        parentHeight = parent.getBoundingClientRect().height,
-                        scrollTr = 0;
-
-                    if (parent === null) {
+                    var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer");
+                    
+                    if (parent !== null) {
+                        var parentHeight = parent.getBoundingClientRect().height,
+                            scrollTr = 0;
+                    } else {
                         clearInterval(normalScrollLoop);
                     }
 
