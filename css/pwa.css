@@ -183,6 +183,8 @@
 .pwa .about .social_media p {
     padding-bottom: 0;
     margin-left: 0.75em;
+    font-size: 1rem;
+    padding: 0.15rem 0;
 }
 
 .pwa .about .social_media a {
