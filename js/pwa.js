@@ -74,7 +74,7 @@ function navButtonActive(b, e, v) {
         cursorBig.classList.remove("extra");
         hoverActive = false;
 
-        if (!v) {
+        if (!v && !target.classList.contains("buttonActive")) {
             navigator.vibrate(50); // vibrate
         }
     }
