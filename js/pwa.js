@@ -81,7 +81,7 @@ function navButtonActive(b, e, v) {
         }
     }
 
-    if (b) { // navigate to section
+    if (b && !v) { // navigate to section
         const targetSection = document.querySelector('.pwa .sections .' + b);
         const activeSection = document.querySelector('.pwa .sections .' + activeTab);
         e_Fd(activeSection, true);
