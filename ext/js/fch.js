@@ -284,6 +284,13 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
                 break;
             }
         }
+
+        if (active_icon === null) {
+            active_icon = document.querySelector('.pwa .navbar .button.home');
+        }
+        if (active_icon_name === "") {
+            active_icon_name = 'home';
+        }
     }
 
     if (vw.pH) { // if phablet
