@@ -43,9 +43,9 @@ function navButtonActive(b, e, v) {
                         break;
                     }
                 }
-                if (op.darkMode && op.darkChange) {
+                if (op.darkMode) {
                     buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
-                } else if (!op.darkMode && op.darkChange) {
+                } else if (!op.darkMode) {
                     buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
                 }
                 e_Fd(buttons[i].children[0].children[0], true); 
@@ -60,9 +60,9 @@ function navButtonActive(b, e, v) {
     }
 
     if (!target.classList.contains("buttonActive") || (target.classList.contains("buttonActive") && (target.classList.contains(b) || target.classList.contains(b + "_dark")))) { // set on target
-        if (op.darkMode && op.darkChange) {
+        if (op.darkMode && ((op.darkChange && target.classList.contains("buttonActive")) || (!op.darkChange && !target.classList.contains("buttonActive")))) {
             target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
-        } else if (!op.darkMode && op.darkChange) {
+        } else if (!op.darkMode && ((op.darkChange && target.classList.contains("buttonActive")) || (!op.darkChange && !target.classList.contains("buttonActive")))) {
             target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active_dark.png')";
         }
         e_Fd(target.children[0].children[0], false); 
