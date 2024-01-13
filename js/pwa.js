@@ -43,9 +43,9 @@ function navButtonActive(b, e, v) {
                         break;
                     }
                 }
-                if (!op.darkMode) {
+                if (op.darkMode && op.darkChange) {
                     buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
-                } else {
+                } else if (!op.darkMode && op.darkChange) {
                     buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
                 }
                 e_Fd(buttons[i].children[0].children[0], true); 
