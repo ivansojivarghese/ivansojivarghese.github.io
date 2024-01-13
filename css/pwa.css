@@ -157,6 +157,7 @@
     width: 15rem;
     height: 15rem;
     margin-bottom: 2rem;
+    margin-left: calc(((100vw - 15rem) / 2) - 10vw);
 }
 
 .pwa .h3dup {
