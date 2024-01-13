@@ -62,7 +62,7 @@ function navButtonActive(b, e, v) {
     if (!target.classList.contains("buttonActive") || (target.classList.contains("buttonActive") && (target.classList.contains(b) || target.classList.contains(b + "_dark")))) { // set on target
         if ((op.darkMode && op.darkChange && target.classList.contains("buttonActive")) || (!op.darkMode && !op.darkChange && !target.classList.contains("buttonActive"))) {
             target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
-        } else if ((!op.darkMode && op.darkChange && target.classList.contains("buttonActive")) || (op.darkMode && op.darkChange && !target.classList.contains("buttonActive"))) {
+        } else if ((!op.darkMode && op.darkChange && target.classList.contains("buttonActive")) || (op.darkMode && !op.darkChange && !target.classList.contains("buttonActive"))) {
             target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active_dark.png')";
         }
         e_Fd(target.children[0].children[0], false); 
