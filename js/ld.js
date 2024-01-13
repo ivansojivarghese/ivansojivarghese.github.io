@@ -2150,7 +2150,20 @@ function autoDarkMode() {
                     op.autoDark = true;
                 }
 
-                var daytime = checkWithinTime(timeToDetails(sunAPIres.sunrise), timeToDetails(sunAPIres.sunset)); // check if user time is daytime
+                var daytime;
+
+                if (!op.pwa.s) {
+                    daytime = checkWithinTime(timeToDetails(sunAPIres.sunrise), timeToDetails(sunAPIres.sunset)); // check if user time is daytime
+                } else {
+                    const sunrise = weatherAPIres.sys.sunrise;
+                    const sunset = weatherAPIres.sys.sunset;
+
+                    if (((new Date().valueOf() / 1000) > sunrise) && ((new Date().valueOf() / 1000) < sunset)) {
+                        daytime = true;
+                    } else {
+                        daytime = false;
+                    }
+                }
 
                 // Read the light levels in lux 
                 // < 50 is dark room
