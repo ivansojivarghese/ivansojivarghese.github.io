@@ -214,6 +214,10 @@
     background-image: url("../socials/github.png");
 }
 
+.pwa .about .social_media .x_twitter {
+    background-image: url("../socials/x.png");
+}
+
 .pwa .navbar .button.home .img {
     background-image: url("../pwa/home.png");
 }
