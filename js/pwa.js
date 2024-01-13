@@ -84,16 +84,11 @@ function navButtonActive(b, e, v) {
     if (b && !v) { // navigate to section
         const targetSection = document.querySelector('.pwa .sections .' + b);
         const activeSection = document.querySelector('.pwa .sections .' + activeTab);
-        e_Fd(activeSection, true);
+
         activeSection.classList.remove("scrollBarContainer");
+        activeSection.classList.add("d_n");
         targetSection.classList.remove("d_n");
         targetSection.classList.add("scrollBarContainer");
-        setTimeout(function() {
-            e_Fd(targetSection, false);
-        }, 10);
-        setTimeout(function() {
-            activeSection.classList.add("d_n");
-        }, op.t);
 
         activeTab = b;
     }
