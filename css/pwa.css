@@ -177,10 +177,12 @@
 
 .pwa .about .social_media > div {
     display: flex;
+    padding-left: 1em;
 }
 
 .pwa .about .social_media p {
     padding-bottom: 0;
+    margin-left: 0.75em;
 }
 
 .pwa .about .social_media a {
@@ -189,10 +191,16 @@
 
 .pwa .about .social_media .img_icon {
     margin: 0;
+    width: 1.3rem;
+    height: 1.3rem;
 }
 
 .pwa .about .social_media .instagram {
     background-image: url("../socials/instagram.png");
+}
+
+.pwa .about .social_media .facebook {
+    background-image: url("../socials/facebook.png");
 }
 
 .pwa .navbar .button.home .img {
