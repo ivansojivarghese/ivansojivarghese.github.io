@@ -747,6 +747,7 @@
                                 <div class="container">
                                     <h5>online</h5>
                                     
+                                    <!-- ig, fb, lk, tw, gh -->
                                 </div>
                             </div>
                         </div>
@@ -1558,25 +1559,27 @@
             });
 
             setInterval(function () {
-                var scrollBarF = op.pwa.s ? ".pwa .scrollBarFunction" : ".non-pwa .scrollBarFunction";
-                if (!$(scrollBarF).hasClass("z_O")) {
-                    condScrollBar = true;
+                if (vw.dk) {
+                    var scrollBarF = op.pwa.s ? ".pwa .scrollBarFunction" : ".non-pwa .scrollBarFunction";
+                    if (!$(scrollBarF).hasClass("z_O")) {
+                        condScrollBar = true;
 
-                    var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer"),
-                        parentHeight = parent.getBoundingClientRect().height,
-                        scrollTr = 0;
+                        var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer"),
+                            parentHeight = parent.getBoundingClientRect().height,
+                            scrollTr = 0;
 
-                    if (parentHeight <= window.innerHeight) { // hide scrollbar
-                        e_Fd(pos.sB, true);
-                    } else { // show/move scrollbar
-                        scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
-                        pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
+                        if (parentHeight <= window.innerHeight) { // hide scrollbar
+                            e_Fd(pos.sB, true);
+                        } else { // show/move scrollbar
+                            scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
+                            pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
+                        }
+                    } else {
+                        if (condScrollBar && pos.y) {
+                            e_Fd(pos.sB, false);
+                        }
+                        condScrollBar = false;
                     }
-                } else {
-                    if (condScrollBar && pos.y) {
-                        e_Fd(pos.sB, false);
-                    }
-                    condScrollBar = false;
                 }
             }, op.Ls);
 
