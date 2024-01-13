@@ -175,12 +175,20 @@
     margin-bottom: 0.75em;
 }
 
+.pwa .about .social_media > div {
+    display: flex;
+}
+
 .pwa .about .social_media p {
     padding-bottom: 0;
 }
 
 .pwa .about .social_media a {
     text-decoration: underline;
+}
+
+.pwa .about .social_media .img_icon {
+    margin: 0;
 }
 
 .pwa .about .social_media .instagram {
