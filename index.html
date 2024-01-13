@@ -1525,6 +1525,8 @@
             var condScrollBar = false,
                 scrollBarPos = 0;
 
+            var normalScrollLoop = null;
+
             var pwaScrollTimeout = null,
                 pwaScrollTimeoutCheck = false;
             
@@ -1562,7 +1564,7 @@
                 
             });
 
-            setInterval(function () {
+            normalScrollLoop = setInterval(function () {
                 var scrollBarF = op.pwa.s ? ".pwa .scrollBarFunction" : ".non-pwa .scrollBarFunction";
                 if (!$(scrollBarF).hasClass("z_O")) {
                     condScrollBar = true;
@@ -1570,6 +1572,10 @@
                     var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer"),
                         parentHeight = parent.getBoundingClientRect().height,
                         scrollTr = 0;
+
+                    if (parent === null) {
+                        clearInterval(normalScrollLoop);
+                    }
 
                     if (parentHeight <= window.innerHeight) { // hide scrollbar
                         e_Fd(pos.sB, true);
