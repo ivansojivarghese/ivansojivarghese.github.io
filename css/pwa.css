@@ -82,6 +82,10 @@
     height: 5rem;
 }
 
+.pwa .ham_auto {
+    top: 2.3rem;
+}
+
 .pwa .home .weather {
     width: 7rem;
     margin-right: 1rem;
