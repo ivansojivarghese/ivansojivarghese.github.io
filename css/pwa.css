@@ -175,6 +175,18 @@
     margin-bottom: 0.75em;
 }
 
+.pwa .about .social_media p {
+    padding-bottom: 0;
+}
+
+.pwa .about .social_media a {
+    text-decoration: underline;
+}
+
+.pwa .about .social_media .instagram {
+    background-image: url("../socials/instagram.png");
+}
+
 .pwa .navbar .button.home .img {
     background-image: url("../pwa/home.png");
 }
