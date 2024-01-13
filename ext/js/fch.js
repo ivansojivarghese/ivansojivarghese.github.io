@@ -422,6 +422,31 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
     } else { // if dark, change to light
 
+        if (op.pwa.s) {
+            logo_h_img_pwa.classList.remove("logo-hybrid-inverse");
+            sig_pwa.classList.remove("signature_w");
+
+            home_icon.classList.remove("home_dark");
+            clicks_icon.classList.remove("clicks_dark");
+            code_icon.classList.remove("code_dark");
+            diary_icon.classList.remove("diary_dark");
+            about_icon.classList.remove("about_dark");
+
+            logo_h_img_pwa.classList.add("logo-full"); 
+            sig_pwa.classList.add("signature");
+
+            home_icon.classList.add("home");
+            clicks_icon.classList.add("clicks");
+            code_icon.classList.add("code");
+            diary_icon.classList.add("diary");
+            about_icon.classList.add("about");
+
+            weather_icon.style.borderRadius = "";
+            navbar_pwa.classList.remove("shade");
+
+            navButtonActive(active_icon_name, active_icon, true);
+        }
+
         ham_b.removeEventListener("click", hamScZdx);
         lk3.classList.remove("z_Os"); //
 
