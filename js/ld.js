@@ -2168,12 +2168,13 @@ function autoDarkMode() {
                 // Read the light levels in lux 
                 // < 50 is dark room
 
-                op.darkChange = true;
                 if (sensor.illuminance < 50 && !op.darkMode && !daytime) {
+                    op.darkChange = true;
                     toggleColorMode(null);
                     op.darkMode = true; // set to dark mode automatically
                     op.darkChange = false;
                 } else if (op.darkMode) {
+                    op.darkChange = true;
                     toggleColorMode(null);
                     op.darkMode = false;
                     op.darkChange = false;
