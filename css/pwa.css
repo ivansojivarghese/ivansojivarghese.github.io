@@ -218,6 +218,26 @@
     background-image: url("../socials/x.png");
 }
 
+.pwa .about .social_media .instagram_w {
+    background-image: url("../socials/instagram_white.png");
+}
+
+.pwa .about .social_media .facebook_w {
+    background-image: url("../socials/facebook_white.png");
+}
+
+.pwa .about .social_media .linkedin_w {
+    background-image: url("../socials/linkedin_white.png");
+}
+
+.pwa .about .social_media .github_w {
+    background-image: url("../socials/github_white.png");
+}
+
+.pwa .about .social_media .x_twitter_w {
+    background-image: url("../socials/x_white.png");
+}
+
 .pwa .navbar .button.home .img {
     background-image: url("../pwa/home.png");
 }

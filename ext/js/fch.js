@@ -265,6 +265,12 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             diary_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .diary') : document.querySelector('.pwa .navbar .diary_dark'),
             about_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .about') : document.querySelector('.pwa .navbar .about_dark'),
 
+            ig_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .instagram') : document.querySelector('.pwa .about .instagram_w'),
+            fb_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .facebook') : document.querySelector('.pwa .about .facebook_w'),
+            lk_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .linkedin') : document.querySelector('.pwa .about .linkedin_w'),
+            gh_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .github') : document.querySelector('.pwa .about .github_w'),
+            x_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .x') : document.querySelector('.pwa .about .x_w'),
+
             icons = document.querySelectorAll('.pwa .navbar .button'),
             active_icon = null,
             active_icon_name = "";
