@@ -1594,13 +1594,11 @@
                         clearInterval(normalScrollLoop);
                     }
 
-                    if (pos.sB) {
-                        if (parentHeight <= window.innerHeight) { // hide scrollbar
-                            e_Fd(pos.sB, true);
-                        } else { // show/move scrollbar
-                            scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
-                            pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
-                        }
+                    if (parentHeight <= window.innerHeight) { // hide scrollbar
+                        e_Fd(pos.sB, true);
+                    } else { // show/move scrollbar
+                        scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
+                        pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
                     }
                 } else {
                     if (condScrollBar && pos.y) {
