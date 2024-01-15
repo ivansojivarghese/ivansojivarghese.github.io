@@ -68,7 +68,11 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         } else {
             hamAuto = document.querySelector('.pwa .about .ham_auto');
         }
-        e_Fd(hamAuto, true); // remove 'auto' label
+        if (!op.autoDarkChange) {
+            e_Fd(hamAuto, true); // remove 'auto' label
+        } else {
+            op.autoDarkChange = false;
+        }
         op.refuseAutoDark = true;
     }
 

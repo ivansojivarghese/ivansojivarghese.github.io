@@ -2173,11 +2173,13 @@ function autoDarkMode() {
                         op.darkChange = true;
                         toggleColorMode(null);
                         op.darkMode = true; // set to dark mode automatically
+                        op.autoDarkChange = true;
                         op.darkChange = false;
                     } else if (op.darkMode) {
                         op.darkChange = true;
                         toggleColorMode(null);
                         op.darkMode = false;
+                        op.autoDarkChange = true;
                         op.darkChange = false;
                     }
                 }

@@ -311,6 +311,7 @@
         left: 0;
         width: 4rem;
         height: 100svh;
+        box-shadow: none;
     }
 
     .pwa .navbar .button {
