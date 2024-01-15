@@ -68,6 +68,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
             hamAuto = document.querySelector('.pwa .about .ham_auto');
         }
         e_Fd(hamAuto, true); // remove 'auto' label
+        op.refuseAutoDark = true;
     }
 
     if (!op.darkMode || init) { // if light, change to dark
