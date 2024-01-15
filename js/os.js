@@ -48,6 +48,10 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"]; // dark favicons
         fvc_L = ["safari-pinned-tab.svg", "apple-touch-icon.png", "favicon.ico", "favicon/favicon.svg", "favicon/android-chrome-512x512.png", "favicon/android-chrome-192x192.png", "favicon/favicon-32x32.png", "favicon/favicon-16x16.png"]; // light favicons
 
+    if (e) {
+        op.darkChange = true;
+    }
+
     toggleColorMode_e(init); // perform page specific actions
 
     if (e || op.darkChange) { // if manually controlled
@@ -151,6 +155,10 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         scrolltop_img.classList.add("scrolltop_img");
         
         op.darkMode = false;
+    }
+
+    if (op.darkChange) {
+        op.darkChange = false;
     }
 }
 
