@@ -189,6 +189,7 @@
 
 .pwa .about .social_media a {
     text-decoration: underline;
+    display: flex;
 }
 
 .pwa .about .social_media .img_icon {
