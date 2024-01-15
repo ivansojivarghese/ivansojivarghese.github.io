@@ -52,12 +52,16 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
     if (e || op.darkChange) { // if manually controlled
         var hamAuto;
-        if (vw.tB) {
-            hamAuto = document.querySelector(".tablet .ham_auto");
-        } else if (vw.pH) {
-            hamAuto = document.querySelector(".phablet .ham_auto");
+        if (!op.pwa.s) {
+            if (vw.tB) {
+                hamAuto = document.querySelector(".tablet .ham_auto");
+            } else if (vw.pH) {
+                hamAuto = document.querySelector(".phablet .ham_auto");
+            } else {
+                hamAuto = document.querySelector(".mobile .ham_auto");
+            }
         } else {
-            hamAuto = document.querySelector(".mobile .ham_auto");
+            hamAuto = document.querySelector('.pwa .about .ham_auto');
         }
         e_Fd(hamAuto, true); // remove 'auto' label
     }
