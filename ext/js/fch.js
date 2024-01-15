@@ -269,7 +269,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fb_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .facebook') : document.querySelector('.pwa .about .facebook_w'),
             lk_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .linkedin') : document.querySelector('.pwa .about .linkedin_w'),
             gh_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .github') : document.querySelector('.pwa .about .github_w'),
-            x_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .x') : document.querySelector('.pwa .about .x_w'),
+            x_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .x_twitter') : document.querySelector('.pwa .about .x_twitter_w'),
 
             icons = document.querySelectorAll('.pwa .navbar .button'),
             active_icon = null,
@@ -353,7 +353,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fb_icon.classList.remove("facebook");
             lk_icon.classList.remove("linkedin");
             gh_icon.classList.remove("github");
-            x_icon.classList.remove("x");
+            x_icon.classList.remove("x_twitter");
 
             logo_h_img_pwa.classList.add("logo-hybrid-inverse");
             sig_pwa.classList.add("signature_w");
@@ -368,7 +368,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fb_icon.classList.add("facebook_w");
             lk_icon.classList.add("linkedin_w");
             gh_icon.classList.add("github_w");
-            x_icon.classList.add("x_w");
+            x_icon.classList.add("x_twitter_w");
 
             weather_icon.style.borderRadius = "0.5rem";
             navbar_pwa.classList.add("shade");
@@ -461,7 +461,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fb_icon.classList.remove("facebook_w");
             lk_icon.classList.remove("linkedin_w");
             gh_icon.classList.remove("github_w");
-            x_icon.classList.remove("x_w");
+            x_icon.classList.remove("x_twitter_w");
 
             logo_h_img_pwa.classList.add("logo-full"); 
             sig_pwa.classList.add("signature");
@@ -476,7 +476,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fb_icon.classList.add("facebook");
             lk_icon.classList.add("linkedin");
             gh_icon.classList.add("github");
-            x_icon.classList.add("x");
+            x_icon.classList.add("x_twitter");
 
             weather_icon.style.borderRadius = "";
             navbar_pwa.classList.remove("shade");
