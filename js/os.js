@@ -22,15 +22,16 @@ function isDarkMode() { // dark mode detection
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
-    op.darkChange = true;
     if (matches) { // change to dark mode
         if (!getCookie("darkMode") && !op.darkMode) {
+            op.darkChange = true;
             toggleColorMode(null);
             op.darkMode = true;
             op.darkChange = false;
         }
     } else { // change to light mode
         if (!getCookie("darkMode") && op.darkMode) {
+            op.darkChange = true;
             toggleColorMode(null);
             op.darkMode = false;
             op.darkChange = false;
