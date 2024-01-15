@@ -349,6 +349,12 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             diary_icon.classList.remove("diary");
             about_icon.classList.remove("about");
 
+            ig_icon.classList.remove("instagram");
+            fb_icon.classList.remove("facebook");
+            lk_icon.classList.remove("linkedin");
+            gh_icon.classList.remove("github");
+            x_icon.classList.remove("x");
+
             logo_h_img_pwa.classList.add("logo-hybrid-inverse");
             sig_pwa.classList.add("signature_w");
 
@@ -357,6 +363,12 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             code_icon.classList.add("code_dark");
             diary_icon.classList.add("diary_dark");
             about_icon.classList.add("about_dark");
+
+            ig_icon.classList.add("instagram_w");
+            fb_icon.classList.add("facebook_w");
+            lk_icon.classList.add("linkedin_w");
+            gh_icon.classList.add("github_w");
+            x_icon.classList.add("x_w");
 
             weather_icon.style.borderRadius = "0.5rem";
             navbar_pwa.classList.add("shade");
@@ -445,6 +457,12 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             diary_icon.classList.remove("diary_dark");
             about_icon.classList.remove("about_dark");
 
+            ig_icon.classList.remove("instagram_w");
+            fb_icon.classList.remove("facebook_w");
+            lk_icon.classList.remove("linkedin_w");
+            gh_icon.classList.remove("github_w");
+            x_icon.classList.remove("x_w");
+
             logo_h_img_pwa.classList.add("logo-full"); 
             sig_pwa.classList.add("signature");
 
@@ -453,6 +471,12 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             code_icon.classList.add("code");
             diary_icon.classList.add("diary");
             about_icon.classList.add("about");
+
+            ig_icon.classList.add("instagram");
+            fb_icon.classList.add("facebook");
+            lk_icon.classList.add("linkedin");
+            gh_icon.classList.add("github");
+            x_icon.classList.add("x");
 
             weather_icon.style.borderRadius = "";
             navbar_pwa.classList.remove("shade");
