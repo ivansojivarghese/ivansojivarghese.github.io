@@ -387,12 +387,13 @@
     }
 
     .pwa .profile_image {
-        width: 12rem;
-        height: 12rem;
+        width: calc(92.5vw - 5rem - 15rem - 3rem);
+        height: calc(92.5vw - 5rem - 15rem - 3rem);
     }
 
     .pwa .about .paragraph.size {
         margin-left: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 
     .pwa .about .container.offline {
