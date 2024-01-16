@@ -24,6 +24,10 @@
     margin-top: 1rem;
 }
 
+.pwa .container.block {
+    display: block;
+}
+
 .pwa .home .wrap {
     width: 4rem;
     margin-right: 1em;

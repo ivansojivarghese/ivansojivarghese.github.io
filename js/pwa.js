@@ -204,6 +204,8 @@ function fetchPWAInfo() {
 }
 
 function startLoadPWA() {
+    var y = op.d.getFullYear(); // get copyright year
+
     const stats = document.querySelector('.pwa .home .stats.container');
 
     const stat1 = document.querySelector('.pwa .home #stat1');
@@ -214,6 +216,9 @@ function startLoadPWA() {
         stats_e = false;
 
     const disVar = document.querySelector('.pwa #distanceVariantPWA');
+
+    fter.y.innerHTML = y;
+    fter.v[0].innerHTML = dev.version;
 
     sI_1.e = stat1;
     sI_2.e = stat2;
