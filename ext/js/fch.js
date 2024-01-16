@@ -400,49 +400,52 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
         ////////////////////////////////////////
 
-        if (vw.pH) { // phablet
-            for (i = 0; i < c_Info_a.length; i++) {
-                c_Info_a[i].classList.remove("lead_arrow_forward_img");
-                c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+        if (!op.pwa.s) {
+
+            if (vw.pH) { // phablet
+                for (i = 0; i < c_Info_a.length; i++) {
+                    c_Info_a[i].classList.remove("lead_arrow_forward_img");
+                    c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+                }
+
+                w_img.classList.remove("work_img");
+                s_img.classList.remove("school_img");
+                l_img.classList.remove("location_img");
+
+                w_img.classList.add("work_w_img");
+                s_img.classList.add("school_w_img");
+                l_img.classList.add("location_w_img");
+            } else if (vw.tB && !vw.dk) { // tablet
+                intro_L.classList.remove("d_n");
+
+                c_css("#blend_sc div", "background-color: #3D3D3D;", false, null, op, "darkMode");
+
+                c_css("#blend_sc div:nth-child(2)", "margin-left: 10vw;", false, null, op, "darkMode");
+                c_css("#blend_sc div:nth-child(3)", "margin-left: 25vw;", false, null, op, "darkMode");
+                c_css("#blend_sc div:nth-child(4)", "margin-left: 40vw;", false, null, op, "darkMode");
+                c_css("#blend_sc div:nth-child(5)", "margin-left: 50vw;", false, null, op, "darkMode");
+
+            } else if (vw.dk) { // desktop
+
+                for (i = 0; i < c_Info_a.length; i++) {
+                    c_Info_a[i].classList.remove("lead_arrow_forward_img");
+                    c_Info_a[i].classList.add("lead_arrow_forward_w_img");
+                }
+
+                c_css("div.cursorInt", "background-color: #3D3D3D;", false, null, op, "darkMode");
+                c_css("#localWeather .img_icon.d_i", "background-color: #C8C6C1", false, null, op, "darkMode");
+                c_css("#link_4, #wordsTyperDet, #wordsTyperDet_cursor, #lightbulb_w_img", "opacity: 0.5;", false, null, op, "darkMode");
+                c_css("#random_sc", "background-color: #4A4A4A;", false, null, op, "darkMode");
+
+                lb_img.classList.remove("lightbulb_img");
+                pitch_d.classList.remove("d_n");
+
+                lb_img.classList.add("lightbulb_w_img");
+
+            } else { // mobile
+
+                c_css("#link_1", "opacity: 0.1;", false, null, op, "darkMode");
             }
-
-            w_img.classList.remove("work_img");
-            s_img.classList.remove("school_img");
-            l_img.classList.remove("location_img");
-
-            w_img.classList.add("work_w_img");
-            s_img.classList.add("school_w_img");
-            l_img.classList.add("location_w_img");
-        } else if (vw.tB && !vw.dk) { // tablet
-            intro_L.classList.remove("d_n");
-
-            c_css("#blend_sc div", "background-color: #3D3D3D;", false, null, op, "darkMode");
-
-            c_css("#blend_sc div:nth-child(2)", "margin-left: 10vw;", false, null, op, "darkMode");
-            c_css("#blend_sc div:nth-child(3)", "margin-left: 25vw;", false, null, op, "darkMode");
-            c_css("#blend_sc div:nth-child(4)", "margin-left: 40vw;", false, null, op, "darkMode");
-            c_css("#blend_sc div:nth-child(5)", "margin-left: 50vw;", false, null, op, "darkMode");
-
-        } else if (vw.dk) { // desktop
-
-            for (i = 0; i < c_Info_a.length; i++) {
-                c_Info_a[i].classList.remove("lead_arrow_forward_img");
-                c_Info_a[i].classList.add("lead_arrow_forward_w_img");
-            }
-
-            c_css("div.cursorInt", "background-color: #3D3D3D;", false, null, op, "darkMode");
-            c_css("#localWeather .img_icon.d_i", "background-color: #C8C6C1", false, null, op, "darkMode");
-            c_css("#link_4, #wordsTyperDet, #wordsTyperDet_cursor, #lightbulb_w_img", "opacity: 0.5;", false, null, op, "darkMode");
-            c_css("#random_sc", "background-color: #4A4A4A;", false, null, op, "darkMode");
-
-            lb_img.classList.remove("lightbulb_img");
-            pitch_d.classList.remove("d_n");
-
-            lb_img.classList.add("lightbulb_w_img");
-
-        } else { // mobile
-
-            c_css("#link_1", "opacity: 0.1;", false, null, op, "darkMode");
         }
 
     } else { // if dark, change to light
