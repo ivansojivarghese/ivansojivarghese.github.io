@@ -342,6 +342,19 @@
         display: inline-block;
         margin-left: 3rem;
     }
+
+    .pwa .about .container.offline {
+        display: inline-block;
+        width: 50%;
+        position: relative;
+        top: -4.7rem;
+    }
+
+    .pwa .about .container.online {
+        display: inline-block;
+        width: 45%;
+        margin-left: 4%;
+    }
 }
 
 @media screen and (min-height: 490px) and (orientation: landscape) {
