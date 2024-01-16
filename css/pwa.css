@@ -385,4 +385,17 @@
     .pwa .navbar .button:first-child {
         margin-top: calc((20rem - 15rem) / 6);
     }
+
+    .pwa .profile_image {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .pwa .about .paragraph.size {
+        margin-left: 1.5rem;
+    }
+
+    .pwa .about .container.offline {
+        top: -1.1rem;
+    }
 }
