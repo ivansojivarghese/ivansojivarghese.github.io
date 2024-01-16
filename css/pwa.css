@@ -331,6 +331,17 @@
         margin-left: 7.5% !important;
         width: 92.5%;
     }
+
+    .pwa .profile_image {
+        margin-left: 0;
+        display: inline-block;
+    }
+
+    .pwa .about .paragraph.size {
+        padding-right: 0;
+        display: inline-block;
+        margin-left: 3rem;
+    }
 }
 
 @media screen and (min-height: 490px) and (orientation: landscape) {
