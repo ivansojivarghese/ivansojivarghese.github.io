@@ -70,10 +70,10 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         }
         if (!op.autoDarkChange) {
             e_Fd(hamAuto, true); // remove 'auto' label
+            op.refuseAutoDark = true;
         } else {
             op.autoDarkChange = false;
         }
-        op.refuseAutoDark = true;
     }
 
     if (!op.darkMode || init) { // if light, change to dark
