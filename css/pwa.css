@@ -284,6 +284,12 @@
     background-image: url("../pwa/about_dark.png");
 }
 
+@media screen and (orientation: portrait) {
+    .pwa .noRSpace {
+        padding-right: 0 !important;
+    }
+}
+
 @media screen and (min-width: 490px) and (orientation: portrait) {
     .pwa .navbar {
         border-radius: 1rem;
@@ -303,6 +309,10 @@
 }
 
 @media screen and (orientation: landscape) {
+    .pwa .noRSpace {
+        padding-right: initial;
+    }
+
     .pwa .sections {
         float: right;
         height: 100svh;

@@ -308,10 +308,10 @@ body.refreshing .puller.shrink {
 }
 
 /* --------------------------------------------- */
-
+/*
 .noRSpace {
     padding-right: 0 !important;
-}
+}*/
 
 .rSpace {
     padding-right: 1em;
