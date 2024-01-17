@@ -510,35 +510,37 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         logo_inv_img.classList.add("logo-inverse");
         pl3.classList.add("lead_arrow_forward_img");
 
-        if (vw.pH) {
-            for (i = 0; i < c_Info_a.length; i++) {
-                c_Info_a[i].classList.remove("lead_arrow_forward_w_img");
-                c_Info_a[i].classList.add("lead_arrow_forward_img");
-            }
+        if (!op.pwa.s) {
+            if (vw.pH) {
+                for (i = 0; i < c_Info_a.length; i++) {
+                    c_Info_a[i].classList.remove("lead_arrow_forward_w_img");
+                    c_Info_a[i].classList.add("lead_arrow_forward_img");
+                }
 
-            w_img.classList.remove("work_w_img");
-            s_img.classList.remove("school_w_img");
-            l_img.classList.remove("location_w_img");
+                w_img.classList.remove("work_w_img");
+                s_img.classList.remove("school_w_img");
+                l_img.classList.remove("location_w_img");
 
-            w_img.classList.add("work_img");
-            s_img.classList.add("school_img");
-            l_img.classList.add("location_img");
-        } else if (vw.tB && !vw.dk) {
+                w_img.classList.add("work_img");
+                s_img.classList.add("school_img");
+                l_img.classList.add("location_img");
+            } else if (vw.tB && !vw.dk) {
 
-            intro_L.classList.add("d_n");
+                intro_L.classList.add("d_n");
 
-        } else if (vw.dk) { //
-            for (i = 0; i < c_Info_a.length; i++) {
-                c_Info_a[i].classList.remove("lead_arrow_forward_w_img");
-                c_Info_a[i].classList.add("lead_arrow_forward_img");
-            }
+            } else if (vw.dk) { //
+                for (i = 0; i < c_Info_a.length; i++) {
+                    c_Info_a[i].classList.remove("lead_arrow_forward_w_img");
+                    c_Info_a[i].classList.add("lead_arrow_forward_img");
+                }
 
-            lb_img.classList.remove("lightbulb_w_img");
+                lb_img.classList.remove("lightbulb_w_img");
 
-            lb_img.classList.add("lightbulb_img");
-            pitch_d.classList.add("d_n");
+                lb_img.classList.add("lightbulb_img");
+                pitch_d.classList.add("d_n");
 
-        } 
+            } 
+        }
 
     }
 }
