@@ -310,7 +310,7 @@
 
 @media screen and (orientation: landscape) {
     .pwa .noRSpace {
-        padding-right: initial;
+        padding-right: 2em;
     }
 
     .pwa .sections {
@@ -357,7 +357,7 @@
         display: inline-block;
         width: 50%;
         position: relative;
-        top: -4.7rem;
+        /*top: -4.7rem;*/
     }
 
     .pwa .about .container.online {
