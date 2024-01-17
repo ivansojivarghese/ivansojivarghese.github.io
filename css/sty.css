@@ -875,6 +875,10 @@ a.md, span.md {
     padding-bottom: 0.5em !important;
 }
 
+.p_B_1 {
+    padding-bottom: 1em !important;
+}
+
 .p_Bz {
     padding-bottom: 0;
 }
