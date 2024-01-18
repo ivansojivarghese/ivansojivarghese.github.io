@@ -452,6 +452,10 @@
     .pwa .about .container.online {
         min-width: 300px;
     }
+
+    .pwa .noRSpace {
+        padding-right: 0;
+    }
 }
 
 @media screen and (max-width: 1200px) and (orientation: landscape) {
