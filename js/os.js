@@ -121,8 +121,10 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         icon.classList.remove("dark_mode_img");
         icon.classList.add("light_mode_img");
 
-        if (vw.dk) {
-            icon.parentElement.title = "Light theme";
+        if (!op.pwa.s) {
+            if (vw.dk) {
+                icon.parentElement.title = "Light theme";
+            }
         }
 
     } else { // if dark, change to light
@@ -152,8 +154,10 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         icon.classList.remove("light_mode_img");
         icon.classList.add("dark_mode_img");
 
-        if (vw.dk) {
-            icon.parentElement.title = "Dark theme";
+        if (!op.pwa.s) {
+            if (vw.dk) {
+                icon.parentElement.title = "Dark theme";
+            }
         }
 
         scrolltop_img.classList.remove("scrolltop_w_img");
