@@ -138,10 +138,10 @@
     width: 3rem;
     text-align: center;
 }
-
+/*
 .pwa .navbar .button:hover .img {
     background-color: red;
-}
+}*/
 
 .pwa .navbar .button .img {
     height: 2rem;
