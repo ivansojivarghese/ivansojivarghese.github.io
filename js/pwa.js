@@ -40,7 +40,7 @@ function navButtonActive(b, e, v) {
             if ((buttons[i].classList.contains("buttonActive") && !op.darkChange) || (!buttons[i].classList.contains("buttonActive") && op.darkChange)) {
                 var old;
                 for (j = 0; j < buttons[i].classList.length; j++) {
-                    if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive" && buttons[i].classList[j] !== "trs" && buttons[i].classList[j] !== "hoverB") {
+                    if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive" && buttons[i].classList[j] !== "trs" && buttons[i].classList[j] !== "hoverB" && buttons[i].classList[j] !== "pwa_navbutton") {
                         old = buttons[i].classList[j];
                         break;
                     }
