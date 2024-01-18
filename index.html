@@ -1642,7 +1642,8 @@
                         if (parentHeight <= window.innerHeight) { // hide scrollbar
                             e_Fd(pos.sB, true);
                         } else { // show/move scrollbar
-                            scrollTr = (scrollBarPos / (parentHeight - aH)) * (aH - (4 * op.fN)); // move scrollbar
+                            var fraction = ((scrollBarPos / (parentHeight - aH)) >= 0) ? ((scrollBarPos / (parentHeight - aH)) <= 1) ? (scrollBarPos / (parentHeight - aH)) : 1 : 0;
+                            scrollTr = fraction * (aH - (4 * op.fN)); // move scrollbar
                             pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
                         }
                     }
