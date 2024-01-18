@@ -298,6 +298,20 @@
     background-image: url("../pwa/about_dark.png");
 }
 
+@media (pointer: fine) {
+    * {
+        cursor: none !important;
+    }
+
+    a:hover, .hoverB:hover {
+        opacity: 0.75;
+    }
+
+    .hoverB.revert:hover {
+        opacity: 1;
+    }
+}
+
 @media screen and (orientation: portrait) {
     .pwa .noRSpace {
         padding-right: 0 !important;

@@ -4050,11 +4050,12 @@ var cursorTempActive = false,
 
 const positionElement = (e)=> {
 
-    cursorTempActive = true;
+    if (op.pwa.s) {
+        cursorTempActive = true;
+    }
 
     // if ((window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200 && wiH >= 700) || wiH >= 800))) { // ONLY IN DESKTOP PARAMs
-    // if ((window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200) || wiH >= 800))) { // ONLY IN DESKTOP PARAMs
-    if (cursorTempActive || (wiD >= 1200) || wiH >= 800) { // ONLY IN DESKTOP PARAMs
+    if (((window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200) || wiH >= 800)) || (op.pwa.s && cursorTempActive))) { // ONLY IN DESKTOP PARAMs
         if (!tch.e || (touchActive && !tch.s)) { // IF NO TOUCH
             const mouseY = e.clientY;
             const mouseX = e.clientX;
