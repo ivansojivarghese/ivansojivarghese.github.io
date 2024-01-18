@@ -4134,7 +4134,10 @@ function hoverEnd(e) {
 }
 
 function hoverMiddle(e) {
-    if (!e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)') {
+    if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)') {
+        
+        hoverActive = true;
+    } else {
         const mouseY = e.clientY;
         const mouseX = e.clientX;
 
