@@ -433,6 +433,8 @@
         height: calc(92.5vw - 5rem - 15rem - 3rem);
         max-width: 15rem;
         max-height: 15rem;
+        min-width: 10rem;
+        min-height: 10rem;
     }
 
     .pwa .about .paragraph.size {

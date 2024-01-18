@@ -4107,7 +4107,9 @@ const positionElement = (e)=> {
 
         } else if (tch.e && !touchActive) { // IF TOUCH DETECTED
 
-            touchActive = true;
+            if (!op.pwa.s) {
+                touchActive = true;
+            }
         }
     }
 }
