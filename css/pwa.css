@@ -139,6 +139,10 @@
     text-align: center;
 }
 
+.pwa .navbar .button:hover .active {
+    background-color: red;
+}
+
 .pwa .navbar .button .img {
     height: 2rem;
     width: 2rem;
