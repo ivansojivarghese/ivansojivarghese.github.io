@@ -403,6 +403,8 @@
     .pwa .profile_image {
         width: calc(92.5vw - 5rem - 15rem - 3rem);
         height: calc(92.5vw - 5rem - 15rem - 3rem);
+        max-width: 15rem;
+        max-height: 15rem;
     }
 
     .pwa .about .paragraph.size {
