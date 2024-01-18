@@ -127,6 +127,8 @@ function docRead() {
             //}
 
             if (op.pwa.s) {
+                const pwa_css_link = document.querySelector('#pwa_css_link');
+                pwa_css_link.href = "css/pwa.css";
 
                 rL.e4 = true;
             } else {
