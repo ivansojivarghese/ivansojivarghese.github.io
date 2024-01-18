@@ -170,17 +170,18 @@
     display: inline-block;
     margin: 0.5rem 0 1rem;
     color: transparent;
-    background-clip: text;
 }
 
 .pwa .h3dup#span1 {
     background: linear-gradient(90deg,#cf8d7c,#a77cb4);
+    background-clip: text;
 }
 
 .pwa .h3dup#span2 {
     background: linear-gradient(90deg,#a77cb4,#7f7dd1);
     margin: 0;
     padding: 0.5rem 0 1rem;
+    background-clip: text;
 }
 
 .pwa .img_iconBtn {
