@@ -439,7 +439,7 @@
     }
 
     .pwa .about .paragraph.size {
-        /*margin-left: 2rem;*/
+        margin-left: 0;
         padding-bottom: 1.5rem;
     }
 
