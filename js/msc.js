@@ -3091,7 +3091,7 @@ function checkSplitScreen() {
                             }, op.t);
                         }
                     }, 10);
-                } else if (op.n && !op.wRo) {
+                } else if (op.n && !op.wRo && !op.pwa.s) {
                     setCookie("maxHeight", window.innerHeight, op.c.t);
                     setCookie("maxWidth", window.innerWidth, op.c.t);
                     reL();
