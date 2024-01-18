@@ -1634,7 +1634,7 @@
                     if (parent !== null) {
                         var parentHeight = parent.getBoundingClientRect().height,
                             scrollTr = 0;
-                    } else if (pwa_Load) {
+                    } else if (!op.pwa.s || (op.pwa.s && pwa_Load)) {
                         clearInterval(normalScrollLoop);
                     }
 
