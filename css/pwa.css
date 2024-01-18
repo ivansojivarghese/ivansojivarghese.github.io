@@ -175,6 +175,7 @@
 .pwa .h3dup#span1 {
     background: linear-gradient(90deg,#cf8d7c,#a77cb4);
     background-clip: text;
+    padding-right: 0.5rem;
 }
 
 .pwa .h3dup#span2 {
