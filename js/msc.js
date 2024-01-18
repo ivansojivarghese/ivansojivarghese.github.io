@@ -4134,12 +4134,14 @@ function hoverEnd(e) {
 }
 
 function hoverMiddle(e) {
+    const mouseY = e.clientY;
+    const mouseX = e.clientX;
+
     if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)') {
-        
+        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
+
         hoverActive = true;
     } else {
-        const mouseY = e.clientY;
-        const mouseX = e.clientX;
 
         cursorBig.classList.remove("extra");
 
