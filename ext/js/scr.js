@@ -1171,11 +1171,12 @@ function cumulativeWidth(x, w) { // get width of elements till x-index
     return c;
 }*/
 
-
-if (!vw.pH && !vw.tB) { // only in mobile view
-    sc_L();
-} else if (vw.pH || vw.tB) { // phablet/tablet
-    sc_LpH();
+if (!op.pwa.s) {
+    if (!vw.pH && !vw.tB) { // only in mobile view
+        sc_L();
+    } else if (vw.pH || vw.tB) { // phablet/tablet
+        sc_LpH();
+    }
 }
 
 
