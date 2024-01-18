@@ -312,7 +312,7 @@
     }
 
     .desktop {
-        display: block;
+        display: block !important;
     }
 }
 
