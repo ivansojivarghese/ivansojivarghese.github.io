@@ -78,7 +78,9 @@ function navButtonActive(b, e, v) {
         target.classList.remove("hoverB");
         target.removeEventListener('mousemove', hoverInit);
 
-        cursorBig.classList.remove("extra");
+        if (!target.getAttribute("onclick") === 'toggleColorMode(event)') {
+            cursorBig.classList.remove("extra");
+        }
         hoverActive = false;
     }
 
