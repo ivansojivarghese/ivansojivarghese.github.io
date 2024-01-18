@@ -83,11 +83,16 @@ function navButtonActive(b, e, v) {
     }
 
     if (b && !v) { // navigate to section
+        const mainSection = document.querySelector('.pwa .sections.scrollBarFunction');
+
         const targetSection = document.querySelector('.pwa .sections .' + b);
         const activeSection = document.querySelector('.pwa .sections .' + activeTab);
 
         activeSection.classList.remove("scrollBarContainer");
         activeSection.classList.add("d_n");
+
+        mainSection.scrollTop = 0;
+
         targetSection.classList.remove("d_n");
         targetSection.classList.add("scrollBarContainer");
 
