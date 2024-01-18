@@ -4043,11 +4043,15 @@ window.addEventListener("touchend", function(event) {
 const cursorSmall = document.querySelector('.cursor.small');
 const cursorBig = document.querySelector('.cursor.big');
 const hoverBtns = document.querySelectorAll('a, .hoverB');
-var cursorActive = false,
+var cursorTempActive = false,
+    cursorActive = false,
     touchActive = false,
     hoverActive = false;
 
 const positionElement = (e)=> {
+
+    cursorTempActive = true;
+
     // if ((window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200 && wiH >= 700) || wiH >= 800))) { // ONLY IN DESKTOP PARAMs
     if ((window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200) || wiH >= 800))) { // ONLY IN DESKTOP PARAMs
         if (!tch.e || (touchActive && !tch.s)) { // IF NO TOUCH
