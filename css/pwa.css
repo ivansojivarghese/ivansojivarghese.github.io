@@ -389,13 +389,14 @@
         display: inline-block;
         width: 50%;
         position: relative;
+        margin-right: 5%;
         /*top: -4.7rem;*/
     }
 
     .pwa .about .container.online {
         display: inline-block;
         width: 40%;
-        margin-left: 5%;
+        /*margin-left: 5%;*/
     }
 }
 
