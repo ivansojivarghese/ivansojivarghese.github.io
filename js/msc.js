@@ -4142,7 +4142,9 @@ function hoverEnd(e) {
     hoverActive = false;
 
     if (e.currentTarget.getAttribute("data-pwanavbutton") === "true") {
-        e_Fd(e.currentTarget.children[0].children[0], true);
+        if (!e.currentTarget.classList.contains("buttonActive")) {
+            e_Fd(e.currentTarget.children[0].children[0], true);
+        }
         e.currentTarget.children[0].children[0].style.backgroundColor = "";
     }
 }
