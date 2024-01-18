@@ -139,7 +139,7 @@
     text-align: center;
 }
 
-.pwa .navbar .button:hover .active {
+.pwa .navbar .button:hover .img {
     background-color: red;
 }
 
@@ -148,6 +148,7 @@
     width: 2rem;
     margin: 0 auto;
     background-position-y: -0.05rem;
+    border-radius: 50%;
 }
 
 .pwa .navbar .button .img .active {
