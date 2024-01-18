@@ -435,10 +435,11 @@
         max-height: 15rem;
         min-width: 10rem;
         min-height: 10rem;
+        margin-right: 2rem;
     }
 
     .pwa .about .paragraph.size {
-        margin-left: 2rem;
+        /*margin-left: 2rem;*/
         padding-bottom: 1.5rem;
     }
 
