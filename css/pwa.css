@@ -462,7 +462,7 @@
     }
 
     .pwa .noRSpace {
-        padding-right: 0;
+        padding-right: 1rem;
     }
 }
 
