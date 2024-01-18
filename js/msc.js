@@ -4155,7 +4155,7 @@ function hoverMiddle(e) {
 
     if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)') {
 
-        // cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
+        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
 
         hoverActive = false;
         
