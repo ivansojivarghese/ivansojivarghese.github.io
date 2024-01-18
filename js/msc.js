@@ -4122,6 +4122,14 @@ function hoverInit(e) { // desktop hover effect
     cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
 
     hoverActive = true;
+
+    if (e.currentTarget.classList.contains("pwa_navbutton")) {
+        if (!op.darkMode) {
+            e.currentTarget.children[0].children[0].style.backgroundColor = "#F4F4F4";
+        } else {
+            e.currentTarget.children[0].children[0].style.backgroundColor = "#303030";
+        }
+    }
 }
 
 function hoverEnd(e) {
@@ -4131,6 +4139,10 @@ function hoverEnd(e) {
     cursorBig.classList.remove("extra");
 
     hoverActive = false;
+
+    if (e.currentTarget.classList.contains("pwa_navbutton")) {
+        e.currentTarget.children[0].children[0].style.backgroundColor = "";
+    }
 }
 
 function hoverMiddle(e) {
