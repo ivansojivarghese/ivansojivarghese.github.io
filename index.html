@@ -1590,9 +1590,11 @@
             var pwaScrollTimeout = null,
                 pwaScrollTimeoutCheck = false;
 
-            setInterval(function() {
-                pos.cE = false;
-            }, 1000); // check every sec.
+            if (pos) {
+                setInterval(function() {
+                    pos.cE = false;
+                }, 1000); // check every sec.
+            }
             
             $(".scrollBarFunction").scroll(function() {
                 var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer'),
@@ -1613,7 +1615,7 @@
                                 pwaScrollTimeoutCheck = true;
                                 setTimeout(function() {
                                     pwaScrollTimeoutCheck = false;
-                                }, 10);
+                                }, 500);
                                 e_Fd(pos.sB, true);
                             } else {
                                 clearTimeout(pwaScrollTimeout);
