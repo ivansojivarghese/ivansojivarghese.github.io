@@ -1608,18 +1608,18 @@
                 if (op.pwa.s) {
                     if (!pwaScrollTimeoutCheck) {
                         e_Fd(pos.sB, false);
+                        pwaScrollTimeout = setTimeout(function() {
+                            if (!pos.cE && !pwaScrollTimeoutCheck) {
+                                pwaScrollTimeoutCheck = true;
+                                setTimeout(function() {
+                                    pwaScrollTimeoutCheck = false;
+                                }, 10);
+                                e_Fd(pos.sB, true);
+                            } else {
+                                clearTimeout(pwaScrollTimeout);
+                            }
+                        }, dev.i);
                     }
-                    pwaScrollTimeout = setTimeout(function() {
-                        if (!pos.cE && !pwaScrollTimeoutCheck) {
-                            pwaScrollTimeoutCheck = true;
-                            setTimeout(function() {
-                                pwaScrollTimeoutCheck = false;
-                            }, 10);
-                            e_Fd(pos.sB, true);
-                        } else {
-                            clearTimeout(pwaScrollTimeout);
-                        }
-                    }, dev.i);
                 }
                 
             });
