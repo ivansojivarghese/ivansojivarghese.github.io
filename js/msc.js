@@ -4138,9 +4138,11 @@ function hoverMiddle(e) {
     const mouseX = e.clientX;
 
     if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)') {
-        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
 
-        hoverActive = true;
+        // cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
+
+        // hoverActive = true;
+        
     } else {
 
         cursorBig.classList.remove("extra");
