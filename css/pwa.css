@@ -310,6 +310,10 @@
     .hoverB.revert:hover {
         opacity: 1;
     }
+
+    .desktop {
+        display: block;
+    }
 }
 
 @media screen and (orientation: portrait) {
