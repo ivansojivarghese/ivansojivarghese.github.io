@@ -1694,27 +1694,29 @@
 
             // REFERENCE: https://stackoverflow.com/questions/23690666/check-if-my-website-is-open-in-another-tab
 
-            var duplicated = false;
-            // Broadcast that you're opening a page.
-            localStorage.openpages = Date.now();
-            var onLocalStorageEvent = function(e){
-                if (e.key == "openpages"){
-                    // Listen if anybody else is opening the same page!
-                    localStorage.page_available = Date.now();
-                }
-                if (e.key == "page_available"){
-                    // alert("One more page already open");
+            if (!op.pwa.s) {
+                var duplicated = false;
+                // Broadcast that you're opening a page.
+                localStorage.openpages = Date.now();
+                var onLocalStorageEvent = function(e){
+                    if (e.key == "openpages"){
+                        // Listen if anybody else is opening the same page!
+                        localStorage.page_available = Date.now();
+                    }
+                    if (e.key == "page_available"){
+                        // alert("One more page already open");
 
-                    setTimeout(function() {
-                        console.log("localStorage being used");
-                        duplicated = true;
+                        setTimeout(function() {
+                            console.log("localStorage being used");
+                            duplicated = true;
 
-                        // eR.p = "dt";
-                        // eR.h = "dt";
-                    }, op.t);
-                }
-            };
-            window.addEventListener('storage', onLocalStorageEvent, false);
+                            // eR.p = "dt";
+                            // eR.h = "dt";
+                        }, op.t);
+                    }
+                };
+                window.addEventListener('storage', onLocalStorageEvent, false);
+            }
         </script>
         <!-- Custom pull-to-refresh -->
         <script>
