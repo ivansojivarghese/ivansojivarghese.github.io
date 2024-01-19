@@ -1665,13 +1665,15 @@
         </script>
         <!-- Browser Detection, © 2023 Nabble, All rights reserved -->
         <script>
-            var _umb = {
-                display: false
-            };
-            (function(u) {
-                var s = document.createElement('script'); s.async = true; s.src = u;
-                var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
-            })('//updatemybrowser.org/umb.js');
+            if (!op.pwa.s) {
+                var _umb = {
+                    display: false
+                };
+                (function(u) {
+                    var s = document.createElement('script'); s.async = true; s.src = u;
+                    var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
+                })('//updatemybrowser.org/umb.js');
+            }
         </script>
         <!-- incognito mode detection -->
         <script src="https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@v1.3.0/dist/es5/detectIncognito.min.js"></script>
