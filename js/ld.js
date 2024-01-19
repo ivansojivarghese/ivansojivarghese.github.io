@@ -2111,21 +2111,25 @@ load_css();
 
 rL.p.addEventListener("animationiteration", load_e); // read a function upon every loading ring iteration (transversing)
 history.scrollRestoration = "manual"; // prevent automatic scroll rendering from browser (in memory)
-setTimeout(function() {
-    try {
-        if (UMB !== undefined) { // check if current platform is up-to-date
-            browserCheck(true); // secondary check if online API is available
+if (!op.pwa.s) {
+    setTimeout(function() {
+        try {
+            if (UMB !== undefined) { // check if current platform is up-to-date
+                browserCheck(true); // secondary check if online API is available
+            }
+        } catch (err) {
+            if (!getCookie("UMBResult")) {
+                console.log("UMB not defined"); 
+                op.er.ft = true; // fatal error 
+            } 
         }
-    } catch (err) {
-        if (!getCookie("UMBResult")) {
-            console.log("UMB not defined"); 
-            op.er.ft = true; // fatal error 
-        } 
-    }
 
+        _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
+
+    }, op.t);
+} else {
     _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
-
-}, op.t);
+}
 
 // Dark mode detection (using device ambient light sensor | EXPERIMENTAL) 
 // REFERENCE: https://deanhume.com/ambient-light-sensor/
