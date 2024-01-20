@@ -2134,6 +2134,10 @@ if (!op.pwa.s) {
 // Dark mode detection (using device ambient light sensor | EXPERIMENTAL) 
 // REFERENCE: https://deanhume.com/ambient-light-sensor/
 
+var darkModeTime = 0,
+    lightModeTime = 0,
+    modeChangeInterval = 10000;
+
 function autoDarkMode() {
     if (window.AmbientLightSensor) {
         try {
@@ -2177,19 +2181,31 @@ function autoDarkMode() {
                 // Read the light levels in lux 
                 // < 50 is dark room
 
-                if (!op.refuseAutoDark && !op.Lf.h) {
+                if (!op.refuseAutoDark) {
                     if (sensor.illuminance < 50 && !op.darkMode && !daytime) {
-                        op.darkChange = true;
-                        op.autoDarkChange = true;
-                        toggleColorMode(null);
-                        op.darkMode = true; // set to dark mode automatically
-                        op.darkChange = false;
+                        if (!darkModeTime) {
+                            darkModeTime = Date.now();
+                            lightModeTime = 0;
+                        }
+                        if ((Date.now() - darkModeTime) > modeChangeInterval) {
+                            op.darkChange = true;
+                            op.autoDarkChange = true;
+                            toggleColorMode(null);
+                            op.darkMode = true; // set to dark mode automatically
+                            op.darkChange = false;
+                        }
                     } else if (op.darkMode) {
-                        op.darkChange = true;
-                        op.autoDarkChange = true;
-                        toggleColorMode(null);
-                        op.darkMode = false;
-                        op.darkChange = false;
+                        if (!lightModeTime) {
+                            lightModeTime = Date.now();
+                            darkModeTime = 0;
+                        }
+                        if ((Date.now() - lightModeTime) > modeChangeInterval) {
+                            op.darkChange = true;
+                            op.autoDarkChange = true;
+                            toggleColorMode(null);
+                            op.darkMode = false; // set to light mode
+                            op.darkChange = false;
+                        }
                     }
                 }
             }
