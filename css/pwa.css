@@ -194,8 +194,12 @@
     background-clip: text;
 }
 
-.pwa .img_iconBtn {
+.pwa .navbar .img_iconBtn {
     margin-right: 1rem;
+}
+
+.pwa .navbar .img_iconBtn:first-child {
+    margin-left: 1rem;
 }
 
 .pwa .about .content h5 {
