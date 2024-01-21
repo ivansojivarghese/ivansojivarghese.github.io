@@ -386,10 +386,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
                     var dx = str.indexOf("_img"),
                         mod = "_w",
                         newStr = str.slice(0, dx) + mod + str.slice(dx);
-                    battery_icon.classList.add(newStr);
+                    batteryIcon.classList.add(newStr);
                 break;
                 default:
-                    battery_icon.classList.add(str);
+                    batteryIcon.classList.add(str);
                 break;
             }
 
