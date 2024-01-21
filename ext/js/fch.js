@@ -259,6 +259,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             weather_icon = document.querySelector('.pwa .weatherIcon .icon-container'),
             navbar_pwa = document.querySelector('.pwa .navbar'),
 
+            settings_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .banner .settings_img') : document.querySelector('.pwa .about .banner .settings_w_img'),
+
             home_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .home') : document.querySelector('.pwa .navbar .home_dark'),
             clicks_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .clicks') : document.querySelector('.pwa .navbar .clicks_dark'),
             code_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .code') : document.querySelector('.pwa .navbar .code_dark'),
@@ -343,6 +345,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             logo_h_img_pwa.classList.remove("logo-full");
             sig_pwa.classList.remove("signature");
 
+            settings_icon.classList.remove("settings_img");
+
             home_icon.classList.remove("home");
             clicks_icon.classList.remove("clicks");
             code_icon.classList.remove("code");
@@ -357,6 +361,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             logo_h_img_pwa.classList.add("logo-hybrid-inverse");
             sig_pwa.classList.add("signature_w");
+
+            settings_icon.classList.add("settings_w_img");
 
             home_icon.classList.add("home_dark");
             clicks_icon.classList.add("clicks_dark");
@@ -454,6 +460,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             logo_h_img_pwa.classList.remove("logo-hybrid-inverse");
             sig_pwa.classList.remove("signature_w");
 
+            settings_icon.classList.remove("settings_w_img");
+
             home_icon.classList.remove("home_dark");
             clicks_icon.classList.remove("clicks_dark");
             code_icon.classList.remove("code_dark");
@@ -468,6 +476,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             logo_h_img_pwa.classList.add("logo-full"); 
             sig_pwa.classList.add("signature");
+
+            settings_icon.classList.add("settings_img");
 
             home_icon.classList.add("home");
             clicks_icon.classList.add("clicks");
