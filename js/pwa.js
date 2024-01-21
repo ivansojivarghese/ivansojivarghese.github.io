@@ -304,24 +304,33 @@ function updateBatteryUI(battery) {
         btty.charging = false;
     }
 
+    for (i = 0; i < batteryIcon.classList.length; i++) {
+        var str = batteryIcon.classList[i],
+            match = str.match("battery_");
+        if (match !== null) {
+            batteryIcon.classList.remove(str);
+            break;
+        }
+    }
+
     if (btty.charging) { // charging
         batteryIcon.classList.add("battery_chg_img");
     } else if (btty.level > 87.5) { // full
-
+        batteryIcon.classList.add("battery_full_img");
     } else if (btty.level > 75) { // 6
-
+        batteryIcon.classList.add("battery_6_img");
     } else if (btty.level > 62.5) { // 5
-
+        batteryIcon.classList.add("battery_5_img");
     } else if (btty.level > 50) { // 4
-
+        batteryIcon.classList.add("battery_4_img");
     } else if (btty.level > 37.5) { // 3
-
+        batteryIcon.classList.add("battery_3_img");
     } else if (btty.level > 25) { // 2
-
+        batteryIcon.classList.add("battery_2_img");
     } else if (btty.level > 12.5) { // 1
-        batteryIcon.classList.add("battery_0_img");
-    } else if (btty.level > 0) { // 0
         batteryIcon.classList.add("battery_1_img");
+    } else if (btty.level > 0) { // 0
+        batteryIcon.classList.add("battery_0_img");
     }
 }
   
