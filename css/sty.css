@@ -1355,7 +1355,7 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }
 
 .ham_auto { /* dark mode 'auto' label */
-    width: 3rem;
+    width: auto;
     bottom: 4rem;
 }
 
