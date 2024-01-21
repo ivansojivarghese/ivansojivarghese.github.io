@@ -194,11 +194,11 @@
     background-clip: text;
 }
 
-.pwa .navbar .img_iconBtn {
+.pwa .img_iconBtn {
     margin-right: 1rem;
 }
 
-.pwa .navbar .img_iconBtn:first-child {
+.pwa .about .img_iconBtn:first-child {
     margin-left: 1rem;
 }
 
