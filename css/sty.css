@@ -1236,6 +1236,30 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/battery_charging.svg");
 }
 
+.battery_2_w_img {
+    background-image: url("../svg/battery_2_white.svg");
+}
+
+.battery_3_w_img {
+    background-image: url("../svg/battery_3_white.svg");
+}
+
+.battery_4_w_img {
+    background-image: url("../svg/battery_4_white.svg");
+}
+
+.battery_5_w_img {
+    background-image: url("../svg/battery_5_white.svg");
+}
+
+.battery_6_w_img {
+    background-image: url("../svg/battery_6_white.svg");   
+}
+
+.battery_full_w_img {
+    background-image: url("../svg/battery_full_white.svg");
+}
+
 /* --- */
 
 .scrolltop_img {
