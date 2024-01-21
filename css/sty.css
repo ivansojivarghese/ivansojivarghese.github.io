@@ -1205,35 +1205,35 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
 }
 
 .battery_1_img {
-    
+    background-image: url("../svg/battery_1.svg");
 }
 
 .battery_2_img {
-    
+    background-image: url("../svg/battery_2.svg");
 }
 
 .battery_3_img {
-    
+    background-image: url("../svg/battery_3.svg");
 }
 
 .battery_4_img {
-    
+    background-image: url("../svg/battery_4.svg");
 }
 
 .battery_5_img {
-    
+    background-image: url("../svg/battery_5.svg");
 }
 
 .battery_6_img {
-    
+    background-image: url("../svg/battery_6.svg");   
 }
 
 .battery_full_img {
-    
+    background-image: url("../svg/battery_full.svg");
 }
 
 .battery_chg_img {
-    
+    background-image: url("../svg/battery_charging.svg");
 }
 
 /* --- */
