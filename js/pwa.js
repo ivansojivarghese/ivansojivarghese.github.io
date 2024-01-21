@@ -319,9 +319,9 @@ function updateBatteryUI(battery) {
     } else if (btty.level > 25) { // 2
 
     } else if (btty.level > 12.5) { // 1
- 
+        batteryIcon.classList.add("battery_0_img");
     } else if (btty.level > 0) { // 0
-        
+        batteryIcon.classList.add("battery_1_img");
     }
 }
   
