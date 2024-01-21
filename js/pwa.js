@@ -134,6 +134,10 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
+    // battery
+
+    navigator.getBattery().then(monitorBattery);
+
     // dark mode
 
     if (!getCookie("darkMode")) { // if no manual control from user
