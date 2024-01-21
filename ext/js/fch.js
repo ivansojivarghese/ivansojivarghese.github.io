@@ -260,6 +260,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             navbar_pwa = document.querySelector('.pwa .navbar'),
 
             settings_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .banner .settings_img') : document.querySelector('.pwa .about .banner .settings_w_img'),
+            battery_icon = document.querySelector('.pwa .about .banner .battery'),
 
             home_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .home') : document.querySelector('.pwa .navbar .home_dark'),
             clicks_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .clicks') : document.querySelector('.pwa .navbar .clicks_dark'),
@@ -342,8 +343,19 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
     if (!op.darkMode || init) { // if light, change to dark
 
         if (op.pwa.s) {
+            var str;
+
             logo_h_img_pwa.classList.remove("logo-full");
             sig_pwa.classList.remove("signature");
+
+            for (i = 0; i < batteryIcon.classList.length; i++) {
+                str = batteryIcon.classList[i];
+                match = str.match("battery_");
+                if (match !== null) {
+                    batteryIcon.classList.remove(str);
+                    break;
+                }
+            }
 
             settings_icon.classList.remove("settings_img");
 
@@ -363,6 +375,23 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             sig_pwa.classList.add("signature_w");
 
             settings_icon.classList.add("settings_w_img");
+
+            switch (str) {
+                case "battery_full_img":
+                case "battery_6_img":
+                case "battery_5_img":
+                case "battery_4_img":
+                case "battery_3_img":
+                case "battery_2_img":
+                    var dx = str.indexOf("_img"),
+                        mod = "_w",
+                        newStr = str.slice(0, dx) + mod + str.slice(dx);
+                    battery_icon.classList.add(newStr);
+                break;
+                default:
+                    battery_icon.classList.add(str);
+                break;
+            }
 
             home_icon.classList.add("home_dark");
             clicks_icon.classList.add("clicks_dark");
@@ -455,10 +484,20 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         }
 
     } else { // if dark, change to light
+        var str;
 
         if (op.pwa.s) {
             logo_h_img_pwa.classList.remove("logo-hybrid-inverse");
             sig_pwa.classList.remove("signature_w");
+
+            for (i = 0; i < batteryIcon.classList.length; i++) {
+                str = batteryIcon.classList[i];
+                match = str.match("battery_");
+                if (match !== null) {
+                    batteryIcon.classList.remove(str);
+                    break;
+                }
+            }
 
             settings_icon.classList.remove("settings_w_img");
 
