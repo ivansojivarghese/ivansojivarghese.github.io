@@ -6,6 +6,13 @@ var sI_1 = {},
 var sectionScroll = false,
     sectionScrollPos = 0;
 
+var btty = {
+    level : 0,
+    chargingTime : 0,
+    dischargingTime : 0,
+    charging : null
+};
+
 const sections = document.querySelector('.pwa .sections');
 
 var oriHeight_L = null,
@@ -275,6 +282,35 @@ const HSBToRGB = (h, s, b) => { // REF: https://www.30secondsofcode.org/js/s/hsb
     const f = (n) => b * (1 - s * Math.max(0, Math.min(k(n), 4 - k(n), 1)));
     return [255 * f(5), 255 * f(3), 255 * f(1)];
 };
+
+// REFERENCE: https://googlechrome.github.io/samples/battery-status/
+
+function updateBatteryUI(battery) {
+    btty.level = (battery.level * 100);
+    btty.chargingTime = battery.chargingTime;
+    btty.dischargingTime = battery.dischargingTime;
+
+    if (battery.charging === true) {
+        btty.charging = true;
+    } else if (battery.charging === false) {
+        btty.charging = false;
+    }
+}
+  
+function monitorBattery(battery) {
+    // Update the initial UI.
+    updateBatteryUI(battery);
+
+    // Monitor for futher updates.
+    battery.addEventListener('levelchange',
+        updateBatteryUI.bind(null, battery));
+    battery.addEventListener('chargingchange',
+        updateBatteryUI.bind(null, battery));
+    battery.addEventListener('dischargingtimechange',
+        updateBatteryUI.bind(null, battery));
+    battery.addEventListener('chargingtimechange',
+        updateBatteryUI.bind(null, battery));
+}
 
 var isScrolling; // REFERENCE: https://gomakethings.com/detecting-when-a-visitor-has-stopped-scrolling-with-vanilla-javascript/
 
