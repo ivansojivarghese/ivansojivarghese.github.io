@@ -136,7 +136,9 @@ function fetchPWAInfo() {
 
     // battery
 
-    navigator.getBattery().then(monitorBattery);
+    if ('getBattery' in navigator) {
+        navigator.getBattery().then(monitorBattery);
+    }
 
     // dark mode
 
@@ -290,6 +292,8 @@ const HSBToRGB = (h, s, b) => { // REF: https://www.30secondsofcode.org/js/s/hsb
 // REFERENCE: https://googlechrome.github.io/samples/battery-status/
 
 function updateBatteryUI(battery) {
+    const batteryIcon = document.querySelector('.pwa .about .banner .battery');
+
     btty.level = (battery.level * 100);
     btty.chargingTime = battery.chargingTime;
     btty.dischargingTime = battery.dischargingTime;
@@ -298,6 +302,26 @@ function updateBatteryUI(battery) {
         btty.charging = true;
     } else if (battery.charging === false) {
         btty.charging = false;
+    }
+
+    if (btty.charging) { // charging
+        batteryIcon.classList.add("battery_chg_img");
+    } else if (btty.level > 87.5) { // full
+
+    } else if (btty.level > 75) { // 6
+
+    } else if (btty.level > 62.5) { // 5
+
+    } else if (btty.level > 50) { // 4
+
+    } else if (btty.level > 37.5) { // 3
+
+    } else if (btty.level > 25) { // 2
+
+    } else if (btty.level > 12.5) { // 1
+ 
+    } else if (btty.level > 0) { // 0
+        
     }
 }
   

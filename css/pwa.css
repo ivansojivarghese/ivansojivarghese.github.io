@@ -200,6 +200,7 @@
 
 .pwa .about .img_iconBtn:first-child {
     margin-left: 1rem;
+    margin-right: 0;
 }
 
 .pwa .about .content h5 {
