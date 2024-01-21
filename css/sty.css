@@ -1198,6 +1198,46 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/settings_white.svg");
 }
 
+/* --- */
+
+.battery_0_img {
+    background-image: url("../svg/battery_0.svg");
+}
+
+.battery_1_img {
+    
+}
+
+.battery_2_img {
+    
+}
+
+.battery_3_img {
+    
+}
+
+.battery_4_img {
+    
+}
+
+.battery_5_img {
+    
+}
+
+.battery_6_img {
+    
+}
+
+.battery_full_img {
+    
+}
+
+.battery_chg_img {
+    
+}
+
+/* --- */
+
 .scrolltop_img {
     background-image: url("../svg/scrolltop.svg");
 }
