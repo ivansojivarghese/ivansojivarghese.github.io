@@ -1089,10 +1089,8 @@ completeInterval = setInterval(function() {
 ///////////////////////////////////////
 
 function reL() { // reload page
-    if (!op.pwa.s) {
-        window.location.reload(true);
-        window.location.assign(window.location.href); // FIREFOX support
-    }
+    window.location.reload(true);
+    window.location.assign(window.location.href); // FIREFOX support
 }
 
 function loadS_res(ar) { // check load statuses of all resource files
