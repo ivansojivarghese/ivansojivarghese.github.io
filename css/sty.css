@@ -1190,6 +1190,14 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/light_mode.svg");
 }
 
+.settings_img {
+    background-image: url("../svg/settings.svg");
+}
+
+.settings_w_img {
+    background-image: url("../svg/settings_white.svg");
+}
+
 .scrolltop_img {
     background-image: url("../svg/scrolltop.svg");
 }
