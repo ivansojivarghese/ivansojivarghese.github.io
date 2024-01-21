@@ -518,6 +518,23 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             settings_icon.classList.add("settings_img");
 
+            switch (str) {
+                case "battery_full_w_img":
+                case "battery_6_w_img":
+                case "battery_5_w_img":
+                case "battery_4_w_img":
+                case "battery_3_w_img":
+                case "battery_2_w_img":
+                    var dx = str.indexOf("_w_img"),
+                        mod = "_img",
+                        newStr = str.slice(0, dx) + mod;
+                    batteryIcon.classList.add(newStr);
+                break;
+                default:
+                    batteryIcon.classList.add(str);
+                break;
+            }
+
             home_icon.classList.add("home");
             clicks_icon.classList.add("clicks");
             code_icon.classList.add("code");
