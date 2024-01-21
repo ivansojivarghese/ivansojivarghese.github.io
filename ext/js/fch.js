@@ -260,7 +260,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             navbar_pwa = document.querySelector('.pwa .navbar'),
 
             settings_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .banner .settings_img') : document.querySelector('.pwa .about .banner .settings_w_img'),
-            battery_icon = document.querySelector('.pwa .about .banner .battery'),
+            batteryIcon = document.querySelector('.pwa .about .banner .battery'),
 
             home_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .home') : document.querySelector('.pwa .navbar .home_dark'),
             clicks_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .clicks') : document.querySelector('.pwa .navbar .clicks_dark'),
