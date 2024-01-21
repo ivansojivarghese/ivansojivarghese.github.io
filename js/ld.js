@@ -130,6 +130,13 @@ function docRead() {
                 // const pwa_css_link = document.querySelector('#pwa_css_link');
                 // pwa_css_link.href = "css/pwa.css";
 
+                deleteAllCookies();
+
+                const puller = document.querySelector('.puller');
+                puller.style.top = "2rem";
+                e_Fd(puller, false);
+                endRefresh();
+
                 rL.e4 = true;
             } else {
                 if (!rL.e4) {
@@ -752,12 +759,13 @@ function docRead() {
 
                 c_css("#scrollBar", "right: 0.2rem; width: 0.2rem;", false, null);
 
+                /*
                 deleteAllCookies();
 
                 const puller = document.querySelector('.puller');
                 puller.style.top = "2rem";
                 e_Fd(puller, false);
-                endRefresh();
+                endRefresh();*/
 
                 clientAPI();
                 countryAPI("");
