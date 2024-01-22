@@ -375,7 +375,15 @@ sections.addEventListener("scroll", function(event) {
 
 }, false);
 
-// var puller = document.querySelector('.puller');
+function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
+    if (el) {
+        if (s) { // check if class is present before removing
+            el.classList.add("z_O"); // fade out
+        } else {
+            el.classList.remove("z_O"); // fade in
+        }
+    }
+}
 
 function pwaRead() {
     switch (document.readyState) { // check 'ready state' of document
