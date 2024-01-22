@@ -154,21 +154,21 @@ var im = { // #intro_main
         a : 0, // initial   
         // n : (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
         n : 97,
-        e : (!vw.dk) ? document.getElementById("sIn1") : document.getElementById("qIn9"), // element
+        e : (!op.pwa.s) ? (!vw.dk) ? document.getElementById("sIn1") : document.getElementById("qIn9") : null, // element
         _L : undefined, // spaces for _L (loop) iterations
         s : false // run (execution) status
     },
     sI_2 = {
         a : 0,
         n : 183, // hours
-        e : (!vw.dk) ? document.getElementById("sIn2") : document.getElementById("qIn11"), 
+        e : (!op.pwa.s) ? (!vw.dk) ? document.getElementById("sIn2") : document.getElementById("qIn11") : null, 
         _L : undefined,
         s : false
     },
     sI_3 = {
         a : 0,
         n : 245, // cappuccinos
-        e : (!vw.dk) ? document.getElementById("sIn3") : document.getElementById("qIn7"),
+        e : (!op.pwa.s) ? (!vw.dk) ? document.getElementById("sIn3") : document.getElementById("qIn7") : null,
         _L : undefined,
         s : false
     };
