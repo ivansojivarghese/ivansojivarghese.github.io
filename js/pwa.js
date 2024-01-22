@@ -256,7 +256,7 @@ function startLoadPWA() {
 
     pwa_L = setInterval(function() {
         var statsTop = stats.getBoundingClientRect();
-        if (statsTop.top < aH && !stats_e) {
+        if (statsTop.top < aH && !stats_e && e_Ic) {
             stats_e = true;
             e_Ic(sI_1, null, sI_1.n);
             e_Ic(sI_2, null, sI_2.n);
