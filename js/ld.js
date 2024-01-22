@@ -120,6 +120,9 @@ function engLangVar(c) { // return variant of language (eng) per user country lo
 
 function docRead() {
     switch (document.readyState) { // check 'ready state' of document
+        case "loading":
+
+        break;
         case "interactive":
 
             //if (!vw.dk) {
@@ -144,6 +147,7 @@ function docRead() {
                     e_Fd(rL.m, false); // show load-box
                 }
             }
+        break;
         case "complete": // if DOM, styles, images and scripts all loaded
             if (!devError && !op.pwa.s) { // normal web
 
