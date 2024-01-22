@@ -397,6 +397,19 @@ function pwaRead() {
 
                 c_css("#scrollBar", "right: 0.2rem; width: 0.2rem;", false, null);
 
+                ////////
+
+                c_css(".trs", "transition-duration: " + (op.t / 1000) + "s;", false, null); // transition duration (convert to sec.)
+                c_css(".trs_e", "transition-duration: " + (op.te / 1000) + "s;", false, null); // transition duration [ext.] (convert to sec.)
+        
+                c_css(".m_T.vh", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
+                c_css(".m_T.vhq", "margin-top: calc(" + (aH * 0.25) + "px)", false, null);
+
+                c_css(".p_Bvhq", "padding-bottom: calc(" + (aH * 0.25) + "px)", false, null);
+                c_css(".p_Tvhq", "padding-top: calc(" + (aH * 0.25) + "px)", false, null);
+
+                ///////
+
                 deleteAllCookies();
 
                 const puller = document.querySelector('.puller');
