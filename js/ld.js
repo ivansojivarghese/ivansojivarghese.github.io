@@ -17,7 +17,10 @@ var disp = document.getElementById("display_sc"), // display
 
 var eR = {
         s : false // error check
-    }; //
+    }, //
+    rL = {
+        i : false // load status
+    };
 
 eR = { // error
     title : "", // document title
