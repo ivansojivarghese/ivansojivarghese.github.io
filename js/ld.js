@@ -15,6 +15,10 @@ var disp = document.getElementById("display_sc"), // display
     r, // before-load parameters
     vw; // viewport variables
 
+var eR = {
+        s : false // error check
+    };
+
 eR = { // error
     title : "", // document title
     a : [], // error precedence array
