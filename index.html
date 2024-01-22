@@ -149,7 +149,7 @@
                         }, timeout);
 
                         const result = await fetch(window.location.href + imageArray[i], {
-                                                cache: "only-if-cached",
+                                                /*cache: "only-if-cached",*/
                                                 mode: "same-origin",
                                                 signal: controller.signal
                                             }).then((response) => {
