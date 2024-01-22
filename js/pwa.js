@@ -373,3 +373,9 @@ sections.addEventListener("scroll", function(event) {
 	}, dev.t);
 
 }, false);
+
+
+
+window.addEventListener("DOMContentLoaded", function() {
+    debugger;
+});
