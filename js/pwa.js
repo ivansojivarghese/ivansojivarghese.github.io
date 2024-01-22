@@ -390,6 +390,21 @@ function e_Fd(el, s) { // effect - fading (provided 'trs' class is added to el)
     }
 }
 
+function e_Ic(el, p, f) { // effect - iterating digits on a numeral (in a string/text setting)
+    p = (p !== null) ? String(p) : p;  // convert to string format (if not null)
+    var r = p ? [1] : [0.65, 0.85, 0.95, 1], // break-points - to adjust (soothen) speed of setInterval rotation for natural effect (alt. [no/few breakpoints] in special cases such as digit incrementing)
+        t = 0; 
+    if (p) {
+        el._L[p] = setInterval(function() {
+            st_L(el, p, r, t, f)
+        }, 1000/f); // 'f' is initial speed throttle
+    } else {
+        el._L = setInterval(function() {
+            st_L(el, p, r, t, f)
+        }, 1000/f); // 'f' is initial speed throttle
+    }
+}
+
 function pwaRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "loading":
