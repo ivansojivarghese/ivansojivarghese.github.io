@@ -14,13 +14,13 @@ var disp = document.getElementById("display_sc"), // display
     _Le, // loop (applicable, if error)
     r, // before-load parameters
     vw; // viewport variables
-
+/*
 var eR = {
         s : false // error check
     }, //
     rL = {
         i : false // load status
-    };
+    };*/
 
 eR = { // error
     title : "", // document title
@@ -2146,7 +2146,7 @@ if (!op.pwa.s) {
 
     }, op.t);
 } else {
-    _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
+    // _Ld = setInterval(docRead, op.Ls); // run 'load' scripts upon startup
 }
 
 // Dark mode detection (using device ambient light sensor | EXPERIMENTAL) 

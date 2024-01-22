@@ -3,7 +3,8 @@ var sI_1 = {},
     sI_2 = {},
     sI_3 = {};
 
-var sectionScroll = false,
+var pwa_Ld = null,
+    sectionScroll = false,
     sectionScrollPos = 0;
 
 var btty = {
@@ -374,8 +375,237 @@ sections.addEventListener("scroll", function(event) {
 
 }, false);
 
+function pwaRead() {
+    switch (document.readyState) { // check 'ready state' of document
+        case "loading":
 
+        break;
+        case "interactive":
 
+        break;
+        case "complete":
+            if (!devError && op.pwa.s && !rL.i) { // pwa
+                var client_L = null, ip_L = null, weather_L = null;
+
+                const pwa_body = document.querySelector('.pwa');
+                const normal_body = document.querySelector('.non-pwa');
+
+                const pwa_scrollF = document.querySelector('.pwa .scrollBarFunction');
+                const pwa_home = document.querySelector('.pwa .home');
+                pwa_home.classList.add("scrollBarContainer");
+                pwa_scrollF.classList.add("z-I");
+
+                c_css("#scrollBar", "right: 0.2rem; width: 0.2rem;", false, null);
+
+                deleteAllCookies();
+
+                const puller = document.querySelector('.puller');
+                puller.style.top = "2rem";
+                e_Fd(puller, false);
+                endRefresh();
+
+                clientAPI();
+                countryAPI("");
+                setTimeout(function() {
+                    client_L = setInterval(function() {
+                        if (clientAPIres.online) {
+                            ipAPI(clientAPIres.ipString);
+                            clearInterval(client_L);
+                            ip_L = setInterval(function() {
+                                if (ipAPIres.online) {
+                                    weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
+                                    clearInterval(ip_L);
+                                    weather_L = setInterval(function() {
+                                        if (weatherAPIres.online && countryAPIres.online) {
+                                            clearInterval(weather_L);
+
+                                            const weatherMain = weatherAPIres.weather[0].main;
+                                            const weatherDes = weatherAPIres.weather[0].description;
+                                            const sunrise = weatherAPIres.sys.sunrise;
+                                            const sunset = weatherAPIres.sys.sunset;
+
+                                            var day = true,
+                                                icon = "";
+
+                                            if (((new Date().valueOf() / 1000) > sunrise) && ((new Date().valueOf() / 1000) < sunset)) {
+                                                day = true;
+                                            } else {
+                                                day = false;
+                                            }
+
+                                            switch (weatherMain) {
+                                                case "Clear":
+                                                    if (day) {
+                                                        icon = "sunny";
+                                                    } else {
+                                                        icon = "clear";
+                                                    }
+                                                break;
+                                                case "Clouds":
+                                                    switch (weatherDes) {
+                                                        case "few clouds":
+                                                            if (day) {
+                                                                icon = "mostly_sunny";
+                                                            } else {
+                                                                icon = "isolated_clouds";
+                                                            }
+                                                        break;
+                                                        case "scattered clouds":
+                                                            if (day) {
+                                                                icon = "partly_cloudy";
+                                                            } else {
+                                                                icon = "partly_cloudy_night";
+                                                            }
+                                                        break;
+                                                        case "broken clouds":
+                                                            if (day) {
+                                                                icon = "mostly_cloudy";
+                                                            } else {
+                                                                icon = "mostly_cloudy_night";
+                                                            }
+                                                        break;
+                                                        case "overcast clouds":
+                                                            if (day) {
+                                                                icon = "cloudy";
+                                                            } else {
+                                                                icon = "cloudy_night";
+                                                            }
+                                                        break;
+                                                    }
+                                                break;
+                                                case "Mist":
+                                                case "Smoke":
+                                                case "Haze":
+                                                case "Dust":
+                                                case "Fog":
+                                                case "Sand":
+                                                case "Ash":
+                                                case "Squall":
+                                                case "Tornado":
+                                                    if (day) {
+                                                        icon = "fog";
+                                                    } else {
+                                                        icon = "fog_night";
+                                                    }
+                                                break;
+                                                case "Snow":
+                                                    switch (weatherDes) {
+                                                        case "snow":
+                                                        case "light snow":
+                                                            if (day) {
+                                                                icon = "snowy";
+                                                            } else {
+                                                                icon = "snowy_night";
+                                                            }
+                                                        break;
+                                                        case "sleet":
+                                                        case "light shower sleet":
+                                                        case "shower sleet":
+                                                            if (day) {
+                                                                icon = "sleet";
+                                                            } else {
+                                                                icon = "sleet_night";
+                                                            }
+                                                        break;
+                                                        case "light rain and snow":
+                                                        case "rain and snow":
+                                                        case "light shower snow":
+                                                        case "shower snow":
+                                                            if (day) {
+                                                                icon = "snowy_rain";
+                                                            } else {
+                                                                icon = "snowy_rain_night";
+                                                            }
+                                                        break;
+                                                        case "heavy snow":
+                                                        case "heavy shower snow":
+                                                            if (day) {
+                                                                icon = "blizzard";
+                                                            } else {
+                                                                icon = "blizzard_night";
+                                                            }
+                                                        break;
+                                                    }
+                                                break;
+                                                case "Rain":
+                                                    if (day) {
+                                                        icon = "rainy";
+                                                    } else {
+                                                        icon = "rainy_night";
+                                                    }
+                                                break;
+                                                case "Drizzle":
+                                                    if (day) {
+                                                        icon = "showers";
+                                                    } else {
+                                                        icon = "showers_night";
+                                                    }
+                                                break;
+                                                case "Thunderstorm":
+                                                    if (day) {
+                                                        icon = "thunderstorms";
+                                                    } else {
+                                                        icon = "thunderstorms_night";
+                                                    }
+                                                break;
+                                            }
+
+                                            const tempIcon = document.querySelector('.pwa .weatherIcon');
+                                            $(tempIcon).load("weather/" + icon + ".html", function() {
+                                                pwa_body.classList.remove("d_n");
+                                                fetchPWAInfo();
+                                                setTimeout(function() {
+
+                                                    puller.classList.add('shrinkDown');
+
+                                                    setTimeout(function() {
+                                                        resetRefresh();
+                                                        pwa_Load = true;
+                                                    }, op.t);
+
+                                                    e_Fd(pwa_body, false);
+                                                    startLoadPWA();
+                                                }, 10);
+                                            });
+                                        }
+                                    }, op.t);
+                                }
+                            }, op.t);
+                        }
+                    }, op.t);
+                }, op.t);
+
+                normal_body.classList.add("d_n");
+                document.title = "Ivan Varghese";
+
+                rL.i = true; // end load
+                rL.s = true;
+            } else if (devError) {
+                document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
+                rL.s = true; // page loaded
+                
+                window.stop(); // stop all network resource(s) fetching
+                clearInterval(_Ld); // stop loading process
+                clearInterval(op.ne.L); // clear network check loop
+
+                checkOnlineStatus_abort.abort(); // abort any existing fetching
+                estimateNetworkSpeed_abort.abort();
+            }
+
+            if (document.querySelector('.non-pwa').classList.contains("d_n")) {
+                pos.sB = document.querySelector('.pwa #scrollBar');
+            } else {
+                pos.sB = document.querySelector('.non-pwa #scrollBar');
+            }
+        break;
+    }
+}
+
+if (op.pwa.s) {
+    pwa_Ld = setInterval(pwaRead, op.Ls); // run 'load' scripts upon startup
+}
+
+/*
 window.addEventListener("DOMContentLoaded", function() {
     debugger;
-});
+});*/
