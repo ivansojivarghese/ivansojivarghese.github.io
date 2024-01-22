@@ -939,11 +939,14 @@ const networkConditions = async() => {
 }
 
 op.r = getSiteRes(); // get site resource origin
-networkConditions(); // perform network check on startup
 
-op.ne.L = setInterval(async () => {
-    networkConditions(); // continuously check on network
-}, op.ne.bD);
+if (!op.pwa.s) {
+    networkConditions(); // perform network check on startup
+
+    op.ne.L = setInterval(async () => {
+        networkConditions(); // continuously check on network
+    }, op.ne.bD);
+}
 
 function networkVariability() { // determine variability of network
     var c = op.ne.bD, // original interval timing
