@@ -3722,9 +3722,11 @@ window.addEventListener("visibilitychange", async function() { // stop network c
                 op.Lf.vP = true;
                 op.Lf.vA = false;
             }
-            op.ne.L = setInterval(async () => {
-                networkConditions(); // continuously check on network
-            }, op.ne.bD);
+            if (!op.pwa.s) {
+                op.ne.L = setInterval(async () => {
+                    networkConditions(); // continuously check on network
+                }, op.ne.bD);
+            }
             if (screenLock !== null) {
                 screenLock = await navigator.wakeLock.request('screen');
             }
