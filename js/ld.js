@@ -938,6 +938,8 @@ function docRead() {
 
                                                     e_Fd(pwa_body, false);
                                                     startLoadPWA();
+
+                                                    clearInterval(_Ld);
                                                 }, 10);
                                             });
                                         }

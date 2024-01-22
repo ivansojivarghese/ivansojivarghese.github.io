@@ -598,6 +598,8 @@ function pwaRead() {
 
                                                     e_Fd(pwa_body, false);
                                                     startLoadPWA();
+
+                                                    clearInterval(pwaRead);
                                                 }, 10);
                                             });
                                         }
