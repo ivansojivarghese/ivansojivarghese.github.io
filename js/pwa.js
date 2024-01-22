@@ -21,6 +21,25 @@ var oriHeight_L = null,
     defTab = tabs[0],
     activeTab = defTab;
 
+sI_1 = { // stats numerals
+    a : 0, // initial   
+    n : 97,
+    _L : undefined, // spaces for _L (loop) iterations
+    s : false // run (execution) status
+};
+sI_2 = {
+    a : 0,
+    n : 183, // hours
+    _L : undefined,
+    s : false
+};
+sI_3 = {
+    a : 0,
+    n : 245, // cappuccinos
+    _L : undefined,
+    s : false
+};
+
 screen.orientation.addEventListener("change", function() {
     const sections = document.querySelector('.pwa .sections');
     if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // P to L
@@ -256,7 +275,7 @@ function startLoadPWA() {
 
     pwa_L = setInterval(function() {
         var statsTop = stats.getBoundingClientRect();
-        if (statsTop.top < aH && !stats_e && e_Ic) {
+        if (statsTop.top < aH && !stats_e) {
             stats_e = true;
             e_Ic(sI_1, null, sI_1.n);
             e_Ic(sI_2, null, sI_2.n);
