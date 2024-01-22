@@ -375,12 +375,14 @@ sections.addEventListener("scroll", function(event) {
 
 }, false);
 
+var puller;
+
 function pwaRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "loading":
             deleteAllCookies();
 
-            const puller = document.querySelector('.puller');
+            puller = document.querySelector('.puller');
             puller.style.top = "2rem";
             e_Fd(puller, false);
             endRefresh();
