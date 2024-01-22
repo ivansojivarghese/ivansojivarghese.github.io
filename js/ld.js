@@ -772,9 +772,9 @@ function docRead() {
 
                 deleteAllCookies();
 
-                const puller = document.querySelector('.puller');
-                puller.style.top = "2rem";
-                e_Fd(puller, false);
+                const pullerT = document.querySelector('.puller');
+                pullerT.style.top = "2rem";
+                e_Fd(pullerT, false);
                 endRefresh();
 
                 clientAPI();
