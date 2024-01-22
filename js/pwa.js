@@ -375,7 +375,7 @@ sections.addEventListener("scroll", function(event) {
 
 }, false);
 
-var puller;
+var puller = null;
 
 function pwaRead() {
     switch (document.readyState) { // check 'ready state' of document
@@ -390,7 +390,9 @@ function pwaRead() {
         case "interactive":
             deleteAllCookies();
 
-            puller = document.querySelector('.puller');
+            if (puller === null) {
+                puller = document.querySelector('.puller');
+            }
             puller.style.top = "2rem";
             e_Fd(puller, false);
             endRefresh();
