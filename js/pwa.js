@@ -378,7 +378,12 @@ sections.addEventListener("scroll", function(event) {
 function pwaRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "loading":
+            deleteAllCookies();
 
+            const puller = document.querySelector('.puller');
+            puller.style.top = "2rem";
+            e_Fd(puller, false);
+            endRefresh();
         break;
         case "interactive":
 
@@ -409,13 +414,13 @@ function pwaRead() {
                 c_css(".p_Tvhq", "padding-top: calc(" + (aH * 0.25) + "px)", false, null);
 
                 ///////
-
+                /*
                 deleteAllCookies();
 
                 const puller = document.querySelector('.puller');
                 puller.style.top = "2rem";
                 e_Fd(puller, false);
-                endRefresh();
+                endRefresh();*/
 
                 clientAPI();
                 countryAPI("");
