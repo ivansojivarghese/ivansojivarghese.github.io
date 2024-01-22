@@ -1934,7 +1934,7 @@ function pL() { // site parameters loop
         }
     }
 
-    if (rL.i) {
+    if (rL.i && !op.pwa.s) {
         js_live(); // run local functions (fch.js)
     }
 }
