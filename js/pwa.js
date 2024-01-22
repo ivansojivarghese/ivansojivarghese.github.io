@@ -375,7 +375,7 @@ sections.addEventListener("scroll", function(event) {
 
 }, false);
 
-var puller = document.querySelector('.puller');
+// var puller = document.querySelector('.puller');
 
 function pwaRead() {
     switch (document.readyState) { // check 'ready state' of document
