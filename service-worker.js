@@ -38,14 +38,22 @@ self.addEventListener("install", (event) => {
       // from the network.
       await cache.add(new Request(OFFLINE_URL, { cache: "reload" }));
 
-      fontFiles.forEach(function (file) {
-        cache.add(new Request(file));
-      });
-      
     })()
   );
   // Force the waiting service worker to become the active service worker.
   self.skipWaiting();
+});
+
+// On install, cache some stuff
+addEventListener('install', function (event) {
+	event.waitUntil(caches.open('core').then(function (cache) {
+		//cache.add(new Request('offline.html'));
+		//cache.add(new Request('css/fonts.css'));
+		fontFiles.forEach(function (file) {
+			cache.add(new Request(file));
+		});
+		return;
+	}));
 });
 
 self.addEventListener("activate", (event) => {
