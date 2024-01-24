@@ -24,6 +24,11 @@ const CACHE_NAME = "offline";
 // Customize this with a different URL if needed.
 const OFFLINE_URL = "offline.html";
 
+// Font files
+var fontFiles = [
+	'msc/fonts/poppins/Poppins-Regular.woff'
+];
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
@@ -32,6 +37,11 @@ self.addEventListener("install", (event) => {
       // response isn't fulfilled from the HTTP cache; i.e., it will be
       // from the network.
       await cache.add(new Request(OFFLINE_URL, { cache: "reload" }));
+
+      fontFiles.forEach(function (file) {
+        cache.add(new Request(file));
+      });
+      
     })()
   );
   // Force the waiting service worker to become the active service worker.
