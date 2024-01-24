@@ -65,7 +65,6 @@
    "display_override": [
     "standalone",
     "minimal-ui",
-    "window-controls-overlay",
     "browser"
   ]
 }
