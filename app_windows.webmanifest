@@ -280,9 +280,9 @@
     }],
    "display": "standalone",
    "display_override": [
+    "window-controls-overlay",
     "standalone",
     "minimal-ui",
-    "window-controls-overlay",
     "browser"
   ]
 }
