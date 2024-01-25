@@ -1728,8 +1728,17 @@
             }
         </script>
         <!-- Device detector (client-side device detecting) -->
-        <script src="https://raw.githubusercontent.com/PoeHaH/devicedetector/master/devicedetector-min.js"></script>
+        <!-- <script src="https://raw.githubusercontent.com/PoeHaH/devicedetector/master/devicedetector-min.js" ></script> -->
         <script>
+            async function getDevice() {
+                const response = await fetch("https://raw.githubusercontent.com/PoeHaH/devicedetector/master/devicedetector-min.js");
+                const data = await response.json();
+                console.log(data);
+            }
+
+            getDevice();
+
+            /*
             $(document).ready(function() {
                 if (deviceDetector.device == 'desktop') {
                     // You're on a desktop.
@@ -1740,7 +1749,7 @@
                     // You're on a phone.
                     }
                 }
-            });
+            });*/
         </script>
         <!-- incognito mode detection -->
         <script src="https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@v1.3.0/dist/es5/detectIncognito.min.js"></script>
