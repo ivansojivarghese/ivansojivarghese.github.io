@@ -1728,7 +1728,20 @@
             }
         </script>
         <!-- Device detector (client-side device detecting) -->
-        <script type="text/javascript" src="https://raw.githubusercontent.com/PoeHaH/devicedetector/master/devicedetector-min.js"></script>
+        <script src="https://raw.githubusercontent.com/PoeHaH/devicedetector/master/devicedetector-min.js"></script>
+        <script>
+            $(document).ready(function() {
+                if (deviceDetector.device == 'desktop') {
+                    // You're on a desktop.
+                } else {
+                    if (deviceDetector.device == 'tablet') {
+                    // You're on a tablet.
+                    } else {
+                    // You're on a phone.
+                    }
+                }
+            });
+        </script>
         <!-- incognito mode detection -->
         <script src="https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@v1.3.0/dist/es5/detectIncognito.min.js"></script>
         <script>
