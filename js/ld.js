@@ -1549,9 +1549,11 @@ function browserCheck(m) { // detect browser (platform)
 }
 
 function vwP(w, h, r) { // check device[viewport] size/orientation parameters
-    var v = {
+    var checkError = true,
+    v = {
         z_S : false, // viewport size - small
         z_L : false, //  viewport size - large
+        mB : false, // mobile - portrait (normal)
         mB_L : false, // mobile - landscape
         pH : false, // phablet - portrait
         tB : false, // tablet - landscape
@@ -1561,30 +1563,45 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
         v.z_L = true;
     }
 
-    console.log(deviceDetector.device);
+    // console.log(deviceDetector.device);
+    if (deviceDetector.device === "mobile") {
+        v.mB = true;
+    }
 
     if (r.o === "portrait") { // portrait view (for mobile and tablet)
         if (w < 240 || h < 440) { // if width less than 220, or height less than 440
             v.z_S = true;
-        } else if (w > 700 && h > 1400) { // targeting hybrid desktop-tablets - disabling for use in portrait view
+        } else if (w > 700 && h > 1400 && deviceDetector.device === "desktop") { // targeting hybrid desktop-tablets - disabling for use in portrait view
             v.z_L = true;
-        } else if (w >= 500) { // portrait tablet (phablet)
+        } else if (w >= 500 && deviceDetector.device === "tablet") { // portrait tablet (phablet)
             v.pH = true;    
         }
     } else if (r.o === "landscape") { // landscape tablet/mobile, or greater (desktop)
         if (h < 240 || w < 440) { // height less than 220, or width less than 440
             v.z_S = true;
             v.mB_L = true;
-        } else if (h < 500) { // height less than 500 (mobile)
+        } else if (h < 500 && deviceDetector.device === "mobile") { // height less than 500 (mobile)
             v.mB_L = true;
-        } else {
+        } else if (deviceDetector.device === "tablet") {
             v.tB = true; 
         }
         // if ((w >= 1200 && h >= 700) || h >= 800) { // width more than 1200, OR height more than 700
-        if (w >= 1200 || h >= 800 || (cursorTempActive && op.pwa.s)) { // width more than 1200, OR height more than 700
+        if ((w >= 1200 || h >= 800 || (cursorTempActive && op.pwa.s)) && deviceDetector.device === "desktop") { // width more than 1200, OR height more than 700
             v.dk = true;
         }
     }
+
+    for (const property in v) {
+        if (v[property] === true) {
+            checkError = false;
+            break;
+        }
+    }
+
+    if (checkError) {
+        v.z_L = true;
+    }
+
     return v;
 }
 
