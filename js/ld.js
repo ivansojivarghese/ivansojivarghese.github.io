@@ -1560,6 +1560,9 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
     if (w > 3250) { // if width greater than 3250, larger than average (SEE also msc.js Line 1866)
         v.z_L = true;
     }
+
+    console.log(deviceDetector.device);
+
     if (r.o === "portrait") { // portrait view (for mobile and tablet)
         if (w < 240 || h < 440) { // if width less than 220, or height less than 440
             v.z_S = true;
