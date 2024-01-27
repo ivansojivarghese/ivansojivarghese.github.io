@@ -3487,7 +3487,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             } else if ((devicePerformance(op.pSpd, op.sfr, op.pCores) === 0)) { // device compatibility (incompatible speed/rendering)
                                 eR.p = "dp";
                                 eR.title = "Error: Low device performance";
-                            } else if ((ipAPIres.online && (op.tz !== ipAPIres.timezone)) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
+                            } else if ((ipAPIres.online && ((op.tz !== ipAPIres.timezone && vw.dk) || (op.tz !== timeAPIres.timezone && !vw.dk))) || (ipifyAPIres.online && timeAPIres.online && (op.tz !== timeAPIres.timezone)) || (clientAPIres.online && clientAPIres.isBehindProxy) || (roamingAPIres.online && roamingAPIres.isRoaming)) {
                                 eR.p = "vp"; // check for vpn/proxy
                                 eR.title = "Error: VPN usage";
                             } else if (!op.c.e) {
