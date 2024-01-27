@@ -237,7 +237,7 @@ function getPWADisplayMode() {
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
     if (document.referrer.startsWith('android-app://')) {
         return 'twa';
-    } else if (navigator.standalone || isStandalone) {
+    } else /*if (navigator.standalone || isStandalone)*/ { // return APP mode by default (effective 270124)
         return 'standalone';
     }
     return 'browser';
