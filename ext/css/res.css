@@ -6,7 +6,7 @@
         padding-top: 1rem;
     }
 
-    #profile_image {
+    .profile_image {
         width: 15rem;
         height: 15rem;
         margin-top: -1rem !important;
@@ -26,7 +26,7 @@
         padding-top: 1rem;
     }
 
-    #profile_image {
+    .profile_image {
         width: 13rem;
         height: 13rem;
         margin-top: -1rem !important;
@@ -51,7 +51,7 @@
 /* ------------ phablet ---------------- */
 
 @media screen and (min-width: 500px) and (orientation: portrait) {
-    #profile_image {
+    .profile_image {
         width: 12rem;
         height: 12rem;
     }
@@ -149,7 +149,7 @@
         padding-top: 4rem;
     }
 
-    #profile_image {
+    .profile_image {
         width: 12rem;
         height: 12rem;
         margin-left: 5%;

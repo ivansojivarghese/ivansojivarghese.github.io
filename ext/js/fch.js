@@ -644,7 +644,7 @@ function load_css_e() { // load CSS styles (page specific)
         c_css(".bg-circles .circle-3", "top: calc(7rem + (" + mg + ") + 12rem);", false, null); // 7rem + profile_image top margin + inward offset of 2rem (rel. to p. image height)
         c_css("#bg-cir5", "top: calc(" + aH + "px + 6rem)", false, null);
 
-        c_css("#profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
+        c_css(".profile_image, #intro_sc .content", "margin-top: calc(" + mg + ")", false, null); // margins are relative to the height
         c_css("#link_3", "height: calc(" + aH + "px - (30.32rem + 2 * (" + mg + ")));", false, null);
 
         c_css("#c_Info-m", "margin-top: calc(" + (aH * 0.5) + "px)", false, null);
@@ -774,7 +774,7 @@ function load_css_e() { // load CSS styles (page specific)
     if (!vw.pH && !vw.tB) { // mobile
         if (wD >= 290 && aH <= 640 && !vw.mB_L) { // if width min at 290px; height max at 640px; portrait view
             if (!(wD >= 310 && aH <= 550)) { // if width/height NOT within 310px and 550px
-                c_css("#profile_image", "width: 17rem; height: 17rem;", false, null); // apply style mod
+                c_css(".profile_image", "width: 17rem; height: 17rem;", false, null); // apply style mod
                 c_css("#link_3", "height: calc(" + aH + "px - (29.32rem + 2 * (" + mg + ")));", false, null);
             } else {
                 c_css("#link_3", "height: calc(" + aH + "px - (26.32rem + ((480px - 27.5rem) / 3)));", false, null);
