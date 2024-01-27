@@ -263,7 +263,7 @@ function startLoadPWA() {
 
     const disVar = document.querySelector('.pwa #distanceVariantPWA');
 
-    fter.y.innerHTML = y;
+    fter.y[0].innerHTML = y;
     fter.v[0].innerHTML = dev.version;
 
     sI_1.e = stat1;
