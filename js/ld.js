@@ -1586,7 +1586,7 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
             v.mB_L = true;
         } else if (h < 500 && deviceDetector.device === "phone") { // height less than 500 (mobile)
             v.mB_L = true;
-        } else if (deviceDetector.device === "tablet") {
+        } else if (deviceDetector.device === "tablet" || deviceDetector.device === "desktop") {
             v.tB = true; 
         }
         // if ((w >= 1200 && h >= 700) || h >= 800) { // width more than 1200, OR height more than 700
