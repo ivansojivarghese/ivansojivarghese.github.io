@@ -773,9 +773,10 @@ function docRead() {
                 deleteAllCookies();
 
                 // const puller = document.querySelector('.puller');
+                /*
                 puller.style.top = "calc(env(safe-area-inset-top)";
                 e_Fd(puller, false);
-                endRefresh();
+                endRefresh();*/
 
                 clientAPI();
                 countryAPI("");
@@ -929,7 +930,7 @@ function docRead() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
-                                                    puller.classList.add('shrinkDown');
+                                                    // puller.classList.add('shrinkDown');
 
                                                     setTimeout(function() {
                                                         resetRefresh();
