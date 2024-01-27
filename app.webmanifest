@@ -7,7 +7,6 @@
    "id" : "pwa",
    "lang" : "en",
    "dir" : "ltr",
-   "orientation": "portrait",
    "categories" : ["developer", "developer tools", "development", "education", "books & reference", "design", "lifestyle", "personalization", "photo", "photo & video", "multimedia", "multimedia design", "network", "networking", "productivity", "reference"],
    "description" : "An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!",
    "screenshots" : [],
@@ -62,5 +61,11 @@
         "platform": "webapp",
         "url": "https://ivansojivarghese.github.io/app.webmanifest"
    }],
-   "display": "fullscreen"
+   "display": "fullscreen",
+   "display_override": [
+    "fullscreen",
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ]
 }
