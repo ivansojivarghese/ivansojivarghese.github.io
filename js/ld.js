@@ -4,7 +4,7 @@ var disp = document.getElementById("display_sc"), // display
     fter = { // footer
         el : document.getElementById("footer_sc"), // element
         elm : document.getElementById("footer_main_sc"), // element - main
-        y : document.getElementById("f_yr"), // copyright year
+        y : document.getElementsByClassName("f_yr"), // copyright year
         v : document.getElementsByClassName("f_vr") // site version
     },
     eR_t = { // error small texts
