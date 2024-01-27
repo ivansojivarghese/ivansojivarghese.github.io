@@ -1872,7 +1872,7 @@
                             startRefresh(); // show ux feedback (pull down to refresh)
                         }
                         if (refreshX) { // ux feedback movement to user touch-drag
-                            puller.style.top = "calc(2rem + env(safe-area-inset-top) + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
+                            puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
                         }
                         if (y > (_startY + (wiH / 4))) { 
                             endRefresh();
