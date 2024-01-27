@@ -1564,7 +1564,7 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
     }
 
     // console.log(deviceDetector.device);
-    if (deviceDetector.device === "mobile") {
+    if (deviceDetector.device === "phone") {
         v.mB = true;
     }
 
@@ -1580,7 +1580,7 @@ function vwP(w, h, r) { // check device[viewport] size/orientation parameters
         if (h < 240 || w < 440) { // height less than 220, or width less than 440
             v.z_S = true;
             v.mB_L = true;
-        } else if (h < 500 && deviceDetector.device === "mobile") { // height less than 500 (mobile)
+        } else if (h < 500 && deviceDetector.device === "phone") { // height less than 500 (mobile)
             v.mB_L = true;
         } else if (deviceDetector.device === "tablet") {
             v.tB = true; 
