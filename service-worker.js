@@ -49,6 +49,7 @@ addEventListener('install', function (event) {
 	event.waitUntil(caches.open('core').then(function (cache) {
 		cache.add(new Request('ext/jpg/ivan_profile.jpg'));
 		cache.add(new Request('logo/logo_hybrid.png'));
+    cache.add(new Request('logo/logo_hybrid_inverse.png'));
 		fontFiles.forEach(function (file) {
 			cache.add(new Request(file));
 		});
