@@ -773,7 +773,7 @@ function docRead() {
                 deleteAllCookies();
 
                 // const puller = document.querySelector('.puller');
-                puller.style.top = "2rem";
+                puller.style.top = "calc(env(safe-area-inset-top)";
                 e_Fd(puller, false);
                 endRefresh();
 
