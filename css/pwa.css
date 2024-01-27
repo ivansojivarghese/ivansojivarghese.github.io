@@ -12,7 +12,7 @@ body {
     padding-bottom: calc(4rem + calc(env(safe-area-inset-top) * 1.5));
 }
 
-#pwa_loader .container {
+#load_sc .container {
     margin-top: calc((100vh - 8rem) / 2);
 }
 
