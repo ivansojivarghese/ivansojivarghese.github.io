@@ -951,7 +951,7 @@ function docRead() {
                 }, op.t);
 
                 normal_body.classList.add("d_n");
-                document.title = "Ivan Varghese";
+                // document.title = "Ivan Varghese";
 
                 rL.i = true; // end load
                 rL.s = true;
