@@ -12,6 +12,10 @@ body {
     padding-bottom: calc(4rem + calc(env(safe-area-inset-top) * 1.5));
 }
 
+#pwa_loader .container {
+    margin-top: calc((100vh - 8rem) / 2);
+}
+
 .pwa .home #stat3 {
     margin-right: 1rem;
     width: 3.5rem;
