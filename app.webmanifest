@@ -2,7 +2,7 @@
 {
    "name" : "Ivan Varghese",
    "short_name" : "Ivan",
-   "start_url" : "https://ivansojivarghese.github.io/",
+   "start_url" : "/?fullscreen=true",
    "scope" : "https://ivansojivarghese.github.io/",
    "id" : "pwa",
    "lang" : "en",
@@ -61,8 +61,9 @@
         "platform": "webapp",
         "url": "https://ivansojivarghese.github.io/app.webmanifest"
    }],
-   "display": "standalone",
+   "display": "fullscreen",
    "display_override": [
+    "fullscreen",
     "standalone",
     "minimal-ui",
     "browser"
