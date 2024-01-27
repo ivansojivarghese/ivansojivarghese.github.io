@@ -1885,7 +1885,7 @@
             contentBody.addEventListener('touchend', e => {
                 refreshX = false;
                 if (dotsLoad) {
-                    puller.style.top = "calc(env(safe-area-inset-top))";
+                    puller.style.top = "calc(1rem + env(safe-area-inset-top))";
                 } else {
                     puller.style.top = "-1rem";
                     e_Fd(puller, true);
