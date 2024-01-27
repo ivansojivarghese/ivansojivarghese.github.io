@@ -954,7 +954,7 @@ function docRead() {
                 document.title = "Ivan Varghese";
 
                 rL.i = true; // end load
-                rL.s = true;
+                rL.s = true; //
 
             } else if (devError) {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
