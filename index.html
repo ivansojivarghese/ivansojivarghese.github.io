@@ -1644,12 +1644,17 @@
 
             setInterval(function() {
 
-                if (rL && rL.i) {
+                if (typeof pos !== undefined) {
+
+                    pos.cE = false;
+
+                    /*
                     try {
                         pos.cE = false;
                     } catch (err) {
                         console.error(err);
-                    }
+                    }*/
+                    
                 }
             }, 1000); // check every sec.
             
