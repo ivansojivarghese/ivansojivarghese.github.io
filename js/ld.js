@@ -1433,8 +1433,12 @@ function load_jscss_N() { // load up JS/CSS (after page load; common)
         var hpf = getBd(document.getElementById("prefooter_sc"), "height");
         c_css("#pf_scrollbar", "bottom: calc(" + (hm + hpf) + "px - " + 0 + "px)", false, null);
     }
-    fter.y.innerHTML = y;
-    while (fter.v[i]) { // add copyright year + site version no.
+    
+    while (fter.y[i]) { // add copyright year
+        fter.y[i].innerHTML = y;
+        i++;
+    }
+    while (fter.v[i]) { // add site version no.
         fter.v[i].innerHTML = dev.version;
         i++;
     }
