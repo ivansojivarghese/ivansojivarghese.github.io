@@ -3468,7 +3468,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
 
                             // const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // get user device registered time zone
 
-                            op.pSpd = mean(op.pSpda) ? mean(op.pSpda) : 0;
+                            op.pSpd = mean(op.pSpda) ? mean(op.pSpda) : 0; //
 
                             // STATIC ERRORS (UPDATE WHEN NEEDED!)
                             if ((op.b.f || op.sys === null || op.bN || op.pl) && (devicePerformance(op.pSpd, op.sfr, op.pCores) > 0 && rL.i)) { // check for platform support
