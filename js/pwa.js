@@ -432,17 +432,21 @@ function pwaRead() {
             deleteAllCookies();
 
             // puller = document.querySelector('.puller');
+            /*
             puller.style.top = "2rem";
             e_Fd(puller, false);
             endRefresh();
+            */
         break;
         case "interactive":
             deleteAllCookies();
 
             // puller = document.querySelector('.puller');
+            /*
             puller.style.top = "2rem";
             e_Fd(puller, false);
             endRefresh();
+            */
         break;
         case "complete":
             if (!devError && op.pwa.s && !rL.i) { // pwa
@@ -630,7 +634,7 @@ function pwaRead() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
-                                                    puller.classList.add('shrinkDown');
+                                                    // puller.classList.add('shrinkDown');
 
                                                     setTimeout(function() {
                                                         resetRefresh();
