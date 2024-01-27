@@ -47,8 +47,8 @@ self.addEventListener("install", (event) => {
 // On install, cache some stuff
 addEventListener('install', function (event) {
 	event.waitUntil(caches.open('core').then(function (cache) {
-		//cache.add(new Request('offline.html'));
-		//cache.add(new Request('css/fonts.css'));
+		cache.add(new Request('ext/ivan_profile.jpg'));
+		cache.add(new Request('logo/logo_hybrid.png'));
 		fontFiles.forEach(function (file) {
 			cache.add(new Request(file));
 		});
