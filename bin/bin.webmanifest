@@ -53,5 +53,11 @@
                 }
             ]
         }
-   ]
+   ],
+   "display_override": [
+    "fullscreen",
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ]
 }
