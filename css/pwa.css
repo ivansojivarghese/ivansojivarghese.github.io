@@ -3,6 +3,9 @@
 
 body {
     background-color: #F4F4F4;
+    min-height: calc(100% + env(safe-area-inset-top));
+
+    /*padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);*/
 }
 
 .pwa .home #stat3 {
@@ -87,6 +90,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
+    padding-top: env(safe-area-inset-top);
 }
 
 .pwa .banner {
