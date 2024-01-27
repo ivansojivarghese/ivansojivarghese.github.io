@@ -91,7 +91,7 @@
 }
 
 .pwa .ham_auto {
-    top: 2.3rem;
+    top: 2.75rem;
 }
 
 .pwa .home .weather {
@@ -200,6 +200,9 @@
 
 .pwa .about .img_iconBtn:first-child {
     margin-left: 1rem;
+}
+
+.pwa .about .img_iconBtn:first-child, .pwa .about .img_iconBtn:nth-child(2) {
     margin-right: 0;
 }
 
