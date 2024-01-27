@@ -133,7 +133,7 @@ function docRead() {
         case "interactive":
 
             //if (!vw.dk) {
-            op.pwa.s = true;
+            // op.pwa.s = true;
             //}
 
             if (op.pwa.s) {
