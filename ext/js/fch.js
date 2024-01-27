@@ -123,7 +123,7 @@ var fchL = { // load up images (from HTML context)
         cisY : 0,
         cisXNum : 0,
         cisYNum : 0,
-        i : document.getElementById("profile_image"),
+        i : document.getElementsByClassName("profile_image")[1],
         wdT : document.getElementById("wordsTyperDet"),
         pb : document.getElementById("profile_banner"),
         pgph : document.getElementById("pr_gt_ph"),

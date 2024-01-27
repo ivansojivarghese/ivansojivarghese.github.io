@@ -7,7 +7,7 @@ var im = { // #intro_main
         wd : document.getElementById("wordsTyper"),
         gh : document.getElementById("logo-h"),
         pfg : document.getElementById("profile_greetingFull"),
-        pfi : document.getElementById("profile_image"),
+        pfi : document.getElementsByClassName("profile_image")[1],
         el : document.getElementById("intro_main"),
         elw : document.getElementById("intro_ws"),
         b5 : document.getElementById("bg-cir5"),
