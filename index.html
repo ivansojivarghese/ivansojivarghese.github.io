@@ -1643,19 +1643,7 @@
                 pwaScrollTimeoutCheck = false;
 
             setInterval(function() {
-
-                if (typeof pos.cE !== undefined) {
-
-                    pos.cE = false;
-
-                    /*
-                    try {
-                        pos.cE = false;
-                    } catch (err) {
-                        console.error(err);
-                    }*/
-
-                }
+                pos.cE = false;
             }, 1000); // check every sec.
             
             $(".scrollBarFunction").scroll(function() {
