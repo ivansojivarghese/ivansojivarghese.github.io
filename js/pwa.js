@@ -62,10 +62,11 @@ function navButtonActive(b, e, v) {
     var target = e.currentTarget || e;
     const buttons = document.querySelectorAll('.pwa .navbar .button');
 
+    /*
     if (target.classList.contains("about") || target.classList.contains("about_dark")) {
         const profile_image = document.querySelector('.pwa .profile_image');
         e_Fd(profile_image, false);
-    }
+    }*/
 
     for (i = 0; i < buttons.length; i++) { // remove from other non-targets
         if (buttons[i] !== target) {

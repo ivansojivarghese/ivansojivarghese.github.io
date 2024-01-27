@@ -1,0 +1,10 @@
+<!--  JS files -->
+        <script src="js/pwa.js"></script>
+        <script src="js/fn.js"></script>
+        <script src="js/msc.js"></script>
+        <script src="js/fahrenheit_countries.jsonc"></script>
+        <script src="ext/js/fch.js"></script>
+        <script src="js/ld.js"></script>
+        <script src="js/ef.js"></script>
+        <script defer src="ext/js/ham.js"></script>
+        <script defer src="ext/js/scr.js"></script>
