@@ -636,10 +636,21 @@ function pwaRead() {
                                                         rL.r.classList.add("aniM-p"); // stop animation in the rings
                                                         rL.p.classList.add("aniM-p");
                                                         rL.c.classList.add("aniM-p");
+
+                                                        e_Fd(loader, true);
+
+                                                        setTimeout(function() {
+                                                            loader.classList.add("d_n");
+                                                            resetRefresh();
+                                                            pwa_Load = true;
+                                                        }, op.t);
+    
+                                                        e_Fd(pwa_body, false);
+                                                        startLoadPWA();
+    
+                                                        clearInterval(pwaRead);
                                                     }, op.te - op.t);
-
-                                                    e_Fd(loader, true);
-
+                                                    /*
                                                     setTimeout(function() {
                                                         loader.classList.add("d_n");
                                                         resetRefresh();
@@ -649,7 +660,7 @@ function pwaRead() {
                                                     e_Fd(pwa_body, false);
                                                     startLoadPWA();
 
-                                                    clearInterval(pwaRead);
+                                                    clearInterval(pwaRead);*/
                                                 }, 10);
                                             });
                                         }
