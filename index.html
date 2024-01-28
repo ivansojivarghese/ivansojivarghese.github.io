@@ -1931,10 +1931,14 @@
                             } 
                         }
                     } else if (y < _startY) {
-                        puller.style.top = "-1rem";
-                        e_Fd(puller, true);
-                        refreshX = false;
+                        if (!dotsLoad) {
+                            puller.style.top = "-1rem";
+                            e_Fd(puller, true);
+                            refreshX = false;
+                        }
                     }
+                } else {
+                    _startY = e.touches[0].pageY;
                 }
 
             }, {passive: true});
