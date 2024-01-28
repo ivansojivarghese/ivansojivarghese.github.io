@@ -1926,7 +1926,7 @@
                             simulateRefreshAction(); // refresh contentBody.
                         } 
                     }
-                } else if (scrolling) {
+                } else if (scrolling || y < _startY) {
                     puller.style.top = "-1rem";
                     e_Fd(puller, true);
                     refreshX = false;
