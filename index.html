@@ -1900,36 +1900,39 @@
             }, {passive: true});
             
             contentBody.addEventListener('touchmove', e => {
-                const y = e.touches[0].pageY;
-                // Activate custom pull-to-refresh effects when at the top of the container
-                // and user is scrolling up.
+                if (!cancelRefresh) {
 
-                var scrollEl = document.querySelector('.scrollBarContainer');
-                var scrollBarFunction = document.querySelector('.scrollBarFunction');
-                var scrollElTop = scrollEl.getBoundingClientRect().top;
-                var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
+                    const y = e.touches[0].pageY;
+                    // Activate custom pull-to-refresh effects when at the top of the container
+                    // and user is scrolling up.
 
-                _documentMoveY = scrollElTop - scrollElTopPadding;
+                    var scrollEl = document.querySelector('.scrollBarContainer');
+                    var scrollBarFunction = document.querySelector('.scrollBarFunction');
+                    var scrollElTop = scrollEl.getBoundingClientRect().top;
+                    var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
 
-                if (document.scrollingElement.scrollTop === 0 && _documentStartY === 0 && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
+                    _documentMoveY = scrollElTop - scrollElTopPadding;
 
-                    if (y > (_startY + (wiH / 8))) {
-                        if (!refreshX) {
-                            refreshX = true;
-                            startRefresh(); // show ux feedback (pull down to refresh)
+                    if (document.scrollingElement.scrollTop === 0 && _documentStartY === 0 && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
+
+                        if (y > (_startY + (wiH / 8))) {
+                            if (!refreshX) {
+                                refreshX = true;
+                                startRefresh(); // show ux feedback (pull down to refresh)
+                            }
+                            if (refreshX) { // ux feedback movement to user touch-drag
+                                puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
+                            }
+                            if (y > (_startY + (wiH / 4))) { 
+                                endRefresh();
+                                simulateRefreshAction(); // refresh contentBody.
+                            } 
                         }
-                        if (refreshX) { // ux feedback movement to user touch-drag
-                            puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
-                        }
-                        if (y > (_startY + (wiH / 4))) { 
-                            endRefresh();
-                            simulateRefreshAction(); // refresh contentBody.
-                        } 
+                    } else if (y < _startY) {
+                        puller.style.top = "-1rem";
+                        e_Fd(puller, true);
+                        refreshX = false;
                     }
-                } else if (y < _startY) {
-                    puller.style.top = "-1rem";
-                    e_Fd(puller, true);
-                    refreshX = false;
                 }
 
             }, {passive: true});
