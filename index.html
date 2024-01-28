@@ -1925,7 +1925,7 @@
                             if (refreshX) { // ux feedback movement to user touch-drag
                                 puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
                             }
-                            if (y > (_startY + (wiH / 4))) { 
+                            if (y > (_startY + (wiH / 2))) { 
                                 endRefresh();
                                 simulateRefreshAction(); // refresh contentBody.
                             } 
