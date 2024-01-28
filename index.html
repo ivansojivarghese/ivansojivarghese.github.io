@@ -1919,7 +1919,12 @@
                             simulateRefreshAction(); // refresh contentBody.
                         } 
                     }
+                } else {
+                    puller.style.top = "-1rem";
+                    e_Fd(puller, true);
+                    refreshX = false;
                 }
+
             }, {passive: true});
 
             contentBody.addEventListener('touchend', e => {
