@@ -1886,9 +1886,11 @@
             contentBody.addEventListener('touchstart', e => {
                 var scrollEl = document.querySelector('.scrollBarContainer');
                 var scrollElTop = scrollEl.getBoundingClientRect().top;
+                var scrollElTopPadding = Number(window.getComputedStyle(scrollEl, null).getPropertyValue('padding-top').slice(0, 2));;
 
                 _startY = e.touches[0].pageY;
-                _documentStartY = scrollElTop;
+                _documentStartY = scrollElTop - scrollElTopPadding;
+
             }, {passive: true});
             
             contentBody.addEventListener('touchmove', e => {
@@ -1898,7 +1900,9 @@
 
                 var scrollEl = document.querySelector('.scrollBarContainer');
                 var scrollElTop = scrollEl.getBoundingClientRect().top;
-                _documentStartY = scrollElTop;
+                var scrollElTopPadding = Number(window.getComputedStyle(scrollEl, null).getPropertyValue('padding-top').slice(0, 2));;
+
+                _documentStartY = scrollElTop - scrollElTopPadding;
 
                 if (document.scrollingElement.scrollTop === 0 && _documentStartY === 0 && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
 
