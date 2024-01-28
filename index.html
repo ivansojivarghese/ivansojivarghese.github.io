@@ -1814,7 +1814,7 @@
                 pullerRefresher.addEventListener("click", function() {
                     cancelRefresh = true;
                     puller.classList.add('shrink');
-
+                    resetRefresh();
                 });
 
                 await sleep(2000);
