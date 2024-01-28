@@ -621,6 +621,8 @@ function pwaRead() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
+                                                    // rL.d.style.animationName = "loadR_end"; // set ending animation detail
+
                                                     e_Fd(loader, true);
 
                                                     setTimeout(function() {

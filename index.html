@@ -1815,6 +1815,7 @@
                     cancelRefresh = true;
                     puller.classList.add('shrink');
                     resetRefresh();
+                    document.body.classList.remove('refreshing');
                 });
 
                 await sleep(2000);
@@ -1825,6 +1826,8 @@
 
                 if (!cancelRefresh) {
                     reL();
+                } else {
+                    cancelRefresh = true;
                 }
 
             }
