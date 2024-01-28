@@ -243,6 +243,7 @@ body.refreshing .puller.shrink {
     box-shadow: rgba(149, 157, 165, 0.2) 0 0.47rem 1.41rem;
     left: calc(50% - 11rem / 2);
     top: -1rem;
+    overflow: hidden;
 }
 
 .pullerRefresher {
@@ -250,6 +251,16 @@ body.refreshing .puller.shrink {
     padding: 0.5rem;
     border-radius: 50%;
 }
+
+.puller .progressBar {
+    position: absolute;
+    z-index: -10;
+    border-radius: 3rem;
+    height: 3rem;
+    left: 0;
+    background-color: #DBDBDB;
+}
+
 /*
 .puller {
     visibility: hidden;
