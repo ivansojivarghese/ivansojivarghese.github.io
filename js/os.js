@@ -242,7 +242,7 @@ function getPWADisplayMode() {
     }
     return 'browser';
 }
-
+/*
 window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => { // check for changes in display
     let displayMode = 'browser';
     if (evt.matches) {
@@ -250,7 +250,7 @@ window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt)
     }
     // Log display mode change to analytics
     console.log('DISPLAY_MODE_CHANGED', displayMode);
-});
+});*/
 
 function setCookie(n, v, days) { // create a cookie 
     const d = new Date(); // get current time
