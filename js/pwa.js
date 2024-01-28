@@ -635,7 +635,10 @@ function pwaRead() {
                                                     rL.d = document.getElementById("loadR-e"); // loading ring (end)
                                                     rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
 
+                                                    rL.p.removeEventListener("animationiteration", load_e);
+
                                                     rL.d.style.animationName = "loadR_end"; // set ending animation detail
+                                                    
                                                     setTimeout(function() {
                                                         // rL.el.classList.add("z_O");
 
