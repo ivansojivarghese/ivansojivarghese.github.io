@@ -203,6 +203,7 @@ body {
 .pwa .h3dup#span1 {
     background: linear-gradient(90deg,#cf8d7c,#a77cb4);
     background-clip: text;
+    -webkit-background-clip: text;
     padding-right: 0.5rem;
 }
 
@@ -211,6 +212,7 @@ body {
     margin: 0;
     padding: 0.5rem 0 1rem;
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .pwa .img_iconBtn {
