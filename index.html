@@ -1787,7 +1787,8 @@
 
             // REFERENCE: https://developer.chrome.com/blog/overscroll-behavior, https://github.com/ebidel/demos/blob/master/chatbox.html
 
-            var dotsLoad = false;
+            var dotsLoad = false,
+                cancelRefresh = false;
 
             async function simulateRefreshAction() {
                 const sleep = (timeout) => new Promise(resolve => setTimeout(resolve, timeout));
@@ -1809,13 +1810,21 @@
 
                 document.body.classList.add('refreshing');
 
+                puller.addEventListener("click", function() {
+                    cancelRefresh = true;
+                    puller.classList.add('shrink');
+                    
+                });
+
                 await sleep(2000);
 
                 window.addEventListener("beforeunload", function() {
                     puller.classList.add('shrink');
                 });
 
-                reL();
+                if (!cancelRefresh) {
+                    reL();
+                }
 
             }
 
