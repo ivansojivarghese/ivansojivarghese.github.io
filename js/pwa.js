@@ -629,6 +629,7 @@ function pwaRead() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
+                                                    rL.r_s = false;
                                                     rL.el = document.getElementById("load_sc"), 
                                                     rL.r = document.getElementById("loadR"); // loading rings (container)
                                                     rL.p = document.getElementById("loadR-p"); // loading ring (primary)
@@ -636,10 +637,15 @@ function pwaRead() {
                                                     rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
 
                                                     rL.p.removeEventListener("animationiteration", load_e);
+                                                    rL.p.addEventListener("animationiteration", function() {
+                                                        if (rL.r_s) {
+                                                            rL.d.style.animationName = "loadR_end"; // set ending animation detail
+                                                        }
+                                                    });
 
-                                                    rL.d.style.animationName = "loadR_end"; // set ending animation detail
-                                                    
                                                     setTimeout(function() {
+                                                        rL.r_s = true;
+
                                                         // rL.el.classList.add("z_O");
 
                                                         //rL.r.classList.add("aniM-p"); // stop animation in the rings
@@ -659,7 +665,7 @@ function pwaRead() {
                                                             clearInterval(pwaRead);
                                                         }, op.t);
     
-                                                    }, op.te - op.t);
+                                                    }, op.te);
                                                     /*
                                                     setTimeout(function() {
                                                         loader.classList.add("d_n");
