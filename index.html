@@ -1885,8 +1885,9 @@
             
             contentBody.addEventListener('touchstart', e => {
                 var scrollEl = document.querySelector('.scrollBarContainer');
+                var scrollBarFunction = document.querySelector('.scrollBarFunction');
                 var scrollElTop = scrollEl.getBoundingClientRect().top;
-                var scrollElTopPadding = Number(window.getComputedStyle(scrollEl, null).getPropertyValue('padding-top').slice(0, 2));;
+                var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, 2));
 
                 _startY = e.touches[0].pageY;
                 _documentStartY = scrollElTop - scrollElTopPadding;
@@ -1899,8 +1900,9 @@
                 // and user is scrolling up.
 
                 var scrollEl = document.querySelector('.scrollBarContainer');
+                var scrollBarFunction = document.querySelector('.scrollBarFunction');
                 var scrollElTop = scrollEl.getBoundingClientRect().top;
-                var scrollElTopPadding = Number(window.getComputedStyle(scrollEl, null).getPropertyValue('padding-top').slice(0, 2));;
+                var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, 2));
 
                 _documentStartY = scrollElTop - scrollElTopPadding;
 
