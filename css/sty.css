@@ -255,7 +255,6 @@ body.refreshing .puller.shrink {
 .puller .progressBar {
     position: absolute;
     z-index: -10;
-    border-radius: 3rem;
     height: 3rem;
     left: 0;
     background-color: #DBDBDB;
