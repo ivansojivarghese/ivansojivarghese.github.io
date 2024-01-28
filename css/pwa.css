@@ -380,6 +380,10 @@ body {
         padding-right: 2em;
     }
 
+    .pwa .sections > div {
+        padding-bottom: 0;
+    }
+
     .pwa .noRSpace.affirm {
         padding-right: 0;
     }
