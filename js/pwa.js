@@ -666,17 +666,7 @@ function pwaRead() {
                                                         }, op.t);
     
                                                     }, op.te);
-                                                    /*
-                                                    setTimeout(function() {
-                                                        loader.classList.add("d_n");
-                                                        resetRefresh();
-                                                        pwa_Load = true;
-                                                    }, op.t);
-
-                                                    e_Fd(pwa_body, false);
-                                                    startLoadPWA();
-
-                                                    clearInterval(pwaRead);*/
+                                                    
                                                 }, 10);
                                             });
                                         }
