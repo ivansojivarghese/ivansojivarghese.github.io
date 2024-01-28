@@ -1807,13 +1807,14 @@
                 }
 
                 const puller = document.querySelector('.puller');
+                const pullerRefresher = document.querySelector('pullerRefresher');
 
                 document.body.classList.add('refreshing');
 
-                puller.addEventListener("click", function() {
+                pullerRefresher.addEventListener("click", function() {
                     cancelRefresh = true;
                     puller.classList.add('shrink');
-                    
+
                 });
 
                 await sleep(2000);
