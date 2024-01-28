@@ -639,9 +639,9 @@ function pwaRead() {
                                                     setTimeout(function() {
                                                         rL.el.classList.add("z_O");
 
-                                                        rL.r.classList.add("aniM-p"); // stop animation in the rings
-                                                        rL.p.classList.add("aniM-p");
-                                                        rL.c.classList.add("aniM-p");
+                                                        //rL.r.classList.add("aniM-p"); // stop animation in the rings
+                                                        //rL.p.classList.add("aniM-p");
+                                                        //rL.c.classList.add("aniM-p");
 
                                                         e_Fd(loader, true);
 
