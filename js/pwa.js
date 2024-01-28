@@ -14,6 +14,14 @@ var btty = {
     charging : null
 };
 
+var rL = {
+    el : document.getElementById("load_sc"), 
+    r : document.getElementById("loadR"), // loading rings (container)
+    p : document.getElementById("loadR-p"), // loading ring (primary)
+    d : document.getElementById("loadR-e"), // loading ring (end)
+    c : document.getElementById("loadR-s") // loading ring (secondary)
+}
+
 const sections = document.querySelector('.pwa .sections');
 
 var oriHeight_L = null,
@@ -621,7 +629,14 @@ function pwaRead() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
-                                                    // rL.d.style.animationName = "loadR_end"; // set ending animation detail
+                                                    rL.d.style.animationName = "loadR_end"; // set ending animation detail
+                                                    setTimeout(function() {
+                                                        rL.el.classList.add("z_O");
+
+                                                        rL.r.classList.add("aniM-p"); // stop animation in the rings
+                                                        rL.p.classList.add("aniM-p");
+                                                        rL.c.classList.add("aniM-p");
+                                                    }, op.te - op.t);
 
                                                     e_Fd(loader, true);
 
