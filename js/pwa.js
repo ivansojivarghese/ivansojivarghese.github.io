@@ -643,12 +643,13 @@ function pwaRead() {
                                                             loader.classList.add("d_n");
                                                             resetRefresh();
                                                             pwa_Load = true;
+
+                                                            e_Fd(pwa_body, false);
+                                                            startLoadPWA();
+        
+                                                            clearInterval(pwaRead);
                                                         }, op.t);
     
-                                                        e_Fd(pwa_body, false);
-                                                        startLoadPWA();
-    
-                                                        clearInterval(pwaRead);
                                                     }, op.te - op.t);
                                                     /*
                                                     setTimeout(function() {
