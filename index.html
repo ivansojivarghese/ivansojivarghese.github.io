@@ -1856,7 +1856,8 @@
                 const pullerRefresher = document.querySelector('.puller .pullerRefresher');
                 const pullerProgress = document.querySelector('.puller .progressBar');
 
-                e_Fd(pullerProgress, true);
+                // e_Fd(pullerProgress, true);
+                pullerProgress.classList.add("d_n");
                 e_Fd(pullerP, true);
                 puller.style.width = "3rem";
                 puller.style.left = "calc(50% - 3rem / 2)";
