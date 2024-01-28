@@ -629,6 +629,12 @@ function pwaRead() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
+                                                    rL.el = document.getElementById("load_sc"), 
+                                                    rL.r = document.getElementById("loadR"); // loading rings (container)
+                                                    rL.p = document.getElementById("loadR-p"); // loading ring (primary)
+                                                    rL.d = document.getElementById("loadR-e"); // loading ring (end)
+                                                    rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
+
                                                     rL.d.style.animationName = "loadR_end"; // set ending animation detail
                                                     setTimeout(function() {
                                                         rL.el.classList.add("z_O");
