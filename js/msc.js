@@ -3964,7 +3964,7 @@ async function getScreenLock() {
 // getScreenLock();
 
 /////////////////////////////////////////
-
+/*
 window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
     let displayMode = 'browser';
     if (evt.matches) {
@@ -3983,7 +3983,7 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
         reL();
     }
 
-});
+});*/
 
 //////////////////////////////////////////
 
