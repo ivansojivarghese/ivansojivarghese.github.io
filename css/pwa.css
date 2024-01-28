@@ -59,7 +59,7 @@ body {
 }
 
 .pwa .content h1 {
-    line-height: 0.85em;
+    line-height: 1em;
     margin-right: 0.5rem;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -73,6 +73,7 @@ body {
     margin-top: 1rem;
     margin-bottom: 3rem;
     width: 100%;
+    line-height: 1.5em;
 }
 
 .pwa .content h5 {
