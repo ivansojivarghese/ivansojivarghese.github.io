@@ -1923,17 +1923,17 @@
 
                     if (document.scrollingElement.scrollTop === 0 && _documentStartY === 0 && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
 
-                        if (y > (_startY + (wiH / 8))) {
+                        if (y > (_startY + (window.innerHeight / 8))) {
                             if (!refreshX) {
                                 refreshX = true;
                                 startRefresh(); // show ux feedback (pull down to refresh)
                             }
                             if (refreshX) { // ux feedback movement to user touch-drag
-                                var progress = (y - (_startY + (wiH / 8))) / ((_startY + (wiH / 2)) - (_startY + (wiH / 8)));
-                                puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
+                                var progress = (y - (_startY + (window.innerHeight / 8))) / ((_startY + (window.innerHeight / 2)) - (_startY + (window.innerHeight / 8)));
+                                puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (window.innerHeight / 8))) / op.fN) + "rem)";
                                 pullerProgress.style.width = "calc(" + progress + " * 11rem)"; // show progress of drag to refresh
                             }
-                            if (y > (_startY + (wiH / 2))) { 
+                            if (y > (_startY + (window.innerHeight / 2))) { 
                                 endRefresh();
                                 simulateRefreshAction(); // refresh contentBody.
                             } 
