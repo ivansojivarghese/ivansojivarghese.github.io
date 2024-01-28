@@ -1860,6 +1860,7 @@
                 e_Fd(pullerP, true);
                 puller.style.width = "3rem";
                 puller.style.left = "calc(50% - 3rem / 2)";
+                puller.style.overflow = "visible";
 
                 e_Fd(pullerRefresher, false);
             }
@@ -1877,6 +1878,7 @@
 
                 e_Fd(pullerRefresher, true);
 
+                puller.style.overflow = "hidden";
                 puller.style.top = "-1rem";
                 puller.style.width = "11rem";
                 puller.style.left = "calc(50% - 11rem / 2)";
