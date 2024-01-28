@@ -1874,8 +1874,6 @@
                 const pullerRefresher= document.querySelector('.puller .pullerRefresher');
                 const pullerProgress = document.querySelector('.puller .progressBar');
 
-                pullerProgress.style.width = "0rem";
-
                 e_Fd(puller, true);
                 puller.classList.remove("shrinkDown");
 
@@ -1961,6 +1959,7 @@
                 if (dotsLoad) {
                     puller.style.top = "calc(1rem + env(safe-area-inset-top))";
                 } else {
+                    pullerProgress.style.width = "0rem";
                     puller.style.top = "-1rem";
                     e_Fd(puller, true);
                 }
