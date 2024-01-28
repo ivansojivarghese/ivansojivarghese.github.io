@@ -1885,6 +1885,9 @@
                 puller.style.left = "calc(50% - 11rem / 2)";
                 e_Fd(pullerP, false);
                 e_Fd(pullerProgress, false);
+
+                pullerProgress.style.width = "0rem";
+                pullerProgress.classList.remove("d_n");
             }
 
             var refreshX = false;
