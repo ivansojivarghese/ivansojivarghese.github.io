@@ -1539,6 +1539,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     animation-duration: 1s;
 }
 
+.o_half {
+    opacity: 0.5;
+}
+
 #load_dot {
     animation-name: load_dot;
     opacity: 0.5;
