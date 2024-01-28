@@ -1892,7 +1892,7 @@
                 var scrollEl = document.querySelector('.scrollBarContainer');
                 var scrollBarFunction = document.querySelector('.scrollBarFunction');
                 var scrollElTop = scrollEl.getBoundingClientRect().top;
-                var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, 2));
+                var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
 
                 _startY = e.touches[0].pageY;
                 _documentStartY = scrollElTop - scrollElTopPadding;
@@ -1907,7 +1907,7 @@
                 var scrollEl = document.querySelector('.scrollBarContainer');
                 var scrollBarFunction = document.querySelector('.scrollBarFunction');
                 var scrollElTop = scrollEl.getBoundingClientRect().top;
-                var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, 2));
+                var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
 
                 _documentMoveY = scrollElTop - scrollElTopPadding;
 
