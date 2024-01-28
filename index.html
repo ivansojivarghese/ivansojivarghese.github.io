@@ -1890,6 +1890,7 @@
             let _documentMoveY;
             const contentBody = document.querySelector('body');
             const puller = document.querySelector('.puller');
+            const pullerProgress = document.querySelector('.puller .progressBar');
 
             var pwa_Load = false;
             
@@ -1928,9 +1929,9 @@
                                 startRefresh(); // show ux feedback (pull down to refresh)
                             }
                             if (refreshX) { // ux feedback movement to user touch-drag
+                                var progress = (y - (_startY + (wiH / 8))) / ((_startY + (wiH / 2)) - (_startY + (wiH / 8)));
                                 puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
-
-                                // show progress of drag to refresh
+                                pullerProgress.style.width = "calc(" + progress + " * 11rem)"; // show progress of drag to refresh
                             }
                             if (y > (_startY + (wiH / 2))) { 
                                 endRefresh();
