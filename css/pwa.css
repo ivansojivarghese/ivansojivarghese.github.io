@@ -13,7 +13,7 @@ body {
 }
 
 #load_sc .container {
-    margin-top: calc((100vh - 8rem) / 2);
+    margin-top: calc((100svh - 8rem) / 2);
 }
 
 .pwa .home #stat3 {
