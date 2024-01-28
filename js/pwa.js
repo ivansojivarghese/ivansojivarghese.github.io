@@ -637,7 +637,7 @@ function pwaRead() {
 
                                                     rL.d.style.animationName = "loadR_end"; // set ending animation detail
                                                     setTimeout(function() {
-                                                        rL.el.classList.add("z_O");
+                                                        // rL.el.classList.add("z_O");
 
                                                         //rL.r.classList.add("aniM-p"); // stop animation in the rings
                                                         //rL.p.classList.add("aniM-p");
