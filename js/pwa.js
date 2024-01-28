@@ -426,20 +426,18 @@ function e_Ic(el, p, f) { // effect - iterating digits on a numeral (in a string
     }
 }
 
+var loader = document.querySelector('#load_sc');
+
 function pwaRead() {
     switch (document.readyState) { // check 'ready state' of document
         case "loading":
             deleteAllCookies();
-
-            var loader = document.querySelector('#load_sc');
             
             e_Fd(loader, false);
             
         break;
         case "interactive":
             deleteAllCookies();
-
-            var loader = document.querySelector('#load_sc');
             
             e_Fd(loader, false);
             
@@ -623,9 +621,10 @@ function pwaRead() {
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
 
-                                                    // puller.classList.add('shrinkDown');
+                                                    e_Fd(loader, true);
 
                                                     setTimeout(function() {
+                                                        loader.classList.add("d_n");
                                                         resetRefresh();
                                                         pwa_Load = true;
                                                     }, op.t);
