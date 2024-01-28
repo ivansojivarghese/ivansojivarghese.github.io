@@ -156,6 +156,8 @@ body {
     height: 3rem;
     width: 3rem;
     text-align: center;
+    position: relative;
+    z-index: 10;
 }
 /*
 .pwa .navbar .button:hover .img {
