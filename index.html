@@ -1812,10 +1812,12 @@
                 document.body.classList.add('refreshing');
 
                 pullerRefresher.addEventListener("click", function() {
-                    cancelRefresh = true;
                     puller.classList.add('shrink');
-                    resetRefresh();
-                    document.body.classList.remove('refreshing');
+                    cancelRefresh = true;
+                    setTimeout(function() {
+                        resetRefresh();
+                        document.body.classList.remove('refreshing');
+                    }, op.t);
                 });
 
                 await sleep(2000);
@@ -1827,7 +1829,7 @@
                 if (!cancelRefresh) {
                     reL();
                 } else {
-                    cancelRefresh = true;
+                    cancelRefresh = false;
                     puller.classList.remove('shrink');
                 }
 
