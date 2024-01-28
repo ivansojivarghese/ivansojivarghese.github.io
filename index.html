@@ -1653,7 +1653,7 @@
             var pwaScrollTimeout = null,
                 pwaScrollTimeoutCheck = false;
 
-            var scrolling = false;
+            // var scrolling = false;
 
             setInterval(function() {
                 pos.cE = false;
@@ -1672,7 +1672,7 @@
                 
                 if (op.pwa.s) {
                     if (!pwaScrollTimeoutCheck) {
-                        scrolling = true;
+                        // scrolling = true;
                         e_Fd(pos.sB, false);
                         pwaScrollTimeout = setTimeout(function() {
                             if (!pos.cE && !pwaScrollTimeoutCheck) {
@@ -1681,7 +1681,7 @@
                                     pwaScrollTimeoutCheck = false;
                                 }, 10);
                                 e_Fd(pos.sB, true);
-                                scrolling = false;
+                                // scrolling = false;
                             } else {
                                 clearTimeout(pwaScrollTimeout);
                             }
@@ -1911,7 +1911,7 @@
 
                 _documentMoveY = scrollElTop - scrollElTopPadding;
 
-                if (document.scrollingElement.scrollTop === 0 && _documentStartY === 0 && !scrolling && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
+                if (document.scrollingElement.scrollTop === 0 && _documentStartY === 0 && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
 
                     if (y > (_startY + (wiH / 8))) {
                         if (!refreshX) {
@@ -1926,7 +1926,7 @@
                             simulateRefreshAction(); // refresh contentBody.
                         } 
                     }
-                } else if (scrolling || y < _startY) {
+                } else if (y < _startY) {
                     puller.style.top = "-1rem";
                     e_Fd(puller, true);
                     refreshX = false;
