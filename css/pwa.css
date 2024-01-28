@@ -139,7 +139,7 @@ body {
 }
 
 .pwa .navbar {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 4rem;
     display: flex;
