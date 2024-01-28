@@ -652,10 +652,13 @@ function pwaRead() {
                                                         //rL.p.classList.add("aniM-p");
                                                         //rL.c.classList.add("aniM-p");
 
-                                                        e_Fd(loader, true);
-
                                                         setTimeout(function() {
-                                                            loader.classList.add("d_n");
+                                                            e_Fd(loader, true);
+
+                                                            setTimeout(function() {
+                                                                loader.classList.add("d_n");
+                                                            }, op.t);
+                                                            
                                                             resetRefresh();
                                                             pwa_Load = true;
 
