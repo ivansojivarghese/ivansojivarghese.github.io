@@ -431,22 +431,18 @@ function pwaRead() {
         case "loading":
             deleteAllCookies();
 
-            // puller = document.querySelector('.puller');
-            /*
-            puller.style.top = "2rem";
-            e_Fd(puller, false);
-            endRefresh();
-            */
+            var loader = document.querySelector('#load_sc');
+            
+            e_Fd(loader, false);
+            
         break;
         case "interactive":
             deleteAllCookies();
 
-            // puller = document.querySelector('.puller');
-            /*
-            puller.style.top = "2rem";
-            e_Fd(puller, false);
-            endRefresh();
-            */
+            var loader = document.querySelector('#load_sc');
+            
+            e_Fd(loader, false);
+            
         break;
         case "complete":
             if (!devError && op.pwa.s && !rL.i) { // pwa
@@ -474,13 +470,6 @@ function pwaRead() {
                 c_css(".p_Tvhq", "padding-top: calc(" + (aH * 0.25) + "px)", false, null);
 
                 ///////
-                /*
-                deleteAllCookies();
-
-                const puller = document.querySelector('.puller');
-                puller.style.top = "2rem";
-                e_Fd(puller, false);
-                endRefresh();*/
 
                 clientAPI();
                 countryAPI("");
