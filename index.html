@@ -726,7 +726,7 @@
             <div class="cursor small bC_d b-r p-f z-P d_n z_O trs"></div>
             <div class="cursor big bC_t b-r p-f z-P d_n z_O trs"></div>
             <div class="puller trs z_O">
-                <div class="progressBar"></div>
+                <div class="progressBar trs"></div>
                 <p class="f_wg-b p_z trs">pull to refresh</p>
                 <div class="pullerRefresher trs z_O">
                     <div class="loading-bar"></div>
@@ -1853,13 +1853,15 @@
 
                 const puller = document.querySelector('.puller');
                 const pullerP = document.querySelector('.puller p');
-                const pullerDiv = document.querySelector('.puller div');
+                const pullerRefresher = document.querySelector('.puller .pullerRefresher');
+                const pullerProgress = document.querySelector('.puller .progressBar');
 
+                e_Fd(pullerProgress, true);
                 e_Fd(pullerP, true);
                 puller.style.width = "3rem";
                 puller.style.left = "calc(50% - 3rem / 2)";
 
-                e_Fd(pullerDiv, false);
+                e_Fd(pullerRefresher, false);
             }
 
             function resetRefresh() {
@@ -1867,17 +1869,19 @@
 
                 const puller = document.querySelector('.puller');
                 const pullerP = document.querySelector('.puller p');
-                const pullerDiv = document.querySelector('.puller div');
+                const pullerRefresher= document.querySelector('.puller .pullerRefresher');
+                const pullerProgress = document.querySelector('.puller .progressBar');
 
                 e_Fd(puller, true);
                 puller.classList.remove("shrinkDown");
 
-                e_Fd(pullerDiv, true);
+                e_Fd(pullerRefresher, true);
 
                 puller.style.top = "-1rem";
                 puller.style.width = "11rem";
                 puller.style.left = "calc(50% - 11rem / 2)";
                 e_Fd(pullerP, false);
+                e_Fd(pullerProgress, false);
             }
 
             var refreshX = false;
@@ -1925,6 +1929,8 @@
                             }
                             if (refreshX) { // ux feedback movement to user touch-drag
                                 puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (wiH / 8))) / op.fN) + "rem)";
+
+                                // show progress of drag to refresh
                             }
                             if (y > (_startY + (wiH / 2))) { 
                                 endRefresh();
