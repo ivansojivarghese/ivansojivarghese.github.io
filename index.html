@@ -1889,13 +1889,15 @@
             var pwa_Load = false;
             
             contentBody.addEventListener('touchstart', e => {
-                var scrollEl = document.querySelector('.scrollBarContainer');
-                var scrollBarFunction = document.querySelector('.scrollBarFunction');
-                var scrollElTop = scrollEl.getBoundingClientRect().top;
-                var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
+                if (!cancelRefresh) {
+                    var scrollEl = document.querySelector('.scrollBarContainer');
+                    var scrollBarFunction = document.querySelector('.scrollBarFunction');
+                    var scrollElTop = scrollEl.getBoundingClientRect().top;
+                    var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
 
-                _startY = e.touches[0].pageY;
-                _documentStartY = scrollElTop - scrollElTopPadding;
+                    _startY = e.touches[0].pageY;
+                    _documentStartY = scrollElTop - scrollElTopPadding;
+                }
 
             }, {passive: true});
             
