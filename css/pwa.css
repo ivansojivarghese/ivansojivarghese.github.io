@@ -396,7 +396,8 @@ body {
     .pwa .sections {
         float: right;
         height: 100svh;
-        width: calc(100vw - 4rem);
+        width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+        padding-right: calc(env(safe-area-inset-right));
     }
 
     .pwa .navbar {
@@ -406,6 +407,7 @@ body {
         width: 4rem;
         height: 100svh;
         box-shadow: none;
+        padding-left: calc(env(safe-area-inset-left));
     }
 
     .pwa .navbar .button {
