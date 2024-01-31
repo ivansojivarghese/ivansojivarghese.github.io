@@ -260,7 +260,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             navbar_pwa = document.querySelector('.pwa .navbar'),
 
             settings_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .banner .settings_img') : document.querySelector('.pwa .about .banner .settings_w_img'),
-            batteryIcon = document.querySelector('.pwa .about .banner .battery'),
+            batteryIcons = document.querySelector('.pwa .banner .battery'),
 
             home_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .home') : document.querySelector('.pwa .navbar .home_dark'),
             clicks_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .clicks') : document.querySelector('.pwa .navbar .clicks_dark'),
@@ -348,11 +348,29 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             logo_h_img_pwa.classList.remove("logo-full");
             sig_pwa.classList.remove("signature");
 
-            for (i = 0; i < batteryIcon.classList.length; i++) {
-                str = batteryIcon.classList[i];
-                match = str.match("battery_");
-                if (match !== null) {
-                    batteryIcon.classList.remove(str);
+            for (j = 0; j < batteryIcons.length; j++) {
+                for (i = 0; i < batteryIcons[j].classList.length; i++) {
+                    str = batteryIcons[j].classList[i];
+                    match = str.match("battery_");
+                    if (match !== null) {
+                        batteryIcons[j].classList.remove(str);
+                        break;
+                    }
+                }
+                switch (str) {
+                    case "battery_full_img":
+                    case "battery_6_img":
+                    case "battery_5_img":
+                    case "battery_4_img":
+                    case "battery_3_img":
+                    case "battery_2_img":
+                        var dx = str.indexOf("_img"),
+                            mod = "_w",
+                            newStr = str.slice(0, dx) + mod + str.slice(dx);
+                        batteryIcons[j].classList.add(newStr);
+                    break;
+                    default:
+                        batteryIcons[j].classList.add(str);
                     break;
                 }
             }
@@ -375,23 +393,6 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             sig_pwa.classList.add("signature_w");
 
             settings_icon.classList.add("settings_w_img");
-
-            switch (str) {
-                case "battery_full_img":
-                case "battery_6_img":
-                case "battery_5_img":
-                case "battery_4_img":
-                case "battery_3_img":
-                case "battery_2_img":
-                    var dx = str.indexOf("_img"),
-                        mod = "_w",
-                        newStr = str.slice(0, dx) + mod + str.slice(dx);
-                    batteryIcon.classList.add(newStr);
-                break;
-                default:
-                    batteryIcon.classList.add(str);
-                break;
-            }
 
             home_icon.classList.add("home_dark");
             clicks_icon.classList.add("clicks_dark");
@@ -490,11 +491,29 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             logo_h_img_pwa.classList.remove("logo-hybrid-inverse");
             sig_pwa.classList.remove("signature_w");
 
-            for (i = 0; i < batteryIcon.classList.length; i++) {
-                str = batteryIcon.classList[i];
-                match = str.match("battery_");
-                if (match !== null) {
-                    batteryIcon.classList.remove(str);
+            for (j = 0; j < batteryIcons.length; j++) {
+                for (i = 0; i < batteryIcons[j].classList.length; i++) {
+                    str = batteryIcons[j].classList[i];
+                    match = str.match("battery_");
+                    if (match !== null) {
+                        batteryIcons[j].classList.remove(str);
+                        break;
+                    }
+                }
+                switch (str) {
+                    case "battery_full_w_img":
+                    case "battery_6_w_img":
+                    case "battery_5_w_img":
+                    case "battery_4_w_img":
+                    case "battery_3_w_img":
+                    case "battery_2_w_img":
+                        var dx = str.indexOf("_w_img"),
+                            mod = "_img",
+                            newStr = str.slice(0, dx) + mod;
+                        batteryIcons[j].classList.add(newStr);
+                    break;
+                    default:
+                        batteryIcons[j].classList.add(str);
                     break;
                 }
             }
@@ -517,23 +536,6 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             sig_pwa.classList.add("signature");
 
             settings_icon.classList.add("settings_img");
-
-            switch (str) {
-                case "battery_full_w_img":
-                case "battery_6_w_img":
-                case "battery_5_w_img":
-                case "battery_4_w_img":
-                case "battery_3_w_img":
-                case "battery_2_w_img":
-                    var dx = str.indexOf("_w_img"),
-                        mod = "_img",
-                        newStr = str.slice(0, dx) + mod;
-                    batteryIcon.classList.add(newStr);
-                break;
-                default:
-                    batteryIcon.classList.add(str);
-                break;
-            }
 
             home_icon.classList.add("home");
             clicks_icon.classList.add("clicks");
