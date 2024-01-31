@@ -1968,6 +1968,7 @@
                     } else if (y < _startY) {
                         if (!dotsLoad) {
                             puller.style.top = "-1rem";
+                            pullerProgress.style.width = "0rem"; // show progress of drag to refresh
                             e_Fd(puller, true);
                             refreshX = false;
                         }
