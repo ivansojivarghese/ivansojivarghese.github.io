@@ -388,6 +388,16 @@ body {
     }
 }
 
+@media screen and (orientation: landscape) and (min-width: calc(800px + 7.5vw + 5rem)) {
+    .pwa .about .container.offline {
+        display: inline-block;
+        width: 50%;
+        position: relative;
+        margin-right: 5%;
+        /*top: -4.7rem;*/
+    }
+}
+
 @media screen and (orientation: landscape) {
     .pwa .noRSpace {
         padding-right: 2em;
@@ -442,14 +452,13 @@ body {
         display: inline-block;
         margin-left: 3rem;
     }
-
+    /*
     .pwa .about .container.offline {
         display: inline-block;
         width: 50%;
         position: relative;
         margin-right: 5%;
-        /*top: -4.7rem;*/
-    }
+    }*/
 
     .pwa .about .container.online {
         display: inline-block;
