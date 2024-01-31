@@ -77,70 +77,73 @@ function navButtonActive(b, e, v) {
         e_Fd(profile_image, false);
     }*/
 
-    for (i = 0; i < buttons.length; i++) { // remove from other non-targets
-        if (buttons[i] !== target) {
-            if ((buttons[i].classList.contains("buttonActive") && !op.darkChange) || (!buttons[i].classList.contains("buttonActive") && op.darkChange)) {
-                var old;
-                for (j = 0; j < buttons[i].classList.length; j++) {
-                    if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive" && buttons[i].classList[j] !== "trs" && buttons[i].classList[j] !== "hoverB") {
-                        old = buttons[i].classList[j];
-                        break;
+    if (target.classList.contains("hoverB")) {
+
+        for (i = 0; i < buttons.length; i++) { // remove from other non-targets
+            if (buttons[i] !== target) {
+                if ((buttons[i].classList.contains("buttonActive") && !op.darkChange) || (!buttons[i].classList.contains("buttonActive") && op.darkChange)) {
+                    var old;
+                    for (j = 0; j < buttons[i].classList.length; j++) {
+                        if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive" && buttons[i].classList[j] !== "trs" && buttons[i].classList[j] !== "hoverB") {
+                            old = buttons[i].classList[j];
+                            break;
+                        }
                     }
-                }
-                if (op.darkMode) {
-                    buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
-                } else if (!op.darkMode) {
-                    buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
-                }
-                e_Fd(buttons[i].children[0].children[0], true); 
-                buttons[i].classList.remove("buttonActive");
+                    if (op.darkMode) {
+                        buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
+                    } else if (!op.darkMode) {
+                        buttons[i].children[0].style.backgroundImage = "url('../pwa/" + old + ".png')";
+                    }
+                    e_Fd(buttons[i].children[0].children[0], true); 
+                    buttons[i].classList.remove("buttonActive");
 
-                buttons[i].classList.add("hoverB");
-                buttons[i].addEventListener('mousemove', hoverInit);
-                buttons[i].addEventListener('mouseleave', hoverEnd);
+                    buttons[i].classList.add("hoverB");
+                    buttons[i].addEventListener('mousemove', hoverInit);
+                    buttons[i].addEventListener('mouseleave', hoverEnd);
 
+                }
             }
         }
-    }
 
-    if (!target.classList.contains("buttonActive") || (target.classList.contains("buttonActive") && (target.classList.contains(b) || target.classList.contains(b + "_dark")))) { // set on target
-        if ((op.darkMode && op.darkChange && target.classList.contains("buttonActive")) || (!op.darkMode && !op.darkChange && !target.classList.contains("buttonActive"))) {
-            target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
-        } else if ((!op.darkMode && op.darkChange && target.classList.contains("buttonActive")) || (op.darkMode && !op.darkChange && !target.classList.contains("buttonActive"))) {
-            target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active_dark.png')";
+        if (!target.classList.contains("buttonActive") || (target.classList.contains("buttonActive") && (target.classList.contains(b) || target.classList.contains(b + "_dark")))) { // set on target
+            if ((op.darkMode && op.darkChange && target.classList.contains("buttonActive")) || (!op.darkMode && !op.darkChange && !target.classList.contains("buttonActive"))) {
+                target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active.png')";
+            } else if ((!op.darkMode && op.darkChange && target.classList.contains("buttonActive")) || (op.darkMode && !op.darkChange && !target.classList.contains("buttonActive"))) {
+                target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active_dark.png')";
+            }
+
+            if (!v && !target.classList.contains("buttonActive")) {
+                navigator.vibrate(50); // vibrate
+            }
+
+            e_Fd(target.children[0].children[0], false); 
+            target.classList.add("buttonActive");
+
+            target.classList.remove("hoverB");
+            target.removeEventListener('mousemove', hoverInit);
+
+            if (!target.getAttribute("onclick") === 'toggleColorMode(event)') {
+                cursorBig.classList.remove("extra");
+            }
+            hoverActive = false;
         }
 
-        if (!v && !target.classList.contains("buttonActive")) {
-            navigator.vibrate(50); // vibrate
+        if (b && !v) { // navigate to section
+            const mainSection = document.querySelector('.pwa .sections.scrollBarFunction');
+
+            const targetSection = document.querySelector('.pwa .sections .' + b);
+            const activeSection = document.querySelector('.pwa .sections .' + activeTab);
+
+            activeSection.classList.remove("scrollBarContainer");
+            activeSection.classList.add("d_n");
+
+            mainSection.scrollTop = 0;
+
+            targetSection.classList.remove("d_n");
+            targetSection.classList.add("scrollBarContainer");
+
+            activeTab = b;
         }
-
-        e_Fd(target.children[0].children[0], false); 
-        target.classList.add("buttonActive");
-
-        target.classList.remove("hoverB");
-        target.removeEventListener('mousemove', hoverInit);
-
-        if (!target.getAttribute("onclick") === 'toggleColorMode(event)') {
-            cursorBig.classList.remove("extra");
-        }
-        hoverActive = false;
-    }
-
-    if (b && !v) { // navigate to section
-        const mainSection = document.querySelector('.pwa .sections.scrollBarFunction');
-
-        const targetSection = document.querySelector('.pwa .sections .' + b);
-        const activeSection = document.querySelector('.pwa .sections .' + activeTab);
-
-        activeSection.classList.remove("scrollBarContainer");
-        activeSection.classList.add("d_n");
-
-        mainSection.scrollTop = 0;
-
-        targetSection.classList.remove("d_n");
-        targetSection.classList.add("scrollBarContainer");
-
-        activeTab = b;
     }
 }
 
