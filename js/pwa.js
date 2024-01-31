@@ -172,7 +172,11 @@ function fetchPWAInfo() {
     // battery
 
     if ('getBattery' in navigator) {
+        const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
         navigator.getBattery().then(monitorBattery);
+        for (j = 0; j < batteryIcons.length; j++) {
+            batteryIcons[j].parentElement.classList.add("hoverB", "trs");
+        }
     }
 
     // dark mode
