@@ -180,9 +180,9 @@ function fetchPWAInfo() {
         for (j = 0; j < batteryIcons.length; j++) {
             batteryIcons[j].parentElement.classList.add("hoverB", "trs");
 
-            batteryIcons[j].addEventListener('mousemove', hoverInit);
-            batteryIcons[j].addEventListener('mouseleave', hoverEnd);
-            batteryIcons[j].addEventListener('click', hoverMiddle);
+            batteryIcons[j].parentElement.addEventListener('mousemove', hoverInit);
+            batteryIcons[j].parentElement.addEventListener('mouseleave', hoverEnd);
+            batteryIcons[j].parentElement.addEventListener('click', hoverMiddle);
         }
     }
 
