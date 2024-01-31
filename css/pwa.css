@@ -456,11 +456,12 @@ body {
         display: inline-block;
         position: relative;
         margin-right: 5%;
-    }
-    
-    .pwa .about .container.offline.mod {
         width: 50%;
     }
+    /*
+    .pwa .about .container.offline.mod {
+        width: 50%;
+    }*/
 
     .pwa .about .container.online {
         display: inline-block;

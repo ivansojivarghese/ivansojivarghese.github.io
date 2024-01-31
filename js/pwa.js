@@ -276,7 +276,7 @@ function startLoadPWA() {
     const stat2 = document.querySelector('.pwa .home #stat2');
     const stat3 = document.querySelector('.pwa .home #stat3');
 
-    const aboutOffline = document.querySelector('.pwa .about .container.offline');
+    // const aboutOffline = document.querySelector('.pwa .about .container.offline');
 
     var pwa_L = null,
         stats_e = false;
@@ -290,9 +290,10 @@ function startLoadPWA() {
     sI_2.e = stat2;
     sI_3.e = stat3;
 
+    /*
     if (window.innerWidth >= (800 + (window.innerWidth * 0.075) + (5 * op.fN))) {
         aboutOffline.classList.add("mod");
-    }
+    }*/
 
     op.lang = engLangVar(countryAPIres.country);
     sI_1.n = (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
