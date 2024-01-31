@@ -438,7 +438,8 @@
 
 @media screen and (min-height: 500px) and (orientation: landscape) {
     html {
-        font-size: 22px;
+        /*font-size: 22px;*/
+        /*font-size: 17px;*/
     }
 
     .mobile {
@@ -533,7 +534,7 @@
         padding-right: 3em;
     }
 }
-
+/*
 @media screen and (min-height: 525px) and (orientation: landscape) {
     html {
         font-size: 23px;
@@ -605,6 +606,7 @@
         font-size: 34px;
     }
 }
+*/
 
 /* ---------------------- desktop / hybrid ------------------ */
 
