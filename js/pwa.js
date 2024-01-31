@@ -329,7 +329,7 @@ const HSBToRGB = (h, s, b) => { // REF: https://www.30secondsofcode.org/js/s/hsb
 // REFERENCE: https://googlechrome.github.io/samples/battery-status/
 
 function updateBatteryUI(battery) {
-    const batteryIcon = document.querySelector('.pwa .about .banner .battery');
+    const batteryIcons = document.querySelectorAll('.pwa .banner .battery');
 
     btty.level = (battery.level * 100);
     btty.chargingTime = battery.chargingTime;
@@ -341,39 +341,41 @@ function updateBatteryUI(battery) {
         btty.charging = false;
     }
 
-    for (i = 0; i < batteryIcon.classList.length; i++) {
-        var str = batteryIcon.classList[i],
-            match = str.match("battery_");
-        if (match !== null) {
-            batteryIcon.classList.remove(str);
-            break;
+    for (j = 0; j < batteryIcons.length; j++) {
+        for (i = 0; i < batteryIcons[j].classList.length; i++) {
+            var str = batteryIcons[j].classList[i],
+                match = str.match("battery_");
+            if (match !== null) {
+                batteryIcons[j].classList.remove(str);
+                break;
+            }
         }
-    }
 
-    if (btty.charging) { // charging
-        batteryIcon.classList.add("battery_chg_img");
-    } else if (btty.level > 87.5) { // full
-        var img = (!op.darkMode || init) ? "battery_full_img" : "battery_full_w_img";
-        batteryIcon.classList.add(img);
-    } else if (btty.level > 75) { // 6
-        var img = (!op.darkMode || init) ? "battery_6_img" : "battery_6_w_img";
-        batteryIcon.classList.add(img);
-    } else if (btty.level > 62.5) { // 5
-        var img = (!op.darkMode || init) ? "battery_5_img" : "battery_5_w_img";
-        batteryIcon.classList.add(img);
-    } else if (btty.level > 50) { // 4
-        var img = (!op.darkMode || init) ? "battery_4_img" : "battery_4_w_img";
-        batteryIcon.classList.add(img);
-    } else if (btty.level > 37.5) { // 3
-        var img = (!op.darkMode || init) ? "battery_3_img" : "battery_3_w_img";
-        batteryIcon.classList.add(img);
-    } else if (btty.level > 25) { // 2
-        var img = (!op.darkMode || init) ? "battery_2_img" : "battery_2_w_img";
-        batteryIcon.classList.add(img);
-    } else if (btty.level > 12.5) { // 1
-        batteryIcon.classList.add("battery_1_img");
-    } else if (btty.level > 0) { // 0
-        batteryIcon.classList.add("battery_0_img");
+        if (btty.charging) { // charging
+            batteryIcons[j].classList.add("battery_chg_img");
+        } else if (btty.level > 87.5) { // full
+            var img = (!op.darkMode || init) ? "battery_full_img" : "battery_full_w_img";
+            batteryIcons[j].classList.add(img);
+        } else if (btty.level > 75) { // 6
+            var img = (!op.darkMode || init) ? "battery_6_img" : "battery_6_w_img";
+            batteryIcons[j].classList.add(img);
+        } else if (btty.level > 62.5) { // 5
+            var img = (!op.darkMode || init) ? "battery_5_img" : "battery_5_w_img";
+            batteryIcons[j].classList.add(img);
+        } else if (btty.level > 50) { // 4
+            var img = (!op.darkMode || init) ? "battery_4_img" : "battery_4_w_img";
+            batteryIcons[j].classList.add(img);
+        } else if (btty.level > 37.5) { // 3
+            var img = (!op.darkMode || init) ? "battery_3_img" : "battery_3_w_img";
+            batteryIcons[j].classList.add(img);
+        } else if (btty.level > 25) { // 2
+            var img = (!op.darkMode || init) ? "battery_2_img" : "battery_2_w_img";
+            batteryIcons[j].classList.add(img);
+        } else if (btty.level > 12.5) { // 1
+            batteryIcons[j].classList.add("battery_1_img");
+        } else if (btty.level > 0) { // 0
+            batteryIcons[j].classList.add("battery_0_img");
+        }
     }
 }
   
