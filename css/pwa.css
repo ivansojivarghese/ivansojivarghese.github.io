@@ -217,6 +217,14 @@ body {
     -webkit-background-clip: text;
 }
 
+.pwa .h3dup#span2_1 {
+    background: linear-gradient(90deg,#7f7dd1,#548dd9 100%,#548dd9 0);
+    margin: 0;
+    padding: 0.5rem 0 1rem;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
 .pwa .img_iconBtn {
     margin-right: 1rem;
 }
