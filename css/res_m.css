@@ -534,76 +534,76 @@
         padding-right: 3em;
     }
 }
-
+/*
 @media screen and (min-height: 525px) and (orientation: landscape) {
     html {
         font-size: 18px;
     }
-}
+}*/
 
 @media screen and (min-height: 550px) and (orientation: landscape) {
     html {
-        font-size: 19px;
+        font-size: 18px;
     }
 }
-
+/*
 @media screen and (min-height: 575px) and (orientation: landscape) {
     html {
         font-size: 20px;
     }
-}
+}*/
 
 @media screen and (min-height: 600px) and (orientation: landscape) {
     html {
-        font-size: 21px;
+        font-size: 19px;
     }
 }
-
+/*
 @media screen and (min-height: 625px) and (orientation: landscape) {
     html {
         font-size: 22px;
     }
-}
+}*/
 
 @media screen and (min-height: 650px) and (orientation: landscape) {
     html {
-        font-size: 23px;
+        font-size: 20px;
     }
 }
-
+/*
 @media screen and (min-height: 675px) and (orientation: landscape) {
     html {
         font-size: 24px;
     }
-}
+}*/
 
 @media screen and (min-height: 700px) and (orientation: landscape) {
     html {
-        font-size: 25px;
+        font-size: 21px;
     }
 }
-
+/*
 @media screen and (min-height: 725px) and (orientation: landscape) {
     html {
         font-size: 26px;
     }
-}
+}*/
 
 @media screen and (min-height: 750px) and (orientation: landscape) {
     html {
-        font-size: 27px;
+        font-size: 22px;
     }
 }
-
+/*
 @media screen and (min-height: 775px) and (orientation: landscape) {
     html {
         font-size: 28px;
     }
-}
+}*/
 
 @media screen and (min-height: 800px) and (orientation: landscape) {
     html {
-        font-size: 29px;
+        font-size: 23px;
     }
 }
 
