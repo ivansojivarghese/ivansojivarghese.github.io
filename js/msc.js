@@ -1309,6 +1309,7 @@ function sL() { // scroll pos. loop
     }
 }
 
+
 function pL() { // site parameters loop
     op.d = new Date(); // update Date object
     if (op.p.e) {
@@ -4260,6 +4261,6 @@ window.addEventListener("pointermove", function(e) { // release/click up
 });
 
 
-op.L = setInterval(pL, op.Ls); // check site paramters
-pos.L = setInterval(sL, op.Ls); // check live scroll pos.
+// op.L = setInterval(pL, op.Ls); // check site paramters
+// pos.L = setInterval(sL, op.Ls); // check live scroll pos.
 pos.Lc = setInterval(c_Sr, (op.Ls * op.e)); // check scroll parameters (at half intervals)
