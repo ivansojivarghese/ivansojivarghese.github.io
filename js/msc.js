@@ -1093,8 +1093,10 @@ completeInterval = setInterval(function() {
 ///////////////////////////////////////
 
 function reL() { // reload page
-    window.location.reload(true);
-    window.location.assign(window.location.href); // FIREFOX support
+    if (!op.pwa.s) {
+        window.location.reload(true);
+        window.location.assign(window.location.href); // FIREFOX support
+    }
 }
 
 function loadS_res(ar) { // check load statuses of all resource files

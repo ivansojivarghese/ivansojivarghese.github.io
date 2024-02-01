@@ -1860,7 +1860,9 @@
                 });
 
                 if (!cancelRefresh) {
-                    reL();
+                    // reL();
+                    window.location.reload(true);
+                    window.location.assign(window.location.href); // FIREFOX support
                 } else {
                     cancelRefresh = false;
                     puller.classList.remove('shrink');
