@@ -251,6 +251,7 @@ document.body.addEventListener("mousemove", setActivityTime);
 document.body.addEventListener("keypress", setActivityTime);
 document.body.addEventListener("scroll", setActivityTime);
 document.body.addEventListener("touchstart", setActivityTime);
+/*
 const refresh = () => {
     if ((new Date().getTime() - time >= (dev.v * 24 * 60 * 60 * 1000)) && !op.pwa.s) { // max-duration limit in ms. (from days)
         reL(); // reload
@@ -258,7 +259,7 @@ const refresh = () => {
         setTimeout(refresh, 10000); // Check every 10s
     }
 }
-setTimeout(refresh, 10000); 
+setTimeout(refresh, 10000); */
 
 
 function renderTime() { 
