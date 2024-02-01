@@ -635,34 +635,34 @@
         width: calc(100% - 10rem);
     }
 }
-
+/*
 @media screen and (min-height: 825px) and (orientation: landscape) {
     html {
         font-size: 35px;
     }
-}
+}*/
 
 @media screen and (min-height: 850px) and (orientation: landscape) {
     html {
-        font-size: 36px;
+        font-size: 24px;
     }
 }
 
 @media screen and (min-height: 900px) and (orientation: landscape) {
     html {
-        font-size: 37px;
+        font-size: 25px;
     }
 }
 
 @media screen and (min-height: 950px) and (orientation: landscape) {
     html {
-        font-size: 38px;
+        font-size: 26px;
     }
 }
 
 @media screen and (min-height: 1000px) and (orientation: landscape) {
     html {
-        font-size: 39px;
+        font-size: 27px;
     }
 }
 
@@ -675,98 +675,98 @@
 
 @media screen and (min-height: 1050px) and (orientation: landscape) {
     html {
-        font-size: 45px;
+        font-size: 28px;
     }
 }
 
 @media screen and (min-height: 1100px) and (orientation: landscape) {
     html {
-        font-size: 47px;
+        font-size: 29px;
     }
 }
 
 @media screen and (min-height: 1150px) and (orientation: landscape) {
     html {
-        font-size: 48px;
+        font-size: 30px;
     }
 }
 
 @media screen and (min-height: 1200px) and (orientation: landscape) {
     html {
-        font-size: 50px;
+        font-size: 31px;
     }
 }
 
 @media screen and (min-height: 1250px) and (orientation: landscape) {
     html {
-        font-size: 52.5px;
+        font-size: 32px;
     }
 }
 
 @media screen and (min-height: 1300px) and (orientation: landscape) {
     html {
-        font-size: 55px;
+        font-size: 33px;
     }
 }
 
 @media screen and (min-height: 1350px) and (orientation: landscape) {
     html {
-        font-size: 57.5px;
+        font-size: 34px;
     }
 }
 
 @media screen and (min-height: 1400px) and (orientation: landscape) {
     html {
-        font-size: 60px;
+        font-size: 35px;
     }
 }
 
 @media screen and (min-height: 1450px) and (orientation: landscape) {
     html {
-        font-size: 61.875px;
+        font-size: 36px;
     }
 }
 
 @media screen and (min-height: 1500px) and (orientation: landscape) {
     html {
-        font-size: 63.75px;
+        font-size: 37px;
     }
 }
 
 @media screen and (min-height: 1550px) and (orientation: landscape) {
     html {
-        font-size: 65.625px;
+        font-size: 38px;
     }
 }
 
 @media screen and (min-height: 1600px) and (orientation: landscape) {
     html {
-        font-size: 67.5px;
+        font-size: 39px;
     }
 }
 
 @media screen and (min-height: 1650px) and (orientation: landscape) {
     html {
-        font-size: 69.375px;
+        font-size: 40px;
     }
 }
 
 @media screen and (min-height: 1700px) and (orientation: landscape) {
     html {
-        font-size: 71.25px;
+        font-size: 41px;
     }
 }
 
 @media screen and (min-height: 1750px) and (orientation: landscape) {
     html {
-        font-size: 73.125px;
+        font-size: 42px;
     }
 }
 
 /* iMac Pro Retina */
 @media screen and (min-height: 1800px) and (orientation: landscape) { 
     html {
-        font-size: 75px;
+        font-size: 43px;
     }
 }
 
@@ -774,24 +774,24 @@
 
 @media screen and (min-height: 1850px) and (orientation: landscape) {
     html {
-        font-size: 76.875px;
+        font-size: 44px;
     }
 }
 
 @media screen and (min-height: 1900px) and (orientation: landscape) { 
     html {
-        font-size: 78.75px;
+        font-size: 45px;
     }
 }
 
 @media screen and (min-height: 1950px) and (orientation: landscape) {
     html {
-        font-size: 80.625px;
+        font-size: 46px;
     }
 }
 
 @media screen and (min-height: 2000px) and (orientation: landscape) { 
     html {
-        font-size: 82.5px;
+        font-size: 47px;
     }
 }
