@@ -3107,7 +3107,7 @@ function checkSplitScreen() {
 
 // for zoom detection
 var px_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
-
+/*
 window.addEventListener("resize", function(e) {
 
     var newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
@@ -3246,7 +3246,7 @@ window.addEventListener("resize", function(e) {
 
         return false;
     }
-});
+});*/
 
 
 function wordType(w) { // determine the type of word - Capitalised, UPPER CASE, lower case
