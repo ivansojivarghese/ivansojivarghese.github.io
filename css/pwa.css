@@ -112,7 +112,7 @@ body {
 }
 
 .pwa .home .weather {
-    width: 7rem;
+    width: auto;
     margin-right: 1rem;
 }
 
