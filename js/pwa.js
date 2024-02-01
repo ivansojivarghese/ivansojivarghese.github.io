@@ -77,7 +77,7 @@ function navButtonActive(b, e, v) {
         e_Fd(profile_image, false);
     }*/
 
-    if (target.classList.contains("hoverB")) {
+    if (target.classList.contains("hoverB") || v) {
 
         for (i = 0; i < buttons.length; i++) { // remove from other non-targets
             if (buttons[i] !== target) {
