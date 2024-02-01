@@ -772,6 +772,11 @@ op.zoomUndefault = op.zoomDefault ? true : false;
 
 op.fN = num_Fs(op.f); // convert to number
 
+window.addEventListener("resize", function() {
+    op.f = window.getComputedStyle(document.body).getPropertyValue('font-size'); // get root font-size
+    op.fN = num_Fs(op.f); // convert to number
+});
+
 /////////////////////////////////////////////////////////
 
 function devicePerformance(p, r, c) { // estimate device performance using parameters
