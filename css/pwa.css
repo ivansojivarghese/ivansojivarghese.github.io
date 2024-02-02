@@ -531,6 +531,10 @@ body {
     }
 }
 
+@media screen and (min-width: 1200px) and (orientation: landscape) {
+    
+}
+
 @media screen and (min-width: 1200px) and (orientation: landscape), screen and (min-height: 800px) and (orientation: landscape) {
     .pwa .sections > div {
         padding-left: 6rem;
