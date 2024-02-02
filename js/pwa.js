@@ -708,9 +708,7 @@ function pwaRead() {
                 normal_body.classList.add("d_n");
                 // document.title = "Ivan Varghese";
 
-                const targetBody = document.querySelector('.pwa .scrollBarContainer');
-
-                $(targetBody).scroll(function() {
+                sections.scroll(function() {
                     document.title = "Ivan Varghese"; // default the title
                 });
 
