@@ -535,6 +535,10 @@ body {
     .pwa .home .flexActive {
         display: flex;
     }
+
+    .pwa .home .container .wordcloud {
+        margin-top: 0;
+    }
 }
 
 @media screen and (min-width: 1200px) and (orientation: landscape), screen and (min-height: 800px) and (orientation: landscape) {
