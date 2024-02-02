@@ -708,7 +708,7 @@ function pwaRead() {
                 normal_body.classList.add("d_n");
                 // document.title = "Ivan Varghese";
 
-                sections.scroll(function() {
+                $(sections).scroll(function() {
                     document.title = "Ivan Varghese"; // default the title
                 });
 
