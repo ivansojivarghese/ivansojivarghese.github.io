@@ -536,7 +536,7 @@ body {
         display: flex;
     }
 
-    .pwa .home .container .wordcloud {
+    .pwa .home .container.wordcloud {
         margin-top: 0;
     }
 }
