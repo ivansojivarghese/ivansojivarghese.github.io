@@ -541,8 +541,12 @@ body {
         margin-bottom: 0;
     }
 
-    .pwa .flexActive .paragraph {
+    .pwa .home .flexActive .paragraph {
         padding-bottom: 0;
+    }
+    
+    .pwa .home #wordsTyperDet {
+        margin: 2rem 0;
     }
 }
 
