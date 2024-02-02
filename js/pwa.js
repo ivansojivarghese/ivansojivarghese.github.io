@@ -274,35 +274,38 @@ function fetchPWAInfo() {
 function startLoadPWA() {
     var y = op.d.getFullYear(); // get copyright year
 
+    /*
     const stats = document.querySelector('.pwa .home .stats.container');
 
     const stat1 = document.querySelector('.pwa .home #stat1');
     const stat2 = document.querySelector('.pwa .home #stat2');
-    const stat3 = document.querySelector('.pwa .home #stat3');
+    const stat3 = document.querySelector('.pwa .home #stat3');*/
 
     // const aboutOffline = document.querySelector('.pwa .about .container.offline');
-
+    /*
     var pwa_L = null,
         stats_e = false;
 
     const disVar = document.querySelector('.pwa #distanceVariantPWA');
+    */
 
     fter.y[0].innerHTML = y;
     fter.v[0].innerHTML = dev.version;
 
+    /*
     sI_1.e = stat1;
     sI_2.e = stat2;
     sI_3.e = stat3;
 
-    /*
     if (window.innerWidth >= (800 + (window.innerWidth * 0.075) + (5 * op.fN))) {
         aboutOffline.classList.add("mod");
     }*/
 
     op.lang = engLangVar(countryAPIres.country);
-    sI_1.n = (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
-    disVar.innerHTML = (op.lang === "gb") ? "km" : "miles";
-
+    
+    // sI_1.n = (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
+    // disVar.innerHTML = (op.lang === "gb") ? "km" : "miles";
+    /*
     pwa_L = setInterval(function() {
         var statsTop = stats.getBoundingClientRect();
         if (statsTop.top < aH && !stats_e) {
@@ -311,7 +314,7 @@ function startLoadPWA() {
             e_Ic(sI_2, null, sI_2.n);
             e_Ic(sI_3, null, sI_3.n);
         }
-    }, (1000 / dev.t));
+    }, (1000 / dev.t));*/
 }
 
 function randomRGB() {

@@ -462,6 +462,11 @@ body {
 }
 
 @media screen and (min-height: 490px) and (orientation: landscape) {
+    .pwa .m_L-10 {
+        margin-left: 5% !important;
+        width: 95%;
+    }
+
     .pwa .navbar {
         top: 50%;
         transform: translateY(-50%);
