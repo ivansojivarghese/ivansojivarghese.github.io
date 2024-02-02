@@ -524,3 +524,19 @@ body {
         width: auto;
     }
 }
+
+@media screen and (min-width: 1200px) and (orientation: landscape), screen and (min-height: 800px) and (orientation: landscape) {
+    .pwa .sections > div {
+        padding-left: 6rem;
+        width: calc(100% - 6rem);
+    }
+
+    .pwa .navbar {
+        left: 2rem;
+    }
+
+    .pwa .m_L-10 {
+        margin-left: 3rem !important;
+        width: calc(100% - 3rem);
+    }
+}

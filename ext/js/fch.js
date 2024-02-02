@@ -302,43 +302,45 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         }
     }
 
-    if (vw.pH) { // if phablet
-        var c_Info_a = document.querySelectorAll(".c_Info_arrows"),
-            w_img = (!op.darkMode || init) ? document.querySelector(".work_img") : document.querySelector(".work_w_img"),
-            s_img = (!op.darkMode || init) ? document.querySelector(".school_img") : document.querySelector(".school_w_img"),
-            l_img = (!op.darkMode || init) ? document.querySelector(".location_img") : document.querySelector(".location_w_img");
-        pl3 = document.getElementById("hm_btn_ar");
-        dw_img = (!op.darkMode || init) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
-    } else if (vw.tB && !vw.dk) {
-        var intro_L = document.getElementById("intro_link");
-        dw_img = (!op.darkMode || init) ? document.querySelector("#dw_btn.tablet .download_img") : document.querySelector("#dw_btn.tablet .download_w_img");
-    } else if (vw.dk) {
-        var c_Info_a = document.querySelectorAll("#pitch_sc .img_icon"),
-            lb_img = (!op.darkMode || init) ? document.querySelector(".lightbulb_img") : document.querySelector(".lightbulb_w_img"),
-            pitch_d = document.querySelector("#pitch_dark"),
-            pitch_d_val = 10;
-        dw_img = (!op.darkMode || init) ? document.querySelector("#footer_sc .download_img") : document.querySelector("#footer_sc .download_w_img");
+    if (!op.pwa.s) {
+        if (vw.pH) { // if phablet
+            var c_Info_a = document.querySelectorAll(".c_Info_arrows"),
+                w_img = (!op.darkMode || init) ? document.querySelector(".work_img") : document.querySelector(".work_w_img"),
+                s_img = (!op.darkMode || init) ? document.querySelector(".school_img") : document.querySelector(".school_w_img"),
+                l_img = (!op.darkMode || init) ? document.querySelector(".location_img") : document.querySelector(".location_w_img");
+            pl3 = document.getElementById("hm_btn_ar");
+            dw_img = (!op.darkMode || init) ? document.querySelector("#ham_phablet_sc .download_img") : document.querySelector("#ham_phablet_sc .download_w_img"); // download 
+        } else if (vw.tB && !vw.dk) {
+            var intro_L = document.getElementById("intro_link");
+            dw_img = (!op.darkMode || init) ? document.querySelector("#dw_btn.tablet .download_img") : document.querySelector("#dw_btn.tablet .download_w_img");
+        } else if (vw.dk) {
+            var c_Info_a = document.querySelectorAll("#pitch_sc .img_icon"),
+                lb_img = (!op.darkMode || init) ? document.querySelector(".lightbulb_img") : document.querySelector(".lightbulb_w_img"),
+                pitch_d = document.querySelector("#pitch_dark"),
+                pitch_d_val = 10;
+            dw_img = (!op.darkMode || init) ? document.querySelector("#footer_sc .download_img") : document.querySelector("#footer_sc .download_w_img");
 
-        if (pitch_d.children.length === 0) {
-            var val_ar = [];
-            for (j = 0; j < pitch_d_val; j++) {
-                var div = document.createElement("DIV"),
-                    max = Math.floor(wiD / op.fN),
-                    rdn = getRandomInt(0, max);
-                if (val_ar.indexOf(rdn) === -1) { // if not existing
-                    val_ar[val_ar.length] = rdn;
-                } else { // if existing
-                    rdn = getRandomInt(0, max); // get new
-                    while (val_ar.indexOf(rdn) !== -1) {
-                        rdn = getRandomInt(0, max); // get another if again existing
+            if (pitch_d.children.length === 0) {
+                var val_ar = [];
+                for (j = 0; j < pitch_d_val; j++) {
+                    var div = document.createElement("DIV"),
+                        max = Math.floor(wiD / op.fN),
+                        rdn = getRandomInt(0, max);
+                    if (val_ar.indexOf(rdn) === -1) { // if not existing
+                        val_ar[val_ar.length] = rdn;
+                    } else { // if existing
+                        rdn = getRandomInt(0, max); // get new
+                        while (val_ar.indexOf(rdn) !== -1) {
+                            rdn = getRandomInt(0, max); // get another if again existing
+                        }
                     }
+                    div.setAttribute("class", "cursorInt");
+                    div.style.left = rdn + "rem";
+                    pitch_d.appendChild(div);
                 }
-                div.setAttribute("class", "cursorInt");
-                div.style.left = rdn + "rem";
-                pitch_d.appendChild(div);
             }
         }
-    } 
+    }
 
     if (!op.darkMode || init) { // if light, change to dark
 
