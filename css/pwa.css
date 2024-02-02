@@ -60,7 +60,8 @@ body {
 
 .pwa .content h1 {
     line-height: 1em;
-    margin-right: 0.5rem;
+    /*margin-right: 0.5rem;*/
+    padding-right: 0.5rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
