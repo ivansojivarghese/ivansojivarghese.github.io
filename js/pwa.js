@@ -706,7 +706,11 @@ function pwaRead() {
                 }, op.t);
 
                 normal_body.classList.add("d_n");
-                document.title = "Ivan Varghese";
+                // document.title = "Ivan Varghese";
+
+                $(document).scroll(function() {
+                    document.title = "Ivan Varghese"; // default the title
+                });
 
                 rL.i = true; // end load
                 rL.s = true;
