@@ -409,7 +409,7 @@ body {
     }
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape), (vertical-viewport-segments: 2) {
     .pwa .noRSpace {
         padding-right: 2em;
     }
