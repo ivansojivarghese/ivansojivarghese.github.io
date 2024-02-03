@@ -2170,4 +2170,4 @@ window.addEventListener("visibilitychange", function() { // modify sensor usage
 });
 
 
-fch.L = setInterval(live_update, dev.i);
+// fch.L = setInterval(live_update, dev.i);
