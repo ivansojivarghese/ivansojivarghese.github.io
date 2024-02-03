@@ -154,7 +154,7 @@ body {
 }
 
 .pwa .navbar.hide {
-    bottom: -4rem;
+    bottom: calc(-4rem - calc(env(safe-area-inset-top) * 1.5));
 }
 
 .pwa .navbar .button {
@@ -718,7 +718,7 @@ body {
     }
 
     .pwa .navbar.hide {
-        bottom: -4rem;
+        bottom: calc(-4rem - calc(env(safe-area-inset-top) * 1.5));
     }
 
     .pwa .navbar {
