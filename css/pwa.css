@@ -347,6 +347,17 @@ body {
     background-image: url("../pwa/about_dark.png");
 }
 
+.pwa .home #wordsTyperDet {
+    margin: 3rem 0 2rem;
+    width: auto;
+}
+
+.pwa .home #wordsTyperDet_cursor {
+    height: 4rem;
+    width: 0.4rem;
+    top: 0.5rem;
+}
+
 .flexCol {
     flex-direction: column;
 }
@@ -547,10 +558,6 @@ body {
 
     .pwa .home .flexActive .paragraph {
         padding-bottom: 0;
-    }
-    
-    .pwa .home #wordsTyperDet {
-        margin: 2rem 0;
     }
 }
 
