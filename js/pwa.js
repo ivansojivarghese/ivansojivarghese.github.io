@@ -743,10 +743,14 @@ function pwaRead() {
 }
 
 if (op.pwa.s) {
+    const segments = window.visualViewport.segments;
+
+    if (segments && segments.length > 1) {
+        // now we know the device is a foldable
+        // and we can update CSS classes in our layout as appropriate 
+
+        console.log("foldable");
+    }
+
     pwa_Ld = setInterval(pwaRead, op.Ls); // run 'load' scripts upon startup
 }
-
-/*
-window.addEventListener("DOMContentLoaded", function() {
-    debugger;
-});*/
