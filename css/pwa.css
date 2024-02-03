@@ -677,6 +677,7 @@ body {
 
     .pwa .sections {
         width: calc(env(viewport-segment-width 0 0));
+        padding: 0;
     }
 
     .pwa .navbar {
