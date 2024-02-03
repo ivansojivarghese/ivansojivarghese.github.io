@@ -349,6 +349,7 @@ body {
 
 .pwa .home #wordsTyper {
     display: none;
+    height: 11rem;
 }
 
 .pwa .home #wordsTyperDet {
