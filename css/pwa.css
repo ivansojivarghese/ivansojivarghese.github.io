@@ -385,13 +385,13 @@ body {
     }
 }
 
-@media screen and (orientation: portrait), (horizontal-viewport-segments: 2) {
+@media screen and (orientation: portrait) {
     .pwa .noRSpace {
         padding-right: 0 !important;
     }
 }
 
-@media screen and (min-width: 490px) and (orientation: portrait), (horizontal-viewport-segments: 2) {
+@media screen and (min-width: 490px) and (orientation: portrait) {
     .pwa .navbar {
         border-radius: 1rem;
         bottom: 1.5rem;
