@@ -708,7 +708,7 @@ body {
     }
 
     .pwa .navbar {
-        bottom: 0;
+        top: auto;
         height: 4rem;
         width: 20rem;
         display: flex;
