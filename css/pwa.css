@@ -409,7 +409,7 @@ body {
     }
 }
 
-@media screen and (orientation: landscape), (vertical-viewport-segments: 2) {
+@media screen and (orientation: landscape) {
     .pwa .noRSpace {
         padding-right: 2em;
     }
@@ -482,7 +482,7 @@ body {
     }
 }
 
-@media screen and (min-height: 490px) and (orientation: landscape), (vertical-viewport-segments: 2) {
+@media screen and (min-height: 490px) and (orientation: landscape) {
     .pwa .m_L-10 {
         margin-left: 5% !important;
         width: 95%;
@@ -588,6 +588,39 @@ body {
 }
 
 @media screen and (vertical-viewport-segments: 2) {
+    .pwa .m_L-10 {
+        margin-left: 5% !important;
+        width: 95%;
+    }
+
+    .pwa .navbar {
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 1rem;
+        left: 1rem;
+        background-color: #FFF;
+        max-width: 20rem;
+        max-height: 20rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
+    }
+
+    .pwa .sections {
+        width: 100vw;
+    }
+
+    .pwa .sections > div {
+        padding-left: 5rem;
+        width: calc(100% - 5rem);
+    }
+
+    .pwa .navbar .button {
+        margin-bottom: calc((20rem - 15rem) / 6);
+    }
+
+    .pwa .navbar .button:first-child {
+        margin-top: calc((20rem - 15rem) / 6);
+    }
+
     #load_sc {
         height: calc(env(viewport-segment-height 0 1));
         width: calc(env(viewport-segment-width 0 0));
