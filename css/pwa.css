@@ -598,7 +598,7 @@ body {
     }
 
     .pwa {
-        height: calc(env(viewport-segment-height 0 0));
+        height: calc(env(viewport-segment-height 0 0)) !important;
     }
 
     .pwa .sections {
@@ -608,8 +608,6 @@ body {
     .pwa .navbar {
         position: absolute;
     }
-
-
 }
 
 @media screen and (horizontal-viewport-segments: 2) {
