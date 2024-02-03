@@ -766,5 +766,19 @@ if (op.pwa.s) {
         document.documentElement.style.fontSize = (currentFontSize - 4) + "px";
     }
 
+    window.onresize = function() {
+        const segments = window.visualViewport.segments;
+        if (segments && segments.length > 1) {
+            // Make changes two split content into the segments.
+
+            var currentFontSize = num_Fs(window.getComputedStyle(document.documentElement).fontSize);
+            document.documentElement.style.fontSize = (currentFontSize - 4) + "px";
+        } else {
+            // Reset state to single viewport (normal responsive layout).
+
+            
+        }
+    }
+
     pwa_Ld = setInterval(pwaRead, op.Ls); // run 'load' scripts upon startup
 }
