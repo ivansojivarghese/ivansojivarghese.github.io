@@ -776,7 +776,7 @@ if (op.pwa.s) {
         } else {
             // Reset state to single viewport (normal responsive layout).
 
-            
+            document.documentElement.style.fontSize = "";
         }
     }
 
