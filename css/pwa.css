@@ -9,7 +9,7 @@ body {
 }
 
 .pwa .sections > div {
-    padding-bottom: calc(4rem + calc(env(safe-area-inset-top) * 1.5));
+    padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
 }
 
 #load_sc .container {
@@ -409,11 +409,16 @@ body {
     }
 
     .pwa .sections > div {
-        padding-bottom: 5.5rem;
+        /*padding-bottom: 5.5rem;*/
+        padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
     }
 }
 
 @media screen and (orientation: landscape) {
+    .pwa .navbar.hide {
+        bottom: 0;
+    }
+
     .pwa .noRSpace {
         padding-right: 2em;
     }
@@ -704,7 +709,8 @@ body {
     .pwa .sections > div {
         padding-left: 0;
         width: 100%;
-        padding-bottom: 5.5rem;
+        /*padding-bottom: 5.5rem;*/
+        padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
     }
 
     .pwa .navbar {
