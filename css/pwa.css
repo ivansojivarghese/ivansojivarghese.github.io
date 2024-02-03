@@ -347,6 +347,10 @@ body {
     background-image: url("../pwa/about_dark.png");
 }
 
+.pwa .home #wordsTyper {
+    display: none;
+}
+
 .pwa .home #wordsTyperDet {
     margin: 3rem 0 2rem;
     width: auto;
@@ -558,6 +562,10 @@ body {
 
     .pwa .home .flexActive .paragraph {
         padding-bottom: 0;
+    }
+
+    .pwa .home #wordsTyper {
+        display: block;
     }
 }
 
