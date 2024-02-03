@@ -272,7 +272,10 @@ function fetchPWAInfo() {
 }
 
 function startLoadPWA() {
-    var y = op.d.getFullYear(); // get copyright year
+    var y = op.d.getFullYear(), // get copyright year
+        typer = null;
+
+    const typerDet = document.querySelector('.pwa #wordsTyperDet');
 
     /*
     const stats = document.querySelector('.pwa .home .stats.container');
@@ -300,6 +303,10 @@ function startLoadPWA() {
     if (window.innerWidth >= (800 + (window.innerWidth * 0.075) + (5 * op.fN))) {
         aboutOffline.classList.add("mod");
     }*/
+
+    typer = setInterval(function() { // typing effect
+        e_wCycle(typerDet, dev.info.work, typer);
+    }, op.t);
 
     op.lang = engLangVar(countryAPIres.country);
     
