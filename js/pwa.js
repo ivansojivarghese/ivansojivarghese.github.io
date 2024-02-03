@@ -742,6 +742,19 @@ function pwaRead() {
     }
 }
 
+function num_Fs(s) { // font-size literal to numeral (eg. "10px" -> 10)
+    var _L = s.length - 1,
+        res = "";
+    for (i = 0; i <= _L; i++) {
+        if (Number(s[i]) || Number(s[i]) === 0) {
+            res += s[i];
+        } else {
+            break;
+        }
+    }
+    return Number(res);
+}
+
 if (op.pwa.s) {
     const segments = window.visualViewport.segments;
 
