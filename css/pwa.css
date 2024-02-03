@@ -409,7 +409,7 @@ body {
     }
 }
 
-@media screen and (orientation: landscape), (vertical-viewport-segments: 2) {
+@media screen and (orientation: landscape) {
     .pwa .noRSpace {
         padding-right: 2em;
     }
@@ -482,7 +482,7 @@ body {
     }
 }
 
-@media screen and (min-height: 490px) and (orientation: landscape) {
+@media screen and (min-height: 490px) and (orientation: landscape), (vertical-viewport-segments: 2) {
     .pwa .m_L-10 {
         margin-left: 5% !important;
         width: 95%;
@@ -596,6 +596,20 @@ body {
     #load_sc .container {
         margin-top: calc((calc(env(viewport-segment-height 0 1)) - 8rem) / 2);
     }
+
+    .pwa {
+        height: calc(env(viewport-segment-height 0 0));
+    }
+
+    .pwa .sections {
+        height: calc(env(viewport-segment-height 0 0));
+    }
+
+    .pwa .navbar {
+        position: absolute;
+    }
+
+
 }
 
 @media screen and (horizontal-viewport-segments: 2) {
