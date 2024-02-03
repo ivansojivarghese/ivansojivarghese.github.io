@@ -347,6 +347,10 @@ body {
     background-image: url("../pwa/about_dark.png");
 }
 
+.flexCol {
+    flex-direction: column;
+}
+
 @media (pointer: fine) {
     * {
         cursor: none !important;
