@@ -771,6 +771,8 @@ if (op.pwa.s) {
         if (segments && segments.length > 1) {
             // Make changes two split content into the segments.
 
+            document.documentElement.style.fontSize = "";
+
             var currentFontSize = num_Fs(window.getComputedStyle(document.documentElement).fontSize);
             document.documentElement.style.fontSize = (currentFontSize - 4) + "px";
         } else {
