@@ -153,6 +153,10 @@ body {
     padding-bottom: calc(env(safe-area-inset-top) / 2);
 }
 
+.pwa .navbar.hide {
+    bottom: -4rem;
+}
+
 .pwa .navbar .button {
     height: 3rem;
     width: 3rem;

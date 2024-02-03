@@ -1691,6 +1691,8 @@
 
             var scrollBarPosArr = [0, 0];
 
+            const navbar = document.querySelector('.pwa .navbar');
+
             // var scrolling = false;
 
             setInterval(function() {
@@ -1754,10 +1756,10 @@
                             scrollBarPosArr[0] = scrollBarPosArr[1];
                             scrollBarPosArr[1] = scrollTr;
 
-                            if (scrollBarPosArr[1] > scrollBarPosArr[0]) {
-                                console.log("scrolling down");
-                            } else if (scrollBarPosArr[1] < scrollBarPosArr[0]) {
-                                console.log("scrolling up");
+                            if (scrollBarPosArr[1] > scrollBarPosArr[0]) { // hide navbar
+                                navbar.classList.add("hide");
+                            } else if (scrollBarPosArr[1] < scrollBarPosArr[0]) { // show navbar
+                                navbar.classList.remove("hide");
                             }
                         }
                     }
