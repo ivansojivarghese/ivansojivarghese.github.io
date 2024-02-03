@@ -558,6 +558,7 @@ body {
     .pwa .home .container.wordcloud {
         margin-top: 0;
         margin-bottom: 0;
+        align-content: start;
     }
 
     .pwa .home .flexActive .paragraph {
