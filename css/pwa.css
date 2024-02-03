@@ -717,6 +717,10 @@ body {
         position: absolute;
     }
 
+    .pwa .navbar.hide {
+        bottom: -4rem;
+    }
+
     .pwa .navbar {
         top: auto;
         height: 4rem;
