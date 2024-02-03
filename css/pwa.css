@@ -588,6 +588,27 @@ body {
 }
 
 @media screen and (vertical-viewport-segments: 2) {
+    .pwa .sections {
+        float: right;
+        height: calc(env(viewport-segment-height 0 1));
+        width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+        padding-right: calc(env(safe-area-inset-right));
+    }
+
+    .pwa .navbar {
+        display: block;
+        transform: none;
+        left: 0;
+        width: 4rem;
+        height: calc(env(viewport-segment-height 0 1));
+        box-shadow: none;
+        padding-left: calc(env(safe-area-inset-left));
+    }
+
+    .pwa .sections > div {
+        padding-bottom: 0;
+    }
+
     .pwa .m_L-10 {
         margin-left: 5% !important;
         width: 95%;
