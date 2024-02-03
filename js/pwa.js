@@ -697,7 +697,7 @@ function pwaRead() {
                                                             e_Fd(pwa_body, false);
                                                             startLoadPWA();
         
-                                                            clearInterval(pwaRead);
+                                                            clearInterval(pwa_Ld);
                                                         }, op.t);
     
                                                     }, op.te);
