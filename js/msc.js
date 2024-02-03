@@ -31,7 +31,7 @@ var wH = window.outerHeight, // height
         z : 100, // zoom level, default
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
-            work : ["web dev", "designer", "shutterbug", "barista", "player"], // work labels
+            work : ["web dev", "designer", "photog", "barista", "player"], // work labels
             workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
             // college : !(window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200 && wiH >= 700) || wiH >= 800)) ? "ntu" : "mshs", // name of institution
             college : !(window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200) || wiH >= 800)) ? "ntu" : "mshs", // name of institution
