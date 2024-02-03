@@ -678,4 +678,20 @@ body {
     .pwa .sections {
         width: calc(env(viewport-segment-width 0 0));
     }
+
+    .pwa .navbar {
+        border-radius: 1rem;
+        bottom: 1.5rem;
+        background-color: #FFF;
+        max-width: 20rem;
+        max-height: 20rem;
+    }
+
+    .pwa .sections {
+        height: 100svh;
+    }
+
+    .pwa .sections > div {
+        padding-bottom: 5.5rem;
+    }
 }
