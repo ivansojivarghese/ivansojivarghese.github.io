@@ -749,7 +749,8 @@ if (op.pwa.s) {
         // now we know the device is a foldable
         // and we can update CSS classes in our layout as appropriate 
 
-        
+        var currentFontSize = num_Fs(window.getComputedStyle(document.documentElement).fontSize);
+        document.documentElement.style.fontSize = (currentFontSize - 4) + "px";
     }
 
     pwa_Ld = setInterval(pwaRead, op.Ls); // run 'load' scripts upon startup
