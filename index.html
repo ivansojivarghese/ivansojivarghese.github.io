@@ -915,7 +915,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="navbar lightBackground darkText">
+                <div class="navbar trs lightBackground darkText">
                     <div class="button home hoverB trs" data-pwanavbutton="true" onclick="navButtonActive('home', event)">
                         <div class="img">
                             <div class="active lightBackground trs z_O"></div>
@@ -1689,6 +1689,8 @@
             var pwaScrollTimeout = null,
                 pwaScrollTimeoutCheck = false;
 
+            var scrollBarPosArr = [0, 0];
+
             // var scrolling = false;
 
             setInterval(function() {
@@ -1748,6 +1750,13 @@
                             var fraction = ((scrollBarPos / (parentHeight - window.innerHeight)) >= 0) ? ((scrollBarPos / (parentHeight - window.innerHeight)) <= 1) ? (scrollBarPos / (parentHeight - window.innerHeight)) : 1 : 0;
                             scrollTr = fraction * (window.innerHeight - (4 * op.fN)); // move scrollbar
                             pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
+
+                            scrollBarPosArr[0] = scrollBarPosArr[1];
+                            scrollBarPosArr[1] = scrollTr;
+
+                            if (scrollBarPosArr[1] > scrollBarPosArr[0]) {
+                                console.log("scrolling down");
+                            }
                         }
                     }
                 } else {

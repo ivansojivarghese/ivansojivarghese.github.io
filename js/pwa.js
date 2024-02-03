@@ -756,6 +756,8 @@ function num_Fs(s) { // font-size literal to numeral (eg. "10px" -> 10)
 }
 
 if (op.pwa.s) {
+    const scrollbar = document.querySelector('#scrollBar');
+
     const segments = window.visualViewport.segments;
 
     if (segments && segments.length > 1) {
@@ -764,6 +766,8 @@ if (op.pwa.s) {
 
         var currentFontSize = num_Fs(window.getComputedStyle(document.documentElement).fontSize);
         document.documentElement.style.fontSize = (currentFontSize - 4) + "px";
+
+        scrollbar.style.display = "none";
     }
 
     window.onresize = function() {
@@ -775,10 +779,14 @@ if (op.pwa.s) {
 
             var currentFontSize = num_Fs(window.getComputedStyle(document.documentElement).fontSize);
             document.documentElement.style.fontSize = (currentFontSize - 4) + "px";
+
+            scrollbar.style.display = "none";
         } else {
             // Reset state to single viewport (normal responsive layout).
 
             document.documentElement.style.fontSize = "";
+
+            scrollbar.style.display = "";
         }
     }
 
