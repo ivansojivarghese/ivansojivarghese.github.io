@@ -586,3 +586,21 @@ body {
         width: calc(100% - 3rem);
     }
 }
+
+@media screen and (vertical-viewport-segments: 2) {
+    #load_sc {
+        height: calc(env(viewport-segment-height 0 1));
+        width: calc(env(viewport-segment-width 0 0));
+    }
+    
+    #load_sc .container {
+        margin-top: calc((calc(env(viewport-segment-height 0 1)) - 8rem) / 2);
+    }
+}
+
+@media screen and (horizontal-viewport-segments: 2) {
+    #load_sc {
+        height: calc(env(viewport-segment-height 0 0));
+        width: calc(env(viewport-segment-width 0 0));
+    }
+}
