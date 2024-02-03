@@ -666,6 +666,11 @@ body {
 }
 
 @media screen and (horizontal-viewport-segments: 2) {
+    .pwa .m_L-10 {
+        margin-left: 10% !important;
+        width: 90%;
+    }
+
     #load_sc {
         height: calc(env(viewport-segment-height 0 0));
         width: calc(env(viewport-segment-width 0 0));
@@ -693,6 +698,8 @@ body {
     }
 
     .pwa .sections > div {
+        padding-left: 0;
+        width: 100%;
         padding-bottom: 5.5rem;
     }
 
@@ -703,6 +710,7 @@ body {
     .pwa .navbar {
         bottom: 0;
         height: 4rem;
+        width: 20rem;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
@@ -714,6 +722,6 @@ body {
     }
 
     .pwa .navbar .button {
-        margin: 0.5rem;
+        margin: 0 !important;
     }
 }
