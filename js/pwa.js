@@ -755,30 +755,51 @@ function num_Fs(s) { // font-size literal to numeral (eg. "10px" -> 10)
     return Number(res);
 }
 
+function isSingleFoldHorizontal() {
+    const segments = window.visualViewport.segments;
+
+    // single fold means the device has 1 fold and 2 display regions
+    if( segments.length !== 2 ) {
+        return false;
+    }
+
+    // horizontal fold means 1st segment top is smaller than 2nd segment top
+    if( segments[0].top < segments[1].top ) {
+        return true;
+    }
+
+    // if we reach this point, the fold is vertical
+    return false;
+}
+
 if (op.pwa.s) {
     const scrollbar = document.querySelector('#scrollBar');
 
     const segments = window.visualViewport.segments;
 
-    if (segments && segments.length > 1) {
+    if (segments && segments.length === 2) {
         // now we know the device is a foldable
         // and we can update CSS classes in our layout as appropriate 
 
+        var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
+
         var currentFontSize = num_Fs(window.getComputedStyle(document.documentElement).fontSize);
-        document.documentElement.style.fontSize = (currentFontSize - 4) + "px";
+        document.documentElement.style.fontSize = (currentFontSize - fontBuffer) + "px";
 
         scrollbar.style.display = "none";
     }
 
     window.onresize = function() {
         const segments = window.visualViewport.segments;
-        if (segments && segments.length > 1) {
+        if (segments && segments.length === 2) {
             // Make changes two split content into the segments.
+
+            var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
 
             document.documentElement.style.fontSize = "";
 
             var currentFontSize = num_Fs(window.getComputedStyle(document.documentElement).fontSize);
-            document.documentElement.style.fontSize = (currentFontSize - 4) + "px";
+            document.documentElement.style.fontSize = (currentFontSize - fontBuffer) + "px";
 
             scrollbar.style.display = "none";
         } else {
