@@ -8,6 +8,10 @@ body {
     /*padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);*/
 }
 
+.pwaSecondary {
+    display: none;
+}
+
 .pwa .sections > div {
     padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
 }
@@ -598,6 +602,10 @@ body {
 
 @media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
 
+    .pwaSecondary {
+        display: block;
+    }
+
     .pwa .sections {
         float: right;
         height: calc(env(viewport-segment-height 0 1));
@@ -676,6 +684,10 @@ body {
 }
 
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
+    .pwaSecondary {
+        display: block;
+    }
+
     .puller {
         left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
     }
