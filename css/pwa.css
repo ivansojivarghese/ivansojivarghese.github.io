@@ -604,6 +604,8 @@ body {
 
     .pwaSecondary {
         display: block;
+        height: calc(env(viewport-segment-height 0 0)) !important;
+        top: calc(env(viewport-segment-top 0 1)) !important;
     }
 
     .pwa .sections {
