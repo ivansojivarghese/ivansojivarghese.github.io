@@ -10,6 +10,7 @@ body {
 
 .pwaSecondary {
     display: none;
+    background: red;
 }
 
 .pwa .sections > div {
