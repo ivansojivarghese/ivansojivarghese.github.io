@@ -596,7 +596,7 @@ body {
     }
 }
 
-@media screen and (vertical-viewport-segments: 2) {
+@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
     .pwa .sections {
         float: right;
         height: calc(env(viewport-segment-height 0 1));
@@ -674,7 +674,7 @@ body {
     }
 }
 
-@media screen and (horizontal-viewport-segments: 2) {
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
     .pwa .m_L-10 {
         margin-left: 10% !important;
         width: 90%;
