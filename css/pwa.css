@@ -677,9 +677,9 @@ body {
 
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
     .puller {
-        left: calc(calc(env(viewport-segment-width 0 0)) - 11rem / 2) !important;
+        left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
     }
-    
+
     .pwa .m_L-10 {
         margin-left: 10% !important;
         width: 90%;

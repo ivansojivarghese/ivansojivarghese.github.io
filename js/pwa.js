@@ -777,9 +777,13 @@ if (op.pwa.s) {
 
     const segments = window.visualViewport.segments;
 
+    var primarySegment;
+
     if (segments && segments.length === 2) {
         // now we know the device is a foldable
         // and we can update CSS classes in our layout as appropriate 
+
+        primarySegment = 0;
 
         var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
 
@@ -793,6 +797,8 @@ if (op.pwa.s) {
         const segments = window.visualViewport.segments;
         if (segments && segments.length === 2) {
             // Make changes two split content into the segments.
+
+            primarySegment = 0;
 
             var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
 
