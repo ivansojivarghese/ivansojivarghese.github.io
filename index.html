@@ -121,7 +121,11 @@
                     fb_w : false,
                     lk_w : false,
                     gh_w : false,
-                    xt_w : false
+                    xt_w : false,
+                    sw_L : false,
+                    sw_R : false,
+                    sw_Lw : false,
+                    sw_Rw : false
                 },
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
 
@@ -375,25 +379,30 @@
         <link rel="preload" href="svg/download.svg" as="image" type="image/svg+xml" onload="svg.d = true;">
         <link rel="preload" href="svg/download_white.svg" as="image" type="image/svg+xml" onload="svg.dw = true;"> -->
 
-        <link rel="preload" href="svg/dark_mode.svg" as="image" type="image/svg+xml" onload="svg.dm = true;">
-        <link rel="preload" href="svg/light_mode.svg" as="image" type="image/svg+xml" onload="svg.Lm = true;">
-        <link rel="preload" href="svg/settings.svg" as="image" type="image/svg+xml" onload="svg.st = true;">
-        <link rel="preload" href="svg/settings_white.svg" as="image" type="image/svg+xml" onload="svg.st_w = true;">
-        <link rel="preload" href="svg/battery_0.svg" as="image" type="image/svg+xml" onload="svg.btty_0 = true;">
-        <link rel="preload" href="svg/battery_1.svg" as="image" type="image/svg+xml" onload="svg.btty_1 = true;">
-        <link rel="preload" href="svg/battery_2.svg" as="image" type="image/svg+xml" onload="svg.btty_2 = true;">
-        <link rel="preload" href="svg/battery_3.svg" as="image" type="image/svg+xml" onload="svg.btty_3 = true;">
-        <link rel="preload" href="svg/battery_4.svg" as="image" type="image/svg+xml" onload="svg.btty_4 = true;">
-        <link rel="preload" href="svg/battery_5.svg" as="image" type="image/svg+xml" onload="svg.btty_5 = true;">
-        <link rel="preload" href="svg/battery_6.svg" as="image" type="image/svg+xml" onload="svg.btty_6 = true;">
-        <link rel="preload" href="svg/battery_full.svg" as="image" type="image/svg+xml" onload="svg.btty_full = true;">
-        <link rel="preload" href="svg/battery_charging.svg" as="image" type="image/svg+xml" onload="svg.btty_chg = true;">
-        <link rel="preload" href="svg/battery_2_white.svg" as="image" type="image/svg+xml" onload="svg.btty_2_w = true;">
-        <link rel="preload" href="svg/battery_3_white.svg" as="image" type="image/svg+xml" onload="svg.btty_3_w = true;">
-        <link rel="preload" href="svg/battery_4_white.svg" as="image" type="image/svg+xml" onload="svg.btty_4_w = true;">
-        <link rel="preload" href="svg/battery_5_white.svg" as="image" type="image/svg+xml" onload="svg.btty_5_w = true;">
-        <link rel="preload" href="svg/battery_6_white.svg" as="image" type="image/svg+xml" onload="svg.btty_6_w = true;">
-        <link rel="preload" href="svg/battery_full_white.svg" as="image" type="image/svg+xml" onload="svg.btty_full_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/dark_mode.svg" as="image" type="image/svg+xml" onload="svg.dm = true;">
+        <link rel="preload" fetchpriority="low" href="svg/light_mode.svg" as="image" type="image/svg+xml" onload="svg.Lm = true;">
+        <link rel="preload" fetchpriority="low" href="svg/settings.svg" as="image" type="image/svg+xml" onload="svg.st = true;">
+        <link rel="preload" fetchpriority="low" href="svg/settings_white.svg" as="image" type="image/svg+xml" onload="svg.st_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_0.svg" as="image" type="image/svg+xml" onload="svg.btty_0 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_1.svg" as="image" type="image/svg+xml" onload="svg.btty_1 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_2.svg" as="image" type="image/svg+xml" onload="svg.btty_2 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_3.svg" as="image" type="image/svg+xml" onload="svg.btty_3 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_4.svg" as="image" type="image/svg+xml" onload="svg.btty_4 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_5.svg" as="image" type="image/svg+xml" onload="svg.btty_5 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_6.svg" as="image" type="image/svg+xml" onload="svg.btty_6 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_full.svg" as="image" type="image/svg+xml" onload="svg.btty_full = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_charging.svg" as="image" type="image/svg+xml" onload="svg.btty_chg = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_2_white.svg" as="image" type="image/svg+xml" onload="svg.btty_2_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_3_white.svg" as="image" type="image/svg+xml" onload="svg.btty_3_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_4_white.svg" as="image" type="image/svg+xml" onload="svg.btty_4_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_5_white.svg" as="image" type="image/svg+xml" onload="svg.btty_5_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_6_white.svg" as="image" type="image/svg+xml" onload="svg.btty_6_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_full_white.svg" as="image" type="image/svg+xml" onload="svg.btty_full_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/switch_left.svg" as="image" type="image/svg+xml" onload="svg.sw_L = true;">
+        <link rel="preload" fetchpriority="low" href="svg/switch_left_white.svg" as="image" type="image/svg+xml" onload="svg.sw_Lw = true;">
+        <link rel="preload" fetchpriority="low" href="svg/switch_right.svg" as="image" type="image/svg+xml" onload="svg.sw_R = true;">
+        <link rel="preload" fetchpriority="low" href="svg/switch_right_white.svg" as="image" type="image/svg+xml" onload="svg.sw_Rw = true;">
+
         <!-- 
         <link rel="preload" href="svg/scrolltop.svg" as="image" type="image/svg+xml" onload="svg.sct = true;">
         <link rel="preload" href="svg/scrolltop_white.svg" as="image" type="image/svg+xml" onload="svg.sct_w = true;">
