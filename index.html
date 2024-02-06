@@ -1761,7 +1761,7 @@
                             parentTotal = 0,
                             scrollTr = 0;
 
-                        parentTop = (parentTop === null) ? parent.getBoundingClientRect().top : parentTop;
+                        parentTop = (parentTop === null || parentTop === 0) ? parent.getBoundingClientRect().top : parentTop;
                         
                     } else if (!op.pwa.s || (op.pwa.s && pwa_Load)) {
                         clearInterval(normalScrollLoop);
