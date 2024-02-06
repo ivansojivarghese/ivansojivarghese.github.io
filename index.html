@@ -1759,7 +1759,7 @@
                         clearInterval(normalScrollLoop);
                     }
 
-                    parentHeight = parentHeight + Number(window.getComputedStyle(parentParent, null).getPropertyValue('padding-top').slice(0, -2));
+                    parentHeight = parentHeight + Number(window.getComputedStyle(parentParent).getPropertyValue("padding-top").slice(0, -2));
 
                     if (pos.sB) {
                         if (parentHeight <= window.innerHeight) { // hide scrollbar
