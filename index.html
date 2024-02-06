@@ -1776,9 +1776,9 @@
                             if (scrollBarPosArr.every(item => item === 0)) {
                                 navbar.classList.remove("hide");
                             } else {
-                                if (scrollTr < scrollBarPosArr[0] /*&& scrollBarPosArr[2] < scrollBarPosArr[1] && scrollBarPosArr[3] < scrollBarPosArr[2] && scrollBarPosArr[4] < scrollBarPosArr[3] && scrollTr < scrollBarPosArr[4]*/) {
+                                if (scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
                                     navbar.classList.remove("hide");
-                                } else if (scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
+                                } else if (scrollBarPosArr[0] > scrollTr && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
                                     navbar.classList.add("hide");
                                 } 
                             }
