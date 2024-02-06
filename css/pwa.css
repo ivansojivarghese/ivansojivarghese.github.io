@@ -13,6 +13,10 @@ body {
     background: red;
 }
 
+.pwa .navbar .button:active .img, .pwa .img_iconBtn:active .img {
+    transform: scale(0.8);
+}
+
 .pwa .sections > div {
     padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
 }
