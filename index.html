@@ -2031,11 +2031,11 @@
                                 startRefresh(); // show ux feedback (pull down to refresh)
                             }
                             if (refreshX) { // ux feedback movement to user touch-drag
-                                var progress = (y - (_startY + (window.innerHeight / 8))) / ((_startY + (window.innerHeight / 2)) - (_startY + (window.innerHeight / 8)));
+                                var progress = (y - (_startY + (window.innerHeight / 8))) / ((_startY + (window.innerHeight / 3)) - (_startY + (window.innerHeight / 8)));
                                 puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (window.innerHeight / 8))) / op.fN) + "rem)";
                                 pullerProgress.style.width = "calc(" + progress + " * 11rem)"; // show progress of drag to refresh
                             }
-                            if (y > (_startY + (window.innerHeight / 2))) { 
+                            if (y > (_startY + (window.innerHeight / 3))) { 
                                 endRefresh();
                                 simulateRefreshAction(); // refresh contentBody.
                             } 
