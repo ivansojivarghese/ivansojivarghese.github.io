@@ -1715,9 +1715,10 @@
             
             $(".scrollBarFunction").scroll(function() {
                 var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer'),
+                    parentParentTop = Number(window.getComputedStyle(document.querySelector(".pwa .scrollBarFunction")).getPropertyValue("padding-top").slice(0, -2)),
                     parentTop = parent.getBoundingClientRect().top;
                 
-                scrollBarPos = Math.abs(parentTop); // get scroll dis.
+                scrollBarPos = Math.abs(parentTop - ); // get scroll dis.
                 pos.cE = true; // scrolling (extended) : true
                 if (!pos.sBc) {
                     e_Fd(pos.sB, false);
