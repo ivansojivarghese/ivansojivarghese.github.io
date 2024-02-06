@@ -1771,6 +1771,8 @@
                             scrollBarPosArr[3] = scrollBarPosArr[4];
                             scrollBarPosArr[4] = scrollTr;
 
+                            console.log(scrollBarPosArr);
+
                             if (scrollBarPosArr[1] > scrollBarPosArr[0] && scrollBarPosArr[2] > scrollBarPosArr[1] && scrollBarPosArr[3] > scrollBarPosArr[2] && scrollBarPosArr[4] > scrollBarPosArr[3] && scrollTr > scrollBarPosArr[4]) { // hide navbar
                                 navbar.classList.add("hide");
                             } else /*if (scrollBarPosArr[1] < scrollBarPosArr[0])*/ { // show navbar
