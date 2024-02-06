@@ -1705,6 +1705,8 @@
 
             const navbar = document.querySelector('.pwa .navbar');
 
+            const parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
+
             // var scrolling = false;
 
             setInterval(function() {
@@ -1748,8 +1750,8 @@
                 if (!$(scrollBarF).hasClass("z_O")) {
                     condScrollBar = true;
 
-                    var parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I'),
-                        parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer');
+                    // var parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
+                    var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer');
                     
                     if (parent !== null) {
                         var parentHeight = parent.getBoundingClientRect().height,
