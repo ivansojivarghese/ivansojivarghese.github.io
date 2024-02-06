@@ -1779,7 +1779,7 @@
                             e_Fd(pos.sB, true);
                         } else { // show/move scrollbar
                             var fraction = ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) >= 0) ? ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) <= 1) ? (scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) : 1 : 0;
-                            scrollTr = fraction * ((window.innerHeight + parentTop + parentBottom) - (4 * op.fN)); // move scrollbar
+                            scrollTr = fraction * ((window.innerHeight + parentTop + parentBottom) - (4 * op.fN) - (parentTop + parentBottom)); // move scrollbar
                             pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 
                             console.log(fraction + ", " + scrollTr);
