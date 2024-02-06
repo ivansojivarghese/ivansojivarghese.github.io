@@ -1701,7 +1701,7 @@
             var pwaScrollTimeout = null,
                 pwaScrollTimeoutCheck = false;
 
-            var scrollBarPosArr = [0, 0];
+            var scrollBarPosArr = [0, 0, 0, 0, 0];
 
             const navbar = document.querySelector('.pwa .navbar');
 
@@ -1766,7 +1766,10 @@
                             pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 
                             scrollBarPosArr[0] = scrollBarPosArr[1];
-                            scrollBarPosArr[1] = scrollTr;
+                            scrollBarPosArr[1] = scrollBarPosArr[2];
+                            scrollBarPosArr[2] = scrollBarPosArr[3];
+                            scrollBarPosArr[3] = scrollBarPosArr[4];
+                            scrollBarPosArr[4] = scrollTr;
 
                             if (scrollBarPosArr[1] > scrollBarPosArr[0]) { // hide navbar
                                 navbar.classList.add("hide");
