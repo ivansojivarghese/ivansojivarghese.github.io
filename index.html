@@ -1705,7 +1705,7 @@
 
             const navbar = document.querySelector('.pwa .navbar');
 
-            const parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
+            // const parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
 
             // var scrolling = false;
 
@@ -1755,13 +1755,14 @@
                     
                     if (parent !== null) {
                         var parentHeight = parent.getBoundingClientRect().height,
-                            parentParentHeight = parentParent.getBoundingClientRect().height,
+                            parentTop = parent.getBoundingClientRect().top,
                             scrollTr = 0;
                     } else if (!op.pwa.s || (op.pwa.s && pwa_Load)) {
                         clearInterval(normalScrollLoop);
                     }
 
-                    parentHeight = parentHeight + Number(window.getComputedStyle(parentParent).getPropertyValue("padding-top").slice(0, -2));
+                    // parentHeight = parentHeight + Number(window.getComputedStyle(parentParent).getPropertyValue("padding-top").slice(0, -2));
+                    parentHeight = parentHeight + parentTop;
 
                     if (pos.sB) {
                         if (parentHeight <= window.innerHeight) { // hide scrollbar
