@@ -1755,7 +1755,7 @@
 
                     if (parent !== null) {
                         var parentHeight = parent.getBoundingClientRect().height,
-                            parentTop = !parentTop ? parent.getBoundingClientRect().top : parentTop,
+                            parentTop = (parentTop !== undefined) ? parent.getBoundingClientRect().top : parentTop,
                             parentTotal = 0,
                             scrollTr = 0;
                     } else if (!op.pwa.s || (op.pwa.s && pwa_Load)) {
