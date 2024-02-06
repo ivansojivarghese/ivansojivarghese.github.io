@@ -1778,13 +1778,15 @@
                             scrollTr = fraction * (window.innerHeight - (4 * op.fN)); // move scrollbar
                             pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 
+                            console.log(fraction);
+
                             scrollBarPosArr[0] = scrollBarPosArr[1];
                             scrollBarPosArr[1] = scrollBarPosArr[2];
                             scrollBarPosArr[2] = scrollBarPosArr[3];
                             scrollBarPosArr[3] = scrollBarPosArr[4];
                             scrollBarPosArr[4] = scrollTr;
 
-                            console.log(scrollBarPosArr);
+                            // console.log(scrollBarPosArr);
 
                             if (scrollBarPosArr.every(item => item === 0)) {
                                 navbar.classList.remove("hide");
