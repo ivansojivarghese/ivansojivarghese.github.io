@@ -1746,7 +1746,8 @@
                 
             });
 
-            var parentTop = null;
+            var parentTop = null,
+                parentBottom = null;
 
             normalScrollLoop = setInterval(function () {
                 var scrollBarF = op.pwa.s ? ".pwa .scrollBarFunction" : ".non-pwa .scrollBarFunction";
@@ -1758,11 +1759,12 @@
 
                     if (parent !== null) {
                         var parentHeight = parent.getBoundingClientRect().height,
-                            parentBottom = Number(window.getComputedStyle(parent).getPropertyValue("padding-bottom").slice(0, -2)),
+                            // parentBottom = Number(window.getComputedStyle(parent).getPropertyValue("padding-bottom").slice(0, -2)),
                             // parentTop = (parentTop !== undefined) ? parent.getBoundingClientRect().top : parentTop,
                             parentTotal = 0,
                             scrollTr = 0;
 
+                        parentBottom = (parentTop === null || parentTop === 0) ? Number(window.getComputedStyle(parent).getPropertyValue("padding-bottom").slice(0, -2)) : parentBottom;
                         parentTop = (parentTop === null || parentTop === 0) ? parent.getBoundingClientRect().top : parentTop;
                         
                     } else if (!op.pwa.s || (op.pwa.s && pwa_Load)) {
