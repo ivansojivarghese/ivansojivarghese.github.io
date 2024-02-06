@@ -1758,6 +1758,7 @@
 
                     if (parent !== null) {
                         var parentHeight = parent.getBoundingClientRect().height,
+                            parentBottom = Number(window.getComputedStyle(parent).getPropertyValue("padding-bottom").slice(0, -2)),
                             // parentTop = (parentTop !== undefined) ? parent.getBoundingClientRect().top : parentTop,
                             parentTotal = 0,
                             scrollTr = 0;
@@ -1769,7 +1770,7 @@
                     }
 
                     // parentHeight = parentHeight + Number(window.getComputedStyle(parentParent).getPropertyValue("padding-top").slice(0, -2));
-                    parentTotal = parentHeight + parentTop;
+                    parentTotal = parentHeight + parentTop + parentBottom;
 
                     if (pos.sB) {
                         if (parentTotal <= window.innerHeight) { // hide scrollbar
