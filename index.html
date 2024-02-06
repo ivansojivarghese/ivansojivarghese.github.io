@@ -1773,11 +1773,11 @@
                     parentTotal = parentHeight + parentTop + parentBottom;
 
                     if (pos.sB) {
-                        if (parentTotal <= window.innerHeight) { // hide scrollbar
+                        if (parentTotal <= (window.innerHeight + parentTop)) { // hide scrollbar
                             e_Fd(pos.sB, true);
                         } else { // show/move scrollbar
-                            var fraction = ((scrollBarPos / (parentTotal - window.innerHeight)) >= 0) ? ((scrollBarPos / (parentTotal - window.innerHeight)) <= 1) ? (scrollBarPos / (parentTotal - window.innerHeight)) : 1 : 0;
-                            scrollTr = fraction * (window.innerHeight - (4 * op.fN)); // move scrollbar
+                            var fraction = ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop))) >= 0) ? ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop))) <= 1) ? (scrollBarPos / (parentTotal - (window.innerHeight + parentTop))) : 1 : 0;
+                            scrollTr = fraction * ((window.innerHeight + parentTop) - (4 * op.fN)); // move scrollbar
                             pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 
                             console.log(fraction + ", " + scrollTr);
@@ -2025,17 +2025,17 @@
 
                     if (document.scrollingElement.scrollTop === 0 && _documentStartY === 0 && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
 
-                        if (y > (_startY + (window.innerHeight / 8))) {
+                        if (y > (_startY + ((window.innerHeight + parentTop) / 8))) {
                             if (!refreshX) {
                                 refreshX = true;
                                 startRefresh(); // show ux feedback (pull down to refresh)
                             }
                             if (refreshX) { // ux feedback movement to user touch-drag
-                                var progress = (y - (_startY + (window.innerHeight / 8))) / ((_startY + (window.innerHeight / 3)) - (_startY + (window.innerHeight / 8)));
-                                puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + (window.innerHeight / 8))) / op.fN) + "rem)";
+                                var progress = (y - (_startY + ((window.innerHeight + parentTop) / 8))) / ((_startY + ((window.innerHeight + parentTop) / 3)) - (_startY + ((window.innerHeight + parentTop) / 8)));
+                                puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + ((window.innerHeight + parentTop) / 8))) / op.fN) + "rem)";
                                 pullerProgress.style.width = "calc(" + progress + " * 11rem)"; // show progress of drag to refresh
                             }
-                            if (y > (_startY + (window.innerHeight / 3))) { 
+                            if (y > (_startY + ((window.innerHeight + parentTop) / 3))) { 
                                 endRefresh();
                                 simulateRefreshAction(); // refresh contentBody.
                             } 
