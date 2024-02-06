@@ -1718,7 +1718,7 @@
                     parentParentTop = Number(window.getComputedStyle(document.querySelector(".pwa .scrollBarFunction")).getPropertyValue("padding-top").slice(0, -2)),
                     parentTop = parent.getBoundingClientRect().top;
                 
-                scrollBarPos = Math.abs(parentTop - ); // get scroll dis.
+                scrollBarPos = Math.abs(parentTop - parentParentTop); // get scroll dis.
                 pos.cE = true; // scrolling (extended) : true
                 if (!pos.sBc) {
                     e_Fd(pos.sB, false);
