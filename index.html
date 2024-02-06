@@ -1748,14 +1748,18 @@
                 if (!$(scrollBarF).hasClass("z_O")) {
                     condScrollBar = true;
 
-                    var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer');
+                    var parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I'),
+                        parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer');
                     
                     if (parent !== null) {
                         var parentHeight = parent.getBoundingClientRect().height,
+                            parentParentHeight = parentParent.getBoundingClientRect().height,
                             scrollTr = 0;
                     } else if (!op.pwa.s || (op.pwa.s && pwa_Load)) {
                         clearInterval(normalScrollLoop);
                     }
+
+                    parentHeight = parentHeight + Number(window.getComputedStyle(parentParent, null).getPropertyValue('padding-top').slice(0, -2));
 
                     if (pos.sB) {
                         if (parentHeight <= window.innerHeight) { // hide scrollbar
