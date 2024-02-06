@@ -1752,10 +1752,10 @@
 
                     // var parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
                     var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer');
-                    
+
                     if (parent !== null) {
                         var parentHeight = parent.getBoundingClientRect().height,
-                            parentTop = parent.getBoundingClientRect().top,
+                            parentTop = !parentTop ? parent.getBoundingClientRect().top : parentTop,
                             parentTotal = 0,
                             scrollTr = 0;
                     } else if (!op.pwa.s || (op.pwa.s && pwa_Load)) {
