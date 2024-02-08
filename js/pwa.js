@@ -149,9 +149,9 @@ function navButtonActive(b, e, v) {
 }
 
 for (g = 0; g < navbarButtons.length; g++) {
-    navbarButtons[g].addEventListener("mousedown", function() {
-        if (!navbarButtons[g].classList.contains("buttonActive")) {
-            e_Fd(navbarButtons[g].children[0].children[0], true); 
+    navbarButtons[g].addEventListener("mousedown", function(e) {
+        if (!e.currentTarget.classList.contains("buttonActive")) {
+            e_Fd(e.currentTarget.children[0].children[0], true); 
         }
     });
 }
