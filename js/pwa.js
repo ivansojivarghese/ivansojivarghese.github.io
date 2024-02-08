@@ -153,7 +153,7 @@ for (g = 0; g < navbarButtons.length; g++) {
         if (!e.currentTarget.classList.contains("buttonActive")) {
             var target = e.currentTarget;
             e_Fd(target.children[0].children[0], true); 
-            setTimeout(function(e) {
+            setTimeout(function() {
                 target.children[0].style.transform = "scale(0.9)";
             }, op.t);
         }
@@ -161,7 +161,10 @@ for (g = 0; g < navbarButtons.length; g++) {
     navbarButtons[g].addEventListener("mouseup", function(e) {
         if (!e.currentTarget.classList.contains("buttonActive")) {
             var target = e.currentTarget;
-            
+            target.children[0].style.transform = "none";
+            setTimeout(function() {
+                e_Fd(target.children[0].children[0], false); 
+            }, op.t);
         }
     });
 }
