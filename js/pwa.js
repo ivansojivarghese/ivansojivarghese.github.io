@@ -153,7 +153,7 @@ for (g = 0; g < navbarButtons.length; g++) {
         if (!e.currentTarget.classList.contains("buttonActive")) {
             e_Fd(e.currentTarget.children[0].children[0], true); 
             setTimeout(function() {
-                e.currentTarget.children[0].style = "transform: scale(0.9)";
+                e.currentTarget.children[0].style.transform = "scale(0.9)";
             }, op.t);
         }
     });
