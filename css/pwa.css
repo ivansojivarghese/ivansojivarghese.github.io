@@ -13,7 +13,7 @@ body {
     background: red;
 }
 
-.pwa .navbar .button:active .img, .pwa .img_iconBtn:active .img {
+.pwa .img_iconBtn:active .img {
     transform: scale(0.9);
 }
 
