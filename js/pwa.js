@@ -151,10 +151,17 @@ function navButtonActive(b, e, v) {
 for (g = 0; g < navbarButtons.length; g++) {
     navbarButtons[g].addEventListener("mousedown", function(e) {
         if (!e.currentTarget.classList.contains("buttonActive")) {
-            e_Fd(e.currentTarget.children[0].children[0], true); 
-            setTimeout(function() {
-                e.currentTarget.children[0].style.transform = "scale(0.9)";
+            var target = e.currentTarget;
+            e_Fd(target.children[0].children[0], true); 
+            setTimeout(function(e) {
+                target.children[0].style.transform = "scale(0.9)";
             }, op.t);
+        }
+    });
+    navbarButtons[g].addEventListener("mouseup", function(e) {
+        if (!e.currentTarget.classList.contains("buttonActive")) {
+            var target = e.currentTarget;
+            
         }
     });
 }
