@@ -23,6 +23,7 @@ var rL = {
 }
 
 const sections = document.querySelector('.pwa .sections');
+const navbarButtons = document.querySelectorAll('.pwa .navbar .button');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -145,6 +146,14 @@ function navButtonActive(b, e, v) {
             activeTab = b;
         }
     }
+}
+
+for (g = 0; g < navbarButtons.length; g++) {
+    navbarButtons[g].addEventListener("mousedown", function() {
+        if (!navbarButtons[g].classList.contains("buttonActive")) {
+            e_Fd(navbarButtons[g].children[0].children[0], true); 
+        }
+    });
 }
 
 function timeOfDay() {
