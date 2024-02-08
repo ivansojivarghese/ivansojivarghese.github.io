@@ -1703,6 +1703,9 @@
 
             var scrollBarPosArr = [0, 0, 0, 0, 0];
 
+            var startPos = 0,
+                endPos = 0;
+
             const navbar = document.querySelector('.pwa .navbar');
 
             // const parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
@@ -1731,6 +1734,8 @@
                         e_Fd(pos.sB, false);
                         pwaScrollTimeout = setTimeout(function() {
                             if (!pos.cE && !pwaScrollTimeoutCheck) {
+                                endPos = scrollBarPos;
+                                startPos = scrollBarPos;
                                 pwaScrollTimeoutCheck = true;
                                 setTimeout(function() {
                                     pwaScrollTimeoutCheck = false;
@@ -1738,6 +1743,7 @@
                                 e_Fd(pos.sB, true);
                                 // scrolling = false;
                             } else {
+                                endPos = scrollBarPos;
                                 clearTimeout(pwaScrollTimeout);
                             }
                         }, dev.i);
@@ -1774,6 +1780,8 @@
                     // parentHeight = parentHeight + Number(window.getComputedStyle(parentParent).getPropertyValue("padding-top").slice(0, -2));
                     parentTotal = parentHeight + parentTop + parentBottom;
 
+                    var scrollDis = Math.abs(endPos - startPos);
+
                     if (pos.sB) {
                         if (parentTotal <= (window.innerHeight + parentTop + parentBottom)) { // hide scrollbar
                             e_Fd(pos.sB, true);
@@ -1795,20 +1803,13 @@
                             if (scrollBarPosArr.every(item => item === 0)) {
                                 navbar.classList.remove("hide");
                             } else {
-                                if (scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
+                                if (scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
                                     navbar.classList.remove("hide");
-                                } else if (scrollTr > scrollBarPosArr[0] && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
+                                } else if (scrollDis > 100 && scrollTr > scrollBarPosArr[0] && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
                                     navbar.classList.add("hide");
                                 } 
                             }
-                                /*else /*if (scrollBarPosArr[1] < scrollBarPosArr[0]) { // show navbar
-                            }
                                 
-                            } */
-                            
-                            /*else if (scrollBarPosArr[1] === 0 && scrollBarPosArr[0] === 0) {
-                                navbar.classList.remove("hide");
-                            }*/
                         }
                     }
                 } else {
