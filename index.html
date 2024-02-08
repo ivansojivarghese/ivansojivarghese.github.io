@@ -1803,7 +1803,7 @@
 
                             // console.log(scrollBarPosArr);
 
-                            console.log(scrollDis + ", " + endPos + ", " + startPos);
+                            // console.log(scrollDis + ", " + endPos + ", " + startPos);
 
                             if (scrollBarPosArr.every(item => item === 0)) {
                                 navbar.classList.remove("hide");
@@ -1811,6 +1811,9 @@
                                 navbar.classList.add("hide");
                             } else {
                                 if (navbarHide && scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
+                                    
+                                    console.log("show");
+
                                     navbar.classList.remove("hide");
                                     if (!navbarHideMod) {
                                         navbarHideMod = true;
@@ -1820,6 +1823,9 @@
                                         }, dev.i);
                                     }
                                 } else if (!navbarHide && scrollDis > 100 && scrollTr > scrollBarPosArr[0] && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
+                                    
+                                    console.log("hide");
+                                    
                                     navbar.classList.add("hide");
                                     if (!navbarHideMod) {
                                         navbarHideMod = true;
