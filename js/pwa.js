@@ -155,7 +155,7 @@ for (g = 0; g < navbarButtons.length; g++) {
             e_Fd(target.children[0].children[0], true); 
             setTimeout(function() {
                 target.children[0].style.transform = "scale(0.9)";
-            }, op.t);
+            }, 10);
         }
     });
     navbarButtons[g].addEventListener("mouseup", function(e) {
@@ -164,7 +164,7 @@ for (g = 0; g < navbarButtons.length; g++) {
             target.children[0].style.transform = "none";
             setTimeout(function() {
                 e_Fd(target.children[0].children[0], false); 
-            }, op.t);
+            }, 10);
         }
     });
 }
