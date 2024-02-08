@@ -16,10 +16,10 @@ body {
 .pwa .img_iconBtn:active .img {
     transform: scale(0.9);
 }
-
+/*
 .pwa .navbar .button.buttonActive .img {
     transform: none;
-}
+}*/
 
 .pwa .sections > div {
     padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
