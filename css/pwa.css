@@ -1,6 +1,11 @@
 
 /* pwa styles */
 
+:root {
+    --width: 100vw;
+    --height: calc(100vw / 1.5);
+}
+
 body {
     background-color: #F4F4F4;
     min-height: calc(100% + env(safe-area-inset-top));
@@ -588,19 +593,19 @@ body {
         padding-bottom: 0;
         padding-right: 2em;
     }
-    /*
-    .pwa .home #wordsTyper {
-        display: block;
-    }*/
 }
 
 @media screen and (min-width: 1400px) and (orientation: landscape) {
-    .pwa .home #wordsTyper {
-        display: block;
-    }
 
     .pwa .home .flexActive .paragraph {
         padding-right: 3em;
+    }
+}
+
+@media screen and (min-width: 1400px) and (max-height: var(--height)) {
+        
+    .pwa .home #wordsTyper {
+        display: block;
     }
 }
 
