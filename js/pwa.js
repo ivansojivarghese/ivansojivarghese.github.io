@@ -798,20 +798,20 @@ function num_Fs(s) { // font-size literal to numeral (eg. "10px" -> 10)
 
 function swapDisplays() { // swap between display areas in dual screen devices
     const load_sc = document.querySelector('#load_sc');
-    const puller = document.querySelector('puller');
+    const puller = document.querySelector('.puller');
 
     const pwa_body = document.querySelector('.pwa');
     const pwa_sec_body = document.querySelector('.pwaSecondary');
 
     if (primarySegment === 0) { // default
         load_sc.classList.add("swapped");
-        puller.classList.add("puller");
+        puller.classList.add("swapped");
         pwa_body.classList.add("swapped");
         pwa_sec_body.classList.add("swapped");
         primarySegment = 1;
     } else {
         load_sc.classList.remove("swapped");
-        puller.classList.remove("puller");
+        puller.classList.remove("swapped");
         pwa_body.classList.remove("swapped");
         pwa_sec_body.classList.remove("swapped");
         primarySegment = 0;
