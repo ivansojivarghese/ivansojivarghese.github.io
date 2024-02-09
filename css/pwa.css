@@ -629,6 +629,14 @@ body {
     background-image: url("../svg/switch_right.svg");
 }
 
+.pwa.swapped .navbar .button.swap .img {
+    background-image: url("../svg/switch_left_white.svg");
+}
+
+.pwa.swapped .navbar .button.swap.dark .img {
+    background-image: url("../svg/switch_left.svg");
+}
+
 @media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
 
     .pwaSecondary {
