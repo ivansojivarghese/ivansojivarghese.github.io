@@ -105,10 +105,18 @@ function navButtonActive(b, e, v) {
                 } else if (buttons[i].classList.contains("swap")) {
 
                     if (v) {
-                        if (op.darkMode) {
-                            buttons[i].classList.add("dark");
-                        } else if (!op.darkMode) {
-                            buttons[i].classList.remove("dark");
+                        if (!op.darkChange) {
+                            if (op.darkMode) {
+                                buttons[i].classList.add("dark");
+                            } else if (!op.darkMode) {
+                                buttons[i].classList.remove("dark");
+                            }
+                        } else if (op.darkChange) {
+                            if (op.darkMode) {
+                                buttons[i].classList.remove("dark");
+                            } else if (!op.darkMode) {
+                                buttons[i].classList.add("dark");
+                            }
                         }
                     }
                 }
