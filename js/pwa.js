@@ -513,19 +513,37 @@ function pwaRead() {
             deleteAllCookies();
             
             e_Fd(loader, false);
+
+            var primarySegment = Number(localStorage.getItem('primarySegment'));
+            if (primarySegment) {
+                load_sc.classList.add("swapped");
+                puller.classList.add("swapped");
+                pwa_body.classList.add("swapped");
+                pwa_sec_body.classList.add("swapped");
+
+                navbar.insertBefore(swapButton, firstButton);
+            }
             
         break;
         case "interactive":
             deleteAllCookies();
             
             e_Fd(loader, false);
+
+            var primarySegment = Number(localStorage.getItem('primarySegment'));
+            if (primarySegment) {
+                load_sc.classList.add("swapped");
+                puller.classList.add("swapped");
+                pwa_body.classList.add("swapped");
+                pwa_sec_body.classList.add("swapped");
+
+                navbar.insertBefore(swapButton, firstButton);
+            }
             
         break;
         case "complete":
             if (!devError && op.pwa.s && !rL.i) { // pwa
                 var client_L = null, ip_L = null, weather_L = null;
-
-                var primarySegment = Number(localStorage.getItem('primarySegment'));
 
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
@@ -549,8 +567,6 @@ function pwaRead() {
                 c_css(".p_Tvhq", "padding-top: calc(" + (aH * 0.25) + "px)", false, null);
 
                 ///////
-
-                swapDisplays();
 
                 clientAPI();
                 countryAPI("");
