@@ -706,11 +706,9 @@ body {
     }
 }
 
-/*
-
-navbar, width 24rem, max-wd: 24rem, justify-content: space-between, swap button padding: 0.5rem, bg-color: #303030, col: white, b-radius: 1rem, home button: padding-left: 1rem
-
-*/
+.pwa .navbar .button.swap .img {
+    background-image: url("../svg/switch_right_white.svg");
+}
 
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
     .pwa .navbar .button.swap {

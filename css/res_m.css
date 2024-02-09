@@ -529,10 +529,10 @@
     #dw_btn {
         margin-left: 0 !important;
     }
-
+    /*
     p, ul {
         padding-right: 3em;
-    }
+    }*/
 }
 /*
 @media screen and (min-height: 525px) and (orientation: landscape) {
