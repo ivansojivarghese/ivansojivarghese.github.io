@@ -104,7 +104,7 @@ function navButtonActive(b, e, v) {
 
                 } else if (buttons[i].classList.contains("swap")) {
 
-                    if (!target || V) {
+                    if (!target || v) {
                         if (op.darkMode) {
                             buttons[i].classList.remove("dark");
                         } else if (!op.darkMode) {
