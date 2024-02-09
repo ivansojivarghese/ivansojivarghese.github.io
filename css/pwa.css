@@ -2,7 +2,7 @@
 /* pwa styles */
 
 @property --height {
-    syntax: "<color>";
+    syntax: "<height>";
     inherits: false;
     initial-value: calc(100vw / 1.5);
 }
