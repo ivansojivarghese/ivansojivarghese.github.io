@@ -1990,9 +1990,9 @@
                 pullerProgress.classList.add("d_n");
                 e_Fd(pullerP, true);
                 puller.style.width = "3rem";
-                if (window.visualViewport.segments === 2 && primarySegment === 0) {
+                if (window.visualViewport.segments.length === 2 && primarySegment === 0) {
                     puller.style.left = "calc((calc(env(viewport-segment-width 0 0)) - 3rem) / 2) !important";
-                } else if (window.visualViewport.segments === 2 && primarySegment === 1) {
+                } else if (window.visualViewport.segments.length === 2 && primarySegment === 1) {
                     puller.style.left = "calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 3rem) / 2)) !important";
                 } else {
                     puller.style.left = "calc(50% - 3rem / 2)";
