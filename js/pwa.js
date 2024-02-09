@@ -81,8 +81,8 @@ function navButtonActive(b, e, v) {
     if (target.classList.contains("hoverB") || v) {
 
         for (i = 0; i < buttons.length; i++) { // remove from other non-targets
-            if (buttons[i] !== target && !buttons[i].classList.contains("swap")) {
-                if ((buttons[i].classList.contains("buttonActive") && !op.darkChange) || (!buttons[i].classList.contains("buttonActive") && op.darkChange)) {
+            if (buttons[i] !== target) {
+                if (((buttons[i].classList.contains("buttonActive") && !op.darkChange) || (!buttons[i].classList.contains("buttonActive") && op.darkChange)) && !buttons[i].classList.contains("swap")) {
                     var old;
                     for (j = 0; j < buttons[i].classList.length; j++) {
                         if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive" && buttons[i].classList[j] !== "trs" && buttons[i].classList[j] !== "hoverB") {
@@ -102,6 +102,13 @@ function navButtonActive(b, e, v) {
                     buttons[i].addEventListener('mousemove', hoverInit);
                     buttons[i].addEventListener('mouseleave', hoverEnd);
 
+                } else if (buttons[i].classList.contains("swap")) {
+
+                    if (op.darkMode) {
+                        buttons[i].classList.add("dark");
+                    } else if (!op.darkMode) {
+                        buttons[i].classList.remove("dark");
+                    }
                 }
             }
         }
