@@ -508,6 +508,16 @@ function e_Ic(el, p, f) { // effect - iterating digits on a numeral (in a string
 var loader = document.querySelector('#load_sc');
 
 function pwaRead() {
+    const load_sc = document.querySelector('#load_sc');
+    const puller = document.querySelector('.puller');
+
+    const pwa_body = document.querySelector('.pwa');
+    const pwa_sec_body = document.querySelector('.pwaSecondary');
+
+    const navbar = document.querySelector('.navbar');
+    const firstButton = document.querySelectorAll('.pwa .navbar .button')[0];
+    const swapButton = document.querySelector('.pwa .navbar .button.swap');
+    
     switch (document.readyState) { // check 'ready state' of document
         case "loading":
             deleteAllCookies();
@@ -516,6 +526,7 @@ function pwaRead() {
 
             var primarySegment = Number(localStorage.getItem('primarySegment'));
             if (primarySegment) {
+                
                 load_sc.classList.add("swapped");
                 puller.classList.add("swapped");
                 pwa_body.classList.add("swapped");
