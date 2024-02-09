@@ -646,6 +646,9 @@ body {
         color: #FFF;
         border-radius: 1rem;
         margin: 0;
+    }
+
+    .pwa .navbar .button.swap .img {
         transform: rotate(90deg);
     }
 
