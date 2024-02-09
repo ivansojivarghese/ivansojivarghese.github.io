@@ -816,7 +816,10 @@ function swapDisplays() { // swap between display areas in dual screen devices
         navbar.insertBefore(swapButton, firstButton);
 
         primarySegment = 1;
-    } else {
+
+        localStorage.setItem('primarySegment', '1');
+        
+    } else if (primarySegment === 1) {
         load_sc.classList.remove("swapped");
         puller.classList.remove("swapped");
         pwa_body.classList.remove("swapped");
@@ -825,6 +828,8 @@ function swapDisplays() { // swap between display areas in dual screen devices
         navbar.appendChild(swapButton);
 
         primarySegment = 0;
+
+        localStorage.setItem('primarySegment', '0');
     }
 }
 
@@ -856,7 +861,7 @@ if (op.pwa.s) {
         // now we know the device is a foldable
         // and we can update CSS classes in our layout as appropriate 
 
-        primarySegment = 0;
+        primarySegment = Number(localStorage.getItem('primarySegment'));
 
         var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
 
@@ -871,7 +876,7 @@ if (op.pwa.s) {
         if (segments && segments.length === 2) {
             // Make changes two split content into the segments.
 
-            primarySegment = 0;
+            primarySegment = Number(localStorage.getItem('primarySegment'));
 
             var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
 
