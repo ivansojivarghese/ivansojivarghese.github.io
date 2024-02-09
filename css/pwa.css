@@ -1,12 +1,6 @@
 
 /* pwa styles */
 
-@property --height {
-    syntax: "<height>";
-    inherits: false;
-    initial-value: calc(100vw / 1.5);
-}
-
 body {
     background-color: #F4F4F4;
     min-height: calc(100% + env(safe-area-inset-top));
@@ -596,7 +590,7 @@ body {
     }
 }
 
-@media screen and (min-width: 1400px) and (max-height: var(--height)) {
+@media screen and (min-width: 1400px) and (max-height: calc(100vw / 1.5)) {
         
     .pwa .home #wordsTyper {
         display: block;
