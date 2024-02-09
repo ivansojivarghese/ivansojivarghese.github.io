@@ -785,10 +785,10 @@ navbar, width 24rem, max-wd: 24rem, justify-content: space-between, swap button 
     .pwa .navbar {
         top: auto;
         height: 4rem;
-        width: 20rem;
+        width: 24rem;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
         left: 50%;
         transform: translateX(-50%);
         box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
