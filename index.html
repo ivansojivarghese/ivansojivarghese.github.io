@@ -1990,7 +1990,7 @@
                 pullerProgress.classList.add("d_n");
                 e_Fd(pullerP, true);
                 puller.style.width = "3rem";
-                if (window.visualViewport.segments.length === 2) {
+                if (window.visualViewport.segments !== null && window.visualViewport.segments.length === 2) {
                     puller.classList.add("refreshing");
                 } else {
                     puller.style.left = "calc(50% - 3rem / 2)";
