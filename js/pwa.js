@@ -528,6 +528,8 @@ function pwaRead() {
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
 
+                const pwa_sec_body = document.querySelector('.pwaSecondary');
+
                 const pwa_scrollF = document.querySelector('.pwa .scrollBarFunction');
                 const pwa_home = document.querySelector('.pwa .home');
                 pwa_home.classList.add("scrollBarContainer");
@@ -792,6 +794,13 @@ function num_Fs(s) { // font-size literal to numeral (eg. "10px" -> 10)
         }
     }
     return Number(res);
+}
+
+function swapDisplays() { // swap between display areas in dual screen devices
+    if (primarySegment === 0) { // default
+        pwa_body.classList.add("swapped");
+        pwa_sec_body.classList.add("swapped");
+    }
 }
 
 function isSingleFoldHorizontal() {
