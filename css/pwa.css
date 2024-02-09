@@ -743,6 +743,10 @@ body {
         left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
     }
 
+    .puller.swapped {
+        
+    }
+
     .pwa .m_L-10 {
         margin-left: 10% !important;
         width: 90%;
@@ -751,6 +755,10 @@ body {
     #load_sc {
         height: calc(env(viewport-segment-height 0 0));
         width: calc(env(viewport-segment-width 0 0));
+    }
+
+    #load_sc.swapped {
+        
     }
 
     .pwa {
@@ -764,6 +772,11 @@ body {
 
     .pwa .sections {
         width: calc(env(viewport-segment-width 0 0));
+        padding: 0;
+    }
+
+    .pwa.swapped .sections {
+        width: calc(env(viewport-segment-width 1 0));
         padding: 0;
     }
 
