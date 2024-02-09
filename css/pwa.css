@@ -763,6 +763,14 @@ body {
         left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 11rem) / 2)) !important;
     }
 
+    .puller.refreshing {
+        left: calc((calc(env(viewport-segment-width 0 0)) - 3rem) / 2) !important;
+    }
+
+    .puller.refreshing.swapped {
+        left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 3rem) / 2)) !important;
+    }
+
     .pwa .m_L-10 {
         margin-left: 10% !important;
         width: 90%;
