@@ -800,6 +800,7 @@ function swapDisplays() { // swap between display areas in dual screen devices
     if (primarySegment === 0) { // default
         pwa_body.classList.add("swapped");
         pwa_sec_body.classList.add("swapped");
+        primarySegment = 1;
     }
 }
 
