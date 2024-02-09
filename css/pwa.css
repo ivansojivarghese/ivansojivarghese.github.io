@@ -639,6 +639,14 @@ body {
 
 @media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
 
+    .pwa .navbar .button.swap {
+        display: block;
+        padding: 0.5rem;
+        background-color: #303030;
+        color: #FFF;
+        border-radius: 1rem;
+    }
+
     .pwaSecondary {
         display: block;
         height: calc(env(viewport-segment-height 0 0)) !important;
