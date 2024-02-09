@@ -721,7 +721,7 @@ navbar, width 24rem, max-wd: 24rem, justify-content: space-between, swap button 
         border-radius: 1rem;
     }
 
-    .pwa .navbar .button.home {
+    .pwa .navbar .button.home, .pwa .navbar .button.home_dark {
         padding-left: 1rem;
     }
 
