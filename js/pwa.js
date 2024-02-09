@@ -803,17 +803,27 @@ function swapDisplays() { // swap between display areas in dual screen devices
     const pwa_body = document.querySelector('.pwa');
     const pwa_sec_body = document.querySelector('.pwaSecondary');
 
+    const navbar = document.querySelector('.navbar');
+    const firstButton = document.querySelectorAll('.pwa .navbar .button')[0];
+    const swapButton = document.querySelector('.pwa .navbar .button.swap');
+
     if (primarySegment === 0) { // default
         load_sc.classList.add("swapped");
         puller.classList.add("swapped");
         pwa_body.classList.add("swapped");
         pwa_sec_body.classList.add("swapped");
+
+        navbar.insertBefore(swapButton, firstButton);
+
         primarySegment = 1;
     } else {
         load_sc.classList.remove("swapped");
         puller.classList.remove("swapped");
         pwa_body.classList.remove("swapped");
         pwa_sec_body.classList.remove("swapped");
+
+        navbar.appendChild(swapButton);
+
         primarySegment = 0;
     }
 }
