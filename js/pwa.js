@@ -525,10 +525,10 @@ function pwaRead() {
             if (!devError && op.pwa.s && !rL.i) { // pwa
                 var client_L = null, ip_L = null, weather_L = null;
 
+                var primarySegment = Number(localStorage.getItem('primarySegment'));
+
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
-
-                const pwa_sec_body = document.querySelector('.pwaSecondary');
 
                 const pwa_scrollF = document.querySelector('.pwa .scrollBarFunction');
                 const pwa_home = document.querySelector('.pwa .home');
@@ -549,6 +549,8 @@ function pwaRead() {
                 c_css(".p_Tvhq", "padding-top: calc(" + (aH * 0.25) + "px)", false, null);
 
                 ///////
+
+                swapDisplays();
 
                 clientAPI();
                 countryAPI("");
@@ -818,7 +820,7 @@ function swapDisplays() { // swap between display areas in dual screen devices
         primarySegment = 1;
 
         localStorage.setItem('primarySegment', '1');
-        
+
     } else if (primarySegment === 1) {
         load_sc.classList.remove("swapped");
         puller.classList.remove("swapped");
