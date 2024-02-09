@@ -594,18 +594,22 @@ body {
         padding-right: 2em;
     }
 }
-
+/*
 @media screen and (min-width: 1400px) and (orientation: landscape) {
 
     .pwa .home .flexActive .paragraph {
         padding-right: 3em;
     }
-}
+}*/
 
 @media screen and (min-width: 1400px) and (max-height: var(--height)) {
         
     .pwa .home #wordsTyper {
         display: block;
+    }
+
+    .pwa .home .flexActive .paragraph {
+        padding-right: 3em;
     }
 }
 
