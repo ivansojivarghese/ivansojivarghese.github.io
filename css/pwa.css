@@ -733,6 +733,11 @@ body {
         left: calc(env(viewport-segment-left 1 0)) !important;
     }
 
+    .pwaSecondary.swapped {
+        display: block;
+        width: calc(env(viewport-segment-width 0 0)) !important;
+    }
+
     .puller {
         left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
     }
@@ -749,6 +754,11 @@ body {
 
     .pwa {
         width: calc(env(viewport-segment-width 0 0)) !important;
+    }
+
+    .pwa.swapped {
+        left: calc(env(viewport-segment-width 0 0)) !important;
+        width: calc(env(viewport-segment-width 1 0)) !important;
     }
 
     .pwa .sections {
