@@ -81,7 +81,7 @@ function navButtonActive(b, e, v) {
     if (target.classList.contains("hoverB") || v) {
 
         for (i = 0; i < buttons.length; i++) { // remove from other non-targets
-            if (buttons[i] !== target) {
+            if (buttons[i] !== target && !buttons[i].classList.contains("swap")) {
                 if ((buttons[i].classList.contains("buttonActive") && !op.darkChange) || (!buttons[i].classList.contains("buttonActive") && op.darkChange)) {
                     var old;
                     for (j = 0; j < buttons[i].classList.length; j++) {

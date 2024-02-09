@@ -621,6 +621,12 @@ body {
     }
 }
 
+.pwa .navbar .button.swap .img {
+    background-image: url("../svg/switch_right_white.svg");
+}
+
+
+
 @media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
 
     .pwaSecondary {
@@ -704,10 +710,6 @@ body {
     .pwa .navbar {
         position: absolute;
     }
-}
-
-.pwa .navbar .button.swap .img {
-    background-image: url("../svg/switch_right_white.svg");
 }
 
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
