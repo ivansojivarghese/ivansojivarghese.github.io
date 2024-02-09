@@ -586,10 +586,21 @@ body {
 
     .pwa .home .flexActive .paragraph {
         padding-bottom: 0;
+        padding-right: 2em;
     }
-
+    /*
     .pwa .home #wordsTyper {
         display: block;
+    }*/
+}
+
+@media screen and (min-width: 1400px) and (orientation: landscape) {
+    .pwa .home #wordsTyper {
+        display: block;
+    }
+
+    .pwa .home .flexActive .paragraph {
+        padding-right: 3em;
     }
 }
 
