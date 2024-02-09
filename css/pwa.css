@@ -702,6 +702,12 @@ body {
     }
 }
 
+/*
+
+navbar, width 24rem, max-wd: 24rem, justify-content: space-between, swap button padding: 0.5rem, bg-color: #303030, col: white, b-radius: 1rem, home button: padding-left: 1rem
+
+*/
+
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
     .pwaSecondary {
         display: block;
