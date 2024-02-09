@@ -797,6 +797,9 @@ function num_Fs(s) { // font-size literal to numeral (eg. "10px" -> 10)
 }
 
 function swapDisplays() { // swap between display areas in dual screen devices
+    const pwa_body = document.querySelector('.pwa');
+    const pwa_sec_body = document.querySelector('.pwaSecondary');
+    
     if (primarySegment === 0) { // default
         pwa_body.classList.add("swapped");
         pwa_sec_body.classList.add("swapped");
