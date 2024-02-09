@@ -736,6 +736,7 @@ body {
     .pwaSecondary.swapped {
         display: block;
         width: calc(env(viewport-segment-width 0 0)) !important;
+        left: 0 !important;
     }
 
     .puller {
@@ -757,7 +758,7 @@ body {
     }
 
     .pwa.swapped {
-        left: calc(env(viewport-segment-width 0 0)) !important;
+        left: calc(env(viewport-segment-left 1 0)) !important;
         width: calc(env(viewport-segment-width 1 0)) !important;
     }
 
