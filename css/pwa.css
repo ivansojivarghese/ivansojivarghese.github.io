@@ -671,12 +671,17 @@ body {
 
     .pwa .sections {
         float: right;
-        height: calc(env(viewport-segment-height 0 1));
+        height: calc(env(viewport-segment-height 0 0));
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
 
-    
+    .pwa.swapped .sections {
+        float: right;
+        height: calc(env(viewport-segment-height 0 1));
+        width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+        padding-right: calc(env(safe-area-inset-right));
+    }
 
     .pwa .navbar {
         display: block;
@@ -728,11 +733,21 @@ body {
     }
 
     #load_sc {
-        height: calc(env(viewport-segment-height 0 1));
+        height: calc(env(viewport-segment-height 0 0));
         width: calc(env(viewport-segment-width 0 0));
+    }
+
+    #load_sc.swapped {
+        height: calc(env(viewport-segment-height 0 1));
+        width: calc(env(viewport-segment-width 0 1));
+        top: calc(env(viewport-segment-top 0 1));
     }
     
     #load_sc .container {
+        margin-top: calc((calc(env(viewport-segment-height 0 0)) - 8rem) / 2);
+    }
+
+    #load_sc.swapped .container {
         margin-top: calc((calc(env(viewport-segment-height 0 1)) - 8rem) / 2);
     }
 
@@ -740,8 +755,17 @@ body {
         height: calc(env(viewport-segment-height 0 0)) !important;
     }
 
+    .pwa.swapped {
+        height: calc(env(viewport-segment-height 0 1)) !important;
+        top: calc(env(viewport-segment-top 0 1));
+    }
+
     .pwa .sections {
         height: calc(env(viewport-segment-height 0 0));
+    }
+
+    .pwa.swapped .sections {
+        height: calc(env(viewport-segment-height 0 1));
     }
 
     .pwa .navbar {
