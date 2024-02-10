@@ -538,7 +538,7 @@ body {
         margin-bottom: calc((20rem - 15rem) / 6);
     }
 
-    .pwa .navbar .button:first-child {
+    .pwa .navbar .button.home, .pwa .navbar .button.home_dark {
         margin-top: calc((20rem - 15rem) / 6);
     }
 
@@ -732,10 +732,6 @@ body {
         margin-top: calc((20rem - 15rem) / 6);
     }
 
-    .pwa.swapped .navbar .button:first-child {
-        margin-top: calc((20rem - 15rem) / 6);
-    }
-
     #load_sc {
         height: calc(env(viewport-segment-height 0 0));
         width: calc(env(viewport-segment-width 0 0));
@@ -775,6 +771,14 @@ body {
     .pwa .navbar {
         position: absolute;
     }
+
+    .puller.refreshing {
+        left: calc((calc(env(viewport-segment-width 0 0)) - 3rem) / 2) !important;
+    }
+    /*
+    .puller.refreshing.swapped {
+        left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 3rem) / 2)) !important;
+    }*/
 }
 
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
