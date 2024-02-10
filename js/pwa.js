@@ -559,10 +559,14 @@ function pwaRead() {
                 const pwa_body = document.querySelector('.pwa');
                 const normal_body = document.querySelector('.non-pwa');
 
+                const pwa_sec_body = document.querySelector('.pwaSecondary');
+
                 const pwa_scrollF = document.querySelector('.pwa .scrollBarFunction');
                 const pwa_home = document.querySelector('.pwa .home');
                 pwa_home.classList.add("scrollBarContainer");
                 pwa_scrollF.classList.add("z-I");
+
+                e_Fd(pwa_sec_body, false);
 
                 c_css("#scrollBar", "right: 0.2rem; width: 0.2rem;", false, null);
 
