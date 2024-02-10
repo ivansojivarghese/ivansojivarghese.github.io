@@ -2063,7 +2063,7 @@
 
                     _documentMoveY = scrollElTop - scrollElTopPadding;
 
-                    if (document.scrollingElement.scrollTop === 0 && _documentStartY === 0 && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
+                    if (document.scrollingElement.scrollTop === 0 && (_documentStartY === 0 || (window.visualViewport.segments !== null && window.visualViewport.segments.length === 2 && window.visualViewport.segments[primarySegment].top === _documentStartY)) && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
 
                         var controlHeight = (window.visualViewport.segments !== null && window.visualViewport.segments.length === 2) ? window.visualViewport.segments[primarySegment].height : window.innerHeight;
 
