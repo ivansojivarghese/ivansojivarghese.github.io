@@ -732,6 +732,10 @@ body {
         margin-top: calc((20rem - 15rem) / 6);
     }
 
+    .pwa.swapped .navbar .button:first-child {
+        margin-top: calc((20rem - 15rem) / 6);
+    }
+
     #load_sc {
         height: calc(env(viewport-segment-height 0 0));
         width: calc(env(viewport-segment-width 0 0));
