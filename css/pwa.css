@@ -16,6 +16,13 @@ body {
     display: none;
 }
 
+.pwaSecondary .reserved {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .pwa .img_iconBtn:active .img, .pwa .navbar .button:active {
     transform: scale(0.9);
 }
