@@ -772,6 +772,10 @@ body {
         position: absolute;
     }
 
+    .puller {
+        left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
+    }
+
     .puller.refreshing {
         left: calc((calc(env(viewport-segment-width 0 0)) - 3rem) / 2) !important;
     }
