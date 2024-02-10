@@ -663,12 +663,20 @@ body {
         top: calc(env(viewport-segment-top 0 1)) !important;
     }
 
+    .pwaSecondary.swapped {
+        display: block;
+        height: calc(env(viewport-segment-height 0 0)) !important;
+        top: 0 !important;
+    }
+
     .pwa .sections {
         float: right;
         height: calc(env(viewport-segment-height 0 1));
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
+
+    
 
     .pwa .navbar {
         display: block;
