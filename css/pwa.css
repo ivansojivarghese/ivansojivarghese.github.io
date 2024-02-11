@@ -288,6 +288,14 @@ body {
     align-items: center;
 }*/
 
+.pwa .about .social_media {
+    margin-top: 0.5em;
+}
+
+.pwa .about .social_media a {
+    margin-right: 1em;
+}
+
 .pwa .about .social_media .img_icon {
     margin: 0;
     width: 1.3rem;
