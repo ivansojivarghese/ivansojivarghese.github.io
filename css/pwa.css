@@ -484,7 +484,7 @@ body {
         margin-bottom: calc((100svh - 15rem) / 6);
     }
 
-    .pwa .navbar .button:first-child {
+    .pwa .navbar .button.home, .pwa .navbar .button.home_dark {
         margin-top: calc((100svh - 15rem) / 6);
     }
 
@@ -501,7 +501,7 @@ body {
     .pwa .about .paragraph.size {
         padding-right: 0;
         display: inline-block;
-        margin-left: 3rem;
+        margin-left: 1.5em;
     }
     /*
     .pwa .about .container.offline {
