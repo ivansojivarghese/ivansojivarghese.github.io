@@ -443,6 +443,10 @@ body {
         /*padding-bottom: 5.5rem;*/
         padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
     }
+
+    .pwa .about .content .paragraph.size {
+        text-align: center;
+    }
 }
 
 @media screen and (orientation: landscape) {
