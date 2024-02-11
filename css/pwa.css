@@ -411,12 +411,12 @@ body {
         display: block !important;
     }
 }
-
+/*
 @media screen and (orientation: portrait) {
     .pwa .noRSpace {
         padding-right: 0 !important;
     }
-}
+}*/
 
 @media screen and (min-width: 490px) and (orientation: portrait) {
     .pwa .navbar {
@@ -441,10 +441,10 @@ body {
     .pwa .navbar.hide {
         bottom: 0;
     }
-
+    /*
     .pwa .noRSpace {
         padding-right: 2em;
-    }
+    }*/
 
     .pwa .sections > div {
         padding-bottom: 0;
