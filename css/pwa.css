@@ -268,7 +268,7 @@ body {
 .pwa .about .content h5 {
     margin-bottom: 0.75em;
 }
-
+/*
 .pwa .about .social_media > div {
     display: flex;
     padding-left: 1em;
@@ -286,7 +286,7 @@ body {
     display: flex;
     height: 1.5rem;
     align-items: center;
-}
+}*/
 
 .pwa .about .social_media .img_icon {
     margin: 0;
