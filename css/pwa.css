@@ -495,23 +495,18 @@ body {
         display: inline-block;
         margin-left: 3rem;
     }
-
+    /*
     .pwa .about .container.offline {
         display: inline-block;
         position: relative;
         margin-right: 5%;
         width: 50%;
     }
-    /*
-    .pwa .about .container.offline.mod {
-        width: 50%;
-    }*/
 
     .pwa .about .container.online {
         display: inline-block;
         width: 40%;
-        /*margin-left: 5%;*/
-    }
+    }*/
 }
 
 @media screen and (min-height: 490px) and (orientation: landscape) {
@@ -562,26 +557,25 @@ body {
         margin-left: 0;
         padding-bottom: 1.5rem;
     }
-
+    /*
     .pwa .about .container.offline {
-        /*top: -1.1rem;*/
         min-width: 500px;
     }
 
     .pwa .about .container.online {
         min-width: 300px;
-    }
+    }*/
 
     .pwa .noRSpace {
         padding-right: 1rem;
     }
 }
-
+/*
 @media screen and (max-width: 1200px) and (orientation: landscape) {
     .pwa .about .container.offline {
         width: auto;
     }
-}
+}*/
 
 @media screen and (min-width: 1200px) and (orientation: landscape) {
     .pwa .home .flexActive {

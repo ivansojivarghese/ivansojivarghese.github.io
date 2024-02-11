@@ -303,7 +303,7 @@ function fetchPWAInfo() {
     const aboutS3 = document.querySelector('.pwa .about #span3');
     const aboutS4 = document.querySelector('.pwa .about #span4');
 
-    aboutS1.innerHTML = dev.info.work[0];
+    aboutS1.innerHTML = "dev";
     aboutS2.innerHTML = dev.info.work[1];
     // aboutS2_1.innerHTML = dev.info.work[2];
     aboutS3.innerHTML = gps.city.toLowerCase();
