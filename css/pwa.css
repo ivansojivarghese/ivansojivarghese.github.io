@@ -319,7 +319,7 @@ body {
 }
 
 .pwa .about .social_media .x_twitter {
-    background-image: url("../socials/x.png");
+    background-image: url("../socials/x.svg");
 }
 
 .pwa .about .social_media .instagram_w {
@@ -339,7 +339,7 @@ body {
 }
 
 .pwa .about .social_media .x_twitter_w {
-    background-image: url("../socials/x_white.png");
+    background-image: url("../socials/x_white.svg");
 }
 
 .pwa .navbar .button.home .img {
