@@ -23,7 +23,7 @@ body {
     justify-content: center;
 }
 
-.pwa .img_iconBtn:active .img, .pwa .navbar .button:active {
+.pwa .img_iconBtn:active .img, .pwa .navbar .button:active, .pwa a:active .img_icon {
     transform: scale(0.9);
 }
 
