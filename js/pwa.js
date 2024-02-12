@@ -211,6 +211,8 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
+    var urlParams = {};
+
     // battery
 
     if ('getBattery' in navigator) {
@@ -247,6 +249,19 @@ function fetchPWAInfo() {
     if (r.o === "portrait" && window.innerWidth < 490) {
         sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
     }*/
+
+    function getParameters() {
+        let urlString = window.location.href;
+        let paramString = urlString.split('?')[1];
+        let queryString = new URLSearchParams(paramString);
+        for(let pair of queryString.entries()) {
+            urlParams.pair[0] = pair[1];
+            // console.log("Key is:" + pair[0]);
+            // console.log("Value is:" + pair[1]);
+        }
+    }
+
+    getParameters();
 
     navButtonActive('home', homeBtn, true);
 
