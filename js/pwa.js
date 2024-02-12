@@ -80,6 +80,12 @@ function navButtonActive(b, e, v) {
         e_Fd(profile_image, false);
     }*/
 
+    let url = new URL(window.location.href);
+    let params = new URLSearchParams(url.search);
+
+    // update nav1
+    params.set("nav1", b);
+
     if (target.classList.contains("hoverB") || v) {
 
         for (i = 0; i < buttons.length; i++) { // remove from other non-targets
