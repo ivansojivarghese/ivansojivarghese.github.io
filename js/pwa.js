@@ -255,7 +255,7 @@ function fetchPWAInfo() {
         let paramString = urlString.split('?')[1];
         let queryString = new URLSearchParams(paramString);
         for(let pair of queryString.entries()) {
-            urlParams.pair[0] = pair[1];
+            urlParams[pair[0]] = pair[1];
             // console.log("Key is:" + pair[0]);
             // console.log("Value is:" + pair[1]);
         }
