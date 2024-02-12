@@ -54,6 +54,60 @@
             "color_scheme": "light"
         }
    ],
+   "shortcuts" : [
+        {
+            "name" : "Clicks",
+            "short_name" : "Clicks",
+            "url" :  "https://ivansojivarghese.github.io/",
+            "description" : "",
+            "icons" : [
+                {
+                    "src": "pwa/clicks.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name" : "Code",
+            "short_name" : "Code",
+            "url" :  "https://ivansojivarghese.github.io/",
+            "description" : "",
+            "icons" : [
+                {
+                    "src": "pwa/code.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name" : "Diary",
+            "short_name" : "Diary",
+            "url" :  "https://ivansojivarghese.github.io/",
+            "description" : "",
+            "icons" : [
+                {
+                    "src": "pwa/diary.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name" : "About",
+            "short_name" : "About",
+            "url" :  "https://ivansojivarghese.github.io/",
+            "description" : "",
+            "icons" : [
+                {
+                    "src": "pwa/about.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ],
    "theme_color": "#303030",
    "background_color": "#303030",
    "prefer_related_applications": false,
