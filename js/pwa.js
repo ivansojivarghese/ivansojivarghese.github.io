@@ -81,11 +81,9 @@ function navButtonActive(b, e, v) {
     }*/
 
     let url = new URL(window.location.href);
-    let params = new URLSearchParams(url.search);
-
+    let params = url.searchParams;
     // update nav1
     params.set("nav1", b);
-
     url.search = params.toString();
 
     if (target.classList.contains("hoverB") || v) {
