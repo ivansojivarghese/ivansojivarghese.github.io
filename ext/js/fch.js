@@ -295,10 +295,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         }
 
         if (active_icon === null) {
-            active_icon = document.querySelector('.pwa .navbar .button.' + defTab);
+            active_icon = document.querySelector('.pwa .navbar .button.' + activeTab) || document.querySelector('.pwa .navbar .button.' + activeTab + '_dark');
         }
         if (active_icon_name === "") {
-            active_icon_name = defTab;
+            active_icon_name = activeTab;
         }
     }
 

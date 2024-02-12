@@ -29,8 +29,8 @@ const sections = document.querySelector('.pwa .sections');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
-    defTab = tabs[0],
-    activeTab = defTab;
+    // defTab = tabs[0],
+    activeTab = null;
 
 sI_1 = { // stats numerals
     a : 0, // initial   
@@ -267,11 +267,13 @@ function fetchPWAInfo() {
             targetSection = document.querySelector('.pwa .sections .' + target);
         targetSection.classList.remove("d_n");
         targetSection.classList.add("scrollBarContainer");
+        activeTab = target;
         navButtonActive(target, targetBtn, true);
     } else {
         const homeSection = document.querySelector('.pwa .sections .home');
         homeSection.classList.remove("d_n");
         homeSection.classList.add("scrollBarContainer");
+        activeTab = "home";
         navButtonActive('home', homeBtn, true);
     }
 
