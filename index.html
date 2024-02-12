@@ -152,12 +152,12 @@
                             controller.abort()
                         }, timeout);
 
-                        const result = await fetch(window.location.origin + imageArray[i], {
+                        const result = await fetch(window.location.origin + "/" + imageArray[i], {
                                                 cache: "only-if-cached",
                                                 mode: "same-origin",
                                                 signal: controller.signal
                                             }).then((response) => {
-                                                tempImage.src = window.location.origin + imageArray[i];
+                                                tempImage.src = window.location.origin + "/" + imageArray[i];
                                                 clearTimeout(id);
                                                 return true;
                                             }).catch((error) => {
