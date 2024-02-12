@@ -86,6 +86,8 @@ function navButtonActive(b, e, v) {
     // update nav1
     params.set("nav1", b);
 
+    url.search = params.toString();
+
     if (target.classList.contains("hoverB") || v) {
 
         for (i = 0; i < buttons.length; i++) { // remove from other non-targets
