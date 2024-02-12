@@ -209,7 +209,7 @@ function fetchPWAInfo() {
     const greeting = document.querySelector('.pwa .home #greeting');
     const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
 
-    const homeBtn = document.querySelector('.pwa .navbar .button.home');
+    const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
 
     var selectedWords = [];
 
@@ -261,7 +261,13 @@ function fetchPWAInfo() {
 
     getParameters();
 
-    navButtonActive('home', homeBtn, true);
+    if (urlParams["nav1"]) {
+        var target = urlParams["nav1"],
+            targetBtn = document.querySelector('.pwa .navbar .button.' + target) || document.querySelector('.pwa .navbar .button.' + target + '_dark');
+        navButtonActive(target, targetBtn, true);
+    } else {
+        navButtonActive('home', homeBtn, true);
+    }
 
     greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
