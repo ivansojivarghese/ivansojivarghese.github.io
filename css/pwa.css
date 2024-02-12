@@ -303,19 +303,19 @@ body {
 }
 
 .pwa .about .social_media .instagram {
-    background-image: url("../socials/instagram.png");
+    background-image: url("../socials/instagram.svg");
 }
 
 .pwa .about .social_media .facebook {
-    background-image: url("../socials/facebook.png");
+    background-image: url("../socials/facebook.svg");
 }
 
 .pwa .about .social_media .linkedin {
-    background-image: url("../socials/linkedin.png");
+    background-image: url("../socials/linkedin.svg");
 }
 
 .pwa .about .social_media .github {
-    background-image: url("../socials/github.png");
+    background-image: url("../socials/github.svg");
 }
 
 .pwa .about .social_media .x_twitter {
@@ -323,19 +323,19 @@ body {
 }
 
 .pwa .about .social_media .instagram_w {
-    background-image: url("../socials/instagram_white.png");
+    background-image: url("../socials/instagram_white.svg");
 }
 
 .pwa .about .social_media .facebook_w {
-    background-image: url("../socials/facebook_white.png");
+    background-image: url("../socials/facebook_white.svg");
 }
 
 .pwa .about .social_media .linkedin_w {
-    background-image: url("../socials/linkedin_white.png");
+    background-image: url("../socials/linkedin_white.svg");
 }
 
 .pwa .about .social_media .github_w {
-    background-image: url("../socials/github_white.png");
+    background-image: url("../socials/github_white.svg");
 }
 
 .pwa .about .social_media .x_twitter_w {
