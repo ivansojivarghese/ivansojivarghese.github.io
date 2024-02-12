@@ -22,6 +22,8 @@ var rL = {
     c : document.getElementById("loadR-s") // loading ring (secondary)
 }
 
+var urlParams = {};
+
 const sections = document.querySelector('.pwa .sections');
 // const navbarButtons = document.querySelectorAll('.pwa .navbar .button');
 
@@ -211,8 +213,6 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
-    var urlParams = {};
-
     // battery
 
     if ('getBattery' in navigator) {
@@ -256,8 +256,6 @@ function fetchPWAInfo() {
         let queryString = new URLSearchParams(paramString);
         for(let pair of queryString.entries()) {
             urlParams[pair[0]] = pair[1];
-            // console.log("Key is:" + pair[0]);
-            // console.log("Value is:" + pair[1]);
         }
     }
 
