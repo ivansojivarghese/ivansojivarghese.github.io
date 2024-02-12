@@ -59,10 +59,9 @@
             "name" : "Clicks",
             "short_name" : "Clicks",
             "url" :  "https://ivansojivarghese.github.io/",
-            "description" : "",
             "icons" : [
                 {
-                    "src": "pwa/clicks.png",
+                    "src": "favicon/clicks_pwa.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
@@ -72,10 +71,9 @@
             "name" : "Code",
             "short_name" : "Code",
             "url" :  "https://ivansojivarghese.github.io/",
-            "description" : "",
             "icons" : [
                 {
-                    "src": "pwa/code.png",
+                    "src": "favicon/code_pwa.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
@@ -85,10 +83,9 @@
             "name" : "Diary",
             "short_name" : "Diary",
             "url" :  "https://ivansojivarghese.github.io/",
-            "description" : "",
             "icons" : [
                 {
-                    "src": "pwa/diary.png",
+                    "src": "favicon/diary_pwa.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
@@ -98,10 +95,9 @@
             "name" : "About",
             "short_name" : "About",
             "url" :  "https://ivansojivarghese.github.io/",
-            "description" : "",
             "icons" : [
                 {
-                    "src": "pwa/about.png",
+                    "src": "favicon/about_pwa.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
