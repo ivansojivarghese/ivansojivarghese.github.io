@@ -752,7 +752,7 @@ function docRead() {
 
                 const pwa_scrollF = document.querySelector('.pwa .scrollBarFunction');
                 const pwa_home = document.querySelector('.pwa .home');
-                pwa_home.classList.add("scrollBarContainer");
+                // pwa_home.classList.add("scrollBarContainer");
                 pwa_scrollF.classList.add("z-I");
 
                 c_css("#scrollBar", "right: 0.2rem; width: 0.2rem;", false, null);
