@@ -263,9 +263,15 @@ function fetchPWAInfo() {
 
     if (urlParams["nav1"]) {
         var target = urlParams["nav1"],
-            targetBtn = document.querySelector('.pwa .navbar .button.' + target) || document.querySelector('.pwa .navbar .button.' + target + '_dark');
+            targetBtn = document.querySelector('.pwa .navbar .button.' + target) || document.querySelector('.pwa .navbar .button.' + target + '_dark'),
+            targetSection = document.querySelector('.pwa .sections .' + target);
+        targetSection.classList.remove("d_n");
+        targetSection.classList.add("scrollBarContainer");
         navButtonActive(target, targetBtn, true);
     } else {
+        const homeSection = document.querySelector('.pwa .sections .home');
+        homeSection.classList.remove("d_n");
+        homeSection.classList.add("scrollBarContainer");
         navButtonActive('home', homeBtn, true);
     }
 
