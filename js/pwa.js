@@ -550,7 +550,7 @@ function getGhCommits() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
     request.send(null);
-    request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
+    return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
 
     githubCommitsres.online = true;
 }
