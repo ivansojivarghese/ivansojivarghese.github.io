@@ -227,6 +227,10 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
+    // about
+
+    commits.innerHTML = githubCommitsres.val;
+
     // battery
 
     if ('getBattery' in navigator) {
