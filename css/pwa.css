@@ -395,6 +395,11 @@ body {
     margin-bottom: 1em;
 }
 
+.pwa .skillset, .pwa .toolset {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
 .pwa .skillset .html .img {
     background-image: url("../png/html.png");
 }
