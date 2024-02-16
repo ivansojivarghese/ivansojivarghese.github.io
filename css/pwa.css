@@ -384,7 +384,7 @@ body {
 
 /* -- */
 
-.pwa .skillset > div {
+.pwa .skillset > div, .pwa .toolset > div {
     width: 4rem;
     height: 4rem;
     display: inline-flex;
@@ -409,6 +409,14 @@ body {
 
 .pwa .skillset .jquery .img {
     background-image: url("../png/jquery.png");
+}
+
+.pwa .toolset .vscode .img {
+    background-image: url("../png/vscode.png");
+}
+
+.pwa .toolset .canva .img {
+    background-image: url("../png/canva.png");
 }
 
 /* -- */
