@@ -128,7 +128,8 @@
                     sw_Rw : false,
                     html : false,
                     css : false,
-                    javascript : false
+                    javascript : false,
+                    jQuery : false
                 },
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
 
@@ -370,6 +371,7 @@
         <link rel="preload" fetchpriority="low" href="png/html.png" as="image" type="image/png" onload="img.html = true;">
         <link rel="preload" fetchpriority="low" href="png/css.png" as="image" type="image/png" onload="img.css = true;">
         <link rel="preload" fetchpriority="low" href="png/js.png" as="image" type="image/png" onload="img.javascript = true;">
+        <link rel="preload" fetchpriority="low" href="png/jquery.png" as="image" type="image/png" onload="img.jQuery = true;">
         <!-- SVGs -->
         <!-- 
         <link rel="preload" fetchpriority="high" href="svg/wifi_off_white.svg" as="image" type="image/svg+xml" onload="svg.w_ow = true;">
@@ -868,6 +870,9 @@
                                             <div class="img"></div>
                                         </div>
                                         <div class="js">
+                                            <div class="img"></div>
+                                        </div>
+                                        <div class="jquery">
                                             <div class="img"></div>
                                         </div>
                                     </div>

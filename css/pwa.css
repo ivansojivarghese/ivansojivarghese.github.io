@@ -406,6 +406,10 @@ body {
     background-image: url("../png/js.png");
 }
 
+.pwa .skillset .jquery .img {
+    background-image: url("../png/jquery.png");
+}
+
 /* -- */
 
 .pwa .home #wordsTyper {
