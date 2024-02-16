@@ -21,6 +21,7 @@ body {
 
 .pwa .popups .terms {
     height: 100vh;
+    background-color: #FFF;
 }
 
 .pwaSecondary {
