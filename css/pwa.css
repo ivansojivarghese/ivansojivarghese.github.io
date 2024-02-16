@@ -382,6 +382,22 @@ body {
     background-image: url("../pwa/about_dark.png");
 }
 
+/* -- */
+
+.pwa .skillset .html .img {
+    background-image: url("png/html.png");
+}
+
+.pwa .skillset .css .img {
+    background-image: url("png/css.png");
+}
+
+.pwa .skillset .js .img {
+    background-image: url("png/js.png");
+}
+
+/* -- */
+
 .pwa .home #wordsTyper {
     display: none;
     height: 11rem;

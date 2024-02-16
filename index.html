@@ -125,7 +125,10 @@
                     sw_L : false,
                     sw_R : false,
                     sw_Lw : false,
-                    sw_Rw : false
+                    sw_Rw : false,
+                    html : false,
+                    css : false,
+                    javascript : false
                 },
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
 
@@ -363,6 +366,10 @@
         <!-- Images 3 -->
         <link rel="preload" fetchpriority="low" href="ext/png/signature.png" as="image" type="image/png" onload="img.sg = true;">
         <link rel="preload" fetchpriority="low" href="ext/png/signature_white.png" as="image" type="image/png" onload="img.sg_w = true;">
+        <!-- Images 4 -->
+        <link rel="preload" fetchpriority="low" href="png/html.png" as="image" type="image/png" onload="img.html = true;">
+        <link rel="preload" fetchpriority="low" href="png/css.png" as="image" type="image/png" onload="img.css = true;">
+        <link rel="preload" fetchpriority="low" href="png/js.png" as="image" type="image/png" onload="img.javascript = true;">
         <!-- SVGs -->
         <!-- 
         <link rel="preload" fetchpriority="high" href="svg/wifi_off_white.svg" as="image" type="image/svg+xml" onload="svg.w_ow = true;">
@@ -854,9 +861,15 @@
                                 <div class="container m_B exh">
                                     <h5>skills</h5>
                                     <div class="skillset">
-                                        <div class="html"></div>
-                                        <div class="css"></div>
-                                        <div class="js"></div>
+                                        <div class="html">
+                                            <div class="img"></div>
+                                        </div>
+                                        <div class="css">
+                                            <div class="img"></div>
+                                        </div>
+                                        <div class="js">
+                                            <div class="img"></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="container block m_B exh darkText">
