@@ -384,6 +384,16 @@ body {
 
 /* -- */
 
+.pwa .skillset > div {
+    width: 4rem;
+    height: 4rem;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 1.5em;
+    margin-bottom: 2em;
+}
+
 .pwa .skillset .html .img {
     background-image: url("../png/html.png");
 }
