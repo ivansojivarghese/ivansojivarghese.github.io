@@ -229,7 +229,7 @@ function fetchPWAInfo() {
 
     // about
 
-    commits.innerHTML = githubCommitsres.val;
+    commits.innerHTML = numberWithCommas(githubCommitsres.val);
 
     // battery
 
@@ -548,6 +548,12 @@ function e_Ic(el, p, f) { // effect - iterating digits on a numeral (in a string
             st_L(el, p, r, t, f)
         }, 1000/f); // 'f' is initial speed throttle
     }
+}
+
+function numberWithCommas(x) { // REFERENCED FROM: https://stackoverflow.com/questions/2901102/how-to-format-a-number-with-commas-as-thousands-separators BY Elias Zamaria
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
 }
 
 function getGhCommits() {
