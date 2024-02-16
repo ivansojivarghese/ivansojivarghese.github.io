@@ -29,6 +29,10 @@ body {
     background-color: #FFF;
 }
 
+.pwa .popups .terms h3 {
+    margin-top: 0.3em;
+}
+
 .pwaSecondary {
     display: none;
 }
