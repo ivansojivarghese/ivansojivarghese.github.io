@@ -19,6 +19,11 @@ body {
     background-color: rgba(0,0,0,0.8);
 }
 
+.pwa .popups > div {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .pwa .popups .terms {
     height: 100vh;
     background-color: #FFF;
