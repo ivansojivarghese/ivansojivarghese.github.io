@@ -12,6 +12,13 @@ body {
     display: none;
 }
 
+.pwa .popups {
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.8);
+}
+
 .pwaSecondary {
     display: none;
 }
