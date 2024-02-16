@@ -401,27 +401,27 @@ body {
 }
 
 .pwa .skillset .html .img {
-    background-image: url("../png/html.png");
+    background-image: url("../logo_ext/html.svg");
 }
 
 .pwa .skillset .css .img {
-    background-image: url("../png/css.png");
+    background-image: url("../logo_ext/css.svg");
 }
 
 .pwa .skillset .js .img {
-    background-image: url("../png/js.png");
+    background-image: url("../logo_ext/js.svg");
 }
 
 .pwa .skillset .jquery .img {
-    background-image: url("../png/jquery.png");
+    background-image: url("../logo_ext/jquery.svg");
 }
 
 .pwa .toolset .vscode .img {
-    background-image: url("../png/vscode.png");
+    background-image: url("../logo_ext/vscode.svg");
 }
 
 .pwa .toolset .canva .img {
-    background-image: url("../png/canva.png");
+    background-image: url("../logo_ext/canva.svg");
 }
 
 /* -- */
