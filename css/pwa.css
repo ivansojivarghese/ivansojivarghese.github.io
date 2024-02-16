@@ -385,15 +385,15 @@ body {
 /* -- */
 
 .pwa .skillset .html .img {
-    background-image: url("png/html.png");
+    background-image: url("../png/html.png");
 }
 
 .pwa .skillset .css .img {
-    background-image: url("png/css.png");
+    background-image: url("../png/css.png");
 }
 
 .pwa .skillset .js .img {
-    background-image: url("png/js.png");
+    background-image: url("../png/js.png");
 }
 
 /* -- */
