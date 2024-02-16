@@ -22,6 +22,11 @@ var rL = {
     c : document.getElementById("loadR-s") // loading ring (secondary)
 }
 
+var githubCommitsres = {
+    online : false, 
+    val : 0
+};
+
 var urlParams = {};
 
 const sections = document.querySelector('.pwa .sections');
@@ -215,6 +220,8 @@ function fetchPWAInfo() {
     const unit = document.querySelector('.pwa .weather #unit');
     const greeting = document.querySelector('.pwa .home #greeting');
     const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
+
+    const commits = document.querySelector('.pwa #g_commits');
 
     const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
 
@@ -539,6 +546,15 @@ function e_Ic(el, p, f) { // effect - iterating digits on a numeral (in a string
     }
 }
 
+function getGhCommits() {
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
+    request.send(null);
+    request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
+
+    githubCommitsres.online = true;
+}
+
 var loader = document.querySelector('#load_sc');
 
 function pwaRead() {
@@ -619,9 +635,10 @@ function pwaRead() {
 
                 clientAPI();
                 countryAPI("");
+                githubCommitsres.val = getGhCommits();
                 setTimeout(function() {
                     client_L = setInterval(function() {
-                        if (clientAPIres.online) {
+                        if (clientAPIres.online && githubCommitsres.online) {
                             ipAPI(clientAPIres.ipString);
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
