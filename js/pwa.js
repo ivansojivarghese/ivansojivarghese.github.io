@@ -408,6 +408,16 @@ function startLoadPWA() {
     }, (1000 / dev.t));*/
 }
 
+function openPopUp(target) {
+    const popups = document.querySelector('.pwa .popups');
+    var t = document.querySelector('.pwa .popups .' + target);
+    t.classList.remove("d_n");
+    popups.classList.remove("d_n");
+    setTimeout(function() {
+        e_Fd(popups, false);
+    }, 10);
+}
+
 function randomRGB() {
     var r = getRandomInt(0, 256),
         g = getRandomInt(0, 256),
