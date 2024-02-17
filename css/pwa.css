@@ -14,9 +14,13 @@ body {
 
 .pwa .popups {
     position: fixed;
-    height: 100vh;
+    height: calc(100% - calc(env(safe-area-inset-top))) !important;
     z-index: 1000;
     background-color: #F4F4F4;
+}
+
+.pwa .popups .terms {
+    padding-bottom: calc(calc(env(safe-area-inset-top) * 0.5));
 }
 
 .pwa .popups .terms h3 {
