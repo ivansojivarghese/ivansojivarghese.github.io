@@ -16,18 +16,7 @@ body {
     position: fixed;
     height: 100vh;
     z-index: 1000;
-    /*background-color: rgba(0,0,0,0.8);*/
     background-color: #F4F4F4;
-}
-
-.pwa .popups > div {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background-color: #F4F4F4;
-}
-
-.pwa .popups .terms {
-    height: 100vh;
 }
 
 .pwa .popups .terms h3 {
