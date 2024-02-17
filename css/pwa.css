@@ -22,11 +22,11 @@ body {
 .pwa .popups > div {
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: #F4F4F4;
 }
 
 .pwa .popups .terms {
     height: 100vh;
-    background-color: #F4F4F4;
 }
 
 .pwa .popups .terms h3 {
