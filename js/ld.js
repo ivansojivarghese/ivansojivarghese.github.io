@@ -1668,7 +1668,7 @@ function errorCheck() { // check for errors
     eR.a = ["fC", "tr", "fS", "mt", "dt", "ck", "vp", "or", "dp", "ld", "pl", "vL", "vs", "z", "sp"]; // error precedence array, UPDATE WHEN NEEDED!!
 
     // API stuff
-
+    /*
     apiInit = op.d.getTime(); // start API load time (at init)
     clientAPI(); // get user IP information + proxy usage status (no arguments)
     client_L = setInterval(function() {
@@ -1683,11 +1683,11 @@ function errorCheck() { // check for errors
     if (ipAPIres.online) { // get USER ROAMING information using coords
         roamingAPI(ipAPIres.lat, ipAPIres.lon);
         sunAPI(ipAPIres.lat, ipAPIres.lon); // get sunrise/sunset info of location
-    }*/
+    }
     timeAPI(); // GET USER time information (from IP Address, alternative to ipAPI)
     countryAPI(""); // GET USER country information (from IP Address) (ENTER A region IP value for language testing, IP Address)
     cloudflareCDN(); // cloudfare CDN trace service
-
+    */
     // msc. stuff
 
     op.fS = checkFullScreen();
