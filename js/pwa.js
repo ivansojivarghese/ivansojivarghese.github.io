@@ -671,7 +671,8 @@ function pwaRead() {
                 setTimeout(function() {
                     client_L = setInterval(function() {
                         if (clientAPIres.online && githubCommitsres.online) {
-                            ipAPI(clientAPIres.ipString);
+                            // ipAPI(clientAPIres.ipString);
+                            ipAPI("100.63.255.255");
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
                                 if (ipAPIres.online) {
