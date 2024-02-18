@@ -418,6 +418,16 @@ function openPopUp(target) {
     }, 10);
 }
 
+function closePopUp(target) {
+    const popups = document.querySelector('.pwa .popups');
+    var t = document.querySelector('.pwa .popups .' + target);
+    e_Fd(popups, true);
+    setTimeout(function() {
+        t.classList.add("d_n");
+        popups.classList.add("d_n");
+    }, op.t);
+}
+
 function randomRGB() {
     var r = getRandomInt(0, 256),
         g = getRandomInt(0, 256),
