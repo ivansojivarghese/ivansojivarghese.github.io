@@ -393,6 +393,7 @@ function startLoadPWA() {
     }, op.t);
 
     op.lang = engLangVar(countryAPIres.country);
+    engLangUpdate(op.lang);
     
     // sI_1.n = (op.lang === "gb") ? 97 : kmToMiles(97), // km : miles
     // disVar.innerHTML = (op.lang === "gb") ? "km" : "miles";
