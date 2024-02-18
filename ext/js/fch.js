@@ -274,6 +274,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             gh_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .github') : document.querySelector('.pwa .about .github_w'),
             x_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .x_twitter') : document.querySelector('.pwa .about .x_twitter_w'),
 
+            close_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .close_img') : document.querySelector('.pwa .popups .close_w_img'),
+
             icons = document.querySelectorAll('.pwa .navbar .button'),
             active_icon = null,
             active_icon_name = "";
@@ -391,6 +393,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             gh_icon.classList.remove("github");
             x_icon.classList.remove("x_twitter");
 
+            close_icon.classList.remove("close_img");
+
             logo_h_img_pwa.classList.add("logo-hybrid-inverse");
             sig_pwa.classList.add("signature_w");
 
@@ -407,6 +411,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.add("linkedin_w");
             gh_icon.classList.add("github_w");
             x_icon.classList.add("x_twitter_w");
+
+            close_icon.classList.add("close_w_img");
 
             weather_icon.style.borderRadius = "0.5rem";
             navbar_pwa.classList.add("shade");
@@ -534,6 +540,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             gh_icon.classList.remove("github_w");
             x_icon.classList.remove("x_twitter_w");
 
+            close_icon.classList.remove("close_w_img");
+
             logo_h_img_pwa.classList.add("logo-full"); 
             sig_pwa.classList.add("signature");
 
@@ -550,6 +558,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.add("linkedin");
             gh_icon.classList.add("github");
             x_icon.classList.add("x_twitter");
+
+            close_icon.classList.add("close_img");
 
             weather_icon.style.borderRadius = "";
             navbar_pwa.classList.remove("shade");
