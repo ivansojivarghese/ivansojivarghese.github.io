@@ -17,6 +17,9 @@ body {
     height: calc(100% - calc(env(safe-area-inset-top))) !important;
     z-index: 1000;
     background-color: #F4F4F4;
+    padding-right: calc(env(safe-area-inset-right));
+    width: calc(100vw - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+    padding-left: calc(env(safe-area-inset-left));
 }
 
 .pwa .popups .banner {
@@ -24,7 +27,12 @@ body {
 }
 
 .pwa .popups .terms {
-    padding-bottom: calc(calc(env(safe-area-inset-top) * 0.5));
+    padding-bottom: calc(1rem + calc(env(safe-area-inset-top) * 0.5));
+}
+
+.pwa .popups .terms .m_L-10 {
+    margin-right: 1rem;
+    width: calc(100% - 1rem - 10%);
 }
 
 .pwa .popups .terms h3 {
@@ -570,6 +578,11 @@ body {
     .pwa .m_L-10 {
         margin-left: 7.5% !important;
         width: 92.5%;
+    }
+
+    .pwa .popups .terms .m_L-10 {
+        margin-left: 5% !important;
+        width: calc(95% - 1rem) !important;
     }
 
     .pwa .profile_image {
