@@ -273,7 +273,7 @@
    ],
    "shortcuts" : [
         {
-            "name" : "Clicks",
+            "name" : "Embrace my shots",
             "short_name" : "Clicks",
             "url" :  "https://ivansojivarghese.github.io/?nav1=clicks",
             "icons" : [
@@ -285,7 +285,7 @@
             ]
         },
         {
-            "name" : "Code",
+            "name" : "Study some projects",
             "short_name" : "Code",
             "url" :  "https://ivansojivarghese.github.io/?nav1=code",
             "icons" : [
@@ -297,7 +297,7 @@
             ]
         },
         {
-            "name" : "Diary",
+            "name" : "Read the diary",
             "short_name" : "Diary",
             "url" :  "https://ivansojivarghese.github.io/?nav1=diary",
             "icons" : [
@@ -309,7 +309,7 @@
             ]
         },
         {
-            "name" : "About",
+            "name" : "Who am I?",
             "short_name" : "About",
             "url" :  "https://ivansojivarghese.github.io/?nav1=about",
             "icons" : [
