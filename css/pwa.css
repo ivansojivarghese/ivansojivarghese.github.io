@@ -19,12 +19,20 @@ body {
     background-color: #F4F4F4;
 }
 
+.pwa .popups .banner {
+    justify-content: flex-end;
+}
+
 .pwa .popups .terms {
     padding-bottom: calc(calc(env(safe-area-inset-top) * 0.5));
 }
 
 .pwa .popups .terms h3 {
     margin-top: 0.3em;
+}
+
+.pwa .popups .terms h3:first-child {
+    margin-top: 0;
 }
 
 .pwaSecondary {
