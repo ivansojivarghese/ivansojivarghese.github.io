@@ -397,6 +397,14 @@ body {
     background-image: url("../pwa/about_dark.png");
 }
 
+.pwa .close_img {
+    background-image: url("../svg/close.svg");
+}
+
+.pwa .close_w_img {
+    background-image: url("../svg/close_white.svg");
+}
+
 /* -- */
 
 .pwa .skillset > div, .pwa .toolset > div {
