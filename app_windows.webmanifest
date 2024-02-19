@@ -273,7 +273,7 @@
    ],
    "shortcuts" : [
         {
-            "name" : "Embrace my shots",
+            "name" : "See my shots",
             "short_name" : "Clicks",
             "url" :  "https://ivansojivarghese.github.io/?nav1=clicks",
             "icons" : [
@@ -285,7 +285,7 @@
             ]
         },
         {
-            "name" : "Study some projects",
+            "name" : "Play with code",
             "short_name" : "Code",
             "url" :  "https://ivansojivarghese.github.io/?nav1=code",
             "icons" : [
