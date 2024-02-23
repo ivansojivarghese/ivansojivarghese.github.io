@@ -694,6 +694,12 @@ body {
     }
 }
 
+@media screen and (min-width: 1200px) and (max-height: calc(100vw / 1.5)) {
+    .pwa .profile_image {
+        margin-right: 3rem;
+    }
+}
+
 @media screen and (min-width: 1400px) and (max-height: calc(100vw / 1.5)) {
         
     .pwa .home #wordsTyper {
