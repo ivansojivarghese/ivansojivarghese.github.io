@@ -494,7 +494,7 @@ function updateBatteryUI(battery) {
     if (btty.charging && btty.chargingTime !== 0) {
         batteryStatus.innerHTML = "charging";
         batteryTime.innerHTML = "~ " + (btty.chargingTime / 60) + " min";
-    } else if (btty.charging && btty.dischargingTime === "Infinity") {
+    } else if (btty.charging && btty.dischargingTime === Infinity) {
         batteryStatus.innerHTML = "stable";
         batteryTime.innerHTML = "~ " + btty.dischargingTime;
     } else {
