@@ -499,13 +499,25 @@ function updateBatteryUI(battery) {
     batteryLevel.innerHTML = btty.level + "%";
     if (btty.charging && btty.chargingTime !== 0) {
         batteryStatus.innerHTML = "charging";
-        batteryTime.innerHTML = "~ " + (btty.chargingTime / 60) + " min";
+        if (Math.round((btty.chargingTime / 60)) < 60) {
+            batteryTime.innerHTML = "~ " + Math.round((btty.chargingTime / 60)) + " min";
+        } else {
+            var min = Math.round((btty.chargingTime / 60)),
+                hours = Math.floor(min / 60);
+            batteryTime.innerHTML = "~ " + hours + " h " + (min % 60) + " min";
+        }
     } else if (btty.charging && btty.dischargingTime === Infinity) {
         batteryStatus.innerHTML = "stable";
         batteryTime.innerHTML = "~ " + btty.dischargingTime;
     } else {
         batteryStatus.innerHTML = "discharging";
-        batteryTime.innerHTML = "~ " + (btty.dischargingTime / 60) + " min";
+        if (Math.round((btty.dischargingTime / 60)) < 60) {
+            batteryTime.innerHTML = "~ " + Math.round((btty.dischargingTime / 60)) + " min";
+        } else {
+            var min = Math.round((btty.dischargingTime / 60)),
+                hours = Math.floor(min / 60);
+            batteryTime.innerHTML = "~ " + hours + " h " + (min % 60) + " min";
+        }
     }
 
     for (j = 0; j < batteryIcons.length; j++) {
