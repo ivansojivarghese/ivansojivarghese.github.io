@@ -412,6 +412,9 @@ function startLoadPWA() {
 function openPopUp(target) {
     const popups = document.querySelector('.pwa .popups');
     var t = document.querySelector('.pwa .popups .' + target);
+    if (target !== 'terms') {
+        popups.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    }
     t.classList.remove("d_n");
     popups.classList.remove("d_n");
     setTimeout(function() {
@@ -422,6 +425,9 @@ function openPopUp(target) {
 function closePopUp(target) {
     const popups = document.querySelector('.pwa .popups');
     var t = document.querySelector('.pwa .popups .' + target);
+    if (target !== 'terms') {
+        popups.style.backgroundColor = "";
+    }
     e_Fd(popups, true);
     setTimeout(function() {
         t.classList.add("d_n");
