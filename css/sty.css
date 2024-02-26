@@ -179,13 +179,13 @@ h1, h2, h3, h5, h6, p, ul, h4.revert {
     right: 0.1rem;
     background: #a1a1a1;
     z-index: 100000;
-    mix-blend-mode: exclusion;
+    mix-blend-mode: difference;
     border-radius: 1rem;
 }
 
 .cursor {
     pointer-events: none;
-    mix-blend-mode: exclusion;
+    mix-blend-mode: difference;
 }
 
 .cursor.big {
