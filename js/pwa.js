@@ -436,7 +436,6 @@ function closePopUp(target) {
     const popups = document.querySelector('.pwa .popups');
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
-        popups.style.backgroundColor = "";
         popups.removeEventListener("click", function(e) {
             if (e.target !== this) {
                 return
@@ -448,6 +447,9 @@ function closePopUp(target) {
     setTimeout(function() {
         t.classList.add("d_n");
         popups.classList.add("d_n");
+        if (target !== 'terms') {
+            popups.style.backgroundColor = "";
+        }
     }, op.t);
 }
 
