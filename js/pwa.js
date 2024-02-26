@@ -418,7 +418,10 @@ function openPopUp(target) {
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
         popups.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-        popups.addEventListener("click", function() {
+        popups.addEventListener("click", function(e) {
+            if (e.target !== this) {
+                return
+            }
             closePopUp(target)
         }, true);
     }
@@ -434,7 +437,10 @@ function closePopUp(target) {
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
         popups.style.backgroundColor = "";
-        popups.removeEventListener("click", function() {
+        popups.removeEventListener("click", function(e) {
+            if (e.target !== this) {
+                return
+            }
             closePopUp(target)
         }, true);
     }
