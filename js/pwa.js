@@ -484,7 +484,7 @@ function updateBatteryUI(battery) {
             }
         }
 
-        if (btty.charging) { // charging
+        if (btty.charging && btty.chargingTime !== 0) { // charging
             batteryIcons[j].classList.add("battery_chg_img");
         } else if (btty.level > 87.5) { // full
             var img = (!op.darkMode || init) ? "battery_full_img" : "battery_full_w_img";
