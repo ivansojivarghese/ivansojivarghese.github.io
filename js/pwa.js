@@ -32,6 +32,10 @@ var urlParams = {};
 const sections = document.querySelector('.pwa .sections');
 // const navbarButtons = document.querySelectorAll('.pwa .navbar .button');
 
+const batteryLevel = document.querySelector('.pwa .popups .batteryInfo .level');
+const batteryStatus = document.querySelector('.pwa .popups .batteryInfo .status');
+const batteryTime = document.querySelector('.pwa .popups .batteryInfo .time');
+
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
     // defTab = tabs[0],
@@ -478,6 +482,15 @@ function updateBatteryUI(battery) {
         btty.charging = true;
     } else if (battery.charging === false) {
         btty.charging = false;
+    }
+
+    batteryLevel.innerHTML = btty.level + "%";
+    if (btty.charging && btty.chargingTime !== 0) {
+        batteryStatus.innerHTML = "charging";
+        batteryTime.innerHTML = "~ " + (btty.chargingTime / 60) + " min";
+    } else {
+        batteryStatus.innerHTML = "discharging";
+        batteryTime.innerHTML = "~ " + (btty.dischargingTime / 60) + " min";
     }
 
     for (j = 0; j < batteryIcons.length; j++) {
