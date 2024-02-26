@@ -108,6 +108,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         c_css(".darkText", "color: #FFF !important;", false, null, op, "darkMode");
         c_css(".lightText", "color: #303030 !important;", false, null, op, "darkMode");
 
+        c_css(".cursor", "mix-blend-mode: exclusion !important;", false, null, op, "darkMode");
+
         c_css("#ckA_msg", "border-top: 0.2rem solid #FFF", false, null, op, "darkMode"); //
 
         c_css(".load_r", "border-top-color: #FFF;", false, null, op, "darkMode");

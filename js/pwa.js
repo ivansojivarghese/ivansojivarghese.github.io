@@ -496,7 +496,7 @@ function updateBatteryUI(battery) {
         btty.charging = false;
     }
 
-    batteryLevel.innerHTML = btty.level + "%";
+    batteryLevel.innerHTML = Math.round(btty.level) + "%";
     if (btty.charging && btty.chargingTime !== 0) {
         batteryStatus.innerHTML = "charging";
         if (Math.round((btty.chargingTime / 60)) < 60) {
