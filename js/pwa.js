@@ -32,9 +32,9 @@ var urlParams = {};
 const sections = document.querySelector('.pwa .sections');
 // const navbarButtons = document.querySelectorAll('.pwa .navbar .button');
 
-const batteryLevel = document.querySelector('.pwa .popups .batteryInfo .level');
-const batteryStatus = document.querySelector('.pwa .popups .batteryInfo .status');
-const batteryTime = document.querySelector('.pwa .popups .batteryInfo .time');
+var batteryLevel = document.querySelector('.pwa .popups .batteryInfo .level');
+var batteryStatus = document.querySelector('.pwa .popups .batteryInfo .status');
+var batteryTime = document.querySelector('.pwa .popups .batteryInfo .time');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
