@@ -49,6 +49,11 @@ body {
     border-radius: 0.25rem;
 }
 
+.pwa .popups .pills .m_Tp {
+    margin-left: 10%;
+    width: 90%;
+}
+
 .pwa .popups .pills h3 {
     font-size: 1.5rem;
 }
