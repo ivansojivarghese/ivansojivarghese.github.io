@@ -483,12 +483,14 @@ function updateBatteryUI(battery) {
                 break;
             }
         }
-
-        if (btty.charging && btty.chargingTime === 0) { // desktop PC - battery irrelevant
-            batteryIcons[j].parentElement.classList.add("d_n");
-        } else if (btty.charging && btty.chargingTime !== 0) { // charging
+        /*
+        if (btty.charging && btty.chargingTime === 0) { // desktop PC - battery irrelevant/full
+            // batteryIcons[j].parentElement.classList.add("d_n");
+        } else */
+        
+        if (btty.charging && btty.chargingTime !== 0) { // charging
             batteryIcons[j].classList.add("battery_chg_img");
-        } else if (btty.level > 87.5) { // full
+        } else if (btty.level > 87.5 || (btty.charging && btty.chargingTime === 0)) { // full
             var img = (!op.darkMode || init) ? "battery_full_img" : "battery_full_w_img";
             batteryIcons[j].classList.add(img);
         } else if (btty.level > 75) { // 6
