@@ -251,6 +251,12 @@ function fetchPWAInfo() {
         }
     }
 
+    // screen refresh rate
+
+    getScreenRefreshRate(function(FPS){ // average screen refresh rate
+        op.sfa = FPS; // live
+    }, true);
+
     // dark mode
 
     if (!getCookie("darkMode")) { // if no manual control from user
