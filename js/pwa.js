@@ -501,7 +501,9 @@ function updateBatteryUI(battery) {
     batteryLevel.innerHTML = Math.round(btty.level) + "%";
     if (btty.charging && btty.chargingTime !== 0) {
         batteryStatus.innerHTML = "charging";
-        if (Math.round((btty.chargingTime / 60)) < 60) {
+        if (btty.chargingTime === Infinity) {
+            batteryTime.innerHTML = "~ " + btty.chargingTime;
+        } else if (Math.round((btty.chargingTime / 60)) < 60) {
             batteryTime.innerHTML = "~ " + Math.round((btty.chargingTime / 60)) + " min";
         } else {
             var min = Math.round((btty.chargingTime / 60)),
@@ -517,7 +519,9 @@ function updateBatteryUI(battery) {
         batteryTime.innerHTML = "~ " + btty.dischargingTime;
     } else {
         batteryStatus.innerHTML = "discharging";
-        if (Math.round((btty.dischargingTime / 60)) < 60) {
+        if (btty.dischargingTime === Infinity) {
+            batteryTime.innerHTML = "~ " + dischargingTime;
+        } else if (Math.round((btty.dischargingTime / 60)) < 60) {
             batteryTime.innerHTML = "~ " + Math.round((btty.dischargingTime / 60)) + " min";
         } else {
             var min = Math.round((btty.dischargingTime / 60)),
