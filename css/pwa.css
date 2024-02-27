@@ -311,7 +311,7 @@ body {
     -webkit-background-clip: text;
 }
 
-.pwa .img_iconBtn {
+.pwa .img_iconBtn:last-child {
     margin-right: 1rem;
 }
 
