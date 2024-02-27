@@ -506,7 +506,11 @@ function updateBatteryUI(battery) {
         } else {
             var min = Math.round((btty.chargingTime / 60)),
                 hours = Math.floor(min / 60);
-            batteryTime.innerHTML = "~ " + hours + " h " + (min % 60) + " min";
+            if (hours < 24) {
+                batteryTime.innerHTML = "~ " + hours + " h " + (min % 60) + " min";
+            } else {
+                batteryTime.innerHTML = "~ " + Math.floor(hours / 24) + " d " + (hours % 24) + " h";
+            }
         }
     } else if (btty.charging && btty.dischargingTime === Infinity) {
         batteryStatus.innerHTML = "stable";
@@ -518,7 +522,11 @@ function updateBatteryUI(battery) {
         } else {
             var min = Math.round((btty.dischargingTime / 60)),
                 hours = Math.floor(min / 60);
-            batteryTime.innerHTML = "~ " + hours + " h " + (min % 60) + " min";
+            if (hours < 24) {
+                batteryTime.innerHTML = "~ " + hours + " h " + (min % 60) + " min";
+            } else {
+                batteryTime.innerHTML = "~ " + Math.floor(hours / 24) + " d " + (hours % 24) + " h";
+            }
         }
     }
 
