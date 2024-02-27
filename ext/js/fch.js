@@ -261,6 +261,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             settings_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .banner .settings_img') : document.querySelector('.pwa .about .banner .settings_w_img'),
             batteryIcons = document.querySelectorAll('.pwa .banner .battery'),
+            infoIcons = document.querySelectorAll('.pwa .banner .info'),
 
             home_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .home') : document.querySelector('.pwa .navbar .home_dark'),
             clicks_icon = (!op.darkMode || init) ? document.querySelector('.pwa .navbar .clicks') : document.querySelector('.pwa .navbar .clicks_dark'),
@@ -377,6 +378,18 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
                         batteryIcons[j].classList.add(str);
                     break;
                 }
+            }
+
+            for (k = 0; k < infoIcons.length; k++) {
+                for (i = 0; i < infoIcons[k].classList.length; i++) {
+                    str = infoIcons[k].classList[i];
+                    match = str.match("info_");
+                    if (match !== null) {
+                        infoIcons[k].classList.remove(str);
+                        break;
+                    }
+                }
+                infoIcons[k].classList.add("info_w_img");
             }
 
             settings_icon.classList.remove("settings_img");
@@ -524,6 +537,18 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
                         batteryIcons[j].classList.add(str);
                     break;
                 }
+            }
+
+            for (k = 0; k < infoIcons.length; k++) {
+                for (i = 0; i < infoIcons[k].classList.length; i++) {
+                    str = infoIcons[k].classList[i];
+                    match = str.match("info_");
+                    if (match !== null) {
+                        infoIcons[k].classList.remove(str);
+                        break;
+                    }
+                }
+                infoIcons[k].classList.add("info_img");
             }
 
             settings_icon.classList.remove("settings_w_img");
