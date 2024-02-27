@@ -241,6 +241,8 @@ function fetchPWAInfo() {
         const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
         navigator.getBattery().then(monitorBattery);
         for (j = 0; j < batteryIcons.length; j++) {
+            batteryIcons[j].parentElement.classList.remove("d_n");
+
             batteryIcons[j].parentElement.classList.add("hoverB", "trs");
 
             batteryIcons[j].parentElement.addEventListener('mousemove', hoverInit);
