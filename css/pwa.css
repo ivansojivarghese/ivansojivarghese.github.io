@@ -448,6 +448,14 @@ body {
     background-image: url("../svg/close_white.svg");
 }
 
+.pwa .info_img {
+    background-image: url("../svg/info.svg");
+}
+
+.pwa .info_w_img {
+    background-image: url("../svg/info_white.svg");
+}
+
 /* -- */
 
 .pwa .skillset > div, .pwa .toolset > div {

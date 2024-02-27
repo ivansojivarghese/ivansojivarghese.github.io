@@ -84,7 +84,9 @@
                     btty_6_w : false,
                     btty_full_w : false,
                     cl : false,
-                    cl_w : false
+                    cl_w : false,
+                    inf : false,
+                    inf_w : false
                 },
                 img = {
                     p : false,
@@ -419,6 +421,8 @@
         <link rel="preload" fetchpriority="low" href="svg/switch_right_white.svg" as="image" type="image/svg+xml" onload="svg.sw_Rw = true;">
         <link rel="preload" fetchpriority="low" href="svg/close.svg" as="image" type="image/svg+xml" onload="svg.cl = true;">
         <link rel="preload" fetchpriority="low" href="svg/close_white.svg" as="image" type="image/svg+xml" onload="svg.cl_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/info.svg" as="image" type="image/svg+xml" onload="svg.inf = true;">
+        <link rel="preload" fetchpriority="low" href="svg/info_white.svg" as="image" type="image/svg+xml" onload="svg.inf_w = true;">
 
         <!-- 
         <link rel="preload" href="svg/scrolltop.svg" as="image" type="image/svg+xml" onload="svg.sct = true;">
@@ -899,6 +903,9 @@
                             <div class="img_iconBtn d_n" onclick="openPopUp('batteryInfo')">
                                 <div class="battery img trs img_icon d_i"></div>
                             </div>
+                            <div class="img_iconBtn" onclick="openPopUp('')">
+                                <div class="info_img img trs img_icon d_i"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="code d_n">
@@ -907,6 +914,9 @@
                             <div class="img_iconBtn d_n" onclick="openPopUp('batteryInfo')">
                                 <div class="battery img trs img_icon d_i"></div>
                             </div>
+                            <div class="img_iconBtn" onclick="openPopUp('')">
+                                <div class="info_img img trs img_icon d_i"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="diary d_n">
@@ -914,6 +924,9 @@
                             <div></div>
                             <div class="img_iconBtn d_n" onclick="openPopUp('batteryInfo')">
                                 <div class="battery img trs img_icon d_i"></div>
+                            </div>
+                            <div class="img_iconBtn" onclick="openPopUp('')">
+                                <div class="info_img img trs img_icon d_i"></div>
                             </div>
                         </div>
                     </div>
@@ -931,6 +944,9 @@
                             <div></div>
                             <div class="img_iconBtn d_n" onclick="openPopUp('batteryInfo')">
                                 <div class="battery img trs img_icon d_i"></div>
+                            </div>
+                            <div class="img_iconBtn" onclick="openPopUp('')">
+                                <div class="info_img img trs img_icon d_i"></div>
                             </div>
                         </div>
                         <div class="m_L-10 m_wd">
