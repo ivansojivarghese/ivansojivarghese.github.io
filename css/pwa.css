@@ -65,8 +65,8 @@ body {
 }
 
 .pwa .popups .pills.batteryInfo {
-    top: 4.2rem;
-    right: 2rem;
+    top: calc(4.2rem + env(safe-area-inset-top));
+    right: calc(2rem + calc(env(safe-area-inset-right)));
     width: 7rem;
 }
 
