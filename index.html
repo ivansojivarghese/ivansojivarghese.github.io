@@ -86,7 +86,8 @@
                     cl : false,
                     cl_w : false,
                     inf : false,
-                    inf_w : false
+                    inf_w : false,
+                    shr_w : false
                 },
                 img = {
                     p : false,
@@ -423,6 +424,7 @@
         <link rel="preload" fetchpriority="low" href="svg/close_white.svg" as="image" type="image/svg+xml" onload="svg.cl_w = true;">
         <link rel="preload" fetchpriority="low" href="svg/info.svg" as="image" type="image/svg+xml" onload="svg.inf = true;">
         <link rel="preload" fetchpriority="low" href="svg/info_white.svg" as="image" type="image/svg+xml" onload="svg.inf_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/share_white.svg" as="image" type="image/svg+xml" onload="svg.shr_w = true;">
 
         <!-- 
         <link rel="preload" href="svg/scrolltop.svg" as="image" type="image/svg+xml" onload="svg.sct = true;">
@@ -853,7 +855,9 @@
                     </div>
                 </div>
                 <div class="fab trs">
-                    
+                    <div class="img_iconBtn hoverB trs">
+                        <div class="share_w_img img trs img_icon d_i"></div>
+                    </div>
                 </div>
                 <div class="sections scrollBarFunction lightBackground">
                     <div class="home d_n">

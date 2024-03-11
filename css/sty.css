@@ -1357,6 +1357,10 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/info_white.svg");
 }
 
+.share_w_img {
+    background-image: url("../svg/share_white.svg");
+}
+
 .cookies_w_img {
     background-image: url("../svg/cookies_white.svg");
 }
