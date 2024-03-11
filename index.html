@@ -1790,6 +1790,12 @@
             <div class="signature_w"></div>
             <div class="profile_image"></div>
         </div> 
+        <!-- install service worker -->
+        <script>
+            if ("serviceWorker" in navigator) { // register a service worker
+                navigator.serviceWorker.register("service-worker.js");
+            }
+        </script>
         <!-- scrollbar (desktop) -->
         <script>
             var condScrollBar = false,

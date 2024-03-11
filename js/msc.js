@@ -3818,12 +3818,12 @@ window.addEventListener("load", function() {
 window.addEventListener("load", function() {
     rL.y = true; // page has been rendered
 });
-
+/*
 window.addEventListener("load", () => { 
     if ("serviceWorker" in navigator) { // register a service worker
         navigator.serviceWorker.register("service-worker.js");
     }
-});
+});*/
 
 window.addEventListener('pagehide', function (event) {
     if (event.persisted) {
