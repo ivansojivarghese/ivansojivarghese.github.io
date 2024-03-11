@@ -14,6 +14,16 @@
    "launch_handler": {
         "client_mode": "navigate-existing"
     },
+    "web_apps" : [
+        {
+            "web_app_identity": "https://ivansojivarghese.github.io/"
+        }
+    ],
+    "scope_extensions": [
+        {
+            "origin": "https://*.glitch.me/"
+        }
+    ],
    "icons" : [
         {
             "src": "favicon/windows/icon48x48.png",
