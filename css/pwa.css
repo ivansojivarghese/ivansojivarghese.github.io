@@ -22,6 +22,7 @@ body {
     bottom: 5.25rem;
     right: 1.25rem;
     box-shadow: 0 0.18rem 0.6rem rgba(0,0,0,.16), 0 0.18rem 0.6rem rgba(0,0,0,.16);
+    transform-origin: center;
 }
 
 .pwa .fab.hide {
