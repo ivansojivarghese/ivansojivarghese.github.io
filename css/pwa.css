@@ -25,6 +25,10 @@ body {
     transform-origin: center;
 }
 
+.pwa .fab:active {
+    transform: scale(0.9);
+}
+
 .pwa .fab .img_iconBtn {
     margin: 0;
     padding: 1.1rem 1rem;
@@ -107,7 +111,7 @@ body {
     justify-content: center;
 }
 
-.pwa .img_iconBtn:active .img, .pwa .navbar .button:active, .pwa a:active .img_icon {
+.pwa .img_iconBtn.hoverB:active .img, .pwa .navbar .button:active, .pwa a:active .img_icon {
     transform: scale(0.9);
 }
 
