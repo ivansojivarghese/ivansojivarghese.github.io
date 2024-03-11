@@ -1913,6 +1913,7 @@
 
                             if (scrollBarPosArr.every(item => item === 0)) {
                                 navbar.classList.remove("hide");
+                                fab.classList.remove("hide");
                             } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
                                 navbar.classList.add("hide");
                                 fab.classList.add("hide");
@@ -1922,6 +1923,7 @@
                                     // console.log("show");
 
                                     navbar.classList.remove("hide");
+                                    fab.classList.remove("hide");
                                     if (!navbarHideMod) {
                                         navbarHideMod = true;
                                         setTimeout(function() {
