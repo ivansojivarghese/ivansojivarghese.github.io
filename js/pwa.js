@@ -83,11 +83,19 @@ function navButtonActive(b, e, v) {
     var target = e.currentTarget || e;
     const buttons = document.querySelectorAll('.pwa .navbar .button');
 
+    const fab = document.querySelector('.pwa .fab');
+
     /*
     if (target.classList.contains("about") || target.classList.contains("about_dark")) {
         const profile_image = document.querySelector('.pwa .profile_image');
         e_Fd(profile_image, false);
     }*/
+
+    if (b === "about") {
+        fab.classList.remove("hide");
+    } else {
+        fab.classList.add("hide");
+    }
 
     let url = new URL(window.location.href);
     let params = url.searchParams;
@@ -219,6 +227,7 @@ function timeOfDay() {
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
+    const fab = document.querySelector('.pwa .fab');
 
     const temp = document.querySelector('.pwa .weather #temp');
     const unit = document.querySelector('.pwa .weather #unit');
@@ -299,6 +308,11 @@ function fetchPWAInfo() {
         targetSection.classList.add("scrollBarContainer");
         activeTab = target;
         navButtonActive(target, targetBtn, true);
+
+        if (target === "about") {
+            fab.classList.remove("hide");
+        }
+
     } else {
         const homeSection = document.querySelector('.pwa .sections .home');
         homeSection.classList.remove("d_n");
