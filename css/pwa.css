@@ -29,6 +29,10 @@ body {
     transform: scale(0);
 }
 
+.pwa .fab.shade {
+    background-color: #3D3D3D;
+}
+
 .pwa .popups {
     position: fixed;
     height: calc(100% - calc(env(safe-area-inset-top))) !important;

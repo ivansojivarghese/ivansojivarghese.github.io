@@ -258,6 +258,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             weather_icon = document.querySelector('.pwa .weatherIcon .icon-container'),
             navbar_pwa = document.querySelector('.pwa .navbar'),
+            fab = document.querySelector('.pwa .fab'),
 
             settings_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .banner .settings_img') : document.querySelector('.pwa .about .banner .settings_w_img'),
             batteryIcons = document.querySelectorAll('.pwa .banner .battery'),
@@ -429,6 +430,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             weather_icon.style.borderRadius = "0.5rem";
             navbar_pwa.classList.add("shade");
+            fab.classList.add("shade");
 
             navButtonActive(active_icon_name, active_icon, true);
         }
@@ -588,6 +590,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             weather_icon.style.borderRadius = "";
             navbar_pwa.classList.remove("shade");
+            fab.classList.remove("shade");
 
             navButtonActive(active_icon_name, active_icon, true);
         }
