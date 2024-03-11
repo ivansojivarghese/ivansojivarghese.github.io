@@ -24,6 +24,10 @@ body {
     box-shadow: 0 0.18rem 0.6rem rgba(0,0,0,.16), 0 0.18rem 0.6rem rgba(0,0,0,.16);
 }
 
+.pwa .fab.hide {
+    transform: scale(0);
+}
+
 .pwa .popups {
     position: fixed;
     height: calc(100% - calc(env(safe-area-inset-top))) !important;

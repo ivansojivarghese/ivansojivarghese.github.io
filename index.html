@@ -852,7 +852,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="fab">
+                <div class="fab trs">
                     
                 </div>
                 <div class="sections scrollBarFunction lightBackground">
@@ -1812,6 +1812,7 @@
                 endPos = 0;
 
             const navbar = document.querySelector('.pwa .navbar');
+            const fab = document.querySelector('.pwa .fab');
 
             // const parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
 
@@ -1914,6 +1915,7 @@
                                 navbar.classList.remove("hide");
                             } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
                                 navbar.classList.add("hide");
+                                fab.classList.add("hide");
                             } else {
                                 if (navbarHide && scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
                                     
@@ -1932,6 +1934,7 @@
                                     // console.log("hide");
                                     
                                     navbar.classList.add("hide");
+                                    fab.classList.add("hide");
                                     if (!navbarHideMod) {
                                         navbarHideMod = true;
                                         setTimeout(function() {
