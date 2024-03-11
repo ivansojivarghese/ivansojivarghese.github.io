@@ -14,12 +14,12 @@ body {
 
 .pwa .fab {
     width: 4rem;
-    background: #303030;
+    background-color: #303030;
     height: 4rem;
     position: fixed;
     z-index: 500;
-    border-radius: 1rem;
-    bottom: 5rem;
+    border-radius: 50%;
+    bottom: 5.25rem;
     right: 1.25rem;
     box-shadow: 0 0.18rem 0.6rem rgba(0,0,0,.16), 0 0.18rem 0.6rem rgba(0,0,0,.16);
 }
