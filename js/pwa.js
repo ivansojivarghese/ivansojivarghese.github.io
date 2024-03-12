@@ -318,6 +318,13 @@ function fetchPWAInfo() {
 
         if (target === "about") {
             fab.classList.remove("hide");
+            fab.addEventListener("click", async () => {
+                try {
+                    await navigator.share(aboutShareData);
+                } catch (err) {
+                    console.log(err);
+                }
+            });
         }
 
     } else {
