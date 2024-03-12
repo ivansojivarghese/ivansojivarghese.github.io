@@ -93,8 +93,10 @@ function navButtonActive(b, e, v) {
 
     if (b === "about") {
         fab.classList.remove("hide");
+        fab.addEventListener("click", shareData(aboutShareData));
     } else {
         fab.classList.add("hide");
+        fab.removeEventListener("click", shareData);
     }
 
     let url = new URL(window.location.href);

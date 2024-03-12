@@ -1818,6 +1818,20 @@
             const navbar = document.querySelector('.pwa .navbar');
             const fab = document.querySelector('.pwa .fab');
 
+            const aboutShareData = {
+                            title: "Ivan Varghese",
+                            text: "An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!",
+                            url: "https://ivansojivarghese.github.io/"
+                        };
+
+            const shareData = async function(pack) {
+                            try {
+                                await navigator.share(pack);
+                            } catch (err) {
+                                console.log(err);
+                            }
+                        };
+
             // const parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
 
             // var scrolling = false;
@@ -1918,24 +1932,14 @@
                             if (scrollBarPosArr.every(item => item === 0)) {
                                 navbar.classList.remove("hide");
                                 if (activeTab === "about") {
-                                    const aboutShareData = {
-                                        title: "Ivan Varghese",
-                                        text: "An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!",
-                                        url: "https://ivansojivarghese.github.io/",
-                                    };
                                     // fab.classList.add("share_w_img");
                                     fab.classList.remove("hide");
-                                    fab.addEventListener("click", async () => {
-                                        try {
-                                            await navigator.share(aboutShareData);
-                                        } catch (err) {
-                                            console.log(err);
-                                        }
-                                    });
+                                    fab.addEventListener("click", shareData(aboutShareData));
                                 }
                             } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
                                 navbar.classList.add("hide");
                                 fab.classList.add("hide");
+                                fab.removeEventListener("click", shareData);
                             } else {
                                 if (navbarHide && scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
                                     
@@ -1959,6 +1963,7 @@
                                     
                                     navbar.classList.add("hide");
                                     fab.classList.add("hide");
+                                    fab.removeEventListener("click", shareData);
                                     if (!navbarHideMod) {
                                         navbarHideMod = true;
                                         setTimeout(function() {
