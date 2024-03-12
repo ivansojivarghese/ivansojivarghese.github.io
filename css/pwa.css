@@ -595,12 +595,21 @@ body {
     .pwa .about .content .paragraph.size {
         text-align: center;
     }
+
+    .pwa .fab {
+        display: none;
+    }
 }
 
 @media screen and (orientation: landscape) {
     .pwa .navbar.hide {
         bottom: 0;
     }
+
+    .pwa .fab {
+        display: none;
+    }
+
     /*
     .pwa .noRSpace {
         padding-right: 2em;
