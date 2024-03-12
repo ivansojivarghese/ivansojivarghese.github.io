@@ -1918,7 +1918,20 @@
                             if (scrollBarPosArr.every(item => item === 0)) {
                                 navbar.classList.remove("hide");
                                 if (activeTab === "about") {
+                                    const aboutShareData = {
+                                        title: "Ivan Varghese",
+                                        text: "An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!",
+                                        url: "https://ivansojivarghese.github.io/",
+                                    };
+                                    // fab.classList.add("share_w_img");
                                     fab.classList.remove("hide");
+                                    fab.addEventListener("click", async () => {
+                                        try {
+                                            await navigator.share(aboutShareData);
+                                        } catch (err) {
+                                            console.log(err);
+                                        }
+                                    });
                                 }
                             } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
                                 navbar.classList.add("hide");
@@ -1930,6 +1943,7 @@
 
                                     navbar.classList.remove("hide");
                                     if (activeTab === "about") {
+                                        // fab.classList.add("share_w_img");
                                         fab.classList.remove("hide");
                                     }
                                     if (!navbarHideMod) {
