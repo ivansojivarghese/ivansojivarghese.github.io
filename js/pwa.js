@@ -278,7 +278,7 @@ function networkInfo() {
         networkDownlink.remove();
     }
     if (navigator.connection.downlinkMax) {
-        networkDownlinkMax.innerHTML = "max downlink: " + navigator.connection.downlinkMax;
+        networkDownlinkMax.innerHTML = "max downlink: " + navigator.connection.downlinkMax + " Mbps";
     } else {
         networkDownlinkMax.remove();
     }
@@ -334,10 +334,16 @@ function fetchPWAInfo() {
     networkInfo();
 
     navigator.connection.addEventListener('change', function() {
-
-        // clientAPI();
-
-        networkInfo();
+        clientAPIres.online = false;
+        clientAPI();
+        setTimeout(function() {
+            client_L = setInterval(function() {
+                if (clientAPIres.online) {
+                    clearInterval(client_L);
+                    networkInfo();
+                }
+            }, op.t);
+        }, op.t);
     });
 
     // dark mode
