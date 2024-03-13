@@ -36,6 +36,8 @@ const batteryLevel = document.querySelector('.pwa .popups .batteryInfo .level');
 const batteryStatus = document.querySelector('.pwa .popups .batteryInfo .status');
 const batteryTime = document.querySelector('.pwa .popups .batteryInfo .time');
 
+const deviceName = document.querySelector('.pwa .popups .deviceInfo .device');
+
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
     // defTab = tabs[0],
@@ -272,6 +274,10 @@ function fetchPWAInfo() {
     getScreenRefreshRate(function(FPS){ // average screen refresh rate
         op.sfa = FPS; // live
     }, true);
+
+    // device info
+
+    deviceName.innerHTML = clientAPIres.device;
 
     // dark mode
 
