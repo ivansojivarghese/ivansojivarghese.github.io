@@ -273,7 +273,7 @@ function fetchPWAInfo() {
     // device info
 
     deviceName.innerHTML = clientAPIres.device;
-    deviceBrowser.innerHTML = "Browser: " + clientAPIres.userAgent;
+    deviceBrowser.innerHTML = clientAPIres.userAgent;
 
     // screen refresh rate
 
