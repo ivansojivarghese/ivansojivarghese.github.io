@@ -41,6 +41,8 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ m
 
 op.darkMode = isDarkMode();
 
+var colorStates = 0;
+
 function toggleColorMode(e, init) { // light/dark modes toggling
     var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
         icon = null,
@@ -68,15 +70,21 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         } else {
             hamAuto = document.querySelector('.pwa .about .ham_auto');
         }
-        if (!op.autoDarkChange) {
-            e_Fd(hamAuto, true); // remove 'auto' label
-            op.refuseAutoDark = true;
+        if (colorStates < 2) {
+            if (!op.autoDarkChange) {
+                e_Fd(hamAuto, true); // remove 'auto' label
+                op.refuseAutoDark = true;
+            } else {
+                op.autoDarkChange = false;
+            }
+            colorStates++;
         } else {
-            op.autoDarkChange = false;
+            setCookie("darkMode", null, -1);
+            e_Fd(hamAuto, false); // show 'auto' label
         }
     }
 
-    if (!op.darkMode || init) { // if light, change to dark
+    if ((!op.darkMode || init) && colorStates < 2) { // if light, change to dark
 
         for (i = 0; i < fvc.length; i++) { // change favicon
             fvc[i].setAttribute("href", fvc_d[i]); 
@@ -129,7 +137,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
             }
         }
 
-    } else { // if dark, change to light
+    } else if (colorStates < 2) { // if dark, change to light
 
         for (i = 0; i < fvc.length; i++) { // change favicon
             fvc[i].setAttribute("href", fvc_L[i]); 
