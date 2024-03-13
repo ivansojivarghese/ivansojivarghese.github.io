@@ -263,22 +263,22 @@ function networkInfo() {
     // network info
 
     if (navigator.connection.type) {
-        networkType.innerHTML = navigator.connection.type;
+        networkType.innerHTML = "type: " + navigator.connection.type;
     } else {
         networkType.remove();
     }
     if (navigator.connection.effectiveType) {
-        networkEffType.innerHTML = navigator.connection.effectiveType
+        networkEffType.innerHTML = "effective type: " + navigator.connection.effectiveType
     } else {
         networkEffType.remove();
     }
     if (navigator.connection.downlink) {
-        networkDownlink.innerHTML = navigator.connection.downlink + " Mbps";
+        networkDownlink.innerHTML = "downlink: " + navigator.connection.downlink + " Mbps";
     } else {
         networkDownlink.remove();
     }
     if (navigator.connection.downlinkMax) {
-        networkDownlinkMax.innerHTML = navigator.connection.downlinkMax;
+        networkDownlinkMax.innerHTML = "max downlink: " + navigator.connection.downlinkMax;
     } else {
         networkDownlinkMax.remove();
     }
@@ -332,6 +332,13 @@ function fetchPWAInfo() {
     }, true);
 
     networkInfo();
+
+    navigator.connection.addEventListener('change', function() {
+
+        // clientAPI();
+
+        networkInfo();
+    });
 
     // dark mode
 
