@@ -44,7 +44,7 @@ const deviceVPN = document.querySelector('.pwa .popups .deviceInfo .vpn');
 const networkType = document.querySelector('.pwa .popups .deviceInfo .networkType');
 const networkEffType = document.querySelector('.pwa .popups .deviceInfo .networkEffType');
 const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networkDownlink');
-const networkDownlinkMax = document.querySelector('.pwa .popups .deviceInfo .networkDownlinkMax');
+// const networkDownlinkMax = document.querySelector('.pwa .popups .deviceInfo .networkDownlinkMax');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -276,12 +276,12 @@ function networkInfo() {
         networkDownlink.innerHTML = "downlink: " + navigator.connection.downlink + " Mbps";
     } else {
         networkDownlink.remove();
-    }
+    }/*
     if (navigator.connection.downlinkMax) {
         networkDownlinkMax.innerHTML = "max downlink: " + navigator.connection.downlinkMax + " Mbps";
     } else {
         networkDownlinkMax.remove();
-    }
+    }*/
 }
 
 function fetchPWAInfo() {
