@@ -241,42 +241,7 @@ function timeOfDay() {
     }
 }
 
-function fetchPWAInfo() {
-    const sections = document.querySelector('.pwa .sections');
-    const navbar = document.querySelector('.pwa .navbar');
-    const fab = document.querySelector('.pwa .fab');
-
-    const temp = document.querySelector('.pwa .weather #temp');
-    const unit = document.querySelector('.pwa .weather #unit');
-    const greeting = document.querySelector('.pwa .home #greeting');
-    const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
-
-    const commits = document.querySelector('.pwa #g_commits');
-
-    const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
-
-    var selectedWords = [];
-
-    // about
-
-    commits.innerHTML = numberWithCommas(githubCommitsres.val);
-
-    // battery
-
-    if ('getBattery' in navigator) {
-        const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
-        navigator.getBattery().then(monitorBattery);
-        for (j = 0; j < batteryIcons.length; j++) {
-            batteryIcons[j].parentElement.classList.remove("d_n");
-
-            batteryIcons[j].parentElement.classList.add("hoverB", "trs");
-
-            batteryIcons[j].parentElement.addEventListener('mousemove', hoverInit);
-            batteryIcons[j].parentElement.addEventListener('mouseleave', hoverEnd);
-            batteryIcons[j].parentElement.addEventListener('click', hoverMiddle);
-        }
-    }
-    
+function networkInfo() {
     // device info
 
     if (clientAPIres.ipString) {
@@ -317,6 +282,43 @@ function fetchPWAInfo() {
     } else {
         networkDownlinkMax.remove();
     }
+}
+
+function fetchPWAInfo() {
+    const sections = document.querySelector('.pwa .sections');
+    const navbar = document.querySelector('.pwa .navbar');
+    const fab = document.querySelector('.pwa .fab');
+
+    const temp = document.querySelector('.pwa .weather #temp');
+    const unit = document.querySelector('.pwa .weather #unit');
+    const greeting = document.querySelector('.pwa .home #greeting');
+    const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
+
+    const commits = document.querySelector('.pwa #g_commits');
+
+    const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
+
+    var selectedWords = [];
+
+    // about
+
+    commits.innerHTML = numberWithCommas(githubCommitsres.val);
+
+    // battery
+
+    if ('getBattery' in navigator) {
+        const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
+        navigator.getBattery().then(monitorBattery);
+        for (j = 0; j < batteryIcons.length; j++) {
+            batteryIcons[j].parentElement.classList.remove("d_n");
+
+            batteryIcons[j].parentElement.classList.add("hoverB", "trs");
+
+            batteryIcons[j].parentElement.addEventListener('mousemove', hoverInit);
+            batteryIcons[j].parentElement.addEventListener('mouseleave', hoverEnd);
+            batteryIcons[j].parentElement.addEventListener('click', hoverMiddle);
+        }
+    }
 
     // screen refresh rate
 
@@ -328,6 +330,8 @@ function fetchPWAInfo() {
             deviceSFR.remove();
         }
     }, true);
+
+    networkInfo();
 
     // dark mode
 
