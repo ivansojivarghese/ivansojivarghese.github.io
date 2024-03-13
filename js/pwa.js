@@ -285,7 +285,7 @@ function fetchPWAInfo() {
         deviceIPType.remove();
     }
     if (clientAPIres.isBehindProxy !== null || clientAPIres.isBehindProxy !== undefined) {
-        deviceVPN.innerHTML = "Proxy Usage: " + clientAPIres.isBehindProxy;
+        deviceVPN.innerHTML = "proxy usage: " + clientAPIres.isBehindProxy;
     } else {
         deviceVPN.remove();
     }
