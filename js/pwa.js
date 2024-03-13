@@ -41,6 +41,11 @@ const deviceIPType = document.querySelector('.pwa .popups .deviceInfo .ipType');
 const deviceSFR = document.querySelector('.pwa .popups .deviceInfo .sfr');
 const deviceVPN = document.querySelector('.pwa .popups .deviceInfo .vpn');
 
+const networkType = document.querySelector('.pwa .popups .deviceInfo .networkType');
+const networkEffType = document.querySelector('.pwa .popups .deviceInfo .networkEffType');
+const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networkDownlink');
+const networkDownlinkMax = document.querySelector('.pwa .popups .deviceInfo .networkDownlinkMax');
+
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
     // defTab = tabs[0],
@@ -290,11 +295,38 @@ function fetchPWAInfo() {
         deviceVPN.remove();
     }
 
+    // network info
+
+    if (navigator.connection.type) {
+        networkType.innerHTML = navigator.connection.type;
+    } else {
+        networkType.remove();
+    }
+    if (navigator.connection.effectiveType) {
+        networkEffType.innerHTML = navigator.connection.effectiveType
+    } else {
+        networkEffType.remove();
+    }
+    if (navigator.connection.downlink) {
+        networkDownlink.innerHTML = navigator.connection.downlink + " Mbps";
+    } else {
+        networkDownlink.remove();
+    }
+    if (navigator.connection.downlinkMax) {
+        networkDownlinkMax = navigator.connection.downlinkMax;
+    } else {
+        networkDownlinkMax.remove();
+    }
+
     // screen refresh rate
 
     getScreenRefreshRate(function(FPS){ // average screen refresh rate
         op.sfa = FPS; // live
-        deviceSFR.innerHTML = FPS + " fps";
+        if (FPS) {
+            deviceSFR.innerHTML = FPS + " fps";
+        } else {
+            deviceSFR.remove();
+        }
     }, true);
 
     // dark mode
