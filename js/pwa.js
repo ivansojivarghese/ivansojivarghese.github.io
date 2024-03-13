@@ -39,6 +39,7 @@ const batteryTime = document.querySelector('.pwa .popups .batteryInfo .time');
 const deviceIP = document.querySelector('.pwa .popups .deviceInfo .ip');
 const deviceIPType = document.querySelector('.pwa .popups .deviceInfo .ipType');
 const deviceSFR = document.querySelector('.pwa .popups .deviceInfo .sfr');
+const deviceVPN = document.querySelector('.pwa .popups .deviceInfo .vpn');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -273,8 +274,21 @@ function fetchPWAInfo() {
     
     // device info
 
-    deviceIP.innerHTML = clientAPIres.ipString;
-    deviceIPType.innerHTML = clientAPIres.ipType;
+    if (clientAPIres.ipString) {
+        deviceIP.innerHTML = clientAPIres.ipString;
+    } else {
+        deviceIP.remove();
+    }
+    if (clientAPIres.ipType) {
+        deviceIPType.innerHTML = clientAPIres.ipType;
+    } else {
+        deviceIPType.remove();
+    }
+    if (clientAPIres.isBehindProxy !== null || clientAPIres.isBehindProxy !== undefined) {
+        deviceVPN.innerHTML = "Proxy Usage: " + clientAPIres.isBehindProxy;
+    } else {
+        deviceVPN.remove();
+    }
 
     // screen refresh rate
 
