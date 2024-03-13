@@ -103,14 +103,14 @@ body {
 .pwa .popups .pills.deviceInfo {
     width: 10rem;
 }
-
+/*
 .pwa .popups .pills.deviceInfo h3 {
     line-height: 1.25em;
 }
 
 .pwa .popups .pills.deviceInfo p {
     line-height: 1.3em;
-}
+}*/
 
 .pwaSecondary {
     display: none;
