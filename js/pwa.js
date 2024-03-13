@@ -36,7 +36,7 @@ const batteryLevel = document.querySelector('.pwa .popups .batteryInfo .level');
 const batteryStatus = document.querySelector('.pwa .popups .batteryInfo .status');
 const batteryTime = document.querySelector('.pwa .popups .batteryInfo .time');
 
-const deviceOS = document.querySelector('.pwa .popups .deviceInfo .os');
+const deviceIP = document.querySelector('.pwa .popups .deviceInfo .os');
 const deviceSFR = document.querySelector('.pwa .popups .deviceInfo .sfr');
 
 var oriHeight_L = null,
@@ -272,13 +272,13 @@ function fetchPWAInfo() {
     
     // device info
 
-    deviceOS.innerHTML = clientAPIres.os;
+    deviceIP.innerHTML = clientAPIres.ipString;
 
     // screen refresh rate
 
     getScreenRefreshRate(function(FPS){ // average screen refresh rate
         op.sfa = FPS; // live
-        deviceSFR.innerHTML = FPS + "fps";
+        deviceSFR.innerHTML = FPS + " fps";
     }, true);
 
     // dark mode
