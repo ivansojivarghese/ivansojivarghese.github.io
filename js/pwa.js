@@ -278,7 +278,7 @@ function networkInfo() {
         networkDownlink.remove();
     }
     if (navigator.connection.downlinkMax) {
-        networkDownlinkMax = navigator.connection.downlinkMax;
+        networkDownlinkMax.innerHTML = navigator.connection.downlinkMax;
     } else {
         networkDownlinkMax.remove();
     }
