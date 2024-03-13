@@ -93,6 +93,7 @@ body {
     padding: 0;
     font-size: 0.85rem;
     margin-bottom: 0.5em;
+    line-height: 1.1em;
 }
 
 .pwa .popups .pills.batteryInfo, .pwa .popups .pills.deviceInfo {
