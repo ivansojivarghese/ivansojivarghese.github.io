@@ -278,7 +278,7 @@ function fetchPWAInfo() {
 
     getScreenRefreshRate(function(FPS){ // average screen refresh rate
         op.sfa = FPS; // live
-        deviceSFR.innerHTML = FPS;
+        deviceSFR.innerHTML = FPS + "fps";
     }, true);
 
     // dark mode
