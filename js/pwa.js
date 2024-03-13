@@ -36,7 +36,8 @@ const batteryLevel = document.querySelector('.pwa .popups .batteryInfo .level');
 const batteryStatus = document.querySelector('.pwa .popups .batteryInfo .status');
 const batteryTime = document.querySelector('.pwa .popups .batteryInfo .time');
 
-const deviceIP = document.querySelector('.pwa .popups .deviceInfo .os');
+const deviceIP = document.querySelector('.pwa .popups .deviceInfo .ip');
+const deviceIPType = document.querySelector('.pwa .popups .deviceInfo .ipType');
 const deviceSFR = document.querySelector('.pwa .popups .deviceInfo .sfr');
 
 var oriHeight_L = null,
@@ -273,6 +274,7 @@ function fetchPWAInfo() {
     // device info
 
     deviceIP.innerHTML = clientAPIres.ipString;
+    deviceIPType.innerHTML = clientAPIres.ipType;
 
     // screen refresh rate
 
