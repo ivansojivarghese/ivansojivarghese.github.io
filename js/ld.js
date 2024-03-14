@@ -2167,8 +2167,10 @@ if (!op.pwa.s) {
 // REFERENCE: https://deanhume.com/ambient-light-sensor/
 
 var darkModeTime = 0,
-    lightModeTime = 0,
-    modeChangeInterval = 10000;
+    lightModeTime = 0;
+    // modeChangeInterval = 10000;
+
+const modeChangeInterval = 10000;
 
 function autoDarkMode() {
     if (window.AmbientLightSensor) {
