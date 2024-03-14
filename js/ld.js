@@ -2180,6 +2180,11 @@ function autoDarkMode() {
         try {
             
             const sensor = new AmbientLightSensor();
+
+            sensor.onerror = () => {
+                illuminanceText.remove();
+            }
+
             // Detect changes in the light
             sensor.onreading = () => {
                 
@@ -2275,7 +2280,6 @@ function autoDarkMode() {
         } catch(err) {
             console.log(err.name, err.message);
 
-            illuminanceText.remove();
         }
     }
 }
