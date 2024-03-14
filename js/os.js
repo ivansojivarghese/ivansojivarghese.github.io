@@ -77,12 +77,14 @@ function toggleColorMode(e, init) { // light/dark modes toggling
             } else {
                 op.autoDarkChange = false;
             }
-            colorStates++;
-        } else {
-            colorStates = 0;
-            setCookie("darkMode", null, -1);
-            e_Fd(hamAuto, false); // show 'auto' label
-        }
+            if (colorStates === 2) {
+                colorStates = 0;
+                setCookie("darkMode", null, -1);
+                e_Fd(hamAuto, false); // show 'auto' label
+            } else {
+                colorStates++;
+            }
+        } 
     }
 
     if ((!op.darkMode || init) && colorStates <= 2) { // if light, change to dark
