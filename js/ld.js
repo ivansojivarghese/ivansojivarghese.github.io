@@ -2223,26 +2223,37 @@ function autoDarkMode() {
                         if (!darkModeTime) {
                             darkModeTime = Date.now();
                             lightModeTime = 0;
+                            setTimeout(function() {
+                                if (sensor.illuminance < 50 && !op.darkMode && !daytime) {
+                                    op.darkChange = true;
+                                    op.autoDarkChange = true;
+                                    toggleColorMode(null);
+                                    op.darkMode = true; // set to dark mode automatically
+                                    op.darkChange = false;
+                                }
+                            }, modeChangeInterval);
                         }
+                        /*
                         if ((Date.now() - darkModeTime) > modeChangeInterval) {
                             op.darkChange = true;
                             op.autoDarkChange = true;
                             toggleColorMode(null);
                             op.darkMode = true; // set to dark mode automatically
                             op.darkChange = false;
-                        }
+                        }*/
                     } else if (op.darkMode) {
                         if (!lightModeTime) {
                             lightModeTime = Date.now();
                             darkModeTime = 0;
                         }
+                        /*
                         if ((Date.now() - lightModeTime) > modeChangeInterval) {
                             op.darkChange = true;
                             op.autoDarkChange = true;
                             toggleColorMode(null);
                             op.darkMode = false; // set to light mode
                             op.darkChange = false;
-                        }
+                        }*/
                     }
                 }
             }
