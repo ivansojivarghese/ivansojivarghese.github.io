@@ -351,7 +351,8 @@ function fetchPWAInfo() {
     var hamAuto = document.querySelector('.pwa .about .ham_auto');
 
     if (!getCookie("darkMode")) { // if no manual control from user
-        // e_Fd(hamAuto, false);
+        hamAuto.innerHTML = "system";
+        e_Fd(hamAuto, false);
         if (op.darkMode) { // if dark mode
             toggleColorMode(null, true); // start-up with preset color theme
         } else {
