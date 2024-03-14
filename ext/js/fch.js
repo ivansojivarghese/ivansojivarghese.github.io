@@ -339,7 +339,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
                             rdn = getRandomInt(0, max); // get another if again existing
                         }
                     }
-                    div.setAttribute("class", "cursorInt");
+                    div.setAttribute("class", "cursorInt");//
                     div.style.left = rdn + "rem";
                     pitch_d.appendChild(div);
                 }
