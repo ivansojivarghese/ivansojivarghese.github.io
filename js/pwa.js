@@ -353,9 +353,9 @@ function fetchPWAInfo() {
         op.sfa = FPS; // live
         if (FPS) {
             deviceSFR.innerHTML = FPS + " fps";
-        } else {
+        } /*else {
             deviceSFR.remove();
-        }
+        }*/
     }, true);
 
     networkInfo();
