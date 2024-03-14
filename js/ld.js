@@ -2245,6 +2245,15 @@ function autoDarkMode() {
                         if (!lightModeTime) {
                             lightModeTime = Date.now();
                             darkModeTime = 0;
+                            setTimeout(function() {
+                                if (op.darkMode) {
+                                    op.darkChange = true;
+                                    op.autoDarkChange = true;
+                                    toggleColorMode(null);
+                                    op.darkMode = false; // set to light mode
+                                    op.darkChange = false;
+                                }
+                            }, modeChangeInterval);
                         }
                         /*
                         if ((Date.now() - lightModeTime) > modeChangeInterval) {
