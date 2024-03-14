@@ -699,7 +699,7 @@ body {
 
 @media screen and (max-width: 500px) and (max-height: calc(100vw)) {
     .pwa .about .paragraph.size {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 }
 
