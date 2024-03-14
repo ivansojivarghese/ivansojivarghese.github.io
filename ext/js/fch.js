@@ -242,6 +242,7 @@ function getColorModeIcon() { // get icon (light/dark mode) in mobile/phablet mo
 }
 
 function toggleColorMode_e(init) { // toggle between light and dark modes (page specific)
+
     var h_sc = document.getElementById("ham_sc"),
         lk3 = document.getElementById("link_3"),
         ham_b = document.getElementById("hamburger_button"),
@@ -350,7 +351,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         colorStates = 0;
     }
 
-    if ((!op.darkMode || init) && colorStates <= 2 && colorStates !== 0) { // if light, change to dark
+    if ((!op.darkMode || init) && colorStates <= 2 && colorStates !== 1) { // if light, change to dark
 
         if (op.pwa.s) {
             var str;
@@ -511,7 +512,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             }
         }
 
-    } else if (colorStates <= 2 && colorStates !== 0) { // if dark, change to light
+    } else if (colorStates <= 2 && colorStates !== 1) { // if dark, change to light
         var str;
 
         if (op.pwa.s) {
