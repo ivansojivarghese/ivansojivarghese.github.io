@@ -79,6 +79,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
             }
             colorStates++;
         } else {
+            colorStates = 0;
             setCookie("darkMode", null, -1);
             e_Fd(hamAuto, false); // show 'auto' label
         }
