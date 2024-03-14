@@ -347,7 +347,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         }
     }
 
-    if (colorStates === 1) {
+    if (colorStates === 1) { //
         colorStates = 0;
     }
 
