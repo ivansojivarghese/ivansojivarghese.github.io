@@ -346,7 +346,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         }
     }
 
-    if ((!op.darkMode || init) && /*colorStates <= 2 && colorStates !== 0*/) { // if light, change to dark
+    if ((!op.darkMode || init) /*&& colorStates <= 2 && colorStates !== 0*/) { // if light, change to dark
 
         if (op.pwa.s) {
             var str;
