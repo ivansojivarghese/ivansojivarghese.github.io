@@ -2191,7 +2191,7 @@ function autoDarkMode() {
                     } else {
                         hamAuto = document.querySelector('.pwa .about .ham_auto');
                     }
-                    hamAuto.innerHTML = "auto";
+                    hamAuto.children[0].innerHTML = "auto";
                     e_Fd(hamAuto, false);
                     op.autoDark = true;
                 }
