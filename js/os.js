@@ -85,7 +85,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         }
     }
 
-    if ((!op.darkMode || init) && colorStates < 2) { // if light, change to dark
+    if ((!op.darkMode || init) && colorStates <= 2) { // if light, change to dark
 
         for (i = 0; i < fvc.length; i++) { // change favicon
             fvc[i].setAttribute("href", fvc_d[i]); 
@@ -138,7 +138,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
             }
         }
 
-    } else if (colorStates < 2) { // if dark, change to light
+    } else if (colorStates <= 2) { // if dark, change to light
 
         for (i = 0; i < fvc.length; i++) { // change favicon
             fvc[i].setAttribute("href", fvc_L[i]); 
