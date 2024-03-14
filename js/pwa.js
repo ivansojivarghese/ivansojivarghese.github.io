@@ -288,6 +288,8 @@ function networkInfo() {
     }*/
 }
 
+// REFERENCED FROM Pascal Z, https://stackoverflow.com/questions/33673409/html5-javascript-calculate-device-speed-using-devicemotion-deviceorientation
+
 var lastTimestamp;
 var spdX = 0, spdY = 0, spdZ = 0;
 
@@ -304,9 +306,9 @@ window.addEventListener('devicemotion', function(event) {
     //... same for Y and Z
     lastTimestamp = currentTime;
 
-    speedX.innerHTML = "speedX: " + spdX;
-    speedY.innerHTML = "speedY: " + spdY;
-    speedZ.innerHTML = "speedZ: " + spdZ;
+    speedX.innerHTML = "speedX: " + Math.round(spdX);
+    speedY.innerHTML = "speedY: " + Math.round(spdY);
+    speedZ.innerHTML = "speedZ: " + Math.round(spdZ);
 }, false);
 
 function fetchPWAInfo() {
