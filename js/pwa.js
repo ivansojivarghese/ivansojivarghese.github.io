@@ -46,6 +46,10 @@ const networkEffType = document.querySelector('.pwa .popups .deviceInfo .network
 const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networkDownlink');
 // const networkDownlinkMax = document.querySelector('.pwa .popups .deviceInfo .networkDownlinkMax');
 
+const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
+const speedY = document.querySelector('.pwa .popups .deviceInfo .speedY');
+const speedZ = document.querySelector('.pwa .popups .deviceInfo .speedZ');
+
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
     // defTab = tabs[0],
@@ -283,6 +287,27 @@ function networkInfo() {
         networkDownlinkMax.remove();
     }*/
 }
+
+var lastTimestamp;
+var spdX = 0, spdY = 0, spdZ = 0;
+
+window.addEventListener('devicemotion', function(event) {
+    var currentTime = new Date().getTime();
+    if (lastTimestamp === undefined) {
+        lastTimestamp = new Date().getTime();
+        return; //ignore first call, we need a reference time
+    }
+    //  m/s² / 1000 * (miliseconds - miliseconds)/1000 /3600 => km/h (if I didn't made a mistake)
+    spdX += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
+    spdY += event.acceleration.y / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
+    spdZ += event.acceleration.z / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
+    //... same for Y and Z
+    lastTimestamp = currentTime;
+
+    speedX.innerHTML = "speedX: " + spdX;
+    speedY.innerHTML = "speedY: " + spdY;
+    speedZ.innerHTML = "speedZ: " + spdZ;
+}, false);
 
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');

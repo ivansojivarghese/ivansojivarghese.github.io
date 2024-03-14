@@ -2174,7 +2174,7 @@ var darkModeTime = 0,
 
 function autoDarkMode() {
     var modeChangeInterval = 10000; 
-    var illuminanceText = document.querySelector('.pwa .illuminance');
+    var illuminanceText = document.querySelector('.pwa .popups .deviceInfo .illuminance');
 
     if (window.AmbientLightSensor) {
         try {
@@ -2188,7 +2188,7 @@ function autoDarkMode() {
             // Detect changes in the light
             sensor.onreading = () => {
                 
-                illuminanceText.innerHTML = sensor.illuminance;
+                illuminanceText.innerHTML = "illuminance: " + sensor.illuminance;
 
                 if (!op.autoDark) {
                     var hamAuto;
