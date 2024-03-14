@@ -2170,9 +2170,11 @@ var darkModeTime = 0,
     lightModeTime = 0;
     // modeChangeInterval = 10000;
 
-const modeChangeInterval = 10000;
+// const modeChangeInterval = 10000;
 
 function autoDarkMode() {
+    var modeChangeInterval = 10000; 
+
     if (window.AmbientLightSensor) {
         try {
             
@@ -2198,8 +2200,8 @@ function autoDarkMode() {
                     op.autoDark = true;
                 }
 
-                var daytime;
-
+                var daytime = false;
+                /*
                 if (!op.pwa.s) {
                     daytime = checkWithinTime(timeToDetails(sunAPIres.sunrise), timeToDetails(sunAPIres.sunset)); // check if user time is daytime
                 } else {
@@ -2211,7 +2213,7 @@ function autoDarkMode() {
                     } else {
                         daytime = false;
                     }
-                }
+                }*/
 
                 // Read the light levels in lux 
                 // < 50 is dark room
