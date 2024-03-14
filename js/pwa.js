@@ -351,14 +351,14 @@ function fetchPWAInfo() {
     var hamAuto = document.querySelector('.pwa .about .ham_auto');
 
     if (!getCookie("darkMode")) { // if no manual control from user
-        e_Fd(hamAuto, false);
+        // e_Fd(hamAuto, false);
         if (op.darkMode) { // if dark mode
             toggleColorMode(null, true); // start-up with preset color theme
         } else {
             autoDarkMode(); // EXPERIMENTAL: Check device ambient light to activate dark mode
         }
     } else {
-        e_Fd(hamAuto, true);
+        // e_Fd(hamAuto, true);
         if (getCookie("darkMode") === "true") { // manual: dark mode
             op.darkMode = true;
             toggleColorMode(null, true); 
