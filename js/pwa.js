@@ -336,9 +336,9 @@ window.addEventListener('devicemotion', function(event) {
   // You can now use speedX, speedY, and speedZ for further calculations
   // (Keep in mind this is an estimated velocity)
 
-    speedX.innerHTML = "speedX: " + Math.round(spdX);
-    speedY.innerHTML = "speedY: " + Math.round(spdY);
-    speedZ.innerHTML = "speedZ: " + Math.round(spdZ);
+    speedX.innerHTML = "speedX: " + spdX;
+    speedY.innerHTML = "speedY: " + spdY;
+    speedZ.innerHTML = "speedZ: " + spdZ;
 }, false);
 
 function fetchPWAInfo() {
