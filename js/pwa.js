@@ -289,7 +289,7 @@ function networkInfo() {
 }
 
 // REFERENCED FROM Pascal Z, https://stackoverflow.com/questions/33673409/html5-javascript-calculate-device-speed-using-devicemotion-deviceorientation
-
+/*
 var lastTimestamp;
 var spdX = 0, spdY = 0, spdZ = 0;
 
@@ -305,6 +305,36 @@ window.addEventListener('devicemotion', function(event) {
     spdZ += event.acceleration.z / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
     //... same for Y and Z
     lastTimestamp = currentTime;
+
+    speedX.innerHTML = "speedX: " + Math.round(spdX);
+    speedY.innerHTML = "speedY: " + Math.round(spdY);
+    speedZ.innerHTML = "speedZ: " + Math.round(spdZ);
+}, false);*/
+
+var lastTimestamp;
+var spdX = 0, spdY = 0, spdZ = 0;
+
+window.addEventListener('devicemotion', function(event) {
+  var currentTime = new Date().getTime();
+
+  if (lastTimestamp === undefined) {
+    lastTimestamp = currentTime;
+    return; //ignore first call, we need a reference time
+  }
+
+  // Calculate elapsed time in seconds
+  var elapsedTime = (currentTime - lastTimestamp) / 1000;
+
+  // Integrate acceleration to get estimated velocity (m/s)
+  spdX += event.acceleration.x / 1000 * elapsedTime;
+  spdY += event.acceleration.y / 1000 * elapsedTime;
+  spdZ += event.acceleration.z / 1000 * elapsedTime;
+
+  // Update reference time for next calculation
+  lastTimestamp = currentTime;
+
+  // You can now use speedX, speedY, and speedZ for further calculations
+  // (Keep in mind this is an estimated velocity)
 
     speedX.innerHTML = "speedX: " + Math.round(spdX);
     speedY.innerHTML = "speedY: " + Math.round(spdY);
