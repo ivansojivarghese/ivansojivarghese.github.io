@@ -47,6 +47,7 @@ var acceleration = {
     },
     stepsCount = 0,
     rotation = false,
+    stationary = false,
     motion = false,
     dropped = false,
     droppedInterval = null,
@@ -476,6 +477,12 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
         rotation = true;
     } else {
         rotation = false;
+    }
+
+    if (Math.abs(bVal) <= 10) { // if device is stationary
+        stationary = true;
+    } else {
+        stationary = false;
     }
 
     /*
