@@ -28,9 +28,17 @@ var githubCommitsres = {
 };
 
 var acceleration = {
-        z : []
+        z : [],
+        y : []
     },
     stepsPatternZ = {
+        a : 0,
+        b : 0,
+        c : 0,
+        d : 0,
+        e : 0
+    },
+    stepsPatternY = {
         a : 0,
         b : 0,
         c : 0,
@@ -307,67 +315,98 @@ function networkInfo() {
 window.addEventListener('devicemotion', function(event) {
 
     var zVal = "",
+        yVal = "",
         stepIncr = true,
-        preVal = acceleration.z[acceleration.z.length - 1];
+        preZVal = acceleration.z[acceleration.z.length - 1],
+        preYVal = acceleration.y[acceleration.y.length - 1];
+
+    // acceleration z
 
     if (Math.round(event.acceleration.z) === 0) {
         zVal = "neutral";
-        /*
-        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
-            stepsPatternZ.a = 0;
-        }*/
-
-        if (!stepsPatternZ.a && preVal !== "neutral") {
+        if (!stepsPatternZ.a && preZVal !== "neutral") {
             stepsPatternZ.a = 1;
         }
-        if (stepsPatternZ.a && stepsPatternZ.b && preVal !== "neutral") {
+        if (stepsPatternZ.a && stepsPatternZ.b && preZVal !== "neutral") {
             stepsPatternZ.c = 1;
         }
-        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preVal !== "neutral") {
+        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
             stepsPatternZ.e = 1;
         }
-
     } else if (Math.round(event.acceleration.z) < 0) {
         zVal = "negative";
         if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
             stepsPatternZ.a = 0;
         }
-
         if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
             stepsPatternZ.a = 0;
-        }
-        /*
-        if (stepsPatternZ.a && stepsPatternZ.b) {
-            stepsPatternZ.a = 0;
-        }*/
-        
-        if (stepsPatternZ.a && preVal !== "negative") {
+        }        
+        if (stepsPatternZ.a && preZVal !== "negative") {
             stepsPatternZ.b = 1;
         }
-
     } else if (Math.round(event.acceleration.z) > 0) {
-        zVal = "positive";
-        /*
-        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
-            stepsPatternZ.a = 0;
-        }*/
-        
+        zVal = "positive";        
         if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
             stepsPatternZ.a = 0;
         }
         if (stepsPatternZ.a && !stepsPatternZ.b) {
             stepsPatternZ.a = 0;
         }
-        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preVal !== "positive") {
+        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
             stepsPatternZ.d = 1;
         }
     }
 
+    // acceleration y
+
+    if (Math.round(event.acceleration.y) === 0) {
+        yVal = "neutral";
+        if (!stepsPatternY.a && preYVal !== "neutral") {
+            stepsPatternY.a = 1;
+        }
+        if (stepsPatternY.a && stepsPatternY.b && preYVal !== "neutral") {
+            stepsPatternY.c = 1;
+        }
+        if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d && preYVal !== "neutral") {
+            stepsPatternY.e = 1;
+        }
+    } else if (Math.round(event.acceleration.y) < 0) {
+        yVal = "negative";
+        if (stepsPatternY.a && stepsPatternY.b && !stepsPatternY.c) {
+            stepsPatternY.a = 0;
+        }
+        if (stepsPatternY.a && !stepsPatternY.b) {
+            stepsPatternY.a = 0;
+        }
+        if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && preYVal !== "negative") {
+            stepsPatternY.d = 1;
+        }
+    } else if (Math.round(event.acceleration.y) > 0) {
+        yVal = "positive";
+        if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d) {
+            stepsPatternY.a = 0;
+        }
+        if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c) {
+            stepsPatternY.a = 0;
+        }        
+        if (stepsPatternY.a && preYVal !== "positive") {
+            stepsPatternY.b = 1;
+        }
+    }
+
     acceleration.z[acceleration.z.length] = zVal;
+    acceleration.y[acceleration.y.length] = yVal;
 
     for (const x in stepsPatternZ) {
         if (stepsPatternZ[x] !== 1) {
             stepIncr = false;
+            break;
+        }
+    }
+    for (const x in stepsPatternY) {
+        if (stepsPatternY[x] !== 1 || !stepIncr) {
+            stepIncr = false;
+            break;
         }
     }
 
@@ -376,7 +415,11 @@ window.addEventListener('devicemotion', function(event) {
         for (const x in stepsPatternZ) {
             stepsPatternZ[x] = 0;
         }
+        for (const x in stepsPatternY) {
+            stepsPatternY[x] = 0;
+        }
         acceleration.z = [];
+        acceleration.y = [];
     }
 
     steps.innerHTML = "steps: " + stepsCount;
