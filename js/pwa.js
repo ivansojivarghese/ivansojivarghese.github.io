@@ -443,7 +443,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         }
 
-        if (stepIncr) {
+        if (stepIncr && !dropped && Math.abs(Math.round(event.acceleration.y)) > 1 && Math.abs(Math.round(event.acceleration.z)) > 1) {
             clearInterval(motionInterval);
             stepsCount++;
             for (const x in stepsPatternZ) {
