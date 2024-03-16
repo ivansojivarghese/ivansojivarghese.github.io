@@ -45,7 +45,8 @@ var acceleration = {
         d : 0,
         e : 0
     },
-    stepsCount = 0;
+    stepsCount = 0,
+    rotation = false;
 
 var urlParams = {};
 
@@ -330,7 +331,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     // acceleration z
 
-    if (absXVal <= 1 && !shaked) { // no-shakes, no lateral movements
+    if (absXVal <= 1 && !shaked && !rotation) { // no-shakes, no lateral movements, no unnatural rotations
 
         if (Math.round(event.acceleration.z) === 0) {
             zVal = "neutral";
@@ -442,9 +443,20 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 }, false);
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
+
+    var bVal = Math.round(event.beta),
+        gVal = Math.abs(Math.round(event.gamma));
+
+    if (bVal > 45 && gVal > 10) { // if angle of mobile device greater than 45deg, & tilt greater abs' 10deg
+        rotation = true;
+    } else {
+        rotation = false;
+    }
+
     rotateA.innerHTML = "alpha: " + Math.round(event.alpha);
     rotateB.innerHTML = "beta: " + Math.round(event.beta);
     rotateG.innerHTML = "gamma: " + Math.round(event.gamma);
+
 }, false);
 
 function fetchPWAInfo() {
