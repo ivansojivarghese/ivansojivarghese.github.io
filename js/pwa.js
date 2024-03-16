@@ -68,9 +68,9 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 
-const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
-const speedY = document.querySelector('.pwa .popups .deviceInfo .speedY');
-const speedZ = document.querySelector('.pwa .popups .deviceInfo .speedZ');
+const rotateA = document.querySelector('.pwa .popups .deviceInfo .rotateA');
+const rotateB = document.querySelector('.pwa .popups .deviceInfo .rotateB');
+const rotateG = document.querySelector('.pwa .popups .deviceInfo .rotateG');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -316,13 +316,18 @@ if (!'DeviceMotionEvent' in window) {
     steps.remove();
 }
 
-window.addEventListener('devicemotion', function(event) {
+window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
     var zVal = "",
         yVal = "",
         stepIncr = true,
         preZVal = acceleration.z[acceleration.z.length - 1],
         preYVal = acceleration.y[acceleration.y.length - 1];
+
+    speedX.innerHTML = Math.round(event.acceleration.x);
+    rotateA.innerHTML = Math.round(event.rotationRate.alpha);
+    rotateB.innerHTML = Math.round(event.rotationRate.beta);
+    rotateG.innerHTML = Math.round(event.rotationRate.gamma);
 
     // acceleration z
 
