@@ -44,7 +44,7 @@ body {
 
 .pwa .popups {
     position: fixed;
-    height: calc(100svh - calc(env(safe-area-inset-top))) !important;
+    height: calc(100dvh - calc(env(safe-area-inset-top))) !important;
     z-index: 1000;
     background-color: #F4F4F4;
     padding-right: calc(env(safe-area-inset-right));
@@ -142,7 +142,7 @@ body {
 }
 
 #load_sc .container {
-    margin-top: calc((100svh - 8rem) / 2);
+    margin-top: calc((100dvh - 8rem) / 2);
 }
 
 .pwa .home #stat3 {
@@ -602,7 +602,7 @@ body {
     }
 
     .pwa .sections {
-        height: 100svh;
+        height: 100dvh;
     }
 
     .pwa .sections > div {
@@ -643,7 +643,7 @@ body {
 
     .pwa .sections {
         float: right;
-        height: 100svh;
+        height: 100dvh;
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
@@ -653,18 +653,18 @@ body {
         transform: none;
         left: 0;
         width: 4rem;
-        height: 100svh;
+        height: 100dvh;
         box-shadow: none;
         padding-left: calc(env(safe-area-inset-left));
     }
 
     .pwa .navbar .button {
         margin: 0 0.5rem;
-        margin-bottom: calc((100svh - 15rem) / 6);
+        margin-bottom: calc((100dvh - 15rem) / 6);
     }
 
     .pwa .navbar .button.home, .pwa .navbar .button.home_dark {
-        margin-top: calc((100svh - 15rem) / 6);
+        margin-top: calc((100dvh - 15rem) / 6);
     }
 
     .pwa .m_L-10 {
@@ -1079,7 +1079,7 @@ body {
     }
 
     .pwa .sections {
-        height: 100svh;
+        height: 100dvh;
     }
 
     .pwa .sections > div {
