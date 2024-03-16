@@ -44,7 +44,7 @@ body {
 
 .pwa .popups {
     position: fixed;
-    height: calc(100lvh - calc(env(safe-area-inset-top))) !important;
+    height: calc(100svh - calc(env(safe-area-inset-top))) !important;
     z-index: 1000;
     background-color: #F4F4F4;
     padding-right: calc(env(safe-area-inset-right));

@@ -326,7 +326,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     // acceleration z
 
-    if (absXVal <= 1 && !shaked) {
+    if (absXVal <= 1 && !shaked) { // no-shakes, no lateral movements
 
         if (Math.round(event.acceleration.z) === 0) {
             zVal = "neutral";
@@ -430,10 +430,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         steps.innerHTML = "steps: " + stepsCount;
 
-    } else if (shaked) {
+    } /*else if (shaked) {
 
         alert("steps prevented by shake");
-    }
+    }*/
 
 }, false);
 
@@ -684,6 +684,7 @@ function openPopUp(target) {
     const popups = document.querySelector('.pwa .popups');
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
+        popups.style.height = "calc(100lvh - calc(env(safe-area-inset-top))) !important";
         popups.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
         popups.addEventListener("click", function(e) {
             if (e.target !== this) {
@@ -715,6 +716,7 @@ function closePopUp(target) {
         t.classList.add("d_n");
         popups.classList.add("d_n");
         if (target !== 'terms') {
+            popups.style.height = "";
             popups.style.backgroundColor = "";
         }
     }, op.t);
