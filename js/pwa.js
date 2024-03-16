@@ -314,32 +314,44 @@ window.addEventListener('devicemotion', function(event) {
 var lastTimestamp;
 var spdX = 0, spdY = 0, spdZ = 0;
 
+var started = false;
+var acc = [];
+
 window.addEventListener('devicemotion', function(event) {
-  var currentTime = new Date().getTime();
+    var currentTime = new Date().getTime();
 
-  if (lastTimestamp === undefined) {
+    if (lastTimestamp === undefined) {
+        lastTimestamp = currentTime;
+        return; //ignore first call, we need a reference time
+    }
+
+    // Calculate elapsed time in seconds
+    var elapsedTime = (currentTime - lastTimestamp) / 1000;
+
+    // Integrate acceleration to get estimated velocity (m/s)
+    spdX = event.acceleration.x /*/ 1000 * elapsedTime*/;
+    spdY = event.acceleration.y /*/ 1000 * elapsedTime*/;
+    spdZ = event.acceleration.z /*/ 1000 * elapsedTime*/;
+
+    // Update reference time for next calculation
     lastTimestamp = currentTime;
-    return; //ignore first call, we need a reference time
-  }
 
-  // Calculate elapsed time in seconds
-  var elapsedTime = (currentTime - lastTimestamp) / 1000;
-
-  // Integrate acceleration to get estimated velocity (m/s)
-  spdX = event.acceleration.x /*/ 1000 * elapsedTime*/;
-  spdY = event.acceleration.y /*/ 1000 * elapsedTime*/;
-  spdZ = event.acceleration.z /*/ 1000 * elapsedTime*/;
-
-  // Update reference time for next calculation
-  lastTimestamp = currentTime;
-
-  // You can now use speedX, speedY, and speedZ for further calculations
-  // (Keep in mind this is an estimated velocity)
+    // You can now use speedX, speedY, and speedZ for further calculations
+    // (Keep in mind this is an estimated velocity)
 
     speedX.innerHTML = "speedX: " + spdX;
     speedY.innerHTML = "speedY: " + spdY;
     speedZ.innerHTML = "speedZ: " + spdZ;
+
+    if (started) {
+        var val = Math.sqrt(Math.pow(spdX, 2) + Math.pow(spdY, 2) + Math.pow(spdZ, 2));
+        acc[acc.length] = val;
+    }
 }, false);
+
+function mAcc() {
+    started = true;
+}
 
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
