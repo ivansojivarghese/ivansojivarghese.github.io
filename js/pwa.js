@@ -349,7 +349,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }, 1500);
     }
 
-    if (absXVal <= 1 && !shaked && !rotation) { // no-shakes, no lateral movements, no unnatural rotations, no drops
+    if (absXVal <= 1 && !shaked && !rotation && !stationary) { // no-shakes, no lateral movements, no unnatural rotations, no drops
 
         // acceleration z
 
