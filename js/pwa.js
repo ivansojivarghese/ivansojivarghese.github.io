@@ -429,6 +429,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         steps.innerHTML = "steps: " + stepsCount;
+
+    } else if (shaked) {
+
+        alert("steps prevented by shake");
     }
 
 }, false);
