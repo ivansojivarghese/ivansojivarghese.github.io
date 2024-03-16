@@ -332,16 +332,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         preYVal = acceleration.y[acceleration.y.length - 1];
 
     if (Math.abs(Math.round(event.acceleration.z)) > 5) {
-        clearInterval(droppedInterval);
+        // clearInterval(droppedInterval);
         dropped = true;
     }
-
+    /*
     if (dropped) {
         droppedInterval = setTimeout(function() {
                 dropped = false;
         }, 1500);
-    }
-
+    }*/
     // speedX.innerHTML = Math.round(event.acceleration.x);
 
     if (absXVal <= 1 && !shaked && !rotation && !dropped) { // no-shakes, no lateral movements, no unnatural rotations, no drops
