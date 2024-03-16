@@ -313,7 +313,7 @@ function networkInfo() {
 
 // REFERENCED FROM Pascal Z, https://stackoverflow.com/questions/33673409/html5-javascript-calculate-device-speed-using-devicemotion-deviceorientation
 
-if (!'DeviceMotionEvent' in window) { 
+if (!('DeviceMotionEvent' in window) && !('DeviceOrientationEvent') in window) { 
     steps.remove();
 }
 
@@ -439,6 +439,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         alert("steps prevented by shake");
     }*/
 
+}, false);
+
+window.addEventListener('deviceorientation', function(event) { // get rotation of device
+    rotateA.innerHTML = "alpha: " + Math.round(event.alpha);
+    rotateB.innerHTML = "beta: " + Math.round(event.beta);
+    rotateG.innerHTML = "gamma: " + Math.round(event.gamma);
 }, false);
 
 function fetchPWAInfo() {
