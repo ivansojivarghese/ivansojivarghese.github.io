@@ -49,6 +49,7 @@ var acceleration = {
     rotation = false,
     motion = false,
     dropped = false,
+    droppedInterval = null,
     motionInterval = null;
 
 var urlParams = {};
@@ -331,7 +332,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         preYVal = acceleration.y[acceleration.y.length - 1];
 
     if (Math.abs(Math.round(event.acceleration.z)) > 5) {
+        clearInterval(droppedInterval);
         dropped = true;
+        this.alert("dropped");
+        droppedInterval = setTimeout(function() {
+            if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
+                dropped = false;
+            }
+        }, 1500);
     }
 
     // speedX.innerHTML = Math.round(event.acceleration.x);
@@ -444,9 +452,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 if ((!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
                     motion = false;
                 }
-                if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
-                    dropped = false;
-                }
             }, 1500);
         }
 
@@ -454,10 +459,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         speedX.innerHTML = Math.round(event.acceleration.z);
 
-    } else if (dropped) {
-
-        alert("dropped");
-    }
+    } 
 
 }, false);
 
