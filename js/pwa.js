@@ -339,9 +339,9 @@ window.addEventListener('devicemotion', function(event) {
     // You can now use speedX, speedY, and speedZ for further calculations
     // (Keep in mind this is an estimated velocity)
 
-    speedX.innerHTML = "speedX: " + spdX;
-    speedY.innerHTML = "speedY: " + spdY;
-    speedZ.innerHTML = "speedZ: " + spdZ;
+    speedX.innerHTML = "speedX: " + Math.round(spdX);
+    speedY.innerHTML = "speedY: " + Math.round(spdY);
+    speedZ.innerHTML = "speedZ: " + Math.round(spdZ);
 
     if (started) {
         var val = Math.sqrt(Math.pow(spdX, 2) + Math.pow(spdY, 2) + Math.pow(spdZ, 2));
