@@ -459,7 +459,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 if ((!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
                     motion = false;
                 }
-            }, 1000);
+            }, 2000);
         }
 
         steps.innerHTML = "steps: " + stepsCount;
