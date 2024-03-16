@@ -322,117 +322,122 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     var zVal = "",
         yVal = "",
         stepIncr = true,
+        absXVal = Math.abs(Math.round(event.acceleration.x)),
         preZVal = acceleration.z[acceleration.z.length - 1],
         preYVal = acceleration.y[acceleration.y.length - 1];
 
     speedX.innerHTML = Math.round(event.acceleration.x);
+    /*
     rotateA.innerHTML = Math.round(event.rotationRate.alpha);
     rotateB.innerHTML = Math.round(event.rotationRate.beta);
-    rotateG.innerHTML = Math.round(event.rotationRate.gamma);
+    rotateG.innerHTML = Math.round(event.rotationRate.gamma);*/
 
     // acceleration z
 
-    if (Math.round(event.acceleration.z) === 0) {
-        zVal = "neutral";
-        if (!stepsPatternZ.a && preZVal !== "neutral") {
-            stepsPatternZ.a = 1;
-        }
-        if (stepsPatternZ.a && stepsPatternZ.b && preZVal !== "neutral") {
-            stepsPatternZ.c = 1;
-        }
-        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
-            stepsPatternZ.e = 1;
-        }
-    } else if (Math.round(event.acceleration.z) < 0) {
-        zVal = "negative";
-        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
-            stepsPatternZ.a = 0;
-        }
-        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
-            stepsPatternZ.a = 0;
-        }        
-        if (stepsPatternZ.a && preZVal !== "negative") {
-            stepsPatternZ.b = 1;
-        }
-    } else if (Math.round(event.acceleration.z) > 0) {
-        zVal = "positive";        
-        if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
-            stepsPatternZ.a = 0;
-        }
-        if (stepsPatternZ.a && !stepsPatternZ.b) {
-            stepsPatternZ.a = 0;
-        }
-        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
-            stepsPatternZ.d = 1;
-        }
-    }
+    if (absXVal <= 1) {
 
-    // acceleration y
+        if (Math.round(event.acceleration.z) === 0) {
+            zVal = "neutral";
+            if (!stepsPatternZ.a && preZVal !== "neutral") {
+                stepsPatternZ.a = 1;
+            }
+            if (stepsPatternZ.a && stepsPatternZ.b && preZVal !== "neutral") {
+                stepsPatternZ.c = 1;
+            }
+            if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
+                stepsPatternZ.e = 1;
+            }
+        } else if (Math.round(event.acceleration.z) < 0) {
+            zVal = "negative";
+            if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
+                stepsPatternZ.a = 0;
+            }
+            if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
+                stepsPatternZ.a = 0;
+            }        
+            if (stepsPatternZ.a && preZVal !== "negative") {
+                stepsPatternZ.b = 1;
+            }
+        } else if (Math.round(event.acceleration.z) > 0) {
+            zVal = "positive";        
+            if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
+                stepsPatternZ.a = 0;
+            }
+            if (stepsPatternZ.a && !stepsPatternZ.b) {
+                stepsPatternZ.a = 0;
+            }
+            if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
+                stepsPatternZ.d = 1;
+            }
+        }
 
-    if (Math.round(event.acceleration.y) === 0) {
-        yVal = "neutral";
-        if (!stepsPatternY.a && preYVal !== "neutral") {
-            stepsPatternY.a = 1;
-        }
-        if (stepsPatternY.a && stepsPatternY.b && preYVal !== "neutral") {
-            stepsPatternY.c = 1;
-        }
-        if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d && preYVal !== "neutral") {
-            stepsPatternY.e = 1;
-        }
-    } else if (Math.round(event.acceleration.y) < 0) {
-        yVal = "negative";
-        if (stepsPatternY.a && stepsPatternY.b && !stepsPatternY.c) {
-            stepsPatternY.a = 0;
-        }
-        if (stepsPatternY.a && !stepsPatternY.b) {
-            stepsPatternY.a = 0;
-        }
-        if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && preYVal !== "negative") {
-            stepsPatternY.d = 1;
-        }
-    } else if (Math.round(event.acceleration.y) > 0) {
-        yVal = "positive";
-        if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d) {
-            stepsPatternY.a = 0;
-        }
-        if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c) {
-            stepsPatternY.a = 0;
-        }        
-        if (stepsPatternY.a && preYVal !== "positive") {
-            stepsPatternY.b = 1;
-        }
-    }
+        // acceleration y
 
-    acceleration.z[acceleration.z.length] = zVal;
-    acceleration.y[acceleration.y.length] = yVal;
-
-    for (const x in stepsPatternZ) {
-        if (stepsPatternZ[x] !== 1) {
-            stepIncr = false;
-            break;
+        if (Math.round(event.acceleration.y) === 0) {
+            yVal = "neutral";
+            if (!stepsPatternY.a && preYVal !== "neutral") {
+                stepsPatternY.a = 1;
+            }
+            if (stepsPatternY.a && stepsPatternY.b && preYVal !== "neutral") {
+                stepsPatternY.c = 1;
+            }
+            if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d && preYVal !== "neutral") {
+                stepsPatternY.e = 1;
+            }
+        } else if (Math.round(event.acceleration.y) < 0) {
+            yVal = "negative";
+            if (stepsPatternY.a && stepsPatternY.b && !stepsPatternY.c) {
+                stepsPatternY.a = 0;
+            }
+            if (stepsPatternY.a && !stepsPatternY.b) {
+                stepsPatternY.a = 0;
+            }
+            if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && preYVal !== "negative") {
+                stepsPatternY.d = 1;
+            }
+        } else if (Math.round(event.acceleration.y) > 0) {
+            yVal = "positive";
+            if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d) {
+                stepsPatternY.a = 0;
+            }
+            if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c) {
+                stepsPatternY.a = 0;
+            }        
+            if (stepsPatternY.a && preYVal !== "positive") {
+                stepsPatternY.b = 1;
+            }
         }
-    }
-    for (const x in stepsPatternY) {
-        if (stepsPatternY[x] !== 1 || !stepIncr) {
-            stepIncr = false;
-            break;
-        }
-    }
 
-    if (stepIncr) {
-        stepsCount++;
+        acceleration.z[acceleration.z.length] = zVal;
+        acceleration.y[acceleration.y.length] = yVal;
+
         for (const x in stepsPatternZ) {
-            stepsPatternZ[x] = 0;
+            if (stepsPatternZ[x] !== 1) {
+                stepIncr = false;
+                break;
+            }
         }
         for (const x in stepsPatternY) {
-            stepsPatternY[x] = 0;
+            if (stepsPatternY[x] !== 1 || !stepIncr) {
+                stepIncr = false;
+                break;
+            }
         }
-        acceleration.z = [];
-        acceleration.y = [];
-    }
 
-    steps.innerHTML = "steps: " + stepsCount;
+        if (stepIncr) {
+            stepsCount++;
+            for (const x in stepsPatternZ) {
+                stepsPatternZ[x] = 0;
+            }
+            for (const x in stepsPatternY) {
+                stepsPatternY[x] = 0;
+            }
+            acceleration.z = [];
+            acceleration.y = [];
+        }
+
+        steps.innerHTML = "steps: " + stepsCount;
+    }
 
 }, false);
 
