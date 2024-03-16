@@ -68,6 +68,7 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 
+const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const rotateA = document.querySelector('.pwa .popups .deviceInfo .rotateA');
 const rotateB = document.querySelector('.pwa .popups .deviceInfo .rotateB');
 const rotateG = document.querySelector('.pwa .popups .deviceInfo .rotateG');
