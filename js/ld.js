@@ -2209,7 +2209,7 @@ function autoDarkMode() {
                 }
 
                 var daytime = false;
-                /*
+                
                 if (!op.pwa.s) {
                     daytime = checkWithinTime(timeToDetails(sunAPIres.sunrise), timeToDetails(sunAPIres.sunset)); // check if user time is daytime
                 } else {
@@ -2221,7 +2221,7 @@ function autoDarkMode() {
                     } else {
                         daytime = false;
                     }
-                }*/
+                }
 
                 // Read the light levels in lux 
                 // < 50 is dark room
