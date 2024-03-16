@@ -344,7 +344,7 @@ window.addEventListener('devicemotion', function(event) {
     speedZ.innerHTML = "speedZ: " + Math.round(spdZ);
 
     if (started) {
-        var val = Math.sqrt(Math.pow(spdX, 2) + Math.pow(spdY, 2) + Math.pow(spdZ, 2));
+        var val = Math.sqrt(Math.pow(Math.round(spdX), 2) + Math.pow(Math.round(spdY), 2) + Math.pow(Math.round(spdZ), 2));
         acc[acc.length] = val;
     }
 }, false);
