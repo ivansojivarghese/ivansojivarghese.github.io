@@ -47,7 +47,8 @@ var acceleration = {
     },
     stepsCount = 0,
     rotation = false,
-    motion = false;
+    motion = false,
+    motionInterval = null;
 
 var urlParams = {};
 
@@ -423,6 +424,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         if (stepIncr) {
+            clearInterval(motionInterval);
             stepsCount++;
             for (const x in stepsPatternZ) {
                 stepsPatternZ[x] = 0;
@@ -433,9 +435,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             acceleration.z = [];
             acceleration.y = [];
             motion = true;
-        } else if (!stepIncr && (!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
+            motionInterval = setTimeout(function() {
+                if (!stepIncr && (!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
+                    motion = false;
+                }
+            }, 1500);
+        } /*else if (!stepIncr && (!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
             motion = false;
-        }
+        }*/
 
         steps.innerHTML = "steps: " + stepsCount;
 
