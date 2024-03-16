@@ -443,7 +443,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         }
 
-        if (stepIncr && yVal === "neutral" && zVal === "neutral" && preYVal === "neutral" && preZVal === "neutral") {
+        if (stepIncr && yVal === "neutral" && zVal === "neutral" && (preYVal === "neutral" || preYVal === "negative") && (preZVal === "neutral" || preZVal === "positive")) {
             clearInterval(motionInterval);
             stepsCount++;
             for (const x in stepsPatternZ) {
