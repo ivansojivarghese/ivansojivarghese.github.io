@@ -48,6 +48,7 @@ var acceleration = {
     stepsCount = 0,
     rotation = false,
     motion = false,
+    dropped = false,
     motionInterval = null;
 
 var urlParams = {};
@@ -324,7 +325,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     var zVal = "",
         yVal = "",
-        dropped = false,
         stepIncr = true,
         absXVal = Math.abs(Math.round(event.acceleration.x)),
         preZVal = acceleration.z[acceleration.z.length - 1],
@@ -443,6 +443,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             motionInterval = setTimeout(function() {
                 if ((!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
                     motion = false;
+                }
+                if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
+                    dropped = false;
                 }
             }, 1500);
         }
