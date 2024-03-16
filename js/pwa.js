@@ -443,7 +443,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         }
 
-        if (stepIncr && yVal === "positive" && zVal === "negative" && (preYVal === "positive") && (preZVal === "negative")) {
+        if (stepIncr && (preYVal === "positive") && (preZVal === "negative")) {
             clearInterval(motionInterval);
             stepsCount++;
             for (const x in stepsPatternZ) {
