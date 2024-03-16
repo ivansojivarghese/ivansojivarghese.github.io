@@ -329,9 +329,9 @@ window.addEventListener('devicemotion', function(event) {
     var elapsedTime = (currentTime - lastTimestamp) / 1000;
 
     // Integrate acceleration to get estimated velocity (m/s)
-    spdX = event.acceleration.x /*/ 1000 * elapsedTime*/;
-    spdY = event.acceleration.y /*/ 1000 * elapsedTime*/;
-    spdZ = event.acceleration.z /*/ 1000 * elapsedTime*/;
+    spdX = event.accelerationIncludingGravity.x /*/ 1000 * elapsedTime*/;
+    spdY = event.accelerationIncludingGravity.y /*/ 1000 * elapsedTime*/;
+    spdZ = event.accelerationIncludingGravity.z /*/ 1000 * elapsedTime*/;
 
     // Update reference time for next calculation
     lastTimestamp = currentTime;
