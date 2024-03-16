@@ -324,16 +324,21 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     var zVal = "",
         yVal = "",
+        dropped = false,
         stepIncr = true,
         absXVal = Math.abs(Math.round(event.acceleration.x)),
         preZVal = acceleration.z[acceleration.z.length - 1],
         preYVal = acceleration.y[acceleration.y.length - 1];
 
+    if (Math.round(event.acceleration.z) > 5) {
+        dropped = true;
+    }
+
     // speedX.innerHTML = Math.round(event.acceleration.x);
 
-    // acceleration z
+    if (absXVal <= 1 && !shaked && !rotation && !dropped) { // no-shakes, no lateral movements, no unnatural rotations, no drops
 
-    if (absXVal <= 1 && !shaked && !rotation) { // no-shakes, no lateral movements, no unnatural rotations
+        // acceleration z
 
         if (Math.round(event.acceleration.z) === 0) {
             zVal = "neutral";
@@ -446,10 +451,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         speedX.innerHTML = Math.round(event.acceleration.z);
 
-    } /*else if (shaked) {
+    } else if (dropepd) {
 
-        alert("steps prevented by shake");
-    }*/
+        alert("dropped");
+    }
 
 }, false);
 
