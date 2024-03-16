@@ -440,13 +440,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motion = false;
                 }
             }, 1500);
-        } /*else if (!stepIncr && (!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
-            motion = false;
-        }*/
+        }
 
         steps.innerHTML = "steps: " + stepsCount;
 
-        speedX.innerHTML = motion;
+        speedX.innerHTML = event.acceleration.z;
 
     } /*else if (shaked) {
 

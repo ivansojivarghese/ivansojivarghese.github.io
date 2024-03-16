@@ -2227,12 +2227,12 @@ function autoDarkMode() {
                 // < 50 is dark room
 
                 if (!op.refuseAutoDark) {
-                    if (sensor.illuminance < 50 && !op.darkMode && !daytime) {
+                    if (sensor.illuminance < 50 && !op.darkMode && !daytime && !motion) {
                         if (!darkModeTime) {
                             darkModeTime = Date.now();
                             lightModeTime = 0;
                             setTimeout(function() {
-                                if (sensor.illuminance < 50 && !op.darkMode && !daytime) {
+                                if (sensor.illuminance < 50 && !op.darkMode && !daytime && !motion) {
                                     op.darkChange = true;
                                     op.autoDarkChange = true;
                                     toggleColorMode(null);
@@ -2249,12 +2249,12 @@ function autoDarkMode() {
                             op.darkMode = true; // set to dark mode automatically
                             op.darkChange = false;
                         }*/
-                    } else if (op.darkMode) {
+                    } else if (op.darkMode && !motion) {
                         if (!lightModeTime) {
                             lightModeTime = Date.now();
                             darkModeTime = 0;
                             setTimeout(function() {
-                                if (op.darkMode) {
+                                if (op.darkMode && !motion) {
                                     op.darkChange = true;
                                     op.autoDarkChange = true;
                                     toggleColorMode(null);
