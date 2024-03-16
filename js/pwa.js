@@ -457,7 +457,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         steps.innerHTML = "steps: " + stepsCount;
 
-        speedX.innerHTML = Math.round(event.acceleration.z);
+        speedX.innerHTML = motion;
 
     } 
 
