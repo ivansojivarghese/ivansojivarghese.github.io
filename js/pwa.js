@@ -334,12 +334,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     if (Math.abs(Math.round(event.acceleration.z)) > 5) {
         clearInterval(droppedInterval);
         dropped = true;
-        this.alert("dropped");
+    }
+
+    if (dropped) {
         droppedInterval = setTimeout(function() {
-            if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
                 dropped = false;
-            }
-        }, 1500);
+        }, 3000);
     }
 
     // speedX.innerHTML = Math.round(event.acceleration.x);
