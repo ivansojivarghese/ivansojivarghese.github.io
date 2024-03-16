@@ -332,21 +332,23 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         preYVal = acceleration.y[acceleration.y.length - 1];
 
     if (Math.abs(Math.round(event.acceleration.z)) > 5) {
-        // clearInterval(droppedInterval);
+        clearInterval(droppedInterval);
         dropped = true;
     }
+    /*
     if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
         dropped = false;
-    }
-    /*
+    }*/
+    
     if (dropped) {
         droppedInterval = setTimeout(function() {
+            if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
                 dropped = false;
+            }
         }, 1500);
-    }*/
-    // speedX.innerHTML = Math.round(event.acceleration.x);
+    }
 
-    if (absXVal <= 1 && !shaked && !rotation && !dropped) { // no-shakes, no lateral movements, no unnatural rotations, no drops
+    if (absXVal <= 1 && !shaked && !rotation) { // no-shakes, no lateral movements, no unnatural rotations, no drops
 
         // acceleration z
 
@@ -361,7 +363,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
                 stepsPatternZ.e = 1;
             }
-        } else if (Math.round(event.acceleration.z) < 0) {
+        } else if (Math.round(event.acceleration.z) < 0 && !dropped) {
             zVal = "negative";
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
                 stepsPatternZ.a = 0;
@@ -372,7 +374,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternZ.a && preZVal !== "negative") {
                 stepsPatternZ.b = 1;
             }
-        } else if (Math.round(event.acceleration.z) > 0) {
+        } else if (Math.round(event.acceleration.z) > 0 && !dropped) {
             zVal = "positive";        
             if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
                 stepsPatternZ.a = 0;
