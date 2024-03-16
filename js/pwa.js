@@ -312,6 +312,10 @@ function networkInfo() {
 
 // REFERENCED FROM Pascal Z, https://stackoverflow.com/questions/33673409/html5-javascript-calculate-device-speed-using-devicemotion-deviceorientation
 
+if (!'DeviceMotionEvent' in window) { 
+    steps.remove();
+}
+
 window.addEventListener('devicemotion', function(event) {
 
     var zVal = "",
