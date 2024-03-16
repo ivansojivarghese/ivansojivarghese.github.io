@@ -451,7 +451,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         speedX.innerHTML = Math.round(event.acceleration.z);
 
-    } else if (dropepd) {
+    } else if (dropped) {
 
         alert("dropped");
     }
