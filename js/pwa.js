@@ -327,7 +327,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         preZVal = acceleration.z[acceleration.z.length - 1],
         preYVal = acceleration.y[acceleration.y.length - 1];
 
-    speedX.innerHTML = Math.round(event.acceleration.x);
+    // speedX.innerHTML = Math.round(event.acceleration.x);
 
     // acceleration z
 
@@ -453,9 +453,10 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
         rotation = false;
     }
 
+    /*
     rotateA.innerHTML = "alpha: " + Math.round(event.alpha);
     rotateB.innerHTML = "beta: " + Math.round(event.beta);
-    rotateG.innerHTML = "gamma: " + Math.round(event.gamma);
+    rotateG.innerHTML = "gamma: " + Math.round(event.gamma);*/
 
 }, false);
 
@@ -708,6 +709,7 @@ function openPopUp(target) {
     if (target !== 'terms') {
         // popups.style.height = "calc(100lvh - calc(env(safe-area-inset-top))) !important";
         popups.classList.add("lvh");
+        popups.classList.add("ovy-h");
         popups.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
         popups.addEventListener("click", function(e) {
             if (e.target !== this) {
@@ -741,6 +743,7 @@ function closePopUp(target) {
         if (target !== 'terms') {
             // popups.style.height = "";
             popups.classList.remove("lvh");
+            popups.classList.remove("ovy-h");
             popups.style.backgroundColor = "";
         }
     }, op.t);
