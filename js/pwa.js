@@ -447,7 +447,7 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
     var bVal = Math.round(event.beta),
         gVal = Math.abs(Math.round(event.gamma));
 
-    if (bVal > 45 && gVal > 10) { // if angle of mobile device greater than 45deg, & tilt greater abs' 10deg
+    if (bVal > 45 || gVal > 10) { // if angle of mobile device greater than 45deg, OR tilt greater abs' 10deg
         rotation = true;
     } else {
         rotation = false;
