@@ -326,7 +326,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     // acceleration z
 
-    if (absXVal <= 1) {
+    if (absXVal <= 1 && !shaked) {
 
         if (Math.round(event.acceleration.z) === 0) {
             zVal = "neutral";
