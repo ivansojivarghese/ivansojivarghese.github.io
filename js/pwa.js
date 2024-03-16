@@ -331,7 +331,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         preZVal = acceleration.z[acceleration.z.length - 1],
         preYVal = acceleration.y[acceleration.y.length - 1];
 
-    if (Math.abs(Math.round(event.acceleration.z)) > 3) {
+    if (Math.abs(Math.round(event.acceleration.z)) > 5) {
         clearInterval(droppedInterval);
         dropped = true;
     }
