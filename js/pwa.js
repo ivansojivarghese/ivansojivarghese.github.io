@@ -339,7 +339,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     if (dropped) {
         droppedInterval = setTimeout(function() {
                 dropped = false;
-        }, 3000);
+        }, 1500);
     }
 
     // speedX.innerHTML = Math.round(event.acceleration.x);
