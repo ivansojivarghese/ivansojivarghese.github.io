@@ -309,6 +309,20 @@ function networkInfo() {
 
 // REFERENCED FROM Pascal Z, https://stackoverflow.com/questions/33673409/html5-javascript-calculate-device-speed-using-devicemotion-deviceorientation
 
+var myShakeEvent = new Shake({
+    threshold: 15, // optional shake strength threshold
+    timeout: 1000 // optional, determines the frequency of event generation
+});
+myShakeEvent.start();
+window.addEventListener('shake', shakeEventDidOccur, false);
+
+//function to call when shake occurs
+function shakeEventDidOccur () {
+
+    //put your own code here etc.
+    alert('shake!');
+}
+
 if (!'DeviceMotionEvent' in window) { 
     steps.remove();
 }
