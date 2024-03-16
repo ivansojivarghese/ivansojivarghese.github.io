@@ -67,11 +67,7 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 // const networkDownlinkMax = document.querySelector('.pwa .popups .deviceInfo .networkDownlinkMax');
 
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
-
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
-const rotateA = document.querySelector('.pwa .popups .deviceInfo .rotateA');
-const rotateB = document.querySelector('.pwa .popups .deviceInfo .rotateB');
-const rotateG = document.querySelector('.pwa .popups .deviceInfo .rotateG');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -327,10 +323,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         preYVal = acceleration.y[acceleration.y.length - 1];
 
     speedX.innerHTML = Math.round(event.acceleration.x);
-    /*
-    rotateA.innerHTML = Math.round(event.rotationRate.alpha);
-    rotateB.innerHTML = Math.round(event.rotationRate.beta);
-    rotateG.innerHTML = Math.round(event.rotationRate.gamma);*/
 
     // acceleration z
 
@@ -440,7 +432,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     }
 
 }, false);
-
 
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');

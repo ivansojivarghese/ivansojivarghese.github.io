@@ -2026,6 +2026,23 @@
                 })('//updatemybrowser.org/umb.js');
             }
         </script>
+        <!--  shake detection, REFERENCE: https://github.com/alexgibson/shake.js -->
+        <script src="https://cdn.jsdelivr.net/gh/alexgibson/shake.js"></script>
+        <script>
+            var myShakeEvent = new Shake({
+                threshold: 15, // optional shake strength threshold
+                timeout: 1000 // optional, determines the frequency of event generation
+            });
+            myShakeEvent.start();
+            window.addEventListener('shake', shakeEventDidOccur, false);
+
+            //function to call when shake occurs
+            function shakeEventDidOccur () {
+
+                //put your own code here etc.
+                alert('shake!');
+            }
+        </script>
         <!-- Device detector (client-side device detecting), REFERENCE: https://github.com/PoeHaH/devicedetector -->
         <script src="https://cdn.jsdelivr.net/gh/PoeHaH/devicedetector/devicedetector-min.js"></script>
         <!-- incognito mode detection -->
