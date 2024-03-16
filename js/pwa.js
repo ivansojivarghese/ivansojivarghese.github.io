@@ -289,33 +289,9 @@ function networkInfo() {
 }
 
 // REFERENCED FROM Pascal Z, https://stackoverflow.com/questions/33673409/html5-javascript-calculate-device-speed-using-devicemotion-deviceorientation
-/*
-var lastTimestamp;
-var spdX = 0, spdY = 0, spdZ = 0;
-
-window.addEventListener('devicemotion', function(event) {
-    var currentTime = new Date().getTime();
-    if (lastTimestamp === undefined) {
-        lastTimestamp = new Date().getTime();
-        return; //ignore first call, we need a reference time
-    }
-    //  m/s² / 1000 * (miliseconds - miliseconds)/1000 /3600 => km/h (if I didn't made a mistake)
-    spdX += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
-    spdY += event.acceleration.y / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
-    spdZ += event.acceleration.z / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
-    //... same for Y and Z
-    lastTimestamp = currentTime;
-
-    speedX.innerHTML = "speedX: " + Math.round(spdX);
-    speedY.innerHTML = "speedY: " + Math.round(spdY);
-    speedZ.innerHTML = "speedZ: " + Math.round(spdZ);
-}, false);*/
 
 var lastTimestamp;
 var spdX = 0, spdY = 0, spdZ = 0;
-
-var started = false;
-var acc = [];
 
 window.addEventListener('devicemotion', function(event) {
     var currentTime = new Date().getTime();
@@ -343,15 +319,8 @@ window.addEventListener('devicemotion', function(event) {
     speedY.innerHTML = "speedY: " + Math.round(spdY);
     speedZ.innerHTML = "speedZ: " + Math.round(spdZ);
 
-    if (started) {
-        var val = Math.sqrt(Math.pow(Math.round(spdX), 2) + Math.pow(Math.round(spdY), 2) + Math.pow(Math.round(spdZ), 2));
-        acc[acc.length] = val;
-    }
 }, false);
 
-function mAcc() {
-    started = true;
-}
 
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
