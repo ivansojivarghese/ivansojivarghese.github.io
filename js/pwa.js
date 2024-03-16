@@ -28,8 +28,17 @@ var githubCommitsres = {
 };
 
 var acceleration = {
-    z : []
-};
+        z : []
+    },
+    stepsPatternZ = {
+        a : 0,
+        b : 0,
+        c : 0,
+        d : 0,
+        e : 0,
+        f : 0
+    },
+    stepsCount = 0;
 
 var urlParams = {};
 
@@ -49,6 +58,8 @@ const networkType = document.querySelector('.pwa .popups .deviceInfo .networkTyp
 const networkEffType = document.querySelector('.pwa .popups .deviceInfo .networkEffType');
 const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networkDownlink');
 // const networkDownlinkMax = document.querySelector('.pwa .popups .deviceInfo .networkDownlinkMax');
+
+const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const speedY = document.querySelector('.pwa .popups .deviceInfo .speedY');
@@ -304,17 +315,70 @@ window.addEventListener('devicemotion', function(event) {
     // speedY.innerHTML = "speedY: " + Math.round(spdY);
     // speedZ.innerHTML = "speedZ: " + Math.round(spdZ);
 
-    var zVal = "";
+    var zVal = "",
+        stepIncr = true;
 
     if (Math.round(event.acceleration.z) === 0) {
         zVal = "neutral";
+        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
+            stepsPatternZ.a = 0;
+        }
+        if (!stepsPatternZ.a) {
+            stepsPatternZ.a = 1;
+        }
+        if (stepsPatternZ.a && stepsPatternZ.b) {
+            stepsPatternZ.c = 1;
+        }
+        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
+            stepsPatternZ.e = 1;
+        }
     } else if (Math.round(event.acceleration.z) < 0) {
         zVal = "negative";
+        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
+            stepsPatternZ.a = 0;
+        }
+        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
+            stepsPatternZ.a = 0;
+        }
+        if (stepsPatternZ.a && stepsPatternZ.b) {
+            stepsPatternZ.a = 0;
+        }
+        if (stepsPatternZ.a) {
+            stepsPatternZ.b = 1;
+        }
     } else if (Math.round(event.acceleration.z) > 0) {
         zVal = "positive";
+        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
+            stepsPatternZ.a = 0;
+        }
+        if (stepsPatternZ.a && !stepsPatternZ.b) {
+            stepsPatternZ.a = 0;
+        }
+        if (stepsPatternZ.a && stepsPatternZ.b) {
+            stepsPatternZ.a = 0;
+        }
+        if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
+            stepsPatternZ.d = 1;
+        }
     }
 
     acceleration.z[acceleration.z.length] = zVal;
+
+    for (const x in stepsPatternZ) {
+        if (stepsPatternZ[x] !== 1) {
+            stepIncr = false;
+        }
+    }
+
+    if (stepIncr) {
+        stepsCount++;
+        for (const x in stepsPatternZ) {
+            stepsPatternZ[x] = 0;
+        }
+        acceleration.z = [];
+    }
+
+    steps.innerHTML = "steps: " + stepsCount;
 
 }, false);
 
