@@ -335,6 +335,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         // clearInterval(droppedInterval);
         dropped = true;
     }
+    if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
+        dropped = false;
+    }
     /*
     if (dropped) {
         droppedInterval = setTimeout(function() {
