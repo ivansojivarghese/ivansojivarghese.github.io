@@ -52,6 +52,10 @@ body {
     padding-left: calc(env(safe-area-inset-left));
 }
 
+.pwa .popups.lvh {
+    height: calc(100lvh - calc(env(safe-area-inset-top))) !important;
+}
+
 .pwa .popups .banner {
     justify-content: flex-end;
 }

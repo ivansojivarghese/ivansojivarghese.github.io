@@ -69,6 +69,10 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 
+const rotateA = document.querySelector('.pwa .popups .deviceInfo .rotateA');
+const rotateB = document.querySelector('.pwa .popups .deviceInfo .rotateB');
+const rotateG = document.querySelector('.pwa .popups .deviceInfo .rotateG');
+
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
     // defTab = tabs[0],
@@ -684,7 +688,8 @@ function openPopUp(target) {
     const popups = document.querySelector('.pwa .popups');
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
-        popups.style.height = "calc(100lvh - calc(env(safe-area-inset-top))) !important";
+        // popups.style.height = "calc(100lvh - calc(env(safe-area-inset-top))) !important";
+        popups.classList.add("lvh");
         popups.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
         popups.addEventListener("click", function(e) {
             if (e.target !== this) {
@@ -716,7 +721,8 @@ function closePopUp(target) {
         t.classList.add("d_n");
         popups.classList.add("d_n");
         if (target !== 'terms') {
-            popups.style.height = "";
+            // popups.style.height = "";
+            popups.classList.remove("lvh");
             popups.style.backgroundColor = "";
         }
     }, op.t);
