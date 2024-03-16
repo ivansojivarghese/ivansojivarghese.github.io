@@ -134,7 +134,7 @@ function navButtonActive(b, e, v) {
         e_Fd(profile_image, false);
     }*/
 
-    if (b === "about") {
+    if (b === "about" && 'share' in navigator) {
         fab.classList.remove("hide");
         fab.addEventListener("click", async () => {
             try {
@@ -602,7 +602,7 @@ function fetchPWAInfo() {
         activeTab = target;
         navButtonActive(target, targetBtn, true);
 
-        if (target === "about") {
+        if (target === "about" && 'share' in navigator) {
             fab.classList.remove("hide");
             fab.addEventListener("click", async () => {
                 try {
