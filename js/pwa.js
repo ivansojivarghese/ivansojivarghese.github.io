@@ -444,7 +444,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         steps.innerHTML = "steps: " + stepsCount;
 
-        speedX.innerHTML = event.acceleration.z;
+        speedX.innerHTML = Math.round(event.acceleration.z);
 
     } /*else if (shaked) {
 
