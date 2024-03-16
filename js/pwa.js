@@ -46,7 +46,8 @@ var acceleration = {
         e : 0
     },
     stepsCount = 0,
-    rotation = false;
+    rotation = false,
+    motion = false;
 
 var urlParams = {};
 
@@ -431,9 +432,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
             acceleration.z = [];
             acceleration.y = [];
+            motion = true;
+        } else if (!stepIncr && (!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
+            motion = false;
         }
 
         steps.innerHTML = "steps: " + stepsCount;
+
+        speedX.innerHTML = motion;
 
     } /*else if (shaked) {
 
