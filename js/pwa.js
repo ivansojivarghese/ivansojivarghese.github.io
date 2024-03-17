@@ -364,7 +364,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
                 stepsPatternZ.e = 1;
             }
-        } else if (Math.round(event.acceleration.z) < -1 && !dropped) {
+        } else if (Math.round(event.acceleration.z) < 0 && event.acceleration.z < -1 && !dropped) {
             zVal = "negative";
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
                 stepsPatternZ.a = 0;
@@ -375,7 +375,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternZ.a && preZVal !== "negative") {
                 stepsPatternZ.b = 1;
             }
-        } else if (Math.round(event.acceleration.z) > 1 && !dropped) {
+        } else if (Math.round(event.acceleration.z) > 0 && event.acceleration.z > 1 && !dropped) {
             zVal = "positive";        
             if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
                 stepsPatternZ.a = 0;
@@ -401,7 +401,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d && preYVal !== "neutral") {
                 stepsPatternY.e = 1;
             }
-        } else if (Math.round(event.acceleration.y) < -1) {
+        } else if (Math.round(event.acceleration.y) < 0 && event.acceleration.z < -1) {
             yVal = "negative";
             if (stepsPatternY.a && stepsPatternY.b && !stepsPatternY.c) {
                 stepsPatternY.a = 0;
@@ -412,7 +412,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && preYVal !== "negative") {
                 stepsPatternY.d = 1;
             }
-        } else if (Math.round(event.acceleration.y) > 1) {
+        } else if (Math.round(event.acceleration.y) > 0 && event.acceleration.z > 1) {
             yVal = "positive";
             if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d) {
                 stepsPatternY.a = 0;
