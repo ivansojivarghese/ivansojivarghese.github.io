@@ -46,12 +46,13 @@ var acceleration = {
         e : 0
     },
     stepsCount = 0,
+    betaAngle = 0,
     rotation = false,
-    // stationary = false,
     motion = false,
-    // dropped = false,
-    droppedInterval = null,
     motionInterval = null;
+    // stationary = false,
+    // dropped = false,
+    // droppedInterval = null,
 
 var urlParams = {};
 
@@ -325,12 +326,22 @@ if (!('DeviceMotionEvent' in window) && !('DeviceOrientationEvent') in window) {
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
-    var zVal = "",
+    var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
+        zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
+        pitch = Math.abs(betaAngle), // pitch of device
+        pitchRad = pitch * (Math.PI / 180),
+        cosVal = Math.cos(pitchRad),
+        resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
+        stepIncr = false;
+
+    speedX.innerHTML = zGAcc / resAcc;
+
+        /*
+        zVal = "",
         yVal = "",
-        stepIncr = true,
         // absXVal = Math.abs(Math.round(event.acceleration.x)),
         preZVal = acceleration.z[acceleration.z.length - 1],
-        preYVal = acceleration.y[acceleration.y.length - 1];
+        preYVal = acceleration.y[acceleration.y.length - 1];*/
 
     /*
     if (Math.abs(Math.round(event.acceleration.z)) > 5) {
@@ -342,8 +353,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }, 1500);
     }*/
 
-    if (/*((absXVal <= 1) || (absXVal > 1 && Math.abs(Math.round(event.rotationRate.alpha)) > 10)) &&*/ !shaked && !rotation /*&& !stationary*/) { // no-shakes, no lateral movements (unless turning), no unnatural rotations, no drops
+    if (!shaked && !rotation) { 
 
+
+
+        /*
         // acceleration z
 
         if (Math.round(event.acceleration.z) === 0) {
@@ -357,7 +371,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
                 stepsPatternZ.e = 1;
             }
-        } else if (Math.round(event.acceleration.z) < 0 /*&& event.acceleration.z < -1 && !dropped*/) {
+        } else if (Math.round(event.acceleration.z) < 0) {
             zVal = "negative";
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
                 stepsPatternZ.a = 0;
@@ -368,7 +382,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternZ.a && preZVal !== "negative") {
                 stepsPatternZ.b = 1;
             }
-        } else if (Math.round(event.acceleration.z) > 0 /*&& event.acceleration.z > 1 && !dropped*/) {
+        } else if (Math.round(event.acceleration.z) > 0) {
             zVal = "positive";        
             if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
                 stepsPatternZ.a = 0;
@@ -394,7 +408,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d && preYVal !== "neutral") {
                 stepsPatternY.e = 1;
             }
-        } else if (Math.round(event.acceleration.y) < 0 /*&& event.acceleration.z < -1*/) {
+        } else if (Math.round(event.acceleration.y) < 0) {
             yVal = "negative";
             if (stepsPatternY.a && stepsPatternY.b && !stepsPatternY.c) {
                 stepsPatternY.a = 0;
@@ -405,7 +419,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && preYVal !== "negative") {
                 stepsPatternY.d = 1;
             }
-        } else if (Math.round(event.acceleration.y) > 0 /*&& event.acceleration.z > 1*/) {
+        } else if (Math.round(event.acceleration.y) > 0) {
             yVal = "positive";
             if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d) {
                 stepsPatternY.a = 0;
@@ -418,9 +432,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         }
 
-        // if (!dropped) { 
         acceleration.z[acceleration.z.length] = zVal;
-        // }
         acceleration.y[acceleration.y.length] = yVal;
 
         for (const x in stepsPatternZ) {
@@ -434,12 +446,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 stepIncr = false;
                 break;
             }
-        } //
+        } 
+        */
 
         speedX.innerHTML = event.accelerationIncludingGravity.z;
-        speedX.style.backgroundColor = "lightBlue";
+        speedX.style.backgroundColor = "yellow";
 
-        if ((stepIncr) /*&& (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90) */) {
+        if (stepIncr) {
             /*
             if (event.accelerationIncludingGravity.z > 11) {
                 stepsCount++;
@@ -469,10 +482,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
 
+    betaAngle = event.beta;
+
     var bVal = Math.abs(Math.round(event.beta)),
         gVal = Math.abs(Math.round(event.gamma));
 
-    if (bVal > 90 || gVal > 45) { // if angle of mobile device greater than 45deg, OR tilt greater abs' 10deg
+    if (bVal > 90 || gVal > 45) { // if angle of mobile device greater than 90deg, OR tilt greater abs' 45deg
         rotation = true;
     } else {
         rotation = false;
