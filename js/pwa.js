@@ -47,9 +47,9 @@ var acceleration = {
     },
     stepsCount = 0,
     rotation = false,
-    stationary = false,
+    // stationary = false,
     motion = false,
-    dropped = false,
+    // dropped = false,
     droppedInterval = null,
     motionInterval = null;
 
@@ -328,10 +328,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     var zVal = "",
         yVal = "",
         stepIncr = true,
-        absXVal = Math.abs(Math.round(event.acceleration.x)),
+        // absXVal = Math.abs(Math.round(event.acceleration.x)),
         preZVal = acceleration.z[acceleration.z.length - 1],
         preYVal = acceleration.y[acceleration.y.length - 1];
 
+    /*
     if (Math.abs(Math.round(event.acceleration.z)) > 5) {
         clearInterval(droppedInterval);
         dropped = true;
@@ -339,9 +340,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             dropped = false;
             clearInterval(droppedInterval);
         }, 1500);
-    }
+    }*/
 
-    if (/*((absXVal <= 1) || (absXVal > 1 && Math.abs(Math.round(event.rotationRate.alpha)) > 10)) &&*/ !shaked && !rotation && !stationary) { // no-shakes, no lateral movements (unless turning), no unnatural rotations, no drops
+    if (/*((absXVal <= 1) || (absXVal > 1 && Math.abs(Math.round(event.rotationRate.alpha)) > 10)) &&*/ !shaked && !rotation /*&& !stationary*/) { // no-shakes, no lateral movements (unless turning), no unnatural rotations, no drops
 
         // acceleration z
 
@@ -418,7 +419,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         // if (!dropped) { 
-            acceleration.z[acceleration.z.length] = zVal;
+        acceleration.z[acceleration.z.length] = zVal;
         // }
         acceleration.y[acceleration.y.length] = yVal;
 
@@ -437,7 +438,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         if ((stepIncr) /*&& (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90) */) {
             clearInterval(motionInterval);
-            stepsCount++;
+            if (event.accelerationIncludingGravity.z > 11) {
+                stepsCount++;
+                motion = true;
+            }
             for (const x in stepsPatternZ) {
                 stepsPatternZ[x] = 0;
             }
@@ -446,7 +450,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
             acceleration.z = [];
             acceleration.y = [];
-            motion = true;
             
             motionInterval = setInterval(function() {
                 motion = false;
@@ -462,20 +465,21 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
 
-    var bVal = Math.round(event.beta),
+    var bVal = Math.abs(Math.round(event.beta)),
         gVal = Math.abs(Math.round(event.gamma));
 
-    if (bVal > 45 || gVal > 10) { // if angle of mobile device greater than 45deg, OR tilt greater abs' 10deg
+    if (bVal > 90 || gVal > 45) { // if angle of mobile device greater than 45deg, OR tilt greater abs' 10deg
         rotation = true;
     } else {
         rotation = false;
     }
 
-    if (Math.abs(bVal) <= 10) { // if device is stationary
+    /*
+    if (Math.abs(bVal) <= 10) { // if device is stationary on ground
         stationary = true;
     } else {
         stationary = false;
-    }
+    }*/
 
     /*
     rotateA.innerHTML = "alpha: " + Math.round(event.alpha);
