@@ -445,7 +445,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         }
 
-        if ((stepIncr || (absZGravity > 10)) && Math.round(event.acceleration.y) < 0 && (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90)) {
+        if ((stepIncr || (absZGravity > 10)) && event.acceleration.y < -0.5 && (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90)) {
             clearInterval(motionInterval);
             stepsCount++;
             for (const x in stepsPatternZ) {
