@@ -448,6 +448,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         if ((stepIncr || (absZGravity > 10 && !dropped)) && (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90)) {
             clearInterval(motionInterval);
             stepsCount++;
+            steps.innerHTML = "steps: " + stepsCount;
             for (const x in stepsPatternZ) {
                 stepsPatternZ[x] = 0;
             }
@@ -471,8 +472,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 clearInterval(motionInterval);
             }
         }, 1000);
-
-        steps.innerHTML = "steps: " + stepsCount;
 
         speedX.innerHTML = motion;
     } 
