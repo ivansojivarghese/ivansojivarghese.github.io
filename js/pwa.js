@@ -456,10 +456,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             acceleration.y = [];
             motion = true;
             motionInterval = setTimeout(function() {
-                if ((!Math.round(event.acceleration.y) || !Math.round(event.acceleration.z))) {
+                if ((!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x)))) {
                     motion = false;
                 }
-            }, 2000);
+            }, 1000);
         }
 
         steps.innerHTML = "steps: " + stepsCount;
