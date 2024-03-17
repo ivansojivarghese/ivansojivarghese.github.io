@@ -335,6 +335,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         stepIncr = false;
 
     speedX.innerHTML = zGAcc / resAcc;
+    speedX.style.backgroundColor = "yellow";
 
         /*
         zVal = "",
@@ -354,8 +355,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     }*/
 
     if (!shaked && !rotation) { 
-
-
 
         /*
         // acceleration z
@@ -448,9 +447,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         } 
         */
-
-        speedX.innerHTML = event.accelerationIncludingGravity.z;
-        speedX.style.backgroundColor = "yellow";
 
         if (stepIncr) {
             /*
