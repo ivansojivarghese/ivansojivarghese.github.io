@@ -336,19 +336,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     if (Math.abs(Math.round(event.acceleration.z)) > 5) {
         clearInterval(droppedInterval);
         dropped = true;
-    }
-    /*
-    if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
-        dropped = false;
-    }*/
-    
-    if (dropped) {
         droppedInterval = setInterval(function() {
-            if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
-                dropped = false;
-                clearInterval(droppedInterval);
-            }
-        }, 1000);
+            dropped = false;
+            clearInterval(droppedInterval);
+        }, 1500);
     }
 
     if (((absXVal <= 1) || (absXVal > 1 && Math.abs(Math.round(event.rotationRate.alpha)) > 10)) && !shaked && !rotation && !stationary) { // no-shakes, no lateral movements (unless turning), no unnatural rotations, no drops
@@ -460,19 +451,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             motion = true;
             
             motionInterval = setInterval(function() {
-                if ((event.accelerationIncludingGravity.z <= 10 && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x)))) {
-                    motion = false;
-                    clearInterval(motionInterval);
-                }
-            }, 1000);
-        }
-        /*
-        motionInterval = setInterval(function() {
-            if ((event.accelerationIncludingGravity.z < 10 && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x)))) {
                 motion = false;
                 clearInterval(motionInterval);
-            }
-        }, 1000);*/
+            }, 1500);
+        }
 
         speedX.innerHTML = motion;
     } 
