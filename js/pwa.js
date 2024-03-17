@@ -356,6 +356,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
                 stepsPatternZ.e = 1;
+                speedX.innerHTML = event.accelerationIncludingGravity.z;
+                speedX.style.backgroundColor = "green";
             }
         } else if (Math.round(event.acceleration.z) < 0 /*&& event.acceleration.z < -1 && !dropped*/) {
             zVal = "negative";
@@ -378,8 +380,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
                 stepsPatternZ.d = 1;
-                speedX.innerHTML = event.accelerationIncludingGravity.z;
-                speedX.style.backgroundColor = "yellow";
             }
         }
 
