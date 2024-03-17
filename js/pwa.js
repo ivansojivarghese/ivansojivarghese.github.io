@@ -353,7 +353,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
             if (stepsPatternZ.a && stepsPatternZ.b && preZVal !== "neutral") {
                 stepsPatternZ.c = 1;
-                speedX.innerHTML = event.accelerationIncludingGravity.z;
             }
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
                 stepsPatternZ.e = 1;
@@ -379,6 +378,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
                 stepsPatternZ.d = 1;
+                speedX.innerHTML = event.accelerationIncludingGravity.z;
             }
         }
 
