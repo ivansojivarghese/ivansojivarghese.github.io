@@ -48,12 +48,10 @@ var acceleration = {
     stepsCount = 0,
     betaAngle = 0,
     rotation = false,
+    noStep = false,
     motionRef = false,
     pitchRef = 0, // reference
-    refZForce = 0, // reference z-force. (updates while stationary)
-
-    motion = false,
-    motionInterval = null;
+    refZForce = 0; // reference z-force. (updates while stationary)
 
 var urlParams = {};
 
@@ -345,8 +343,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, with 20deg of pitchRef)
         if (!shaked && !rotation) {
             const zDiff = resZForce - refZForce;
-            if (zDiff > zThreshold) {
+            if (zDiff <= zThreshold) {
+                noStep = false;
+            } else if (zDiff > zThreshold && !noStep) {
                 stepsCount++;
+                noStep = true;
             }
         }
     } else {
@@ -356,7 +357,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     steps.innerHTML = "steps: " + stepsCount;
 
     speedX.innerHTML = Math.round((zGAcc / resAcc) * 100);
-    speedX.style.backgroundColor = "green";
+    speedX.style.backgroundColor = "pink";
 
         /*
         zVal = "",
