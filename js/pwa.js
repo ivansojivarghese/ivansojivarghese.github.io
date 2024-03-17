@@ -329,7 +329,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         yVal = "",
         stepIncr = true,
         absXVal = Math.abs(Math.round(event.acceleration.x)),
-        absZGravity = Math.abs(event.accelerationIncludingGravity.z),
+        // absZGravity = Math.abs(event.accelerationIncludingGravity.z),
         preZVal = acceleration.z[acceleration.z.length - 1],
         preYVal = acceleration.y[acceleration.y.length - 1];
 
@@ -436,7 +436,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         } //
 
-        if ((stepIncr || (absZGravity > 10 && !dropped)) && (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90)) {
+        if ((stepIncr) && (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90)) {
             clearInterval(motionInterval);
             stepsCount++;
             steps.innerHTML = "steps: " + stepsCount;
