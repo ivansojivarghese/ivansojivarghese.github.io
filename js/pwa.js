@@ -437,7 +437,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         } //
 
         speedX.innerHTML = event.accelerationIncludingGravity.z;
-        speedX.style.backgroundColor = "pink";
+        speedX.style.backgroundColor = "purple";
 
         if ((stepIncr) /*&& (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90) */) {
             /*
