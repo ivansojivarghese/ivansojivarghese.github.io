@@ -336,8 +336,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         cosVal = Math.cos(pitchRad),
         resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
         resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
-        zThreshold = 20, // threshold for a 'step' - based on z-acc flunctuations
-        stepIncr = false;
+        zThreshold = 20; // threshold for a 'step' - based on z-acc flunctuations
 
     if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) {
         pitchRef = pitch;
