@@ -379,6 +379,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
                 stepsPatternZ.d = 1;
                 speedX.innerHTML = event.accelerationIncludingGravity.z;
+                speedX.style.backgroundColor = "yellow";
             }
         }
 
