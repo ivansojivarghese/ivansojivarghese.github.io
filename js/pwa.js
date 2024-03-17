@@ -417,9 +417,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         }
 
-        if (!dropped) { 
+        // if (!dropped) { 
             acceleration.z[acceleration.z.length] = zVal;
-        }
+        // }
         acceleration.y[acceleration.y.length] = yVal;
 
         for (const x in stepsPatternZ) {
