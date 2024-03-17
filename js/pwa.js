@@ -48,13 +48,12 @@ var acceleration = {
     stepsCount = 0,
     betaAngle = 0,
     rotation = false,
+    motionRef = false,
+    pitchRef = 0, // reference
+    refZForce = 0, // reference z-force. (updates while stationary)
 
     motion = false,
     motionInterval = null;
-
-    // stationary = false,
-    // dropped = false,
-    // droppedInterval = null,
 
 var urlParams = {};
 
@@ -77,10 +76,6 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
-
-const rotateA = document.querySelector('.pwa .popups .deviceInfo .rotateA');
-const rotateB = document.querySelector('.pwa .popups .deviceInfo .rotateB');
-const rotateG = document.querySelector('.pwa .popups .deviceInfo .rotateG');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -326,6 +321,12 @@ if (!('DeviceMotionEvent' in window) && !('DeviceOrientationEvent') in window) {
     steps.remove();
 }
 
+function similarAngle(t, r, d) {
+    const diff = Math.abs(t - r);
+    const res = diff > d ? false : true;
+    return res;
+}
+
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
     var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
@@ -334,33 +335,39 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         pitchRad = pitch * (Math.PI / 180),
         cosVal = Math.cos(pitchRad),
         resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
+        resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
+        zThreshold = 20, // threshold for a 'step' - based on z-acc flunctuations
         stepIncr = false;
 
+    if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) {
+        pitchRef = pitch;
+        refZForce = resZForce; // update while still
+        motionRef = true;
+    } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, with 20deg of pitchRef)
+        if (!shaked && !rotation) {
+            const zDiff = resZForce - refZForce;
+            if (zDiff > zThreshold) {
+                stepsCount++;
+            }
+        }
+    } else {
+        motionRef = false; // re-calibrate
+    }
+
+    steps.innerHTML = "steps: " + stepsCount;
+
     speedX.innerHTML = Math.round((zGAcc / resAcc) * 100);
-    speedX.style.backgroundColor = "pink";
+    speedX.style.backgroundColor = "green";
 
         /*
         zVal = "",
         yVal = "",
         // absXVal = Math.abs(Math.round(event.acceleration.x)),
         preZVal = acceleration.z[acceleration.z.length - 1],
-        preYVal = acceleration.y[acceleration.y.length - 1];*/
-
-    /*
-    if (Math.abs(Math.round(event.acceleration.z)) > 5) {
-        clearInterval(droppedInterval);
-        dropped = true;
-        droppedInterval = setInterval(function() {
-            dropped = false;
-            clearInterval(droppedInterval);
-        }, 1500);
-    }*/
+        preYVal = acceleration.y[acceleration.y.length - 1];
 
     if (!shaked && !rotation) { 
 
-
-
-        /*
         // acceleration z
 
         if (Math.round(event.acceleration.z) === 0) {
@@ -466,9 +473,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 motion = false;
                 clearInterval(motionInterval);
             }, 1500);
-        } */
+        } 
         // steps.innerHTML = "steps: " + stepsCount;
-    } 
+    }  */
 
 }, false);
 
@@ -484,13 +491,6 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
     } else {
         rotation = false;
     }
-
-    /*
-    if (Math.abs(bVal) <= 10) { // if device is stationary on ground
-        stationary = true;
-    } else {
-        stationary = false;
-    }*/
 
 }, false);
 
