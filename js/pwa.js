@@ -346,6 +346,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         droppedInterval = setInterval(function() {
             if (Math.abs(Math.round(event.acceleration.z)) <= 5) {
                 dropped = false;
+                clearInterval(droppedInterval);
             }
         }, 1000);
     }
@@ -456,17 +457,24 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             acceleration.z = [];
             acceleration.y = [];
             motion = true;
+            /*
             motionInterval = setInterval(function() {
                 if ((event.accelerationIncludingGravity.z < 10 && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x)))) {
                     motion = false;
                 }
-            }, 1000);
+            }, 1000);*/
         }
+
+        motionInterval = setInterval(function() {
+            if ((event.accelerationIncludingGravity.z < 10 && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x)))) {
+                motion = false;
+                clearInterval(motionInterval);
+            }
+        }, 1000);
 
         steps.innerHTML = "steps: " + stepsCount;
 
         speedX.innerHTML = motion;
-
     } 
 
 }, false);
