@@ -343,7 +343,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, with 20deg of pitchRef)
         if (!shaked && !rotation) {
             const zDiff = resZForce - refZForce;
-            if (zDiff <= zThreshold) {
+            if (zDiff <= (zThreshold / 2)) {
                 noStep = false;
             } else if (zDiff > zThreshold && !noStep) {
                 stepsCount++;
@@ -358,6 +358,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     speedX.innerHTML = Math.round((zGAcc / resAcc) * 100);
     speedX.style.backgroundColor = "aqua";
+    speedX.style.color = "red";
 
         /*
         zVal = "",
