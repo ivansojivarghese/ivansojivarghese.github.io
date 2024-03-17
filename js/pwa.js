@@ -353,6 +353,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
             if (stepsPatternZ.a && stepsPatternZ.b && preZVal !== "neutral") {
                 stepsPatternZ.c = 1;
+                speedX.innerHTML = event.accelerationIncludingGravity.z;
             }
             if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
                 stepsPatternZ.e = 1;
@@ -437,11 +438,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         } //
 
         if ((stepIncr) /*&& (!Math.round(event.acceleration.y) && !Math.round(event.acceleration.z && !Math.round(event.acceleration.x))) && (Math.abs(Math.round(event.rotationRate.alpha)) <= 45) && (Math.abs(Math.round(event.rotationRate.beta)) <= 45) && (Math.abs(Math.round(event.rotationRate.gamma)) <= 90) */) {
-            clearInterval(motionInterval);
             if (event.accelerationIncludingGravity.z > 11) {
                 stepsCount++;
                 motion = true;
             }
+            clearInterval(motionInterval);
             for (const x in stepsPatternZ) {
                 stepsPatternZ[x] = 0;
             }
@@ -458,7 +459,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         steps.innerHTML = "steps: " + stepsCount;
-        speedX.innerHTML = motion;
+        // speedX.innerHTML = motion;
     } 
 
 }, false);
