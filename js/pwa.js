@@ -48,8 +48,10 @@ var acceleration = {
     stepsCount = 0,
     betaAngle = 0,
     rotation = false,
+
     motion = false,
     motionInterval = null;
+
     // stationary = false,
     // dropped = false,
     // droppedInterval = null,
@@ -334,7 +336,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
         stepIncr = false;
 
-    speedX.innerHTML = zGAcc / resAcc;
+    speedX.innerHTML = Math.round((zGAcc / resAcc) * 100);
     speedX.style.backgroundColor = "yellow";
 
         /*
@@ -355,6 +357,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     }*/
 
     if (!shaked && !rotation) { 
+
+
 
         /*
         // acceleration z
@@ -446,14 +450,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 break;
             }
         } 
-        */
 
         if (stepIncr) {
-            /*
-            if (event.accelerationIncludingGravity.z > 11) {
-                stepsCount++;
-                motion = true;
-            }*/
             clearInterval(motionInterval);
             for (const x in stepsPatternZ) {
                 stepsPatternZ[x] = 0;
@@ -468,10 +466,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 motion = false;
                 clearInterval(motionInterval);
             }, 1500);
-        }
-
-        steps.innerHTML = "steps: " + stepsCount;
-        // speedX.innerHTML = motion;
+        } */
+        // steps.innerHTML = "steps: " + stepsCount;
     } 
 
 }, false);
@@ -495,11 +491,6 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
     } else {
         stationary = false;
     }*/
-
-    /*
-    rotateA.innerHTML = "alpha: " + Math.round(event.alpha);
-    rotateB.innerHTML = "beta: " + Math.round(event.beta);
-    rotateG.innerHTML = "gamma: " + Math.round(event.gamma);*/
 
 }, false);
 
