@@ -367,8 +367,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     steps.innerHTML = "steps: " + stepsCount;
 
     speedX.innerHTML = Math.round((zGAcc / resAcc) * 100);
-    speedX.style.backgroundColor = "aqua";
-    speedX.style.color = "yellow";
+    speedX.style.backgroundColor = "beige";
+    speedX.style.color = "";
 
         /*
         zVal = "",
