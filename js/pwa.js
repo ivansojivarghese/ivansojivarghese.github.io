@@ -50,7 +50,7 @@ var acceleration = {
     rotation = false,
     noStep = false,
     motionStart = false,
-    motionEnd = true,
+    motionStartRef = 0,
     motionRef = false,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
@@ -348,14 +348,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             const zDiff = resZForce - refZForce;
             if (zDiff <= 10) {
                 noStep = false;
-                if (Math.floor(yAcc) > 0) {
-                    motionStart = true;
-                    motionEnd = false;
-                } else if (Math.floor(yAcc) < 0) {
+                if (yAcc > 0) {
+                    if (!motionStart) {
+                        motionStart = true;
+                        motionStartRef = yAcc;
+                    }
+                } else if (yAcc < 0 && !Math.round(yAcc + motionStartRef)) {
                     motionStart = false;
-                    motionEnd = true;
                 }
-            } else if (zDiff > zThreshold && !noStep && motionStart && !motionEnd) {
+            } else if (zDiff > zThreshold && !noStep && motionStart) {
                 stepsCount++;
                 noStep = true;
             }
@@ -367,8 +368,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     steps.innerHTML = "steps: " + stepsCount;
 
     speedX.innerHTML = Math.round((zGAcc / resAcc) * 100);
-    speedX.style.backgroundColor = "beige";
-    speedX.style.color = "red";
+    speedX.style.backgroundColor = "chocolate";
+    speedX.style.color = "";
 
         /*
         zVal = "",
