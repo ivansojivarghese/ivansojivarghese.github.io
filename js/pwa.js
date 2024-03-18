@@ -321,6 +321,8 @@ if (!('DeviceMotionEvent' in window) && !('DeviceOrientationEvent') in window) {
     steps.remove();
 }
 
+steps.classList.add("d_n");
+
 function similarAngle(t, r, d) {
     const diff = Math.abs(t - r);
     const res = diff > d ? false : true;
@@ -328,6 +330,8 @@ function similarAngle(t, r, d) {
 }
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
+
+    steps.classList.remove("d_n");
 
     var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
         zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
