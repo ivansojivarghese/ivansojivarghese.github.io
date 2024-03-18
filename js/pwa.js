@@ -49,6 +49,8 @@ var acceleration = {
     betaAngle = 0,
     rotation = false,
     noStep = false,
+    motionStart = false,
+    motionEnd = true,
     motionRef = false,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
@@ -329,6 +331,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
         zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
+        yAcc = event.acceleration.y, // forward acceleration
         pitch = Math.abs(betaAngle), // pitch of device
         pitchRad = pitch * (Math.PI / 180),
         cosVal = Math.cos(pitchRad),
@@ -345,7 +348,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             const zDiff = resZForce - refZForce;
             if (zDiff <= 10) {
                 noStep = false;
-            } else if (zDiff > zThreshold && !noStep) {
+                if (Math.round(yAcc) > 0) {
+                    motionStart = true;
+                    motionEnd = false;
+                } else if (Math.round(yAcc) < 0) {
+                    motionStart = false;
+                    motionEnd = true;
+                }
+            } else if (zDiff > zThreshold && !noStep && motionStart && !motionEnd) {
                 stepsCount++;
                 noStep = true;
             }
