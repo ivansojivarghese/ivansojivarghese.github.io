@@ -49,6 +49,7 @@ var acceleration = {
     betaAngle = 0,
     rotation = false,
     noStep = false,
+    motion = false,
     motionStart = false,
     motionStartRef = 0,
     motionRef = false,
@@ -363,7 +364,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     steps.innerHTML = "steps: " + stepsCount;
 
-    speedX.innerHTML = Math.round((zGAcc / resAcc) * 100);
+    speedX.innerHTML = motion;
     speedX.style.backgroundColor = "coral";
     speedX.style.color = "";
 

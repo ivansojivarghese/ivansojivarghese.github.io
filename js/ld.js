@@ -2188,7 +2188,11 @@ function autoDarkMode() {
             // Detect changes in the light
             sensor.onreading = () => {
                 
-                illuminanceText.innerHTML = "illuminance: " + sensor.illuminance + " lx";
+                if (sensor.illuminance < 1000) {
+                    illuminanceText.innerHTML = "illuminance: " + sensor.illuminance + " lx";
+                } else {
+                    illuminanceText.innerHTML = "illuminance: 1000+ lx";
+                }
 
                 if (!op.autoDark) {
                     var hamAuto;
