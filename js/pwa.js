@@ -348,10 +348,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             const zDiff = resZForce - refZForce;
             if (zDiff <= 10) {
                 noStep = false;
-                if (Math.round(yAcc) > 0) {
+                if (Math.floor(yAcc) > 0) {
                     motionStart = true;
                     motionEnd = false;
-                } else if (Math.round(yAcc) < 0) {
+                } else if (Math.floor(yAcc) < 0) {
                     motionStart = false;
                     motionEnd = true;
                 }
@@ -368,7 +368,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     speedX.innerHTML = Math.round((zGAcc / resAcc) * 100);
     speedX.style.backgroundColor = "beige";
-    speedX.style.color = "";
+    speedX.style.color = "red";
 
         /*
         zVal = "",
