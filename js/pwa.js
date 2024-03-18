@@ -332,7 +332,9 @@ function similarAngle(t, r, d) {
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
-    steps.classList.remove("d_n");
+    if (event.acceleration.z === null) {
+        steps.classList.remove("d_n");
+    }
 
     var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
         zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
@@ -491,6 +493,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 }, false);
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
+
+    if (event.beta === null) {
+        steps.classList.remove("d_n");
+    }
 
     betaAngle = event.beta;
 
