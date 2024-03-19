@@ -366,7 +366,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (!motionVelocity) { // at first run
                 accelerationInterval = setInterval(function() { // get acceleration data every sec.
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
-                }, 100);
+                }, 1000);
                 motionVelocity = true; 
             } else if (!refVelocity && oneStopMotion) { // second run (after 1 sec of constant)
                 refVelocity = true;
@@ -386,7 +386,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
                     accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
 
-                }, 100);
+                }, 1000);
             } else { // subsequent runs
 
             }
@@ -399,7 +399,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
                     motionInterval = null;
-                }, 100);
+                }, 1000);
             }
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
             if (!shaked && !rotation) {
@@ -431,10 +431,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
+            var velocityTotal = 0;
             while (i < accelerationTimePoints.length) {
-                velocityEst += accelerationTimePoints[i];
+                velocityTotal += accelerationTimePoints[i];
                 i++;
             }
+            velocityEst = Math.abs(velocityTotal) / accelerationTimePoints.length;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : 10 : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
@@ -454,7 +456,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
 
-        speedX.style.backgroundColor = "yellow";
+        speedX.style.backgroundColor = "beige";
         speedX.style.color = "";
 
 
