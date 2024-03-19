@@ -332,9 +332,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
         zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
-
         yAcc = event.acceleration.y, // forward acceleration
-
         pitch = Math.abs(betaAngle), // pitch of device
         pitchRad = pitch * (Math.PI / 180),
         cosVal = Math.cos(pitchRad),
@@ -342,11 +340,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
         zThreshold = 30; // threshold for a 'step' - based on z-acc flunctuations
 
-    if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) {
+    if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
         pitchRef = pitch;
         refZForce = resZForce; // update while still
         motionRef = true;
-    } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, with 20deg of pitchRef)
+        speedX.innerHTML = "constant";
+    } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
         if (!shaked && !rotation) {
             const zDiff = resZForce - refZForce;
             if (zDiff <= 10) {
@@ -356,15 +355,16 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 noStep = true;
             }
         }
+        speedX.innerHTML = "not constant";
     } else {
         motionRef = false; // re-calibrate
     }
 
     steps.innerHTML = "steps: " + stepsCount;
 
-    speedX.innerHTML = event.rotationRate.beta;
+    // speedX.innerHTML = event.rotationRate.beta;
 
-    speedX.style.backgroundColor = "green";
+    speedX.style.backgroundColor = "yellow";
     speedX.style.color = "";
 
         /*
