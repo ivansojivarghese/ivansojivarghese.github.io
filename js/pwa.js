@@ -394,6 +394,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (motion && motionInterval === null) {
                 motionInterval = setTimeout(function() {
                     motion = false; // make false after 1 sec. (if not other motion detected)
+                    accelerationPoints = [];
+                    accelerationTimePoints = [];
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
                     motionInterval = null;
@@ -434,7 +436,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst += accelerationTimePoints[i];
                 i++;
             }
-            velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : 10 : (velocityEst > -10) ? velocityEst.toFixed(1) : -10;
+            velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : 10 : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
