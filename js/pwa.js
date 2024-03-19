@@ -393,12 +393,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             if (motion && motionInterval === null) {
                 motionInterval = setTimeout(function() {
+                    velocityEst = 0;
                     motion = false; // make false after 1 sec. (if not other motion detected)
                     accelerationPoints = [];
                     accelerationTimePoints = [];
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
                     motionInterval = null;
+                    velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
                 }, 1000);
             }
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
