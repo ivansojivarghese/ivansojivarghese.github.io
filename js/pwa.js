@@ -337,7 +337,7 @@ function similarAngle(t, r, d) {
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
-    if (ipAPIres.online) {
+    if (rL.i) {
 
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
             zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
