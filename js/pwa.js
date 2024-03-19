@@ -405,7 +405,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
                     motionInterval = null;
-                    velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
+                    velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
                 }, 1000);
             }
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
