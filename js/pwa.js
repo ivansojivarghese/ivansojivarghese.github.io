@@ -410,7 +410,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         speedX.innerHTML = motion;
 
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
+
             // velocity.innerHTML = "velocity: null " + velocityUnit; 
+
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
                 var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] - 0;
@@ -421,6 +423,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst = Math.round((accelerationTango / 2) * 1); // area of trapezoid ref.
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             }
+            velocityEst = (velocityEst < 10) ? velocityEst : 10;
             velocity.innerHTML = "velocity: " + velocitySign + velocityEst + " " + velocityUnit; 
         } else {
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
