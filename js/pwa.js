@@ -62,6 +62,7 @@ var /*acceleration = {
     refZForce = 0; // reference z-force. (updates while stationary)
 
 var accelerationPoints = [],
+    accelerationTimePoints = [],
     accelerationInterval = null;
 
 var urlParams = {};
@@ -369,6 +370,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 motionVelocity = true; 
             } else if (!refVelocity && oneStopMotion) { // second run (after 1 sec of constant)
                 refVelocity = true;
+                clearInterval(accelerationInterval); // reset
+                accelerationPoints = [];
+                accelerationInterval = setInterval(function() { // get acceleration data every sec.
+                    accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
+                }, 1000);
             } else { // subsequent runs
 
             }
@@ -410,13 +416,27 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         speedX.innerHTML = motion;
 
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
-
-            // velocity.innerHTML = "velocity: null " + velocityUnit; 
-
+            var velocityDelta = 0,
+                velocityAdd = 0;
+            if (accelerationPoints.length === 1) {
+                velocityDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
+            } else if (accelerationPoints.length > 1) {
+                velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
+            }
+            velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
+            accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
+            velocityEst = 0;
+            let i = 0;
+            while (i < accelerationTimePoints.length) {
+                velocityEst += accelerationTimePoints[i];
+                i++;
+            }
+            velocityEst = (velocityEst < 10) ? velocityEst.toFixed(1) : 10;
+            velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
-                var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] - 0;
-                velocityEst = Math.round((accelerationDelta * 1) / 2); // area of triangle ref.
+                var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
+                velocityEst = Math.round((accelerationDelta / 2) * 1); // area of trapezoid ref.
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             } else if (accelerationPoints.length > 1) { // take last 2 data points (double)
                 var accelerationTango = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
