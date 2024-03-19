@@ -113,23 +113,10 @@ sI_3 = {
     s : false
 };
 
-screen.orientation.addEventListener("change", function() {
-    const sections = document.querySelector('.pwa .sections');
-    if (screen.orientation.angle == 90 || screen.orientation.angle == 270) { // P to L
-        // sections.style.height = "100svh";
-    }
-    if (screen.orientation.angle == 0 || screen.orientation.angle == 180) { // L to P
-        /*
-        if (window.innerWidth < 490) {
-            sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
-        }
-        oriHeight_L = setInterval(function() {
-            if (window.innerWidth < 490) {
-                sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
-                clearInterval(oriHeight_L);
-            }
-        }, 10);*/
-    }
+Screen.orientation.addEventListener("change", function() {
+    accelerationPoints = [];
+    accelerationTimePoints = [];
+    motionRef = false;
 });
 
 function navButtonActive(b, e, v) {
@@ -359,6 +346,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
             zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
             yAcc = event.acceleration.y, // forward acceleration
+            xAcc = event.acceleration.x, // "" alternate orientations
             // nAcc = Math.sqrt(Math.pow(yAcc, 2) + Math.pow(event.acceleration.x, 2)), // normalised acceleration (x & y)
             pitch = Math.abs(betaAngle), // pitch of device
             pitchRad = pitch * (Math.PI / 180),
@@ -370,7 +358,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocitySign = "~", // velocity sign
             velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
-        normalAcc = filteredAcceleration(yAcc);
+        if (Screen.orientation.angle === 0 || Screen.orientation.angle === 180) {
+            normalAcc = filteredAcceleration(yAcc);
+        } else if (Screen.orientation.angle === 90 || Screen.orientation.angle === 270) {
+            normalAcc = filteredAcceleration(xAcc);
+        }
 
         if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
             pitchRef = pitch;
