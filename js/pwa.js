@@ -76,6 +76,7 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 // const networkDownlinkMax = document.querySelector('.pwa .popups .deviceInfo .networkDownlinkMax');
 
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
+const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 
 var oriHeight_L = null,
@@ -357,6 +358,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
         speedX.innerHTML = "not constant";
     } else {
+        velocity.innerHTML = "velocity: calibrating";
         motionRef = false; // re-calibrate
     }
 
