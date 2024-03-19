@@ -27,7 +27,7 @@ var githubCommitsres = {
     val : 0
 };
 
-var acceleration = {
+var /*acceleration = {
         z : [],
         y : []
     },
@@ -44,7 +44,7 @@ var acceleration = {
         c : 0,
         d : 0,
         e : 0
-    },
+    },*/
     stepsCount = 0,
     betaAngle = 0,
     rotation = false,
@@ -57,6 +57,9 @@ var acceleration = {
     motionRef = false,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
+
+var accelerationPoints = [],
+    accelerationInterval = null;
 
 var urlParams = {};
 
@@ -79,6 +82,7 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
+
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 
 var oriHeight_L = null,
@@ -352,6 +356,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         refZForce = resZForce; // update while still
         motionRef = true;
         if (!motionVelocity) { // at first run
+            accelerationInterval = setInterval(function() { // start capturing acceleration values over time (every sec.)
+                accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? nAcc : (nAcc * 3.2808); // m or ft if needed
+            }, 1000);
             motionVelocity = true; 
         } else if (!refVelocity) { // second run
             refVelocity = true;
@@ -383,8 +390,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
         // velocity.innerHTML = "velocity: null " + velocityUnit; 
     } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
-        velocityEst = nAcc;
-        velocitySign = 
+        if (accelerationPoints[accelerationPoints.length - 1] !== null && accelerationPoints[accelerationPoints.length - 2] === null) { // take last data point (only single)
+            var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] - 0;
+            velocityEst = Math.round((accelerationDelta * 1) / 2);
+            velocitySign = (velocityEst > 0) ? "+" : (velocityEst < 0) ? "-" : "~";
+        } else if (accelerationPoints[accelerationPoints.length - 1] !== null && accelerationPoints[accelerationPoints.length - 2] !== null) { // take last 2 data points (double)
+            velocityEst = nAcc;
+            velocitySign;
+        }
         velocity.innerHTML = "velocity: " + velocitySign + velocityEst + " " + velocityUnit; 
     } else {
         velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
