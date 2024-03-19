@@ -113,7 +113,7 @@ sI_3 = {
     s : false
 };
 
-Screen.orientation.addEventListener("change", function() {
+screen.orientation.addEventListener("change", function() {
     accelerationPoints = [];
     accelerationTimePoints = [];
     motionRef = false;
@@ -358,9 +358,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocitySign = "~", // velocity sign
             velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
-        if (Screen.orientation.angle === 0 || Screen.orientation.angle === 180) {
+        if (screen.orientation.angle === 0 || screen.orientation.angle === 180) {
             normalAcc = filteredAcceleration(yAcc);
-        } else if (Screen.orientation.angle === 90 || Screen.orientation.angle === 270) {
+        } else if (screen.orientation.angle === 90 || screen.orientation.angle === 270) {
             normalAcc = filteredAcceleration(xAcc);
         }
 
