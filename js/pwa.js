@@ -430,7 +430,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         speedX.innerHTML = motion;
 
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
-            velocityEst = 0;
             let i = 0;
             while (i < accelerationTimePoints.length) {
                 velocityEst += accelerationTimePoints[i];
