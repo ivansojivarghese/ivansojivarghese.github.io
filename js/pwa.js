@@ -345,7 +345,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
             zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
             yAcc = event.acceleration.y, // forward acceleration
-            nAcc = Math.sqrt(Math.pow(yAcc, 2) + Math.pow(event.acceleration.x, 2)), // normalised acceleration (x & y)
+            // nAcc = Math.sqrt(Math.pow(yAcc, 2) + Math.pow(event.acceleration.x, 2)), // normalised acceleration (x & y)
             pitch = Math.abs(betaAngle), // pitch of device
             pitchRad = pitch * (Math.PI / 180),
             cosVal = Math.cos(pitchRad),
@@ -356,7 +356,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocitySign = "~", // velocity sign
             velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
-        normalAcc = nAcc;
+        normalAcc = yAcc;
 
         if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
             pitchRef = pitch;
