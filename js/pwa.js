@@ -339,6 +339,10 @@ function similarAngle(t, r, d) {
     return res;
 }
 
+function filteredAcceleration(r) { // filters raw data 
+    var mRaw = -1 * r; // correct the direction
+}
+
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
     if (ipAPIres && ipAPIres.online && clientAPIres.online) {
@@ -357,7 +361,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocitySign = "~", // velocity sign
             velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
-        normalAcc = yAcc;
+        normalAcc = filteredAcceleration(yAcc);
 
         if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
             pitchRef = pitch;
