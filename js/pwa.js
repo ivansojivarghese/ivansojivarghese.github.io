@@ -413,7 +413,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
                     motionInterval = null;
-                    velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
+                    velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
                 }, 1000);
             }
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
@@ -465,9 +465,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             }
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
-            velocity.innerHTML = "velocity: " + velocitySign + velocityEst + " " + velocityUnit; 
+            velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
         } else {
-            velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
+            velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
 
