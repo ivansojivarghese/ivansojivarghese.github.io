@@ -339,13 +339,18 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         cosVal = Math.cos(pitchRad),
         resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
         resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
-        zThreshold = 30; // threshold for a 'step' - based on z-acc flunctuations
+        zThreshold = 30, // threshold for a 'step' - based on z-acc flunctuations
+        velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
     if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
         pitchRef = pitch;
         refZForce = resZForce; // update while still
         motionRef = true;
+
         speedX.innerHTML = "constant";
+
+        velocity.innerHTML = "running";
+
     } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
         if (!shaked && !rotation) {
             const zDiff = resZForce - refZForce;
@@ -356,18 +361,23 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 noStep = true;
             }
         }
+
         speedX.innerHTML = "not constant";
+
     } else {
-        velocity.innerHTML = "velocity: calibrating";
+
+        // velocity.innerHTML = "velocity: ~"; // INDICATE POTENTIAL CHANGE IN VELOCITY (+ or -)
+
         motionRef = false; // re-calibrate
     }
 
     steps.innerHTML = "steps: " + stepsCount;
+    // velocity.innerHTML = "velocity: 0 " + velocityUnit; 
 
-    // speedX.innerHTML = event.rotationRate.beta;
 
-    speedX.style.backgroundColor = "yellow";
+    speedX.style.backgroundColor = "pink";
     speedX.style.color = "";
+
 
         /*
         zVal = "",
