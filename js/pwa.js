@@ -50,6 +50,8 @@ var acceleration = {
     rotation = false,
     noStep = false,
     motion = false,
+    motionVelocity = false,
+    refVelocity = false,
     motionStart = false,
     motionStartRef = 0,
     motionRef = false,
@@ -346,10 +348,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         pitchRef = pitch;
         refZForce = resZForce; // update while still
         motionRef = true;
+        if (!motionVelocity) { // at first run
+            motionVelocity = true; 
+        } else if (!refVelocity) { // second run
+            refVelocity = true;
+        } else { // subsequent runs
+
+        }
 
         speedX.innerHTML = "constant";
-
-        velocity.innerHTML = "running";
 
     } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
         if (!shaked && !rotation) {
@@ -365,14 +372,18 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         speedX.innerHTML = "not constant";
 
     } else {
-
-        // velocity.innerHTML = "velocity: ~"; // INDICATE POTENTIAL CHANGE IN VELOCITY (+ or -)
-
         motionRef = false; // re-calibrate
     }
 
     steps.innerHTML = "steps: " + stepsCount;
-    // velocity.innerHTML = "velocity: 0 " + velocityUnit; 
+
+    if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
+        velocity.innerHTML = "velocity: null " + velocityUnit; 
+    } else if (motionVelocity) { // relative velocity (from point in motion)
+        velocity.innerHTML = "velocity: +0 " + velocityUnit; 
+    } else {
+        velocity.innerHTML = "velocity: 0 " + velocityUnit; 
+    }
 
 
     speedX.style.backgroundColor = "pink";
