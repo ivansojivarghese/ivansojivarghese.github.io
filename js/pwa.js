@@ -45,6 +45,7 @@ var /*acceleration = {
         d : 0,
         e : 0
     },*/
+    normalAcc = 0,
     stepsCount = 0,
     betaAngle = 0,
     rotation = false,
@@ -355,13 +356,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocitySign = "~", // velocity sign
             velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
+        normalAcc = nAcc;
+
         if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
             pitchRef = pitch;
             refZForce = resZForce; // update while still
             motionRef = true;
             if (!motionVelocity) { // at first run
                 accelerationInterval = setInterval(function() { // get acceleration data every sec.
-                    accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? nAcc : (nAcc * 3.2808); // m or ft if needed
+                    accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
                 }, 1000);
                 motionVelocity = true; 
             } else if (!refVelocity && oneStopMotion) { // second run (after 1 sec of constant)
