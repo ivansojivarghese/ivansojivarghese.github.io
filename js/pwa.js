@@ -341,6 +341,7 @@ function similarAngle(t, r, d) {
 
 function filteredAcceleration(r) { // filters raw data 
     var mRaw = -1 * r; // correct the direction
+    return mRaw;
 }
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
@@ -462,7 +463,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
 
-        speedX.style.backgroundColor = "beige";
+        speedX.style.backgroundColor = "pink";
         speedX.style.color = "";
 
 
