@@ -373,7 +373,19 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 clearInterval(accelerationInterval); // reset
                 accelerationPoints = [];
                 accelerationInterval = setInterval(function() { // get acceleration data every sec.
+                    var velocityDelta = 0,
+                        velocityAdd = 0;
+
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
+
+                    if (accelerationPoints.length === 1) {
+                        velocityDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
+                    } else if (accelerationPoints.length > 1) {
+                        velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
+                    }
+                    velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
+                    accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
+
                 }, 1000);
             } else { // subsequent runs
 
@@ -416,15 +428,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         speedX.innerHTML = motion;
 
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
-            var velocityDelta = 0,
-                velocityAdd = 0;
-            if (accelerationPoints.length === 1) {
-                velocityDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
-            } else if (accelerationPoints.length > 1) {
-                velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
-            }
-            velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
-            accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
             velocityEst = 0;
             let i = 0;
             while (i < accelerationTimePoints.length) {
