@@ -336,12 +336,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
         zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
         yAcc = event.acceleration.y, // forward acceleration
+        nAcc = Math.sqrt(Math.pow(yAcc, 2) + Math.pow(event.acceleration.x, 2)), // normalised acceleration (x & y)
         pitch = Math.abs(betaAngle), // pitch of device
         pitchRad = pitch * (Math.PI / 180),
         cosVal = Math.cos(pitchRad),
         resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
         resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
         zThreshold = 30, // threshold for a 'step' - based on z-acc flunctuations
+        velocityEst = 0, // velocity estimate(s)
+        velocitySign = "~", // velocity sign
         velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
     if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
@@ -378,11 +381,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     steps.innerHTML = "steps: " + stepsCount;
 
     if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
-        velocity.innerHTML = "velocity: null " + velocityUnit; 
-    } else if (motionVelocity) { // relative velocity (from point in motion)
-        velocity.innerHTML = "velocity: +0 " + velocityUnit; 
+        // velocity.innerHTML = "velocity: null " + velocityUnit; 
+    } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
+        velocityEst = nAcc;
+        velocitySign = 
+        velocity.innerHTML = "velocity: " + velocitySign + velocityEst + " " + velocityUnit; 
     } else {
-        velocity.innerHTML = "velocity: 0 " + velocityUnit; 
+        velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
     }
 
 
