@@ -376,7 +376,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
                 }, 1000);
             } else { // subsequent runs
-
+                
             }
 
             if (motion && motionInterval === null) {
@@ -450,7 +450,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
 
-        speedX.style.backgroundColor = "chocolate";
+        speedX.style.backgroundColor = "pink";
         speedX.style.color = "";
 
 
