@@ -376,7 +376,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
                 }, 1000);
             } else { // subsequent runs
-                
+
             }
 
             if (motion && motionInterval === null) {
@@ -431,7 +431,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst += accelerationTimePoints[i];
                 i++;
             }
-            velocityEst = (velocityEst < 10) ? velocityEst.toFixed(1) : 10;
+            velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : 10 : (velocityEst > -10) ? velocityEst.toFixed(1) : -10;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
@@ -443,14 +443,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst = Math.round((accelerationTango / 2) * 1); // area of trapezoid ref.
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             }
-            velocityEst = (velocityEst < 10) ? velocityEst : 10;
+            velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
             velocity.innerHTML = "velocity: " + velocitySign + velocityEst + " " + velocityUnit; 
         } else {
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
         }
 
 
-        speedX.style.backgroundColor = "pink";
+        speedX.style.backgroundColor = "green";
         speedX.style.color = "";
 
 
