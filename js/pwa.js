@@ -337,6 +337,10 @@ function similarAngle(t, r, d) {
     return res;
 }
 
+function getAccelerationInterval(n) {
+    accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? n : (n * 3.2808); // m or ft if needed
+}
+
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
     if (ipAPIres && ipAPIres.online && clientAPIres.online) {
@@ -360,8 +364,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             refZForce = resZForce; // update while still
             motionRef = true;
             if (!motionVelocity) { // at first run
-                accelerationInterval = setInterval(function() { // start capturing acceleration values over time (every sec.)
-                    accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? nAcc : (nAcc * 3.2808); // m or ft if needed
+                accelerationInterval = setInterval(function() { // get acceleration data every sec.
+                    getAccelerationInterval(nAcc)
                 }, 1000);
                 motionVelocity = true; 
             } else if (!refVelocity && oneStopMotion) { // second run (after 1 sec of constant)
