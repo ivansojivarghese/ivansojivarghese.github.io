@@ -344,7 +344,9 @@ function filteredAcceleration(r) { // filters raw data
     if ((mRaw > 0 || mRaw < 0)) {
         if (mRaw > 0.5 || mRaw < -0.5) {
             return mRaw;
-        }       
+        } else {
+            return 0;
+        }
     } else {
         return mRaw;
     }
