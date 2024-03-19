@@ -50,6 +50,8 @@ var /*acceleration = {
     rotation = false,
     noStep = false,
     motion = false,
+    oneStopMotion = false,
+    motionInterval = null,
     motionVelocity = false,
     refVelocity = false,
     motionStart = false,
@@ -362,14 +364,20 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? nAcc : (nAcc * 3.2808); // m or ft if needed
                 }, 1000);
                 motionVelocity = true; 
-            } else if (!refVelocity) { // second run
+            } else if (!refVelocity && oneStopMotion) { // second run (after 1 sec of constant)
                 refVelocity = true;
             } else { // subsequent runs
 
             }
 
-            speedX.innerHTML = "constant";
-
+            if (motion && motionInterval === null) {
+                motionInterval = setTimeout(function() {
+                    motion = false; // make false after 1 sec. (if not other motion detected)
+                    oneStopMotion = true;
+                    clearTimeout(motionInterval);
+                    motionInterval = null;
+                }, 1000);
+            }
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
             if (!shaked && !rotation) {
                 const zDiff = resZForce - refZForce;
@@ -380,14 +388,23 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     noStep = true;
                 }
             }
-
-            speedX.innerHTML = "not constant";
-
+            motion = true;
+            if (motionInterval !== null) {
+                clearTimeout(motionInterval);
+                motionInterval = null;
+            }
         } else {
+            motion = true;
+            if (motionInterval !== null) {
+                clearTimeout(motionInterval);
+                motionInterval = null;
+            }
             motionRef = false; // re-calibrate
         }
 
         steps.innerHTML = "steps: " + stepsCount;
+
+        speedX.innerHTML = motion;
 
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             // velocity.innerHTML = "velocity: null " + velocityUnit; 
