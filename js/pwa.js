@@ -392,11 +392,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
         if (accelerationPoints[accelerationPoints.length - 1] !== null && accelerationPoints[accelerationPoints.length - 2] === null) { // take last data point (only single)
             var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] - 0;
-            velocityEst = Math.round((accelerationDelta * 1) / 2);
+            velocityEst = Math.round((accelerationDelta * 1) / 2); // area of triangle ref.
             velocitySign = (velocityEst > 0) ? "+" : (velocityEst < 0) ? "-" : "~";
         } else if (accelerationPoints[accelerationPoints.length - 1] !== null && accelerationPoints[accelerationPoints.length - 2] !== null) { // take last 2 data points (double)
-            velocityEst = nAcc;
-            velocitySign;
+            var accelerationTango = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
+            velocityEst = Math.round((accelerationTango / 2) * 1); // area of trapezoid ref.
+            velocitySign = (velocityEst > 0) ? "+" : (velocityEst < 0) ? "-" : "~";
         }
         velocity.innerHTML = "velocity: " + velocitySign + velocityEst + " " + velocityUnit; 
     } else {
@@ -404,7 +405,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     }
 
 
-    speedX.style.backgroundColor = "pink";
+    speedX.style.backgroundColor = "beige";
     speedX.style.color = "";
 
 
