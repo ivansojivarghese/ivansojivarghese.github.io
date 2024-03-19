@@ -337,195 +337,199 @@ function similarAngle(t, r, d) {
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
-    var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
-        zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
-        yAcc = event.acceleration.y, // forward acceleration
-        nAcc = Math.sqrt(Math.pow(yAcc, 2) + Math.pow(event.acceleration.x, 2)), // normalised acceleration (x & y)
-        pitch = Math.abs(betaAngle), // pitch of device
-        pitchRad = pitch * (Math.PI / 180),
-        cosVal = Math.cos(pitchRad),
-        resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
-        resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
-        zThreshold = 30, // threshold for a 'step' - based on z-acc flunctuations
-        velocityEst = 0, // velocity estimate(s)
-        velocitySign = "~", // velocity sign
-        velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
+    if (ipAPIres.online) {
 
-    if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
-        pitchRef = pitch;
-        refZForce = resZForce; // update while still
-        motionRef = true;
-        if (!motionVelocity) { // at first run
-            accelerationInterval = setInterval(function() { // start capturing acceleration values over time (every sec.)
-                accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? nAcc : (nAcc * 3.2808); // m or ft if needed
-            }, 1000);
-            motionVelocity = true; 
-        } else if (!refVelocity) { // second run
-            refVelocity = true;
-        } else { // subsequent runs
+        var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
+            zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
+            yAcc = event.acceleration.y, // forward acceleration
+            nAcc = Math.sqrt(Math.pow(yAcc, 2) + Math.pow(event.acceleration.x, 2)), // normalised acceleration (x & y)
+            pitch = Math.abs(betaAngle), // pitch of device
+            pitchRad = pitch * (Math.PI / 180),
+            cosVal = Math.cos(pitchRad),
+            resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
+            resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
+            zThreshold = 30, // threshold for a 'step' - based on z-acc flunctuations
+            velocityEst = 0, // velocity estimate(s)
+            velocitySign = "~", // velocity sign
+            velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
+        if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
+            pitchRef = pitch;
+            refZForce = resZForce; // update while still
+            motionRef = true;
+            if (!motionVelocity) { // at first run
+                accelerationInterval = setInterval(function() { // start capturing acceleration values over time (every sec.)
+                    accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? nAcc : (nAcc * 3.2808); // m or ft if needed
+                }, 1000);
+                motionVelocity = true; 
+            } else if (!refVelocity) { // second run
+                refVelocity = true;
+            } else { // subsequent runs
+
+            }
+
+            speedX.innerHTML = "constant";
+
+        } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
+            if (!shaked && !rotation) {
+                const zDiff = resZForce - refZForce;
+                if (zDiff <= 10) {
+                    noStep = false;
+                } else if (zDiff > zThreshold && !noStep) {
+                    stepsCount++;
+                    noStep = true;
+                }
+            }
+
+            speedX.innerHTML = "not constant";
+
+        } else {
+            motionRef = false; // re-calibrate
         }
 
-        speedX.innerHTML = "constant";
+        steps.innerHTML = "steps: " + stepsCount;
 
-    } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
-        if (!shaked && !rotation) {
-            const zDiff = resZForce - refZForce;
-            if (zDiff <= 10) {
-                noStep = false;
-            } else if (zDiff > zThreshold && !noStep) {
-                stepsCount++;
-                noStep = true;
+        if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
+            // velocity.innerHTML = "velocity: null " + velocityUnit; 
+        } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
+            if (accelerationPoints[accelerationPoints.length - 1] !== null && accelerationPoints[accelerationPoints.length - 2] === null) { // take last data point (only single)
+                var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] - 0;
+                velocityEst = Math.round((accelerationDelta * 1) / 2); // area of triangle ref.
+                velocitySign = (velocityEst > 0) ? "+" : (velocityEst < 0) ? "-" : "~";
+            } else if (accelerationPoints[accelerationPoints.length - 1] !== null && accelerationPoints[accelerationPoints.length - 2] !== null) { // take last 2 data points (double)
+                var accelerationTango = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
+                velocityEst = Math.round((accelerationTango / 2) * 1); // area of trapezoid ref.
+                velocitySign = (velocityEst > 0) ? "+" : (velocityEst < 0) ? "-" : "~";
             }
+            velocity.innerHTML = "velocity: " + velocitySign + velocityEst + " " + velocityUnit; 
+        } else {
+            velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
         }
 
-        speedX.innerHTML = "not constant";
 
-    } else {
-        motionRef = false; // re-calibrate
-    }
-
-    steps.innerHTML = "steps: " + stepsCount;
-
-    if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
-        // velocity.innerHTML = "velocity: null " + velocityUnit; 
-    } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
-        if (accelerationPoints[accelerationPoints.length - 1] !== null && accelerationPoints[accelerationPoints.length - 2] === null) { // take last data point (only single)
-            var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] - 0;
-            velocityEst = Math.round((accelerationDelta * 1) / 2); // area of triangle ref.
-            velocitySign = (velocityEst > 0) ? "+" : (velocityEst < 0) ? "-" : "~";
-        } else if (accelerationPoints[accelerationPoints.length - 1] !== null && accelerationPoints[accelerationPoints.length - 2] !== null) { // take last 2 data points (double)
-            var accelerationTango = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
-            velocityEst = Math.round((accelerationTango / 2) * 1); // area of trapezoid ref.
-            velocitySign = (velocityEst > 0) ? "+" : (velocityEst < 0) ? "-" : "~";
-        }
-        velocity.innerHTML = "velocity: " + velocitySign + velocityEst + " " + velocityUnit; 
-    } else {
-        velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
-    }
+        speedX.style.backgroundColor = "beige";
+        speedX.style.color = "";
 
 
-    speedX.style.backgroundColor = "beige";
-    speedX.style.color = "";
+            /*
+            zVal = "",
+            yVal = "",
+            // absXVal = Math.abs(Math.round(event.acceleration.x)),
+            preZVal = acceleration.z[acceleration.z.length - 1],
+            preYVal = acceleration.y[acceleration.y.length - 1];
 
+        if (!shaked && !rotation) { 
 
-        /*
-        zVal = "",
-        yVal = "",
-        // absXVal = Math.abs(Math.round(event.acceleration.x)),
-        preZVal = acceleration.z[acceleration.z.length - 1],
-        preYVal = acceleration.y[acceleration.y.length - 1];
+            // acceleration z
 
-    if (!shaked && !rotation) { 
+            if (Math.round(event.acceleration.z) === 0) {
+                zVal = "neutral";
+                if (!stepsPatternZ.a && preZVal !== "neutral") {
+                    stepsPatternZ.a = 1;
+                }
+                if (stepsPatternZ.a && stepsPatternZ.b && preZVal !== "neutral") {
+                    stepsPatternZ.c = 1;
+                }
+                if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
+                    stepsPatternZ.e = 1;
+                }
+            } else if (Math.round(event.acceleration.z) < 0) {
+                zVal = "negative";
+                if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
+                    stepsPatternZ.a = 0;
+                }
+                if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
+                    stepsPatternZ.a = 0;
+                }        
+                if (stepsPatternZ.a && preZVal !== "negative") {
+                    stepsPatternZ.b = 1;
+                }
+            } else if (Math.round(event.acceleration.z) > 0) {
+                zVal = "positive";        
+                if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
+                    stepsPatternZ.a = 0;
+                }
+                if (stepsPatternZ.a && !stepsPatternZ.b) {
+                    stepsPatternZ.a = 0;
+                }
+                if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
+                    stepsPatternZ.d = 1;
+                }
+            }
 
-        // acceleration z
+            // acceleration y
 
-        if (Math.round(event.acceleration.z) === 0) {
-            zVal = "neutral";
-            if (!stepsPatternZ.a && preZVal !== "neutral") {
-                stepsPatternZ.a = 1;
+            if (Math.round(event.acceleration.y) === 0) {
+                yVal = "neutral";
+                if (!stepsPatternY.a && preYVal !== "neutral") {
+                    stepsPatternY.a = 1;
+                }
+                if (stepsPatternY.a && stepsPatternY.b && preYVal !== "neutral") {
+                    stepsPatternY.c = 1;
+                }
+                if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d && preYVal !== "neutral") {
+                    stepsPatternY.e = 1;
+                }
+            } else if (Math.round(event.acceleration.y) < 0) {
+                yVal = "negative";
+                if (stepsPatternY.a && stepsPatternY.b && !stepsPatternY.c) {
+                    stepsPatternY.a = 0;
+                }
+                if (stepsPatternY.a && !stepsPatternY.b) {
+                    stepsPatternY.a = 0;
+                }
+                if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && preYVal !== "negative") {
+                    stepsPatternY.d = 1;
+                }
+            } else if (Math.round(event.acceleration.y) > 0) {
+                yVal = "positive";
+                if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d) {
+                    stepsPatternY.a = 0;
+                }
+                if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c) {
+                    stepsPatternY.a = 0;
+                }        
+                if (stepsPatternY.a && preYVal !== "positive") {
+                    stepsPatternY.b = 1;
+                }
             }
-            if (stepsPatternZ.a && stepsPatternZ.b && preZVal !== "neutral") {
-                stepsPatternZ.c = 1;
-            }
-            if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
-                stepsPatternZ.e = 1;
-            }
-        } else if (Math.round(event.acceleration.z) < 0) {
-            zVal = "negative";
-            if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
-                stepsPatternZ.a = 0;
-            }
-            if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
-                stepsPatternZ.a = 0;
-            }        
-            if (stepsPatternZ.a && preZVal !== "negative") {
-                stepsPatternZ.b = 1;
-            }
-        } else if (Math.round(event.acceleration.z) > 0) {
-            zVal = "positive";        
-            if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
-                stepsPatternZ.a = 0;
-            }
-            if (stepsPatternZ.a && !stepsPatternZ.b) {
-                stepsPatternZ.a = 0;
-            }
-            if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
-                stepsPatternZ.d = 1;
-            }
-        }
 
-        // acceleration y
+            acceleration.z[acceleration.z.length] = zVal;
+            acceleration.y[acceleration.y.length] = yVal;
 
-        if (Math.round(event.acceleration.y) === 0) {
-            yVal = "neutral";
-            if (!stepsPatternY.a && preYVal !== "neutral") {
-                stepsPatternY.a = 1;
-            }
-            if (stepsPatternY.a && stepsPatternY.b && preYVal !== "neutral") {
-                stepsPatternY.c = 1;
-            }
-            if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d && preYVal !== "neutral") {
-                stepsPatternY.e = 1;
-            }
-        } else if (Math.round(event.acceleration.y) < 0) {
-            yVal = "negative";
-            if (stepsPatternY.a && stepsPatternY.b && !stepsPatternY.c) {
-                stepsPatternY.a = 0;
-            }
-            if (stepsPatternY.a && !stepsPatternY.b) {
-                stepsPatternY.a = 0;
-            }
-            if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && preYVal !== "negative") {
-                stepsPatternY.d = 1;
-            }
-        } else if (Math.round(event.acceleration.y) > 0) {
-            yVal = "positive";
-            if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d) {
-                stepsPatternY.a = 0;
-            }
-            if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c) {
-                stepsPatternY.a = 0;
-            }        
-            if (stepsPatternY.a && preYVal !== "positive") {
-                stepsPatternY.b = 1;
-            }
-        }
-
-        acceleration.z[acceleration.z.length] = zVal;
-        acceleration.y[acceleration.y.length] = yVal;
-
-        for (const x in stepsPatternZ) {
-            if (stepsPatternZ[x] !== 1) {
-                stepIncr = false;
-                break;
-            }
-        }
-        for (const x in stepsPatternY) {
-            if (stepsPatternY[x] !== 1 || !stepIncr) {
-                stepIncr = false;
-                break;
-            }
-        } 
-
-        if (stepIncr) {
-            clearInterval(motionInterval);
             for (const x in stepsPatternZ) {
-                stepsPatternZ[x] = 0;
+                if (stepsPatternZ[x] !== 1) {
+                    stepIncr = false;
+                    break;
+                }
             }
             for (const x in stepsPatternY) {
-                stepsPatternY[x] = 0;
-            }
-            acceleration.z = [];
-            acceleration.y = [];
-            
-            motionInterval = setInterval(function() {
-                motion = false;
+                if (stepsPatternY[x] !== 1 || !stepIncr) {
+                    stepIncr = false;
+                    break;
+                }
+            } 
+
+            if (stepIncr) {
                 clearInterval(motionInterval);
-            }, 1500);
-        } 
-        // steps.innerHTML = "steps: " + stepsCount;
-    }  */
+                for (const x in stepsPatternZ) {
+                    stepsPatternZ[x] = 0;
+                }
+                for (const x in stepsPatternY) {
+                    stepsPatternY[x] = 0;
+                }
+                acceleration.z = [];
+                acceleration.y = [];
+                
+                motionInterval = setInterval(function() {
+                    motion = false;
+                    clearInterval(motionInterval);
+                }, 1500);
+            } 
+            // steps.innerHTML = "steps: " + stepsCount;
+        }  */
+
+    }
 
 }, false);
 
