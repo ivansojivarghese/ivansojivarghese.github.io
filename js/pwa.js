@@ -436,7 +436,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst += accelerationTimePoints[i];
                 i++;
             }
-            velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : 10 : 0;
+            velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : 10 : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
