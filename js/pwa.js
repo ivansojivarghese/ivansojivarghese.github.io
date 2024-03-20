@@ -61,6 +61,7 @@ var /*acceleration = {
     motionStartRef = 0,
     motionStartInterval = null,
     motionRef = false,
+    velocityLive = 0, // live velocity
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
@@ -339,6 +340,7 @@ function filteredAcceleration(r) { // filters raw data (anything not at motionSt
             if (mRaw > 0.5 || mRaw < -0.5) {
                 return mRaw;
             } else {
+                motionStartRef = velocityLive;
                 return 0;
             }
         } else { // possibly constant
@@ -501,8 +503,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 i++;
             }
             velocityEst = Math.abs(velocityTotal) / accelerationTimePoints.length;
+            velocityEst += motionStartRef;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
+
+            velocityLive = velocityEst;
 
             // acc.innerHTML = Math.abs(velocityTotal);
             acc.innerHTML = iVel;
@@ -525,7 +530,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
 
-        speedX.style.backgroundColor = "red";
+        speedX.style.backgroundColor = "brown";
         speedX.style.color = "white";
 
 
