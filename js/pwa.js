@@ -494,22 +494,23 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             let i = 0;
 
             var velocityTotal = 0;
-            var accelerationCount = 0;
+            // var accelerationCount = 0;
             var iVel = "";
 
-            while (i < accelerationTimePoints.length) {
+            while (i < accelerationPoints.length) {
                 var addOn = 0;
                 if (i < 1) {
-                    addOn = ((accelerationTimePoints[i] + 0) / 2) * 1;
+                    addOn = ((accelerationPoints[i] + 0) / 2) * 1;
                 } else {
-                    addOn = ((accelerationTimePoints[i] + accelerationTimePoints[i - 1]) / 2) * 1;
+                    addOn = ((accelerationPoints[i] + accelerationPoints[i - 1]) / 2) * 1;
                 }
                 velocityTotal += addOn;
 
-                iVel += accelerationTimePoints[i] + ", ";
-                if (accelerationTimePoints[i] !== 0) {
+                iVel += accelerationPoints[i] + ", ";
+                /*
+                if (accelerationPoints[i] !== 0) {
                     accelerationCount++;
-                }
+                }*/
 
                 i++;
             }
@@ -518,13 +519,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocityEst = velocityTotal;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : (velocityEst > -10) ? Math.abs(velocityEst.toFixed(1)) : "10+";
 
-            velocity.innerHTML = "velocity: " + (velocityEst / (accelerationTimePoints.length / 2)).toFixed(1) + " " + velocityUnit; 
+            // velocity.innerHTML = "velocity: " + (velocityEst / (accelerationTimePoints.length / 2)).toFixed(1) + " " + velocityUnit; 
 
             // velocityLive = velocityEst;
 
             // acc.innerHTML = Math.abs(velocityTotal);
             acc.innerHTML = iVel;
-            sec.innerHTML = motionStartRef + ", " + velocityTotal + ", " + accelerationTimePoints.length + ", " + accelerationCount;
+            // sec.innerHTML = motionStartRef + ", " + velocityTotal + ", " + accelerationTimePoints.length;
 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
@@ -560,7 +561,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "yellow"; //
+        speedX.style.backgroundColor = "black"; //
         speedX.style.color = "red";
 
             /*
