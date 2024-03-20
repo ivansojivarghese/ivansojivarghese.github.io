@@ -91,6 +91,7 @@ const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
+const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -405,6 +406,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                 motionEndInterval = setTimeout(function() {
                     motionEnd = true;
+                    motionX.innerHTML = motionEnd;
                     clearTimeout(motionEndInterval);
                 }, 100);
 
@@ -412,6 +414,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityEst = 0;
                     motion = false; // make false after 1 sec. (if not other motion detected)
                     motionEnd = false;
+                    motionX.innerHTML = motionEnd;
                     accelerationPoints = [];
                     accelerationTimePoints = [];
                     oneStopMotion = true;
@@ -448,6 +451,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 motionInterval = null;
             }
             motionEnd = false;
+            motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
                 clearTimeout(motionEndInterval);
                 motionEndInterval = null;
@@ -466,6 +470,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 motionInterval = null;
             }
             motionEnd = false;
+            motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
                 clearTimeout(motionEndInterval);
                 motionEndInterval = null;
