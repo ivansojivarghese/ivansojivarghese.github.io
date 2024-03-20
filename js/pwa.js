@@ -399,7 +399,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
                     }
                     velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
-                    if (accelerationTimePoints.length < 5) {
+                    if (accelerationTimePoints.length < 1) {
                         accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
                     } else {
                         accelerationTimePoints = [];
