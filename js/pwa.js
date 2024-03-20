@@ -518,11 +518,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = velocityTotal;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : (velocityEst > -10) ? Math.abs(velocityEst.toFixed(1)) : "10+";
-            if (velocityEst / (accelerationCount / 2) !== NaN) {
-                velocity.innerHTML = "velocity: " + (velocityEst / (accelerationCount / 2)).toFixed(1) + " " + velocityUnit; 
-            } else {
-                velocity.innerHTML = "velocity: 0 " + velocityUnit; 
-            }
+
+            velocity.innerHTML = "velocity: " + (velocityEst / (accelerationTimePoints.length / 2)).toFixed(1) + " " + velocityUnit; 
 
             // velocityLive = velocityEst;
 
