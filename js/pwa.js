@@ -492,7 +492,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 i++;
             }
             velocityEst = Math.abs(velocityTotal) / accelerationTimePoints.length;
-            velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : 10 : 0;
+            velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
 
             acc.innerHTML = Math.abs(velocityTotal);
