@@ -332,7 +332,7 @@ function similarAngle(t, r, d) {
     const res = diff > d ? false : true;
     return res;
 }
-
+/*
 function filteredAcceleration(r) { // filters raw data (anything not at motionStart)
     var mRaw = -1 * r; // correct the direction
     if ((mRaw > 0 || mRaw < 0)) {
@@ -351,7 +351,7 @@ function filteredAcceleration(r) { // filters raw data (anything not at motionSt
     } else {
         return mRaw;
     }
-}
+}*/
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
@@ -373,9 +373,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
         if (screen.orientation.angle === 0 || screen.orientation.angle === 180) {
-            normalAcc = filteredAcceleration(yAcc);
+            // normalAcc = filteredAcceleration(yAcc);
+            normalAcc = yAcc;
         } else if (screen.orientation.angle === 90 || screen.orientation.angle === 270) {
-            normalAcc = filteredAcceleration(xAcc);
+            // normalAcc = filteredAcceleration(xAcc);
+            normalAcc = xAcc;
         }
 
         if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
