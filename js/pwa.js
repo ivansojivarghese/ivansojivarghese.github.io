@@ -401,16 +401,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
                     }
                     velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
-
-                    // if (accelerationTimePoints.length < 3) {
-
-                    accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
-
-                    /*} else {
-                        accelerationTimePoints = [];
+                    if (velocityAdd !== 0) {
                         accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
-                    }*/
-
+                    }
                 }, 1000);
             } 
 
