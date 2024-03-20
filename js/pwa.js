@@ -404,7 +404,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     } else if (accelerationPoints.length > 1) {
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
                     }
-                    velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
+                    velocityAdd = (Math.abs(velocityDelta) / 2) * 1; // area of trapezoid ref.
                     accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
                 }, 1000);
             } 
@@ -491,24 +491,34 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
+
             var velocityTotal = 0;
             var accelerationCount = 0;
-
             var iVel = "";
 
             while (i < accelerationTimePoints.length) {
-                velocityTotal += accelerationTimePoints[i];
+                var addOn = 0;
+                if (i < 1) {
+                    addOn = ((accelerationTimePoints[i] + 0) / 2) * 1;
+                } else {
+                    addOn = ((accelerationTimePoints[i] + accelerationTimePoints[i - 1]) / 2) * 1;
+                }
+                velocityTotal += addOn;
+
                 iVel += accelerationTimePoints[i] + ", ";
-                i++;
                 if (accelerationTimePoints[i] !== 0) {
                     accelerationCount++;
                 }
+
+                i++;
             }
-            velocityEst = Math.abs(velocityTotal) / accelerationCount;
+
+            // velocityEst = Math.abs(velocityTotal) / accelerationCount;
+            velocityEst = velocityTotal;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
 
-            velocityLive = velocityEst;
+            // velocityLive = velocityEst;
 
             // acc.innerHTML = Math.abs(velocityTotal);
             acc.innerHTML = iVel;
@@ -530,7 +540,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "red";
+        speedX.style.backgroundColor = "green";
         speedX.style.color = "white";
 
             /*
