@@ -95,6 +95,7 @@ const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
+const vel = document.querySelector('.pwa .popups .deviceInfo .vel');
 const acc = document.querySelector('.pwa .popups .deviceInfo .acc');
 const sec = document.querySelector('.pwa .popups .deviceInfo .sec');
 
@@ -515,6 +516,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 i++;
             }
 
+            vel.innerHTML = velocityTotal.toFixed(1);
+
             // velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = velocityTotal;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : (velocityEst > -10) ? Math.abs(velocityEst.toFixed(1)) : "10+";
@@ -561,7 +564,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "black"; //
+        speedX.style.backgroundColor = "yellow"; //
         speedX.style.color = "red";
 
             /*
