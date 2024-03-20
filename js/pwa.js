@@ -445,7 +445,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (motionStartInterval === null) {
                 motionStartInterval = setTimeout(function() {
                     motionStart = true;
-                    motionStartRef;
+                    motionStartRef = velocityLive;
                     clearTimeout(motionStartInterval);
                 }, 1000);
             }
@@ -464,7 +464,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (motionStartInterval === null) {
                 motionStartInterval = setTimeout(function() {
                     motionStart = true;
-                    motionStartRef;
+                    motionStartRef = velocityLive;
                     clearTimeout(motionStartInterval);
                 }, 1000);
             }
