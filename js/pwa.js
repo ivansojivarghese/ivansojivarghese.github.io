@@ -92,6 +92,8 @@ const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
+const acc = document.querySelector('.pwa .popups .deviceInfo .acc');
+const sec = document.querySelector('.pwa .popups .deviceInfo .sec');
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -492,6 +494,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocityEst = Math.abs(velocityTotal) / accelerationTimePoints.length;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : 10 : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
+
+            acc.innerHTML = Math.abs(velocityTotal);
+            sec.innerHTML = accelerationTimePoints.length;
+
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
                 var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
