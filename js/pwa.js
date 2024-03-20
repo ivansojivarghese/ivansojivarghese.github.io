@@ -337,7 +337,7 @@ function filteredAcceleration(r) { // filters raw data (anything not at motionSt
                 return 0;
             }
         } else { // possibly constant
-
+            return (mRaw / 2);
         }
     } else {
         return mRaw;
