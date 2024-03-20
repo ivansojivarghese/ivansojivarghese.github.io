@@ -488,7 +488,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         steps.innerHTML = "steps: " + stepsCount;
 
         speedX.innerHTML = motion;
-
+        
+        /*
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
 
@@ -524,7 +525,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             acc.innerHTML = iVel;
             sec.innerHTML = motionStartRef + ", " + Math.abs(velocityTotal) + ", " + accelerationTimePoints.length + ", " + accelerationCount;
 
-        } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
+        } else*/ if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
                 var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
                 velocityEst = Math.round((accelerationDelta / 2) * 1); // area of trapezoid ref.
