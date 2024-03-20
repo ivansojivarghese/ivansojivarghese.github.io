@@ -340,11 +340,13 @@ function filteredAcceleration(r) { // filters raw data (anything not at motionSt
             if (mRaw > 0.5 || mRaw < -0.5) {
                 return mRaw;
             } else {
-                motionStartRef = velocityLive;
-                return 0;
+                // motionStartRef = velocityLive;
+                // return 0;
+                return mRaw;
             }
         } else { // possibly constant
-            return (mRaw / 2);
+            // return (mRaw / 2);
+            return mRaw;
         }
     } else {
         return mRaw;
@@ -526,10 +528,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-
-        speedX.style.backgroundColor = "yellow";
+        speedX.style.backgroundColor = "chocolate";
         speedX.style.color = "white";
-
 
             /*
             zVal = "",
