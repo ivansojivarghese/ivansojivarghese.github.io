@@ -520,7 +520,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
 
-        speedX.style.backgroundColor = "yellow";
+        speedX.style.backgroundColor = "beige";
         speedX.style.color = "";
 
 
