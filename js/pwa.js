@@ -57,6 +57,7 @@ var /*acceleration = {
     refVelocity = false,
     motionStart = false,
     motionStartRef = 0,
+    motionStartInterval = null,
     motionRef = false,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
@@ -326,13 +327,17 @@ function similarAngle(t, r, d) {
     return res;
 }
 
-function filteredAcceleration(r) { // filters raw data 
+function filteredAcceleration(r) { // filters raw data (anything not at motionStart)
     var mRaw = -1 * r; // correct the direction
     if ((mRaw > 0 || mRaw < 0)) {
-        if (mRaw > 0.5 || mRaw < -0.5) {
-            return mRaw;
-        } else {
-            return 0;
+        if (!motionStart) { // accelerating
+            if (mRaw > 0.5 || mRaw < -0.5) {
+                return mRaw;
+            } else {
+                return 0;
+            }
+        } else { // possibly constant
+
         }
     } else {
         return mRaw;
@@ -402,6 +407,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     accelerationTimePoints = [];
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
+
+                    clearTimeout(motionStartInterval);
+                    motionStart = false;
+                    motionStartRef = 0;
+
                     motionInterval = null;
                     velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
                 }, 1000);
@@ -417,12 +427,26 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 }
             }
             motion = true;
+            if (motionStartInterval === null) {
+                motionStartInterval = setTimeout(function() {
+                    motionStart = true;
+                    motionStartRef;
+                    clearTimeout(motionStartInterval);
+                }, 1000);
+            }
             if (motionInterval !== null) {
                 clearTimeout(motionInterval);
                 motionInterval = null;
             }
         } else {
             motion = true;
+            if (motionStartInterval === null) {
+                motionStartInterval = setTimeout(function() {
+                    motionStart = true;
+                    motionStartRef;
+                    clearTimeout(motionStartInterval);
+                }, 1000);
+            }
             if (motionInterval !== null) {
                 clearTimeout(motionInterval);
                 motionInterval = null;
