@@ -55,6 +55,7 @@ var /*acceleration = {
     motionInterval = null,
     motionVelocity = false,
     refVelocity = false,
+    motionEnd = false,
     motionStart = false,
     motionStartRef = 0,
     motionStartInterval = null,
@@ -330,7 +331,7 @@ function similarAngle(t, r, d) {
 function filteredAcceleration(r) { // filters raw data (anything not at motionStart)
     var mRaw = -1 * r; // correct the direction
     if ((mRaw > 0 || mRaw < 0)) {
-        if (!motionStart) { // accelerating
+        if (!motionStart || motionEnd) { // accelerating
             if (mRaw > 0.5 || mRaw < -0.5) {
                 return mRaw;
             } else {
@@ -400,9 +401,16 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             } 
 
             if (motion && motionInterval === null) {
+
+                motionEndInterval = setTimeout(function() {
+                    motionEnd = true;
+                    clearTimeout(motionEndInterval);
+                }, 100);
+
                 motionInterval = setTimeout(function() {
                     velocityEst = 0;
                     motion = false; // make false after 1 sec. (if not other motion detected)
+                    motionEnd = false;
                     accelerationPoints = [];
                     accelerationTimePoints = [];
                     oneStopMotion = true;
@@ -438,6 +446,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 clearTimeout(motionInterval);
                 motionInterval = null;
             }
+            motionEnd = false;
+            if (motionEndInterval !== null) {
+                clearTimeout(motionEndInterval);
+                motionEndInterval = null;
+            }
         } else {
             motion = true;
             if (motionStartInterval === null) {
@@ -450,6 +463,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (motionInterval !== null) {
                 clearTimeout(motionInterval);
                 motionInterval = null;
+            }
+            motionEnd = false;
+            if (motionEndInterval !== null) {
+                clearTimeout(motionEndInterval);
+                motionEndInterval = null;
             }
             motionRef = false; // re-calibrate
         }
