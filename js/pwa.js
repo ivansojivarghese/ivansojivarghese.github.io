@@ -502,8 +502,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 iVel += accelerationTimePoints[i] + ", ";
                 i++;
             }
-            velocityEst = Math.abs(velocityTotal) / accelerationTimePoints.length;
-            velocityEst += motionStartRef;
+            velocityEst = Math.abs(velocityTotal + motionStartRef) / accelerationTimePoints.length;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
 
@@ -530,7 +529,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
 
-        speedX.style.backgroundColor = "brown";
+        speedX.style.backgroundColor = "coral";
         speedX.style.color = "white";
 
 
