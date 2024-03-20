@@ -493,10 +493,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             var iVel = "";
 
             while (i < accelerationTimePoints.length) {
+                velocityTotal += accelerationTimePoints[i];
+                iVel += accelerationTimePoints[i] + ", ";
+                i++;
                 if (accelerationTimePoints[i] !== 0) {
-                    velocityTotal += accelerationTimePoints[i];
-                    iVel += accelerationTimePoints[i] + ", ";
-                    i++;
                     accelerationCount++;
                 }
             }
