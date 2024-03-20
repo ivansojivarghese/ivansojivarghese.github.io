@@ -62,6 +62,8 @@ var /*acceleration = {
     motionStartInterval = null,
     motionRef = false,
     velocityLive = 0, // live velocity
+    velocityLiveCheck = false,
+    velocityLiveInterval = null,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
@@ -486,7 +488,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         steps.innerHTML = "steps: " + stepsCount;
-
         speedX.innerHTML = motion;
         
         /*
@@ -540,7 +541,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (!refVelocity) {
                 velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
                 velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
-            } else {
+            } else if (!velocityLiveCheck) {
+                clearTimeout(velocityLiveInterval);
+                velocityLiveCheck = true;
                 if (velocitySign === "+") {
                     velocityLive += velocityEst;
                 } else if (velocitySign === "~") {
@@ -549,6 +552,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityLive -= velocityEst;
                 }
                 velocity.innerHTML = "velocity: " + velocitySign + velocityLive.toFixed(1) + " " + velocityUnit; 
+                velocityLiveInterval = setTimeout(function() {
+                    velocityLiveCheck = false;
+                }, 1000);
             }
         } else {
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
