@@ -449,7 +449,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (motionStartInterval === null) {
                 motionStartInterval = setTimeout(function() {
                     motionStart = true;
-                    motionStartRef = velocityLive;
+                    // motionStartRef = velocityLive;
                     clearTimeout(motionStartInterval);
                 }, 1000);
             }
@@ -468,7 +468,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (motionStartInterval === null) {
                 motionStartInterval = setTimeout(function() {
                     motionStart = true;
-                    motionStartRef = velocityLive;
+                    // motionStartRef = velocityLive;
                     clearTimeout(motionStartInterval);
                 }, 1000);
             }
@@ -537,8 +537,19 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst = (accelerationTango / 2) * 1; // area of trapezoid ref.
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             }
-            velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
-            velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
+            if (!refVelocity) {
+                velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
+                velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
+            } else {
+                if (velocitySign === "+") {
+                    velocityLive += velocityEst;
+                } else if (velocitySign === "~") {
+                    velocityEst = velocityLive;
+                } else {
+                    velocityLive -= velocityEst;
+                }
+                velocity.innerHTML = "velocity: " + velocitySign + velocityLive.toFixed(1) + " " + velocityUnit; 
+            }
         } else {
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
