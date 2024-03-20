@@ -539,7 +539,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
-            velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
+            // velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
             
             /* } else if (!velocityLiveCheck) {
                 clearTimeout(velocityLiveInterval);
