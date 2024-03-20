@@ -490,7 +490,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         steps.innerHTML = "steps: " + stepsCount;
         speedX.innerHTML = motion;
         
-        /*
+        
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
 
@@ -526,9 +526,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             acc.innerHTML = iVel;
             sec.innerHTML = motionStartRef + ", " + Math.abs(velocityTotal) + ", " + accelerationTimePoints.length + ", " + accelerationCount;
 
-        } else*/ 
-        
-        if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
+        } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
                 var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
                 velocityEst = (accelerationDelta / 2) * 1; // area of trapezoid ref.
@@ -538,10 +536,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst = (accelerationTango / 2) * 1; // area of trapezoid ref.
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             }
-            if (!refVelocity) {
+            // if (!refVelocity) {
                 velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
                 velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
-            } else if (!velocityLiveCheck) {
+            /* } else if (!velocityLiveCheck) {
                 clearTimeout(velocityLiveInterval);
                 velocityLiveCheck = true;
                 if (velocitySign === "+") {
@@ -555,7 +553,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityLiveInterval = setTimeout(function() {
                     velocityLiveCheck = false;
                 }, 1000);
-            }
+            }*/
         } else {
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
