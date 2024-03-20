@@ -525,14 +525,16 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             acc.innerHTML = iVel;
             sec.innerHTML = motionStartRef + ", " + Math.abs(velocityTotal) + ", " + accelerationTimePoints.length + ", " + accelerationCount;
 
-        } else*/ if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
+        } else*/ 
+        
+        if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
                 var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
-                velocityEst = Math.round((accelerationDelta / 2) * 1); // area of trapezoid ref.
+                velocityEst = (accelerationDelta / 2) * 1; // area of trapezoid ref.
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             } else if (accelerationPoints.length > 1) { // take last 2 data points (double)
                 var accelerationTango = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
-                velocityEst = Math.round((accelerationTango / 2) * 1); // area of trapezoid ref.
+                velocityEst = (accelerationTango / 2) * 1; // area of trapezoid ref.
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             }
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
@@ -541,7 +543,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "blue";
+        speedX.style.backgroundColor = "red";
         speedX.style.color = "white";
 
             /*
