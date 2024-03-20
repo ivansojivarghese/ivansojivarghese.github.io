@@ -363,7 +363,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
             yAcc = event.acceleration.y, // forward acceleration
             xAcc = event.acceleration.x, // "" alternate orientations
-            // nAcc = Math.sqrt(Math.pow(yAcc, 2) + Math.pow(event.acceleration.x, 2)), // normalised acceleration (x & y)
             pitch = Math.abs(betaAngle), // pitch of device
             pitchRad = pitch * (Math.PI / 180),
             cosVal = Math.cos(pitchRad),
@@ -434,7 +433,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionStartRef = 0;
 
                     motionInterval = null;
-                    velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+                    // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
                 }, 1000);
             }
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
