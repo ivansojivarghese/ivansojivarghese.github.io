@@ -401,9 +401,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
                     }
                     velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
-                    if (velocityAdd !== 0) {
-                        accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
-                    }
+                    accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
                 }, 1000);
             } 
 
@@ -490,15 +488,19 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
             var velocityTotal = 0;
+            var accelerationCount = 0;
 
             var iVel = "";
 
             while (i < accelerationTimePoints.length) {
-                velocityTotal += accelerationTimePoints[i];
-                iVel += accelerationTimePoints[i] + ", ";
-                i++;
+                if (accelerationTimePoints[i] !== 0) {
+                    velocityTotal += accelerationTimePoints[i];
+                    iVel += accelerationTimePoints[i] + ", ";
+                    i++;
+                    accelerationCount++;
+                }
             }
-            velocityEst = Math.abs(velocityTotal) / accelerationTimePoints.length;
+            velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
 
@@ -506,7 +508,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             // acc.innerHTML = Math.abs(velocityTotal);
             acc.innerHTML = iVel;
-            sec.innerHTML = motionStartRef + ", " + accelerationTimePoints.length;
+            sec.innerHTML = motionStartRef + ", " + accelerationTimePoints.length + ", " + accelerationCount;
 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
