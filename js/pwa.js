@@ -536,9 +536,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst = (accelerationTango / 2) * 1; // area of trapezoid ref.
                 velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
             }
-            // if (!refVelocity) {
-                velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
-                velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
+
+            velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
+            velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
+            
             /* } else if (!velocityLiveCheck) {
                 clearTimeout(velocityLiveInterval);
                 velocityLiveCheck = true;
@@ -554,6 +555,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityLiveCheck = false;
                 }, 1000);
             }*/
+            
         } else {
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
