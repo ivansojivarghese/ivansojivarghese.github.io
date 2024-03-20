@@ -399,7 +399,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
                     }
                     velocityAdd = (velocityDelta / 2) * 1; // area of trapezoid ref.
-                    accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
+                    if (accelerationTimePoints.length < 5) {
+                        accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
+                    } else {
+                        accelerationTimePoints = [];
+                        accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
+                    }
 
                 }, 1000);
             } 
@@ -515,7 +520,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
 
-        speedX.style.backgroundColor = "pink";
+        speedX.style.backgroundColor = "yellow";
         speedX.style.color = "";
 
 
