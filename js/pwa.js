@@ -492,15 +492,20 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
             var velocityTotal = 0;
+
+            var iVel = "";
+
             while (i < accelerationTimePoints.length) {
                 velocityTotal += accelerationTimePoints[i];
+                iVel += accelerationTimePoints[i] + ", ";
                 i++;
             }
             velocityEst = Math.abs(velocityTotal) / accelerationTimePoints.length;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
 
-            acc.innerHTML = Math.abs(velocityTotal);
+            // acc.innerHTML = Math.abs(velocityTotal);
+            acc.innerHTML = iVel;
             sec.innerHTML = accelerationTimePoints.length;
 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
@@ -520,8 +525,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
 
-        speedX.style.backgroundColor = "pink";
-        speedX.style.color = "";
+        speedX.style.backgroundColor = "red";
+        speedX.style.color = "white";
 
 
             /*
