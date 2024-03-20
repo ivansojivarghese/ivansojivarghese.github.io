@@ -502,7 +502,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 iVel += accelerationTimePoints[i] + ", ";
                 i++;
             }
-            velocityEst = Math.abs(velocityTotal + motionStartRef) / accelerationTimePoints.length;
+            velocityEst = Math.abs(velocityTotal) / accelerationTimePoints.length;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : 0;
             velocity.innerHTML = "velocity: " + velocityEst + " " + velocityUnit; 
 
@@ -510,7 +510,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             // acc.innerHTML = Math.abs(velocityTotal);
             acc.innerHTML = iVel;
-            sec.innerHTML = accelerationTimePoints.length;
+            sec.innerHTML = motionStartRef + ", " + accelerationTimePoints.length;
 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
