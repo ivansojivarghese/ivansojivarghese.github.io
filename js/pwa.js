@@ -56,6 +56,7 @@ var /*acceleration = {
     motionVelocity = false,
     refVelocity = false,
     motionEnd = false,
+    motionEndInterval = null,
     motionStart = false,
     motionStartRef = 0,
     motionStartInterval = null,
