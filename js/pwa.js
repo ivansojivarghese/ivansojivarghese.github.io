@@ -346,6 +346,8 @@ function filteredAcceleration(r) { // filters raw data (anything not at motionSt
     } else if (motionStartRef !== 0 && ((r > 0 && r < motionStartRef) || r === motionStartRef)) {
         var output = r;
         return output;
+    } else {
+        return 0;
     }
     
     if (motionStartRef === 0 && r < motionStartRef) {
@@ -566,7 +568,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         speedX.style.backgroundColor = "pink"; //
-        speedX.style.color = "";
+        speedX.style.color = "red";
 
             /*
             zVal = "",
