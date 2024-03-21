@@ -339,6 +339,7 @@ function similarAngle(t, r, d) {
 function filteredAcceleration(r) { // filters raw data (anything not at motionStart)
     if (r > motionStartRef && motion) { // get max recorded pos. acceleration during each motion
         motionStartRef = r;
+        return r;
     }
     if (r > -0.5 && r < 0.5) { // almost constant acceleration
         return 0; 
