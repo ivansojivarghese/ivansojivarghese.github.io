@@ -335,26 +335,22 @@ function similarAngle(t, r, d) {
     const res = diff > d ? false : true;
     return res;
 }
-/*
+
 function filteredAcceleration(r) { // filters raw data (anything not at motionStart)
-    var mRaw = -1 * r; // correct the direction
-    if ((mRaw > 0 || mRaw < 0)) {
-        if (!motionStart || motionEnd) { // accelerating
-            if (mRaw > 0.5 || mRaw < -0.5) {
-                return mRaw;
-            } else {
-                // motionStartRef = velocityLive;
-                // return 0;
-                return mRaw;
-            }
-        } else { // possibly constant
-            // return (mRaw / 2);
-            return mRaw;
-        }
-    } else {
-        return mRaw;
+    if (r > motionStartRef && motion) { // get max recorded pos. acceleration during each motion
+        motionStartRef = r;
     }
-}*/
+    if (r > -0.5 && r < 0.5) { // almost constant acceleration
+        return 0; 
+    }
+    if (motionStartRef === 0 && r < motionStartRef) {
+        return 0;
+    } else if (r < (-1 * motionStartRef)) {
+        var margin = r - (-1 * motionStartRef),
+            percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
+        return (motionStartRef * percentile * -1); // return a percentile of exceeding values (neg. acceleration)
+    }
+}
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
@@ -375,11 +371,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
         if (screen.orientation.angle === 0 || screen.orientation.angle === 180) {
-            // normalAcc = filteredAcceleration(yAcc);
-            normalAcc = yAcc;
+            normalAcc = filteredAcceleration(yAcc);
         } else if (screen.orientation.angle === 90 || screen.orientation.angle === 270) {
-            // normalAcc = filteredAcceleration(xAcc);
-            normalAcc = xAcc;
+            normalAcc = filteredAcceleration(xAcc);
         }
 
         if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
