@@ -337,18 +337,23 @@ function similarAngle(t, r, d) {
 }
 
 function filteredAcceleration(r) { // filters raw data (anything not at motionStart)
-    if (r > motionStartRef && motion) { // get max recorded pos. acceleration during each motion
-        motionStartRef = r;
-        return r;
-    }
     if (r > -0.5 && r < 0.5) { // almost constant acceleration
         return 0; 
+    } else if (r > motionStartRef) { // get max recorded pos. acceleration during each motion
+        var output = r;
+        motionStartRef = output;
+        return output;
+    } else if (motionStartRef !== 0 && (r < motionStartRef || r === motionStartRef)) {
+        var output = r;
+        return output;
     }
+    
     if (motionStartRef === 0 && r < motionStartRef) {
         return 0;
     } else if (r < (-1 * motionStartRef)) {
         var margin = r - (-1 * motionStartRef),
             percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
+        
         return (motionStartRef * percentile * -1); // return a percentile of exceeding values (neg. acceleration)
     }
 }
@@ -396,13 +401,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
 
+                    /*
                     if (accelerationPoints.length === 1) {
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
                     } else if (accelerationPoints.length > 1) {
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
                     }
                     velocityAdd = ((velocityDelta) / 2) * 1; // area of trapezoid ref.
-                    accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;
+                    accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;*/
                 }, 1000);
             } 
 
