@@ -343,7 +343,7 @@ function filteredAcceleration(r) { // filters raw data (anything not at motionSt
         var output = r;
         motionStartRef = output;
         return output;
-    } else if (motionStartRef !== 0 && (r < motionStartRef || r === motionStartRef)) {
+    } else if (motionStartRef !== 0 && ((r > 0 && r < motionStartRef) || r === motionStartRef)) {
         var output = r;
         return output;
     }
