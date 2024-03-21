@@ -343,16 +343,19 @@ function filteredAcceleration(r) { // filters raw data (anything not at motionSt
         var output = r;
         motionStartRef = output;
         return output;
-    } else if (motionStartRef !== 0 && ((r > 0 && r < motionStartRef) || r === motionStartRef)) {
+    } else if (motionStartRef !== 0 && ((r > 0 && r < motionStartRef) || r === motionStartRef)) { // acceleration
         var output = r;
         return output;
-    } else {
-        return 0;
+    } else if (motionStartRef > 0 && (r < 0 && (r > (-1 * motionStartRef)))) { // normal decceleration only when acceleration has been detected
+        var output = r;
+        return output;
     }
     
-    if (motionStartRef === 0 && r < motionStartRef) {
-        return 0;
-    } else if (r < (-1 * motionStartRef)) {
+    if (motionStartRef === 0 && r < motionStartRef) { // if negative acceleration detected before positive, re-calibration needed
+        var output = Math.abs(r); // make to positive
+        motionStartRef = output;
+        return output;
+    } else if (r < (-1 * motionStartRef)) { // heavy decceleration (tuning needed)
         var margin = r - (-1 * motionStartRef),
             percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
         
@@ -567,7 +570,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "pink"; //
+        speedX.style.backgroundColor = "beige"; //
         speedX.style.color = "red";
 
             /*
