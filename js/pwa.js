@@ -631,7 +631,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
             while (j < stepsCountTimes.length) {
-                sLen += stepsCountTimes[j]; 
+                sLen += stepsCountTimes[j] + ", "; 
                 j++;
             }
 
