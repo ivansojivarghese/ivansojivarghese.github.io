@@ -61,6 +61,8 @@ var /*acceleration = {
     motionStartRef = 0,
     motionStartInterval = null,
     motionRef = false,
+    velocityPoints = [],
+    velocityError = false,
     velocityLive = 0, // live velocity
     velocityLiveCheck = false,
     velocityLiveInterval = null,
@@ -124,8 +126,8 @@ sI_3 = {
 };
 
 screen.orientation.addEventListener("change", function() {
+    velocityPoints = [];
     accelerationPoints = [];
-    // accelerationTimePoints = [];
     motionRef = false;
     motionStartRef = 0;
 });
@@ -435,6 +437,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 refVelocity = true;
                 clearInterval(accelerationInterval); // reset
                 accelerationPoints = [];
+                velocityPoints = [];
                 accelerationInterval = setInterval(function() { // get acceleration data every sec.
                     var velocityDelta = 0,
                         velocityAdd = 0;
@@ -465,6 +468,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     motionStartRef = 0;
                     accelerationPoints = [];
+                    velocityPoints = [];
 
                     motionEnd = true;
                     motionX.innerHTML = motionEnd;
@@ -489,6 +493,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                 motionStartRef = 0;
                 accelerationPoints = [];
+                velocityPoints = []
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
@@ -573,13 +578,19 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 i++;
             }
 
-            if (velocityTotal < 0) { // reset if unexpected velocity error
+            if (velocityTotal < 0) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
                 motionStartRef = 0;
                 velocityTotal = 0;
+                velocityError = true;
+            } else {
+                velocityPoints[velocityPoints.length] = velocityTotal; 
             }
-
-            vel.innerHTML = velocityTotal.toFixed(1) + ", " + motionStartRef;
+            if (!velocityError) {
+                vel.innerHTML = velocityTotal.toFixed(1) + ", " + motionStartRef;
+            } else {
+                vel.innerHTML = velocityPoints[velocityPoints.length - 1].toFixed(1) + ", " + motionStartRef;
+            }
 
             // velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = velocityTotal;
