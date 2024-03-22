@@ -356,6 +356,29 @@ function filteredAcceleration(r) { // filters raw data
         var output = r;
         return output;
     }
+
+    if (motionStart && accelerationPoints.length >= 3) { // checks for constant velocity (from accelerating to constant)
+        var incrVelCheck = [false, false, false];
+        for (i = 0, j = 0; i < accelerationPoints.length; i++) {
+            if (accelerationPoints[i] > 0) {
+                if (j < incrVelCheck.length) {
+                    incrVelCheck[j] = true;
+                    j++;
+                } else { // if 3 positives in a row, break
+                    break;
+                }
+            } else if (accelerationPoints[i] < 0) { // if 1 negative in between, break
+                break;
+            }
+        }
+        motionStart = false;
+        for (k = 0; k < incrVelCheck.length; k++) {
+            if (incrVelCheck[k] === false) {
+                motionStart = true;
+                break;
+            }
+        }
+    }
     
     if ((motionStartRef === 0 && r < motionStartRef) || (motionStartRef > 0 && r < 0 && motionStart)) { // if negative acceleration detected before positive, re-calibration needed
         var output = Math.abs(r); // make to positive
@@ -368,6 +391,9 @@ function filteredAcceleration(r) { // filters raw data
             percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
         
         return (motionStartRef * percentile * -1); // return a percentile of exceeding values (neg. acceleration)
+    } else if (r < 0 && r >= (-1 * motionStartRef)) {
+        var output = r;
+        return output;
     }
 }
 
@@ -427,7 +453,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             if (motion && motionInterval === null) { //
 
-                motionStart = false;
+                // motionStart = false;
 
                 motionEndInterval = setTimeout(function() {
                     /*
@@ -592,7 +618,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "pink"; //
+        speedX.style.backgroundColor = "red"; //
         speedX.style.color = "white"; //
 
             /*
