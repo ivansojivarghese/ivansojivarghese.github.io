@@ -484,7 +484,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionInterval = null;
                     // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
                 }, 1000);
+
+            } else if (!motion && !motionEnd) { // at rest (on a table, etc.)
+
+                motionStartRef = 0;
+                accelerationPoints = [];
             }
+
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
             if (!shaked && !rotation) {
                 const zDiff = resZForce - refZForce;
