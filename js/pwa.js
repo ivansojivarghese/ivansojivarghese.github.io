@@ -544,7 +544,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             } else if (accelerationPoints.length > 1) { // take last 2 data points (double)
                 var accelerationTango = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
                 velocityEst = (accelerationTango / 2) * 1; // area of trapezoid ref.
-                velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
+                velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : ""; //
             }
 
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
