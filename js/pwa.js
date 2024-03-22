@@ -378,9 +378,6 @@ function filteredAcceleration(r) { // filters raw data
                 break;
             }
         }
-        if (!motionStart) {
-            motionStartRef = 0;
-        }
     }
     
     if ((motionStartRef === 0 && r < motionStartRef) || (motionStartRef > 0 && r < 0 && motionStart)) { // if negative acceleration detected before positive, re-calibration needed
@@ -465,6 +462,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionStartRef = 0;
                     */
 
+                    motionStartRef = 0;
                     accelerationPoints = [];
 
                     motionEnd = true;
@@ -478,7 +476,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionEnd = false;
                     motionX.innerHTML = motionEnd;
                     // accelerationPoints = [];
-                    accelerationTimePoints = [];
+                    // accelerationTimePoints = [];
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
 
