@@ -424,6 +424,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionStart = false;
                     motionStartRef = 0;
 
+                    accelerationPoints = [];
+
                     motionEnd = true;
                     motionX.innerHTML = motionEnd;
                     clearTimeout(motionEndInterval);
@@ -434,7 +436,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motion = false; // make false after 1 sec. (if not other motion detected)
                     motionEnd = false;
                     motionX.innerHTML = motionEnd;
-                    accelerationPoints = [];
+                    // accelerationPoints = [];
                     accelerationTimePoints = [];
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
