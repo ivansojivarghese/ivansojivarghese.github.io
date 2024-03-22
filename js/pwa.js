@@ -125,8 +125,9 @@ sI_3 = {
 
 screen.orientation.addEventListener("change", function() {
     accelerationPoints = [];
-    accelerationTimePoints = [];
+    // accelerationTimePoints = [];
     motionRef = false;
+    motionStartRef = 0;
 });
 
 function navButtonActive(b, e, v) {
@@ -550,7 +551,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             let i = 0;
 
             var velocityTotal = 0;
-            // var accelerationCount = 0;
             var iVel = "";
 
             while (i < accelerationPoints.length) {
@@ -563,15 +563,17 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityTotal += addOn;
 
                 iVel += accelerationPoints[i] + ", ";
-                /*
-                if (accelerationPoints[i] !== 0) {
-                    accelerationCount++;
-                }*/
 
                 i++;
             }
 
             vel.innerHTML = velocityTotal.toFixed(1) + ", " + motionStartRef;
+
+            if (velocityTotal < 0) { // reset if unexpected velocity error
+                accelerationPoints = [];
+                motionStartRef = 0;
+                velocityTotal = 0;
+            }
 
             // velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = velocityTotal;
