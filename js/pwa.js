@@ -420,6 +420,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (motion && motionInterval === null) {
 
                 motionEndInterval = setTimeout(function() {
+                    clearTimeout(motionStartInterval);
+                    motionStart = false;
+                    motionStartRef = 0;
+
                     motionEnd = true;
                     motionX.innerHTML = motionEnd;
                     clearTimeout(motionEndInterval);
@@ -434,10 +438,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     accelerationTimePoints = [];
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
-
-                    clearTimeout(motionStartInterval);
-                    motionStart = false;
-                    motionStartRef = 0;
 
                     motionInterval = null;
                     // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
@@ -522,7 +522,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 i++;
             }
 
-            vel.innerHTML = velocityTotal.toFixed(1);
+            vel.innerHTML = velocityTotal.toFixed(1) + ", " + motionStartRef;
 
             // velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = velocityTotal;
