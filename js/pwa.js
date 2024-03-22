@@ -342,7 +342,7 @@ function filteredAcceleration(r) { // filters raw data (anything not at motionSt
     } else if (r > motionStartRef) { // get max recorded pos. acceleration during each motion
         var output = r;
         motionStartRef = output;
-        accelerationPoints[accelerationPoints.length] = output;
+        // accelerationPoints[accelerationPoints.length] = output;
         return output;
     } else if (motionStartRef !== 0 && ((r > 0 && r < motionStartRef) || r === motionStartRef)) { // acceleration
         var output = r;
