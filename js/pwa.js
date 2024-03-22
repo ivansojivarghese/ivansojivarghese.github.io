@@ -435,7 +435,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionStart = false;
                     motionStartRef = 0;
                     */
-                   
+
                     accelerationPoints = [];
 
                     motionEnd = true;
@@ -593,7 +593,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         speedX.style.backgroundColor = "pink"; //
-        speedX.style.color = "red"; //
+        speedX.style.color = "white"; //
 
             /*
             zVal = "",
