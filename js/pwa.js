@@ -336,25 +336,32 @@ function similarAngle(t, r, d) {
     return res;
 }
 
-function filteredAcceleration(r) { // filters raw data (anything not at motionStart)
-    if (r > -0.5 && r < 0.5) { // almost constant acceleration
+function filteredAcceleration(r) { // filters raw data 
+    if (motionStart && r > 0 && r < 0.5) { // when accelerating from 0 velocity
+        var output = r;
+        if (output > motionStartRef) {
+            motionStartRef = output;
+        }
+        return output;
+    } else if (!motionStart && r > -0.5 && r < 0.5) { // almost constant velocity 
         return 0; 
     } else if (r > motionStartRef) { // get max recorded pos. acceleration during each motion
         var output = r;
         motionStartRef = output;
-        // accelerationPoints[accelerationPoints.length] = output;
         return output;
     } else if (motionStartRef !== 0 && ((r > 0 && r < motionStartRef) || r === motionStartRef)) { // acceleration
         var output = r;
         return output;
-    } else if (motionStartRef > 0 && (r < 0 && (r > (-1 * motionStartRef)))) { // normal decceleration only when acceleration has been detected
+    } else if (motionStartRef > 0 && !motionStart && (r < 0 && (r >= (-1 * motionStartRef)))) { // normal decceleration only when acceleration has been detected
         var output = r;
         return output;
     }
     
-    if (motionStartRef === 0 && r < motionStartRef) { // if negative acceleration detected before positive, re-calibration needed
+    if ((motionStartRef === 0 && r < motionStartRef) || (motionStartRef > 0 && r < 0 && motionStart)) { // if negative acceleration detected before positive, re-calibration needed
         var output = Math.abs(r); // make to positive
-        motionStartRef = output;
+        if (output > motionStartRef) {
+            motionStartRef = output;
+        }
         return output;
     } else if (r < (-1 * motionStartRef)) { // heavy decceleration (tuning needed)
         var margin = r - (-1 * motionStartRef),
@@ -421,10 +428,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             if (motion && motionInterval === null) { //
 
                 motionEndInterval = setTimeout(function() {
+                    /*
                     clearTimeout(motionStartInterval);
                     motionStart = false;
                     motionStartRef = 0;
+                    */
 
+                    motionStart = false;
                     accelerationPoints = [];
 
                     motionEnd = true;
@@ -457,13 +467,17 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 }
             }
             motion = true;
+            motionStart = true;
+
+            /*
             if (motionStartInterval === null) {
                 motionStartInterval = setTimeout(function() {
                     motionStart = true;
                     // motionStartRef = velocityLive;
                     clearTimeout(motionStartInterval);
                 }, 1000);
-            }
+            }*/
+
             if (motionInterval !== null) {
                 clearTimeout(motionInterval);
                 motionInterval = null;
@@ -476,13 +490,17 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         } else {
             motion = true;
+            motionStart = true;
+
+            /*
             if (motionStartInterval === null) {
                 motionStartInterval = setTimeout(function() {
                     motionStart = true;
                     // motionStartRef = velocityLive;
                     clearTimeout(motionStartInterval);
                 }, 1000);
-            }
+            }*/
+
             if (motionInterval !== null) {
                 clearTimeout(motionInterval);
                 motionInterval = null;
