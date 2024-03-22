@@ -378,6 +378,9 @@ function filteredAcceleration(r) { // filters raw data
                 break;
             }
         }
+        if (!motionStart) {
+            motionStartRef = 0;
+        }
     }
     
     if ((motionStartRef === 0 && r < motionStartRef) || (motionStartRef > 0 && r < 0 && motionStart)) { // if negative acceleration detected before positive, re-calibration needed
