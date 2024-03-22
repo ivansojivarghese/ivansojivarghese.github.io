@@ -343,7 +343,7 @@ function filteredAcceleration(r) { // filters raw data
             motionStartRef = output;
         }
         return output;
-    } else if (!motionStart && r > -0.5 && r < 0.5) { // almost constant velocity 
+    } else if ((!motionStart && r > -0.5 && r < 0.5) || (motionStart && r === 0)) { // almost constant velocity 
         return 0; 
     } else if (r > motionStartRef) { // get max recorded pos. acceleration during each motion
         var output = r;
