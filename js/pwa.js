@@ -567,13 +567,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 i++;
             }
 
-            vel.innerHTML = velocityTotal.toFixed(1) + ", " + motionStartRef;
-
             if (velocityTotal < 0) { // reset if unexpected velocity error
                 accelerationPoints = [];
                 motionStartRef = 0;
                 velocityTotal = 0;
             }
+
+            vel.innerHTML = velocityTotal.toFixed(1) + ", " + motionStartRef;
 
             // velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = velocityTotal;
