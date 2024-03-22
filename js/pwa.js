@@ -130,6 +130,8 @@ sI_3 = {
 };
 
 screen.orientation.addEventListener("change", function() {
+    stepsCountInterval = [];
+    stepsCountTimes = [];
     velocityPoints = [];
     accelerationPoints = [];
     motionRef = false;
@@ -482,6 +484,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 clearInterval(accelerationInterval); // reset
                 accelerationPoints = [];
                 velocityPoints = [];
+                stepsCountInterval = [];
+                stepsCountTimes = [];
                 accelerationInterval = setInterval(function() { // get acceleration data every sec.
                     var velocityDelta = 0,
                         velocityAdd = 0;
@@ -513,6 +517,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionStartRef = 0;
                     accelerationPoints = [];
                     velocityPoints = [];
+                    stepsCountInterval = [];
+                    stepsCountTimes = [];
 
                     motionEnd = true;
                     motionX.innerHTML = motionEnd;
@@ -537,7 +543,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                 motionStartRef = 0;
                 accelerationPoints = [];
-                velocityPoints = []
+                velocityPoints = [];
+                stepsCountInterval = [];
+                stepsCountTimes = [];
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
