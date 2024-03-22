@@ -100,6 +100,7 @@ const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
+const stride = document.querySelector('.pwa .popups .deviceInfo .stride');
 const vel = document.querySelector('.pwa .popups .deviceInfo .vel');
 const acc = document.querySelector('.pwa .popups .deviceInfo .acc');
 const sec = document.querySelector('.pwa .popups .deviceInfo .sec');
@@ -420,7 +421,7 @@ function filteredAcceleration(r) { // filters raw data
         }
         if (!motionStart) { // estimate stride of user
             motionStride = velocityLive * stepsCountTimes[stepsCountTimes.length - 1];
-            motionStartRef = velocityLive;
+            // motionStartRef = velocityLive;
         }
     } else if (!motionStart && accelerationPoints.length >= 3) { // keep updating user stride
         motionStride = motionStartRef * stepsCountTimes[stepsCountTimes.length - 1];
@@ -608,9 +609,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
+            let j = 0;
 
             var velocityTotal = 0;
             var iVel = "";
+
+            var sLen = ""
 
             while (i < accelerationPoints.length) {
                 var addOn = 0;
@@ -626,9 +630,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 i++;
             }
 
+            while (j < stepsCountTimes.length) {
+                sLen += stepsCountTimes[j]; 
+            }
+
+            stride.innerHTML = sLen;
+
             if (velocityTotal < 0) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
-                motionStartRef = 0;
+                // motionStartRef = 0;
                 velocityTotal = 0;
                 velocityError = true;
             } else {
