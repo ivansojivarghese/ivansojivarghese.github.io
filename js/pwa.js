@@ -47,6 +47,8 @@ var /*acceleration = {
     },*/
     normalAcc = 0,
     stepsCount = 0,
+    stepsCountInterval = [],
+    stepsCountTimes = [],
     betaAngle = 0,
     rotation = false,
     noStep = false,
@@ -54,6 +56,7 @@ var /*acceleration = {
     oneStopMotion = false,
     motionInterval = null,
     motionVelocity = false,
+    motionStride = 0,
     refVelocity = false,
     motionEnd = false,
     motionEndInterval = null,
@@ -342,7 +345,7 @@ function similarAngle(t, r, d) {
 function filteredAcceleration(r) { // filters raw data 
     if (motionStart && r > 0 && r < 0.5) { // when accelerating from 0 velocity
         var output = r;
-        if (output > motionStartRef) {
+        if (output > motionStartRef && motionStride === 0) {
             motionStartRef = output;
         }
         return output;
@@ -350,13 +353,47 @@ function filteredAcceleration(r) { // filters raw data
         return 0; 
     } else if (r > motionStartRef) { // get max recorded pos. acceleration during each motion
         var output = r;
-        motionStartRef = output;
+        if (motionStride === 0) {
+            motionStartRef = output;
+        }
         return output;
     } else if (motionStartRef !== 0 && ((r > 0 && r < motionStartRef) || r === motionStartRef)) { // acceleration
         var output = r;
         return output;
     } else if (motionStartRef > 0 && !motionStart && (r < 0 && (r >= (-1 * motionStartRef)))) { // normal decceleration only when acceleration has been detected
-        var output = r;
+        var output = r,
+            strideTrends = (stepsCountTimes.length >= 3) ? [
+                stepsCountTimes[stepsCountTimes.length - 1],
+                stepsCountTimes[stepsCountTimes.length - 2],
+                stepsCountTimes[stepsCountTimes.length - 3]
+            ] : null;
+        if (!motionEnd && strideTrends !== null) { // in constant motion
+
+            // CHECK:
+            // 2) stride intervals become shorter, higher frequency
+            // 2.1) get last-calculated step-time + preceeding 2 ones
+
+            var reduction = true,
+                margin = 0,
+                percentile = 0;
+            for (a = 1; a < strideTrends.length - 1; a++) {
+                if (Math.abs(strideTrends[a] - strideTrends[a - 1]) <= 0) { // constant reduction in step-intervaling time needed
+                    reduction = false;
+                    break;
+                }
+            }
+            if (!reduction) { // no reductions, constant velocity
+                margin = output - (-1 * motionStartRef);
+                percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
+                output = output * (1 - percentile) * percentile;
+            } else { // 2 reductions, possible decceleration
+                margin = output - (-1 * motionStartRef);
+                percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
+                output = output - ((1 - percentile) * output);
+            }
+
+            // ONLY deccelerate when assumed
+        } 
         return output;
     }
 
@@ -381,11 +418,17 @@ function filteredAcceleration(r) { // filters raw data
                 break;
             }
         }
+        if (!motionStart) { // estimate stride of user
+            motionStride = velocityLive * stepsCountTimes[stepsCountTimes.length - 1];
+            motionStartRef = velocityLive;
+        }
+    } else if (!motionStart && accelerationPoints.length >= 3) { // keep updating user stride
+        motionStride = motionStartRef * stepsCountTimes[stepsCountTimes.length - 1];
     }
     
     if ((motionStartRef === 0 && r < motionStartRef) || (motionStartRef > 0 && r < 0 && motionStart)) { // if negative acceleration detected before positive, re-calibration needed
         var output = Math.abs(r); // make to positive
-        if (output > motionStartRef) {
+        if (output > motionStartRef && motionStride === 0) {
             motionStartRef = output;
         }
         return output;
@@ -502,6 +545,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 if (zDiff <= 10) {
                     noStep = false;
                 } else if (zDiff > zThreshold && !noStep) {
+                    var time = new Date().getTime();
+                    if (stepsCountInterval.length > 0) {
+                        stepsCountTimes[stepsCountTimes.length] = time - stepsCountInterval[stepsCountInterval.length - 1];
+                    }
+                    stepsCountInterval[stepsCountInterval.length] = time;
                     stepsCount++;
                     noStep = true;
                 }
@@ -590,9 +638,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityPoints[velocityPoints.length] = velocityTotal; 
             }
             if (!velocityError) {
-                vel.innerHTML = velocityTotal.toFixed(1) + ", " + motionStartRef;
+                velocityLive = velocityTotal.toFixed(1);
+                vel.innerHTML = velocityLive + ", " + motionStartRef;
             } else {
-                vel.innerHTML = velocityPoints[velocityPoints.length - 1].toFixed(1) + ", " + motionStartRef;
+                velocityLive = velocityPoints[velocityPoints.length - 1].toFixed(1);
+                vel.innerHTML = velocityLive + ", " + motionStartRef;
             }
 
             // velocityEst = Math.abs(velocityTotal) / accelerationCount;
@@ -641,7 +691,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "coral"; //
+        speedX.style.backgroundColor = "blue"; //
         speedX.style.color = "white"; //
 
             /*
