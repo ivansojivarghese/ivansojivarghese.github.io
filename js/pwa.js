@@ -417,7 +417,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 }, 1000);
             } 
 
-            if (motion && motionInterval === null) {
+            if (motion && motionInterval === null) { //
 
                 motionEndInterval = setTimeout(function() {
                     clearTimeout(motionStartInterval);
