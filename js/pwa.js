@@ -632,6 +632,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             while (j < stepsCountTimes.length) {
                 sLen += stepsCountTimes[j]; 
+                j++;
             }
 
             stride.innerHTML = sLen;
@@ -701,7 +702,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
 
             /*
