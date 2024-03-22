@@ -621,7 +621,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "chocolate"; //
         speedX.style.color = "white"; //
 
             /*
