@@ -427,14 +427,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             if (motion && motionInterval === null) { //
 
+                motionStart = false;
+
                 motionEndInterval = setTimeout(function() {
                     /*
                     clearTimeout(motionStartInterval);
                     motionStart = false;
                     motionStartRef = 0;
                     */
-
-                    motionStart = false;
+                   
                     accelerationPoints = [];
 
                     motionEnd = true;
