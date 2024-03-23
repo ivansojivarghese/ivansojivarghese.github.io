@@ -570,12 +570,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
                 
-                    velocityPoints[velocityPoints.length] = velocityLive; 
+                    velocityPoints[velocityPoints.length] = Math.abs(velocityLive); 
 
                     if (velocityLive > velocityCycleMax) {
                         velocityCycleMax = velocityLive;
                         
-                        velocityCycleMaxPoints[velocityCycleLive] = velocityLive;
+                        velocityCycleMaxPoints[velocityCycleLive] = Math.abs(velocityLive);
                     }
 
                 }, 1000);
@@ -764,7 +764,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 j++;
             }
 
-            stride.innerHTML = sLen;
+            // stride.innerHTML = sLen;
 
             if (velocityTotal < 0 && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
