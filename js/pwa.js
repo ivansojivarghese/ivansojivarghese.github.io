@@ -776,7 +776,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocityLive = velocityEst;
 
             // acc.innerHTML = Math.abs(velocityTotal);
-            acc.innerHTML = iVel;
+            // acc.innerHTML = iVel;
             // sec.innerHTML = motionStartRef + ", " + velocityTotal + ", " + accelerationTimePoints.length;
 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
@@ -813,7 +813,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "blue"; //
         speedX.style.color = "white"; //
 
             /*
