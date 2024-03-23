@@ -66,6 +66,10 @@ var /*acceleration = {
     motionRef = false,
     velocityPoints = [],
     velocityError = false,
+    velocityCycle = 0,
+    velocityCycleLive = 0,
+    velocityCycleMax = 0, // max velocity (per cycle)
+    velocityCycleMaxPoints = [], // all points of max velocity (all cycles)
     velocityLive = 0, // live velocity
     velocityLiveCheck = false,
     velocityLiveInterval = null,
@@ -567,6 +571,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
                 
                     velocityPoints[velocityPoints.length] = velocityLive; 
+
+                    if (velocityLive > velocityCycleMax) {
+                        velocityCycleMax = velocityLive;
+                        
+                        velocityCycleMaxPoints[velocityCycleLive] = velocityLive;
+                    }
+
                 }, 1000);
                 motionVelocity = true; 
             } else if (!refVelocity && oneStopMotion) { // second run (after 1 sec of constant)
@@ -590,6 +601,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
 
                     velocityPoints[velocityPoints.length] = velocityLive; 
+
+                    if (velocityLive > velocityCycleMax) {
+                        velocityCycleMax = velocityLive;
+
+                        velocityCycleMaxPoints[velocityCycleLive] = velocityLive;
+                    }
+
                     /*
                     if (accelerationPoints.length === 1) {
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
@@ -755,6 +773,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityTotal = 0;
                 velocityError = true;
 
+                // reset max
+                velocityCycleMax = 0;
+                velocityCycleLive++;
+                if (velocityCycleLive > 1) {
+                    velocityCycle++;
+                }
+
                 vel.style.color = "blue";
             } else {
                 if (velocityError && accelerationPoints.length >= 3) {
@@ -763,13 +788,24 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityLive = velocityTotal.toFixed(1);
                 // velocityPoints[velocityPoints.length] = velocityTotal; 
             }
-            if (!velocityError) {
-                velocityLive = velocityTotal.toFixed(1);
-                vel.innerHTML = velocityLive + ", " + motionStartRef;
-            } else {
+
+            var threshold = 0.25;
+
+            // if (!velocityError) {
+                // velocityLive = velocityTotal.toFixed(1);
+
+                var v = velocityCycleMaxPoints[velocityCycle];
+                var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
+                vel.innerHTML = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
+
+                // vel.innerHTML = velocityLive + ", " + motionStartRef;
+            // } else {
                 // velocityLive = velocityPoints[velocityPoints.length - 1].toFixed(1);
-                vel.innerHTML = velocityLive + ", " + motionStartRef;
-            }
+
+
+
+                // vel.innerHTML = velocityLive + ", " + motionStartRef;
+            // }
 
             // velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = velocityTotal;
@@ -817,7 +853,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "orange"; //
+        speedX.style.backgroundColor = "cyan"; //
         speedX.style.color = "white"; //
 
             /*
