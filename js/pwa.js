@@ -105,6 +105,7 @@ const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
 const stride = document.querySelector('.pwa .popups .deviceInfo .stride');
 const vel = document.querySelector('.pwa .popups .deviceInfo .vel');
 const acc = document.querySelector('.pwa .popups .deviceInfo .acc');
+const accDir = document.querySelector('.pwa .popups .deviceInfo .accDir');
 const sec = document.querySelector('.pwa .popups .deviceInfo .sec');
 
 var oriHeight_L = null,
@@ -806,7 +807,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "black"; //
+        speedX.style.backgroundColor = "orange"; //
         speedX.style.color = "white"; //
 
             /*
@@ -928,6 +929,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }  */
 
     }
+
+    accDir.innerHTML = accelerationDir;
 
 }, false);
 
