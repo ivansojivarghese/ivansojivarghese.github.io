@@ -137,6 +137,7 @@ screen.orientation.addEventListener("change", function() {
     stepsCountTimes = [];
     velocityPoints = [];
     accelerationPoints = [];
+    accelerationDir = true;
     motionRef = false;
     motionStartRef = 0;
 });
@@ -609,6 +610,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     motionStartRef = 0;
                     accelerationPoints = [];
+                    accelerationDir = false;
                     velocityPoints = [];
                     stepsCountInterval = [];
                     stepsCountTimes = [];
@@ -622,6 +624,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityEst = 0;
                     motion = false; // make false after 1 sec. (if not other motion detected)
                     motionEnd = false;
+                    accelerationDir = true;
                     motionX.innerHTML = motionEnd;
                     // accelerationPoints = [];
                     // accelerationTimePoints = [];
@@ -636,6 +639,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                 motionStartRef = 0;
                 accelerationPoints = [];
+                accelerationDir = true;
                 velocityPoints = [];
                 stepsCountInterval = [];
                 stepsCountTimes = [];
@@ -742,6 +746,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             if (velocityTotal < 0) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
+                accelerationDir = true;
                 // motionStartRef = 0;
                 velocityTotal = 0;
                 velocityError = true;
@@ -807,7 +812,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "orange"; //
+        speedX.style.backgroundColor = "cyan"; //
         speedX.style.color = "white"; //
 
             /*
