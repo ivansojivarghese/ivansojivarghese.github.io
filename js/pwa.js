@@ -421,10 +421,14 @@ function filteredAcceleration(r) { // filters raw data
                 margin = output - (-1 * motionStartRef);
                 percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
                 output = output * (1 - percentile) * percentile;
+
+                vel.style.color = "";
             } else { // 2 reductions, possible decceleration
                 margin = output - (-1 * motionStartRef);
                 percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
                 output = output - ((1 - percentile) * output);
+
+                vel.style.color = "red";
             }
 
             // ONLY deccelerate when assumed
