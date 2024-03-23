@@ -940,7 +940,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     let k = 0;
     while (k < velocityPoints.length) {
-        velPoints.innerHTML = velocityPoints[k] + ", ";
+        velPoints.innerHTML += velocityPoints[k] + ", ";
         k++
     }
 
