@@ -785,7 +785,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 if (velocityError && accelerationPoints.length >= 3) {
                     velocityError = false;
                 }
-                velocityLive = velocityTotal.toFixed(1);
+                velocityLive = Number(velocityTotal.toFixed(1));
                 // velocityPoints[velocityPoints.length] = velocityTotal; 
             }
 
