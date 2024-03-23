@@ -570,7 +570,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
                 
-                    velocityPoints[velocityPoints.length] = Math.abs(velocityLive); 
+                    // velocityPoints[velocityPoints.length] = Math.abs(velocityLive); 
 
                     if (velocityLive > velocityCycleMax) {
                         velocityCycleMax = velocityLive;
@@ -600,7 +600,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
 
-                    velocityPoints[velocityPoints.length] = Math.abs(velocityLive); 
+                    // velocityPoints[velocityPoints.length] = Math.abs(velocityLive); 
 
                     if (velocityLive > velocityCycleMax) {
                         velocityCycleMax = velocityLive;
@@ -771,7 +771,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             // stride.innerHTML = sLen;
 
-            if ((velocityTotal < 0 || ) && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
+            if ((velocityTotal < 0) && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
                 accelerationDir = true;
                 // motionStartRef = 0;
@@ -791,7 +791,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityError = false;
                 }
                 velocityLive = Number(velocityTotal.toFixed(1));
-                // velocityPoints[velocityPoints.length] = velocityTotal; 
+                velocityPoints[velocityPoints.length] = velocityTotal; 
             }
 
             var threshold = 0.25;
@@ -860,7 +860,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "orange"; //
         speedX.style.color = "white"; //
 
             /*
