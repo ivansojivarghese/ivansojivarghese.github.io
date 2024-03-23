@@ -104,6 +104,7 @@ const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
 const stride = document.querySelector('.pwa .popups .deviceInfo .stride');
 const vel = document.querySelector('.pwa .popups .deviceInfo .vel');
+const velPoints = document.querySelector('.pwa .popups .deviceInfo .velPoints');
 const acc = document.querySelector('.pwa .popups .deviceInfo .acc');
 const accDir = document.querySelector('.pwa .popups .deviceInfo .accDir');
 const sec = document.querySelector('.pwa .popups .deviceInfo .sec');
@@ -812,7 +813,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "khaki"; //
+        speedX.style.backgroundColor = "magenta"; //
         speedX.style.color = "white"; //
 
             /*
@@ -936,6 +937,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     }
 
     accDir.innerHTML = accelerationDir;
+
+    let k = 0;
+    while (k < velocityPoints.length) {
+        velPoints.innerHTML = velocityPoints[k] + ", ";
+        k++
+    }
 
 }, false);
 
