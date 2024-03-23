@@ -367,8 +367,26 @@ function StandardDeviation(arr) {
     return Math.sqrt(sum / arr.length)
 }
 
-function similarInterval(a, b, t) {
+// REFERENCE: https://www.w3resource.com/javascript-exercises/javascript-array-exercise-31.php
+// Function to remove an element from an array
+function remove_array_element(array, n) {
+    // Find the index of the element 'n' in the array
+    var index = array.indexOf(n);
+    
+    // Check if the element exists in the array (index greater than -1)
+    if (index > -1) {
+      // Remove one element at the found index
+      array.splice(index, 1);
+    }
+    
+    // Return the modified array
+    return array;
+  }
 
+function similarInterval(a, b, t) {
+    const diff = Math.abs(a - b);
+    const res = diff > t ? false : true;
+    return res;
 }
 
 function similarAngle(t, r, d) {
@@ -414,11 +432,22 @@ function filteredAcceleration(r) { // filters raw data
             // 2.1) get last-calculated step-time + preceeding 2 ones
 
             var reduction = true,
+                redMod = 0,
                 margin = 0,
                 percentile = 0;
             for (a = 0; a < strideTrends.length - 1; a++) {
-                if ((strideTrends[a] < (strideMean - (3 * strideDeviation))) || (strideTrends[a] > (strideMean + (3 * strideDeviation)))) { // constant reduction in step-intervaling time needed
+                if ((strideTrends[a] > (strideMean - (3 * strideDeviation))) && (strideTrends[a] < (strideMean + (3 * strideDeviation)))) { // constant reduction in step-intervaling time needed
+                    reduction = false; // NO reduction if within range
+                    break;
+                } else if (similarInterval(strideTrends[a], strideMean, 100)) { // outliers, but similar in abs. value
                     reduction = false;
+                    break;
+                } else if (strideTrends[a] > (strideMean * 1.5)) { // half-outliers
+                    redMod = 0.25;
+                    break;
+                } else { // complete outliers
+                    redMod = 0.75;
+                    remove_array_element(stepsCountTimes, stepsCountTimes[stepsCountTimes.length - (a + 1)]); // remove from array
                     break;
                 }
             }
@@ -431,7 +460,7 @@ function filteredAcceleration(r) { // filters raw data
             } else { // 2 reductions, possible decceleration
                 margin = output - (-1 * motionStartRef);
                 percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
-                output = output - ((1 - percentile) * output);
+                output = (output - ((1 - percentile) * output)) * redMod;
 
                 vel.style.color = "red";
             }
@@ -777,7 +806,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "black"; //
         speedX.style.color = "white"; //
 
             /*
