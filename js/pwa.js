@@ -463,13 +463,13 @@ function filteredAcceleration(r) { // filters raw data
                 percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
                 output = output * (1 - percentile) * percentile;
 
-                vel.style.color = "green";
+                // vel.style.color = "green";
             } else { // 2 reductions, possible decceleration
                 margin = output - (-1 * motionStartRef);
                 percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
                 output = (output - ((1 - percentile) * output)) * redMod;
 
-                vel.style.color = "red";
+                // vel.style.color = "red";
             }
 
             // ONLY deccelerate when assumed
@@ -666,7 +666,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 stepsCountInterval = [];
                 stepsCountTimes = [];
 
-                vel.style.color = "yellow";
+                // vel.style.color = "yellow";
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
