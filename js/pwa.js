@@ -413,13 +413,6 @@ function filteredAcceleration(r) { // filters raw data
             // 2) stride intervals become shorter, higher frequency
             // 2.1) get last-calculated step-time + preceeding 2 ones
 
-            if (accelerationCount < 3) {
-                accelerationCount++;
-            } else {
-                accelerationDir = (accelerationDir) ? false : true;
-                accelerationCount = 0;
-            }
-
             var reduction = true,
                 margin = 0,
                 percentile = 0;
@@ -445,12 +438,6 @@ function filteredAcceleration(r) { // filters raw data
 
             // ONLY deccelerate when assumed
         } 
-
-        if (accelerationDir) {
-            output = Math.abs(output); // positive
-        } else { // negative
-            output = (output < 0) ? output : (-1 * output);
-        }
 
         return output;
     }
@@ -531,6 +518,20 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             motionRef = true;
             if (!motionVelocity) { // at first run
                 accelerationInterval = setInterval(function() { // get acceleration data every sec.
+
+                    if (accelerationCount < 3) {
+                        accelerationCount++;
+                    } else {
+                        accelerationDir = (accelerationDir) ? false : true;
+                        accelerationCount = 0;
+                    }
+
+                    if (accelerationDir) {
+                        normalAcc = Math.abs(output); // positive
+                    } else { // negative
+                        normalAcc = (normalAcc < 0) ? normalAcc : (-1 * normalAcc);
+                    }
+
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
                 }, 1000);
                 motionVelocity = true; 
@@ -544,6 +545,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 accelerationInterval = setInterval(function() { // get acceleration data every sec.
                     var velocityDelta = 0,
                         velocityAdd = 0;
+
+                    if (accelerationCount < 3) {
+                        accelerationCount++;
+                    } else {
+                        accelerationDir = (accelerationDir) ? false : true;
+                        accelerationCount = 0;
+                    }
 
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
 
@@ -769,7 +777,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "pink"; //
+        speedX.style.backgroundColor = "red"; //
         speedX.style.color = "white"; //
 
             /*
