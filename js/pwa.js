@@ -67,6 +67,7 @@ var /*acceleration = {
     velocityPoints = [],
     velocityError = false,
     velocityCycle = 0,
+    velocityCycleLatch = false,
     velocityCycleLive = 0,
     velocityCycleMax = 0, // max velocity (per cycle)
     velocityCycleMaxPoints = [], // all points of max velocity (all cycles)
@@ -773,7 +774,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             var threshold = 0.2;
 
-            if ((velocityTotal <= 0 || (velocityTotal <= (velocityCycleMax - (velocityCycleMax * threshold)))) && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
+            if (!velocityCycleLatch && (velocityTotal <= 0 || (velocityTotal <= (velocityCycleMax - (velocityCycleMax * threshold)))) && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
                 accelerationDir = true;
                 // motionStartRef = 0;
@@ -787,10 +788,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityCycle++;
                 }
 
+                velocityCycleLatch = true;
+
                 vel.style.color = "blue";
             } else {
                 if (velocityError && accelerationPoints.length >= 3) {
                     velocityError = false;
+
+                    velocityCycleLatch = false;
                 }
                 velocityLive = Number(velocityTotal.toFixed(1));
                 // velocityPoints[velocityPoints.length] = velocityTotal; 
