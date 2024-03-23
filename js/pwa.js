@@ -565,6 +565,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     }
 
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
+                
+                    velocityPoints[velocityPoints.length] = velocityLive; 
                 }, 1000);
                 motionVelocity = true; 
             } else if (!refVelocity && oneStopMotion) { // second run (after 1 sec of constant)
@@ -587,6 +589,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
 
+                    velocityPoints[velocityPoints.length] = velocityLive; 
                     /*
                     if (accelerationPoints.length === 1) {
                         velocityDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
@@ -757,13 +760,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 if (velocityError && accelerationPoints.length >= 3) {
                     velocityError = false;
                 }
-                velocityPoints[velocityPoints.length] = velocityTotal; 
+                velocityLive = velocityTotal.toFixed(1);
+                // velocityPoints[velocityPoints.length] = velocityTotal; 
             }
             if (!velocityError) {
                 velocityLive = velocityTotal.toFixed(1);
                 vel.innerHTML = velocityLive + ", " + motionStartRef;
             } else {
-                velocityLive = velocityPoints[velocityPoints.length - 1].toFixed(1);
+                // velocityLive = velocityPoints[velocityPoints.length - 1].toFixed(1);
                 vel.innerHTML = velocityLive + ", " + motionStartRef;
             }
 
@@ -813,7 +817,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "blue"; //
+        speedX.style.backgroundColor = "orange"; //
         speedX.style.color = "white"; //
 
             /*
