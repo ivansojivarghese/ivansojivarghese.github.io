@@ -339,6 +339,36 @@ if (!('DeviceMotionEvent' in window) && !('DeviceOrientationEvent') in window) {
     steps.remove();
 }
 
+// Javascript program to calculate the 
+// standard deviation of an array
+// REFERENCE: https://www.geeksforgeeks.org/how-to-get-the-standard-deviation-of-an-array-of-numbers-using-javascript/
+function StandardDeviation(arr) {
+ 
+    // Creating the mean with Array.reduce
+    let mean = arr.reduce((acc, curr) => {
+        return acc + curr
+    }, 0) / arr.length;
+ 
+    // Assigning (value - mean) ^ 2 to
+    // every array item
+    arr = arr.map((k) => {
+        return (k - mean) ** 2
+    });
+ 
+    // Calculating the sum of updated array 
+    let sum = arr.reduce((acc, curr) => acc + curr, 0);
+ 
+    // Calculating the variance
+    let variance = sum / arr.length
+ 
+    // Returning the standard deviation
+    return Math.sqrt(sum / arr.length)
+}
+
+function similarInterval(a, b, t) {
+
+}
+
 function similarAngle(t, r, d) {
     const diff = Math.abs(t - r);
     const res = diff > d ? false : true;
@@ -369,7 +399,9 @@ function filteredAcceleration(r) { // filters raw data
                 stepsCountTimes[stepsCountTimes.length - 1],
                 stepsCountTimes[stepsCountTimes.length - 2],
                 stepsCountTimes[stepsCountTimes.length - 3]
-            ] : null;
+            ] : null,
+            strideMean = mean(stepsCountTimes),
+            strideDeviation = StandardDeviation(stepsCountTimes);
         if (!motionEnd && strideTrends !== null) { // in constant motion
 
             // CHECK:
@@ -379,8 +411,8 @@ function filteredAcceleration(r) { // filters raw data
             var reduction = true,
                 margin = 0,
                 percentile = 0;
-            for (a = 1; a < strideTrends.length - 1; a++) {
-                if (Math.abs(strideTrends[a] - strideTrends[a - 1]) <= 0) { // constant reduction in step-intervaling time needed
+            for (a = 0; a < strideTrends.length - 1; a++) {
+                if ((strideTrends[a] < (strideMean - (3 * strideDeviation))) || (strideTrends[a] > (strideMean + (3 * strideDeviation)))) { // constant reduction in step-intervaling time needed
                     reduction = false;
                     break;
                 }
