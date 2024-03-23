@@ -557,7 +557,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     stepsCountTimes = [];
 
                     motionEnd = true;
-                    motionX.innerHTML = motionEnd;
+                    motionX.innerHTML = motionEnd + ", reset";
                     clearTimeout(motionEndInterval);
                 }, 100);
 
@@ -582,6 +582,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityPoints = [];
                 stepsCountInterval = [];
                 stepsCountTimes = [];
+
+                vel.style.color = "yellow";
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
@@ -686,6 +688,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 // motionStartRef = 0;
                 velocityTotal = 0;
                 velocityError = true;
+
+                vel.style.color = "green";
             } else {
                 if (velocityError && accelerationPoints.length >= 3) {
                     velocityError = false;
