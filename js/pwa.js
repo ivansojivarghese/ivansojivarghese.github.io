@@ -666,6 +666,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 stepsCountInterval = [];
                 stepsCountTimes = [];
 
+                velocityCycleMax = 0;
+                velocityCycle = 0;
+                velocityCycleLive = 0;
+                velocityCycleMaxPoints = []
+
                 // vel.style.color = "yellow";
             }
 
@@ -766,7 +771,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             // stride.innerHTML = sLen;
 
-            if (velocityTotal < 0 && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
+            if ((velocityTotal < 0 || ) && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
                 accelerationDir = true;
                 // motionStartRef = 0;
