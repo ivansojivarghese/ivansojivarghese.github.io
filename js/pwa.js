@@ -689,7 +689,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityTotal = 0;
                 velocityError = true;
 
-                vel.style.color = "green";
+                vel.style.color = "blue";
             } else {
                 if (velocityError && accelerationPoints.length >= 3) {
                     velocityError = false;
@@ -750,7 +750,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "brown"; //
         speedX.style.color = "white"; //
 
             /*
