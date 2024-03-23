@@ -544,7 +544,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         if (accelerationDir) {
-            normalAcc = Math.abs(output); // positive
+            normalAcc = Math.abs(normalAcc); // positive
         } else { // negative
             normalAcc = (normalAcc < 0) ? normalAcc : (-1 * normalAcc);
         }
@@ -812,7 +812,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "gold"; //
+        speedX.style.backgroundColor = "khaki"; //
         speedX.style.color = "white"; //
 
             /*
