@@ -543,6 +543,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             normalAcc = filteredAcceleration(xAcc);
         }
 
+        if (accelerationDir) {
+            normalAcc = Math.abs(output); // positive
+        } else { // negative
+            normalAcc = (normalAcc < 0) ? normalAcc : (-1 * normalAcc);
+        }
+
         if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) { // motionless in acc.
             pitchRef = pitch;
             refZForce = resZForce; // update while still
@@ -555,12 +561,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     } else {
                         accelerationDir = (accelerationDir) ? false : true;
                         accelerationCount = 0;
-                    }
-
-                    if (accelerationDir) {
-                        normalAcc = Math.abs(output); // positive
-                    } else { // negative
-                        normalAcc = (normalAcc < 0) ? normalAcc : (-1 * normalAcc);
                     }
 
                     accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808); // m or ft if needed
@@ -812,7 +812,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "cyan"; //
+        speedX.style.backgroundColor = "gold"; //
         speedX.style.color = "white"; //
 
             /*
