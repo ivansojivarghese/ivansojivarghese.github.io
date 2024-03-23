@@ -766,7 +766,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             stride.innerHTML = sLen;
 
-            if (velocityTotal < 0) { // reset if unexpected velocity error occurs
+            if (velocityTotal < 0 && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
                 accelerationDir = true;
                 // motionStartRef = 0;
