@@ -771,7 +771,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             // stride.innerHTML = sLen;
 
-            if ((velocityTotal < 0) && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
+            var threshold = 0.2;
+
+            if ((velocityTotal <= 0 || (velocityTotal <= (velocityCycleMax - (velocityCycleMax * threshold)))) && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
                 accelerationDir = true;
                 // motionStartRef = 0;
@@ -781,7 +783,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 // reset max
                 velocityCycleMax = 0;
                 velocityCycleLive++;
-                if (velocityCycleLive > 1) {
+                if (velocityCycleLive > 1) { // add cycle
                     velocityCycle++;
                 }
 
@@ -793,8 +795,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityLive = Number(velocityTotal.toFixed(1));
                 // velocityPoints[velocityPoints.length] = velocityTotal; 
             }
-
-            var threshold = 0.25;
 
             // if (!velocityError) {
                 // velocityLive = velocityTotal.toFixed(1);
@@ -860,7 +860,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "cyan"; //
+        speedX.style.backgroundColor = "gold"; //
         speedX.style.color = "white"; //
 
             /*
