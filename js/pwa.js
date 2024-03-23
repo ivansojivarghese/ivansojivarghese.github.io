@@ -948,7 +948,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         points += velocityPoints[k] + ", ";
         k++
     }
-    velPoints = points;
+    velPoints.innerHTML = points;
 
 }, false);
 
