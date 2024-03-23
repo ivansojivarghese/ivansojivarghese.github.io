@@ -796,7 +796,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                 var v = velocityCycleMaxPoints[velocityCycle];
                 var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
-                vel.innerHTML = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
+                var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
+
+                vel.innerHTML = velMag.toFixed(1);
 
                 // vel.innerHTML = velocityLive + ", " + motionStartRef;
             // } else {
