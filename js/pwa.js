@@ -794,7 +794,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // if (!velocityError) {
                 // velocityLive = velocityTotal.toFixed(1);
 
-                var v = velocityCycleMaxPoints[velocityCycle];
+                var v = (velocityCycleMaxPoints.length) ? velocityCycleMaxPoints[velocityCycle] : 0;
                 var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
                 var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
 
