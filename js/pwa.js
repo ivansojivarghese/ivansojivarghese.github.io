@@ -46,6 +46,9 @@ var /*acceleration = {
         e : 0
     },*/
     normalAcc = 0,
+    timerCountStep = null,
+    timerCounting = false,
+    timerCount = 0,
     stepsCount = 0,
     stepsCountInterval = [],
     stepsCountTimes = [],
@@ -432,6 +435,23 @@ function filteredAcceleration(r) { // filters raw data
             strideDeviation = StandardDeviation(stepsCountTimes);
         if (!motionEnd && strideTrends !== null) { // in constant motion
 
+            // START 3-SEC TIMER to check for steps frequencies
+
+            var step = "";
+
+            timerCounting = true;
+            timerCountStep = setInterval(function() {
+                timerCountStep[timerCountStep.length] = timerCount;
+                timerCount = 0;
+
+                let c = 0;
+                while (c < timerCountStep.length) {
+                    step += timerCountStep[c] + ", ";
+                    c++;
+                }
+                stride.innerHTML = step;
+            }, 3000);
+
             // TRACK: 
             // Acceleration levels, modify direction in alternate modes
 
@@ -687,6 +707,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     }
                     stepsCountInterval[stepsCountInterval.length] = time;
                     stepsCount++;
+                    if (timerCounting) {
+                        timerCount++;
+                    }
                     noStep = true;
                 }
             }
