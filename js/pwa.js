@@ -449,7 +449,7 @@ function filteredAcceleration(r) { // filters raw data
                     step += timerCountStep[c] + ", ";
                     c++;
                 }
-                stride.innerHTML = step;
+                velPoints.innerHTML = step;
             }, 3000);
 
             // TRACK: 
@@ -1019,7 +1019,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         points += velocityPoints[k] + ", ";
         k++
     }
-    velPoints.innerHTML = points;
+    // velPoints.innerHTML = points;
 
 }, false);
 
