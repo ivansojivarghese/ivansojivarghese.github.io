@@ -437,20 +437,22 @@ function filteredAcceleration(r) { // filters raw data
 
             // START 3-SEC TIMER to check for steps frequencies
 
-            var step = "";
+            if (timerCountStep !== null) {
+                timerCounting = true;
+                timerCountStep = setInterval(function() {
+                    timerCountStep[timerCountStep.length] = timerCount;
+                    timerCount = 0;
 
-            timerCounting = true;
-            timerCountStep = setInterval(function() {
-                timerCountStep[timerCountStep.length] = timerCount;
-                timerCount = 0;
+                    var step = "";
 
-                let c = 0;
-                while (c < timerCountStep.length) {
-                    step += timerCountStep[c] + ", ";
-                    c++;
-                }
-                velPoints.innerHTML = step;
-            }, 3000);
+                    let c = 0;
+                    while (c < timerCountStep.length) {
+                        step += timerCountStep[c] + ", ";
+                        c++;
+                    }
+                    velPoints.innerHTML = step;
+                }, 3000);
+            }
 
             // TRACK: 
             // Acceleration levels, modify direction in alternate modes
