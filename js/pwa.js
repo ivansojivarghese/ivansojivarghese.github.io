@@ -512,7 +512,7 @@ function filteredAcceleration(r) { // filters raw data
         motionStride = motionStartRef * stepsCountTimes[stepsCountTimes.length - 1];
     }
 
-    if (!motionStart && stepsCountTimes.length >= 3) {
+    if (!motionStart) {
         // START 3-SEC TIMER to check for steps frequencies
 
         if (timerCountStepInterval === null) {
