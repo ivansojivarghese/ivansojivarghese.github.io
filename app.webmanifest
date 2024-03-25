@@ -111,8 +111,9 @@
         "platform": "webapp",
         "url": "https://ivansojivarghese.github.io/app.webmanifest"
    }],
-   "display": "standalone",
+   "display": "fullscreen",
    "display_override": [
+    "fullscreen",
     "standalone",
     "minimal-ui",
     "browser"
