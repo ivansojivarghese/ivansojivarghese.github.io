@@ -435,25 +435,6 @@ function filteredAcceleration(r) { // filters raw data
             strideDeviation = StandardDeviation(stepsCountTimes);
         if (!motionEnd && strideTrends !== null) { // in constant motion
 
-            // START 3-SEC TIMER to check for steps frequencies
-
-            if (timerCountStep === null) {
-                timerCounting = true;
-                timerCountStep = setInterval(function() {
-                    timerCountStep[timerCountStep.length] = timerCount;
-                    timerCount = 0;
-
-                    var step = "";
-
-                    let c = 0;
-                    while (c < timerCountStep.length) {
-                        step += timerCountStep[c] + ", ";
-                        c++;
-                    }
-                    velPoints.innerHTML = step;
-                }, 3000);
-            }
-
             // TRACK: 
             // Acceleration levels, modify direction in alternate modes
 
@@ -528,6 +509,27 @@ function filteredAcceleration(r) { // filters raw data
         }
     } else if (!motionStart && accelerationPoints.length >= 3) { // keep updating user stride
         motionStride = motionStartRef * stepsCountTimes[stepsCountTimes.length - 1];
+    }
+
+    if (!motionStart && stepsCountTimes.length >= 3) {
+        // START 3-SEC TIMER to check for steps frequencies
+
+        if (timerCountStep === null) {
+            timerCounting = true;
+            timerCountStep = setInterval(function() {
+                timerCountStep[timerCountStep.length] = timerCount;
+                timerCount = 0;
+
+                var step = "";
+
+                let c = 0;
+                while (c < timerCountStep.length) {
+                    step += timerCountStep[c] + ", ";
+                    c++;
+                }
+                velPoints.innerHTML = step;
+            }, 3000);
+        }
     }
     
     if ((motionStartRef === 0 && r < motionStartRef) || (motionStartRef > 0 && r < 0 && motionStart)) { // if negative acceleration detected before positive, re-calibration needed
@@ -890,7 +892,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
 
             /*
