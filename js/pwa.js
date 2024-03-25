@@ -437,7 +437,7 @@ function filteredAcceleration(r) { // filters raw data
 
             // START 3-SEC TIMER to check for steps frequencies
 
-            if (timerCountStep !== null) {
+            if (timerCountStep === null) {
                 timerCounting = true;
                 timerCountStep = setInterval(function() {
                     timerCountStep[timerCountStep.length] = timerCount;
