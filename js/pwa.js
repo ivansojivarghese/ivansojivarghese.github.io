@@ -46,7 +46,8 @@ var /*acceleration = {
         e : 0
     },*/
     normalAcc = 0,
-    timerCountStep = null,
+    timerCountStepInterval = null,
+    timerCountStep = [],
     timerCounting = false,
     timerCount = 0,
     stepsCount = 0,
@@ -514,9 +515,9 @@ function filteredAcceleration(r) { // filters raw data
     if (!motionStart && stepsCountTimes.length >= 3) {
         // START 3-SEC TIMER to check for steps frequencies
 
-        if (timerCountStep === null) {
+        if (timerCountStepInterval === null) {
             timerCounting = true;
-            timerCountStep = setInterval(function() {
+            timerCountStepInterval = setInterval(function() {
                 timerCountStep[timerCountStep.length] = timerCount;
                 timerCount = 0;
 
