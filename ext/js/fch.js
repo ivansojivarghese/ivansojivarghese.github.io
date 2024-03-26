@@ -279,6 +279,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             close_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .close_img') : document.querySelector('.pwa .popups .close_w_img'),
 
+            humid_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .humid_img') : document.querySelector('.pwa .popups .humid_w_img'),
+            wind_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .wind_img') : document.querySelector('.pwa .popups .wind_w_img'),
+            temp_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .temp_img') : document.querySelector('.pwa .popups .temp_w_img'),
+
             icons = document.querySelectorAll('.pwa .navbar .button'),
             active_icon = null,
             active_icon_name = "";
@@ -414,6 +418,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             close_icon.classList.remove("close_img");
 
+            humid_icon.classList.remove("humid_img");
+            wind_icon.classList.remove("wind_img");
+            temp_icon.classList.remove("temp_img");
+
             logo_h_img_pwa.classList.add("logo-hybrid-inverse");
             sig_pwa.classList.add("signature_w");
 
@@ -432,6 +440,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             x_icon.classList.add("x_twitter_w");
 
             close_icon.classList.add("close_w_img");
+
+            humid_icon.classList.add("humid_w_img");
+            wind_icon.classList.add("wind_w_img");
+            temp_icon.classList.add("temp_w_img");
 
             weather_icon.style.borderRadius = "0.5rem";
             navbar_pwa.classList.add("shade");
@@ -574,6 +586,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
             close_icon.classList.remove("close_w_img");
 
+            humid_icon.classList.remove("humid_w_img");
+            wind_icon.classList.remove("wind_w_img");
+            temp_icon.classList.remove("temp_w_img");
+
             logo_h_img_pwa.classList.add("logo-full"); 
             sig_pwa.classList.add("signature");
 
@@ -592,6 +608,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             x_icon.classList.add("x_twitter");
 
             close_icon.classList.add("close_img");
+
+            humid_icon.classList.add("humid_img");
+            wind_icon.classList.add("wind_img");
+            temp_icon.classList.add("temp_img");
 
             weather_icon.style.borderRadius = "";
             navbar_pwa.classList.remove("shade");
