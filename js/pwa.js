@@ -1196,7 +1196,7 @@ function fetchPWAInfo() {
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
     humidity.innerHTML = weatherAPIres.main.humidity + "%";
-    windSpeed.innerHTML = windS + windSUnit;
+    windSpeed.innerHTML = Math.round(windS) + windSUnit;
     windDir.innerHTML = weatherAPIres.wind.deg + "° " + degToCompass(weatherAPIres.wind.deg);
     feelsLike.innerHTML = Math.round(weatherAPIres.main.feels_like) + "°" + (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
