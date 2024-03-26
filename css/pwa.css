@@ -110,6 +110,10 @@ body {
     width: 10rem;
 }
 
+.weather:hover .weatherIcon, .weatherIcon:hover .weather {
+    opacity: 0.75 !important;
+}
+
 .pwa .popups .pills.weatherInfo {
     right: calc(1rem + calc(env(safe-area-inset-right)));
     top: calc(4.8rem + env(safe-area-inset-top));
