@@ -1052,6 +1052,14 @@ const feelsLike = document.querySelector('.pwa .popups .pills.weatherInfo .feels
 
 const greeting = document.querySelector('.pwa .home #greeting');
 
+// REFERENCED FROM: https://stackoverflow.com/questions/7490660/converting-wind-direction-in-angles-to-text-words
+
+function degToCompass(num) {
+    var val = Math.floor((num / 22.5) + 0.5);
+    var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    return arr[(val % 16)];
+}
+
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
@@ -1189,7 +1197,7 @@ function fetchPWAInfo() {
 
     humidity.innerHTML = weatherAPIres.main.humidity + "%";
     windSpeed.innerHTML = windS + windSUnit;
-    windDir.innerHTML = weatherAPIres.wind.deg + "° " + null;
+    windDir.innerHTML = weatherAPIres.wind.deg + "° " + degToCompass(weatherAPIres.wind.deg);
     feelsLike.innerHTML = Math.round(weatherAPIres.main.feels_like) + "°" + (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
     // // // 
