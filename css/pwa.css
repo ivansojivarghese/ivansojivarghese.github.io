@@ -116,7 +116,7 @@ body {
     width: 7rem;
 }
 
-.pwa .popups .pills.weatherInfo.fact {
+.pwa .popups .pills.weatherInfo .fact {
     display: inline-block;
     padding: calc((1.8rem - 1.1em) / 2) 0;
     margin: 0;
