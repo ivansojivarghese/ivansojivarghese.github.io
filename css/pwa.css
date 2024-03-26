@@ -116,6 +116,17 @@ body {
     width: 7rem;
 }
 
+.pwa .popups .pills.weatherInfo.fact {
+    display: inline-block;
+    padding: calc((1.8rem - 1.1em) / 2) 0;
+    margin: 0;
+    margin-left: 0.1rem;
+    position: relative;
+    top: -0.55rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 /*
 .pwa .popups .pills.deviceInfo h3 {
     line-height: 1.25em;
