@@ -1275,6 +1275,30 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/battery_full_white.svg");
 }
 
+.wind_img {
+    background-image: url("../svg/wind.svg");
+}
+
+.wind_w_img {
+    background-image: url("../svg/wind_white.svg");
+}
+
+.temp_img {
+    background-image: url("../svg/temp.svg");
+}
+
+.temp_w_img {
+    background-image: url("../svg/temp_white.svg");
+}
+
+.humid_img {
+    background-image: url("../svg/humid.svg");
+}
+
+.humid_w_img {
+    background-image: url("../svg/humid_white.svg");
+}
+
 /* --- */
 
 .scrolltop_img {
