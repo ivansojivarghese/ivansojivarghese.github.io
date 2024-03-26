@@ -125,7 +125,7 @@ body {
     height: 3.4rem;
 }
 
-.pwa .popups .pills.weatherInfo .factWrap .wind {
+.pwa .popups .pills.weatherInfo .factWrap .windDir {
     margin-bottom: 0;
     margin-left: 2.15rem;
 }

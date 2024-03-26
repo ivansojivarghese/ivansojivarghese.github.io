@@ -1043,14 +1043,20 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
 
 }, false);
 
+const temp = document.querySelector('.pwa .weather #temp');
+const unit = document.querySelector('.pwa .weather #unit');
+const humidity = document.querySelector('.pwa .popups .pills.weatherInfo .humidity');
+const windSpeed = document.querySelector('.pwa .popups .pills.weatherInfo .windSpeed');
+const windDir = document.querySelector('.pwa .popups .pills.weatherInfo .windDir');
+const feelsLike = document.querySelector('.pwa .popups .pills.weatherInfo .feelsLike');
+
+const greeting = document.querySelector('.pwa .home #greeting');
+
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
     const fab = document.querySelector('.pwa .fab');
 
-    const temp = document.querySelector('.pwa .weather #temp');
-    const unit = document.querySelector('.pwa .weather #unit');
-    const greeting = document.querySelector('.pwa .home #greeting');
     const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
 
     const commits = document.querySelector('.pwa #g_commits');
@@ -1172,9 +1178,18 @@ function fetchPWAInfo() {
         navButtonActive('home', homeBtn, true);
     }
 
+    // // //
+
     greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
+
+    humidity.innerHTML = weatherAPIres.main.humidity + "%";
+    windSpeed.innerHTML = weatherAPIres.wind.speed + "";
+    windDir.innerHTML = weatherAPIres.wind.deg + "° " + null;
+    feelsLike.innerHTML = Math.round(weatherAPIres.main.feels_like) + "°" + (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
+
+    // // // 
 
     for (i = 0; i < wordcloud.length; i++) { // get words from skills in msc.js
         var random1 = getRandomInt(1, 5),
