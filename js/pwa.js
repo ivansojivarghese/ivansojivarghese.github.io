@@ -1180,12 +1180,15 @@ function fetchPWAInfo() {
 
     // // //
 
+    var windS = (tempUnit(ipAPIres.country.iso_code) === "metric") ? (weatherAPIres.wind.speed * 3.6) : weatherAPIres.wind.speed,
+        windSUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? " km/h" : " miles/h";
+
     greeting.innerHTML = timeOfDay();
     temp.innerHTML = Math.round(weatherAPIres.main.temp);
     unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
     humidity.innerHTML = weatherAPIres.main.humidity + "%";
-    windSpeed.innerHTML = weatherAPIres.wind.speed + "";
+    windSpeed.innerHTML = windS + windSUnit;
     windDir.innerHTML = weatherAPIres.wind.deg + "° " + null;
     feelsLike.innerHTML = Math.round(weatherAPIres.main.feels_like) + "°" + (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
 
