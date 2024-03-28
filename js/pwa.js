@@ -146,13 +146,69 @@ sI_3 = {
 };
 
 screen.orientation.addEventListener("change", function() {
+    resetMotionParams();
+});
+
+function resetMotionParams() {
+    normalAcc = 0;
+    timerCountStepCheck = 0;
+    timerCountStepInterval = null;
+    timerCountStep = [];
+    timerCounting = false;
+    timerCount = 0;
+    stepsCount = 0;
+    stepsCountInterval = [];
+    stepsCountTimes = [];
+    betaAngle = 0;
+    rotation = false;
+    noStep = false;
+    motion = false;
+    oneStopMotion = false;
+    motionInterval = null;
+    motionVelocity = false;
+    motionStride = 0;
+    avgMotionStride = 0;
+    refVelocity = false;
+    motionEnd = false;
+    motionEndInterval = null;
+    motionStart = false;
+    motionStartRef = 0;
+    motionStartInterval = null;
+    motionRef = false;
+    velocityConstantRef = 0;
+    velocityPoints = [];
+    velocityError = false;
+    velocityCycle = 0;
+    velocityCycleLatch = false;
+    velocityCycleLive = 0;
+    velocityCycleMax = 0; // max velocity (per cycle)
+    velocityCycleMaxPoints = []; // all points of max velocity (all cycles)
+    velocityLive = 0; // live velocity
+    velocityLiveCheck = false;
+    velocityLiveInterval = null;
+    pitchRef = 0; // reference
+    refZForce = 0; // reference z-force. (updates while stationary)
+
+    accelerationCount = 0;
+    accelerationDir = true;
+    accelerationPoints = [];
+    accelerationTimePoints = [];
+    accelerationInterval = null;
+
+    /*
     stepsCountInterval = [];
     stepsCountTimes = [];
     velocityPoints = [];
     accelerationPoints = [];
     accelerationDir = true;
     motionRef = false;
-    motionStartRef = 0;
+    motionStartRef = 0;*/
+}
+
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        resetMotionParams();
+    }
 });
 
 function navButtonActive(b, e, v) {
@@ -510,14 +566,10 @@ function filteredAcceleration(r) { // filters raw data
                 margin = output - (-1 * motionStartRef);
                 percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
                 output = output * (1 - percentile) * percentile;
-
-                // vel.style.color = "green";
             } else { // 2 reductions, possible decceleration
                 margin = output - (-1 * motionStartRef);
                 percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
                 output = (output - ((1 - percentile) * output)) * redMod;
-
-                // vel.style.color = "red";
             }
 
             // ONLY deccelerate when assumed
@@ -549,7 +601,6 @@ function filteredAcceleration(r) { // filters raw data
         }
         if (!motionStart) { // estimate stride of user
             motionStride = velocityLive * stepsCountTimes[stepsCountTimes.length - 1];
-            // motionStartRef = velocityLive;
         }
     } else if (!motionStart && accelerationPoints.length >= 3) { // keep updating user stride
         motionStride = motionStartRef * stepsCountTimes[stepsCountTimes.length - 1];
@@ -660,8 +711,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 stepsCountInterval = [];
                 stepsCountTimes = [];
                 accelerationInterval = setInterval(function() { // get acceleration data every sec.
-                    var velocityDelta = 0,
-                        velocityAdd = 0;
 
                     if (accelerationCount < 3) {
                         accelerationCount++;
@@ -679,28 +728,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                         velocityCycleMaxPoints[velocityCycleLive] = Math.abs(velocityLive);
                     }
-
-                    /*
-                    if (accelerationPoints.length === 1) {
-                        velocityDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
-                    } else if (accelerationPoints.length > 1) {
-                        velocityDelta = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
-                    }
-                    velocityAdd = ((velocityDelta) / 2) * 1; // area of trapezoid ref.
-                    accelerationTimePoints[accelerationTimePoints.length] = velocityAdd;*/
                 }, 1000);
             } 
 
             if (motion && motionInterval === null) { //
 
-                // motionStart = false;
-
                 motionEndInterval = setTimeout(function() {
-                    /*
-                    clearTimeout(motionStartInterval);
-                    motionStart = false;
-                    motionStartRef = 0;
-                    */
 
                     motionStartRef = 0;
                     accelerationPoints = [];
@@ -720,13 +753,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionEnd = false;
                     accelerationDir = true;
                     motionX.innerHTML = motionEnd;
-                    // accelerationPoints = [];
-                    // accelerationTimePoints = [];
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
 
                     motionInterval = null;
-                    // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
                 }, 1000);
 
             } else if (!motion && !motionEnd) { // at rest (on a table, etc.)
@@ -744,8 +774,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityCycleMaxPoints = []
 
                 velocityConstantRef = 0;
-
-                // vel.style.color = "yellow";
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
@@ -769,15 +797,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             motion = true;
             motionStart = true;
 
-            /*
-            if (motionStartInterval === null) {
-                motionStartInterval = setTimeout(function() {
-                    motionStart = true;
-                    // motionStartRef = velocityLive;
-                    clearTimeout(motionStartInterval);
-                }, 1000);
-            }*/
-
             if (motionInterval !== null) {
                 clearTimeout(motionInterval);
                 motionInterval = null;
@@ -791,15 +810,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         } else {
             motion = true;
             motionStart = true;
-
-            /*
-            if (motionStartInterval === null) {
-                motionStartInterval = setTimeout(function() {
-                    motionStart = true;
-                    // motionStartRef = velocityLive;
-                    clearTimeout(motionStartInterval);
-                }, 1000);
-            }*/
 
             if (motionInterval !== null) {
                 clearTimeout(motionInterval);
@@ -817,15 +827,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         steps.innerHTML = "steps: " + stepsCount;
         speedX.innerHTML = motion;
         
-        
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
-            let j = 0;
-
             var velocityTotal = 0;
-            var iVel = "";
-
-            var sLen = ""
+            var threshold = 0.2;
 
             while (i < accelerationPoints.length) {
                 var addOn = 0;
@@ -835,25 +840,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     addOn = ((accelerationPoints[i] + accelerationPoints[i - 1]) / 2) * 1;
                 }
                 velocityTotal += addOn;
-
-                iVel += accelerationPoints[i] + ", ";
-
                 i++;
             }
-
-            while (j < stepsCountTimes.length) {
-                sLen += stepsCountTimes[j] + ", "; 
-                j++;
-            }
-
-            // stride.innerHTML = sLen;
-
-            var threshold = 0.2;
 
             if (!velocityCycleLatch && (velocityTotal <= 0 || (velocityTotal <= (velocityCycleMax - (velocityCycleMax * threshold)))) && !motionStart && !motionEnd) { // reset if unexpected velocity error occurs
                 accelerationPoints = [];
                 accelerationDir = true;
-                // motionStartRef = 0;
                 velocityTotal = 0;
                 velocityError = true;
 
@@ -863,18 +855,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 if (velocityCycleLive > 1) { // add cycle
                     velocityCycle++;
                 }
-
                 velocityCycleLatch = true;
-
-                vel.style.color = "blue";
             } else {
                 if (velocityError && accelerationPoints.length >= 3) {
                     velocityError = false;
-
                     velocityCycleLatch = false;
                 }
                 velocityLive = Number(velocityTotal.toFixed(1));
-                // velocityPoints[velocityPoints.length] = velocityTotal; 
             }
 
             var v = (velocityCycleMaxPoints.length) ? velocityCycleMaxPoints[velocityCycle] : 0;
@@ -909,30 +896,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 if (velocityConstantRef < 0) {
                     velocityConstantRef = 0;
                 }
-                vel.innerHTML = velocityConstantRef.toFixed(1);
-                console.log("1");
+                velocityEst = velocityConstantRef;
+                velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
             } 
 
-                // vel.innerHTML = velocityLive + ", " + motionStartRef;
-            // } else {
-                // velocityLive = velocityPoints[velocityPoints.length - 1].toFixed(1);
-
-
-
-                // vel.innerHTML = velocityLive + ", " + motionStartRef;
-            // }
-
-            // velocityEst = Math.abs(velocityTotal) / accelerationCount;
             velocityEst = velocityTotal;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : (velocityEst > -10) ? Math.abs(velocityEst.toFixed(1)) : "10+";
-
-            // velocity.innerHTML = "velocity: " + (velocityEst / (accelerationTimePoints.length / 2)).toFixed(1) + " " + velocityUnit; 
-
-            // velocityLive = velocityEst;
-
-            // acc.innerHTML = Math.abs(velocityTotal);
-            // acc.innerHTML = iVel;
-            // sec.innerHTML = motionStartRef + ", " + velocityTotal + ", " + accelerationTimePoints.length;
 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
@@ -946,26 +915,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
-            // velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
-            
-            /* } else if (!velocityLiveCheck) {
-                clearTimeout(velocityLiveInterval);
-                velocityLiveCheck = true;
-                if (velocitySign === "+") {
-                    velocityLive += velocityEst;
-                } else if (velocitySign === "~") {
-                    velocityEst = velocityLive;
-                } else {
-                    velocityLive -= velocityEst;
-                }
-                velocity.innerHTML = "velocity: " + velocitySign + velocityLive.toFixed(1) + " " + velocityUnit; 
-                velocityLiveInterval = setTimeout(function() {
-                    velocityLiveCheck = false;
-                }, 1000);
-            }*/
+            velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
 
         } else {
-            // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+            velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
         speedX.style.backgroundColor = "green"; //
@@ -1090,16 +1043,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }  */
 
     }
-
-    accDir.innerHTML = accelerationDir;
-
-    let k = 0;
-    var points = "";
-    while (k < velocityPoints.length) {
-        points += velocityPoints[k] + ", ";
-        k++
-    }
-    // velPoints.innerHTML = points;
 
 }, false);
 
