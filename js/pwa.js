@@ -195,6 +195,10 @@ function resetMotionParams() {
     accelerationTimePoints = [];
     accelerationInterval = null;
 
+    clearInterval(timerCountStepInterval);
+    clearTimeout(motionEndInterval);
+    clearInterval(accelerationInterval);
+
     /*
     stepsCountInterval = [];
     stepsCountTimes = [];
@@ -926,7 +930,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "grey"; //
         speedX.style.color = "white"; //
 
             /*
