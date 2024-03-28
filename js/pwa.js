@@ -885,16 +885,22 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                         motionRes = motionTrendCal(motionTrend);
                     if (motionRes === "const") {
                         vel.innerHTML = velocityConstantRef.toFixed(1);
+
+                        stride.innerHTML = "const";
                     } else if (motionRef === "decre") {
                         var diff = Math.abs(motionTrend[0] - motionTrend[2]),
                             velReduction = (diff * avgMotionStride) / 3;
                         velocityConstantRef -= velReduction;
                         vel.innerHTML = velocityConstantRef.toFixed(1);
+
+                        stride.innerHTML = "decre";
                     } else if (motionRef === "incre") {
                         var diff = Math.abs(motionTrend[2] - motionTrend[0]),
                             velIncrease = (diff * avgMotionStride) / 3;
                         velocityConstantRef += velIncrease;
                         vel.innerHTML = velocityConstantRef.toFixed(1);
+
+                        stride.innerHTML = "incre";
                     }
                 } else {
                     vel.innerHTML = velocityConstantRef.toFixed(1);
@@ -958,7 +964,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "black"; //
         speedX.style.color = "white"; //
 
             /*
