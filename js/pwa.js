@@ -872,7 +872,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
             var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
 
-            if (!motionStart && (timerCountStep.length > timerCountStepCheck)) {
+            if ((timerCountStep.length > timerCountStepCheck)) {
                 timerCountStepCheck = timerCountStep.length;
                 if (velocityConstantRef === 0) {
                     velocityConstantRef = velMag;
@@ -885,30 +885,32 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                         motionRes = motionTrendCal(motionTrend);
                     if (motionRes === "const") {
                         vel.innerHTML = velocityConstantRef.toFixed(1);
-
+                        console.log(velocityConstantRef);
                         stride.innerHTML = "const";
                     } else if (motionRes === "decre") {
                         var diff = Math.abs(motionTrend[0] - motionTrend[2]),
                             velReduction = (diff * avgMotionStride) / 3;
                         velocityConstantRef -= velReduction;
                         vel.innerHTML = velocityConstantRef.toFixed(1);
-
+                        console.log(velocityConstantRef);
                         stride.innerHTML = "decre";
                     } else if (motionRes === "incre") {
                         var diff = Math.abs(motionTrend[2] - motionTrend[0]),
                             velIncrease = (diff * avgMotionStride) / 3;
                         velocityConstantRef += velIncrease;
                         vel.innerHTML = velocityConstantRef.toFixed(1);
-
+                        console.log(velocityConstantRef);
                         stride.innerHTML = "incre";
                     }
                 } else {
                     vel.innerHTML = velocityConstantRef.toFixed(1);
                 }
-            } else {
+            } else if (!motionStart && (timerCountStep.length <= timerCountStepCheck) {
+                vel.innerHTML = velMag.toFixed(1);
+            } else if (motionStart) {
                 vel.innerHTML = velMag.toFixed(1);
             }
-
+            
                 // vel.innerHTML = velocityLive + ", " + motionStartRef;
             // } else {
                 // velocityLive = velocityPoints[velocityPoints.length - 1].toFixed(1);
