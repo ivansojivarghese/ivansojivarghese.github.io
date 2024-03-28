@@ -920,7 +920,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
-            velocity.innerHTML = "velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
+            velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
 
         } else {
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
