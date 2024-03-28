@@ -1097,7 +1097,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 let g = 0;
                 var k = "";
                 while (g < motionEndCountArray.length) {
-                    k += motionEndCountArray[k] + ", ";
+                    k += motionEndCountArray[g] + ", ";
                     g++;
                 }
                 vel.innerHTML = k;
