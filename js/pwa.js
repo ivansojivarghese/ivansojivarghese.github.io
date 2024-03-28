@@ -909,6 +909,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEst = velocityConstantRef;
                 velocityEst = (velocityEst >= 0) ? (velocityEst <= 10) ? velocityEst : 10.1 : 0;
                 if (velocityEst === 10.1) {
+                    velocityEst = 10;
                     velLimiter = "+";
                 } else {
                     velLimiter = "";
