@@ -61,6 +61,7 @@ var /*acceleration = {
     motionInterval = null,
     motionVelocity = false,
     motionStride = 0,
+    avgMotionStride = 0,
     refVelocity = false,
     motionEnd = false,
     motionEndInterval = null,
@@ -68,6 +69,7 @@ var /*acceleration = {
     motionStartRef = 0,
     motionStartInterval = null,
     motionRef = false,
+    velocityConstantRef = 0,
     velocityPoints = [],
     velocityError = false,
     velocityCycle = 0,
@@ -353,6 +355,36 @@ if (!('DeviceMotionEvent' in window) && !('DeviceOrientationEvent') in window) {
     steps.remove();
 }
 
+function motionTrendCal(arr) {
+    var key = [],
+        trendArr = [],
+        trend = "";
+    for (j = 0; j < arr.length - 1; j++) {
+        if (j === 0) {
+            key[key.length] = arr[j];
+        } else {
+            var val = arr[j],
+                eVal = key[key.length - 1];
+            if (val > eVal) {
+                trendArr[trendArr.length] = "incre";
+            } else if (val < eVal) {
+                trendArr[trendArr.length] = "decre";
+            } else {
+                trendArr[trendArr.length] = "const";
+            }
+            key[key.length] = val;
+        }
+    }
+    if ((trendArr[0] === "incre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "incre")) {
+        trend = "const";
+    } else if ((trendArr[0] === "decre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "const") || (trendArr[0] === "const" && trendArr[1] === "decre")) {
+        trend = "decre";
+    } else if ((trendArr[0] === "incre" && trendArr[1] === "incre") || (trendArr[0] === "incre" && trendArr[1] === "const") || (trendArr[0] === "const" && trendArr[1] === "incre")) {
+        trend = "incre";
+    }
+    return trend;
+}
+
 // Javascript program to calculate the 
 // standard deviation of an array
 // REFERENCE: https://www.geeksforgeeks.org/how-to-get-the-standard-deviation-of-an-array-of-numbers-using-javascript/
@@ -555,6 +587,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     if (ipAPIres && ipAPIres.online && clientAPIres.online && !shaked && !rotation) {
 
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
+            strideDis = 0.75, // avg. step stride (m)
             zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
             yAcc = event.acceleration.y, // forward acceleration
             xAcc = event.acceleration.x, // "" alternate orientations
@@ -567,6 +600,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocityEst = 0, // velocity estimate(s)
             velocitySign = "~", // velocity sign
             velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
+
+        avgMotionStride = (tempUnit(ipAPIres.country.iso_code) === "metric") ? strideDis : (strideDis * 3.2808);
 
         if (screen.orientation.angle === 0 || screen.orientation.angle === 180) {
             normalAcc = filteredAcceleration(yAcc);
@@ -832,11 +867,39 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // if (!velocityError) {
                 // velocityLive = velocityTotal.toFixed(1);
 
-                var v = (velocityCycleMaxPoints.length) ? velocityCycleMaxPoints[velocityCycle] : 0;
-                var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
-                var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
+            var v = (velocityCycleMaxPoints.length) ? velocityCycleMaxPoints[velocityCycle] : 0;
+            var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
+            var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
 
+            if (!motionStart) {
+                if (velocityConstantRef === 0) {
+                    velocityConstantRef = velMag;
+                }
+                if (timerCountStep.length >= 3) {
+                    var motionTrend = [timerCountStep[timerCountStep.length - 1],
+                                        timerCountStep[timerCountStep.length - 2],
+                                        timerCountStep[timerCountStep.length - 3]
+                                    ],
+                        motionRes = motionTrendCal(motionTrend);
+                    if (motionRes === "const") {
+                        vel.innerHTML = velocityConstantRef.toFixed(1);
+                    } else if (motionRef === "decre") {
+                        var diff = Math.abs(motionTrend[0] - motionTrend[2]),
+                            velReduction = (diff * avgMotionStride) / 3;
+                        velocityConstantRef -= velReduction;
+                        vel.innerHTML = velocityConstantRef.toFixed(1);
+                    } else if (motionRef === "incre") {
+                        var diff = Math.abs(motionTrend[2] - motionTrend[0]),
+                            velIncrease = (diff * avgMotionStride) / 3;
+                        velocityConstantRef += velIncrease;
+                        vel.innerHTML = velocityConstantRef.toFixed(1);
+                    }
+                } else {
+                    vel.innerHTML = velocityConstantRef.toFixed(1);
+                }
+            } else {
                 vel.innerHTML = velMag.toFixed(1);
+            }
 
                 // vel.innerHTML = velocityLive + ", " + motionStartRef;
             // } else {
@@ -893,7 +956,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "pink"; //
+        speedX.style.backgroundColor = "red"; //
         speedX.style.color = "white"; //
 
             /*
