@@ -377,7 +377,17 @@ function motionTrendCal(arr) {
         }
     }
     if ((trendArr[0] === "incre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "incre") || (trendArr[0] === "const" && trendArr[1] === "const")) {
-        trend = "const";
+        var diff1 = Math.abs(key[1] - key[0]),
+            diff2 = Math.abs(key[1] - key[2]);
+        if (Math.abs(diff2 - diff1) > 1) {
+            if (diff1 > diff2) {
+                trend = "incre";
+            } else {
+                trend = "decre";
+            }
+        } else {
+            trend = "const";
+        }
     } else if ((trendArr[0] === "decre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "const") || (trendArr[0] === "const" && trendArr[1] === "decre")) {
         trend = "decre";
     } else if ((trendArr[0] === "incre" && trendArr[1] === "incre") || (trendArr[0] === "incre" && trendArr[1] === "const") || (trendArr[0] === "const" && trendArr[1] === "incre")) {
@@ -958,7 +968,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "black"; //
+        speedX.style.backgroundColor = "red"; //
         speedX.style.color = "white"; //
 
             /*
