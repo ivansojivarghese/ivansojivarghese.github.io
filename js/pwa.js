@@ -84,6 +84,8 @@ var /*acceleration = {
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
+var commuteMode = false;    
+
 var motionEndCount = 0,
     motionEndCountInterval = null,
     motionEndCountArray = [];
@@ -115,6 +117,7 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
+const commute = document.querySelector('.pwa .popups .deviceInfo .commute');
 
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
@@ -158,6 +161,8 @@ function resetMotionParams() {
     clearTimeout(motionEndInterval);
     clearInterval(accelerationInterval);
     clearTimeout(motionEndCountInterval);
+
+    commuteMode = false;
 
     normalAcc = 0;
     timerCountStepCheck = 0;
@@ -799,7 +804,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
-            if (!shaked && !rotation) {
+            if (!shaked && !rotation && !commuteMode) {
                 const zDiff = resZForce - refZForce;
                 if (zDiff <= 10) {
                     noStep = false;
@@ -955,7 +960,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "chocolate"; //
+        speedX.style.backgroundColor = "black"; //
         speedX.style.color = "white"; //
 
             /*
@@ -1091,15 +1096,39 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 clearTimeout(motionEndCountInterval);
                 motionEndCountInterval = null;
 
-                // ANALYSE FOR VEHICLE MODE HERE
+                if (!commuteMode) {
+                    commuteMode = false;
+                }
 
+                // ANALYSE FOR COMMUTE MODE HERE
+
+                let b = 0;
+                while (b < motionEndCountArray.length) {
+                    if (motionEndCountArray[b] > 2) { // potential commute mode
+                        commuteMode = true;
+
+                        // 0 velocity
+                        // no steps
+
+                        break;
+                    }
+                    if (b === (motionEndCountArray.length - 1)) {
+                        if (commuteMode) {
+                            commuteMode = false;
+                        }
+                    }
+                    b++;
+                }
+
+                /*
                 let g = 0;
                 var k = "";
                 while (g < motionEndCountArray.length) {
                     k += motionEndCountArray[g] + ", ";
                     g++;
                 }
-                vel.innerHTML = k;
+                vel.innerHTML = k;*/
+
             }, 3000);
         }
     } else {
@@ -1107,7 +1136,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         clearTimeout(motionEndCountInterval);
         motionEndCountInterval = null;
         motionEndCountArray = [];
+
+        commuteMode = false;
     }
+
+    commute.innerHTML = "commute: " + commuteMode;
 
 }, false);
 
