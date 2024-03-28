@@ -46,6 +46,7 @@ var /*acceleration = {
         e : 0
     },*/
     normalAcc = 0,
+    timerCountStepCheck = 0,
     timerCountStepInterval = null,
     timerCountStep = [],
     timerCounting = false,
@@ -871,7 +872,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
             var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
 
-            if (!motionStart) {
+            if (!motionStart && (timerCountStep.length > timerCountStepCheck)) {
+                timerCountStepCheck = timerCountStep.length;
                 if (velocityConstantRef === 0) {
                     velocityConstantRef = velMag;
                 }
@@ -956,7 +958,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
 
             /*
