@@ -887,14 +887,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                         vel.innerHTML = velocityConstantRef.toFixed(1);
 
                         stride.innerHTML = "const";
-                    } else if (motionRef === "decre") {
+                    } else if (motionRes === "decre") {
                         var diff = Math.abs(motionTrend[0] - motionTrend[2]),
                             velReduction = (diff * avgMotionStride) / 3;
                         velocityConstantRef -= velReduction;
                         vel.innerHTML = velocityConstantRef.toFixed(1);
 
                         stride.innerHTML = "decre";
-                    } else if (motionRef === "incre") {
+                    } else if (motionRes === "incre") {
                         var diff = Math.abs(motionTrend[2] - motionTrend[0]),
                             velIncrease = (diff * avgMotionStride) / 3;
                         velocityConstantRef += velIncrease;
