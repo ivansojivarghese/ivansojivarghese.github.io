@@ -1090,7 +1090,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             motionEndCountInterval = setTimeout(function() {
 
                 motionEndCountArray[motionEndCountArray.length] = motionEndCount;
-
+                motionEndCount = 0;
                 clearTimeout(motionEndCountInterval);
                 motionEndCountInterval = null;
 
