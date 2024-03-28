@@ -878,9 +878,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityConstantRef = velMag;
                 }
                 if (timerCountStep.length >= 3) {
-                    var motionTrend = [timerCountStep[timerCountStep.length - 1],
+                    var motionTrend = [timerCountStep[timerCountStep.length - 3],
                                         timerCountStep[timerCountStep.length - 2],
-                                        timerCountStep[timerCountStep.length - 3]
+                                        timerCountStep[timerCountStep.length - 1]
                                     ],
                         motionRes = motionTrendCal(motionTrend);
                     if (motionRes === "const") {
