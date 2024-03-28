@@ -928,7 +928,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 if (velocityConstantRef < 0) {
                     velocityConstantRef = 0;
                 }
-                velocityEst = velocityConstantRef;
+                velocityEst = velocityConstantRef / 2;
                 velocityEst = (velocityEst >= 0) ? (velocityEst <= 10) ? velocityEst : 10.1 : 0;
                 if (velocityEst === 10.1) {
                     velocityEst = 10;
@@ -1106,6 +1106,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 while (b < motionEndCountArray.length) {
                     if (motionEndCountArray[b] > 2) { // potential commute mode
                         commuteMode = true;
+                        velocityConstantRef = 0;
 
                         // 0 velocity
                         // no steps
