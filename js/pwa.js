@@ -956,9 +956,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
             velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
 
-        } else {
+        } /*else {
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
-        }
+        }*/
 
         speedX.style.backgroundColor = "black"; //
         speedX.style.color = "white"; //
