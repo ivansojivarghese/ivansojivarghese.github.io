@@ -84,6 +84,10 @@ var /*acceleration = {
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
+var motionEndCount = 0,
+    motionEndCountInterval = null,
+    motionEndCountArray = [];
+
 var accelerationCount = 0,
     accelerationDir = true,
     accelerationPoints = [],
@@ -630,7 +634,7 @@ function filteredAcceleration(r) { // filters raw data
                     step += timerCountStep[c] + ", ";
                     c++;
                 }
-                velPoints.innerHTML = step;
+                // velPoints.innerHTML = step;
             }, 3000);
         }
     }
@@ -1077,8 +1081,23 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     }
 
     if (motion) {
+        if (motionEndCountInterval === null) {
+            motionEndCountInterval = setTimeout(function() {
 
+                motionEndCountArray[motionEndCountArray.length] = motionEndCount;
+
+                clearTimeout(motionEndCountInterval);
+                motionEndCountInterval = null;
+            }, 3000);
+        }
+    } else {
+        motionEndCount = 0;
+        clearTimeout(motionEndCountInterval);
+        motionEndCountInterval = null;
+        motionEndCountArray = [];
     }
+
+    vel.innerHTML;
 
 }, false);
 
