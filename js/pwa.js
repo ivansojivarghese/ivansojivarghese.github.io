@@ -157,6 +157,7 @@ function resetMotionParams() {
     clearInterval(timerCountStepInterval);
     clearTimeout(motionEndInterval);
     clearInterval(accelerationInterval);
+    clearTimeout(motionEndCountInterval);
 
     normalAcc = 0;
     timerCountStepCheck = 0;
@@ -196,6 +197,10 @@ function resetMotionParams() {
     velocityLiveInterval = null;
     pitchRef = 0; // reference
     refZForce = 0; // reference z-force. (updates while stationary)
+
+    motionEndCount = 0;
+    motionEndCountInterval = null;
+    motionEndCountArray = [];
 
     accelerationCount = 0;
     accelerationDir = true;
@@ -1088,6 +1093,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                 clearTimeout(motionEndCountInterval);
                 motionEndCountInterval = null;
+
+                let g = 0;
+                var k = "";
+                while (g < motionEndCountArray.length) {
+                    k += motionEndCountArray[k] + ", ";
+                    g++;
+                }
+                vel.innerHTML = k;
             }, 3000);
         }
     } else {
@@ -1096,8 +1109,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         motionEndCountInterval = null;
         motionEndCountArray = [];
     }
-
-    vel.innerHTML;
 
 }, false);
 
