@@ -772,7 +772,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motion = false; // make false after 1 sec. (if not other motion detected)
 
                     motionEnd = false;
-                    motionEndCount++;
 
                     accelerationDir = true;
                     motionX.innerHTML = motionEnd;
@@ -826,7 +825,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
             motionEnd = false;
-            motionEndCount++;
 
             motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
@@ -843,7 +841,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
             motionEnd = false;
-            motionEndCount++;
 
             motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
