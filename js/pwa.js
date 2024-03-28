@@ -668,7 +668,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     if (ipAPIres && ipAPIres.online && clientAPIres.online && !shaked && !rotation && !docHide) {
 
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
-            strideDis = 0.75, // avg. step stride (m)
+            strideDis = 0.72, // avg. step stride (m)
             zGAcc = event.accelerationIncludingGravity.z, // acceleration (z-axis) including gravity
             yAcc = event.acceleration.y, // forward acceleration
             xAcc = event.acceleration.x, // "" alternate orientations
