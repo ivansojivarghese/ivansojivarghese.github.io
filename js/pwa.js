@@ -867,9 +867,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 // velocityPoints[velocityPoints.length] = velocityTotal; 
             }
 
-            // if (!velocityError) {
-                // velocityLive = velocityTotal.toFixed(1);
-
             var v = (velocityCycleMaxPoints.length) ? velocityCycleMaxPoints[velocityCycle] : 0;
             var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
             var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
@@ -886,27 +883,19 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                                     ],
                         motionRes = motionTrendCal(motionTrend);
                     if (motionRes === "const") {
-                        // vel.innerHTML = velocityConstantRef.toFixed(1);
-                        // console.log(velocityConstantRef);
                         stride.innerHTML = "const";
                     } else if (motionRes === "decre") {
                         var diff = Math.abs(motionTrend[0] - motionTrend[2]),
                             velReduction = (diff * avgMotionStride) / 3;
                         velocityConstantRef -= velReduction;
-                        // vel.innerHTML = velocityConstantRef.toFixed(1);
-                        // console.log(velocityConstantRef);
                         stride.innerHTML = "decre";
                     } else if (motionRes === "incre") {
                         var diff = Math.abs(motionTrend[2] - motionTrend[0]),
                             velIncrease = (diff * avgMotionStride) / 3;
                         velocityConstantRef += velIncrease;
-                        // vel.innerHTML = velocityConstantRef.toFixed(1);
-                        // console.log(velocityConstantRef);
                         stride.innerHTML = "incre";
                     }
-                } /*else {
-                    vel.innerHTML = velocityConstantRef.toFixed(1);
-                }*/
+                } 
                 if (velocityConstantRef < 0) {
                     velocityConstantRef = 0;
                 }
@@ -969,7 +958,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "grey"; //
+        speedX.style.backgroundColor = "black"; //
         speedX.style.color = "white"; //
 
             /*
