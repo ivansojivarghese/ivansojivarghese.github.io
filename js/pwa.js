@@ -555,7 +555,7 @@ function filteredAcceleration(r) { // filters raw data
         motionStride = motionStartRef * stepsCountTimes[stepsCountTimes.length - 1];
     }
 
-    if (!motionStart) {
+    if (!motionStart || refVelocity) {
         // START 3-SEC TIMER to check for steps frequencies
 
         if (timerCountStepInterval === null) {
@@ -968,7 +968,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "green"; //
         speedX.style.color = "white"; //
 
             /*
