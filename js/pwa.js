@@ -955,7 +955,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "orange"; //
+        speedX.style.backgroundColor = "chocolate"; //
         speedX.style.color = "white"; //
 
             /*
@@ -1090,6 +1090,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 motionEndCount = 0;
                 clearTimeout(motionEndCountInterval);
                 motionEndCountInterval = null;
+
+                // ANALYSE FOR VEHICLE MODE HERE
 
                 let g = 0;
                 var k = "";
