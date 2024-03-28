@@ -360,7 +360,7 @@ function motionTrendCal(arr) {
     var key = [],
         trendArr = [],
         trend = "";
-    for (j = 0; j < arr.length - 1; j++) {
+    for (j = 0; j < arr.length; j++) {
         if (j === 0) {
             key[key.length] = arr[j];
         } else {
@@ -376,7 +376,7 @@ function motionTrendCal(arr) {
             key[key.length] = val;
         }
     }
-    if ((trendArr[0] === "incre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "incre")) {
+    if ((trendArr[0] === "incre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "incre") || (trendArr[0] === "const" && trendArr[1] === "const")) {
         trend = "const";
     } else if ((trendArr[0] === "decre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "const") || (trendArr[0] === "const" && trendArr[1] === "decre")) {
         trend = "decre";
