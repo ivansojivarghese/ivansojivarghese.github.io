@@ -905,12 +905,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 } else {
                     vel.innerHTML = velocityConstantRef.toFixed(1);
                 }
-            } else if (!motionStart && (timerCountStep.length <= timerCountStepCheck) {
+            } else if (!motionStart && (timerCountStep.length <= timerCountStepCheck)) {
                 vel.innerHTML = velMag.toFixed(1);
             } else if (motionStart) {
                 vel.innerHTML = velMag.toFixed(1);
             }
-            
+
                 // vel.innerHTML = velocityLive + ", " + motionStartRef;
             // } else {
                 // velocityLive = velocityPoints[velocityPoints.length - 1].toFixed(1);
@@ -966,7 +966,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "coral"; //
+        speedX.style.backgroundColor = "grey"; //
         speedX.style.color = "white"; //
 
             /*
