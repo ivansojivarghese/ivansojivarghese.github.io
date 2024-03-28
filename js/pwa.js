@@ -733,6 +733,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityCycleLive = 0;
                 velocityCycleMaxPoints = []
 
+                velocityConstantRef = 0;
+
                 // vel.style.color = "yellow";
             }
 
