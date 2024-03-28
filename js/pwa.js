@@ -205,9 +205,13 @@ function resetMotionParams() {
     motionStartRef = 0;*/
 }
 
+var docHide = false;
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
+        docHide = true;
         resetMotionParams();
+    } else {
+        docHide = false;
     }
 });
 
@@ -646,7 +650,9 @@ function filteredAcceleration(r) { // filters raw data
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
-    if (ipAPIres && ipAPIres.online && clientAPIres.online && !shaked && !rotation) {
+    var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
+
+    if (ipAPIres && ipAPIres.online && clientAPIres.online && !shaked && !rotation && !docHide) {
 
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
             strideDis = 0.75, // avg. step stride (m)
@@ -660,8 +666,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
             zThreshold = 30, // threshold for a 'step' - based on z-acc flunctuations
             velocityEst = 0, // velocity estimate(s)
-            velocitySign = "~", // velocity sign
-            velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
+            velocitySign = "~"; // velocity sign
 
         avgMotionStride = (tempUnit(ipAPIres.country.iso_code) === "metric") ? strideDis : (strideDis * 3.2808);
 
@@ -1042,21 +1047,27 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             // steps.innerHTML = "steps: " + stepsCount;
         }  */
 
+    } else {
+        velocityEst = 0;
+        velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+        resetMotionParams();
     }
 
 }, false);
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
 
-    betaAngle = event.beta;
+    if (!docHide) {
+        betaAngle = event.beta;
 
-    var bVal = Math.abs(Math.round(event.beta)),
-        gVal = Math.abs(Math.round(event.gamma));
+        var bVal = Math.abs(Math.round(event.beta)),
+            gVal = Math.abs(Math.round(event.gamma));
 
-    if (bVal > 90 || gVal > 45) { // if angle of mobile device greater than 90deg, OR tilt greater abs' 45deg
-        rotation = true;
-    } else {
-        rotation = false;
+        if (bVal > 90 || gVal > 45) { // if angle of mobile device greater than 90deg, OR tilt greater abs' 45deg
+            rotation = true;
+        } else {
+            rotation = false;
+        }
     }
 
 }, false);
