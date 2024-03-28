@@ -752,6 +752,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     stepsCountTimes = [];
 
                     motionEnd = true;
+                    motionEndCount++;
+
                     motionX.innerHTML = motionEnd + ", reset";
                     clearTimeout(motionEndInterval);
                 }, 100);
@@ -759,7 +761,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 motionInterval = setTimeout(function() {
                     velocityEst = 0;
                     motion = false; // make false after 1 sec. (if not other motion detected)
+
                     motionEnd = false;
+                    motionEndCount++;
+
                     accelerationDir = true;
                     motionX.innerHTML = motionEnd;
                     oneStopMotion = true;
@@ -810,7 +815,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 clearTimeout(motionInterval);
                 motionInterval = null;
             }
+
             motionEnd = false;
+            motionEndCount++;
+
             motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
                 clearTimeout(motionEndInterval);
@@ -824,7 +832,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 clearTimeout(motionInterval);
                 motionInterval = null;
             }
+
             motionEnd = false;
+            motionEndCount++;
+
             motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
                 clearTimeout(motionEndInterval);
@@ -1063,6 +1074,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         velocityEst = 0;
         velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         resetMotionParams();
+    }
+
+    if (motion) {
+
     }
 
 }, false);
