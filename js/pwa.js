@@ -150,6 +150,10 @@ screen.orientation.addEventListener("change", function() {
 });
 
 function resetMotionParams() {
+    clearInterval(timerCountStepInterval);
+    clearTimeout(motionEndInterval);
+    clearInterval(accelerationInterval);
+
     normalAcc = 0;
     timerCountStepCheck = 0;
     timerCountStepInterval = null;
@@ -194,10 +198,6 @@ function resetMotionParams() {
     accelerationPoints = [];
     accelerationTimePoints = [];
     accelerationInterval = null;
-
-    clearInterval(timerCountStepInterval);
-    clearTimeout(motionEndInterval);
-    clearInterval(accelerationInterval);
 
     /*
     stepsCountInterval = [];
@@ -876,6 +876,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             var v = (velocityCycleMaxPoints.length) ? velocityCycleMaxPoints[velocityCycle] : 0;
             var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
             var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
+            var velLimiter = "";
 
             if ((timerCountStep.length > timerCountStepCheck)) {
                 timerCountStepCheck = timerCountStep.length;
@@ -906,7 +907,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     velocityConstantRef = 0;
                 }
                 velocityEst = velocityConstantRef;
-                velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+                velocityEst = (velocityEst >= 0) ? (velocityEst <= 10) ? velocityEst : 10.1 : 0;
+                if (velocityEst === 10.1) {
+                    velLimiter = "+";
+                } else {
+                    velLimiter = "";
+                }
+                velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit; 
             } 
 
             velocityEst = velocityTotal;
@@ -930,7 +937,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }
 
-        speedX.style.backgroundColor = "grey"; //
+        speedX.style.backgroundColor = "brown"; //
         speedX.style.color = "white"; //
 
             /*
