@@ -283,8 +283,6 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             wind_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .wind_img') : document.querySelector('.pwa .popups .wind_w_img'),
             temp_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .temp_img') : document.querySelector('.pwa .popups .temp_w_img'),
 
-            motion_icon = document.querySelector('.pwa .home .banner .motion_icon'),
-
             icons = document.querySelectorAll('.pwa .navbar .button'),
             active_icon = null,
             active_icon_name = "";
@@ -362,7 +360,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         if (op.pwa.s) {
             var str;
 
-            var mI_img = motion_icon.children[0].classList,
+            var motion_icon = document.querySelector('.pwa .home .banner .motion_icon'),
+                mI_img = motion_icon.children[0].classList,
                 keyW = ["walk", "run", "commute"],
                 target_mI = "",
                 add_mI = "";
@@ -555,7 +554,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
         if (op.pwa.s) {
 
-            var mI_img = motion_icon.children[0].classList,
+            var motion_icon = document.querySelector('.pwa .home .banner .motion_icon'),
+                mI_img = motion_icon.children[0].classList,
                 keyW = ["walk", "run", "commute"],
                 target_mI = "",
                 add_mI = "";
