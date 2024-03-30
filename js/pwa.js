@@ -682,7 +682,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             cosVal = Math.cos(pitchRad),
             resAcc = gAcc / cosVal, // resultant acceleration with pitch angle
             resZForce = Math.round((zGAcc / resAcc) * 100), // z-force on user (live)
-            zThreshold = 50, // threshold for a 'step' - based on z-acc flunctuations
+            zThreshold = 40, // threshold for a 'step' - based on z-acc flunctuations
             velocityEst = 0, // velocity estimate(s)
             velocitySign = "~"; // velocity sign
 
@@ -960,7 +960,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
 
             /*
