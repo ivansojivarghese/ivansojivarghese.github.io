@@ -1005,10 +1005,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     commute.innerHTML = "commute: " + commuteMode;
 
     var motionCat = determineMotionType(),
+        keyW = ["run", "walk", "commute"],
         exist = findClasses(motionIcon.children[0].classList, keyW);
     if (motionCat !== "") {
-        var keyW = ["run", "walk", "commute"],
-            target = ""; 
+        var target = ""; 
         if (motionCat === "walk") {
             target = (!op.darkMode || init) ? "walk_img" : "walk_w_img";
         } else if (motionCat === "run") {
