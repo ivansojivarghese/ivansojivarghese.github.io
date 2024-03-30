@@ -283,6 +283,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             wind_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .wind_img') : document.querySelector('.pwa .popups .wind_w_img'),
             temp_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .temp_img') : document.querySelector('.pwa .popups .temp_w_img'),
 
+            motion_icon = document.querySelector('.pwa .home .banner .motion_icon'),
+
             icons = document.querySelectorAll('.pwa .navbar .button'),
             active_icon = null,
             active_icon_name = "";
@@ -359,6 +361,30 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
         if (op.pwa.s) {
             var str;
+
+            var mI_img = motion_icon.children[0].classList,
+                keyW = ["walk", "run", "commute"],
+                target_mI = "",
+                add_mI = "";
+            for (i = 0; i < mI_img.length; i++) {
+                if (mI_img[i].includes(keyW[0])) {
+                    target_mI = mI_img[i];
+                    add_mI = keyW[0] + "_w_img";
+                    break;
+                } else if (mI_img[i].includes(keyW[1])) {
+                    target_mI = mI_img[i];
+                    add_mI = keyW[1] + "_w_img";
+                    break;
+                } else if (mI_img[i].includes(keyW[2])) {
+                    target_mI = mI_img[i];
+                    add_mI = keyW[2] + "_w_img";
+                    break;
+                }
+            }
+            if (target_mI && add_mI) {
+                mI_img.remove(target_mI);
+                mI_img.add(add_mI);
+            }
 
             logo_h_img_pwa.classList.remove("logo-full");
             sig_pwa.classList.remove("signature");
@@ -528,6 +554,31 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         var str;
 
         if (op.pwa.s) {
+
+            var mI_img = motion_icon.children[0].classList,
+                keyW = ["walk", "run", "commute"],
+                target_mI = "",
+                add_mI = "";
+            for (i = 0; i < mI_img.length; i++) {
+                if (mI_img[i].includes(keyW[0])) {
+                    target_mI = mI_img[i];
+                    add_mI = keyW[0] + "_img";
+                    break;
+                } else if (mI_img[i].includes(keyW[1])) {
+                    target_mI = mI_img[i];
+                    add_mI = keyW[1] + "_img";
+                    break;
+                } else if (mI_img[i].includes(keyW[2])) {
+                    target_mI = mI_img[i];
+                    add_mI = keyW[2] + "_img";
+                    break;
+                }
+            }
+            if (target_mI && add_mI) {
+                mI_img.remove(target_mI);
+                mI_img.add(add_mI);
+            }
+
             logo_h_img_pwa.classList.remove("logo-hybrid-inverse");
             sig_pwa.classList.remove("signature_w");
 
