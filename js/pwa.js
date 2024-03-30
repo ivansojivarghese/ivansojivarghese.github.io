@@ -66,7 +66,9 @@ var normalAcc = 0,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
-var commuteMode = false;    
+var commuteMode = false,
+    motionTypeCommute = null,
+    motionTypeStep = null;
 
 var motionEndCount = 0,
     motionEndCountInterval = null,
@@ -145,6 +147,8 @@ function resetMotionParams() {
     clearTimeout(motionEndCountInterval);
 
     commuteMode = false;
+    motionTypeCommute = null,
+    motionTypeStep = null;
 
     normalAcc = 0;
     timerCountStepCheck = 0;
@@ -933,7 +937,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "black"; //
+        speedX.style.backgroundColor = "gold"; //
         speedX.style.color = "white"; //
 
     } else {
