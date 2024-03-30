@@ -27,25 +27,7 @@ var githubCommitsres = {
     val : 0
 };
 
-var /*acceleration = {
-        z : [],
-        y : []
-    },
-    stepsPatternZ = {
-        a : 0,
-        b : 0,
-        c : 0,
-        d : 0,
-        e : 0
-    },
-    stepsPatternY = {
-        a : 0,
-        b : 0,
-        c : 0,
-        d : 0,
-        e : 0
-    },*/
-    normalAcc = 0,
+var normalAcc = 0,
     timerCountStepCheck = 0,
     timerCountStepInterval = null,
     timerCountStep = [],
@@ -636,15 +618,6 @@ function filteredAcceleration(r) { // filters raw data
             timerCountStepInterval = setInterval(function() {
                 timerCountStep[timerCountStep.length] = timerCount;
                 timerCount = 0;
-
-                var step = "";
-
-                let c = 0;
-                while (c < timerCountStep.length) {
-                    step += timerCountStep[c] + ", ";
-                    c++;
-                }
-                // velPoints.innerHTML = step;
             }, 3000);
         }
     }
@@ -963,124 +936,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
 
-            /*
-            zVal = "",
-            yVal = "",
-            // absXVal = Math.abs(Math.round(event.acceleration.x)),
-            preZVal = acceleration.z[acceleration.z.length - 1],
-            preYVal = acceleration.y[acceleration.y.length - 1];
-
-        if (!shaked && !rotation) { 
-
-            // acceleration z
-
-            if (Math.round(event.acceleration.z) === 0) {
-                zVal = "neutral";
-                if (!stepsPatternZ.a && preZVal !== "neutral") {
-                    stepsPatternZ.a = 1;
-                }
-                if (stepsPatternZ.a && stepsPatternZ.b && preZVal !== "neutral") {
-                    stepsPatternZ.c = 1;
-                }
-                if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d && preZVal !== "neutral") {
-                    stepsPatternZ.e = 1;
-                }
-            } else if (Math.round(event.acceleration.z) < 0) {
-                zVal = "negative";
-                if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && stepsPatternZ.d) {
-                    stepsPatternZ.a = 0;
-                }
-                if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c) {
-                    stepsPatternZ.a = 0;
-                }        
-                if (stepsPatternZ.a && preZVal !== "negative") {
-                    stepsPatternZ.b = 1;
-                }
-            } else if (Math.round(event.acceleration.z) > 0) {
-                zVal = "positive";        
-                if (stepsPatternZ.a && stepsPatternZ.b && !stepsPatternZ.c) {
-                    stepsPatternZ.a = 0;
-                }
-                if (stepsPatternZ.a && !stepsPatternZ.b) {
-                    stepsPatternZ.a = 0;
-                }
-                if (stepsPatternZ.a && stepsPatternZ.b && stepsPatternZ.c && preZVal !== "positive") {
-                    stepsPatternZ.d = 1;
-                }
-            }
-
-            // acceleration y
-
-            if (Math.round(event.acceleration.y) === 0) {
-                yVal = "neutral";
-                if (!stepsPatternY.a && preYVal !== "neutral") {
-                    stepsPatternY.a = 1;
-                }
-                if (stepsPatternY.a && stepsPatternY.b && preYVal !== "neutral") {
-                    stepsPatternY.c = 1;
-                }
-                if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d && preYVal !== "neutral") {
-                    stepsPatternY.e = 1;
-                }
-            } else if (Math.round(event.acceleration.y) < 0) {
-                yVal = "negative";
-                if (stepsPatternY.a && stepsPatternY.b && !stepsPatternY.c) {
-                    stepsPatternY.a = 0;
-                }
-                if (stepsPatternY.a && !stepsPatternY.b) {
-                    stepsPatternY.a = 0;
-                }
-                if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && preYVal !== "negative") {
-                    stepsPatternY.d = 1;
-                }
-            } else if (Math.round(event.acceleration.y) > 0) {
-                yVal = "positive";
-                if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c && stepsPatternY.d) {
-                    stepsPatternY.a = 0;
-                }
-                if (stepsPatternY.a && stepsPatternY.b && stepsPatternY.c) {
-                    stepsPatternY.a = 0;
-                }        
-                if (stepsPatternY.a && preYVal !== "positive") {
-                    stepsPatternY.b = 1;
-                }
-            }
-
-            acceleration.z[acceleration.z.length] = zVal;
-            acceleration.y[acceleration.y.length] = yVal;
-
-            for (const x in stepsPatternZ) {
-                if (stepsPatternZ[x] !== 1) {
-                    stepIncr = false;
-                    break;
-                }
-            }
-            for (const x in stepsPatternY) {
-                if (stepsPatternY[x] !== 1 || !stepIncr) {
-                    stepIncr = false;
-                    break;
-                }
-            } 
-
-            if (stepIncr) {
-                clearInterval(motionInterval);
-                for (const x in stepsPatternZ) {
-                    stepsPatternZ[x] = 0;
-                }
-                for (const x in stepsPatternY) {
-                    stepsPatternY[x] = 0;
-                }
-                acceleration.z = [];
-                acceleration.y = [];
-                
-                motionInterval = setInterval(function() {
-                    motion = false;
-                    clearInterval(motionInterval);
-                }, 1500);
-            } 
-            // steps.innerHTML = "steps: " + stepsCount;
-        }  */
-
     } else {
         velocityEst = 0;
         velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
@@ -1143,6 +998,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     commute.innerHTML = "commute: " + commuteMode;
 
+    determineMotionType();
+
 }, false);
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
@@ -1161,6 +1018,36 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
     }
 
 }, false);
+
+function determineMotionType() { // either NO motion, walk, run or commute
+    var motionType = "";
+    if (!commuteMode) {
+        if (velocityEst > 1) {
+            var stepsArray = [timerCountStep[timerCountStep.length - 3],
+                    timerCountStep[timerCountStep.length - 2],
+                    timerCountStep[timerCountStep.length - 1]
+                ];
+            motionType = "walk";
+            for (var i = 0; i < stepsArray.length; i++) {
+                if (stepsArray[i] < 4) {
+                    motionType = "";
+                    break;
+                }
+            }
+            if (velocityEst > 2) {
+                motionType = "run";
+                for (var i = 0; i < stepsArray.length; i++) {
+                    if (stepsArray[i] < 8 && stepsArray[i] >= 4) {
+                        motionType = "walk";
+                        break;
+                    }
+                }
+            }
+        }
+    } else {
+
+    }
+}
 
 const temp = document.querySelector('.pwa .weather #temp');
 const unit = document.querySelector('.pwa .weather #unit');
