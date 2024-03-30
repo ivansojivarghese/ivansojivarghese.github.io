@@ -1006,6 +1006,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     commute.innerHTML = "commute: " + commuteMode;
 
+    determineMotionType();
+
     var motionCat = motionType,
         keyW = ["run", "walk", "commute"],
         exist = findClasses(motionIcon.children[0].classList, keyW);
