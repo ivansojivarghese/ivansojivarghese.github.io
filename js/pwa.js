@@ -1017,10 +1017,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             target = (!op.darkMode || init) ? "commute_img" : "commute_w_img";
         }
         motionIcon.classList.remove("d_n");
-        motionIcon.children[0].classList.remove(exist);
+        if (exist) {
+            motionIcon.children[0].classList.remove(exist);
+        }
         motionIcon.children[0].classList.add(target);
     } else {
-        motionIcon.children[0].classList.remove(exist);
+        if (exist) {
+            motionIcon.children[0].classList.remove(exist);
+        }
         motionIcon.classList.add("d_n");
     }
 
