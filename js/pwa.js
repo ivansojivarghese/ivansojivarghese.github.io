@@ -1020,7 +1020,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         if (exist) {
             motionIcon.children[0].classList.remove(exist);
         }
-        motionIcon.children[0].classList.add(target);
+        if (target) {
+            motionIcon.children[0].classList.add(target);
+        }
     } else {
         if (exist) {
             motionIcon.children[0].classList.remove(exist);
