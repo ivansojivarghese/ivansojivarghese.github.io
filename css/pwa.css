@@ -395,7 +395,7 @@ body {
     margin-right: 1rem;
 }
 
-.pwa .about .img_iconBtn:first-child {
+.pwa .about .img_iconBtn:first-child, .pwa .home .img_iconBtn:first-child {
     margin-left: 1rem;
 }
 
