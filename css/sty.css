@@ -1299,6 +1299,30 @@ a + .lead_arrow_forward_img, a + .lead_arrow_forward_w_img {
     background-image: url("../svg/humid_white.svg");
 }
 
+.walk_img {
+    background-image: url("../svg/walk.svg");
+}
+
+.walk_w_img {
+    background-image: url("../svg/walk_white.svg");
+}
+
+.run_img {
+    background-image: url("../svg/run.svg");
+}
+
+.run_w_img {
+    background-image: url("../svg/run_white.svg");
+}
+
+.commute_img {
+    background-image: url("../svg/commute.svg");
+}
+
+.commute_w_img {
+    background-image: url("../svg/commute_white.svg");
+}
+
 /* --- */
 
 .scrolltop_img {

@@ -93,7 +93,13 @@
                     hmd : false,
                     wnd_w : false,
                     tmp_w : false,
-                    hmd_w : false
+                    hmd_w : false,
+                    walk : false,
+                    walk_w : false,
+                    run : false,
+                    run_w : false,
+                    commute : false,
+                    commute_w : false
                 },
                 img = {
                     p : false,
@@ -437,6 +443,12 @@
         <link rel="preload" fetchpriority="low" href="svg/temp_white.svg" as="image" type="image/svg+xml" onload="svg.tmp_w = true;">
         <link rel="preload" fetchpriority="low" href="svg/humid.svg" as="image" type="image/svg+xml" onload="svg.hmd = true;">
         <link rel="preload" fetchpriority="low" href="svg/humid_white.svg" as="image" type="image/svg+xml" onload="svg.hmd_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/walk.svg" as="image" type="image/svg+xml" onload="svg.walk = true;">
+        <link rel="preload" fetchpriority="low" href="svg/walk_white.svg" as="image" type="image/svg+xml" onload="svg.walk_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/run.svg" as="image" type="image/svg+xml" onload="svg.run = true;">
+        <link rel="preload" fetchpriority="low" href="svg/run_white.svg" as="image" type="image/svg+xml" onload="svg.run_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/commute.svg" as="image" type="image/svg+xml" onload="svg.commute = true;">
+        <link rel="preload" fetchpriority="low" href="svg/commute_white.svg" as="image" type="image/svg+xml" onload="svg.commute_w = true;">
 
         <!-- 
         <link rel="preload" href="svg/scrolltop.svg" as="image" type="image/svg+xml" onload="svg.sct = true;">
@@ -916,7 +928,7 @@
                 <div class="sections scrollBarFunction lightBackground">
                     <div class="home d_n">
                         <div class="banner">
-                            <div class="img_iconBtn trs">
+                            <div class="motionIcon img_iconBtn trs">
                                 <div class="img trs img_icon d_i"></div>
                             </div>
                             <div></div>
