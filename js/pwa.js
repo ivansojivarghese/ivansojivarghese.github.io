@@ -999,9 +999,25 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     commute.innerHTML = "commute: " + commuteMode;
 
-    var motionCat = determineMotionType();
-
-    
+    var motionCat = determineMotionType(),
+        exist = findClasses(motionIcon.children[0].classList, keyW);
+    if (motionCat !== "") {
+        var keyW = ["run", "walk", "commute"],
+            target = ""; 
+        if (motionCat === "walk") {
+            target = (!op.darkMode || init) ? "walk_img" : "walk_w_img";
+        } else if (motionCat === "run") {
+            target = (!op.darkMode || init) ? "run_img" : "run_w_img";
+        } else if (motionCat === "commute") {
+            target = (!op.darkMode || init) ? "commute_img" : "commute_w_img";
+        }
+        motionIcon.classList.remove("d_n");
+        motionIcon.children[0].classList.remove(exist);
+        motionIcon.children[0].classList.add(target);
+    } else {
+        motionIcon.children[0].classList.remove(exist);
+        motionIcon.classList.add("d_n");
+    }
 
 }, false);
 
@@ -1021,6 +1037,19 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
     }
 
 }, false);
+
+function findClasses(cl, ar) {
+    var output = "";
+    for (i = 0; i < cl.length; i++) {
+        for (j = 0; j < ar.length; j++) {
+            if (cl[i].includes(ar[j])) {
+                ouput = cl[i];
+                break;
+            }
+        }
+    }
+    return output;
+}
 
 function determineMotionType() { // either NO motion, walk, run or commute
     var motionType = "";
