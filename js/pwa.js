@@ -66,7 +66,8 @@ var normalAcc = 0,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
-var commuteMode = false,
+var motionType = "",
+    commuteMode = false,
     motionTypeCommute = null,
     motionTypeStep = null;
 
@@ -147,6 +148,7 @@ function resetMotionParams() {
     clearInterval(accelerationInterval);
     clearTimeout(motionEndCountInterval);
 
+    motionType = "";
     commuteMode = false;
     motionTypeCommute = null,
     motionTypeStep = null;
@@ -938,7 +940,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "orange"; //
+        speedX.style.backgroundColor = "grey"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -1004,7 +1006,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     commute.innerHTML = "commute: " + commuteMode;
 
-    var motionCat = determineMotionType(),
+    var motionCat = motionType,
         keyW = ["run", "walk", "commute"],
         exist = findClasses(motionIcon.children[0].classList, keyW);
     if (motionCat !== "") {
@@ -1063,7 +1065,6 @@ function findClasses(cl, ar) {
 }
 
 function determineMotionType() { // either NO motion, walk, run or commute
-    var motionType = "";
     if (!commuteMode) { // if in step motion, ensure hold of 10 sec to confirm
         clearTimeout(motionTypeCommute);
         if (motionTypeStep === null) {
@@ -1092,7 +1093,6 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 }
                 clearTimeout(motionTypeStep);
                 motionTypeStep = null;
-                return motionType;
             }, 6000);
         }
     } else { // if commuting, ensure a hold for 10 sec to confirm
@@ -1102,7 +1102,6 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 motionType = "commute";
                 clearTimeout(motionTypeCommute);
                 motionTypeCommute = null;
-                return motionType;
             }, 6000);
         }
     }
