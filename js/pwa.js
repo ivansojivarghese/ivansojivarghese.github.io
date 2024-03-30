@@ -1058,7 +1058,7 @@ function findClasses(cl, ar) {
     for (i = 0; i < cl.length; i++) {
         for (j = 0; j < ar.length; j++) {
             if (cl[i].includes(ar[j])) {
-                ouput = cl[i];
+                output = cl[i];
                 break;
             }
         }
