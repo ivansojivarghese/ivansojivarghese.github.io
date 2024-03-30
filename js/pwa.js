@@ -1092,6 +1092,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 }
                 clearTimeout(motionTypeStep);
                 motionTypeStep = null;
+                return motionType;
             }, 6000);
         }
     } else { // if commuting, ensure a hold for 10 sec to confirm
@@ -1101,6 +1102,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 motionType = "commute";
                 clearTimeout(motionTypeCommute);
                 motionTypeCommute = null;
+                return motionType;
             }, 6000);
         }
     }
