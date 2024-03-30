@@ -962,6 +962,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     if (motionEndCountArray[b] > 2) { // potential commute mode
                         commuteMode = true;
                         velocityConstantRef = 0;
+                        velocityEst = 0;
 
                         // 0 velocity
                         // no steps
@@ -998,7 +999,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     commute.innerHTML = "commute: " + commuteMode;
 
-    determineMotionType();
+    var motionCat = determineMotionType();
+
+    
 
 }, false);
 
@@ -1021,31 +1024,45 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
 
 function determineMotionType() { // either NO motion, walk, run or commute
     var motionType = "";
-    if (!commuteMode) {
-        if (velocityEst > 1) {
-            var stepsArray = [timerCountStep[timerCountStep.length - 3],
-                    timerCountStep[timerCountStep.length - 2],
-                    timerCountStep[timerCountStep.length - 1]
-                ];
-            motionType = "walk";
-            for (var i = 0; i < stepsArray.length; i++) {
-                if (stepsArray[i] < 4) {
-                    motionType = "";
-                    break;
-                }
-            }
-            if (velocityEst > 2) {
-                motionType = "run";
-                for (var i = 0; i < stepsArray.length; i++) {
-                    if (stepsArray[i] < 8 && stepsArray[i] >= 4) {
-                        motionType = "walk";
-                        break;
+    if (!commuteMode) { // if in step motion, ensure hold of 10 sec to confirm
+        clearTimeout(motionTypeCommute);
+        if (motionTypeStep === null) {
+            motionTypeStep = setTimeout(function() {
+                if (velocityEst > 1) {
+                    var stepsArray = [timerCountStep[timerCountStep.length - 3],
+                            timerCountStep[timerCountStep.length - 2],
+                            timerCountStep[timerCountStep.length - 1]
+                        ];
+                    motionType = "walk";
+                    for (var i = 0; i < stepsArray.length; i++) {
+                        if (stepsArray[i] < 4) {
+                            motionType = "";
+                            break;
+                        }
+                    }
+                    if (velocityEst > 2) {
+                        motionType = "run";
+                        for (var i = 0; i < stepsArray.length; i++) {
+                            if (stepsArray[i] < 8 && stepsArray[i] >= 4) {
+                                motionType = "walk";
+                                break;
+                            }
+                        }
                     }
                 }
-            }
+                clearTimeout(motionTypeStep);
+                motionTypeStep = null;
+            }, 6000);
         }
-    } else {
-
+    } else { // if commuting, ensure a hold for 10 sec to confirm
+        clearTimeout(motionTypeStep);
+        if (motionTypeCommute === null) {
+            motionTypeCommute = setTimeout(function() {
+                motionType = "commute";
+                clearTimeout(motionTypeCommute);
+                motionTypeCommute = null;
+            }, 6000);
+        }
     }
 }
 
@@ -1072,7 +1089,7 @@ function fetchPWAInfo() {
     const fab = document.querySelector('.pwa .fab');
 
     const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
-
+ 
     const commits = document.querySelector('.pwa #g_commits');
 
     const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
