@@ -938,7 +938,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "gold"; //
+        speedX.style.backgroundColor = "green"; //
         speedX.style.color = "white"; //
 
     } else {
