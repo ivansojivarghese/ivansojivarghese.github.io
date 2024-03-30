@@ -102,6 +102,7 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 const commute = document.querySelector('.pwa .popups .deviceInfo .commute');
+const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
 
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
@@ -1061,7 +1062,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
         clearTimeout(motionTypeCommute);
         if (motionTypeStep === null) {
             motionTypeStep = setTimeout(function() {
-                if (velocityEst > 1) {
+                if (velocityConstantRef > 1) {
                     var stepsArray = [timerCountStep[timerCountStep.length - 3],
                             timerCountStep[timerCountStep.length - 2],
                             timerCountStep[timerCountStep.length - 1]
@@ -1073,7 +1074,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                             break;
                         }
                     }
-                    if (velocityEst > 2) {
+                    if (velocityConstantRef > 2) {
                         motionType = "run";
                         for (var i = 0; i < stepsArray.length; i++) {
                             if (stepsArray[i] < 8 && stepsArray[i] >= 4) {
