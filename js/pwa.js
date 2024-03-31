@@ -63,6 +63,7 @@ var normalAcc = 0,
     velocityLive = 0, // live velocity
     velocityLiveCheck = false,
     velocityLiveInterval = null,
+    velocityEstRef = 0,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
@@ -189,6 +190,7 @@ function resetMotionParams() {
     velocityLive = 0; // live velocity
     velocityLiveCheck = false;
     velocityLiveInterval = null;
+    velocityEstRef = 0;
     pitchRef = 0; // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
@@ -754,6 +756,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                 motionInterval = setTimeout(function() {
                     velocityEst = 0;
+                    velocityEstRef = 0;
                     motion = false; // make false after 1 sec. (if not other motion detected)
 
                     motionEnd = false;
@@ -916,11 +919,13 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 } else {
                     velLimiter = "";
                 }
+                velocityEstRef = velocityEst;
                 velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit; 
             } 
 
             velocityEst = velocityTotal;
             velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : (velocityEst > -10) ? Math.abs(velocityEst.toFixed(1)) : "10+";
+            velocityEstRef = velocityEst;
 
         } else if (motionVelocity) { // relative velocity (from point in motion) - change in velocity over time
             if (accelerationPoints.length === 1) { // take last data point (only single)
@@ -934,17 +939,19 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
+            velocityEstRef = velocityEst;
             velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
 
         } /*else {
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "blue"; //
+        speedX.style.backgroundColor = "red"; //
         speedX.style.color = "white"; //
 
     } else {
         velocityEst = 0;
+        velocityEstRef = 0;
         velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         resetMotionParams();
     }
@@ -958,30 +965,41 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 clearTimeout(motionEndCountInterval);
                 motionEndCountInterval = null;
 
-                if (!commuteMode) {
+                if (timerCountStep[timerCountStep.length - 1] > 2) {
+                    motionEndCount = 0;
+                    clearTimeout(motionEndCountInterval);
+                    motionEndCountInterval = null;
+                    motionEndCountArray = [];
+
                     commuteMode = false;
-                }
+                } else {
 
-                // ANALYSE FOR COMMUTE MODE HERE
+                    // ANALYSE FOR COMMUTE MODE HERE
 
-                let b = 0;
-                while (b < motionEndCountArray.length) {
-                    if (motionEndCountArray[b] > 2) { // potential commute mode
-                        commuteMode = true;
-                        velocityConstantRef = 0;
-                        velocityEst = 0;
+                    let b = 0;
+                    while (b < motionEndCountArray.length) {
+                        if (motionEndCountArray[b] > 2 && refVelocity) { // potential commute mode
+                            commuteMode = true;
 
-                        // 0 velocity
-                        // no steps
+                            // 0 velocity
+                            // no steps
 
-                        break;
-                    }
-                    if (b === (motionEndCountArray.length - 1)) {
-                        if (commuteMode) {
-                            commuteMode = false;
+                            if (b === (motionEndCountArray.length - 1)) {
+                                if (commuteMode) {
+                                    commuteMode = false;
+                                }
+                            } else {
+                                if (commuteMode) {
+                                    velocityConstantRef = 0;
+                                    velocityEst = 0;
+                                    velocityEstRef = 0;
+                                }
+                            }
+
+                            break;
                         }
+                        b++;
                     }
-                    b++;
                 }
 
                 /*
@@ -1006,6 +1024,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     commute.innerHTML = "commute: " + commuteMode;
 
+}, false);
+
+window.setInterval(function() {
     determineMotionType();
 
     var motionCat = motionType,
@@ -1033,8 +1054,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
         motionIcon.classList.add("d_n");
     }
-
-}, false);
+}, 1000/60);
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
 
@@ -1067,11 +1087,12 @@ function findClasses(cl, ar) {
 }
 
 function determineMotionType() { // either NO motion, walk, run or commute
-    if (!commuteMode) { // if in step motion, ensure hold of 10 sec to confirm
+    if (!commuteMode) { // if in step motion, ensure hold of 3 sec to confirm
         clearTimeout(motionTypeCommute);
+        motionTypeCommute = null;
         if (motionTypeStep === null) {
             motionTypeStep = setTimeout(function() {
-                if (velocityConstantRef > 1) {
+                if (velocityEstRef > 1) {
                     var stepsArray = [timerCountStep[timerCountStep.length - 3],
                             timerCountStep[timerCountStep.length - 2],
                             timerCountStep[timerCountStep.length - 1]
@@ -1083,7 +1104,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                             break;
                         }
                     }
-                    if (velocityConstantRef > 2) {
+                    if (velocityEstRef > 2.5) {
                         motionType = "run";
                         for (var i = 0; i < stepsArray.length; i++) {
                             if (stepsArray[i] < 8 && stepsArray[i] >= 4) {
@@ -1097,8 +1118,9 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 motionTypeStep = null;
             }, 3000);
         }
-    } else { // if commuting, ensure a hold for 10 sec to confirm
+    } else { // if commuting, ensure a hold for 3 sec to confirm
         clearTimeout(motionTypeStep);
+        motionTypeStep = null;
         if (motionTypeCommute === null) {
             motionTypeCommute = setTimeout(function() {
                 motionType = "commute";
