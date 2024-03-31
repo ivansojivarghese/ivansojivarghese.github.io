@@ -946,7 +946,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "gold"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -1099,7 +1099,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                         ];
                     motionType = "walk";
                     for (var i = 0; i < stepsArray.length; i++) {
-                        if (stepsArray[i] < 4) {
+                        if (stepsArray[i] < 2) {
                             motionType = "";
                             break;
                         }
@@ -1107,7 +1107,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                     if (velocityEstRef > 2.5) {
                         motionType = "run";
                         for (var i = 0; i < stepsArray.length; i++) {
-                            if (stepsArray[i] < 8 && stepsArray[i] >= 4) {
+                            if (stepsArray[i] < 8 && stepsArray[i] >= 2) {
                                 motionType = "walk";
                                 break;
                             }
