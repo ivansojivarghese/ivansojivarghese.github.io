@@ -784,6 +784,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityCycleMaxPoints = []
 
                 velocityConstantRef = 0;
+
+                motionType = "";
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
@@ -946,7 +948,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "gold"; //
+        speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
 
     } else {
