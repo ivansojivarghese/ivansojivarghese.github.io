@@ -783,7 +783,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityCycleLive = 0;
                 velocityCycleMaxPoints = []
 
+                velocityEst = 0;
                 velocityConstantRef = 0;
+                velocityEstRef = 0;
 
                 motionType = "";
             }
@@ -948,14 +950,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "green"; //
+        speedX.style.backgroundColor = "gold"; //
         speedX.style.color = "white"; //
 
     } else {
         velocityEst = 0;
         velocityEstRef = 0;
         velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
-        resetMotionParams();
+        // resetMotionParams();
     }
 
     if (motion) {
@@ -986,6 +988,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                             // 0 velocity
                             // no steps
 
+                            velocityConstantRef = 0;
+                            velocityEst = 0;
+                            velocityEstRef = 0;
+
+                            /*
                             if (b === (motionEndCountArray.length - 1)) {
                                 if (commuteMode) {
                                     commuteMode = false;
@@ -996,7 +1003,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                                     velocityEst = 0;
                                     velocityEstRef = 0;
                                 }
-                            }
+                            }*/
 
                             break;
                         }
@@ -1015,14 +1022,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             }, 3000);
         }
-    } else {
+    } /*else {
         motionEndCount = 0;
         clearTimeout(motionEndCountInterval);
         motionEndCountInterval = null;
         motionEndCountArray = [];
 
         commuteMode = false;
-    }
+    }*/
 
     commute.innerHTML = "commute: " + commuteMode;
 
