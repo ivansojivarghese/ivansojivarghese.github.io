@@ -948,7 +948,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "green"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -1030,6 +1030,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
 window.setInterval(function() {
     determineMotionType();
+
+    vel.innerHTML = motionType;
 
     var motionCat = motionType,
         keyW = ["run", "walk", "commute"],
