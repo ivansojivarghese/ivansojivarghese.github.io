@@ -950,7 +950,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -964,12 +964,24 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         if (motionEndCountInterval === null) {
             motionEndCountInterval = setTimeout(function() {
 
+                var stepsArray = [timerCountStep[timerCountStep.length - 3],
+                            timerCountStep[timerCountStep.length - 2],
+                            timerCountStep[timerCountStep.length - 1]
+                        ],
+                    walking = true;
+                for (var i = 0; i < stepsArray.length; i++) {
+                    if (stepsArray[i] < 2) {
+                        walking = false;
+                        break;
+                    }
+                }
+
                 motionEndCountArray[motionEndCountArray.length] = motionEndCount;
                 motionEndCount = 0;
                 clearTimeout(motionEndCountInterval);
                 motionEndCountInterval = null;
 
-                if (timerCountStep[timerCountStep.length - 1] > 2) {
+                if (walking) { // IF WALKING, commuteMode to false
                     motionEndCount = 0;
                     clearTimeout(motionEndCountInterval);
                     motionEndCountInterval = null;
@@ -1103,7 +1115,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
         motionTypeCommute = null;
         if (motionTypeStep === null) {
             motionTypeStep = setTimeout(function() {
-                if (velocityEstRef > 1 || (!refVelocity)) {
+                if (velocityEstRef > 1 || (!refVelocity && velocityEstRef > 0.5)) {
                     var stepsArray = [timerCountStep[timerCountStep.length - 3],
                             timerCountStep[timerCountStep.length - 2],
                             timerCountStep[timerCountStep.length - 1]
@@ -1127,7 +1139,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 }
                 clearTimeout(motionTypeStep);
                 motionTypeStep = null;
-            }, 3000);
+            }, 6000);
         }
     } else { // if commuting, ensure a hold for 3 sec to confirm
         clearTimeout(motionTypeStep);
@@ -1137,7 +1149,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 motionType = "commute";
                 clearTimeout(motionTypeCommute);
                 motionTypeCommute = null;
-            }, 3000);
+            }, 6000);
         }
     }
 }
