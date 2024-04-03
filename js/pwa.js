@@ -791,7 +791,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
-            if (!shaked && !rotation && !commuteMode) {
+            if (!shaked && !rotation) {
                 const zDiff = resZForce - refZForce;
                 if (zDiff <= 10) {
                     noStep = false;
@@ -950,7 +950,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "gold"; //
+        speedX.style.backgroundColor = "red"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -1103,7 +1103,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
         motionTypeCommute = null;
         if (motionTypeStep === null) {
             motionTypeStep = setTimeout(function() {
-                if (velocityEstRef > 1) {
+                if (velocityEstRef > 1 || (!refVelocity)) {
                     var stepsArray = [timerCountStep[timerCountStep.length - 3],
                             timerCountStep[timerCountStep.length - 2],
                             timerCountStep[timerCountStep.length - 1]
@@ -1115,7 +1115,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                             break;
                         }
                     }
-                    if (velocityEstRef > 2.5) {
+                    if (velocityEstRef > 2.5 || (!refVelocity && velocityEstRef > 1)) {
                         motionType = "run";
                         for (var i = 0; i < stepsArray.length; i++) {
                             if (stepsArray[i] < 8 && stepsArray[i] >= 2) {
