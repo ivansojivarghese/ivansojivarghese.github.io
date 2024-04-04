@@ -1051,6 +1051,9 @@ window.setInterval(function() {
     determineMotionType();
 
     vel.innerHTML = motionType;
+    if (!motionType) {
+        commuteMode = false;
+    }
 
     var motionCat = motionType,
         keyW = ["run", "walk", "commute"],
