@@ -950,7 +950,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "blue"; //
+        speedX.style.backgroundColor = "green"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -1003,6 +1003,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                             velocityConstantRef = 0;
                             velocityEst = 0;
                             velocityEstRef = 0;
+                            timerCountStep = [];
 
                             /*
                             if (b === (motionEndCountArray.length - 1)) {
@@ -1127,11 +1128,18 @@ function determineMotionType() { // either NO motion, walk, run or commute
         motionTypeCommute = null;
         if (motionTypeStep === null) {
             motionTypeStep = setTimeout(function() {
-                if (velocityEstRef > 1 || (!refVelocity && velocityEstRef > 0.5)) {
-                    var stepsArray = [timerCountStep[timerCountStep.length - 3],
+                var stepsArray = [timerCountStep[timerCountStep.length - 3],
                             timerCountStep[timerCountStep.length - 2],
                             timerCountStep[timerCountStep.length - 1]
-                        ];
+                        ],
+                    walking = true;
+                for (var i = 0; i < stepsArray.length; i++) {
+                    if (stepsArray[i] < 2) {
+                        walking = false;
+                        break;
+                    }
+                }
+                if ((velocityEstRef > 1 || (!refVelocity && velocityEstRef > 0.5)) && walking) {
                     motionType = "walk";
                     for (var i = 0; i < stepsArray.length; i++) {
                         if (stepsArray[i] < 2) {
