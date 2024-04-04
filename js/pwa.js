@@ -1143,7 +1143,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                         break;
                     }
                 }
-                if ((velocityEstRef > 1 || (!refVelocity && velocityEstRef > 0.5)) && walking) {
+                if (((velocityEstRef > 1 && refVelocity) || (!refVelocity && velocityEstRef > 0.5)) && walking) {
                     motionType = "walk";
                     for (var i = 0; i < stepsArray.length; i++) {
                         if (stepsArray[i] < 2) {
@@ -1151,10 +1151,10 @@ function determineMotionType() { // either NO motion, walk, run or commute
                             break;
                         }
                     }
-                    if (velocityEstRef > 2.5 || (!refVelocity && velocityEstRef > 1)) {
+                    if ((velocityEstRef > 2.5 && refVelocity) || (!refVelocity && velocityEstRef > 1)) {
                         motionType = "run";
                         for (var i = 0; i < stepsArray.length; i++) {
-                            if (stepsArray[i] < 8 && stepsArray[i] >= 2) {
+                            if (stepsArray[i] < 8) {
                                 motionType = "walk";
                                 break;
                             }
