@@ -1113,7 +1113,7 @@ function findClasses(cl, ar) {
 }
 
 function determineMotionType() { // either NO motion, walk, run or commute
-    if (!commuteMode) { // if in step motion, ensure hold of 3 sec to confirm
+    if (!commuteMode) { // if in step motion, ensure hold of _ sec to confirm
         clearTimeout(motionTypeCommute);
         motionTypeCommute = null;
         if (motionTypeStep === null) {
@@ -1144,7 +1144,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 motionTypeStep = null;
             }, 6000);
         }
-    } else { // if commuting, ensure a hold for 3 sec to confirm
+    } else { // if commuting, ensure a hold for _ sec to confirm
         clearTimeout(motionTypeStep);
         motionTypeStep = null;
         if (motionTypeCommute === null) {
