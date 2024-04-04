@@ -950,7 +950,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "green"; //
+        speedX.style.backgroundColor = "red"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -996,6 +996,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     while (b < motionEndCountArray.length) {
                         if (motionEndCountArray[b] > 2 && refVelocity) { // potential commute mode
                             commuteMode = true;
+                            motionType = "commute";
 
                             // 0 velocity
                             // no steps
