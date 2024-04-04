@@ -950,7 +950,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "orange"; //
+        speedX.style.backgroundColor = "blue"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -1047,12 +1047,21 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
 }, false);
 
+var commuteModeRevert = null;
+
 window.setInterval(function() {
     determineMotionType();
 
     vel.innerHTML = motionType;
-    if (!motionType) {
-        commuteMode = false;
+
+    if (commuteModeRevert === null) {
+        commuteModeRevert = setTimeout(function() {
+            if (!motionType) {
+                commuteMode = false;
+            }
+            clearTimeout(commuteModeRevert);
+            commuteModeRevert = null;
+        }, 6100);
     }
 
     var motionCat = motionType,
