@@ -787,7 +787,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityConstantRef = 0;
                 velocityEstRef = 0;
 
-                motionType = "";
+                if (motionType !== "commute") {
+                    motionType = "";
+                }
             }
 
         } else if (motionRef && similarAngle(pitch, pitchRef, 20)) { // with reference (and similar pitch, within 20deg of pitchRef)
@@ -950,7 +952,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "red"; //
+        speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -996,7 +998,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     while (b < motionEndCountArray.length) {
                         if (motionEndCountArray[b] > 2 && refVelocity) { // potential commute mode
                             commuteMode = true;
-                            motionType = "commute";
+                            // motionType = "commute";
 
                             // 0 velocity
                             // no steps
@@ -1049,13 +1051,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
 }, false);
 
-var commuteModeRevert = null;
+// var commuteModeRevert = null;
 
 window.setInterval(function() {
     determineMotionType();
 
     vel.innerHTML = motionType;
 
+    /*
     if (commuteModeRevert === null) {
         commuteModeRevert = setTimeout(function() {
             if (!motionType) {
@@ -1064,7 +1067,7 @@ window.setInterval(function() {
             clearTimeout(commuteModeRevert);
             commuteModeRevert = null;
         }, 6100);
-    }
+    }*/
 
     var motionCat = motionType,
         keyW = ["run", "walk", "commute"],
