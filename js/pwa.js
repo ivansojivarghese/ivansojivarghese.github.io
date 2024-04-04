@@ -403,7 +403,8 @@ function networkInfo() {
         networkType.remove();
     }
     if (navigator.connection.effectiveType) {
-        networkEffType.innerHTML = "effective type: " + navigator.connection.effectiveType
+        var effType = (navigator.connection.effectiveType === "slow-2g") ? "2g" : navigator.connection.effectiveType;
+        networkEffType.innerHTML = "effective type: " + effType;
     } else {
         networkEffType.remove();
     }
@@ -952,7 +953,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "brown"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -1048,6 +1049,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     }*/
 
     commute.innerHTML = "commute: " + commuteMode;
+
+    sec.innerHTML = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
 
 }, false);
 
