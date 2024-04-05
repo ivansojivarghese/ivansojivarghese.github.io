@@ -653,6 +653,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
 
+    var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
+
     if (ipAPIres && ipAPIres.online && clientAPIres.online && !shaked && !rotation && !docHide) {
 
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
@@ -1050,7 +1052,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     commute.innerHTML = "commute: " + commuteMode;
 
-    sec.innerHTML = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
+    sec.innerHTML = nDeviceAcc;
 
 }, false);
 
@@ -1216,7 +1218,11 @@ function fetchPWAInfo() {
 
     // about
 
-    commits.innerHTML = numberWithCommas(githubCommitsres.val);
+    if (githubCommitsres.online) {
+        commits.innerHTML = numberWithCommas(githubCommitsres.val);
+    } else {
+        commits.innerHTML = "many";
+    }
 
     // battery
 
@@ -1781,7 +1787,7 @@ function pwaRead() {
                 githubCommitsres.val = getGhCommits();
                 setTimeout(function() {
                     client_L = setInterval(function() {
-                        if (clientAPIres.online && githubCommitsres.online) {
+                        if (clientAPIres.online) {
                             ipAPI(clientAPIres.ipString);
                             // ipAPI("216.73.163.219");
                             clearInterval(client_L);
