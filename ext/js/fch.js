@@ -554,7 +554,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
         if (op.pwa.s) {
 
-            var motion_icon = document.querySelector('.pwa .home .banner .motion_icon'),
+            var motion_icon = document.querySelector('.pwa .home .banner .motionIcon'),
                 mI_img = motion_icon.children[0].classList,
                 keyW = ["walk", "run", "commute"],
                 target_mI = "",
