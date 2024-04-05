@@ -1158,7 +1158,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                             break;
                         }
                     }
-                    if ((velocityEstRef > Lv3t && refVelocity) || (!refVelocity && velocityEstRef > Lv1t)) {
+                    if ((velocityEstRef > Lv3t && refVelocity) || (!refVelocity && velocityEstRef > Lv2t)) {
                         motionType = "run";
                         for (var i = 0; i < stepsArray.length; i++) {
                             if (stepsArray[i] < 8) {
