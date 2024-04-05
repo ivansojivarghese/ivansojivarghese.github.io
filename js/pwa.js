@@ -652,7 +652,6 @@ function filteredAcceleration(r) { // filters raw data
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
     var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
-
     var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
 
     if (ipAPIres && ipAPIres.online && clientAPIres.online && !shaked && !rotation && !docHide) {
@@ -999,7 +998,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     let b = 0;
                     while (b < motionEndCountArray.length) {
-                        if (motionEndCountArray[b] > 2 && refVelocity) { // potential commute mode
+                        if (motionEndCountArray[b] > 2 && refVelocity && nDeviceAcc > 1) { // potential commute mode
                             commuteMode = true;
                             // motionType = "commute";
 
