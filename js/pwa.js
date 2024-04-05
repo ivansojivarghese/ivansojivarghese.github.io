@@ -954,7 +954,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "orange"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -972,12 +972,23 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                             timerCountStep[timerCountStep.length - 2],
                             timerCountStep[timerCountStep.length - 1]
                         ],
-                    walking = true;
+                    walking = true,
+                    walkingChange = false,
+                    walkingCount = 0;
+
                 for (var i = 0; i < stepsArray.length; i++) {
                     if (stepsArray[i] < 2) {
                         walking = false;
                         break;
                     }
+                }
+                for (var i = 0; i < stepsArray.length; i++) {
+                    if (stepsArray[i] < 2) {
+                        walkingCount++;
+                    }
+                }
+                if (walkingCount > 0 && walkingCount < 3) {
+                    walkingChange = true;
                 }
 
                 motionEndCountArray[motionEndCountArray.length] = motionEndCount;
@@ -998,7 +1009,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     let b = 0;
                     while (b < motionEndCountArray.length) {
-                        if (motionEndCountArray[b] > 2 && refVelocity && nDeviceAcc > 1) { // potential commute mode
+                        if (motionEndCountArray[b] > 2 && refVelocity && nDeviceAcc > 1 && !walkingChange) { // potential commute mode
                             commuteMode = true;
                             // motionType = "commute";
 
