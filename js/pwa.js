@@ -1792,7 +1792,7 @@ function pwaRead() {
                             // ipAPI("216.73.163.219");
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
-                                if (ipAPIres.online) {
+                                if (ipAPIres.online /*&& githubCommitsres.online*/) {
                                     weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
                                     clearInterval(ip_L);
                                     weather_L = setInterval(function() {
