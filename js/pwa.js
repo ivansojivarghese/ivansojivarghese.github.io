@@ -1794,7 +1794,7 @@ function pwaRead() {
                 clientAPI();
                 countryAPI("");
                 // countryAPI("216.73.163.219");
-                // githubCommitsres.val = getGhCommits();
+                githubCommitsres.val = getGhCommits();
                 setTimeout(function() {
                     client_L = setInterval(function() {
                         if (clientAPIres.online) {
