@@ -1185,7 +1185,7 @@ function determineMotionType() { // either NO motion, walk, run or commute
                 motionTypeStep = null;
             }, 6000);
         }
-    } else { // if commuting, ensure a hold for _ sec to confirm
+    } else if (timerCountStep.length >= 3) { // if commuting, ensure a hold for _ sec to confirm
         clearTimeout(motionTypeStep);
         motionTypeStep = null;
         if (motionTypeCommute === null) {
