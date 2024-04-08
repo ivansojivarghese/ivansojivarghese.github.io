@@ -954,7 +954,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "orange"; //
+        speedX.style.backgroundColor = "red"; //
         speedX.style.color = "white"; //
 
     } else {
@@ -1144,7 +1144,7 @@ function findClasses(cl, ar) {
 }
 
 function determineMotionType() { // either NO motion, walk, run or commute
-    if (!commuteMode) { // if in step motion, ensure hold of _ sec to confirm
+    if (!commuteMode && timerCountStep.length >= 3) { // if in step motion, ensure hold of _ sec to confirm
         clearTimeout(motionTypeCommute);
         motionTypeCommute = null;
         if (motionTypeStep === null) {
@@ -1794,8 +1794,8 @@ function pwaRead() {
                 ///////
 
                 clientAPI();
-                countryAPI("");
-                // countryAPI("216.73.163.219");
+                // countryAPI("");
+                countryAPI("216.73.163.219");
                 githubCommitsres.val = getGhCommits();
                 setTimeout(function() {
                     client_L = setInterval(function() {
