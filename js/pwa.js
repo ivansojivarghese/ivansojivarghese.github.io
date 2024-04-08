@@ -1021,6 +1021,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                             velocityEstRef = 0;
                             timerCountStep = [];
 
+                            velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+
                             /*
                             if (b === (motionEndCountArray.length - 1)) {
                                 if (commuteMode) {
