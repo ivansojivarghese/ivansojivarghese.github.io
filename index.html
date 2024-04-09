@@ -2116,9 +2116,10 @@
             });
 
             if (op.darkMode) {
-                // var loader = document.querySelector("#load_sc");
-                c_css(".lightBackground", "background-color: #303030 !important;", false, null, op, "darkMode");
-                c_css(".load_r", "border-top-color: #FFF;", false, null, op, "darkMode");
+                var loader = document.querySelector("#load_sc");
+                loader.style.background = "#303030";
+                // c_css(".lightBackground", "background-color: #303030 !important;", false, null, op, "darkMode");
+                // c_css(".load_r", "border-top-color: #FFF;", false, null, op, "darkMode");
                 toggleColorMode(null, true);
             }
         </script>
