@@ -790,7 +790,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEstRef = 0;
 
                 if (motionType !== "commute") {
-                    commuteMode = false;
+                    if (nDeviceAcc === 0) {
+                        commuteMode = false;
+                    }
                     motionType = "";
                 }
             }
@@ -955,7 +957,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "purple"; //
+        speedX.style.backgroundColor = "green"; //
         speedX.style.color = "white"; //
 
     } else {
