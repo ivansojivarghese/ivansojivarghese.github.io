@@ -2113,19 +2113,19 @@
                 if (result.isPrivate) {
                     op.darkMode = true;
                 }
-            });
 
-            if (op.darkMode) {
-                var loader = document.querySelector(".loader_pwa");
-                var load_r = document.querySelectorAll(".load_r_pwa");
-                loader.style.backgroundColor = "#303030";
-                let i = 0;
-                while (i < load_r.length) {
-                    load_r[i].style.borderTopColor = "#FFF";
-                    i++;
+                if (op.darkMode) {
+                    var loader = document.querySelector(".loader_pwa");
+                    var load_r = document.querySelectorAll(".load_r_pwa");
+                    loader.style.backgroundColor = "#303030";
+                    let i = 0;
+                    while (i < load_r.length) {
+                        load_r[i].style.borderTopColor = "#FFF";
+                        i++;
+                    }
+                    // toggleColorMode(null, true);
                 }
-                // toggleColorMode(null, true);
-            }
+            });
         </script>
         <!-- Multiple tabs detection -->
         <script>
