@@ -41,6 +41,10 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ m
 
 op.darkMode = isDarkMode();
 
+if (op.darkMode) {
+    toggleColorMode(null, true);
+}
+
 // var colorStates = 0;
 
 function toggleColorMode(e, init) { // light/dark modes toggling
