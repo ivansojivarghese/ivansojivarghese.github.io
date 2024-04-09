@@ -1215,6 +1215,15 @@ function degToCompass(num) {
     return arr[(val % 16)];
 }
 
+function getParameters() {
+    let urlString = window.location.href;
+    let paramString = urlString.split('?')[1];
+    let queryString = new URLSearchParams(paramString);
+    for(let pair of queryString.entries()) {
+        urlParams[pair[0]] = pair[1];
+    }
+}
+
 function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
@@ -1305,15 +1314,6 @@ function fetchPWAInfo() {
     if (r.o === "portrait" && window.innerWidth < 490) {
         sections.style.height = "calc(" + dev.uH.getBoundingClientRect().height + "px - 4rem)";
     }*/
-
-    function getParameters() {
-        let urlString = window.location.href;
-        let paramString = urlString.split('?')[1];
-        let queryString = new URLSearchParams(paramString);
-        for(let pair of queryString.entries()) {
-            urlParams[pair[0]] = pair[1];
-        }
-    }
 
     getParameters();
 
