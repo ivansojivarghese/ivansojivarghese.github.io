@@ -303,8 +303,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             }
         }
 
-        if (init && op.darkMode) {
-            
+        getParameters();
+        if (urlParams["nav1"]) {
+            var target = urlParams["nav1"];
+            activeTab = target;
         }
 
         if (active_icon === null) {
