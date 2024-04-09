@@ -1092,11 +1092,11 @@ window.setInterval(function() {
     if (motionCat !== "") {
         var target = ""; 
         if (motionCat === "walk") {
-            target = (!op.darkMode || init) ? "walk_img" : "walk_w_img";
+            target = (!op.darkMode) ? "walk_img" : "walk_w_img";
         } else if (motionCat === "run") {
-            target = (!op.darkMode || init) ? "run_img" : "run_w_img";
+            target = (!op.darkMode) ? "run_img" : "run_w_img";
         } else if (motionCat === "commute") {
-            target = (!op.darkMode || init) ? "commute_img" : "commute_w_img";
+            target = (!op.darkMode) ? "commute_img" : "commute_w_img";
         }
         motionIcon.classList.remove("d_n");
         if (exist) {
