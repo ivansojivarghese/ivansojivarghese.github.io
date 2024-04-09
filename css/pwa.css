@@ -113,7 +113,7 @@ body {
 .pwa .popups .pills.weatherInfo {
     right: calc(1rem + calc(env(safe-area-inset-right)));
     top: calc(4.8rem + env(safe-area-inset-top));
-    width: 11rem;
+    width: 10rem;
 }
 
 .pwa .popups .pills.weatherInfo .factWrap {
