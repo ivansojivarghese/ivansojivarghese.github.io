@@ -2119,7 +2119,11 @@
                 var loader = document.querySelector(".loader_pwa");
                 var load_r = document.querySelectorAll(".load_r_pwa");
                 loader.style.background = "#303030 !important";
-                load_r.style.borderTopColor = "#FFF";
+                let i = 0;
+                while (i < load_r.length) {
+                    load_r.style.borderTopColor = "#FFF";
+                    i++;
+                }
                 // toggleColorMode(null, true);
             }
         </script>
