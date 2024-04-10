@@ -113,7 +113,7 @@ body {
 .pwa .popups .pills.weatherInfo {
     right: calc(1rem + calc(env(safe-area-inset-right)));
     top: calc(4.8rem + env(safe-area-inset-top));
-    width: 10rem;
+    width: fit-content;
 }
 
 .pwa .popups .pills.weatherInfo .factWrap {
@@ -126,8 +126,11 @@ body {
 }
 
 .pwa .popups .pills.weatherInfo .factWrap .windDir {
-    margin-bottom: 0;
-    margin-left: 2.15rem;
+    display: inline-block;
+    margin: 0;
+    width: 1rem;
+    left: 2.2rem;
+    position: relative;
 }
 
 .pwa .popups .pills.weatherInfo .fact {
@@ -139,6 +142,7 @@ body {
     top: -0.55rem;
     font-size: 1rem;
     font-weight: bold;
+    padding-right: 0.5rem;
 }
 
 /*
