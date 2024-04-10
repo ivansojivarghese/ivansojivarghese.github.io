@@ -67,6 +67,8 @@ var normalAcc = 0,
     pitchRef = 0, // reference
     refZForce = 0; // reference z-force. (updates while stationary)
 
+var nDeviceTimeout = null;
+
 var motionType = "",
     commuteMode = false,
     motionTypeCommute = null,
@@ -149,10 +151,14 @@ function resetMotionParams() {
     clearInterval(accelerationInterval);
     clearTimeout(motionEndCountInterval);
 
+    clearTimeout(nDeviceTimeout);
+
     motionType = "";
     commuteMode = false;
     motionTypeCommute = null,
     motionTypeStep = null;
+
+    nDeviceTimeout = null;
 
     normalAcc = 0;
     timerCountStepCheck = 0;
@@ -790,8 +796,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEstRef = 0;
 
                 if (motionType !== "commute") {
-                    if (nDeviceAcc === 0) {
-                        commuteMode = false;
+                    if (nDeviceAcc === 0) { // if nDeviceAcc is 0 at least 3 sec.
+                        if (nDeviceTimeout === null) {
+                            nDeviceTimeout = setTimeout(function() {
+                                commuteMode = false;
+                            }, 3000);
+                        }
+                    } else {
+                        clearTimeout(nDeviceTimeout);
+                        nDeviceTimeout = null;
                     }
                     motionType = "";
                 }
@@ -957,7 +970,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
         }*/
 
-        speedX.style.backgroundColor = "green"; //
+        speedX.style.backgroundColor = "brown"; //
         speedX.style.color = "white"; //
 
     } else {
