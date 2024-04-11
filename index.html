@@ -2117,6 +2117,7 @@
                 if (op.darkMode) {
                     var loader = document.querySelector(".loader_pwa");
                     var load_r = document.querySelectorAll(".load_r_pwa");
+                    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
                     loader.style.backgroundColor = "#303030";
                     let i = 0;
                     while (i < load_r.length) {
