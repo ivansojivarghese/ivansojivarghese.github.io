@@ -90,6 +90,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
     if ((!op.darkMode || init) /*&& colorStates <= 2 && colorStates !== 0*/) { // if light, change to dark
 
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
+
         for (i = 0; i < fvc.length; i++) { // change favicon
             fvc[i].setAttribute("href", fvc_d[i]); 
         }
@@ -142,6 +144,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         }
 
     } else /*if (colorStates <= 2 && colorStates !== 0)*/ { // if dark, change to light
+
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F4F4F4');
 
         for (i = 0; i < fvc.length; i++) { // change favicon
             fvc[i].setAttribute("href", fvc_L[i]); 
