@@ -796,10 +796,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 velocityEstRef = 0;
 
                 if (motionType !== "commute") {
-                    if (nDeviceAcc < 1) { // if nDeviceAcc is almost 0 for at least 3 sec.
+                    if (nDeviceAcc < 0.5) { // if nDeviceAcc is almost 0 for at least 3 sec.
                         if (nDeviceTimeout === null) {
                             nDeviceTimeout = setTimeout(function() {
                                 commuteMode = false;
+                                nDeviceTimeout = null;
                             }, 3000);
                         }
                     } else {
