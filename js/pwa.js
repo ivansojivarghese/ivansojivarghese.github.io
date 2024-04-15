@@ -1026,7 +1026,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
                     let b = 0;
                     while (b < motionEndCountArray.length) {
-                        if (motionEndCountArray[b] > 2 && refVelocity && nDeviceAcc > 1 && !walkingChange) { // potential commute mode
+                        if (motionEndCountArray[b] > 2 && nDeviceAcc > 1 && !walkingChange) { // potential commute mode
                             commuteMode = true;
                             // motionType = "commute";
 
