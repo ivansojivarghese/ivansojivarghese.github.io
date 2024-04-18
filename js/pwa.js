@@ -1132,9 +1132,9 @@ window.setInterval(function() {
         e_Fd(motionIcon, true);
         setTimeout(function() {
             motionIcon.classList.add("d_n");
-        }, op.te);
+        }, op.t);
     }
-}, op.t);
+}, op.te);
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
 
