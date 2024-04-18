@@ -1134,7 +1134,7 @@ window.setInterval(function() {
             motionIcon.classList.add("d_n");
         }, op.t);
     }
-}, 1000/60);
+}, op.t);
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
 
