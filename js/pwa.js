@@ -1116,6 +1116,9 @@ window.setInterval(function() {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
         }
         motionIcon.classList.remove("d_n");
+        setTimeout(function() {
+            e_Fd(motionIcon, false);
+        }, 10);
         if (exist) {
             motionIcon.children[0].classList.remove(exist);
         }
@@ -1126,7 +1129,10 @@ window.setInterval(function() {
         if (exist) {
             motionIcon.children[0].classList.remove(exist);
         }
-        motionIcon.classList.add("d_n");
+        e_Fd(motionIcon, true);
+        setTimeout(function() {
+            motionIcon.classList.add("d_n");
+        }, op.t);
     }
 }, 1000/60);
 
