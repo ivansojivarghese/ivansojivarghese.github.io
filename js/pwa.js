@@ -1132,7 +1132,7 @@ window.setInterval(function() {
         e_Fd(motionIcon, true);
         setTimeout(function() {
             motionIcon.classList.add("d_n");
-        }, op.t);
+        }, op.te);
     }
 }, op.t);
 
