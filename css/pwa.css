@@ -410,6 +410,12 @@ body {
 .pwa .about .content h5 {
     margin-bottom: 0.75em;
 }
+
+.pwa .motionIcon {
+    border-radius: 50%;
+    background-color: #F4F4F4;
+}
+
 /*
 .pwa .about .social_media > div {
     display: flex;

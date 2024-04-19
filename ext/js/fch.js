@@ -283,6 +283,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             wind_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .wind_img') : document.querySelector('.pwa .popups .wind_w_img'),
             temp_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .temp_img') : document.querySelector('.pwa .popups .temp_w_img'),
 
+            motionIcon = document.querySelector('.pwa .home .motionIcon'),
+
             icons = document.querySelectorAll('.pwa .navbar .button'),
             active_icon = null,
             active_icon_name = "";
@@ -479,6 +481,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             temp_icon.classList.add("temp_w_img");
 
             weather_icon.style.borderRadius = "0.5rem";
+            motionIcon.classList.add("shade");
             navbar_pwa.classList.add("shade");
             fab.classList.add("shade");
 
@@ -673,6 +676,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             temp_icon.classList.add("temp_img");
 
             weather_icon.style.borderRadius = "";
+            motionIcon.classList.remove("shade");
             navbar_pwa.classList.remove("shade");
             fab.classList.remove("shade");
 
