@@ -1104,8 +1104,8 @@ window.setInterval(function() {
         } else if (motionCat === "commute") {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
         }
+        motionIcon.classList.remove("d_n");
         e_Fd(motionIcon, false);
-        motionIcon.addEventListener("click", openPopUp('motionInfo'));
         if (exist) {
             motionIcon.children[0].classList.remove(exist);
         }
@@ -1114,10 +1114,10 @@ window.setInterval(function() {
         }
     } else {
         e_Fd(motionIcon, true);
-        motionIcon.removeEventListener("click", openPopUp('motionInfo'));
         if (exist) {
             setTimeout(function() {
                 motionIcon.children[0].classList.remove(exist);
+                motionIcon.classList.add("d_n");
             }, op.t);
         }
     }
