@@ -112,7 +112,8 @@ body {
 
 .pwa .popups .pills.motionInfo {
     right: 0;
-    left: calc(2rem + calc(env(safe-area-inset-left)));
+    top: calc(4.8rem + env(safe-area-inset-top));
+    left: calc(1rem + calc(env(safe-area-inset-left)));
 }
 
 .pwa .popups .pills.weatherInfo {
