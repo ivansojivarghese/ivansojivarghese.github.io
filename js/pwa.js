@@ -1115,10 +1115,10 @@ window.setInterval(function() {
         } else if (motionCat === "commute") {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
         }
-        motionIcon.classList.remove("d_n");
-        setTimeout(function() {
+        // motionIcon.classList.remove("d_n");
+        // setTimeout(function() {
             e_Fd(motionIcon, false);
-        }, 10);
+        // }, 10);
         if (exist) {
             motionIcon.children[0].classList.remove(exist);
         }
@@ -1130,9 +1130,10 @@ window.setInterval(function() {
             motionIcon.children[0].classList.remove(exist);
         }
         e_Fd(motionIcon, true);
+        /*
         setTimeout(function() {
             motionIcon.classList.add("d_n");
-        }, op.t);
+        }, op.t);*/
     }
 }, op.te);
 
