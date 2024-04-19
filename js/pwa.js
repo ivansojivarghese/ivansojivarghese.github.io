@@ -1105,7 +1105,9 @@ window.setInterval(function() {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
         }
         motionIcon.classList.remove("d_n");
-        e_Fd(motionIcon, false);
+        setTimeout(function() {
+            e_Fd(motionIcon, false);
+        }, op.t);
         if (exist) {
             motionIcon.children[0].classList.remove(exist);
         }
