@@ -1092,17 +1092,6 @@ window.setInterval(function() {
 
     vel.innerHTML = motionType;
 
-    /*
-    if (commuteModeRevert === null) {
-        commuteModeRevert = setTimeout(function() {
-            if (!motionType) {
-                commuteMode = false;
-            }
-            clearTimeout(commuteModeRevert);
-            commuteModeRevert = null;
-        }, 6100);
-    }*/
-
     var motionCat = motionType,
         keyW = ["run", "walk", "commute"],
         exist = findClasses(motionIcon.children[0].classList, keyW);
@@ -1115,10 +1104,7 @@ window.setInterval(function() {
         } else if (motionCat === "commute") {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
         }
-        // motionIcon.classList.remove("d_n");
-        // setTimeout(function() {
-            e_Fd(motionIcon, false);
-        // }, 10);
+        e_Fd(motionIcon, false);
         if (exist) {
             motionIcon.children[0].classList.remove(exist);
         }
@@ -1126,14 +1112,12 @@ window.setInterval(function() {
             motionIcon.children[0].classList.add(target);
         }
     } else {
-        if (exist) {
-            motionIcon.children[0].classList.remove(exist);
-        }
         e_Fd(motionIcon, true);
-        /*
-        setTimeout(function() {
-            motionIcon.classList.add("d_n");
-        }, op.t);*/
+        if (exist) {
+            setTimeout(function() {
+                motionIcon.children[0].classList.remove(exist);
+            }, op.t);
+        }
     }
 }, op.te);
 
