@@ -109,12 +109,13 @@ body {
 .pwa .popups .pills.deviceInfo {
     width: 10rem;
 }
-/*
-.pwa .popups .pills.motionInfo {
+
+.pwa .popups .pills.settingsInfo {
     right: 0;
     top: calc(4.8rem + env(safe-area-inset-top));
     left: calc(1rem + calc(env(safe-area-inset-left)));
-}*/
+    width: 10rem;
+}
 
 .pwa .popups .pills.weatherInfo {
     right: calc(1rem + calc(env(safe-area-inset-right)));
