@@ -105,9 +105,10 @@ const networkDownlink = document.querySelector('.pwa .popups .deviceInfo .networ
 
 const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
-const commute = document.querySelector('.pwa .popups .deviceInfo .commute');
 const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
 
+/*
+const commute = document.querySelector('.pwa .popups .deviceInfo .commute');
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
 const stride = document.querySelector('.pwa .popups .deviceInfo .stride');
@@ -116,6 +117,7 @@ const velPoints = document.querySelector('.pwa .popups .deviceInfo .velPoints');
 const acc = document.querySelector('.pwa .popups .deviceInfo .acc');
 const accDir = document.querySelector('.pwa .popups .deviceInfo .accDir');
 const sec = document.querySelector('.pwa .popups .deviceInfo .sec');
+*/
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -758,7 +760,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionEnd = true;
                     motionEndCount++;
 
-                    motionX.innerHTML = motionEnd + ", reset";
+                    // motionX.innerHTML = motionEnd + ", reset";
                     clearTimeout(motionEndInterval);
                 }, 100);
 
@@ -770,7 +772,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionEnd = false;
 
                     accelerationDir = true;
-                    motionX.innerHTML = motionEnd;
+                    // motionX.innerHTML = motionEnd;
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
 
@@ -839,7 +841,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             motionEnd = false;
 
-            motionX.innerHTML = motionEnd;
+            // motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
                 clearTimeout(motionEndInterval);
                 motionEndInterval = null;
@@ -855,7 +857,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             motionEnd = false;
 
-            motionX.innerHTML = motionEnd;
+            // motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
                 clearTimeout(motionEndInterval);
                 motionEndInterval = null;
@@ -864,7 +866,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         steps.innerHTML = "steps: " + stepsCount;
-        speedX.innerHTML = motion;
+        // speedX.innerHTML = motion;
         
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
@@ -920,17 +922,17 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                                     ],
                         motionRes = motionTrendCal(motionTrend);
                     if (motionRes === "const") {
-                        stride.innerHTML = "const";
+                        // stride.innerHTML = "const";
                     } else if (motionRes === "decre") {
                         var diff = Math.abs(motionTrend[0] - motionTrend[2]),
                             velReduction = (diff * avgMotionStride) / 3;
                         velocityConstantRef -= velReduction;
-                        stride.innerHTML = "decre";
+                        // stride.innerHTML = "decre";
                     } else if (motionRes === "incre") {
                         var diff = Math.abs(motionTrend[2] - motionTrend[0]),
                             velIncrease = (diff * avgMotionStride) / 3;
                         velocityConstantRef += velIncrease;
-                        stride.innerHTML = "incre";
+                        // stride.innerHTML = "incre";
                     }
                 } 
                 if (velocityConstantRef < 0) {
@@ -1079,9 +1081,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         commuteMode = false;
     }*/
 
-    commute.innerHTML = "commute: " + commuteMode;
-
-    sec.innerHTML = nDeviceAcc;
+    // commute.innerHTML = "commute: " + commuteMode;
+    // sec.innerHTML = nDeviceAcc;
 
 }, false);
 
@@ -1090,7 +1091,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 window.setInterval(function() {
     determineMotionType();
 
-    vel.innerHTML = motionType;
+    // vel.innerHTML = motionType;
 
     var motionCat = motionType,
         keyW = ["run", "walk", "commute"],
