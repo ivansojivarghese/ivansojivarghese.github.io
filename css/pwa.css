@@ -112,8 +112,8 @@ body {
 
 .pwa .popups .pills.settingsInfo {
     right: 0;
-    top: calc(4.8rem + env(safe-area-inset-top));
-    left: calc(1rem + calc(env(safe-area-inset-left)));
+    top: calc(4.2rem + env(safe-area-inset-top));
+    left: calc(2rem + calc(env(safe-area-inset-left)));
     width: 10rem;
 }
 
