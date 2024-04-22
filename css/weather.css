@@ -334,7 +334,7 @@
 	 transform: rotate(-60deg);
 }
  .mist {
-	 width: 2rem;
+	 width: 2.5rem;
 	 height: 2rem;
 	 clip-path: inset(0 0.3rem 0 0.2rem);
 }
