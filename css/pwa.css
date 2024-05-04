@@ -352,8 +352,9 @@ body {
 .pwa .navbar .button .img .active {
     position: absolute;
     z-index: -10;
-    border-radius: 50%;
-    width: 2rem;
+    border-radius: 1rem;
+    left: -0.5rem;
+    width: 4rem;
     height: 2rem;
     background-color: #F4F4F4;
 }
