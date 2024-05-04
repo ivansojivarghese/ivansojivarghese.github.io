@@ -678,6 +678,11 @@ body {
         display: none;
     }
 
+    .pwa .navbar .button .img .active {
+        left: 0rem;
+        width: 3rem;
+    }
+
     /*
     .pwa .noRSpace {
         padding-right: 2em;
