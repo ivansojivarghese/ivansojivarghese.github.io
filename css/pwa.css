@@ -353,8 +353,8 @@ body {
     position: absolute;
     z-index: -10;
     border-radius: 1rem;
-    left: -0.5rem;
-    width: 4rem;
+    left: -0.25rem;
+    width: 3.5rem;
     height: 1.9rem;
     background-color: #F4F4F4;
 }
