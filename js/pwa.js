@@ -760,7 +760,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionEnd = true;
                     motionEndCount++;
 
-                    motionX.innerHTML = motionEnd + ", reset";
+                    // motionX.innerHTML = motionEnd + ", reset";
                     clearTimeout(motionEndInterval);
                 }, 100);
 
@@ -772,7 +772,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     motionEnd = false;
 
                     accelerationDir = true;
-                    motionX.innerHTML = motionEnd;
+                    // motionX.innerHTML = motionEnd;
                     oneStopMotion = true;
                     clearTimeout(motionInterval);
 
@@ -841,7 +841,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             motionEnd = false;
 
-            motionX.innerHTML = motionEnd;
+            // motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
                 clearTimeout(motionEndInterval);
                 motionEndInterval = null;
@@ -857,7 +857,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             motionEnd = false;
 
-            motionX.innerHTML = motionEnd;
+            // motionX.innerHTML = motionEnd;
             if (motionEndInterval !== null) {
                 clearTimeout(motionEndInterval);
                 motionEndInterval = null;
@@ -866,7 +866,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         }
 
         steps.innerHTML = "steps: " + stepsCount;
-        speedX.innerHTML = motion;
+        // speedX.innerHTML = motion;
         
         if (refVelocity && motionVelocity) { // absolute velocity (from stationary)
             let i = 0;
@@ -1081,7 +1081,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         commuteMode = false;
     }*/
 
-    commute.innerHTML = "commute: " + commuteMode;
+    // commute.innerHTML = "commute: " + commuteMode;
     // sec.innerHTML = nDeviceAcc;
 
 }, false);
@@ -1091,7 +1091,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 window.setInterval(function() {
     determineMotionType();
 
-    vel.innerHTML = motionType;
+    // vel.innerHTML = motionType;
 
     var motionCat = motionType,
         keyW = ["run", "walk", "commute"],
