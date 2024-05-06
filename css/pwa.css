@@ -697,7 +697,7 @@ body {
     }
 
     .pwa .popups .pills.settingsInfo {
-        left: calc(2rem + 2rem + 2rem + calc(env(safe-area-inset-left)));
+        left: calc(6rem + calc(env(safe-area-inset-left)));
     }
 
     /*
@@ -796,6 +796,10 @@ body {
         box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
     }
 
+    .pwa .popups .pills.settingsInfo {
+        left: calc(7rem + calc(env(safe-area-inset-left)));
+    }
+
     .pwa .sections {
         width: 100vw;
     }
@@ -889,6 +893,10 @@ body {
 
     .pwa .navbar {
         left: 2rem;
+    }
+
+    .pwa .popups .pills.settingsInfo {
+        left: calc(8rem + calc(env(safe-area-inset-left)));
     }
 
     .pwa .m_L-10 {
