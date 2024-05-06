@@ -266,6 +266,9 @@ function navButtonActive(b, e, v) {
 
     if (target.classList.contains("hoverB") || v) {
 
+        const desActive = target.children[0].children[0]; // active/hover effect
+        desActive.classList.add("hold");
+
         for (i = 0; i < buttons.length; i++) { // remove from other non-targets
             if (buttons[i] !== target) {
                 if (((buttons[i].classList.contains("buttonActive") && !op.darkChange) || (!buttons[i].classList.contains("buttonActive") && op.darkChange)) && !buttons[i].classList.contains("swap")) {
