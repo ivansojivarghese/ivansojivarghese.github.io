@@ -275,7 +275,9 @@ function navButtonActive(b, e, v) {
                     var old;
                     for (j = 0; j < buttons[i].classList.length; j++) {
                         if (buttons[i].classList[j] !== "button" && buttons[i].classList[j] !== "buttonActive" && buttons[i].classList[j] !== "trs" && buttons[i].classList[j] !== "hoverB") {
+                            const oriActive = buttons[i].children[0].children[0];
                             old = buttons[i].classList[j];
+                            oriActive.classList.remove("hold");
                             break;
                         }
                     }
