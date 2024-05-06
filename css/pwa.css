@@ -696,6 +696,10 @@ body {
         width: 3rem;
     }
 
+    .pwa .popups .pills.settingsInfo {
+        left: calc(2rem + 2rem + 2rem + calc(env(safe-area-inset-left)));
+    }
+
     /*
     .pwa .noRSpace {
         padding-right: 2em;
