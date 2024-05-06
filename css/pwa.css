@@ -687,6 +687,11 @@ body {
     }
 
     .pwa .navbar .button .img .active {
+        width: 2rem;
+        left: 0.5rem;
+    }
+
+    .pwa .navbar .button .img .active.hold {
         left: 0rem;
         width: 3rem;
     }
