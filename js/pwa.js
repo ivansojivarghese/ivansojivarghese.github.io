@@ -1096,6 +1096,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 var oldMotionType = "";
 
 function motionUXChange(m, o) {
+    const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
     if (m !== o) {
         if (m === "walk") {
             homeBtn.classList.add("d_n");
