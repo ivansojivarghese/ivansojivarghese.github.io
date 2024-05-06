@@ -1093,6 +1093,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
 // var commuteModeRevert = null;
 
+function motionUXChange(m) {
+    if (m !== motionType) {
+        if (m === "walk") {
+            homeBtn.classList.add("d_n");
+        }
+    }
+}
+
 window.setInterval(function() {
     determineMotionType();
 
@@ -1105,6 +1113,7 @@ window.setInterval(function() {
         var target = ""; 
         if (motionCat === "walk") {
             target = (!op.darkMode) ? "walk_img" : "walk_w_img";
+            motionUXChange("walk");
         } else if (motionCat === "run") {
             target = (!op.darkMode) ? "run_img" : "run_w_img";
         } else if (motionCat === "commute") {
