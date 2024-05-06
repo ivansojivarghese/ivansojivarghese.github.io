@@ -1097,8 +1097,12 @@ var oldMotionType = "";
 
 function motionUXChange(m, o) {
     const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
+    const aboutBtn = document.querySelector('.pwa .navbar .button.about') || document.querySelector('.pwa .navbar .button.about_dark');
     if (m !== o) {
         if (m === "walk") {
+            if (activeTab !== 'about') {
+                navButtonActive('about', aboutBtn, true)
+            }
             homeBtn.classList.add("d_n");
             oldMotionType = "walk";
         }
