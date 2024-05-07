@@ -256,17 +256,18 @@ function navButtonActive(b, e, v) {
         });
         if (fab2Check) {
             fab2.classList.remove("hide");
-            fab2.addEventListener("click", function() {
-                // close function
-            });
+            if (fab2Close) {
+                fab2i.classList.add("close_w_img");
+            } else {
+                fab2i.classList.remove("close_w_img");
+            }
+            fab2.addEventListener("click", fab2Action);
         }
     } else {
         fab.classList.add("hide");
         if (fab2Check) {
             fab2.classList.add("hide");
-            fab2.removeEventListener("click", function() {
-                // close function
-            });
+            fab2.removeEventListener("click", fab2Action);
         }
     }
 
@@ -1110,6 +1111,15 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
 var oldMotionType = "";
 var fab2Check = false;
+var fab2Close = false;
+
+function fab2Action() {
+    if (fab2Close) { // close
+
+    } else { // home (open)
+
+    }
+}
 
 function motionUXChange(m, o) {
     const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
@@ -1117,7 +1127,12 @@ function motionUXChange(m, o) {
     if (m !== o) {
         if (m === "walk") {
             if (activeTab !== 'about') {
-                navButtonActive('about', aboutBtn, true)
+                if (activeTab === 'home') {
+                    fab2Close = true; // show 'close' on fab2
+                    navButtonActive('about', aboutBtn, true)
+                } else {
+                    fab2Close = false; // show 'home' on fab2
+                }
             }
             homeBtn.classList.add("d_n");
             oldMotionType = "walk";
@@ -1391,9 +1406,12 @@ function fetchPWAInfo() {
             });
             if (fab2Check) {
                 fab2.classList.remove("hide");
-                fab2.addEventListener("click", function() {
-                    // close function
-                });
+                if (fab2Close) {
+                    fab2i.classList.add("close_w_img");
+                } else {
+                    fab2i.classList.remove("close_w_img");
+                }
+                fab2.addEventListener("click", fab2Action);
             }
         }
 

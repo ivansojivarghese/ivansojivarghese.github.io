@@ -932,7 +932,7 @@
                 </div>
                 <div class="fab2 trs hoverB hide">
                     <div class="img_iconBtn trs">
-
+                        <div class="img trs img_icon d_i"></div>
                     </div>
                 </div>
                 <div class="sections scrollBarFunction lightBackground">
@@ -1897,6 +1897,7 @@
             const navbar = document.querySelector('.pwa .navbar');
             const fab = document.querySelector('.pwa .fab');
             const fab2 = document.querySelector('.pwa .fab2');
+            const fab2i = document.querySelector('.pwa .fab2 .img_icon');
 
             const aboutShareData = {
                 title: "Ivan Varghese",
@@ -2015,9 +2016,12 @@
                                     });
                                     if (fab2Check) {
                                         fab2.classList.remove("hide");
-                                        fab2.addEventListener("click", function() {
-                                            // close function
-                                        });
+                                        if (fab2Close) {
+                                            fab2i.classList.add("close_w_img");
+                                        } else {
+                                            fab2i.classList.remove("close_w_img");
+                                        }
+                                        fab2.addEventListener("click", fab2Action);
                                     }
                                 }
                             } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
@@ -2025,9 +2029,7 @@
                                 fab.classList.add("hide");
                                 if (fab2Check) {
                                     fab2.classList.add("hide");
-                                    fab2.removeEventListener("click", function() {
-                                        // close function
-                                    });
+                                    fab2.removeEventListener("click", fab2Action);
                                 }
                             } else {
                                 if (navbarHide && scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
@@ -2047,9 +2049,12 @@
                                         });
                                         if (fab2Check) {
                                             fab2.classList.remove("hide");
-                                            fab2.addEventListener("click", function() {
-                                                // close function
-                                            });
+                                            if (fab2Close) {
+                                                fab2i.classList.add("close_w_img");
+                                            } else {
+                                                fab2i.classList.remove("close_w_img");
+                                            }
+                                            fab2.addEventListener("click", fab2Action);
                                         }
                                     }
                                     if (!navbarHideMod) {
@@ -2067,9 +2072,7 @@
                                     fab.classList.add("hide");
                                     if (fab2Check) {
                                         fab2.classList.add("hide");
-                                        fab2.removeEventListener("click", function() {
-                                            // close function
-                                        });
+                                        fab2.removeEventListener("click", fab2Action);
                                     }
                                     if (!navbarHideMod) {
                                         navbarHideMod = true;
