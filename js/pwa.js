@@ -237,6 +237,7 @@ function navButtonActive(b, e, v) {
     const buttons = document.querySelectorAll('.pwa .navbar .button');
 
     const fab = document.querySelector('.pwa .fab');
+    const fab2 = document.querySelector('.pwa .fab2');
 
     /*
     if (target.classList.contains("about") || target.classList.contains("about_dark")) {
@@ -1096,6 +1097,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 // var commuteModeRevert = null;
 
 var oldMotionType = "";
+var fab2Check = false;
 
 function motionUXChange(m, o) {
     const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
@@ -1107,6 +1109,7 @@ function motionUXChange(m, o) {
             }
             homeBtn.classList.add("d_n");
             oldMotionType = "walk";
+            fab2Check = true;
         }
     }
 }

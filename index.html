@@ -932,7 +932,7 @@
                 </div>
                 <div class="fab2 trs hoverB hide">
                     <div class="img_iconBtn trs">
-                        
+
                     </div>
                 </div>
                 <div class="sections scrollBarFunction lightBackground">
@@ -1896,6 +1896,7 @@
 
             const navbar = document.querySelector('.pwa .navbar');
             const fab = document.querySelector('.pwa .fab');
+            const fab2 = document.querySelector('.pwa .fab2');
 
             const aboutShareData = {
                 title: "Ivan Varghese",
@@ -2012,6 +2013,12 @@
                                             // console.log(err);
                                         }
                                     });
+                                    if (fab2Check) {
+                                        fab2.classList.remove("hide");
+                                        fab2.addEventListener("click", function() {
+                                            // close function
+                                        });
+                                    }
                                 }
                             } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
                                 navbar.classList.add("hide");
