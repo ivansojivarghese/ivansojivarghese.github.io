@@ -36,7 +36,8 @@ body {
 }
 
 .pwa .fab2.hide {
-    
+    transform: translateY(4.25rem);
+    opacity: 0;
 }
 
 .pwa .fab:active, .pwa .fab2:active {
@@ -52,7 +53,7 @@ body {
     transform: scale(0);
 }
 
-.pwa .fab.shade {
+.pwa .fab.shade, .pwa .fab2.shade {
     background-color: #3D3D3D;
 }
 
