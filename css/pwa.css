@@ -34,7 +34,7 @@ body {
     top: -4rem;
 }
 
-.pwa .fab .img_iconBtn:first-child:active, .pwa .fab2:active {
+.pwa .fab:active, .pwa .fab2:active {
     transform: scale(0.9);
 }
 
@@ -43,13 +43,9 @@ body {
     padding: 1.1rem 1rem;
 }
 
-.pwa .fab.hide .img_iconBtn:first-child {
-    transform: scale(0);
-}
-/*
 .pwa .fab.hide {
     transform: scale(0);
-}*/
+}
 
 .pwa .fab.shade {
     background-color: #3D3D3D;
