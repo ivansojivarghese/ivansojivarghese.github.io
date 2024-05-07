@@ -1101,7 +1101,7 @@ function motionUXChange(m, o) {
     if (m !== o) {
         if (m === "walk") {
             if (activeTab !== 'about') {
-                navButtonActive('about', aboutBtn, false)
+                navButtonActive('about', aboutBtn, true)
             }
             homeBtn.classList.add("d_n");
             oldMotionType = "walk";
