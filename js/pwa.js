@@ -1115,9 +1115,10 @@ var fab2Close = false;
 
 function fab2Action() {
     if (fab2Close) { // close
-
+        navButtonActive('about', aboutBtn, true);
+        fab2Close = false;
     } else { // home (open)
-
+        fab2Close = true;
     }
 }
 
