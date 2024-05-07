@@ -35,6 +35,10 @@ body {
     z-index: 400;
 }
 
+.pwa .fab2.hide {
+    
+}
+
 .pwa .fab:active, .pwa .fab2:active {
     transform: scale(0.9);
 }
