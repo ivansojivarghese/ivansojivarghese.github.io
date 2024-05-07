@@ -351,8 +351,10 @@ function navButtonActive(b, e, v) {
             targetSection.classList.remove("d_n");
             targetSection.classList.add("scrollBarContainer");
 
-            activeTab = b;
+            // activeTab = b;
         }
+        
+        activeTab = b;
     }
 }
 /*
