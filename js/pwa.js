@@ -1114,6 +1114,7 @@ var fab2Check = false;
 var fab2Close = false;
 
 function fab2Action() {
+    const aboutBtn = document.querySelector('.pwa .navbar .button.about') || document.querySelector('.pwa .navbar .button.about_dark');
     if (fab2Close) { // close
         navButtonActive('about', aboutBtn, true);
         fab2Close = false;
