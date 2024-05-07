@@ -2023,6 +2023,12 @@
                             } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
                                 navbar.classList.add("hide");
                                 fab.classList.add("hide");
+                                if (fab2Check) {
+                                    fab2.classList.add("hide");
+                                    fab2.removeEventListener("click", function() {
+                                        // close function
+                                    });
+                                }
                             } else {
                                 if (navbarHide && scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
                                     
@@ -2039,6 +2045,12 @@
                                                 // console.log(err);
                                             }
                                         });
+                                        if (fab2Check) {
+                                            fab2.classList.remove("hide");
+                                            fab2.addEventListener("click", function() {
+                                                // close function
+                                            });
+                                        }
                                     }
                                     if (!navbarHideMod) {
                                         navbarHideMod = true;
@@ -2053,6 +2065,12 @@
                                     
                                     navbar.classList.add("hide");
                                     fab.classList.add("hide");
+                                    if (fab2Check) {
+                                        fab2.classList.add("hide");
+                                        fab2.removeEventListener("click", function() {
+                                            // close function
+                                        });
+                                    }
                                     if (!navbarHideMod) {
                                         navbarHideMod = true;
                                         setTimeout(function() {

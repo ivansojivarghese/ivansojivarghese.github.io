@@ -254,8 +254,20 @@ function navButtonActive(b, e, v) {
                 console.log(err);
             }
         });
+        if (fab2Check) {
+            fab2.classList.remove("hide");
+            fab2.addEventListener("click", function() {
+                // close function
+            });
+        }
     } else {
         fab.classList.add("hide");
+        if (fab2Check) {
+            fab2.classList.add("hide");
+            fab2.removeEventListener("click", function() {
+                // close function
+            });
+        }
     }
 
     let url = new URL(window.location.href);
@@ -1269,6 +1281,7 @@ function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
     const fab = document.querySelector('.pwa .fab');
+    const fab2 = document.querySelector('.pwa .fab2');
 
     const wordcloud = document.querySelectorAll('.pwa .home .wordcloud h1');
  
@@ -1376,6 +1389,12 @@ function fetchPWAInfo() {
                     console.log(err);
                 }
             });
+            if (fab2Check) {
+                fab2.classList.remove("hide");
+                fab2.addEventListener("click", function() {
+                    // close function
+                });
+            }
         }
 
     } else {
