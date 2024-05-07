@@ -43,9 +43,13 @@ body {
     padding: 1.1rem 1rem;
 }
 
-.pwa .fab.hide {
+.pwa .fab.hide .img_iconBtn:first-child {
     transform: scale(0);
 }
+/*
+.pwa .fab.hide {
+    transform: scale(0);
+}*/
 
 .pwa .fab.shade {
     background-color: #3D3D3D;
