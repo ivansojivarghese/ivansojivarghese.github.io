@@ -49,6 +49,10 @@ body {
     padding: 1.1rem 1rem;
 }
 
+.pwa .fab2 .img_iconBtn {
+    margin: 0;
+}
+
 .pwa .fab.hide {
     transform: scale(0);
 }
