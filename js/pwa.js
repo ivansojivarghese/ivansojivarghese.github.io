@@ -282,7 +282,7 @@ function navButtonActive(b, e, v) {
     url.search = params.toString();
     window.history.replaceState(null, null, url.search);
 
-    if (target.classList.contains("hoverB") || v || (!v && fab2Close)) {
+    if (target.classList.contains("hoverB") || v || (!v && fab2Check)) {
 
         const desActive = target.children[0].children[0]; // active/hover effect
         desActive.classList.add("hold");
