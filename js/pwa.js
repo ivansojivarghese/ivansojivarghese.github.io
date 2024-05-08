@@ -368,7 +368,7 @@ function navButtonActive(b, e, v) {
             const mainSection = document.querySelector('.pwa .sections.scrollBarFunction');
 
             const targetSection = document.querySelector('.pwa .sections .' + b);
-            const activeSection = (fab2Close && (activeTab === 'home' || activeTab === 'about')) ? document.querySelector('.pwa .sections .home') : document.querySelector('.pwa .sections .' + activeTab);
+            const activeSection = (fab2Close && activeTab === 'home') ? document.querySelector('.pwa .sections .home') : (fab2Close && activeTab === 'about') ? document.querySelector('.pwa .sections .about') : document.querySelector('.pwa .sections .' + activeTab);
 
             activeSection.classList.remove("scrollBarContainer");
             activeSection.classList.add("d_n");
