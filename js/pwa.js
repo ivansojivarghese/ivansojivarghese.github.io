@@ -1116,7 +1116,7 @@ var fab2Close = false;
 function fab2Action() {
     const aboutBtn = document.querySelector('.pwa .navbar .button.about') || document.querySelector('.pwa .navbar .button.about_dark');
     if (fab2Close) { // close
-        navButtonActive('about', aboutBtn, true);
+        navButtonActive('about', aboutBtn, false);
         fab2Close = false;
     } else { // home (open)
         fab2Close = true;
