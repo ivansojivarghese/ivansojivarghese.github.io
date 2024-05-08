@@ -118,7 +118,6 @@ const acc = document.querySelector('.pwa .popups .deviceInfo .acc');
 const accDir = document.querySelector('.pwa .popups .deviceInfo .accDir');
 const sec = document.querySelector('.pwa .popups .deviceInfo .sec');
 
-
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
     // defTab = tabs[0],
@@ -1113,10 +1112,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 }, false);
 
 // var commuteModeRevert = null;
-
-var oldMotionType = "";
-var fab2Check = false;
-var fab2Close = false;
 
 function fab2Action() {
     const aboutBtn = document.querySelector('.pwa .navbar .button.about') || document.querySelector('.pwa .navbar .button.about_dark');

@@ -1955,6 +1955,10 @@
             var navbarHide = false,
                 navbarHideMod = false;
 
+            var oldMotionType = "";
+            var fab2Check = false;
+            var fab2Close = false;
+
             normalScrollLoop = setInterval(function () {
                 var scrollBarF = op.pwa.s ? ".pwa .scrollBarFunction" : ".non-pwa .scrollBarFunction";
                 if (!$(scrollBarF).hasClass("z_O")) {
