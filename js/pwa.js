@@ -1,4 +1,3 @@
-const { doc } = require("firebase/firestore");
 
 var sI_1 = {},
     sI_2 = {},
