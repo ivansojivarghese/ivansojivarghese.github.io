@@ -262,6 +262,7 @@ function navButtonActive(b, e, v) {
                 fab2i.classList.add("close_w_img");*/
                 fab2i.classList.remove("close_w_img");
                 fab2i.classList.add("home_w_img");
+                fab2.style.backgroundColor = "";
                 fab2Close = false;
             } else {
                 /*
@@ -270,6 +271,7 @@ function navButtonActive(b, e, v) {
 
                 fab2i.classList.remove("home_w_img");
                 fab2i.classList.add("close_w_img");
+                fab2.style.backgroundColor = "var(--negate_col)";
                 fab2Close = true;
             }
             fab2.addEventListener("click", fab2Action);
