@@ -265,7 +265,7 @@ function navButtonActive(b, e, v) {
             }
             fab2.addEventListener("click", fab2Action);
         }
-    } else if (!fab2Check || (fab2Check && b === "about" && 'share' in navigator)) {
+    } else if (!fab2Check || (fab2Check && b !== "about")) {
         fab.classList.add("hide");
         if (fab2Check) {
             fab2.classList.add("hide");
