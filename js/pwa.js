@@ -1,3 +1,4 @@
+const { doc } = require("firebase/firestore");
 
 var sI_1 = {},
     sI_2 = {},
@@ -238,6 +239,7 @@ function navButtonActive(b, e, v) {
 
     const fab = document.querySelector('.pwa .fab');
     const fab2 = document.querySelector('.pwa .fab2');
+    const fab2i = document.querySelector('.pwa .fab2 .img_icon');
 
     /*
     if (target.classList.contains("about") || target.classList.contains("about_dark")) {
