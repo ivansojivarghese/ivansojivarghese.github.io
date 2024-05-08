@@ -276,7 +276,9 @@ function navButtonActive(b, e, v) {
     let url = new URL(window.location.href);
     let params = url.searchParams;
     // update nav1
-    params.set("nav1", b);
+    if (!v) {
+        params.set("nav1", b);
+    }
     url.search = params.toString();
     window.history.replaceState(null, null, url.search);
 
