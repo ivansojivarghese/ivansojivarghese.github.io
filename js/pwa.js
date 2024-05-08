@@ -1121,6 +1121,7 @@ function fab2Action() {
         navButtonActive('about', aboutBtn, false);
         fab2Close = false;
     } else { // home (open)
+        navButtonActive('home', aboutBtn, false);
         fab2Close = true;
     }
 }
