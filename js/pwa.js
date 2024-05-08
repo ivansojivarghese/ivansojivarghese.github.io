@@ -265,7 +265,7 @@ function navButtonActive(b, e, v) {
             }
             fab2.addEventListener("click", fab2Action);
         }
-    } else if (!fab2Check || (fab2Check && b !== "about")) {
+    } else if (!fab2Check || (fab2Check && b !== "about" && b !== "home")) {
         fab.classList.add("hide");
         if (fab2Check) {
             fab2.classList.add("hide");
