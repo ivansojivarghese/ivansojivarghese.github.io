@@ -1144,7 +1144,8 @@ function motionUXChange(m, o) {
             if (activeTab !== 'about') {
                 if (activeTab === 'home') {
                     fab2Close = true; // show 'close' on fab2
-                    navButtonActive('about', aboutBtn, true)
+                    navButtonActive('about', aboutBtn, true);
+                    activeTab = "home";
                 } else {
                     fab2Close = false; // show 'home' on fab2
                 }
