@@ -257,11 +257,18 @@ function navButtonActive(b, e, v) {
         if (fab2Check) {
             fab2.classList.remove("hide");
             if (fab2Close) {
+                /*
                 fab2i.classList.remove("home_w_img");
-                fab2i.classList.add("close_w_img");
-            } else {
+                fab2i.classList.add("close_w_img");*/
                 fab2i.classList.remove("close_w_img");
                 fab2i.classList.add("home_w_img");
+            } else {
+                /*
+                fab2i.classList.remove("close_w_img");
+                fab2i.classList.add("home_w_img");*/
+
+                fab2i.classList.remove("home_w_img");
+                fab2i.classList.add("close_w_img");
             }
             fab2.addEventListener("click", fab2Action);
         }
