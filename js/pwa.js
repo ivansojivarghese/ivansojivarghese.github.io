@@ -1139,6 +1139,7 @@ function fab2Action() {
 function motionUXChange(m, o) {
     const homeBtn = document.querySelector('.pwa .navbar .button.home') || document.querySelector('.pwa .navbar .button.home_dark');
     const aboutBtn = document.querySelector('.pwa .navbar .button.about') || document.querySelector('.pwa .navbar .button.about_dark');
+    const navbar = document.querySelector('.pwa .navbar');
     if (m !== o) {
         if (m === "walk") {
             if (activeTab !== 'about') {
@@ -1153,6 +1154,7 @@ function motionUXChange(m, o) {
             homeBtn.classList.add("d_n");
             oldMotionType = "walk";
             fab2Check = true;
+            navbar.classList.add("fab2_nav");
         }
     }
 }

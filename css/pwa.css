@@ -710,6 +710,14 @@ body {
         display: none;
     }
 
+    .pwa .fab2 {
+        bottom: 2rem;
+    }
+
+    .pwa .navbar.fab2_nav .button.clicks, .pwa .navbar.fab2_nav .button.clicks_dark {
+        margin-top: calc(100dvh - 12rem - (calc((100dvh - 15rem))));
+    }
+
     .pwa .navbar .button .img .active {
         width: 2rem;
         left: 0.5rem;
