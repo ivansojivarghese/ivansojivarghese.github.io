@@ -245,7 +245,7 @@ function navButtonActive(b, e, v) {
         e_Fd(profile_image, false);
     }*/
 
-    if (b === "about" && 'share' in navigator) {
+    if ((b === "about" || b === "home") && 'share' in navigator) {
         fab.classList.remove("hide");
         fab.addEventListener("click", async () => {
             try {
