@@ -53,6 +53,10 @@ body {
     margin: 0;
 }
 
+.home_w_img {
+    background-image: url("../pwa/home_dark.png");
+}
+
 .pwa .fab.hide {
     transform: scale(0);
 }
