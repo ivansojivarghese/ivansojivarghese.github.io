@@ -231,6 +231,8 @@ document.addEventListener("visibilitychange", () => {
     }
 });
 
+var firstNBA = true;
+
 function navButtonActive(b, e, v) {
     var target = e.currentTarget || e;
     const buttons = document.querySelectorAll('.pwa .navbar .button');
@@ -239,6 +241,10 @@ function navButtonActive(b, e, v) {
     const fab2 = document.querySelector('.pwa .fab2');
     const fab2i = document.querySelector('.pwa .fab2 .img_icon');
 
+    if (firstNBA) {
+        firstNBA = false;
+    }
+    
     /*
     if (target.classList.contains("about") || target.classList.contains("about_dark")) {
         const profile_image = document.querySelector('.pwa .profile_image');
