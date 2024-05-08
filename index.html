@@ -2008,7 +2008,7 @@
 
                             if (scrollBarPosArr.every(item => item === 0)) {
                                 navbar.classList.remove("hide");
-                                if (activeTab === "about" && 'share' in navigator) {
+                                if ((activeTab === "about" || (activeTab === "home" && fab2Check)) && 'share' in navigator) {
                                     // fab.classList.add("share_w_img");
                                     fab.classList.remove("hide");
                                     fab.addEventListener("click", async () => {
@@ -2044,7 +2044,7 @@
                                     // console.log("show");
 
                                     navbar.classList.remove("hide");
-                                    if (activeTab === "about" && 'share' in navigator) {
+                                    if ((activeTab === "about" || (activeTab === "home" && fab2Check)) && 'share' in navigator) {
                                         // fab.classList.add("share_w_img");
                                         fab.classList.remove("hide");
                                         fab.addEventListener("click", async () => {
