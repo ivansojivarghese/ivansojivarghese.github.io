@@ -55,6 +55,7 @@ body {
 
 .home_w_img {
     background-image: url("../pwa/home_dark.png");
+    transform: scale(1.5);
 }
 
 .pwa .fab.hide {
