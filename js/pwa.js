@@ -244,7 +244,7 @@ function navButtonActive(b, e, v) {
     if (firstNBA) {
         firstNBA = false;
     }
-    
+
     /*
     if (target.classList.contains("about") || target.classList.contains("about_dark")) {
         const profile_image = document.querySelector('.pwa .profile_image');
@@ -262,7 +262,7 @@ function navButtonActive(b, e, v) {
         });
         if (fab2Check) {
             fab2.classList.remove("hide");
-            if (fab2Close) {
+            if (fab2Close || firstNBA) {
                 /*
                 fab2i.classList.remove("home_w_img");
                 fab2i.classList.add("close_w_img");*/
