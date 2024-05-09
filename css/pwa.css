@@ -727,7 +727,7 @@ body {
     }
 
     .pwa .navbar.fab2_nav .button.clicks, .pwa .navbar.fab2_nav .button.clicks_dark {
-        margin-top: calc(100dvh - 12rem - (calc((100dvh - 15rem))));
+        margin-top: calc(100dvh - 12rem - (calc((100dvh - 14.75rem))));
     }
 
     .pwa .navbar .button .img .active {
@@ -838,6 +838,14 @@ body {
         max-width: 20rem;
         max-height: 20rem;
         box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
+    }
+
+    .pwa .navbar.fab2_nav {
+        max-height: 16rem;
+    }
+
+    .pwa .navbar.fab2_nav .button.clicks, .pwa .navbar.fab2_nav .button.clicks_dark {
+        margin-top: calc(100dvh - 12rem - (calc((100dvh - 12.75rem))));
     }
 
     .pwa .popups .pills.settingsInfo {
