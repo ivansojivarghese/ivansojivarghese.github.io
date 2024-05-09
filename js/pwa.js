@@ -1166,6 +1166,15 @@ function motionUXChange(m, o) {
             oldMotionType = "walk";
             fab2Check = true;
             navbar.classList.add("fab2_nav");
+        } else if (m === "commute") {
+
+        } else if (m === "run") {
+
+        } else if (m === "") {
+            homeBtn.classList.remove("d_n");
+            oldMotionType = "";
+            fab2Check = false;
+            navbar.classList.remove("fab2_nav");
         }
     }
 }
