@@ -1171,6 +1171,9 @@ function motionUXChange(m, o) {
         } else if (m === "run") {
 
         } else if (m === "") {
+            if (activeTab === "home") {
+                navButtonActive('home', homeBtn, false);
+            }
             fab2.classList.add("hide");
             homeBtn.classList.remove("d_n");
             oldMotionType = "";
