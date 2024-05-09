@@ -1196,9 +1196,7 @@ window.setInterval(function() {
             target = (!op.darkMode) ? "run_img" : "run_w_img";
         } else if (motionCat === "commute") {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
-        } else if (motionCat === "") {
-            motionUXChange("", oldMotionType);
-        }
+        } 
         motionIcon.classList.remove("d_n");
         setTimeout(function() {
             e_Fd(motionIcon, false);
@@ -1210,6 +1208,7 @@ window.setInterval(function() {
             motionIcon.children[0].classList.add(target);
         }
     } else {
+        motionUXChange("", oldMotionType);
         e_Fd(motionIcon, true);
         if (exist) {
             setTimeout(function() {
