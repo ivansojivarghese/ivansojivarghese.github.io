@@ -683,6 +683,14 @@ body {
         max-height: 20rem;
     }
 
+    .pwa .navbar.fab2_nav {
+        max-width: 17rem;
+    }
+
+    .pwa.swapped .navbar.fab2_nav {
+        max-width: 18rem;
+    }
+
     .pwa .sections {
         height: 100dvh;
     }
