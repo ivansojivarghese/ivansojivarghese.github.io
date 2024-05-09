@@ -286,7 +286,7 @@ function navButtonActive(b, e, v) {
                 fab2Close = true;
             }
             fab2.addEventListener("click", fab2Action);
-        } else {
+        } else if (b !== "about") {
             fab2i.classList.remove("home_w_img");
             fab2i.classList.add("close_w_img");
             fab2.style.backgroundColor = "var(--negate_col)";
