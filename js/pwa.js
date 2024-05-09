@@ -1201,8 +1201,10 @@ window.setInterval(function() {
             motionUXChange("walk", oldMotionType);
         } else if (motionCat === "run") {
             target = (!op.darkMode) ? "run_img" : "run_w_img";
+            motionUXChange("run", oldMotionType);
         } else if (motionCat === "commute") {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
+
         } 
         motionIcon.classList.remove("d_n");
         setTimeout(function() {
