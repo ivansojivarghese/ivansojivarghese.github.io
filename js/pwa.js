@@ -1196,6 +1196,8 @@ window.setInterval(function() {
             target = (!op.darkMode) ? "run_img" : "run_w_img";
         } else if (motionCat === "commute") {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
+        } else if (motionCat === "") {
+            motionUXChange("", oldMotionType);
         }
         motionIcon.classList.remove("d_n");
         setTimeout(function() {
