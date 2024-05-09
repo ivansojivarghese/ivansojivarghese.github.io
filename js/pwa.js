@@ -1152,7 +1152,7 @@ function motionUXChange(m, o) {
     const aboutBtn = document.querySelector('.pwa .navbar .button.about') || document.querySelector('.pwa .navbar .button.about_dark');
     const navbar = document.querySelector('.pwa .navbar');
     if (m !== o) {
-        if (m === "walk") {
+        if (m === "walk" || m === "commute") {
             if (activeTab !== 'about') {
                 if (activeTab === 'home') {
                     fab2Close = true; // show 'close' on fab2
@@ -1163,12 +1163,10 @@ function motionUXChange(m, o) {
                 }
             }
             homeBtn.classList.add("d_n");
-            oldMotionType = "walk";
+            oldMotionType = m;
             fab2Check = true;
             navbar.classList.add("fab2_nav");
             navbar.classList.remove("outView");
-        } else if (m === "commute") {
-
         } else if (m === "run") {
             navButtonActive('home', homeBtn, false);
             navbar.classList.add("outView");
@@ -1205,7 +1203,7 @@ window.setInterval(function() {
             motionUXChange("run", oldMotionType);
         } else if (motionCat === "commute") {
             target = (!op.darkMode) ? "commute_img" : "commute_w_img";
-
+            motionUXChange("commute", oldMotionType);
         } 
         motionIcon.classList.remove("d_n");
         setTimeout(function() {
