@@ -349,6 +349,11 @@ body {
     padding-bottom: calc(env(safe-area-inset-top) / 2);
 }
 
+.pwa .navbar.outView {
+    opacity: 0.5;
+    z-index: -100;
+}
+
 .pwa .navbar.hide {
     bottom: calc(-4rem - calc(env(safe-area-inset-top) * 1.5));
 }

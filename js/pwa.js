@@ -1169,7 +1169,9 @@ function motionUXChange(m, o) {
         } else if (m === "commute") {
 
         } else if (m === "run") {
-
+            navButtonActive('home', homeBtn, false);
+            navbar.classList.add("outView");
+            oldMotionType = "run";
         } else if (m === "") {
             if (activeTab === "home") {
                 navButtonActive('home', homeBtn, false);
@@ -1178,6 +1180,7 @@ function motionUXChange(m, o) {
             homeBtn.classList.remove("d_n");
             oldMotionType = "";
             fab2Check = false;
+            navbar.classList.remove("outView");
             navbar.classList.remove("fab2_nav");
         }
     }
