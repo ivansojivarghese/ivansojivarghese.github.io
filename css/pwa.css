@@ -848,6 +848,14 @@ body {
         margin-top: calc(100dvh - 12rem - (calc((100dvh - 12.75rem))));
     }
 
+    .pwa.swapped .navbar.fab2_nav {
+        max-height: 20rem;
+    }
+
+    .pwa.swapped .navbar.fab2_nav .button.clicks, .pwa.swapped .navbar.fab2_nav .button.clicks_dark {
+        margin-top: calc(100dvh - 12rem - (calc((100dvh - 12.85rem))));
+    }
+
     .pwa .popups .pills.settingsInfo {
         left: calc(7rem + calc(env(safe-area-inset-left)));
     }
