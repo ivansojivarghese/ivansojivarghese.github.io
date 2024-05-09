@@ -1166,6 +1166,7 @@ function motionUXChange(m, o) {
             oldMotionType = "walk";
             fab2Check = true;
             navbar.classList.add("fab2_nav");
+            navbar.classList.remove("outView");
         } else if (m === "commute") {
 
         } else if (m === "run") {
