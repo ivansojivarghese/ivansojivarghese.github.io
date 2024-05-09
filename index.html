@@ -906,7 +906,7 @@
                         <div class="m_Tp">
                             <p id="liveVel" onclick="
                                 if (navigator.geolocation) {
-                                    navigator.geolocation.getCurrentPosition((position) => {
+                                    navigator.geolocation.watchPosition((position) => {
                                         var t = document.querySelector('#liveVel');
                                         t.innerHTML = 'Latitude: ' + position.coords.latitude + '<br>Longitude: ' + position.coords.longitude + '<br>Altitude: ' + position.coords.altitude + '<br>Heading: ' + position.coords.heading + '<br>Speed: ' + position.coords.speed;
                                     });
