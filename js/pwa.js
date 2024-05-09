@@ -1171,6 +1171,7 @@ function motionUXChange(m, o) {
         } else if (m === "run") {
 
         } else if (m === "") {
+            fab2.classList.add("hide");
             homeBtn.classList.remove("d_n");
             oldMotionType = "";
             fab2Check = false;
