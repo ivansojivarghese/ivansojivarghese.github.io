@@ -231,7 +231,8 @@ document.addEventListener("visibilitychange", () => {
     }
 });
 
-var firstNBA = true;
+var firstNBA = true,
+    firstNBAcount = 1;
 
 function navButtonActive(b, e, v) {
     var target = e.currentTarget || e;
@@ -242,7 +243,11 @@ function navButtonActive(b, e, v) {
     const fab2i = document.querySelector('.pwa .fab2 .img_icon');
 
     if (firstNBA) {
-        firstNBA = false;
+        if (firstNBAcount < 2) {
+            firstNBAcount++;
+        } else {
+            firstNBA = false;
+        }
     }
 
     /*
