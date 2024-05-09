@@ -691,6 +691,10 @@ body {
         max-width: 18rem;
     }
 
+    .pwa .fab2 {
+        bottom: 2rem;
+    }
+
     .pwa .sections {
         height: 100dvh;
     }
