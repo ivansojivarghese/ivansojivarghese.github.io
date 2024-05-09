@@ -243,7 +243,7 @@ function navButtonActive(b, e, v) {
     const fab2i = document.querySelector('.pwa .fab2 .img_icon');
 
     if (firstNBA) {
-        if (firstNBAcount < 3) {
+        if (firstNBAcount < 3 && (b !== "home" || b !== "about")) {
             firstNBAcount++;
         } else {
             firstNBA = false;
