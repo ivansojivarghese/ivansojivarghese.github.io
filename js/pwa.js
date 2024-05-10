@@ -1396,7 +1396,10 @@ function fetchPWAInfo() {
     if (!navigator.geolocation) {
         locationToggle.classList.add("hide");
     } else {
-
+        var status = Number(localStorage.getItem('location'));
+        if (status) {
+            locationToggle.classList.add("toggleOn");
+        }
     }
 
     // about
