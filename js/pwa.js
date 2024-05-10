@@ -722,6 +722,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
     var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
 
+    var gpsVelocity = 0;
+
     if (ipAPIres && ipAPIres.online && clientAPIres.online && !shaked && !rotation && !docHide) {
 
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
@@ -739,6 +741,10 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             velocitySign = "~"; // velocity sign
 
         avgMotionStride = (tempUnit(ipAPIres.country.iso_code) === "metric") ? strideDis : (strideDis * 3.2808);
+
+        if (gpsPos !== null) {
+            gpsVelocity = (tempUnit(ipAPIres.country.iso_code) === "metric") ? gpsPos.coords.speed : (gpsPos.coords.speed * 3.2808);
+        }
 
         if (screen.orientation.angle === 0 || screen.orientation.angle === 180) {
             normalAcc = filteredAcceleration(yAcc);
@@ -1000,14 +1006,27 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 }
                 velocityEst = velocityConstantRef / 2;
                 velocityEst = (velocityEst >= 0) ? (velocityEst <= 10) ? velocityEst : 10.1 : 0;
-                if (velocityEst === 10.1) {
-                    velocityEst = 10;
-                    velLimiter = "+";
+                if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+                    if (velocityEst === 10.1) {
+                        velocityEst = 10;
+                        velLimiter = "+";
+                    } else {
+                        velLimiter = "";
+                    }
                 } else {
-                    velLimiter = "";
+                    if (gpsVelocity > 100) {
+                        gpsVelocity = 100;
+                        velLimiter = "+";
+                    } else {
+                        velLimiter = "";
+                    }
                 }
                 velocityEstRef = velocityEst;
-                velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit; 
+                if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+                    velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit; 
+                } else {
+                    velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + velLimiter + " " + velocityUnit;
+                }
             } 
 
             velocityEst = velocityTotal;
@@ -1027,11 +1046,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
             velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
             velocityEstRef = velocityEst;
-            velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
-
-        } /*else {
-            velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
-        }*/
+            if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+                velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit; 
+            } else {
+                velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+            }
+        } 
 
         speedX.style.backgroundColor = "purple"; //
         speedX.style.color = "white"; //
@@ -1039,7 +1059,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     } else {
         velocityEst = 0;
         velocityEstRef = 0;
-        velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+        if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+            velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+        } else {
+            velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+        }
         // resetMotionParams();
     }
 
@@ -1100,7 +1124,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                             velocityEstRef = 0;
                             timerCountStep = [];
 
-                            velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+                            if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+                                velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+                            } else {
+                                velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+                            }
 
                             /*
                             if (b === (motionEndCountArray.length - 1)) {
