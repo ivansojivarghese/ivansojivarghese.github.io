@@ -954,7 +954,10 @@
                                                 toggles.location = 1;
                                                 gpsID = navigator.geolocation.watchPosition((position) => {
                                                    gpsPos = position
-                                                }, (position) => {
+                                                }, (error) => {
+                                                    if (error.code === error.PERMISSION_DENIED) {
+                                                        this.classList.add('hide');
+                                                    }
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('location', '0');
                                                     toggles.location = 0;
