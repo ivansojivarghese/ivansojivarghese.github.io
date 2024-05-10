@@ -1375,8 +1375,11 @@ function fetchPWAInfo() {
 
     // settings (validation of toggles)
 
+    const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
-
+        locationToggle.classList.add("hide");
+    } else {
+        
     }
 
     // about
