@@ -14,6 +14,11 @@ var btty = {
     charging : null
 };
 
+var toggles = {
+    motionSense : localStorage.getItem('motionSense') === null ? 0 : Number(localStorage.getItem('motionSense')) ? 1 : 0,
+    location : localStorage.getItem('location') === null ? 0 : Number(localStorage.getItem('location')) ? 1 : 0
+}
+
 var rL = {
     el : document.getElementById("load_sc"), 
     r : document.getElementById("loadR"), // loading rings (container)
