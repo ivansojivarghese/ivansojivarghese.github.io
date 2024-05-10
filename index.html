@@ -921,10 +921,11 @@
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
+                                                localStorage.setItem('motionSense', '1');
                                             } else {
                                                 this.classList.remove('toggleOn');
+                                                localStorage.setItem('motionSense', '0');
                                             }
-
                                         } else {
                                             event.preventDefault();
                                         }
@@ -939,10 +940,11 @@
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
+                                                localStorage.setItem('location', '1');
                                             } else {
                                                 this.classList.remove('toggleOn');
+                                                localStorage.setItem('location', '0');
                                             }
-
                                         } else {
                                             event.preventDefault();
                                         }

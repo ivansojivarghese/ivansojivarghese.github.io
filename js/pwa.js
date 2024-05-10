@@ -1213,39 +1213,41 @@ window.setInterval(function() {
 
     // vel.innerHTML = motionType;
 
-    var motionCat = motionType,
-        keyW = ["run", "walk", "commute"],
-        exist = findClasses(motionIcon.children[0].classList, keyW);
-    if (motionCat !== "") {
-        var target = ""; 
-        if (motionCat === "walk") {
-            target = (!op.darkMode) ? "walk_img" : "walk_w_img";
-            motionUXChange("walk", oldMotionType);
-        } else if (motionCat === "run") {
-            target = (!op.darkMode) ? "run_img" : "run_w_img";
-            motionUXChange("run", oldMotionType);
-        } else if (motionCat === "commute") {
-            target = (!op.darkMode) ? "commute_img" : "commute_w_img";
-            motionUXChange("commute", oldMotionType);
-        } 
-        motionIcon.classList.remove("d_n");
-        setTimeout(function() {
-            e_Fd(motionIcon, false);
-        }, op.t);
-        if (exist) {
-            motionIcon.children[0].classList.remove(exist);
-        }
-        if (target) {
-            motionIcon.children[0].classList.add(target);
-        }
-    } else {
-        motionUXChange("", oldMotionType);
-        e_Fd(motionIcon, true);
-        if (exist) {
+    if (toggles.motionSense) {
+        var motionCat = motionType,
+            keyW = ["run", "walk", "commute"],
+            exist = findClasses(motionIcon.children[0].classList, keyW);
+        if (motionCat !== "") {
+            var target = ""; 
+            if (motionCat === "walk") {
+                target = (!op.darkMode) ? "walk_img" : "walk_w_img";
+                motionUXChange("walk", oldMotionType);
+            } else if (motionCat === "run") {
+                target = (!op.darkMode) ? "run_img" : "run_w_img";
+                motionUXChange("run", oldMotionType);
+            } else if (motionCat === "commute") {
+                target = (!op.darkMode) ? "commute_img" : "commute_w_img";
+                motionUXChange("commute", oldMotionType);
+            } 
+            motionIcon.classList.remove("d_n");
             setTimeout(function() {
-                motionIcon.children[0].classList.remove(exist);
-                motionIcon.classList.add("d_n");
+                e_Fd(motionIcon, false);
             }, op.t);
+            if (exist) {
+                motionIcon.children[0].classList.remove(exist);
+            }
+            if (target) {
+                motionIcon.children[0].classList.add(target);
+            }
+        } else {
+            motionUXChange("", oldMotionType);
+            e_Fd(motionIcon, true);
+            if (exist) {
+                setTimeout(function() {
+                    motionIcon.children[0].classList.remove(exist);
+                    motionIcon.classList.add("d_n");
+                }, op.t);
+            }
         }
     }
 }, op.te);
