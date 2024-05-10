@@ -30,7 +30,6 @@ body {
     width: 3rem;
     height: 3rem;
     right: 1.75rem;
-    position: absolute;
     bottom: 10rem;
     z-index: 400;
 }
