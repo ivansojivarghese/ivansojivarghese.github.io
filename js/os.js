@@ -14,7 +14,8 @@ var uA_L,
             fb : document.hasFocus()
         }
     },
-    gpsPos = {};
+    gpsPos = {},
+    gpsID = null;
 
 ///////////////////////////////////////////////////
 

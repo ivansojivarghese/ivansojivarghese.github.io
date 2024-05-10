@@ -941,12 +941,13 @@
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
                                                 localStorage.setItem('location', '1');
-                                                navigator.geolocation.watchPosition((position) => {
+                                                gpsID = navigator.geolocation.watchPosition((position) => {
                                                    gpsPos = position
                                                 });
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('location', '0');
+                                                navigator.geolocation.clearWatch(gpsID);
                                             }
                                         } else {
                                             event.preventDefault();
