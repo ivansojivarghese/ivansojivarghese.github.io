@@ -878,7 +878,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 const zDiff = resZForce - refZForce;
                 if (zDiff <= 10) {
                     noStep = false;
-                } else if (zDiff > zThreshold && !noStep) {
+                } else if (zDiff > zThreshold && !noStep && (gpsPos === null || (gpsPos && Math.round(gpsPos.coords.speed) > 0))) {
                     var time = new Date().getTime();
                     if (stepsCountInterval.length > 0) {
                         stepsCountTimes[stepsCountTimes.length] = time - stepsCountInterval[stepsCountInterval.length - 1];
