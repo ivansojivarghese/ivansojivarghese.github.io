@@ -80,6 +80,10 @@ body {
     margin-top: -0.15rem;
 }
 
+.pwa .toggleBackg.hide {
+    opacity: 0.4;
+}
+
 .pwa .toggleSwitch {
     border-radius: 50%;
     height: 1.5rem;

@@ -84,6 +84,9 @@ var accelerationCount = 0,
     accelerationTimePoints = [],
     accelerationInterval = null;
 
+var deviceMotion = false,
+    deviceOrientation = false;
+
 var urlParams = {};
 
 const sections = document.querySelector('.pwa .sections');
@@ -707,6 +710,13 @@ function filteredAcceleration(r) { // filters raw data
 
 window.addEventListener('devicemotion', function(event) { // estimate walking steps
 
+    deviceMotion = true;
+
+    const mStoggle = document.querySelector('.pwa .motionSenseToggle');
+    if (mStoggle.classList.contains("hide") && deviceOrientation) {
+        mStoggle.classList.remove("hide");
+    }
+
     var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
     var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
 
@@ -1232,6 +1242,13 @@ window.setInterval(function() {
 
 window.addEventListener('deviceorientation', function(event) { // get rotation of device
 
+    deviceOrientation = true;
+
+    const mStoggle = document.querySelector('.pwa .motionSenseToggle');
+    if (mStoggle.classList.contains("hide") && deviceMotion) {
+        mStoggle.classList.remove("hide");
+    }
+
     if (!docHide) {
         betaAngle = event.beta;
 
@@ -1356,9 +1373,11 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
-    // settings
+    // settings (validation of toggles)
 
-    
+    if (!navigator.geolocation) {
+
+    }
 
     // about
 

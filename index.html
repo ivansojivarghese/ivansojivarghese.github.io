@@ -917,13 +917,17 @@
                             <div class="m_T defaultP">
                                 <div class="toggleDiv">
                                     <p>motionSense</p>
-                                    <div class="toggleBackg trs hoverB lightBackground" onclick="
-                                        if (!this.classList.contains('toggleOn')) {
-                                            this.classList.add('toggleOn');
-                                        } else {
-                                            this.classList.remove('toggleOn');
-                                        }
+                                    <div class="motionSenseToggle toggleBackg trs hoverB lightBackground hide" onclick="
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                            } else {
+                                                this.classList.remove('toggleOn');
+                                            }
 
+                                        } else {
+                                            event.preventDefault();
+                                        }
                                     ">
                                         <div class="toggleSwitch trs darkBackground"></div>
                                     </div>
@@ -932,12 +936,16 @@
                                 <div class="toggleDiv">
                                     <p>location</p>
                                     <div class="toggleBackg trs hoverB lightBackground" onclick="
-                                        if (!this.classList.contains('toggleOn')) {
-                                            this.classList.add('toggleOn');
-                                        } else {
-                                            this.classList.remove('toggleOn');
-                                        }
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                            } else {
+                                                this.classList.remove('toggleOn');
+                                            }
 
+                                        } else {
+                                            event.preventDefault();
+                                        }
                                     ">
                                         <div class="toggleSwitch trs darkBackground"></div>
                                     </div>
