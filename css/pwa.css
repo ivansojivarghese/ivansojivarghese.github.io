@@ -153,6 +153,11 @@ body {
     line-height: 1.1em;
 }
 
+.pwa .popups .pills p.attr {
+    line-height: 1.25rem;
+    padding-right: 0.5rem;
+}
+
 .pwa .popups .pills .defaultP p {
     font-size: 1.2rem;
     display: inline-block;
