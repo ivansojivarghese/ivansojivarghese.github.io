@@ -945,7 +945,7 @@
                                                 toggles.location = 1;
                                                 gpsID = navigator.geolocation.watchPosition((position) => {
                                                    gpsPos = position
-                                                }, function() {
+                                                }, (position) => {
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('location', '0');
                                                     toggles.location = 0;
