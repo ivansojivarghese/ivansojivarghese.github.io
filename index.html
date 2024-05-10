@@ -938,6 +938,10 @@
                                             const removed = await browser.permissions.remove(permissionToRemove);
                                         }
 
+                                        const options = {
+                                            enableHighAccuracy: true
+                                        }
+
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
@@ -951,7 +955,7 @@
                                                     toggles.location = 0;
                                                     navigator.geolocation.clearWatch(gpsID);
                                                     remove();
-                                                });
+                                                }, options);
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('location', '0');
