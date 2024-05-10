@@ -1356,6 +1356,10 @@ function fetchPWAInfo() {
 
     var selectedWords = [];
 
+    // settings
+
+    
+
     // about
 
     if (githubCommitsres.online) {

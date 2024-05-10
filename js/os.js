@@ -123,6 +123,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         c_css(".lightText", "color: #303030 !important;", false, null, op, "darkMode");
 
         c_css(".pwa .toggleBackg", "background-color: #3D3D3D !important;", false, null, op, "darkMode");
+        c_css(".pwa .toggleBackg.toggleOn", "background-color: var(--predicate_col) !important;", false, null, op, "darkMode");
         c_css(".pwa .toggleSwitch", "background-color: #E4E4E4 !important;", false, null, op, "darkMode");
 
         c_css(".cursor", "mix-blend-mode: exclusion !important;", false, null, op, "darkMode");
