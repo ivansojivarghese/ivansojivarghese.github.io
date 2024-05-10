@@ -937,6 +937,14 @@
                                 <div class="toggleDiv">
                                     <p>location</p>
                                     <div class="locationToggle toggleBackg trs hoverB lightBackground" onclick="
+                                        const permissionToRemove = {
+                                            permissions: ['geolocation'],
+                                        };
+
+                                        async function remove() {
+                                            const removed = await browser.permissions.remove(permissionToRemove);
+                                        }
+
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
@@ -948,6 +956,7 @@
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('location', '0');
                                                 navigator.geolocation.clearWatch(gpsID);
+                                                remove();
                                             }
                                         } else {
                                             event.preventDefault();
