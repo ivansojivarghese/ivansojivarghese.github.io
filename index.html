@@ -947,12 +947,14 @@
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('location', '0');
                                                     toggles.location = 0;
+                                                    gpsPos = {};
                                                     navigator.geolocation.clearWatch(gpsID);
                                                 }, options);
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('location', '0');
                                                 toggles.location = 0;
+                                                gpsPos = {};
                                                 navigator.geolocation.clearWatch(gpsID);
                                             }
                                         } else {
