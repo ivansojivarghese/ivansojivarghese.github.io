@@ -1254,6 +1254,9 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
     const mStoggle = document.querySelector('.pwa .motionSenseToggle');
     if (mStoggle.classList.contains("hide") && deviceMotion) {
         mStoggle.classList.remove("hide");
+    } else {
+        steps.remove();
+        velocity.remove();
     }
 
     if (!docHide) {
