@@ -951,6 +951,11 @@
                                                 localStorage.setItem('location', '1');
                                                 gpsID = navigator.geolocation.watchPosition((position) => {
                                                    gpsPos = position
+                                                }, function() {
+                                                    this.classList.remove('toggleOn');
+                                                    localStorage.setItem('location', '0');
+                                                    navigator.geolocation.clearWatch(gpsID);
+                                                    remove();
                                                 });
                                             } else {
                                                 this.classList.remove('toggleOn');
