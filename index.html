@@ -2422,50 +2422,52 @@
             }, {passive: true});
             
             contentBody.addEventListener('touchmove', e => {
-                if (!cancelRefresh) {
+                const popups = document.querySelector('.pwa .popups');
+                if (popups.classList.contains("d_n")) {
+                    if (!cancelRefresh) {
 
-                    const y = e.touches[0].pageY;
-                    // Activate custom pull-to-refresh effects when at the top of the container
-                    // and user is scrolling up.
+                        const y = e.touches[0].pageY;
+                        // Activate custom pull-to-refresh effects when at the top of the container
+                        // and user is scrolling up.
 
-                    var scrollEl = document.querySelector('.scrollBarContainer');
-                    var scrollBarFunction = document.querySelector('.scrollBarFunction');
-                    var scrollElTop = scrollEl.getBoundingClientRect().top;
-                    var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
+                        var scrollEl = document.querySelector('.scrollBarContainer');
+                        var scrollBarFunction = document.querySelector('.scrollBarFunction');
+                        var scrollElTop = scrollEl.getBoundingClientRect().top;
+                        var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
 
-                    _documentMoveY = scrollElTop - scrollElTopPadding;
+                        _documentMoveY = scrollElTop - scrollElTopPadding;
 
-                    if (document.scrollingElement.scrollTop === 0 && (_documentStartY === 0 || (window.visualViewport.segments && window.visualViewport.segments !== null && window.visualViewport.segments.length === 2 && window.visualViewport.segments[primarySegment].top === _documentStartY)) && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
+                        if (document.scrollingElement.scrollTop === 0 && (_documentStartY === 0 || (window.visualViewport.segments && window.visualViewport.segments !== null && window.visualViewport.segments.length === 2 && window.visualViewport.segments[primarySegment].top === _documentStartY)) && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
 
-                        var controlHeight = (window.visualViewport.segments && window.visualViewport.segments !== null && window.visualViewport.segments.length === 2) ? window.visualViewport.segments[primarySegment].height : window.innerHeight;
+                            var controlHeight = (window.visualViewport.segments && window.visualViewport.segments !== null && window.visualViewport.segments.length === 2) ? window.visualViewport.segments[primarySegment].height : window.innerHeight;
 
-                        if (y > (_startY + ((controlHeight + parentTop + parentBottom) / 8))) {
-                            if (!refreshX) {
-                                refreshX = true;
-                                startRefresh(); // show ux feedback (pull down to refresh)
+                            if (y > (_startY + ((controlHeight + parentTop + parentBottom) / 8))) {
+                                if (!refreshX) {
+                                    refreshX = true;
+                                    startRefresh(); // show ux feedback (pull down to refresh)
+                                }
+                                if (refreshX) { // ux feedback movement to user touch-drag
+                                    var progress = (y - (_startY + ((controlHeight + parentTop + parentBottom) / 8))) / ((_startY + ((controlHeight + parentTop + parentBottom) / 3)) - (_startY + ((controlHeight + parentTop + parentBottom) / 8)));
+                                    puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + ((controlHeight + parentTop + parentBottom) / 8))) / op.fN) + "rem)";
+                                    pullerProgress.style.width = "calc(" + progress + " * 11rem)"; // show progress of drag to refresh
+                                }
+                                if (y > (_startY + ((controlHeight + parentTop + parentBottom) / 3))) { 
+                                    endRefresh();
+                                    simulateRefreshAction(); // refresh contentBody.
+                                } 
                             }
-                            if (refreshX) { // ux feedback movement to user touch-drag
-                                var progress = (y - (_startY + ((controlHeight + parentTop + parentBottom) / 8))) / ((_startY + ((controlHeight + parentTop + parentBottom) / 3)) - (_startY + ((controlHeight + parentTop + parentBottom) / 8)));
-                                puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + ((controlHeight + parentTop + parentBottom) / 8))) / op.fN) + "rem)";
-                                pullerProgress.style.width = "calc(" + progress + " * 11rem)"; // show progress of drag to refresh
+                        } else if (y < _startY) {
+                            if (!dotsLoad) {
+                                puller.style.top = "-1rem";
+                                pullerProgress.style.width = "0rem"; // show progress of drag to refresh
+                                e_Fd(puller, true);
+                                refreshX = false;
                             }
-                            if (y > (_startY + ((controlHeight + parentTop + parentBottom) / 3))) { 
-                                endRefresh();
-                                simulateRefreshAction(); // refresh contentBody.
-                            } 
                         }
-                    } else if (y < _startY) {
-                        if (!dotsLoad) {
-                            puller.style.top = "-1rem";
-                            pullerProgress.style.width = "0rem"; // show progress of drag to refresh
-                            e_Fd(puller, true);
-                            refreshX = false;
-                        }
+                    } else {
+                        _startY = e.touches[0].pageY;
                     }
-                } else {
-                    _startY = e.touches[0].pageY;
                 }
-
             }, {passive: true});
 
             contentBody.addEventListener('touchend', e => {
