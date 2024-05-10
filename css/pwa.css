@@ -124,6 +124,10 @@ body {
     line-height: 1.1em;
 }
 
+.pwa .popups .pills .defaultP p {
+    font-size: 1.2rem;
+}
+
 .pwa .popups .pills.batteryInfo, .pwa .popups .pills.deviceInfo {
     top: calc(4.2rem + env(safe-area-inset-top));
     right: calc(2rem + calc(env(safe-area-inset-right)));
