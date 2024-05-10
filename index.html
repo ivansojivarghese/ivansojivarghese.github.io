@@ -2407,7 +2407,9 @@
             var pwa_Load = false;
             
             contentBody.addEventListener('touchstart', e => {
-                if (!cancelRefresh) {
+                const popups = document.querySelector('.pwa .popups');
+
+                if (popups.classList.contains("d_n") && !cancelRefresh) {
                     var scrollEl = document.querySelector('.scrollBarContainer');
                     var scrollBarFunction = document.querySelector('.scrollBarFunction');
                     var scrollElTop = scrollEl.getBoundingClientRect().top;
