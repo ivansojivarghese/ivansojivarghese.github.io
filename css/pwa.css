@@ -63,7 +63,11 @@ body {
 }
 
 .pwa .fab.shade, .pwa .fab2.shade {
-    background-color: #3D3D3D;
+    background-color: #A9A9A9;
+}
+
+.pwa .toggleDiv {
+    margin-bottom: 0.75rem;
 }
 
 .pwa .toggleBackg {
