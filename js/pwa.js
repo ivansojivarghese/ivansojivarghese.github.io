@@ -1343,10 +1343,10 @@ function determineMotionType() { // either NO motion, walk, run or commute
                     }
                     if ((velocityEstRef > Lv3t && refVelocity) || (!refVelocity && velocityEstRef > Lv2t)) {
                         for (var i = 0; i < stepsArray.length; i++) {
-                            if (stepsArray[i] < 6) {
+                            if (stepsArray[i] < 6 && (gpsPos === null || (gpsPos && gpsPos.coords.speed <= 1.5))) {
                                 motionType = "walk";
                                 break;
-                            } else if ((velocityEstRef > Lv3t && refVelocity) || (!refVelocity && velocityEstRef > Lv2t)) {
+                            } else if (((velocityEstRef > Lv3t && refVelocity) || (!refVelocity && velocityEstRef > Lv2t)) && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 1.5))) {
                                 motionType = "run";
                             }
                         }
