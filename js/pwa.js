@@ -1387,6 +1387,12 @@ function fetchPWAInfo() {
 
     // settings (validation of toggles)
 
+    const motionSenseToggle = document.querySelector('.pwa .motionSenseToggle');
+    var status = Number(localStorage.getItem('motionSense'));
+    if (status) {
+        motionSenseToggle.classList.add("toggleOn");
+    }
+
     const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
         locationToggle.classList.add("hide");
