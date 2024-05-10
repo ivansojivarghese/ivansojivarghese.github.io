@@ -904,15 +904,6 @@
                     </div>
                     <div class="settingsInfo pills lightBackground d_n">
                         <div class="m_Tp">
-                            <!-- 
-                            <p id="liveVel" onclick="
-                                if (navigator.geolocation) {
-                                    navigator.geolocation.watchPosition((position) => {
-                                        var t = document.querySelector('#liveVel');
-                                        t.innerHTML = 'Latitude: ' + position.coords.latitude + '<br>Longitude: ' + position.coords.longitude + '<br>Altitude: ' + position.coords.altitude + '<br>Heading: ' + position.coords.heading + '<br>Speed: ' + position.coords.speed;
-                                    });
-                                }
-                            ">velocity</p> -->
                             <h3>settings</h3>
                             <div class="m_T defaultP">
                                 <div class="toggleDiv">
@@ -922,9 +913,11 @@
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
                                                 localStorage.setItem('motionSense', '1');
+                                                toggles.motionSense = 1;
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('motionSense', '0');
+                                                toggles.motionSense = 0;
                                             }
                                         } else {
                                             event.preventDefault();
@@ -949,17 +942,20 @@
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
                                                 localStorage.setItem('location', '1');
+                                                toggles.location = 1;
                                                 gpsID = navigator.geolocation.watchPosition((position) => {
                                                    gpsPos = position
                                                 }, function() {
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('location', '0');
+                                                    toggles.location = 0;
                                                     navigator.geolocation.clearWatch(gpsID);
                                                     remove();
                                                 });
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('location', '0');
+                                                toggles.location = 0;
                                                 navigator.geolocation.clearWatch(gpsID);
                                                 remove();
                                             }

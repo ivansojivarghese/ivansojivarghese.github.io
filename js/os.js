@@ -17,6 +17,11 @@ var uA_L,
     gpsPos = {},
     gpsID = null;
 
+var toggles = {
+    motionSense : localStorage.getItem('motionSense') === null ? 0 : Number(localStorage.getItem('motionSense')) ? 1 : 0,
+    location : localStorage.getItem('location') === null ? 0 : Number(localStorage.getItem('location')) ? 1 : 0
+};
+
 ///////////////////////////////////////////////////
 
 function isDarkMode() { // dark mode detection
