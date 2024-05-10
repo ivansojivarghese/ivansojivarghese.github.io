@@ -908,7 +908,7 @@
                             <div class="m_T defaultP">
                                 <div class="toggleDiv">
                                     <p>motionSense</p>
-                                    <div class="motionSenseToggle toggleBackg trs hoverB lightBackground hide" onclick="
+                                    <div class="motionSenseToggle toggleBackg trs lightBackground hide" onclick="
                                         var keyW = ['run', 'walk', 'commute'],
                                             exist = findClasses(motionIcon.children[0].classList, keyW);
 
@@ -957,6 +957,7 @@
                                                 }, (error) => {
                                                     if (error.code === error.PERMISSION_DENIED) {
                                                         this.classList.add('hide');
+                                                        this.classList.remove('hoverB');
                                                     }
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('location', '0');

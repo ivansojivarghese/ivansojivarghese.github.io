@@ -717,6 +717,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     const mStoggle = document.querySelector('.pwa .motionSenseToggle');
     if (mStoggle.classList.contains("hide") && deviceOrientation) {
         mStoggle.classList.remove("hide");
+        mStoggle.classList.add("hoverB");
     }
 
     var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
@@ -1281,6 +1282,7 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
     const mStoggle = document.querySelector('.pwa .motionSenseToggle');
     if (mStoggle.classList.contains("hide") && deviceMotion) {
         mStoggle.classList.remove("hide");
+        mStoggle.classList.add("hoverB");
     } 
 
     if (!docHide) {
@@ -1418,6 +1420,7 @@ function fetchPWAInfo() {
     const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
         locationToggle.classList.add("hide");
+        locationToggle.classList.remove("hoverB");
     } else {
         var status = Number(localStorage.getItem('location'));
         if (status) {

@@ -4169,7 +4169,7 @@ function hoverMiddle(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX;
 
-    if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)') {
+    if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)' || e.currentTarget.classList.contains("toggleBackg")) {
 
         cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
 
