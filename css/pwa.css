@@ -66,6 +66,31 @@ body {
     background-color: #3D3D3D;
 }
 
+.pwa .toggleBackg {
+    height: 1.5rem;
+    width: 3rem;
+    background: #E4E4E4;
+    border-radius: 1rem;
+    float: right;
+    margin-right: 1rem;
+    margin-top: -0.15rem;
+}
+
+.pwa .toggleSwitch {
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: #303030;
+}
+
+.pwa .toggleBackg.toggleOn {
+    
+}
+
+.pwa .toggleBackg.toggleOn .toggleSwitch {
+    margin-left: 1.5rem;
+}
+
 .pwa .popups {
     position: fixed;
     height: calc(100dvh - calc(env(safe-area-inset-top))) !important;
