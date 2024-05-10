@@ -1361,7 +1361,9 @@ function determineMotionType() { // either NO motion, walk, run or commute
         motionTypeStep = null;
         if (motionTypeCommute === null) {
             motionTypeCommute = setTimeout(function() {
-                motionType = "commute";
+                if (gpsPos && gpsPos.coords.speed > 4) {
+                    motionType = "commute";
+                }
                 clearTimeout(motionTypeCommute);
                 motionTypeCommute = null;
             }, 6000);
