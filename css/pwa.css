@@ -84,7 +84,7 @@ body {
 }
 
 .pwa .toggleBackg.toggleOn {
-
+    background: #B6B6B6;
 }
 
 .pwa .toggleBackg.toggleOn .toggleSwitch {
