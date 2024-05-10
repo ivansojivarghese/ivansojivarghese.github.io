@@ -717,14 +717,14 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     if (event.acceleration.x || event.acceleration.y || event.acceleration.z) {
         deviceMotion = true;
+    } else {
+        steps.remove();
+        velocity.remove();
     }
 
     const mStoggle = document.querySelector('.pwa .motionSenseToggle');
     if (mStoggle.classList.contains("hide") && deviceOrientation) {
         mStoggle.classList.remove("hide");
-    } else {
-        steps.remove();
-        velocity.remove();
     }
 
     var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
@@ -1256,15 +1256,15 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
 
     if (event.alpha || event.beta || event.gamma) {
         deviceOrientation = true;
+    } else {
+        steps.remove();
+        velocity.remove();
     }
 
     const mStoggle = document.querySelector('.pwa .motionSenseToggle');
     if (mStoggle.classList.contains("hide") && deviceMotion) {
         mStoggle.classList.remove("hide");
-    } else {
-        steps.remove();
-        velocity.remove();
-    }
+    } 
 
     if (!docHide) {
         betaAngle = event.beta;
