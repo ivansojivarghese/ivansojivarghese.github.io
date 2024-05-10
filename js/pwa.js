@@ -717,6 +717,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     const mStoggle = document.querySelector('.pwa .motionSenseToggle');
     if (mStoggle.classList.contains("hide") && deviceOrientation) {
         mStoggle.classList.remove("hide");
+    } else {
+        steps.remove();
+        velocity.remove();
     }
 
     var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
