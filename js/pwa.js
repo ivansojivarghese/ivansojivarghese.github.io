@@ -480,10 +480,10 @@ function networkInfo() {
 }
 
 // REFERENCED FROM Pascal Z, https://stackoverflow.com/questions/33673409/html5-javascript-calculate-device-speed-using-devicemotion-deviceorientation
-
+/*
 if (!('DeviceMotionEvent' in window) && !('DeviceOrientationEvent') in window) { 
     steps.remove();
-}
+}*/
 
 function motionTrendCal(arr) {
     var key = [],
@@ -712,10 +712,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     if (event.acceleration.x || event.acceleration.y || event.acceleration.z) {
         deviceMotion = true;
-    } else {
-        steps.remove();
-        velocity.remove();
-    }
+    } 
 
     const mStoggle = document.querySelector('.pwa .motionSenseToggle');
     if (mStoggle.classList.contains("hide") && deviceOrientation) {
@@ -1251,10 +1248,7 @@ window.addEventListener('deviceorientation', function(event) { // get rotation o
 
     if (event.alpha || event.beta || event.gamma) {
         deviceOrientation = true;
-    } else {
-        steps.remove();
-        velocity.remove();
-    }
+    } 
 
     const mStoggle = document.querySelector('.pwa .motionSenseToggle');
     if (mStoggle.classList.contains("hide") && deviceMotion) {
