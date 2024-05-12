@@ -1427,6 +1427,26 @@ function fetchPWAInfo() {
         var status = Number(localStorage.getItem('location'));
         if (status) {
             locationToggle.classList.add("toggleOn");
+
+            const options = {
+                enableHighAccuracy: true
+            }
+
+            localStorage.setItem('location', '1');
+            toggles.location = 1;
+            gpsID = navigator.geolocation.watchPosition((position) => {
+                gpsPos = position
+            }, (error) => {
+                if (error.code === error.PERMISSION_DENIED) {
+                    this.classList.add('hide');
+                    this.classList.remove('hoverB');
+                }
+                this.classList.remove('toggleOn');
+                localStorage.setItem('location', '0');
+                toggles.location = 0;
+                gpsPos = null;
+                navigator.geolocation.clearWatch(gpsID);
+            }, options);
         }
     }
 
