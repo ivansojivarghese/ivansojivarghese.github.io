@@ -623,6 +623,7 @@ body {
 
 .pwa .close_w_img {
     background-image: url("../svg/close_white.svg");
+    transform: translateY(0.05rem);
 }
 
 .pwa .info_img {
