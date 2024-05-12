@@ -11,6 +11,17 @@ body {
 .commuteColorChange {
     animation-name: commuteColor;
     animation-duration: 8s;
+    animation-iteration-count: infinite
+}
+
+.commuteColorChangeDark {
+    animation-name: commuteColorDark;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes commuteColorDark {
+    
 }
 
 @keyframes commuteColor {
