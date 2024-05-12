@@ -484,9 +484,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             motionIcon.classList.add("shade");
             navbar_pwa.classList.add("shade");
             fab.classList.add("shade");
-            if (fab2Check) {
-                fab2.classList.add("shade");
-            }
+            fab2.classList.add("shade");
 
             navButtonActive(active_icon_name, active_icon, true);
         }
@@ -682,9 +680,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             motionIcon.classList.remove("shade");
             navbar_pwa.classList.remove("shade");
             fab.classList.remove("shade");
-            if (fab2Check) {
-                fab2.classList.remove("shade");
-            }
+            fab2.classList.remove("shade");
 
             navButtonActive(active_icon_name, active_icon, true);
         }
