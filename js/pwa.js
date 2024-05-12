@@ -1419,6 +1419,8 @@ function fetchPWAInfo() {
         motionSenseToggle.classList.add("toggleOn");
     }
 
+    velocity.style.backgroundColor = "green";
+
     const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
         locationToggle.classList.add("hide");
