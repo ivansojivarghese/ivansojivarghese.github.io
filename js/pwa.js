@@ -1208,7 +1208,11 @@ function motionUXChange(m, o) {
             navbar.classList.add("fab2_nav");
             navbar.classList.remove("outView");
             if (m === "commute") {
-                document.body.classList.add("commuteColorChange");
+                if (!op.darkMode) {
+                    document.body.classList.add("commuteColorChange");
+                } else {
+                    document.body.classList.add("commuteColorChangeDark");
+                }
             } else {
                 document.body.classList.remove("commuteColorChange");
                 document.body.classList.remove("commuteColorChangeDark");
