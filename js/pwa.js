@@ -1211,12 +1211,14 @@ function motionUXChange(m, o) {
                 document.body.classList.add("commuteColorChange");
             } else {
                 document.body.classList.remove("commuteColorChange");
+                document.body.classList.remove("commuteColorChangeDark");
             }
         } else if (m === "run") {
             navButtonActive('home', homeBtn, false);
             navbar.classList.add("outView");
             oldMotionType = "run";
             document.body.classList.remove("commuteColorChange");
+            document.body.classList.remove("commuteColorChangeDark");
         } else if (m === "") {
             if (activeTab === "home") {
                 navButtonActive('home', homeBtn, false);
@@ -1231,6 +1233,7 @@ function motionUXChange(m, o) {
             navbar.classList.remove("outView");
             navbar.classList.remove("fab2_nav");
             document.body.classList.remove("commuteColorChange");
+            document.body.classList.remove("commuteColorChangeDark");
         }
     }
 }
