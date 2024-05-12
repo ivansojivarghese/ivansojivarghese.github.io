@@ -885,7 +885,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                 const zDiff = resZForce - refZForce;
                 if (zDiff <= 10) {
                     noStep = false;
-                } else if (zDiff > zThreshold && !noStep && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 0))) {
+                } else if (zDiff > zThreshold && !noStep && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 0 && gpsPos.coords.speed <= 1.5))) {
                     var time = new Date().getTime();
                     if (stepsCountInterval.length > 0) {
                         stepsCountTimes[stepsCountTimes.length] = time - stepsCountInterval[stepsCountInterval.length - 1];
@@ -1115,7 +1115,6 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
                     while (b < motionEndCountArray.length) {
                         if (motionEndCountArray[b] > 2 && nDeviceAcc > 1 && !walkingChange) { // potential commute mode
                             commuteMode = true;
-                            // motionType = "commute";
 
                             // 0 velocity
                             // no steps
@@ -1343,10 +1342,10 @@ function determineMotionType() { // either NO motion, walk, run or commute
                     }
                     if ((velocityEstRef > Lv3t && refVelocity) || (!refVelocity && velocityEstRef > Lv2t)) {
                         for (var i = 0; i < stepsArray.length; i++) {
-                            if (stepsArray[i] < 6 && (gpsPos === null || (gpsPos && gpsPos.coords.speed <= 1.5))) {
+                            if (stepsArray[i] < 6 && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 0 && gpsPos.coords.speed <= 1.5))) {
                                 motionType = "walk";
                                 break;
-                            } else if (((velocityEstRef > Lv3t && refVelocity) || (!refVelocity && velocityEstRef > Lv2t)) && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 1.5))) {
+                            } else if (((velocityEstRef > Lv3t && refVelocity) || (!refVelocity && velocityEstRef > Lv2t)) && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 1.5 && gpsPos.coords.speed <= 4))) {
                                 motionType = "run";
                             }
                         }
