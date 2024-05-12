@@ -22,31 +22,31 @@ body {
 
 @keyframes commuteColorDark {
     0% {
-        background-color: #F4F4F4 !important;
+        background-color: #303030 !important;
     }
     12.5% {
-        background-color: #FFFAF0 !important;
+        background-color: #36454F !important;
     }
     25% {
-        background-color: #F8F8FF !important;
+        background-color: #023020 !important;
     }
     37.5% {
-        background-color: #FFFFF0 !important;
+        background-color: #301934 !important;
     }
     50% {
-        background-color: #F5FFFA !important;
+        background-color: #1B1212 !important;
     }
     62.5% {
-        background-color: #FFF5EE !important;
+        background-color: #28282B !important;
     }
     75% {
-        background-color: #FFFAFA !important;
+        background-color: #353935 !important;
     }
     87.5% {
-        background-color: #F5F5F5 !important;
+        background-color: #343434 !important;
     }
     100% {
-        background-color: #F4F4F4 !important;
+        background-color: #303030 !important;
     }
 }
 
