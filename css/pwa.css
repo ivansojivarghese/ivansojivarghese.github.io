@@ -27,30 +27,57 @@ body {
 @keyframes commuteColor {
     0% {
         background-color: #F4F4F4;
+        .pwa .navbar .active {
+            background-color: #F4F4F4;
+        }
     }
     12.5% {
         background-color: #FFFAF0;
+        .pwa .navbar .active {
+            background-color: #FFFAF0;
+        }
     }
     25% {
         background-color: #F8F8FF;
+        .pwa .navbar .active {
+            background-color: #F8F8FF;
+        }
     }
     37.5% {
         background-color: #FFFFF0;
+        .pwa .navbar .active {
+            background-color: #FFFFF0;
+        }
     }
     50% {
         background-color: #F5FFFA;
+        .pwa .navbar .active {
+            background-color: #F5FFFA;
+        }
     }
     62.5% {
         background-color: #FFF5EE;
+        .pwa .navbar .active {
+            background-color: #FFF5EE;
+        }
     }
     75% {
         background-color: #FFFAFA;
+        .pwa .navbar .active {
+            background-color: #FFFAFA;
+        }
     }
     87.5% {
         background-color: #F5F5F5;
+        .pwa .navbar .active {
+            background-color: #F5F5F5;
+        }
     }
     100% {
         background-color: #F4F4F4;
+        .pwa .navbar .active {
+            background-color: #F4F4F4;
+        }
     }
 }
 
