@@ -8,13 +8,13 @@ body {
     /*padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);*/
 }
 
-.commuteColorChange {
+.commuteColorChange, body.commuteColorChange .pwa .navbar .active {
     animation-name: commuteColor;
     animation-duration: 8s;
     animation-iteration-count: infinite
 }
 
-.commuteColorChangeDark {
+.commuteColorChangeDark, body.commuteColorChangeDark .pwa .navbar .active {
     animation-name: commuteColorDark;
     animation-duration: 8s;
     animation-iteration-count: infinite;
@@ -22,115 +22,61 @@ body {
 
 @keyframes commuteColorDark {
     0% {
-        background-color: #F4F4F4;
-        .pwa .navbar .active {
-            background-color: #F4F4F4;
-        }
+        background-color: #F4F4F4 !important;
     }
     12.5% {
-        background-color: #FFFAF0;
-        .pwa .navbar .active {
-            background-color: #FFFAF0;
-        }
+        background-color: #FFFAF0 !important;
     }
     25% {
-        background-color: #F8F8FF;
-        .pwa .navbar .active {
-            background-color: #F8F8FF;
-        }
+        background-color: #F8F8FF !important;
     }
     37.5% {
-        background-color: #FFFFF0;
-        .pwa .navbar .active {
-            background-color: #FFFFF0;
-        }
+        background-color: #FFFFF0 !important;
     }
     50% {
-        background-color: #F5FFFA;
-        .pwa .navbar .active {
-            background-color: #F5FFFA;
-        }
+        background-color: #F5FFFA !important;
     }
     62.5% {
-        background-color: #FFF5EE;
-        .pwa .navbar .active {
-            background-color: #FFF5EE;
-        }
+        background-color: #FFF5EE !important;
     }
     75% {
-        background-color: #FFFAFA;
-        .pwa .navbar .active {
-            background-color: #FFFAFA;
-        }
+        background-color: #FFFAFA !important;
     }
     87.5% {
-        background-color: #F5F5F5;
-        .pwa .navbar .active {
-            background-color: #F5F5F5;
-        }
+        background-color: #F5F5F5 !important;
     }
     100% {
-        background-color: #F4F4F4;
-        .pwa .navbar .active {
-            background-color: #F4F4F4;
-        }
+        background-color: #F4F4F4 !important;
     }
 }
 
 @keyframes commuteColor {
     0% {
-        background-color: #F4F4F4;
-        .pwa .navbar .active {
-            background-color: #F4F4F4;
-        }
+        background-color: #F4F4F4 !important;
     }
     12.5% {
-        background-color: #FFFAF0;
-        .pwa .navbar .active {
-            background-color: #FFFAF0;
-        }
+        background-color: #FFFAF0 !important;
     }
     25% {
-        background-color: #F8F8FF;
-        .pwa .navbar .active {
-            background-color: #F8F8FF;
-        }
+        background-color: #F8F8FF !important;
     }
     37.5% {
-        background-color: #FFFFF0;
-        .pwa .navbar .active {
-            background-color: #FFFFF0;
-        }
+        background-color: #FFFFF0 !important;
     }
     50% {
-        background-color: #F5FFFA;
-        .pwa .navbar .active {
-            background-color: #F5FFFA;
-        }
+        background-color: #F5FFFA !important;
     }
     62.5% {
-        background-color: #FFF5EE;
-        .pwa .navbar .active {
-            background-color: #FFF5EE;
-        }
+        background-color: #FFF5EE !important;
     }
     75% {
-        background-color: #FFFAFA;
-        .pwa .navbar .active {
-            background-color: #FFFAFA;
-        }
+        background-color: #FFFAFA !important;
     }
     87.5% {
-        background-color: #F5F5F5;
-        .pwa .navbar .active {
-            background-color: #F5F5F5;
-        }
+        background-color: #F5F5F5 !important;
     }
     100% {
-        background-color: #F4F4F4;
-        .pwa .navbar .active {
-            background-color: #F4F4F4;
-        }
+        background-color: #F4F4F4 !important;
     }
 }
 
