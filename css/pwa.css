@@ -8,6 +8,29 @@ body {
     /*padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);*/
 }
 
+.commuteColorChange {
+    animation-name: commuteColor;
+    animation-duration: 4s;
+}
+
+@keyframes commuteColor {
+    0% {
+        background-color: #F4F4F4;
+    }
+    25% {
+        background-color: #FAEBD7;
+    }
+    50% {
+        background-color: #FFEBCD;
+    }
+    75% {
+        background-color: #FFE4C4;
+    }
+    100% {
+        background-color: #F4F4F4;
+    }
+}
+
 .pwa .navbar .button.swap {
     display: none;
 }

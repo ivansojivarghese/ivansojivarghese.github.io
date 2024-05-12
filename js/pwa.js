@@ -1207,10 +1207,16 @@ function motionUXChange(m, o) {
             fab2Check = true;
             navbar.classList.add("fab2_nav");
             navbar.classList.remove("outView");
+            if (m === "commute") {
+                document.body.classList.add("commuteColorChange");
+            } else {
+                document.body.classList.remove("commuteColorChange");
+            }
         } else if (m === "run") {
             navButtonActive('home', homeBtn, false);
             navbar.classList.add("outView");
             oldMotionType = "run";
+            document.body.classList.remove("commuteColorChange");
         } else if (m === "") {
             if (activeTab === "home") {
                 navButtonActive('home', homeBtn, false);
@@ -1224,6 +1230,7 @@ function motionUXChange(m, o) {
             fab2Check = false;
             navbar.classList.remove("outView");
             navbar.classList.remove("fab2_nav");
+            document.body.classList.remove("commuteColorChange");
         }
     }
 }
@@ -1417,8 +1424,6 @@ function fetchPWAInfo() {
     if (status) {
         motionSenseToggle.classList.add("toggleOn");
     }
-
-    velocity.style.backgroundColor = "pink";
 
     const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
