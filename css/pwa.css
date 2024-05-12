@@ -10,7 +10,7 @@ body {
 
 .commuteColorChange {
     animation-name: commuteColor;
-    animation-duration: 4s;
+    animation-duration: 8s;
 }
 
 @keyframes commuteColor {
