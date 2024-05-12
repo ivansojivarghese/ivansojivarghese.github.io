@@ -1419,7 +1419,7 @@ function fetchPWAInfo() {
         motionSenseToggle.classList.add("toggleOn");
     }
 
-    velocity.style.backgroundColor = "green";
+    velocity.style.backgroundColor = "pink";
 
     const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
