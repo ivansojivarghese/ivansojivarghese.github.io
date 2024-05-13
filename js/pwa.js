@@ -1212,10 +1212,12 @@ function motionUXChange(m, o) {
                     document.body.classList.add("commuteColorChange");
                 } else {
                     document.body.classList.add("commuteColorChangeDark");
+                    document.body.classList.remove("lightBackground");
                 }
             } else {
                 document.body.classList.remove("commuteColorChange");
                 document.body.classList.remove("commuteColorChangeDark");
+                document.body.classList.add("lightBackground");
             }
         } else if (m === "run") {
             navButtonActive('home', homeBtn, false);
@@ -1223,6 +1225,7 @@ function motionUXChange(m, o) {
             oldMotionType = "run";
             document.body.classList.remove("commuteColorChange");
             document.body.classList.remove("commuteColorChangeDark");
+            document.body.classList.add("lightBackground");
         } else if (m === "") {
             if (activeTab === "home") {
                 navButtonActive('home', homeBtn, false);
@@ -1238,6 +1241,7 @@ function motionUXChange(m, o) {
             navbar.classList.remove("fab2_nav");
             document.body.classList.remove("commuteColorChange");
             document.body.classList.remove("commuteColorChangeDark");
+            document.body.classList.add("lightBackground");
         }
     }
 }

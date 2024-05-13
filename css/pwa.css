@@ -14,7 +14,7 @@ body {
     animation-iteration-count: infinite
 }
 
-body.commuteColorChangeDark.lightBackground, body.commuteColorChangeDark .pwa .navbar .active {
+.commuteColorChangeDark, body.commuteColorChangeDark .pwa .navbar .active {
     animation-name: commuteColorDark;
     animation-duration: 8s;
     animation-iteration-count: infinite;
