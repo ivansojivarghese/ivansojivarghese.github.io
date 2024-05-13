@@ -121,6 +121,12 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
         op.darkMode = true; //
 
+        if (fab2Check && motionType === "commute") {
+            document.body.classList.remove("commuteColorChange");
+            document.body.classList.add("commuteColorChangeDark");
+            document.body.classList.remove("lightBackground");
+        }
+
         c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t); // remove 'trs' effect on text
 
         // needs to be generic to use in all pages
@@ -194,6 +200,12 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         scrolltop_img.classList.add("scrolltop_img");
         
         op.darkMode = false;
+
+        if (fab2Check && motionType === "commute") {
+            document.body.classList.add("commuteColorChange");
+            document.body.classList.remove("commuteColorChangeDark");
+            document.body.classList.add("lightBackground");
+        }
     }
 
     if (op.darkChange) {
