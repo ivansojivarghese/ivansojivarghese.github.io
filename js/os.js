@@ -123,8 +123,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
         if (fab2Check && motionType === "commute") {
             document.body.classList.remove("commuteColorChange");
-            document.body.classList.add("commuteColorChangeDark");
-            document.body.classList.remove("lightBackground");
+            // document.body.classList.add("commuteColorChangeDark");
+            // document.body.classList.remove("lightBackground");
         }
 
         c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t); // remove 'trs' effect on text
@@ -203,8 +203,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
         if (fab2Check && motionType === "commute") {
             document.body.classList.add("commuteColorChange");
-            document.body.classList.remove("commuteColorChangeDark");
-            document.body.classList.add("lightBackground");
+            // document.body.classList.remove("commuteColorChangeDark");
+            // document.body.classList.add("lightBackground");
         }
     }
 
