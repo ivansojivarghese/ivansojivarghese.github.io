@@ -2352,7 +2352,9 @@
                     var ham_auto = document.querySelector(".pwa .about .ham_auto");
                     ham_auto.classList.add("z_O");
                     localStorage.setItem('themeColor', '1');
-                    localStorage.setItem('systemColor', '0');
+                    if (localStorage.getItem('systemColor') !== '1') {
+                        localStorage.setItem('systemColor', '0');
+                    }
                     localStorage.setItem('incognito', '1');
                     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
                     loader.style.backgroundColor = "#303030";
