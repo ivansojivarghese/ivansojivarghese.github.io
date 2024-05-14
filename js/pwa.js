@@ -1438,6 +1438,17 @@ function fetchPWAInfo() {
         motionSenseToggle.classList.add("toggleOn");
     }
 
+    const batteryToggle = document.querySelector('.pwa .batteryToggle');
+    var status = Number(localStorage.getItem('battery'));
+    if (!navigator.getBattery()) {
+        batteryToggle.classList.add("hide");
+        batteryToggle.classList.remove("hoverB");
+    } else {
+        if (status) {
+            batteryToggle.classList.add("toggleOn");
+        }
+    }
+
     const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
         locationToggle.classList.add("hide");

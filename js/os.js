@@ -19,7 +19,8 @@ var uA_L,
 
 var toggles = {
     motionSense : localStorage.getItem('motionSense') === null ? 0 : Number(localStorage.getItem('motionSense')) ? 1 : 0,
-    location : localStorage.getItem('location') === null ? 0 : Number(localStorage.getItem('location')) ? 1 : 0
+    location : localStorage.getItem('location') === null ? 0 : Number(localStorage.getItem('location')) ? 1 : 0,
+    battery : localStorage.getItem('battery') === null ? 0 : Number(localStorage.getItem('battery')) ? 1 : 0
 };
 
 ///////////////////////////////////////////////////
