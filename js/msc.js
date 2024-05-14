@@ -3972,6 +3972,12 @@ async function getScreenLock() {
     }
 }
 
+function releaseScreenLock() {
+    screenLock.release().then(() => {
+        screenLock = null;
+    });
+}
+
 // getScreenLock();
 
 /////////////////////////////////////////

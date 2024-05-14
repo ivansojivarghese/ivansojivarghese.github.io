@@ -1029,10 +1029,11 @@
                                                 localStorage.setItem('screenWake', '1');
                                                 toggles.screenWake = 1;
 
+                                                getScreenLock();
                                                 
                                             } else {
 
-                                                
+                                                releaseScreenLock();
 
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('screenWake', '0');

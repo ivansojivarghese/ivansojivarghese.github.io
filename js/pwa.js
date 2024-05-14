@@ -1461,6 +1461,17 @@ function fetchPWAInfo() {
         }
     }
 
+    const screenWakeToggle = document.querySelector('.pwa .screenWakeToggle');
+    if (!"wakeLock" in navigator) {
+        screenWakeToggle.classList.add("hide");
+        screenWakeToggle.classList.remove("hoverB");
+    } else {
+        var status = Number(localStorage.getItem('screenWake'));
+        if (status) {
+            getScreenLock();
+        }
+    }
+
     const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
         locationToggle.classList.add("hide");
