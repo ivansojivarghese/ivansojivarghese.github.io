@@ -1483,7 +1483,7 @@ function fetchPWAInfo() {
         if (status) {
             rotationLockToggle.classList.add("toggleOn");
 
-            screen.orientation.lock();
+            screen.orientation.lock("any");
         }
     }
 
