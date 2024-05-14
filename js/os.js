@@ -75,10 +75,8 @@ if (localStorage.getItem('systemColor') === null) {
         localStorage.setItem('themeColor', '0');
     }
 } else if (localStorage.getItem('systemColor') === '0') {
-    // hamAuto.classList.add("z_O");
     if (localStorage.getItem('themeColor') === '0') {
-        // toggleColorMode(null);
-        // toggleColorMode(null);
+        op.darkMode = false;
     } else if (localStorage.getItem('themeColor') === '1') {
         op.darkMode = true;
         var loader = document.querySelector(".loader_pwa");
@@ -90,10 +88,8 @@ if (localStorage.getItem('systemColor') === null) {
             load_r[i].style.borderTopColor = "#FFF";
             i++;
         }
-        // toggleColorMode(null);
     }
 } else if (localStorage.getItem('systemColor') === '1') {
-    // hamAuto.classList.remove("z_O");
     if (localStorage.getItem('themeColor') === '1') {
         op.darkChange = true;
         toggleColorMode(null);
