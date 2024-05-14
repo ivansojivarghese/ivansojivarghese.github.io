@@ -1956,6 +1956,155 @@ function getGhCommits() {
     return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
 }
 
+function refetchWeather() {
+    if (ipAPIres.online) {
+        if (gpsPos !== null && gpsPos.coords.latitude !== null & gpsPos.coords.longitude !== null) {
+            weatherAPI(gpsPos.coords.latitude, gpsPos.coords.longitude, tempUnit(ipAPIres.country.iso_code));
+        } else {
+            weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
+        }
+        weather_L = setInterval(function() {
+            if (weatherAPIres.online && countryAPIres.online) {
+                clearInterval(weather_L);
+
+                const weatherMain = weatherAPIres.weather[0].main;
+                const weatherDes = weatherAPIres.weather[0].description;
+                const sunrise = weatherAPIres.sys.sunrise;
+                const sunset = weatherAPIres.sys.sunset;
+
+                var day = true,
+                    icon = "";
+
+                if (((new Date().valueOf() / 1000) > sunrise) && ((new Date().valueOf() / 1000) < sunset)) {
+                    day = true;
+                } else {
+                    day = false;
+                }
+
+                switch (weatherMain) {
+                    case "Clear":
+                        if (day) {
+                            icon = "sunny";
+                        } else {
+                            icon = "clear";
+                        }
+                    break;
+                    case "Clouds":
+                        switch (weatherDes) {
+                            case "few clouds":
+                                if (day) {
+                                    icon = "mostly_sunny";
+                                } else {
+                                    icon = "isolated_clouds";
+                                }
+                            break;
+                            case "scattered clouds":
+                                if (day) {
+                                    icon = "partly_cloudy";
+                                } else {
+                                    icon = "partly_cloudy_night";
+                                }
+                            break;
+                            case "broken clouds":
+                                if (day) {
+                                    icon = "mostly_cloudy";
+                                } else {
+                                    icon = "mostly_cloudy_night";
+                                }
+                            break;
+                            case "overcast clouds":
+                                if (day) {
+                                    icon = "cloudy";
+                                } else {
+                                    icon = "cloudy_night";
+                                }
+                            break;
+                        }
+                    break;
+                    case "Mist":
+                    case "Smoke":
+                    case "Haze":
+                    case "Dust":
+                    case "Fog":
+                    case "Sand":
+                    case "Ash":
+                    case "Squall":
+                    case "Tornado":
+                        if (day) {
+                            icon = "fog";
+                        } else {
+                            icon = "fog_night";
+                        }
+                    break;
+                    case "Snow":
+                        switch (weatherDes) {
+                            case "snow":
+                            case "light snow":
+                                if (day) {
+                                    icon = "snowy";
+                                } else {
+                                    icon = "snowy_night";
+                                }
+                            break;
+                            case "sleet":
+                            case "light shower sleet":
+                            case "shower sleet":
+                                if (day) {
+                                    icon = "sleet";
+                                } else {
+                                    icon = "sleet_night";
+                                }
+                            break;
+                            case "light rain and snow":
+                            case "rain and snow":
+                            case "light shower snow":
+                            case "shower snow":
+                                if (day) {
+                                    icon = "snowy_rain";
+                                } else {
+                                    icon = "snowy_rain_night";
+                                }
+                            break;
+                            case "heavy snow":
+                            case "heavy shower snow":
+                                if (day) {
+                                    icon = "blizzard";
+                                } else {
+                                    icon = "blizzard_night";
+                                }
+                            break;
+                        }
+                    break;
+                    case "Rain":
+                        if (day) {
+                            icon = "rainy";
+                        } else {
+                            icon = "rainy_night";
+                        }
+                    break;
+                    case "Drizzle":
+                        if (day) {
+                            icon = "showers";
+                        } else {
+                            icon = "showers_night";
+                        }
+                    break;
+                    case "Thunderstorm":
+                        if (day) {
+                            icon = "thunderstorms";
+                        } else {
+                            icon = "thunderstorms_night";
+                        }
+                    break;
+                }
+
+                const tempIcon = document.querySelector('.pwa .weatherIcon');
+                // $(tempIcon).load("weather/" + icon + ".html", function() {
+            }
+        }, op.t);
+    }
+}
+
 var loader = document.querySelector('#load_sc');
 
 function pwaRead() {
