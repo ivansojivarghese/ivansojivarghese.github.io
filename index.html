@@ -988,6 +988,18 @@
                                                 this.classList.add('toggleOn');
                                                 localStorage.setItem('battery', '1');
                                                 toggles.battery = 1;
+
+                                                const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
+                                                navigator.getBattery().then(monitorBattery);
+                                                for (j = 0; j < batteryIcons.length; j++) {
+                                                    batteryIcons[j].parentElement.classList.remove('d_n');
+
+                                                    batteryIcons[j].parentElement.classList.add('hoverB', 'trs');
+
+                                                    batteryIcons[j].parentElement.addEventListener('mousemove', hoverInit);
+                                                    batteryIcons[j].parentElement.addEventListener('mouseleave', hoverEnd);
+                                                    batteryIcons[j].parentElement.addEventListener('click', hoverMiddle);
+                                                }
                                             } else {
 
                                                 const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
