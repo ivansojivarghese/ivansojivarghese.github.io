@@ -3962,13 +3962,13 @@ function isScreenLockSupported() {
 
 async function getScreenLock() {
     if (isScreenLockSupported()){
-        let screenLock;
+        // let screenLock;
         try {
             screenLock = await navigator.wakeLock.request('screen');
         } catch(err) {
             console.log(err.name, err.message);
         }
-        return screenLock;
+        // return screenLock;
     }
 }
 

@@ -1470,7 +1470,7 @@ function fetchPWAInfo() {
         if (status) {
             screenWakeToggle.classList.add("toggleOn");
 
-            screenLock = getScreenLock();
+            getScreenLock();
         }
     }
 
