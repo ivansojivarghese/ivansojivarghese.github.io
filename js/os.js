@@ -224,6 +224,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         e_Fd(hamAuto, false);
 
         setCookie("darkMode", null, -1);
+        op.refuseAutoDark = false;
 
         colorStates = 0;
     }
