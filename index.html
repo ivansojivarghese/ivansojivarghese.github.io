@@ -2346,7 +2346,7 @@
                     op.darkMode = true;
                 }
 
-                if (op.darkMode) {
+                if (op.darkMode && localStorage.getItem('themeColor') === null && localStorage.getItem('systemColor') === null) {
                     var loader = document.querySelector(".loader_pwa");
                     var load_r = document.querySelectorAll(".load_r_pwa");
                     var ham_auto = document.querySelector(".pwa .about .ham_auto");
