@@ -223,6 +223,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         var hamAuto = document.querySelector('.pwa .about .ham_auto');
         e_Fd(hamAuto, false);
 
+        setCookie("darkMode", null, -1);
+
         colorStates = 0;
     }
 }
