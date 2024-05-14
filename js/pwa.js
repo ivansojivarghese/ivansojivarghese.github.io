@@ -1481,9 +1481,21 @@ function fetchPWAInfo() {
     } else {
         var status = Number(localStorage.getItem('rotationLock'));
         if (status) {
-            rotationLockToggle.classList.add("toggleOn");
 
-            screen.orientation.lock("any");
+            // rotationLockToggle.classList.add("toggleOn");
+            // screen.orientation.lock("any");
+
+            oriLock = screen.orientation.lock('any').then(() => {
+                rotationLockToggle.classList.add('toggleOn');
+                localStorage.setItem('rotationLock', '1');
+                toggles.rotationLock = 1;
+            }).catch((err) => {
+                rotationLockToggle.classList.add('hide');
+                rotationLockToggle.classList.remove('hoverB');
+                rotationLockToggle.classList.remove('toggleOn');
+                localStorage.setItem('rotationLock', '0');
+                toggles.rotationLock = 0;
+            });
         }
     }
 
