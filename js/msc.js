@@ -4003,7 +4003,7 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
 });*/
 
 //////////////////////////////////////////
-
+/*
 var fullscreenActive = false;
 
 window.addEventListener("click", function(event) { // 
@@ -4014,7 +4014,7 @@ window.addEventListener("click", function(event) { //
             fullscreenActive = false;
         });
     }
-});
+});*/
 
 window.addEventListener("touchstart", function(event) { // IF TOUCH detected on screen
     tch.e = true;
@@ -4023,23 +4023,25 @@ window.addEventListener("touchstart", function(event) { // IF TOUCH detected on 
         tch.d = false;
         tch.yA = event.touches[0].clientY;
     }
+    /*
     if ((getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") && !fullscreenActive) {
         document.documentElement.requestFullscreen().then(() => {
             fullscreenActive = true;
         }).catch((err) => {
             fullscreenActive = false;
         });
-    }
+    }*/
 });
 
 window.addEventListener("touchmove", function(event) {
+    /*
     if ((getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") && !fullscreenActive) {
         document.documentElement.requestFullscreen().then(() => {
             fullscreenActive = true;
         }).catch((err) => {
             fullscreenActive = false;
         });
-    }
+    }*/
     if (event.touches.length === 1) {
         var drg = 0;
         tch.yB = event.touches[0].clientY;
