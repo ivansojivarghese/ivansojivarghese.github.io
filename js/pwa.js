@@ -1446,6 +1446,18 @@ function fetchPWAInfo() {
     } else {
         if (status) {
             batteryToggle.classList.add("toggleOn");
+
+            const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
+            navigator.getBattery().then(monitorBattery);
+            for (j = 0; j < batteryIcons.length; j++) {
+                batteryIcons[j].parentElement.classList.remove("d_n");
+
+                batteryIcons[j].parentElement.classList.add("hoverB", "trs");
+
+                batteryIcons[j].parentElement.addEventListener('mousemove', hoverInit);
+                batteryIcons[j].parentElement.addEventListener('mouseleave', hoverEnd);
+                batteryIcons[j].parentElement.addEventListener('click', hoverMiddle);
+            }
         }
     }
 
@@ -1491,7 +1503,7 @@ function fetchPWAInfo() {
     }
 
     // battery
-
+    /*
     if ('getBattery' in navigator) {
         const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
         navigator.getBattery().then(monitorBattery);
@@ -1504,7 +1516,7 @@ function fetchPWAInfo() {
             batteryIcons[j].parentElement.addEventListener('mouseleave', hoverEnd);
             batteryIcons[j].parentElement.addEventListener('click', hoverMiddle);
         }
-    }
+    }*/
 
     // screen refresh rate
 

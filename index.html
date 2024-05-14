@@ -990,7 +990,11 @@
                                                 toggles.battery = 1;
                                             } else {
 
-                                                
+                                                const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
+        
+                                                for (j = 0; j < batteryIcons.length; j++) {
+                                                    batteryIcons[j].parentElement.classList.add('d_n');
+                                                }
 
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('battery', '0');
