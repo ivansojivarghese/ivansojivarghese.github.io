@@ -3972,8 +3972,8 @@ async function getScreenLock() {
     }
 }
 
-async function releaseScreenLock() {
-    await navigator.wakeLock.release().then(() => {
+async function releaseScreenLock(screenLock) {
+    await screenLock.release().then(() => {
         screenLock = null;
     });
 }
