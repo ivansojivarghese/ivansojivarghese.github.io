@@ -2216,7 +2216,7 @@ function pwaRead() {
                 navbar.insertBefore(swapButton, firstButton);
             }
 
-            document.documentElement.requestFullscreen()
+            // document.documentElement.requestFullscreen();
             
         break;
         case "interactive":
@@ -2234,7 +2234,7 @@ function pwaRead() {
                 navbar.insertBefore(swapButton, firstButton);
             }
 
-            document.documentElement.requestFullscreen()
+            // document.documentElement.requestFullscreen();
             
         break;
         case "complete":
@@ -2251,7 +2251,7 @@ function pwaRead() {
                 // pwa_home.classList.add("scrollBarContainer");
                 pwa_scrollF.classList.add("z-I");
 
-                document.documentElement.requestFullscreen()
+                // document.documentElement.requestFullscreen();
 
                 e_Fd(pwa_sec_body, false);
 
