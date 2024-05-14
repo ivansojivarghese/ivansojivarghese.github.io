@@ -1602,6 +1602,8 @@ function fetchPWAInfo() {
     windDir.innerHTML = /*weatherAPIres.wind.deg + "° " +*/ degToCompass(weatherAPIres.wind.deg);
     feelsLike.innerHTML = Math.round(weatherAPIres.main.feels_like) + "°" + ((tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F");
 
+    setInterval(refetchWeather, 900000);
+    
     // // // 
 
     for (i = 0; i < wordcloud.length; i++) { // get words from skills in msc.js
