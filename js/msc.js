@@ -4008,8 +4008,11 @@ var fullscreenActive = false;
 
 window.addEventListener("click", function(event) { // 
     if ((getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") && !fullscreenActive) {
-        document.documentElement.requestFullscreen();
-        fullscreenActive = true;
+        document.documentElement.requestFullscreen().then(() => {
+            fullscreenActive = true;
+        }).catch((err) => {
+            fullscreenActive = false;
+        });
     }
 });
 
@@ -4021,15 +4024,21 @@ window.addEventListener("touchstart", function(event) { // IF TOUCH detected on 
         tch.yA = event.touches[0].clientY;
     }
     if ((getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") && !fullscreenActive) {
-        document.documentElement.requestFullscreen();
-        fullscreenActive = true;
+        document.documentElement.requestFullscreen().then(() => {
+            fullscreenActive = true;
+        }).catch((err) => {
+            fullscreenActive = false;
+        });
     }
 });
 
 window.addEventListener("touchmove", function(event) {
     if ((getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") && !fullscreenActive) {
-        document.documentElement.requestFullscreen();
-        fullscreenActive = true;
+        document.documentElement.requestFullscreen().then(() => {
+            fullscreenActive = true;
+        }).catch((err) => {
+            fullscreenActive = false;
+        });
     }
     if (event.touches.length === 1) {
         var drg = 0;
