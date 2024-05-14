@@ -79,7 +79,7 @@ if (darkTheme.matches) {
 function toggleColorMode(e, init) { // light/dark modes toggling
     if (colorStates < 2) {
 
-        if (localStorage.getItem('systemColor') === '1' && !op.darkChange) {
+        if (localStorage.getItem('systemColor') === '1' && !op.darkChange && !init) {
             localStorage.setItem('systemColor', '0');
         } 
 
