@@ -1604,6 +1604,12 @@ function fetchPWAInfo() {
         }
     }
 
+    if (localStorage.getItem('systemColor') === '0') {
+        e_Fd(hamAuto, true);
+    } else if (localStorage.getItem('systemColor') === '1') {
+        e_Fd(hamAuto, false);
+    }
+
     // home
     /*
     if (r.o === "portrait" && window.innerWidth < 490) {
