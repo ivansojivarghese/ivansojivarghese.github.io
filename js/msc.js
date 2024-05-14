@@ -1333,10 +1333,11 @@ function pL() { // site parameters loop
         }, op.ne.bD);
     }*/
 
+    /*
     if (navigator.userActivation.hasBeenActive && !screenLockStatus) { // if page interaction detected
         getScreenLock(); // lock the screen
         screenLockStatus = true;
-    }
+    }*/
 
     if (!op.iPef && op.pSpd && op.sfr && op.pCores) { // capture initial device performance value, to be used as reference
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
@@ -3738,9 +3739,10 @@ window.addEventListener("visibilitychange", async function() { // stop network c
                     networkConditions(); // continuously check on network
                 }, op.ne.bD);
             }
+            /*
             if (screenLock !== null) {
                 screenLock = await navigator.wakeLock.request('screen');
-            }
+            }*/
         }
     }
 });

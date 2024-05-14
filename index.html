@@ -1020,6 +1020,32 @@
                                     </div>
                                     <p class="attr">show battery information of device on status bar</p>
                                 </div>
+                                <div class="toggleDiv">
+                                    <p>screen wake lock</p>
+                                    <div class="screenWakeToggle toggleBackg trs hoverB lightBackground" onclick="
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('screenWake', '1');
+                                                toggles.screenWake = 1;
+
+                                                
+                                            } else {
+
+                                                
+
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('screenWake', '0');
+                                                toggles.screenWake = 0;
+                                            }
+                                        } else {
+                                            event.preventDefault();
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">prevents your screen from locking or dimming</p>
+                                </div>
                             </div>
                         </div>
                     </div>
