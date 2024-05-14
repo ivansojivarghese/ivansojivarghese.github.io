@@ -55,10 +55,15 @@ op.darkMode = isDarkMode();
 
 var colorStates = 0;
 
-// localStorage.setItem('themeColor', '-1');
+if (localStorage.getItem('systemColor') !== '0') {
+    localStorage.setItem('systemColor', '1');
+}
 
 function toggleColorMode(e, init) { // light/dark modes toggling
     if (colorStates < 2) {
+
+        localStorage.setItem('systemColor', '0');
+
         var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
             icon = null,
 
@@ -229,7 +234,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         var hamAuto = document.querySelector('.pwa .about .ham_auto');
         e_Fd(hamAuto, false);
 
-        // localStorage.setItem('themeColor', '-1');
+        localStorage.setItem('systemColor', '1');
 
         setCookie("darkMode", null, -1);
         op.refuseAutoDark = false;
