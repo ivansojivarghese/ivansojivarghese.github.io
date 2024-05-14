@@ -982,10 +982,27 @@
                                 </div>
                                 <div class="toggleDiv">
                                     <p>battery</p>
-                                    <div class="batteryToggle toggleBackg trs hoverB lightBackground" onclick="">
+                                    <div class="batteryToggle toggleBackg trs hoverB lightBackground" onclick="
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('battery', '1');
+                                                toggles.battery = 1;
+                                            } else {
+
+                                                
+
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('battery', '0');
+                                                toggles.battery = 0;
+                                            }
+                                        } else {
+                                            event.preventDefault();
+                                        }
+                                    ">
                                         <div class="toggleSwitch trs darkBackground"></div>
                                     </div>
-                                    <p>show battery information of the device.</p>
+                                    <p class="attr">show battery information of the device on status bar</p>
                                 </div>
                             </div>
                         </div>
