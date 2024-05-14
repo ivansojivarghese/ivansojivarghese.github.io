@@ -1053,7 +1053,7 @@
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
 
-                                                oriLock = screen.orientation.lock('any').then(() => {
+                                                oriLock = screen.orientation.lock('natural').then(() => {
                                                     this.classList.add('toggleOn');
                                                     localStorage.setItem('rotationLock', '1');
                                                     toggles.rotationLock = 1;

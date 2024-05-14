@@ -1485,7 +1485,7 @@ function fetchPWAInfo() {
             // rotationLockToggle.classList.add("toggleOn");
             // screen.orientation.lock("any");
 
-            oriLock = screen.orientation.lock('any').then(() => {
+            oriLock = screen.orientation.lock('natural').then(() => {
                 rotationLockToggle.classList.add('toggleOn');
                 localStorage.setItem('rotationLock', '1');
                 toggles.rotationLock = 1;
