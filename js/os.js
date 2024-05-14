@@ -79,7 +79,9 @@ if (darkTheme.matches) {
 function toggleColorMode(e, init) { // light/dark modes toggling
     if (colorStates < 2) {
 
-        localStorage.setItem('systemColor', '0');
+        if (localStorage.getItem('systemColor') === '0' || init) {
+            localStorage.setItem('systemColor', '0');
+        }
 
         var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
             icon = null,
