@@ -55,7 +55,7 @@ op.darkMode = isDarkMode();
 
 var colorStates = 0;
 
-localStorage.setItem('themeColor', '-1');
+// localStorage.setItem('themeColor', '-1');
 
 function toggleColorMode(e, init) { // light/dark modes toggling
     if (colorStates < 2) {
@@ -229,7 +229,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         var hamAuto = document.querySelector('.pwa .about .ham_auto');
         e_Fd(hamAuto, false);
 
-        localStorage.setItem('themeColor', '-1');
+        // localStorage.setItem('themeColor', '-1');
 
         setCookie("darkMode", null, -1);
         op.refuseAutoDark = false;
