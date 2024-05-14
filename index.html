@@ -2352,7 +2352,7 @@
                     var ham_auto = document.querySelector(".pwa .about .ham_auto");
                     ham_auto.classList.add("z_O");
                     localStorage.setItem('themeColor', '1');
-                    if (localStorage.getItem('systemColor') !== '1') {
+                    if (localStorage.getItem('systemColor') === '1' && localStorage.getItem('incognito') === null) {
                         localStorage.setItem('systemColor', '0');
                     }
                     localStorage.setItem('incognito', '1');
