@@ -55,6 +55,8 @@ op.darkMode = isDarkMode();
 
 var colorStates = 0;
 
+localStorage.setItem('themeColor', '-1');
+
 function toggleColorMode(e, init) { // light/dark modes toggling
     if (colorStates < 2) {
         var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
@@ -104,6 +106,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
         }
 
         if ((!op.darkMode || init) /*&& colorStates <= 2 && colorStates !== 0*/) { // if light, change to dark
+
+            localStorage.setItem('themeColor', '1');
 
             document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
 
@@ -170,6 +174,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
         } else /*if (colorStates <= 2 && colorStates !== 0)*/ { // if dark, change to light
 
+            localStorage.setItem('themeColor', '0');
+
             document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F4F4F4');
 
             for (i = 0; i < fvc.length; i++) { // change favicon
@@ -222,6 +228,8 @@ function toggleColorMode(e, init) { // light/dark modes toggling
     } else {
         var hamAuto = document.querySelector('.pwa .about .ham_auto');
         e_Fd(hamAuto, false);
+
+        localStorage.setItem('themeColor', '-1');
 
         setCookie("darkMode", null, -1);
         op.refuseAutoDark = false;
