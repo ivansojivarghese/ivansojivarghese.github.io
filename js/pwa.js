@@ -14,6 +14,8 @@ var btty = {
     charging : null
 };
 
+var weatherID = 0;
+
 var rL = {
     el : document.getElementById("load_sc"), 
     r : document.getElementById("loadR"), // loading rings (container)
@@ -1964,8 +1966,10 @@ function refetchWeather() {
             weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
         }
         weather_L = setInterval(function() {
-            if (weatherAPIres.online && countryAPIres.online) {
+            if (weatherAPIres.online && countryAPIres.online && weatherAPIres.id !== weatherID) {
                 clearInterval(weather_L);
+
+                weatherID = weatherAPIres.id;
 
                 const weatherMain = weatherAPIres.weather[0].main;
                 const weatherDes = weatherAPIres.weather[0].description;
@@ -2099,7 +2103,7 @@ function refetchWeather() {
                 }
 
                 const tempIcon = document.querySelector('.pwa .weatherIcon');
-                // $(tempIcon).load("weather/" + icon + ".html", function() {
+                $(tempIcon).load("weather/" + icon + ".html");
             }
         }, op.t);
     }
@@ -2204,6 +2208,8 @@ function pwaRead() {
                                     weather_L = setInterval(function() {
                                         if (weatherAPIres.online && countryAPIres.online) {
                                             clearInterval(weather_L);
+
+                                            weatherID = weatherAPIres.id;
 
                                             const weatherMain = weatherAPIres.weather[0].main;
                                             const weatherDes = weatherAPIres.weather[0].description;
