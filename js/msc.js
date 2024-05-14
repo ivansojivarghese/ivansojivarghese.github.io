@@ -4017,6 +4017,9 @@ window.addEventListener("touchstart", function(event) { // IF TOUCH detected on 
 });
 
 window.addEventListener("touchmove", function(event) {
+    if (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") {
+        document.documentElement.requestFullscreen();
+    }
     if (event.touches.length === 1) {
         var drg = 0;
         tch.yB = event.touches[0].clientY;
