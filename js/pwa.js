@@ -1468,7 +1468,7 @@ function fetchPWAInfo() {
     } else {
         var status = Number(localStorage.getItem('screenWake'));
         if (status) {
-            getScreenLock();
+            screenLock = getScreenLock();
         }
     }
 

@@ -23,6 +23,8 @@ var toggles = {
     battery : localStorage.getItem('battery') === null ? 0 : Number(localStorage.getItem('battery')) ? 1 : 0
 };
 
+var screenLock;
+
 ///////////////////////////////////////////////////
 
 function isDarkMode() { // dark mode detection
