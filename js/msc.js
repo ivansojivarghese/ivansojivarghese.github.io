@@ -4004,6 +4004,12 @@ window.matchMedia('(display-mode: browser)').addEventListener('change', (evt) =>
 
 //////////////////////////////////////////
 
+window.addEventListener("click", function(event) { // 
+    if (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") {
+        document.documentElement.requestFullscreen();
+    }
+});
+
 window.addEventListener("touchstart", function(event) { // IF TOUCH detected on screen
     tch.e = true;
     tch.s = true;
