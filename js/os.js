@@ -65,15 +65,14 @@ op.darkMode = isDarkMode();
 
 var colorStates = 0;
 
-if (localStorage.getItem('systemColor') !== '0') {
+if (localStorage.getItem('systemColor') === null) {
     localStorage.setItem('systemColor', '1');
-}
-
-const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
-if (darkTheme.matches) {
-    localStorage.setItem('themeColor', '1');
-} else {
-    localStorage.setItem('themeColor', '0');
+    const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkTheme.matches) {
+        localStorage.setItem('themeColor', '1');
+    } else {
+        localStorage.setItem('themeColor', '0');
+    }
 }
 
 function toggleColorMode(e, init) { // light/dark modes toggling
@@ -81,9 +80,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
         if (localStorage.getItem('systemColor') === '1' && !op.darkChange && !init) {
             localStorage.setItem('systemColor', '0');
-        } /*else if (init && ) {
-
-        }*/
+        } 
 
         var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
             icon = null,
