@@ -1467,7 +1467,7 @@ function fetchPWAInfo() {
                 navigator.geolocation.clearWatch(gpsID);
             }, options);
 
-            refetchWeather();
+            setTimeout(refetchWeather, op.t);
         }
     }
 
