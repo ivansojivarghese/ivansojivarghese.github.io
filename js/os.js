@@ -8,7 +8,7 @@ var uA_L,
         Ls : 1000/60, // loop (interval) speed - sec./rev.
         // i : 60, // iterations (per sec.)
         pwa : {
-            s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") ? true : false // check whether if opened as app
+            s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone" || getPWADisplayMode() === "browser") ? true : false // check whether if opened as app
         },
         Lf : {
             fb : document.hasFocus()
@@ -294,10 +294,11 @@ function getPWADisplayMode() {
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
     if (document.referrer.startsWith('android-app://')) {
         return 'twa';
-    } else /*if (navigator.standalone || isStandalone)*/ { // return APP mode by default (effective 270124)
+    } else if (navigator.standalone || isStandalone) { // return APP mode & BROWSER (effective 140524)
         return 'standalone';
+    } else {
+        return 'browser';
     }
-    return 'browser';
 }
 /*
 window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => { // check for changes in display
