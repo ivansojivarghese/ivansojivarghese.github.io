@@ -2342,11 +2342,11 @@
             detectIncognito().then((result) => {
                 // console.log(result.browserName, result.isPrivate);
 
-                if (result.isPrivate && localStorage.getItem('incognito') === null) {
+                if (result.isPrivate && (localStorage.getItem('incognito') === null || localStorage.getItem('themeColor') === '1')) {
                     op.darkMode = true;
                 }
 
-                if (op.darkMode && localStorage.getItem('incognito') === null) {
+                if (op.darkMode && (localStorage.getItem('incognito') === null || localStorage.getItem('themeColor') === '1')) {
                     var loader = document.querySelector(".loader_pwa");
                     var load_r = document.querySelectorAll(".load_r_pwa");
                     var ham_auto = document.querySelector(".pwa .about .ham_auto");
