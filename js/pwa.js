@@ -1592,7 +1592,7 @@ function fetchPWAInfo() {
         if (op.darkMode) { // if dark mode
             toggleColorMode(null, true); // start-up with preset color theme
         } else {
-            autoDarkMode(); // EXPERIMENTAL: Check device ambient light to activate dark mode
+            // autoDarkMode(); // EXPERIMENTAL: Check device ambient light to activate dark mode
         }
     } else {
         // e_Fd(hamAuto, true);
