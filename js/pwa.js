@@ -1472,6 +1472,17 @@ function fetchPWAInfo() {
         }
     }
 
+    const rotationLockToggle = document.querySelector('.pwa .rotationToggle');
+    if (!"lock" in ScreenOrientation) {
+        rotationLockToggle.classList.add("hide");
+        rotationLockToggle.classList.remove("hoverB");
+    } else {
+        var status = Number(localStorage.getItem('rotationLock'));
+        if (status) {
+            screen.orientation.lock();
+        }
+    }
+
     const locationToggle = document.querySelector('.pwa .locationToggle');
     if (!navigator.geolocation) {
         locationToggle.classList.add("hide");

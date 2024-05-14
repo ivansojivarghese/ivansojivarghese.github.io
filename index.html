@@ -1047,6 +1047,33 @@
                                     </div>
                                     <p class="attr">prevents your screen from locking or dimming (this may not work under some conditions)</p>
                                 </div>
+                                <div class="toggleDiv">
+                                    <p>rotation lock</p>
+                                    <div class="rotationToggle toggleBackg trs hoverB lightBackground" onclick="
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('rotationLock', '1');
+                                                toggles.rotationLock = 1;
+
+                                                screen.orientation.lock();
+                                                
+                                            } else {
+
+                                                screen.orientation.unlock();
+
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('rotationLock', '0');
+                                                toggles.rotationLock = 0;
+                                            }
+                                        } else {
+                                            event.preventDefault();
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
