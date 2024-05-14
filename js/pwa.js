@@ -2046,7 +2046,11 @@ function pwaRead() {
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
                                 if (ipAPIres.online /*&& githubCommitsres.online*/) {
-                                    weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
+                                    if (gpsPos !== null && gpsPos.coords.latitude !== null & gpsPos.coords.longitude !== null) {
+                                        weatherAPI(gpsPos.coords.latitude, gpsPos.coords.longitude, tempUnit(ipAPIres.country.iso_code));
+                                    } else {
+                                        weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
+                                    }
                                     clearInterval(ip_L);
                                     weather_L = setInterval(function() {
                                         if (weatherAPIres.online && countryAPIres.online) {
