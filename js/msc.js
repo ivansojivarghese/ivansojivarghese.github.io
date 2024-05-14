@@ -4011,7 +4011,7 @@ window.addEventListener("touchstart", function(event) { // IF TOUCH detected on 
         tch.d = false;
         tch.yA = event.touches[0].clientY;
     }
-    if (op.pwa.s) {
+    if (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") {
         document.documentElement.requestFullscreen();
     }
 });
