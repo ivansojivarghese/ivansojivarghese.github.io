@@ -73,6 +73,15 @@ if (localStorage.getItem('systemColor') === null) {
     } else {
         localStorage.setItem('themeColor', '0');
     }
+} else if (localStorage.getItem('systemColor') === '0') {
+    if (localStorage.getItem('themeColor') === '0') {
+        toggleColorMode();
+        toggleColorMode();
+    } else if (localStorage.getItem('themeColor') === '1') {
+        toggleColorMode();
+    }
+} else if (localStorage.getItem('systemColor') === '1') {
+    
 }
 
 function toggleColorMode(e, init) { // light/dark modes toggling
