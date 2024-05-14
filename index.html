@@ -1052,11 +1052,18 @@
                                     <div class="rotationToggle toggleBackg trs hoverB lightBackground" onclick="
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
-                                                this.classList.add('toggleOn');
-                                                localStorage.setItem('rotationLock', '1');
-                                                toggles.rotationLock = 1;
 
-                                                screen.orientation.lock('any');
+                                                oriLock = await screen.orientation.lock('any').then(() => {
+                                                    this.classList.add('toggleOn');
+                                                    localStorage.setItem('rotationLock', '1');
+                                                    toggles.rotationLock = 1;
+                                                }).catch((err) => {
+                                                    this.classList.add('hide');
+                                                    this.classList.remove('hoverB');
+                                                    this.classList.remove('toggleOn');
+                                                    localStorage.setItem('rotationLock', '0');
+                                                    toggles.rotationLock = 0;
+                                                });
                                                 
                                             } else {
 
@@ -1065,6 +1072,7 @@
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('rotationLock', '0');
                                                 toggles.rotationLock = 0;
+
                                             }
                                         } else {
                                             event.preventDefault();
