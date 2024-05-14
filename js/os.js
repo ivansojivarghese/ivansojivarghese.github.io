@@ -64,6 +64,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ m
 op.darkMode = isDarkMode();
 
 var colorStates = 0;
+var hamAuto = document.querySelector('.pwa .about .ham_auto');
 
 if (localStorage.getItem('systemColor') === null) {
     localStorage.setItem('systemColor', '1');
@@ -74,7 +75,7 @@ if (localStorage.getItem('systemColor') === null) {
         localStorage.setItem('themeColor', '0');
     }
 } else if (localStorage.getItem('systemColor') === '0') {
-    e_Fd(hamAuto, true);
+    hamAuto.classList.add("z_O");
     if (localStorage.getItem('themeColor') === '0') {
         // toggleColorMode(null);
         // toggleColorMode(null);
@@ -92,7 +93,7 @@ if (localStorage.getItem('systemColor') === null) {
         // toggleColorMode(null);
     }
 } else if (localStorage.getItem('systemColor') === '1') {
-    e_Fd(hamAuto, false);
+    hamAuto.classList.remove("z_O");
     if (localStorage.getItem('themeColor') === '1') {
         op.darkChange = true;
         toggleColorMode(null);
