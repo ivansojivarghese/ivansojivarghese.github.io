@@ -3973,7 +3973,7 @@ async function getScreenLock() {
 }
 
 function releaseScreenLock() {
-    screenLock.release().then(() => {
+    wakeLock.release().then(() => {
         screenLock = null;
     });
 }
