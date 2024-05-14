@@ -2103,7 +2103,19 @@ function refetchWeather() {
                 }
 
                 const tempIcon = document.querySelector('.pwa .weatherIcon');
-                $(tempIcon).load("weather/" + icon + ".html");
+                $(tempIcon).load("weather/" + icon + ".html", function() {
+                    var windS = (tempUnit(ipAPIres.country.iso_code) === "metric") ? (weatherAPIres.wind.speed * 3.6) : weatherAPIres.wind.speed,
+                        windSUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? " km/h" : " miles/h";
+
+                    greeting.innerHTML = timeOfDay();
+                    temp.innerHTML = Math.round(weatherAPIres.main.temp);
+                    unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
+
+                    humidity.innerHTML = weatherAPIres.main.humidity + "%";
+                    windSpeed.innerHTML = ((windS < 90) ? Math.round(windS) : "90+") + windSUnit;
+                    windDir.innerHTML = /*weatherAPIres.wind.deg + "° " +*/ degToCompass(weatherAPIres.wind.deg);
+                    feelsLike.innerHTML = Math.round(weatherAPIres.main.feels_like) + "°" + ((tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F");
+                });
             }
         }, op.t);
     }
