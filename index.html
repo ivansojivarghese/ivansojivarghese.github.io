@@ -2349,6 +2349,10 @@
                 if (op.darkMode) {
                     var loader = document.querySelector(".loader_pwa");
                     var load_r = document.querySelectorAll(".load_r_pwa");
+                    var ham_auto = document.querySelector(".pwa .about .ham_auto");
+                    e_Fd(ham_auto, true);
+                    localStorage.setItem('themeColor', '1');
+                    localStorage.setItem('systemColor', '0');
                     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
                     loader.style.backgroundColor = "#303030";
                     let i = 0;
