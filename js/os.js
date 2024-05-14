@@ -69,6 +69,13 @@ if (localStorage.getItem('systemColor') !== '0') {
     localStorage.setItem('systemColor', '1');
 }
 
+const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
+if (darkTheme.matches) {
+    localStorage.setItem('themeColor', '1');
+} else {
+    localStorage.setItem('themeColor', '0');
+}
+
 function toggleColorMode(e, init) { // light/dark modes toggling
     if (colorStates < 2) {
 
