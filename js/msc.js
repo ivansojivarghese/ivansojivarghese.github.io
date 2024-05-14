@@ -4011,6 +4011,9 @@ window.addEventListener("touchstart", function(event) { // IF TOUCH detected on 
         tch.d = false;
         tch.yA = event.touches[0].clientY;
     }
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        document.documentElement.requestFullscreen();
+    }
 });
 
 window.addEventListener("touchmove", function(event) {
