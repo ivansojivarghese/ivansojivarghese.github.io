@@ -253,6 +253,8 @@ body {
     top: calc(4.2rem + env(safe-area-inset-top));
     left: calc(2rem + calc(env(safe-area-inset-left)));
     width: 15rem;
+    height: 50vh;
+    overflow-y: scroll;
 }
 
 .pwa .popups .pills.weatherInfo {
