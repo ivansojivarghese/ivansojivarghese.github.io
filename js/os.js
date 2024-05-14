@@ -35,7 +35,7 @@ function isDarkMode() { // dark mode detection
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
     if (matches) { // change to dark mode
-        if ((!getCookie("darkMode") && localStorage.getItem('incognito') !== '1') && !op.darkMode) {
+        if (!getCookie("darkMode") && (localStorage.getItem('incognito') !== '1' || localStorage.getItem('systemColor') === '1') && !op.darkMode) {
             op.darkChange = true;
             toggleColorMode(null);
             op.darkMode = true;
@@ -47,7 +47,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ m
             localStorage.setItem('themeColor', '1');
         }
     } else { // change to light mode
-        if ((!getCookie("darkMode") && localStorage.getItem('incognito') !== '1') && op.darkMode) {
+        if (!getCookie("darkMode") && (localStorage.getItem('incognito') !== '1' || localStorage.getItem('systemColor') === '1') && op.darkMode) {
             op.darkChange = true;
             toggleColorMode(null);
             op.darkMode = false;
