@@ -75,13 +75,23 @@ if (localStorage.getItem('systemColor') === null) {
     }
 } else if (localStorage.getItem('systemColor') === '0') {
     if (localStorage.getItem('themeColor') === '0') {
-        toggleColorMode();
-        toggleColorMode();
+        toggleColorMode(null);
+        toggleColorMode(null);
     } else if (localStorage.getItem('themeColor') === '1') {
-        toggleColorMode();
+        toggleColorMode(null);
     }
 } else if (localStorage.getItem('systemColor') === '1') {
-    
+    if (localStorage.getItem('themeColor') === '1') {
+        op.darkChange = true;
+        toggleColorMode(null);
+        op.darkMode = true;
+        op.darkChange = false;
+
+        if (localStorage.getItem('systemColor') !== '0') {
+            localStorage.setItem('systemColor', '1');
+        }
+        localStorage.setItem('themeColor', '1');
+    }
 }
 
 function toggleColorMode(e, init) { // light/dark modes toggling
