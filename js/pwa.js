@@ -1468,6 +1468,8 @@ function fetchPWAInfo() {
     } else {
         var status = Number(localStorage.getItem('screenWake'));
         if (status) {
+            screenWakeToggle.classList.add("toggleOn");
+
             screenLock = getScreenLock();
         }
     }
@@ -1479,6 +1481,8 @@ function fetchPWAInfo() {
     } else {
         var status = Number(localStorage.getItem('rotationLock'));
         if (status) {
+            rotationLockToggle.classList.add("toggleOn");
+
             screen.orientation.lock();
         }
     }
