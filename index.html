@@ -2342,7 +2342,7 @@
             detectIncognito().then((result) => {
                 // console.log(result.browserName, result.isPrivate);
 
-                if (result.isPrivate) {
+                if (result.isPrivate && localStorage.getItem('incognito') === null) {
                     op.darkMode = true;
                 }
 
