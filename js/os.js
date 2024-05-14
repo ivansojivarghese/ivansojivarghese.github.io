@@ -78,7 +78,17 @@ if (localStorage.getItem('systemColor') === null) {
         toggleColorMode(null);
         toggleColorMode(null);
     } else if (localStorage.getItem('themeColor') === '1') {
-        toggleColorMode(null);
+        op.darkMode = true;
+        var loader = document.querySelector(".loader_pwa");
+        var load_r = document.querySelectorAll(".load_r_pwa");
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
+        loader.style.backgroundColor = "#303030";
+        let i = 0;
+        while (i < load_r.length) {
+            load_r[i].style.borderTopColor = "#FFF";
+            i++;
+        }
+        // toggleColorMode(null);
     }
 } else if (localStorage.getItem('systemColor') === '1') {
     if (localStorage.getItem('themeColor') === '1') {
