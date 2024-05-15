@@ -1492,6 +1492,7 @@ function fetchPWAInfo() {
             }).catch((err) => {
                 rotationLockToggle.classList.add('hide');
                 rotationLockToggle.classList.remove('hoverB');
+                rotationLockToggle.removeEventListener('mousemove', hoverInit);
                 rotationLockToggle.classList.remove('toggleOn');
                 localStorage.setItem('rotationLock', '0');
                 toggles.rotationLock = 0;
@@ -1520,6 +1521,7 @@ function fetchPWAInfo() {
                 if (error.code === error.PERMISSION_DENIED) {
                     this.classList.add('hide');
                     this.classList.remove('hoverB');
+                    this.removeEventListener('mousemove', hoverInit);
                 }
                 this.classList.remove('toggleOn');
                 localStorage.setItem('location', '0');

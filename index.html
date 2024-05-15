@@ -958,6 +958,7 @@
                                                     if (error.code === error.PERMISSION_DENIED) {
                                                         this.classList.add('hide');
                                                         this.classList.remove('hoverB');
+                                                        this.removeEventListener('mousemove', hoverInit);
                                                     }
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('location', '0');
@@ -1060,6 +1061,7 @@
                                                 }).catch((err) => {
                                                     this.classList.add('hide');
                                                     this.classList.remove('hoverB');
+                                                    this.removeEventListener('mousemove', hoverInit);
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('rotationLock', '0');
                                                     toggles.rotationLock = 0;
