@@ -1493,6 +1493,8 @@ function fetchPWAInfo() {
                 rotationLockToggle.classList.add('hide');
                 rotationLockToggle.classList.remove('hoverB');
                 rotationLockToggle.removeEventListener('mousemove', hoverInit);
+                rotationLockToggle.removeEventListener('click', hoverMiddle);
+                rotationLockToggle.removeEventListener('mouseleave', hoverEnd);
                 rotationLockToggle.classList.remove('toggleOn');
                 localStorage.setItem('rotationLock', '0');
                 toggles.rotationLock = 0;
@@ -1522,6 +1524,8 @@ function fetchPWAInfo() {
                     this.classList.add('hide');
                     this.classList.remove('hoverB');
                     this.removeEventListener('mousemove', hoverInit);
+                    this.removeEventListener('click', hoverMiddle);
+                    this.removeEventListener('mouseleave', hoverEnd);
                 }
                 this.classList.remove('toggleOn');
                 localStorage.setItem('location', '0');

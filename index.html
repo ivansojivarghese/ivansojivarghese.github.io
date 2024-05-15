@@ -959,6 +959,8 @@
                                                         this.classList.add('hide');
                                                         this.classList.remove('hoverB');
                                                         this.removeEventListener('mousemove', hoverInit);
+                                                        this.removeEventListener('click', hoverMiddle);
+                                                        this.removeEventListener('mouseleave', hoverEnd);
                                                     }
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('location', '0');
@@ -1062,6 +1064,8 @@
                                                     this.classList.add('hide');
                                                     this.classList.remove('hoverB');
                                                     this.removeEventListener('mousemove', hoverInit);
+                                                    this.removeEventListener('click', hoverMiddle);
+                                                    this.removeEventListener('mouseleave', hoverEnd);
                                                     this.classList.remove('toggleOn');
                                                     localStorage.setItem('rotationLock', '0');
                                                     toggles.rotationLock = 0;
