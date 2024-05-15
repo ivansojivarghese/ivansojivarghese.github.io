@@ -1443,6 +1443,7 @@ function fetchPWAInfo() {
     if (!navigator.getBattery()) {
         batteryToggle.classList.add("hide");
         batteryToggle.classList.remove("hoverB");
+        batteryToggle.removeEventListener("mousemove", hoverInit);
     } else {
         if (status) {
             batteryToggle.classList.add("toggleOn");
@@ -1465,6 +1466,7 @@ function fetchPWAInfo() {
     if (!"wakeLock" in navigator) {
         screenWakeToggle.classList.add("hide");
         screenWakeToggle.classList.remove("hoverB");
+        screenWakeToggle.removeEventListener("mousemove", hoverInit);
     } else {
         var status = Number(localStorage.getItem('screenWake'));
         if (status) {
@@ -1478,6 +1480,7 @@ function fetchPWAInfo() {
     if (!"lock" in ScreenOrientation) {
         rotationLockToggle.classList.add("hide");
         rotationLockToggle.classList.remove("hoverB");
+        rotationLockToggle.removeEventListener("mousemove", hoverInit);
     } else {
         var status = Number(localStorage.getItem('rotationLock'));
         if (status) {
@@ -1493,8 +1496,8 @@ function fetchPWAInfo() {
                 rotationLockToggle.classList.add('hide');
                 rotationLockToggle.classList.remove('hoverB');
                 rotationLockToggle.removeEventListener('mousemove', hoverInit);
-                rotationLockToggle.removeEventListener('click', hoverMiddle);
-                rotationLockToggle.removeEventListener('mouseleave', hoverEnd);
+                // rotationLockToggle.removeEventListener('click', hoverMiddle);
+                // rotationLockToggle.removeEventListener('mouseleave', hoverEnd);
                 rotationLockToggle.classList.remove('toggleOn');
                 localStorage.setItem('rotationLock', '0');
                 toggles.rotationLock = 0;
@@ -1506,6 +1509,7 @@ function fetchPWAInfo() {
     if (!navigator.geolocation) {
         locationToggle.classList.add("hide");
         locationToggle.classList.remove("hoverB");
+        locationToggle.removeEventListener("mousemove", hoverInit);
     } else {
         var status = Number(localStorage.getItem('location'));
         if (status) {
@@ -1524,8 +1528,8 @@ function fetchPWAInfo() {
                     this.classList.add('hide');
                     this.classList.remove('hoverB');
                     this.removeEventListener('mousemove', hoverInit);
-                    this.removeEventListener('click', hoverMiddle);
-                    this.removeEventListener('mouseleave', hoverEnd);
+                    // this.removeEventListener('click', hoverMiddle);
+                    // this.removeEventListener('mouseleave', hoverEnd);
                 }
                 this.classList.remove('toggleOn');
                 localStorage.setItem('location', '0');
