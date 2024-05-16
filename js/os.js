@@ -117,7 +117,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
 
             colorStates = 0;
 
-            toggleColorMode('sys');
+            toggleColorMode(null, true);
         } else {
 
             if (localStorage.getItem('systemColor') === '1' && !op.darkChange && !init) {
@@ -131,7 +131,7 @@ function toggleColorMode(e, init) { // light/dark modes toggling
                 fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"]; // dark favicons
                 fvc_L = ["safari-pinned-tab.svg", "apple-touch-icon.png", "favicon.ico", "favicon/favicon.svg", "favicon/android-chrome-512x512.png", "favicon/android-chrome-192x192.png", "favicon/favicon-32x32.png", "favicon/favicon-16x16.png"]; // light favicons
 
-            if (!init && !op.darkChange && e !== 'sys') {
+            if (!init && !op.darkChange) {
                 colorStates++;
             }
 
