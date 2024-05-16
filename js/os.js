@@ -106,6 +106,18 @@ if (localStorage.getItem('systemColor') === null) {
 function toggleColorMode(e, init) { // light/dark modes toggling
     if (colorStates < 2 || (colorStates === 2 && (op.darkMode !== isDarkMode()))) {
 
+        if (colorStates === 2 && op.darkMode !== isDarkMode()) {
+            var hamAuto = document.querySelector('.pwa .about .ham_auto');
+            e_Fd(hamAuto, false);
+
+            localStorage.setItem('systemColor', '1');
+
+            setCookie("darkMode", null, -1);
+            op.refuseAutoDark = false;
+
+            colorStates = 0;
+        }
+
         if (localStorage.getItem('systemColor') === '1' && !op.darkChange && !init) {
             localStorage.setItem('systemColor', '0');
         } 
