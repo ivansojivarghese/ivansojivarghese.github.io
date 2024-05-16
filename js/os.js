@@ -116,179 +116,181 @@ function toggleColorMode(e, init) { // light/dark modes toggling
             op.refuseAutoDark = false;
 
             colorStates = 0;
-        }
+        } else {
 
-        if (localStorage.getItem('systemColor') === '1' && !op.darkChange && !init) {
-            localStorage.setItem('systemColor', '0');
-        } 
+            if (localStorage.getItem('systemColor') === '1' && !op.darkChange && !init) {
+                localStorage.setItem('systemColor', '0');
+            } 
 
-        var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
-            icon = null,
+            var scrolltop_img = (!op.darkMode || init) ? document.querySelector(".scrolltop_img") : document.querySelector(".scrolltop_w_img");
+                icon = null,
 
-            fvc = document.querySelectorAll(".favicons"),
-            fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"]; // dark favicons
-            fvc_L = ["safari-pinned-tab.svg", "apple-touch-icon.png", "favicon.ico", "favicon/favicon.svg", "favicon/android-chrome-512x512.png", "favicon/android-chrome-192x192.png", "favicon/favicon-32x32.png", "favicon/favicon-16x16.png"]; // light favicons
+                fvc = document.querySelectorAll(".favicons"),
+                fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"]; // dark favicons
+                fvc_L = ["safari-pinned-tab.svg", "apple-touch-icon.png", "favicon.ico", "favicon/favicon.svg", "favicon/android-chrome-512x512.png", "favicon/android-chrome-192x192.png", "favicon/favicon-32x32.png", "favicon/favicon-16x16.png"]; // light favicons
 
-        if (!init && !op.darkChange) {
-            colorStates++;
-        }
-
-        if (e) {
-            op.darkChange = true;
-        }
-
-        toggleColorMode_e(init); // perform page specific actions
-
-        if (e || op.darkChange) { // if manually controlled
-            var hamAuto;
-            if (!op.pwa.s) {
-                if (vw.tB) {
-                    hamAuto = document.querySelector(".tablet .ham_auto");
-                } else if (vw.pH) {
-                    hamAuto = document.querySelector(".phablet .ham_auto");
-                } else {
-                    hamAuto = document.querySelector(".mobile .ham_auto");
-                }
-            } else {
-                hamAuto = document.querySelector('.pwa .about .ham_auto');
-            }
-            // if (colorStates <= 2) {
-                if (!op.autoDarkChange && e) {
-                    e_Fd(hamAuto, true); // remove 'auto' label
-                    op.refuseAutoDark = true;
-                } else {
-                    op.autoDarkChange = false;
-                }
-                /*
-                if (colorStates === 2) {
-                    colorStates = 0;
-                    setCookie("darkMode", null, -1);
-                    e_Fd(hamAuto, false); // show 'auto' label
-                } else {
-                    colorStates++;
-                }*/
-            // } 
-        }
-
-        if ((!op.darkMode || init) /*&& colorStates <= 2 && colorStates !== 0*/) { // if light, change to dark
-
-            localStorage.setItem('themeColor', '1');
-
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
-
-            for (i = 0; i < fvc.length; i++) { // change favicon
-                fvc[i].setAttribute("href", fvc_d[i]); 
+            if (!init && !op.darkChange) {
+                colorStates++;
             }
 
-            if (e !== null) {
-                icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
+            if (e) {
+                op.darkChange = true;
+            }
 
-                setCookie("darkMode", "true", op.c.t);
-            } else {
+            toggleColorMode_e(init); // perform page specific actions
+
+            if (e || op.darkChange) { // if manually controlled
+                var hamAuto;
                 if (!op.pwa.s) {
-                    if (vw.tB || vw.dk) { // tablet OR desktop
-                        icon = document.querySelector(".head #dm_btn .img_icon");
-                    } else if (vw.pH || !vw.pH) { // mobile or phablet
-                        icon = getColorModeIcon();
+                    if (vw.tB) {
+                        hamAuto = document.querySelector(".tablet .ham_auto");
+                    } else if (vw.pH) {
+                        hamAuto = document.querySelector(".phablet .ham_auto");
+                    } else {
+                        hamAuto = document.querySelector(".mobile .ham_auto");
                     }
                 } else {
-                    icon = document.querySelector('.pwa .about .dark_mode_img');
+                    hamAuto = document.querySelector('.pwa .about .ham_auto');
                 }
-            }
-
-            op.darkMode = true; //
-
-            if (fab2Check && motionType === "commute") {
-                document.body.classList.remove("commuteColorChange");
-                // document.body.classList.add("commuteColorChangeDark");
-                // document.body.classList.remove("lightBackground");
-            }
-
-            c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t); // remove 'trs' effect on text
-
-            // needs to be generic to use in all pages
-            c_css(".lightBackground", "background-color: #303030 !important;", false, null, op, "darkMode");
-            c_css(".darkBackground", "background-color: #FFF !important;", false, null, op, "darkMode");
-            c_css(".darkText", "color: #FFF !important;", false, null, op, "darkMode");
-            c_css(".lightText", "color: #303030 !important;", false, null, op, "darkMode");
-
-            c_css(".pwa .toggleBackg", "background-color: #3D3D3D !important;", false, null, op, "darkMode");
-            c_css(".pwa .toggleBackg.toggleOn", "background-color: var(--predicate_col) !important;", false, null, op, "darkMode");
-            c_css(".pwa .toggleSwitch", "background-color: #E4E4E4 !important;", false, null, op, "darkMode");
-
-            c_css(".cursor", "mix-blend-mode: exclusion !important;", false, null, op, "darkMode");
-
-            c_css("#ckA_msg", "border-top: 0.2rem solid #FFF", false, null, op, "darkMode"); //
-
-            c_css(".load_r", "border-top-color: #FFF;", false, null, op, "darkMode");
-
-            c_css("#footer_sc .bC_mL", "background: #3D3D3D !important; z-index: 10 !important;", false, null, op, "darkMode");
-
-            scrolltop_img.classList.remove("scrolltop_img");
-
-            scrolltop_img.classList.add("scrolltop_w_img");
-
-            icon.classList.remove("dark_mode_img");
-            icon.classList.add("light_mode_img");
-
-            if (!op.pwa.s) {
-                if (vw.dk) {
-                    icon.parentElement.title = "Light theme";
-                }
-            }
-
-        } else /*if (colorStates <= 2 && colorStates !== 0)*/ { // if dark, change to light
-
-            localStorage.setItem('themeColor', '0');
-
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F4F4F4');
-
-            for (i = 0; i < fvc.length; i++) { // change favicon
-                fvc[i].setAttribute("href", fvc_L[i]); 
-            }
-
-            if (e !== null) {
-                icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
-
-                setCookie("darkMode", "false", op.c.t);
-            } else {
-                if (!op.pwa.s) {
-                    if (vw.tB || vw.dk) { // tablet OR desktop
-                        icon = document.querySelector(".head #dm_btn .img_icon");
-                    } else if (vw.pH || !vw.pH) { // mobile or phablet
-                        icon = getColorModeIcon();
+                // if (colorStates <= 2) {
+                    if (!op.autoDarkChange && e) {
+                        e_Fd(hamAuto, true); // remove 'auto' label
+                        op.refuseAutoDark = true;
+                    } else {
+                        op.autoDarkChange = false;
                     }
+                    /*
+                    if (colorStates === 2) {
+                        colorStates = 0;
+                        setCookie("darkMode", null, -1);
+                        e_Fd(hamAuto, false); // show 'auto' label
+                    } else {
+                        colorStates++;
+                    }*/
+                // } 
+            }
+
+            if ((!op.darkMode || init) /*&& colorStates <= 2 && colorStates !== 0*/) { // if light, change to dark
+
+                localStorage.setItem('themeColor', '1');
+
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
+
+                for (i = 0; i < fvc.length; i++) { // change favicon
+                    fvc[i].setAttribute("href", fvc_d[i]); 
+                }
+
+                if (e !== null) {
+                    icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
+
+                    setCookie("darkMode", "true", op.c.t);
                 } else {
-                    icon = document.querySelector('.pwa .about .light_mode_img');
+                    if (!op.pwa.s) {
+                        if (vw.tB || vw.dk) { // tablet OR desktop
+                            icon = document.querySelector(".head #dm_btn .img_icon");
+                        } else if (vw.pH || !vw.pH) { // mobile or phablet
+                            icon = getColorModeIcon();
+                        }
+                    } else {
+                        icon = document.querySelector('.pwa .about .dark_mode_img');
+                    }
+                }
+
+                op.darkMode = true; //
+
+                if (fab2Check && motionType === "commute") {
+                    document.body.classList.remove("commuteColorChange");
+                    // document.body.classList.add("commuteColorChangeDark");
+                    // document.body.classList.remove("lightBackground");
+                }
+
+                c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t); // remove 'trs' effect on text
+
+                // needs to be generic to use in all pages
+                c_css(".lightBackground", "background-color: #303030 !important;", false, null, op, "darkMode");
+                c_css(".darkBackground", "background-color: #FFF !important;", false, null, op, "darkMode");
+                c_css(".darkText", "color: #FFF !important;", false, null, op, "darkMode");
+                c_css(".lightText", "color: #303030 !important;", false, null, op, "darkMode");
+
+                c_css(".pwa .toggleBackg", "background-color: #3D3D3D !important;", false, null, op, "darkMode");
+                c_css(".pwa .toggleBackg.toggleOn", "background-color: var(--predicate_col) !important;", false, null, op, "darkMode");
+                c_css(".pwa .toggleSwitch", "background-color: #E4E4E4 !important;", false, null, op, "darkMode");
+
+                c_css(".cursor", "mix-blend-mode: exclusion !important;", false, null, op, "darkMode");
+
+                c_css("#ckA_msg", "border-top: 0.2rem solid #FFF", false, null, op, "darkMode"); //
+
+                c_css(".load_r", "border-top-color: #FFF;", false, null, op, "darkMode");
+
+                c_css("#footer_sc .bC_mL", "background: #3D3D3D !important; z-index: 10 !important;", false, null, op, "darkMode");
+
+                scrolltop_img.classList.remove("scrolltop_img");
+
+                scrolltop_img.classList.add("scrolltop_w_img");
+
+                icon.classList.remove("dark_mode_img");
+                icon.classList.add("light_mode_img");
+
+                if (!op.pwa.s) {
+                    if (vw.dk) {
+                        icon.parentElement.title = "Light theme";
+                    }
+                }
+
+            } else /*if (colorStates <= 2 && colorStates !== 0)*/ { // if dark, change to light
+
+                localStorage.setItem('themeColor', '0');
+
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F4F4F4');
+
+                for (i = 0; i < fvc.length; i++) { // change favicon
+                    fvc[i].setAttribute("href", fvc_L[i]); 
+                }
+
+                if (e !== null) {
+                    icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
+
+                    setCookie("darkMode", "false", op.c.t);
+                } else {
+                    if (!op.pwa.s) {
+                        if (vw.tB || vw.dk) { // tablet OR desktop
+                            icon = document.querySelector(".head #dm_btn .img_icon");
+                        } else if (vw.pH || !vw.pH) { // mobile or phablet
+                            icon = getColorModeIcon();
+                        }
+                    } else {
+                        icon = document.querySelector('.pwa .about .light_mode_img');
+                    }
+                }
+
+                c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t);
+
+                icon.classList.remove("light_mode_img");
+                icon.classList.add("dark_mode_img");
+
+                if (!op.pwa.s) {
+                    if (vw.dk) {
+                        icon.parentElement.title = "Dark theme";
+                    }
+                }
+
+                scrolltop_img.classList.remove("scrolltop_w_img");
+
+                scrolltop_img.classList.add("scrolltop_img");
+                
+                op.darkMode = false;
+
+                if (fab2Check && motionType === "commute") {
+                    document.body.classList.add("commuteColorChange");
+                    // document.body.classList.remove("commuteColorChangeDark");
+                    // document.body.classList.add("lightBackground");
                 }
             }
 
-            c_css(".lightText, .darkText", "transition-duration: 0s !important;", true, op.t);
-
-            icon.classList.remove("light_mode_img");
-            icon.classList.add("dark_mode_img");
-
-            if (!op.pwa.s) {
-                if (vw.dk) {
-                    icon.parentElement.title = "Dark theme";
-                }
+            if (op.darkChange) {
+                op.darkChange = false;
             }
 
-            scrolltop_img.classList.remove("scrolltop_w_img");
-
-            scrolltop_img.classList.add("scrolltop_img");
-            
-            op.darkMode = false;
-
-            if (fab2Check && motionType === "commute") {
-                document.body.classList.add("commuteColorChange");
-                // document.body.classList.remove("commuteColorChangeDark");
-                // document.body.classList.add("lightBackground");
-            }
-        }
-
-        if (op.darkChange) {
-            op.darkChange = false;
         }
     } else {
         var hamAuto = document.querySelector('.pwa .about .ham_auto');
