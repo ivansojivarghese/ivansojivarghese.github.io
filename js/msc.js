@@ -4218,7 +4218,7 @@ function hoverMiddle(e) {
             cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
         }
 
-        hoverActive = false;
+        hoverActive = false; //
         
     } else /*if (!e.currentTarget.classList.contains("toggleBackg") || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide")))*/ {
 
