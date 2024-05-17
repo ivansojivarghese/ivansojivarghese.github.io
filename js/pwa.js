@@ -2225,6 +2225,34 @@ function optimalLoadTimes(start, end) {
     }
 }
 
+function loadError() {
+    rL.r_s = false;
+    rL.el = document.getElementById("load_sc"), 
+    rL.r = document.getElementById("loadR"); // loading rings (container)
+    rL.p = document.getElementById("loadR-p"); // loading ring (primary)
+    rL.d = document.getElementById("loadR-e"); // loading ring (end)
+    rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
+
+    rL.p.removeEventListener("animationiteration", load_e);
+    rL.p.addEventListener("animationiteration", function() {
+        if (rL.r_s) {
+            rL.d.style.animationName = "loadR_end"; // set ending animation detail
+        }
+    });
+
+    setTimeout(function() {
+        rL.r_s = true;
+
+        setTimeout(function() {
+            e_Fd(loader, true);
+
+            setTimeout(function() {
+                loader.classList.add("d_n");
+            }, op.t);
+        }, op.t);
+    }, op.t);
+}
+
 function pwaRead() {
     const load_sc = document.querySelector('#load_sc');
     const puller = document.querySelector('.puller');
@@ -2536,31 +2564,7 @@ function pwaRead() {
 
                                             loadTimes.slow = true;
 
-                                            rL.r_s = false;
-                                            rL.el = document.getElementById("load_sc"), 
-                                            rL.r = document.getElementById("loadR"); // loading rings (container)
-                                            rL.p = document.getElementById("loadR-p"); // loading ring (primary)
-                                            rL.d = document.getElementById("loadR-e"); // loading ring (end)
-                                            rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
-
-                                            rL.p.removeEventListener("animationiteration", load_e);
-                                            rL.p.addEventListener("animationiteration", function() {
-                                                if (rL.r_s) {
-                                                    rL.d.style.animationName = "loadR_end"; // set ending animation detail
-                                                }
-                                            });
-
-                                            setTimeout(function() {
-                                                rL.r_s = true;
-
-                                                setTimeout(function() {
-                                                    e_Fd(loader, true);
-
-                                                    setTimeout(function() {
-                                                        loader.classList.add("d_n");
-                                                    }, op.t);
-                                                }, op.t);
-                                            }, op.t);
+                                            loadError();
                                         }
                                     }, op.t);
                                 } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
@@ -2571,7 +2575,7 @@ function pwaRead() {
 
                                     loadTimes.slow = true;
 
-                                    
+                                    loadError();
                                 }
                             }, op.t);
                         } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
@@ -2581,7 +2585,7 @@ function pwaRead() {
 
                             loadTimes.slow = true;
 
-                            
+                            loadError();
                         }
                     }, op.t);
                 }, op.t);
