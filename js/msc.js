@@ -4211,7 +4211,7 @@ function hoverMiddle(e) {
 
         hoverActive = false;
         
-    } else if (!e.currentTarget.classList.contains("toggleBackg") || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide"))) {
+    } else /*if (!e.currentTarget.classList.contains("toggleBackg") || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide")))*/ {
 
         cursorBig.classList.remove("extra");
 
