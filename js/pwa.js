@@ -2260,7 +2260,8 @@ function loadError(input) {
             e_Fd(load_m, false);
 
             rL.el.addEventListener("click", function() {
-                reL();
+                window.location.reload(true);
+                window.location.assign(window.location.href); // FIREFOX support
             });
 
         }, op.t);
