@@ -2259,6 +2259,10 @@ function loadError(input) {
             rL.r.classList.add("d_n");
             e_Fd(load_m, false);
 
+            rL.el.addEventListener("click", function() {
+                reL();
+            });
+
         }, op.t);
     }, op.t);
 }
