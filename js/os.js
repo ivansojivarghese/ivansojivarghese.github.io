@@ -66,6 +66,11 @@ op.darkMode = isDarkMode();
 var colorStates = 0;
 if (localStorage.getItem('systemColor') === '0') {
     colorStates = 1;
+    if (op.darkMode) {
+        setCookie("darkMode", true, op.c.t);
+    } else {
+        setCookie("darkMode", false, op.c.t);
+    }
 }
 // var hamAuto = document.querySelector('.pwa .about .ham_auto');
 
