@@ -981,6 +981,7 @@ body {
 
     .pwa .popups .pills.settingsInfo {
         left: calc(7rem + calc(env(safe-area-inset-left)));
+        height:  calc(100vh - 5rem - 8rem);
     }
 
     .pwa .sections {
