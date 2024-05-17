@@ -2226,6 +2226,8 @@ function optimalLoadTimes(start, end) {
 }
 
 function loadError() {
+    const pwa_body = document.querySelector('.pwa');
+
     rL.r_s = false;
     rL.el = document.getElementById("load_sc"), 
     rL.r = document.getElementById("loadR"); // loading rings (container)
@@ -2242,8 +2244,10 @@ function loadError() {
 
     setTimeout(function() {
         rL.r_s = true;
+        pwa_body.classList.remove("d_n");
 
         setTimeout(function() {
+
             e_Fd(loader, true);
 
             setTimeout(function() {
@@ -2254,7 +2258,6 @@ function loadError() {
             pwa_Load = true;
 
             e_Fd(pwa_body, false);
-            startLoadPWA();
 
             clearInterval(pwa_Ld);
         }, op.t);
