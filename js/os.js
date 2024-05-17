@@ -33,6 +33,14 @@ function isDarkMode() { // dark mode detection
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
+if (localStorage.getItem('systemColor') === '0') {
+    if (op.darkMode) {
+        setCookie("darkMode", true, op.c.t);
+    } else {
+        setCookie("darkMode", false, op.c.t);
+    }
+}
+
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
     if (matches) { // change to dark mode
         if (!getCookie("darkMode") && (localStorage.getItem('incognito') !== '1' || localStorage.getItem('systemColor') === '1') && !op.darkMode) {
@@ -66,11 +74,6 @@ op.darkMode = isDarkMode();
 var colorStates = 0;
 if (localStorage.getItem('systemColor') === '0') {
     colorStates = 1;
-    if (op.darkMode) {
-        setCookie("darkMode", true, op.c.t);
-    } else {
-        setCookie("darkMode", false, op.c.t);
-    }
 }
 // var hamAuto = document.querySelector('.pwa .about .ham_auto');
 
