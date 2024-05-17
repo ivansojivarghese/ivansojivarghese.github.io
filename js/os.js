@@ -112,7 +112,7 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
 
             localStorage.setItem('systemColor', '1');
 
-            // setCookie("darkMode", null, -1);
+            setCookie("darkMode", null, -1);
             op.refuseAutoDark = false;
 
             op.darkChange = true;
