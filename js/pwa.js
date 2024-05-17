@@ -2249,6 +2249,14 @@ function loadError() {
             setTimeout(function() {
                 loader.classList.add("d_n");
             }, op.t);
+
+            resetRefresh();
+            pwa_Load = true;
+
+            e_Fd(pwa_body, false);
+            startLoadPWA();
+
+            clearInterval(pwa_Ld);
         }, op.t);
     }, op.t);
 }
