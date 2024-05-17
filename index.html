@@ -2350,6 +2350,8 @@
 
                 if (result.isPrivate && (localStorage.getItem('incognito') === null || localStorage.getItem('themeColor') === '1')) {
                     op.darkMode = true;
+                } else {
+                    localStorage.getItem('incognito', '0');
                 }
 
                 if (op.darkMode && (localStorage.getItem('incognito') === null || localStorage.getItem('themeColor') === '1')) {
