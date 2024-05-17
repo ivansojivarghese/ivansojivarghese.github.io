@@ -4207,7 +4207,7 @@ function hoverEnd(e) {
 
 function hoverMiddle(e) {
     const mouseY = e.clientY;
-    const mouseX = e.clientX;
+    const mouseX = e.clientX; //
 
     if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)' || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide"))) {
 
