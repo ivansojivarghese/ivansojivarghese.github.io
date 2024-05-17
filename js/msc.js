@@ -4209,9 +4209,9 @@ function hoverMiddle(e) {
     const mouseY = e.clientY;
     const mouseX = e.clientX; //
 
-    if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)' || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide"))) {
+    if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)' || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide") && !e.currentTarget.classList.contains("hoverB"))) {
 
-        if ((e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide"))) {
+        if ((e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide") && !e.currentTarget.classList.contains("hoverB"))) {
             cursorBig.classList.remove("extra");
             cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
         } else {
