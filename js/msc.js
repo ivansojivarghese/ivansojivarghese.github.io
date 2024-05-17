@@ -4211,11 +4211,16 @@ function hoverMiddle(e) {
 
     if (e.currentTarget.getAttribute("onclick") === 'toggleColorMode(event)' || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide"))) {
 
-        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
+        if ((e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide"))) {
+            cursorBig.classList.remove("extra");
+            cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
+        } else {
+            cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
+        }
 
         hoverActive = false;
         
-    } else if (!e.currentTarget.classList.contains("toggleBackg") || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide"))) {
+    } else /*if (!e.currentTarget.classList.contains("toggleBackg") || (e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide")))*/ {
 
         cursorBig.classList.remove("extra");
 
