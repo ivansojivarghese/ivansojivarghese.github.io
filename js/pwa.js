@@ -2247,16 +2247,13 @@ function loadError() {
         rL.r_s = true;
 
         load_m.classList.remove("d_n");
+        e_Fd(rL.r, true);
 
         setTimeout(function() {
 
-            e_Fd(loader, true);
-
-            setTimeout(function() {
-                loader.classList.add("d_n");
-            }, op.t);
-
+            rL.r.classList.add("d_n");
             e_Fd(load_m, false);
+
         }, op.t);
     }, op.t);
 }
