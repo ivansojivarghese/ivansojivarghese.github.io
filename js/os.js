@@ -64,6 +64,9 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ m
 op.darkMode = isDarkMode();
 
 var colorStates = 0;
+if (localStorage.getItem('systemColor') === '0') {
+    colorStates = 1;
+}
 // var hamAuto = document.querySelector('.pwa .about .ham_auto');
 
 if (localStorage.getItem('systemColor') === null) {
