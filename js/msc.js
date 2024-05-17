@@ -4195,11 +4195,13 @@ function hoverEnd(e) {
 
     hoverActive = false;
 
-    if (e.currentTarget.getAttribute("data-pwanavbutton") === "true" && !tch.s) {
-        if (!e.currentTarget.classList.contains("buttonActive")) {
-            e_Fd(e.currentTarget.children[0].children[0], true);
+    if (e) {
+        if (e.currentTarget.getAttribute("data-pwanavbutton") === "true" && !tch.s) {
+            if (!e.currentTarget.classList.contains("buttonActive")) {
+                e_Fd(e.currentTarget.children[0].children[0], true);
+            }
+            e.currentTarget.children[0].children[0].style.backgroundColor = "";
         }
-        e.currentTarget.children[0].children[0].style.backgroundColor = "";
     }
 }
 
