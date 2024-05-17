@@ -2526,6 +2526,8 @@ function pwaRead() {
                                             // end load
 
                                             loadTimes.slow = true;
+
+                                            console.log("slow");
                                         }
                                     }, op.t);
                                 } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
@@ -2535,6 +2537,8 @@ function pwaRead() {
                                     // end load
 
                                     loadTimes.slow = true;
+
+                                    console.log("slow");
                                 }
                             }, op.t);
                         } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
@@ -2543,6 +2547,8 @@ function pwaRead() {
                             // end load
 
                             loadTimes.slow = true;
+
+                            console.log("slow");
                         }
                     }, op.t);
                 }, op.t);
@@ -2557,10 +2563,7 @@ function pwaRead() {
 
                     rL.i = true; // end load
                     rL.s = true;
-                } else {
-
-                    console.log("slow");
-                }
+                } 
 
             } else if (devError) {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
