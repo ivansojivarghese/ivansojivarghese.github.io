@@ -2225,9 +2225,10 @@ function optimalLoadTimes(start, end) {
     }
 }
 
-function loadError() {
+function loadError(input) {
 
     const load_m = document.querySelector("#load_message");
+    const load_txt = document.querySelector("#load_message h3");
 
     rL.r_s = false;
     rL.el = document.getElementById("load_sc"), 
@@ -2242,6 +2243,8 @@ function loadError() {
             rL.d.style.animationName = "loadR_end"; // set ending animation detail
         }
     });
+
+    load_txt.innerHTML = input;
 
     setTimeout(function() {
         rL.r_s = true;
@@ -2569,7 +2572,7 @@ function pwaRead() {
 
                                             loadTimes.slow = true;
 
-                                            loadError();
+                                            loadError("timeout");
                                         }
                                     }, op.t);
                                 } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
@@ -2580,7 +2583,7 @@ function pwaRead() {
 
                                     loadTimes.slow = true;
 
-                                    loadError();
+                                    loadError("timeout");
                                 }
                             }, op.t);
                         } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
@@ -2590,7 +2593,7 @@ function pwaRead() {
 
                             loadTimes.slow = true;
 
-                            loadError();
+                            loadError("timeout");
                         }
                     }, op.t);
                 }, op.t);
