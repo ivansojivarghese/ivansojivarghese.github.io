@@ -2218,7 +2218,7 @@ var network_L = null;
 
 function optimalLoadTimes(start, end) {
     var abs = end - start;
-    if (abs < 15000) {
+    if (abs < 10000) {
         return true;
     } else {
         return false;
