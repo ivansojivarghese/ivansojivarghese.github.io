@@ -4186,8 +4186,10 @@ function hoverInit(e) { // desktop hover effect
 }
 
 function hoverEnd(e) {
-    const mouseY = e.clientY;
-    const mouseX = e.clientX;
+    if (e) {
+        const mouseY = e.clientY;
+        const mouseX = e.clientX;
+    }
 
     cursorBig.classList.remove("extra");
 
