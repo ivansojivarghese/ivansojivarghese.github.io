@@ -943,6 +943,8 @@
                                     <p>location</p>
                                     <div class="locationToggle toggleBackg trs hoverB lightBackground" onclick="
 
+                                        var cursorBig = document.querySelector('.cursor.big');
+
                                         const options = {
                                             enableHighAccuracy: true
                                         }
@@ -959,7 +961,7 @@
                                                         this.classList.add('hide');
                                                         this.classList.remove('hoverB');
                                                         this.removeEventListener('mousemove', hoverInit);
-                                                        hoverActive = true;
+                                                        cursorBig.classList.remove('extra');
                                                         // this.removeEventListener('click', hoverMiddle);
                                                         // this.removeEventListener('mouseleave', hoverEnd);
                                                     }
