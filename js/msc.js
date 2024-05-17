@@ -4116,9 +4116,7 @@ const positionElement = (e)=> {
                 cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
                 if (!hoverActive) {
                     cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
-                } else {
-                    cursorBig.classList.remove("extra");
-                }
+                } 
             } else {
 
                 if (!op.pwa.s) {
