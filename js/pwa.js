@@ -2226,7 +2226,8 @@ function optimalLoadTimes(start, end) {
 }
 
 function loadError() {
-    const pwa_body = document.querySelector('.pwa');
+
+    const load_m = document.querySelector("#load_message");
 
     rL.r_s = false;
     rL.el = document.getElementById("load_sc"), 
@@ -2244,7 +2245,8 @@ function loadError() {
 
     setTimeout(function() {
         rL.r_s = true;
-        pwa_body.classList.remove("d_n");
+
+        load_m.classList.remove("d_n");
 
         setTimeout(function() {
 
@@ -2254,12 +2256,7 @@ function loadError() {
                 loader.classList.add("d_n");
             }, op.t);
 
-            resetRefresh();
-            pwa_Load = true;
-
-            e_Fd(pwa_body, false);
-
-            clearInterval(pwa_Ld);
+            e_Fd(load_m, false);
         }, op.t);
     }, op.t);
 }
