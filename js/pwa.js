@@ -14,6 +14,12 @@ var btty = {
     charging : null
 };
 
+var loadTimes = {
+    start : 0,
+    end : 0,
+    slow : false
+};
+
 var weatherID = 0;
 
 var rL = {
@@ -2208,6 +2214,16 @@ function refetchWeather() {
 }
 
 var loader = document.querySelector('#load_sc');
+var network_L = null;
+
+function optimalLoadTimes(start, end) {
+    var abs = end - start;
+    if (abs < 15000) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function pwaRead() {
     const load_sc = document.querySelector('#load_sc');
@@ -2274,6 +2290,13 @@ function pwaRead() {
 
                 // document.documentElement.requestFullscreen();
 
+                const n = new Date();
+                loadTimes.start = n.getTime();
+                network_L = setInterval(function() {
+                    var e = new Date();
+                    loadTimes.end = e.getTime();                      
+                }, op.t);
+
                 e_Fd(pwa_sec_body, false);
 
                 c_css("#scrollBar", "right: 0.2rem; width: 0.2rem;", false, null);
@@ -2297,12 +2320,12 @@ function pwaRead() {
                 githubCommitsres.val = getGhCommits();
                 setTimeout(function() {
                     client_L = setInterval(function() {
-                        if (clientAPIres.online) {
+                        if (clientAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                             ipAPI(clientAPIres.ipString);
                             // ipAPI("216.73.163.219");
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
-                                if (ipAPIres.online /*&& githubCommitsres.online*/) {
+                                if (ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                                     if (gpsPos !== null && gpsPos.coords.latitude !== null & gpsPos.coords.longitude !== null) {
                                         weatherAPI(gpsPos.coords.latitude, gpsPos.coords.longitude, tempUnit(ipAPIres.country.iso_code));
                                     } else {
@@ -2310,7 +2333,7 @@ function pwaRead() {
                                     }
                                     clearInterval(ip_L);
                                     weather_L = setInterval(function() {
-                                        if (weatherAPIres.online && countryAPIres.online) {
+                                        if (weatherAPIres.online && countryAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                                             clearInterval(weather_L);
 
                                             weatherID = weatherAPIres.id;
@@ -2495,23 +2518,50 @@ function pwaRead() {
                                                     
                                                 }, 10);
                                             });
+                                        } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                                            clearInterval(weather_L);
+                                            clearInterval(ip_L);
+                                            clearInterval(client_L);
+
+                                            // end load
+
+                                            loadTimes.slow = true;
                                         }
                                     }, op.t);
+                                } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                                    clearInterval(ip_L);
+                                    clearInterval(client_L);
+
+                                    // end load
+
+                                    loadTimes.slow = true;
                                 }
                             }, op.t);
+                        } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                            clearInterval(client_L);
+
+                            // end load
+
+                            loadTimes.slow = true;
                         }
                     }, op.t);
                 }, op.t);
 
-                normal_body.classList.add("d_n");
-                // document.title = "Ivan Varghese";
-                
-                $(sections).scroll(function() {
-                    document.title = "Ivan Varghese"; // default the title
-                });
+                if (!loadTimes.slow) {
+                    normal_body.classList.add("d_n");
+                    // document.title = "Ivan Varghese";
+                    
+                    $(sections).scroll(function() {
+                        document.title = "Ivan Varghese"; // default the title
+                    });
 
-                rL.i = true; // end load
-                rL.s = true;
+                    rL.i = true; // end load
+                    rL.s = true;
+                } else {
+
+                    console.log("slow");
+                }
+
             } else if (devError) {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
                 rL.s = true; // page loaded
@@ -2524,11 +2574,14 @@ function pwaRead() {
                 estimateNetworkSpeed_abort.abort();
             }
 
-            if (document.querySelector('.non-pwa').classList.contains("d_n")) {
-                pos.sB = document.querySelector('.pwa #scrollBar');
-            } else {
-                pos.sB = document.querySelector('.non-pwa #scrollBar');
+            if (!loadTimes.slow) {
+                if (document.querySelector('.non-pwa').classList.contains("d_n")) {
+                    pos.sB = document.querySelector('.pwa #scrollBar');
+                } else {
+                    pos.sB = document.querySelector('.non-pwa #scrollBar');
+                }
             }
+
         break;
     }
 }
