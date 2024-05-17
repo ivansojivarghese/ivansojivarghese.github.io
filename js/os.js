@@ -115,6 +115,8 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
             // setCookie("darkMode", null, -1);
             op.refuseAutoDark = false;
 
+            op.darkChange = true;
+
             colorStates = 0;
 
             toggleColorMode(null, false, true);
