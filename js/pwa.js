@@ -376,6 +376,7 @@ function navButtonActive(b, e, v) {
 
             target.classList.remove("hoverB");
             target.removeEventListener('mousemove', hoverInit);
+            hoverEnd(null);
 
             if (!target.getAttribute("onclick") === 'toggleColorMode(event)') {
                 cursorBig.classList.remove("extra");
@@ -1496,6 +1497,8 @@ function fetchPWAInfo() {
                 rotationLockToggle.classList.add('hide');
                 rotationLockToggle.classList.remove('hoverB');
                 rotationLockToggle.removeEventListener('mousemove', hoverInit);
+                hoverEnd(null);
+
                 // rotationLockToggle.removeEventListener('click', hoverMiddle);
                 // rotationLockToggle.removeEventListener('mouseleave', hoverEnd);
                 rotationLockToggle.classList.remove('toggleOn');
@@ -1528,6 +1531,8 @@ function fetchPWAInfo() {
                     this.classList.add('hide');
                     this.classList.remove('hoverB');
                     this.removeEventListener('mousemove', hoverInit);
+                    hoverEnd(null);
+
                     // this.removeEventListener('click', hoverMiddle);
                     // this.removeEventListener('mouseleave', hoverEnd);
                 }
