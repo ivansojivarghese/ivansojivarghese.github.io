@@ -2532,6 +2532,22 @@ function pwaRead() {
 
                 ///////
 
+                deleteAllCookies();
+            
+                e_Fd(loader, false);
+
+                var primarySegment = Number(localStorage.getItem('primarySegment'));
+                if (primarySegment) {
+                    load_sc.classList.add("swapped");
+                    puller.classList.add("swapped");
+                    pwa_body.classList.add("swapped");
+                    pwa_sec_body.classList.add("swapped");
+
+                    navbar.insertBefore(swapButton, firstButton);
+                }
+
+                ///////
+
                 clientAPI();
                 countryAPI("");
                 // countryAPI("216.73.163.219");
@@ -2858,7 +2874,9 @@ function pwaRead() {
 
             if (!loadTimes.slow) {
                 // if (document.querySelector('.non-pwa').classList.contains("d_n")) {
-                    pos.sB = document.querySelector('.pwa #scrollBar');
+
+                pos.sB = document.querySelector('.pwa #scrollBar');
+
                 /*} else {
                     pos.sB = document.querySelector('.non-pwa #scrollBar');
                 }*/
