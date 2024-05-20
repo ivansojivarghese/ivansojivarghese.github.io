@@ -1771,6 +1771,139 @@ function engLangVar(c) { // return variant of language (eng) per user country lo
     return res;
 }
 
+function engLangUpdate(v) { // update eng. language variant
+    var change = (v === "us") ? true : false, // if american english is requested/required
+        exemptions = [ // DEFAULT (UPDATE BELOW)
+            " ",
+            "",
+            "Ivan", // name(s)
+            "Soji",
+            "Varghese",
+            "online" // other
+        ];
+    if (change) {
+        for (c = 0, d = 0; c <= (op.txts.length - 1); c++) { // loop through all STATIC text elements
+
+            // let x = op.txts[c].innerHTML.replace(/[^A-Za-z0-9]+/g, " "); // break sentence into words
+            // var org = op.txts[c].innerHTML;
+
+            var duplicate = { // possible duplicate words in text?
+                t : null, // text ref.
+                w : null, // word
+                s : false // status
+            }; 
+
+            exemptions = [ // DEFAULT
+                " ",
+                "",
+                "Ivan", // name(s)
+                "Soji",
+                "Varghese",
+                "online" // other
+            ];
+
+            let x = op.txts[c].innerHTML.replace(/[^A-Za-z]+/g, " "); // break sentence into words (no numbers)
+            let newArr = x.trim().split(" ");
+
+            for (j = 0; j <= (newArr.length - 1); j++) {
+                if (duplicate.s && !findInArray(duplicate.w, exemptions)) { // IF there is a DUPLICATE + DUPLICATE WORD NOT REFERENCED YET
+                    exemptions[exemptions.length] = duplicate.w;
+                }
+
+                var exemptionsCheck = false;
+                for (k = 0; k <= (exemptions.length - 1); k++) {
+                    if (newArr[j].toLowerCase() === exemptions[k].toLowerCase()) { // check for exemptions
+                        exemptionsCheck = true;
+                        break;
+                    }
+                }
+                if (!exemptionsCheck) { // if no exemptions made
+                    for (var h in engAPIres) { // loop through en-GB to en-US dictionary object properties
+                        var word = h.toString();
+
+                        if (newArr[j].toLowerCase() === word.toLowerCase()) { // find a matching word
+
+                            var count = substrInStr(newArr[j], op.txts[c].innerHTML), // count number of target keyword in text
+                                tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>", // tagged original word
+                                x1 = (count > 1) ? substrInStrIndices(newArr[j], op.txts[c].innerHTML) : op.txts[c].innerHTML.indexOf(newArr[j]); // get indexes (array) of the words OR get first index of word (with no duplicates)
+                            
+                            if (x1.length) { // MULTIPLE occurrences
+                                for (y = 0; y <= (x1.length - 1); y++) {
+
+                                    tag = "<span id='lg" + d + "'>" + newArr[j] + "</span>"; // UPDATE tagged original word
+
+                                    var L = newArr[j].length, // length of word
+                                        org1 = op.txts[c].innerHTML.slice(0, x1[y]), // original segment 1
+                                        org2 = op.txts[c].innerHTML.slice(x1[y] + L, op.txts[c].innerHTML.length), // original segment 2
+                                        newOrg = org1 + tag + org2, // new original
+                                        wdType = wordType(newArr[j]), // determine type of word scanned
+                                        repWd = ""; // replacement word
+                                    op.txts[c].innerHTML = newOrg; 
+                                    x1 = substrInStrIndices(newArr[j], op.txts[c].innerHTML); // UPDATE location of other occurrences
+
+                                    duplicate.t = op.txts[c]; 
+                                    duplicate.w = newArr[j]; // FLAG as duplicate
+                                    duplicate.s = true;
+
+                                    switch (wdType) { // find a replacement based on original
+                                        case "Capital":
+                                            const str = engAPIres[word].charAt(0).toUpperCase() + engAPIres[word].slice(1);
+                                            repWd = str;
+                                        break;
+                                        case "Lowercase":
+                                            repWd = engAPIres[word].toLowerCase();
+                                        break;
+                                        case "Uppercase":
+                                            repWd = engAPIres[word].toUpperCase();
+                                        break;
+                                        case "Invalid":
+                                            repWd = null;
+                                        break;
+                                    }
+
+                                    document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
+
+                                    if (y < (x1.length - 1)) {
+                                        d++; // ADVANCE increment
+                                    }
+                                }
+                            } else { // SINGLE occurrence 
+                                var L = newArr[j].length, // length of word
+                                    org1 = op.txts[c].innerHTML.slice(0, x1), // original segment 1
+                                    org2 = op.txts[c].innerHTML.slice(x1 + L, op.txts[c].innerHTML.length), // original segment 2
+                                    newOrg = org1 + tag + org2, // new original
+                                    wdType = wordType(newArr[j]), // determine type of word scanned
+                                    repWd = ""; // replacement word
+                                op.txts[c].innerHTML = newOrg;
+
+                                switch (wdType) { // find a replacement based on original
+                                    case "Capital":
+                                        const str = engAPIres[word].charAt(0).toUpperCase() + engAPIres[word].slice(1);
+                                        repWd = str;
+                                    break;
+                                    case "Lowercase":
+                                        repWd = engAPIres[word].toLowerCase();
+                                    break;
+                                    case "Uppercase":
+                                        repWd = engAPIres[word].toUpperCase();
+                                    break;
+                                    case "Invalid":
+                                        repWd = null;
+                                    break;
+                                }
+
+                                document.querySelector("span#lg" + d).innerHTML = repWd; // UPDATE WORD
+                            }
+
+                            d++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 function startLoadPWA() {
     var y = op.d.getFullYear(), // get copyright year
         typer = null;
