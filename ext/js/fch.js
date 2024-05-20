@@ -493,9 +493,9 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             h_sc.classList.add("z-N");
         }
         // lk3.classList.remove("z-G");
-        ft_cnt.classList.add("p-r", "z-N");
+        // ft_cnt.classList.add("p-r", "z-N");
 
-        ham_b.addEventListener("click", hamScZdx); 
+        // ham_b.addEventListener("click", hamScZdx); 
 
         ///////////////////////////////////////
 
@@ -2282,7 +2282,7 @@ function cursorDotsInt(e) {
 
 }
 
-el.imn.addEventListener("mousemove", cursorDotsInt);
+// el.imn.addEventListener("mousemove", cursorDotsInt);
 
 
 window.addEventListener("visibilitychange", function() { // modify sensor usage
