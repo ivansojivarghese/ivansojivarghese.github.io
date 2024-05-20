@@ -2696,6 +2696,58 @@ function pwaRead() {
                                                 break;
                                             }
 
+                                            ///////////////////////////////////
+
+                                            pwa_body.classList.remove("d_n");
+                                                fetchPWAInfo();
+                                                setTimeout(function() {
+
+                                                    rL.r_s = false;
+                                                    rL.el = document.getElementById("load_sc"), 
+                                                    rL.r = document.getElementById("loadR"); // loading rings (container)
+                                                    rL.p = document.getElementById("loadR-p"); // loading ring (primary)
+                                                    rL.d = document.getElementById("loadR-e"); // loading ring (end)
+                                                    rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
+
+                                                    // rL.p.removeEventListener("animationiteration", load_e);
+                                                    rL.p.addEventListener("animationiteration", function() {
+                                                        if (rL.r_s) {
+                                                            rL.d.style.animationName = "loadR_end"; // set ending animation detail
+                                                        }
+                                                    });
+
+                                                    setTimeout(function() {
+                                                        rL.r_s = true;
+
+                                                        // rL.el.classList.add("z_O");
+
+                                                        //rL.r.classList.add("aniM-p"); // stop animation in the rings
+                                                        //rL.p.classList.add("aniM-p");
+                                                        //rL.c.classList.add("aniM-p");
+
+                                                        setTimeout(function() {
+                                                            e_Fd(loader, true);
+
+                                                            setTimeout(function() {
+                                                                loader.classList.add("d_n");
+                                                            }, op.t);
+                                                            
+                                                            resetRefresh();
+                                                            pwa_Load = true;
+
+                                                            e_Fd(pwa_body, false);
+                                                            startLoadPWA();
+        
+                                                            clearInterval(pwa_Ld);
+                                                        }, op.t);
+    
+                                                    }, op.te);
+                                                    
+                                                }, 10);
+
+                                            ////////////////
+                                            
+                                            /*
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
                                             $(tempIcon).load("weather/" + icon + ".html", function() {
                                                 pwa_body.classList.remove("d_n");
@@ -2744,7 +2796,8 @@ function pwaRead() {
                                                     }, op.te);
                                                     
                                                 }, 10);
-                                            });
+                                            });*/
+
                                         } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                                             clearInterval(weather_L);
                                             clearInterval(ip_L);
