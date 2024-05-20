@@ -257,7 +257,7 @@ h3.downsize {
     top: calc(4.2rem + env(safe-area-inset-top));
     left: calc(2rem + calc(env(safe-area-inset-left)));
     width: 15rem;
-    height: calc(100vh - 5rem - 8rem);
+    height: calc(100dvh - 5rem - 8rem);
     overflow-y: scroll;
 }
 
@@ -868,7 +868,7 @@ h3.downsize {
 
     .pwa .popups .pills.settingsInfo {
         left: calc(6rem + calc(env(safe-area-inset-left)));
-        height: calc(100vh - 5rem);
+        height: calc(100dvh - 5rem);
     }
 
     /*
@@ -985,7 +985,7 @@ h3.downsize {
 
     .pwa .popups .pills.settingsInfo {
         left: calc(7rem + calc(env(safe-area-inset-left)));
-        height:  calc(100vh - 5rem - 8rem);
+        height:  calc(100dvh - 5rem - 8rem);
     }
 
     .pwa .sections {
