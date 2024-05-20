@@ -685,7 +685,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             navButtonActive(active_icon_name, active_icon, true);
         }
 
-        ham_b.removeEventListener("click", hamScZdx);
+        // ham_b.removeEventListener("click", hamScZdx);
         lk3.classList.remove("z_Os"); //
 
         setTimeout(function() {
