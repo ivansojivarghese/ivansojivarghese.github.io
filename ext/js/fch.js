@@ -686,8 +686,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         }
 
         // ham_b.removeEventListener("click", hamScZdx);
-        lk3.classList.remove("z_Os"); //
-
+        // lk3.classList.remove("z_Os"); //
+        /*
         setTimeout(function() {
             h_sc.classList.remove("z-N");
             lk3.classList.add("z-G");
@@ -706,7 +706,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         ch_img.classList.add("chevron_down_img");
         logo_h_img.classList.add("logo-hybrid");
         logo_inv_img.classList.add("logo-inverse");
-        pl3.classList.add("lead_arrow_forward_img");
+        pl3.classList.add("lead_arrow_forward_img");*/
 
         if (!op.pwa.s) {
             if (vw.pH) {
