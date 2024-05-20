@@ -2747,7 +2747,6 @@ function pwaRead() {
                                                 */
                                             ////////////////
                                             
-                                            
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
                                             $(tempIcon).load("weather/" + icon + ".html", function() {
                                                 pwa_body.classList.remove("d_n");
