@@ -2554,7 +2554,7 @@ function pwaRead() {
                 githubCommitsres.val = getGhCommits();
                 setTimeout(function() {
                     client_L = setInterval(function() {
-                        if (/*clientAPIres.online &&*/ optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                        if (clientAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
 
                             console.log(loadTimes.end - loadTimes.start);
 
@@ -2562,7 +2562,7 @@ function pwaRead() {
                             // ipAPI("216.73.163.219");
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
-                                if (/*ipAPIres.online &&*/ optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                                if (ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
 
                                     console.log(loadTimes.end - loadTimes.start);
 
@@ -2573,7 +2573,7 @@ function pwaRead() {
                                     }
                                     clearInterval(ip_L);
                                     weather_L = setInterval(function() {
-                                        if (/*weatherAPIres.online && countryAPIres.online &&*/ optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                                        if (weatherAPIres.online && countryAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
 
                                             console.log(loadTimes.end - loadTimes.start);
 
