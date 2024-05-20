@@ -1759,6 +1759,18 @@ function fetchPWAInfo() {
     aboutS4.innerHTML = new Date().getFullYear() - 2018;
 }
 
+function engLangVar(c) { // return variant of language (eng) per user country location
+    var res = "gb"; // default (en-GB)
+    for (var x in f_countries) {
+        if (f_countries[x].iso_A2 === c) { // if matches given list
+            res = "us"; // american (en-US)
+            setCookie("usEng", "true", op.c.t);
+            break;
+        }
+    }
+    return res;
+}
+
 function startLoadPWA() {
     var y = op.d.getFullYear(), // get copyright year
         typer = null;
