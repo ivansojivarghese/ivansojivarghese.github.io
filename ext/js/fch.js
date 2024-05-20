@@ -501,14 +501,14 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
         // dw_img.classList.remove("download_img");
         // ch_img.classList.remove("chevron_down_img");
-        logo_h_img.classList.remove("logo-hybrid");
-        logo_inv_img.classList.remove("logo-inverse");
+        // logo_h_img.classList.remove("logo-hybrid");
+        // logo_inv_img.classList.remove("logo-inverse");
         // pl3.classList.remove("lead_arrow_forward_img");
 
         // dw_img.classList.add("download_w_img");
         // ch_img.classList.add("chevron_down_w_img");
-        logo_h_img.classList.add("logo-hybrid-inverse");
-        logo_inv_img.classList.add("logo-inverse-dark");
+        // logo_h_img.classList.add("logo-hybrid-inverse");
+        // logo_inv_img.classList.add("logo-inverse-dark");
         // pl3.classList.add("lead_arrow_forward_w_img");
 
         ////////////////////////////////////////
