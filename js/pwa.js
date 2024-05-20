@@ -2239,7 +2239,7 @@ function loadError(input) {
     rL.d = document.getElementById("loadR-e"); // loading ring (end)
     rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
 
-    rL.p.removeEventListener("animationiteration", load_e);
+    // rL.p.removeEventListener("animationiteration", load_e);
     rL.p.addEventListener("animationiteration", function() {
         if (rL.r_s) {
             rL.d.style.animationName = "loadR_end"; // set ending animation detail
@@ -2534,7 +2534,7 @@ function pwaRead() {
                                                     rL.d = document.getElementById("loadR-e"); // loading ring (end)
                                                     rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
 
-                                                    rL.p.removeEventListener("animationiteration", load_e);
+                                                    // rL.p.removeEventListener("animationiteration", load_e);
                                                     rL.p.addEventListener("animationiteration", function() {
                                                         if (rL.r_s) {
                                                             rL.d.style.animationName = "loadR_end"; // set ending animation detail
