@@ -241,9 +241,9 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
 
                 c_css("#footer_sc .bC_mL", "background: #3D3D3D !important; z-index: 10 !important;", false, null, op, "darkMode");
 
-                scrolltop_img.classList.remove("scrolltop_img");
+                // scrolltop_img.classList.remove("scrolltop_img");
 
-                scrolltop_img.classList.add("scrolltop_w_img");
+                // scrolltop_img.classList.add("scrolltop_w_img");
 
                 icon.classList.remove("dark_mode_img");
                 icon.classList.add("light_mode_img");
@@ -291,9 +291,9 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                     }
                 }
 
-                scrolltop_img.classList.remove("scrolltop_w_img");
+                // scrolltop_img.classList.remove("scrolltop_w_img");
 
-                scrolltop_img.classList.add("scrolltop_img");
+                // scrolltop_img.classList.add("scrolltop_img");
                 
                 op.darkMode = false;
 
