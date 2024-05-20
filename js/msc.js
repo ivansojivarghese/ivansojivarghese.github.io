@@ -307,7 +307,7 @@ async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
             });
         })
 }
-
+/*
 async function ipAPI2(v) {  // 50,000 per month limit, https://ipinfo.io/
     await fetch("https://ipinfo.io/" + v + "/json?token=38ec70e8a088d5")
         .then(async (response) => {
@@ -318,11 +318,6 @@ async function ipAPI2(v) {  // 50,000 per month limit, https://ipinfo.io/
                 ipAPI2res.lat = data.loc.slice(0, ipAPI2res.loc.indexOf(",")), // get user latitude;
                 ipAPI2res.lon = data.loc.slice(ipAPI2res.loc.indexOf(",") + 1, ipAPI2res.loc.length), // get user longitude;
 
-                /*
-                ipAPI2res.lat = ipAPI2res.location.latitude;
-                ipAPI2res.lon = ipAPI2res.location.longitude;
-                ipAPI2res.city = ipAPI2res.city.names.en;
-                */
 
                 ipAPI2res.online = true;
             } catch (error) {
@@ -373,7 +368,7 @@ async function sunAPI(lat, lon) { // unlimited, https://sunrisesunset.io/api/
                 sunAPIres.error = true;
             });
         })
-}
+}*/
 
 async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
     await fetch("https://api-bdc.net/data/client-info")
@@ -386,7 +381,7 @@ async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages
             });
         })
 }
-
+/*
 async function roamingAPI(lat, lon) { // unlimited, https://www.bigdatacloud.com/packages/free-api
     await fetch("https://api-bdc.net/data/am-i-roaming?latitude=" + lat + "&longitude=" + lon)
         .then((response) => {
@@ -409,7 +404,7 @@ async function timeAPI() { // unlimited, http://worldtimeapi.org/
                 timeAPIres.error = true;
             });
         })
-}
+}*/
 
 async function countryAPI(v) { // unlimited, https://country.is/
     await fetch("https://api.country.is/" + v)
@@ -422,7 +417,7 @@ async function countryAPI(v) { // unlimited, https://country.is/
             });
         })
 }
-
+/*
 async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cgi/trace
     await fetch("https://www.cloudflare.com/cdn-cgi/trace")
         .then((response) => {
@@ -456,7 +451,7 @@ async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cg
                 cloudflareCDNres.error = true;
             });
         })
-}
+}*/
 
 /////////////////////////////////////////////////////////
 
@@ -778,7 +773,7 @@ window.addEventListener("resize", function() {
 });
 
 /////////////////////////////////////////////////////////
-
+/*
 function devicePerformance(p, r, c) { // estimate device performance using parameters
 
     var pScore = (p >= op.pMin[0]) ? ((((p - op.pMin[0]) / (op.pMin[1] - op.pMin[0])) * 100) + 1) : 0, // performance score 
@@ -821,10 +816,10 @@ function devicePerformance(p, r, c) { // estimate device performance using param
     } else {
         return 0;
     }
-}
+}*/
 
 /////////////////////////////////////////////////////////
-
+/*
 const checkOnlineStatus_abort = new AbortController(); // respective abortion functions
 const cos_signal = checkOnlineStatus_abort.signal;
 
@@ -887,8 +882,8 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         op.ne.s = 0; // return 0 mbps
         return true; // default true
     }
-}
-
+}*/
+/*
 const networkConditions = async() => {
     const status = await checkOnlineStatus(); // check internet connection
     const speed = await estimateNetworkSpeed(); // check internet slow speed
@@ -942,7 +937,7 @@ const networkConditions = async() => {
             op.ne.c++;
         }
     }
-}
+}*/
 
 op.r = getSiteRes(); // get site resource origin
 
@@ -953,7 +948,7 @@ if (!op.pwa.s) {
         networkConditions(); // continuously check on network
     }, op.ne.bD);
 }
-
+/*
 function networkVariability() { // determine variability of network
     var c = op.ne.bD, // original interval timing
         a = dataAnalysis(op.ne.b),
@@ -993,8 +988,8 @@ function networkVariability() { // determine variability of network
     // 1: highly variable
 
     op.ne.b = []; // empty array
-}
-
+}*/
+/*
 function networkTrend(ar) { // trend(s) of network speed
     var t_ar = [], // trend array
         base = null, // boolean
@@ -1036,7 +1031,7 @@ function networkTrend(ar) { // trend(s) of network speed
     }
     
     return (res !== 0) ? full: null;
-}
+}*/
 /*
 function loadAbort() { // abort (by user) @load_dot
     rL.i_s = true;
@@ -1221,12 +1216,9 @@ function getCookie(n) { // obtain a cookie (if available)
     }
     return ""; // return nothing if not found
 }*/
-
+/*
 function cookiesAccept() { // acknowledge user acceptance and allow site access
-    /*
-    e_Sdv(pg.msg.ckA, false);
-    pg.msg.t.classList.add("md"); // remove tint*/
-    // pg.msg.el.classList.add("z_O");
+
 
     msg_toggle(pg.msg.ckA, null, false, true, null);
 
@@ -1237,22 +1229,17 @@ function cookiesAccept() { // acknowledge user acceptance and allow site access
         }
         load_eN(); // continue load process if any (page specific)
     }, op.te);
-}
-
+}*/
+/*
 function checkFullScreen() {
     if ((window.innerHeight === screen.height || window.innerHeight === screen.availHeight) && !tDevice) { // only on desktops
-        /*
-        if (rL.i) {
-            op.fS = false;        
-        } else {
-            eR.fS_e.x = true; // on first load
-        }*/
+
         return true;    
     } else {
         return false;
     }
 }
-
+*/
 //////////////////////////////////////////
 
 // REFERENCE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -1264,7 +1251,7 @@ function getRandomInt(min, max) {
   }
 
 //////////////////////////////////////////
-
+/*
 function sL() { // scroll pos. loop
     var contentHeight = pg.sc.c.getBoundingClientRect().height,
         scrollTr = 0;
@@ -1277,12 +1264,7 @@ function sL() { // scroll pos. loop
 
         op.as = false;
 
-        /*
-        setTimeout(function() {
-            if (pos.aT) {
-                pos.c = false;
-            }
-        }, op.te);*/
+
 
     } else if (pos.aT = true) {
         pos.aT = false;
@@ -1309,36 +1291,11 @@ function sL() { // scroll pos. loop
     }
 }
 
-
 function pL() { // site parameters loop
     op.d = new Date(); // update Date object
     if (op.p.e) {
         op.p.tA = op.d.getTime();
     }
-
-    /*
-    if (rL.i) {
-        if ((((getBd(pg.sc.c, "bottom") - aH) < op.sDis) || (Math.abs(getBd(pg.sc.c, "top")) < op.sDis)) && op.asV) { // extreme-ends scrolling
-            op.as = true;
-        } else {
-            op.as = false;
-            op.asV = true;
-        }
-    }*/
-
-    /*
-    if (op.n && op.wRo) { // offline - prevent window resize reload
-        setTimeout(function() {
-            op.wRo = false;
-        }, op.ne.bD);
-    }*/
-
-    /*
-    if (navigator.userActivation.hasBeenActive && !screenLockStatus) { // if page interaction detected
-        getScreenLock(); // lock the screen
-        screenLockStatus = true;
-    }*/
-
     if (!op.iPef && op.pSpd && op.sfr && op.pCores) { // capture initial device performance value, to be used as reference
         op.iPef = devicePerformance(op.pSpd, op.sfr, op.pCores);
         op.pSpdL = op.pSpda.length;
@@ -1372,19 +1329,11 @@ function pL() { // site parameters loop
     if (op.s) { // 'force' enable/disable scroll when required
         document.documentElement.style.overflowY = "hidden"; // html
         document.body.style.overflowY = "hidden"; // body
-        /*
-        if (op.b.s) { // Safari compatibility
-            document.documentElement.style.position = "fixed"; 
-            document.body.style.position = "fixed";
-        }*/
+        
     } else {
         document.documentElement.style.overflowY = "";
         document.body.style.overflowY = "";
-        /*
-        if (op.b.s) {
-            document.documentElement.style.position = "";
-            document.body.style.position = "";
-        }*/
+        
     }
 
     if (pg.msg.io && pg.msg.ioS) { // hide buggy io messages
@@ -1398,19 +1347,6 @@ function pL() { // site parameters loop
 
     if (rL && rL.i) {
         // if ((!hm.e && op.c.u && !eR.s) || pg.e) {
-        /*
-        if (op.c.u && !eR.s && (!hm.e || pg.e)) {
-            var arg = pg.e ? pg[pg.t].el : null;
-            if ((op.d.getTime() - op.p.tA) > op.t) { // detect long press/tap/click based on 2 reference times (check if greater than threshold)
-                op.p.L = true;
-                scr_t(false, arg); // disable scroll
-                op.s = true;
-            } else {
-                op.p.L = false;
-                scr_t(true, arg); // enable scroll
-                op.s = false;
-            }
-        }*/
         
         if (!op.bNx) { // check if current platform is up-to-date
             op.bNx = true;
@@ -1478,17 +1414,7 @@ function pL() { // site parameters loop
             op.er.dp = false;
         }
     }
-    /*
-    if (rL && rL.i && op.c.u && !eR.s && !disp.classList.contains("d_n") && !disp.classList.contains("z_O")) { // display error fixing
-        setTimeout(function() {
-            var p = pg.sc.m.getBoundingClientRect(),
-            pHeight = p.height;
-            if (pHeight !== window.innerHeight && pHeight) {
-                setCookie("displayErrorReload", "true", op.c.t); // set a cookie to show page fix message after reload
-                // reL();
-            }
-        }, 10); 
-    }*/
+    
 
     if (((!navigator.cookieEnabled && (!navigator.cookieEnabled || !getCookie("testCookie"))) || navigator.cookieEnabled && !getCookie("testCookie")) && op.c.e && !pg.msg.c && !eR.s && !op.pwa.s && rL.i) { // if cookies are disabled
         console.log("cookies deleted");
@@ -1551,7 +1477,7 @@ function pL() { // site parameters loop
             }, op.t);
         }
 
-    } else if (!op.c.e && rL.i && (navigator.cookieEnabled /*&& getCookie("testCookie")*/)) { // if cookies enabled after disabling
+    } else if (!op.c.e && rL.i && (navigator.cookieEnabled )) { // if cookies enabled after disabling
         if (pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo) {
             if (getCookie("testCookie")) {
                 msg_toggle(pg.msg.net, null, false, true, null); // hide message
@@ -1947,8 +1873,8 @@ function pL() { // site parameters loop
     if (rL.i && !op.pwa.s) {
         js_live(); // run local functions (fch.js)
     }
-}
-
+}*/
+/*
 function checkScrollDir(ar) { // check direction of scroll
     var _L = ar.length - 1,
         res = new Array(_L).fill(null);
@@ -1977,8 +1903,8 @@ function checkScrollDir(ar) { // check direction of scroll
             }
         }
     }
-}
-
+}*/
+/*
 function c_Sr() { // check for scrolling activity (in live)
     var d = (pos.yA !== 0) ? Math.abs(pos.y - pos.yA) : 0; // obtain distance of scroll
     if (d > pos.st) { // check if scroll distance is valid (of a true scroll - prevents unwanted scrolling)
@@ -2023,16 +1949,9 @@ function c_Sr() { // check for scrolling activity (in live)
         }
 
     } else {
-        /*
-        pos.c = false; // false only when consecutive pos-y values (in pos.a array) match with each other (hence, not scrolling)
-        pos.d = []; // reset comparator array and speed to 0
-        pos.v = []; // reset rec. speed
-        pos.s = 0; // reset speed to 0
-        pos.yA = 0;
-        pos.a = [pos.y, pos.y, pos.y];
-        */
+       
     }
-}
+}*/
 
 //////////////////////////////////////////
 
@@ -2499,7 +2418,7 @@ function nwCiArr(ar) { // create a comparison [previous index] array
     }
     return a;
 }
-
+/*
 function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
     if (!eR.s && rL.i) { // when no errors
 
@@ -2573,11 +2492,7 @@ function msg_toggle(el, el_s, s, t, t_m) { // toggle for messages
                 scr_t(true, null); // enable scrolling
                 op.s = false;
                 pg.msg.k = false;
-            } /*else {
-                setTimeout(function() {
-                    pg.msg.c = false;
-                }, op.t);
-            }*/
+            } 
 
             if (t && t_m) {
                 pg.msg.t.classList.remove("a"); // remove low tint
@@ -2646,7 +2561,7 @@ function checkMsgIndex(ar) {
     }
     return res;
 }
-
+*/
 function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
     if (s) { // close
         pg.cond.a = false;
@@ -2714,7 +2629,7 @@ function popU_toggle(el, el_s, s, m) { // pop-up toggle for page window
 }
 
 //////////////////////////////////////////
-
+/*
 function changeSVGColor(color, el, trs_e) {
     var svg = el.contentDocument,
         elements = svg.getElementsByClassName("primaryColor"); // add class to relevant structures of SVG before function use
@@ -2727,7 +2642,7 @@ function changeSVGColor(color, el, trs_e) {
         }
         elements[i].style.fill = color;
     }
-}
+}*/
 
 function c_css(n, r, e, t, v, p) { // create new CSS class - dynamically using JS
     var style = document.createElement("STYLE"); // create 'style' tag
@@ -2772,24 +2687,17 @@ function c_rep(el, d, n) { // replace CSS class (any given in array) in element 
 }
 
 //////////////////////////////////////////
-
+/*
 function scr_t(s, pg) { // scroll toggle
     var h = document.documentElement,
         b = document.body;
     if (s && !pos.aL) { // enable
         op.sc = true;
         if (pg) { // if page
-            /*
-            if (op.b.s) { // safari compatibility
-                pg.classList.remove("p-f");
-            }*/
+            
             c_rep(pg, "ovy-h", "ovy-s"); // enable scrolling
         } else { // or window
-            /*
-            if (op.b.s) { // safari compatibility
-                h.classList.remove("p-f");
-                b.classList.remove("p-f");
-            }*/
+            
             c_rep(h, "ovy-h", "ovy-s"); // enable scrolling at html
             c_rep(b, "ovy-h", "ovy-s"); // body
 
@@ -2798,31 +2706,24 @@ function scr_t(s, pg) { // scroll toggle
     } else if (!s && pos.aL) { // disable
         op.sc = false;
         if (pg) {
-            /*
-            if (op.b.s) { // safari compatibility
-                pg.classList.add("p-f");
-            }*/
+            
             c_rep(pg, "ovy-s", "ovy-h"); // disable scrolling
         } else {
-            /*
-            if (op.b.s) { // safari compatibility
-                h.classList.add("p-f");
-                b.classList.add("p-f");
-            }*/
+            
             c_rep(h, "ovy-s", "ovy-h"); // disable scrolling at html
             c_rep(b, "ovy-s", "ovy-h"); // body
 
             pos.aL = false;
         }
     }
-}
+}*/
 
 //////////////////////////////////////
 
 // CODE REFERENCED FROM Manuel Otto @StackOverflow 2017: https://stackoverflow.com/questions/47011055/smooth-vertical-scrolling-on-mouse-wheel-in-vanilla-javascript
 
 // Partial form of locomotive scrolling
-
+/*
 function SmoothScroll_init() {
 	new SmoothScroll(document, op.sDis, op.sSmooth);
     /*
@@ -2830,9 +2731,9 @@ function SmoothScroll_init() {
         target: the element to be scrolled smoothly - can be a div or document
         speed: the amout of pixels to be scrolled per mousewheel step 
         smooth: the smoothness factor, the higher the value, the more smooth. (referencing from live global variable)
-    */
-}
-
+    
+}*/
+/*
 function SmoothScroll(target, speed, smooth) {
     if (target === document) {
         target = (document.scrollingElement 
@@ -2937,7 +2838,7 @@ function SmoothScroll(target, speed, smooth) {
         );
     }()
 }
-
+*/
 //////////////////////////////////////////
 
 function disabledEventGlobal(e) { // disable event propagation (global)
@@ -3258,7 +3159,7 @@ window.addEventListener("resize", function(e) {
         return false;
     }
 });*/
-
+/*
 function wordType(w) { // determine the type of word - Capitalised, UPPER CASE, lower case
     var ar = w.toString(),
         invalid = false,
@@ -3318,7 +3219,7 @@ function wordType(w) { // determine the type of word - Capitalised, UPPER CASE, 
         return "Lowercase";
     }
 }
-
+*/
 
 // Function to get index of occurrence - REFERENCE: https://www.geeksforgeeks.org/how-to-get-nth-occurrence-of-a-string-in-javascript/
 
@@ -3366,7 +3267,7 @@ function findInArray(tgt, ar) {
 }
 
 /////////////////////////////////////////////////
-
+/*
 function viewportValid() { // check if viewport dimensions are proper/supported/non-square
     if (vw) {
         if (vw.pH || (!vw.pH && !vw.tB)) {
@@ -3398,8 +3299,8 @@ function viewportValid() { // check if viewport dimensions are proper/supported/
         getParam();
     }
 }
-
-
+*/
+/*
 screen.orientation.addEventListener("change", function() { // mobile/tablet orientation change
 
     if (!op.pwa.s) {
@@ -3693,30 +3594,10 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                 }
             }, op.t);
 
-        } /*else {
-            
-            rL.el.classList.add("d_n");
-            eR.m.classList.add("d_n");
-            disp.classList.add("z_Os");
-
-            setTimeout(function() {
-                wH = window.outerHeight; // update on window size variables
-                wD = window.outerWidth; 
-                cH = document.documentElement.clientHeight;
-
-                wiD = window.innerWidth;
-                wiH = window.innerHeight;
-
-                scr_t(false, null); // disable scrolling
-                op.s = true;
-
-                document.body.style.backgroundColor = "red";
-
-            }, op.t);
-        }*/
+        } 
     }
 });
-
+*/
 //////////////////////////////////////////
 
 window.addEventListener("visibilitychange", async function() { // stop network check if tab/window in background
@@ -3862,7 +3743,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
     console.log(`'beforeinstallprompt' event was fired.`); // Optionally, send analytics event that PWA install promo was shown.
 });
-
+/*
 function showInstallPromotion() { // activate install button
     op.pwa.a = true;
     if (hm.e && (vw.pH || (!vw.pH && !vw.tB))) { // mobile/phablet - hamburger menu
@@ -3896,8 +3777,8 @@ function showInstallPromotion() { // activate install button
     }
 
     // other stuff
-}
-
+}*/
+/*
 function hideInstallPromotion() { // de-activate install button
     if (op.pwa.i) { // if installed
         installBtnToggle(false);
@@ -3921,8 +3802,8 @@ function hideInstallPromotion() { // de-activate install button
     }
 
     // other stuff
-}
-
+}*/
+/*
 async function installPrompt() {
     hideInstallPromotion(); // Hide the app provided install promotion
 
@@ -3931,7 +3812,7 @@ async function installPrompt() {
     console.log(`User response to the install prompt: ${outcome}`); // Optionally, send analytics event with outcome of user choice
 
     deferredPrompt = null; // We've used the prompt, and can't use it again, throw it away
-}
+}*/
 /*
 async function checkInstallation() {
     const relatedApps = await navigator.getInstalledRelatedApps();
@@ -3941,6 +3822,7 @@ async function checkInstallation() {
 }
 checkInstallation();
 */
+/*
 window.addEventListener('appinstalled', () => {
     
     op.pwa.i = true;
@@ -3948,7 +3830,7 @@ window.addEventListener('appinstalled', () => {
     deferredPrompt = null; // Clear the deferredPrompt so it can be garbage collected
     console.log('PWA was installed'); // Optionally, send analytics event to indicate successful install
 
-});
+});*/
 
 //////////////////////////////////////////
 
@@ -4308,4 +4190,4 @@ window.addEventListener("pointermove", function(e) { // release/click up
 
 // op.L = setInterval(pL, op.Ls); // check site paramters
 // pos.L = setInterval(sL, op.Ls); // check live scroll pos.
-pos.Lc = setInterval(c_Sr, (op.Ls * op.e)); // check scroll parameters (at half intervals)
+// pos.Lc = setInterval(c_Sr, (op.Ls * op.e)); // check scroll parameters (at half intervals)
