@@ -2697,7 +2697,7 @@ function pwaRead() {
                                             }
 
                                             ///////////////////////////////////
-
+                                            /*
                                             pwa_body.classList.remove("d_n");
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
@@ -2744,10 +2744,10 @@ function pwaRead() {
                                                     }, op.te);
                                                     
                                                 }, 10);
-
+                                                */
                                             ////////////////
                                             
-                                            /*
+                                            
                                             const tempIcon = document.querySelector('.pwa .weatherIcon');
                                             $(tempIcon).load("weather/" + icon + ".html", function() {
                                                 pwa_body.classList.remove("d_n");
@@ -2796,7 +2796,7 @@ function pwaRead() {
                                                     }, op.te);
                                                     
                                                 }, 10);
-                                            });*/
+                                            });
 
                                         } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                                             clearInterval(weather_L);
