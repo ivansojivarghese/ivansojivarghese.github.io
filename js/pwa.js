@@ -2322,7 +2322,7 @@ function pwaRead() {
                 var client_L = null, ip_L = null, weather_L = null;
 
                 const pwa_body = document.querySelector('.pwa');
-                const normal_body = document.querySelector('.non-pwa');
+                // const normal_body = document.querySelector('.non-pwa');
 
                 const pwa_sec_body = document.querySelector('.pwaSecondary');
 
@@ -2606,7 +2606,7 @@ function pwaRead() {
                 }, op.t);
 
                 if (!loadTimes.slow) {
-                    normal_body.classList.add("d_n");
+                    // normal_body.classList.add("d_n");
                     // document.title = "Ivan Varghese";
                     
                     $(sections).scroll(function() {
