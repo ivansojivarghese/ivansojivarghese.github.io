@@ -2630,11 +2630,11 @@ function pwaRead() {
             }
 
             if (!loadTimes.slow) {
-                if (document.querySelector('.non-pwa').classList.contains("d_n")) {
+                // if (document.querySelector('.non-pwa').classList.contains("d_n")) {
                     pos.sB = document.querySelector('.pwa #scrollBar');
-                } else {
+                /*} else {
                     pos.sB = document.querySelector('.non-pwa #scrollBar');
-                }
+                }*/
             }
 
         break;
