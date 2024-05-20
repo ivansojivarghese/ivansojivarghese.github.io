@@ -2275,6 +2275,29 @@ function loadError(input) {
     }, op.t);
 }
 
+async function weatherAPI(lat, lon, unit) { // 1,000,000 per month, 60 per minute limits, https://openweathermap.org/
+    await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=" + unit + "&appid=62dfc011a0d14a0996e185364706fe76")
+        .then((response) => {
+            return response.json().then((data) => {
+                weatherAPIres = data;
+                weatherAPIres.online = true;
+            }).catch((error) => {
+                weatherAPIres.error = true;
+            });
+        })
+}
+
+function tempUnit(c) { // return unit of measure per user country location
+    var res = "metric"; // default
+    for (var x in f_countries) {
+        if (f_countries[x].iso_A2 === c) { // if matches given list
+            res = "imperial";
+            break;
+        }
+    }
+    return res;
+}
+
 function pwaRead() {
     const load_sc = document.querySelector('#load_sc');
     const puller = document.querySelector('.puller');
