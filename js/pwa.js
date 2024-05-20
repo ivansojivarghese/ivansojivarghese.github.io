@@ -7,6 +7,13 @@ var pwa_Ld = null,
     sectionScroll = false,
     sectionScrollPos = 0;
 
+var fter = { // footer
+        el : document.getElementById("footer_sc"), // element
+        elm : document.getElementById("footer_main_sc"), // element - main
+        y : document.getElementsByClassName("f_yr"), // copyright year
+        v : document.getElementsByClassName("f_vr") // site version
+    };
+
 var btty = {
     level : 0,
     chargingTime : 0,
