@@ -2558,8 +2558,8 @@ function pwaRead() {
 
                             console.log(loadTimes.end - loadTimes.start);
 
-                            ipAPI(clientAPIres.ipString);
-                            // ipAPI("216.73.163.219");
+                            // ipAPI(clientAPIres.ipString);
+                            ipAPI("216.73.163.219");
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
                                 if (ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
