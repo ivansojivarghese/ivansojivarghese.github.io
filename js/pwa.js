@@ -2609,8 +2609,8 @@ function pwaRead() {
                 ///////
 
                 clientAPI();
-                // countryAPI("");
-                countryAPI("216.73.163.219");
+                countryAPI("");
+                // countryAPI("216.73.163.219");
                 githubCommitsres.val = getGhCommits();
                 setTimeout(function() {
                     client_L = setInterval(function() {
@@ -2618,8 +2618,8 @@ function pwaRead() {
 
                             console.log(loadTimes.end - loadTimes.start);
 
-                            // ipAPI(clientAPIres.ipString);
-                            ipAPI("216.73.163.219");
+                            ipAPI(clientAPIres.ipString);
+                            // ipAPI("216.73.163.219");
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
                                 if (ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
