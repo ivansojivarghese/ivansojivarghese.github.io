@@ -2382,7 +2382,7 @@ function loadError(input) {
     const load_m = document.querySelector("#load_message");
     const load_txt = document.querySelector("#load_message h3");
 
-    c_css(".darkText", "color: #FFF !important;", false, null, op, "darkMode");
+    // c_css(".darkText", "color: #FFF !important;", false, null, op, "darkMode");
 
     rL.r_s = false;
     rL.el = document.getElementById("load_sc"), 
