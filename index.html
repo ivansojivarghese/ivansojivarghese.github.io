@@ -2378,6 +2378,7 @@
                 if (op.darkMode && (localStorage.getItem('incognito') === null || localStorage.getItem('themeColor') === '1')) {
                     var loader = document.querySelector(".loader_pwa");
                     var load_r = document.querySelectorAll(".load_r_pwa");
+                    var load_message = document.querySelector("#load_message");
                     var ham_auto = document.querySelector(".pwa .about .ham_auto");
                     ham_auto.classList.add("z_O");
                     localStorage.setItem('themeColor', '1');
@@ -2387,6 +2388,7 @@
                     localStorage.setItem('incognito', '1');
                     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
                     loader.style.backgroundColor = "#303030";
+                    load_message.style.color = "#FFF";
                     let i = 0;
                     while (i < load_r.length) {
                         load_r[i].style.borderTopColor = "#FFF";

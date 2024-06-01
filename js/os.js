@@ -92,8 +92,10 @@ if (localStorage.getItem('systemColor') === null) {
         op.darkMode = true;
         var loader = document.querySelector(".loader_pwa");
         var load_r = document.querySelectorAll(".load_r_pwa");
+        var load_message = document.querySelector("#load_message");
         document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
         loader.style.backgroundColor = "#303030";
+        load_message.style.color = "#FFF";
         let i = 0;
         while (i < load_r.length) {
             load_r[i].style.borderTopColor = "#FFF";
