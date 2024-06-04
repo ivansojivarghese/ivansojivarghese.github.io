@@ -3924,6 +3924,10 @@ window.addEventListener("touchstart", function(event) { // IF TOUCH detected on 
     if (cursorBased) {
         cursorBased = false;
     }
+
+    if (!screenInteract) {
+        screenInteract = true;
+    }
 });
 
 window.addEventListener("touchmove", function(event) {
