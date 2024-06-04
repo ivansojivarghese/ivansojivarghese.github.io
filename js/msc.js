@@ -4026,8 +4026,8 @@ const positionElement = (e)=> {
                     pg.msg.cep = true;
         
                     msg_toggle(pg.msg.net, null, true, false, false); // show message
-                }*/
-            }
+                }
+            }*/
 
             if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n") && !touchActive) {
                 cursorSmall.classList.remove("d_n");
