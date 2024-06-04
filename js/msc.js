@@ -4044,9 +4044,9 @@ const positionElement = (e)=> {
             cursorSmall.classList.add("d_n");
             cursorBig.classList.add("d_n"); // remove cursor from view
 
-            if (!op.pwa.s) {
+            // if (!op.pwa.s) {
                 touchActive = true;
-            }
+            // }
         }
     }
 }
