@@ -3994,6 +3994,9 @@ const positionElement = (e)=> {
             const mouseY = e.clientY;
             const mouseX = e.clientX;
 
+            cursorSmall.classList.remove("d_n");
+            cursorBig.classList.remove("d_n"); // remove cursor from view
+
             // if (!touchActive) { // if NO TOUCH BEFORE CURSOR
             cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
             if (!hoverActive) {
