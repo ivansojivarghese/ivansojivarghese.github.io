@@ -3916,6 +3916,18 @@ window.addEventListener("touchstart", function(event) { // IF TOUCH detected on 
 });
 
 window.addEventListener("touchmove", function(event) {
+
+    cursorSmall.classList.add("d_n");
+    cursorBig.classList.add("d_n"); // remove cursor from view
+
+    // if (!op.pwa.s) {
+        touchActive = true;
+    // }
+
+    if (cursorBased) {
+        cursorBased = false;
+    }
+
     /*
     if ((getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone") && !fullscreenActive) {
         document.documentElement.requestFullscreen().then(() => {
