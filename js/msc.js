@@ -3994,17 +3994,17 @@ const positionElement = (e)=> {
             const mouseY = e.clientY;
             const mouseX = e.clientX;
 
-            if (!touchActive) { // if NO TOUCH BEFORE CURSOR
-                cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-                if (!hoverActive) {
-                    cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
-                } 
-            } else {
+            // if (!touchActive) { // if NO TOUCH BEFORE CURSOR
+            cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            if (!hoverActive) {
+                cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
+            } 
+            // } else {
                 /*
                 if (!op.pwa.s) {
                     cursorSmall.classList.add("d_n");
                     cursorBig.classList.add("d_n"); // remove cursor from view
-                }*/
+                }
 
                 if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent mousemove/cursor
                     if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
@@ -4026,7 +4026,7 @@ const positionElement = (e)=> {
                     pg.msg.cep = true;
         
                     msg_toggle(pg.msg.net, null, true, false, false); // show message
-                }
+                }*/
             }
 
             if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n") && !touchActive) {
