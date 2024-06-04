@@ -3987,10 +3987,6 @@ var cursorBased = false,
 
 const positionElement = (e)=> {
 
-    if (!screenInteract) {
-        screenInteract = true;
-    }
-
     if (op.pwa.s) {
         cursorTempActive = true;
     }
@@ -4001,7 +3997,7 @@ const positionElement = (e)=> {
             const mouseY = e.clientY;
             const mouseX = e.clientX;
 
-            if (!cursorBased) {
+            if (!cursorBased && screenInteract) {
                 cursorSmall.classList.remove("d_n");
                 cursorBig.classList.remove("d_n"); // remove cursor from view
             }
@@ -4068,6 +4064,10 @@ const positionElement = (e)=> {
                 cursorBased = false;
             }
         }
+    }
+
+    if (!screenInteract) {
+        screenInteract = true;
     }
 }
 
