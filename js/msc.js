@@ -3913,6 +3913,17 @@ window.addEventListener("touchstart", function(event) { // IF TOUCH detected on 
             fullscreenActive = false;
         });
     }*/
+
+    cursorSmall.classList.add("d_n");
+    cursorBig.classList.add("d_n"); // remove cursor from view
+
+    // if (!op.pwa.s) {
+        touchActive = true;
+    // }
+
+    if (cursorBased) {
+        cursorBased = false;
+    }
 });
 
 window.addEventListener("touchmove", function(event) {
