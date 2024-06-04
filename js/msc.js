@@ -4006,6 +4006,9 @@ const positionElement = (e)=> {
                     cursorBig.classList.add("d_n"); // remove cursor from view
                 }*/
 
+                cursorSmall.classList.add("d_n");
+                cursorBig.classList.add("d_n"); // remove cursor from view
+
                 if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent mousemove/cursor
                     if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
                         pg.msg.net_p.classList.remove("predicate"); 
