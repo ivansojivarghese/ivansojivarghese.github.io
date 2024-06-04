@@ -4035,9 +4035,6 @@ const positionElement = (e)=> {
                 cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
             } 
 
-            if (!cursorBased) {
-                cursorBased = true;
-            }
             // } else {
                 /*
                 if (!op.pwa.s) {
@@ -4068,7 +4065,7 @@ const positionElement = (e)=> {
                 }
             }*/
 
-            if (cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n") && !touchActive) {
+            if ((cursorSmall.classList.contains("d_n") && cursorBig.classList.contains("d_n") && !touchActive) || (!cursorBased && screenInteract)) {
                 cursorSmall.classList.remove("d_n");
                 cursorBig.classList.remove("d_n");
                 cursorActive = true;
@@ -4076,6 +4073,10 @@ const positionElement = (e)=> {
                 cursorSmall.classList.remove("z_O");
             } else if (cursorBig.classList.contains("z_O") && rL.i) {
                 cursorBig.classList.remove("z_O");
+            }
+
+            if (!cursorBased) {
+                cursorBased = true;
             }
 
         } else if (tch.e && !touchActive) { // IF TOUCH DETECTED
