@@ -4190,6 +4190,23 @@ window.addEventListener("pointerdown", function(e) { // tap/click down
     op.p.e = false;
     switch (e.pointerType) {
     case "pen": // stylus/pen/pencil
+
+        cursorSmall.classList.add("d_n");
+        cursorBig.classList.add("d_n"); // remove cursor from view
+
+        // if (!op.pwa.s) {
+            touchActive = true;
+        // }
+
+        if (cursorBased) {
+            cursorBased = false;
+        }
+
+        if (!screenInteract) {
+            screenInteract = true;
+        }
+
+        /*
         if (!pg.msg.c && !pg.msg.k && !pg.cond.a && !hm.s && !pg.msg.fo && op.c.e) { // show message to prevent pen
             if (pg.msg.net_p.classList.contains("predicate") || pg.msg.net_p.classList.contains("balanced")) {
                 pg.msg.net_p.classList.remove("predicate"); 
@@ -4215,7 +4232,7 @@ window.addEventListener("pointerdown", function(e) { // tap/click down
 
             // msg_toggle(pg.msg.net, null, true, false, false); // show message
             // e.preventDefault();
-        }
+        }*/
     break;
     case "mouse":
     case "touch": // revoke above message if shown
