@@ -777,6 +777,7 @@ h3.downsize {
     position: relative;
     top: -24rem;
     left: 35rem;
+    display: none;
 }
 
 #artGraphic .shape {
@@ -1145,6 +1146,10 @@ h3.downsize {
 @media screen and (min-width: 1200px) and (max-height: calc(100vw / 1.5)) {
     .pwa .profile_image {
         margin-right: 3rem;
+    }
+
+    #artGraphic {
+        display: block;
     }
 }
 
