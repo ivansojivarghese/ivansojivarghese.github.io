@@ -793,10 +793,12 @@ h3.downsize {
 }
 
 #artGraphic .shape2 {
-    width: 100px;
-	height: 50px;
-	transform: skew(20deg);
-	background: #555;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 130px solid #555;
+    transform: rotate(-35deg);
 }
 
 .flexCol {
