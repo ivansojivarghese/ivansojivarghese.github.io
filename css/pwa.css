@@ -789,7 +789,7 @@ h3.downsize {
     height: 0;
     border-left: 1.79rem solid transparent;
     border-right: 0.35rem solid transparent;
-    border-bottom: 4.64rem solid #555;
+    border-bottom: 4.64rem solid gold;
     transform: rotate(-35deg);
 }
 
@@ -798,7 +798,7 @@ h3.downsize {
     height: 0;
     border-left: 2.14rem solid transparent;
     border-right: 1.07rem solid transparent;
-    border-bottom: 4.64rem solid #555;
+    border-bottom: 4.64rem solid yellow;
     transform: rotate(-64deg);
     left: 0.54rem;
     top: -0.78rem;
@@ -809,7 +809,7 @@ h3.downsize {
     height: 0;
     border-left: 2.5rem solid transparent;
     border-right: 0.18rem solid transparent;
-    border-bottom: 2.5rem solid #555;
+    border-bottom: 2.5rem solid purple;
     transform: rotate(170deg);
     top: 4.46rem;
     left: 1.7rem;
