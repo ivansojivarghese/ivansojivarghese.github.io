@@ -774,9 +774,9 @@ h3.downsize {
 }
 
 #artGraphic {
-    position: absolute;
-    top: 0;
-    left: 45rem;
+    position: relative;
+    top: -24rem;
+    left: 35rem;
 }
 
 #artGraphic .shape {
@@ -855,10 +855,8 @@ h3.downsize {
     border-bottom: 135px solid blue;
     transform: rotate(285deg);
     top: 150px;
-    left: 137px;
+    left: 138px;
 }
-
-
 
 .flexCol {
     flex-direction: column;
