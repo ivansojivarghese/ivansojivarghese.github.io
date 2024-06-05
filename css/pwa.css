@@ -817,11 +817,11 @@ h3.downsize {
 #artGraphic .shape4 {
     width: 0;
     height: 0;
-    border-left: 132px solid transparent;
+    border-left: 120px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 70px solid #555;
+    border-bottom: 78px solid green;
     transform: rotate(350deg);
-    top: 53px;
+    top: 45px;
     left: 36px;
 }
 
