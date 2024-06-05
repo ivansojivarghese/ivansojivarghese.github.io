@@ -795,10 +795,12 @@ h3.downsize {
 #artGraphic .shape2 {
     width: 0;
     height: 0;
-    border-left: 50px solid transparent;
-    border-right: 10px solid transparent;
+    border-left: 60px solid transparent;
+    border-right: 30px solid transparent;
     border-bottom: 130px solid #555;
-    transform: rotate(-35deg);
+    transform: rotate(-64deg);
+    left: 15px;
+    top: -22px;
 }
 
 .flexCol {
