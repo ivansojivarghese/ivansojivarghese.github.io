@@ -830,7 +830,7 @@ h3.downsize {
     height: 0;
     border-left: 133px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 135px solid #555;
+    border-bottom: 135px solid red;
     transform: rotate(285deg);
     top: 32px;
     left: 70px;
@@ -846,6 +846,19 @@ h3.downsize {
     top: 77px;
     left: 75px;
 }
+
+#artGraphic .shape7 {
+    width: 0;
+    height: 0;
+    border-left: 133px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 135px solid blue;
+    transform: rotate(285deg);
+    top: 150px;
+    left: 137px;
+}
+
+
 
 .flexCol {
     flex-direction: column;
