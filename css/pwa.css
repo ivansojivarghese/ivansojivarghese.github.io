@@ -787,76 +787,76 @@ h3.downsize {
 #artGraphic .shape1 {
     width: 0;
     height: 0;
-    border-left: 50px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 130px solid #555;
+    border-left: 1.79rem solid transparent;
+    border-right: 0.35rem solid transparent;
+    border-bottom: 4.64rem solid #555;
     transform: rotate(-35deg);
 }
 
 #artGraphic .shape2 {
     width: 0;
     height: 0;
-    border-left: 60px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 130px solid #555;
+    border-left: 2.14rem solid transparent;
+    border-right: 1.07rem solid transparent;
+    border-bottom: 4.64rem solid #555;
     transform: rotate(-64deg);
-    left: 15px;
-    top: -22px;
+    left: 0.54rem;
+    top: -0.78rem;
 }
 
 #artGraphic .shape3 {
     width: 0;
     height: 0;
-    border-left: 70px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 70px solid #555;
+    border-left: 2.5rem solid transparent;
+    border-right: 0.18rem solid transparent;
+    border-bottom: 2.5rem solid #555;
     transform: rotate(170deg);
-    top: 125px;
-    left: 48px;
+    top: 4.46rem;
+    left: 1.7rem;
 }
 
 #artGraphic .shape4 {
     width: 0;
     height: 0;
-    border-left: 120px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 78px solid green;
+    border-left: 4.29rem solid transparent;
+    border-right: 0.18rem solid transparent;
+    border-bottom: 2.79rem solid green;
     transform: rotate(350deg);
-    top: 45px;
-    left: 36px;
+    top: 1.6rem;
+    left: 1.29rem;
 }
 
 #artGraphic .shape5 {
     width: 0;
     height: 0;
-    border-left: 133px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 135px solid red;
+    border-left: 4.75rem solid transparent;
+    border-right: 0.17rem solid transparent;
+    border-bottom: 4.8rem solid red;
     transform: rotate(285deg);
-    top: 32px;
-    left: 70px;
+    top: 1.14rem;
+    left: 2.5rem;
 }
 
 #artGraphic .shape6 {
     width: 0;
     height: 0;
-    border-left: 110px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 145px solid #555;
+    border-left: 3.93rem solid transparent;
+    border-right: 1.79rem solid transparent;
+    border-bottom: 5.18rem solid #555;
     transform: rotate(110deg);
-    top: 77px;
-    left: 75px;
+    top: 2.75rem;
+    left: 2.68rem;
 }
 
 #artGraphic .shape7 {
     width: 0;
     height: 0;
-    border-left: 133px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 135px solid blue;
+    border-left: 4.75rem solid transparent;
+    border-right: 0.17rem solid transparent;
+    border-bottom: 4.8rem solid blue;
     transform: rotate(285deg);
-    top: 150px;
-    left: 138.5px;
+    top: 5.36rem;
+    left: 4.95rem;
 }
 
 .flexCol {
