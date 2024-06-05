@@ -773,6 +773,16 @@ h3.downsize {
     top: 0.5rem;
 }
 
+#artGraphic {
+    position: absolute;
+    top: 0;
+    left: 45rem;
+}
+
+#artGraphic .shape {
+    position: absolute;
+}
+
 .flexCol {
     flex-direction: column;
 }
