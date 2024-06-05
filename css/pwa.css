@@ -837,7 +837,14 @@ h3.downsize {
 }
 
 #artGraphic .shape6 {
-
+    width: 0;
+    height: 0;
+    border-left: 110px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 145px solid #555;
+    transform: rotate(110deg);
+    top: 77px;
+    left: 75px;
 }
 
 .flexCol {
