@@ -1236,7 +1236,7 @@ h3.downsize {
         transform: rotate(90deg);
     }
 
-    .pwa .popups.lvh {
+    .pwa .popups.lvh, .pwa .popups {
         height: calc(calc(env(viewport-segment-height 0 0)) - calc(env(safe-area-inset-top))) !important;
     }
 
