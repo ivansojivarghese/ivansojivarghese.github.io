@@ -1382,12 +1382,8 @@ h3.downsize {
         left: calc(2rem + calc(env(safe-area-inset-left)));
     }
 
-    .pwa .navbar .button.home .img .active.hold, .pwa .navbar .button.home_dark .img .active.hold {
-        left: 1rem;
-    }
-
     .pwa .navbar .button.home, .pwa .navbar .button.home_dark {
-        padding-left: 1rem;
+        margin-left: 1rem !important;
     }
 
     .pwa.swapped .navbar .button.home, .pwa.swapped .navbar .button.home_dark {
