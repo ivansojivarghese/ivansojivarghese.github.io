@@ -1385,11 +1385,18 @@ h3.downsize {
     .pwa .navbar.fab2_nav {
         width: 20rem;
         padding-left: 1rem;
+        left: 50%;
+    }
+
+    .pwa .navbar.fab2_nav.fab2_critical {
         left: calc(50% + 2rem);
     }
 
     .pwa.swapped .navbar.fab2_nav {
         padding-left: 0;
+    }
+
+    .pwa.swapped .navbar.fab2_nav.fab2_critical {
         left: calc(50% + 1.5rem);
     }
 
