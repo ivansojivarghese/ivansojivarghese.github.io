@@ -864,6 +864,7 @@ h3.downsize {
 }
 
 .titlebar {
+    display: none;
     position: fixed;
     left: env(titlebar-area-x, 0);
     /* Use the environment variable for the top anchoring with a fallback. */
