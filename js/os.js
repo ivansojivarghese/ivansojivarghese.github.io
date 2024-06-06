@@ -264,8 +264,8 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
 
                 var pwaSec = document.querySelector(".pwaSecondary");
 
-                pwaSec.style.backgroundColor = "#303030";
-                pwaSec.style.color = "#FFF";
+                pwaSec.style.backgroundColor = "";
+                pwaSec.style.color = "";
 
                 localStorage.setItem('themeColor', '0');
 
