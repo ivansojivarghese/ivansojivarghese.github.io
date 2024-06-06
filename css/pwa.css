@@ -1289,6 +1289,19 @@ h3.downsize {
         padding-left: calc(env(safe-area-inset-left));
     }
 
+    .pwa .navbar.fab2_nav {
+        height: 20rem;
+    }
+
+    .pwa .fab2 {
+        top: calc(env(viewport-segment-height 0 0) - 5rem);
+        bottom: auto;
+    }
+
+    .pwa .navbar.fab2_nav .button.clicks, .pwa .navbar.fab2_nav .button.clicks_dark {
+        margin-top: calc((20rem - 15rem) / 6);
+    }
+
     .pwa .sections > div {
         padding-bottom: 0;
     }
