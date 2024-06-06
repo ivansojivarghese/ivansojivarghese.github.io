@@ -776,7 +776,7 @@ h3.downsize {
 #artGraphic {
     position: relative;
     top: -25rem;
-    left: 35rem;
+    left: 50vw;
     display: none;
 }
 
