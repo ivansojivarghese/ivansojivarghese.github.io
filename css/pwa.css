@@ -1306,6 +1306,10 @@ h3.downsize {
         height: 20rem;
     }
 
+    .pwa.swapped .navbar.fab2_nav {
+        max-height: 16rem;
+    }
+
     .pwa .navbar .button .img .active.hold {
         width: 3rem;
         left: 0;
