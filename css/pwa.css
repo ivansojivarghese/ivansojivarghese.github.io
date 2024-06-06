@@ -1374,6 +1374,18 @@ h3.downsize {
         border-radius: 1rem;
     }
 
+    .pwa .popups {
+        width: calc(env(viewport-segment-width 1 0));
+    }
+
+    .pwa .popups .pills.settingsInfo {
+        left: calc(2rem + calc(env(safe-area-inset-left)));
+    }
+
+    .pwa .navbar .button .img .active.hold {
+        left: 1rem;
+    }
+
     .pwa .navbar .button.home, .pwa .navbar .button.home_dark {
         padding-left: 1rem;
     }
