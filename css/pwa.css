@@ -1084,7 +1084,7 @@ h3.downsize {
     }
 
     .pwa.swapped .navbar.fab2_nav {
-        max-height: 20rem;
+        max-height: 16rem;
     }
 
     .pwa.swapped .navbar.fab2_nav .button.clicks, .pwa.swapped .navbar.fab2_nav .button.clicks_dark {
@@ -1307,7 +1307,7 @@ h3.downsize {
     }
 
     .pwa.swapped .navbar.fab2_nav {
-        max-height: 16rem;
+        max-height: 20rem;
     }
 
     .pwa .navbar .button .img .active.hold {
