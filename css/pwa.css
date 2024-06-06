@@ -1223,6 +1223,18 @@ h3.downsize {
 
 @media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
 
+    .pwa .home .flexActive {
+        display: block;
+    }
+
+    .pwa .home .flexActive .paragraph {
+        padding-bottom: 1.5em;
+    }
+
+    .pwa .home .container.wordcloud {
+        margin-top: 1rem;
+    }
+
     .pwa .navbar .button.swap {
         display: block;
         padding: 0.5rem;
@@ -1402,6 +1414,18 @@ h3.downsize {
 }
 
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
+    .pwa .home .flexActive {
+        display: block;
+    }
+
+    .pwa .home .flexActive .paragraph {
+        padding-bottom: 1.5em;
+    }
+
+    .pwa .home .container.wordcloud {
+        margin-top: 1rem;
+    }
+
     .pwa .navbar .button.swap {
         display: block;
         padding: 0.5rem;
