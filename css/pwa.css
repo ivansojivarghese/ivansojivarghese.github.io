@@ -1236,6 +1236,10 @@ h3.downsize {
         transform: rotate(90deg);
     }
 
+    .pwa .popups {
+        height: calc(env(viewport-segment-height 0 0));
+    }
+
     .pwa .popups .pills.settingsInfo {
         height: calc(calc(env(viewport-segment-height 0 0)) - 5rem - 8rem);
     }
