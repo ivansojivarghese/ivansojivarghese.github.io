@@ -2394,6 +2394,8 @@
                     var load_r = document.querySelectorAll(".load_r_pwa");
                     var load_message = document.querySelector("#load_message");
                     var ham_auto = document.querySelector(".pwa .about .ham_auto");
+                    var pwaSec = document.querySelector(".pwaSecondary");
+
                     ham_auto.classList.add("z_O");
                     localStorage.setItem('themeColor', '1');
                     if (localStorage.getItem('systemColor') === '1' && localStorage.getItem('incognito') === null) {
@@ -2402,6 +2404,8 @@
                     localStorage.setItem('incognito', '1');
                     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
                     loader.style.backgroundColor = "#303030";
+                    pwaSec.style.backgroundColor = "#303030";
+                    pwaSec.style.color = "#FFF";
                     load_message.style.color = "#FFF";
                     let i = 0;
                     while (i < load_r.length) {
