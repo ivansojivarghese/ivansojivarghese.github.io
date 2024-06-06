@@ -1388,6 +1388,7 @@ h3.downsize {
 
     .pwa.swapped .navbar .button.home, .pwa.swapped .navbar .button.home_dark {
         padding-left: 0;
+        margin-left: 0 !important;
     }
 
     .pwa.swapped .navbar .button.about, .pwa.swapped .navbar .button.about_dark {
