@@ -1374,6 +1374,10 @@ h3.downsize {
         border-radius: 1rem;
     }
 
+    .pwa .fab2:not([class='hide']) {
+        left: 2rem;
+    }
+
     .pwa .popups {
         width: calc(env(viewport-segment-width 1 0));
     }
