@@ -1390,6 +1390,7 @@ h3.downsize {
 
     .pwa.swapped .navbar.fab2_nav {
         padding-left: 0;
+        left: calc(50% + 1.5rem);
     }
 
     .pwa .popups {
