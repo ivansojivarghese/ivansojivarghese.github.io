@@ -877,6 +877,12 @@ h3.downsize {
     -webkit-app-region: drag;
 }
 
+@media (display-mode: window-controls-overlay) { 
+    .titlebar {
+        display: block;
+    }
+}
+
 @media (pointer: fine) {
     * {
         cursor: none !important;
