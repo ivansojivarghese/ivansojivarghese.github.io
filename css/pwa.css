@@ -1294,6 +1294,11 @@ h3.downsize {
         height: 20rem;
     }
 
+    .pwa .navbar .button .img .active.hold {
+        width: 3rem;
+        left: 0;
+    }
+
     .pwa .fab2 {
         top: calc(env(viewport-segment-height 0 0) - 5rem);
         bottom: auto;
