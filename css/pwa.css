@@ -1374,7 +1374,7 @@ h3.downsize {
         border-radius: 1rem;
     }
 
-    .pwa .fab2:not([class='hide']) {
+    .pwa .fab2:not([class='fab2 trs hoverB shade hide']), .pwa .fab2:not([class='fab2 trs hoverB hide']) {
         left: 2rem;
     }
 
