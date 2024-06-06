@@ -1378,7 +1378,7 @@ h3.downsize {
         left: 2rem;
     }
 
-    .pwa .fab2:not([class='fab2 trs hoverB shade hide']) + .pwa .navbar, .pwa .fab2:not([class='fab2 trs hoverB hide']) + .pwa .navbar {
+    .pwa .navbar.fab2_nav {
         width: 20rem;
         padding-left: 1rem;
         left: calc(50% + 2rem);
