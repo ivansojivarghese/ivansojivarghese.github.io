@@ -565,11 +565,11 @@ h3.downsize {
     margin-right: 1rem;
 }
 
-.pwa .about .img_iconBtn:first-child, .pwa .home .img_iconBtn:first-child {
+.pwa .about .img_iconBtn:first-child, .pwa .home .img_iconBtn:first-child, .pwa .titlebar .img_iconBtn:first-child {
     margin-left: 1rem;
 }
 
-.pwa .about .img_iconBtn:first-child, .pwa .about .img_iconBtn:nth-child(2) {
+.pwa .about .img_iconBtn:first-child, .pwa .about .img_iconBtn:nth-child(2), .pwa .titlebar .img_iconBtn:first-child {
     margin-right: 0;
 }
 
@@ -874,6 +874,7 @@ h3.downsize {
     /* Use the environment variable for setting the height with a fallback. */
     height: env(titlebar-area-height, 33px);
     -webkit-app-region: drag;
+    background-color: red;
 }
 
 @media (display-mode: window-controls-overlay) { 
