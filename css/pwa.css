@@ -1261,6 +1261,10 @@ h3.downsize {
         top: 0 !important;
     }
 
+    .pwaSecondary .reserved {
+        height: calc(env(viewport-segment-height 0 1));
+    }
+
     .pwa .sections {
         float: right;
         height: calc(env(viewport-segment-height 0 0));
