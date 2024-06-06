@@ -1242,6 +1242,7 @@ h3.downsize {
 
     .pwa .popups .pills.settingsInfo {
         height: calc(calc(env(viewport-segment-height 0 0)) - 5rem - 8rem);
+        left: calc(7rem + calc(env(safe-area-inset-left)));
     }
 
     .pwa.swapped .navbar .button.swap {
