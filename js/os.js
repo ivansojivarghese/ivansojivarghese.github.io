@@ -262,6 +262,11 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
 
             } else /*if (colorStates <= 2 && colorStates !== 0)*/ { // if dark, change to light
 
+                var pwaSec = document.querySelector(".pwaSecondary");
+
+                pwaSec.style.backgroundColor = "#303030";
+                pwaSec.style.color = "#FFF";
+
                 localStorage.setItem('themeColor', '0');
 
                 document.querySelector('meta[name="theme-color"]').setAttribute('content', '#F4F4F4');
