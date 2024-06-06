@@ -873,7 +873,6 @@ h3.downsize {
     width: env(titlebar-area-width, 100%);
     /* Use the environment variable for setting the height with a fallback. */
     height: env(titlebar-area-height, 33px);
-    background-color: red;
     -webkit-app-region: drag;
 }
 
