@@ -1378,6 +1378,12 @@ h3.downsize {
         left: 2rem;
     }
 
+    .pwa .fab2:not([class='fab2 trs hoverB shade hide']) + .pwa .navbar, .pwa .fab2:not([class='fab2 trs hoverB hide']) + .pwa .navbar {
+        width: 20rem;
+        padding-left: 1rem;
+        left: calc(50% + 2rem);
+    }
+
     .pwa .popups {
         width: calc(env(viewport-segment-width 1 0));
     }
