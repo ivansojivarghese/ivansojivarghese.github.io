@@ -268,6 +268,14 @@ function navButtonActive(b, e, v) {
         }
     }
 
+    if (toggles.motionSense && (motionType === "walk" || motionType === "commute")) {
+        if (b !== "home" && b !== "about") {
+            navbar.classList.remove("fab2_critical");
+        } else {
+            navbar.classList.add("fab2_critical");
+        }
+    }
+
     /*
     if (target.classList.contains("about") || target.classList.contains("about_dark")) {
         const profile_image = document.querySelector('.pwa .profile_image');
@@ -1218,6 +1226,9 @@ function motionUXChange(m, o) {
                     fab2Close = false; // show 'home' on fab2
                 }
             }
+            if (activeTab === 'about' || activeTab === 'home') {
+                navbar.classList.add("fab2_critical");
+            }
             homeBtn.classList.add("d_n");
             oldMotionType = m;
             fab2Check = true;
@@ -1255,6 +1266,7 @@ function motionUXChange(m, o) {
             fab2Check = false;
             navbar.classList.remove("outView");
             navbar.classList.remove("fab2_nav");
+            navbar.classList.remove("fab2_critical");
             document.body.classList.remove("commuteColorChange");
             // document.body.classList.remove("commuteColorChangeDark");
             // document.body.classList.add("lightBackground");
