@@ -871,7 +871,7 @@ h3.downsize {
     width: env(titlebar-area-width, 100%);
     height: env(titlebar-area-height, 33px);
     /*-webkit-app-region: drag;*/
-    padding-left: 6rem;
+    padding-left: 2rem;
     background-color: #F4F4F4;
     z-index: 5000;
 }
@@ -920,12 +920,12 @@ h3.downsize {
 
     .pwa .popups .pills.settingsInfo {
         top: calc(2.2rem + env(safe-area-inset-top));
-        left: calc(6rem + calc(env(safe-area-inset-left))) !important;
+        left: calc(2rem + calc(env(safe-area-inset-left))) !important;
     }
 
     .pwa .popups .pills.deviceInfo {
         top: calc(2.2rem + env(safe-area-inset-top));
-        left: calc(8rem + calc(env(safe-area-inset-left)));
+        left: calc(4rem + calc(env(safe-area-inset-left)));
         right: auto;
     }
 }
