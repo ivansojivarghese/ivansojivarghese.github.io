@@ -883,8 +883,9 @@ h3.downsize {
 }
 
 .titlebar .img_icon {
-    width: env(titlebar-area-height, 33px);
-    height: env(titlebar-area-height, 33px);
+    width: calc(env(titlebar-area-height, 33px) - 20%);
+    height: calc(env(titlebar-area-height, 33px) - 20%);
+    margin: 10%;
 }
 
 @media (display-mode: window-controls-overlay) { 
