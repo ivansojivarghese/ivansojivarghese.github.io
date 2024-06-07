@@ -881,6 +881,7 @@ h3.downsize {
     margin-right: 0.5rem !important;
     display: inline-block;
     padding: 0;
+    z-index: 5000;
     width: env(titlebar-area-height, 33px);
     height: env(titlebar-area-height, 33px);
 }
