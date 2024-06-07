@@ -914,6 +914,12 @@ h3.downsize {
         top: calc(2.2rem + env(safe-area-inset-top));
         left: calc(6rem + calc(env(safe-area-inset-left)));
     }
+
+    .pwa .popups .pills.deviceInfo {
+        top: calc(2.2rem + env(safe-area-inset-top));
+        left: calc(8rem + calc(env(safe-area-inset-left)));
+        right: auto;
+    }
 }
 
 @media (pointer: fine) {
