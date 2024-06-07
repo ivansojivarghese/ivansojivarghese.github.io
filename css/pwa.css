@@ -895,6 +895,15 @@ h3.downsize {
     .titlebar {
         display: block;
     }
+
+    .pwa .banner {
+        display: none;
+    }
+
+    .pwa .banner + .pwa .m_L-10 {
+        position: relative;
+        top: calc(env(titlebar-area-height, 33px) + 2rem);
+    }
 }
 
 @media (pointer: fine) {
