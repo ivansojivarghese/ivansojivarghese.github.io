@@ -1985,6 +1985,8 @@ function openPopUp(target) {
             }
             closePopUp(target)
         }, true);
+    } else if (target === 'settingsInfo') { 
+        t.scrollTo(0,0);
     } else {
         if (navigator.windowControlsOverlay.visible) {
             titlebar.classList.add("d_n");
