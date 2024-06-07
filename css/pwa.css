@@ -903,10 +903,15 @@ h3.downsize {
 
     .pwa .popups .banner {
         display: flex;
+        padding-top: calc(env(titlebar-area-height, 33px) + 0rem);
     }
 
     .pwa .banner + .m_L-10 {
         padding-top: calc(env(titlebar-area-height, 33px) + 2rem);
+    }
+
+    .pwa .popups .terms .m_L-10 {
+        padding-top: 0;
     }
 
     #artGraphic {
