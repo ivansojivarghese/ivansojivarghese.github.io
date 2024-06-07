@@ -1005,7 +1005,7 @@ h3.downsize {
     }
 
     .pwa .navbar.fab2_nav .button.clicks, .pwa .navbar.fab2_nav .button.clicks_dark {
-        margin-top: calc(100dvh - 12rem - (calc((100dvh - 14.75rem))));
+        margin-top: calc(100dvh - 12rem - (calc((100dvh - 15rem))));
     }
 
     .pwa .navbar .button .img .active {
