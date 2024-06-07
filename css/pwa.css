@@ -902,8 +902,7 @@ h3.downsize {
     }
 
     .pwa .banner + .m_L-10 {
-        position: relative;
-        top: calc(env(titlebar-area-height, 33px) + 2rem);
+        padding-top: calc(env(titlebar-area-height, 33px) + 2rem);
     }
 
     #artGraphic {
