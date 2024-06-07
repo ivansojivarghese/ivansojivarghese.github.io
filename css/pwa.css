@@ -878,7 +878,7 @@ h3.downsize {
 .titlebar .img_iconBtn {
     margin: 0;
     margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-right: 0.5rem !important;
     display: inline-block;
     padding: 0;
     width: env(titlebar-area-height, 33px);
