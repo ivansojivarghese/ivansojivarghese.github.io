@@ -901,7 +901,7 @@ h3.downsize {
         display: none;
     }
 
-    .pwa .banner + .pwa .m_L-10 {
+    .pwa .banner + .m_L-10 {
         position: relative;
         top: calc(env(titlebar-area-height, 33px) + 2rem);
     }
