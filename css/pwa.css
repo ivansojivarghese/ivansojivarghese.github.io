@@ -905,6 +905,10 @@ h3.downsize {
         position: relative;
         top: calc(env(titlebar-area-height, 33px) + 2rem);
     }
+
+    #artGraphic {
+        top: calc(-25rem + env(titlebar-area-height, 33px) + 1rem);
+    }
 }
 
 @media (pointer: fine) {
