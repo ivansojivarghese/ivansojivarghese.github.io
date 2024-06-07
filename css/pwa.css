@@ -909,6 +909,11 @@ h3.downsize {
     #artGraphic {
         top: calc(-25rem + env(titlebar-area-height, 33px) + 1rem);
     }
+
+    .pwa .popups .pills.settingsInfo {
+        top: calc(2.2rem + env(safe-area-inset-top));
+        left: calc(6rem + calc(env(safe-area-inset-left)));
+    }
 }
 
 @media (pointer: fine) {
