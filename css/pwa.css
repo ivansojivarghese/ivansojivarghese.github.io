@@ -901,6 +901,10 @@ h3.downsize {
         display: none;
     }
 
+    .pwa .popups .banner {
+        display: flex;
+    }
+
     .pwa .banner + .m_L-10 {
         padding-top: calc(env(titlebar-area-height, 33px) + 2rem);
     }
