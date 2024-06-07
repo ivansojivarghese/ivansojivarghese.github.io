@@ -1031,12 +1031,13 @@ h3.downsize {
     .pwa .profile_image {
         margin-left: 0;
         display: inline-block;
+        margin-right: 2rem;
     }
 
     .pwa .about .paragraph.size {
         padding-right: 0;
         display: inline-block;
-        margin-left: 2rem;
+        /*margin-left: 2rem;*/
     }
     /*
     .pwa .about .container.offline {
