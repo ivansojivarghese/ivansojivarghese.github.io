@@ -204,13 +204,11 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                     fvc[i].setAttribute("href", fvc_d[i]); 
                 }
 
-                if (navigator.windowControlsOverlay.visible) {
-                    title_settings.classList.remove("settings_img");
-                    title_info.classList.remove("info_img");
+                title_settings.classList.remove("settings_img");
+                title_info.classList.remove("info_img");
 
-                    title_settings.classList.add("settings_w_img");
-                    title_info.classList.add("info_w_img");
-                }
+                title_settings.classList.add("settings_w_img");
+                title_info.classList.add("info_w_img");
 
                 if (e !== null) {
                     icon = (e.target.classList.contains("dark_mode_img")) ? e.target : e.target.children[0];
@@ -286,13 +284,11 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                     fvc[i].setAttribute("href", fvc_L[i]); 
                 }
 
-                if (navigator.windowControlsOverlay.visible) {
-                    title_settings.classList.remove("settings_w_img");
-                    title_info.classList.remove("info_w_img");
-                    
-                    title_settings.classList.add("settings_img");
-                    title_info.classList.add("info_img");
-                }
+                title_settings.classList.remove("settings_w_img");
+                title_info.classList.remove("info_w_img");
+
+                title_settings.classList.add("settings_img");
+                title_info.classList.add("info_img");
 
                 if (e !== null) {
                     icon = (e.target.classList.contains("light_mode_img")) ? e.target : e.target.children[0];
