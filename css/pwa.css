@@ -872,7 +872,6 @@ h3.downsize {
     height: env(titlebar-area-height, 33px);
     /*-webkit-app-region: drag;*/
     padding-left: 2rem;
-    background-color: #F4F4F4;
     z-index: 5000;
 }
 
