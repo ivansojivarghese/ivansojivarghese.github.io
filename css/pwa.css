@@ -872,6 +872,19 @@ h3.downsize {
     height: env(titlebar-area-height, 33px);
     /*-webkit-app-region: drag;*/
     padding-left: 6rem;
+    background-color: #F4F4F4;
+}
+
+.titlebar .img_iconBtn {
+    margin: 0;
+    padding: 0;
+    width: env(titlebar-area-height, 33px);
+    height: env(titlebar-area-height, 33px);
+}
+
+.titlebar .img_icon {
+    width: env(titlebar-area-height, 33px);
+    height: env(titlebar-area-height, 33px);
 }
 
 @media (display-mode: window-controls-overlay) { 
