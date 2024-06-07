@@ -343,9 +343,8 @@
         "platform": "webapp",
         "url": "https://ivansojivarghese.github.io/app_windows.webmanifest"
     }],
-   "display": "window-controls-overlay",
+   "display": "standalone",
    "display_override": [
-    "window-controls-overlay",
     "standalone",
     "minimal-ui",
     "browser"
