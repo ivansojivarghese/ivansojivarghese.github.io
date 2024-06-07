@@ -862,7 +862,7 @@ h3.downsize {
 .flexCol {
     flex-direction: column;
 }
-/*
+
 .titlebar {
     display: none;
     position: fixed;
@@ -870,16 +870,15 @@ h3.downsize {
     top: env(titlebar-area-y, 0);
     width: env(titlebar-area-width, 100%);
     height: env(titlebar-area-height, 33px);
-    -webkit-app-region: drag;
+    /*-webkit-app-region: drag;*/
     padding-left: 6rem;
-    background-color: red;
 }
 
 @media (display-mode: window-controls-overlay) { 
     .titlebar {
         display: block;
     }
-}*/
+}
 
 @media (pointer: fine) {
     * {
