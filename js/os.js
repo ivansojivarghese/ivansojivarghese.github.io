@@ -150,6 +150,9 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                 fvc_d = ["safari-pinned-tab-dark.svg", "apple-touch-icon_dark.png", "favicon_dark.ico", "favicon/favicon_dark.svg", "favicon/android-chrome-512x512_dark.png", "favicon/android-chrome-192x192_dark.png", "favicon/favicon-32x32_dark.png", "favicon/favicon-16x16_dark.png"]; // dark favicons
                 fvc_L = ["safari-pinned-tab.svg", "apple-touch-icon.png", "favicon.ico", "favicon/favicon.svg", "favicon/android-chrome-512x512.png", "favicon/android-chrome-192x192.png", "favicon/favicon-32x32.png", "favicon/favicon-16x16.png"]; // light favicons
 
+            var title_settings = document.querySelector(".titlebar .settings"),
+                title_info = document.querySelector(".titlebar .info");
+
             if (!init && !op.darkChange && !b) {
                 colorStates++;
             }
@@ -199,6 +202,14 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
 
                 for (i = 0; i < fvc.length; i++) { // change favicon
                     fvc[i].setAttribute("href", fvc_d[i]); 
+                }
+
+                if (navigator.windowControlsOverlay.visible) {
+                    title_settings.classList.remove("settings_img");
+                    title_info.classList.remove("info_img");
+
+                    title_settings.classList.add("settings_w_img");
+                    title_info.classList.add("info_w_img");
                 }
 
                 if (e !== null) {
@@ -273,6 +284,14 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
 
                 for (i = 0; i < fvc.length; i++) { // change favicon
                     fvc[i].setAttribute("href", fvc_L[i]); 
+                }
+
+                if (navigator.windowControlsOverlay.visible) {
+                    title_settings.classList.remove("settings_w_img");
+                    title_info.classList.remove("info_w_img");
+                    
+                    title_settings.classList.add("settings_img");
+                    title_info.classList.add("info_img");
                 }
 
                 if (e !== null) {
