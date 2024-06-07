@@ -1972,6 +1972,7 @@ function startLoadPWA() {
 
 function openPopUp(target) {
     const popups = document.querySelector('.pwa .popups');
+    const titlebar = document.querySelector('.titlebar');
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
         // popups.style.height = "calc(100lvh - calc(env(safe-area-inset-top))) !important";
@@ -1984,6 +1985,10 @@ function openPopUp(target) {
             }
             closePopUp(target)
         }, true);
+    } else {
+        if (navigator.windowControlsOverlay.visible) {
+            titlebar.classList.add("d_n");
+        }
     }
     t.classList.remove("d_n");
     popups.classList.remove("d_n");
@@ -1994,6 +1999,7 @@ function openPopUp(target) {
 
 function closePopUp(target) {
     const popups = document.querySelector('.pwa .popups');
+    const titlebar = document.querySelector('.titlebar');
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
         popups.removeEventListener("click", function(e) {
@@ -2002,6 +2008,10 @@ function closePopUp(target) {
             }
             closePopUp(target)
         }, true);
+    } else {
+        if (navigator.windowControlsOverlay.visible) {
+            titlebar.classList.remove("d_n");
+        }
     }
     e_Fd(popups, true);
     setTimeout(function() {
