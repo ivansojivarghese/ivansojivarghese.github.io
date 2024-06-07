@@ -1976,9 +1976,6 @@ function openPopUp(target) {
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
         // popups.style.height = "calc(100lvh - calc(env(safe-area-inset-top))) !important";
-        if (target === 'settingsInfo') { 
-            t.scrollTo(0,0);
-        }
         popups.classList.add("lvh");
         popups.classList.add("ovy-h");
         popups.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
@@ -1997,6 +1994,9 @@ function openPopUp(target) {
     popups.classList.remove("d_n");
     setTimeout(function() {
         e_Fd(popups, false);
+        if (target === 'settingsInfo') { 
+            t.scrollTo(0,0);
+        }
     }, 10);
 }
 
