@@ -1878,7 +1878,7 @@ h3.downsize {
     }
 
     .pwa.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.notFullscreen .fab2:not([class='fab2 trs hoverB hide']) {
-        left: 2rem;
+        left: calc(env(viewport-segment-width 0 0) - 5rem);
     }
 
     .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB hide']) {
@@ -1891,8 +1891,13 @@ h3.downsize {
         left: 50%;
     }
 
-    .pwa.notFullscreen .navbar.fab2_nav.fab2_critical {
-        left: calc(50% + 2rem);
+    .pwa.notFullscreen .navbar.fab2_nav {
+        left: 0;
+        padding-left: 0;
+    }
+
+    .pwa.notFullscreen .navbar.fab2_nav .button.clicks, .pwa.notFullscreen .navbar.fab2_nav .button.clicks_dark {
+        margin-left: 1rem !important;
     }
 
     .pwa.swapped.notFullscreen .navbar.fab2_nav {
