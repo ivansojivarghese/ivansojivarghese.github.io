@@ -1462,7 +1462,7 @@ h3.downsize {
     }
 }
 
-@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (min-width: 1050px) {
     .pwa .home .flexActive {
         display: block;
     }
