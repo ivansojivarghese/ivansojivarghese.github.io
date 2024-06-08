@@ -1466,25 +1466,25 @@ h3.downsize {
     }
 }
 
-@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) and (max-height: 1050px) {
+@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) and (max-height: 1049px) {
 
-    .pwa .home .flexActive {
+    .pwa.notFullscreen .home .flexActive {
         display: block;
     }
 
-    .pwa .popups .pills.settingsInfo .toggleDiv.fullscreen {
+    .pwa.notFullscreen .popups .pills.settingsInfo .toggleDiv.fullscreen {
         display: block;
     }
 
-    .pwa .home .flexActive .paragraph {
+    .pwa.notFullscreen .home .flexActive .paragraph {
         padding-bottom: 1.5em;
     }
 
-    .pwa .home .container.wordcloud {
+    .pwa.notFullscreen .home .container.wordcloud {
         margin-top: 1rem;
     }
 
-    .pwa .navbar .button.swap {
+    .pwa.notFullscreen .navbar .button.swap {
         display: block;
         padding: 0.5rem;
         background-color: #303030;
@@ -1493,56 +1493,56 @@ h3.downsize {
         margin: 0;
     }
 
-    .pwa .navbar .button.swap .img {
+    .pwa.notFullscreen .navbar .button.swap .img {
         transform: rotate(90deg);
     }
 
-    .pwa .popups.lvh, .pwa .popups {
+    .pwa.notFullscreen .popups.lvh, .pwa.notFullscreen .popups {
         height: calc(calc(env(viewport-segment-height 0 0)) - calc(env(safe-area-inset-top))) !important;
     }
 
-    .pwa .popups .pills.settingsInfo {
+    .pwa.notFullscreen .popups .pills.settingsInfo {
         height: calc(calc(env(viewport-segment-height 0 0)) - 5rem - 2rem);
         left: calc(7rem + calc(env(safe-area-inset-left)));
     }
 
-    .pwa.swapped .navbar .button.swap {
+    .pwa.swapped.notFullscreen .navbar .button.swap {
         margin: 0;
         /*margin-bottom: calc((20rem - 15rem) / 6);*/
         margin-bottom: calc((env(viewport-segment-height 0 1) - 19rem) / 6);
     }
 
-    .pwaSecondary {
+    .pwaSecondary.notFullscreen {
         display: block;
         height: calc(env(viewport-segment-height 0 0)) !important;
         top: calc(env(viewport-segment-top 0 1)) !important;
     }
 
-    .pwaSecondary.swapped {
+    .pwaSecondary.swapped.notFullscreen {
         display: block;
         height: calc(env(viewport-segment-height 0 0)) !important;
         top: 0 !important;
     }
 
-    .pwaSecondary .reserved {
+    .pwaSecondary.notFullscreen .reserved {
         height: calc(env(viewport-segment-height 0 1));
     }
 
-    .pwa .sections {
+    .pwa.notFullscreen .sections {
         float: right;
         height: calc(env(viewport-segment-height 0 0));
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
 
-    .pwa.swapped .sections {
+    .pwa.swapped.notFullscreen .sections {
         float: right;
         height: calc(env(viewport-segment-height 0 1));
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
 
-    .pwa .navbar {
+    .pwa.notFullscreen .navbar {
         display: block;
         transform: none;
         left: 0;
@@ -1552,43 +1552,43 @@ h3.downsize {
         padding-left: calc(env(safe-area-inset-left));
     }
 
-    .pwa .navbar.fab2_nav {
+    .pwa.notFullscreen .navbar.fab2_nav {
         height: 20rem;
     }
 
-    .pwa.swapped .navbar.fab2_nav {
+    .pwa.swapped.notFullscreen .navbar.fab2_nav {
         max-height: 20rem;
     }
 
-    .pwa .navbar .button .img .active.hold {
+    .pwa.notFullscreen .navbar .button .img .active.hold {
         width: 3rem;
         left: 0;
     }
 
-    .pwa .fab2 {
+    .pwa.notFullscreen .fab2 {
         top: calc(env(viewport-segment-height 0 0) - 5rem);
         bottom: auto;
     }
 
-    .pwa.swapped .fab2 {
+    .pwa.swapped.notFullscreen .fab2 {
         top: auto;
         bottom: 2rem;
     }
 
-    .pwa .navbar.fab2_nav .button.clicks, .pwa .navbar.fab2_nav .button.clicks_dark {
+    .pwa.notFullscreen .navbar.fab2_nav .button.clicks, .pwa.notFullscreen .navbar.fab2_nav .button.clicks_dark {
         margin-top: calc((20rem - 15rem) / 6);
     }
 
-    .pwa .sections > div {
+    .pwa.notFullscreen .sections > div {
         padding-bottom: 0;
     }
 
-    .pwa .m_L-10 {
+    .pwa.notFullscreen .m_L-10 {
         margin-left: 5% !important;
         width: 95%;
     }
 
-    .pwa .navbar {
+    .pwa.notFullscreen .navbar {
         top: 0;
         transform: none;
         border-radius: 0;
@@ -1598,74 +1598,74 @@ h3.downsize {
         max-height: none;
     }
 
-    .pwa .sections, .pwa.swapped .sections {
+    .pwa.notFullscreen .sections, .pwa.swapped.notFullscreen .sections {
         width: 100vw;
     }
 
-    .pwa .sections > div {
+    .pwa.notFullscreen .sections > div {
         padding-left: 5rem;
         width: calc(100% - 5rem);
     }
 
-    .pwa .navbar .button {
+    .pwa.notFullscreen .navbar .button {
         margin: 0 0.5rem;
         /*margin-bottom: calc((20rem - 15rem) / 6);*/
         margin-bottom: calc((env(viewport-segment-height 0 0) - 19rem) / 6);
     }
 
-    .pwa.swapped .navbar .button {
+    .pwa.swapped.notFullscreen .navbar .button {
         margin-bottom: calc((env(viewport-segment-height 0 1) - 19rem) / 6);
     }
 
-    .pwa .navbar .button:first-child {
+    .pwa.notFullscreen .navbar .button:first-child {
         margin-top: calc((20rem - 15rem) / 6);
     }
 
-    #load_sc {
+    #load_sc.notFullscreen {
         height: calc(env(viewport-segment-height 0 0));
         width: calc(env(viewport-segment-width 0 0));
     }
 
-    #load_sc.swapped {
+    #load_sc.swapped.notFullscreen {
         height: calc(env(viewport-segment-height 0 1));
         width: calc(env(viewport-segment-width 0 1));
         top: calc(env(viewport-segment-top 0 1));
     }
     
-    #load_sc .container {
+    #load_sc.notFullscreen .container {
         margin-top: calc((calc(env(viewport-segment-height 0 0)) - 8rem) / 2);
     }
 
-    #load_sc.swapped .container {
+    #load_sc.swapped.notFullscreen .container {
         margin-top: calc((calc(env(viewport-segment-height 0 1)) - 8rem) / 2);
     }
 
-    .pwa {
+    .pwa.notFullscreen {
         height: calc(env(viewport-segment-height 0 0)) !important;
     }
 
-    .pwa.swapped {
+    .pwa.swapped.notFullscreen {
         height: calc(env(viewport-segment-height 0 1)) !important;
         top: calc(env(viewport-segment-top 0 1));
     }
 
-    .pwa .sections {
+    .pwa.notFullscreen .sections {
         height: calc(env(viewport-segment-height 0 0));
     }
 
-    .pwa.swapped .sections {
+    .pwa.swapped.notFullscreen .sections {
         height: calc(env(viewport-segment-height 0 1));
     }
 
-    .pwa .navbar {
+    .pwa.notFullscreen .navbar {
         position: absolute;
     }
 
-    .puller {
+    .puller.notFullscreen {
         left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
     }
 
-    .puller.refreshing {
+    .puller.refreshing.notFullscreen {
         left: calc((calc(env(viewport-segment-width 0 0)) - 3rem) / 2) !important;
     }
 }
