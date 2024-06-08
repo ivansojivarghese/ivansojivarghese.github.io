@@ -1554,6 +1554,10 @@ h3.downsize {
 
     .pwa.notFullscreen .navbar.fab2_nav {
         height: 20rem;
+        border-radius: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1rem;
     }
 
     .pwa.swapped.notFullscreen .navbar.fab2_nav {
