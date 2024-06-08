@@ -1665,11 +1665,11 @@ h3.downsize {
         border-radius: 1rem;
     }
 
-    .pwa.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa .fab2:not([class='fab2 trs hoverB hide']) {
+    .pwa.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.notFullscreen .fab2:not([class='fab2 trs hoverB hide']) {
         left: 2rem;
     }
 
-    .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped .fab2:not([class='fab2 trs hoverB hide']) {
+    .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB hide']) {
         left: calc(env(viewport-segment-left 1 0) + 2rem);
     }
 
@@ -1699,20 +1699,20 @@ h3.downsize {
         left: calc(2rem + calc(env(safe-area-inset-left)));
     }
 
-    .pwa.notFullscreen .popups .pills.settingsInfo .toggleDiv.fullscreen, .pwa .popups .pills.settingsInfo .toggleDiv.swap {
+    .pwa.notFullscreen .popups .pills.settingsInfo .toggleDiv.fullscreen, .pwa.notFullscreen .popups .pills.settingsInfo .toggleDiv.swap {
         display: block;
     }
 
-    .pwa.notFullscreen .navbar .button.home, .pwa .navbar .button.home_dark {
+    .pwa.notFullscreen .navbar .button.home, .pwa.notFullscreen .navbar .button.home_dark {
         margin-left: 1rem !important;
     }
 
-    .pwa.swapped.notFullscreen .navbar .button.home, .pwa.swapped .navbar .button.home_dark {
+    .pwa.swapped.notFullscreen .navbar .button.home, .pwa.swapped.notFullscreen .navbar .button.home_dark {
         padding-left: 0;
         margin-left: 0 !important;
     }
 
-    .pwa.swapped.notFullscreen .navbar .button.about, .pwa.swapped .navbar .button.about_dark {
+    .pwa.swapped.notFullscreen .navbar .button.about, .pwa.swapped.notFullscreen .navbar .button.about_dark {
         padding-right: 1rem;
     }
 
@@ -1790,7 +1790,7 @@ h3.downsize {
         transform: none;
     }
 
-    .pwa.notFullscreen .navbar .button.about, .pwa .navbar .button.about_dark {
+    .pwa.notFullscreen .navbar .button.about, .pwa.notFullscreen .navbar .button.about_dark {
         margin-right: 1rem !important;
     }
 
