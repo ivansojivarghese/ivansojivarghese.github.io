@@ -1645,19 +1645,19 @@ h3.downsize {
 }
 
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (max-width: 1049px) {
-    .pwa .home .flexActive {
+    .pwa.notFullscreen .home .flexActive {
         display: block;
     }
 
-    .pwa .home .flexActive .paragraph {
+    .pwa.notFullscreen .home .flexActive .paragraph {
         padding-bottom: 1.5em;
     }
 
-    .pwa .home .container.wordcloud {
+    .pwa.notFullscreen .home .container.wordcloud {
         margin-top: 1rem;
     }
 
-    .pwa .navbar .button.swap {
+    .pwa.notFullscreen .navbar .button.swap {
         display: none;
         padding: 0.5rem;
         background-color: #303030;
@@ -1665,121 +1665,121 @@ h3.downsize {
         border-radius: 1rem;
     }
 
-    .pwa .fab2:not([class='fab2 trs hoverB shade hide']), .pwa .fab2:not([class='fab2 trs hoverB hide']) {
+    .pwa.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa .fab2:not([class='fab2 trs hoverB hide']) {
         left: 2rem;
     }
 
-    .pwa.swapped .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped .fab2:not([class='fab2 trs hoverB hide']) {
+    .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped .fab2:not([class='fab2 trs hoverB hide']) {
         left: calc(env(viewport-segment-left 1 0) + 2rem);
     }
 
-    .pwa .navbar.fab2_nav {
+    .pwa.notFullscreen .navbar.fab2_nav {
         width: 20rem;
         padding-left: 1rem;
         left: 50%;
     }
 
-    .pwa .navbar.fab2_nav.fab2_critical {
+    .pwa.notFullscreen .navbar.fab2_nav.fab2_critical {
         left: calc(50% + 2rem);
     }
 
-    .pwa.swapped .navbar.fab2_nav {
+    .pwa.swapped.notFullscreen .navbar.fab2_nav {
         padding-left: 0;
     }
 
-    .pwa.swapped .navbar.fab2_nav.fab2_critical {
+    .pwa.swapped.notFullscreen .navbar.fab2_nav.fab2_critical {
         left: calc(50% + 1.5rem);
     }
 
-    .pwa .popups {
+    .pwa.notFullscreen .popups {
         width: calc(env(viewport-segment-width 1 0));
     }
 
-    .pwa .popups .pills.settingsInfo {
+    .pwa.notFullscreen .popups .pills.settingsInfo {
         left: calc(2rem + calc(env(safe-area-inset-left)));
     }
 
-    .pwa .popups .pills.settingsInfo .toggleDiv.fullscreen, .pwa .popups .pills.settingsInfo .toggleDiv.swap {
+    .pwa.notFullscreen .popups .pills.settingsInfo .toggleDiv.fullscreen, .pwa .popups .pills.settingsInfo .toggleDiv.swap {
         display: block;
     }
 
-    .pwa .navbar .button.home, .pwa .navbar .button.home_dark {
+    .pwa.notFullscreen .navbar .button.home, .pwa .navbar .button.home_dark {
         margin-left: 1rem !important;
     }
 
-    .pwa.swapped .navbar .button.home, .pwa.swapped .navbar .button.home_dark {
+    .pwa.swapped.notFullscreen .navbar .button.home, .pwa.swapped .navbar .button.home_dark {
         padding-left: 0;
         margin-left: 0 !important;
     }
 
-    .pwa.swapped .navbar .button.about, .pwa.swapped .navbar .button.about_dark {
+    .pwa.swapped.notFullscreen .navbar .button.about, .pwa.swapped .navbar .button.about_dark {
         padding-right: 1rem;
     }
 
-    .pwaSecondary {
+    .pwaSecondary.notFullscreen {
         display: block;
         width: calc(env(viewport-segment-width 1 0)) !important;
         left: calc(env(viewport-segment-left 1 0)) !important;
     }
 
-    .pwaSecondary.swapped {
+    .pwaSecondary.swapped.notFullscreen {
         display: block;
         width: calc(env(viewport-segment-width 0 0)) !important;
         left: 0 !important;
     }
 
-    .puller {
+    .puller.notFullscreen {
         left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
     }
 
-    .puller.swapped {
+    .puller.swapped.notFullscreen {
         left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 11rem) / 2)) !important;
     }
 
-    .puller.refreshing {
+    .puller.refreshing.notFullscreen {
         left: calc((calc(env(viewport-segment-width 0 0)) - 3rem) / 2) !important;
     }
 
-    .puller.refreshing.swapped {
+    .puller.refreshing.swapped.notFullscreen {
         left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 3rem) / 2)) !important;
     }
 
-    .pwa .m_L-10 {
+    .pwa.notFullscreen .m_L-10 {
         margin-left: 10% !important;
         width: 90%;
     }
 
-    #load_sc {
+    #load_sc.notFullscreen {
         height: calc(env(viewport-segment-height 0 0));
         width: calc(env(viewport-segment-width 0 0));
     }
 
-    #load_sc.swapped {
+    #load_sc.swapped.notFullscreen {
         height: calc(env(viewport-segment-height 1 0));
         width: calc(env(viewport-segment-width 1 0));
         left: calc(env(viewport-segment-left 1 0));
     }
 
-    .pwa {
+    .pwa.notFullscreen {
         width: calc(env(viewport-segment-width 0 0)) !important;
     }
 
-    .pwa.swapped {
+    .pwa.swapped.notFullscreen {
         left: calc(env(viewport-segment-left 1 0)) !important;
         width: calc(env(viewport-segment-width 1 0)) !important;
     }
 
-    .pwa .sections {
+    .pwa.notFullscreen .sections {
         width: calc(env(viewport-segment-width 0 0));
         padding: 0;
     }
 
-    .pwa.swapped .sections {
+    .pwa.swapped.notFullscreen .sections {
         width: calc(env(viewport-segment-width 1 0));
         padding: 0;
     }
 
-    .pwa .navbar {
+    .pwa.notFullscreen .navbar {
         border-radius: 0;
         bottom: 0;
         background-color: #FFF;
@@ -1790,30 +1790,30 @@ h3.downsize {
         transform: none;
     }
 
-    .pwa .navbar .button.about, .pwa .navbar .button.about_dark {
+    .pwa.notFullscreen .navbar .button.about, .pwa .navbar .button.about_dark {
         margin-right: 1rem !important;
     }
 
-    .pwa .sections {
+    .pwa.notFullscreen .sections {
         height: 100dvh;
     }
 
-    .pwa .sections > div {
+    .pwa.notFullscreen .sections > div {
         padding-left: 0;
         width: 100%;
         /*padding-bottom: 5.5rem;*/
         padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
     }
 
-    .pwa .navbar {
+    .pwa.notFullscreen .navbar {
         position: absolute;
     }
 
-    .pwa .navbar.hide {
+    .pwa.notFullscreen .navbar.hide {
         bottom: calc(-4rem - calc(env(safe-area-inset-top) * 1.5));
     }
 
-    .pwa .navbar {
+    .pwa.notFullscreen .navbar {
         top: auto;
         height: 4rem;
         /*width: calc(env(viewport-segment-width <x> <y>));*/
@@ -1829,7 +1829,7 @@ h3.downsize {
         max-height: none;
     }
 
-    .pwa .navbar .button {
+    .pwa.notFullscreen .navbar .button {
         margin: 0 !important;
     }
 }

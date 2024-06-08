@@ -3064,6 +3064,18 @@ if (op.pwa.s) {
         document.documentElement.style.fontSize = (currentFontSize - fontBuffer) + "px";
 
         scrollbar.style.display = "none";
+
+        if (window.innerWidth < 1050) {
+            const pwa = document.querySelector('.pwa');
+            const pwaSec = document.querySelector('.pwaSecondary');
+            const puller = document.querySelector('.puller');
+            const load_sc = document.querySelector('#load_sc');
+
+            pwa.classList.add("notFullscreen");
+            pwaSec.classList.add("notFullscreen");
+            puller.classList.add("notFullscreen");
+            load_sc.classList.add("notFullscreen");
+        }
     }
 
     window.onresize = function() {
@@ -3082,6 +3094,18 @@ if (op.pwa.s) {
             document.documentElement.style.fontSize = (currentFontSize - fontBuffer) + "px";
 
             scrollbar.style.display = "none";
+
+            if (window.innerWidth < 1050) {
+                const pwa = document.querySelector('.pwa');
+                const pwaSec = document.querySelector('.pwaSecondary');
+                const puller = document.querySelector('.puller');
+                const load_sc = document.querySelector('#load_sc');
+    
+                pwa.classList.add("notFullscreen");
+                pwaSec.classList.add("notFullscreen");
+                puller.classList.add("notFullscreen");
+                load_sc.classList.add("notFullscreen");
+            }
         } else {
             // Reset state to single viewport (normal responsive layout).
 
