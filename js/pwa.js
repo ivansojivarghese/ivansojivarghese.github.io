@@ -1464,6 +1464,12 @@ function fetchPWAInfo() {
         swapToggle.classList.add("toggleOn");
     }
 
+    const fullScreenToggle = document.querySelector('.pwa .fullScreenToggle');
+    var status = Number(localStorage.getItem('fullScreen'));
+    if (status) {
+        fullScreenToggle.classList.add("toggleOn");
+    }
+
     const motionSenseToggle = document.querySelector('.pwa .motionSenseToggle');
     var status = Number(localStorage.getItem('motionSense'));
     if (status) {
