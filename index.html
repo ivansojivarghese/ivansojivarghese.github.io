@@ -918,12 +918,33 @@
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
-                                                // localStorage.setItem('motionSense', '1');
+                                                localStorage.setItem('fullScreen', '1');
                                                 toggles.fullScreen = 1;
+
+                                                const pwa = document.querySelector('.pwa');
+                                                const pwaSec = document.querySelector('.pwaSecondary');
+                                                const puller = document.querySelector('.puller');
+                                                const load_sc = document.querySelector('#load_sc');
+
+                                                pwa.classList.remove('notFullscreen');
+                                                pwaSec.classList.remove('notFullscreen');
+                                                puller.classList.remove('notFullscreen');
+                                                load_sc.classList.remove('notFullscreen');
+
                                             } else {
 
+                                                const pwa = document.querySelector('.pwa');
+                                                const pwaSec = document.querySelector('.pwaSecondary');
+                                                const puller = document.querySelector('.puller');
+                                                const load_sc = document.querySelector('#load_sc');
+
+                                                pwa.classList.add('notFullscreen');
+                                                pwaSec.classList.add('notFullscreen');
+                                                puller.classList.add('notFullscreen');
+                                                load_sc.classList.add('notFullscreen');
+
                                                 this.classList.remove('toggleOn');
-                                                // localStorage.setItem('motionSense', '0');
+                                                localStorage.setItem('fullScreen', '0');
                                                 toggles.fullScreen = 0;
                                             }
                                         } else {
