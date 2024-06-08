@@ -1775,8 +1775,8 @@ h3.downsize {
         border-radius: 0;
         bottom: 0;
         background-color: #FFF;
-        max-width: 20rem;
-        max-height: 20rem;
+        /*max-width: 20rem;
+        max-height: 20rem;*/
         justify-content: space-between;
         left: 0;
         transform: none;
@@ -1808,12 +1808,12 @@ h3.downsize {
     .pwa .navbar {
         top: auto;
         height: 4rem;
-        width: 24rem;
+        /*width: calc(env(viewport-segment-width <x> <y>));*/
         display: flex;
         align-items: center;
         justify-content: space-between;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0%;
+        transform: none;
         box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
         background-color: #FFF;
         padding-bottom: calc(env(safe-area-inset-top) / 2);
