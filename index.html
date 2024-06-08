@@ -913,12 +913,72 @@
                             <div class="m_T defaultP">
                                 <div class="toggleDiv fullscreen">
                                     <p>fullscreen</p>
-                                    <div></div>
+                                    <div class="motionSenseToggle toggleBackg quickToggle trs lightBackground hide" onclick="
+                                        var keyW = ['run', 'walk', 'commute'],
+                                            exist = findClasses(motionIcon.children[0].classList, keyW);
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('motionSense', '1');
+                                                toggles.motionSense = 1;
+                                            } else {
+                                                motionType = '';
+                                                motionUXChange('', oldMotionType);
+                                                e_Fd(motionIcon, true);
+                                                if (exist) {
+                                                    setTimeout(function() {
+                                                        motionIcon.children[0].classList.remove(exist);
+                                                        motionIcon.classList.add('d_n');
+                                                    }, op.t);
+                                                }
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('motionSense', '0');
+                                                toggles.motionSense = 0;
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
                                     <p class="attr">activate full screen viewing</p>
                                 </div>
                                 <div class="toggleDiv swap">
                                     <p>swap</p>
-                                    <div></div>
+                                    <div class="motionSenseToggle toggleBackg quickToggle trs lightBackground hide" onclick="
+                                        var keyW = ['run', 'walk', 'commute'],
+                                            exist = findClasses(motionIcon.children[0].classList, keyW);
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('motionSense', '1');
+                                                toggles.motionSense = 1;
+                                            } else {
+                                                motionType = '';
+                                                motionUXChange('', oldMotionType);
+                                                e_Fd(motionIcon, true);
+                                                if (exist) {
+                                                    setTimeout(function() {
+                                                        motionIcon.children[0].classList.remove(exist);
+                                                        motionIcon.classList.add('d_n');
+                                                    }, op.t);
+                                                }
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('motionSense', '0');
+                                                toggles.motionSense = 0;
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
                                     <p class="attr">change the position of the primary viewing segment</p>
                                 </div>
                                 <div class="toggleDiv">
