@@ -1467,6 +1467,16 @@ function fetchPWAInfo() {
     const fullScreenToggle = document.querySelector('.pwa .fullScreenToggle');
     var status = Number(localStorage.getItem('fullScreen'));
     if (status) {
+        const pwa = document.querySelector('.pwa');
+        const pwaSec = document.querySelector('.pwaSecondary');
+        const puller = document.querySelector('.puller');
+        const load_sc = document.querySelector('#load_sc');
+
+        pwa.classList.remove('notFullscreen');
+        pwaSec.classList.remove('notFullscreen');
+        puller.classList.remove('notFullscreen');
+        load_sc.classList.remove('notFullscreen');
+
         fullScreenToggle.classList.add("toggleOn");
     }
 
