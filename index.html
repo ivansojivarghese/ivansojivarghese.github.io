@@ -914,27 +914,17 @@
                                 <div class="toggleDiv fullscreen">
                                     <p>fullscreen</p>
                                     <div class="fullScreenToggle toggleBackg quickToggle trs lightBackground" onclick="
-                                        var keyW = ['run', 'walk', 'commute'],
-                                            exist = findClasses(motionIcon.children[0].classList, keyW);
 
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
                                                 // localStorage.setItem('motionSense', '1');
-                                                toggles.motionSense = 1;
+                                                // toggles.motionSense = 1;
                                             } else {
-                                                motionType = '';
-                                                motionUXChange('', oldMotionType);
-                                                e_Fd(motionIcon, true);
-                                                if (exist) {
-                                                    setTimeout(function() {
-                                                        motionIcon.children[0].classList.remove(exist);
-                                                        motionIcon.classList.add('d_n');
-                                                    }, op.t);
-                                                }
+
                                                 this.classList.remove('toggleOn');
                                                 // localStorage.setItem('motionSense', '0');
-                                                toggles.motionSense = 0;
+                                                // toggles.motionSense = 0;
                                             }
                                         } else {
                                             // event.preventDefault();
@@ -949,27 +939,17 @@
                                 <div class="toggleDiv swap">
                                     <p>swap</p>
                                     <div class="swapToggle toggleBackg quickToggle trs lightBackground" onclick="
-                                        var keyW = ['run', 'walk', 'commute'],
-                                            exist = findClasses(motionIcon.children[0].classList, keyW);
 
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
                                                 // localStorage.setItem('motionSense', '1');
-                                                toggles.motionSense = 1;
+                                                // toggles.motionSense = 1;
                                             } else {
-                                                motionType = '';
-                                                motionUXChange('', oldMotionType);
-                                                e_Fd(motionIcon, true);
-                                                if (exist) {
-                                                    setTimeout(function() {
-                                                        motionIcon.children[0].classList.remove(exist);
-                                                        motionIcon.classList.add('d_n');
-                                                    }, op.t);
-                                                }
+                                                
                                                 this.classList.remove('toggleOn');
                                                 // localStorage.setItem('motionSense', '0');
-                                                toggles.motionSense = 0;
+                                                // toggles.motionSense = 0;
                                             }
                                         } else {
                                             // event.preventDefault();
