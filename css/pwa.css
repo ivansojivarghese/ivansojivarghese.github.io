@@ -1639,3 +1639,181 @@ h3.downsize {
         margin: 0 !important;
     }
 }
+
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (max-width: 1049px) {
+    .pwa .home .flexActive {
+        display: block;
+    }
+
+    .pwa .home .flexActive .paragraph {
+        padding-bottom: 1.5em;
+    }
+
+    .pwa .home .container.wordcloud {
+        margin-top: 1rem;
+    }
+
+    .pwa .navbar .button.swap {
+        display: block;
+        padding: 0.5rem;
+        background-color: #303030;
+        color: #FFF;
+        border-radius: 1rem;
+    }
+
+    .pwa .fab2:not([class='fab2 trs hoverB shade hide']), .pwa .fab2:not([class='fab2 trs hoverB hide']) {
+        left: 2rem;
+    }
+
+    .pwa.swapped .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped .fab2:not([class='fab2 trs hoverB hide']) {
+        left: calc(env(viewport-segment-left 1 0) + 2rem);
+    }
+
+    .pwa .navbar.fab2_nav {
+        width: 20rem;
+        padding-left: 1rem;
+        left: 50%;
+    }
+
+    .pwa .navbar.fab2_nav.fab2_critical {
+        left: calc(50% + 2rem);
+    }
+
+    .pwa.swapped .navbar.fab2_nav {
+        padding-left: 0;
+    }
+
+    .pwa.swapped .navbar.fab2_nav.fab2_critical {
+        left: calc(50% + 1.5rem);
+    }
+
+    .pwa .popups {
+        width: calc(env(viewport-segment-width 1 0));
+    }
+
+    .pwa .popups .pills.settingsInfo {
+        left: calc(2rem + calc(env(safe-area-inset-left)));
+    }
+
+    .pwa .navbar .button.home, .pwa .navbar .button.home_dark {
+        margin-left: 1rem !important;
+    }
+
+    .pwa.swapped .navbar .button.home, .pwa.swapped .navbar .button.home_dark {
+        padding-left: 0;
+        margin-left: 0 !important;
+    }
+
+    .pwa.swapped .navbar .button.about, .pwa.swapped .navbar .button.about_dark {
+        padding-right: 1rem;
+    }
+
+    .pwaSecondary {
+        display: block;
+        width: calc(env(viewport-segment-width 1 0)) !important;
+        left: calc(env(viewport-segment-left 1 0)) !important;
+    }
+
+    .pwaSecondary.swapped {
+        display: block;
+        width: calc(env(viewport-segment-width 0 0)) !important;
+        left: 0 !important;
+    }
+
+    .puller {
+        left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
+    }
+
+    .puller.swapped {
+        left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 11rem) / 2)) !important;
+    }
+
+    .puller.refreshing {
+        left: calc((calc(env(viewport-segment-width 0 0)) - 3rem) / 2) !important;
+    }
+
+    .puller.refreshing.swapped {
+        left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 3rem) / 2)) !important;
+    }
+
+    .pwa .m_L-10 {
+        margin-left: 10% !important;
+        width: 90%;
+    }
+
+    #load_sc {
+        height: calc(env(viewport-segment-height 0 0));
+        width: calc(env(viewport-segment-width 0 0));
+    }
+
+    #load_sc.swapped {
+        height: calc(env(viewport-segment-height 1 0));
+        width: calc(env(viewport-segment-width 1 0));
+        left: calc(env(viewport-segment-left 1 0));
+    }
+
+    .pwa {
+        width: calc(env(viewport-segment-width 0 0)) !important;
+    }
+
+    .pwa.swapped {
+        left: calc(env(viewport-segment-left 1 0)) !important;
+        width: calc(env(viewport-segment-width 1 0)) !important;
+    }
+
+    .pwa .sections {
+        width: calc(env(viewport-segment-width 0 0));
+        padding: 0;
+    }
+
+    .pwa.swapped .sections {
+        width: calc(env(viewport-segment-width 1 0));
+        padding: 0;
+    }
+
+    .pwa .navbar {
+        border-radius: 1rem;
+        bottom: 1.5rem;
+        background-color: #FFF;
+        max-width: 24rem;
+        max-height: 24rem;
+        justify-content: space-between;
+    }
+
+    .pwa .sections {
+        height: 100dvh;
+    }
+
+    .pwa .sections > div {
+        padding-left: 0;
+        width: 100%;
+        /*padding-bottom: 5.5rem;*/
+        padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
+    }
+
+    .pwa .navbar {
+        position: absolute;
+    }
+
+    .pwa .navbar.hide {
+        bottom: calc(-4rem - calc(env(safe-area-inset-top) * 1.5));
+    }
+
+    .pwa .navbar {
+        top: auto;
+        height: 4rem;
+        width: 24rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
+        background-color: #FFF;
+        padding-bottom: calc(env(safe-area-inset-top) / 2);
+    }
+
+    .pwa .navbar .button {
+        margin: 0 !important;
+    }
+}
