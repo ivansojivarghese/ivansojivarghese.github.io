@@ -1778,6 +1778,12 @@ h3.downsize {
         max-width: 20rem;
         max-height: 20rem;
         justify-content: space-between;
+        left: 0;
+        transform: none;
+    }
+
+    .pwa .navbar .button.about, .pwa .navbar .button.about_dark {
+        margin-right: 1rem !important;
     }
 
     .pwa .sections {
