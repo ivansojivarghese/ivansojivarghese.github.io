@@ -1270,7 +1270,203 @@ h3.downsize {
     background-image: url("../svg/switch_left.svg");
 }
 
-@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
+@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) and (min-height: 1050px) {
+
+    .pwa .home .flexActive {
+        display: block;
+    }
+
+    .pwa .home .flexActive .paragraph {
+        padding-bottom: 1.5em;
+    }
+
+    .pwa .home .container.wordcloud {
+        margin-top: 1rem;
+    }
+
+    .pwa .navbar .button.swap {
+        display: block;
+        padding: 0.5rem;
+        background-color: #303030;
+        color: #FFF;
+        border-radius: 1rem;
+        margin: 0;
+    }
+
+    .pwa .navbar .button.swap .img {
+        transform: rotate(90deg);
+    }
+
+    .pwa .popups.lvh, .pwa .popups {
+        height: calc(calc(env(viewport-segment-height 0 0)) - calc(env(safe-area-inset-top))) !important;
+    }
+
+    .pwa .popups .pills.settingsInfo {
+        height: calc(calc(env(viewport-segment-height 0 0)) - 5rem - 8rem);
+        left: calc(7rem + calc(env(safe-area-inset-left)));
+    }
+
+    .pwa.swapped .navbar .button.swap {
+        margin: 0;
+        margin-bottom: calc((20rem - 15rem) / 6);
+    }
+
+    .pwaSecondary {
+        display: block;
+        height: calc(env(viewport-segment-height 0 0)) !important;
+        top: calc(env(viewport-segment-top 0 1)) !important;
+    }
+
+    .pwaSecondary.swapped {
+        display: block;
+        height: calc(env(viewport-segment-height 0 0)) !important;
+        top: 0 !important;
+    }
+
+    .pwaSecondary .reserved {
+        height: calc(env(viewport-segment-height 0 1));
+    }
+
+    .pwa .sections {
+        float: right;
+        height: calc(env(viewport-segment-height 0 0));
+        width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+        padding-right: calc(env(safe-area-inset-right));
+    }
+
+    .pwa.swapped .sections {
+        float: right;
+        height: calc(env(viewport-segment-height 0 1));
+        width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+        padding-right: calc(env(safe-area-inset-right));
+    }
+
+    .pwa .navbar {
+        display: block;
+        transform: none;
+        left: 0;
+        width: 4rem;
+        height: calc(env(viewport-segment-height 0 1));
+        box-shadow: none;
+        padding-left: calc(env(safe-area-inset-left));
+    }
+
+    .pwa .navbar.fab2_nav {
+        height: 20rem;
+    }
+
+    .pwa.swapped .navbar.fab2_nav {
+        max-height: 20rem;
+    }
+
+    .pwa .navbar .button .img .active.hold {
+        width: 3rem;
+        left: 0;
+    }
+
+    .pwa .fab2 {
+        top: calc(env(viewport-segment-height 0 0) - 5rem);
+        bottom: auto;
+    }
+
+    .pwa.swapped .fab2 {
+        top: auto;
+        bottom: 2rem;
+    }
+
+    .pwa .navbar.fab2_nav .button.clicks, .pwa .navbar.fab2_nav .button.clicks_dark {
+        margin-top: calc((20rem - 15rem) / 6);
+    }
+
+    .pwa .sections > div {
+        padding-bottom: 0;
+    }
+
+    .pwa .m_L-10 {
+        margin-left: 5% !important;
+        width: 95%;
+    }
+
+    .pwa .navbar {
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 1rem;
+        left: 1rem;
+        background-color: #FFF;
+        max-width: 20rem;
+        max-height: 24rem;
+        height: 24rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
+    }
+
+    .pwa .sections, .pwa.swapped .sections {
+        width: 100vw;
+    }
+
+    .pwa .sections > div {
+        padding-left: 5rem;
+        width: calc(100% - 5rem);
+    }
+
+    .pwa .navbar .button {
+        margin: 0 0.5rem;
+        margin-bottom: calc((20rem - 15rem) / 6);
+    }
+
+    .pwa .navbar .button:first-child {
+        margin-top: calc((20rem - 15rem) / 6);
+    }
+
+    #load_sc {
+        height: calc(env(viewport-segment-height 0 0));
+        width: calc(env(viewport-segment-width 0 0));
+    }
+
+    #load_sc.swapped {
+        height: calc(env(viewport-segment-height 0 1));
+        width: calc(env(viewport-segment-width 0 1));
+        top: calc(env(viewport-segment-top 0 1));
+    }
+    
+    #load_sc .container {
+        margin-top: calc((calc(env(viewport-segment-height 0 0)) - 8rem) / 2);
+    }
+
+    #load_sc.swapped .container {
+        margin-top: calc((calc(env(viewport-segment-height 0 1)) - 8rem) / 2);
+    }
+
+    .pwa {
+        height: calc(env(viewport-segment-height 0 0)) !important;
+    }
+
+    .pwa.swapped {
+        height: calc(env(viewport-segment-height 0 1)) !important;
+        top: calc(env(viewport-segment-top 0 1));
+    }
+
+    .pwa .sections {
+        height: calc(env(viewport-segment-height 0 0));
+    }
+
+    .pwa.swapped .sections {
+        height: calc(env(viewport-segment-height 0 1));
+    }
+
+    .pwa .navbar {
+        position: absolute;
+    }
+
+    .puller {
+        left: calc((calc(env(viewport-segment-width 0 0)) - 11rem) / 2) !important;
+    }
+
+    .puller.refreshing {
+        left: calc((calc(env(viewport-segment-width 0 0)) - 3rem) / 2) !important;
+    }
+}
+
+@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) and (max-height: 1050px) {
 
     .pwa .home .flexActive {
         display: block;
