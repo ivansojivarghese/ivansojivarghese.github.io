@@ -1882,7 +1882,7 @@ h3.downsize {
     }
 
     .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB hide']) {
-        left: calc(env(viewport-segment-left 1 0) + 2rem);
+        left: auto;
     }
 
     .pwa.notFullscreen .navbar.fab2_nav {
@@ -1899,7 +1899,8 @@ h3.downsize {
     }
 
     .pwa.swapped.notFullscreen .navbar.fab2_nav.fab2_critical {
-        left: calc(50% + 1.5rem);
+        left: 0;
+        max-width: none;
     }
 
     .pwa.notFullscreen .popups {
