@@ -3057,7 +3057,8 @@ if (op.pwa.s) {
 
         primarySegment = Number(localStorage.getItem('primarySegment'));
 
-        var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
+        // var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
+        var fontBuffer = (window.innerWidth >= 1050) ? isSingleFoldHorizontal() ? 6 : 3 : isSingleFoldHorizontal() ? 6 : 8;
 
         var currentFontSize = num_Fs(window.getComputedStyle(document.documentElement).fontSize);
         document.documentElement.style.fontSize = (currentFontSize - fontBuffer) + "px";
@@ -3072,7 +3073,8 @@ if (op.pwa.s) {
 
             primarySegment = Number(localStorage.getItem('primarySegment'));
 
-            var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
+            // var fontBuffer = isSingleFoldHorizontal() ? 6 : 3;
+            var fontBuffer = (window.innerWidth >= 1050) ? isSingleFoldHorizontal() ? 6 : 3 : isSingleFoldHorizontal() ? 6 : 8;
 
             document.documentElement.style.fontSize = "";
 
