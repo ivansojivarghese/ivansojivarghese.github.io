@@ -1458,6 +1458,12 @@ function fetchPWAInfo() {
 
     // settings (validation of toggles)
 
+    const swapToggle = document.querySelector('.pwa .swapToggle');
+    var status = Number(localStorage.getItem('primarySegment'));
+    if (status) {
+        swapToggle.classList.add("toggleOn");
+    }
+
     const motionSenseToggle = document.querySelector('.pwa .motionSenseToggle');
     var status = Number(localStorage.getItem('motionSense'));
     if (status) {
