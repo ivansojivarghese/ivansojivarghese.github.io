@@ -3019,11 +3019,15 @@ function swapDisplays() { // swap between display areas in dual screen devices
     const firstButton = document.querySelectorAll('.pwa .navbar .button')[0];
     const swapButton = document.querySelector('.pwa .navbar .button.swap');
 
+    const swapToggle = document.querySelector('.swapToggle');
+
     if (primarySegment === 0) { // default
         load_sc.classList.add("swapped");
         puller.classList.add("swapped");
         pwa_body.classList.add("swapped");
         pwa_sec_body.classList.add("swapped");
+
+        swapToggle.classList.add("toggleOn");
 
         navbar.insertBefore(swapButton, firstButton);
 
@@ -3036,6 +3040,8 @@ function swapDisplays() { // swap between display areas in dual screen devices
         puller.classList.remove("swapped");
         pwa_body.classList.remove("swapped");
         pwa_sec_body.classList.remove("swapped");
+
+        swapToggle.classList.remove("toggleOn");
 
         navbar.appendChild(swapButton);
 
