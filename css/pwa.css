@@ -1654,7 +1654,7 @@ h3.downsize {
     }
 
     .pwa .navbar .button.swap {
-        display: block;
+        display: none;
         padding: 0.5rem;
         background-color: #303030;
         color: #FFF;
