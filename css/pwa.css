@@ -1709,7 +1709,6 @@ h3.downsize {
 
     .pwa.swapped.notFullscreen .navbar .button.home, .pwa.swapped.notFullscreen .navbar .button.home_dark {
         padding-left: 0;
-        margin-left: 0 !important;
     }
 
     .pwa.swapped.notFullscreen .navbar .button.about, .pwa.swapped.notFullscreen .navbar .button.about_dark {
@@ -1792,6 +1791,10 @@ h3.downsize {
 
     .pwa.notFullscreen .navbar .button.about, .pwa.notFullscreen .navbar .button.about_dark {
         margin-right: 1rem !important;
+    }
+
+    .pwa.swapped.notFullscreen .navbar .button.about, .pwa.swapped.notFullscreen .navbar .button.about_dark {
+        margin-right: 0rem !important;
     }
 
     .pwa.notFullscreen .sections {
