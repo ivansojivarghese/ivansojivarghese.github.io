@@ -1508,7 +1508,8 @@ h3.downsize {
 
     .pwa.swapped .navbar .button.swap {
         margin: 0;
-        margin-bottom: calc((20rem - 15rem) / 6);
+        /*margin-bottom: calc((20rem - 15rem) / 6);*/
+        margin-bottom: calc((env(viewport-segment-height 0 1) - 19rem) / 6);
     }
 
     .pwaSecondary {
@@ -1608,7 +1609,12 @@ h3.downsize {
 
     .pwa .navbar .button {
         margin: 0 0.5rem;
-        margin-bottom: calc((20rem - 15rem) / 6);
+        /*margin-bottom: calc((20rem - 15rem) / 6);*/
+        margin-bottom: calc((env(viewport-segment-height 0 0) - 19rem) / 6);
+    }
+
+    .pwa.swapped .navbar .button {
+        margin-bottom: calc((env(viewport-segment-height 0 1) - 19rem) / 6);
     }
 
     .pwa .navbar .button:first-child {
