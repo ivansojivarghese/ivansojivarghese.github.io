@@ -1472,7 +1472,7 @@ h3.downsize {
         display: block;
     }
 
-    .pwa .popups .pills.settingsInfo .toggleDiv.fullscreen, .pwa .popups .pills.settingsInfo .toggleDiv.swap {
+    .pwa .popups .pills.settingsInfo .toggleDiv.fullscreen {
         display: block;
     }
 
