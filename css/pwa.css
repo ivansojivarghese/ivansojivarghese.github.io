@@ -1886,12 +1886,6 @@ h3.downsize {
     }
 
     .pwa.notFullscreen .navbar.fab2_nav {
-        width: 20rem;
-        padding-left: 1rem;
-        left: 50%;
-    }
-
-    .pwa.notFullscreen .navbar.fab2_nav {
         left: 0;
         padding-left: 0;
     }
