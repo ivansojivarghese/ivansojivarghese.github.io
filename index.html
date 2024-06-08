@@ -925,11 +925,13 @@
                                                 const pwaSec = document.querySelector('.pwaSecondary');
                                                 const puller = document.querySelector('.puller');
                                                 const load_sc = document.querySelector('#load_sc');
+                                                const swapToggle = document.querySelector('.swapToggle');
 
                                                 pwa.classList.remove('notFullscreen');
                                                 pwaSec.classList.remove('notFullscreen');
                                                 puller.classList.remove('notFullscreen');
                                                 load_sc.classList.remove('notFullscreen');
+                                                swapToggle.classList.add('hide');
 
                                             } else {
 
@@ -937,11 +939,13 @@
                                                 const pwaSec = document.querySelector('.pwaSecondary');
                                                 const puller = document.querySelector('.puller');
                                                 const load_sc = document.querySelector('#load_sc');
+                                                const swapToggle = document.querySelector('.swapToggle');
 
                                                 pwa.classList.add('notFullscreen');
                                                 pwaSec.classList.add('notFullscreen');
                                                 puller.classList.add('notFullscreen');
                                                 load_sc.classList.add('notFullscreen');
+                                                swapToggle.classList.remove('hide');
 
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('fullScreen', '0');

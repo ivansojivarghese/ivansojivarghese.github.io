@@ -1471,11 +1471,13 @@ function fetchPWAInfo() {
         const pwaSec = document.querySelector('.pwaSecondary');
         const puller = document.querySelector('.puller');
         const load_sc = document.querySelector('#load_sc');
+        const swapToggle = document.querySelector('.swapToggle');
 
         pwa.classList.remove('notFullscreen');
         pwaSec.classList.remove('notFullscreen');
         puller.classList.remove('notFullscreen');
         load_sc.classList.remove('notFullscreen');
+        swapToggle.classList.add('hide');
 
         fullScreenToggle.classList.add("toggleOn");
     }
