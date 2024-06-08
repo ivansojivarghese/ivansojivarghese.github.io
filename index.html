@@ -943,13 +943,13 @@
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
-                                                // localStorage.setItem('motionSense', '1');
-                                                // toggles.motionSense = 1;
+                                                swapDisplays();
+                                                toggles.swap = 1;
                                             } else {
                                                 
                                                 this.classList.remove('toggleOn');
-                                                // localStorage.setItem('motionSense', '0');
-                                                // toggles.motionSense = 0;
+                                                swapDisplays();
+                                                toggles.swap = 0;
                                             }
                                         } else {
                                             // event.preventDefault();

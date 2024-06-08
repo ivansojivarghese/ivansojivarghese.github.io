@@ -18,6 +18,8 @@ var uA_L,
     gpsID = null;
 
 var toggles = {
+    fullscreen : localStorage.getItem('fullscreen') === null ? 0 : Number(localStorage.getItem('fullscreen')) ? 1 : 0,
+    swap : localStorage.getItem('primarySegment') === null ? 0 : Number(localStorage.getItem('primarySegment')) ? 1 : 0,
     motionSense : localStorage.getItem('motionSense') === null ? 0 : Number(localStorage.getItem('motionSense')) ? 1 : 0,
     location : localStorage.getItem('location') === null ? 0 : Number(localStorage.getItem('location')) ? 1 : 0,
     battery : localStorage.getItem('battery') === null ? 0 : Number(localStorage.getItem('battery')) ? 1 : 0,
