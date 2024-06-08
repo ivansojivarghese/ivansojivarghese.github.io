@@ -1493,6 +1493,10 @@ h3.downsize {
         margin: 0;
     }
 
+    .pwa.notFullscreen .navbar.fab2_nav .button.swap {
+        border-radius: 1rem;
+    }
+
     .pwa.notFullscreen .navbar .button.swap .img {
         transform: rotate(90deg);
     }
