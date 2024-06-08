@@ -1472,6 +1472,10 @@ h3.downsize {
         display: block;
     }
 
+    .pwa .popups .pills.settingsInfo .toggleDiv.fullscreen, .pwa .popups .pills.settingsInfo .toggleDiv.swap {
+        display: block;
+    }
+
     .pwa .home .flexActive .paragraph {
         padding-bottom: 1.5em;
     }
