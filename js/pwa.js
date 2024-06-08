@@ -3089,7 +3089,7 @@ if (op.pwa.s) {
 
         scrollbar.style.display = "none";
 
-        if (window.innerWidth < 1050) {
+        if (window.innerWidth < 1050 && (Number(localStorage.getItem('fullScreen')) !== 1)) {
             const pwa = document.querySelector('.pwa');
             const pwaSec = document.querySelector('.pwaSecondary');
             const puller = document.querySelector('.puller');
@@ -3119,7 +3119,7 @@ if (op.pwa.s) {
 
             scrollbar.style.display = "none";
 
-            if (window.innerWidth < 1050) {
+            if (window.innerWidth < 1050 && (Number(localStorage.getItem('fullScreen')) !== 1)) {
                 const pwa = document.querySelector('.pwa');
                 const pwaSec = document.querySelector('.pwaSecondary');
                 const puller = document.querySelector('.puller');
