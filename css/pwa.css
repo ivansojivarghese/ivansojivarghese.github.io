@@ -1565,7 +1565,8 @@ h3.downsize {
     }
 
     .pwa.swapped.notFullscreen .navbar.fab2_nav {
-        max-height: 20rem;
+        max-height: none;
+        height: fit-content;
     }
 
     .pwa.notFullscreen .navbar .button .img .active.hold {
