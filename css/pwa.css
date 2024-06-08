@@ -1699,7 +1699,7 @@ h3.downsize {
         left: calc(2rem + calc(env(safe-area-inset-left)));
     }
 
-    .pwa.notFullscreen .popups .pills.settingsInfo .toggleDiv.fullscreen, .pwa.notFullscreen .popups .pills.settingsInfo .toggleDiv.swap {
+    .pwa .popups .pills.settingsInfo .toggleDiv.fullscreen, .pwa .popups .pills.settingsInfo .toggleDiv.swap {
         display: block;
     }
 
