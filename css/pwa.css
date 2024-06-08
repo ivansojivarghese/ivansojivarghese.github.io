@@ -1586,12 +1586,9 @@ h3.downsize {
     .pwa .navbar {
         top: 50%;
         transform: translateY(-50%);
-        border-radius: 1rem;
-        left: 1rem;
+        border-radius: 0;
+        left: 0;
         background-color: #FFF;
-        max-width: 20rem;
-        max-height: 24rem;
-        height: 24rem;
         box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
     }
 
