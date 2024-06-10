@@ -2013,7 +2013,7 @@ function openPopUp(target) {
             }
             closePopUp(target)
         }, true);
-    } else {
+    } else if (navigator.windowControlsOverlay !== undefined) {
         if (navigator.windowControlsOverlay.visible) {
             titlebar.classList.add("d_n");
         }
@@ -2039,7 +2039,7 @@ function closePopUp(target) {
             }
             closePopUp(target)
         }, true);
-    } else {
+    } else if (navigator.windowControlsOverlay !== undefined) {
         if (navigator.windowControlsOverlay.visible) {
             titlebar.classList.remove("d_n");
         }
