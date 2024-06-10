@@ -1635,18 +1635,20 @@ function fetchPWAInfo() {
 
     networkInfo();
 
-    navigator.connection.addEventListener('change', function() {
-        clientAPIres.online = false;
-        clientAPI();
-        setTimeout(function() {
-            client_L = setInterval(function() {
-                if (clientAPIres.online) {
-                    clearInterval(client_L);
-                    networkInfo();
-                }
+    if (navigator.connection !== undefined) {
+        navigator.connection.addEventListener('change', function() {
+            clientAPIres.online = false;
+            clientAPI();
+            setTimeout(function() {
+                client_L = setInterval(function() {
+                    if (clientAPIres.online) {
+                        clearInterval(client_L);
+                        networkInfo();
+                    }
+                }, op.t);
             }, op.t);
-        }, op.t);
-    });
+        });
+    }
 
     // dark mode
 
