@@ -480,27 +480,29 @@ function networkInfo() {
 
     // network info
 
-    if (navigator.connection.type) {
-        networkType.innerHTML = "type: " + navigator.connection.type;
-    } else {
-        networkType.remove();
+    if (navigator.connection !== undefined) {
+        if (navigator.connection.type) {
+            networkType.innerHTML = "type: " + navigator.connection.type;
+        } else {
+            networkType.remove();
+        }
+        if (navigator.connection.effectiveType) {
+            var effType = (navigator.connection.effectiveType === "slow-2g") ? "2g" : navigator.connection.effectiveType;
+            networkEffType.innerHTML = "effective type: " + effType;
+        } else {
+            networkEffType.remove();
+        }
+        if (navigator.connection.downlink) {
+            networkDownlink.innerHTML = "downlink: " + navigator.connection.downlink + " Mbps";
+        } else {
+            networkDownlink.remove();
+        }/*
+        if (navigator.connection.downlinkMax) {
+            networkDownlinkMax.innerHTML = "max downlink: " + navigator.connection.downlinkMax + " Mbps";
+        } else {
+            networkDownlinkMax.remove();
+        }*/
     }
-    if (navigator.connection.effectiveType) {
-        var effType = (navigator.connection.effectiveType === "slow-2g") ? "2g" : navigator.connection.effectiveType;
-        networkEffType.innerHTML = "effective type: " + effType;
-    } else {
-        networkEffType.remove();
-    }
-    if (navigator.connection.downlink) {
-        networkDownlink.innerHTML = "downlink: " + navigator.connection.downlink + " Mbps";
-    } else {
-        networkDownlink.remove();
-    }/*
-    if (navigator.connection.downlinkMax) {
-        networkDownlinkMax.innerHTML = "max downlink: " + navigator.connection.downlinkMax + " Mbps";
-    } else {
-        networkDownlinkMax.remove();
-    }*/
 }
 
 // REFERENCED FROM Pascal Z, https://stackoverflow.com/questions/33673409/html5-javascript-calculate-device-speed-using-devicemotion-deviceorientation
