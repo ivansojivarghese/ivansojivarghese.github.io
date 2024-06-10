@@ -1490,7 +1490,7 @@ function fetchPWAInfo() {
 
     const batteryToggle = document.querySelector('.pwa .batteryToggle');
     var status = Number(localStorage.getItem('battery'));
-    if (!navigator.getBattery()) {
+    if (!navigator.getBattery) {
         batteryToggle.classList.add("hide");
         batteryToggle.classList.remove("hoverB");
         batteryToggle.removeEventListener("mousemove", hoverInit);
