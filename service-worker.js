@@ -189,7 +189,7 @@ self.addEventListener("fetch", (event) => {
 
 			}).catch(function (error) {
 				return caches.match(request).then(function (response) {
-					return response || caches.match('css/sty.css');
+					return response || (caches.match('css/sty.css') && caches.match('css/pwa.css') && caches.match('css/weather.css') && caches.match('css/res_m.css'));
 				});
 			})
 		);
