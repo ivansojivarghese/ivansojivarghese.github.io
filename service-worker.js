@@ -54,6 +54,8 @@ addEventListener('install', function (event) {
     cache.add(new Request('logo/logo_hybrid_inverse.png'));
     /////////
 
+    cache.add(new Request('offline.html'));
+
 		fontFiles.forEach(function (file) {
 			cache.add(new Request(file));
 		});
