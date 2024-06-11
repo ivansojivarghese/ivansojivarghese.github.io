@@ -2943,6 +2943,13 @@ function pwaRead() {
                                                     }, 10);
                                                 });
                                             } else {
+
+                                                const tempIcon = document.querySelector('.pwa .weatherIcon');
+                                                const temp = document.querySelector('.pwa .weather');
+
+                                                temp.classList.add("d_n");
+                                                tempIcon.classList.add("d_n");
+
                                                 pwa_body.classList.remove("d_n");
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
