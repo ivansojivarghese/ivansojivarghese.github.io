@@ -152,6 +152,7 @@ var apiTimeout = timeout * 0.25, // 25% timeout for APIs to load
     apiInit = 0, // init time for API load
     apiSuccess = false, // check
     criticalAPI = false,
+    weatherAPIres = {},
     ipAPIres = {},
     ipAPI2res = {},
     ipAPI3res = {},
