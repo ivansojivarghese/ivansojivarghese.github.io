@@ -83,6 +83,8 @@ self.addEventListener("fetch", (event) => {
   // Only call event.respondWith() if this is a navigation request
   // for an HTML page.
 
+  // REFERENCED FROM https://cferdinandi.github.io/sw-fonts/
+
   // Get the request
 	var request = event.request;
 
