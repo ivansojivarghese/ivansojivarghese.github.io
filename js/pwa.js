@@ -2705,10 +2705,10 @@ function pwaRead() {
                                             if (navigator.onLine) {
                                                 weatherID = weatherAPIres.id;
 
-                                                const weatherMain = weatherAPIres.weather[0].main;
-                                                const weatherDes = weatherAPIres.weather[0].description;
-                                                const sunrise = weatherAPIres.sys.sunrise;
-                                                const sunset = weatherAPIres.sys.sunset;
+                                                var weatherMain = weatherAPIres.weather[0].main;
+                                                var weatherDes = weatherAPIres.weather[0].description;
+                                                var sunrise = weatherAPIres.sys.sunrise;
+                                                var sunset = weatherAPIres.sys.sunset;
                                             }
 
                                             var day = true,
