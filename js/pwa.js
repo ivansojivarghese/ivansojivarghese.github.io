@@ -1741,6 +1741,8 @@ function fetchPWAInfo() {
         feelsLike.innerHTML = Math.round(weatherAPIres.main.feels_like) + "°" + ((tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F");
 
         setInterval(refetchWeather, 900000);
+    } else {
+        greeting.innerHTML = timeOfDay();
     }
     
     // // // 
