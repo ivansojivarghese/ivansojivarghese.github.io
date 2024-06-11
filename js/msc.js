@@ -281,6 +281,27 @@ window.addEventListener("load", function() { // 2 - full load
     op.Ld.a = renderTime();
 }); 
 
+////////////////////////////////////////////////////////
+
+function containsUppercase(str) {
+    return /[A-Z]/.test(str);
+}
+
+function isolateRegionBCP47(str) { // for BCP 47 language tags
+    var res = "",
+        checks = 0;
+    for (i = 0; i < str.length; i++) {
+        if ((containsUppercase(str[i]) && checks === 0) || (checks === 1 && containsUppercase(str[i]) && containsUppercase(str[i - 1]))) {
+            res += str[i];
+            checks++;
+            if (checks === 2) {
+                break;
+            }
+        }
+    }
+    return res;
+}
+
 /////////////////////////////////////////////////////////
 
 // APIs
@@ -308,6 +329,7 @@ async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
                 });
             })
     } else {
+
         ipAPIres.error = true;
     }
 }
