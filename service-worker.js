@@ -140,7 +140,6 @@ self.addEventListener("fetch", (event) => {
 		);
 	}
 
-  /*
   if (event.request.mode === "navigate") {
     event.respondWith(
       (async () => {
@@ -168,7 +167,7 @@ self.addEventListener("fetch", (event) => {
         }
       })()
     );
-  }*/
+  }
 
   // If our if() condition is false, then this fetch handler won't
   // intercept the request. If there are any other fetch handlers
