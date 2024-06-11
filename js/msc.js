@@ -329,7 +329,7 @@ async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
                 });
             })
     } else {
-
+        ipAPIres.country.iso_code = isolateRegionBCP47(navigator.language);
         ipAPIres.error = true;
     }
 }
