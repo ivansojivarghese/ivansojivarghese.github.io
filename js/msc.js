@@ -286,26 +286,30 @@ window.addEventListener("load", function() { // 2 - full load
 // APIs
 
 async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
-    await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138") // 'a' character may be added at end for TESTING
-        .then((response) => {
-            return response.json().then((data) => {
-                ipAPIres = data;
+    if (navigator.onLine) {
+        await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138") // 'a' character may be added at end for TESTING
+            .then((response) => {
+                return response.json().then((data) => {
+                    ipAPIres = data;
 
-                ipAPIres.lat = ipAPIres.location.latitude;
-                ipAPIres.lon = ipAPIres.location.longitude;
-                ipAPIres.city = ipAPIres.city.names.en;
+                    ipAPIres.lat = ipAPIres.location.latitude;
+                    ipAPIres.lon = ipAPIres.location.longitude;
+                    ipAPIres.city = ipAPIres.city.names.en;
 
-                /*
-                ipAPIres.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
-                ipAPIres.lon = data.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude;
-                */
+                    /*
+                    ipAPIres.lat = data.loc.slice(0, ipAPIres.loc.indexOf(",")), // get user latitude;
+                    ipAPIres.lon = data.loc.slice(ipAPIres.loc.indexOf(",") + 1, ipAPIres.loc.length), // get user longitude;
+                    */
 
-                ipAPIres.online = true;
-                ipAPIres.verified = false;
-            }).catch((error) => {
-                ipAPIres.error = true;
-            });
-        })
+                    ipAPIres.online = true;
+                    ipAPIres.verified = false;
+                }).catch((error) => {
+                    ipAPIres.error = true;
+                });
+            })
+    } else {
+        ipAPIres.error = true;
+    }
 }
 /*
 async function ipAPI2(v) {  // 50,000 per month limit, https://ipinfo.io/
@@ -371,15 +375,19 @@ async function sunAPI(lat, lon) { // unlimited, https://sunrisesunset.io/api/
 }*/
 
 async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
-    await fetch("https://api-bdc.net/data/client-info")
-        .then((response) => {
-            return response.json().then((data) => {
-                clientAPIres = data;
-                clientAPIres.online = true;
-            }).catch((error) => {
-                clientAPIres.error = true;
-            });
-        })
+    if (navigator.onLine) {
+        await fetch("https://api-bdc.net/data/client-info")
+            .then((response) => {
+                return response.json().then((data) => {
+                    clientAPIres = data;
+                    clientAPIres.online = true;
+                }).catch((error) => {
+                    clientAPIres.error = true;
+                });
+            })
+    } else {
+        clientAPIres.error = true;
+    }
 }
 /*
 async function roamingAPI(lat, lon) { // unlimited, https://www.bigdatacloud.com/packages/free-api
@@ -407,15 +415,19 @@ async function timeAPI() { // unlimited, http://worldtimeapi.org/
 }*/
 
 async function countryAPI(v) { // unlimited, https://country.is/
-    await fetch("https://api.country.is/" + v)
-        .then((response) => {
-            return response.json().then((data) => {
-                countryAPIres = data;
-                countryAPIres.online = true;
-            }).catch((error) => {
-                countryAPIres.error = true;
-            });
-        })
+    if (navigator.onLine) {
+        await fetch("https://api.country.is/" + v)
+            .then((response) => {
+                return response.json().then((data) => {
+                    countryAPIres = data;
+                    countryAPIres.online = true;
+                }).catch((error) => {
+                    countryAPIres.error = true;
+                });
+            })
+    } else {
+        countryAPIres.error = true;
+    }
 }
 /*
 async function cloudflareCDN() { // unlimited, https://www.cloudflare.com/cdn-cgi/trace

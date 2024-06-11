@@ -2246,13 +2246,17 @@ function numberWithCommas(x) { // REFERENCED FROM: https://stackoverflow.com/que
 }
 
 function getGhCommits() {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
-    request.send(null);
+    if (navigator.onLine) {
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
+        request.send(null);
 
-    githubCommitsres.online = true;
+        githubCommitsres.online = true;
 
-    return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
+        return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
+    } else {
+        githubCommitsres.online = false;
+    }
 }
 
 function refetchWeather() {
@@ -2474,15 +2478,19 @@ function loadError(input) {
 }
 
 async function weatherAPI(lat, lon, unit) { // 1,000,000 per month, 60 per minute limits, https://openweathermap.org/
-    await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=" + unit + "&appid=62dfc011a0d14a0996e185364706fe76")
-        .then((response) => {
-            return response.json().then((data) => {
-                weatherAPIres = data;
-                weatherAPIres.online = true;
-            }).catch((error) => {
-                weatherAPIres.error = true;
-            });
-        })
+    if (navigator.onLine) {
+        await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=" + unit + "&appid=62dfc011a0d14a0996e185364706fe76")
+            .then((response) => {
+                return response.json().then((data) => {
+                    weatherAPIres = data;
+                    weatherAPIres.online = true;
+                }).catch((error) => {
+                    weatherAPIres.error = true;
+                });
+            })
+    } else {
+        weatherAPIres.error = true;
+    }
 }
 
 function tempUnit(c) { // return unit of measure per user country location
@@ -2663,19 +2671,19 @@ function pwaRead() {
 
                 clientAPI();
                 countryAPI("");
-                // countryAPI("216.73.163.219");
+                // countryAPI("216.73.163.219"); // FOR TESTING
                 githubCommitsres.val = getGhCommits();
                 setTimeout(function() {
                     client_L = setInterval(function() {
-                        if (clientAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                        if ((clientAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
 
                             console.log(loadTimes.end - loadTimes.start);
 
                             ipAPI(clientAPIres.ipString);
-                            // ipAPI("216.73.163.219");
+                            // ipAPI("216.73.163.219"); // FOR TESTING
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
-                                if (ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                                if ((ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
 
                                     console.log(loadTimes.end - loadTimes.start);
 
@@ -2686,7 +2694,7 @@ function pwaRead() {
                                     }
                                     clearInterval(ip_L);
                                     weather_L = setInterval(function() {
-                                        if (weatherAPIres.online && countryAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                                        if ((weatherAPIres.online && countryAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
 
                                             console.log(loadTimes.end - loadTimes.start);
 
@@ -2876,8 +2884,57 @@ function pwaRead() {
                                                 */
                                             ////////////////
                                             
-                                            const tempIcon = document.querySelector('.pwa .weatherIcon');
-                                            $(tempIcon).load("weather/" + icon + ".html", function() {
+                                            if (navigator.onLine) {
+                                                const tempIcon = document.querySelector('.pwa .weatherIcon');
+                                                $(tempIcon).load("weather/" + icon + ".html", function() {
+                                                    pwa_body.classList.remove("d_n");
+                                                    fetchPWAInfo();
+                                                    setTimeout(function() {
+
+                                                        rL.r_s = false;
+                                                        rL.el = document.getElementById("load_sc"), 
+                                                        rL.r = document.getElementById("loadR"); // loading rings (container)
+                                                        rL.p = document.getElementById("loadR-p"); // loading ring (primary)
+                                                        rL.d = document.getElementById("loadR-e"); // loading ring (end)
+                                                        rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
+
+                                                        // rL.p.removeEventListener("animationiteration", load_e);
+                                                        rL.p.addEventListener("animationiteration", function() {
+                                                            if (rL.r_s) {
+                                                                rL.d.style.animationName = "loadR_end"; // set ending animation detail
+                                                            }
+                                                        });
+
+                                                        setTimeout(function() {
+                                                            rL.r_s = true;
+
+                                                            // rL.el.classList.add("z_O");
+
+                                                            //rL.r.classList.add("aniM-p"); // stop animation in the rings
+                                                            //rL.p.classList.add("aniM-p");
+                                                            //rL.c.classList.add("aniM-p");
+
+                                                            setTimeout(function() {
+                                                                e_Fd(loader, true);
+
+                                                                setTimeout(function() {
+                                                                    loader.classList.add("d_n");
+                                                                }, op.t);
+                                                                
+                                                                resetRefresh();
+                                                                pwa_Load = true;
+
+                                                                e_Fd(pwa_body, false);
+                                                                startLoadPWA();
+            
+                                                                clearInterval(pwa_Ld);
+                                                            }, op.t);
+        
+                                                        }, op.te);
+                                                        
+                                                    }, 10);
+                                                });
+                                            } else {
                                                 pwa_body.classList.remove("d_n");
                                                 fetchPWAInfo();
                                                 setTimeout(function() {
@@ -2924,7 +2981,7 @@ function pwaRead() {
                                                     }, op.te);
                                                     
                                                 }, 10);
-                                            });
+                                            }
 
                                         } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                                             clearInterval(weather_L);
