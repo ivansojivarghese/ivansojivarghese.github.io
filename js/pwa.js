@@ -2702,12 +2702,14 @@ function pwaRead() {
 
                                             clearInterval(weather_L);
 
-                                            weatherID = weatherAPIres.id;
+                                            if (navigator.onLine) {
+                                                weatherID = weatherAPIres.id;
 
-                                            const weatherMain = weatherAPIres.weather[0].main;
-                                            const weatherDes = weatherAPIres.weather[0].description;
-                                            const sunrise = weatherAPIres.sys.sunrise;
-                                            const sunset = weatherAPIres.sys.sunset;
+                                                const weatherMain = weatherAPIres.weather[0].main;
+                                                const weatherDes = weatherAPIres.weather[0].description;
+                                                const sunrise = weatherAPIres.sys.sunrise;
+                                                const sunset = weatherAPIres.sys.sunset;
+                                            }
 
                                             var day = true,
                                                 icon = "";

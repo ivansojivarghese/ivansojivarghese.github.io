@@ -288,7 +288,7 @@ function containsUppercase(str) {
     return /[A-Z]/.test(str);
 }
 
-function isolateRegionBCP47(str) { // for BCP 47 language tags
+function isolateRegionBCP47(str) { // for BCP 47 language tags (https://www.techonthenet.com/js/language_tags.php)
     var res = "",
         checks = 0;
     for (i = 0; i < str.length; i++) {
