@@ -462,17 +462,17 @@ function timeOfDay() {
 function networkInfo() {
     // device info
 
-    if (clientAPIres.ipString) {
+    if (clientAPIres.ipString && navigator.onLine) {
         deviceIP.innerHTML = clientAPIres.ipString;
     } else {
         deviceIP.remove();
     }
-    if (clientAPIres.ipType) {
+    if (clientAPIres.ipType && navigator.onLine) {
         deviceIPType.innerHTML = clientAPIres.ipType;
     } else {
         deviceIPType.remove();
     }
-    if (clientAPIres.isBehindProxy !== null || clientAPIres.isBehindProxy !== undefined) {
+    if ((clientAPIres.isBehindProxy !== null || clientAPIres.isBehindProxy !== undefined) && navigator.onLine) {
         deviceVPN.innerHTML = "proxy usage: " + clientAPIres.isBehindProxy;
     } else {
         deviceVPN.remove();
