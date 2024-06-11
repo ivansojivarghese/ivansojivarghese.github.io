@@ -148,6 +148,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+	var request = event.request;
 	// HTML files
 	// Network-first
 	if (request.headers.get('Accept').includes('text/html')) {
@@ -176,6 +177,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+	var request = event.request;
 	// CSS/JS files
   // Offline-first
   if (request.headers.get('Accept').includes('text/css') || request.headers.get('Accept').includes('text/javascript')) {
@@ -204,6 +206,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+	var request = event.request;
 	// Images & Fonts
 	// Offline-first
 	if (request.headers.get('Accept').includes('image') || request.url.includes('Poppins') || request.url.includes('css/fonts.css')) {
