@@ -128,6 +128,26 @@ self.addEventListener("fetch", (event) => {
   // will be handled by the browser as if there were no service
   // worker involvement.
 
+  // CSS/JS files
+  // Offline-first
+  /*
+  if (request.headers.get('Accept').includes('text/css') || request.headers.get('Accept').includes('text/javascript')) {
+    event.respondWith(
+			caches.match(request).then(function (response) {
+				return response || fetch(request).then(function (response) {
+
+					// Return the response
+					return response;
+
+				});
+			})
+		);
+    return;
+  }*/
+
+});
+
+self.addEventListener("fetch", (event) => {
 	// HTML files
 	// Network-first
 	if (request.headers.get('Accept').includes('text/html')) {
@@ -153,39 +173,25 @@ self.addEventListener("fetch", (event) => {
 		);
 	}
 
-  // CSS/JS files
-  // Offline-first
-  /*
-  if (request.headers.get('Accept').includes('text/css') || request.headers.get('Accept').includes('text/javascript')) {
-    event.respondWith(
-			caches.match(request).then(function (response) {
-				return response || fetch(request).then(function (response) {
+});
 
-					// Return the response
-					return response;
-
-				});
-			})
-		);
-    return;
-  }*/
-
-  // CSS/JS files
+self.addEventListener("fetch", (event) => {
+	// CSS/JS files
   // Offline-first
   if (request.headers.get('Accept').includes('text/css') || request.headers.get('Accept').includes('text/javascript')) {
-		event.respondWith(
-			fetch(request).then(function (response) {
+	event.respondWith(
+		fetch(request).then(function (response) {
 
-				// Save the response to cache
-				if (response.type !== 'opaque') {
-					var copy = response.clone();
-					event.waitUntil(caches.open('pages').then(function (cache) {
-						return cache.put(request, copy);
-					}));
-				}
+			// Save the response to cache
+			if (response.type !== 'opaque') {
+				var copy = response.clone();
+				event.waitUntil(caches.open('pages').then(function (cache) {
+					return cache.put(request, copy);
+				}));
+			}
 
-				// Then return it
-				return response;
+			// Then return it
+			return response;
 
 			}).catch(function (error) {
 				return caches.match(request).then(function (response) {
@@ -195,7 +201,10 @@ self.addEventListener("fetch", (event) => {
 		);
 	}
 
-  // Images & Fonts
+});
+
+self.addEventListener("fetch", (event) => {
+	// Images & Fonts
 	// Offline-first
 	if (request.headers.get('Accept').includes('image') || request.url.includes('Poppins') || request.url.includes('css/fonts.css')) {
 		event.respondWith(
