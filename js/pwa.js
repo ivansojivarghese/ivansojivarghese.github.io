@@ -1743,6 +1743,9 @@ function fetchPWAInfo() {
         setInterval(refetchWeather, 900000);
     } else {
         greeting.innerHTML = timeOfDay();
+
+        temp.innerHTML = "0";
+        unit.innerHTML = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "C" : "F";
     }
     
     // // // 
@@ -2945,9 +2948,12 @@ function pwaRead() {
                                             } else {
 
                                                 const tempIcon = document.querySelector('.pwa .weatherIcon');
-                                                const temp = document.querySelector('.pwa .weather');
+                                                // const temp = document.querySelector('.pwa .weather');
+                                                const tempText = document.querySelector('.pwa .weather p');
 
-                                                temp.classList.add("d_n");
+                                                tempText.style.borderRadius = "0.5rem";
+
+                                                // temp.classList.add("d_n");
                                                 tempIcon.classList.add("d_n");
 
                                                 pwa_body.classList.remove("d_n");
