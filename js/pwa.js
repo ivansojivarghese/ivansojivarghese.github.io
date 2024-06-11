@@ -2683,7 +2683,7 @@ function pwaRead() {
                             // ipAPI("216.73.163.219"); // FOR TESTING
                             clearInterval(client_L);
                             ip_L = setInterval(function() {
-                                if ((ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
+                                if ((ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || (!navigator.onLine && ipAPIres.error)) {
 
                                     console.log(loadTimes.end - loadTimes.start);
 
