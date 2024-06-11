@@ -2485,6 +2485,7 @@ async function weatherAPI(lat, lon, unit) { // 1,000,000 per month, 60 per minut
                     weatherAPIres = data;
                     weatherAPIres.online = true;
                 }).catch((error) => {
+                    weatherAPIres = {};
                     weatherAPIres.error = true;
                 });
             })
