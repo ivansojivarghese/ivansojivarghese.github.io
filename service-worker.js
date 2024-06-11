@@ -55,6 +55,7 @@ addEventListener('install', function (event) {
     /////////
 
     cache.add(new Request('offline.html'));
+    cache.add(new Request('css/fonts.css'));
 
 		fontFiles.forEach(function (file) {
 			cache.add(new Request(file));
