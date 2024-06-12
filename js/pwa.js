@@ -1490,6 +1490,18 @@ function fetchPWAInfo() {
         motionSenseToggle.classList.add("toggleOn");
     }
 
+    const syncToggle = document.querySelector('.pwa .syncToggle');
+    var status;
+    if (!PeriodicSyncManager) {
+        syncToggle.classList.add("hide");
+        syncToggle.classList.remove("hoverB");
+        syncToggle.removeEventListener("mousemove", hoverInit);
+    } else {
+        if (status) {
+            
+        }
+    }
+
     const batteryToggle = document.querySelector('.pwa .batteryToggle');
     var status = Number(localStorage.getItem('battery'));
     if (!navigator.getBattery) {
