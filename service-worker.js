@@ -232,3 +232,9 @@ self.addEventListener("fetch", (event) => {
 	}
 
 });
+
+self.addEventListener('periodicsync', (event) => {
+	if (event.tag === 'content-sync') {
+	  event.waitUntil(syncContent());
+	}
+});

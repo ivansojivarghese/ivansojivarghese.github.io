@@ -1449,6 +1449,19 @@ async function periodicSync() {
         try {
             await registration.periodicSync.register('content-sync', { minInterval: /*24 * 60 * 60 **/ 1000 });
             console.log('Periodic background sync registered.');
+
+            const registration = await navigator.serviceWorker.ready;
+            if ('periodicSync' in registration) {
+                const tags = await registration.periodicSync.getTags();
+                // Only update content if sync isn't set up.
+                if (!tags.includes('content-sync')) {
+                    // updateContentOnPageLoad();
+                }
+            } else {
+                // If periodic background sync isn't supported, always update.
+                // updateContentOnPageLoad();
+            }
+
         } catch (err) {
             console.error(err.name, err.message);
         }
