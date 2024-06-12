@@ -1071,7 +1071,48 @@
                                 </div>
                                 <div class="toggleDiv">
                                     <p>sync</p>
-                                    <div class="syncToggle toggleBackg trs hoverB lightBackground" onclick=""></div>
+                                    <div class="syncToggle toggleBackg trs hoverB lightBackground" onclick="
+                                        
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                // localStorage.setItem('location', '1');
+                                                // toggles.location = 1;
+                                                /*
+                                                gpsID = navigator.geolocation.watchPosition((position) => {
+                                                   gpsPos = position
+                                                }, (error) => {
+                                                    if (error.code === error.PERMISSION_DENIED) {
+                                                        this.classList.add('hide');
+                                                        this.classList.remove('hoverB');
+                                                        this.removeEventListener('mousemove', hoverInit);
+                                                        hoverEnd(null);
+
+                                                        // this.removeEventListener('click', hoverMiddle);
+                                                        // this.removeEventListener('mouseleave', hoverEnd);
+                                                    }
+                                                    this.classList.remove('toggleOn');
+                                                    // localStorage.setItem('location', '0');
+                                                    // toggles.location = 0;
+                                                    // gpsPos = null;
+                                                    // navigator.geolocation.clearWatch(gpsID);
+                                                }, options);*/
+                                            } else {
+                                                this.classList.remove('toggleOn');
+                                                // localStorage.setItem('location', '0');
+                                                // toggles.location = 0;
+                                                // gpsPos = null;
+                                                // navigator.geolocation.clearWatch(gpsID);
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
                                     <p class="attr">syncs app data periodically in the background</p>
                                 </div>
                                 <div class="toggleDiv">
