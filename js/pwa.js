@@ -2952,6 +2952,7 @@ function pwaRead() {
                                                 const tempText = document.querySelector('.pwa .weather p');
 
                                                 tempText.style.borderRadius = "0.5rem";
+                                                tempText.innerHTML = "offline";
 
                                                 // temp.classList.add("d_n");
                                                 tempIcon.classList.add("d_n");
