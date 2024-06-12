@@ -1072,7 +1072,6 @@
                                 <div class="toggleDiv">
                                     <p>sync</p>
                                     <div class="syncToggle toggleBackg trs hoverB lightBackground" onclick="
-                                        
 
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
@@ -1080,7 +1079,7 @@
                                                 localStorage.setItem('sync', '1');
                                                 toggles.sync = 1;
 
-                                                
+                                                periodicSync();
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('sync', '0');

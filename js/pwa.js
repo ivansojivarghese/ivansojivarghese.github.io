@@ -1444,6 +1444,17 @@ function getParameters() {
     }
 }
 
+async function periodicSync() {
+    navigator.serviceWorker.ready.then(async registration => {
+        try {
+            await registration.periodicSync.register('get-cats', { minInterval: 24 * 60 * 60 * 1000 });
+            console.log('Periodic background sync registered.');
+        } catch (err) {
+            console.error(err.name, err.message);
+        }
+    });
+}
+
 async function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
