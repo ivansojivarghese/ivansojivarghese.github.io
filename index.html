@@ -1077,8 +1077,8 @@
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
-                                                // localStorage.setItem('location', '1');
-                                                // toggles.location = 1;
+                                                localStorage.setItem('sync', '1');
+                                                toggles.sync = 1;
                                                 /*
                                                 gpsID = navigator.geolocation.watchPosition((position) => {
                                                    gpsPos = position
@@ -1100,8 +1100,8 @@
                                                 }, options);*/
                                             } else {
                                                 this.classList.remove('toggleOn');
-                                                // localStorage.setItem('location', '0');
-                                                // toggles.location = 0;
+                                                localStorage.setItem('sync', '0');
+                                                toggles.sync = 0;
                                                 // gpsPos = null;
                                                 // navigator.geolocation.clearWatch(gpsID);
                                             }

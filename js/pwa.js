@@ -1491,7 +1491,7 @@ function fetchPWAInfo() {
     }
 
     const syncToggle = document.querySelector('.pwa .syncToggle');
-    var status;
+    var status = Number(localStorage.getItem('sync'));
     if (!PeriodicSyncManager) {
         syncToggle.classList.add("hide");
         syncToggle.classList.remove("hoverB");
