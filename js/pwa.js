@@ -2948,12 +2948,12 @@ function pwaRead() {
                                             } else {
 
                                                 const tempIcon = document.querySelector('.pwa .weatherIcon');
-                                                const temp = document.querySelector('.pwa .weather');
+                                                // const temp = document.querySelector('.pwa .weather');
                                                 const tempText = document.querySelector('.pwa .weather p');
 
                                                 tempText.style.borderRadius = "0.5rem";
 
-                                                temp.classList.add("d_n");
+                                                // temp.classList.add("d_n");
                                                 tempIcon.classList.add("d_n");
 
                                                 pwa_body.classList.remove("d_n");
