@@ -1079,31 +1079,14 @@
                                                 this.classList.add('toggleOn');
                                                 localStorage.setItem('sync', '1');
                                                 toggles.sync = 1;
-                                                /*
-                                                gpsID = navigator.geolocation.watchPosition((position) => {
-                                                   gpsPos = position
-                                                }, (error) => {
-                                                    if (error.code === error.PERMISSION_DENIED) {
-                                                        this.classList.add('hide');
-                                                        this.classList.remove('hoverB');
-                                                        this.removeEventListener('mousemove', hoverInit);
-                                                        hoverEnd(null);
 
-                                                        // this.removeEventListener('click', hoverMiddle);
-                                                        // this.removeEventListener('mouseleave', hoverEnd);
-                                                    }
-                                                    this.classList.remove('toggleOn');
-                                                    // localStorage.setItem('location', '0');
-                                                    // toggles.location = 0;
-                                                    // gpsPos = null;
-                                                    // navigator.geolocation.clearWatch(gpsID);
-                                                }, options);*/
+                                                
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('sync', '0');
                                                 toggles.sync = 0;
-                                                // gpsPos = null;
-                                                // navigator.geolocation.clearWatch(gpsID);
+                                                
+
                                             }
                                         } else {
                                             // event.preventDefault();
@@ -1113,7 +1096,7 @@
                                     ">
                                         <div class="toggleSwitch trs darkBackground"></div>
                                     </div>
-                                    <p class="attr">syncs app data periodically in the background</p>
+                                    <p class="attr">syncs for updates periodically in the background</p>
                                 </div>
                                 <div class="toggleDiv">
                                     <p>battery</p>
