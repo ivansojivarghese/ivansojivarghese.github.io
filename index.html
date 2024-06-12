@@ -1080,7 +1080,15 @@
                                                 localStorage.setItem('sync', '1');
                                                 toggles.sync = 1;
 
-                                                
+                                                const status = await navigator.permissions.query({
+                                                    name: 'periodic-background-sync',
+                                                });
+                                                if (status.state === 'granted') {
+                                                    // Periodic background sync can be used.
+                                                    console.log('allowed');
+                                                } else {
+                                                    // Periodic background sync cannot be used.
+                                                }
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('sync', '0');
