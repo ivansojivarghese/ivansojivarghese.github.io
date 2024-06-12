@@ -1444,7 +1444,7 @@ function getParameters() {
     }
 }
 
-function fetchPWAInfo() {
+async function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
     const fab = document.querySelector('.pwa .fab');
@@ -1490,9 +1490,12 @@ function fetchPWAInfo() {
         motionSenseToggle.classList.add("toggleOn");
     }
 
+    const prm = await navigator.permissions.query({
+        name: 'periodic-background-sync',
+    });
     const syncToggle = document.querySelector('.pwa .syncToggle');
     var status = Number(localStorage.getItem('sync'));
-    if (!PeriodicSyncManager) {
+    if (!PeriodicSyncManager || prm.state !== 'granted') {
         syncToggle.classList.add("hide");
         syncToggle.classList.remove("hoverB");
         syncToggle.removeEventListener("mousemove", hoverInit);
@@ -1500,7 +1503,7 @@ function fetchPWAInfo() {
         if (status) {
             syncToggle.classList.add("toggleOn");
 
-            
+
         }
     }
 
