@@ -1498,6 +1498,8 @@ function fetchPWAInfo() {
         syncToggle.removeEventListener("mousemove", hoverInit);
     } else {
         if (status) {
+            syncToggle.classList.add("toggleOn");
+
             
         }
     }
