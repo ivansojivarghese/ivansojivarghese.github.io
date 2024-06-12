@@ -26,7 +26,8 @@ const OFFLINE_URL = "offline.html";
 
 // Font files
 var fontFiles = [
-	'msc/fonts/poppins/Poppins-Regular.woff2'
+	'msc/fonts/poppins/Poppins-Regular.woff2',
+	'msc/fonts/raleway/Raleway-Regular.woff2'
 ];
 
 self.addEventListener("install", (event) => {
