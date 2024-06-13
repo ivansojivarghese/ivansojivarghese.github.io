@@ -1530,7 +1530,14 @@ async function fetchPWAInfo() {
         if (status) {
             syncToggle.classList.add("toggleOn");
 
-
+            navigator.serviceWorker.ready.then((registration) => {
+                registration.periodicSync.getTags().then((tags) => {
+                    if (!tags.includes('content-sync')) {
+                        // skipDownloadingLatestNewsOnPageLoad();
+                        periodicSync();
+                    }
+                });
+            });
         }
     }
 
