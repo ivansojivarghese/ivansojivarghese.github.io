@@ -1465,6 +1465,12 @@ async function periodicSync() {
     });
 }
 
+function noPeriodicSync() {
+    navigator.serviceWorker.ready.then((registration) => {
+        registration.periodicSync.unregister('content-sync');
+    });
+}
+
 async function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
