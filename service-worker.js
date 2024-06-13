@@ -235,20 +235,14 @@ self.addEventListener("fetch", (event) => {
 
 self.addEventListener('periodicsync', (event) => {
 	if (event.tag === 'content-sync') {
-		event.waitUntil(getGhCommits());
+		event.waitUntil(doSync());
 	}
 });
 
-function getGhCommits() {
-    if (navigator.onLine) {
-        var request = new XMLHttpRequest();
-        request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
-        request.send(null);
+function doSync() {
+	var request = new XMLHttpRequest();
+	request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
+	request.send(null);
 
-        githubCommitsres.online = true;
-
-        return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
-    } else {
-        githubCommitsres.online = false;
-    }
+	return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
 }
