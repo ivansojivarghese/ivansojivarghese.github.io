@@ -243,7 +243,8 @@ async function doSync() {
 	return fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
 	.then((response) => response.json())
 	.then((data) => {
-		console.log(data[0].commit.author.date);
+		var utc = data[0].commit.author.date;
+		localStorage.setItem('syncUTC', utc);
 	});
 
 	/*
