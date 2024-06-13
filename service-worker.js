@@ -244,7 +244,16 @@ async function doSync() {
 	.then((response) => response.json())
 	.then((data) => {
 		var utc = data[0].commit.author.date;
-		localStorage.setItem('syncUTC', utc);
+		if (localStorage.getItem('syncUTC') === null) {
+			localStorage.setItem('syncUTC', utc);
+		} else {
+			var cacheUTC = localStorage.getItem('syncUTC');
+			if (cacheUTC !== utc) {
+
+				// DO A HARD RELOAD
+			}
+			localStorage.setItem('syncUTC', utc);
+		}
 	});
 
 	/*
