@@ -1447,7 +1447,7 @@ function getParameters() {
 async function periodicSync() {
     navigator.serviceWorker.ready.then(async registration => {
         try {
-            await registration.periodicSync.register('content-sync', { minInterval: 24 * 60 * 60 * 1000 });
+            await registration.periodicSync.register('content-sync', { minInterval: /*24 * 60 * 60 * 1000*/ 43200000 });
             // console.log('Periodic background sync registered.');
 
             const tags = await registration.periodicSync.getTags();
