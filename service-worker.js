@@ -239,12 +239,13 @@ self.addEventListener('periodicsync', (event) => {
 	}
 });
 
-function doSync() {
+async function doSync() {
 	return fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
 	.then((response) => response.json())
 	.then((data) => {
 		console.log(data[0].commit.author.date);
 	});
+
 	/*
 	var request = new XMLHttpRequest();
 	request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
