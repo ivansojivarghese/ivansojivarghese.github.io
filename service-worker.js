@@ -244,7 +244,7 @@ function doSync() {
 	.then((response) => response.json())
 	.then((data) => {
 		console.log(data);
-	}
+	});
 	/*
 	var request = new XMLHttpRequest();
 	request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
