@@ -243,7 +243,7 @@ function doSync() {
 	return fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
 	.then((response) => response.json())
 	.then((data) => {
-		console.log(data);
+		console.log(data.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1]);
 	});
 	/*
 	var request = new XMLHttpRequest();
