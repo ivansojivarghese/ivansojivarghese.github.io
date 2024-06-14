@@ -1501,6 +1501,10 @@ function noPeriodicSync() {
         registration.periodicSync.unregister('content-sync');
     });
 }
+
+function addtoCache(c) {
+    window.caches.open(c);
+}
 /*
 async function updateDatabase() {
     let db;

@@ -241,7 +241,7 @@ self.addEventListener('periodicsync', (event) => {
 
 self.addEventListener("message", (event) => {
 	// console.log(`Message received: ${event.data.data}`);
-	window.caches.open(event.data.data);
+	addtoCache(event.data.data);
 });
 
 async function doSync() {
