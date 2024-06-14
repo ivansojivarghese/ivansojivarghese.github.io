@@ -265,6 +265,7 @@ async function doSync() {
 				window.location.reload(true);
 			});
 		}
+		
 		// localStorage.setItem('syncUTC', utc);
 	});
 
