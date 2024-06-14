@@ -879,13 +879,13 @@ h3.downsize {
     width: env(titlebar-area-width, 100%);
     height: env(titlebar-area-height, 33px);
     /*-webkit-app-region: drag;*/
-    padding-left: 2rem;
+    padding-left: 0.5rem;
 }
 
 .titlebar .img_iconBtn {
     margin: 0;
     margin-left: 0 !important;
-    margin-right: 0.5rem !important;
+    margin-right: 0.25rem !important;
     display: inline-block;
     padding: 0;
     width: env(titlebar-area-height, 33px);
@@ -925,13 +925,13 @@ h3.downsize {
     }
 
     .pwa .popups .pills.settingsInfo {
-        top: calc(2.2rem + env(safe-area-inset-top));
-        left: calc(2rem + calc(env(safe-area-inset-left))) !important;
+        top: calc(1.7rem + env(safe-area-inset-top));
+        left: calc(1rem + calc(env(safe-area-inset-left))) !important;
     }
 
     .pwa .popups .pills.deviceInfo {
-        top: calc(2.2rem + env(safe-area-inset-top));
-        left: calc(4rem + calc(env(safe-area-inset-left)));
+        top: calc(1.7rem + env(safe-area-inset-top));
+        left: calc(2.5rem + calc(env(safe-area-inset-left)));
         right: auto;
     }
 }
