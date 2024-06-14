@@ -331,6 +331,7 @@ h3.downsize {
 
 .pwa .sections > div {
     padding-bottom: calc(0rem + calc(env(safe-area-inset-top) * 1.5));
+    background-color: red;
 }
 
 #load_sc .container {
