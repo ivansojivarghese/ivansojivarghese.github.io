@@ -2327,7 +2327,7 @@ function refetchWeather() {
             weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
         }
         weather_L = setInterval(function() {
-            if (weatherAPIres.online && countryAPIres.online && weatherAPIres.id !== weatherID) {
+            if (weatherAPIres.online && countryAPIres.online /*&& weatherAPIres.id !== weatherID*/) {
                 clearInterval(weather_L);
 
                 weatherID = weatherAPIres.id;
