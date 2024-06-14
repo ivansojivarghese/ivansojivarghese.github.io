@@ -1484,6 +1484,11 @@ async function updateDatabase() {
     openOrCreateDB.addEventListener('success', () => {
         // console.log('Successfully opened DB');
         db = openOrCreateDB.result;
+
+        const time = { utc: utcCommit };
+        const transaction = db.transaction(["latestCommitDate"], "readwrite");
+        const objectStore = transaction.objectStore("latestCommitDate");
+        const objectStoreRequest = objectStore.add(time.utc);
     });
 
     openOrCreateDB.addEventListener('upgradeneeded', async init => {
@@ -1498,8 +1503,8 @@ async function updateDatabase() {
         // const tx = db.transaction("latestCommitDate", "readwrite");
         // const store = tx.store;
         // Create our object.
-        const time = { utc: utcCommit };
-        await Promise.all([openOrCreateDB.result.store.add(time), openOrCreateDB.done]);
+        
+        // await Promise.all([openOrCreateDB.result.store.add(time), openOrCreateDB.done]);
 
         // table.createIndex('title', 'title', { unique: false });
         // table.createIndex('desc', 'desc', { unique: false });
