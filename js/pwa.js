@@ -2349,7 +2349,7 @@ function getGhCommits() {
 
         githubCommitsres.online = true;
 
-        utcCommit = request[0].commit.author.date;
+        utcCommit = request.json()[0].commit.author.date;
 
         return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
     } else {
