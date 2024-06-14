@@ -751,6 +751,10 @@ h3.downsize {
     background-image: url("../logo_ext/jquery.svg");
 }
 
+.pwa .skillset .pwa .img {
+    background-image: url("../logo_ext/pwa.svg");
+}
+
 .pwa .toolset .vscode .img {
     background-image: url("../logo_ext/vscode.svg");
 }
