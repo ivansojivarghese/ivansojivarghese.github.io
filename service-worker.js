@@ -243,6 +243,7 @@ async function doSync() {
 	return fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
 	.then((response) => response.json())
 	.then((data) => {
+		var utc = data[0].commit.author.date;
 		var cacheUTC = localStorage.getItem('syncUTC');
 		if (cacheUTC !== utc) {
 			// DO A HARD RELOAD
