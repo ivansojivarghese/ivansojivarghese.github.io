@@ -241,15 +241,16 @@ self.addEventListener('periodicsync', (event) => {
 
 self.addEventListener("message", (event) => {
 	// console.log(`Message received: ${event.data.data}`);
-	cacheUTC = event.data.data;
+	window.caches.open(event.data.data);
 });
 
 async function doSync() {
 	return fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
 	.then((response) => response.json())
-	.then((data) => {
+	.then(async (data) => {
 		var utc = data[0].commit.author.date;
-		if (cacheUTC !== utc) {
+		var utcUpdated = await window.caches.has(utc);
+		if (!utcUpdated) {
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
 			$.ajax({
