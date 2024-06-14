@@ -29,7 +29,7 @@ var loadTimes = {
 
 var weatherID = 0;
 
-// var utcCommit;
+var utcCommit;
 
 var rL = {
     el : document.getElementById("load_sc"), 
@@ -1457,6 +1457,9 @@ async function periodicSync() {
             const tags = await registration.periodicSync.getTags();
             // Only update content if sync isn't set up.
             if (!tags.includes('content-sync')) {
+                if (localStorage.getItem('syncUTC') === null) {
+                    localStorage.setItem('syncUTC', utcCommit);
+                }
                 doSync();
             }
 
@@ -1464,6 +1467,9 @@ async function periodicSync() {
             console.error(err.name, err.message); 
 
             // If periodic background sync isn't supported, always update.
+            if (localStorage.getItem('syncUTC') === null) {
+                localStorage.setItem('syncUTC', utcCommit);
+            }
             doSync();
         }
     });
@@ -2351,12 +2357,11 @@ function getGhCommits() {
         request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
         request.send(null);
 
-        /*
         fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
             .then((response) => response.json())
             .then((data) => {
                 utcCommit = data[0].commit.author.date;
-            });*/
+            });
 
         githubCommitsres.online = true;
 
