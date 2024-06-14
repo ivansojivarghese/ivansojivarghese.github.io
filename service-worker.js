@@ -244,6 +244,7 @@ async function doSync() {
 	.then((response) => response.json())
 	.then((data) => {
 		var utc = data[0].commit.author.date;
+		/*
 		var data;
 		var sendToWorker = function() {
 			// send data to your worker
@@ -258,7 +259,7 @@ async function doSync() {
 			data = localStorage.getItem('data');
 			sendToWorker();
 		};
-		changeData();
+		changeData();*/
 		/*
 		var cacheUTC = localStorage.getItem('syncUTC');
 		if (cacheUTC !== utc) {

@@ -1449,12 +1449,27 @@ function getParameters() {
 }
 
 async function periodicSync() {
+    var data,
+        changeData = function() {
+        
+            // get data from local storage
+            data = localStorage.getItem('syncUTC');
+            sendToWorker();
+        },
+        sendToWorker = function() {
+        // send data to your worker
+        sw.postMessage({
+          data: data
+        });
+      };
     navigator.serviceWorker.ready.then(async registration => {
         try {
             await registration.periodicSync.register('content-sync', { minInterval: 24 * 60 * 60 * 1000 });
             // console.log('Periodic background sync registered.');
             if (localStorage.getItem('syncUTC') === null) {
                 localStorage.setItem('syncUTC', utcCommit);
+
+                changeData();
             }
 
             const tags = await registration.periodicSync.getTags();
