@@ -2462,7 +2462,7 @@
             }
         </script>
         <script type="module">
-            import { openDB, deleteDB, wrap, unwrap } from "https://cdn.jsdelivr.net/npm/idb@7/+esm";
+            import { openDB } from "https://cdn.jsdelivr.net/npm/idb@7/+esm";
     
             async function doDatabaseStuff() {
             // Create our database.
@@ -2482,7 +2482,7 @@
             // Create our user object.
             const user = { firstName: "Leonardo", lastName: "Maldonado", age: 25 };
             // Add our user to the store.
-            await Promise.all([tx.store.add(user), tx.done]);
+            // await Promise.all([tx.store.add(user), tx.done]);
             }
 
             doDatabaseStuff();
