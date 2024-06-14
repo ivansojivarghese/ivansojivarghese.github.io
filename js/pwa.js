@@ -30,6 +30,7 @@ var loadTimes = {
 var weatherID = 0;
 
 var utcCommit;
+var cacheUTC;
 
 var rL = {
     el : document.getElementById("load_sc"), 
