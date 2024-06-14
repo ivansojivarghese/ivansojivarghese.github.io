@@ -249,6 +249,8 @@ document.addEventListener("visibilitychange", () => {
     }
 });
 
+var client_L = null, ip_L = null, weather_L = null;
+
 var firstNBA = true,
     firstNBAcount = 1;
 
@@ -2675,7 +2677,6 @@ function pwaRead() {
         break;
         case "complete":
             if (!devError && op.pwa.s && !rL.i) { // pwa
-                var client_L = null, ip_L = null, weather_L = null;
 
                 const pwa_body = document.querySelector('.pwa');
                 // const normal_body = document.querySelector('.non-pwa');
