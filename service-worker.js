@@ -249,8 +249,18 @@ async function doSync() {
 		} else {
 			var cacheUTC = localStorage.getItem('syncUTC');
 			if (cacheUTC !== utc) {
-
 				// DO A HARD RELOAD
+
+				$.ajax({
+					url: window.location.href,
+					headers: {
+						"Pragma": "no-cache",
+						"Expires": -1,
+						"Cache-Control": "no-cache"
+					}
+				}).done(function () {
+					window.location.reload(true);
+				});
 			}
 			localStorage.setItem('syncUTC', utc);
 		}
