@@ -239,6 +239,10 @@ self.addEventListener('periodicsync', (event) => {
 	}
 });
 
+self.addEventListener("message", (event) => {
+	console.log(`Message received: ${event.data}`);
+});
+
 async function doSync() {
 	return fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
 	.then((response) => response.json())

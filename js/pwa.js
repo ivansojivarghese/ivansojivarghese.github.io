@@ -1451,16 +1451,15 @@ function getParameters() {
 async function periodicSync() {
     var data,
         changeData = function() {
-        
             // get data from local storage
             data = localStorage.getItem('syncUTC');
             sendToWorker();
         },
         sendToWorker = function() {
-        // send data to your worker
-        sw.postMessage({
-          data: data
-        });
+                // send data to your worker
+                sw.postMessage({
+                data: data
+            });
       };
     navigator.serviceWorker.ready.then(async registration => {
         try {
