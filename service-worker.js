@@ -251,18 +251,18 @@ async function doSync() {
 		var utc = data[0].commit.author.date;
 		var utcUpdated = await caches.has(utc);
 
-		if (!utcUpdated) {
-			const cachesToKeep = ["Z"];
+		if (!utcUpdated) { // IF NOT EQUAL
+			const cachesToKeep = ["Z"]; // DELETE EXISTING UTC
 			caches.keys().then((keyList) =>
 				Promise.all(
 					keyList.map((key) => {
 						if (!cachesToKeep.includes(key)) {
-							return caches.delete(key);
+							caches.delete(key);
 						}
 					}),
 				),
 			);
-			caches.open(utc);
+			caches.open(utc); // ADD NEW UTC
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
