@@ -249,7 +249,7 @@ async function doSync() {
 	.then((response) => response.json())
 	.then(async (data) => {
 		var utc = data[0].commit.author.date;
-		var utcUpdated = await window.caches.has(utc);
+		var utcUpdated = await caches.has(utc);
 		if (!utcUpdated) {
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
