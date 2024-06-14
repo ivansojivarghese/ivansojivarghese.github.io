@@ -2341,7 +2341,7 @@ function numberWithCommas(x) { // REFERENCED FROM: https://stackoverflow.com/que
     return parts.join(".");
 }
 
-function getGhCommits() {
+async function getGhCommits() {
     if (navigator.onLine) {
         var request = new XMLHttpRequest();
         request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
@@ -2349,7 +2349,11 @@ function getGhCommits() {
 
         githubCommitsres.online = true;
 
-        utcCommit = request.json()[0].commit.author.date;
+        await fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
+            .then((response) => response.json())
+            .then((data) => {
+                utcCommit = data[0].commit.author.date;
+            });
 
         return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
     } else {
