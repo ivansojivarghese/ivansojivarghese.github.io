@@ -256,7 +256,7 @@ async function doSync() {
 			caches.keys().then((keyList) => // DELETE EXISTING UTC
 				Promise.all(
 					keyList.map((key) => {
-						if (cachesToKeep.includes(key)) {
+						if (!cachesToKeep.includes(key)) {
 							caches.delete(key);
 						}
 					}),
