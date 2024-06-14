@@ -2347,13 +2347,13 @@ async function getGhCommits() {
         request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
         request.send(null);
 
-        githubCommitsres.online = true;
-
         await fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
             .then((response) => response.json())
             .then((data) => {
                 utcCommit = data[0].commit.author.date;
             });
+
+        githubCommitsres.online = true;
 
         return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
     } else {
