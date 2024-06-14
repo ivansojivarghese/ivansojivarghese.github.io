@@ -29,7 +29,7 @@ var loadTimes = {
 
 var weatherID = 0;
 
-var utcCommit;
+// var utcCommit;
 
 var rL = {
     el : document.getElementById("load_sc"), 
@@ -1474,7 +1474,7 @@ function noPeriodicSync() {
         registration.periodicSync.unregister('content-sync');
     });
 }
-
+/*
 async function updateDatabase() {
     let db;
     const openOrCreateDB = window.indexedDB.open('latestCommitDate', 1);
@@ -1509,7 +1509,7 @@ async function updateDatabase() {
         // table.createIndex('title', 'title', { unique: false });
         // table.createIndex('desc', 'desc', { unique: false });
     });
-}
+}*/
 
 async function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
@@ -2351,11 +2351,12 @@ function getGhCommits() {
         request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
         request.send(null);
 
+        /*
         fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
             .then((response) => response.json())
             .then((data) => {
                 utcCommit = data[0].commit.author.date;
-            });
+            });*/
 
         githubCommitsres.online = true;
 
