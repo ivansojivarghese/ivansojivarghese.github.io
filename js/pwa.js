@@ -29,6 +29,8 @@ var loadTimes = {
 
 var weatherID = 0;
 
+var utcCommit;
+
 var rL = {
     el : document.getElementById("load_sc"), 
     r : document.getElementById("loadR"), // loading rings (container)
@@ -1473,7 +1475,7 @@ function noPeriodicSync() {
     });
 }
 
-function updateDatabase() {
+async function updateDatabase() {
     let db;
     const openOrCreateDB = window.indexedDB.open('latestCommitDate', 1);
 
@@ -1484,7 +1486,7 @@ function updateDatabase() {
         db = openOrCreateDB.result;
     });
 
-    openOrCreateDB.addEventListener('upgradeneeded', init => {
+    openOrCreateDB.addEventListener('upgradeneeded', async init => {
         db = init.target.result;
 
         db.onerror = () => {
@@ -1492,6 +1494,13 @@ function updateDatabase() {
         };
 
         const table = db.createObjectStore('latestCommitDate', { keyPath: 'id', autoIncrement:true });
+
+        const tx = db.transaction("latestCommitDate", "readwrite");
+        const store = tx.store;
+        // Create our user object.
+        const time = { utc: utcCommit };
+        // Add our user to the store.
+        await Promise.all([tx.store.add(time), tx.done]);
 
         // table.createIndex('title', 'title', { unique: false });
         // table.createIndex('desc', 'desc', { unique: false });
@@ -2339,6 +2348,8 @@ function getGhCommits() {
         request.send(null);
 
         githubCommitsres.online = true;
+
+        utcCommit = request[0].commit.author.date;
 
         return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];
     } else {
