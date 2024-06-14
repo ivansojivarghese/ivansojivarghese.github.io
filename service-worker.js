@@ -252,8 +252,8 @@ async function doSync() {
 		var utcUpdated = await caches.has(utc);
 
 		if (!utcUpdated) { // IF NOT EQUAL
-			const cachesToKeep = ["Z"]; // DELETE EXISTING UTC
-			caches.keys().then((keyList) =>
+			const cachesToKeep = ["offline", "core", "images", "pages"]; // UPDATE CACHES WHERE NEEDED
+			caches.keys().then((keyList) => // DELETE EXISTING UTC
 				Promise.all(
 					keyList.map((key) => {
 						if (cachesToKeep.includes(key)) {
