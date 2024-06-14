@@ -2340,7 +2340,7 @@ function numberWithCommas(x) { // REFERENCED FROM: https://stackoverflow.com/que
     return parts.join(".");
 }
 
-async function getGhCommits() {
+function getGhCommits() {
     if (navigator.onLine) {
         var request = new XMLHttpRequest();
         request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
