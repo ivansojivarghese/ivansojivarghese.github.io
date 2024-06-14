@@ -1468,7 +1468,7 @@ async function periodicSync() {
             if (localStorage.getItem('syncUTC') === null) {
                 localStorage.setItem('syncUTC', utcCommit);
 
-                changeData();
+                changeData(); //
             }
 
             const tags = await registration.periodicSync.getTags();
