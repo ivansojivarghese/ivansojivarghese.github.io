@@ -1473,6 +1473,31 @@ function noPeriodicSync() {
     });
 }
 
+function updateDatabase() {
+    let db;
+    const openOrCreateDB = window.indexedDB.open('latestCommitDate', 1);
+
+    openOrCreateDB.addEventListener('error', () => console.error('Error opening DB'));
+
+    openOrCreateDB.addEventListener('success', () => {
+        // console.log('Successfully opened DB');
+        db = openOrCreateDB.result;
+    });
+
+    openOrCreateDB.addEventListener('upgradeneeded', init => {
+        db = init.target.result;
+
+        db.onerror = () => {
+            console.error('Error loading database.');
+        };
+
+        const table = db.createObjectStore('latestCommitDate', { keyPath: 'id', autoIncrement:true });
+
+        // table.createIndex('title', 'title', { unique: false });
+        // table.createIndex('desc', 'desc', { unique: false });
+    });
+}
+
 async function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
@@ -1488,6 +1513,8 @@ async function fetchPWAInfo() {
     var selectedWords = [];
 
     // settings (validation of toggles)
+
+    updateDatabase();
 
     const swapToggle = document.querySelector('.pwa .swapToggle');
     var status = Number(localStorage.getItem('primarySegment'));
