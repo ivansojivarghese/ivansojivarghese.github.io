@@ -239,8 +239,11 @@ self.addEventListener('periodicsync', (event) => {
 	}
 });
 
+var cacheUTC;
+
 self.addEventListener("message", (event) => {
-	console.log(`Message received: ${event.data}`);
+	// console.log(`Message received: ${event.data.data}`);
+	cacheUTC = event.data.data;
 });
 
 async function doSync() {
@@ -248,24 +251,6 @@ async function doSync() {
 	.then((response) => response.json())
 	.then((data) => {
 		var utc = data[0].commit.author.date;
-		/*
-		var data;
-		var sendToWorker = function() {
-			// send data to your worker
-			sw.postMessage({
-				data: data
-			});
-		};
-		var changeData = function() {
-			// save data to local storage
-			localStorage.setItem('syncUTC', utc);
-			// get data from local storage
-			data = localStorage.getItem('data');
-			sendToWorker();
-		};
-		changeData();*/
-		/*
-		var cacheUTC = localStorage.getItem('syncUTC');
 		if (cacheUTC !== utc) {
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
@@ -279,7 +264,7 @@ async function doSync() {
 			}).done(function () {
 				window.location.reload(true);
 			});
-		}*/
+		}
 		// localStorage.setItem('syncUTC', utc);
 	});
 

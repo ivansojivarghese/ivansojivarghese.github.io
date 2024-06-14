@@ -1456,8 +1456,8 @@ async function periodicSync() {
             sendToWorker();
         },
         sendToWorker = function() {
-                // send data to your worker
-                sw.postMessage({
+            // send data to your worker
+            sw.postMessage({
                 data: data
             });
       };
@@ -1476,6 +1476,8 @@ async function periodicSync() {
             if (!tags.includes('content-sync')) {
                 if (localStorage.getItem('syncUTC') === null) {
                     localStorage.setItem('syncUTC', utcCommit);
+
+                    changeData();
                 }
                 doSync();
             }
@@ -1486,6 +1488,8 @@ async function periodicSync() {
             // If periodic background sync isn't supported, always update.
             if (localStorage.getItem('syncUTC') === null) {
                 localStorage.setItem('syncUTC', utcCommit);
+
+                changeData();
             }
             doSync();
         }
