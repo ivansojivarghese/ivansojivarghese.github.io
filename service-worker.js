@@ -251,7 +251,8 @@ async function doSync() {
 	.then((response) => response.json())
 	.then((data) => {
 		var utc = data[0].commit.author.date;
-		if (cacheUTC !== utc) {
+		var existUTC = cacheUTC;
+		if (existUTC !== utc) {
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
 			$.ajax({
@@ -265,7 +266,7 @@ async function doSync() {
 				window.location.reload(true);
 			});
 		}
-		
+
 		// localStorage.setItem('syncUTC', utc);
 	});
 

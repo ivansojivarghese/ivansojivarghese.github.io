@@ -1449,7 +1449,7 @@ function getParameters() {
 }
 
 async function periodicSync() {
-    var data,
+    var data, // REFERENCE: https://stackoverflow.com/questions/40887635/access-localstorage-from-service-worker
         changeData = function() {
             // get data from local storage
             data = localStorage.getItem('syncUTC');
