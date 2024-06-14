@@ -1495,7 +1495,7 @@ async function updateDatabase() {
 
         const table = db.createObjectStore('latestCommitDate', { keyPath: 'id', autoIncrement:true });
 
-        const tx = db.transaction("latestCommitDate", "readwrite");
+        // const tx = db.transaction("latestCommitDate", "readwrite");
         const store = tx.store;
         // Create our user object.
         const time = { utc: utcCommit };
