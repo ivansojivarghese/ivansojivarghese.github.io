@@ -244,6 +244,22 @@ async function doSync() {
 	.then((response) => response.json())
 	.then((data) => {
 		var utc = data[0].commit.author.date;
+		var data;
+		var sendToWorker = function() {
+			// send data to your worker
+			sw.postMessage({
+				data: data
+			});
+		};
+		var changeData = function() {
+			// save data to local storage
+			localStorage.setItem('syncUTC', utc);
+			// get data from local storage
+			data = localStorage.getItem('data');
+			sendToWorker();
+		};
+		changeData();
+		/*
 		var cacheUTC = localStorage.getItem('syncUTC');
 		if (cacheUTC !== utc) {
 			// DO A HARD RELOAD
@@ -258,8 +274,8 @@ async function doSync() {
 			}).done(function () {
 				window.location.reload(true);
 			});
-		}
-		localStorage.setItem('syncUTC', utc);
+		}*/
+		// localStorage.setItem('syncUTC', utc);
 	});
 
 	/*
