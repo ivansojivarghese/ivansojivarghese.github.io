@@ -1499,7 +1499,7 @@ async function updateDatabase() {
         // const store = tx.store;
         // Create our object.
         const time = { utc: utcCommit };
-        await Promise.all([openOrCreateDB.store.add(time), openOrCreateDB.done]);
+        await Promise.all([openOrCreateDB.result.store.add(time), openOrCreateDB.done]);
 
         // table.createIndex('title', 'title', { unique: false });
         // table.createIndex('desc', 'desc', { unique: false });
