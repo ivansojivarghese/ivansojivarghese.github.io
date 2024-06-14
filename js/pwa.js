@@ -2346,7 +2346,7 @@ async function getGhCommits() {
         request.open('GET', 'https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1', false);
         request.send(null);
 
-        await fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
+        fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
             .then((response) => response.json())
             .then((data) => {
                 utcCommit = data[0].commit.author.date;
