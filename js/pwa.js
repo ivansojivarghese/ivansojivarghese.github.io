@@ -1496,11 +1496,10 @@ async function updateDatabase() {
         const table = db.createObjectStore('latestCommitDate', { keyPath: 'id', autoIncrement:true });
 
         // const tx = db.transaction("latestCommitDate", "readwrite");
-        const store = tx.store;
-        // Create our user object.
+        // const store = tx.store;
+        // Create our object.
         const time = { utc: utcCommit };
-        // Add our user to the store.
-        await Promise.all([tx.store.add(time), tx.done]);
+        await Promise.all([openOrCreateDB.store.add(time), openOrCreateDB.done]);
 
         // table.createIndex('title', 'title', { unique: false });
         // table.createIndex('desc', 'desc', { unique: false });
