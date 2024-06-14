@@ -1527,7 +1527,7 @@ async function fetchPWAInfo() {
 
     // settings (validation of toggles)
 
-    updateDatabase();
+    // updateDatabase();
 
     const swapToggle = document.querySelector('.pwa .swapToggle');
     var status = Number(localStorage.getItem('primarySegment'));

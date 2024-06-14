@@ -2461,6 +2461,30 @@
                 })('//updatemybrowser.org/umb.js');
             }
         </script>
+        <script type="module">
+            import { openDB, deleteDB, wrap, unwrap } from "https://cdn.jsdelivr.net/npm/idb@7/+esm";
+    
+            async function doDatabaseStuff() {
+            // Create our database.
+            const db = await openDB("guide_to_indexeddb_database", 1, {
+                upgrade(db) {
+                // Create a store of objects
+                const store = db.createObjectStore("my_first_store", {
+                    // The 'id' property of the object will be the key.
+                    keyPath: "id",
+                    // If it isn't explicitly set, create a value by auto incrementing.
+                    autoIncrement: true
+                });
+                }
+            });
+            const tx = db.transaction("my_first_store", "readwrite");
+            const store = tx.store;
+            // Create our user object.
+            const user = { firstName: "Leonardo", lastName: "Maldonado", age: 25 };
+            // Add our user to the store.
+            await Promise.all([tx.store.add(user), tx.done]);
+            }
+        </script>
         <!--  shake detection, REFERENCE: https://github.com/alexgibson/shake.js -->
         <script src="https://cdn.jsdelivr.net/gh/alexgibson/shake.js/shake.js"></script>
         <script>
