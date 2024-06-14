@@ -2484,6 +2484,8 @@
             // Add our user to the store.
             await Promise.all([tx.store.add(user), tx.done]);
             }
+
+            doDatabaseStuff();
         </script>
         <!--  shake detection, REFERENCE: https://github.com/alexgibson/shake.js -->
         <script src="https://cdn.jsdelivr.net/gh/alexgibson/shake.js/shake.js"></script>
