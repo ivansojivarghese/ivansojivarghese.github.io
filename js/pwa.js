@@ -1615,7 +1615,7 @@ async function periodicSync() { //
         showUpdateAvailable(true);
     }
 }
-
+/*
 window.addEventListener("load", function() {
     // detect controller change and refresh the page
     navigator.serviceWorker.addEventListener('controllerchange', () => {
@@ -1624,7 +1624,7 @@ window.addEventListener("load", function() {
             refreshing = true
         }
     })
-});
+});*/
 
 function noPeriodicSync() {
     var data = localStorage.getItem('syncUTC');
