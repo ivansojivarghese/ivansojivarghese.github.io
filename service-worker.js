@@ -252,12 +252,12 @@ async function doSync() {
 		var utcUpdated = await caches.has(utc);
 
 		if (!utcUpdated) { // IF NOT EQUAL
-			const cachesToKeep = ["offline", "core", "images", "pages"]; // UPDATE CACHES WHERE NEEDED
-			caches.keys().then((keyList) => // DELETE EXISTING UTC
+			const cachesToKeep = ["offline", "core", "images", "pages"]; // KEEP THE REQUIRED CACHES WHERE NEEDED
+			caches.keys().then((keyList) => 
 				Promise.all(
 					keyList.map((key) => {
 						if (!cachesToKeep.includes(key)) {
-							caches.delete(key);
+							caches.delete(key); // DELETE EXISTING UTC
 						}
 					}),
 				),
