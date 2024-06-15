@@ -30,6 +30,7 @@ var loadTimes = {
 var weatherID = 0;
 
 var utcCommit;
+var cacheTracking = null;
 
 var rL = {
     el : document.getElementById("load_sc"), 
@@ -1461,7 +1462,7 @@ async function periodicSync() { //
     var data, // REFERENCE: https://stackoverflow.com/questions/40887635/access-localstorage-from-service-worker
         trackChanges = function() {
             data = localStorage.getItem('syncUTC');
-            setInterval(function() {
+            cacheTracking = setInterval(function() {
                 caches.has(data).then((hasCache) => {
                     if (!hasCache) {
                         showUpdateAvailable();
@@ -1526,6 +1527,7 @@ function noPeriodicSync() {
     var data = localStorage.getItem('syncUTC');
     localStorage.removeItem('syncUTC');
     caches.delete(data);
+    clearInterval(cacheTracking);
 
     navigator.serviceWorker.ready.then((registration) => {
         registration.periodicSync.unregister('content-sync');
@@ -1624,7 +1626,7 @@ async function fetchPWAInfo() {
     var status = Number(localStorage.getItem('sync')),
         trackChanges = function() {
             data = localStorage.getItem('syncUTC');
-            setInterval(function() {
+            cacheTracking = setInterval(function() {
                 caches.has(data).then((hasCache) => {
                     if (!hasCache) {
                         showUpdateAvailable();
