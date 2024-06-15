@@ -1490,7 +1490,7 @@ async function periodicSync() { //
             data = localStorage.getItem('syncUTC');
             cacheTracking = setInterval(function() {
                 caches.has(data).then((hasCache) => {
-                    if (!hasCache) {
+                    if (!hasCache && toggles.sync) {
                         showUpdateAvailable();
                     }
                 });
@@ -1654,7 +1654,7 @@ async function fetchPWAInfo() {
             data = localStorage.getItem('syncUTC');
             cacheTracking = setInterval(function() {
                 caches.has(data).then((hasCache) => {
-                    if (!hasCache) {
+                    if (!hasCache && toggles.sync) {
                         showUpdateAvailable();
                     }
                 });
