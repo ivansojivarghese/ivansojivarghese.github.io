@@ -1482,7 +1482,7 @@ function showUpdateAvailable() { //
           }),
         ),  
     );
-    updateAvailable = true;
+    updateAvailable = true; //
     clearInterval(cacheTracking);
 }
 
