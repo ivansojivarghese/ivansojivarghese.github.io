@@ -263,9 +263,12 @@ async function doSync() {
 				),
 			);
 			caches.open(utc); // ADD NEW UTC
+
+			
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
+			/*
 			$.ajax({
 				url: window.location.href,
 				headers: {
@@ -275,7 +278,7 @@ async function doSync() {
 				}
 			}).done(function () {
 				window.location.reload(true);
-			});
+			});*/
 		}
 	});
 
