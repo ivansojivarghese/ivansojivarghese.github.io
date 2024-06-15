@@ -129,7 +129,7 @@ const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
 
-
+/*
 const commute = document.querySelector('.pwa .popups .deviceInfo .commute');
 const speedX = document.querySelector('.pwa .popups .deviceInfo .speedX');
 const motionX = document.querySelector('.pwa .popups .deviceInfo .motionX');
@@ -138,7 +138,7 @@ const vel = document.querySelector('.pwa .popups .deviceInfo .vel');
 const velPoints = document.querySelector('.pwa .popups .deviceInfo .velPoints');
 const acc = document.querySelector('.pwa .popups .deviceInfo .acc');
 const accDir = document.querySelector('.pwa .popups .deviceInfo .accDir');
-const sec = document.querySelector('.pwa .popups .deviceInfo .sec');
+const sec = document.querySelector('.pwa .popups .deviceInfo .sec');*/
 
 var oriHeight_L = null,
     tabs = ["home", "clicks", "code", "diary", "about"],
@@ -1086,8 +1086,8 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
             }
         } 
 
-        speedX.style.backgroundColor = "purple"; //
-        speedX.style.color = "white"; //
+        //speedX.style.backgroundColor = "purple"; //
+        //speedX.style.color = "white"; //
 
     } else {
         velocityEst = 0;
