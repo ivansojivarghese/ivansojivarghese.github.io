@@ -270,6 +270,12 @@ h3.downsize {
     margin-top: 1rem;
 }
 
+.deviceInfoIcon {
+    border-radius: 50%;
+    background-color: #DBDBDB;
+}
+
+/*
 .iconAlert {
     animation-name: iconAlert;
     animation-duration: 2s;
@@ -285,7 +291,7 @@ h3.downsize {
     100% {
         transform: none;
     }
-}
+}*/
 
 .pwa .popups .pills.settingsInfo {
     right: 0;
