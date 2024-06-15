@@ -1523,6 +1523,10 @@ async function periodicSync() { //
 }
 
 function noPeriodicSync() {
+    var data = localStorage.getItem('syncUTC');
+    localStorage.removeItem('syncUTC');
+    caches.delete(data);
+
     navigator.serviceWorker.ready.then((registration) => {
         registration.periodicSync.unregister('content-sync');
     });
@@ -1628,7 +1632,7 @@ async function fetchPWAInfo() {
 
             navigator.serviceWorker.ready.then((registration) => {
                 registration.periodicSync.getTags().then((tags) => {
-                    if (!tags.includes('content-sync')) {
+                    if (tags.includes('content-sync')) {
                         // skipDownloadingLatestNewsOnPageLoad();
                         periodicSync();
                     }
