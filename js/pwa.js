@@ -1482,6 +1482,7 @@ function showUpdateAvailable() {
         ),  
     );
     updateAvailable = true;
+    clearInterval(cacheTracking);
 }
 
 async function periodicSync() { //
