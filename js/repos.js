@@ -11,5 +11,14 @@ octokit.rest.repos
     })
     .then(({ data }) => {
         // handle data
+
+        data.request('GET /repos/{owner}/{repo}/commits/{ref}/status', {
+            owner: 'ivansojivarghese',
+            repo: 'ivansojivarghese.github.io',
+            ref: '',
+            headers: {
+              'X-GitHub-Api-Version': '2022-11-28'
+            }
+          })
     });
 
