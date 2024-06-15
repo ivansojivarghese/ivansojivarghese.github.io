@@ -467,7 +467,6 @@ h3.downsize {
 .pwa .banner {
     display: flex;
     height: 5rem;
-    background-color: red;
 }
 
 .pwa .ham_auto {
