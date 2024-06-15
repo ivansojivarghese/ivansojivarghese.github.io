@@ -1469,7 +1469,7 @@ function showUpdateAvailable() {
     const cachesToKeep = ["offline", "core", "images", "pages"]; 
     syncBtn.classList.remove("d_n");
     for (i = 0; i < infoIcons.length; i++) {
-        infoIcons[i].classList.add("alert");
+        infoIcons[i].classList.remove("alert");
     }
     localStorage.removeItem('syncUTC');
     caches.keys().then((keyList) =>
