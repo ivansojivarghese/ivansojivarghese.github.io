@@ -272,6 +272,9 @@ h3.downsize {
 
 .deviceInfoIcon {
     border-radius: 50%;
+}
+
+.deviceInfoIcon.alert {
     background-color: #DBDBDB;
 }
 
