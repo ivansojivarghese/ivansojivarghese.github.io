@@ -262,12 +262,13 @@ h3.downsize {
     padding-left: 10%;
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
-    background: #303030;
+    background-image: linear-gradient(90deg,#cf8d7c,#a77cb4);
     color: #FFF;
     border-bottom-left-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
     line-height: 1.5em;
     margin-top: 1rem;
+    font-weight: bold;
 }
 
 .deviceInfoIcon {
