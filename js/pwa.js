@@ -1464,11 +1464,11 @@ function hardReload() {
     });
 }
 
-function showUpdateAvailable() {
+function showUpdateAvailable() { //
     var syncBtn = document.querySelector('.syncUpdateButton'),
         infoIcons = document.querySelectorAll('.deviceInfoIcon');
     const cachesToKeep = ["offline", "core", "images", "pages"]; 
-    syncBtn.classList.remove("d_n");
+    syncBtn.classList.remove("d_n"); 
     for (i = 0; i < infoIcons.length; i++) {
         infoIcons[i].classList.add("alert");
     }
