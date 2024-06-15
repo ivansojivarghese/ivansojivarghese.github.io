@@ -5,7 +5,7 @@ var auth = "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";
 
 // const octokit = new Octokit(); // REFERENCE: https://github.com/octokit/rest.js
 const octokit = new Octokit({
-    // auth: '' // PERSONAL ACCESS TOKEN
+    // auth: '' 
 });
 
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
