@@ -1457,7 +1457,7 @@ function showUpdateAvailable() {
     }
 }
 
-async function periodicSync() {
+async function periodicSync() { //
     var data, // REFERENCE: https://stackoverflow.com/questions/40887635/access-localstorage-from-service-worker
         trackChanges = function() {
             data = localStorage.getItem('syncUTC');
