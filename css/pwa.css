@@ -257,7 +257,7 @@ h3.downsize {
     width: 10rem;
 }
 
-.syncUpdateButton {
+.syncUpdateButton h6 {
     margin-bottom: 0;
     padding-left: 10%;
     padding-bottom: 0.5rem;
