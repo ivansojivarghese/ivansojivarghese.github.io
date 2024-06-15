@@ -240,10 +240,35 @@ self.addEventListener('periodicsync', (event) => {
 	}
 });
 
+var client; 
 self.addEventListener("message", (event) => {
 	// console.log(`Message received: ${event.data.data}`);
 	caches.open(event.data.data); // FROM utcCommit
+	client = event.source;
 });
+
+/*
+self.addEventListener("fetch", (event) => {
+	event.waitUntil(
+		(async () => {
+			// Exit early if we don't have access to the client.
+			// Eg, if it's cross-origin.
+			if (!event.clientId) return;
+
+			// Get the client.
+			const client = await self.clients.get(event.clientId);
+			// Exit early if we don't get the client.
+			// Eg, if it closed.
+			if (!client) return;
+
+			// Send a message to the client.
+			client.postMessage({
+				msg: "Hey I just got a fetch from you!",
+				url: event.request.url,
+			});
+		})(),
+	);
+});  */
 
 async function doSync() {
 	return fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
@@ -265,7 +290,7 @@ async function doSync() {
 			);
 			caches.open(utc); // ADD NEW UTC
 
-			
+			client.postMessage("show update");
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
