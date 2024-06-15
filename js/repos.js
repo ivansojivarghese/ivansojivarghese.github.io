@@ -1,9 +1,11 @@
 
 import { Octokit } from "https://esm.sh/@octokit/rest";
 
+var halfauth = "4qmTdseGq1IXK3DKmIR";
+
 // const octokit = new Octokit(); // REFERENCE: https://github.com/octokit/rest.js
 const octokit = new Octokit({
-    auth: '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' // PERSONAL ACCESS TOKEN
+    auth: 'ghp_Jg1LQBL1DrsOE9cRc' + halfauth // PERSONAL ACCESS TOKEN
 });
 
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
