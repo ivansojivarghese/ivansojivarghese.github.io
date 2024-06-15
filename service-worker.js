@@ -239,14 +239,10 @@ self.addEventListener('periodicsync', (event) => {
 	}
 });
 
-var client; 
 self.addEventListener("message", (event) => {
 	// console.log(`Message received: ${event.data.data}`);
-	if (event.data !== "update") {
-		caches.open(event.data.data); // FROM utcCommit
-	} else {
-		client = event.source;
-	}
+
+	caches.open(event.data.data); // FROM utcCommit
 });
 
 /*
@@ -291,8 +287,6 @@ async function doSync() {
 				),
 			);
 			caches.open(utc); // ADD NEW UTC
-
-			client.postMessage("show update");
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache

@@ -2211,7 +2211,6 @@
             if ("serviceWorker" in navigator) { // register a service worker
                 // var sw = navigator.serviceWorker.register("service-worker.js");
                 var sw = new Worker("service-worker.js");
-                sw.postMessage("update");
             }
         </script>
         <!-- scrollbar (desktop) -->

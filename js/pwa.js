@@ -1448,20 +1448,39 @@ function getParameters() {
     }
 }
 
+function showUpdateAvailable() {
+    var syncBtn = document.querySelector('.syncUpdateButton'),
+        infoIcons = document.querySelectorAll('.deviceInfoIcon');
+    syncBtn.classList.remove("d_n");
+    for (i = 0; i < infoIcons.length; i++) {
+        infoIcons[i].classList.add("alert");
+    }
+}
+
 async function periodicSync() {
     var data, // REFERENCE: https://stackoverflow.com/questions/40887635/access-localstorage-from-service-worker
+        trackChanges = function() {
+            data = localStorage.getItem('syncUTC');
+            setInterval(function() {
+                caches.has(data).then((hasCache) => {
+                    if (!hasCache) {
+                        showUpdateAvailable();
+                    }
+                });
+            }, 1000);
+        },
         changeData = function() {
             // get data from local storage
             data = localStorage.getItem('syncUTC');
             sendToWorker();
+            trackChanges();
         },
         sendToWorker = function() {
             // send data to your worker
             sw.postMessage({
-                origin: window,
                 data: data
             });
-      };
+        };
     navigator.serviceWorker.ready.then(async registration => {
         try {
             await registration.periodicSync.register('content-sync', { minInterval: 24 * 60 * 60 * 1000 });
@@ -1470,6 +1489,8 @@ async function periodicSync() {
                 localStorage.setItem('syncUTC', utcCommit);
 
                 changeData(); //
+            } else {
+                trackChanges();
             }
 
             const tags = await registration.periodicSync.getTags();
@@ -1479,6 +1500,8 @@ async function periodicSync() {
                     localStorage.setItem('syncUTC', utcCommit);
 
                     changeData();
+                } else {
+                    trackChanges();
                 }
                 doSync();
             }
@@ -1491,6 +1514,8 @@ async function periodicSync() {
                 localStorage.setItem('syncUTC', utcCommit);
 
                 changeData();
+            } else {
+                trackChanges();
             }
             doSync();
         }
