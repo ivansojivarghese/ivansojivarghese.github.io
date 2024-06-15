@@ -1458,6 +1458,7 @@ async function periodicSync() {
         sendToWorker = function() {
             // send data to your worker
             sw.postMessage({
+                origin: window,
                 data: data
             });
       };
