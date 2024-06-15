@@ -252,7 +252,7 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                 c_css(".pwa .popups", "background-color: #303030;", false, null, op, "darkMode");
 
                 c_css(".deviceInfoIcon.alert", "background-color: #3D3D3D;", false, null, op, "darkMode");
-                c_css(".syncUpdateButton", "background-color: #3D3D3D;", false, null, op, "darkMode");
+                c_css(".syncUpdateButton h6", "background-color: #3D3D3D;", false, null, op, "darkMode");
 
                 c_css(".cursor", "mix-blend-mode: exclusion !important;", false, null, op, "darkMode");
 
