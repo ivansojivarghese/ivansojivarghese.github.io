@@ -2464,21 +2464,6 @@
                 })('//updatemybrowser.org/umb.js');
             }
         </script>
-        <script type="module">
-            import { Octokit } from "https://esm.sh/@octokit/rest";
-
-            var octokit = new Octokit(); // REFERENCE: https://github.com/octokit/rest.js
-
-            // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
-            octokit.rest.repos
-                .listForOrg({
-                    org: "octokit",
-                    type: "public",
-                })
-                .then(({ data }) => {
-                    // handle data
-                });
-        </script>
         <!-- 
         <script type="module">
             import { openDB } from "https://cdn.jsdelivr.net/npm/idb@7/+esm";
@@ -2803,6 +2788,7 @@
         </script>
         <!--  JS files -->
         <script defer src="js/pwa.js"></script>
+        <script async type="module" src="js/repos.js"></script>
         <script async src="js/fn.js"></script>
         <script async src="js/msc.js"></script>
         <script async src="js/fahrenheit_countries.jsonc"></script>
