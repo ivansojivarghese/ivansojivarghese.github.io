@@ -1621,7 +1621,17 @@ async function fetchPWAInfo() {
         name: 'periodic-background-sync',
     });
     const syncToggle = document.querySelector('.pwa .syncToggle');
-    var status = Number(localStorage.getItem('sync'));
+    var status = Number(localStorage.getItem('sync')),
+        trackChanges = function() {
+            data = localStorage.getItem('syncUTC');
+            setInterval(function() {
+                caches.has(data).then((hasCache) => {
+                    if (!hasCache) {
+                        showUpdateAvailable();
+                    }
+                });
+            }, 1000);
+        };
     if (!PeriodicSyncManager || prm.state !== 'granted') {
         syncToggle.classList.add("hide");
         syncToggle.classList.remove("hoverB");
@@ -1632,9 +1642,11 @@ async function fetchPWAInfo() {
 
             navigator.serviceWorker.ready.then((registration) => {
                 registration.periodicSync.getTags().then((tags) => {
-                    if (tags.includes('content-sync')) {
+                    if (!tags.includes('content-sync')) {
                         // skipDownloadingLatestNewsOnPageLoad();
                         periodicSync();
+                    } else {
+                        trackChanges();
                     }
                 });
             });
