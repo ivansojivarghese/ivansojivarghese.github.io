@@ -1452,6 +1452,11 @@ function getParameters() {
 }
 
 function hardReload() {
+    if (registration.waiting) {
+        // let waiting Service Worker know it should became active
+        registration.waiting.postMessage('SKIP_WAITING')
+    }
+
     $.ajax({
         url: window.location.href,
         headers: {
@@ -1464,8 +1469,30 @@ function hardReload() {
     });
 }
 
-function showUpdateAvailable() { //
-    setTimeout(function() { // run after 2 min.
+function showUpdateAvailable(m) { //
+    if (!m) {
+        setTimeout(function() { // run after 2 min.
+            var syncBtn = document.querySelector('.syncUpdateButton'),
+                infoIcons = document.querySelectorAll('.deviceInfoIcon');
+            const cachesToKeep = ["offline", "core", "images", "pages"]; 
+            syncBtn.classList.remove("d_n"); 
+            for (i = 0; i < infoIcons.length; i++) {
+                infoIcons[i].classList.add("alert");
+            }
+            localStorage.removeItem('syncUTC');
+            caches.keys().then((keyList) =>
+                Promise.all(
+                keyList.map((key) => {
+                    if (!cachesToKeep.includes(key)) {
+                        localStorage.setItem('syncUTC', key); // SET NEW UTC
+                    }
+                }),
+                ),  
+            );
+            updateAvailable = true; //
+            clearInterval(cacheTracking); //
+        }, 120000);
+    } else {
         var syncBtn = document.querySelector('.syncUpdateButton'),
             infoIcons = document.querySelectorAll('.deviceInfoIcon');
         const cachesToKeep = ["offline", "core", "images", "pages"]; 
@@ -1485,8 +1512,10 @@ function showUpdateAvailable() { //
         );
         updateAvailable = true; //
         clearInterval(cacheTracking); //
-    }, 120000);
+    }
 }
+
+var registration;
 
 async function periodicSync() { //
     var data, // REFERENCE: https://stackoverflow.com/questions/40887635/access-localstorage-from-service-worker
@@ -1495,7 +1524,7 @@ async function periodicSync() { //
             cacheTracking = setInterval(function() {
                 caches.has(data).then((hasCache) => {
                     if (!hasCache && toggles.sync) {
-                        showUpdateAvailable();
+                        showUpdateAvailable(false);
                     }
                 });
             }, 1000);
@@ -1551,7 +1580,51 @@ async function periodicSync() { //
             doSync();
         }
     });
+    // get the ServiceWorkerRegistration instance
+    registration = await navigator.serviceWorker.getRegistration();
+    // (it is also returned from navigator.serviceWorker.register() function)
+
+    if (registration) { // if there is a SW active
+        registration.addEventListener('updatefound', () => {
+            // console.log('Service Worker update detected!');
+            if (registration.installing) {
+                // wait until the new Service worker is actually installed (ready to take over)
+                // our new instance is visible under installing property, because it is in 'installing' state
+                // let's wait until it changes its state
+                registration.installing.addEventListener('statechange', () => {
+                    if (registration.waiting) {
+                        // our new instance is now waiting for activation (its state is 'installed')
+                        // we now may invoke our update UX safely
+                        // if there's an existing controller (previous Service Worker), show the prompt
+                        if (navigator.serviceWorker.controller) {
+                            showUpdateAvailable(true);  
+                        } else {
+                            // otherwise it's the first install, nothing to do
+                            // console.log('Service Worker initialized for the first time')
+                        }
+                    } else {
+                        // apparently installation must have failed (SW state is 'redundant')
+                        // it makes no sense to think about this update any more
+                    }
+                });
+            }
+        });
+    }
+
+    if (registration.waiting) {
+        showUpdateAvailable(true);
+    }
 }
+
+window.addEventListener("load", function() {
+    // detect controller change and refresh the page
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!refreshing) {  
+            window.location.reload()
+            refreshing = true
+        }
+    })
+});
 
 function noPeriodicSync() {
     var data = localStorage.getItem('syncUTC');
@@ -1659,7 +1732,7 @@ async function fetchPWAInfo() {
             cacheTracking = setInterval(function() {
                 caches.has(data).then((hasCache) => {
                     if (!hasCache && toggles.sync) {
-                        showUpdateAvailable();
+                        showUpdateAvailable(false);
                     }
                 });
             }, 1000);

@@ -241,8 +241,11 @@ self.addEventListener('periodicsync', (event) => {
 
 self.addEventListener("message", (event) => {
 	// console.log(`Message received: ${event.data.data}`);
-
-	caches.open(event.data.data); // FROM utcCommit
+	if (event.data === 'SKIP_WAITING') {
+        self.skipWaiting();
+    } else {
+		caches.open(event.data.data); // FROM utcCommit
+	}
 });
 
 /*
