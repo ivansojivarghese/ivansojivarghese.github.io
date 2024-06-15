@@ -1469,7 +1469,7 @@ function showUpdateAvailable() {
     const cachesToKeep = ["offline", "core", "images", "pages"]; 
     syncBtn.classList.remove("d_n");
     for (i = 0; i < infoIcons.length; i++) {
-        infoIcons[i].classList.remove("alert");
+        infoIcons[i].classList.add("alert");
     }
     localStorage.removeItem('syncUTC');
     caches.keys().then((keyList) =>
@@ -2202,6 +2202,14 @@ function openPopUp(target) {
     var t = document.querySelector('.pwa .popups .' + target);
     if (target !== 'terms') {
         // popups.style.height = "calc(100lvh - calc(env(safe-area-inset-top))) !important";
+        if (target === 'deviceInfo') {
+            if (updateAvailable) {
+                var infoIcons = document.querySelectorAll('.deviceInfoIcon');
+                for (i = 0; i < infoIcons.length; i++) {
+                    infoIcons.classList.remove("alert");
+                }
+            }
+        }
         popups.classList.add("lvh");
         popups.classList.add("ovy-h");
         popups.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
@@ -2211,13 +2219,6 @@ function openPopUp(target) {
             }
             closePopUp(target)
         }, true);
-    } else if (target === 'deviceInfo') {
-        if (updateAvailable) {
-            var infoIcons = document.querySelectorAll('.deviceInfoIcon');
-            for (i = 0; i < infoIcons.length; i++) {
-                infoIcons.classList.remove("alert");
-            }
-        }
     } else if (navigator.windowControlsOverlay !== undefined) {
         if (navigator.windowControlsOverlay.visible) {
             titlebar.classList.add("d_n");
