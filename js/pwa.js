@@ -2206,7 +2206,7 @@ function openPopUp(target) {
             if (updateAvailable) {
                 var infoIcons = document.querySelectorAll('.deviceInfoIcon');
                 for (i = 0; i < infoIcons.length; i++) {
-                    infoIcons.classList.remove("alert");
+                    infoIcons[i].classList.remove("alert");
                 }
             }
         }
