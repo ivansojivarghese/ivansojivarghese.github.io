@@ -31,6 +31,7 @@ var weatherID = 0;
 
 var utcCommit;
 var cacheTracking = null;
+var updateAvailable = false;
 
 var rL = {
     el : document.getElementById("load_sc"), 
@@ -1480,6 +1481,7 @@ function showUpdateAvailable() {
           }),
         ),  
     );
+    updateAvailable = true;
 }
 
 async function periodicSync() { //
@@ -2209,6 +2211,13 @@ function openPopUp(target) {
             }
             closePopUp(target)
         }, true);
+    } else if (target === 'deviceInfo') {
+        if (updateAvailable) {
+            var infoIcons = document.querySelectorAll('.deviceInfoIcon');
+            for (i = 0; i < infoIcons.length; i++) {
+                infoIcons.classList.remove("alert");
+            }
+        }
     } else if (navigator.windowControlsOverlay !== undefined) {
         if (navigator.windowControlsOverlay.visible) {
             titlebar.classList.add("d_n");
