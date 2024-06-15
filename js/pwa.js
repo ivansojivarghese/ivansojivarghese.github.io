@@ -1449,6 +1449,19 @@ function getParameters() {
     }
 }
 
+function hardReload() {
+    $.ajax({
+        url: window.location.href,
+        headers: {
+            "Pragma": "no-cache",
+            "Expires": -1,
+            "Cache-Control": "no-cache"
+        }
+    }).done(function () {
+        window.location.reload(true);
+    });
+}
+
 function showUpdateAvailable() {
     var syncBtn = document.querySelector('.syncUpdateButton'),
         infoIcons = document.querySelectorAll('.deviceInfoIcon');
