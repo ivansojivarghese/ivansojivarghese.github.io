@@ -242,8 +242,11 @@ self.addEventListener('periodicsync', (event) => {
 var client; 
 self.addEventListener("message", (event) => {
 	// console.log(`Message received: ${event.data.data}`);
-	caches.open(event.data.data); // FROM utcCommit
-	client = event.source;
+	if (event.data !== "update") {
+		caches.open(event.data.data); // FROM utcCommit
+	} else {
+		client = event.source;
+	}
 });
 
 /*
