@@ -1483,7 +1483,7 @@ function showUpdateAvailable() { //
         ),  
     );
     updateAvailable = true; //
-    clearInterval(cacheTracking);
+    clearInterval(cacheTracking); //
 }
 
 async function periodicSync() { //
