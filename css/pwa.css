@@ -270,6 +270,23 @@ h3.downsize {
     margin-top: 1rem;
 }
 
+.iconAlert {
+    animation-name: iconAlert;
+    animation-duration: 2s;
+}
+
+@keyframes iconAlert {
+    0% {
+        transform: none;
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: none;
+    }
+}
+
 .pwa .popups .pills.settingsInfo {
     right: 0;
     top: calc(4.2rem + env(safe-area-inset-top));
