@@ -22,6 +22,7 @@ var toggles = {
     swap : localStorage.getItem('primarySegment') === null ? 0 : Number(localStorage.getItem('primarySegment')) ? 1 : 0,
     motionSense : localStorage.getItem('motionSense') === null ? 0 : Number(localStorage.getItem('motionSense')) ? 1 : 0,
     location : localStorage.getItem('location') === null ? 0 : Number(localStorage.getItem('location')) ? 1 : 0,
+    notifications : localStorage.getItem('notifications') === null ? 0 : Number(localStorage.getItem('notifications')) ? 1 : 0,
     sync : localStorage.getItem('sync') === null ? 0 : Number(localStorage.getItem('sync')) ? 1 : 0,
     battery : localStorage.getItem('battery') === null ? 0 : Number(localStorage.getItem('battery')) ? 1 : 0,
     screenWake : localStorage.getItem('screenWake') === null ? 0 : Number(localStorage.getItem('screenWake')) ? 1 : 0,

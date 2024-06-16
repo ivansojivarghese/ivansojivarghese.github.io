@@ -1078,9 +1078,8 @@
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
                                                 this.classList.add('toggleOn');
-
-                                                //localStorage.setItem('location', '1');
-                                                //toggles.location = 1;
+                                                localStorage.setItem('notifications', '1');
+                                                toggles.notifications = 1;
                                                 /*
                                                 gpsID = navigator.geolocation.watchPosition((position) => {
                                                    gpsPos = position
@@ -1103,8 +1102,8 @@
 
                                             } else {
                                                 this.classList.remove('toggleOn');
-                                                //localStorage.setItem('location', '0');
-                                                //toggles.location = 0;
+                                                localStorage.setItem('notifications', '0');
+                                                toggles.notifications = 0;
 
                                                 //gpsPos = null;
                                                 //navigator.geolocation.clearWatch(gpsID);
