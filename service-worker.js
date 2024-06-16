@@ -304,6 +304,11 @@ async function doSync() {
 			caches.open(utc); // ADD NEW UTC
 
 			updateCachedContent(); // PERFORM CACHE UPDATE
+
+			self.registration.showNotification("Your content is ready", {
+				body: "Your content is ready to be viewed. View it now?",
+				icon: ""
+			});
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
