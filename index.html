@@ -1077,36 +1077,18 @@
 
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
-                                                this.classList.add('toggleOn');
-                                                localStorage.setItem('notifications', '1');
-                                                toggles.notifications = 1;
-                                                /*
-                                                gpsID = navigator.geolocation.watchPosition((position) => {
-                                                   gpsPos = position
-                                                }, (error) => {
-                                                    if (error.code === error.PERMISSION_DENIED) {
-                                                        this.classList.add('hide');
-                                                        this.classList.remove('hoverB');
-                                                        this.removeEventListener('mousemove', hoverInit);
-                                                        hoverEnd(null);
-
-                                                        // this.removeEventListener('click', hoverMiddle);
-                                                        // this.removeEventListener('mouseleave', hoverEnd);
+                                                Notification.requestPermission().then(permission => {
+                                                    if (permission === 'granted') {
+                                                        this.classList.add('toggleOn');
+                                                        localStorage.setItem('notifications', '1');
+                                                        toggles.notifications = 1;
                                                     }
-                                                    this.classList.remove('toggleOn');
-                                                    localStorage.setItem('location', '0');
-                                                    toggles.location = 0;
-                                                    gpsPos = null;
-                                                    navigator.geolocation.clearWatch(gpsID);
-                                                }, options);*/
+                                                });
 
                                             } else {
                                                 this.classList.remove('toggleOn');
                                                 localStorage.setItem('notifications', '0');
                                                 toggles.notifications = 0;
-
-                                                //gpsPos = null;
-                                                //navigator.geolocation.clearWatch(gpsID);
                                             }
                                         } else {
                                             // event.preventDefault();

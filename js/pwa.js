@@ -1879,6 +1879,9 @@ async function fetchPWAInfo() {
         }
     }
 
+    const notificationsToggle = document.querySelector('.pwa .notificationsToggle');
+    
+
     // about
 
     if (githubCommitsres.online) {
