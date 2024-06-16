@@ -1722,39 +1722,41 @@ async function fetchPWAInfo() {
         motionSenseToggle.classList.add("toggleOn");
     }
 
-    const prm = await navigator.permissions.query({
-        name: 'periodic-background-sync',
-    });
-    const syncToggle = document.querySelector('.pwa .syncToggle');
-    var status = Number(localStorage.getItem('sync')),
-        trackChanges = function() {
-            data = localStorage.getItem('syncUTC');
-            cacheTracking = setInterval(function() {
-                caches.has(data).then((hasCache) => {
-                    if (!hasCache && toggles.sync) {
-                        showUpdateAvailable(false);
-                    }
-                });
-            }, 1000);
-        };
-    if (!PeriodicSyncManager || prm.state !== 'granted') {
-        syncToggle.classList.add("hide");
-        syncToggle.classList.remove("hoverB");
-        syncToggle.removeEventListener("mousemove", hoverInit);
-    } else {
-        if (status) {
-            syncToggle.classList.add("toggleOn");
+    if (PeriodicSyncManager) {
+        const prm = await navigator.permissions.query({
+            name: 'periodic-background-sync',
+        });
+        const syncToggle = document.querySelector('.pwa .syncToggle');
+        var status = Number(localStorage.getItem('sync')),
+            trackChanges = function() {
+                data = localStorage.getItem('syncUTC');
+                cacheTracking = setInterval(function() {
+                    caches.has(data).then((hasCache) => {
+                        if (!hasCache && toggles.sync) {
+                            showUpdateAvailable(false);
+                        }
+                    });
+                }, 1000);
+            };
+        if (!PeriodicSyncManager || prm.state !== 'granted') {
+            syncToggle.classList.add("hide");
+            syncToggle.classList.remove("hoverB");
+            syncToggle.removeEventListener("mousemove", hoverInit);
+        } else {
+            if (status) {
+                syncToggle.classList.add("toggleOn");
 
-            navigator.serviceWorker.ready.then((registration) => {
-                registration.periodicSync.getTags().then((tags) => {
-                    if (!tags.includes('content-sync')) {
-                        // skipDownloadingLatestNewsOnPageLoad();
-                        periodicSync();
-                    } else {
-                        trackChanges();
-                    }
+                navigator.serviceWorker.ready.then((registration) => {
+                    registration.periodicSync.getTags().then((tags) => {
+                        if (!tags.includes('content-sync')) {
+                            // skipDownloadingLatestNewsOnPageLoad();
+                            periodicSync();
+                        } else {
+                            trackChanges();
+                        }
+                    });
                 });
-            });
+            }
         }
     }
 
