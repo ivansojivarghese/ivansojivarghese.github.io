@@ -328,8 +328,8 @@ async function doSync() {
 
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
-			self.registration.showNotification("Software Updated", {
-				body: "We were updated to show our latest content. Have a look!",
+			self.registration.showNotification("App Updates", {
+				body: "We were updated for a better experience. Have a look!",
 				badge: "favicon/android-chrome-192x192.png",
 				icon: "favicon/android-chrome-192x192.png",
 				vibrate: [50],
