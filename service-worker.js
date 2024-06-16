@@ -361,11 +361,10 @@ async function doSync() {
 					});
 				}
 
+				// To display a number in the badge
+				navigator.setAppBadge(1);
 				
 			}, 120000);
-
-			// To display a number in the badge
-			navigator.setAppBadge(1);
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
