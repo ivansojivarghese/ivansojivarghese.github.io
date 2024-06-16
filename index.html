@@ -1072,6 +1072,54 @@
                                     <p class="attr">allows the usage of GPS to improve MotionSense, velocity and weather reading patterns</p>
                                 </div>
                                 <div class="toggleDiv">
+                                    <p>notifications</p>
+                                    <div class="notificationsToggle toggleBackg trs hoverB lightBackground" onclick="
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+
+                                                //localStorage.setItem('location', '1');
+                                                //toggles.location = 1;
+                                                /*
+                                                gpsID = navigator.geolocation.watchPosition((position) => {
+                                                   gpsPos = position
+                                                }, (error) => {
+                                                    if (error.code === error.PERMISSION_DENIED) {
+                                                        this.classList.add('hide');
+                                                        this.classList.remove('hoverB');
+                                                        this.removeEventListener('mousemove', hoverInit);
+                                                        hoverEnd(null);
+
+                                                        // this.removeEventListener('click', hoverMiddle);
+                                                        // this.removeEventListener('mouseleave', hoverEnd);
+                                                    }
+                                                    this.classList.remove('toggleOn');
+                                                    localStorage.setItem('location', '0');
+                                                    toggles.location = 0;
+                                                    gpsPos = null;
+                                                    navigator.geolocation.clearWatch(gpsID);
+                                                }, options);*/
+
+                                            } else {
+                                                this.classList.remove('toggleOn');
+                                                //localStorage.setItem('location', '0');
+                                                //toggles.location = 0;
+
+                                                //gpsPos = null;
+                                                //navigator.geolocation.clearWatch(gpsID);
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr"></p>
+                                </div>
+                                <div class="toggleDiv">
                                     <p>sync</p>
                                     <div class="syncToggle toggleBackg quickToggle trs hoverB lightBackground" onclick="
 
