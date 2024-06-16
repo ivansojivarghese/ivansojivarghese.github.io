@@ -31,6 +31,8 @@ var toggles = {
 
 var screenLock;
 
+var urlParams = {};
+
 ///////////////////////////////////////////////////
 
 function isDarkMode() { // dark mode detection

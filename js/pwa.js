@@ -107,8 +107,6 @@ var accelerationCount = 0,
 var deviceMotion = false,
     deviceOrientation = false;
 
-var urlParams = {};
-
 const sections = document.querySelector('.pwa .sections');
 // const navbarButtons = document.querySelectorAll('.pwa .navbar .button');
 
