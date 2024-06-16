@@ -1893,6 +1893,7 @@ async function fetchPWAInfo() {
                     notificationsToggle.classList.remove("hoverB");
                     notificationsToggle.removeEventListener("mousemove", hoverInit);
 
+                    notificationsToggle.classList.remove('toggleOn');
                     localStorage.setItem('notifications', '0');
                     toggles.notifications = 0;
                 }
