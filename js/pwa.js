@@ -2974,7 +2974,7 @@ function pwaRead() {
                     client_L = setInterval(function() {
                         if ((clientAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
 
-                            console.log("Load 1: " + (loadTimes.end - loadTimes.start));
+                            console.log("Load 1: " + (loadTimes.end - loadTimes.start) + "ms");
 
                             ipAPI(clientAPIres.ipString);
                             // ipAPI("216.73.163.219"); // FOR TESTING
@@ -2982,7 +2982,7 @@ function pwaRead() {
                             ip_L = setInterval(function() {
                                 if ((ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || (!navigator.onLine && ipAPIres.error)) {
 
-                                    console.log("Load 2: " + (loadTimes.end - loadTimes.start));
+                                    console.log("Load 2: " + (loadTimes.end - loadTimes.start) + "ms");
 
                                     if (gpsPos !== null && gpsPos.coords.latitude !== null & gpsPos.coords.longitude !== null) {
                                         weatherAPI(gpsPos.coords.latitude, gpsPos.coords.longitude, tempUnit(ipAPIres.country.iso_code));
@@ -2993,7 +2993,7 @@ function pwaRead() {
                                     weather_L = setInterval(function() {
                                         if ((weatherAPIres.online && countryAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
 
-                                            console.log("Load 3: " + (loadTimes.end - loadTimes.start));
+                                            console.log("Load 3: " + (loadTimes.end - loadTimes.start) + "ms");
 
                                             clearInterval(weather_L);
 
