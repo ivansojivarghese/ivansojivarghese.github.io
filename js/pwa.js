@@ -1880,7 +1880,26 @@ async function fetchPWAInfo() {
     }
 
     const notificationsToggle = document.querySelector('.pwa .notificationsToggle');
-    
+    if ("Notification" in window) {
+        var status = Number(localStorage.getItem('notifications'));
+        if (status) {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    notificationsToggle.classList.add('toggleOn');
+                    localStorage.setItem('notifications', '1');
+                    toggles.notifications = 1;
+                } else {
+                    notificationsToggle.classList.add("hide");
+                    notificationsToggle.classList.remove("hoverB");
+                    notificationsToggle.removeEventListener("mousemove", hoverInit);
+                }
+            });
+        }
+    } else {
+        notificationsToggle.classList.add("hide");
+        notificationsToggle.classList.remove("hoverB");
+        notificationsToggle.removeEventListener("mousemove", hoverInit);
+    }
 
     // about
 
