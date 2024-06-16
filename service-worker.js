@@ -287,7 +287,7 @@ self.addEventListener("notificationclick", (event) => {
 	if (event.notification.tag === "update") {
 		//For root applications: just change "'./'" to "'/'"
 		//Very important having the last forward slash on "new URL('./', location)..."
-		const rootUrl = new URL('./', location).href; 
+		const rootUrl = new URL('/', location).href; 
 		event.waitUntil(
 			clients.matchAll().then(matchedClients =>
 			{
