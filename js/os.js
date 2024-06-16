@@ -60,7 +60,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ m
             }
             localStorage.setItem('themeColor', '1');
 
-            caches.open("DARK_MODE");
+            // caches.open("DARK_MODE");
         }
     } else { // change to light mode
         if (!getCookie("darkMode") && colorStates === 0 && (localStorage.getItem('incognito') !== '1' || localStorage.getItem('systemColor') === '1') && op.darkMode) {
@@ -74,7 +74,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ m
             }
             localStorage.setItem('themeColor', '0');
 
-            caches.delete("DARK_MODE");
+            // caches.delete("DARK_MODE");
         }
     }
 });
