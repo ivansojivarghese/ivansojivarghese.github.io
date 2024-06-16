@@ -362,6 +362,9 @@ async function doSync() {
 						});
 					}
 
+					// TODO
+					// - USE CACHE VARIABLE TO KEEP TRACK OF NEW (UPDATE MOTIFS) IS USER HAS NOT VISITED THEM
+
 					// To display a number in the badge
 					navigator.setAppBadge(1);
 
