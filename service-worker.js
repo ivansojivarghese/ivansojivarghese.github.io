@@ -336,6 +336,8 @@ async function doSync() {
 
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
+			// toggles.notifications = 1 IS A MUST
+
 			self.registration.showNotification("Software Update", {
 				body: "We were updated to provide a better experience.",
 				badge: "favicon/maskable-512x512.png",

@@ -1083,6 +1083,14 @@
                                                             this.classList.add('toggleOn');
                                                             localStorage.setItem('notifications', '1');
                                                             toggles.notifications = 1;
+                                                        } else {
+                                                            this.classList.remove('toggleOn');
+                                                            localStorage.setItem('notifications', '0');
+                                                            toggles.notifications = 0;
+
+                                                            this.classList.add('hide');
+                                                            this.classList.remove('hoverB');
+                                                            this.removeEventListener('mousemove', hoverInit);
                                                         }
                                                     });
                                                 } else {
