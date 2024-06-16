@@ -285,7 +285,7 @@ self.addEventListener("fetch", (event) => {
 
 self.addEventListener("notificationclick", (event) => {
 	if (event.notification.tag === "update") {
-			
+
 	}
 	event.notification.close();
 });
@@ -316,7 +316,6 @@ async function doSync() {
 				body: "We were updated to show our latest content. Have a look!",
 				badge: "favicon/android-chrome-192x192.png",
 				icon: "favicon/android-chrome-192x192.png",
-				image: "favicon/android-chrome-192x192.png",
 				vibrate: [50],
 				tag: "update"
 			});
