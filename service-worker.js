@@ -310,7 +310,8 @@ async function doSync() {
 				badge: "favicon/android-chrome-192x192.png",
 				icon: "favicon/android-chrome-192x192.png",
 				image: "favicon/android-chrome-192x192.png",
-				vibrate: [50]
+				vibrate: [50],
+				tag: "update"
 			});
 			
 			// DO A HARD RELOAD
