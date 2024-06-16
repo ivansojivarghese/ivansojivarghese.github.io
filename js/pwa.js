@@ -1515,7 +1515,7 @@ function showUpdateAvailable(m) { //
     }
 }
 
-var registration;
+var registration = null;
 
 async function periodicSync() { //
     var data, // REFERENCE: https://stackoverflow.com/questions/40887635/access-localstorage-from-service-worker
@@ -1625,6 +1625,12 @@ window.addEventListener("load", function() {
         }
     })
 });*/
+
+window.addEventListener("load", async function() {
+    if (registration === null) {
+        registration = await navigator.serviceWorker.getRegistration();
+    }
+});
 
 function noPeriodicSync() {
     var data = localStorage.getItem('syncUTC');
