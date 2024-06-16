@@ -322,7 +322,7 @@ async function doSync() {
 		var utcUpdated = await caches.has(utc);
 
 		if (!utcUpdated) { // IF NOT EQUAL
-			const cachesToKeep = ["offline", "core", "images", "pages"]; // KEEP THE REQUIRED CACHES WHERE NEEDED
+			const cachesToKeep = ["offline", "core", "images", "pages", "DARK_MODE"]; // KEEP THE REQUIRED CACHES WHERE NEEDED
 			caches.keys().then((keyList) => 
 				Promise.all(
 					keyList.map((key) => {
@@ -336,18 +336,33 @@ async function doSync() {
 
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
-			// toggles.notifications = 1 IS A MUST
-
-			self.registration.showNotification("Software Update", {
-				body: "We were updated to provide a better experience.",
-				badge: "favicon/maskable-512x512.png",
-				icon: "favicon/android-chrome-192x192.png",
-				vibrate: [50],
-				tag: "update",
-				data: {
-					url: 'https://ivansojivarghese.github.io/',
+			setTimeout(function() { // AFTER 2 MIN.
+				if (!caches.has("DARK_MODE")) { // LIGHT THEME
+					self.registration.showNotification("Software Update", {
+						body: "We were updated to provide a better experience.",
+						badge: "favicon/maskable-512x512.png",
+						icon: "favicon/android-chrome-192x192.png",
+						vibrate: [50],
+						tag: "update",
+						data: {
+							url: 'https://ivansojivarghese.github.io/',
+						}
+					});
+				} else { // DARK THEME
+					self.registration.showNotification("Software Update", {
+						body: "We were updated to provide a better experience.",
+						badge: "favicon/maskable-512x512_dark.png",
+						icon: "favicon/android-chrome-192x192_dark.png",
+						vibrate: [50],
+						tag: "update",
+						data: {
+							url: 'https://ivansojivarghese.github.io/',
+						}
+					});
 				}
-			});
+
+				
+			}, 120000);
 
 			// To display a number in the badge
 			navigator.setAppBadge(1);

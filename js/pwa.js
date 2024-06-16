@@ -1474,7 +1474,7 @@ function showUpdateAvailable(m) { //
         setTimeout(function() { // run after 2 min.
             var syncBtn = document.querySelector('.syncUpdateButton'),
                 infoIcons = document.querySelectorAll('.deviceInfoIcon');
-            const cachesToKeep = ["offline", "core", "images", "pages"]; 
+            const cachesToKeep = ["offline", "core", "images", "pages", "DARK_MODE"]; 
             syncBtn.classList.remove("d_n"); 
             for (i = 0; i < infoIcons.length; i++) {
                 infoIcons[i].classList.add("alert");
@@ -1495,7 +1495,7 @@ function showUpdateAvailable(m) { //
     } else {
         var syncBtn = document.querySelector('.syncUpdateButton'),
             infoIcons = document.querySelectorAll('.deviceInfoIcon');
-        const cachesToKeep = ["offline", "core", "images", "pages"]; 
+        const cachesToKeep = ["offline", "core", "images", "pages", "DARK_MODE"]; 
         syncBtn.classList.remove("d_n"); 
         for (i = 0; i < infoIcons.length; i++) {
             infoIcons[i].classList.add("alert");
