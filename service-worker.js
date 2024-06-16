@@ -24,6 +24,18 @@ const CACHE_NAME = "offline";
 // Customize this with a different URL if needed.
 const OFFLINE_URL = "offline.html";
 
+// REFERENCED FROM : https://github.com/captainbrosset/devtools-tips/blob/ebfb2c7631464149ce3cc7700d77564656971ff4/src/sw.js#L22
+// https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs#use-the-periodic-background-sync-api-to-regularly-get-fresh-content
+const INITIAL_CACHED_RESOURCES = [
+    
+];
+// Cached resources that match the following strings should not be periodically updated.
+// These are the tips html pages themselves, and their images.
+// Everything else, we try to update on a regular basis, to make sure lists of tips get updated and css/js are recent too.
+const DONT_UPDATE_RESOURCES = [
+	
+];
+
 // Font files
 var fontFiles = [
 	'msc/fonts/poppins/Poppins-Regular.woff2',
@@ -290,6 +302,8 @@ async function doSync() {
 				),
 			);
 			caches.open(utc); // ADD NEW UTC
+
+			updateCachedContent(); // PERFORM CACHE UPDATE
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
@@ -313,4 +327,34 @@ async function doSync() {
 	request.send(null);
 
 	return request.getResponseHeader('link').match(/"next".*page=([0-9]+).*"last"/)[1];*/
+}
+
+// REFERENCED FROM: https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs#use-the-periodic-background-sync-api-to-regularly-get-fresh-content
+// https://github.com/captainbrosset/devtools-tips/blob/ebfb2c7631464149ce3cc7700d77564656971ff4/src/sw.js#L141 
+
+async function updateCachedContent() {
+    const requests = await findCacheEntriesToBeRefreshed();
+    const cache = await caches.open(CACHE_NAME);
+
+    for (const request of requests) {
+        try {
+            // Fetch the new version.
+            const fetchResponse = await fetch(request);
+            // Refresh the cache.
+            await cache.put(request, fetchResponse.clone());
+        } catch (e) {
+            // Fail silently, we'll just keep whatever we already had in the cache.
+        }
+    }
+}
+
+// Find the entries that are already cached and that we do want to update. This way we only
+// update these ones and let the user visit new pages when they are online to populate more things
+// in the cache.
+async function findCacheEntriesToBeRefreshed() {
+    const cache = await caches.open(CACHE_NAME);
+    const requests = await cache.keys();
+    return requests.filter(request => {
+        return !DONT_UPDATE_RESOURCES.some(pattern => request.url.includes(pattern));
+    });
 }
