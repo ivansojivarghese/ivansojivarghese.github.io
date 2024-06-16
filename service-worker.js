@@ -336,35 +336,37 @@ async function doSync() {
 
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
-			setTimeout(function() { // AFTER 2 MIN.
-				if (!caches.has("DARK_MODE")) { // LIGHT THEME
-					self.registration.showNotification("Software Update", {
-						body: "We were updated to provide a better experience.",
-						badge: "favicon/maskable-512x512.png",
-						icon: "favicon/android-chrome-192x192.png",
-						vibrate: [50],
-						tag: "update",
-						data: {
-							url: 'https://ivansojivarghese.github.io/',
-						}
-					});
-				} else { // DARK THEME
-					self.registration.showNotification("Software Update", {
-						body: "We were updated to provide a better experience.",
-						badge: "favicon/maskable-512x512_dark.png",
-						icon: "favicon/android-chrome-192x192_dark.png",
-						vibrate: [50],
-						tag: "update",
-						data: {
-							url: 'https://ivansojivarghese.github.io/',
-						}
-					});
-				}
+			if (Notification.permission === "granted") {
+				setTimeout(function() { // AFTER 2 MIN.
+					if (!caches.has("DARK_MODE")) { // LIGHT THEME
+						self.registration.showNotification("Software Update", {
+							body: "We were updated to provide a better experience.",
+							badge: "favicon/maskable-512x512.png",
+							icon: "favicon/android-chrome-192x192.png",
+							vibrate: [50],
+							tag: "update",
+							data: {
+								url: 'https://ivansojivarghese.github.io/',
+							}
+						});
+					} else { // DARK THEME
+						self.registration.showNotification("Software Update", {
+							body: "We were updated to provide a better experience.",
+							badge: "favicon/maskable-512x512_dark.png",
+							icon: "favicon/android-chrome-192x192_dark.png",
+							vibrate: [50],
+							tag: "update",
+							data: {
+								url: 'https://ivansojivarghese.github.io/',
+							}
+						});
+					}
 
-				// To display a number in the badge
-				navigator.setAppBadge(1);
-				
-			}, 120000);
+					// To display a number in the badge
+					navigator.setAppBadge(1);
+
+				}, 120000);
+			}
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
