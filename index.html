@@ -1077,13 +1077,19 @@
 
                                         if (!this.classList.contains('hide')) {
                                             if (!this.classList.contains('toggleOn')) {
-                                                Notification.requestPermission().then(permission => {
-                                                    if (permission === 'granted') {
-                                                        this.classList.add('toggleOn');
-                                                        localStorage.setItem('notifications', '1');
-                                                        toggles.notifications = 1;
-                                                    }
-                                                });
+                                                if ('Notification' in window) {
+                                                    Notification.requestPermission().then(permission => {
+                                                        if (permission === 'granted') {
+                                                            this.classList.add('toggleOn');
+                                                            localStorage.setItem('notifications', '1');
+                                                            toggles.notifications = 1;
+                                                        }
+                                                    });
+                                                } else {
+                                                    this.classList.add('hide');
+                                                    this.classList.remove('hoverB');
+                                                    this.removeEventListener('mousemove', hoverInit);
+                                                }
 
                                             } else {
                                                 this.classList.remove('toggleOn');
