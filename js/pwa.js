@@ -1722,7 +1722,7 @@ async function fetchPWAInfo() {
         motionSenseToggle.classList.add("toggleOn");
     }
 
-    if (PeriodicSyncManager !== undefined) {
+    if (window.PeriodicSyncManager !== undefined) {
         const prm = await navigator.permissions.query({
             name: 'periodic-background-sync',
         });
