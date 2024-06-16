@@ -307,7 +307,10 @@ async function doSync() {
 
 			self.registration.showNotification("Your content is ready", {
 				body: "Your content is ready to be viewed. View it now?",
-				icon: ""
+				badge: "favicon/android-chrome-192x192.png",
+				icon: "favicon/android-chrome-192x192.png",
+				image: "favicon/android-chrome-192x192.png",
+				vibrate: [50]
 			});
 			
 			// DO A HARD RELOAD
