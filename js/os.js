@@ -204,7 +204,7 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
 
             if ((!op.darkMode || init) /*&& colorStates <= 2 && colorStates !== 0*/) { // if light, change to dark
 
-                caches.open("DARK_MODE");
+                // caches.open("DARK_MODE");
 
                 localStorage.setItem('themeColor', '1');
 
@@ -288,7 +288,7 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                 pwaSec.style.backgroundColor = "";
                 pwaSec.style.color = "";
 
-                caches.delete("DARK_MODE");
+                // caches.delete("DARK_MODE");
 
                 localStorage.setItem('themeColor', '0');
 
