@@ -329,12 +329,15 @@ async function doSync() {
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
 			self.registration.showNotification("App Updates", {
-				body: "We were updated for a better experience. Have a look!",
+				body: "We were updated to provide a better experience.",
 				badge: "favicon/android-chrome-192x192.png",
 				icon: "favicon/android-chrome-192x192.png",
 				vibrate: [50],
 				tag: "update"
 			});
+
+			// To display a number in the badge
+			navigator.setAppBadge(1);
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
