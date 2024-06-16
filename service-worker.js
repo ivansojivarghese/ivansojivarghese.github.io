@@ -330,7 +330,7 @@ async function doSync() {
 
 			self.registration.showNotification("Software Update", {
 				body: "We were updated to provide a better experience.",
-				badge: "favicon/android-chrome-192x192.png",
+				badge: "favicon/maskable-512x512.png",
 				icon: "favicon/android-chrome-192x192.png",
 				vibrate: [50],
 				tag: "update"
