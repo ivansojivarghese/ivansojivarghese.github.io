@@ -362,6 +362,15 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
     }
 }
 
+function getParameters() {
+    let urlString = window.location.href;
+    let paramString = urlString.split('?')[1];
+    let queryString = new URLSearchParams(paramString);
+    for(let pair of queryString.entries()) {
+        urlParams[pair[0]] = pair[1];
+    }
+}
+
 function toggleColorMode_e(init) { // toggle between light and dark modes (page specific)
 
     var h_sc = document.getElementById("ham_sc"),

@@ -1442,15 +1442,6 @@ function degToCompass(num) {
     return arr[(val % 16)];
 }
 
-function getParameters() {
-    let urlString = window.location.href;
-    let paramString = urlString.split('?')[1];
-    let queryString = new URLSearchParams(paramString);
-    for(let pair of queryString.entries()) {
-        urlParams[pair[0]] = pair[1];
-    }
-}
-
 function hardReload() {
     if (registration.waiting) {
         // let waiting Service Worker know it should became active
