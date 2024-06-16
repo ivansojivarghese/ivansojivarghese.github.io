@@ -1892,6 +1892,9 @@ async function fetchPWAInfo() {
                     notificationsToggle.classList.add("hide");
                     notificationsToggle.classList.remove("hoverB");
                     notificationsToggle.removeEventListener("mousemove", hoverInit);
+
+                    localStorage.setItem('notifications', '0');
+                    toggles.notifications = 0;
                 }
             });
         }
