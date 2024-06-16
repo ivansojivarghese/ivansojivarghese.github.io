@@ -284,9 +284,11 @@ self.addEventListener("fetch", (event) => {
 });  */
 
 self.addEventListener("notificationclick", (event) => {
+	event.notification.close();
 	if (event.notification.tag === "update") {
 		//For root applications: just change "'./'" to "'/'"
 		//Very important having the last forward slash on "new URL('./', location)..."
+		/*
 		const rootUrl = new URL('/', location).href; 
 		event.waitUntil(
 			clients.matchAll().then(matchedClients =>
@@ -301,9 +303,15 @@ self.addEventListener("notificationclick", (event) => {
 
 				return clients.openWindow(rootUrl).then(function (client) { client.focus(); });
 			})
-		);
+		);*/
+
+		let clickResponsePromise = Promise.resolve();
+		if (event.notification.data && event.notification.data.url) {
+			clickResponsePromise = clients.openWindow(event.notification.data.url);
+		}
+
+		event.waitUntil(clickResponsePromise);
 	}
-	event.notification.close();
 });
 
 async function doSync() {
@@ -333,7 +341,10 @@ async function doSync() {
 				badge: "favicon/maskable-512x512.png",
 				icon: "favicon/android-chrome-192x192.png",
 				vibrate: [50],
-				tag: "update"
+				tag: "update",
+				data: {
+					url: 'https://ivansojivarghese.github.io/',
+				}
 			});
 
 			// To display a number in the badge
