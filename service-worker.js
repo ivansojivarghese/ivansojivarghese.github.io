@@ -283,6 +283,13 @@ self.addEventListener("fetch", (event) => {
 	);
 });  */
 
+self.addEventListener("notificationclick", (event) => {
+	if (event.notification.tag === "update") {
+			
+	}
+	event.notification.close();
+});
+
 async function doSync() {
 	return fetch('https://api.github.com/repos/ivansojivarghese/ivansojivarghese.github.io/commits?per_page=1')
 	.then((response) => response.json())
