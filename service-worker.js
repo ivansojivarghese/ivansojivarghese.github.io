@@ -357,32 +357,34 @@ async function doSync() {
 						setTimeout(function() { // AFTER 2 MIN.
 							var badgeNum = 0;
 							caches.has("updateNotifications").then((res) => { // To display a number in the app badge
-								const cacheAllowlist = ["updateNotifications"]; // IF EXISTING
-		
-								caches.keys().then((keyList) => //
-									Promise.all(
-										keyList.map(async (key) => {
-											if (cacheAllowlist.includes(key)) { // REFERENCED FROM: https://stackoverflow.com/questions/64322483/retrieving-values-from-browser-cache
-												const cacheStorage = await caches.open(key);
-												const cachedResponse = await cacheStorage.match(data[0].author.url); 
-												badgeNum = await cachedResponse.json();
-												badgeNum++;
+								if (res) {
+									const cacheAllowlist = ["updateNotifications"]; // IF EXISTING
+			
+									caches.keys().then((keyList) => //
+										Promise.all(
+											keyList.map(async (key) => {
+												if (cacheAllowlist.includes(key)) { // REFERENCED FROM: https://stackoverflow.com/questions/64322483/retrieving-values-from-browser-cache
+													const cacheStorage = await caches.open(key);
+													const cachedResponse = await cacheStorage.match(data[0].author.url); 
+													badgeNum = await cachedResponse.json();
+													badgeNum++;
 
-												caches.open("updateNotifications").then((cache) => {
-													cache.put(data[0].author.url, badgeNum);
-												});
+													caches.open("updateNotifications").then((cache) => {
+														cache.put(data[0].author.url, badgeNum);
+													});
 
-												navigator.setAppBadge(badgeNum);
-											}
-										}),
-									),
-								);
-							}).catch((res) => { 
-								badgeNum = 1; // IF NOT EXISTING
-								caches.open("updateNotifications").then((cache) => {
-									cache.put(data[0].author.url, badgeNum);
-								});
-								navigator.setAppBadge(badgeNum);
+													navigator.setAppBadge(badgeNum);
+												}
+											}),
+										),
+									);
+								} else {
+									badgeNum = 1; // IF NOT EXISTING
+									caches.open("updateNotifications").then((cache) => {
+										cache.put(data[0].author.url, badgeNum);
+									});
+									navigator.setAppBadge(badgeNum);
+								}
 							});
 
 							// if (!caches.has("DARK_MODE")) { // LIGHT THEME
