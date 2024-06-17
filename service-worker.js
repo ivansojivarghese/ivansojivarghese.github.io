@@ -368,9 +368,10 @@ async function doSync() {
 													const cachedResponse = await cacheStorage.match(data[0].author.url); 
 													badgeNum = await cachedResponse.json();
 													badgeNum++;
+													data[0].badgeNum = badgeNum;
 
 													caches.open("updateNotifications").then((cache) => {
-														cache.put(data[0].author.url, badgeNum);
+														cache.put(data[0].author.url, data[0].badgeNum);
 													});
 
 													navigator.setAppBadge(badgeNum);
@@ -380,8 +381,9 @@ async function doSync() {
 									);
 								} else {
 									badgeNum = 1; // IF NOT EXISTING
+									data[0].badgeNum = badgeNum;
 									caches.open("updateNotifications").then((cache) => {
-										cache.put(data[0].author.url, badgeNum);
+										cache.put(data[0].author.url, data[0].badgeNum);
 									});
 									navigator.setAppBadge(badgeNum);
 								}
