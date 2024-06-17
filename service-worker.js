@@ -326,7 +326,7 @@ self.addEventListener("notificationclick", (event) => {
 			});
 
 			// clickResponsePromise = clients.openWindow(event.notification.data.url);
-			clickResponsePromise = focus ? client.focus() : clients.openWindow(event.notification.data.url);
+			clickResponsePromise = focus ? client.focus() : clients.openWindow(event.notification.data.url); //
 		}
 
 		event.waitUntil(clickResponsePromise);
