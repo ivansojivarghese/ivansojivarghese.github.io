@@ -321,7 +321,7 @@ self.addEventListener("notificationclick", (event) => {
 						focus = true;
 						break;
 					} else {
-						focus = false;
+						focus = false; //
 					}
 				}
 
