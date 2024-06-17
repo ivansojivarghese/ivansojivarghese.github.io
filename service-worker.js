@@ -304,7 +304,7 @@ self.addEventListener("notificationclick", (event) => {
 				return clients.openWindow(rootUrl).then(function (client) { client.focus(); });
 			})
 		);*/
-
+		/*
 		const rootUrl = new URL('/', location).href; 
 		let clickResponsePromise = Promise.resolve();
 		var focus = true;
@@ -332,7 +332,23 @@ self.addEventListener("notificationclick", (event) => {
 			clickResponsePromise = focus ? client.focus() : clients.openWindow(event.notification.data.url); //
 		}
 
-		event.waitUntil(clickResponsePromise);
+		event.waitUntil(clickResponsePromise);*/
+
+		event.waitUntil(
+			clients.matchAll({ type: "window" }).then((clientsArr) => {
+			  // If a Window tab matching the targeted URL already exists, focus that;
+			  const hadWindowToFocus = clientsArr.some((windowClient) =>
+				windowClient.url === e.notification.data.url
+				  ? (windowClient.focus(), true)
+				  : false,
+			  );
+			  // Otherwise, open a new tab to the applicable URL and focus it.
+			  if (!hadWindowToFocus)
+				clients
+				  .openWindow(e.notification.data.url)
+				  .then((windowClient) => (windowClient ? windowClient.focus() : null));
+			}),
+		);
 	}
 });
 
