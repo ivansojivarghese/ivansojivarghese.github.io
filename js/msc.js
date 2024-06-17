@@ -52,8 +52,8 @@ var wH = window.outerHeight, // height
         sC_a : [], // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
         cH : document.getElementById("control-height"), // dummy element, to check height changes relative to viewport
         uH : document.getElementById("ui-height"), // dummy element, check for URL/interface bar resizing
-        version : "3.11", // site version
-        version_up : "3.12", // version upgrade (if applicable, during maintenance)
+        version : "3.12", // site version
+        version_up : "3.13", // version upgrade (if applicable, during maintenance)
         v : 1, // max view time (days)
         i : 1000, // interface timeout (max.)
         t : 60, // iterations per sec.
