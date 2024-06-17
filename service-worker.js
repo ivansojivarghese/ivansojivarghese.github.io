@@ -336,10 +336,12 @@ async function doSync() {
 
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
+			// SHOW NOTIF. ONLY WHEN APP IS OUT OF VIEW/FOCUS
+
 			if (Notification.permission === "granted") {
 				setTimeout(function() { // AFTER 2 MIN.
 					// if (!caches.has("DARK_MODE")) { // LIGHT THEME
-					self.registration.showNotification("Software Update", {
+					self.registration.showNotification("Software Updated", {
 						body: "We were updated to provide a better experience.",
 						badge: "favicon/maskable-512x512.png",
 						icon: "favicon/android-chrome-192x192.png",
