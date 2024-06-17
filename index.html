@@ -23,6 +23,7 @@
             // (heavy resource) pre-load
 
             var svg = {
+                    upd : false,
                     pln : false,
                     bcy : false,
                     van : false,
@@ -148,7 +149,8 @@
                     javascript : false,
                     jQuery : false,
                     canva : false,
-                    vscode : false
+                    vscode : false,
+                    pwa : false
                 },
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
 
@@ -393,6 +395,7 @@
         <link rel="preload" fetchpriority="low" href="logo_ext/jquery.svg" as="image" type="image/svg+xml" onload="img.jQuery = true;">
         <link rel="preload" fetchpriority="low" href="logo_ext/vscode.svg" as="image" type="image/svg+xml" onload="img.vscode = true;">
         <link rel="preload" fetchpriority="low" href="logo_ext/canva.svg" as="image" type="image/svg+xml" onload="img.canva = true;">
+        <link rel="preload" fetchpriority="low" href="logo_ext/pwa.svg" as="image" type="image/svg+xml" onload="img.pwa = true;">
         <!-- SVGs -->
         <!-- 
         <link rel="preload" fetchpriority="low" href="svg/wifi_off_white.svg" as="image" type="image/svg+xml" onload="svg.w_ow = true;">
@@ -449,6 +452,7 @@
         <link rel="preload" fetchpriority="low" href="svg/run_white.svg" as="image" type="image/svg+xml" onload="svg.run_w = true;">
         <link rel="preload" fetchpriority="low" href="svg/commute.svg" as="image" type="image/svg+xml" onload="svg.commute = true;">
         <link rel="preload" fetchpriority="low" href="svg/commute_white.svg" as="image" type="image/svg+xml" onload="svg.commute_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/update.svg" as="image" type="image/svg+xml" onload="svg.upd = true;">
 
         <!-- 
         <link rel="preload" href="svg/scrolltop.svg" as="image" type="image/svg+xml" onload="svg.sct = true;">

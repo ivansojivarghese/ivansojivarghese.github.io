@@ -342,9 +342,9 @@ async function doSync() {
 				setTimeout(function() { // AFTER 2 MIN.
 					// if (!caches.has("DARK_MODE")) { // LIGHT THEME
 					self.registration.showNotification("Software Updated", {
-						body: "We were updated to provide a better experience.",
-						badge: "favicon/maskable-512x512.png",
-						icon: "favicon/android-chrome-192x192.png",
+						body: "Our updates provide you with a better experience",
+						badge: "",
+						icon: "svg/update.svg",
 						vibrate: [50],
 						tag: "update",
 						data: {
