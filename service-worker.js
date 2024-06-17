@@ -353,18 +353,33 @@ self.addEventListener("notificationclick", (event) => {
 });
 
 async function checkClientIsVisible() { // REFERENCE: https://stackoverflow.com/questions/45150642/check-if-window-is-active-from-service-worker
+	/*
 	const windowClients = await clients.matchAll({
 	  type: "window",
 	  includeUncontrolled: true,
+	});*/
+
+	clients.matchAll({ type: "window" }).then((clientsArr) => {
+		// If a Window tab matching the targeted URL already exists, focus that;
+		const hadWindowToFocus = clientsArr.some((windowClient) =>
+		  windowClient.url.indexOf("https://ivansojivarghese.github.io/") >= 0
+			? true
+			: false,
+		);
+		// Otherwise, open a new tab to the applicable URL and focus it.
+		if (!hadWindowToFocus) {
+			return false;
+		} else {
+			return true;
+		}
 	});
-  
+	/*
 	for (var i = 0; i < windowClients.length; i++) {
 	  if (windowClients[i].visibilityState === "visible") {
 		return true;
 	  }
-	}
-  
-	return false;
+	}*/
+	// return false;
 }
 
 async function doSync() {
