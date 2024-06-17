@@ -359,7 +359,7 @@ async function checkClientIsVisible() { // REFERENCE: https://stackoverflow.com/
 	  includeUncontrolled: true,
 	});*/
 
-	clients.matchAll({ type: "window" }).then((clientsArr) => {
+	await clients.matchAll({ type: "window" }).then((clientsArr) => {
 		// If a Window tab matching the targeted URL already exists, focus that;
 		const hadWindowToFocus = clientsArr.some((windowClient) =>
 		  windowClient.url.indexOf("https://ivansojivarghese.github.io/") >= 0
