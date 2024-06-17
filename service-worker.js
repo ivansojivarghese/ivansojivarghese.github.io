@@ -305,8 +305,23 @@ self.addEventListener("notificationclick", (event) => {
 			})
 		);*/
 
+		const rootUrl = new URL('/', location).href; 
 		let clickResponsePromise = Promise.resolve();
 		if (event.notification.data && event.notification.data.url) {
+
+			clients.matchAll().then(matchedClients =>
+			{
+				for (let client of matchedClients)
+				{
+					if (client.url.indexOf(rootUrl) >= 0)
+					{
+						return client.focus();
+					}
+				}
+
+				// return clients.openWindow(rootUrl).then(function (client) { client.focus(); });
+			});
+
 			clickResponsePromise = clients.openWindow(event.notification.data.url);
 		}
 
