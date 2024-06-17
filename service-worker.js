@@ -338,18 +338,18 @@ async function doSync() {
 
 			if (Notification.permission === "granted") {
 				setTimeout(function() { // AFTER 2 MIN.
-					if (!caches.has("DARK_MODE")) { // LIGHT THEME
-						self.registration.showNotification("Software Update", {
-							body: "We were updated to provide a better experience.",
-							badge: "favicon/maskable-512x512.png",
-							icon: "favicon/android-chrome-192x192.png",
-							vibrate: [50],
-							tag: "update",
-							data: {
-								url: 'https://ivansojivarghese.github.io/',
-							}
-						});
-					} else { // DARK THEME
+					// if (!caches.has("DARK_MODE")) { // LIGHT THEME
+					self.registration.showNotification("Software Update", {
+						body: "We were updated to provide a better experience.",
+						badge: "favicon/maskable-512x512.png",
+						icon: "favicon/android-chrome-192x192.png",
+						vibrate: [50],
+						tag: "update",
+						data: {
+							url: 'https://ivansojivarghese.github.io/',
+						}
+					});
+					/*} else { // DARK THEME
 						self.registration.showNotification("Software Update", {
 							body: "We were updated to provide a better experience.",
 							badge: "favicon/maskable-512x512_dark.png",
@@ -360,7 +360,7 @@ async function doSync() {
 								url: 'https://ivansojivarghese.github.io/',
 							}
 						});
-					}
+					}*/
 
 					// TODO
 					// - USE CACHE VARIABLE TO KEEP TRACK OF NEW (UPDATE MOTIFS) IS USER HAS NOT VISITED THEM
