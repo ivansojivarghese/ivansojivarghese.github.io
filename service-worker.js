@@ -348,7 +348,7 @@ async function doSync() {
 						data: {
 							url: 'https://ivansojivarghese.github.io/',
 						}
-					});
+					}); //
 					/*} else { // DARK THEME
 						self.registration.showNotification("Software Update", {
 							body: "We were updated to provide a better experience.",
