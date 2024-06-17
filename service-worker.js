@@ -355,7 +355,8 @@ async function doSync() {
 				if (!res) {
 					if (Notification.permission === "granted") {
 						setTimeout(function() { // AFTER 2 MIN.
-							var badgeNum = 0;
+							// var badgeNum = 0;
+							/*
 							caches.has("updateNotifications").then((res) => { // To display a number in the app badge
 								if (res) {
 									const cacheAllowlist = ["updateNotifications"]; // IF EXISTING
@@ -387,7 +388,7 @@ async function doSync() {
 									});
 									navigator.setAppBadge(badgeNum);
 								}
-							});
+							});*/
 
 							// if (!caches.has("DARK_MODE")) { // LIGHT THEME
 							self.registration.showNotification("Software updated", {
