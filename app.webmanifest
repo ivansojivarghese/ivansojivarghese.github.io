@@ -48,7 +48,7 @@
             "color_scheme": "light"
         },
         {
-            "src": "favicon/monochrome-512x512.png",
+            "src": "favicon/monochrome-512x512_background.png",
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "monochrome"

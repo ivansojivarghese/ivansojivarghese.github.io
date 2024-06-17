@@ -341,9 +341,9 @@ async function doSync() {
 			if (Notification.permission === "granted") {
 				setTimeout(function() { // AFTER 2 MIN.
 					// if (!caches.has("DARK_MODE")) { // LIGHT THEME
-					self.registration.showNotification("Software Updated", {
+					self.registration.showNotification("Software updated", {
 						body: "Our updates provide you with a better experience",
-						badge: "favicon/monochrome-512x512_background.png",
+						badge: "favicon/monochrome-96x96_background.png",
 						icon: "svg/update.svg",
 						vibrate: [50],
 						tag: "update",
