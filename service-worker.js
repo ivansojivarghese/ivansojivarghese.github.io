@@ -366,7 +366,7 @@ async function doSync() {
 						
 							const cacheAllowlist = ["updateNotifications"]; // IF EXISTING
 	
-							caches.keys().then((keyList) =>
+							caches.keys().then((keyList) => //
 								Promise.all(
 									keyList.map(async (key) => {
 										if (cacheAllowlist.includes(key)) { // REFERENCED FROM: https://stackoverflow.com/questions/64322483/retrieving-values-from-browser-cache
