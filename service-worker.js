@@ -307,7 +307,7 @@ self.addEventListener("notificationclick", (event) => {
 
 		const rootUrl = new URL('/', location).href; 
 		let clickResponsePromise = Promise.resolve();
-		if (event.notification.data && event.notification.data.url) {
+		if (event.notification.data && event.notification.data.url) { //
 
 			clients.matchAll().then(matchedClients =>
 			{
