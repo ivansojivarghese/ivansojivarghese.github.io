@@ -387,7 +387,7 @@ async function doSync() {
 	.then((response) => response.json())
 	.then(async (data) => { //
 		var utc = data[0].commit.author.date;
-		var utcUpdated = await caches.has(utc);
+		var utcUpdated = await caches.has(utc); //
 
 		if (!utcUpdated) { // IF NOT EQUAL
 			const cachesToKeep = ["offline", "core", "images", "pages"]; // KEEP THE REQUIRED CACHES WHERE NEEDED
