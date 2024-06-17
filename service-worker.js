@@ -351,67 +351,66 @@ async function doSync() {
 
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
-			if (!checkClientIsVisible()) { // SHOW NOTIF. ONLY WHEN APP IS OUT OF VIEW/FOCUS
-				if (Notification.permission === "granted") {
-					setTimeout(function() { // AFTER 2 MIN.
+			checkClientIsVisible().then((res) => { // SHOW NOTIF. ONLY WHEN APP IS OUT OF VIEW/FOCUS
+				if (!res) {
+					if (Notification.permission === "granted") {
+						setTimeout(function() { // AFTER 2 MIN.
+							var badgeNum = 0;
+							caches.has("updateNotifications").then((res) => { // To display a number in the app badge
+								const cacheAllowlist = ["updateNotifications"]; // IF EXISTING
+		
+								caches.keys().then((keyList) => //
+									Promise.all(
+										keyList.map(async (key) => {
+											if (cacheAllowlist.includes(key)) { // REFERENCED FROM: https://stackoverflow.com/questions/64322483/retrieving-values-from-browser-cache
+												const cacheStorage = await caches.open(key);
+												const cachedResponse = await cacheStorage.match(data[0].author.url); 
+												badgeNum = await cachedResponse.json();
+												badgeNum++;
 
-						var badgeNum = 0;
-						if (!caches.has("updateNotifications")) { // To display a number in the app badge
-							badgeNum = 1;
-							caches.open("updateNotifications").then((cache) => {
-								cache.put(data[0].author.url, badgeNum);
+												caches.open("updateNotifications").then((cache) => {
+													cache.put(data[0].author.url, badgeNum);
+												});
+
+												navigator.setAppBadge(badgeNum);
+											}
+										}),
+									),
+								);
+							}).catch((res) => { 
+								badgeNum = 1; // IF NOT EXISTING
+								caches.open("updateNotifications").then((cache) => {
+									cache.put(data[0].author.url, badgeNum);
+								});
+								navigator.setAppBadge(badgeNum);
 							});
-							navigator.setAppBadge(badgeNum);
-						} else { 
-						
-							const cacheAllowlist = ["updateNotifications"]; // IF EXISTING
-	
-							caches.keys().then((keyList) => //
-								Promise.all(
-									keyList.map(async (key) => {
-										if (cacheAllowlist.includes(key)) { // REFERENCED FROM: https://stackoverflow.com/questions/64322483/retrieving-values-from-browser-cache
-											const cacheStorage = await caches.open(key);
-											const cachedResponse = await cacheStorage.match(data[0].author.url); 
-											badgeNum = await cachedResponse.json();
-											badgeNum++;
 
-											caches.open("updateNotifications").then((cache) => {
-												cache.put(data[0].author.url, badgeNum);
-											});
-
-											navigator.setAppBadge(badgeNum);
-										}
-									}),
-								),
-							);
-	
-						}
-
-						// if (!caches.has("DARK_MODE")) { // LIGHT THEME
-						self.registration.showNotification("Software updated", {
-							body: "Our updates provide you with a better experience",
-							badge: "favicon/monochrome-96x96_background.png",
-							icon: "svg/update.svg",
-							vibrate: [50],
-							tag: "update",
-							data: {
-								url: 'https://ivansojivarghese.github.io/',
-							}
-						}); //
-						/*} else { // DARK THEME
-							self.registration.showNotification("Software Update", {
-								body: "We were updated to provide a better experience.",
-								badge: "favicon/maskable-512x512_dark.png",
-								icon: "favicon/android-chrome-192x192_dark.png",
+							// if (!caches.has("DARK_MODE")) { // LIGHT THEME
+							self.registration.showNotification("Software updated", {
+								body: "Our updates provide you with a better experience",
+								badge: "favicon/monochrome-96x96_background.png",
+								icon: "svg/update.svg",
 								vibrate: [50],
 								tag: "update",
 								data: {
 									url: 'https://ivansojivarghese.github.io/',
 								}
-							});
-						}*/
+							}); //
+							/*} else { // DARK THEME
+								self.registration.showNotification("Software Update", {
+									body: "We were updated to provide a better experience.",
+									badge: "favicon/maskable-512x512_dark.png",
+									icon: "favicon/android-chrome-192x192_dark.png",
+									vibrate: [50],
+									tag: "update",
+									data: {
+										url: 'https://ivansojivarghese.github.io/',
+									}
+								});
+							}*/
 
-					}, 120000);
+						}, 120000);
+					}
 				}
 			}
 			
