@@ -322,7 +322,7 @@ async function doSync() {
 		var utcUpdated = await caches.has(utc);
 
 		if (!utcUpdated) { // IF NOT EQUAL
-			const cachesToKeep = ["offline", "core", "images", "pages", "DARK_MODE"]; // KEEP THE REQUIRED CACHES WHERE NEEDED
+			const cachesToKeep = ["offline", "core", "images", "pages"]; // KEEP THE REQUIRED CACHES WHERE NEEDED
 			caches.keys().then((keyList) => 
 				Promise.all(
 					keyList.map((key) => {
