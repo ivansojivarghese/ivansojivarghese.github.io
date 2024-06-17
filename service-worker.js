@@ -307,6 +307,8 @@ self.addEventListener("notificationclick", (event) => {
 
 		const rootUrl = new URL('/', location).href; 
 		let clickResponsePromise = Promise.resolve();
+		var focus;
+
 		if (event.notification.data && event.notification.data.url) { //
 
 			clients.matchAll().then(matchedClients =>
@@ -315,14 +317,16 @@ self.addEventListener("notificationclick", (event) => {
 				{
 					if (client.url.indexOf(rootUrl) >= 0)
 					{
-						return client.focus();
+						// return client.focus();
+						focus = true;
 					}
 				}
 
 				// return clients.openWindow(rootUrl).then(function (client) { client.focus(); });
 			});
 
-			clickResponsePromise = clients.openWindow(event.notification.data.url);
+			// clickResponsePromise = clients.openWindow(event.notification.data.url);
+			clickResponsePromise = focus ? client.focus() : clients.openWindow(event.notification.data.url);
 		}
 
 		event.waitUntil(clickResponsePromise);
