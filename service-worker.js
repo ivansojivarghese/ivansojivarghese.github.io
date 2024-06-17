@@ -362,17 +362,24 @@ async function doSync() {
 								cache.put(data[0].author.url, badgeNum);
 							});
 							navigator.setAppBadge(badgeNum);
-						} else {
+						} else { 
 						
-							const cacheAllowlist = ["updateNotifications"];
+							const cacheAllowlist = ["updateNotifications"]; // IF EXISTING
 	
 							caches.keys().then((keyList) =>
 								Promise.all(
 									keyList.map(async (key) => {
-										if (cacheAllowlist.includes(key)) {
+										if (cacheAllowlist.includes(key)) { // REFERENCED FROM: https://stackoverflow.com/questions/64322483/retrieving-values-from-browser-cache
 											const cacheStorage = await caches.open(key);
 											const cachedResponse = await cacheStorage.match(data[0].author.url); 
 											badgeNum = await cachedResponse.json();
+											badgeNum++;
+
+											caches.open("updateNotifications").then((cache) => {
+												cache.put(data[0].author.url, badgeNum);
+											});
+
+											navigator.setAppBadge(badgeNum);
 										}
 									}),
 								),
