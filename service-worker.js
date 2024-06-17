@@ -307,7 +307,7 @@ self.addEventListener("notificationclick", (event) => {
 
 		const rootUrl = new URL('/', location).href; 
 		let clickResponsePromise = Promise.resolve();
-		var focus;
+		var focus = true;
 
 		if (event.notification.data && event.notification.data.url) { //
 
@@ -319,6 +319,9 @@ self.addEventListener("notificationclick", (event) => {
 					{
 						// return client.focus();
 						focus = true;
+						break;
+					} else {
+						focus = false;
 					}
 				}
 
