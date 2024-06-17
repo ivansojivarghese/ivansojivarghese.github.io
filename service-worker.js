@@ -431,7 +431,7 @@ async function doSync() {
 							// if (!caches.has("DARK_MODE")) { // LIGHT THEME
 							self.registration.showNotification("Software updated", {
 								body: "Our updates provide you with a better experience",
-								badge: "favicon/monochrome-512x512_foreground.png",
+								badge: "favicon/monochrome-323x323_foreground.png",
 								icon: "svg/update.svg",
 								vibrate: [50],
 								tag: "update",
