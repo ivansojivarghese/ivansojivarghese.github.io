@@ -338,7 +338,7 @@ self.addEventListener("notificationclick", (event) => {
 			clients.matchAll({ type: "window" }).then((clientsArr) => {
 			  // If a Window tab matching the targeted URL already exists, focus that;
 			  const hadWindowToFocus = clientsArr.some((windowClient) =>
-				windowClient.url === event.notification.data.url
+				windowClient.url.indexOf(event.notification.data.url) >= 0
 				  ? (windowClient.focus(), true)
 				  : false,
 			  );
