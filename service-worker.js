@@ -369,8 +369,6 @@ async function checkClientIsVisible() { // REFERENCE: https://stackoverflow.com/
 		// Otherwise, open a new tab to the applicable URL and focus it.
 		if (!hadWindowToFocus) {
 			return false;
-		} else {
-			return true;
 		}
 	});
 	/*
@@ -380,6 +378,8 @@ async function checkClientIsVisible() { // REFERENCE: https://stackoverflow.com/
 	  }
 	}*/
 	// return false;
+
+	return true;
 }
 
 async function doSync() {
