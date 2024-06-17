@@ -412,7 +412,7 @@ async function doSync() {
 						}, 120000);
 					}
 				}
-			}
+			});
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
