@@ -10,7 +10,38 @@
    "orientation" : "natural",
    "categories" : ["developer", "developer tools", "development", "education", "books & reference", "design", "lifestyle", "personalization", "photo", "photo & video", "multimedia", "multimedia design", "network", "networking", "productivity", "reference"],
    "description" : "An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!",
-   "screenshots" : [],
+   "screenshots" : [
+        {
+            "src": "PWA_screenshots_mobile/1.jpg",
+            "sizes": "1080x1920",
+            "type": "image/jpg",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "PWA_screenshots_mobile/2.jpg",
+            "sizes": "1080x1920",
+            "type": "image/jpg",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "PWA_screenshots_mobile/3.jpg",
+            "sizes": "1080x1920",
+            "type": "image/jpg",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "PWA_screenshots_mobile/4.jpg",
+            "sizes": "1080x1920",
+            "type": "image/jpg",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "PWA_screenshots_mobile/5.jpg",
+            "sizes": "1080x1920",
+            "type": "image/jpg",
+            "form_factor": "narrow"
+        }
+   ],
    "iarc_rating_id" : "",
    "launch_handler": {
         "client_mode": "navigate-existing"
