@@ -2310,9 +2310,10 @@ function openPopUp(target) {
         if (target === 'deviceInfo') {
             if (updateAvailable) {
                 var infoIcons = document.querySelectorAll('.deviceInfoIcon');
+                /*
                 for (i = 0; i < infoIcons.length; i++) {
                     infoIcons[i].classList.remove("alert");
-                }
+                }*/
             }
         }
         popups.classList.add("lvh");
