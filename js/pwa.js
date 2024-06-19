@@ -3365,6 +3365,8 @@ function pwaRead() {
             } else if (devError) {
                 document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>Close<br>Developer<br>Tools.</h1>");
                 rL.s = true; // page loaded
+
+                clearInterval(pwa_Ld); // stop loading scripts
                 
                 window.stop(); // stop all network resource(s) fetching
                 clearInterval(_Ld); // stop loading process
