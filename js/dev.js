@@ -1,5 +1,5 @@
 
-var developer = false, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
+var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER PURPOSE ONLY! - ACTIVATE WHEN NEEDED (or OFFLINE)
     keyStatus = {}, // keys down/up status
     disabledEvent, // function declaration (global)
     checkDevTools, // function, check for devTools presence (global)
@@ -223,20 +223,9 @@ if (!developer && localStorage.getItem("devtools") === null) { // anti-debugging
             }
         }
     });
-} else if (developer && localStorage.getItem("devtools") === null) {
+} /*else if (developer && localStorage.getItem("devtools") === null) {
     document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>We are under maintenance.</h1>");
     devForm = false;
 
     window.stop();
-
-    /*
-    rL.s = true; // page loaded
-    clearInterval(pwa_Ld); // stop loading scripts
-    
-    window.stop(); // stop all network resource(s) fetching
-    clearInterval(_Ld); // stop loading process
-    clearInterval(op.ne.L); // clear network check loop
-
-    checkOnlineStatus_abort.abort(); // abort any existing fetching
-    estimateNetworkSpeed_abort.abort();*/
-}
+}*/
