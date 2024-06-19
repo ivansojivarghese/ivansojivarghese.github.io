@@ -20,7 +20,7 @@ var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER P
 // https://blog.allenchou.cc/post/js-anti-debugging/
 
 
-if ((!developer && localStorage.getItem("devtools") === null) || localStorage.getItem("devtools") === "true") { // anti-debugging features
+if ((!developer && localStorage.getItem("devtools") === null)) { // anti-debugging features
     checkDevTools = function() {
         if (!devErrorAlert) {
             console.log(Object.defineProperties(new Error, { // check if DevTools are open
