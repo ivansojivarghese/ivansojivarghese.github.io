@@ -10,6 +10,7 @@ var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER P
     devError = false,
     devErrorMessage = false,
     devErrorAlert = false,
+    devForm = true,
     timeout = 20000; // default timeout (.ms)
 
 
@@ -234,4 +235,6 @@ if (!developer && localStorage.getItem("devtools") === null) { // anti-debugging
 
     checkOnlineStatus_abort.abort(); // abort any existing fetching
     estimateNetworkSpeed_abort.abort();
+
+    devForm = false;
 }

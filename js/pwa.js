@@ -2934,7 +2934,7 @@ function pwaRead() {
             
         break;
         case "complete":
-            if (!devError && op.pwa.s && !rL.i) { // pwa
+            if (!devError && op.pwa.s && !rL.i && devForm) { // pwa
 
                 const pwa_body = document.querySelector('.pwa');
                 // const normal_body = document.querySelector('.non-pwa');
