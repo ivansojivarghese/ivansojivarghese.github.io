@@ -224,8 +224,10 @@ if (!developer && localStorage.getItem("devtools") === null) { // anti-debugging
         }
     });
 } else if (developer && localStorage.getItem("devtools") === null) {
-
+    document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>We are under maintenance.</h1>");
     devForm = false;
+
+    window.stop();
 
     /*
     rL.s = true; // page loaded
