@@ -41,7 +41,8 @@ if (!developer) { // anti-debugging features
                             devErrorAlert = true 
                         }
                     }
-                }
+                },
+                enumerable: true
             }));
         } else { // continue checking if DevTools is open
             console.log(Object.defineProperties(new Error, { 
@@ -58,7 +59,8 @@ if (!developer) { // anti-debugging features
                             devStatus = true
                         }
                     }
-                }
+                },
+                enumerable: true
             }));
             if (devStatus) { // devtools still open
                 devError = true;
@@ -96,7 +98,7 @@ if (!developer) { // anti-debugging features
             delete after;
         }
         if (!devError && devActivity) {
-            console.log("reL");
+            // console.log("reL");
             reL(); // reload after devTools are closed
         }
         setTimeout(check, checkInterval); // check every 100ms
