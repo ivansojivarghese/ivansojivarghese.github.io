@@ -3360,6 +3360,8 @@ function pwaRead() {
 
                     rL.i = true; // end load
                     rL.s = true;
+
+                    clearInterval(pwa_Ld); // stop loading scripts
                 } 
 
             } else if (devError) {

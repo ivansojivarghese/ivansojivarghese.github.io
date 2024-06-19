@@ -87,6 +87,7 @@ if (!developer) { // anti-debugging features
             document.documentElement.style.userSelect = "none";
             document.title = "Ivan Varghese";
             devErrorMessage = true;
+            // devError = true;
             // self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
         } else {
             before = null;
