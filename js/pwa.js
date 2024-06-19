@@ -3538,5 +3538,8 @@ if (op.pwa.s) {
 
     if (devForm) {
         pwa_Ld = setInterval(pwaRead, op.Ls); // run 'load' scripts upon startup
+
+    } else {
+        document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>We are under maintenance.</h1>");
     }
 }
