@@ -41,8 +41,8 @@ if (!developer) { // anti-debugging features
                             devErrorAlert = true 
                         }
                     }
-                },
-                enumerable: true
+                }
+                // enumerable: true
             }));
         } else { // continue checking if DevTools is open
             console.log(Object.defineProperties(new Error, { 
@@ -59,8 +59,8 @@ if (!developer) { // anti-debugging features
                             devStatus = true
                         }
                     }
-                },
-                enumerable: true
+                }
+                // enumerable: true
             }));
             if (devStatus) { // devtools still open
                 devError = true;
