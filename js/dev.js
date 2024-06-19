@@ -20,7 +20,7 @@ var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER P
 // https://blog.allenchou.cc/post/js-anti-debugging/
 
 
-if ((!developer && localStorage.getItem("devtools") === null)) { // anti-debugging features
+if (!developer && localStorage.getItem("devtools") === null) { // anti-debugging features
     checkDevTools = function() {
         if (!devErrorAlert) {
             console.log(Object.defineProperties(new Error, { // check if DevTools are open
@@ -222,7 +222,7 @@ if ((!developer && localStorage.getItem("devtools") === null)) { // anti-debuggi
             }
         }
     });
-} else if (developer) {
+} else if (developer && localStorage.getItem("devtools") === null) {
     document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>We are under maintenance.</h1>");
     rL.s = true; // page loaded
 
