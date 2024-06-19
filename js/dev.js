@@ -71,14 +71,6 @@ if (!developer) { // anti-debugging features
             }
         }
 
-        const element = new Image();
-        Object.defineProperty(element, 'id', {
-        get: function () {
-            alert("wow");
-        }
-        });
-        console.log('%c', element);
-
         setTimeout(checkDevTools, checkInterval); // check at intervals
     }
 
