@@ -3536,5 +3536,7 @@ if (op.pwa.s) {
         }
     }
 
-    pwa_Ld = setInterval(pwaRead, op.Ls); // run 'load' scripts upon startup
+    if (devForm) {
+        pwa_Ld = setInterval(pwaRead, op.Ls); // run 'load' scripts upon startup
+    }
 }

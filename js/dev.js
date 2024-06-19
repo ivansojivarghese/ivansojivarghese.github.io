@@ -227,7 +227,6 @@ if (!developer && localStorage.getItem("devtools") === null) { // anti-debugging
     document.write("<h1 style='width: auto; font-size: 3rem; font-family: sans-serif; margin: 1em; line-height: 1.3em;'>We are under maintenance.</h1>");
     devForm = false;
 
-    
     /*
     rL.s = true; // page loaded
     clearInterval(pwa_Ld); // stop loading scripts
