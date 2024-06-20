@@ -2260,7 +2260,7 @@
             if ("serviceWorker" in navigator) { // register a service worker
                 // var sw = navigator.serviceWorker.register("service-worker.js");
                 var sw = new Worker("service-worker.js");
-                navigator.serviceWorker.register("service-worker.js");
+                navigator.serviceWorker.register("service-worker.js", { scope: "/" });
             }
         </script>
         <!-- scrollbar (desktop) -->
