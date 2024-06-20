@@ -404,8 +404,8 @@ async function doSync() {
 
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
-			checkClientIsVisible().then((res) => { // SHOW NOTIF. ONLY WHEN APP IS OUT OF VIEW/FOCUS
-				if (!res) {
+			// checkClientIsVisible().then((res) => { // SHOW NOTIF. ONLY WHEN APP IS OUT OF VIEW/FOCUS
+				// if (!res) {
 					if (Notification.permission === "granted") {
 						setTimeout(function() { // AFTER 2 MIN.
 							// var badgeNum = 0;
@@ -469,8 +469,8 @@ async function doSync() {
 
 						}, 120000);
 					}
-				}
-			}); //
+				// }
+			// });
 			
 			// DO A HARD RELOAD
 			// REFERENCED FROM @Suhan, https://stackoverflow.com/questions/10719505/force-a-reload-of-page-in-chrome-using-javascript-no-cache
