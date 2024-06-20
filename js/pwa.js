@@ -2992,6 +2992,7 @@ function pwaRead() {
                 countryAPI("");
                 // countryAPI("216.73.163.219"); // FOR TESTING
                 githubCommitsres.val = getGhCommits();
+                /*
                 setTimeout(function() {
                     client_L = setInterval(function() {
                         if ((clientAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
@@ -3155,54 +3156,7 @@ function pwaRead() {
                                             }
 
                                             ///////////////////////////////////
-                                            /*
-                                            pwa_body.classList.remove("d_n");
-                                                fetchPWAInfo();
-                                                setTimeout(function() {
-
-                                                    rL.r_s = false;
-                                                    rL.el = document.getElementById("load_sc"), 
-                                                    rL.r = document.getElementById("loadR"); // loading rings (container)
-                                                    rL.p = document.getElementById("loadR-p"); // loading ring (primary)
-                                                    rL.d = document.getElementById("loadR-e"); // loading ring (end)
-                                                    rL.c = document.getElementById("loadR-s"); // loading ring (secondary)
-
-                                                    // rL.p.removeEventListener("animationiteration", load_e);
-                                                    rL.p.addEventListener("animationiteration", function() {
-                                                        if (rL.r_s) {
-                                                            rL.d.style.animationName = "loadR_end"; // set ending animation detail
-                                                        }
-                                                    });
-
-                                                    setTimeout(function() {
-                                                        rL.r_s = true;
-
-                                                        // rL.el.classList.add("z_O");
-
-                                                        //rL.r.classList.add("aniM-p"); // stop animation in the rings
-                                                        //rL.p.classList.add("aniM-p");
-                                                        //rL.c.classList.add("aniM-p");
-
-                                                        setTimeout(function() {
-                                                            e_Fd(loader, true);
-
-                                                            setTimeout(function() {
-                                                                loader.classList.add("d_n");
-                                                            }, op.t);
-                                                            
-                                                            resetRefresh();
-                                                            pwa_Load = true;
-
-                                                            e_Fd(pwa_body, false);
-                                                            startLoadPWA();
-        
-                                                            clearInterval(pwa_Ld);
-                                                        }, op.t);
-    
-                                                    }, op.te);
-                                                    
-                                                }, 10);
-                                                */
+                                            
                                             ////////////////
                                             
                                             if (navigator.onLine) {
@@ -3349,7 +3303,7 @@ function pwaRead() {
                         }
                     }, op.t);
                 }, op.t);
-
+                */
                 if (!loadTimes.slow) {
                     // normal_body.classList.add("d_n");
                     // document.title = "Ivan Varghese";
