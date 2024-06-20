@@ -2988,11 +2988,11 @@ function pwaRead() {
 
                 ///////
 
-                // clientAPI();
-                // countryAPI("");
+                clientAPI();
+                countryAPI("");
                 // countryAPI("216.73.163.219"); // FOR TESTING
-                // githubCommitsres.val = getGhCommits();
-                /*
+                githubCommitsres.val = getGhCommits();
+                
                 setTimeout(function() {
                     client_L = setInterval(function() {
                         if ((clientAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
@@ -3303,7 +3303,7 @@ function pwaRead() {
                         }
                     }, op.t);
                 }, op.t);
-                */
+                
                 if (!loadTimes.slow) {
                     // normal_body.classList.add("d_n");
                     // document.title = "Ivan Varghese";
