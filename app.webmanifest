@@ -61,22 +61,19 @@
            "src": "favicon/android-chrome-192x192.png",
            "type": "image/png",
            "sizes": "192x192",
-           "purpose": "any",
-           "color_scheme": "light"
+           "purpose": "any"
        },
        {
            "src": "favicon/android-chrome-512x512.png",
            "type": "image/png",
            "sizes": "512x512",
-           "purpose": "any",
-           "color_scheme": "light"
+           "purpose": "any"
        },
         {
             "src": "favicon/maskable-512x512.png",
             "type": "image/png",
             "sizes": "512x512",
-            "purpose": "maskable",
-            "color_scheme": "light"
+            "purpose": "maskable"
         },
         {
             "src": "favicon/monochrome-512x512_background.png",
@@ -142,8 +139,10 @@
         "platform": "webapp",
         "url": "https://ivansojivarghese.github.io/app.webmanifest"
    }],
-   "display": "standalone",
+   "display": "window-controls-overlay",
    "display_override": [
+    "window-controls-overlay",
+    "fullscreen",
     "standalone",
     "minimal-ui",
     "browser"

@@ -921,7 +921,7 @@ function applyManifest() {
 
     if (op.sys === "Android") {
 
-        m.setAttribute("href", "app.webmanifest");
+        // m.setAttribute("href", "app.webmanifest");
 
     } else if (op.sys === "iOS") {
 
@@ -929,7 +929,7 @@ function applyManifest() {
 
     } else if (op.sys === "Windows") { // if windows
 
-        m.setAttribute("href", "app_windows.webmanifest");
+        // m.setAttribute("href", "app_windows.webmanifest");
 
         cfg.setAttribute("content", "browserconfig.xml");
         tCol.setAttribute("content", "#303030");
