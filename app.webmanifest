@@ -139,7 +139,7 @@
         "platform": "webapp",
         "url": "https://ivansojivarghese.github.io/app.webmanifest"
    }],
-   "display": "window-controls-overlay",
+   "display": "fullscreen",
    "display_override": [
     "window-controls-overlay",
     "fullscreen",
