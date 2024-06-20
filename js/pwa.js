@@ -2988,8 +2988,8 @@ function pwaRead() {
 
                 ///////
 
-                clientAPI();
-                countryAPI("");
+                // clientAPI();
+                // countryAPI("");
                 // countryAPI("216.73.163.219"); // FOR TESTING
                 // githubCommitsres.val = getGhCommits();
                 /*
