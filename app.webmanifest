@@ -40,6 +40,18 @@
             "sizes": "1080x1920",
             "type": "image/jpg",
             "form_factor": "narrow"
+        },
+        {
+            "src": "PWA_screenshots_desktop/1.png",
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "PWA_screenshots_desktop/2.png",
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "form_factor": "wide"
         }
    ],
    "iarc_rating_id" : "",
