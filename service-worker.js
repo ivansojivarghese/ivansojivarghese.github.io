@@ -447,7 +447,7 @@ async function doSync() {
 							self.registration.showNotification("Software updated", {
 								body: "Our updates provide you with a better experience",
 								badge: "favicon/monochrome-409x409_foreground.png",
-								image: "logo/logo_og.png",
+								image: "logo/logo_notify.png",
 								icon: "svg/update.svg",
 								tag: "update",
 								data: {
