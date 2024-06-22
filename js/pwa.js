@@ -393,7 +393,7 @@ function navButtonActive(b, e, v) {
                 target.children[0].style.backgroundImage = "url('../pwa/" + b + "_active_dark.png')";
             }
 
-            if (!v && !target.classList.contains("buttonActive")) {
+            if (!v && !target.classList.contains("buttonActive") && window.navigator.vibrate) {
                 navigator.vibrate(50); // vibrate
             }
 
