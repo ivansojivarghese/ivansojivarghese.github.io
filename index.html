@@ -689,6 +689,20 @@
 
         </script>
 
+        <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+        <script>
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        OneSignalDeferred.push(async function(OneSignal) {
+            await OneSignal.init({
+            appId: "38ef3aba-8681-4fa8-9ba7-a6c46ffcad53",
+            safari_web_id: "web.onesignal.auto.0908e376-c893-48cd-92f7-007572df5c49",
+            notifyButton: {
+                enable: true,
+            },
+            });
+        });
+        </script>
+
         <!-- Advertising - Google Adsense 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2266437936984562" crossorigin="anonymous"></script> -->
 
