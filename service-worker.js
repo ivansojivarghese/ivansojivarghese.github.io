@@ -447,8 +447,8 @@ async function doSync() {
 							self.registration.showNotification("Software updated", {
 								body: "Our updates provide you with a better experience",
 								badge: "favicon/monochrome-409x409_foreground.png",
+								image: "logo/logo_og.png",
 								icon: "svg/update.svg",
-								vibrate: [50],
 								tag: "update",
 								data: {
 									url: 'https://ivansojivarghese.github.io/',
