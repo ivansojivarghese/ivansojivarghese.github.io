@@ -15,7 +15,7 @@ async function run() {
   console.log('Registered service worker');*/
 
   console.log('Registering push');
-  const subscription = await registration.pushManager.
+  const subscription = await sw.pushManager.
     subscribe({
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
