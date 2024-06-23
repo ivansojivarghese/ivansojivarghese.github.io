@@ -1093,7 +1093,8 @@
                                                             navigator.serviceWorker.ready.then(function(registration) {
                                                                 registration.pushManager.subscribe({
                                                                     userVisibleOnly: true,
-                                                                    applicationServerKey: urlBase64ToUint8Array('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6ImNoYW5uZWxfeGlkIiwiZ3JvdXBfeGlkIjoicTJ4NF9sMTlkX250dzQiLCJjaGFubmVsX3hpZCI6ImFyN2Z0M2MzeXM5OCJ9.4u_bM2A5poaqRjk6MIwMWRZExJk0_5ePpy5D9Yjfh2w')
+                                                                    // applicationServerKey: urlBase64ToUint8Array('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6ImNoYW5uZWxfeGlkIiwiZ3JvdXBfeGlkIjoicTJ4NF9sMTlkX250dzQiLCJjaGFubmVsX3hpZCI6ImFyN2Z0M2MzeXM5OCJ9.4u_bM2A5poaqRjk6MIwMWRZExJk0_5ePpy5D9Yjfh2w')
+                                                                    applicationServerKey: urlBase64ToUint8Array('AR7FT3C3YS98')
                                                                 })
                                                                 .then(function(subscription) {
                                                                     console.log('Subscribed for push:', subscription.endpoint);
