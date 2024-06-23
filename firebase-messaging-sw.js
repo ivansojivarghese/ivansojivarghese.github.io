@@ -39,7 +39,9 @@ if (messaging) {
     const notificationOptions = { 
       body: payload.notification.body,
       tag: notificationTitle, // tag is added to ovverride the notification with latest update
-      icon: payload.notification?.image || data.image,
+      image: payload.notification?.image || data.image,
+      icon: "svg/update.svg",
+      badge: "favicon/monochrome-409x409_foreground.png",
       data: {
         url: payload?.data?.openUrl,// This should contain the URL you want to open
       },
