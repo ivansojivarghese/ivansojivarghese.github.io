@@ -401,7 +401,7 @@ async function doSync() {
 				),
 			);
 			caches.open(utc); // ADD NEW UTC
-
+			// 
 			updateCachedContent(); // PERFORM CACHE UPDATE
 
 			// checkClientIsVisible().then((res) => { // SHOW NOTIF. ONLY WHEN APP IS OUT OF VIEW/FOCUS
