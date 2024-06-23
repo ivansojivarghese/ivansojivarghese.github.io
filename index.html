@@ -1089,6 +1089,19 @@
                                                             this.classList.add('toggleOn');
                                                             localStorage.setItem('notifications', '1');
                                                             toggles.notifications = 1;
+
+                                                            navigator.serviceWorker.ready.then(function(registration) {
+                                                                registration.pushManager.subscribe({
+                                                                    userVisibleOnly: true,
+                                                                    applicationServerKey: urlBase64ToUint8Array('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6ImNoYW5uZWxfeGlkIiwiZ3JvdXBfeGlkIjoicTJ4NF9sMTlkX250dzQiLCJjaGFubmVsX3hpZCI6ImFyN2Z0M2MzeXM5OCJ9.4u_bM2A5poaqRjk6MIwMWRZExJk0_5ePpy5D9Yjfh2w')
+                                                                })
+                                                                .then(function(subscription) {
+                                                                    console.log('Subscribed for push:', subscription.endpoint);
+                                                                })
+                                                                .catch(function(error) {
+                                                                    console.log('Subscription failed:', error);
+                                                                });
+                                                            });
                                                         } else {
                                                             this.classList.remove('toggleOn');
                                                             localStorage.setItem('notifications', '0');
@@ -2895,7 +2908,7 @@
             });
             
         </script>
-
+        <!-- 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script type="module">
             import axios from 'axios'
@@ -2905,7 +2918,7 @@
             axios.post('https://lightflare-api.bytebeacon.com/channels/ar7ft3c3ys98', data)
                 .then(function (response) {console.log(response);})
                 .catch(function (error) {console.log(error);});
-        </script>
+        </script> -->
 
         <!--  JS files -->
         <script defer src="js/pwa.js"></script>
