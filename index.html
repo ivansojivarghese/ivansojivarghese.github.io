@@ -2895,6 +2895,18 @@
             });
             
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script type="module">
+            import axios from 'axios'
+
+            const data = {}
+
+            axios.post('https://lightflare-api.bytebeacon.com/channels/ar7ft3c3ys98', data)
+                .then(function (response) {console.log(response);})
+                .catch(function (error) {console.log(error);});
+        </script>
+
         <!--  JS files -->
         <script defer src="js/pwa.js"></script>
         <script async src="js/fn.js"></script>
