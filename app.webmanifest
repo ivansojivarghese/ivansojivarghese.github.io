@@ -146,6 +146,7 @@
     ],
    "theme_color": "#303030",
    "background_color": "#303030",
+   "gcm_sender_id" :  "65390641417",
    "prefer_related_applications": false,
    "related_applications": [{
         "platform": "webapp",
