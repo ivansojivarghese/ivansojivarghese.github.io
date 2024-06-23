@@ -40,8 +40,8 @@ if (messaging) {
       body: payload.notification.body,
       tag: notificationTitle, // tag is added to ovverride the notification with latest update
       image: payload.notification?.image || data.image,
-      icon: data.icon,
-      badge: data.badge,
+      icon: payload.data.icon,
+      badge: payload.data.badge,
       data: {
         url: payload?.data?.openUrl,// This should contain the URL you want to open
       },
