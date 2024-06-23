@@ -2863,7 +2863,7 @@
 
             // Initialize Firebase Cloud Messaging and get a reference to the service
             const messaging = getMessaging(app);
-
+/*
             const UrlFirebaseConfig = new URLSearchParams(
                 {
                 apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -2877,7 +2877,7 @@
                 }.toString()
             );
 
-            const swUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/firebase-messaging-sw.js?${UrlFirebaseConfig}`;
+            const swUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/firebase-messaging-sw.js?${UrlFirebaseConfig}`;*/
 
             // Add the public key generated from the console here.
             getToken(messaging, {vapidKey: "BLhl2scOdQxAkAhhy-F0x8KQuvXMiXrCiOo42DpFPd69cKJHNuHbXmwlOlu0IQuXfH55BYSiCfe5xilnRXxCdWA"}).then((currentToken) => {
