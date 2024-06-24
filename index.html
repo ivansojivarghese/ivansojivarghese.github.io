@@ -1096,6 +1096,28 @@
                                                                     applicationServerKey: urlBase64ToUint8Array('BFs9gPyKy9mUNtEfOZAhJRjhzoiHz5wShiK1MSijzII38t1NpdlvinJYj05DYT9SQ0ofPj3Z8XC10gtJrAnHDTQ')
                                                                 }) 
                                                                 .then(function(subscription) {
+                                                                    const subJSON = JSON.stringify(subscription)
+                                                                    const sendToServer = (subscription) => {  
+                                                                        return fetch('https://lightflare-api.bytebeacon.com/channels/ar7ft3c3ys98', {    
+                                                                            method: 'POST',    
+                                                                            headers: {      
+                                                                                'Content-Type': 'application/json'    
+                                                                            },    
+                                                                            body: JSON.stringify(subscription)  
+                                                                        }).then((res) => {    
+                                                                            if (!res.ok) {      
+                                                                                throw new Error('An error occurred')    
+                                                                            }    
+                                                                            return res.json()  
+                                                                        }).then((resData) => {    
+                                                                            if (!(resData.data && resData.data.success)) {      
+                                                                                throw new Error('An error occurred')    
+                                                                            }  
+                                                                        })
+                                                                    };
+                                                                    
+                                                                    sendToServer(subJSON);
+
                                                                     console.log('Subscribed for push:', subscription.endpoint);
                                                                     console.log(
                                                                         'Received PushSubscription: ',
