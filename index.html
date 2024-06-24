@@ -1105,7 +1105,7 @@
                                                                             headers: {      
                                                                                 'Content-Type': 'application/json'    
                                                                             },    
-                                                                            body: JSON.stringify(subscription)  
+                                                                            body: subscription
                                                                         }).then((res) => {    
                                                                             if (!res.ok) {      
                                                                                 throw new Error('An error occurred')    
