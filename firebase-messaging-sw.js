@@ -3,6 +3,7 @@
 importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js");
 
+// "gcm_sender_id" :  "65390641417", TO BE ADDED IN MANIFEST
 
 // Set Firebase configuration, once available
 self.addEventListener('fetch', () => {
