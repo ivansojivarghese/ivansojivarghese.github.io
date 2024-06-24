@@ -1100,6 +1100,10 @@
                                                                 })
                                                                 .then(function(subscription) {
                                                                     console.log('Subscribed for push:', subscription.endpoint);
+                                                                    console.log(
+                                                                        'Received PushSubscription: ',
+                                                                        JSON.stringify(subscription),
+                                                                    );
                                                                 })
                                                                 .catch(function(error) {
                                                                     console.log('Subscription failed:', error);
