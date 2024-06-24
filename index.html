@@ -1093,11 +1093,8 @@
                                                             navigator.serviceWorker.ready.then(function(registration) {
                                                                 registration.pushManager.subscribe({
                                                                     userVisibleOnly: true,
-                                                                    // applicationServerKey: urlBase64ToUint8Array('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6ImNoYW5uZWxfeGlkIiwiZ3JvdXBfeGlkIjoicTJ4NF9sMTlkX250dzQiLCJjaGFubmVsX3hpZCI6ImFyN2Z0M2MzeXM5OCJ9.4u_bM2A5poaqRjk6MIwMWRZExJk0_5ePpy5D9Yjfh2w')
-                                                                    // applicationServerKey: urlBase64ToUint8Array('AR7FT3C3YS98')
-                                                                    // applicationServerKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6ImNoYW5uZWxfeGlkIiwiZ3JvdXBfeGlkIjoicTJ4NF9sMTlkX250dzQiLCJjaGFubmVsX3hpZCI6ImFyN2Z0M2MzeXM5OCJ9.4u_bM2A5poaqRjk6MIwMWRZExJk0_5ePpy5D9Yjfh2w'
-                                                                    // applicationServerKey: urlBase64ToUint8Array('BLuFXPgrHu6O9BS-ETS1J3oGAmvynxX1d6ky2p4tUTymRskKTpnK3j4ULN0XhXFz6_663QoLPNj8I-dtrJUSRGM')
-                                                                }) //
+                                                                    applicationServerKey: urlBase64ToUint8Array('BFs9gPyKy9mUNtEfOZAhJRjhzoiHz5wShiK1MSijzII38t1NpdlvinJYj05DYT9SQ0ofPj3Z8XC10gtJrAnHDTQ')
+                                                                }) 
                                                                 .then(function(subscription) {
                                                                     console.log('Subscribed for push:', subscription.endpoint);
                                                                     console.log(
