@@ -1096,7 +1096,7 @@
                                                                     applicationServerKey: urlBase64ToUint8Array('BFs9gPyKy9mUNtEfOZAhJRjhzoiHz5wShiK1MSijzII38t1NpdlvinJYj05DYT9SQ0ofPj3Z8XC10gtJrAnHDTQ')
                                                                 }) 
                                                                 .then(function(subscription) {
-                                                                    const subJSON = JSON.stringify(subscription)
+                                                                    const subJSON = JSON.stringify(subscription) //
                                                                     const sendToServer = (subscription) => {  
                                                                         return fetch('https://lightflare-api.bytebeacon.com/channels/ar7ft3c3ys98', {    
                                                                             method: 'POST', 
