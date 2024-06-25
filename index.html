@@ -1088,7 +1088,7 @@
                                                         if (permission === 'granted') {
                                                             this.classList.add('toggleOn');
                                                             localStorage.setItem('notifications', '1');
-                                                            toggles.notifications = 1;
+                                                            toggles.notifications = 1; //
 
                                                             navigator.serviceWorker.ready.then(function(registration) {
                                                                 registration.pushManager.subscribe({
