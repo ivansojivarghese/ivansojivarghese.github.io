@@ -434,7 +434,7 @@ async function timeAPI() { // unlimited, http://worldtimeapi.org/
                 timeAPIres.online = true;
             }).catch((error) => {
                 timeAPIres.error = true;
-            });
+            }); // 
         })
 }*/
 
