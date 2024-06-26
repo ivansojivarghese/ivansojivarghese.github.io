@@ -1,6 +1,6 @@
 
 // lightflare-webhook.js
-exports.handler = async (req, res) => {
+exports.handler = async (req, res) => { //
     try {
       // 1. Get the webhook data from the request body
       const data = JSON.parse(req.body);
