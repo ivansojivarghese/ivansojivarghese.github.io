@@ -1093,7 +1093,7 @@
                                                             navigator.serviceWorker.ready.then(function(registration) {
                                                                 registration.pushManager.subscribe({
                                                                     userVisibleOnly: true,
-                                                                    applicationServerKey: urlBase64ToUint8Array('BFs9gPyKy9mUNtEfOZAhJRjhzoiHz5wShiK1MSijzII38t1NpdlvinJYj05DYT9SQ0ofPj3Z8XC10gtJrAnHDTQ')
+                                                                    applicationServerKey: urlBase64ToUint8Array('BLhl2scOdQxAkAhhy-F0x8KQuvXMiXrCiOo42DpFPd69cKJHNuHbXmwlOlu0IQuXfH55BYSiCfe5xilnRXxCdWA')
                                                                 }) 
                                                                 .then(function(subscription) {
                                                                     const subJSON = JSON.stringify(subscription) //
@@ -1133,6 +1133,7 @@
                                                                     console.log('Subscription failed:', error);
                                                                 });
                                                             });
+
                                                         } else {
                                                             this.classList.remove('toggleOn');
                                                             localStorage.setItem('notifications', '0');
@@ -2308,7 +2309,7 @@
                 navigator.serviceWorker.register("service-worker.js", { scope: "/" });
             }
         </script>
-        
+
         <!-- scrollbar (desktop) -->
         <script>
             var condScrollBar = false,
