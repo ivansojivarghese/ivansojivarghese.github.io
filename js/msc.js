@@ -424,7 +424,7 @@ async function roamingAPI(lat, lon) { // unlimited, https://www.bigdatacloud.com
                 roamingAPIres.error = true;
             });
         }) // // // //
-}
+} //
 
 async function timeAPI() { // unlimited, http://worldtimeapi.org/
     await fetch("https://worldtimeapi.org/api/ip")
