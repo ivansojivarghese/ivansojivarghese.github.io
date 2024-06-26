@@ -31,7 +31,7 @@ try {
   console.error('Failed to initialize Firebase Messaging', err);
 }
 
-// To dispaly background notifications
+// To display background notifications
 if (messaging) {
   try {
     messaging.onBackgroundMessage((payload) => {
