@@ -410,7 +410,7 @@ async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages
                 });
             })
     } else {
-        clientAPIres.error = true; // //
+        clientAPIres.error = true; // // //
     }
 }
 /*
