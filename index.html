@@ -1090,50 +1090,6 @@
                                                             localStorage.setItem('notifications', '1');
                                                             toggles.notifications = 1; //
 
-                                                            navigator.serviceWorker.ready.then(function(registration) {
-                                                                registration.pushManager.subscribe({
-                                                                    userVisibleOnly: true,
-                                                                    applicationServerKey: urlBase64ToUint8Array('BLhl2scOdQxAkAhhy-F0x8KQuvXMiXrCiOo42DpFPd69cKJHNuHbXmwlOlu0IQuXfH55BYSiCfe5xilnRXxCdWA')
-                                                                }) 
-                                                                .then(function(subscription) {
-                                                                    const subJSON = JSON.stringify(subscription) //
-                                                                    const sendToServer = (subscription) => {  
-                                                                        return fetch('https://lightflare-api.bytebeacon.com/channels/ar7ft3c3ys98', {    
-                                                                            method: 'POST', 
-                                                                            mode: 'no-cors',
-                                                                            headers: {      
-                                                                                'Content-Type': 'application/json',
-                                                                                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6ImNoYW5uZWxfeGlkIiwiZ3JvdXBfeGlkIjoicTJ4NF9sMTlkX250dzQiLCJjaGFubmVsX3hpZCI6ImFyN2Z0M2MzeXM5OCJ9.4u_bM2A5poaqRjk6MIwMWRZExJk0_5ePpy5D9Yjfh2w',
-                                                                            }
-                                                                        }).then((res) => {    
-                                                                            /*if (!res.ok) {      
-                                                                                throw new Error('An error occurred')    
-                                                                            }    
-                                                                            return res.json()  */
-
-                                                                            console.log(res)
-
-                                                                        }).then((resData) => {    
-                                                                            /*
-                                                                            if (!(resData.data && resData.data.success)) {      
-                                                                                throw new Error('An error occurred')    
-                                                                            }  */
-                                                                        })
-                                                                    };
-                                                                    
-                                                                    sendToServer(subJSON);
-
-                                                                    console.log('Subscribed for push:', subscription.endpoint);
-                                                                    console.log(
-                                                                        'Received PushSubscription: ',
-                                                                        JSON.stringify(subscription),
-                                                                    );
-                                                                })
-                                                                .catch(function(error) {
-                                                                    console.log('Subscription failed:', error);
-                                                                });
-                                                            });
-
                                                         } else {
                                                             this.classList.remove('toggleOn');
                                                             localStorage.setItem('notifications', '0');
