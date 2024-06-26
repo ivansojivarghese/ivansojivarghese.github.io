@@ -379,7 +379,7 @@ async function checkClientIsVisible() { // REFERENCE: https://stackoverflow.com/
 	}*/
 	// return false;
 
-	return true;
+	return true; //
 }
 
 async function doSync() {
