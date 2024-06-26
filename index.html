@@ -2855,7 +2855,7 @@
             }, {passive: true}); //
 
         </script>
-
+        <!-- 
         <script type="module">
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -2878,6 +2878,66 @@
             // Initialize Firebase
             const app = initializeApp(firebaseConfig);
             const analytics = getAnalytics(app);
+        </script> -->
+
+        <!-- Firebase -->
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+            import { getToken, getMessaging } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyD_sSbsf840yVFCtP9b6rji8ZTCUTHBKGc",
+              authDomain: "personal-portfolio-ivan.firebaseapp.com",
+              projectId: "personal-portfolio-ivan",
+              storageBucket: "personal-portfolio-ivan.appspot.com",
+              messagingSenderId: "65390641417",
+              appId: "1:65390641417:web:32eedd364949a84cde53d8",
+              measurementId: "G-Y9XTFW58EK"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+
+            // Initialize Firebase Cloud Messaging and get a reference to the service
+            const messaging = getMessaging(app);
+/*
+            const UrlFirebaseConfig = new URLSearchParams(
+                {
+                apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+                authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+                databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL ,
+                projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID  ,
+                storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET ,
+                messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID ,
+                appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID ,
+                measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID ,
+                }.toString()
+            );
+
+            const swUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/firebase-messaging-sw.js?${UrlFirebaseConfig}`;*/
+
+            // Add the public key generated from the console here.
+            getToken(messaging, {vapidKey: "BLhl2scOdQxAkAhhy-F0x8KQuvXMiXrCiOo42DpFPd69cKJHNuHbXmwlOlu0IQuXfH55BYSiCfe5xilnRXxCdWA"}).then((currentToken) => {
+                if (currentToken) {
+                    // Send the token to your server and update the UI if necessary
+                    // ...
+                } else {
+                    // Show permission request UI
+                    console.log('No registration token available. Request permission to generate one.');
+                    // ...
+                }
+            }).catch((err) => {
+                console.log('An error occurred while retrieving token. ', err);
+                // ...
+            });
+            
         </script>
 
         <!--  JS files -->
