@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 // Body parser middleware to parse incoming request bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // Endpoint to handle incoming webhook POST requests
 app.post('/webhook-endpoint', (req, res) => {
