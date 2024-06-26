@@ -423,7 +423,7 @@ async function roamingAPI(lat, lon) { // unlimited, https://www.bigdatacloud.com
             }).catch((error) => {
                 roamingAPIres.error = true;
             });
-        }) //
+        }) // //
 }
 
 async function timeAPI() { // unlimited, http://worldtimeapi.org/
