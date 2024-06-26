@@ -435,7 +435,7 @@ async function timeAPI() { // unlimited, http://worldtimeapi.org/
             }).catch((error) => {
                 timeAPIres.error = true;
             }); // 
-        }) //
+        }) // //
 }*/
 
 async function countryAPI(v) { // unlimited, https://country.is/
