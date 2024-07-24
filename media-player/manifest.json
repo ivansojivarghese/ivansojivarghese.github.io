@@ -5,7 +5,10 @@
   "id": "/media-player/index.html",
   "short_name": "Media Player",
   "description": "An installable media player app",
-  "display": "standalone",
+  "display": "fullscreen",
+  "launch_handler": {
+        "client_mode": "navigate-existing"
+    }, 
   "icons": [
     {
       "sizes": "48x48",
@@ -31,5 +34,11 @@
       "url": "link"
     },
     "enctype" : "application/x-www-form-urlencoded"
-  }
+  },
+  "display_override": [
+    "fullscreen",
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ]
 }
