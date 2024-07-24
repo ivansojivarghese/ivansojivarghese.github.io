@@ -1,5 +1,7 @@
 {
   "name": "Media Player",
+  "scope" : "https://ivansojivarghese.github.io/media-player/",
+  "start_url": "/index.html",
   "short_name": "Media Player",
   "description": "An installable media player app",
   "display": "standalone",
@@ -20,7 +22,6 @@
   "background_color": "#FFF",
   "theme_color": "#A10000",
   "orientation": "any",
-  "start_url": "/",
   "share_target": {
     "action": "/share-handler",
     "method": "GET",
