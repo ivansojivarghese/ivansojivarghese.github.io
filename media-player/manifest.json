@@ -1,0 +1,33 @@
+{
+  "name": "Media Player",
+  "short_name": "Media Player",
+  "description": "An installable media player app",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "48x48",
+      "type": "image/svg",
+      "src": "https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/play.svg?v=1720968680771",
+      "purpose": "maskable"
+    },
+    {
+      "sizes": "512x512",
+      "type": "image/png",
+      "src": "https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/play_png.png?v=1720969234660",
+      "purpose": "any"
+    }
+  ],
+  "background_color": "#FFF",
+  "theme_color": "#A10000",
+  "orientation": "any",
+  "start_url": "/",
+  "share_target": {
+    "action": "/share-handler",
+    "method": "GET",
+    "params": {
+      "text": "description",
+      "url": "link"
+    },
+    "enctype" : "application/x-www-form-urlencoded"
+  }
+}

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Media Player</title>
+    
+    <meta name="theme-color" content="#A10000">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, shrink-to-fit=no, interactive-widget=overlays-content" >
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;"> -->
+    
+    <!-- OpenGraph/Social sharing -->
+    <meta
+      name="description"
+      content="An installable media player app"
+    />
+    <meta
+      name="og:description"
+      content="An installable media player app"
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Media%20Player%20OG%20Image.png?v=1721623654736"
+    />
+    <meta property="og:title" content="Media Player" />
+    <meta name="twitter:card" content="summary" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/play.svg?v=1720968680771"
+    />
+    
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <link rel="stylesheet" type="text/css" href="/res_m.css" />
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    </style>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+    </style>
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@thelevicole/youtube-to-html5-loader@5/dist/YouTubeToHtml5.js"></script> -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- PWA setup - update public/sw.js if you add your own assets like a new .css file -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <script src="index.js" async defer></script>
+    <script src="server.js"></script>
+    
+  </head>
+  <body>
+    <main>
+      <div class="content">
+        <h1>Media Player <span>for YouTube</span></h1>
+        <!-- <iframe id="theFrame" allowfullscreen="true" allow="picture-in-picture" sandbox="allow-scripts allow-same-origin allow-presentation allow-top-navigation" loading="eager" src="https://www.youtube.com/embed/tgbNymZ7vqY?enablejsapi=1&origin=https://media-player-pwa.glitch.me/">
+        </iframe> -->
+        <!-- <video>
+          <source src="https://www.youtube.com/watch?v=Bzw2T18YDJ4&ab_channel=LearnwithJon" type="video/mp4">
+          <source src="https://www.googleapis.com/youtube/v3/videos?id=Bzw2T18YDJ4&key=AIzaSyAtcIpyHJI05qb0cIo4wdMVYfuC-Z9bQQI&part=snippet,contentDetails,statistics,status" type="video/mp4"> 
+        </video> -->
+        <!-- <object
+            data="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            type="text/html"
+            width="640"
+            height="360">
+            <param name="allowfullscreen" value="true">
+        </object> -->
+        <!-- <video data-yt2html5="Bzw2T18YDJ4"></video> -->
+        <!-- <video> -->
+          <!-- <source src="https://rr2---sn-5hne6nzd.googlevideo.com/videoplayback?expire=1720721645&ei=jcyPZvyEK7qEhcIP2JCVkAI&ip=178.79.138.49&id=o-ANYoqMWnxdciPltw2EkrOXVlUp0bU8_rHjYNrlC4Aiq4&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=8w&mm=31%2C29&mn=sn-5hne6nzd%2Csn-5hnekn7z&ms=au%2Crdu&mv=m&mvi=2&pl=21&initcwndbps=175000&bui=AXc671I68gd24_ubsvlIp6bmd04Kk2Hpb3MxV5d5wpwcyivUIRIVmay6VNuqk9TfdnPkI2GCo1wvsKkH&spc=NO7bAYltA92nYAvcS1eE4I6MQ5YKCU5HgyNvHotNq8TunbqMUpUVlbLQSu1o&vprv=1&svpuc=1&mime=video%2Fmp4&ns=NtmZVyHVpqb_qwFz35zsWTcQ&rqh=1&cnr=14&ratebypass=yes&dur=1439.822&lmt=1699314445041045&mt=1720699528&fvip=1&c=WEB&sefc=1&txp=5318224&n=fpN4S4EoOvqRwM9vTeu&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRAIgMTRA3bnB9pNH53Cfe6pFUIKhRKQ0n0xYiN9_TLa80-0CIAEXe_lQ22FfYqzyftKrghyZUBShbgWN6QHVMwpYo-YT&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AHlkHjAwRAIgGJMtCH-Vli-90aLAVYPrOBfGQ1_bET8J0GSPVdNk_GECIBgKj1fKM_2yEOE8trcH8_MEp-itWKhrKdF06dvfQ8Hb" type="video/mp4"> -->
+          <!-- <source src="https://ivansojivarghese.github.io/msc/abortionDetection.mp4" type="video/mp4"> -->
+        <!-- </video> -->
+        <!-- <div id="player"></div> -->
+        <!-- <video data-yt2html5="https://www.youtube.com/watch?v=AxQUofeI-Dk"></video> -->
+        <video controls>
+          <!-- <source id="vidsrc" src="https://mdn.github.io/dom-examples/picture-in-picture/assets/bigbuckbunny.mp4" type="video/mp4"> -->
+        </video> 
+        <!-- <canvas id="js-canvas"></canvas> -->
+        <div class="card trs settings" onclick="openWrap('settings')">
+          <div class="img"></div>
+        </div>
+        <!-- 
+        <div class="card upload" onclick="document.getElementById('fileSelector').click()">
+              <input class="card upload" id="fileSelector" type="file" style="display: none;" multiple accept=".mp4, .webm, .ogg"/>
+            <input class="card img upload" type="button">
+            </div> -->
+      </div>
+      <div id="settingsOptions" class="wrap" onclick="closeWrap(event, 'settings')">
+        <div class="container">
+            
+            <div class="card fullscreen" onclick="toggleFulls()">
+              <div class="img"></div>
+            </div>
+            <div class="card play" onclick="play()">
+              <div class="img"></div>
+            </div>
+            <div class="card pause" onclick="pause()">
+              <div class="img"></div>
+            </div>
+            <div class="card load" onclick="load()">
+              <div class="img"></div>
+            </div>
+            <div class="card mute" onclick="mute()">
+              <div class="img"></div>
+            </div>
+            
+            <div class="card upload" onclick="document.getElementById('fileSelector').click()">
+              <input class="card upload" id="fileSelector" type="file" style="display: none;" multiple accept=".mp4, .webm, .ogg"/>
+            <input class="card img upload" type="button">
+            </div> 
+          
+            <div class="card web_upload" onclick="openWrap('webupload')">
+              <div class="img"></div>
+            </div>
+          
+            <div class="card pip" onclick="togglePiP()" style="display: none;">
+              <div class="img"></div>
+            </div>
+          <!-- 
+            <div class="card pip">
+              <div class="img"></div>
+            </div>
+            <div class="card pip">
+              <div class="img"></div>
+            </div>
+            <div class="card pip">
+              <div class="img"></div>
+            </div>
+            <div class="card pip">
+              <div class="img"></div>
+            </div> -->
+          </div>
+        </div>
+      <div id="urlInput" class="wrap" onclick="closeWrap(event, 'webupload')">
+        <div class="container block">
+            <h3>URL Entry</h3>
+            <p>for YouTube</p>
+            <input class="noExit" type="url" id="urlBar" placeholder="YouTube video URL" name="">
+            <input id="urlSubmit" class="" type="submit" onclick="getURL()">
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    const video = document.querySelector('video');
+    var wrap = document.querySelector("#settingsOptions");
+        if (window.FileList && window.File) {
+          document.getElementById('fileSelector').addEventListener('change', event => {
+              // console.log(event.target.files[0]);
+              
+              const file = event.target.files[0];
+              
+              var fileURL = URL.createObjectURL(file)
+              video.src = fileURL;
+            
+              video.play();
+            
+              video.classList.remove("error");
+            
+              video.style.border = "0.15rem solid #A10000";
+            
+              wrap.style.display = "";
+          });
+        }
+    
+    document.onvisibilitychange = function() {
+      if (document.visibilityState === 'hidden') {
+        if (!video.paused) {
+            video.requestPictureInPicture();
+        }
+      } else {
+        if (!video.paused) {
+            document.exitPictureInPicture();
+        }
+      }
+    };
+    
+    if (PictureInPictureWindow) {
+        var cardPip = document.querySelector(".card.pip");
+        cardPip.style.display = "block";
+    }
+  </script>
+  <script>
+    function isDarkMode() { // dark mode detection
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    
+    if (isDarkMode()) {
+      document.body.style.color = "#FFF";
+      document.body.style.backgroundColor = "#171717";
+    }
+    
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
+      if (matches) { // change to dark mode
+        document.body.style.color = "#FFF";
+        document.body.style.backgroundColor = "#171717";
+      } else {
+        document.body.style.color = "";
+        document.body.style.backgroundColor = "";
+      }
+    });
+  </script>
+  <script>
+    var wrap = document.querySelector("#settingsOptions");
+    function togglePiP() {
+      const video = document.querySelector('video');
+       if (document.pictureInPictureElement) {
+          document.exitPictureInPicture();
+        } else if (document.pictureInPictureEnabled) {
+          video.requestPictureInPicture();
+        }
+      wrap.style.display = "";
+    }
+    function toggleFulls() {
+      const video = document.querySelector('video');
+      video.requestFullscreen();
+      wrap.style.display = "";
+    }
+    function play() {
+      const video = document.querySelector('video');
+      video.play();
+      wrap.style.display = "";
+    }
+    function pause() {
+      const video = document.querySelector('video');
+      video.pause();
+      wrap.style.display = "";
+    }
+    function load() {
+      const video = document.querySelector('video');
+      video.load();
+      // wrap.style.display = "";
+    }
+    function mute() {
+      const video = document.querySelector('video');
+      if (!video.muted) {
+        video.muted = true;
+      } else {
+        video.muted = false;
+      }
+      wrap.style.display = "";
+    }
+  </script>
+  <script>
+    
+    var videoDetails;
+    var videoSubmit;
+    
+    async function getParams(id) {
+      let params = new URLSearchParams(document.location.search);
+      const link = params.get("description"); 
+    
+      if (link !== null) {
+        
+        // NO ACCESS TO SHORTS, LIVE, ATTRIBUTED OR EMBEDDED VIDEOS
+        if (!link.includes("embed") && !link.includes("attribution_link") && !link.includes("shorts") && !link.includes("live")) {
+        
+        if (link.includes("youtube.com") && !link.includes("m.youtube.com")) {
+          
+          video.classList.remove("error");
+          video.style.border = "0.15rem solid #A10000";
+        
+          var sIndex = link.indexOf("v=");
+          var eIndex = link.indexOf("&");
+          var sTrue;
+          
+          if (sIndex !== -1) {
+            sTrue = true;
+            if (eIndex === -1 && eIndex > sIndex) {
+              var eIndex = link.indexOf("#");
+              if (eIndex === -1) {
+                eIndex = link.length;
+              }
+            } else if (eIndex < sIndex) {
+              eIndex = link.length;
+            }
+          } else {
+            sTrue = false;
+            sIndex = link.lastIndexOf("/");
+            eIndex = link.indexOf("?");
+            if (eIndex === -1) {
+              eIndex = link.length;
+            }
+          }
+          
+          var id = link.substring(sIndex, eIndex);
+          if (sTrue) {
+            var videoID = id.substring(2, id.length);
+          } else {
+            var videoID = id.substring(1, id.length);
+          }
+
+          // let params = new URLSearchParams(link);
+          
+        } else if (link.includes("m.youtube.com")) {
+          
+          video.classList.remove("error");
+          video.style.border = "0.15rem solid #A10000";
+          
+          var sIndex = link.indexOf("v=");
+          var eIndex = link.indexOf("&");
+          var sTrue;
+          
+          if (sIndex !== -1) {
+            sTrue = true;
+            if (eIndex === -1 && eIndex > sIndex) {
+              var eIndex = link.indexOf("#");
+              if (eIndex === -1) {
+                eIndex = link.length;
+              }
+            } else if (eIndex < sIndex) {
+              eIndex = link.length;
+            }
+          } else {
+            sTrue = false;
+            sIndex = link.lastIndexOf("/");
+            eIndex = link.indexOf("?");
+            if (eIndex === -1) {
+              eIndex = link.length;
+            }
+          }
+          
+          var id = link.substring(sIndex, eIndex);
+          if (sTrue) {
+            var videoID = id.substring(2, id.length);
+          } else {
+            var videoID = id.substring(1, id.length);
+          }
+            
+        } else if (link.includes("youtu.be")) {
+          
+          video.classList.remove("error");
+          video.style.border = "0.15rem solid #A10000";
+          
+          var sIndex = link.indexOf("e/");
+           var eIndex = link.indexOf("?");
+          var sTrue;
+          
+          if (sIndex === -1) {
+            sTrue = false;
+            sIndex = link.lastIndexOf("/");
+            eIndex = link.indexOf("?");
+            if (eIndex === -1) {
+              eIndex = link.indexOf("&");
+              if (eIndex === -1) {
+                eIndex = link.length;
+              }
+            }
+          } else {
+            sTrue = true;
+            if (eIndex === -1) {
+              eIndex = link.indexOf("&");
+              if (eIndex === -1) {
+                eIndex = link.length;
+              }
+            }
+          }
+          
+          var id = link.substring(sIndex, eIndex);
+          if (sTrue) {
+            var videoID = id.substring(2, id.length);
+          } else {
+            var videoID = id.substring(1, id.length);
+          }
+        } else {
+          
+          video.classList.add("error");
+        }
+        } else {
+          
+          video.classList.add("error");
+        }
+        
+        console.log("Video ID: " + videoID);
+        
+      } else if (id) {
+        
+        var videoID = id;
+        
+      } 
+      
+      if (link !== null || videoSubmit) {
+      
+      // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
+      
+      const url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=' + videoID;
+      const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+          'x-rapidapi-host': 'ytstream-download-youtube-videos.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(url, options);
+        videoDetails = await response.json();
+        console.log(videoDetails);
+        
+        video.src = videoDetails.formats["0"].url;
+        
+        video.play();
+        
+      } catch (error) {
+        console.error(error);
+        
+        video.classList.add("error");
+      }
+        
+      }
+    }
+    
+    
+    getParams(null);
+    
+  </script>
+  <script>
+      function openWrap(mod) {
+        if (mod === 'settings') {
+          var wrap = document.querySelector("#settingsOptions");
+        } else {
+          var wrap = document.querySelector("#urlInput");
+          var wrapURL = document.querySelector("#urlBar");
+          setTimeout(function() {
+            wrapURL.focus();
+          }, 100);
+        }
+        wrap.style.display = "block";
+      }
+
+      function closeWrap(e, mod) {
+        if (mod === 'settings') {
+          var wrap = document.querySelector("#settingsOptions");
+          if (!e.target.classList.contains("card") && !e.target.classList.contains("img")) {
+            wrap.style.display = "";
+          }
+        } else {
+          var wrap = document.querySelector("#urlInput");
+          var urlBar = document.querySelector("#urlBar");
+          if (!e.target.classList.contains("noExit")) {
+            wrap.style.display = "";
+            urlBar.value = "";
+          }
+        }
+        
+      }
+  </script>
+  <script>
+    var settingsBtn = document.querySelector(".card.settings");
+    
+    document.onclick = function() {
+      if (!video.classList.contains("error") && video.src) {
+        video.style.border = "0.15rem solid #007000";
+      }
+    };
+    
+    document.addEventListener("visibilitychange", function() {
+      if (document.visibilityState === 'hidden') {
+         if (!video.classList.contains("error") && video.src) {
+            video.style.border = "0.15rem solid #A10000";
+          }
+      }
+    });
+  </script>
+  <script>
+      // REFERENCED FROM MEDIUM: https://medium.com/js-bytes/how-to-keep-your-screen-awake-using-javascript-aa15775d9bff
+
+      // let screenLock;
+
+      function isScreenLockSupported() {
+          return ('wakeLock' in navigator);
+      }
+
+      async function getScreenLock() {
+          if (isScreenLockSupported()){
+              // let screenLock;
+              try {
+                  screenLock = await navigator.wakeLock.request('screen');
+              } catch(err) {
+                  console.log(err.name, err.message);
+              }
+              // return screenLock;
+          }
+      }
+
+      async function releaseScreenLock(screenLock) {
+          await screenLock.release().then(() => {
+              screenLock = null;
+          });
+      }
+
+      getScreenLock();
+  </script>
+  <script>
+    var inp = document.getElementById('urlBar');
+
+    inp.addEventListener('select', function() {
+      this.selectionStart = this.selectionEnd;
+    }, false);
+    
+    function getURL() {
+      var wrapURL = document.querySelector("#urlInput");
+      var wrap = document.querySelector("#settingsOptions");
+      var contents = inp.value;
+      
+      // NO ACCESS TO SHORTS, LIVE, ATTRIBUTED OR EMBEDDED VIDEOS
+      if (!contents.includes("embed") && !contents.includes("attribution_link") && !contents.includes("shorts") && !contents.includes("live")) {
+        
+      if (contents.includes("youtube.com") && !contents.includes("m.youtube.com")) {
+        
+        video.classList.remove("error");
+        video.style.border = "0.15rem solid #A10000";
+        
+        var sIndex = contents.indexOf("v=");
+        var eIndex = contents.indexOf("&");
+        var sTrue;
+        
+        if (sIndex !== -1) {
+          sTrue = true;
+          if (eIndex === -1 && eIndex > sIndex) {
+            var eIndex = contents.indexOf("#");
+              if (eIndex === -1) {
+                eIndex = contents.length;
+              }
+          } else if (eIndex < sIndex) {
+            eIndex = contents.length;
+          }
+        } else {
+          sTrue = false;
+          sIndex = contents.lastIndexOf("/");
+          eIndex = contents.indexOf("?");
+          if (eIndex === -1) {
+            eIndex = contents.length;
+          }
+        }
+        
+        var id = contents.substring(sIndex, eIndex);
+        if (sTrue) {
+          var videoID = id.substring(2, id.length);
+        } else {
+          var videoID = id.substring(1, id.length);
+        }
+        
+      } else if (contents.includes("m.youtube.com")) {
+        
+          video.classList.remove("error");
+        video.style.border = "0.15rem solid #A10000";
+          
+          var sIndex = contents.indexOf("v=");
+          var eIndex = contents.indexOf("&");
+          var sTrue;
+        
+          if (sIndex !== -1) {
+            sTrue = true;
+            if (eIndex === -1 && eIndex > sIndex) {
+              var eIndex = contents.indexOf("#");
+              if (eIndex === -1) {
+                eIndex = contents.length;
+              }
+            } else if (eIndex < sIndex) {
+              eIndex = contents.length;
+            }
+          } else {
+            sTrue = false;
+            sIndex = contents.lastIndexOf("/");
+            eIndex = contents.indexOf("?");
+            if (eIndex === -1) {
+              eIndex = contents.length;
+            }
+          }
+        
+          var id = contents.substring(sIndex, eIndex);
+          if (sTrue) {
+            var videoID = id.substring(2, id.length);
+          } else {
+            var videoID = id.substring(1, id.length);
+          }
+            
+        } else if (contents.includes("youtu.be")) {
+          
+          video.classList.remove("error");
+          video.style.border = "0.15rem solid #A10000";
+          
+          var sIndex = contents.indexOf("e/");
+           var eIndex = contents.indexOf("?");
+          var sTrue;
+          
+          if (sIndex === -1) {
+            sTrue = false;
+            sIndex = contents.lastIndexOf("/");
+            eIndex = contents.indexOf("?");
+            if (eIndex === -1) {
+              eIndex = contents.indexOf("&");
+              if (eIndex === -1) {
+                eIndex = contents.length;
+              }
+            }
+          } else {
+            sTrue = true;
+            if (eIndex === -1) {
+              eIndex = contents.indexOf("&");
+              if (eIndex === -1) {
+                eIndex = contents.length;
+              }
+            }
+          }
+          
+          var id = contents.substring(sIndex, eIndex);
+          if (sTrue) {
+            var videoID = id.substring(2, id.length);
+          } else {
+            var videoID = id.substring(1, id.length);
+          }
+        } else {
+          
+          video.classList.add("error");
+        }
+      /*
+      let VID_REGEX =
+      /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      videoID = contents.match(VID_REGEX)[1];*/
+      
+      console.log("Video ID: " + videoID);
+        
+      videoSubmit = true;
+      
+      // if (videoID) {
+      getParams(videoID);
+      // }
+      
+      wrapURL.style.display = "";
+      wrap.style.display = "";
+      inp.value = "";
+        
+    } else {
+      
+      video.classList.add("error");
+    }
+      
+      // document.getElementById("urlSubmit").click();
+    }
+    
+    document.addEventListener("keypress", function(event) {
+      if (event.key === "Enter" && inp.value) {
+        document.getElementById("urlSubmit").click();
+        closeWrap(event, 'webupload');
+        closeWrap(event, 'settings');
+        event.preventDefault();
+      }
+    });
+    
+    /*
+    inp.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        document.getElementById("urlSubmit").click();
+        // closeWrap(event, 'webupload');
+        event.preventDefault();
+      }
+    });*/
+  </script>
+</html>
