@@ -448,9 +448,15 @@
   </script>
   <script>
     var settingsBtn = document.querySelector(".card.settings");
+    var videoPlaying = false;
+
+    video.onplay = (event) => {
+      videoPlaying = true;
+      video.style.border = "0.15rem solid #007000";
+    };
     
     document.onclick = function() {
-      if (!video.classList.contains("error") && video.src) {
+      if (!video.classList.contains("error") && video.src && videoPlaying) {
         video.style.border = "0.15rem solid #007000";
       }
     };
