@@ -27,7 +27,7 @@
   "theme_color": "#A10000",
   "orientation": "any",
   "share_target": {
-    "action": "/media-player/share-handler",
+    "action": "/media-player/index.html/share-handler",
     "method": "GET",
     "params": {
       "text": "description",
