@@ -5,12 +5,12 @@ App setup
 *************************************************************************/
 // force https
 if (location.protocol === "http:") location.protocol = "https:";
-
+/*
 navigator.serviceWorker.getRegistrations().then(function(registrations) {
   registrations.forEach(function(v) { 
     v.unregister();
    });
-});
+});*/
 
 // handle the service worker registration
 if ("serviceWorker" in navigator) {

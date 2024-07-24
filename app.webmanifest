@@ -2,9 +2,9 @@
 {
    "name" : "Ivan Varghese",
    "short_name" : "Ivan",
-   "start_url" : "/",
+   "start_url" : "/main/",
    "scope" : "https://ivansojivarghese.github.io/",
-   "id" : "pwa",
+   "id" : "index.html",
    "lang" : "en",
    "dir" : "ltr",
    "orientation" : "natural",
