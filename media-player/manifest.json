@@ -1,7 +1,7 @@
 {
   "name": "Media Player",
   "scope" : "https://ivansojivarghese.github.io/media-player/",
-  "start_url": "/index.html",
+  "start_url": "https://ivansojivarghese.github.io/media-player/index.html",
   "short_name": "Media Player",
   "description": "An installable media player app",
   "display": "standalone",
