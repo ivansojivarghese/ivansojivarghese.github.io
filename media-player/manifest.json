@@ -7,7 +7,7 @@
   "description": "An installable media player app",
   "display": "standalone",
   "launch_handler": {
-        "client_mode": "navigate-existing"
+        "client_mode": "navigate-new"
     }, 
   "icons": [
     {
