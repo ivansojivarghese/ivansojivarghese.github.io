@@ -680,6 +680,10 @@ h3.downsize {
     background-image: url("../socials/x.svg");
 }
 
+.pwa .about .social_media .glitch {
+    background-image: url("../socials/glitch.svg");
+}
+
 .pwa .about .social_media .instagram_w {
     background-image: url("../socials/instagram_white.svg");
 }
@@ -699,6 +703,11 @@ h3.downsize {
 .pwa .about .social_media .x_twitter_w {
     background-image: url("../socials/x_white.svg");
 }
+
+.pwa .about .social_media .glitch_w {
+    background-image: url("../socials/glitch_white.svg");
+}
+
 
 .pwa .navbar .button.home .img {
     background-image: url("../pwa/home.png");
