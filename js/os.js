@@ -408,6 +408,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .linkedin') : document.querySelector('.pwa .about .linkedin_w'),
             gh_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .github') : document.querySelector('.pwa .about .github_w'),
             x_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .x_twitter') : document.querySelector('.pwa .about .x_twitter_w'),
+            gl_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .glitch') : document.querySelector('.pwa .about .glitch_w'),
 
             close_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .close_img') : document.querySelector('.pwa .popups .close_w_img'),
 
@@ -582,6 +583,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.remove("linkedin");
             gh_icon.classList.remove("github");
             x_icon.classList.remove("x_twitter");
+            gl_icon.classList.remove("glitch");
 
             close_icon.classList.remove("close_img");
 
@@ -605,6 +607,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.add("linkedin_w");
             gh_icon.classList.add("github_w");
             x_icon.classList.add("x_twitter_w");
+            gl_icon.classList.add("glitch_w");
 
             close_icon.classList.add("close_w_img");
 
@@ -780,6 +783,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.remove("linkedin_w");
             gh_icon.classList.remove("github_w");
             x_icon.classList.remove("x_twitter_w");
+            gl_icon.classList.remove("glitch_w");
 
             close_icon.classList.remove("close_w_img");
 
@@ -803,6 +807,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.add("linkedin");
             gh_icon.classList.add("github");
             x_icon.classList.add("x_twitter");
+            gl_icon.classList.add("glitch");
 
             close_icon.classList.add("close_img");
 
