@@ -437,6 +437,10 @@ input {
   .card {
     cursor: pointer;
   }
+
+  .card.install {
+    cursor: auto;
+  }
   
   #urlInput input[type="submit"] {
      cursor: pointer; 
