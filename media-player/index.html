@@ -491,13 +491,19 @@
       var btn = document.querySelector(".card.install");
       btn.style.opacity = "";
       btn.style.cursor = "pointer";
-
       btn.addEventListener("click", startInstall);
+    }
+
+    function hideInstallPromotion() {
+      var btn = document.querySelector(".card.install");
+      btn.style.opacity = "0.3";
+      btn.style.cursor = "auto";
+      btn.removeEventListener("click", startInstall);
     }
 
     async function startInstall() {
       // Hide the app provided install promotion
-      // hideInstallPromotion();
+      hideInstallPromotion();
       // Show the install prompt
       deferredPrompt.prompt();
       // Wait for the user to respond to the prompt
@@ -510,11 +516,31 @@
 
     window.addEventListener('appinstalled', () => {
       // Hide the app-provided install promotion
-      // hideInstallPromotion();
+      hideInstallPromotion();
       // Clear the deferredPrompt so it can be garbage collected
       deferredPrompt = null;
       // Optionally, send analytics event to indicate successful install
       // console.log('PWA was installed');
+    });
+
+    function getPWADisplayMode() {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+      if (document.referrer.startsWith('android-app://')) {
+        return 'twa';
+      } else if (navigator.standalone || isStandalone) {
+        return 'standalone';
+      }
+      return 'browser';
+    }
+
+    window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
+      let displayMode = 'browser';
+      if (evt.matches) {
+        displayMode = 'standalone';
+        hideInstallPromotion();
+      }
+      // Log display mode change to analytics
+      // console.log('DISPLAY_MODE_CHANGED', displayMode);
     });
   </script>
   <script>
