@@ -322,6 +322,10 @@ input.upload {
   background-image: url("https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/mute.svg?v=1720880526225");
 }
 
+.card.install .img {
+  background-image: url("install.svg");
+}
+
 .card.web_upload .img {
   background-image: url("https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/web_upload.svg?v=1721565884097");
 }
