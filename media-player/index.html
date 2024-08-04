@@ -739,4 +739,24 @@
       }
     });*/
   </script>
+  <script>
+
+    function checkInitParam() {
+      let params = new URLSearchParams(document.location.search);
+      const init = params.get("init"); 
+
+      if (init === "file") {
+
+        document.getElementById('fileSelector').click();
+
+      } else if (init === "url") {
+
+        openWrap('webupload');
+      }
+      
+    }
+
+    checkInitParam();
+
+  </script>
 </html>

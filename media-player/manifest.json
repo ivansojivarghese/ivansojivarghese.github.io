@@ -44,7 +44,7 @@
       {
         "name" : "File upload",
         "short_name" : "File upload",
-        "url" :  "",
+        "url" :  "https://ivansojivarghese.github.io/media-player/index.html?init=file",
         "icons" : [
             {
                 "src": "https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/upload.svg?v=1720947329500",
@@ -56,7 +56,7 @@
     {
         "name" : "URL upload",
         "short_name" : "URL upload",
-        "url" :  "",
+        "url" :  "https://ivansojivarghese.github.io/media-player/index.html?init=url",
         "icons" : [
             {
                 "src": "https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/web_upload.svg?v=1721565884097",
