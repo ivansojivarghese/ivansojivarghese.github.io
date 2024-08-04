@@ -752,6 +752,11 @@
       } else if (init === "url") {
 
         openWrap('webupload');
+
+        var wrapURL = document.querySelector("#urlBar");
+        setTimeout(function() {
+          wrapURL.focus();
+        }, 100);
       }
       
     }
