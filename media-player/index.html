@@ -747,16 +747,21 @@
 
       if (init === "file") {
 
-        document.getElementById('fileSelector').click();
+        setTimeout(function() {
+          document.getElementById('fileSelector').click();
+        }, 100);
 
       } else if (init === "url") {
 
         openWrap('webupload');
 
-        var wrapURL = document.querySelector("#urlBar");
         setTimeout(function() {
-          wrapURL.focus();
+          var wrapURL = document.querySelector("#urlBar");
+          setTimeout(function() {
+            wrapURL.focus();
+          }, 100);
         }, 100);
+
       }
       
     }
