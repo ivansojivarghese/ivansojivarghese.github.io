@@ -14,13 +14,13 @@
       "src": "https://ivansojivarghese.github.io/media-player/play.svg",
       "sizes": "1080x1080",
       "type": "image/svg",
-      "purpose": "any"
+      "purpose": "maskable"
     },
     {
       "src": "https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/play_png.png?v=1720969234660",
       "sizes": "2048x2048",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any"
     }
   ],
   "background_color": "#FFF",
