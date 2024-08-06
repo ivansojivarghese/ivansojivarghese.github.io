@@ -11,9 +11,9 @@
     }, 
   "icons": [
     {
+      "src": "https://ivansojivarghese.github.io/media-player/play.svg",
       "sizes": "1080x1080",
       "type": "image/svg",
-      "src": "https://ivansojivarghese.github.io/media-player/play.svg",
       "purpose": "any"
     }
   ],
@@ -43,7 +43,7 @@
                 {
                     "src": "https://ivansojivarghese.github.io/media-player/web_upload.png",
                     "type": "image/png",
-                    "sizes": "192x192"
+                    "sizes": "768x768"
                 }
             ]
         }
