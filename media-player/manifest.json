@@ -47,7 +47,7 @@
             "url" :  "https://ivansojivarghese.github.io/media-player/index.html?init=url",
             "icons" : [
                 {
-                    "src": "",
+                    "src": "https://ivansojivarghese.github.io/media-player/web_upload.png",
                     "type": "image/png",
                     "sizes": "192x192"
                 }
