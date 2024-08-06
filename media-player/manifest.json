@@ -18,9 +18,9 @@
     },
     {
       "src": "https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/play_png.png?v=1720969234660",
-      "sizes": "1080x1080",
+      "sizes": "2048x2048",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "maskable"
     }
   ],
   "background_color": "#FFF",
