@@ -301,12 +301,12 @@ input.upload {
   margin: 0 auto;
   display: block;
 }
-
-.card.settings {
-  /*box-shadow: rgba(149,157,165,.2) 0 .47rem 1.41rem;*/
-  /*box-shadow: 0 0.18rem 0.6rem rgba(0,0,0,.16), 0 0.18rem 0.6rem rgba(0,0,0,.16);*/
-}
 /*
+.card.settings {
+  box-shadow: rgba(149,157,165,.2) 0 .47rem 1.41rem;
+  box-shadow: 0 0.18rem 0.6rem rgba(0,0,0,.16), 0 0.18rem 0.6rem rgba(0,0,0,.16);
+}
+
 .card.settings:hover {
   box-shadow: 0 0.25rem 1rem rgba(0,0,0,.16), 0 0.25rem 1rem rgba(0,0,0,.16);
 }*/
