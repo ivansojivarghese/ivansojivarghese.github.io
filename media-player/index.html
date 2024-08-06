@@ -161,9 +161,9 @@
             
               video.play();
             
-              video.classList.remove("error");
+              // video.classList.remove("error");
             
-              video.style.border = "0.15rem solid #A10000";
+              // video.style.border = "0.15rem solid #A10000";
             
               wrap.style.display = "";
           });
@@ -263,8 +263,8 @@
         
         if (link.includes("youtube.com") && !link.includes("m.youtube.com")) {
           
-          video.classList.remove("error");
-          video.style.border = "0.15rem solid #A10000";
+          // video.classList.remove("error");
+          // video.style.border = "0.15rem solid #A10000";
         
           var sIndex = link.indexOf("v=");
           var eIndex = link.indexOf("&");
@@ -300,8 +300,8 @@
           
         } else if (link.includes("m.youtube.com")) {
           
-          video.classList.remove("error");
-          video.style.border = "0.15rem solid #A10000";
+          // video.classList.remove("error");
+          // video.style.border = "0.15rem solid #A10000";
           
           var sIndex = link.indexOf("v=");
           var eIndex = link.indexOf("&");
@@ -335,8 +335,8 @@
             
         } else if (link.includes("youtu.be")) {
           
-          video.classList.remove("error");
-          video.style.border = "0.15rem solid #A10000";
+          // video.classList.remove("error");
+          // video.style.border = "0.15rem solid #A10000";
           
           var sIndex = link.indexOf("e/");
            var eIndex = link.indexOf("?");
@@ -370,11 +370,11 @@
           }
         } else {
           
-          video.classList.add("error");
+          //video.classList.add("error");
         }
         } else {
           
-          video.classList.add("error");
+          //video.classList.add("error");
         }
         
         console.log("Video ID: " + videoID);
@@ -410,7 +410,7 @@
       } catch (error) {
         console.error(error);
         
-        video.classList.add("error");
+        // video.classList.add("error");
       }
         
       }
@@ -457,19 +457,19 @@
 
     video.onplay = (event) => {
       videoPlaying = true;
-      video.style.border = "0.15rem solid #007000";
+      // video.style.border = "0.15rem solid #007000";
     };
     
     document.onclick = function() {
       if (!video.classList.contains("error") && video.src && videoPlaying) {
-        video.style.border = "0.15rem solid #007000";
+        // video.style.border = "0.15rem solid #007000";
       }
     };
     
     document.addEventListener("visibilitychange", function() {
       if (document.visibilityState === 'hidden') {
          if (!video.classList.contains("error") && video.src) {
-            video.style.border = "0.15rem solid #A10000";
+            // video.style.border = "0.15rem solid #A10000";
           }
       }
     });
@@ -594,8 +594,8 @@
         
       if (contents.includes("youtube.com") && !contents.includes("m.youtube.com")) {
         
-        video.classList.remove("error");
-        video.style.border = "0.15rem solid #A10000";
+        //video.classList.remove("error");
+        // video.style.border = "0.15rem solid #A10000";
         
         var sIndex = contents.indexOf("v=");
         var eIndex = contents.indexOf("&");
@@ -629,8 +629,8 @@
         
       } else if (contents.includes("m.youtube.com")) {
         
-          video.classList.remove("error");
-        video.style.border = "0.15rem solid #A10000";
+          // video.classList.remove("error");
+        // video.style.border = "0.15rem solid #A10000";
           
           var sIndex = contents.indexOf("v=");
           var eIndex = contents.indexOf("&");
@@ -664,8 +664,8 @@
             
         } else if (contents.includes("youtu.be")) {
           
-          video.classList.remove("error");
-          video.style.border = "0.15rem solid #A10000";
+          // video.classList.remove("error");
+          // video.style.border = "0.15rem solid #A10000";
           
           var sIndex = contents.indexOf("e/");
            var eIndex = contents.indexOf("?");
@@ -699,7 +699,7 @@
           }
         } else {
           
-          video.classList.add("error");
+          //video.classList.add("error");
         }
       /*
       let VID_REGEX =
@@ -720,7 +720,7 @@
         
     } else {
       
-      video.classList.add("error");
+      //video.classList.add("error");
     }
       
       // document.getElementById("urlSubmit").click();
