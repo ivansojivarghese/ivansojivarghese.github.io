@@ -437,7 +437,7 @@
       function closeWrap(e, mod) {
         if (mod === 'settings') {
           var wrap = document.querySelector("#settingsOptions");
-          if (!e.target.classList.contains("card") && !e.target.classList.contains("img")) {
+          if ((!e.target.classList.contains("card") && !e.target.classList.contains("img")) || e === null) {
             wrap.style.display = "";
           }
         } else {
@@ -526,6 +526,8 @@
       deferredPrompt = null;
       // Optionally, send analytics event to indicate successful install
       // console.log('PWA was installed');
+
+      closeWrap(null, 'settings');
     });
 
     function getPWADisplayMode() {
