@@ -11,6 +11,12 @@
     }, 
   "icons": [
     {
+      "src": "https://ivansojivarghese.github.io/media-player/play_small.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "https://ivansojivarghese.github.io/media-player/play.png",
       "sizes": "1080x1080",
       "type": "image/png",
