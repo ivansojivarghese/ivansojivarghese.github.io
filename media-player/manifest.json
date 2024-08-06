@@ -17,7 +17,7 @@
       "purpose": "maskable"
     },
     {
-      "sizes": "512x512",
+      "sizes": "2048x2048",
       "type": "image/png",
       "src": "https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/play_png.png?v=1720969234660",
       "purpose": "any"
