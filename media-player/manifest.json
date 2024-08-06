@@ -20,7 +20,13 @@
       "src": "https://ivansojivarghese.github.io/media-player/play_maskable.png",
       "sizes": "1620x1620",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "https://ivansojivarghese.github.io/media-player/play_maskable.png",
+      "sizes": "1620x1620",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "background_color": "#FFF",
