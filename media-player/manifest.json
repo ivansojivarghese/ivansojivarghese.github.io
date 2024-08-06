@@ -11,7 +11,7 @@
     }, 
   "icons": [
     {
-      "sizes": "48x48",
+      "sizes": "1080x1080",
       "type": "image/svg",
       "src": "https://ivansojivarghese.github.io/media-player/play.svg",
       "purpose": "maskable"
