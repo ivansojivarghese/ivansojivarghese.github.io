@@ -437,7 +437,11 @@
       function closeWrap(e, mod) {
         if (mod === 'settings') {
           var wrap = document.querySelector("#settingsOptions");
-          if ((!e.target.classList.contains("card") && !e.target.classList.contains("img")) || e === null) {
+          if (e !== null) {
+            if (!e.target.classList.contains("card") && !e.target.classList.contains("img")) {
+              wrap.style.display = "";
+            }
+          } else {
             wrap.style.display = "";
           }
         } else {

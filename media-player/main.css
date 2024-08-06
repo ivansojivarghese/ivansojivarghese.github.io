@@ -461,6 +461,10 @@ input {
     cursor: pointer;
   }
 
+  .card.install {
+    cursor: auto;
+  }
+
   .card.install.pointer {
     cursor: pointer;
   }
