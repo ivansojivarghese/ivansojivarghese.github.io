@@ -495,14 +495,16 @@
     function showInstallPromotion() {
       var btn = document.querySelector(".card.install");
       btn.style.opacity = "";
-      btn.style.cursor = "pointer";
+      // btn.style.cursor = "pointer";
+      btn.classList.add("pointer");
       btn.addEventListener("click", startInstall);
     }
 
     function hideInstallPromotion() {
       var btn = document.querySelector(".card.install");
       btn.style.opacity = "0.3";
-      btn.style.cursor = "auto";
+      // btn.style.cursor = "auto";
+      btn.classList.remove("pointer");
       btn.removeEventListener("click", startInstall);
     }
 
