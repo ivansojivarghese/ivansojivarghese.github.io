@@ -39,5 +39,19 @@
     "standalone",
     "minimal-ui",
     "browser"
+  ],
+  "shortcuts" : [
+        {
+            "name" : "URL upload",
+            "short_name" : "URL upload",
+            "url" :  "https://ivansojivarghese.github.io/media-player/index.html?init=url",
+            "icons" : [
+                {
+                    "src": "",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
   ]
 }
