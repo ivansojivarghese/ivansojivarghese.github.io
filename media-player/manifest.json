@@ -15,6 +15,12 @@
       "sizes": "1080x1080",
       "type": "image/svg",
       "purpose": "any"
+    },
+    {
+      "src": "https://ivansojivarghese.github.io/media-player/play.svg",
+      "sizes": "1080x1080",
+      "type": "image/svg",
+      "purpose": "maskable"
     }
   ],
   "background_color": "#FFF",
