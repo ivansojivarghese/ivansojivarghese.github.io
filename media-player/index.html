@@ -139,6 +139,9 @@
   </body>
   <script src="https://ivansojivarghese.github.io/media-player/dev.js"></script>
   <script>
+    
+    // REFERENCED FROM: https://github.com/googlesamples/web-fundamentals/blob/gh-pages/fundamentals/media/mobile-web-video-playback.js
+
     const video = document.querySelector('video');
     const videoDuration = document.querySelector('#videoDuration');
     const videoCurrentTime = document.querySelector('#videoCurrentTime');
@@ -147,10 +150,12 @@
 
     playPauseButton.addEventListener('click', function (event) {
       event.stopPropagation();
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
+      if (videoControls.classList.contains('visible')) {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
       }
     });
 
@@ -183,6 +188,18 @@
     document.addEventListener('DOMContentLoaded', function() {
       showVideoControls();
     });
+
+    function secondsToTimeCode(seconds) {
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      const s = Math.floor(seconds % 60);
+      return [
+        h,
+        m > 9 ? m : '0' + m,
+        s > 9 ? s : '0' + s,
+      ].filter(Boolean).join(':');
+    }
+
 
     /*
     video.addEventListener('loadedmetadata', function () {
