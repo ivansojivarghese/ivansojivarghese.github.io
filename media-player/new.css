@@ -1,0 +1,8 @@
+
+#playPauseButton .img { /* play button */
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/play.svg");
+}
+
+#playPauseButton.playing .img { /* pause button */
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/pause.svg");
+}

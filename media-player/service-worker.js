@@ -31,6 +31,7 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/web_upload.png',
   'https://ivansojivarghese.github.io/media-player/index.js',
   'https://ivansojivarghese.github.io/media-player/main.css',
+  'https://ivansojivarghese.github.io/media-player/new.css',
   'https://ivansojivarghese.github.io/media-player/res_m.css',
   'https://ivansojivarghese.github.io/media-player/style.css'
 ];
