@@ -151,7 +151,7 @@
     playPauseButton.addEventListener('click', function (event) {
       event.stopPropagation();
       if (videoControls.classList.contains('visible')) {
-        if (video.paused) {
+        if (video.paused && video.src !== null) {
           video.play();
         } else {
           video.pause();
