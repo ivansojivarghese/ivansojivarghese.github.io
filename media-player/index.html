@@ -151,6 +151,14 @@
       }
     });
 
+    video.addEventListener('play', function () {
+      playPauseButton.classList.add('playing');
+    });
+
+    video.addEventListener('pause', function () {
+      playPauseButton.classList.remove('playing');
+    });
+
     /*
     video.addEventListener('loadedmetadata', function () {
     videoDuration.textContent = secondsToTimeCode(video.duration);
