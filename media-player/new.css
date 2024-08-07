@@ -11,7 +11,8 @@
     background-color: rgba(0, 0, 0, 0.25);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
 }
 
 #playPauseButton .img { /* play button */
