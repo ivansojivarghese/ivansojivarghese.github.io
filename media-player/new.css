@@ -1,4 +1,9 @@
 
+#playPauseButton {
+    width: 2rem;
+    height: 2rem;
+}
+
 #playPauseButton .img { /* play button */
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/play.svg");
     width: 2rem;
