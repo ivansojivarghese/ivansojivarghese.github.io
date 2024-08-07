@@ -212,7 +212,7 @@ video {
   max-height: calc(100svh - 5rem - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));
 }*/
 
-iframe, video, object, canvas, #videoControls {
+iframe, #videoContainer, object, canvas, #videoControls {
   margin-top: 0;
   /*margin-top: 2rem;*/
   /*margin-top: calc((100svh - 4rem - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 5rem - 15rem)  / 2);*/
@@ -228,14 +228,14 @@ iframe, video, object, canvas, #videoControls {
 }
 
 @media screen and (orientation: landscape) {
-  iframe, video, object, canvas, #videoControls {
+  iframe, #videoContainer, object, canvas, #videoControls {
     width: auto;
     height: 15rem;
   }
 }
 
 @media screen and (orientation: portrait) {
-  iframe, video, object, canvas, #videoControls {
+  iframe, #videoContainer, object, canvas, #videoControls {
     width: 100%;
     height: auto;
   }
@@ -473,7 +473,7 @@ input {
      cursor: pointer; 
   }
 
-  video {
+  #videoContainer {
     cursor: pointer;
   }
 }
