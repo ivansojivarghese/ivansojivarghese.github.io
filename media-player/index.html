@@ -78,9 +78,17 @@
         <!-- </video> -->
         <!-- <div id="player"></div> -->
         <!-- <video data-yt2html5="https://www.youtube.com/watch?v=AxQUofeI-Dk"></video> -->
-        <video controls class="trs">
+
+        <video class="trs"></video> 
+        <div id="videoControls">
+          <strong>
+            <div id="videoCurrentTime"></div>
+            <div id="videoDuration"></div>
+            <div id="videoProgressBar"></div>
+          </strong>
+        </div>
+        
           <!-- <source id="vidsrc" src="https://mdn.github.io/dom-examples/picture-in-picture/assets/bigbuckbunny.mp4" type="video/mp4"> -->
-        </video> 
         <!-- <canvas id="js-canvas"></canvas> -->
         <div class="card trs settings" onclick="openWrap('settings')">
           <div class="img"></div>
@@ -150,6 +158,20 @@
   <script src="https://ivansojivarghese.github.io/media-player/dev.js"></script>
   <script>
     const video = document.querySelector('video');
+    const videoDuration = document.querySelector('#videoDuration');
+    const videoCurrentTime = document.querySelector('#videoCurrentTime');
+    const videoProgressBar = document.querySelector('#videoProgressBar');
+
+    video.addEventListener('loadedmetadata', function () {
+    videoDuration.textContent = secondsToTimeCode(video.duration);
+    videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
+    videoProgressBar.style.transform = `scaleX(${
+      video.currentTime / video.duration
+    })`;
+  });
+  </script>
+  <script>
+    
     var wrap = document.querySelector("#settingsOptions");
         if (window.FileList && window.File) {
           document.getElementById('fileSelector').addEventListener('change', event => {
