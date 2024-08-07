@@ -91,6 +91,9 @@ if (!developer && localStorage.getItem("devtools") === null) { // anti-debugging
             document.title = "Ivan Varghese";
             devErrorMessage = true;
             devError = true;
+
+            document.querySelector("main").style.display = "none";
+
             // self.location.replace(window.location.protocol + window.location.href.substring(window.location.protocol.length)); // reload
         } else {
             before = null;
