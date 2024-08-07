@@ -162,6 +162,28 @@
       playPauseButton.classList.remove('playing');
     });
 
+    function showVideoControls() {
+      videoControls.classList.add('visible');
+      // videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
+      // videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
+    }
+
+    function hideVideoControls() {
+      videoControls.classList.remove('visible');
+    }
+
+    videoControls.addEventListener('click', function(event) {
+      if (videoControls.classList.contains('visible')) {
+        hideVideoControls();
+      } else {
+        showVideoControls();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      showVideoControls();
+    });
+
     /*
     video.addEventListener('loadedmetadata', function () {
     videoDuration.textContent = secondsToTimeCode(video.duration);
