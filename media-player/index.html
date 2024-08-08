@@ -179,7 +179,7 @@
 
     fullscreenButton.addEventListener('click', function(event) {
       event.stopPropagation();
-      if (videoControls.classList.contains('visible')) {
+      if (videoControls.classList.contains('visible') && video.src !== "") {
         if (document.fullscreenElement) {
           document.exitFullscreen();
           fullscreenButton.children[0].classList.remove("exit");
@@ -242,14 +242,14 @@
 
     pipButton.addEventListener('click', function (event) {
       event.stopPropagation();
-      if (videoControls.classList.contains('visible')) {
+      if (videoControls.classList.contains('visible') && video.src !== "") {
         if (video.requestPictureInPicture) {
           if (document.pictureInPictureElement) {
             document.exitPictureInPicture();
-            pipButton.children[0].classList.remove("exit");
+            // pipButton.children[0].classList.remove("exit");
           } else if (document.pictureInPictureEnabled) {
             video.requestPictureInPicture();
-            pipButton.children[0].classList.add("exit");
+            // pipButton.children[0].classList.add("exit");
           }
         }
       }
@@ -350,11 +350,11 @@
         }
       }
     };
-    
+    /*
     if (PictureInPictureWindow) {
         var cardPip = document.querySelector(".card.pip");
         cardPip.style.display = "block";
-    }
+    }*/
   </script>
   <script>
     function isDarkMode() { // dark mode detection
