@@ -241,7 +241,16 @@
     }
 
     pipButton.addEventListener('click', function (event) {
-
+      event.stopPropagation();
+      if (videoControls.classList.contains('visible')) {
+        if (video.requestPictureInPicture) {
+          if (document.pictureInPictureElement) {
+            document.exitPictureInPicture();
+          } else if (document.pictureInPictureEnabled) {
+            video.requestPictureInPicture();
+          }
+        }
+      }
     });
 
     video.addEventListener('play', function () {
@@ -280,6 +289,9 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       showVideoControls();
+      if (!video.requestPictureInPicture) {
+        pipButton.style.display = "none";
+      }
     });
 
     function secondsToTimeCode(seconds) {
