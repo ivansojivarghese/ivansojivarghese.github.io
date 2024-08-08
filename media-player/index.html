@@ -307,6 +307,17 @@
       ].filter(Boolean).join(':');
     }
 
+    screen.orientation.addEventListener("change", (event) => {
+      const angle = event.target.angle;
+      if ((angle === 90 || angle === 270) && !document.fullscreenElement) {
+        requestFullscreenVideo();
+        lockScreenInLandscape();
+        fullscreenButton.children[0].classList.add("exit");
+      } else if ((angle === 0 || angle === 180) && document.fullscreenElement) {
+        document.exitFullscreen();
+        fullscreenButton.children[0].classList.remove("exit");
+      }
+    }
 
     /*
     video.addEventListener('loadedmetadata', function () {
@@ -316,6 +327,7 @@
       video.currentTime / video.duration
     })`;
   });*/
+
   </script>
   <script>
     
