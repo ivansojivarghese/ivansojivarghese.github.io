@@ -24,3 +24,11 @@
 #playPauseButton.playing .img { /* pause button */
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/pause.svg");
 }
+
+#fullscreenButton .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/fullscreen.svg");
+}
+
+#pipButton .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/pip.svg");
+}
