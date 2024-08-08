@@ -179,14 +179,14 @@
 
     fullscreenButton.addEventListener('click', function(event) {
       event.stopPropagation();
-      clearTimeout(controlsHideInt);
-      controlsHideInt = null;
       if (videoControls.classList.contains('visible')) {
         if (document.fullscreenElement) {
           document.exitFullscreen();
+          fullscreenButton.children[0].classList.remove("exit");
         } else {
           requestFullscreenVideo();
           lockScreenInLandscape();
+          fullscreenButton.children[0].classList.add("exit");
         }
       }
     });

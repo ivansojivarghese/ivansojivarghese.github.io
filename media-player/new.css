@@ -50,6 +50,10 @@
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/fullscreen.svg");
 }
 
+#fullscreenButton .img.exit {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/fullscreen_exit.svg");
+}
+
 #pipButton .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/pip.svg");
 }
