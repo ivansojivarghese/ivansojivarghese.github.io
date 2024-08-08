@@ -246,8 +246,10 @@
         if (video.requestPictureInPicture) {
           if (document.pictureInPictureElement) {
             document.exitPictureInPicture();
+            pipButton.children[0].classList.remove("exit");
           } else if (document.pictureInPictureEnabled) {
             video.requestPictureInPicture();
+            pipButton.children[0].classList.add("exit");
           }
         }
       }

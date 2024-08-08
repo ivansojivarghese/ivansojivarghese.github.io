@@ -57,3 +57,7 @@
 #pipButton .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/pip.svg");
 }
+
+#pipButton .img.exit {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/pip_exit.svg");
+}
