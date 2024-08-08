@@ -25,6 +25,11 @@
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/pause.svg");
 }
 
+.controlButton {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
 #fullscreenButton .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/fullscreen.svg");
 }
