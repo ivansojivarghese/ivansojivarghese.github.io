@@ -164,7 +164,9 @@
 
     video.addEventListener('play', function () {
       playPauseButton.classList.add('playing');
-      controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+      if (controlsHideInt === null) {
+        controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+      }
     });
 
     video.addEventListener('pause', function () {
@@ -183,11 +185,14 @@
 
     videoControls.addEventListener('click', function(event) {
       clearTimeout(controlsHideInt);
+      controlsHideInt = null;
       if (videoControls.classList.contains('visible')) {
         hideVideoControls();
       } else {
         showVideoControls();
-        controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+        if (controlsHideInt === null) {
+          controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+        }
       }
     });
 
