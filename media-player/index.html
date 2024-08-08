@@ -149,6 +149,8 @@
     
     // REFERENCED FROM: https://github.com/googlesamples/web-fundamentals/blob/gh-pages/fundamentals/media/mobile-web-video-playback.js
 
+    // https://googlesamples.github.io/web-fundamentals/fundamentals/media/mobile-web-video-playback.html 
+
     const video = document.querySelector('video');
     const videoContainer = document.querySelector("#videoContainer");
     const videoDuration = document.querySelector('#videoDuration');
@@ -177,11 +179,15 @@
 
     fullscreenButton.addEventListener('click', function(event) {
       event.stopPropagation();
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else {
-        requestFullscreenVideo();
-        lockScreenInLandscape();
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
+      if (videoControls.classList.contains('visible')) {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          requestFullscreenVideo();
+          lockScreenInLandscape();
+        }
       }
     });
 
