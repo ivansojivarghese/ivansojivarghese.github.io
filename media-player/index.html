@@ -209,6 +209,31 @@
       }
     }
 
+    function listenToDeviceOrientationChanges() {
+      if (!('DeviceOrientationEvent' in window)) {
+        return;
+      }
+
+      var previousDeviceOrientation, currentDeviceOrientation;
+      window.addEventListener('deviceorientation', function onDeviceOrientationChange(event) {
+        // event.beta represents a front to back motion of the device and
+        // event.gamma a left to right motion.
+        if (Math.abs(event.gamma) > 10 || Math.abs(event.beta) < 10) {
+          previousDeviceOrientation = currentDeviceOrientation;
+          currentDeviceOrientation = 'landscape';
+          return;
+        }
+        if (Math.abs(event.gamma) < 10 || Math.abs(event.beta) > 10) {
+          previousDeviceOrientation = currentDeviceOrientation;
+          // When device is rotated back to portrait, let's unlock screen orientation.
+          if (previousDeviceOrientation == 'landscape') {
+            screen.orientation.unlock();
+            window.removeEventListener('deviceorientation', onDeviceOrientationChange);
+          }
+        }
+      });
+    }
+
     pipButton.addEventListener('click', function (event) {
 
     });
