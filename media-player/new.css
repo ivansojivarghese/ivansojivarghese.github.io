@@ -38,12 +38,12 @@
 
 #fullscreenButton {
     bottom: 0.75rem;
-    right: 1rem;
+    right: 1.2rem;
 }
 
 #pipButton {
     bottom: 0.75rem;
-    right: 3.5rem;
+    right: 4rem;
 }
 
 #fullscreenButton .img {
