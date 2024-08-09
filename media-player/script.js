@@ -250,6 +250,8 @@
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
     });
 
+    // REF: https://stackoverflow.com/questions/5029519/html5-video-percentage-loaded, by Yann L.
+
     video.addEventListener('progress', function() {
       var range = 0;
       var bf = this.buffered;
@@ -279,7 +281,7 @@
         }
         event.preventDefault();
         //action on double tap goes below
-        if (!video.paused) {
+        if (!video.paused && !document.fullscreenElement) {
           video.requestPictureInPicture();
       }
     }
