@@ -149,6 +149,7 @@
     </main>
   </body>
   <script src="https://ivansojivarghese.github.io/media-player/dev.js"></script>
+  <script src="https://ivansojivarghese.github.io/media-player/msc.js"></script>
   <script src="https://ivansojivarghese.github.io/media-player/script.js"></script>
   <script>
     
@@ -559,35 +560,6 @@
       // Log display mode change to analytics
       // console.log('DISPLAY_MODE_CHANGED', displayMode);
     });
-  </script>
-  <script>
-      // REFERENCED FROM MEDIUM: https://medium.com/js-bytes/how-to-keep-your-screen-awake-using-javascript-aa15775d9bff
-
-      // let screenLock;
-
-      function isScreenLockSupported() {
-          return ('wakeLock' in navigator);
-      }
-
-      async function getScreenLock() {
-          if (isScreenLockSupported()){
-              // let screenLock;
-              try {
-                  screenLock = await navigator.wakeLock.request('screen');
-              } catch(err) {
-                  console.log(err.name, err.message);
-              }
-              // return screenLock;
-          }
-      }
-
-      async function releaseScreenLock(screenLock) {
-          await screenLock.release().then(() => {
-              screenLock = null;
-          });
-      }
-
-      getScreenLock();
   </script>
   <script>
     var inp = document.getElementById('urlBar');

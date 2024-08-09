@@ -114,11 +114,13 @@
       if (controlsHideInt === null) {
         controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
       }
+      getScreenLock();
     });
 
     video.addEventListener('pause', function () {
       playPauseButton.classList.remove('playing');
       showVideoControls();
+      releaseScreenLock(screenLock);
     });
 
     video.addEventListener('ended', function() {
