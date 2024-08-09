@@ -16,14 +16,16 @@
     const playPauseButton = document.querySelector('#playPauseButton');
     const fullscreenButton = document.querySelector('#fullscreenButton');
     const pipButton = document.querySelector('#pipButton');
+    const seekForwardButton = document.querySelector('#seekForwardButton');
+    const seekBackwardButton = document.querySelector('#seekBackwardButton');
 
     var controlsHideInt = null;
 
     playPauseButton.addEventListener('click', function (event) {
-      event.stopPropagation();
-      clearTimeout(controlsHideInt);
-      controlsHideInt = null;
+      // event.stopPropagation();
       if (videoControls.classList.contains('visible')) {
+        clearTimeout(controlsHideInt);
+        controlsHideInt = null;
         if (video.paused && video.src !== "") {
           video.play();
         } else {
@@ -33,7 +35,7 @@
     });
 
     fullscreenButton.addEventListener('click', function(event) {
-      event.stopPropagation();
+      // event.stopPropagation();
       if (videoControls.classList.contains('visible') && video.src !== "") {
         if (document.fullscreenElement) {
           document.exitFullscreen();
@@ -96,7 +98,7 @@
     }
 
     pipButton.addEventListener('click', function (event) {
-      event.stopPropagation();
+      // event.stopPropagation();
       if (videoControls.classList.contains('visible') && video.src !== "") {
         if (video.requestPictureInPicture) {
           if (document.pictureInPictureElement) {
@@ -216,12 +218,12 @@
     }
 
     seekForwardButton.addEventListener('click', function(event) {
-      event.stopPropagation();
+      // event.stopPropagation();
       seekForward();
     });
 
     seekBackwardButton.addEventListener('click', function(event) {
-      event.stopPropagation();
+      // event.stopPropagation();
       seekBackward();
     });
 
