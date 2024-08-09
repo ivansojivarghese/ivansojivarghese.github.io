@@ -253,7 +253,7 @@ iframe, #videoContainer, object, canvas {
 @media screen and (orientation: landscape) {
   iframe, #videoContainer, object, canvas {
     width: auto;
-    height: 15rem;
+    height: 100%;
   }
 
   main {
