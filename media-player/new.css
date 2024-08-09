@@ -108,3 +108,15 @@ video.seeking {
     left: 1.2rem;
     font-size: 1rem;
 }
+
+#videoProgressBar {
+    background-color: #A10000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    will-change: transform;
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+}
