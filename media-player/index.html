@@ -245,7 +245,7 @@
       let params = new URLSearchParams(document.location.search);
       const link = params.get("description"); 
     
-      if (link !== null) {
+      if (link !== null && id === null) {
         
         // NO ACCESS TO SHORTS, LIVE, ATTRIBUTED OR EMBEDDED VIDEOS
         if (!link.includes("embed") && !link.includes("attribution_link") && !link.includes("shorts") && !link.includes("live")) {
