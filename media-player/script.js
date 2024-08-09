@@ -230,12 +230,18 @@
             video.classList.remove('seeking');
         }, 200);
     });
-
-    /*
+    
     video.addEventListener('loadedmetadata', function () {
-    videoDuration.textContent = secondsToTimeCode(video.duration);
-    videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
-    videoProgressBar.style.transform = `scaleX(${
-      video.currentTime / video.duration
-    })`;
-  });*/
+        videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
+        videoProgressBar.style.transform = `scaleX(${
+        video.currentTime / video.duration
+        })`;
+    });
+
+    video.addEventListener('timeupdate', function() {
+        if (!videoControls.classList.contains('visible')) {
+          return;
+        }
+        videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
+        videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
+    });
