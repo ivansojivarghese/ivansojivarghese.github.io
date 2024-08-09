@@ -23,9 +23,9 @@
 
     playPauseButton.addEventListener('click', function (event) {
       // event.stopPropagation();
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
       if (videoControls.classList.contains('visible')) {
-        clearTimeout(controlsHideInt);
-        controlsHideInt = null;
         if (video.paused && video.src !== "") {
           video.play();
         } else {
