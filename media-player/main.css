@@ -269,6 +269,10 @@ iframe, #videoContainer, object, canvas {
   video, #videoContainer, #videoControls {
     border-radius: 1rem;
   }
+
+  video:fullscreen, #videoContainer:fullscreen, #videoControls:fullscreen {
+    border-radius: 0rem;
+  }
 }
 
 @media screen and (orientation: portrait) {
