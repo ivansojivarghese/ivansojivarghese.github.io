@@ -37,13 +37,19 @@
 }
 
 #fullscreenButton {
-    bottom: 0.75rem;
-    right: 1.2rem;
+    /*bottom: 0.75rem;
+    right: 1.2rem;*/
+    padding: 0.75rem 1.2rem 0.75rem 0.775rem;
+    bottom: 0;
+    right: 0;
 }
 
 #pipButton {
-    bottom: 0.75rem;
-    right: 4rem;
+    /*bottom: 0.75rem;
+    right: 4rem;*/
+    padding: 0.75rem 0.775rem 0.75rem 1.2rem;
+    bottom: 0;
+    right: 3.225rem;
 }
 
 #fullscreenButton .img {
@@ -68,4 +74,19 @@
 
 #seekBackwardButton .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/rewind.svg");
+}
+
+#seekForwardButton, #seekBackwardButton {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#seekForwardButton {
+    right: 0;
+    padding: 1.5rem 1.2rem;
+}
+
+#seekBackwardButton {
+    left: 0;
+    padding: 1.5rem 1.2rem;
 }
