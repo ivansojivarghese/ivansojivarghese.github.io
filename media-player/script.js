@@ -263,6 +263,8 @@
       var loadPercentage = loadEndPercentage - loadStartPercentage;
       
       console.log(loadPercentage);
+
+      videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
   });
 
     // REFERENCED FROM: https://stackoverflow.com/questions/8825144/detect-double-tap-on-ipad-or-iphone-screen-using-javascript BY Anulal S.
