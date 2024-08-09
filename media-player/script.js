@@ -196,11 +196,15 @@
     const skipTime = 10;
 
     function seekForward() {
-      video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
+        if (videoControls.classList.contains('visible') && video.src !== "") {
+            video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
+        }
     }
 
     function seekBackward() {
-      video.currentTime = Math.max(video.currentTime - skipTime, 0);
+        if (videoControls.classList.contains('visible') && video.src !== "") {
+            video.currentTime = Math.max(video.currentTime - skipTime, 0);
+        }
     }
 
     seekForwardButton.addEventListener('click', function(event) {
