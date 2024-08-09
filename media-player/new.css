@@ -9,7 +9,8 @@ video.seeking {
 }
 
 #videoControls {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 66%,rgba(0,0,0,0.8) 100%);
+    /*background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 66%,rgba(0,0,0,0.8) 100%);*/
+    background: rgba(0,0,0,0.5);
 }
 
 #playPauseButton {
@@ -119,4 +120,5 @@ video.seeking {
     will-change: transform;
     transform-origin: 0 50%;
     transform: scaleX(0);
+    transition: transform ease-out .2s;
 }
