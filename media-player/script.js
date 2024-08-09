@@ -127,6 +127,7 @@
         playPauseButton.classList.remove('playing');
         video.currentTime = 0;
         showVideoControls();
+        releaseScreenLock(screenLock);
     });
     
     document.addEventListener('fullscreenchange', function() {
