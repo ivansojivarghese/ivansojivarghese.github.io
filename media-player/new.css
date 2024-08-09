@@ -61,3 +61,11 @@
 #pipButton .img.exit {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/pip_exit.svg");
 }
+
+#seekForwardButton .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/seek.svg");
+}
+
+#seekBackwardButton .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/rewind.svg");
+}
