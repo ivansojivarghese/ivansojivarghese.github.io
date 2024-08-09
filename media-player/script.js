@@ -261,7 +261,9 @@
         }
         event.preventDefault();
         //action on double tap goes below
-        alert('You tapped me Twice !!!');
+        if (!video.paused) {
+          video.requestPictureInPicture();
+      }
     }
 
     videoContainer.addEventListener("touchstart", tapHandler);
