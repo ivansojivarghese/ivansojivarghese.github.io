@@ -110,7 +110,7 @@ video.seeking {
     font-size: 1rem;
 }
 
-#videoProgressBar {
+#videoProgressBar, #videoLoadProgressBar {
     background-color: #A10000;
     position: absolute;
     bottom: 0;
@@ -121,4 +121,8 @@ video.seeking {
     transform-origin: 0 50%;
     transform: scaleX(0);
     transition: transform ease-out .2s;
+}
+
+#videoLoadProgressBar {
+    background-color: #C5C6D0;
 }

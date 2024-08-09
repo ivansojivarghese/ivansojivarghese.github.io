@@ -11,6 +11,7 @@
     const videoDuration = document.querySelector('#videoDuration');
     const videoCurrentTime = document.querySelector('#videoCurrentTime');
     const videoProgressBar = document.querySelector('#videoProgressBar');
+    const videoLoadProgressBar = document.querySelector('#videoLoadProgressBar');
 
     const playPauseButton = document.querySelector('#playPauseButton');
     const fullscreenButton = document.querySelector('#fullscreenButton');
@@ -271,7 +272,7 @@
     function tapHandler(event) {
         if(!tapedTwice) {
             tapedTwice = true;
-            setTimeout( function() { tapedTwice = false; }, 300 );
+            setTimeout( function() { tapedTwice = false; }, 200 );
             return false;
         }
         event.preventDefault();
