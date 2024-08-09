@@ -218,12 +218,12 @@
     }
 
     seekForwardButton.addEventListener('click', function(event) {
-      // event.stopPropagation();
+      event.stopPropagation();
       seekForward();
     });
 
     seekBackwardButton.addEventListener('click', function(event) {
-      // event.stopPropagation();
+      event.stopPropagation();
       seekBackward();
     });
 
