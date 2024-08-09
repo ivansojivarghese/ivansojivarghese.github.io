@@ -99,3 +99,12 @@ video.seeking {
     left: 0;
     padding: 1.5rem 1.2rem;
 }
+
+#videoCurrentTime {
+    color: #FFF;
+    bottom: 0.75rem;
+    position: absolute;
+    padding: 0;
+    left: 1.2rem;
+    font-size: 1rem;
+}
