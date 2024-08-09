@@ -114,7 +114,7 @@ video.seeking {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 1rem;
+    height: 0.25rem;
     width: 100%;
     will-change: transform;
     transform-origin: 0 50%;
