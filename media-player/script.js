@@ -217,6 +217,16 @@
       seekBackward();
     });
 
+    video.addEventListener('seeking', function() {
+        video.classList.add('seeking');
+    });
+    
+    video.addEventListener('seeked', function() {
+        setTimeout(function() {
+            video.classList.remove('seeking');
+        }, 200);
+    });
+
     /*
     video.addEventListener('loadedmetadata', function () {
     videoDuration.textContent = secondsToTimeCode(video.duration);

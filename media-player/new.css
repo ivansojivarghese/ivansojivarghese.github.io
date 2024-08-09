@@ -1,4 +1,8 @@
 
+video.seeking {
+    filter: brightness(0);
+}
+
 #videoControls {
     background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,0) 66%,rgba(0,0,0,0.8) 100%);
 }
