@@ -22,7 +22,7 @@
     var controlsHideInt = null;
 
     playPauseButton.addEventListener('click', function (event) {
-      // event.stopPropagation();
+      event.stopPropagation();
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
       if (videoControls.classList.contains('visible')) {
