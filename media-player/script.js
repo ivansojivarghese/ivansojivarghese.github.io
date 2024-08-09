@@ -276,7 +276,7 @@
     function tapHandler(event) {
         if(!tapedTwice) {
             tapedTwice = true;
-            setTimeout( function() { tapedTwice = false; }, 200 );
+            setTimeout( function() { tapedTwice = false; }, 300 );
             return false;
         }
         event.preventDefault();
