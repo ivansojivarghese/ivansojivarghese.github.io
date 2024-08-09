@@ -267,7 +267,7 @@ iframe, #videoContainer, object, canvas {
   }
 
   video, #videoContainer, #videoControls {
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
 
   video:fullscreen, #videoContainer:fullscreen, #videoControls:fullscreen {
