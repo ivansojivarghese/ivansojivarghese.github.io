@@ -249,6 +249,21 @@
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
     });
 
+    video.addEventListener('progress', function() {
+      var range = 0;
+      var bf = this.buffered;
+      var time = this.currentTime;
+  
+      while(!(bf.start(range) <= time && time <= bf.end(range))) {
+          range += 1;
+      }
+      var loadStartPercentage = bf.start(range) / this.duration;
+      var loadEndPercentage = bf.end(range) / this.duration;
+      var loadPercentage = loadEndPercentage - loadStartPercentage;
+      
+      console.log(loadPercentage);
+  });
+
     // REFERENCED FROM: https://stackoverflow.com/questions/8825144/detect-double-tap-on-ipad-or-iphone-screen-using-javascript BY Anulal S.
 
     var tapedTwice = false;
