@@ -200,16 +200,6 @@ main {
     width: 100vw;
 }
 
-/*
-main {
-    margin-top: calc(2rem + env(safe-area-inset-top));
-    margin-left: calc(1.5rem + env(safe-area-inset-left));
-    margin-bottom: calc(2rem + env(safe-area-inset-bottom));
-    margin-right: calc(1.5rem + env(safe-area-inset-right));
-    height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));
-    width: calc(100vw - (1.5rem + env(safe-area-inset-left)) - (1.5rem + env(safe-area-inset-right)));
-}*/
-
 video {
   width: 100%;
   height: 100%;
@@ -264,6 +254,19 @@ iframe, #videoContainer, object, canvas {
   iframe, #videoContainer, object, canvas {
     width: auto;
     height: 15rem;
+  }
+
+  main {
+      margin-top: calc(2rem + env(safe-area-inset-top));
+      margin-left: calc(1.5rem + env(safe-area-inset-left));
+      margin-bottom: calc(2rem + env(safe-area-inset-bottom));
+      margin-right: calc(1.5rem + env(safe-area-inset-right));
+      height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));
+      width: calc(100vw - (1.5rem + env(safe-area-inset-left)) - (1.5rem + env(safe-area-inset-right)));
+  }
+
+  video {
+    border-radius: 0.5rem;
   }
 }
 
