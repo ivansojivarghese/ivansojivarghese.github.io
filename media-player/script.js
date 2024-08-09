@@ -247,3 +247,20 @@
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
     });
+
+
+
+    document.onvisibilitychange = function() {
+      if (document.visibilityState === 'hidden') {
+        if (!video.paused) {
+            video.requestPictureInPicture();
+        }
+      } else {
+        if (!video.paused) {
+            document.exitPictureInPicture();
+            if (controlsHideInt === null) {
+              controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+            }
+        }
+      }
+    };
