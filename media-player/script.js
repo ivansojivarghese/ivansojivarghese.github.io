@@ -197,12 +197,16 @@
 
     function seekForward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
+            clearTimeout(controlsHideInt);
+            controlsHideInt = null;
             video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
         }
     }
 
     function seekBackward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
+            clearTimeout(controlsHideInt);
+            controlsHideInt = null;
             video.currentTime = Math.max(video.currentTime - skipTime, 0);
         }
     }

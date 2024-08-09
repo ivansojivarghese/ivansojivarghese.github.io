@@ -1,4 +1,9 @@
 
+video {
+    will-change: filter;
+    transition: filter ease-out .2s;
+}
+
 video.seeking {
     filter: brightness(0);
 }
