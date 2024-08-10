@@ -30,6 +30,7 @@
         if (video.paused && video.src !== "") {
           video.play();
           audio.play();
+          audio.currentTime = video.currentTime;
         } else {
           video.pause();
           audio.pause();
