@@ -173,7 +173,7 @@ async function getParams(id) {
                 mod = "%";
             }
             videoContainer.style.width = videoWidth + mod;
-            videoContainer.style.height = videoHeight + mod;
+            // videoContainer.style.height = videoHeight + mod;
 
             video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
             video.src = targetVideo.url;
