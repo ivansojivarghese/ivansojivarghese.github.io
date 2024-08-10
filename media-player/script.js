@@ -273,19 +273,20 @@
         audio.play();*/
         
         const videoCSS = window.getComputedStyle(video, null);
+        var rawWidth = Number(videoCSS.getPropertyValue("width").slice(0, -2));
 
-        videoContainer.style.width = "";
-        videoContainer.style.height = "";
+        videoContainer.style.width = rawWidth + "px";
+        videoContainer.style.height = (rawWidth / videoSizeRatio) + "px";
 
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${
           video.currentTime / video.duration
         })`;
 
-        console.log(videoCSS.getPropertyValue("height"))
+        // console.log(videoCSS.getPropertyValue("height"))
 
         setTimeout(function() {
-          console.log(videoCSS.getPropertyValue("height"));
+          // console.log(videoCSS.getPropertyValue("height"));
 
           // videoContainer.
           // video.style.opacity = 1;

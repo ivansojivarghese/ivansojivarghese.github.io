@@ -3,6 +3,8 @@
 var videoDetails;
 var videoSubmit;
 
+var videoSizeRatio = 0;
+
 async function getParams(id) {
   let params = new URLSearchParams(document.location.search);
   const link = params.get("description"); 
@@ -157,8 +159,9 @@ async function getParams(id) {
     // video.src = videoDetails.formats["0"].url;
 
     const targetVideo = videoDetails.adaptiveFormats[0];
-    // const videoWidth = targetVideo.width;
-    // const videoHeight = targetVideo.height;
+    const videoWidth = targetVideo.width;
+    const videoHeight = targetVideo.height;
+    videoSizeRatio = videoWidth / videoHeight;
 
     video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
     video.src = targetVideo.url;
