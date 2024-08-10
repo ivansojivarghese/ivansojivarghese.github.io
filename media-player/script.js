@@ -276,6 +276,7 @@
     var tapedTwice = false;
 
     function tapHandler(event) {
+      if (!event.target.classList.contains("no-tap")) {
         if(!tapedTwice) {
             tapedTwice = true;
             setTimeout( function() { tapedTwice = false; }, 300 );
@@ -285,6 +286,9 @@
         //action on double tap goes below
         if (!video.paused && !document.fullscreenElement) {
           video.requestPictureInPicture();
+        }
+      } else {
+        return;
       }
     }
 
