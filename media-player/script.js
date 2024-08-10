@@ -312,3 +312,9 @@
         }
       }
     };
+
+    document.addEventListener("click", function() {
+      if (!video.paused && videoControls.classList.contains('visible') && video.src !== "") {
+        hideVideoControls();
+      }
+    });
