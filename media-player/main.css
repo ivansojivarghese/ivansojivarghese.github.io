@@ -244,10 +244,8 @@ iframe, #videoContainer, object, canvas {
   /*border: 0.15rem solid #303030;*/
   background: #303030;
   /*width: 100%;*/
-  /*height: 15rem;
-  max-width: 30rem;
-  max-height: calc(100svh - 5rem - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));
-  max-width: 100%;*/
+  /*height: 15rem;*/
+  /*max-width: 100%;*/
   overflow: hidden;
 }
 
@@ -255,6 +253,8 @@ iframe, #videoContainer, object, canvas {
   iframe, #videoContainer, object, canvas {
     width: auto;
     height: 100%;
+    max-width: 30rem;
+    max-height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));
   }
 
   main {
