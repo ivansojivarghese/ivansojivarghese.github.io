@@ -256,7 +256,7 @@ iframe, #videoContainer, object, canvas {
     max-width: calc(65vw - 1.5rem - env(safe-area-inset-left));
     /*max-width: 30rem;
     max-height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));*/
-    max-height: calc(100svh - (2rem + env(safe-area-inset-top)) - (0rem + env(safe-area-inset-bottom)));
+    max-height: calc(100svh - (2rem + env(safe-area-inset-top)) - (7rem + env(safe-area-inset-bottom)));
   }
 
   main {
