@@ -160,25 +160,30 @@ async function getParams(id) {
     // const videoWidth = targetVideo.width;
     // const videoHeight = targetVideo.height;
 
+    video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
+    video.src = targetVideo.url;
+    audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+
     // const videoCSS = window.getComputedStyle(video, null);
     // videoContainer.style.width = videoCSS.getPropertyValue("width");
     // videoContainer.style.height = videoCSS.getPropertyValue("height");
+    
     setTimeout(function() {
         video.style.opacity = 0;
-        setTimeout(function() {
+
+        // setTimeout(function() {
             // var mod = "";
             // var modSec = "";
             // var videoModWidth, videoModHeight;
             // const videoSizeRatio = videoWidth / videoHeight;
-
+            /*
             video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
             video.src = targetVideo.url;
             audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
-
+            */
             // CAPTURE adaptiveFormats[0] video (highest quality)
             // CAPTURE adaptiveFormats[adaptiveFormats.length - 1] audio (highest quality)
             // COMBINE the 2 sources
-
             /*
             setTimeout(function() {
                 if (videoSizeRatio === 1) {
@@ -198,7 +203,7 @@ async function getParams(id) {
                     audio.play();
                 }
             }, 200); */
-        }, 10);
+        // }, 10);
     }, 10);
     
   } catch (error) {
