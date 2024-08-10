@@ -189,12 +189,12 @@ async function getParams(id) {
 
             setTimeout(function() {
                 video.style.opacity = 1;
-                
                 video.play();
+                /*
                 if (!video.paused) {
                     audio.currentTime = video.currentTime;
                     audio.play();
-                }
+                }*/
             }, 200);
         }, 10);
     }, 10);
