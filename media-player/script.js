@@ -211,7 +211,8 @@
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
             video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
-            audio.currentTime = Math.min(audio.currentTime + skipTime, audio.duration);
+            // audio.currentTime = Math.min(audio.currentTime + skipTime, audio.duration);
+            audio.currentTime = video.currentTime;
             if (controlsHideInt === null && !video.paused) {
               controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
             }
@@ -223,7 +224,8 @@
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
             video.currentTime = Math.max(video.currentTime - skipTime, 0);
-            audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
+            // audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
+            audio.currentTime = video.currentTime;
             if (controlsHideInt === null && !video.paused) {
               controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
             }
