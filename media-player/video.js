@@ -166,10 +166,10 @@ async function getParams(id) {
     setTimeout(function() {
         video.style.opacity = 0;
         setTimeout(function() {
-            var mod = "";
-            var modSec = "";
-            var videoModWidth, videoModHeight;
-            const videoSizeRatio = videoWidth / videoHeight;
+            // var mod = "";
+            // var modSec = "";
+            // var videoModWidth, videoModHeight;
+            // const videoSizeRatio = videoWidth / videoHeight;
 
             video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
             video.src = targetVideo.url;
@@ -178,7 +178,8 @@ async function getParams(id) {
             // CAPTURE adaptiveFormats[0] video (highest quality)
             // CAPTURE adaptiveFormats[adaptiveFormats.length - 1] audio (highest quality)
             // COMBINE the 2 sources
-
+            
+            /*
             setTimeout(function() {
                 if (videoSizeRatio === 1) {
                     videoModWidth = "100";
@@ -188,15 +189,15 @@ async function getParams(id) {
                 }
                 videoContainer.style.width = videoModWidth + mod;
                 videoContainer.style.height = videoModHeight + modSec;
-                
+
                 video.style.opacity = 1;
                 video.play();
-                /*
+                
                 if (!video.paused) {
                     audio.currentTime = video.currentTime;
                     audio.play();
-                }*/
-            }, 200);
+                }
+            }, 200); */
         }, 10);
     }, 10);
     

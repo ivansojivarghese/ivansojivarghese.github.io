@@ -268,15 +268,20 @@
     });
     
     video.addEventListener('loadedmetadata', function () {
+        video.play();
         audio.currentTime = video.currentTime;
         audio.play();
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${
         video.currentTime / video.duration
         })`;
+        setTimeout(function() {
+          video.style.opacity = 1;
+        }, 200);
     });
 
     video.addEventListener('loadeddata', function () {
+      video.play();
       audio.currentTime = video.currentTime;
       audio.play();
     });
