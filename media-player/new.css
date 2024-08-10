@@ -86,6 +86,7 @@ video.seeking {
     transform: translateY(-50%);
     font-size: 0.8rem;
     opacity: 0;
+    top: 1.5rem;
 }
 
 .seekText.show {
@@ -93,11 +94,11 @@ video.seeking {
 }
 
 .seekText.forward {
-    right: 5.45rem;
+    right: 1.2rem;
 }
 
 .seekText.backward {
-    left: 5.45rem
+    left: 1.2rem;
 }
 
 #seekForwardButton .img {
