@@ -156,6 +156,8 @@ async function getParams(id) {
     
     // video.src = videoDetails.formats["0"].url;
 
+    video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
+
     video.src = videoDetails.adaptiveFormats[0].url;
     audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
