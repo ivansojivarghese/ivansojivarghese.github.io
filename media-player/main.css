@@ -260,9 +260,11 @@ iframe, #videoContainer, object, canvas {
   main {
       margin-top: calc(2rem + env(safe-area-inset-top));
       margin-left: calc(1.5rem + env(safe-area-inset-left));
-      margin-bottom: calc(2rem + env(safe-area-inset-bottom));
+      /*margin-bottom: calc(2rem + env(safe-area-inset-bottom));*/
+      margin-bottom: calc(0rem + env(safe-area-inset-bottom));
       margin-right: calc(1.5rem + env(safe-area-inset-right));
-      height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));
+      /*height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));*/
+      height: calc(100svh - (2rem + env(safe-area-inset-top)) - (0rem + env(safe-area-inset-bottom)));
       width: calc(100vw - (1.5rem + env(safe-area-inset-left)) - (1.5rem + env(safe-area-inset-right)));
   }
 
