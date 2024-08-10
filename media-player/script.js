@@ -5,6 +5,7 @@
     // https://googlesamples.github.io/web-fundamentals/fundamentals/media/mobile-web-video-playback.html 
 
     const video = document.querySelector('video');
+    const audio = document.querySelector('audio');
     const videoContainer = document.querySelector("#videoContainer");
     const videoControls = document.querySelector("#videoControls");
 
@@ -28,8 +29,10 @@
       if (videoControls.classList.contains('visible')) {
         if (video.paused && video.src !== "") {
           video.play();
+          audio.play();
         } else {
           video.pause();
+          audio.pause();
         }
       }
     });

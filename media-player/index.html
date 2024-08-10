@@ -61,7 +61,9 @@
         <!-- <h1 style="display: none;">Media Player <span>for YouTube</span></h1> -->
 
         <div id="videoContainer" class="trs">
-          <video></video> 
+          <video>
+            <audio></audio>
+          </video> 
           <div id="videoControls" class="trs">
               <div id="playPauseButton">
                 <div class="img"></div>
@@ -212,7 +214,7 @@
       const video = document.querySelector('video');
       video.requestFullscreen();
       wrap.style.display = "";
-    }
+    }/*
     function play() {
       const video = document.querySelector('video');
       video.play();
@@ -222,7 +224,7 @@
       const video = document.querySelector('video');
       video.pause();
       wrap.style.display = "";
-    }
+    }*/
     function load() {
       const video = document.querySelector('video');
       video.load();

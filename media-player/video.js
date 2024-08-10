@@ -154,9 +154,17 @@ async function getParams(id) {
     videoDetails = await response.json();
     console.log(videoDetails);
     
-    video.src = videoDetails.formats["0"].url;
+    // video.src = videoDetails.formats["0"].url;
+
+    video.src = videoDetails.adaptiveFormats[0].url;
+    audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+
+    // CAPTURE adaptiveFormats[0] video (highest quality)
+    // CAPTURE adaptiveFormats[adaptiveFormats.length - 1] audio (highest quality)
+    // COMBINE the 2 sources
     
     video.play();
+    audio.play();
     
   } catch (error) {
     console.error(error);
