@@ -274,6 +274,9 @@
         
         const videoCSS = window.getComputedStyle(video, null);
 
+        videoContainer.style.width = "";
+        videoContainer.style.height = "";
+
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${
           video.currentTime / video.duration
