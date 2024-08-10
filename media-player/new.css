@@ -78,6 +78,23 @@ video.seeking {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/pip_exit.svg");
 }
 
+.seekText {
+    color: #FFF;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+}
+
+.seekText.forward {
+    right: 5.45rem;
+}
+
+.seekText.backward {
+    left: 5.45rem
+}
+
 #seekForwardButton .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/seek.svg");
 }
