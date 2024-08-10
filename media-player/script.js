@@ -215,6 +215,7 @@
         if (videoControls.classList.contains('visible') && video.src !== "") {
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
+            seekBackwardText.classList.remove('show');
             seekForwardText.classList.add('show');
             video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
             // audio.currentTime = Math.min(audio.currentTime + skipTime, audio.duration);
@@ -232,6 +233,7 @@
         if (videoControls.classList.contains('visible') && video.src !== "") {
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
+            seekForwardText.classList.remove('show');
             seekBackwardText.classList.add('show');
             video.currentTime = Math.max(video.currentTime - skipTime, 0);
             // audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
