@@ -234,6 +234,11 @@ video {
   position: absolute;
 }
 
+.smooth-trs {
+  will-change: width, height;
+  transition: all 0.3s ease-in-out;
+}
+
 iframe, #videoContainer, object, canvas {
   margin-top: 0;
   /*margin-top: 2rem;*/

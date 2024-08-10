@@ -166,6 +166,8 @@ async function getParams(id) {
     setTimeout(function() {
         video.style.opacity = 0;
         setTimeout(function() {
+            
+
             videoContainer.style.width = videoWidth + "px";
             videoContainer.style.height = videoHeight + "px";
 
