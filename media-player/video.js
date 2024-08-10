@@ -165,6 +165,7 @@ async function getParams(id) {
     
     video.play();
     audio.play();
+    audio.currentTime = video.currentTime;
     
   } catch (error) {
     console.error(error);
