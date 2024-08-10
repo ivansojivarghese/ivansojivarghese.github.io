@@ -166,10 +166,14 @@ async function getParams(id) {
     setTimeout(function() {
         video.style.opacity = 0;
         setTimeout(function() {
+            var mod = "";
             const videoSizeRatio = videoWidth / videoHeight;
-
-            videoContainer.style.width = videoWidth + "px";
-            videoContainer.style.height = videoHeight + "px";
+            if (videoSizeRatio === 1) {
+                videoWidth = "100";
+                mod = "%";
+            }
+            videoContainer.style.width = videoWidth + mod;
+            videoContainer.style.height = videoHeight + mod;
 
             video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
             video.src = targetVideo.url;
