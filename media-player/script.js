@@ -222,6 +222,9 @@
             if (controlsHideInt === null && !video.paused) {
               controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
             }
+            setTimeout(function() {
+              seekForwardText.classList.remove('show');
+            }, 3000);
         }
     }
 
@@ -236,6 +239,9 @@
             if (controlsHideInt === null && !video.paused) {
               controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
             }
+            setTimeout(function() {
+              seekBackwardText.classList.remove('show');
+            }, 3000);
         }
     }
 
