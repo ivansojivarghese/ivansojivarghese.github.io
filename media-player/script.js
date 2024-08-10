@@ -313,8 +313,10 @@
       }
     };
 
-    document.addEventListener("click", function() {
-      if (!video.paused && videoControls.classList.contains('visible') && video.src !== "") {
-        hideVideoControls();
+    document.addEventListener("click", function(event) {
+      if (!event.target.classList.contains("videoArea")) {
+        if (!video.paused && videoControls.classList.contains('visible') && video.src !== "") {
+          hideVideoControls();
+        }
       }
-    });
+    }, true);
