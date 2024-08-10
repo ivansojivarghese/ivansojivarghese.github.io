@@ -276,6 +276,7 @@
         video.currentTime / video.duration
         })`;
         setTimeout(function() {
+          // videoContainer.
           video.style.opacity = 1;
         }, 200);
     });
