@@ -274,6 +274,11 @@
         })`;
     });
 
+    video.addEventListener('loadeddata', function () {
+      audio.currentTime = video.currentTime;
+      audio.play();
+    });
+
     video.addEventListener('timeupdate', function() {
         audio.currentTime = video.currentTime;
         if (!videoControls.classList.contains('visible')) {
