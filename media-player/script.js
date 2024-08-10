@@ -132,6 +132,7 @@
     video.addEventListener('ended', function() {
         playPauseButton.classList.remove('playing');
         video.currentTime = 0;
+        audio.currentTime = 0;
         showVideoControls();
         releaseScreenLock(screenLock);
     });
