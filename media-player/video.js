@@ -157,12 +157,12 @@ async function getParams(id) {
     // video.src = videoDetails.formats["0"].url;
 
     const targetVideo = videoDetails.adaptiveFormats[0];
-    const videoWidth = targetVideo.width;
-    const videoHeight = targetVideo.height;
+    // const videoWidth = targetVideo.width;
+    // const videoHeight = targetVideo.height;
 
-    const videoCSS = window.getComputedStyle(video, null);
-    videoContainer.style.width = videoCSS.getPropertyValue("width");
-    videoContainer.style.height = videoCSS.getPropertyValue("height");
+    // const videoCSS = window.getComputedStyle(video, null);
+    // videoContainer.style.width = videoCSS.getPropertyValue("width");
+    // videoContainer.style.height = videoCSS.getPropertyValue("height");
     setTimeout(function() {
         video.style.opacity = 0;
         setTimeout(function() {
@@ -178,7 +178,7 @@ async function getParams(id) {
             // CAPTURE adaptiveFormats[0] video (highest quality)
             // CAPTURE adaptiveFormats[adaptiveFormats.length - 1] audio (highest quality)
             // COMBINE the 2 sources
-            
+
             /*
             setTimeout(function() {
                 if (videoSizeRatio === 1) {
