@@ -164,8 +164,10 @@ async function getParams(id) {
     // COMBINE the 2 sources
     
     video.play();
-    audio.play();
-    audio.currentTime = video.currentTime;
+    if (!video.paused) {
+        audio.currentTime = video.currentTime;
+        audio.play();
+    }
     
   } catch (error) {
     console.error(error);
