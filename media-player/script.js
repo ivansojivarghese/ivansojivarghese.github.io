@@ -260,10 +260,10 @@
     });
 
     video.addEventListener('timeupdate', function() {
+        audio.currentTime = video.currentTime;
         if (!videoControls.classList.contains('visible')) {
           return;
         }
-        audio.currentTime = video.currentTime;
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
     });
