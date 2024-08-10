@@ -300,7 +300,7 @@
     });
 
     video.addEventListener('timeupdate', function() {
-        audio.currentTime = video.currentTime;
+        // audio.currentTime = video.currentTime;
         if (!videoControls.classList.contains('visible')) {
           return;
         }
