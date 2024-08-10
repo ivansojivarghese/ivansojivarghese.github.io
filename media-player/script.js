@@ -20,6 +20,9 @@
     const seekForwardButton = document.querySelector('#seekForwardButton');
     const seekBackwardButton = document.querySelector('#seekBackwardButton');
 
+    const seekForwardText = document.querySelector('.seekText.forward');
+    const seekBackwardText = document.querySelector('.seekText.backward');
+
     var controlsHideInt = null;
 
     playPauseButton.addEventListener('click', function (event) {
@@ -159,6 +162,8 @@
 
     function hideVideoControls() {
       videoControls.classList.remove('visible');
+      seekForwardText.classList.remove('show');
+      seekBackwardText.classList.remove('show');
     }
 
     videoControls.addEventListener('click', function(event) {
@@ -210,6 +215,7 @@
         if (videoControls.classList.contains('visible') && video.src !== "") {
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
+            seekForwardText.classList.add('show');
             video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
             // audio.currentTime = Math.min(audio.currentTime + skipTime, audio.duration);
             audio.currentTime = video.currentTime;
@@ -223,6 +229,7 @@
         if (videoControls.classList.contains('visible') && video.src !== "") {
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
+            seekBackwardText.classList.add('show');
             video.currentTime = Math.max(video.currentTime - skipTime, 0);
             // audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
             audio.currentTime = video.currentTime;

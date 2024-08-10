@@ -85,6 +85,11 @@ video.seeking {
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.8rem;
+    opacity: 0;
+}
+
+.seekText.show {
+    opacity: 1;
 }
 
 .seekText.forward {
