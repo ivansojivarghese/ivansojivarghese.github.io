@@ -283,17 +283,17 @@
           video.currentTime / video.duration
         })`;
 
-        // console.log(videoCSS.getPropertyValue("height"))
+    });
 
-        setTimeout(function() {
-          // console.log(videoCSS.getPropertyValue("height"));
-
-          // videoContainer.
-          // video.style.opacity = 1;
-        }, 10);
+    video.addEventListener('loadstart', function () {
+      
+      // START LOAD
     });
 
     video.addEventListener('loadeddata', function () {
+
+      // END LOAD
+
       video.play();
       audio.currentTime = video.currentTime;
       audio.play();
