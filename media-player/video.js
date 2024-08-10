@@ -166,24 +166,26 @@ async function getParams(id) {
     setTimeout(function() {
         video.style.opacity = 0;
         setTimeout(function() {
-            videoContainer.style.width = videoWidth;
-            videoContainer.style.height = videoHeight;
+            videoContainer.style.width = videoWidth + "px";
+            videoContainer.style.height = videoHeight + "px";
 
             video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
             video.src = targetVideo.url;
             audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
-            video.style.opacity = 1;
-
             // CAPTURE adaptiveFormats[0] video (highest quality)
             // CAPTURE adaptiveFormats[adaptiveFormats.length - 1] audio (highest quality)
             // COMBINE the 2 sources
-            
-            video.play();
-            if (!video.paused) {
-                audio.currentTime = video.currentTime;
-                audio.play();
-            }
+
+            setTimeout(function() {
+                video.style.opacity = 1;
+                
+                video.play();
+                if (!video.paused) {
+                    audio.currentTime = video.currentTime;
+                    audio.play();
+                }
+            }, 200);
         }, 10);
     }, 10);
     
