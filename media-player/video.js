@@ -170,14 +170,6 @@ async function getParams(id) {
             var modSec = "";
             var videoModWidth, videoModHeight;
             const videoSizeRatio = videoWidth / videoHeight;
-            if (videoSizeRatio === 1) {
-                videoModWidth = "100";
-                videoModHeight = "100";
-                mod = "%";
-                modSec = "vw";
-            }
-            videoContainer.style.width = videoModWidth + mod;
-            videoContainer.style.height = videoModHeight + modSec;
 
             video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
             video.src = targetVideo.url;
@@ -188,6 +180,15 @@ async function getParams(id) {
             // COMBINE the 2 sources
 
             setTimeout(function() {
+                if (videoSizeRatio === 1) {
+                    videoModWidth = "100";
+                    videoModHeight = "100";
+                    mod = "%";
+                    modSec = "vw";
+                }
+                videoContainer.style.width = videoModWidth + mod;
+                videoContainer.style.height = videoModHeight + modSec;
+                
                 video.style.opacity = 1;
                 video.play();
                 /*
