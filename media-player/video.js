@@ -164,12 +164,12 @@ async function getParams(id) {
     video.src = targetVideo.url;
     audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
-    // const videoCSS = window.getComputedStyle(video, null);
-    // videoContainer.style.width = videoCSS.getPropertyValue("width");
-    // videoContainer.style.height = videoCSS.getPropertyValue("height");
-    
-    setTimeout(function() {
-        video.style.opacity = 0;
+    const videoCSS = window.getComputedStyle(video, null);
+    videoContainer.style.width = videoCSS.getPropertyValue("width");
+    videoContainer.style.height = videoCSS.getPropertyValue("height");
+
+    // setTimeout(function() {
+        // video.style.opacity = 0;
 
         // setTimeout(function() {
             // var mod = "";
@@ -204,7 +204,7 @@ async function getParams(id) {
                 }
             }, 200); */
         // }, 10);
-    }, 10);
+    // }, 10);
     
   } catch (error) {
     console.error(error);

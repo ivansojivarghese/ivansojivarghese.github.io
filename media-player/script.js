@@ -268,17 +268,25 @@
     });
     
     video.addEventListener('loadedmetadata', function () {
-        video.play();
+        /*video.play();
         audio.currentTime = video.currentTime;
-        audio.play();
+        audio.play();*/
+        
+        const videoCSS = window.getComputedStyle(video, null);
+
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${
-        video.currentTime / video.duration
+          video.currentTime / video.duration
         })`;
+
+        console.log(videoCSS.getPropertyValue("height"))
+
         setTimeout(function() {
+          console.log(videoCSS.getPropertyValue("height"));
+
           // videoContainer.
-          video.style.opacity = 1;
-        }, 200);
+          // video.style.opacity = 1;
+        }, 10);
     });
 
     video.addEventListener('loadeddata', function () {
