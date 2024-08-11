@@ -147,7 +147,7 @@
       } else {
         fullscreenButton.children[0].classList.add("exit");
       }
-    }
+    });
 
     /*
     document.addEventListener('fullscreenchange', function() {
