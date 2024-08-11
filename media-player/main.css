@@ -292,7 +292,7 @@ iframe, #videoContainer, object, canvas {
 }
 
 main .content {
-  height: 100svh;
+  height: 100%;
 }
 
 canvas {

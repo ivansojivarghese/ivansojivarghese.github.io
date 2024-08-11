@@ -314,12 +314,19 @@
         /*video.play();
         audio.currentTime = video.currentTime;
         audio.play();*/
-        
+
+        const portrait = window.matchMedia("(orientation: portrait)").matches;
         const videoCSS = window.getComputedStyle(video, null);
         var rawWidth = Number(videoCSS.getPropertyValue("width").slice(0, -2));
+        var rawMaxHeight = Number(videoCSS.getPropertyValue("max-height").slice(0, -2));
 
-        videoContainer.style.width = rawWidth + "px";
-        videoContainer.style.height = (rawWidth / videoSizeRatio) + "px";
+        if (portrait) { // IN PORTRAIT MODE
+          videoContainer.style.width = rawWidth + "px"; 
+          videoContainer.style.height = (rawWidth / videoSizeRatio) + "px";
+        } else { // IN LANDSCAPE MODE
+          videoContainer.style.height = rawMaxHeight + "px";
+          videoContainer.style.width = (rawMaxHeight * videoSizeRatio) + "px"; 
+        }
 
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${
