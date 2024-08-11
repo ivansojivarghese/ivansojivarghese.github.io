@@ -154,14 +154,14 @@
         showVideoControls();
         releaseScreenLock(screenLock);
     });
-/*
+
     document.addEventListener('fullscreenchange', function() {
       if (document.fullscreenElement) {
         fullscreenButton.children[0].classList.remove("exit");
-      } else {
+      } /*else {
         fullscreenButton.children[0].classList.add("exit");
-      }
-    });*/
+      }*/
+    });
 
     function showVideoControls() {
       videoControls.classList.add('visible');
