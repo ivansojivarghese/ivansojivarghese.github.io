@@ -172,15 +172,17 @@
     function hideVideoControls() {
       videoControls.classList.remove('visible');
       seekForwardText.classList.remove('show');
+      /*
       setTimeout(function() {
         forwardSkippedTime = 0;
         seekForwardTextSec.innerHTML = forwardSkippedTime;
-      }, 300);
+      }, 300);*/
       seekBackwardText.classList.remove('show');
+      /*
       setTimeout(function() {
         backwardSkippedTime = 0;
         seekBackwardTextSec.innerHTML = backwardSkippedTime;
-      }, 300);
+      }, 300);*/
     }
 
     videoControls.addEventListener('click', function(event) {
