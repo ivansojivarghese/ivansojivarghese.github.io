@@ -242,6 +242,8 @@
 
     function seekForward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
+            forwardSkippedTime = 0;
+            seekForwardTextSec.innerHTML = forwardSkippedTime;
             forwardSkippedTime += skipTime;
             seekForwardTextSec.innerHTML = forwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -263,10 +265,11 @@
             if (seekForwardHideInt === null) {
               seekForwardHideInt = setTimeout(function() {
                 seekForwardText.classList.remove('show');
+                /*
                 setTimeout(function() {
                   forwardSkippedTime = 0;
                   seekForwardTextSec.innerHTML = forwardSkippedTime;
-                }, 300);
+                }, 300);*/
               }, 300);
             }
         }
@@ -274,6 +277,8 @@
 
     function seekBackward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
+            backwardSkippedTime = 0;
+            seekBackwardTextSec.innerHTML = backwardSkippedTime;
             backwardSkippedTime += skipTime;
             seekBackwardTextSec.innerHTML = backwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -295,10 +300,11 @@
             if (seekBackwardHideInt === null) {
               seekBackwardHideInt = setTimeout(function() {
                 seekBackwardText.classList.remove('show');
+                /*
                 setTimeout(function() {
                   backwardSkippedTime = 0;
                   seekBackwardTextSec.innerHTML = backwardSkippedTime;
-                }, 300);
+                }, 300);*/
               }, 300);
             }
         }
