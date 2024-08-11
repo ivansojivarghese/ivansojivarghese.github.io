@@ -226,6 +226,20 @@
       }
     });
 
+    screen.orientation.addEventListener("change", function(event) {
+      const angle = event.target.angle;
+      const videoCSS = window.getComputedStyle(video, null);
+      var rawWidth = Number(videoCSS.getPropertyValue("width").slice(0, -2));
+      var rawMaxHeight = Number(videoCSS.getPropertyValue("max-height").slice(0, -2));
+      if ((angle === 0 || angle === 180)) { // IN PORTRAIT MODE
+        videoContainer.style.width = rawWidth + "px"; 
+        videoContainer.style.height = (rawWidth / videoSizeRatio) + "px";
+      } else if ((angle === 90 || angle === 270)) { // IN LANDSCAPE MODE
+        videoContainer.style.height = rawMaxHeight + "px";
+        videoContainer.style.width = (rawMaxHeight * videoSizeRatio) + "px"; 
+      }
+    });
+
     function seekForward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
             forwardSkippedTime += skipTime;
