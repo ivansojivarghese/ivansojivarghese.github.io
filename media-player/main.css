@@ -291,6 +291,10 @@ iframe, #videoContainer, object, canvas {
   }
 }
 
+main .content {
+  height: 100svh;
+}
+
 canvas {
     position: absolute;
     top: calc(2rem + env(safe-area-inset-top) + 2.8rem);
