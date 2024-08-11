@@ -242,8 +242,8 @@
 
     function seekForward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
-            forwardSkippedTime = 0;
-            seekForwardTextSec.innerHTML = forwardSkippedTime;
+            //forwardSkippedTime = 0;
+            //seekForwardTextSec.innerHTML = forwardSkippedTime;
             forwardSkippedTime += skipTime;
             seekForwardTextSec.innerHTML = forwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -265,6 +265,8 @@
             if (seekForwardHideInt === null) {
               seekForwardHideInt = setTimeout(function() {
                 seekForwardText.classList.remove('show');
+                forwardSkippedTime = 0;
+                seekForwardTextSec.innerHTML = forwardSkippedTime;
                 /*
                 setTimeout(function() {
                   forwardSkippedTime = 0;
@@ -277,8 +279,8 @@
 
     function seekBackward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
-            backwardSkippedTime = 0;
-            seekBackwardTextSec.innerHTML = backwardSkippedTime;
+            //backwardSkippedTime = 0;
+            //seekBackwardTextSec.innerHTML = backwardSkippedTime;
             backwardSkippedTime += skipTime;
             seekBackwardTextSec.innerHTML = backwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -300,6 +302,8 @@
             if (seekBackwardHideInt === null) {
               seekBackwardHideInt = setTimeout(function() {
                 seekBackwardText.classList.remove('show');
+                backwardSkippedTime = 0;
+                seekBackwardTextSec.innerHTML = backwardSkippedTime;
                 /*
                 setTimeout(function() {
                   backwardSkippedTime = 0;
