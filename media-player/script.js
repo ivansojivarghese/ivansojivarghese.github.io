@@ -50,14 +50,18 @@
         } else {
           requestFullscreenVideo();
           lockScreenInLandscape();
-          fullscreenButton.children[0].classList.add("exit");
+          // fullscreenButton.children[0].classList.add("exit");
         }
       }
     });
 
     function requestFullscreenVideo() {
       if (videoContainer.requestFullscreen) {
-        videoContainer.requestFullscreen();
+        videoContainer.requestFullscreen().catch((err) => {
+          fullscreenButton.children[0].classList.remove("exit");
+          return;
+        });
+        fullscreenButton.children[0].classList.add("exit");
       } else {
         video.webkitEnterFullscreen();
       }
@@ -143,27 +147,13 @@
         showVideoControls();
         releaseScreenLock(screenLock);
     });
-
+/*
     document.addEventListener('fullscreenchange', function() {
       if (document.fullscreenElement) {
         fullscreenButton.children[0].classList.remove("exit");
       } else {
         fullscreenButton.children[0].classList.add("exit");
       }
-    });
-
-    /*
-    document.addEventListener('fullscreenchange', function() {
-        if (videoControls.classList.contains('visible') && video.src !== "") {
-            if (document.fullscreenElement) {
-              document.exitFullscreen();
-              fullscreenButton.children[0].classList.remove("exit");
-            } else {
-              requestFullscreenVideo();
-              lockScreenInLandscape();
-              fullscreenButton.children[0].classList.add("exit");
-            }
-        }
     });*/
 
     function showVideoControls() {
@@ -214,7 +204,7 @@
       if ((angle === 90 || angle === 270) && !document.fullscreenElement) {
         requestFullscreenVideo();
         lockScreenInLandscape();
-        fullscreenButton.children[0].classList.add("exit");
+        // fullscreenButton.children[0].classList.add("exit");
       } else if ((angle === 0 || angle === 180) && document.fullscreenElement) {
         document.exitFullscreen();
         fullscreenButton.children[0].classList.remove("exit");
