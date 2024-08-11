@@ -64,7 +64,7 @@
 
     function requestFullscreenVideo() {
       if (videoContainer.requestFullscreen) {
-        videoContainer.requestFullscreen().catch((err) => {
+        videoContainer.requestFullscreen({ navigationUI: "hide" }).catch((err) => {
           fullscreenButton.children[0].classList.remove("exit");
           return;
         });
