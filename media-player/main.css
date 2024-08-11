@@ -279,7 +279,7 @@ iframe, #videoContainer, object, canvas {
     border-radius: 0.5rem;
   }
 
-  video:fullscreen, #videoContainer:fullscreen, #videoControls:fullscreen {
+  #videoContainer:fullscreen video, #videoContainer:fullscreen, #videoContainer:fullscreen #videoControls {
     border-radius: 0rem;
   }
 }
