@@ -173,12 +173,12 @@
       videoControls.classList.remove('visible');
       seekForwardText.classList.remove('show');
       setTimeout(function() {
-        forwardSkippedTime = skipTime;
+        forwardSkippedTime = 0;
         seekForwardTextSec.innerHTML = forwardSkippedTime;
       }, 3000);
       seekBackwardText.classList.remove('show');
       setTimeout(function() {
-        backwardSkippedTime = skipTime;
+        backwardSkippedTime = 0;
         seekBackwardTextSec.innerHTML = backwardSkippedTime;
       }, 3000);
     }
@@ -250,7 +250,7 @@
             controlsHideInt = null;
             seekBackwardText.classList.remove('show');
             setTimeout(function() {
-              backwardSkippedTime = skipTime;
+              backwardSkippedTime = 0;
               seekBackwardTextSec.innerHTML = backwardSkippedTime;
             }, 3000);
             seekForwardText.classList.add('show');
@@ -264,7 +264,7 @@
               seekForwardHideInt = setTimeout(function() {
                 seekForwardText.classList.remove('show');
                 setTimeout(function() {
-                  forwardSkippedTime = skipTime;
+                  forwardSkippedTime = 0;
                   seekForwardTextSec.innerHTML = forwardSkippedTime;
                 }, 3000);
               }, 3000);
@@ -282,7 +282,7 @@
             seekBackwardHideInt = null;
             seekForwardText.classList.remove('show');
             setTimeout(function() {
-              forwardSkippedTime = skipTime;
+              forwardSkippedTime = 0;
               seekForwardTextSec.innerHTML = forwardSkippedTime;
             }, 3000);
             seekBackwardText.classList.add('show');
@@ -296,7 +296,7 @@
               seekBackwardHideInt = setTimeout(function() {
                 seekBackwardText.classList.remove('show');
                 setTimeout(function() {
-                  backwardSkippedTime = skipTime;
+                  backwardSkippedTime = 0;
                   seekBackwardTextSec.innerHTML = backwardSkippedTime;
                 }, 3000);
               }, 3000);
