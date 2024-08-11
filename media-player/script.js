@@ -29,8 +29,8 @@
     var seekForwardHideInt = null;
     var seekBackwardHideInt = null;
     const skipTime = 10;
-    var forwardSkippedTime = skipTime;
-    var backwardSkippedTime = skipTime;
+    var forwardSkippedTime = 0;
+    var backwardSkippedTime = 0;
 
     playPauseButton.addEventListener('click', function (event) {
       event.stopPropagation();
@@ -228,12 +228,8 @@
 
     function seekForward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
-            if (forwardSkippedTime !== skipTime) {
-              forwardSkippedTime += skipTime;
-              seekForwardTextSec.innerHTML = forwardSkippedTime;
-            } else {
-              forwardSkippedTime += skipTime;
-            }
+            forwardSkippedTime += skipTime;
+            seekForwardTextSec.innerHTML = forwardSkippedTime;
             clearTimeout(controlsHideInt);
             clearTimeout(seekForwardHideInt);
             seekForwardHideInt = null;
@@ -264,12 +260,8 @@
 
     function seekBackward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
-            if (backwardSkippedTime !== skipTime) {
-              backwardSkippedTime += skipTime;
-              seekBackwardTextSec.innerHTML = backwardSkippedTime;
-            } else {
-              backwardSkippedTime += skipTime;
-            }
+            backwardSkippedTime += skipTime;
+            seekBackwardTextSec.innerHTML = backwardSkippedTime;
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
             clearTimeout(seekBackwardHideInt);
