@@ -175,12 +175,12 @@
       setTimeout(function() {
         forwardSkippedTime = 0;
         seekForwardTextSec.innerHTML = forwardSkippedTime;
-      }, 3000);
+      }, 300);
       seekBackwardText.classList.remove('show');
       setTimeout(function() {
         backwardSkippedTime = 0;
         seekBackwardTextSec.innerHTML = backwardSkippedTime;
-      }, 3000);
+      }, 300);
     }
 
     videoControls.addEventListener('click', function(event) {
@@ -252,7 +252,7 @@
             setTimeout(function() {
               backwardSkippedTime = 0;
               seekBackwardTextSec.innerHTML = backwardSkippedTime;
-            }, 3000);
+            }, 300);
             seekForwardText.classList.add('show');
             video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
             // audio.currentTime = Math.min(audio.currentTime + skipTime, audio.duration);
@@ -266,8 +266,8 @@
                 setTimeout(function() {
                   forwardSkippedTime = 0;
                   seekForwardTextSec.innerHTML = forwardSkippedTime;
-                }, 3000);
-              }, 3000);
+                }, 300);
+              }, 300);
             }
         }
     }
@@ -284,7 +284,7 @@
             setTimeout(function() {
               forwardSkippedTime = 0;
               seekForwardTextSec.innerHTML = forwardSkippedTime;
-            }, 3000);
+            }, 300);
             seekBackwardText.classList.add('show');
             video.currentTime = Math.max(video.currentTime - skipTime, 0);
             // audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
@@ -298,8 +298,8 @@
                 setTimeout(function() {
                   backwardSkippedTime = 0;
                   seekBackwardTextSec.innerHTML = backwardSkippedTime;
-                }, 3000);
-              }, 3000);
+                }, 300);
+              }, 300);
             }
         }
     }
