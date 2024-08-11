@@ -28,8 +28,9 @@
     var controlsHideInt = null;
     var seekForwardHideInt = null;
     var seekBackwardHideInt = null;
-    var forwardSkippedTime = 10;
-    var backwardSkippedTime = 10;
+    const skipTime = 10;
+    var forwardSkippedTime = skipTime;
+    var backwardSkippedTime = skipTime;
 
     playPauseButton.addEventListener('click', function (event) {
       event.stopPropagation();
@@ -172,12 +173,12 @@
       videoControls.classList.remove('visible');
       seekForwardText.classList.remove('show');
       setTimeout(function() {
-        forwardSkippedTime = 10;
+        forwardSkippedTime = skipTime;
         seekForwardTextSec.innerHTML = forwardSkippedTime;
       }, 3000);
       seekBackwardText.classList.remove('show');
       setTimeout(function() {
-        backwardSkippedTime = 10;
+        backwardSkippedTime = skipTime;
         seekBackwardTextSec.innerHTML = backwardSkippedTime;
       }, 3000);
     }
@@ -225,17 +226,21 @@
       }
     });
 
-    const skipTime = 10;
-
     function seekForward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
+            if (forwardSkippedTime !== skipTime) {
+              forwardSkippedTime += skipTime;
+              seekForwardTextSec.innerHTML = forwardSkippedTime;
+            } else {
+              forwardSkippedTime += skipTime;
+            }
             clearTimeout(controlsHideInt);
             clearTimeout(seekForwardHideInt);
             seekForwardHideInt = null;
             controlsHideInt = null;
             seekBackwardText.classList.remove('show');
             setTimeout(function() {
-              backwardSkippedTime = 10;
+              backwardSkippedTime = skipTime;
               seekBackwardTextSec.innerHTML = backwardSkippedTime;
             }, 3000);
             seekForwardText.classList.add('show');
@@ -249,7 +254,7 @@
               seekForwardHideInt = setTimeout(function() {
                 seekForwardText.classList.remove('show');
                 setTimeout(function() {
-                  forwardSkippedTime = 10;
+                  forwardSkippedTime = skipTime;
                   seekForwardTextSec.innerHTML = forwardSkippedTime;
                 }, 3000);
               }, 3000);
@@ -259,13 +264,19 @@
 
     function seekBackward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
+            if (backwardSkippedTime !== skipTime) {
+              backwardSkippedTime += skipTime;
+              seekBackwardTextSec.innerHTML = backwardSkippedTime;
+            } else {
+              backwardSkippedTime += skipTime;
+            }
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
             clearTimeout(seekBackwardHideInt);
             seekBackwardHideInt = null;
             seekForwardText.classList.remove('show');
             setTimeout(function() {
-              forwardSkippedTime = 10;
+              forwardSkippedTime = skipTime;
               seekForwardTextSec.innerHTML = forwardSkippedTime;
             }, 3000);
             seekBackwardText.classList.add('show');
@@ -279,7 +290,7 @@
               seekBackwardHideInt = setTimeout(function() {
                 seekBackwardText.classList.remove('show');
                 setTimeout(function() {
-                  backwardSkippedTime = 10;
+                  backwardSkippedTime = skipTime;
                   seekBackwardTextSec.innerHTML = backwardSkippedTime;
                 }, 3000);
               }, 3000);
