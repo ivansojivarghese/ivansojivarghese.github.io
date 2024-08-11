@@ -235,7 +235,7 @@
         videoContainer.style.width = rawWidth + "px"; 
         videoContainer.style.height = (rawWidth / videoSizeRatio) + "px";
       } else if ((angle === 90 || angle === 270)) { // IN LANDSCAPE MODE
-        videoContainer.style.height = rawMaxHeight + "px";
+        videoContainer.style.height = "";
         videoContainer.style.width = (rawMaxHeight * videoSizeRatio) + "px"; 
       }
     });
@@ -338,7 +338,7 @@
           videoContainer.style.width = rawWidth + "px"; 
           videoContainer.style.height = (rawWidth / videoSizeRatio) + "px";
         } else { // IN LANDSCAPE MODE
-          videoContainer.style.height = rawMaxHeight + "px";
+          videoContainer.style.height = "";
           videoContainer.style.width = (rawMaxHeight * videoSizeRatio) + "px"; 
         }
 
