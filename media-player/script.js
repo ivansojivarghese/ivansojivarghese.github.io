@@ -140,6 +140,15 @@
         showVideoControls();
         releaseScreenLock(screenLock);
     });
+
+    document.addEventListener('fullscreenchange', function() {
+      if (document.fullscreenElement) {
+        fullscreenButton.children[0].classList.remove("exit");
+      } else {
+        fullscreenButton.children[0].classList.add("exit");
+      }
+    }
+
     /*
     document.addEventListener('fullscreenchange', function() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
