@@ -52,6 +52,7 @@ video.seeking {
     padding: 0.75rem 1.2rem 0.75rem 0.775rem;
     bottom: 0;
     right: 0;
+    margin-right: calc(env(safe-area-inset-right));
 }
 
 #pipButton {
@@ -59,7 +60,8 @@ video.seeking {
     right: 4rem;*/
     padding: 0.75rem 0.775rem 0.75rem 1.2rem;
     bottom: 0;
-    right: 3.225rem;
+    /*right: 3.225rem;*/
+    right: calc(3.225rem + calc(env(safe-area-inset-right)));
 }
 
 #fullscreenButton .img {
@@ -95,10 +97,12 @@ video.seeking {
 
 .seekText.forward {
     right: 1.2rem;
+    margin-right: calc(env(safe-area-inset-right));
 }
 
 .seekText.backward {
     left: 1.2rem;
+    margin-left: calc(env(safe-area-inset-left));
 }
 
 #seekForwardButton .img {
@@ -118,12 +122,14 @@ video.seeking {
     right: 0;
     padding: 1.5rem 1.2rem;
     padding-left: 3rem;
+    margin-right: calc(env(safe-area-inset-right));
 }
 
 #seekBackwardButton {
     left: 0;
     padding: 1.5rem 1.2rem;
     padding-right: 3rem;
+    margin-left: calc(env(safe-area-inset-left));
 }
 
 #videoCurrentTime {
@@ -133,6 +139,7 @@ video.seeking {
     padding: 0;
     left: 1.2rem;
     font-size: 1rem;
+    margin-left: calc(env(safe-area-inset-left));
 }
 
 #videoProgressBar, #videoLoadProgressBar {
