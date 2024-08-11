@@ -268,12 +268,10 @@
               seekForwardHideInt = setTimeout(function() {
                 seekForwardText.classList.remove('show');
                 forwardSkippedTime = 0;
-                seekForwardTextSec.innerHTML = forwardSkippedTime;
-                /*
                 setTimeout(function() {
-                  forwardSkippedTime = 0;
+                  // forwardSkippedTime = 0;
                   seekForwardTextSec.innerHTML = forwardSkippedTime;
-                }, 300);*/
+                }, 300);
               }, 300);
             }
         }
@@ -305,12 +303,11 @@
               seekBackwardHideInt = setTimeout(function() {
                 seekBackwardText.classList.remove('show');
                 backwardSkippedTime = 0;
-                seekBackwardTextSec.innerHTML = backwardSkippedTime;
-                /*
+                // seekBackwardTextSec.innerHTML = backwardSkippedTime;
                 setTimeout(function() {
-                  backwardSkippedTime = 0;
+                  // backwardSkippedTime = 0;
                   seekBackwardTextSec.innerHTML = backwardSkippedTime;
-                }, 300);*/
+                }, 300);
               }, 300);
             }
         }
