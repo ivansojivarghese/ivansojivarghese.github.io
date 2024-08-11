@@ -99,6 +99,9 @@
           if (previousDeviceOrientation == 'landscape') {
             screen.orientation.unlock();
             window.removeEventListener('deviceorientation', onDeviceOrientationChange);
+            if (!document.fullscreenElement) {
+              fullscreenButton.children[0].classList.remove("exit");
+            }
           }
         }
       });
