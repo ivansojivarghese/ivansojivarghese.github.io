@@ -203,6 +203,7 @@ main {
 video {
   width: 100%;
   height: 100%;
+  background-color: #303030;
   /*border-radius: 0.5rem;*/
 }
 
@@ -254,7 +255,7 @@ iframe, #videoContainer, object, canvas {
   display: inline-flex;
   /*border-radius: 0.5rem;*/
   /*border: 0.15rem solid #303030;*/
-  background: #303030;
+  /*background: #303030;*/
   /*width: 100%;*/
   /*height: 15rem;*/
   /*max-width: 100%;*/
