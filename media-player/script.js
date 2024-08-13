@@ -15,7 +15,7 @@
     const videoLoadProgressBar = document.querySelector('#videoLoadProgressBar');
 
     const playPauseButton = document.querySelector('#playPauseButton');
-    const fullscreenButton = document.querySelector('#fullscreenButton');
+    // const fullscreenButton = document.querySelector('#fullscreenButton');
     const pipButton = document.querySelector('#pipButton');
     const seekForwardButton = document.querySelector('#seekForwardButton');
     const seekBackwardButton = document.querySelector('#seekBackwardButton');
@@ -47,7 +47,7 @@
         }
       }
     });
-
+/*
     fullscreenButton.addEventListener('click', function(event) {
       // event.stopPropagation();
       if (videoControls.classList.contains('visible') && video.src !== "") {
@@ -117,7 +117,7 @@
         }
       });
     }
-
+*/
     pipButton.addEventListener('click', function (event) {
       // event.stopPropagation();
       if (videoControls.classList.contains('visible') && video.src !== "") {
@@ -154,14 +154,12 @@
         showVideoControls();
         releaseScreenLock(screenLock);
     });
-
+/*
     document.addEventListener('fullscreenchange', function() {
       if (!document.fullscreenElement) {
         fullscreenButton.children[0].classList.remove("exit");
-      } /*else {
-        fullscreenButton.children[0].classList.add("exit");
-      }*/
-    });
+      } 
+    });*/
 
     function showVideoControls() {
       videoControls.classList.add('visible');
@@ -217,7 +215,7 @@
         s > 9 ? s : '0' + s,
       ].filter(Boolean).join(':');
     }
-
+/*
     screen.orientation.addEventListener("change", (event) => {
       const angle = event.target.angle;
       if ((angle === 90 || angle === 270) && !document.fullscreenElement) {
@@ -228,7 +226,7 @@
         document.exitFullscreen();
         fullscreenButton.children[0].classList.remove("exit");
       }
-    });
+    });*/
 /*
     screen.orientation.addEventListener("change", function(event) {
       const angle = event.target.angle;
