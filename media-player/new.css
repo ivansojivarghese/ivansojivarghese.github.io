@@ -57,11 +57,13 @@ video.seeking {
 
 #pipButton {
     /*bottom: 0.75rem;
-    right: 4rem;*/
-    padding: 0.75rem 0.775rem 0.75rem 1.2rem;
+    right: 4rem;
+    padding: 0.75rem 0.775rem 0.75rem 1.2rem;*/
+    padding: 0.75rem 1.2rem 0.75rem 1.2rem;
     bottom: 0;
     /*right: 3.225rem;*/
-    right: calc(3.225rem + calc(env(safe-area-inset-right)));
+    /*right: calc(3.225rem + calc(env(safe-area-inset-right)));*/
+    right: calc(0rem + calc(env(safe-area-inset-right)));
 }
 
 #fullscreenButton .img {
