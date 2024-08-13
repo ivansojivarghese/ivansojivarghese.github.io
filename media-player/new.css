@@ -91,6 +91,7 @@ video.seeking {
     font-size: 0.8rem;
     opacity: 0;
     top: 1.5rem;
+    margin-top: calc(env(safe-area-inset-top));
 }
 
 .seekText.show {
@@ -142,6 +143,10 @@ video.seeking {
     left: 1.2rem;
     font-size: 1rem;
     margin-left: calc(env(safe-area-inset-left));
+}
+
+#videoCurrentTime, #pipButton {
+    margin-bottom: calc(env(safe-area-inset-bottom));
 }
 
 #videoProgressBar, #videoLoadProgressBar {
