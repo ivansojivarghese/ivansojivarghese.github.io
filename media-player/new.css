@@ -145,7 +145,7 @@ video.seeking {
     margin-left: calc(env(safe-area-inset-left));
 }
 
-#videoCurrentTime, #pipButton {
+#videoCurrentTime, #pipButton, #fullscreenButton {
     margin-bottom: calc(env(safe-area-inset-bottom));
 }
 
