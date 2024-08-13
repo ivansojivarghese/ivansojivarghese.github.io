@@ -166,11 +166,11 @@ async function getParams(id) {
     video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
     video.src = targetVideo.url;
     audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
-
+    /*
     const videoCSS = window.getComputedStyle(video, null);
     videoContainer.style.width = videoCSS.getPropertyValue("width");
     videoContainer.style.height = videoCSS.getPropertyValue("height");
-    
+    */
   } catch (error) {
     console.error(error);
     
