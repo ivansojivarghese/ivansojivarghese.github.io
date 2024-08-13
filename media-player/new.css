@@ -46,7 +46,7 @@ video.seeking {
     position: absolute;
 }
 
-fitscreenButton {
+#fitscreenButton {
     bottom: 0;
     right: calc(3.225rem + calc(env(safe-area-inset-right)));
     padding: 0.75rem 1.2rem 0.75rem 0.775rem;
