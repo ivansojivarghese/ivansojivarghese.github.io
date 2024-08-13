@@ -537,10 +537,10 @@ input {
   #urlInput input[type="submit"] {
      cursor: pointer; 
   }
-
+/*
   #videoContainer {
     cursor: pointer;
-  }
+  }*/
 }
 
 .trs,.trs_e.trs_md {
