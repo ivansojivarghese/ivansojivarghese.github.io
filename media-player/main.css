@@ -237,8 +237,8 @@ video {
 #infoContainer {
   width: 100%;
   background-color: #FFF;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .smooth-trs {
