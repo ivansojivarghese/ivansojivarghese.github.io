@@ -60,7 +60,7 @@
           // fullscreenButton.children[0].classList.add("exit");
         }
       }
-    });
+    });*/
 
     function requestFullscreenVideo() {
       if (videoContainer.requestFullscreen) {
@@ -117,7 +117,7 @@
         }
       });
     }
-*/
+
     pipButton.addEventListener('click', function (event) {
       // event.stopPropagation();
       if (videoControls.classList.contains('visible') && video.src !== "") {
@@ -215,7 +215,7 @@
         s > 9 ? s : '0' + s,
       ].filter(Boolean).join(':');
     }
-/*
+
     screen.orientation.addEventListener("change", (event) => {
       const angle = event.target.angle;
       if ((angle === 90 || angle === 270) && !document.fullscreenElement) {
@@ -224,9 +224,9 @@
         // fullscreenButton.children[0].classList.add("exit");
       } else if ((angle === 0 || angle === 180) && document.fullscreenElement) {
         document.exitFullscreen();
-        fullscreenButton.children[0].classList.remove("exit");
+        // fullscreenButton.children[0].classList.remove("exit");
       }
-    });*/
+    });
 /*
     screen.orientation.addEventListener("change", function(event) {
       const angle = event.target.angle;
