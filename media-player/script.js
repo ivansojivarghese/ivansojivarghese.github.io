@@ -451,6 +451,14 @@
         }
       }
     };
+
+    document.onvisibilitychange = function() {
+      if (document.visibilityState === 'hidden') {
+        video.style.objectFit = "";
+        video.classList.remove("cover");
+      }
+    }
+
     /*
     document.querySelector("main .content").addEventListener("click", function(event) {
       if (!event.target.classList.contains("videoArea")) {
