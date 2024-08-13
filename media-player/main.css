@@ -262,14 +262,13 @@ iframe, #videoContainer, object, canvas {
 }
 
 @media screen and (orientation: landscape) {
+  /*
   iframe, #videoContainer, object, canvas {
     width: auto;
     height: 100%;
     max-width: calc(65vw - 1.5rem - env(safe-area-inset-left));
-    /*max-width: 30rem;
-    max-height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));*/
     max-height: calc(100svh - (2rem + env(safe-area-inset-top)) - (7rem + env(safe-area-inset-bottom)));
-  }
+  }*/
   /*
   main {
       margin-top: calc(2rem + env(safe-area-inset-top));
