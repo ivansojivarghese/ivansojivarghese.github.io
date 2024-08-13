@@ -287,17 +287,22 @@ iframe, #videoContainer, object, canvas {
     border-radius: 0rem;
   }
 }
-
+/*
 @media screen and (orientation: portrait) {
   iframe, #videoContainer, object, canvas {
     width: 100%;
     height: auto;
   }
-}
+}*/
 
 main .content {
   height: 100%;
   width: 100%;
+}
+
+#videoContainer {
+  width: 100%;
+  height: 100%;
 }
 
 canvas {
