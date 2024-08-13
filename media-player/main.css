@@ -297,7 +297,7 @@ iframe, #videoContainer, object, canvas {
 
 main .content {
   height: 100%;
-  background: #303030;
+  width: 100%;
 }
 
 canvas {
