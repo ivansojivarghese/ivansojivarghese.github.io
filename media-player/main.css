@@ -229,11 +229,11 @@ video {
 #videoControls.visible {
   opacity: 1;
 }
-
+/*
 #videoContainer, #infoContainer {
   position: absolute;
 }
-/*
+
 #infoContainer {
   width: 100%;
   background-color: #FFF;
