@@ -229,7 +229,7 @@
         fullscreenButton.children[0].classList.remove("exit");
       }
     });
-
+/*
     screen.orientation.addEventListener("change", function(event) {
       const angle = event.target.angle;
       const videoCSS = window.getComputedStyle(video, null);
@@ -242,7 +242,7 @@
         videoContainer.style.height = rawHeight + "px";
         videoContainer.style.width = (rawHeight * videoSizeRatio) + "px"; 
       }
-    });
+    });*/
 
     function seekForward() {
         if (videoControls.classList.contains('visible') && video.src !== "") {
@@ -344,14 +344,14 @@
         const videoCSS = window.getComputedStyle(video, null);
         var rawWidth = Number(videoCSS.getPropertyValue("width").slice(0, -2));
         var rawHeight = Number(videoCSS.getPropertyValue("height").slice(0, -2));
-
+/*
         if (portrait) { // IN PORTRAIT MODE
           videoContainer.style.width = rawWidth + "px"; 
           videoContainer.style.height = (rawWidth / videoSizeRatio) + "px";
         } else { // IN LANDSCAPE MODE
           videoContainer.style.height = rawHeight + "px";
           videoContainer.style.width = (rawHeight * videoSizeRatio) + "px"; 
-        }
+        }*/
 
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${
