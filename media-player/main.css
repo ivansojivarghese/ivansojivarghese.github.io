@@ -230,8 +230,15 @@ video {
   opacity: 1;
 }
 
-#videoContainer {
+#videoContainer, #infoContainer {
   position: absolute;
+}
+
+#infoContainer {
+  width: 100%;
+  background-color: #FFF;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 .smooth-trs {
