@@ -233,13 +233,13 @@ video {
 #videoContainer, #infoContainer {
   position: absolute;
 }
-
+/*
 #infoContainer {
   width: 100%;
   background-color: #FFF;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-}
+}*/
 
 .smooth-trs {
   will-change: width, height;
