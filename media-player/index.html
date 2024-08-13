@@ -186,17 +186,17 @@
     }
     
     if (isDarkMode()) {
-      document.body.style.color = "#FFF";
-      document.body.style.backgroundColor = "#171717";
+      //document.body.style.color = "#FFF";
+      //document.body.style.backgroundColor = "#171717";
     }
     
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',({ matches }) => { // detect color theme (live) change
       if (matches) { // change to dark mode
-        document.body.style.color = "#FFF";
-        document.body.style.backgroundColor = "#171717";
+        //document.body.style.color = "#FFF";
+        //document.body.style.backgroundColor = "#171717";
       } else {
-        document.body.style.color = "";
-        document.body.style.backgroundColor = "";
+        //document.body.style.color = "";
+        //document.body.style.backgroundColor = "";
       }
     });
   </script>
