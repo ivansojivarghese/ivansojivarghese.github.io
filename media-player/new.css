@@ -66,6 +66,10 @@ video.seeking {
     right: calc(0rem + calc(env(safe-area-inset-right)));
 }
 
+#fitscreenButton .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/fitscreen.svg");
+}
+
 #fullscreenButton .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/fullscreen.svg");
 }

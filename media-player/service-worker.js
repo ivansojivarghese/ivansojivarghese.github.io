@@ -42,6 +42,7 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/svg/pip_exit.svg',
   'https://ivansojivarghese.github.io/media-player/svg/seek.svg',
   'https://ivansojivarghese.github.io/media-player/svg/rewind.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/fitscreen.svg'
 ];
 
 self.addEventListener('install', evt => {
