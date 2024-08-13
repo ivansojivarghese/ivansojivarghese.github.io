@@ -16,6 +16,7 @@
 
     const playPauseButton = document.querySelector('#playPauseButton');
     // const fullscreenButton = document.querySelector('#fullscreenButton');
+    const fitscreenButton = document.querySelector('#fitscreenButton');
     const pipButton = document.querySelector('#pipButton');
     const seekForwardButton = document.querySelector('#seekForwardButton');
     const seekBackwardButton = document.querySelector('#seekBackwardButton');
@@ -44,6 +45,19 @@
         } else {
           video.pause();
           audio.pause();
+        }
+      }
+    });
+
+    fitscreenButton.addEventListener('click', function(event) {
+      // event.stopPropagation();
+      if (videoControls.classList.contains('visible') && video.src !== "") {
+        if (!video.classList.contains("cover")) {
+          video.style.objectFit = "cover";
+          video.classList.add("cover");
+        } else {
+          video.style.objectFit = "";
+          video.classList.remove("cover");
         }
       }
     });
@@ -224,6 +238,8 @@
         // fullscreenButton.children[0].classList.add("exit");
       } else if ((angle === 0 || angle === 180) && document.fullscreenElement) {
         document.exitFullscreen();
+        video.style.objectFit = "";
+        video.classList.remove("cover");
         // fullscreenButton.children[0].classList.remove("exit");
       }
     });
