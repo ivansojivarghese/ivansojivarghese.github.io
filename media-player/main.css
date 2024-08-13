@@ -270,21 +270,19 @@ iframe, #videoContainer, object, canvas {
     max-height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));*/
     max-height: calc(100svh - (2rem + env(safe-area-inset-top)) - (7rem + env(safe-area-inset-bottom)));
   }
-
+  /*
   main {
       margin-top: calc(2rem + env(safe-area-inset-top));
       margin-left: calc(1.5rem + env(safe-area-inset-left));
-      /*margin-bottom: calc(2rem + env(safe-area-inset-bottom));*/
       margin-bottom: calc(0rem + env(safe-area-inset-bottom));
       margin-right: calc(1.5rem + env(safe-area-inset-right));
-      /*height: calc(100svh - (2rem + env(safe-area-inset-top)) - (2rem + env(safe-area-inset-bottom)));*/
       height: calc(100svh - (2rem + env(safe-area-inset-top)) - (0rem + env(safe-area-inset-bottom)));
       width: calc(100vw - (1.5rem + env(safe-area-inset-left)) - (1.5rem + env(safe-area-inset-right)));
   }
 
   video, #videoContainer, #videoControls {
     border-radius: 0.5rem;
-  }
+  }*/
 
   #videoContainer:fullscreen video, #videoContainer:fullscreen, #videoContainer:fullscreen #videoControls {
     border-radius: 0rem;
