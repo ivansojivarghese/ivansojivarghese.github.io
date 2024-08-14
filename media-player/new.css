@@ -40,7 +40,7 @@ video.seeking {
     height: 1.25rem;
 }
 
-#fullscreenButton, #pipButton, #seekForwardButton, #seekBackwardButton, #fitscreenButton {
+#seekForwardButton, #seekBackwardButton, .seekButton {
     width: 1.25rem;
     height: 1.25rem;
     position: absolute;
@@ -162,7 +162,7 @@ video.seeking {
     margin-left: calc(env(safe-area-inset-left));
 }
 
-#videoCurrentTime, #pipButton, #fullscreenButton {
+#videoCurrentTime, .seekButton {
     margin-bottom: calc(env(safe-area-inset-bottom));
 }
 
