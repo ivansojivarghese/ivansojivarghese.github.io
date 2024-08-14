@@ -175,6 +175,13 @@
       } 
     });
 
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      if (evt.code == 27 && document.fullscreenElement) {
+        fullscreenButton.children[0].classList.remove("exit");
+      }
+  };
+
     function showVideoControls() {
       videoControls.classList.add('visible');
       videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);

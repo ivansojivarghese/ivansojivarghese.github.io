@@ -153,7 +153,7 @@ video.seeking {
     margin-left: calc(env(safe-area-inset-left));
 }
 
-#videoCurrentTime, .seekControls {
+#videoCurrentTime, #seekControls {
     margin-bottom: calc(env(safe-area-inset-bottom));
 }
 
