@@ -15,7 +15,7 @@
     const videoLoadProgressBar = document.querySelector('#videoLoadProgressBar');
 
     const playPauseButton = document.querySelector('#playPauseButton');
-    // const fullscreenButton = document.querySelector('#fullscreenButton');
+    const fullscreenButton = document.querySelector('#fullscreenButton');
     const fitscreenButton = document.querySelector('#fitscreenButton');
     const pipButton = document.querySelector('#pipButton');
     const seekForwardButton = document.querySelector('#seekForwardButton');
@@ -61,7 +61,7 @@
         }
       }
     });
-/*
+
     fullscreenButton.addEventListener('click', function(event) {
       // event.stopPropagation();
       if (videoControls.classList.contains('visible') && video.src !== "") {
@@ -74,15 +74,15 @@
           // fullscreenButton.children[0].classList.add("exit");
         }
       }
-    });*/
+    });
 
     function requestFullscreenVideo() {
       if (videoContainer.requestFullscreen) {
         videoContainer.requestFullscreen({ navigationUI: "hide" }).catch((err) => {
-          // fullscreenButton.children[0].classList.remove("exit");
+          fullscreenButton.children[0].classList.remove("exit");
           return;
         });
-        // fullscreenButton.children[0].classList.add("exit");
+        fullscreenButton.children[0].classList.add("exit");
       } else {
         video.webkitEnterFullscreen();
       }
@@ -168,12 +168,12 @@
         showVideoControls();
         releaseScreenLock(screenLock);
     });
-/*
+
     document.addEventListener('fullscreenchange', function() {
       if (!document.fullscreenElement) {
         fullscreenButton.children[0].classList.remove("exit");
       } 
-    });*/
+    });
 
     function showVideoControls() {
       videoControls.classList.add('visible');
@@ -235,12 +235,12 @@
       if ((angle === 90 || angle === 270) && !document.fullscreenElement) {
         requestFullscreenVideo();
         lockScreenInLandscape();
-        // fullscreenButton.children[0].classList.add("exit");
+        fullscreenButton.children[0].classList.add("exit");
       } else if ((angle === 0 || angle === 180) && document.fullscreenElement) {
         document.exitFullscreen();
         video.style.objectFit = "";
         video.classList.remove("cover");
-        // fullscreenButton.children[0].classList.remove("exit");
+        fullscreenButton.children[0].classList.remove("exit");
       }
     });
 /*
