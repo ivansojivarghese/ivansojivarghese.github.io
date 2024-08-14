@@ -51,18 +51,16 @@ video.seeking {
     bottom: 0;
     right: 0;
     display: inline-flex;
+    margin-right: calc(0.2rem + calc(env(safe-area-inset-right)));
 }
 
 .seekButton {
     width: 1.25rem;
     height: 1.25rem;
-    padding: 0.75rem 0.6rem 0.75rem 0.6rem;
+    padding: 0.75rem 1rem 0.75rem 1rem;
 }
 
 #fitscreenButton {
-    bottom: 0;
-    right: calc(3.225rem + calc(env(safe-area-inset-right)));
-    padding: 0.75rem 0.775rem 0.75rem 0.775rem;
     display: none;
 }
 
@@ -70,26 +68,6 @@ video.seeking {
     #fitscreenButton {
         display: block;
     }
-}
-
-#fullscreenButton {
-    /*bottom: 0.75rem;
-    right: 1.2rem;*/
-    padding: 0.75rem 1.2rem 0.75rem 0.775rem;
-    /*bottom: 0;
-    right: 0;*/
-    margin-right: calc(env(safe-area-inset-right));
-}
-
-#pipButton {
-    /*bottom: 0.75rem;
-    right: 4rem;
-    padding: 0.75rem 0.775rem 0.75rem 1.2rem;*/
-    padding: 0.75rem 1.2rem 0.75rem 0.775rem;
-    bottom: 0;
-    /*right: 3.225rem;*/
-    /*right: calc(3.225rem + calc(env(safe-area-inset-right)));*/
-    right: calc(0rem + calc(env(safe-area-inset-right)));
 }
 
 #fitscreenButton .img {
@@ -175,7 +153,7 @@ video.seeking {
     margin-left: calc(env(safe-area-inset-left));
 }
 
-#videoCurrentTime, .seekButton {
+#videoCurrentTime, .seekControls {
     margin-bottom: calc(env(safe-area-inset-bottom));
 }
 
