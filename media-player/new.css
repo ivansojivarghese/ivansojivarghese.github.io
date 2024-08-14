@@ -40,10 +40,15 @@ video.seeking {
     height: 1.25rem;
 }
 
-#seekForwardButton, #seekBackwardButton, .seekButton {
+#seekForwardButton, #seekBackwardButton {
     width: 1.25rem;
     height: 1.25rem;
     position: absolute;
+}
+
+.seekButton {
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 #fitscreenButton {
