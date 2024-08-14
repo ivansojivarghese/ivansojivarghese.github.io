@@ -190,6 +190,14 @@
       }
   };
 
+  document.addEventListener("dblclick", (event) => { // double-click (by pointing device)
+    if (!document.fullscreenElement) {
+      requestFullscreenVideo();
+      lockScreenInLandscape();
+      fullscreenButton.children[0].classList.add("exit");
+    }
+  });
+
     function showVideoControls() {
       videoControls.classList.add('visible');
       videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
