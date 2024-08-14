@@ -200,6 +200,9 @@
       requestFullscreenVideo();
       lockScreenInLandscape();
       fullscreenButton.children[0].classList.add("exit");
+    } else {
+      document.exitFullscreen();
+      fullscreenButton.children[0].classList.remove("exit");
     }
   });
 
