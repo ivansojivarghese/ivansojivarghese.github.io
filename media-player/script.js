@@ -172,7 +172,12 @@
     document.addEventListener('fullscreenchange', function() {
       if (!document.fullscreenElement) {
         fullscreenButton.children[0].classList.remove("exit");
-      } 
+        // show PIP
+        pipButton.style.display = "";
+      } else {
+        // hide PIP
+        pipButton.style.display = "none";
+      }
     });
 
     document.onkeydown = function(evt) { // FULLSCREEN CONTROL via DESKTOP KEYBOARD
