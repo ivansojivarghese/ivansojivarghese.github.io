@@ -175,9 +175,17 @@
       } 
     });
 
-    document.onkeydown = function(evt) {
+    document.onkeydown = function(evt) { // FULLSCREEN CONTROL via DESKTOP KEYBOARD
       evt = evt || window.event;
-      if (evt.code == 27 && document.fullscreenElement) {
+      if (((evt.code == 122) || (evt.code == 70 && evt.metaKey && evt.ctrlKey)) && !document.fullscreenElement) { // F11 for Windows or Ctrl+Cmd+F for Mac
+        requestFullscreenVideo();
+        lockScreenInLandscape();
+        fullscreenButton.children[0].classList.add("exit");
+      } else if (((evt.code == 122) || (evt.code == 70 && evt.metaKey && evt.ctrlKey)) && document.fullscreenElement) { // F11 for Windows or Ctrl+Cmd+F for Mac
+        fullscreenButton.children[0].classList.remove("exit");
+      }
+
+      if (evt.code == 27 && document.fullscreenElement) { // esc.
         fullscreenButton.children[0].classList.remove("exit");
       }
   };

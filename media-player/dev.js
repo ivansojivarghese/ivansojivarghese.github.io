@@ -13,6 +13,21 @@ var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER P
     devForm = true,
     timeout = 20000; // default timeout (.ms)
 
+var uA_L,
+    tDevice, // check if device is touch-based
+    op = { // site 'options'
+        // as : false, // anchor scrolling?
+        sys : "", // operating system
+        uA : navigator.userAgent, // user agent
+        Ls : 1000/60, // loop (interval) speed - sec./rev.
+        // i : 60, // iterations (per sec.)
+        pwa : {
+            s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone" || getPWADisplayMode() === "browser") ? true : false // check whether if opened as app
+        },
+        Lf : {
+            fb : document.hasFocus()
+        }
+    };
 
 // CODE referenced from user @molnarg from 'https://stackoverflow.com/users/1463900/molnarg', stackoverflow 2022
 // Other references:
@@ -20,6 +35,47 @@ var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER P
 // https://weizman.github.io/page-js-anti-debug-2/
 // https://blog.allenchou.cc/post/js-anti-debugging/
 
+
+function osCheck() {
+    if (op.uA) {
+        if (op.uA.match(/iPhone|iPad|iPod/i)) { // iOS
+            op.sys = "iOS";
+        } else if (op.uA.match(/Android/i)) {// android
+            op.sys = "Android";
+        } else if (op.uA.match(/Windows/i)) { // windows
+            op.sys = "Windows";
+        } else if (op.uA.match(/Mac/i)) { // mac
+            op.sys ="MacOS";
+        } else if (op.uA.match(/X11/i) && !op.uA.match(/Linux/i)) { // unix
+            op.sys = "UNIX";
+        } else if (op.uA.match(/Linux/i) && op.uA.match(/X11/i)) { // linux
+            op.sys = "Linux";
+        } else {
+            op.sys = null; // unknown (unsupported)
+        }
+    }
+}
+
+function isTouchSupported() {
+    var msTouchEnabled = window.navigator.msMaxTouchPoints;
+    var generalTouchEnabled = "ontouchstart" in document.createElement("div");
+
+    if ((msTouchEnabled || generalTouchEnabled || developer) && (op.sys === "iOS" || op.sys === "Android")) {
+        return true;
+    }
+    return false;
+}
+
+function getPWADisplayMode() {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    if (document.referrer.startsWith('android-app://')) {
+        return 'twa';
+    } else if (navigator.standalone || isStandalone) { // return APP mode & BROWSER (effective 140524)
+        return 'standalone';
+    } else {
+        return 'browser';
+    }
+}
 
 if (!developer && localStorage.getItem("devtools") === null) { // anti-debugging features
     checkDevTools = function() {
@@ -232,3 +288,13 @@ if (!developer && localStorage.getItem("devtools") === null) { // anti-debugging
 
     window.stop();
 }*/
+
+
+uA_L = setInterval(function() {
+    if (navigator.userAgent) {
+        op.uA = navigator.userAgent;
+        osCheck();
+        tDevice = isTouchSupported(); // check if touch device
+        clearInterval(uA_L);
+    }
+}, op.Ls);
