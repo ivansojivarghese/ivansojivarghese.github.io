@@ -8,7 +8,8 @@ var uA_L,
         Ls : 1000/60, // loop (interval) speed - sec./rev.
         // i : 60, // iterations (per sec.)
         pwa : {
-            s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone" || getPWADisplayMode() === "browser") ? true : false // check whether if opened as app
+            // s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone" || getPWADisplayMode() === "browser") ? true : false // check whether if opened as app
+            s : isInstalledPwaSession() ? true : false
         },
         Lf : {
             fb : document.hasFocus()
@@ -944,7 +945,7 @@ function applyManifest() {
 }
 
 // REFERENCED FROM WEB.DEV: https://web.dev/customize-install/
-
+/*
 function getPWADisplayMode() {
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
     if (document.referrer.startsWith('android-app://')) {
@@ -954,7 +955,30 @@ function getPWADisplayMode() {
     } else {
         return 'browser';
     }
+}*/
+
+/ REFERENCED FROM: https://micahjon.com/2021/pwa-twa-detection/
+
+function isInStandaloneMode() {
+    return Boolean(
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
+      || window.navigator.standalone, // Fallback for iOS
+    );
+  }
+
+// Run this code as soon as possible (before user has a chance to change display mode)
+let hasBeenInStandaloneMode;
+if (isInStandaloneMode()) {
+  hasBeenInStandaloneMode = true;
+  sessionStorage.setItem('is_standalone_mode', 'yes');
+} else {
+  hasBeenInStandaloneMode = sessionStorage.getItem('is_standalone_mode') === 'yes';
 }
+
+function isInstalledPwaSession() {
+    return hasBeenInStandaloneMode;
+}
+
 /*
 window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => { // check for changes in display
     let displayMode = 'browser';
