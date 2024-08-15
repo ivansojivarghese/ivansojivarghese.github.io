@@ -196,13 +196,15 @@
   };
 
   document.addEventListener("dblclick", (event) => { // double-click (by pointing device)
-    if (!document.fullscreenElement) {
-      requestFullscreenVideo();
-      lockScreenInLandscape();
-      fullscreenButton.children[0].classList.add("exit");
-    } else {
-      document.exitFullscreen();
-      fullscreenButton.children[0].classList.remove("exit");
+    if (video.src !== "") {
+      if (!document.fullscreenElement) {
+        requestFullscreenVideo();
+        lockScreenInLandscape();
+        fullscreenButton.children[0].classList.add("exit");
+      } else {
+        document.exitFullscreen();
+        fullscreenButton.children[0].classList.remove("exit");
+      }
     }
   });
 
