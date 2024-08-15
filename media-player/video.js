@@ -5,6 +5,8 @@ var videoSubmit;
 
 var videoSizeRatio = 0;
 
+var videoFetchLoop = null;
+
 async function getParams(id) {
   let params = new URLSearchParams(document.location.search);
   const link = params.get("description"); 
@@ -158,16 +160,21 @@ async function getParams(id) {
     
     // video.src = videoDetails.formats["0"].url;
 
-    console.log(networkSpeed);
+    videoFetchLoop = setInterval(function() {
+      if (networkSpeed) {
+        clearInterval(videoFetchLoop);
 
-    const targetVideo = videoDetails.adaptiveFormats[0];
-    const videoWidth = targetVideo.width;
-    const videoHeight = targetVideo.height;
-    videoSizeRatio = videoWidth / videoHeight;
+        const targetVideo = videoDetails.adaptiveFormats[0];
+        const videoWidth = targetVideo.width;
+        const videoHeight = targetVideo.height;
+        videoSizeRatio = videoWidth / videoHeight;
 
-    video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
-    video.src = targetVideo.url;
-    audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+        video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
+        video.src = targetVideo.url;
+        audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+      }
+    }, 10);
+
     /*
     const videoCSS = window.getComputedStyle(video, null);
     videoContainer.style.width = videoCSS.getPropertyValue("width");
