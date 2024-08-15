@@ -19,3 +19,5 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         // return true; // default true
     }
 }
+
+estimateNetworkSpeed();
