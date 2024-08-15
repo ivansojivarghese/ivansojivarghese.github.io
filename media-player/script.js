@@ -182,7 +182,7 @@
 
     document.onkeydown = function(evt) { // FULLSCREEN CONTROL via DESKTOP KEYBOARD
       evt = evt || window.event;
-      if (video.src !== "") {
+      if (video.src !== "" && !op.pwa.a) {
         if (((evt.code == 122 && op.sys === "Windows") || (evt.code == 70 && evt.metaKey && evt.ctrlKey)) && !document.fullscreenElement && (op.sys === "MacOS" || op.sys === "iOS")) { // F11 for Windows or Ctrl+Cmd+F for Mac
           requestFullscreenVideo();
           lockScreenInLandscape();
@@ -198,7 +198,7 @@
   };
 
   document.addEventListener("dblclick", (event) => { // double-click (by pointing device)
-    if (video.src !== "") {
+    if (video.src !== "" && !op.pwa.a) {
       if (!document.fullscreenElement) {
         requestFullscreenVideo();
         lockScreenInLandscape();
@@ -251,6 +251,9 @@
       showVideoControls();
       if (!video.requestPictureInPicture) {
         pipButton.style.display = "none";
+      }
+      if (op.pwa.a) { // if launched as TWA 
+        fullscreenButton.style.display = "none";
       }
     });
 
