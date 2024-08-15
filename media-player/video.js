@@ -158,6 +158,8 @@ async function getParams(id) {
     
     // video.src = videoDetails.formats["0"].url;
 
+    console.log(networkSpeed);
+
     const targetVideo = videoDetails.adaptiveFormats[0];
     const videoWidth = targetVideo.width;
     const videoHeight = targetVideo.height;

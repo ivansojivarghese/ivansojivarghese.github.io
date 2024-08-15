@@ -2,7 +2,7 @@
 // network 
 
 const fileSize = 5301699; // resource file size (in bytes)
-var speed = 0;
+var networkSpeed = 0;
 
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
@@ -12,10 +12,10 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             priority: "low"
         });
         var endTime = new Date().getTime(); // end time of fetch
-        speed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
+        networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
         
     } catch (err) { // if network error
-        speed = 0; // return 0 mbps
+        networkSpeed = 0; // return 0 mbps
         // return true; // default true
     }
 }
