@@ -7,6 +7,9 @@ var videoSizeRatio = 0;
 
 var videoFetchLoop = null;
 
+var videoSources = [];
+var audioSources = [];
+
 async function getParams(id) {
   let params = new URLSearchParams(document.location.search);
   const link = params.get("description"); 
@@ -164,13 +167,45 @@ async function getParams(id) {
       if (networkSpeed) {
         clearInterval(videoFetchLoop);
 
+        // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
+
+        for (i = 0; i <= videoDetails.adaptiveFormats.length - 1; i++) {
+          if (videoDetails.adaptiveFormats[i].audioQuality === undefined) { // video
+            videoSources[videoSources.length] = videoDetails.adaptiveFormats[i];
+          } else { // audio
+            audioSources[audioSources.length] = videoDetails.adaptiveFormats[i];
+          }
+        }
+
+        // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
+
+        if (networkSpeed < 0.5) {
+          // SD - 144p
+        } else if (networkSpeed >= 0.5 && networkSpeed < 0.7) {
+          // SD - 240p
+        } else if (networkSpeed >= 0.7 && networkSpeed < 1.1) {
+          // SD - 360p
+        } else if (networkSpeed >= 1.1 && networkSpeed < 2.5) {
+          // SD - 480p
+        } else if (networkSpeed >= 2.5 && networkSpeed < 5) {
+          // HD - 720p
+        } else if (networkSpeed >= 5 && networkSpeed < 20) {
+          // HD - 1080p
+        } else if (networkSpeed >= 20 && networkSpeed < 100) {
+          // 4K - 2160p
+        } else {
+          // 8K - 4320p
+        }
+        
         const targetVideo = videoDetails.adaptiveFormats[0];
+
         const videoWidth = targetVideo.width;
         const videoHeight = targetVideo.height;
         videoSizeRatio = videoWidth / videoHeight;
 
         video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
         video.src = targetVideo.url;
+
         audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
       }
     }, 10);
