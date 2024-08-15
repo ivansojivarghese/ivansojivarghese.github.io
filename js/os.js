@@ -1,5 +1,6 @@
 
 let hasBeenInStandaloneMode;
+let hasPlayStoreTwaHash;
 
 var uA_L,
     tDevice, // check if device is touch-based
@@ -11,7 +12,9 @@ var uA_L,
         // i : 60, // iterations (per sec.)
         pwa : {
             // s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone" || getPWADisplayMode() === "browser") ? true : false // check whether if opened as app
-            s : isInstalledPwaSession() ? true : false
+            // s : isInstalledPwaSession() ? true : false
+            s : null,
+            a : null
         },
         Lf : {
             fb : document.hasFocus()
@@ -979,6 +982,20 @@ if (isInStandaloneMode()) {
 function isInstalledPwaSession() {
     return hasBeenInStandaloneMode;
 }
+
+if (window.location.hash === '#play-store-twa') { // ENSURE THAT "startUrl": "/#play-store-twa: is placed in TWA manifest file
+    hasPlayStoreTwaHash = true;
+    sessionStorage.setItem('is_play_store_twa', 'yes');
+} else {
+    hasPlayStoreTwaHash = sessionStorage.getItem('is_play_store_twa') === 'yes';
+}
+
+function isTwaSession() {
+  return hasPlayStoreTwaHash;
+}
+
+op.pwa.s = isInstalledPwaSession() ? true : false;
+op.pwa.a = isTwaSession() ? true : false;
 
 /*
 window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => { // check for changes in display

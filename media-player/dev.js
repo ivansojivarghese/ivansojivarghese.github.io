@@ -14,6 +14,7 @@ var developer = true, // // toggle between develop(er/ing) mode: FOR DEVELOPER P
     timeout = 20000; // default timeout (.ms)
 
 let hasBeenInStandaloneMode;
+let hasPlayStoreTwaHash;
 
 var uA_L,
     tDevice, // check if device is touch-based
@@ -25,7 +26,9 @@ var uA_L,
         // i : 60, // iterations (per sec.)
         pwa : {
             // s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone" || getPWADisplayMode() === "browser") ? true : false // check whether if opened as app
-            s : isInstalledPwaSession() ? true : false
+            // s : isInstalledPwaSession() ? true : false 
+            s : null,
+            a : null
         },
         Lf : {
             fb : document.hasFocus()
@@ -90,6 +93,20 @@ if (isInStandaloneMode()) {
 function isInstalledPwaSession() {
     return hasBeenInStandaloneMode;
 }
+
+if (window.location.hash === '#play-store-twa') { // ENSURE THAT "startUrl": "/#play-store-twa: is placed in TWA manifest file
+    hasPlayStoreTwaHash = true;
+    sessionStorage.setItem('is_play_store_twa', 'yes');
+} else {
+    hasPlayStoreTwaHash = sessionStorage.getItem('is_play_store_twa') === 'yes';
+}
+
+function isTwaSession() {
+  return hasPlayStoreTwaHash;
+}
+
+op.pwa.s = isInstalledPwaSession() ? true : false;
+op.pwa.a = isTwaSession() ? true : false;
 
 /*
 function getPWADisplayMode() {
