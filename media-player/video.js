@@ -170,6 +170,8 @@ async function getParams(id) {
       if (networkSpeed) {
         clearInterval(videoFetchLoop);
 
+        var targetVideoSources = [];
+
         // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
 
         for (i = 0; i <= videoDetails.adaptiveFormats.length - 1; i++) {
@@ -181,6 +183,7 @@ async function getParams(id) {
         }
 
         // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
+        // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
 
         if (networkSpeed < 0.5) {
           // SD - 144p
@@ -192,8 +195,22 @@ async function getParams(id) {
           // SD - 480p
         } else if (networkSpeed >= 2.5 && networkSpeed < 5) {
           // HD - 720p
-        } else if (networkSpeed >= 5 && networkSpeed < 20) {
+        } else if (networkSpeed >= 5 && networkSpeed < 10) {
+
           // HD - 1080p
+
+          // CHOOSE THE SOURCES THAT MATCH THIS RES.
+
+          for (j = 0; j <= videoSources.length - 1; j++) {
+            if (videoSources[j].height === 1080) {
+              targetVideoSources[targetVideoSources.length] = videoSources[j];
+            }
+          }
+
+          // CHOOSE A FILE WITH THE APPROPRIATE BITRATE READINGS, ETC.
+
+        } else if (networkSpeed >= 10 && networkSpeed < 20) {
+          // 2K - 1440p
         } else if (networkSpeed >= 20 && networkSpeed < 100) {
           // 4K - 2160p
         } else {
