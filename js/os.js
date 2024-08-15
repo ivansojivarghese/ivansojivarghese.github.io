@@ -1,4 +1,6 @@
 
+let hasBeenInStandaloneMode;
+
 var uA_L,
     tDevice, // check if device is touch-based
     op = { // site 'options'
@@ -967,7 +969,6 @@ function isInStandaloneMode() {
   }
 
 // Run this code as soon as possible (before user has a chance to change display mode)
-let hasBeenInStandaloneMode;
 if (isInStandaloneMode()) {
   hasBeenInStandaloneMode = true;
   sessionStorage.setItem('is_standalone_mode', 'yes');
