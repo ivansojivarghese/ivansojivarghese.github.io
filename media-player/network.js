@@ -2,7 +2,7 @@
 // network 
 
 const fileSize = 5301699; // resource file size (in bytes)
-const speed = 0;
+var speed = 0;
 
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
