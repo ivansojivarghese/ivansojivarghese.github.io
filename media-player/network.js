@@ -6,7 +6,6 @@ const speed = 0;
 
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
-        var s;
         var startTime = new Date().getTime(); // start time of fetch
         const online = await fetch("https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
             cache : "no-store",
