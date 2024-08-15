@@ -14,6 +14,9 @@ async function getParams(id) {
   let params = new URLSearchParams(document.location.search);
   const link = params.get("description"); 
 
+  videoSources = [];
+  audioSources = [];
+
   if (link !== null && id === null) {
     
     // NO ACCESS TO SHORTS, LIVE, ATTRIBUTED OR EMBEDDED VIDEOS
