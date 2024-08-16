@@ -14,6 +14,7 @@ var uA_L,
             // s : (getPWADisplayMode() === "twa" || getPWADisplayMode() === "standalone" || getPWADisplayMode() === "browser") ? true : false // check whether if opened as app
             // s : isInstalledPwaSession() ? true : false
             s : null,
+            p : null,
             a : null
         },
         Lf : {
@@ -994,7 +995,8 @@ function isTwaSession() {
   return hasPlayStoreTwaHash;
 }
 
-op.pwa.s = isInstalledPwaSession() ? true : false;
+op.pwa.s = true;
+op.pwa.p = isInstalledPwaSession() ? true : false;
 op.pwa.a = isTwaSession() ? true : false;
 
 /*
