@@ -2378,7 +2378,7 @@
                         parentBottom = (parentTop === null || parentTop === 0) ? Number(window.getComputedStyle(parent).getPropertyValue("padding-bottom").slice(0, -2)) : parentBottom;
                         parentTop = (parentTop === null || parentTop === 0) ? parent.getBoundingClientRect().top : parentTop;
                         
-                    } else if (!op.pwa.s || (op.pwa.s && typeof pwa_Load !== 'undefined')) {
+                    } else if (!op.pwa.s || (op.pwa.s && typeof pwa_Load !== 'undefined' && pwa_Load)) {
                         clearInterval(normalScrollLoop);
                     }
 
