@@ -978,10 +978,10 @@ const networkConditions = async() => {
 op.r = getSiteRes(); // get site resource origin
 
 if (!op.pwa.s) {
-    networkConditions(); // perform network check on startup
+    // networkConditions(); // perform network check on startup
 
     op.ne.L = setInterval(async () => {
-        networkConditions(); // continuously check on network
+        // networkConditions(); // continuously check on network
     }, op.ne.bD);
 }
 /*
