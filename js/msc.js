@@ -3776,7 +3776,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
     e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
     deferredPrompt = e; // Stash the event so it can be triggered later.
-    showInstallPromotion(); // Update UI notify the user they can install the PWA
+    // showInstallPromotion(); // Update UI notify the user they can install the PWA
 
     console.log(`'beforeinstallprompt' event was fired.`); // Optionally, send analytics event that PWA install promo was shown.
 });
