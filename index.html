@@ -2309,7 +2309,9 @@
             // var scrolling = false;
 
             setInterval(function() {
-                pos.cE = false;
+                if (typeof pos !== 'undefined') {
+                    pos.cE = false;
+                }
             }, 1000); // check every sec.
             
             $(".scrollBarFunction").scroll(function() {
@@ -2385,66 +2387,28 @@
 
                     var scrollDis = Math.abs(endPos - startPos);
 
-                    if (pos.sB) {
-                        if (parentTotal <= (window.innerHeight + parentTop + parentBottom)) { // hide scrollbar
-                            e_Fd(pos.sB, true);
-                        } else { // show/move scrollbar
-                            var fraction = ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) >= 0) ? ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) <= 1) ? (scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) : 1 : 0;
-                            scrollTr = fraction * ((window.innerHeight + parentTop + parentBottom) - (4 * op.fN) - (parentTop + parentBottom)); // move scrollbar
-                            pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
+                    if (typeof pos !== 'undefined') {
+                        if (pos.sB) {
+                            if (parentTotal <= (window.innerHeight + parentTop + parentBottom)) { // hide scrollbar
+                                e_Fd(pos.sB, true);
+                            } else { // show/move scrollbar
+                                var fraction = ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) >= 0) ? ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) <= 1) ? (scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) : 1 : 0;
+                                scrollTr = fraction * ((window.innerHeight + parentTop + parentBottom) - (4 * op.fN) - (parentTop + parentBottom)); // move scrollbar
+                                pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
 
-                            // console.log(fraction + ", " + scrollTr);
+                                // console.log(fraction + ", " + scrollTr);
 
-                            scrollBarPosArr[0] = scrollBarPosArr[1];
-                            scrollBarPosArr[1] = scrollBarPosArr[2];
-                            scrollBarPosArr[2] = scrollBarPosArr[3];
-                            scrollBarPosArr[3] = scrollBarPosArr[4];
-                            scrollBarPosArr[4] = scrollTr;
+                                scrollBarPosArr[0] = scrollBarPosArr[1];
+                                scrollBarPosArr[1] = scrollBarPosArr[2];
+                                scrollBarPosArr[2] = scrollBarPosArr[3];
+                                scrollBarPosArr[3] = scrollBarPosArr[4];
+                                scrollBarPosArr[4] = scrollTr;
 
-                            // console.log(scrollBarPosArr);
+                                // console.log(scrollBarPosArr);
 
-                            // console.log(scrollDis + ", " + endPos + ", " + startPos);
+                                // console.log(scrollDis + ", " + endPos + ", " + startPos);
 
-                            if (scrollBarPosArr.every(item => item === 0)) {
-                                navbar.classList.remove("hide");
-                                if ((activeTab === "about" || (activeTab === "home" && fab2Check)) && 'share' in navigator) {
-                                    // fab.classList.add("share_w_img");
-                                    fab.classList.remove("hide");
-                                    fab.addEventListener("click", async () => {
-                                        try {
-                                            await navigator.share(aboutShareData);
-                                        } catch (err) {
-                                            // console.log(err);
-                                        }
-                                    });
-                                    if (fab2Check) {
-                                        fab2.classList.remove("hide");
-                                        if (activeTab === "about") {
-                                            fab2i.classList.add("home_w_img");
-                                            fab2i.classList.remove("close_w_img");
-                                            fab2.style.backgroundColor = "";
-                                            fab2Close = false;
-                                        } else if (activeTab === "home") {
-                                            fab2i.classList.add("close_w_img");
-                                            fab2i.classList.remove("home_w_img");
-                                            fab2.style.backgroundColor = "var(--negate_col)";
-                                            fab2Close = true;
-                                        }
-                                        fab2.addEventListener("click", fab2Action);
-                                    }
-                                }
-                            } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
-                                navbar.classList.add("hide");
-                                fab.classList.add("hide");
-                                if (fab2Check) {
-                                    fab2.classList.add("hide");
-                                    fab2.removeEventListener("click", fab2Action);
-                                }
-                            } else {
-                                if (navbarHide && scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
-                                    
-                                    // console.log("show");
-
+                                if (scrollBarPosArr.every(item => item === 0)) {
                                     navbar.classList.remove("hide");
                                     if ((activeTab === "about" || (activeTab === "home" && fab2Check)) && 'share' in navigator) {
                                         // fab.classList.add("share_w_img");
@@ -2472,33 +2436,73 @@
                                             fab2.addEventListener("click", fab2Action);
                                         }
                                     }
-                                    if (!navbarHideMod) {
-                                        navbarHideMod = true;
-                                        setTimeout(function() {
-                                            navbarHide = false;
-                                            navbarHideMod = false;
-                                        }, dev.i);
-                                    }
-                                } else if (!navbarHide && scrollDis > 100 && scrollTr > scrollBarPosArr[0] && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
-                                    
-                                    // console.log("hide");
-                                    
+                                } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
                                     navbar.classList.add("hide");
                                     fab.classList.add("hide");
                                     if (fab2Check) {
                                         fab2.classList.add("hide");
                                         fab2.removeEventListener("click", fab2Action);
                                     }
-                                    if (!navbarHideMod) {
-                                        navbarHideMod = true;
-                                        setTimeout(function() {
-                                            navbarHide = true;
-                                            navbarHideMod = false;
-                                        }, dev.i);
-                                    }
-                                } 
+                                } else {
+                                    if (navbarHide && scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
+                                        
+                                        // console.log("show");
+
+                                        navbar.classList.remove("hide");
+                                        if ((activeTab === "about" || (activeTab === "home" && fab2Check)) && 'share' in navigator) {
+                                            // fab.classList.add("share_w_img");
+                                            fab.classList.remove("hide");
+                                            fab.addEventListener("click", async () => {
+                                                try {
+                                                    await navigator.share(aboutShareData);
+                                                } catch (err) {
+                                                    // console.log(err);
+                                                }
+                                            });
+                                            if (fab2Check) {
+                                                fab2.classList.remove("hide");
+                                                if (activeTab === "about") {
+                                                    fab2i.classList.add("home_w_img");
+                                                    fab2i.classList.remove("close_w_img");
+                                                    fab2.style.backgroundColor = "";
+                                                    fab2Close = false;
+                                                } else if (activeTab === "home") {
+                                                    fab2i.classList.add("close_w_img");
+                                                    fab2i.classList.remove("home_w_img");
+                                                    fab2.style.backgroundColor = "var(--negate_col)";
+                                                    fab2Close = true;
+                                                }
+                                                fab2.addEventListener("click", fab2Action);
+                                            }
+                                        }
+                                        if (!navbarHideMod) {
+                                            navbarHideMod = true;
+                                            setTimeout(function() {
+                                                navbarHide = false;
+                                                navbarHideMod = false;
+                                            }, dev.i);
+                                        }
+                                    } else if (!navbarHide && scrollDis > 100 && scrollTr > scrollBarPosArr[0] && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
+                                        
+                                        // console.log("hide");
+                                        
+                                        navbar.classList.add("hide");
+                                        fab.classList.add("hide");
+                                        if (fab2Check) {
+                                            fab2.classList.add("hide");
+                                            fab2.removeEventListener("click", fab2Action);
+                                        }
+                                        if (!navbarHideMod) {
+                                            navbarHideMod = true;
+                                            setTimeout(function() {
+                                                navbarHide = true;
+                                                navbarHideMod = false;
+                                            }, dev.i);
+                                        }
+                                    } 
+                                }
+                                    
                             }
-                                
                         }
                     }
                 } else {
