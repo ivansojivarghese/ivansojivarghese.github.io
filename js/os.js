@@ -962,7 +962,7 @@ function getPWADisplayMode() {
     }
 }*/
 
-/ REFERENCED FROM: https://micahjon.com/2021/pwa-twa-detection/
+// REFERENCED FROM: https://micahjon.com/2021/pwa-twa-detection/
 
 function isInStandaloneMode() {
     return Boolean(
