@@ -3448,7 +3448,7 @@ function isSingleFoldHorizontal() {
     return false;
 }
 
-if (op.pwa.s) {
+// if (op.pwa.s) {
     const scrollbar = document.querySelector('#scrollBar');
 
     const segments = window.visualViewport.segments;
@@ -3522,4 +3522,4 @@ if (op.pwa.s) {
     if (devForm) {
         pwa_Ld = setInterval(pwaRead, op.Ls); // run 'load' scripts upon startup
     } 
-}
+// }
