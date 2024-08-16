@@ -758,7 +758,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
     var gpsVelocity = 0;
 
-    if (ipAPIres && ipAPIres.online && clientAPIres.online && !shaked && !rotation && !docHide) {
+    if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked && !rotation && !docHide) {
 
         var gAcc = 9.81, // default acceleration due to gravity (m/s^2)
             strideDis = 0.72, // avg. step stride (m)
