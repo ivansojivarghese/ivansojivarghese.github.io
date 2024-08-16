@@ -751,7 +751,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         mStoggle.classList.add("hoverB");
     }
 
-    if (ipAPIres) {
+    if (ipAPIres && ipAPIres.country) {
         var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
     }
     var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
