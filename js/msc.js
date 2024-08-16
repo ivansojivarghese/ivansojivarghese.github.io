@@ -3762,6 +3762,7 @@ window.addEventListener('pagehide', function (event) {
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => { 
+    /*
     if (!vw.pH && !vw.tB) { // mobile
         op.pwa.iBtn = document.getElementById("dw_btn"); // pwa install button
         op.pwa.iBtn_h = document.getElementById("dw_btn_h4"); // pwa install button h4
@@ -3771,7 +3772,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
     } else if (vw.tB) { // tablet
         op.pwa.iBtn = document.getElementsByClassName("dw_btns")[1];
         op.pwa.iBtn_h = null;
-    }
+    }*/
 
     e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
     deferredPrompt = e; // Stash the event so it can be triggered later.
