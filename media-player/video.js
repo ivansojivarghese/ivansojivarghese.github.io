@@ -204,8 +204,8 @@ async function getParams(id) {
           }
         }
 
-        for (j = 0; j < videoSources.length - 1; j++) {
-          videoSourceCheck(j);
+        for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
+          videoSourceCheck(j); 
         }
 
         // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
@@ -227,13 +227,15 @@ async function getParams(id) {
 
           // CHOOSE THE SOURCES THAT MATCH THIS RES.
 
-          for (j = 0; j <= videoSources.length - 1; j++) {
-            if (videoSources[j].height === 1080) {
-              targetVideoSources[targetVideoSources.length] = videoSources[j];
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 1080) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
             }
           }
 
           // CHOOSE A FILE WITH THE APPROPRIATE BITRATE READINGS, ETC.
+
+
 
         } else if (networkSpeed >= 10 && networkSpeed < 20) {
           // 2K - 1440p
@@ -243,7 +245,7 @@ async function getParams(id) {
           // 8K - 4320p
         }
         
-        const targetVideo = videoDetails.adaptiveFormats[0];
+        const targetVideo = supportedVideoSources[0];
 
         const videoWidth = targetVideo.width;
         const videoHeight = targetVideo.height;
