@@ -6,6 +6,7 @@ var videoSubmit;
 var videoSizeRatio = 0;
 
 var videoFetchLoop = null;
+var videoSupportLoop = null;
 
 var videoSources = [];
 var audioSources = [];
@@ -208,101 +209,111 @@ async function getParams(id) {
           for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
             await videoSourceCheck(j);
           }
-        })().then(console.log("done"));
+        })();
 
-        // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
-        // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
+        videoSupportLoop = setInterval(function() {
 
-        if (networkSpeed < 0.5) {
-          // SD - 144p
+          if (supportedVideoSources.length) {
 
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 144) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            clearInterval(videoSupportLoop);
+
+            // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
+            // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
+
+            if (networkSpeed < 0.5) {
+              // SD - 144p
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 144) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
+            } else if (networkSpeed >= 0.5 && networkSpeed < 0.7) {
+              // SD - 240p
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 240) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
+            } else if (networkSpeed >= 0.7 && networkSpeed < 1.1) {
+              // SD - 360p
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 360) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
+            } else if (networkSpeed >= 1.1 && networkSpeed < 2.5) {
+              // SD - 480p
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 480) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
+            } else if (networkSpeed >= 2.5 && networkSpeed < 5) {
+              // HD - 720p
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 720) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
+            } else if (networkSpeed >= 5 && networkSpeed < 10) {
+
+              // HD - 1080p
+
+              // CHOOSE THE SOURCES THAT MATCH THIS RES.
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 1080) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
+
+              // CHOOSE A FILE WITH THE HIGHEST BITRATE READINGS, ETC.
+
+            } else if (networkSpeed >= 10 && networkSpeed < 20) {
+              // 2K - 1440p
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 1440) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
+            } else if (networkSpeed >= 20 && networkSpeed < 100) {
+              // 4K - 2160p
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 2160) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
+            } else {
+              // 8K - 4320p
+
+              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+                if (supportedVideoSources[j].height === 4320) {
+                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+                }
+              }
             }
-          }
-        } else if (networkSpeed >= 0.5 && networkSpeed < 0.7) {
-          // SD - 240p
+            
+            const targetVideo = targetVideoSources[0];
 
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 240) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-            }
-          }
-        } else if (networkSpeed >= 0.7 && networkSpeed < 1.1) {
-          // SD - 360p
+            const videoWidth = targetVideo.width;
+            const videoHeight = targetVideo.height;
+            videoSizeRatio = videoWidth / videoHeight;
 
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 360) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-            }
-          }
-        } else if (networkSpeed >= 1.1 && networkSpeed < 2.5) {
-          // SD - 480p
+            video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
+            video.src = targetVideo.url;
 
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 480) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-            }
-          }
-        } else if (networkSpeed >= 2.5 && networkSpeed < 5) {
-          // HD - 720p
+            audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 720) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-            }
-          }
-        } else if (networkSpeed >= 5 && networkSpeed < 10) {
-
-          // HD - 1080p
-
-          // CHOOSE THE SOURCES THAT MATCH THIS RES.
-
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 1080) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-            }
           }
 
-          // CHOOSE A FILE WITH THE HIGHEST BITRATE READINGS, ETC.
-
-        } else if (networkSpeed >= 10 && networkSpeed < 20) {
-          // 2K - 1440p
-
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 1440) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-            }
-          }
-        } else if (networkSpeed >= 20 && networkSpeed < 100) {
-          // 4K - 2160p
-
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 2160) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-            }
-          }
-        } else {
-          // 8K - 4320p
-
-          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-            if (supportedVideoSources[j].height === 4320) {
-              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-            }
-          }
-        }
-        
-        const targetVideo = targetVideoSources[0];
-
-        const videoWidth = targetVideo.width;
-        const videoHeight = targetVideo.height;
-        videoSizeRatio = videoWidth / videoHeight;
-
-        video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
-        video.src = targetVideo.url;
-
-        audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+        }, 10);
       }
     }, 10);
 
