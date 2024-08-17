@@ -204,9 +204,11 @@ async function getParams(id) {
           }
         }
 
-        for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
-          videoSourceCheck(j); 
-        }
+        (async function checkSupports() {
+          for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
+            await videoSourceCheck(j); 
+          }
+        })();
 
         // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
         // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
