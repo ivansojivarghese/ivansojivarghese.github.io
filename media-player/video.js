@@ -198,7 +198,7 @@ async function getParams(id) {
           }
         }
 
-        videoSourceCheck(videoSources[0]);
+        videoSourceCheck(0);
 
         // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
         // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
