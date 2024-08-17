@@ -12,6 +12,7 @@ var videoSources = [];
 var audioSources = [];
 
 var supportedVideoSources = [];
+var targetVideoSources = [];
 
 async function videoSourceCheck(i) {
   var videoConfiguration = {
@@ -39,6 +40,7 @@ async function getParams(id) {
   audioSources = [];
 
   supportedVideoSources = [];
+  targetVideoSources = [];
 
   if (link !== null && id === null) {
     
@@ -192,8 +194,6 @@ async function getParams(id) {
     videoFetchLoop = setInterval(function() {
       if (networkSpeed) {
         clearInterval(videoFetchLoop);
-
-        var targetVideoSources = [];
 
         // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
 
