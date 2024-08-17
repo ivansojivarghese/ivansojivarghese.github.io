@@ -10,6 +10,8 @@ var videoFetchLoop = null;
 var videoSources = [];
 var audioSources = [];
 
+var supportedVideoSources = [];
+
 async function videoSourceCheck(i) {
   var videoConfiguration = {
     type: "file",
@@ -22,7 +24,9 @@ async function videoSourceCheck(i) {
     }
   };
   await navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
-    console.log(i + ", " + result.supported + ", " + result.smooth + ", " + result.powerEfficient);
+    if (result.supported && result.smooth) {
+      supportedVideoSources[supportedVideoSources.length] = videoSources[i];
+    }
   });
 }
 
@@ -32,6 +36,8 @@ async function getParams(id) {
 
   videoSources = [];
   audioSources = [];
+
+  supportedVideoSources = [];
 
   if (link !== null && id === null) {
     
