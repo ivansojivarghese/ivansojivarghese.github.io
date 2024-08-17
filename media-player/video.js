@@ -213,14 +213,44 @@ async function getParams(id) {
 
         if (networkSpeed < 0.5) {
           // SD - 144p
+
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 144) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            }
+          }
         } else if (networkSpeed >= 0.5 && networkSpeed < 0.7) {
           // SD - 240p
+
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 240) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            }
+          }
         } else if (networkSpeed >= 0.7 && networkSpeed < 1.1) {
           // SD - 360p
+
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 360) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            }
+          }
         } else if (networkSpeed >= 1.1 && networkSpeed < 2.5) {
           // SD - 480p
+
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 480) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            }
+          }
         } else if (networkSpeed >= 2.5 && networkSpeed < 5) {
           // HD - 720p
+
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 720) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            }
+          }
         } else if (networkSpeed >= 5 && networkSpeed < 10) {
 
           // HD - 1080p
@@ -233,19 +263,35 @@ async function getParams(id) {
             }
           }
 
-          // CHOOSE A FILE WITH THE APPROPRIATE BITRATE READINGS, ETC.
-
-
+          // CHOOSE A FILE WITH THE HIGHEST BITRATE READINGS, ETC.
 
         } else if (networkSpeed >= 10 && networkSpeed < 20) {
           // 2K - 1440p
+
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 1440) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            }
+          }
         } else if (networkSpeed >= 20 && networkSpeed < 100) {
           // 4K - 2160p
+
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 2160) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            }
+          }
         } else {
           // 8K - 4320p
+
+          for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+            if (supportedVideoSources[j].height === 4320) {
+              targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+            }
+          }
         }
         
-        const targetVideo = supportedVideoSources[0];
+        const targetVideo = targetVideoSources[0];
 
         const videoWidth = targetVideo.width;
         const videoHeight = targetVideo.height;
