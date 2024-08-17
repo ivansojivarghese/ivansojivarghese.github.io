@@ -182,6 +182,22 @@ async function getParams(id) {
           }
         }
 
+        for (i = 0; i <= videoSources.length - 1; i++) {
+          var videoConfiguration = {
+            type: "file",
+            video: {
+              contentType: videoSources[i].mimeType,
+              width: videoSources[i].width,
+              height: videoSources[i].height,
+              bitrate: videoSources[i].bitrate,
+              framerate: videoSources[i].fps,
+            }
+          };
+          navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
+            console.log(i + ", " + result.supported + ", " + result.smooth + ", " + result.powerEfficient);
+          });
+        }
+
         // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
         // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
 
