@@ -37,6 +37,16 @@
 
     var interactiveType = "";
 
+    function updatePositionState() {
+      if ('setPositionState' in navigator.mediaSession) {
+        navigator.mediaSession.setPositionState({
+          duration: video.duration,
+          playbackRate: video.playbackRate,
+          position: video.currentTime,
+        });
+      }
+    }
+
     playPauseButton.addEventListener('click', function (event) {
       event.stopPropagation();
       clearTimeout(controlsHideInt);
@@ -46,6 +56,7 @@
           video.play();
           audio.play();
           audio.currentTime = video.currentTime;
+          updatePositionState();
         } else {
           video.pause();
           audio.pause();
@@ -494,6 +505,8 @@
       video.play();
       audio.currentTime = video.currentTime;
       audio.play();
+
+      updatePositionState();
     });
 
     video.addEventListener('timeupdate', function() {

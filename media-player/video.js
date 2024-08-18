@@ -17,13 +17,13 @@ var targetVideoSources = [];
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
-  ['play',          async () => { await video.play(); }],
+  ['play',          async () => { await video.play(); updatePositionState(); }],
   ['pause',         () => { video.pause(); }],
   ['previoustrack', () => { /* ... */ }],
   ['nexttrack',     () => { /* ... */ }],
   ['stop',          () => { /* ... */ }],
-  ['seekbackward',  (details) => { seekBackward(true); }],
-  ['seekforward',   (details) => { seekForward(true); }],
+  ['seekbackward',  (details) => { seekBackward(true); updatePositionState(); }],
+  ['seekforward',   (details) => { seekForward(true); updatePositionState(); }],
   ['seekto',        (details) => { /* ... */ }],
   /* Video conferencing actions */
   ['togglemicrophone', () => { /* ... */ }],
