@@ -22,8 +22,8 @@ const actionHandlers = [
   ['previoustrack', () => { /* ... */ }],
   ['nexttrack',     () => { /* ... */ }],
   ['stop',          () => { /* ... */ }],
-  ['seekbackward',  (details) => { seekBackward(); }],
-  ['seekforward',   (details) => { /* ... */ }],
+  ['seekbackward',  (details) => { seekBackward(true); }],
+  ['seekforward',   (details) => { seekForward(true); }],
   ['seekto',        (details) => { /* ... */ }],
   /* Video conferencing actions */
   ['togglemicrophone', () => { /* ... */ }],

@@ -333,8 +333,8 @@
       }
     });*/
 
-    function seekForward() {
-        if (videoControls.classList.contains('visible') && video.src !== "") {
+    function seekForward(m) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
             forwardSkippedTime += skipTime;
@@ -368,8 +368,8 @@
         }
     }
 
-    function seekBackward() {
-        if (videoControls.classList.contains('visible') && video.src !== "") {
+    function seekBackward(m) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
             backwardSkippedTime += skipTime;
@@ -406,12 +406,12 @@
 
     seekForwardButton.addEventListener('click', function(event) {
       event.stopPropagation();
-      seekForward();
+      seekForward(null);
     });
 
     seekBackwardButton.addEventListener('click', function(event) {
       event.stopPropagation();
-      seekBackward();
+      seekBackward(null);
     });
 
     video.addEventListener('seeking', function() {
