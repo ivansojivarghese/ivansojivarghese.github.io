@@ -35,6 +35,8 @@
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
+    var interactiveType = "";
+
     playPauseButton.addEventListener('click', function (event) {
       event.stopPropagation();
       clearTimeout(controlsHideInt);
@@ -222,8 +224,18 @@
       }
   };
 
+  document.addEventListener("pointerup", (event) => {
+    if (event.pointerType === "touch") {
+      interactiveType = "touch";
+    } else if (event.pointerType === "mouse") {
+      interactiveType = "mouse";
+    } else if (event.pointerType === "pen") {
+      interactiveType = "pen";
+    }
+  }); 
+
   document.addEventListener("dblclick", (event) => { // double-click (by pointing device)
-    if (video.src !== "" && !op.pwa.a) {
+    if (video.src !== "" && !op.pwa.a && interactiveType === "mouse") {
       if (!document.fullscreenElement) {
         requestFullscreenVideo();
         lockScreenInLandscape();

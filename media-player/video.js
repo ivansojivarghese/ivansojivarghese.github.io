@@ -22,7 +22,7 @@ const actionHandlers = [
   ['previoustrack', () => { /* ... */ }],
   ['nexttrack',     () => { /* ... */ }],
   ['stop',          () => { /* ... */ }],
-  ['seekbackward',  (details) => { /* ... */ }],
+  ['seekbackward',  (details) => { seekBackward(); }],
   ['seekforward',   (details) => { /* ... */ }],
   ['seekto',        (details) => { /* ... */ }],
   /* Video conferencing actions */
