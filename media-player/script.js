@@ -435,7 +435,7 @@
       
       // START LOAD
 
-      loadBuffer = setInterval(loadProgressBar, 500);
+      loadBuffer = setInterval(loadProgressBar, 10);
     });
 
     function loadProgressBar() {
