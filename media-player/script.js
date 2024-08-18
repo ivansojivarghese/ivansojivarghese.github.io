@@ -439,7 +439,8 @@
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
-      
+      showVideoControls();
+
       audio.pause();
     });
 
@@ -447,7 +448,8 @@
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
-      
+      showVideoControls();
+
       audio.pause();
     });
 
@@ -455,7 +457,8 @@
       
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
-
+      hideVideoControls();
+      
       audio.play();
     });
 
