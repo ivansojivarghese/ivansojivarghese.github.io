@@ -433,7 +433,8 @@
       
       // START LOAD
 
-      
+      videoProgressBar.style.transform = "scaleX(0.5)";
+      videoProgressBar.style.right = "0";
     });
 
     video.addEventListener('loadeddata', function () { // fired when the frame at the current playback position of the media has finished loading; often the first frame
