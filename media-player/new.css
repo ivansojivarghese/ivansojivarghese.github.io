@@ -35,7 +35,7 @@ video.seeking {
     border-radius: 50%;
     border: 0.2rem transparent solid;
     border-top-color: #FFF;
-    animation: buffering .7s infinite linear;
+    animation: buffering .65s infinite linear;
 }
 
 @keyframes buffering {
