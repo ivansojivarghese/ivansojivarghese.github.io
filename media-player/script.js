@@ -429,22 +429,26 @@
       audio.play();
     });
 
-    var loadBuffer;
+    var loadBuffer = null;
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
       // START LOAD
 
-      loadBuffer = setInterval(loadProgressBar, 10);
+      loadProgressBar();
     });
 
     function loadProgressBar() {
       // if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
-          var buffered = video.buffered.start(0);
+          var buffered = video.buffered.end(0);
           var percent = 100 * (buffered / video.duration);
   
           //Your code here
           console.log(percent);
+
+          if (loadBuffer === null) {
+            loadBuffer = setInterval(loadProgressBar, 10);
+          }
   
           //If finished buffering buffering quit calling it
           if (buffered >= video.duration) {
