@@ -17,6 +17,7 @@
     const loadingRing = document.querySelector("#loadingRing");
     const playPauseButton = document.querySelector('#playPauseButton');
     const fullscreenButton = document.querySelector('#fullscreenButton');
+    const settingsButton = document.querySelector('#settingsButton');
     const fitscreenButton = document.querySelector('#fitscreenButton');
     const pipButton = document.querySelector('#pipButton');
     const seekForwardButton = document.querySelector('#seekForwardButton');
@@ -76,6 +77,10 @@
           video.classList.remove("cover");
         }
       }
+    });
+
+    settingsButton.addEventListener("click", function(event) {
+      openWrap('settings');
     });
 
     fullscreenButton.addEventListener('click', function(event) {
