@@ -346,14 +346,14 @@ async function getParams(id) {
             // mediaSessions API
             if ("mediaSession" in navigator) {
               navigator.mediaSession.metadata = new MediaMetadata({
-                title: targetVideo.title,
-                artist: targetVideo.channelTitle,
+                title: videoDetails.title,
+                artist: videoDetails.channelTitle,
                 // album: '',
                 artwork: [
-                  { src: targetVideo.thumbnail[0].url,   sizes: targetVideo.thumbnail[0].width+'x'+targetVideo.thumbnail[0].height, type: 'image/jpg' },
-                  { src: targetVideo.thumbnail[1].url,   sizes: targetVideo.thumbnail[1].width+'x'+targetVideo.thumbnail[1].height, type: 'image/jpg' },
-                  { src: targetVideo.thumbnail[2].url,   sizes: targetVideo.thumbnail[2].width+'x'+targetVideo.thumbnail[2].height, type: 'image/jpg' },
-                  { src: targetVideo.thumbnail[3].url,   sizes: targetVideo.thumbnail[3].width+'x'+targetVideo.thumbnail[3].height, type: 'image/jpg' },
+                  { src: videoDetails.thumbnail[0].url,   sizes: videoDetails.thumbnail[0].width+'x'+videoDetails.thumbnail[0].height, type: 'image/jpg' },
+                  { src: videoDetails.thumbnail[1].url,   sizes: videoDetails.thumbnail[1].width+'x'+videoDetails.thumbnail[1].height, type: 'image/jpg' },
+                  { src: videoDetails.thumbnail[2].url,   sizes: videoDetails.thumbnail[2].width+'x'+videoDetails.thumbnail[2].height, type: 'image/jpg' },
+                  { src: videoDetails.thumbnail[3].url,   sizes: videoDetails.thumbnail[3].width+'x'+videoDetails.thumbnail[3].height, type: 'image/jpg' },
                 ]
               });
             
