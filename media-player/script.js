@@ -441,6 +441,9 @@
 
       // END LOAD
 
+      videoProgressBar.style.transform = "";
+      videoProgressBar.style.right = "";
+
       video.play();
       audio.currentTime = video.currentTime;
       audio.play();
