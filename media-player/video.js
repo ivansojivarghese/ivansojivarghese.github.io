@@ -25,13 +25,14 @@ const actionHandlers = [
   ['seekbackward',  (details) => { seekBackward(true); updatePositionState(); }],
   ['seekforward',   (details) => { seekForward(true); updatePositionState(); }],
   ['seekto',        (details) => { /* ... */ }],
+  ['enterpictureinpicture', () => { video.requestPictureInPicture(); }]
   /* Video conferencing actions */
-  ['togglemicrophone', () => { /* ... */ }],
-  ['togglecamera',     () => { /* ... */ }],
-  ['hangup',           () => { /* ... */ }],
+  /*['togglemicrophone', () => {  }],
+  ['togglecamera',     () => {  }],
+  ['hangup',           () => {  }],*/
   /* Presenting slides actions */
-  ['previousslide', () => { /* ... */ }],
-  ['nextslide',     () => { /* ... */ }],
+  /*['previousslide', () => {  }],
+  ['nextslide',     () => {  }],*/
 ];
 
 for (const [action, handler] of actionHandlers) {
