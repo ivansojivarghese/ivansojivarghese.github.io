@@ -13,16 +13,19 @@ video.seeking {
     background: rgba(0,0,0,0.7);
 }
 
-#playPauseButton {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    padding: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.25);
+#loadingRing, #playPauseButton {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
+    width: 2rem;
+    height: 2rem;
+}
+
+#playPauseButton {
+    border-radius: 50%;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 #playPauseButton .img { /* play button */
