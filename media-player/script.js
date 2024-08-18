@@ -389,7 +389,7 @@
         }, 200);
     });
     
-    video.addEventListener('loadedmetadata', function () {
+    video.addEventListener('loadedmetadata', function () { //  fired when the metadata has been loaded
         /*video.play();
         audio.currentTime = video.currentTime;
         audio.play();*/
@@ -429,12 +429,25 @@
       audio.play();
     });
 
-    video.addEventListener('loadstart', function () {
+    video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
       // START LOAD
+
+      var range = 0;
+      var bf = this.buffered;
+      var time = 0;
+  
+      while(!(bf.start(range) <= time && time <= bf.end(range))) {
+          range += 1;
+      }
+      var loadStartPercentage = bf.start(range) / (1/30);
+      var loadEndPercentage = bf.end(range) / (1/30);
+      var loadPercentage = loadEndPercentage - loadStartPercentage;
+      
+      console.log(loadPercentage);
     });
 
-    video.addEventListener('loadeddata', function () {
+    video.addEventListener('loadeddata', function () { // fired when the frame at the current playback position of the media has finished loading; often the first frame
 
       // END LOAD
 

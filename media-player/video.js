@@ -310,7 +310,7 @@ async function getParams(id) {
             const videoHeight = targetVideo.height;
             videoSizeRatio = videoWidth / videoHeight;
 
-            video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
+            // video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
             video.src = targetVideo.url;
 
             audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
