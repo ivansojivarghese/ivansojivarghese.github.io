@@ -434,9 +434,7 @@
       // START LOAD
 
       videoProgressBar.style.transform = "scaleX(0.5)";
-      videoProgressBar.style.left = "0";
-      videoProgressBar.style.right = "auto";
-
+      videoProgressBar.classList.add("buffering");
     });
 
     video.addEventListener('loadeddata', function () { // fired when the frame at the current playback position of the media has finished loading; often the first frame
