@@ -440,7 +440,7 @@
 
     function loadProgressBar() {
       // if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
-          var buffered = video.buffered.end(0);
+          var buffered = video.buffered.start(0);
           var percent = 100 * (buffered / video.duration);
   
           //Your code here
