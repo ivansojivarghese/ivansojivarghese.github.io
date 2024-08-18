@@ -14,6 +14,34 @@ var audioSources = [];
 var supportedVideoSources = [];
 var targetVideoSources = [];
 
+// REFERENCE: https://web.dev/articles/media-session
+
+const actionHandlers = [
+  ['play',          async () => { await video.play(); }],
+  ['pause',         () => { video.pause(); }],
+  ['previoustrack', () => { /* ... */ }],
+  ['nexttrack',     () => { /* ... */ }],
+  ['stop',          () => { /* ... */ }],
+  ['seekbackward',  (details) => { /* ... */ }],
+  ['seekforward',   (details) => { /* ... */ }],
+  ['seekto',        (details) => { /* ... */ }],
+  /* Video conferencing actions */
+  ['togglemicrophone', () => { /* ... */ }],
+  ['togglecamera',     () => { /* ... */ }],
+  ['hangup',           () => { /* ... */ }],
+  /* Presenting slides actions */
+  ['previousslide', () => { /* ... */ }],
+  ['nextslide',     () => { /* ... */ }],
+];
+
+for (const [action, handler] of actionHandlers) {
+  try {
+    navigator.mediaSession.setActionHandler(action, handler);
+  } catch (error) {
+    console.log(`The media session action "${action}" is not supported yet.`);
+  }
+}
+
 async function videoSourceCheck(i) {
   var videoConfiguration = {
     type: "file",
@@ -314,6 +342,23 @@ async function getParams(id) {
             video.src = targetVideo.url;
 
             audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+
+            // mediaSessions API
+            if ("mediaSession" in navigator) {
+              navigator.mediaSession.metadata = new MediaMetadata({
+                title: targetVideo.title,
+                artist: targetVideo.channelTitle,
+                // album: '',
+                artwork: [
+                  { src: targetVideo.thumbnail[0].url,   sizes: targetVideo.thumbnail[0].width+'x'+targetVideo.thumbnail[0].height, type: 'image/jpg' },
+                  { src: targetVideo.thumbnail[1].url,   sizes: targetVideo.thumbnail[1].width+'x'+targetVideo.thumbnail[1].height, type: 'image/jpg' },
+                  { src: targetVideo.thumbnail[2].url,   sizes: targetVideo.thumbnail[2].width+'x'+targetVideo.thumbnail[2].height, type: 'image/jpg' },
+                  { src: targetVideo.thumbnail[3].url,   sizes: targetVideo.thumbnail[3].width+'x'+targetVideo.thumbnail[3].height, type: 'image/jpg' },
+                ]
+              });
+            
+              // TODO: Update playback state.
+            }
 
           }
 

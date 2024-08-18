@@ -174,6 +174,7 @@
       if (controlsHideInt === null) {
         controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
       }
+      navigator.mediaSession.playbackState = 'playing';
       getScreenLock();
     });
 
@@ -181,6 +182,7 @@
       audio.pause();
       playPauseButton.classList.remove('playing');
       showVideoControls();
+      navigator.mediaSession.playbackState = 'paused';
       releaseScreenLock(screenLock);
     });
 
@@ -458,7 +460,7 @@
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
       hideVideoControls();
-      
+
       audio.play();
     });
 
