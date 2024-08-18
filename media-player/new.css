@@ -20,16 +20,20 @@ video.seeking {
     position: absolute;
     width: 2rem;
     height: 2rem;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 #loadingRing {
     display: none;
 }
 
-#playPauseButton {
+#loadingRing .circle {
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
-    padding: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.25);
+    border: 0.2rem #FFF solid;
 }
 
 #playPauseButton .img { /* play button */
