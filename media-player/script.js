@@ -148,6 +148,7 @@
     });
 
     video.addEventListener('play', function () {
+      audio.play();
       playPauseButton.classList.add('playing');
       if (controlsHideInt === null) {
         controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
@@ -156,6 +157,7 @@
     });
 
     video.addEventListener('pause', function () {
+      audio.pause();
       playPauseButton.classList.remove('playing');
       showVideoControls();
       releaseScreenLock(screenLock);
@@ -410,6 +412,21 @@
           video.currentTime / video.duration
         })`;
 
+    });
+
+    video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
+      
+      audio.pause();
+    });
+
+    video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
+      
+      audio.pause();
+    });
+
+    video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
+      
+      audio.play();
     });
 
     video.addEventListener('loadstart', function () {
