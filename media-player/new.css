@@ -30,11 +30,24 @@ video.seeking {
 }
 
 #loadingRing .circle {
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: 50%;
     border: 0.2rem transparent solid;
     border-top-color: #FFF;
+    animation: buffering 1s infinite;
+}
+
+@keyframes buffering {
+    0% {
+        transform: none;
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: none;
+    }
 }
 
 #playPauseButton .img { /* play button */
