@@ -14,6 +14,7 @@
     const videoProgressBar = document.querySelector('#videoProgressBar');
     const videoLoadProgressBar = document.querySelector('#videoLoadProgressBar');
 
+    const loadingRing = document.querySelector("#loadingRing");
     const playPauseButton = document.querySelector('#playPauseButton');
     const fullscreenButton = document.querySelector('#fullscreenButton');
     const fitscreenButton = document.querySelector('#fitscreenButton');
@@ -433,6 +434,7 @@
       
       // START LOAD
 
+      loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
     });
 
@@ -440,6 +442,7 @@
 
       // END LOAD
 
+      loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
 
       video.play();
