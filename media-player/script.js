@@ -429,23 +429,29 @@
       audio.play();
     });
 
+    var loadBuffer;
+
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
       // START LOAD
 
-      var range = 0;
-      var bf = this.buffered;
-      var time = 0;
-  
-      while(!(bf.start(range) <= time && time <= bf.end(range))) {
-          range += 1;
-      }
-      var loadStartPercentage = bf.start(range) / (1/30);
-      var loadEndPercentage = bf.end(range) / (1/30);
-      var loadPercentage = loadEndPercentage - loadStartPercentage;
-      
-      console.log(loadPercentage);
+      loadBuffer = setInterval(loadProgressBar, 500);
     });
+
+    function loadProgressBar() {
+      // if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+          var buffered = video.buffered.end(0);
+          var percent = 100 * (buffered / video.duration);
+  
+          //Your code here
+          console.log(percent);
+  
+          //If finished buffering buffering quit calling it
+          if (buffered >= video.duration) {
+              clearInterval(this.loadBuffer);
+          }
+      // }
+  }
 
     video.addEventListener('loadeddata', function () { // fired when the frame at the current playback position of the media has finished loading; often the first frame
 
@@ -479,7 +485,7 @@
       var loadEndPercentage = bf.end(range) / this.duration;
       var loadPercentage = loadEndPercentage - loadStartPercentage;
       
-      console.log(loadPercentage);
+      // console.log(loadPercentage);
 
       videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
   });
