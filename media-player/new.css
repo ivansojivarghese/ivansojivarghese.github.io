@@ -33,7 +33,8 @@ video.seeking {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    border: 0.2rem #FFF solid;
+    border: 0.2rem transparent solid;
+    border-top-color: #FFF;
 }
 
 #playPauseButton .img { /* play button */
