@@ -50,6 +50,21 @@
       }
     });
 
+    loadingRing.addEventListener('click', function (event) {
+      event.stopPropagation();
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
+      if (videoControls.classList.contains('visible')) {
+        if (!video.paused && video.src !== "") {
+          video.pause();
+          audio.pause();
+
+          loadingRing.style.display = "none";
+          playPauseButton.style.display = "block";
+        }
+      }
+    });
+
     fitscreenButton.addEventListener('click', function(event) {
       // event.stopPropagation();
       if (videoControls.classList.contains('visible') && video.src !== "") {
@@ -435,7 +450,7 @@
       
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
-      
+
       audio.play();
     });
 
