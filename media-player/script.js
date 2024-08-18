@@ -416,16 +416,25 @@
     });
 
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
+
+      loadingRing.style.display = "block";
+      playPauseButton.style.display = "none";
       
       audio.pause();
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
+
+      loadingRing.style.display = "block";
+      playPauseButton.style.display = "none";
       
       audio.pause();
     });
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
+      
+      loadingRing.style.display = "none";
+      playPauseButton.style.display = "block";
       
       audio.play();
     });
