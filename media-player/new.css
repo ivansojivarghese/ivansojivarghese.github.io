@@ -22,6 +22,10 @@ video.seeking {
     height: 2rem;
 }
 
+#loadingRing {
+    display: none;
+}
+
 #playPauseButton {
     border-radius: 50%;
     padding: 0.5rem;
