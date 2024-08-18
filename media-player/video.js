@@ -299,6 +299,10 @@ async function getParams(id) {
                 }
               }
             }
+
+            if (!targetVideoSources.length) {
+                targetVideoSources = supportedVideoSources;
+            }
             
             const targetVideo = targetVideoSources[0];
 
