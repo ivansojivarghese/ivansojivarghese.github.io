@@ -246,7 +246,7 @@
   }); 
 
   document.addEventListener("dblclick", (event) => { // double-click (by pointing device)
-    if (video.src !== "" && !op.pwa.a && interactiveType === "mouse") {
+    if (video.src !== "" && !op.pwa.a && interactiveType === "mouse" && event.target === videoControls) {
       if (!document.fullscreenElement) {
         requestFullscreenVideo();
         lockScreenInLandscape();
