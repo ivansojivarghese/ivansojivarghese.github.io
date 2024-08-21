@@ -207,6 +207,17 @@
         releaseScreenLock(screenLock);
     });
 
+    video.addEventListener("mousemove", function(event) {
+      if (video.src !== "" && interactiveType === "mouse") {
+        clearTimeout(controlsHideInt);
+        controlsHideInt = null;
+        showVideoControls();
+        if (controlsHideInt === null) {
+          controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+        }
+      }
+    });
+
     document.addEventListener('fullscreenchange', function() {
       if (!document.fullscreenElement) {
         fullscreenButton.children[0].classList.remove("exit");
@@ -268,17 +279,7 @@
       if (video.src !== "") {
         videoControls.classList.remove('visible');
         seekForwardText.classList.remove('show');
-        /*
-        setTimeout(function() {
-          forwardSkippedTime = 0;
-          seekForwardTextSec.innerHTML = forwardSkippedTime;
-        }, 300);*/
         seekBackwardText.classList.remove('show');
-        /*
-        setTimeout(function() {
-          backwardSkippedTime = 0;
-          seekBackwardTextSec.innerHTML = backwardSkippedTime;
-        }, 300);*/
       }
     }
 
