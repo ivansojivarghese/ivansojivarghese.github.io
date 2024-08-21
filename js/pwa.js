@@ -751,9 +751,9 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         mStoggle.classList.add("hoverB");
     }
 
-    //if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.country !== 'undefined') {
-    var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
-    //}
+    if (typeof ipAPIres.country !== 'undefined') {
+        var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s"; // m/s or ft/s
+    }
     var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
 
     var gpsVelocity = 0;
