@@ -224,146 +224,7 @@ async function getParams(id) {
       if (networkSpeed) {
         clearInterval(videoFetchLoop);
 
-        // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
-
-        for (i = 0; i <= videoDetails.adaptiveFormats.length - 1; i++) {
-          if (videoDetails.adaptiveFormats[i].audioQuality === undefined) { // video
-            videoSources[videoSources.length] = videoDetails.adaptiveFormats[i];
-          } else { // audio
-            audioSources[audioSources.length] = videoDetails.adaptiveFormats[i];
-          }
-        }
-
-        (async function checkSupports() {
-          for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
-            await videoSourceCheck(j);
-          }
-        })();
-
-        videoSupportLoop = setInterval(function() {
-
-          if (supportedVideoSources.length) {
-
-            clearInterval(videoSupportLoop);
-
-            // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
-            // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
-
-            if (networkSpeed < 0.5) {
-              // SD - 144p
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 144) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-            } else if (networkSpeed >= 0.5 && networkSpeed < 0.7) {
-              // SD - 240p
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 240) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-            } else if (networkSpeed >= 0.7 && networkSpeed < 1.1) {
-              // SD - 360p
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 360) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-            } else if (networkSpeed >= 1.1 && networkSpeed < 2.5) {
-              // SD - 480p
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 480) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-            } else if (networkSpeed >= 2.5 && networkSpeed < 5) {
-              // HD - 720p
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 720) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-            } else if (networkSpeed >= 5 && networkSpeed < 10) {
-
-              // HD - 1080p
-
-              // CHOOSE THE SOURCES THAT MATCH THIS RES.
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 1080) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-
-              // CHOOSE A FILE WITH THE HIGHEST BITRATE READINGS, ETC.
-
-            } else if (networkSpeed >= 10 && networkSpeed < 20) {
-              // 2K - 1440p
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 1440) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-            } else if (networkSpeed >= 20 && networkSpeed < 100) {
-              // 4K - 2160p
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 2160) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-            } else {
-              // 8K - 4320p
-
-              for (j = 0; j <= supportedVideoSources.length - 1; j++) {
-                if (supportedVideoSources[j].height === 4320) {
-                  targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
-                }
-              }
-            }
-
-            if (!targetVideoSources.length) {
-                targetVideoSources = supportedVideoSources;
-            }
-            
-            const targetVideo = targetVideoSources[0];
-
-            const videoWidth = targetVideo.width;
-            const videoHeight = targetVideo.height;
-            videoSizeRatio = videoWidth / videoHeight;
-
-            // video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
-            video.src = targetVideo.url;
-
-            audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
-
-            // mediaSessions API
-            if ("mediaSession" in navigator) {
-              navigator.mediaSession.metadata = new MediaMetadata({
-                title: videoDetails.title,
-                artist: videoDetails.channelTitle,
-                // album: '',
-                artwork: [
-                  { src: videoDetails.thumbnail[0].url,   sizes: videoDetails.thumbnail[0].width+'x'+videoDetails.thumbnail[0].height, type: 'image/jpg' },
-                  { src: videoDetails.thumbnail[1].url,   sizes: videoDetails.thumbnail[1].width+'x'+videoDetails.thumbnail[1].height, type: 'image/jpg' },
-                  { src: videoDetails.thumbnail[2].url,   sizes: videoDetails.thumbnail[2].width+'x'+videoDetails.thumbnail[2].height, type: 'image/jpg' },
-                  { src: videoDetails.thumbnail[3].url,   sizes: videoDetails.thumbnail[3].width+'x'+videoDetails.thumbnail[3].height, type: 'image/jpg' },
-                ]
-              });
-            
-              // TODO: Update playback state.
-            }
-
-          }
-
-        }, 10);
+        getOptimalVideo();
       }
     }, 10);
 
@@ -380,6 +241,153 @@ async function getParams(id) {
     
   }
 }
+
+function getOptimalVideo() {
+
+  // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
+
+  for (i = 0; i <= videoDetails.adaptiveFormats.length - 1; i++) {
+    if (videoDetails.adaptiveFormats[i].audioQuality === undefined) { // video
+      videoSources[videoSources.length] = videoDetails.adaptiveFormats[i];
+    } else { // audio
+      audioSources[audioSources.length] = videoDetails.adaptiveFormats[i];
+    }
+  }
+
+  (async function checkSupports() {
+    for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
+      await videoSourceCheck(j);
+    }
+  })();
+
+  videoSupportLoop = setInterval(function() {
+
+    if (supportedVideoSources.length) {
+
+      clearInterval(videoSupportLoop);
+
+      // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
+      // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
+
+      if (networkSpeed < 0.5) {
+        // SD - 144p
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 144) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+      } else if (networkSpeed >= 0.5 && networkSpeed < 0.7) {
+        // SD - 240p
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 240) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+      } else if (networkSpeed >= 0.7 && networkSpeed < 1.1) {
+        // SD - 360p
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 360) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+      } else if (networkSpeed >= 1.1 && networkSpeed < 2.5) {
+        // SD - 480p
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 480) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+      } else if (networkSpeed >= 2.5 && networkSpeed < 5) {
+        // HD - 720p
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 720) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+      } else if (networkSpeed >= 5 && networkSpeed < 10) {
+
+        // HD - 1080p
+
+        // CHOOSE THE SOURCES THAT MATCH THIS RES.
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 1080) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+
+        // CHOOSE A FILE WITH THE HIGHEST BITRATE READINGS, ETC.
+
+      } else if (networkSpeed >= 10 && networkSpeed < 20) {
+        // 2K - 1440p
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 1440) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+      } else if (networkSpeed >= 20 && networkSpeed < 100) {
+        // 4K - 2160p
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 2160) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+      } else {
+        // 8K - 4320p
+
+        for (j = 0; j <= supportedVideoSources.length - 1; j++) {
+          if (supportedVideoSources[j].height === 4320) {
+            targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
+          }
+        }
+      }
+
+      if (!targetVideoSources.length) {
+          targetVideoSources = supportedVideoSources;
+      }
+      
+      ////
+      const targetVideo = targetVideoSources[0];
+      ////
+
+      const videoWidth = targetVideo.width;
+      const videoHeight = targetVideo.height;
+      videoSizeRatio = videoWidth / videoHeight;
+
+      // video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
+      video.src = targetVideo.url;
+
+      audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+
+      // mediaSessions API
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: videoDetails.title,
+          artist: videoDetails.channelTitle,
+          // album: '',
+          artwork: [
+            { src: videoDetails.thumbnail[0].url,   sizes: videoDetails.thumbnail[0].width+'x'+videoDetails.thumbnail[0].height, type: 'image/jpg' },
+            { src: videoDetails.thumbnail[1].url,   sizes: videoDetails.thumbnail[1].width+'x'+videoDetails.thumbnail[1].height, type: 'image/jpg' },
+            { src: videoDetails.thumbnail[2].url,   sizes: videoDetails.thumbnail[2].width+'x'+videoDetails.thumbnail[2].height, type: 'image/jpg' },
+            { src: videoDetails.thumbnail[3].url,   sizes: videoDetails.thumbnail[3].width+'x'+videoDetails.thumbnail[3].height, type: 'image/jpg' },
+          ]
+        });
+      
+        // TODO: Update playback state.
+      }
+
+    }
+
+  }, 10);
+
+  }
 
 
 getParams(null);
