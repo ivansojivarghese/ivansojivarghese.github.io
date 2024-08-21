@@ -207,7 +207,7 @@
         releaseScreenLock(screenLock);
     });
 
-    video.addEventListener("mousemove", function(event) {
+    videoControls.addEventListener("mousemove", function(event) {
       if (video.src !== "" && interactiveType === "mouse") {
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
