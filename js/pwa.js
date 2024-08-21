@@ -1093,10 +1093,12 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
     } else {
         velocityEst = 0;
         velocityEstRef = 0;
-        if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
-            velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
-        } else {
-            velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+        if (typeof velocityUnit !== 'undefined') {
+            if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+                velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit; 
+            } else {
+                velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+            }
         }
         // resetMotionParams();
     }
