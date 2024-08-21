@@ -1099,7 +1099,7 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
         } else {
             velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
         }
-        if (typeof velocityUnit !== 'undefined') {
+        if (typeof velocityUnit === 'undefined') {
             velocity.innerHTML = "";
         }
         // }
