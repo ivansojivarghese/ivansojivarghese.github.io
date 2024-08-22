@@ -14,6 +14,9 @@ var audioSources = [];
 var supportedVideoSources = [];
 var targetVideoSources = [];
 
+const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
+var priorityQuality = 0;
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -269,85 +272,98 @@ function getOptimalVideo() {
       // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
       // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
 
+      // REORDER SUPPORTED VIDEOS BASED ON PRIORITY OF (FASTEST) NETWORK SPEEDS
+
       if (networkSpeed < 0.5) {
         // SD - 144p
-
+        priorityQuality = 0;
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 144) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
       } else if (networkSpeed >= 0.5 && networkSpeed < 0.7) {
         // SD - 240p
-
+        priorityQuality = 1;
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 240) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
       } else if (networkSpeed >= 0.7 && networkSpeed < 1.1) {
         // SD - 360p
-
+        priorityQuality = 2;
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 360) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
       } else if (networkSpeed >= 1.1 && networkSpeed < 2.5) {
         // SD - 480p
-
+        priorityQuality = 3;
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 480) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
       } else if (networkSpeed >= 2.5 && networkSpeed < 5) {
         // HD - 720p
-
+        priorityQuality = 4;
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 720) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
       } else if (networkSpeed >= 5 && networkSpeed < 10) {
 
         // HD - 1080p
+        priorityQuality = 5;
 
         // CHOOSE THE SOURCES THAT MATCH THIS RES.
-
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 1080) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
 
         // CHOOSE A FILE WITH THE HIGHEST BITRATE READINGS, ETC.
 
       } else if (networkSpeed >= 10 && networkSpeed < 20) {
         // 2K - 1440p
-
+        priorityQuality = 6;
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 1440) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
       } else if (networkSpeed >= 20 && networkSpeed < 100) {
         // 4K - 2160p
-
+        priorityQuality = 7;
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 2160) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
       } else {
         // 8K - 4320p
-
+        priorityQuality = 8;
+        /*
         for (j = 0; j <= supportedVideoSources.length - 1; j++) {
           if (supportedVideoSources[j].height === 4320) {
             targetVideoSources[targetVideoSources.length] = supportedVideoSources[j];
           }
-        }
+        }*/
       }
+
+      
 
       if (!targetVideoSources.length) {
           targetVideoSources = supportedVideoSources;
