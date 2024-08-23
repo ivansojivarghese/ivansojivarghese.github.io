@@ -213,7 +213,11 @@
         controlsHideInt = null;
         showVideoControls();
         if (controlsHideInt === null) {
-          controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+          controlsHideInt = setTimeout(function() { 
+            if (!loading) {
+              hideVideoControls();
+            }
+          }, 3000); // hide controls after 3 sec. if no activity
         }
       }
     });
@@ -300,7 +304,11 @@
         } else {
           showVideoControls();
           if (controlsHideInt === null) {
-            controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+            controlsHideInt = setTimeout(function() {
+              if (!loading) {
+                hideVideoControls();
+              }
+            }, 3000); // hide controls after 3 sec. if no activity
           }
         }
       } else if (event.target === videoControls) {
@@ -481,11 +489,15 @@
 
     });
 
+    var loading = false;
+
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
       showVideoControls();
+
+      loading = true;
 
       audio.pause();
     });
@@ -496,6 +508,8 @@
       playPauseButton.style.display = "none";
       showVideoControls();
 
+      loading = true;
+
       audio.pause();
     });
 
@@ -505,12 +519,16 @@
       playPauseButton.style.display = "block";
       hideVideoControls();
 
+      loading = false;
+
       audio.play();
     });
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
       // START LOAD
+
+      loading = true;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
@@ -519,6 +537,8 @@
     video.addEventListener('loadeddata', function () { // fired when the frame at the current playback position of the media has finished loading; often the first frame
 
       // END LOAD
+
+      loading = false;
 
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
