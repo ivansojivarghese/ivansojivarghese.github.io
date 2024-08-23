@@ -427,6 +427,7 @@ function getOptimalVideo() {
             targetVideo = targetVideoSources[i];
           }
         }
+        console.log(targetQuality + mod);
         if (targetVideo === null) {
           if (targetQuality > 4) {
             mod = -1;
