@@ -13,6 +13,7 @@ var audioSources = [];
 
 var supportedVideoSources = [];
 var targetVideoSources = [];
+var targetVideo;
 
 const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
 var priorityQuality = 0;
@@ -22,7 +23,8 @@ const downlinkRef = 10;
 var rttScore = 0, // SCORE FROM 0-1 (low to high)
     rttGroup = 0,
     downlinkScore = 0,
-    saveDataScore = 0;
+    saveDataScore = 0,
+    effectiveTypeScore = 0;
 
 var videoStreamScore = 0;
 
@@ -393,6 +395,9 @@ function getOptimalVideo() {
       // SAVEDATA SCORE
       saveDataScore = saveData ? 0.5 : 1;
 
+      // EFFECTIVE TYPE SCORE
+
+
       // FINAL SCORE
       videoStreamScore = rttScore * downlinkScore * saveDataScore;
 
@@ -402,7 +407,7 @@ function getOptimalVideo() {
       }
       
       ////
-      const targetVideo = targetVideoSources[0];
+      targetVideo = targetVideoSources[0];
       ////
 
       const videoWidth = targetVideo.width;
