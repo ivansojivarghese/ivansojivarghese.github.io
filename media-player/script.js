@@ -35,6 +35,8 @@
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
+    // var seeking = false;
+
     var interactiveType = "";
 
     // REFERENCE: https://stackoverflow.com/questions/21399872/how-to-detect-whether-html5-video-has-paused-for-buffering
@@ -355,7 +357,7 @@
       if (interactiveType === "touch" || interactiveType === "pen") {
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
-        if (videoControls.classList.contains('visible')) {
+        if (videoControls.classList.contains('visible') && !video.classList.contains('seeking')) {
           hideVideoControls();
         } else {
           showVideoControls();
@@ -433,6 +435,7 @@
         if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
+            // seeking = true;
             forwardSkippedTime += skipTime;
             seekForwardTextSec.innerHTML = forwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -453,6 +456,7 @@
             }
             if (seekForwardHideInt === null) {
               seekForwardHideInt = setTimeout(function() {
+                // seeking = false;
                 seekForwardText.classList.remove('show');
                 forwardSkippedTime = 0;
                 setTimeout(function() {
@@ -468,6 +472,7 @@
         if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
+            // seeking = true;
             backwardSkippedTime += skipTime;
             seekBackwardTextSec.innerHTML = backwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -488,6 +493,7 @@
             }
             if (seekBackwardHideInt === null) {
               seekBackwardHideInt = setTimeout(function() {
+                // seeking = false;
                 seekBackwardText.classList.remove('show');
                 backwardSkippedTime = 0;
                 // seekBackwardTextSec.innerHTML = backwardSkippedTime;
@@ -501,13 +507,13 @@
     }
 
     seekForwardButton.addEventListener('click', function(event) {
-      seekForward(null);
       event.stopPropagation();
+      seekForward(null);
     });
 
     seekBackwardButton.addEventListener('click', function(event) {
-      seekBackward(null);
       event.stopPropagation();
+      seekBackward(null);
     });
 
     video.addEventListener('seeking', function() {
