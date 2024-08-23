@@ -602,7 +602,7 @@
             video.classList.remove("cover");
           }
         }
-        hideVideoControls();
+        setTimeout(hideVideoControls, 10);
       } else {
         return;
       }
