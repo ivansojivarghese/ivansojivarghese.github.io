@@ -428,19 +428,24 @@ function getOptimalVideo() {
 
       // GET THE VIDEO
       var mod = 0;
+      var fetchedSources = [];
       targetVideoSources = supportedVideoSources;
       while (targetVideo === null) {
         for (i = 0; i < targetVideoSources.length; i++) {
           if (targetVideoSources[i].height === videoQuality[targetQuality + mod]) {
             targetVideo = targetVideoSources[i];
+            fetchedSources[fetchedSources.length] = i;
           }
         }
         console.log(targetQuality + mod);
         if (targetVideo === null) {
-          if ((targetQuality + mod) > 4) {
-            mod = -1;
-          } else if ((targetQuality + mod) <= 4) {
-            mod = 1;
+          if ((targetQuality + mod) > 4 && (targetQuality + mod) <= 8) {
+            mod--;
+          } else if ((targetQuality + mod) >= 0 && (targetQuality + mod) <= 4) {
+            mod++;
+          }
+          if (fetchedSources.includes(targetQuality + mod)) {
+            break;
           }
         }
       }
@@ -451,7 +456,6 @@ function getOptimalVideo() {
 
       // video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
       video.src = targetVideo.url;
-
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
       // mediaSessions API
