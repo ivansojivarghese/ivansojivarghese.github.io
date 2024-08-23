@@ -17,6 +17,10 @@ var targetVideoSources = [];
 const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
 var priorityQuality = 0;
 
+const rttGroupsArray = [100, 200, 375];
+var rttScore = 0, // SCORE FROM 0-1 (low to high)
+    rttGroup = 0; 
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -363,7 +367,16 @@ function getOptimalVideo() {
         }*/
       }
 
-      
+      if (rtt <= rttGroupsArray[0]) { // 0 - 100
+        rttGroup = 3;
+      } else if (rtt <= rttGroupsArray[1]) { // >100 - 200
+        rttGroup = 2;
+      } else if (rtt <= rttGroupsArray[2]) { // >200 - 375
+        rttGroup = 1;
+      } else if (rtt > rttGroupsArray[2]) { // >375
+        rttGroup = 1;
+      }
+      rttScore = 1 - ((rtt / rttGroupsArray[2]) / rttGroup);
 
       if (!targetVideoSources.length) {
           targetVideoSources = supportedVideoSources;
