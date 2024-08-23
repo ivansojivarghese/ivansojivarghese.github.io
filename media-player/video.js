@@ -396,10 +396,23 @@ function getOptimalVideo() {
       saveDataScore = saveData ? 0.5 : 1;
 
       // EFFECTIVE TYPE SCORE
-
+      switch (effectiveType) {
+        case "4g":
+          effectiveTypeScore = 1;
+        break;
+        case "3g":
+          effectiveTypeScore = 0.75;
+        break;
+        case "2g":
+          effectiveTypeScore = 0.5;
+        break;
+        case "slow-2g":
+          effectiveTypeScore = 0.25;
+        break;
+      }
 
       // FINAL SCORE
-      videoStreamScore = rttScore * downlinkScore * saveDataScore;
+      videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
 
       /////
       if (!targetVideoSources.length) {
