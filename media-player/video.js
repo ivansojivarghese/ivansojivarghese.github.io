@@ -85,6 +85,12 @@ async function getParams(id) {
 
   supportedVideoSources = [];
   targetVideoSources = [];
+  targetVideo = null;
+
+  videoStreamScore = 0;
+
+  priorityQuality = 0;
+  targetQuality = 0;
 
   if (link !== null && id === null) {
     
