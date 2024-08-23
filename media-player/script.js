@@ -501,13 +501,13 @@
     }
 
     seekForwardButton.addEventListener('click', function(event) {
-      event.stopPropagation();
       seekForward(null);
+      event.stopPropagation();
     });
 
     seekBackwardButton.addEventListener('click', function(event) {
-      event.stopPropagation();
       seekBackward(null);
+      event.stopPropagation();
     });
 
     video.addEventListener('seeking', function() {
