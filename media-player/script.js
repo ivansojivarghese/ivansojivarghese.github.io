@@ -284,14 +284,26 @@
     }
 
     videoControls.addEventListener('click', function(event) {
-      clearTimeout(controlsHideInt);
-      controlsHideInt = null;
-      if (videoControls.classList.contains('visible')) {
-        hideVideoControls();
+      if (interactiveType === "touch" || interactiveType === "pen") {
+        clearTimeout(controlsHideInt);
+        controlsHideInt = null;
+        if (videoControls.classList.contains('visible')) {
+          hideVideoControls();
+        } else {
+          showVideoControls();
+          if (controlsHideInt === null) {
+            controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+          }
+        }
       } else {
-        showVideoControls();
-        if (controlsHideInt === null) {
-          controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+        if (video.paused && video.src !== "") {
+          video.play();
+          audio.play();
+          audio.currentTime = video.currentTime;
+          updatePositionState();
+        } else {
+          video.pause();
+          audio.pause();
         }
       }
     });
