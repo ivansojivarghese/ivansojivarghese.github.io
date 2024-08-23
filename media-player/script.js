@@ -585,7 +585,10 @@
       
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
-      hideVideoControls();
+      // hideVideoControls();
+      if (controlsHideInt === null) {
+        controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+      }
 
       loading = false;
 
@@ -697,12 +700,3 @@
         }
       }
     };
-
-    /*
-    document.querySelector("main .content").addEventListener("click", function(event) {
-      if (!event.target.classList.contains("videoArea")) {
-        if (!video.paused && videoControls.classList.contains('visible') && video.src !== "") {
-          hideVideoControls();
-        }
-      }
-    }, true);*/
