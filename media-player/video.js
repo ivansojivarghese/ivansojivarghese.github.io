@@ -261,6 +261,8 @@ function getOptimalVideo() {
 
   // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
 
+  if (videoDetails.error === undefined) {
+
   for (i = 0; i <= videoDetails.adaptiveFormats.length - 1; i++) {
     if (videoDetails.adaptiveFormats[i].audioQuality === undefined) { // video
       videoSources[videoSources.length] = videoDetails.adaptiveFormats[i];
@@ -466,6 +468,8 @@ function getOptimalVideo() {
     }
 
   }, 10);
+
+  }
 
   }
 
