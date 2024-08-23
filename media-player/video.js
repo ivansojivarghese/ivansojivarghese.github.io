@@ -24,6 +24,8 @@ var rttScore = 0, // SCORE FROM 0-1 (low to high)
     downlinkScore = 0,
     saveDataScore = 0;
 
+var videoStreamScore = 0;
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -391,6 +393,10 @@ function getOptimalVideo() {
       // SAVEDATA SCORE
       saveDataScore = saveData ? 0.5 : 1;
 
+      // FINAL SCORE
+      videoStreamScore = rttScore * downlinkScore * saveDataScore;
+
+      /////
       if (!targetVideoSources.length) {
           targetVideoSources = supportedVideoSources;
       }
