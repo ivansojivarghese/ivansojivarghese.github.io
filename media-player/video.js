@@ -399,24 +399,24 @@ function getOptimalVideo() {
       }
 
       // DOWNLINK SCORE
-      downlinkScore = 1 - (downlink / downlinkRef);
+      downlinkScore = downlink / downlinkRef;
 
       // SAVEDATA SCORE
-      saveDataScore = saveData ? 0.5 : 1;
+      saveDataScore = saveData ? 0.8 : 1;
 
       // EFFECTIVE TYPE SCORE
       switch (effectiveType) {
         case "4g":
-          effectiveTypeScore = 1;
+          effectiveTypeScore = 1.25;
         break;
         case "3g":
-          effectiveTypeScore = 0.75;
+          effectiveTypeScore = 1;
         break;
         case "2g":
-          effectiveTypeScore = 0.5;
+          effectiveTypeScore = 0.75;
         break;
         case "slow-2g":
-          effectiveTypeScore = 0.25;
+          effectiveTypeScore = 0.5;
         break;
       }
 
@@ -446,7 +446,7 @@ function getOptimalVideo() {
           }
           if (fetchedSources.includes(targetQuality + mod)) {
 
-            // CHOOSE THE LOWEST AVAILABLE QUALITY
+            // CHOOSE THE LOWEST AVAILABLE QUALITY FIRST
             targetVideo = targetVideoSources[targetVideoSources.length - 1];
 
             break;
