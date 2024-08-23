@@ -367,6 +367,7 @@ function getOptimalVideo() {
         }*/
       }
 
+      // GET RTT SCORE
       if (rtt <= rttGroupsArray[0]) { // 0 - 100
         rttGroup = 3;
       } else if (rtt <= rttGroupsArray[1]) { // >100 - 200
@@ -377,6 +378,11 @@ function getOptimalVideo() {
         rttGroup = 1;
       }
       rttScore = 1 - ((rtt / rttGroupsArray[2]) / rttGroup);
+      if (rttScore < 0) {
+        rttScore = 0;
+      }
+
+      
 
       if (!targetVideoSources.length) {
           targetVideoSources = supportedVideoSources;
