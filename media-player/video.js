@@ -18,8 +18,11 @@ const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
 var priorityQuality = 0;
 
 const rttGroupsArray = [100, 200, 375];
+const downlinkRef = 10;
 var rttScore = 0, // SCORE FROM 0-1 (low to high)
-    rttGroup = 0; 
+    rttGroup = 0,
+    downlinkScore = 0,
+    saveDataScore = 0;
 
 // REFERENCE: https://web.dev/articles/media-session
 
@@ -382,7 +385,11 @@ function getOptimalVideo() {
         rttScore = 0;
       }
 
-      
+      // DOWNLINK SCORE
+      downlinkScore = 1 - (downlink / downlinkRef);
+
+      // SAVEDATA SCORE
+      saveDataScore = saveData ? 0.5 : 1;
 
       if (!targetVideoSources.length) {
           targetVideoSources = supportedVideoSources;
