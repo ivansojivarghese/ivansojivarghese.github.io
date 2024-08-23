@@ -46,7 +46,7 @@
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
-        currentPlayPos = player.currentTime
+        currentPlayPos = video.currentTime
 
         // checking offset should be at most the check interval
         // but allow for some margin
@@ -58,7 +58,7 @@
         if (
                 !bufferingDetected 
                 && currentPlayPos < (lastPlayPos + offset)
-                && !player.paused
+                && !video.paused
             ) {
             console.log("buffering")
             bufferingDetected = true
@@ -69,7 +69,7 @@
         if (
             bufferingDetected 
             && currentPlayPos > (lastPlayPos + offset)
-            && !player.paused
+            && !video.paused
             ) {
             console.log("not buffering anymore")
             bufferingDetected = false
