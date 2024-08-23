@@ -295,7 +295,7 @@
             controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
           }
         }
-      } else {
+      } else if (event.target === videoControls) {
         if (video.paused && video.src !== "") {
           video.play();
           audio.play();
