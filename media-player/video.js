@@ -13,7 +13,7 @@ var audioSources = [];
 
 var supportedVideoSources = [];
 var targetVideoSources = [];
-var targetVideo;
+var targetVideo = null;
 
 const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
 var priorityQuality = 0;
@@ -419,10 +419,20 @@ function getOptimalVideo() {
       targetQuality = Math.round(videoStreamScore * priorityQuality);
 
       // GET THE VIDEO
+      var mod = 0;
       targetVideoSources = supportedVideoSources;
-      for (i = 0; i < targetVideoSources.length; i++) {
-        if (targetVideoSources[i].height === videoQuality[targetQuality]) {
-          targetVideo = targetVideoSources[i];
+      while (targetVideo === null) {
+        for (i = 0; i < targetVideoSources.length; i++) {
+          if (targetVideoSources[i].height === videoQuality[targetQuality + mod]) {
+            targetVideo = targetVideoSources[i];
+          }
+        }
+        if (targetVideo === null) {
+          if (targetQuality > 4) {
+            mod = -1;
+          } else if (targetQuality <= 4) {
+            mod = 1;
+          }
         }
       }
 
