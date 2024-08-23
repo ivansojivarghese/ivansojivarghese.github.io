@@ -35,7 +35,7 @@
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
-    // var seeking = false;
+    var seeking = false;
 
     var interactiveType = "";
 
@@ -357,7 +357,7 @@
       if (interactiveType === "touch" || interactiveType === "pen") {
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
-        if (videoControls.classList.contains('visible') && !video.classList.contains('seeking')) {
+        if (videoControls.classList.contains('visible') && !seeking) {
           hideVideoControls();
         } else {
           showVideoControls();
@@ -435,7 +435,7 @@
         if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
-            // seeking = true;
+            seeking = true;
             forwardSkippedTime += skipTime;
             seekForwardTextSec.innerHTML = forwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -456,7 +456,7 @@
             }
             if (seekForwardHideInt === null) {
               seekForwardHideInt = setTimeout(function() {
-                // seeking = false;
+                seeking = false;
                 seekForwardText.classList.remove('show');
                 forwardSkippedTime = 0;
                 setTimeout(function() {
@@ -472,7 +472,7 @@
         if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
-            // seeking = true;
+            seeking = true;
             backwardSkippedTime += skipTime;
             seekBackwardTextSec.innerHTML = backwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -493,7 +493,7 @@
             }
             if (seekBackwardHideInt === null) {
               seekBackwardHideInt = setTimeout(function() {
-                // seeking = false;
+                seeking = false;
                 seekBackwardText.classList.remove('show');
                 backwardSkippedTime = 0;
                 // seekBackwardTextSec.innerHTML = backwardSkippedTime;
