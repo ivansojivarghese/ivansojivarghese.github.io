@@ -64,14 +64,14 @@
             ) {
             console.log("buffering")
             bufferingDetected = true
-
+              /*
             loadingRing.style.display = "block";
             playPauseButton.style.display = "none";
             showVideoControls();
 
             loading = true;
 
-            audio.pause();
+            audio.pause();*/
         }
 
         // if we were buffering but the player has advanced,
@@ -83,14 +83,14 @@
             ) {
             console.log("not buffering anymore")
             bufferingDetected = false
-
+              /*
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
             hideVideoControls();
 
             loading = false;
 
-            audio.play();
+            audio.play();*/
         }
         lastPlayPos = currentPlayPos
     }
