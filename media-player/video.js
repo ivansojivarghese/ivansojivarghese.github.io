@@ -446,7 +446,8 @@ function getOptimalVideo() {
           }
           if (fetchedSources.includes(targetQuality + mod)) {
 
-            // CHOOSE THE 
+            // CHOOSE THE LOWEST AVAILABLE QUALITY
+            targetVideo = targetVideoSources[targetVideoSources.length - 1];
 
             break;
           }
