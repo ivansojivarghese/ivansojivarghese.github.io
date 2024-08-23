@@ -425,8 +425,8 @@ function getOptimalVideo() {
 
       // TARGET QUALITY
       targetQuality = Math.round(videoStreamScore * priorityQuality);
-      if (targetQuality > 8) {
-        targetQuality = 8;
+      if (targetQuality > (videoQuality.length - 1)) {
+        targetQuality = videoQuality.length - 1;
       }
 
       // GET THE VIDEO
