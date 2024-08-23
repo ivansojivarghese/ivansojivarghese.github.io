@@ -17,6 +17,7 @@ var targetVideo;
 
 const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
 var priorityQuality = 0;
+var targetQuality = 0;
 
 const rttGroupsArray = [100, 200, 375];
 const downlinkRef = 10;
@@ -414,14 +415,16 @@ function getOptimalVideo() {
       // FINAL SCORE
       videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
 
-      /////
-      if (!targetVideoSources.length) {
-          targetVideoSources = supportedVideoSources;
+      // TARGET QUALITY
+      targetQuality = Math.round(videoStreamScore * priorityQuality);
+
+      // GET THE VIDEO
+      targetVideoSources = supportedVideoSources;
+      for (i = 0; i < targetVideoSources.length; i++) {
+        if (targetVideoSources[i].height === videoQuality[targetQuality]) {
+          targetVideo = targetVideoSources[i];
+        }
       }
-      
-      ////
-      targetVideo = targetVideoSources[0];
-      ////
 
       const videoWidth = targetVideo.width;
       const videoHeight = targetVideo.height;
