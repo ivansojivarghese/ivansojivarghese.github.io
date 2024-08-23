@@ -218,6 +218,14 @@
       }
     });
 
+    videoControls.addEventListener("mouseleave", function(event) {
+      if (video.src !== "" && interactiveType === "mouse") {
+        clearTimeout(controlsHideInt);
+        controlsHideInt = null;
+        hideVideoControls();
+      }
+    });
+
     document.addEventListener('fullscreenchange', function() {
       if (!document.fullscreenElement) {
         fullscreenButton.children[0].classList.remove("exit");
