@@ -593,7 +593,16 @@
         //action on double tap goes below
         if (!video.paused && !document.fullscreenElement) {
           video.requestPictureInPicture();
+        } else if (!video.paused) {
+          if (!video.classList.contains("cover")) {
+            video.style.objectFit = "cover";
+            video.classList.add("cover");
+          } else {
+            video.style.objectFit = "";
+            video.classList.remove("cover");
+          }
         }
+        hideVideoControls();
       } else {
         return;
       }

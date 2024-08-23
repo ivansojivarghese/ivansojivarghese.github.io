@@ -437,7 +437,7 @@ function getOptimalVideo() {
             fetchedSources[fetchedSources.length] = i;
           }
         }
-        console.log(targetQuality + mod);
+        // console.log(targetQuality + mod);
         if (targetVideo === null) {
           if ((targetQuality + mod) > 4 && (targetQuality + mod) <= 8) {
             mod--;
@@ -445,6 +445,9 @@ function getOptimalVideo() {
             mod++;
           }
           if (fetchedSources.includes(targetQuality + mod)) {
+
+            // CHOOSE THE 
+
             break;
           }
         }
