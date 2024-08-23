@@ -219,7 +219,7 @@
     });
 
     videoControls.addEventListener("mouseleave", function(event) {
-      if (video.src !== "" && interactiveType === "mouse") {
+      if (!video.paused && video.src !== "" && interactiveType === "mouse") {
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
         hideVideoControls();
