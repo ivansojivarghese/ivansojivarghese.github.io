@@ -555,6 +555,9 @@
 
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
+
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
       showVideoControls();
@@ -565,6 +568,9 @@
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
+
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
@@ -589,6 +595,9 @@
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
       // START LOAD
+
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
 
       loading = true;
 
