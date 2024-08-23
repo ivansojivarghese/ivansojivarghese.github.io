@@ -523,7 +523,7 @@
     video.addEventListener('seeked', function() {
         setTimeout(function() {
             video.classList.remove('seeking');
-        }, 200);
+        }, 300);
     });
     
     video.addEventListener('loadedmetadata', function () { //  fired when the metadata has been loaded
