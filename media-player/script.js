@@ -602,6 +602,8 @@
             video.classList.remove("cover");
           }
         }
+        clearTimeout(controlsHideInt);
+        controlsHideInt = null;
         setTimeout(hideVideoControls, 10);
       } else {
         return;
