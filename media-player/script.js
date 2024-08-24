@@ -121,7 +121,7 @@
         }
       }
     });
-
+    /*
     loadingRing.addEventListener('click', function (event) {
       event.stopPropagation();
       clearTimeout(controlsHideInt);
@@ -135,7 +135,7 @@
           playPauseButton.style.display = "block";
         }
       }
-    });
+    });*/
 
     fitscreenButton.addEventListener('click', function(event) {
       // event.stopPropagation();
