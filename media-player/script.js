@@ -160,6 +160,7 @@
         if (document.fullscreenElement) {
           document.exitFullscreen();
           fullscreenButton.children[0].classList.remove("exit");
+          settingsButton.style.display = "block";
         } else {
           requestFullscreenVideo();
           lockScreenInLandscape();
@@ -172,9 +173,11 @@
       if (videoContainer.requestFullscreen) {
         videoContainer.requestFullscreen({ navigationUI: "hide" }).catch((err) => {
           fullscreenButton.children[0].classList.remove("exit");
+          settingsButton.style.display = "block";
           return;
         });
         fullscreenButton.children[0].classList.add("exit");
+        settingsButton.style.display = "none";
       } else {
         video.webkitEnterFullscreen();
       }
@@ -218,6 +221,7 @@
             window.removeEventListener('deviceorientation', onDeviceOrientationChange);
             if (!document.fullscreenElement) {
               fullscreenButton.children[0].classList.remove("exit");
+              settingsButton.style.display = "block";
             }
           }
         }
@@ -291,6 +295,7 @@
     document.addEventListener('fullscreenchange', function() {
       if (!document.fullscreenElement) {
         fullscreenButton.children[0].classList.remove("exit");
+        settingsButton.style.display = "block";
         // show PIP
         pipButton.style.display = "";
       } else {
@@ -306,12 +311,15 @@
           requestFullscreenVideo();
           lockScreenInLandscape();
           fullscreenButton.children[0].classList.add("exit");
+          settingsButton.style.display = "none";
         } else if (((evt.code == 122 && op.sys === "Windows") || (evt.code == 70 && evt.metaKey && evt.ctrlKey)) && document.fullscreenElement && (op.sys === "MacOS" || op.sys === "iOS")) { // F11 for Windows or Ctrl+Cmd+F for Mac
           fullscreenButton.children[0].classList.remove("exit");
+          settingsButton.style.display = "block";
         }
 
         if (evt.code == 27 && document.fullscreenElement) { // esc.
           fullscreenButton.children[0].classList.remove("exit");
+          settingsButton.style.display = "block";
         }
       }
   };
@@ -332,9 +340,11 @@
         requestFullscreenVideo();
         lockScreenInLandscape();
         fullscreenButton.children[0].classList.add("exit");
+        settingsButton.style.display = "none";
       } else {
         document.exitFullscreen();
         fullscreenButton.children[0].classList.remove("exit");
+        settingsButton.style.display = "block";
       }
     }
   });
@@ -409,11 +419,13 @@
         requestFullscreenVideo();
         lockScreenInLandscape();
         fullscreenButton.children[0].classList.add("exit");
+        settingsButton.style.display = "none";
       } else if ((angle === 0 || angle === 180) && document.fullscreenElement) {
         document.exitFullscreen();
         video.style.objectFit = "";
         video.classList.remove("cover");
         fullscreenButton.children[0].classList.remove("exit");
+        settingsButton.style.display = "block";
       }
     });
 /*
