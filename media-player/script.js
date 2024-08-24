@@ -44,7 +44,9 @@
     var lastPlayPos    = 0
     var currentPlayPos = 0
     var bufferingDetected = false
-    // var player = document.getElementById('videoPlayer')
+
+    var bufferingCount = [];
+    var bufferingCountLoop = null;
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
@@ -634,6 +636,9 @@
       audio.play();
 
       updatePositionState();
+
+      // START BUFFERING CHECK
+      
     });
 
     video.addEventListener('timeupdate', function() {
