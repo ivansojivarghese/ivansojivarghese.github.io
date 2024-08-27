@@ -510,29 +510,31 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
         if (op.pwa.s) {
             var str;
 
-            var motion_icon = document.querySelector('.pwa .home .banner .motionIcon'),
-                mI_img = motion_icon.children[0].classList,
-                keyW = ["walk", "run", "commute"],
-                target_mI = "",
-                add_mI = "";
-            for (i = 0; i < mI_img.length; i++) {
-                if (mI_img[i].includes(keyW[0])) {
-                    target_mI = mI_img[i];
-                    add_mI = keyW[0] + "_w_img";
-                    break;
-                } else if (mI_img[i].includes(keyW[1])) {
-                    target_mI = mI_img[i];
-                    add_mI = keyW[1] + "_w_img";
-                    break;
-                } else if (mI_img[i].includes(keyW[2])) {
-                    target_mI = mI_img[i];
-                    add_mI = keyW[2] + "_w_img";
-                    break;
+            var motion_icon = document.querySelector('.pwa .home .banner .motionIcon');
+            if (typeof motion_icon !== undefined) {
+                var mI_img = motion_icon.children[0].classList,
+                    keyW = ["walk", "run", "commute"],
+                    target_mI = "",
+                    add_mI = "";
+                for (i = 0; i < mI_img.length; i++) {
+                    if (mI_img[i].includes(keyW[0])) {
+                        target_mI = mI_img[i];
+                        add_mI = keyW[0] + "_w_img";
+                        break;
+                    } else if (mI_img[i].includes(keyW[1])) {
+                        target_mI = mI_img[i];
+                        add_mI = keyW[1] + "_w_img";
+                        break;
+                    } else if (mI_img[i].includes(keyW[2])) {
+                        target_mI = mI_img[i];
+                        add_mI = keyW[2] + "_w_img";
+                        break;
+                    }
                 }
-            }
-            if (target_mI && add_mI) {
-                mI_img.remove(target_mI);
-                mI_img.add(add_mI);
+                if (target_mI && add_mI) {
+                    mI_img.remove(target_mI);
+                    mI_img.add(add_mI);
+                }
             }
 
             logo_h_img_pwa.classList.remove("logo-full");
@@ -710,29 +712,31 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
 
         if (op.pwa.s) {
 
-            var motion_icon = document.querySelector('.pwa .home .banner .motionIcon'),
-                mI_img = motion_icon.children[0].classList,
-                keyW = ["walk", "run", "commute"],
-                target_mI = "",
-                add_mI = "";
-            for (i = 0; i < mI_img.length; i++) {
-                if (mI_img[i].includes(keyW[0])) {
-                    target_mI = mI_img[i];
-                    add_mI = keyW[0] + "_img";
-                    break;
-                } else if (mI_img[i].includes(keyW[1])) {
-                    target_mI = mI_img[i];
-                    add_mI = keyW[1] + "_img";
-                    break;
-                } else if (mI_img[i].includes(keyW[2])) {
-                    target_mI = mI_img[i];
-                    add_mI = keyW[2] + "_img";
-                    break;
+            var motion_icon = document.querySelector('.pwa .home .banner .motionIcon');
+            if (typeof motion_icon !== undefined) {
+                var mI_img = motion_icon.children[0].classList,
+                    keyW = ["walk", "run", "commute"],
+                    target_mI = "",
+                    add_mI = "";
+                for (i = 0; i < mI_img.length; i++) {
+                    if (mI_img[i].includes(keyW[0])) {
+                        target_mI = mI_img[i];
+                        add_mI = keyW[0] + "_img";
+                        break;
+                    } else if (mI_img[i].includes(keyW[1])) {
+                        target_mI = mI_img[i];
+                        add_mI = keyW[1] + "_img";
+                        break;
+                    } else if (mI_img[i].includes(keyW[2])) {
+                        target_mI = mI_img[i];
+                        add_mI = keyW[2] + "_img";
+                        break;
+                    }
                 }
-            }
-            if (target_mI && add_mI) {
-                mI_img.remove(target_mI);
-                mI_img.add(add_mI);
+                if (target_mI && add_mI) {
+                    mI_img.remove(target_mI);
+                    mI_img.add(add_mI);
+                }
             }
 
             logo_h_img_pwa.classList.remove("logo-hybrid-inverse");
