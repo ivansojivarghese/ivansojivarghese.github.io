@@ -333,7 +333,9 @@ function navButtonActive(b, e, v) {
     let params = url.searchParams;
     // update nav1
     if (!v) {
+        // if ((fab2Check && !fab2Close && e.currentTarget === aboutBtn && activeTab !== "home") || e.currentTarget !== aboutBtn) {
         params.set("nav1", b);
+        // }
     }
     url.search = params.toString();
     window.history.replaceState(null, null, url.search);
@@ -413,7 +415,7 @@ function navButtonActive(b, e, v) {
         }
 
         if (b && !v) { // navigate to section
-            if (!(fab2Check && e.currentTarget === aboutBtn)) {
+            // if ((fab2Check && !fab2Close && e.currentTarget === aboutBtn && activeTab !== "home") || e.currentTarget !== aboutBtn) {
                 const mainSection = document.querySelector('.pwa .sections.scrollBarFunction');
 
                 const targetSection = document.querySelector('.pwa .sections .' + b);
@@ -426,13 +428,13 @@ function navButtonActive(b, e, v) {
 
                 targetSection.classList.remove("d_n");
                 targetSection.classList.add("scrollBarContainer");
-            }
+            // }
             // activeTab = b;
         }
         
-        if (!(fab2Check && e.currentTarget === aboutBtn)) {
+        // if ((fab2Check && !fab2Close && e.currentTarget === aboutBtn && activeTab !== "home") || e.currentTarget !== aboutBtn) {
             activeTab = b;
-        }
+        // }
     }
 }
 /*
