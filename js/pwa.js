@@ -265,6 +265,8 @@ function navButtonActive(b, e, v) {
     const fab2 = document.querySelector('.pwa .fab2');
     const fab2i = document.querySelector('.pwa .fab2 .img_icon');
 
+    const aboutBtn = document.querySelector('.pwa .navbar .button.about') || document.querySelector('.pwa .navbar .button.about_dark');
+
     if (firstNBA) {
         if (firstNBAcount < 3 && (b !== "home" || b !== "about")) {
             firstNBAcount++;
@@ -411,23 +413,26 @@ function navButtonActive(b, e, v) {
         }
 
         if (b && !v) { // navigate to section
-            const mainSection = document.querySelector('.pwa .sections.scrollBarFunction');
+            if (!(fab2Check && e.currentTarget === aboutBtn)) {
+                const mainSection = document.querySelector('.pwa .sections.scrollBarFunction');
 
-            const targetSection = document.querySelector('.pwa .sections .' + b);
-            const activeSection = (fab2Close && activeTab === 'home') ? document.querySelector('.pwa .sections .home') : (fab2Close && activeTab === 'about') ? document.querySelector('.pwa .sections .about') : document.querySelector('.pwa .sections .' + activeTab);
+                const targetSection = document.querySelector('.pwa .sections .' + b);
+                const activeSection = (fab2Close && activeTab === 'home') ? document.querySelector('.pwa .sections .home') : (fab2Close && activeTab === 'about') ? document.querySelector('.pwa .sections .about') : document.querySelector('.pwa .sections .' + activeTab);
 
-            activeSection.classList.remove("scrollBarContainer");
-            activeSection.classList.add("d_n");
+                activeSection.classList.remove("scrollBarContainer");
+                activeSection.classList.add("d_n");
 
-            mainSection.scrollTop = 0;
+                mainSection.scrollTop = 0;
 
-            targetSection.classList.remove("d_n");
-            targetSection.classList.add("scrollBarContainer");
-
+                targetSection.classList.remove("d_n");
+                targetSection.classList.add("scrollBarContainer");
+            }
             // activeTab = b;
         }
         
-        activeTab = b;
+        if (!(fab2Check && e.currentTarget === aboutBtn)) {
+            activeTab = b;
+        }
     }
 }
 /*
