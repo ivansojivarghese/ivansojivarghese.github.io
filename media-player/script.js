@@ -51,6 +51,7 @@
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
         currentPlayPos = video.currentTime
+        currentAudioPos = audio.currentTime
 
         // checking offset should be at most the check interval
         // but allow for some margin
@@ -66,6 +67,8 @@
             ) {
             console.log("buffering")
             bufferingDetected = true
+
+            audio.currentTime = video.currentTime
               /*
             loadingRing.style.display = "block";
             playPauseButton.style.display = "none";
@@ -85,6 +88,8 @@
             ) {
             console.log("not buffering anymore")
             bufferingDetected = false
+
+            audio.currentTime = video.currentTime
               /*
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
