@@ -431,6 +431,7 @@ function getOptimalVideo() {
 
       // GET THE VIDEO
       var mod = 0;
+      var reverse = false;
       var fetchedSources = [];
       targetVideoSources = supportedVideoSources;
       while (targetVideo === null) {
@@ -442,19 +443,30 @@ function getOptimalVideo() {
         // console.log(targetQuality + mod);
         if (targetVideo === null) {
           fetchedSources[fetchedSources.length] = targetQuality + mod;
+          if ((targetQuality + mod) > 0 && !reverse) {
+            mod--;
+          } else {
+            if (!reverse) {
+              mod = 1;
+              reverse = true;
+            } else {
+              mod++;
+            }
+          }
 
+          /*
           if ((targetQuality + mod) > 4 && (targetQuality + mod) <= 8) {
             mod--;
           } else if ((targetQuality + mod) >= 0 && (targetQuality + mod) <= 4) {
             mod++;
-          }
+          }*/
+          /*
           if (fetchedSources.includes(targetQuality + mod)) {
-
             // CHOOSE THE LOWEST AVAILABLE QUALITY FIRST
             targetVideo = targetVideoSources[targetVideoSources.length - 1];
-
             break;
-          }
+          }*/
+
         }
       }
 
