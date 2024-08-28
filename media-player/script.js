@@ -65,7 +65,7 @@
                 && currentPlayPos < (lastPlayPos + offset)
                 && !video.paused
             ) {
-            console.log("buffering")
+            // console.log("buffering")
             bufferingDetected = true
 
             audio.currentTime = video.currentTime
@@ -86,7 +86,7 @@
             && currentPlayPos > (lastPlayPos + offset)
             && !video.paused
             ) {
-            console.log("not buffering anymore")
+            // console.log("not buffering anymore")
             bufferingDetected = false
 
             audio.currentTime = video.currentTime
