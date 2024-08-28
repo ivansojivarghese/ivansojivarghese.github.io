@@ -118,8 +118,9 @@
       controlsHideInt = null;
       if (videoControls.classList.contains('visible')) {
         if (video.paused && video.src !== "") {
-          video.play();
           audio.play();
+          video.play();
+          
           audio.currentTime = video.currentTime;
           updatePositionState();
         } else {
@@ -388,8 +389,9 @@
         }
       } else if (event.target === videoControls) {
         if (video.paused && video.src !== "") {
-          video.play();
           audio.play();
+          video.play();
+          
           audio.currentTime = video.currentTime;
           updatePositionState();
         } else {
@@ -640,8 +642,9 @@
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
 
-      video.play();
       audio.play();
+      video.play();
+      
       /*
       setTimeout(function() {
         if (audio.currentTime !== video.currentTime) {
