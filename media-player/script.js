@@ -642,12 +642,12 @@
 
       video.play();
       audio.play();
-
+      /*
       setTimeout(function() {
         if (audio.currentTime !== video.currentTime) {
           audio.currentTime = video.currentTime;
         }
-      }, 100);
+      }, 100);*/
 
       setInterval(audioVideoAlign, 1000);
 
