@@ -641,8 +641,13 @@
       playPauseButton.style.display = "block";
 
       video.play();
-      audio.currentTime = video.currentTime;
       audio.play();
+
+      setTimeout(function() {
+        if (audio.currentTime !== video.currentTime) {
+          audio.currentTime = video.currentTime;
+        }
+      }, 100);
 
       setInterval(audioVideoAlign, 100);
 
