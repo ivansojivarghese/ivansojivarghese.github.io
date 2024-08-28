@@ -450,6 +450,10 @@
       }
     });*/
 
+    function audioVideoAlign() {
+      console.log("video: " + video.currentTime + ", audio: " + audio.currentTime);
+    }
+
     function seekForward(m) {
         if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //forwardSkippedTime = 0;
@@ -641,6 +645,8 @@
       audio.play();
 
       updatePositionState();
+
+      setInterval(audioVideoAlign, 1000);
 
       // START BUFFERING CHECK
       
