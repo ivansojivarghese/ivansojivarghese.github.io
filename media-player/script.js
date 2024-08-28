@@ -644,9 +644,9 @@
       audio.currentTime = video.currentTime;
       audio.play();
 
-      updatePositionState();
+      setInterval(audioVideoAlign, 100);
 
-      setInterval(audioVideoAlign, 1000);
+      updatePositionState();
 
       // START BUFFERING CHECK
       
