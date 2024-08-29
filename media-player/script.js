@@ -436,6 +436,8 @@
         fullscreenButton.children[0].classList.remove("exit");
         settingsButton.style.display = "block";
       }
+      video.style.objectFit = "";
+      video.classList.remove("cover");
     });
 /*
     screen.orientation.addEventListener("change", function(event) {
