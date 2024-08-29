@@ -30,7 +30,7 @@
     }
   ],
   "background_color": "#000",
-  "theme_color": "#A10000",
+  "theme_color": "#000",
   "orientation": "any",
   "share_target": {
     "action": "/media-player/index.html",
