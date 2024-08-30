@@ -457,7 +457,7 @@
     // REFERENCE: https://github.com/chcunningham/wc-talk/blob/main/audio_renderer.js#L120
     // https://github.com/chcunningham/wc-talk 
 
-    var audioCtx = new AudioContext();
+    var audioCtx;
 
     function getTotalOutputLatencyInSeconds(useAudioContextOutputLatency) {
       let totalOutputLatency = 0.0;
@@ -475,6 +475,7 @@
     }
 
     function audioVideoAlign() {
+      audioCtx = new AudioContext();
       console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", audio latency: " + getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
     }
 
