@@ -757,7 +757,7 @@
     });
 
     // REF: https://stackoverflow.com/questions/5029519/html5-video-percentage-loaded, by Yann L.
-
+    
     var videoLoadPercentile = 0,
         audioLoadPercentile = 0;
 
@@ -777,13 +777,14 @@
       
       // console.log(loadPercentage);
 
-      // videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
+      videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
 
+      /*
       if (videoLoadPercentile > audioLoadPercentile) {
         videoLoadProgressBar.style.transform = `scaleX(${audioLoadPercentile})`;
       } else {
         videoLoadProgressBar.style.transform = `scaleX(${videoLoadPercentile})`;
-      }
+      }*/
   });
 
   audio.addEventListener('progress', function() {
@@ -803,10 +804,10 @@
     // console.log(loadPercentage);
 
     // videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
-
+    /*
     if (videoLoadPercentile === 1) {
       videoLoadProgressBar.style.transform = `scaleX(${audioLoadPercentile})`;
-    }
+    }*/
 });
 
     // REFERENCED FROM: https://stackoverflow.com/questions/8825144/detect-double-tap-on-ipad-or-iphone-screen-using-javascript BY Anulal S.
