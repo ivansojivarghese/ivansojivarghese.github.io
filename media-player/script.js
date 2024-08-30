@@ -68,7 +68,8 @@
         // and the player isn't manually paused...
         if (
                 !bufferingDetected 
-                && currentPlayPos < (lastPlayPos + offset)
+                // && currentPlayPos < (lastPlayPos + offset)
+                && ((currentPlayPos < (lastPlayPos + offset)) || currentAudioPos < (lastPlayPos + offset))
                 && !video.paused
             ) {
             // console.log("buffering")
@@ -89,7 +90,8 @@
         // then there is no buffering
         if (
             bufferingDetected 
-            && currentPlayPos > (lastPlayPos + offset)
+            // && currentPlayPos > (lastPlayPos + offset)
+            && ((currentPlayPos > (lastPlayPos + offset)) || currentAudioPos > (lastPlayPos + offset))
             && !video.paused
             ) {
             // console.log("not buffering anymore")
@@ -269,7 +271,9 @@
     });
 
     video.addEventListener('play', function () {
-      audio.play();
+      audio.play().then(function() {
+        videoPause = true;
+      }); 
       playPauseButton.classList.add('playing');
       if (controlsHideInt === null) {
         controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
@@ -693,7 +697,9 @@
       loading = false;
       audio.currentTime = video.currentTime;
 
-      audio.play();
+      audio.play().then(function() {
+        videoPause = true;
+      });
     });
 
     audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
