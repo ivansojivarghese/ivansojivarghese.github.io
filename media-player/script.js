@@ -137,12 +137,8 @@
 
         } else {
 
-          // video.pause();
-          // audio.pause();
-
-          audio.pause().then(function() {
-            video.pause();
-          });
+          audio.pause();
+          video.pause();
         }
       }
     });
@@ -422,12 +418,9 @@
 
         } else {
 
-          //video.pause();
-          //audio.pause();
-
-          audio.pause().then(function() {
-            video.pause();
-          });
+          audio.pause();
+          video.pause();
+          
         }
       }
     });
