@@ -130,7 +130,7 @@
           //video.play();
 
           audio.play().then(function () {
-            audioCtx = new AudioContext();
+            // audioCtx = new AudioContext();
             setTimeout(function() {
               video.play().then(function() {
                 videoPause = true;
@@ -142,9 +142,12 @@
           updatePositionState();
 
         } else {
+          if (videoPause) {
+            audio.pause();
+            video.pause();
 
-          audio.pause();
-          video.pause();
+            videoPause = false;
+          }
         }
       }
     });
@@ -291,6 +294,7 @@
 
     video.addEventListener('pause', function () {
       audio.pause();
+      videoPause = false;
       playPauseButton.classList.remove('playing');
       showVideoControls();
       navigator.mediaSession.playbackState = 'paused';
@@ -426,7 +430,7 @@
           //video.play();
 
           audio.play().then(function () {
-            audioCtx = new AudioContext();
+            // audioCtx = new AudioContext();
             setTimeout(function() {
               video.play().then(function() {
                 videoPause = true;
@@ -439,8 +443,12 @@
 
         } else {
 
-          audio.pause();
-          video.pause();
+          if (videoPause) {
+            audio.pause();
+            video.pause();
+
+            videoPause = false;
+          }
           
         }
       }
@@ -504,7 +512,7 @@
 
     function getTotalOutputLatencyInSeconds(useAudioContextOutputLatency) {
       let totalOutputLatency = 0.0;
-      audioCtx = new AudioContext();
+      // audioCtx = new AudioContext();
       if (!useAudioContextOutputLatency || audioCtx.outputLatency == undefined) {
         // Put appropriate values for Chromium here, not sure what latencies are
         // used. Likely OS-dependent, certainly hardware dependant. Assume 40ms.
@@ -655,6 +663,7 @@
       loading = true;
 
       audio.pause();
+      videoPause = false;
     });
     /*
     audio.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
@@ -676,6 +685,7 @@
       loading = true;
 
       audio.pause();
+      videoPause = false;
     });
     /*
     audio.addEventListener('stalled', function () { // when playback has stopped because of a temporary lack of data
@@ -706,7 +716,7 @@
 
       // loading = false;
 
-      audioCtx = new AudioContext();
+      // audioCtx = new AudioContext();
       setTimeout(function() {
         loading = false;
 

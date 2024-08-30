@@ -33,7 +33,7 @@ var videoStreamScore = 0;
 
 const actionHandlers = [
   ['play',          async () => { await audio.play().then(function () {
-                                    audioCtx = new AudioContext();
+                                    // audioCtx = new AudioContext();
                                     setTimeout(function() {
                                       video.play().then(function() {
                                         videoPause = true;
@@ -44,8 +44,12 @@ const actionHandlers = [
                                 }
   ],
   ['pause',         () => { 
+                            if (videoPause) {
                               audio.pause();
                               video.pause();
+
+                              videoPause = false;
+                            }
                           }
   ],
   /*['previoustrack', () => { }],
