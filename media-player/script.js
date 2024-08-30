@@ -457,7 +457,7 @@
     // REFERENCE: https://github.com/chcunningham/wc-talk/blob/main/audio_renderer.js#L120
     // https://github.com/chcunningham/wc-talk 
 
-    var audioCtx;
+    var audioCtx = new AudioContext();
 
     function getTotalOutputLatencyInSeconds(useAudioContextOutputLatency) {
       let totalOutputLatency = 0.0;
