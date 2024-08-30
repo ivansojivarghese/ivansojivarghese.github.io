@@ -457,22 +457,24 @@
     // REFERENCE: https://github.com/chcunningham/wc-talk/blob/main/audio_renderer.js#L120
     // https://github.com/chcunningham/wc-talk 
 
+    var audioCtx;
+
     function getTotalOutputLatencyInSeconds(useAudioContextOutputLatency) {
       let totalOutputLatency = 0.0;
-      if (!useAudioContextOutputLatency || this.audioContext.outputLatency == undefined) {
+      audioCtx = new AudioContext();
+      if (!useAudioContextOutputLatency || audioCtx.outputLatency == undefined) {
         // Put appropriate values for Chromium here, not sure what latencies are
         // used. Likely OS-dependent, certainly hardware dependant. Assume 40ms.
         totalOutputLatency += 0.04;
       } else {
-        totalOutputLatency += this.audioContext.outputLatency;
+        totalOutputLatency += audioCtx.outputLatency;
       }
       // This looks supported by Chromium, always 128 / samplerate.
-      totalOutputLatency += this.audioContext.baseLatency;
+      totalOutputLatency += audioCtx.baseLatency;
       return totalOutputLatency;
     }
 
     function audioVideoAlign() {
-      const audioCtx = new AudioContext();
       console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", audio latency: " + getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
     }
 
