@@ -265,7 +265,7 @@
     });
 
     video.addEventListener('play', function () {
-      // audio.play();
+      audio.play();
       playPauseButton.classList.add('playing');
       if (controlsHideInt === null) {
         controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
@@ -273,25 +273,25 @@
       navigator.mediaSession.playbackState = 'playing';
       getScreenLock();
     });
-
+    /*
     audio.addEventListener('play', function () {
       audioCtx = new AudioContext();
       setTimeout(function() {
         video.play();
       }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
-    });
+    });*/
 
     video.addEventListener('pause', function () {
-      // audio.pause();
+      audio.pause();
       playPauseButton.classList.remove('playing');
       showVideoControls();
       navigator.mediaSession.playbackState = 'paused';
       releaseScreenLock(screenLock);
     });
-
+    /*
     audio.addEventListener('pause', function () {
       video.pause();
-    });
+    });*/
 
     video.addEventListener('ended', function() {
         playPauseButton.classList.remove('playing');
