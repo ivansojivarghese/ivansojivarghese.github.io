@@ -646,13 +646,13 @@
 
       audio.pause();
     });
-
+    /*
     audio.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
       loading = true;
 
       video.pause();
-    });
+    });*/
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       /*
@@ -667,13 +667,13 @@
 
       audio.pause();
     });
-
+    /*
     audio.addEventListener('stalled', function () { // when playback has stopped because of a temporary lack of data
 
       loading = true;
 
       video.pause();
-    });
+    });*/
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       /*
