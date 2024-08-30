@@ -40,22 +40,22 @@
     var interactiveType = "";
 
     // REFERENCE: https://stackoverflow.com/questions/21399872/how-to-detect-whether-html5-video-has-paused-for-buffering
-    var checkInterval  = 50.0 // check every 50 ms (do not use lower values)
-    var lastPlayPos    = 0
-    var currentPlayPos = 0
-    var bufferingDetected = false
+    var checkInterval  = 50.0; // check every 50 ms (do not use lower values)
+    var lastPlayPos    = 0;
+    var currentPlayPos = 0;
+    var bufferingDetected = false;
 
     var bufferingCount = [];
     var bufferingCountLoop = null;
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
-        currentPlayPos = video.currentTime
-        currentAudioPos = audio.currentTime
+        currentPlayPos = video.currentTime;
+        currentAudioPos = audio.currentTime;
 
         // checking offset should be at most the check interval
         // but allow for some margin
-        var offset = (checkInterval - 20) / 1000
+        var offset = (checkInterval - 20) / 1000;
 
         // if no buffering is currently detected,
         // and the position does not seem to increase
@@ -66,9 +66,9 @@
                 && !video.paused
             ) {
             // console.log("buffering")
-            bufferingDetected = true
+            bufferingDetected = true;
 
-            audio.currentTime = video.currentTime
+            audio.currentTime = video.currentTime;
               /*
             loadingRing.style.display = "block";
             playPauseButton.style.display = "none";
@@ -87,9 +87,9 @@
             && !video.paused
             ) {
             // console.log("not buffering anymore")
-            bufferingDetected = false
+            bufferingDetected = false;
 
-            audio.currentTime = video.currentTime
+            audio.currentTime = video.currentTime;
               /*
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
@@ -99,7 +99,7 @@
 
             audio.play();*/
         }
-        lastPlayPos = currentPlayPos
+        lastPlayPos = currentPlayPos;
     }
 
     function updatePositionState() {
