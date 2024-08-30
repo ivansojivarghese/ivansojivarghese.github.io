@@ -136,8 +136,13 @@
           updatePositionState();
 
         } else {
-          video.pause();
-          audio.pause();
+
+          // video.pause();
+          // audio.pause();
+
+          audio.pause().then(function() {
+            video.pause();
+          });
         }
       }
     });
@@ -416,8 +421,13 @@
           updatePositionState();
 
         } else {
-          video.pause();
-          audio.pause();
+
+          //video.pause();
+          //audio.pause();
+
+          audio.pause().then(function() {
+            video.pause();
+          });
         }
       }
     });

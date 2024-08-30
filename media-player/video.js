@@ -41,7 +41,11 @@ const actionHandlers = [
                                   updatePositionState(); 
                                 }
   ],
-  ['pause',         () => { video.pause(); audio.pause(); }],
+  ['pause',         () => { audio.pause().then(function() {
+                              video.pause();
+                            }); 
+                          }
+  ],
   /*['previoustrack', () => { }],
   ['nexttrack',     () => { }],*/
   ['stop',          () => { /* ... */ }],
