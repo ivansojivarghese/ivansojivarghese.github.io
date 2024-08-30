@@ -35,7 +35,9 @@ const actionHandlers = [
   ['play',          async () => { await audio.play().then(function () {
                                     audioCtx = new AudioContext();
                                     setTimeout(function() {
-                                      video.play();
+                                      video.play().then(function() {
+                                        videoPause = true;
+                                      });
                                     }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
                                   }); 
                                   updatePositionState(); 

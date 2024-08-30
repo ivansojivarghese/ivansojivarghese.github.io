@@ -37,6 +37,8 @@
 
     var audioCtx;
 
+    var videoPause = false;
+
     var loading = false;
 
     var seeking = false;
@@ -128,7 +130,9 @@
           audio.play().then(function () {
             audioCtx = new AudioContext();
             setTimeout(function() {
-              video.play();
+              video.play().then(function() {
+                videoPause = true;
+              });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
           });
           
@@ -420,7 +424,9 @@
           audio.play().then(function () {
             audioCtx = new AudioContext();
             setTimeout(function() {
-              video.play();
+              video.play().then(function() {
+                videoPause = true;
+              });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
           });
           
@@ -705,7 +711,9 @@
           controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
         }
 
-        video.play();
+        video.play().then(function() {
+          videoPause = true;
+        });
       }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
     });
 
@@ -737,7 +745,9 @@
       audio.play().then(function () {
         audioCtx = new AudioContext();
         setTimeout(function() {
-          video.play();
+          video.play().then(function() {
+            videoPause = true;
+          });
         }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
       });
       
