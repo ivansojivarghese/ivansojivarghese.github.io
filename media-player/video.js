@@ -32,8 +32,16 @@ var videoStreamScore = 0;
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
-  ['play',          async () => { await video.play(); updatePositionState(); }],
-  ['pause',         () => { video.pause(); }],
+  ['play',          async () => { await audio.play().then(function () {
+                                    audioCtx = new AudioContext();
+                                    setTimeout(function() {
+                                      video.play();
+                                    }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+                                  }); 
+                                  updatePositionState(); 
+                                }
+  ],
+  ['pause',         () => { video.pause(); audio.pause(); }],
   /*['previoustrack', () => { }],
   ['nexttrack',     () => { }],*/
   ['stop',          () => { /* ... */ }],
