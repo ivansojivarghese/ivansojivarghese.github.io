@@ -35,6 +35,8 @@
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
+    var audioCtx;
+
     var seeking = false;
 
     var interactiveType = "";
@@ -122,7 +124,10 @@
           //video.play();
 
           audio.play().then(function () {
-            video.play();
+            audioCtx = new AudioContext();
+            setTimeout(function() {
+              video.play();
+            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
           });
           
           audio.currentTime = video.currentTime;
@@ -399,7 +404,10 @@
           //video.play();
 
           audio.play().then(function () {
-            video.play();
+            audioCtx = new AudioContext();
+            setTimeout(function() {
+              video.play();
+            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
           });
           
           audio.currentTime = video.currentTime;
@@ -467,8 +475,6 @@
 
     // REFERENCE: https://github.com/chcunningham/wc-talk/blob/main/audio_renderer.js#L120
     // https://github.com/chcunningham/wc-talk 
-
-    var audioCtx;
 
     function getTotalOutputLatencyInSeconds(useAudioContextOutputLatency) {
       let totalOutputLatency = 0.0;
@@ -680,7 +686,10 @@
       // video.play();
 
       audio.play().then(function () {
-        video.play();
+        audioCtx = new AudioContext();
+        setTimeout(function() {
+          video.play();
+        }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
       });
       
       /*
