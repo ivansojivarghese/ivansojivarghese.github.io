@@ -118,11 +118,16 @@
       controlsHideInt = null;
       if (videoControls.classList.contains('visible')) {
         if (video.paused && video.src !== "") {
-          audio.play();
-          video.play();
+          //audio.play();
+          //video.play();
+
+          audio.play().then(function () {
+            video.play();
+          });
           
           audio.currentTime = video.currentTime;
           updatePositionState();
+
         } else {
           video.pause();
           audio.pause();
@@ -389,11 +394,17 @@
         }
       } else if (event.target === videoControls) {
         if (video.paused && video.src !== "") {
-          audio.play();
-          video.play();
+
+          //audio.play();
+          //video.play();
+
+          audio.play().then(function () {
+            video.play();
+          });
           
           audio.currentTime = video.currentTime;
           updatePositionState();
+
         } else {
           video.pause();
           audio.pause();
@@ -665,8 +676,12 @@
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
 
-      audio.play();
-      video.play();
+      // audio.play();
+      // video.play();
+
+      audio.play().then(function () {
+        video.play();
+      });
       
       /*
       setTimeout(function() {
