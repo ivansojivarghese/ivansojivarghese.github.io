@@ -508,8 +508,8 @@
     }
 
     function audioVideoAlign() {
-      audioCtx = new AudioContext();
-      console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime) + ", audio latency: " + getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+      // audioCtx = new AudioContext();
+      console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
     }
 
     function seekForward(m) {
