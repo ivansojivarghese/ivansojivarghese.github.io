@@ -274,12 +274,23 @@
       getScreenLock();
     });
 
+    audio.addEventListener('play', function () {
+      audioCtx = new AudioContext();
+      setTimeout(function() {
+        video.play();
+      }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+    });
+
     video.addEventListener('pause', function () {
-      audio.pause();
+      // audio.pause();
       playPauseButton.classList.remove('playing');
       showVideoControls();
       navigator.mediaSession.playbackState = 'paused';
       releaseScreenLock(screenLock);
+    });
+
+    audio.addEventListener('pause', function () {
+      video.pause();
     });
 
     video.addEventListener('ended', function() {
