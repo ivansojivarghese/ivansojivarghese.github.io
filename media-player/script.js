@@ -37,6 +37,8 @@
 
     var audioCtx;
 
+    var loading = false;
+
     var seeking = false;
 
     var interactiveType = "";
@@ -262,7 +264,7 @@
     });
 
     video.addEventListener('play', function () {
-      audio.play();
+      // audio.play();
       playPauseButton.classList.add('playing');
       if (controlsHideInt === null) {
         controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
@@ -616,8 +618,7 @@
 
     });
 
-    var loading = false;
-
+    /*
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
       clearTimeout(controlsHideInt);
@@ -658,7 +659,7 @@
       loading = false;
 
       audio.play();
-    });
+    });*/
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
