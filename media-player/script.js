@@ -455,6 +455,7 @@
     });*/
 
     function audioVideoAlign() {
+      const audioCtx = new AudioContext();
       console.log("video: " + video.currentTime + ", audio: " + audio.currentTime);
     }
 
