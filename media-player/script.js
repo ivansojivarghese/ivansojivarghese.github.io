@@ -68,8 +68,8 @@
         // and the player isn't manually paused...
         if (
                 !bufferingDetected 
-                // && currentPlayPos < (lastPlayPos + offset)
-                && ((currentPlayPos < (lastPlayPos + offset)) || currentAudioPos < (lastPlayPos + offset))
+                && currentPlayPos < (lastPlayPos + offset)
+                // && ((currentPlayPos < (lastPlayPos + offset)) || currentAudioPos < (lastPlayPos + offset))
                 && !video.paused
             ) {
             // console.log("buffering")
@@ -90,8 +90,8 @@
         // then there is no buffering
         if (
             bufferingDetected 
-            // && currentPlayPos > (lastPlayPos + offset)
-            && ((currentPlayPos > (lastPlayPos + offset)) || currentAudioPos > (lastPlayPos + offset))
+            && currentPlayPos > (lastPlayPos + offset)
+            // && ((currentPlayPos > (lastPlayPos + offset)) || currentAudioPos > (lastPlayPos + offset))
             && !video.paused
             ) {
             // console.log("not buffering anymore")
