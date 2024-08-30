@@ -711,7 +711,7 @@
         videoPause = true;
       });
     });
-
+    /*
     audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
 
       // loading = false;
@@ -731,7 +731,7 @@
           videoPause = true;
         });
       }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
-    });
+    });*/
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
