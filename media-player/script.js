@@ -632,48 +632,73 @@
 
     });
 
-    /*
+    
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
-
+      /*
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
-      showVideoControls();
+      showVideoControls();*/
 
       loading = true;
 
       audio.pause();
+    });
+
+    audio.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
+
+      loading = true;
+
+      video.pause();
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
-
+      /*
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
-      showVideoControls();
+      showVideoControls();*/
 
       loading = true;
 
       audio.pause();
     });
 
+    audio.addEventListener('stalled', function () { // when playback has stopped because of a temporary lack of data
+
+      loading = true;
+
+      video.pause();
+    });
+
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
-      
+      /*
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
       // hideVideoControls();
       if (controlsHideInt === null) {
         controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
-      }
+      }*/
+
+      loading = false;
+      audio.currentTime = video.currentTime;
+
+      audio.play();
+    });
+
+    audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
 
       loading = false;
 
-      audio.play();
-    });*/
+      audioCtx = new AudioContext();
+      setTimeout(function() {
+        video.play();
+      }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+    });
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
