@@ -16,6 +16,7 @@
 
     const loadingRing = document.querySelector("#loadingRing");
     const playPauseButton = document.querySelector('#playPauseButton');
+    const playPauseButtonImg = document.querySelector('#playPauseButton .img');    
     const fullscreenButton = document.querySelector('#fullscreenButton');
     const settingsButton = document.querySelector('#settingsButton');
     const fitscreenButton = document.querySelector('#fitscreenButton');
@@ -850,25 +851,38 @@
     // REFERENCED FROM: https://stackoverflow.com/questions/8825144/detect-double-tap-on-ipad-or-iphone-screen-using-javascript BY Anulal S.
 
     var tapedTwice = false;
+    var firstTouchPlay = false;
+    var secondTouchPlay = false;
 
     function tapHandler(event) {
       if (!event.target.classList.contains("no-tap")) {
         if(!tapedTwice) {
             tapedTwice = true;
-            setTimeout( function() { tapedTwice = false; }, 300 );
+            if (event.target === playPauseButton || event.target === playPauseButtonImg) {
+              firstTouchPlay = true;
+            }
+            setTimeout( function() { tapedTwice = false; firstTouchPlay = false; secondTouchPlay = false; }, 300 );
             return false;
+        } else {
+          if (event.target === playPauseButton || event.target === playPauseButtonImg) {
+            secondTouchPlay = true;
+          }
         }
         event.preventDefault();
         //action on double tap goes below
         if (!video.paused && !document.fullscreenElement) {
-          video.requestPictureInPicture();
+          if ((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) {
+            video.requestPictureInPicture();
+          }
         } else if (!video.paused) {
-          if (!video.classList.contains("cover")) {
-            video.style.objectFit = "cover";
-            video.classList.add("cover");
-          } else {
-            video.style.objectFit = "";
-            video.classList.remove("cover");
+          if ((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) {
+            if (!video.classList.contains("cover")) {
+              video.style.objectFit = "cover";
+              video.classList.add("cover");
+            } else {
+              video.style.objectFit = "";
+              video.classList.remove("cover");
+            }
           }
         }
         clearTimeout(controlsHideInt);
