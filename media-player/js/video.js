@@ -540,10 +540,11 @@ function getOptimalVideo() {
           artist: videoDetails.channelTitle,
           // album: '',
           artwork: [
-            { src: videoDetails.thumbnail[0].url,   sizes: videoDetails.thumbnail[0].width+'x'+videoDetails.thumbnail[0].height, type: 'image/jpg' },
+            /*{ src: videoDetails.thumbnail[0].url,   sizes: videoDetails.thumbnail[0].width+'x'+videoDetails.thumbnail[0].height, type: 'image/jpg' },
             { src: videoDetails.thumbnail[1].url,   sizes: videoDetails.thumbnail[1].width+'x'+videoDetails.thumbnail[1].height, type: 'image/jpg' },
-            { src: videoDetails.thumbnail[2].url,   sizes: videoDetails.thumbnail[2].width+'x'+videoDetails.thumbnail[2].height, type: 'image/jpg' },
-            { src: videoDetails.thumbnail[3].url,   sizes: videoDetails.thumbnail[3].width+'x'+videoDetails.thumbnail[3].height, type: 'image/jpg' },
+            { src: videoDetails.thumbnail[2].url,   sizes: videoDetails.thumbnail[2].width+'x'+videoDetails.thumbnail[2].height, type: 'image/jpg' },*/
+
+            { src: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url,   sizes: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].width+'x'+videoDetails.thumbnail[videoDetails.thumbnail.length - 1].height, type: 'image/jpg' }
           ]
         });
       
