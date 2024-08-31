@@ -470,6 +470,7 @@ function getOptimalVideo() {
             specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
           }
         }
+        specialVideoQuality.reverse();
       }
 
       while (targetVideo === null) {
