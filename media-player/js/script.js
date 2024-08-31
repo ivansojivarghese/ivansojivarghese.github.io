@@ -842,7 +842,9 @@
       // START BUFFERING CHECK
 
       bufferingCountLoop = setInterval(function() {
-        bufferingCount[bufferingCount.length] = bufferCount;
+        if (bufferCount > 0) {
+          bufferingCount[bufferingCount.length] = bufferCount;
+        }
         bufferCount = 0;
       }, 1000);
       
