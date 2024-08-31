@@ -38,6 +38,9 @@ const actionHandlers = [
                                     setTimeout(function() {
                                       video.play().then(function() {
                                         videoPause = true;
+                                      }).catch((err) => {
+                                        video.pause();
+                                        videoPause = false;
                                       });
                                     }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
                                   }); 
