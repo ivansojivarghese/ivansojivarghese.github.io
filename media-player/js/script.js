@@ -56,6 +56,10 @@
     var bufferCount = 0;
     var bufferingCount = [];
     var bufferingCountLoop = null;
+    var bufferingTimes = [];
+
+    var bufferStartTime = 0;
+    var bufferEndTime = 0;
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
@@ -667,6 +671,7 @@
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
       
       bufferCount++;
+      bufferStartTime = new Date().getTime();
 
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
@@ -691,6 +696,7 @@
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
       bufferCount++;
+      bufferStartTime = new Date().getTime();
       
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
@@ -717,7 +723,12 @@
         audio.play().then(function() {
           setTimeout(function() {
             video.play().then(function() {
+
+              bufferEndTime = new Date().getTime();
+              bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+
               videoPause = true;
+
             }).catch((err) => {
               audio.pause();
               video.pause();

@@ -107,6 +107,10 @@ async function getParams(id) {
   bufferingCountLoop = null;
   bufferCount = 0;
   bufferingCount = [];
+  bufferingTimes = [];
+
+  bufferStartTime = 0;
+  bufferEndTime = 0;
 
   videoSources = [];
   audioSources = [];
