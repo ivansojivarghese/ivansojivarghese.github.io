@@ -725,9 +725,10 @@
           clearTimeout(playbackBufferInt);
           playbackBufferInt = null;
         } else {
+          /*
           audio.pause();
           video.pause();
-          videoPause = false;
+          videoPause = false;*/
         }
         playbackBufferInt = setTimeout(function() {
           playbackBufferInt = null;
@@ -754,7 +755,7 @@
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
           });*/
-          
+
         }, 3000);
     });
     /*
