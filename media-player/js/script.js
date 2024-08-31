@@ -29,6 +29,7 @@
     const seekForwardTextSec = document.querySelector('.seekText.forward .seconds');
     const seekBackwardTextSec = document.querySelector('.seekText.backward .seconds');
 
+    var playbackBufferInt = null;
     var controlsHideInt = null;
     var seekForwardHideInt = null;
     var seekBackwardHideInt = null;
@@ -708,19 +709,27 @@
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
-      loadingRing.style.display = "none";
-      playPauseButton.style.display = "block";
-      // hideVideoControls();
-      if (controlsHideInt === null) {
-        controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+      if (playbackBufferInt !== null) {
+        clearTimeout(playbackBufferInt);
+        playbackBufferInt = null;
+        playbackBufferInt = setTimeout(function() {
+          playbackBufferInt = null;
+          
+          loadingRing.style.display = "none";
+          playPauseButton.style.display = "block";
+          // hideVideoControls();
+          if (controlsHideInt === null) {
+            controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+          }
+
+          loading = false;
+          audio.currentTime = video.currentTime;
+
+          audio.play().then(function() {
+            videoPause = true;
+          });
+        }, 3000);
       }
-
-      loading = false;
-      audio.currentTime = video.currentTime;
-
-      audio.play().then(function() {
-        videoPause = true;
-      });
     });
     /*
     audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
