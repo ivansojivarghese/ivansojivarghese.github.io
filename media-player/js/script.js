@@ -121,7 +121,7 @@
     }
 
     playPauseButton.addEventListener('click', function (event) {
-      event.stopPropagation();
+      // event.stopPropagation();
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
       if (videoControls.classList.contains('visible')) {
@@ -181,7 +181,9 @@
     });
 
     settingsButton.addEventListener("click", function(event) {
-      openWrap('settings');
+      if (videoControls.classList.contains('visible')) {
+        openWrap('settings');
+      }
     });
 
     fullscreenButton.addEventListener('click', function(event) {
@@ -606,12 +608,12 @@
     }
 
     seekForwardButton.addEventListener('click', function(event) {
-      event.stopPropagation();
+      // event.stopPropagation();
       seekForward(null);
     });
 
     seekBackwardButton.addEventListener('click', function(event) {
-      event.stopPropagation();
+      // event.stopPropagation();
       seekBackward(null);
     });
 
