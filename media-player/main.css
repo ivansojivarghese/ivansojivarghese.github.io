@@ -332,7 +332,7 @@ canvas {
 
 .container.block {
   display: block;
-  top: 5rem;
+  /*top: 5rem;*/
   transform: translateX(-50%);
   top: 15svh;
 }
