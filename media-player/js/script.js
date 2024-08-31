@@ -709,12 +709,13 @@
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
-      if (playbackBufferInt !== null) {
-        clearTimeout(playbackBufferInt);
-        playbackBufferInt = null;
+        if (playbackBufferInt !== null) {
+          clearTimeout(playbackBufferInt);
+          playbackBufferInt = null;
+        } 
         playbackBufferInt = setTimeout(function() {
           playbackBufferInt = null;
-          
+
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
           // hideVideoControls();
@@ -729,7 +730,6 @@
             videoPause = true;
           });
         }, 3000);
-      }
     });
     /*
     audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
