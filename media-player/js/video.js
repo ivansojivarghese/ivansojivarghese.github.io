@@ -15,7 +15,7 @@ var supportedVideoSources = [];
 var targetVideoSources = [];
 var targetVideo = null;
 
-const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320];
+const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320]; // supports up to 8K video
 var priorityQuality = 0;
 var targetQuality = 0;
 
@@ -451,7 +451,16 @@ function getOptimalVideo() {
       var mod = 0;
       var reverse = false;
       var fetchedSources = [];
+      var normalVid = false;
       targetVideoSources = supportedVideoSources;
+
+      for (i = 0; i < targetVideoSources.length; i++) { // CHECK IF VIDEO HAS NORMAL RES. (HEIGHT)
+        if (videoQuality.includes(targetVideoSources[i].height)) {
+          normalVid = true;
+          break;
+        }
+      }
+
       while (targetVideo === null) {
         for (i = 0; i < targetVideoSources.length; i++) {
           if (targetVideoSources[i].height === videoQuality[targetQuality + mod]) {
