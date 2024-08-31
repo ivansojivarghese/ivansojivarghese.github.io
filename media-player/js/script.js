@@ -725,7 +725,9 @@
             video.play().then(function() {
 
               bufferEndTime = new Date().getTime();
-              bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+              if (bufferStartTime !== 0) {
+                bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+              }
 
               videoPause = true;
 
