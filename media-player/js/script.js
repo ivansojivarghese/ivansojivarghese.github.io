@@ -731,17 +731,22 @@
           videoPause = false;*/
         }
         playbackBufferInt = setTimeout(function() {
-          playbackBufferInt = null;
 
-          loadingRing.style.display = "none";
-          playPauseButton.style.display = "block";
-          // hideVideoControls();
-          if (controlsHideInt === null) {
-            controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+          if (videoLoadPercentile > ((video.currentTime + 5) / video.duration)) { // HAVE AT LEAST 5 SEC. OF BUFFERED DATA LOADED before removing 'loading rings'
+
+            playbackBufferInt = null;
+
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+            // hideVideoControls();
+            if (controlsHideInt === null) {
+              controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+            }
+
+            loading = false;
+            audio.currentTime = video.currentTime;
+
           }
-
-          loading = false;
-          audio.currentTime = video.currentTime;
 
           /*
           audio.play().then(function() {
