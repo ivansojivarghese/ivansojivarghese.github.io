@@ -383,7 +383,7 @@ input.upload {
   height:2rem;
   margin: 0 auto;
 }
-
+/*
 .card.pip .img {
   background-image: url("https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/picture_in_picture.svg?v=1720502115220");
 }
@@ -406,10 +406,10 @@ input.upload {
 
 .card.mute .img {
   background-image: url("https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/mute.svg?v=1720880526225");
-}
+}*/
 
 .card.install .img {
-  background-image: url("install.svg");
+  background-image: url("https://ivansojivarghese.github.io/media-player/svg/install.svg");
 }
 
 .card.web_upload .img {
