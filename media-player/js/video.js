@@ -466,8 +466,8 @@ function getOptimalVideo() {
 
       if (!normalVid) {
         for (j = 0; j < targetVideoSources.length; j++) {
-          if (!specialVideoQuality.includes(targetVideoSources[j])) {
-            specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j]; 
+          if (!specialVideoQuality.includes(targetVideoSources[j].height)) {
+            specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
           }
         }
       }
