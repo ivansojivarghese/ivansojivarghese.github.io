@@ -463,9 +463,11 @@ function getOptimalVideo() {
 
       while (targetVideo === null) {
         for (i = 0; i < targetVideoSources.length; i++) {
-          if (targetVideoSources[i].height === videoQuality[targetQuality + mod]) {
+          if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
             targetVideo = targetVideoSources[i];
-          } 
+          } else if ((!normalVid)) {
+            targetVideo = targetVideoSources[targetQuality + mod];
+          }
         }
         // console.log(targetQuality + mod);
         if (targetVideo === null) {
