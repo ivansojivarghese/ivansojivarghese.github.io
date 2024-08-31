@@ -709,6 +709,18 @@
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
+        audio.play().then(function() {
+          setTimeout(function() {
+            video.play().then(function() {
+              videoPause = true;
+            }).catch((err) => {
+              audio.pause();
+              video.pause();
+              videoPause = false;
+            });
+          }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+        });
+
         if (playbackBufferInt !== null) {
           clearTimeout(playbackBufferInt);
           playbackBufferInt = null;
@@ -730,6 +742,7 @@
           loading = false;
           audio.currentTime = video.currentTime;
 
+          /*
           audio.play().then(function() {
             setTimeout(function() {
               video.play().then(function() {
@@ -740,7 +753,8 @@
                 videoPause = false;
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
-          });
+          });*/
+          
         }, 3000);
     });
     /*
