@@ -492,8 +492,9 @@ function getOptimalVideo() {
         }
         // console.log(targetQuality + mod);
         if (targetVideo === null) {
-          fetchedSources[fetchedSources.length] = targetQuality + mod;
-          if ((targetQuality + mod) > 0 && !reverse) {
+          var quality = normalVid ? targetQuality + mod : specialQuality;
+          fetchedSources[fetchedSources.length] = normalVid ? targetQuality + mod : specialQuality;
+          if ((quality) > 0 && !reverse) {
             mod--;
           } else {
             if (!reverse) {
