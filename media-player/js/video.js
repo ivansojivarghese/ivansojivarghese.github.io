@@ -53,6 +53,9 @@ const actionHandlers = [
                               audio.pause();
                               video.pause();
 
+                              bufferStartTime = 0;
+                              bufferEndTime = 0;
+
                               videoPause = false;
                             }
                           }

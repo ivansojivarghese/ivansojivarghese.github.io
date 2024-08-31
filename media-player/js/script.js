@@ -157,6 +157,9 @@
             audio.pause();
             video.pause();
 
+            bufferStartTime = 0;
+            bufferEndTime = 0;
+
             videoPause = false;
           }
         }
@@ -306,6 +309,8 @@
     });*/
 
     video.addEventListener('pause', function () {
+      bufferStartTime = 0;
+      bufferEndTime = 0;
       audio.pause();
       videoPause = false;
       playPauseButton.classList.remove('playing');
@@ -463,6 +468,9 @@
           if (videoPause) {
             audio.pause();
             video.pause();
+
+            bufferStartTime = 0;
+            bufferEndTime = 0;
 
             videoPause = false;
           }
