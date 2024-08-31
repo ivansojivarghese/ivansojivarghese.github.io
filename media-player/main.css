@@ -334,6 +334,7 @@ canvas {
   display: block;
   top: 5rem;
   transform: translateX(-50%);
+  top: 15svh;
 }
 
 .wrap {
