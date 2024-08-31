@@ -103,6 +103,11 @@ async function getParams(id) {
   let params = new URLSearchParams(document.location.search);
   const link = params.get("description"); 
 
+  clearInterval(bufferingCountLoop);
+  bufferingCountLoop = null;
+  bufferCount = 0;
+  bufferingCount = [];
+
   videoSources = [];
   audioSources = [];
 
