@@ -53,6 +53,7 @@
     var currentPlayPos = 0;
     var bufferingDetected = false;
 
+    var bufferCount = 0;
     var bufferingCount = [];
     var bufferingCountLoop = null;
 
@@ -665,6 +666,8 @@
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
       
+      bufferCount++;
+
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
 
@@ -686,6 +689,8 @@
     });*/
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
+      
+      bufferCount++;
       
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
@@ -835,6 +840,11 @@
       updatePositionState();
 
       // START BUFFERING CHECK
+
+      bufferingCountLoop = setInterval(function() {
+        bufferingCount[bufferingCount.length] = bufferCount;
+        bufferCount = 0;
+      }, 1000);
       
     });
 
