@@ -136,6 +136,7 @@
               video.play().then(function() {
                 videoPause = true;
               }).catch((err) => {
+                audio.pause();
                 video.pause();
                 videoPause = false;
               });
@@ -441,6 +442,7 @@
               video.play().then(function() {
                 videoPause = true;
               }).catch((err) => {
+                audio.pause();
                 video.pause();
                 videoPause = false;
               });
@@ -773,6 +775,7 @@
           video.play().then(function() {
             videoPause = true;
           }).catch((err) => {
+            audio.pause();
             video.pause();
             videoPause = false;
           });
