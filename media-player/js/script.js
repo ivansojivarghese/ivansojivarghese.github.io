@@ -712,7 +712,11 @@
         if (playbackBufferInt !== null) {
           clearTimeout(playbackBufferInt);
           playbackBufferInt = null;
-        } 
+        } else {
+          audio.pause();
+          video.pause();
+          videoPause = false;
+        }
         playbackBufferInt = setTimeout(function() {
           playbackBufferInt = null;
 
@@ -727,7 +731,15 @@
           audio.currentTime = video.currentTime;
 
           audio.play().then(function() {
-            videoPause = true;
+            setTimeout(function() {
+              video.play().then(function() {
+                videoPause = true;
+              }).catch((err) => {
+                audio.pause();
+                video.pause();
+                videoPause = false;
+              });
+            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
           });
         }, 3000);
     });
