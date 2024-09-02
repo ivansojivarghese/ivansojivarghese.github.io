@@ -146,7 +146,7 @@
                 video.pause();
                 videoPause = false;
               });
-            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
           
           audio.currentTime = video.currentTime;
@@ -457,7 +457,7 @@
                 video.pause();
                 videoPause = false;
               });
-            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
           
           audio.currentTime = video.currentTime;
@@ -744,7 +744,7 @@
               video.pause();
               videoPause = false;
             });
-          }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+          }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
         });
 
         if (playbackBufferInt !== null) {
@@ -846,7 +846,7 @@
             video.pause();
             videoPause = false;
           });
-        }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+        }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
       });
       
       /*

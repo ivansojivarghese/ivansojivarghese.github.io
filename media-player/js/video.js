@@ -43,7 +43,7 @@ const actionHandlers = [
                                         video.pause();
                                         videoPause = false;
                                       });
-                                    }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+                                    }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
                                   }); 
                                   updatePositionState(); 
                                 }
