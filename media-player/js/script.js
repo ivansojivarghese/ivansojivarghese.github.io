@@ -149,7 +149,7 @@
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
           
-          audio.currentTime = video.currentTime;
+          // audio.currentTime = video.currentTime;
           updatePositionState();
 
         } else {
@@ -460,7 +460,7 @@
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
           
-          audio.currentTime = video.currentTime;
+          // audio.currentTime = video.currentTime;
           updatePositionState();
 
         } else {
