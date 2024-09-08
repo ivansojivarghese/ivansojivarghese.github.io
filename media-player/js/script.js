@@ -569,6 +569,7 @@
             // audioCtx = new AudioContext();
             setTimeout(function() {
               video.play().then(function() {
+                audioVideoAligning = false;
                 videoPause = true;
               }).catch((err) => {
                 audio.pause();
@@ -578,9 +579,11 @@
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
         }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-      } else if (diff > 0.05) { // MONITOR AND CONDITION
+      } else if (diff > 0.05) { // MONITOR AND CONDITION (based on audioLatency)
 
       } 
+
+      audioLatencyArr[audioLatencyArr.length] = diff;
 
       console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
     }

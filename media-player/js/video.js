@@ -30,6 +30,9 @@ var rttScore = 0, // SCORE FROM 0-1 (low to high)
 
 var videoStreamScore = 0;
 
+var audioLatency = 0;
+var audioLatencyArr = [];
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -125,6 +128,9 @@ async function getParams(id) {
   targetVideo = null;
 
   videoStreamScore = 0;
+
+  audioLatency = 0;
+  audioLatencyArr = [];
 
   priorityQuality = 0;
   targetQuality = 0;
