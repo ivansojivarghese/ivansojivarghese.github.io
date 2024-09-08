@@ -556,7 +556,7 @@
       var aT = audio.currentTime;
       var vT = video.currentTime;
 
-      // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+      console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
     }
 
     function seekForward(m) {
