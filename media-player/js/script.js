@@ -62,6 +62,7 @@
     var bufferEndTime = 0;
 
     var audioVideoAlignInt = null;
+    var audioVideoAligning = false;
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
@@ -133,7 +134,7 @@
       // event.stopPropagation();
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
-      if (videoControls.classList.contains('visible')) {
+      if (videoControls.classList.contains('visible') && !audioVideoAligning) {
         if (video.paused && video.src !== "") {
           //audio.play();
           //video.play();
@@ -316,7 +317,9 @@
       audio.pause();
       videoPause = false;
       playPauseButton.classList.remove('playing');
-      showVideoControls();
+      if (!audioVideoAligning) {
+        showVideoControls();
+      }
       navigator.mediaSession.playbackState = 'paused';
       releaseScreenLock(screenLock);
     });
@@ -555,6 +558,29 @@
     function audioVideoAlign() {
       var aT = audio.currentTime;
       var vT = video.currentTime;
+      var diff = vT - aT;
+
+      if (diff > 0.1) { // PAUSE AND PLAY
+        audioVideoAligning = true;
+        video.pause();
+        audio.pause();
+        setTimeout(function() {
+          audio.play().then(function () {
+            // audioCtx = new AudioContext();
+            setTimeout(function() {
+              video.play().then(function() {
+                videoPause = true;
+              }).catch((err) => {
+                audio.pause();
+                video.pause();
+                videoPause = false;
+              });
+            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+          });
+        }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+      } else if (diff > 0.05) { // MONITOR AND CONDITION
+
+      } 
 
       console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
     }
@@ -857,6 +883,11 @@
             audio.pause();
             video.pause();
             videoPause = false;
+
+            if (audioVideoAlignInt !== null) {
+              clearInterval(audioVideoAlignInt);
+              audioVideoAlignInt = null;
+            }
           });
         }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
       });
