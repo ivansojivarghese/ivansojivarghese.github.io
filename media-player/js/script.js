@@ -746,7 +746,7 @@
             });
           }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
         });
-
+        
         if (playbackBufferInt !== null) {
           clearTimeout(playbackBufferInt);
           playbackBufferInt = null;
@@ -755,7 +755,7 @@
           audio.pause();
           video.pause();
           videoPause = false;*/
-        }
+        }/*
         playbackBufferInt = setTimeout(function() {
 
           if (videoLoadPercentile > ((video.currentTime + 5) / video.duration)) { // HAVE AT LEAST 5 SEC. OF BUFFERED DATA LOADED before removing 'loading rings'
@@ -785,9 +785,9 @@
                 videoPause = false;
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
-          });*/
+          });
 
-        }, 3000);
+        }, 3000);*/
     });
     /*
     audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
