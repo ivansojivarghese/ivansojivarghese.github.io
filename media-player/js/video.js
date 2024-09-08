@@ -545,6 +545,13 @@ function getOptimalVideo() {
       video.src = targetVideo.url;
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
+      // START LOAD
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
+      loading = true;
+      loadingRing.style.display = "block";
+      playPauseButton.style.display = "none";
+
       // mediaSessions API
       if ("mediaSession" in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
