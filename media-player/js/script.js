@@ -61,6 +61,8 @@
     var bufferStartTime = 0;
     var bufferEndTime = 0;
 
+    var audioVideoAlignInt = null;
+
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
         currentPlayPos = video.currentTime;
@@ -551,8 +553,10 @@
     }
 
     function audioVideoAlign() {
-      // audioCtx = new AudioContext();
-      console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+      var aT = audio.currentTime;
+      var vT = video.currentTime;
+
+      // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
     }
 
     function seekForward(m) {
@@ -842,6 +846,13 @@
         setTimeout(function() {
           video.play().then(function() {
             videoPause = true;
+
+            if (audioVideoAlignInt !== null) {
+              clearInterval(audioVideoAlignInt);
+              audioVideoAlignInt = null;
+            }
+            audioVideoAlignInt = setInterval(audioVideoAlign, 100);
+
           }).catch((err) => {
             audio.pause();
             video.pause();
@@ -856,8 +867,12 @@
           audio.currentTime = video.currentTime;
         }
       }, 100);*/
-
-      setInterval(audioVideoAlign, 100);
+      /*
+      if (audioVideoAlignInt !== null) {
+        clearInterval(audioVideoAlignInt);
+        audioVideoAlignInt = null;
+      }
+      audioVideoAlignInt = setInterval(audioVideoAlign, 100);*/
 
       updatePositionState();
 
