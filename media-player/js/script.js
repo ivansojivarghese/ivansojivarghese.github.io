@@ -857,7 +857,7 @@
         }
       }, 100);*/
 
-      setInterval(audioVideoAlign, 1000);
+      setInterval(audioVideoAlign, 500);
 
       updatePositionState();
 
