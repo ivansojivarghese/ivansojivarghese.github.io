@@ -747,15 +747,16 @@
           }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
         });
         
-        if (playbackBufferInt !== null) {
+        /*if (playbackBufferInt !== null) {
           clearTimeout(playbackBufferInt);
           playbackBufferInt = null;
-        } else {
+        } else {*/
           /*
           audio.pause();
           video.pause();
           videoPause = false;*/
-        }/*
+        // }
+        /*
         playbackBufferInt = setTimeout(function() {
 
           if (videoLoadPercentile > ((video.currentTime + 5) / video.duration)) { // HAVE AT LEAST 5 SEC. OF BUFFERED DATA LOADED before removing 'loading rings'
