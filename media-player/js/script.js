@@ -769,6 +769,16 @@
 
               videoPause = true;
 
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              // hideVideoControls();
+              if (controlsHideInt === null) {
+                controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+              }
+
+              loading = false;
+              audio.currentTime = video.currentTime;
+
             }).catch((err) => {
               audio.pause();
               video.pause();
