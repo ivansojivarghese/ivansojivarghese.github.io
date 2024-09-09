@@ -561,6 +561,7 @@
       var diff = vT - aT;
 
       if (diff > 0.1) { // PAUSE AND PLAY
+        /*
         audioVideoAligning = true;
         video.pause();
         audio.pause();
@@ -582,11 +583,14 @@
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
         }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+        */
       } else if (diff > 0.05) { // MONITOR AND CONDITION (based on audioLatency)
 
       } 
 
       audioLatencyArr[audioLatencyArr.length] = diff;
+
+      // IF LATENCY IS GOING OFF FROM THE AVERAGE (ACCORDING TO THE DEVICE, ETC.), THEN PAUSE/PLAY
 
       console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
     }
