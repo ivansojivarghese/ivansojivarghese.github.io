@@ -564,6 +564,9 @@
         audioVideoAligning = true;
         video.pause();
         audio.pause();
+
+        audio.currentTime = video.currentTime;
+
         setTimeout(function() {
           audio.play().then(function () {
             // audioCtx = new AudioContext();
