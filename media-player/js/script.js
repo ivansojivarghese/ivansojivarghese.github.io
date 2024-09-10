@@ -927,7 +927,7 @@
       
     });*/
 
-    video.addEventListener('canplaythrough', function() { // fired when the user agent can play the media, and estimates that enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
+    video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
 
             // END LOAD
 
