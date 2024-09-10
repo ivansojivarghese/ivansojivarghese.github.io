@@ -720,13 +720,13 @@
       
       bufferCount++;
       bufferStartTime = new Date().getTime();
-
+      /*
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
-      showVideoControls();
+      showVideoControls();*/
 
       loading = true;
 
@@ -745,13 +745,13 @@
       
       bufferCount++;
       bufferStartTime = new Date().getTime();
-      
+      /*
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
-      showVideoControls();
+      showVideoControls();*/
 
       loading = true;
 
@@ -779,12 +779,13 @@
 
               videoPause = true;
 
+              /*
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
               // hideVideoControls();
               if (controlsHideInt === null) {
                 controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
-              }
+              }*/
 
               loading = false;
               audio.currentTime = video.currentTime;
@@ -875,6 +876,7 @@
       playPauseButton.style.display = "none";
     });
 
+    /*
     video.addEventListener('loadeddata', function () { // fired when the frame at the current playback position of the media has finished loading; often the first frame
 
       // END LOAD
@@ -911,19 +913,6 @@
           });
         }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
       });
-      
-      /*
-      setTimeout(function() {
-        if (audio.currentTime !== video.currentTime) {
-          audio.currentTime = video.currentTime;
-        }
-      }, 100);*/
-      /*
-      if (audioVideoAlignInt !== null) {
-        clearInterval(audioVideoAlignInt);
-        audioVideoAlignInt = null;
-      }
-      audioVideoAlignInt = setInterval(audioVideoAlign, 100);*/
 
       updatePositionState();
 
@@ -936,7 +925,69 @@
         bufferCount = 0;
       }, 1000);
       
-    });
+    });*/
+
+    video.addEventListener('canplaythrough', function() { // fired when the user agent can play the media, and estimates that enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
+
+            // END LOAD
+
+            loading = false;
+
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+      
+            // audio.play();
+            // video.play();
+      
+            audio.play().then(function () {
+              audioCtx = new AudioContext();
+              setTimeout(function() {
+                video.play().then(function() {
+                  videoPause = true;
+      
+                  if (audioVideoAlignInt !== null) {
+                    clearInterval(audioVideoAlignInt);
+                    audioVideoAlignInt = null;
+                  }
+                  audioVideoAlignInt = setInterval(audioVideoAlign, 100);
+      
+                }).catch((err) => {
+                  audio.pause();
+                  video.pause();
+                  videoPause = false;
+      
+                  if (audioVideoAlignInt !== null) {
+                    clearInterval(audioVideoAlignInt);
+                    audioVideoAlignInt = null;
+                  }
+                });
+              }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+            });
+            
+            /*
+            setTimeout(function() {
+              if (audio.currentTime !== video.currentTime) {
+                audio.currentTime = video.currentTime;
+              }
+            }, 100);*/
+            /*
+            if (audioVideoAlignInt !== null) {
+              clearInterval(audioVideoAlignInt);
+              audioVideoAlignInt = null;
+            }
+            audioVideoAlignInt = setInterval(audioVideoAlign, 100);*/
+      
+            updatePositionState();
+      
+            // START BUFFERING CHECK
+      
+            bufferingCountLoop = setInterval(function() {
+              if (bufferCount > 0) {
+                bufferingCount[bufferingCount.length] = bufferCount;
+              }
+              bufferCount = 0;
+            }, 1000);
+    })
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;

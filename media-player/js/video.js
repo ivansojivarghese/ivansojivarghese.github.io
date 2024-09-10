@@ -265,6 +265,14 @@ async function getParams(id) {
   } 
   
   if (link !== null || videoSubmit) {
+
+  // PRELOAD HERE
+  // START LOAD
+  clearTimeout(controlsHideInt);
+  controlsHideInt = null;
+  loading = true;
+  loadingRing.style.display = "block";
+  playPauseButton.style.display = "none";
   
   // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
   
@@ -550,13 +558,6 @@ function getOptimalVideo() {
       // video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
       video.src = targetVideo.url;
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
-
-      // START LOAD
-      clearTimeout(controlsHideInt);
-      controlsHideInt = null;
-      loading = true;
-      loadingRing.style.display = "block";
-      playPauseButton.style.display = "none";
 
       // mediaSessions API
       if ("mediaSession" in navigator) {
