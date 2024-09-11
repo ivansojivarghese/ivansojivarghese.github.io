@@ -880,7 +880,7 @@
           videoPause = true;
           loading = false;
           audio.currentTime = video.currentTime;
-          
+
         }).catch((err) => {
           audio.pause();
           video.pause();
@@ -954,8 +954,12 @@
       
     });*/
 
-    video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
+    audio.addEventListener('canplay', function() {
+      console.log("audio-play");
+    });
 
+    video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
+            console.log("video-play");
             // END LOAD
 
             loading = false;
