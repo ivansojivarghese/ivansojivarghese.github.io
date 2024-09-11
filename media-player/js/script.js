@@ -557,40 +557,61 @@
       return totalOutputLatency;
     }
 
+    var audioStall = false;
+
     function audioVideoAlign() {
       var aT = audio.currentTime;
       var vT = video.currentTime;
       var diff = vT - aT;
 
       if (diff > 0.1) { // PAUSE AND PLAY
-        /*
-        audioVideoAligning = true;
-        video.pause();
-        audio.pause();
-
-        audio.currentTime = video.currentTime;
-
-        setTimeout(function() {
-          audio.play().then(function () {
-            // audioCtx = new AudioContext();
-            setTimeout(function() {
-              video.play().then(function() {
-                audioVideoAligning = false;
-                videoPause = true;
-              }).catch((err) => {
-                audio.pause();
-                video.pause();
-                videoPause = false;
-              });
-            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-          });
-        }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-        */
+        
       } else if (diff > 0.05) { // MONITOR AND CONDITION (based on audioLatency)
 
       } 
 
       audioLatencyArr[audioLatencyArr.length] = diff;
+
+      audioTimes[audioTimes.length] = aT;
+
+      if (!video.paused) {
+        if (audioTimes[audioTimes.length - 1] === audioTimes[audioTimes.length - 2]) { // IF AUDIO STALLED
+          bufferCount++;
+          bufferStartTime = new Date().getTime();
+
+          loading = true;
+
+          video.pause();
+
+          videoPause = false;
+
+          audioStall = true;
+
+        } else if (audioStall) {
+
+          video.play().then(function() {
+
+            bufferEndTime = new Date().getTime();
+            if (bufferStartTime !== 0) {
+              bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+            }
+  
+            videoPause = true;
+            loading = false;
+            audio.currentTime = video.currentTime;
+
+            audioStall = false;
+  
+          }).catch((err) => {
+            /*
+            audio.pause();
+            video.pause();
+            videoPause = false;*/
+
+            audioStall = false;
+          });
+        }
+      }
 
       // IF LATENCY IS GOING OFF FROM THE AVERAGE (ACCORDING TO THE DEVICE, ETC.), THEN PAUSE/PLAY
 

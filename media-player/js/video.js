@@ -33,6 +33,8 @@ var videoStreamScore = 0;
 var audioLatency = 0;
 var audioLatencyArr = [];
 
+var audioTimes = [];
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -131,6 +133,8 @@ async function getParams(id) {
 
   audioLatency = 0;
   audioLatencyArr = [];
+
+  audioTimes = [];
 
   priorityQuality = 0;
   targetQuality = 0;
