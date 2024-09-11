@@ -735,7 +735,7 @@
       audio.pause();
       videoPause = false;
     });
-    
+    /*
     audio.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
       bufferCount++;
       bufferStartTime = new Date().getTime();
@@ -745,7 +745,7 @@
       video.pause();
 
       videoPause = false;
-    });
+    });*/
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
@@ -764,7 +764,7 @@
       audio.pause();
       videoPause = false;
     });
-    
+    /*
     audio.addEventListener('stalled', function () { // when playback has stopped because of a temporary lack of data
       bufferCount++;
       bufferStartTime = new Date().getTime();
@@ -774,7 +774,7 @@
       video.pause();
 
       videoPause = false;
-    });
+    });*/
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
@@ -851,7 +851,7 @@
 
         }, 3000);*/
     });
-    
+    /*
     audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
 
       // loading = false;
@@ -868,7 +868,7 @@
         /*
         if (controlsHideInt === null) {
           controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
-        }*/
+        }
 
         video.play().then(function() {
 
@@ -888,7 +888,7 @@
         });
       // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
 
-    });
+    });*/
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
