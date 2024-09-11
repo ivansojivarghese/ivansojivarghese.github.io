@@ -332,6 +332,8 @@
         playPauseButton.classList.remove('playing');
         video.currentTime = 0;
         audio.currentTime = 0;
+        video.pause();
+        audio.pause();
         showVideoControls();
         releaseScreenLock(screenLock);
     });
@@ -733,13 +735,17 @@
       audio.pause();
       videoPause = false;
     });
-    /*
+    
     audio.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
+      bufferCount++;
+      bufferStartTime = new Date().getTime();
 
       loading = true;
 
       video.pause();
-    });*/
+
+      videoPause = false;
+    });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
@@ -758,13 +764,17 @@
       audio.pause();
       videoPause = false;
     });
-    /*
+    
     audio.addEventListener('stalled', function () { // when playback has stopped because of a temporary lack of data
+      bufferCount++;
+      bufferStartTime = new Date().getTime();
 
       loading = true;
 
       video.pause();
-    });*/
+
+      videoPause = false;
+    });
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
@@ -841,27 +851,44 @@
 
         }, 3000);*/
     });
-    /*
+    
     audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
 
       // loading = false;
 
       // audioCtx = new AudioContext();
-      setTimeout(function() {
-        loading = false;
 
-        loadingRing.style.display = "none";
-        playPauseButton.style.display = "block";
+      setTimeout(function() {
+
+        // loading = false;
+
+        // loadingRing.style.display = "none";
+        // playPauseButton.style.display = "block";
         // hideVideoControls();
+        /*
         if (controlsHideInt === null) {
           controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
-        }
+        }*/
 
         video.play().then(function() {
+
+          bufferEndTime = new Date().getTime();
+          if (bufferStartTime !== 0) {
+            bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+          }
+
           videoPause = true;
+          loading = false;
+          audio.currentTime = video.currentTime;
+          
+        }).catch((err) => {
+          audio.pause();
+          video.pause();
+          videoPause = false;
         });
       }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
-    });*/
+
+    });
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
