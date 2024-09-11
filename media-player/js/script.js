@@ -735,7 +735,7 @@
       audio.pause();
       videoPause = false;
     });
-    
+    /*
     audio.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
       bufferCount++;
       bufferStartTime = new Date().getTime();
@@ -745,7 +745,7 @@
       video.pause();
 
       videoPause = false;
-    });
+    });*/
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
@@ -764,7 +764,7 @@
       audio.pause();
       videoPause = false;
     });
-    
+    /*
     audio.addEventListener('stalled', function () { // when playback has stopped because of a temporary lack of data
       bufferCount++;
       bufferStartTime = new Date().getTime();
@@ -774,7 +774,7 @@
       video.pause();
 
       videoPause = false;
-    });
+    });*/
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
@@ -858,7 +858,7 @@
 
       // audioCtx = new AudioContext();
 
-      setTimeout(function() {
+      // setTimeout(function() {
 
         // loading = false;
 
@@ -886,7 +886,7 @@
           video.pause();
           videoPause = false;
         });
-      }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
+      // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
 
     });
 
