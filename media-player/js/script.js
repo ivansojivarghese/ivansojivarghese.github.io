@@ -735,7 +735,7 @@
       audio.pause();
       videoPause = false;
     });
-    /*
+    
     audio.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
       bufferCount++;
       bufferStartTime = new Date().getTime();
@@ -745,7 +745,7 @@
       video.pause();
 
       videoPause = false;
-    });*/
+    });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
@@ -764,7 +764,7 @@
       audio.pause();
       videoPause = false;
     });
-    /*
+    
     audio.addEventListener('stalled', function () { // when playback has stopped because of a temporary lack of data
       bufferCount++;
       bufferStartTime = new Date().getTime();
@@ -774,7 +774,7 @@
       video.pause();
 
       videoPause = false;
-    });*/
+    });
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
@@ -879,7 +879,7 @@
 
           videoPause = true;
           loading = false;
-          audio.currentTime = video.currentTime;
+          // audio.currentTime = video.currentTime;
 
         }).catch((err) => {
           audio.pause();
@@ -953,13 +953,13 @@
       }, 1000);
       
     });*/
-
+    /*
     audio.addEventListener('canplay', function() {
       console.log("audio-play");
-    });
+    });*/
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
-            console.log("video-play");
+            //console.log("video-play");
             // END LOAD
 
             loading = false;
