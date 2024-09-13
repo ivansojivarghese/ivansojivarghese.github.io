@@ -314,7 +314,10 @@
         navigator.mediaSession.playbackState = 'playing';
         getScreenLock();
       } else {
+        playPauseButton.classList.add('playing');
         playPauseManual = false;
+        navigator.mediaSession.playbackState = 'playing';
+        getScreenLock();
       }
     });
     /*
