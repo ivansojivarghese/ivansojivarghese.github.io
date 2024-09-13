@@ -46,6 +46,7 @@
     var loading = false;
 
     var seeking = false;
+    var seekingLoad = false;
 
     var interactiveType = "";
 
@@ -454,7 +455,7 @@
       if (interactiveType === "touch" || interactiveType === "pen") {
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
-        if (videoControls.classList.contains('visible') && !seeking) {
+        if (videoControls.classList.contains('visible') && !seeking && !seekingLoad) {
           hideVideoControls();
         } else {
           showVideoControls();
@@ -689,6 +690,7 @@
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
             seeking = true;
+            seekingLoad = true;
             forwardSkippedTime += skipTime;
             seekForwardTextSec.innerHTML = forwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -726,6 +728,7 @@
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
             seeking = true;
+            seekingLoad = true;
             backwardSkippedTime += skipTime;
             seekBackwardTextSec.innerHTML = backwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -771,9 +774,11 @@
 
     video.addEventListener('seeking', function() {
         video.classList.add('seeking');
+        seekingLoad = true;
     });
     
     video.addEventListener('seeked', function() {
+        seekingLoad = false;
         setTimeout(function() {
             video.classList.remove('seeking');
         }, 300);
