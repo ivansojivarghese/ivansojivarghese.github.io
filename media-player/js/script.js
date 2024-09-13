@@ -316,8 +316,8 @@
       bufferEndTime = 0;
       audio.pause();
       videoPause = false;
-      playPauseButton.classList.remove('playing');
       if (!audioVideoAligning) {
+        playPauseButton.classList.remove('playing');
         showVideoControls();
       }
       navigator.mediaSession.playbackState = 'paused';
@@ -559,6 +559,22 @@
 
     var audioStall = false;
 
+    function checkAudioLatency(mArr, t) {
+      if (mArr.length < t) {
+        return false;
+      } else {
+        var inital = 0;
+        for (j = 1; j <= t; j++) {
+          if (inital === 0) {
+            inital = mArr[mArr.length - j];
+          } else if (mArr[mArr.length - j] !== inital) {
+            return false;
+          }
+        }
+        return true;
+      }
+    }
+
     function audioVideoAlign() {
       var aT = audio.currentTime;
       var vT = video.currentTime;
@@ -575,11 +591,16 @@
       audioTimes[audioTimes.length] = aT;
 
       if (!video.paused) {
-        if (audioTimes[audioTimes.length - 1] === audioTimes[audioTimes.length - 2]) { // IF AUDIO STALLED
+        // if (audioTimes[audioTimes.length - 1] === audioTimes[audioTimes.length - 2] && audioTimes[audioTimes.length - 2] === audioTimes[audioTimes.length - 3] && audioTimes[audioTimes.length - 3] === audioTimes[audioTimes.length - 4] && audioTimes[audioTimes.length - 4] === audioTimes[audioTimes.length - 5]) { // IF AUDIO STALLED
+        if (checkAudioLatency(audioTimes, 10)) {
           bufferCount++;
           bufferStartTime = new Date().getTime();
 
+          console.log("audioVideoAlign: paused");
+
           loading = true;
+
+          audioVideoAligning = true;
 
           video.pause();
 
@@ -587,7 +608,7 @@
 
           audioStall = true;
 
-        } else if (audioStall) {
+        } /*else if (audioStall) {
 
           video.play().then(function() {
 
@@ -603,14 +624,36 @@
             audioStall = false;
   
           }).catch((err) => {
-            /*
-            audio.pause();
-            video.pause();
-            videoPause = false;*/
+
 
             audioStall = false;
           });
-        }
+        }*/
+      } else if (audioStall) {
+        audioStall = false;
+        setTimeout(function() {
+          video.play().then(function() {
+
+            bufferEndTime = new Date().getTime();
+            if (bufferStartTime !== 0) {
+              bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+            }
+
+            // hideVideoControls();
+  
+            videoPause = true;
+            loading = false;
+            audio.currentTime = video.currentTime;
+
+            audioStall = false;
+
+            audioVideoAligning = false;
+  
+          }).catch((err) => {
+
+            audioStall = false;
+          });
+        }, 100);
       }
 
       // IF LATENCY IS GOING OFF FROM THE AVERAGE (ACCORDING TO THE DEVICE, ETC.), THEN PAUSE/PLAY
