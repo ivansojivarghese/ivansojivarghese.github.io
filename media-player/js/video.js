@@ -35,6 +35,8 @@ var audioLatencyArr = [];
 
 var audioTimes = [];
 
+var firstPlay = true;
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -138,6 +140,8 @@ async function getParams(id) {
 
   priorityQuality = 0;
   targetQuality = 0;
+
+  firstPlay = true;
 
   if (link !== null && id === null) {
     

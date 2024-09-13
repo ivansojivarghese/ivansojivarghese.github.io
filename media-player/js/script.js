@@ -297,8 +297,13 @@
         videoPause = true;
       }); 
       playPauseButton.classList.add('playing');
-      if (controlsHideInt === null) {
-        controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+      if (firstPlay) {
+        hideVideoControls();
+        firstPlay = false;
+      } else {
+        if (controlsHideInt === null) {
+          controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+        }
       }
       navigator.mediaSession.playbackState = 'playing';
       getScreenLock();
@@ -579,15 +584,14 @@
       var aT = audio.currentTime;
       var vT = video.currentTime;
       var diff = vT - aT;
-
+      /*
       if (diff > 0.1) { // PAUSE AND PLAY
         
       } else if (diff > 0.05) { // MONITOR AND CONDITION (based on audioLatency)
 
-      } 
+      } */
 
       audioLatencyArr[audioLatencyArr.length] = diff;
-
       audioTimes[audioTimes.length] = aT;
 
       if (!video.paused) {
@@ -603,6 +607,7 @@
           audioVideoAligning = true;
 
           video.pause();
+          audio.pause();
 
           videoPause = false;
 
@@ -632,26 +637,31 @@
       } else if (audioStall) {
         audioStall = false;
         setTimeout(function() {
-          video.play().then(function() {
+          audio.play().then(function() {
+            audioCtx = new AudioContext();
+            setTimeout(function() {
+              video.play().then(function() {
+                
+                bufferEndTime = new Date().getTime();
+                if (bufferStartTime !== 0) {
+                  bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+                }
 
-            bufferEndTime = new Date().getTime();
-            if (bufferStartTime !== 0) {
-              bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
-            }
+                // hideVideoControls();
+      
+                videoPause = true;
+                loading = false;
+                audio.currentTime = video.currentTime;
+                // audioStall = false;
+                audioVideoAligning = false;
 
-            // hideVideoControls();
-  
-            videoPause = true;
-            loading = false;
-            audio.currentTime = video.currentTime;
+              }).catch((err) => {
 
-            audioStall = false;
-
-            audioVideoAligning = false;
-  
-          }).catch((err) => {
-
-            audioStall = false;
+                audio.pause();
+                video.pause();
+                videoPause = false;
+              });
+            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
         }, 100);
       }
