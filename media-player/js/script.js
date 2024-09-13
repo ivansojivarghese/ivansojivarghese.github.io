@@ -39,6 +39,8 @@
 
     var audioCtx;
 
+    var playPauseManual = false;
+
     var videoPause = false;
 
     var loading = false;
@@ -135,9 +137,12 @@
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
       if (videoControls.classList.contains('visible') && !audioVideoAligning) {
+
         if (video.paused && video.src !== "") {
           //audio.play();
           //video.play();
+
+          playPauseManual = true;
 
           audio.play().then(function () {
             // audioCtx = new AudioContext();
@@ -293,20 +298,24 @@
     });
 
     video.addEventListener('play', function () {
-      audio.play().then(function() {
-        videoPause = true;
-      }); 
-      playPauseButton.classList.add('playing');
-      if (firstPlay) {
-        hideVideoControls();
-        firstPlay = false;
-      } else {
-        if (controlsHideInt === null) {
-          controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+      if (!playPauseManual) {
+        audio.play().then(function() {
+          videoPause = true;
+        }); 
+        playPauseButton.classList.add('playing');
+        if (firstPlay) {
+          hideVideoControls();
+          firstPlay = false;
+        } else {
+          if (controlsHideInt === null) {
+            controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+          }
         }
+        navigator.mediaSession.playbackState = 'playing';
+        getScreenLock();
+      } else {
+        playPauseManual = false;
       }
-      navigator.mediaSession.playbackState = 'playing';
-      getScreenLock();
     });
     /*
     audio.addEventListener('play', function () {
@@ -334,14 +343,15 @@
     });*/
 
     video.addEventListener('ended', function() {
-        playPauseButton.classList.remove('playing');
-        video.currentTime = 0;
-        audio.currentTime = 0;
-        video.pause();
-        audio.pause();
-        showVideoControls();
-        releaseScreenLock(screenLock);
-    });
+      playPauseButton.classList.remove('playing');
+      // video.currentTime = 0;
+      // audio.currentTime = 0;
+      firstPlay = true;
+      video.pause();
+      audio.pause();
+      showVideoControls();
+      releaseScreenLock(screenLock);
+  });
 
     videoControls.addEventListener("mousemove", function(event) {
       if (video.src !== "" && interactiveType === "mouse") {
@@ -641,7 +651,7 @@
             audioCtx = new AudioContext();
             setTimeout(function() {
               video.play().then(function() {
-                
+
                 bufferEndTime = new Date().getTime();
                 if (bufferStartTime !== 0) {
                   bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
