@@ -608,7 +608,7 @@
       audioLatencyArr[audioLatencyArr.length] = diff;
       audioTimes[audioTimes.length] = aT;
 
-      if (!video.paused) {
+      if (!video.paused && !seekingLoad) {
         // if (audioTimes[audioTimes.length - 1] === audioTimes[audioTimes.length - 2] && audioTimes[audioTimes.length - 2] === audioTimes[audioTimes.length - 3] && audioTimes[audioTimes.length - 3] === audioTimes[audioTimes.length - 4] && audioTimes[audioTimes.length - 4] === audioTimes[audioTimes.length - 5]) { // IF AUDIO STALLED
         if (checkAudioLatency(audioTimes, 10)) {
           bufferCount++;
@@ -779,6 +779,7 @@
     
     video.addEventListener('seeked', function() {
         seekingLoad = false;
+        hideVideoControls();
         setTimeout(function() {
             video.classList.remove('seeking');
         }, 300);
@@ -1233,6 +1234,8 @@
         if (!video.paused) {
             document.exitPictureInPicture();
             hideVideoControls();
+        } else {
+          hideVideoControls();
         }
       }
     };
