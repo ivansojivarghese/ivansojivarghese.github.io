@@ -63,7 +63,7 @@ body {
   height: 8rem
 }
 
-#loadingRing .wrap {
+#loadingRing .loadWrap {
   margin: 2rem
 }
 
@@ -75,7 +75,7 @@ body {
   border-radius: 50%
 }
 
-#loadingRing .wrap {
+#loadingRing .loadWrap {
   animation-name: load_rotate;
   animation-duration: .8s
 }
