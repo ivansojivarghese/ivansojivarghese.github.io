@@ -58,16 +58,16 @@ body {
   animation-duration: 1s
 }
 
-#load_sc .container {
+#loadingRing .container {
   width: 8rem;
   height: 8rem
 }
 
-#load_sc .wrap {
+#loadingRing .wrap {
   margin: 2rem
 }
 
-#load_sc .load_r,#load_sc .template {
+#loadingRing .load_r,#loadingRing .template {
   width: 3.2rem;
   height: 3.2rem;
   border-width: .4rem;
@@ -75,7 +75,7 @@ body {
   border-radius: 50%
 }
 
-.loader .wrap {
+#loadingRing .wrap {
   animation-name: load_rotate;
   animation-duration: .8s
 }
@@ -142,20 +142,20 @@ body {
   }
 }
 
-#loader .L_fs {
+.L_fs {
   width: 7.2rem;
   height: 7.2rem
 }
 
-#loader .L_fb-c {
+.L_fb-c {
   border-color: #303030
 }
 
-#loader .L_z-br {
+.L_z-br {
   border-radius: 0
 }
 
-#loader .L_pa {
+.L_pa {
   animation-play-state: paused;
   animation-iteration-count: 0
 }
