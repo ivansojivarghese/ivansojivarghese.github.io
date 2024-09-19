@@ -1051,33 +1051,41 @@
       console.log("audio-play");
     });*/
 
+    function endLoadRp() {
+      const loadRp = document.querySelector("#loadR-p");
+      const loadRe = document.querySelector("#loadR-e");
+      loadRp.style.animationName = "none";
+      loadRp.classList.add("endLoad");
+      loadRe.classList.add("endLoad_final");
+      // loadRe.style.animationName = "loadR_end";
+    }
+
+    function endLoadRs() {
+      const loadRe = document.querySelector("#loadR-e");
+      const loadRs = document.querySelector("#loadR-s");
+      loadRs.style.animationName = "none";
+      loadRs.classList.add("endLoad_rev");
+      loadRe.classList.add("endLoad_final");
+    }
+
     function endLoad() {
       const loadRp = document.querySelector("#loadR-p");
       const loadRs = document.querySelector("#loadR-s");
-      const loadRe = document.querySelector("#loadR-e");
-      loadRp.addEventListener("animationiteration", function() {
-        loadRp.style.animationName = "none";
-        loadRp.classList.add("endLoad");
-        loadRe.classList.add("endLoad_final");
-        // loadRe.style.animationName = "loadR_end";
-      });
-      loadRs.addEventListener("animationiteration", function() {
-        loadRs.style.animationName = "none";
-        loadRs.classList.add("endLoad_rev");
-      });
+      loadRp.addEventListener("animationiteration", endLoadRp);
+      loadRs.addEventListener("animationiteration", endLoadRs);
     }
 
     function resetLoad() {
       const loadRp = document.querySelector("#loadR-p");
       const loadRs = document.querySelector("#loadR-s");
       const loadRe = document.querySelector("#loadR-e");
+      loadRp.removeEventListener("animationiteration", endLoadRp);
+      loadRs.removeEventListener("animationiteration", endLoadRs);
       loadRe.classList.remove("endLoad_final");
       loadRp.classList.remove("endLoad");
       loadRs.classList.remove("endLoad_rev");
       loadRp.style.animationName = "loadR_transverse";
       loadRs.style.animationName = "loadR_transverse_rev";
-      loadRp.addEventListener("animationiteration", function() {});
-      loadRs.addEventListener("animationiteration", function() {});
     }
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
