@@ -281,6 +281,8 @@ async function getParams(id) {
   loading = true;
   loadingRing.style.display = "block";
   playPauseButton.style.display = "none";
+
+  showVideoControls();
   
   // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
   
