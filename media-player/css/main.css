@@ -111,6 +111,10 @@ body {
   transform: rotate(-90deg);
 }
 
+.load_r.endLoad_final {
+  transform: rotate(180deg);
+}
+
 @keyframes loadR_transverse {
   0% {
       transform: rotate(0)

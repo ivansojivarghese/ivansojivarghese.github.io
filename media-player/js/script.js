@@ -1055,12 +1055,13 @@
       const loadRp = document.querySelector("#loadR-p");
       const loadRs = document.querySelector("#loadR-s");
       const loadRe = document.querySelector("#loadR-e");
-      loadRp.addEventListener("animationend", function() {
+      loadRp.addEventListener("animationiteration", function() {
         loadRp.style.animationName = "none";
         loadRp.classList.add("endLoad");
-        loadRe.style.animationName = "loadR_end";
+        loadRe.classList.add("endLoad_final");
+        // loadRe.style.animationName = "loadR_end";
       });
-      loadRs.addEventListener("animationend", function() {
+      loadRs.addEventListener("animationiteration", function() {
         loadRs.style.animationName = "none";
         loadRs.classList.add("endLoad_rev");
       });
@@ -1073,11 +1074,11 @@
             loading = false;
 
             endLoad();
-
+            /*
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
-            }, 200);
+            }, 1000);*/
       
             // audio.play();
             // video.play();
