@@ -199,8 +199,9 @@ video.seeking {
 }
 
 #videoBarPlaceholder {
-    background-color: aqua;
+    background-color: #ffffff1f;
     z-index: 2;
+    transform: scale(1) translateX(-50%);
 }
 
 #videoLoadProgressBar {
