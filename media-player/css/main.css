@@ -58,26 +58,29 @@ body {
   animation-duration: 1s
 }
 
-#loadingRing .container {
-  width: 8rem;
-  height: 8rem
+#loadingRing .loadContainer {
+  width: 2rem;
+  height: 2rem
 }
 
 #loadingRing .loadWrap {
   margin: 2rem
 }
 
-#loadingRing .load_r,#loadingRing .template {
+#loadingRing .load_r {
   width: 3.2rem;
   height: 3.2rem;
   border-width: .4rem;
   border-style: solid;
-  border-radius: 50%
+  border-radius: 50%;
+  position: absolute;
 }
 
 #loadingRing .loadWrap {
   animation-name: load_rotate;
-  animation-duration: .8s
+  animation-duration: .8s;
+  width: 2rem;
+  height: 2rem;
 }
 
 @keyframes load_rotate {
@@ -92,7 +95,7 @@ body {
 
 .load_r {
   border-color: transparent;
-  border-top-color: #303030;
+  border-top-color: #FFF;
   animation-timing-function: ease-in-out
 }
 
