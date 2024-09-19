@@ -1246,7 +1246,7 @@
         event.preventDefault();
         //action on double tap goes below
         if (!video.paused && !document.fullscreenElement) {
-          if ((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) {
+          if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
             video.requestPictureInPicture();
           }
         } else if (!video.paused) {
