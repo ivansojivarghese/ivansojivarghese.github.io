@@ -1074,11 +1074,11 @@
             loading = false;
 
             endLoad();
-            /*
+            
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
-            }, 1000);*/
+            }, 1000);
       
             // audio.play();
             // video.play();
