@@ -1103,7 +1103,7 @@
               // reset the loader
               setTimeout(function() {
                 resetLoad();
-              }, 100);
+              }, 10);
 
             }, 1000);
       
