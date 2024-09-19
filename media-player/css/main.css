@@ -63,14 +63,10 @@ body {
   height: 2rem
 }
 
-#loadingRing .loadWrap {
-  margin: 2rem
-}
-
 #loadingRing .load_r {
-  width: 3.2rem;
-  height: 3.2rem;
-  border-width: .4rem;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-width: .2rem;
   border-style: solid;
   border-radius: 50%;
   position: absolute;
