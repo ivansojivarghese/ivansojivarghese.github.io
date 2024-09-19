@@ -1076,6 +1076,8 @@
       loadRs.classList.remove("endLoad_rev");
       loadRp.style.animationName = "loadR_transverse";
       loadRs.style.animationName = "loadR_transverse_rev";
+      loadRp.addEventListener("animationiteration", function() {});
+      loadRs.addEventListener("animationiteration", function() {});
     }
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
