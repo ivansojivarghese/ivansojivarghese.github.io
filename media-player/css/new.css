@@ -199,7 +199,8 @@ video.seeking {
 }
 
 #videoBarPlaceholder {
-    
+    background-color: aqua;
+    z-index: 2;
 }
 
 #videoLoadProgressBar {
