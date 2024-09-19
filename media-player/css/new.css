@@ -183,7 +183,7 @@ video.seeking {
     margin-bottom: calc(env(safe-area-inset-bottom));
 }
 
-#videoProgressBar, #videoLoadProgressBar {
+#videoProgressBar, #videoLoadProgressBar, #videoBarPlaceholder {
     background-color: #A10000;
     position: absolute;
     bottom: 2.75rem;
@@ -196,6 +196,10 @@ video.seeking {
     transform: scaleX(0) translateX(-50%);
     transition: all ease-in-out .3s;
     z-index: 10;
+}
+
+#videoBarPlaceholder {
+    
 }
 
 #videoLoadProgressBar {
