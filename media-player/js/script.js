@@ -1072,10 +1072,12 @@
 
             loading = false;
 
-            loadingRing.style.display = "none";
-            playPauseButton.style.display = "block";
-
             endLoad();
+
+            setTimeout(function() {
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+            }, 200);
       
             // audio.play();
             // video.play();
