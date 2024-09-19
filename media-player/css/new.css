@@ -190,7 +190,10 @@ video.seeking {
     left: 50%;
     height: 0.15rem;
     /*width: 100%;*/
-    width: calc(100% - 1.2rem - 1.2rem - calc(env(safe-area-inset-right)) - calc(env(safe-area-inset-left)));
+    /*width: calc(100% - 1.2rem - 1.2rem - calc(env(safe-area-inset-right)) - calc(env(safe-area-inset-left)));*/
+    width: calc(100% - 1.2rem - 1.2rem);
+    margin-left: calc(env(safe-area-inset-left));
+    margin-right: calc(env(safe-area-inset-right));
     will-change: transform, left, right;
     transform-origin: -50%;
     transform: scaleX(0) translateX(-50%);
