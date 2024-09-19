@@ -1051,6 +1051,21 @@
       console.log("audio-play");
     });*/
 
+    function endLoad() {
+      const loadRp = document.querySelector("#loadR-p");
+      const loadRs = document.querySelector("#loadR-s");
+      const loadRe = document.querySelector("#loadR-e");
+      loadRp.addEventListener("animationend", function() {
+        loadRp.style.animationName = "none";
+        loadRp.classList.add("endLoad");
+        loadRe.style.animationName = "loadR_end";
+      });
+      loadRs.addEventListener("animationend", function() {
+        loadRs.style.animationName = "none";
+        loadRs.classList.add("endLoad_rev");
+      });
+    }
+
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
             //console.log("video-play");
             // END LOAD
@@ -1059,6 +1074,8 @@
 
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
+
+            endLoad();
       
             // audio.play();
             // video.play();

@@ -103,6 +103,14 @@ body {
   animation-name: loadR_transverse_rev
 }
 
+.load_r.endLoad {
+  transform: rotate(90deg);
+}
+
+.load_r.endLoad_rev {
+  transform: rotate(-90deg);
+}
+
 @keyframes loadR_transverse {
   0% {
       transform: rotate(0)
