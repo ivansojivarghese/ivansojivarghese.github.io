@@ -1283,6 +1283,19 @@
             hideVideoControls();
         } else {
           hideVideoControls();
+          // play the video
+          audio.play().then(function () {
+            // audioCtx = new AudioContext();
+            setTimeout(function() {
+              video.play().then(function() {
+                videoPause = true;
+              }).catch((err) => {
+                audio.pause();
+                video.pause();
+                videoPause = false;
+              });
+            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+          });
         }
       }
     };
