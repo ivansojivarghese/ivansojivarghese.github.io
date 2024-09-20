@@ -456,7 +456,11 @@
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
         if (videoControls.classList.contains('visible') && !seeking && !seekingLoad) {
-          hideVideoControls();
+          if (event.target === playPauseButton || event.target === playPauseButtonImg) { // IF PLAY/PAUSE button clicked
+            setTimeout(hideVideoControls, 1000);
+          } else {
+            hideVideoControls();
+          }
         } else {
           showVideoControls();
           if (controlsHideInt === null) {
