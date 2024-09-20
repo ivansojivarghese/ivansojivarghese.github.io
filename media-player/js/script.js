@@ -440,7 +440,7 @@
     function showVideoControls() {
       videoControls.classList.add('visible');
       videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
-      videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration}) translateX(-50%)`;
+      videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
     }
 
     function hideVideoControls() {
@@ -806,7 +806,7 @@
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${
           video.currentTime / video.duration
-        }) translateX(-50%)`;
+        })`;
 
     });
 
@@ -1166,7 +1166,7 @@
           return;
         }
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
-        videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration}) translateX(-50%)`;
+        videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
     });
 
     // REF: https://stackoverflow.com/questions/5029519/html5-video-percentage-loaded, by Yann L.
@@ -1190,7 +1190,7 @@
       
       // console.log(loadPercentage);
 
-      videoLoadProgressBar.style.transform = `scaleX(${loadPercentage}) translateX(-50%)`;
+      videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
 
       /*
       if (videoLoadPercentile > audioLoadPercentile) {
