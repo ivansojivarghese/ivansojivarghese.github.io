@@ -310,6 +310,8 @@
           hideVideoControls();
           firstPlay = false;
         } else {
+          clearTimeout(controlsHideInt);
+          controlsHideInt = null;
           if (controlsHideInt === null) {
             controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
           }
