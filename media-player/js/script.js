@@ -303,6 +303,7 @@
     });
 
     video.addEventListener('play', function () {
+      videoEnd = false;
       if (!playPauseManual) {
         audio.play().then(function() {
           video.currentTime = audio.currentTime;
