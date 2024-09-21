@@ -69,6 +69,8 @@
     var audioVideoAlignInt = null;
     var audioVideoAligning = false;
 
+    var videoEnd = false;
+
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
         currentPlayPos = video.currentTime;
@@ -361,6 +363,7 @@
       playPauseButton.classList.remove('playing');
       // video.currentTime = 0;
       // audio.currentTime = 0;
+      videoEnd = true;
       firstPlay = true;
       video.pause();
       audio.pause();
@@ -701,7 +704,7 @@
     }
 
     function seekForward(m) {
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !videoEnd) {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
             seeking = true;
@@ -742,6 +745,7 @@
         if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
+            videoEnd = false;
             seeking = true;
             seekingLoad = true;
             backwardSkippedTime += skipTime;
