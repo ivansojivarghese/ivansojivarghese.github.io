@@ -1292,6 +1292,7 @@
       } else {
         if (backgroundPlay) {
           video.currentTime = audio.currentTime;
+          backgroundPlay = false;
         }
         if (!video.paused) {
             document.exitPictureInPicture();
