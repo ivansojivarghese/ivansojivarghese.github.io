@@ -303,7 +303,7 @@
     });
 
     video.addEventListener('play', function () {
-      videoEnd = false;
+      // videoEnd = false;
       if (!playPauseManual) {
         audio.play().then(function() {
           video.currentTime = audio.currentTime;
@@ -627,7 +627,7 @@
       audioLatencyArr[audioLatencyArr.length] = diff;
       audioTimes[audioTimes.length] = aT;
 
-      if (!video.paused && !seekingLoad) {
+      if (!video.paused && !seekingLoad && !videoEnd) {
         // if (audioTimes[audioTimes.length - 1] === audioTimes[audioTimes.length - 2] && audioTimes[audioTimes.length - 2] === audioTimes[audioTimes.length - 3] && audioTimes[audioTimes.length - 3] === audioTimes[audioTimes.length - 4] && audioTimes[audioTimes.length - 4] === audioTimes[audioTimes.length - 5]) { // IF AUDIO STALLED
         if (checkAudioLatency(audioTimes, 10)) {
           bufferCount++;
@@ -1182,6 +1182,7 @@
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
+        videoEnd = false;
         if (!videoControls.classList.contains('visible')) {
           return;
         }
