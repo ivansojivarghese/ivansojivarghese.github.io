@@ -303,9 +303,9 @@
     });
 
     video.addEventListener('play', function () {
-      video.currentTime = audio.currentTime;
       if (!playPauseManual) {
         audio.play().then(function() {
+          video.currentTime = audio.currentTime;
           videoPause = true;
         }); 
         playPauseButton.classList.add('playing');
