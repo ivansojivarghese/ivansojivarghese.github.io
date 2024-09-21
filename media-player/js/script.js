@@ -50,6 +50,8 @@
 
     var interactiveType = "";
 
+    var backgroundPlay = false; // background audio playback
+
     // REFERENCE: https://stackoverflow.com/questions/21399872/how-to-detect-whether-html5-video-has-paused-for-buffering
     var checkInterval  = 50.0; // check every 50 ms (do not use lower values)
     var lastPlayPos    = 0;
@@ -332,8 +334,14 @@
     video.addEventListener('pause', function () {
       bufferStartTime = 0;
       bufferEndTime = 0;
-      audio.pause();
-      videoPause = false;
+      // audio.pause();
+      // videoPause = false;
+      if (document.visibilityState === "visible") {
+        audio.pause();
+        videoPause = false;
+      } else {
+        backgroundPlay = true;
+      }
       if (!audioVideoAligning) {
         playPauseButton.classList.remove('playing');
         showVideoControls();
@@ -1282,6 +1290,9 @@
             video.requestPictureInPicture();
         }
       } else {
+        if (backgroundPlay) {
+          video.currentTime = audio.currentTime;
+        }
         if (!video.paused) {
             document.exitPictureInPicture();
             hideVideoControls();
