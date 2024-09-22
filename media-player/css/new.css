@@ -25,7 +25,7 @@ video.seeking {
     background-color: rgba(0, 0, 0, 0.25);
 }
 
-.trsButtons:active .img {
+#videoControls.visible .trsButtons:active .img {
     transform: scale(0.8);
 }
 
