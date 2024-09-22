@@ -1212,6 +1212,7 @@
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
+        updatePositionState();
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
         if (video.currentTime > 3) {
@@ -1220,6 +1221,10 @@
         if (!videoControls.classList.contains('visible')) {
           return;
         }
+    });
+
+    audio.addEventListener("timeupdate", function() {
+      updatePositionState();
     });
 
     // REF: https://stackoverflow.com/questions/5029519/html5-video-percentage-loaded, by Yann L.
