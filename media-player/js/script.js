@@ -1304,6 +1304,7 @@
     function longTapDetect(event) {
       touch = false;
       touchStart = 0;
+      longTap = false;
       /*
       touchEnd = new Date().getTime();
       if ((touchEnd - touchStart) >= 1000) { // 1 sec. threshold
