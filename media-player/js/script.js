@@ -1371,3 +1371,11 @@
     video.addEventListener('leavepictureinpicture', () => {
       pipEnabled = false;
     });
+
+    setInterval(function() {
+      if (document.pictureInPictureElement !== null) {
+        pipEnabled = true;
+      } else {
+        pipEnabled = false;
+      }
+    }, 1000/60);
