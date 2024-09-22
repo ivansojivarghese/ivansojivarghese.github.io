@@ -318,7 +318,9 @@
           if (videoEnd) {
             audio.currentTime = 0;
           }
-          video.currentTime = audio.currentTime;
+          if (!loading) {
+            video.currentTime = audio.currentTime;
+          }
           videoPause = true;
         }); 
         playPauseButton.classList.add('playing');
