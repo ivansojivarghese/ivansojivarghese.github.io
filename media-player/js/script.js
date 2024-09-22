@@ -130,11 +130,19 @@
 
     function updatePositionState() {
       if ('setPositionState' in navigator.mediaSession) {
-        navigator.mediaSession.setPositionState({
-          duration: video.duration,
-          playbackRate: video.playbackRate,
-          position: video.currentTime,
-        });
+        if (!backgroundPlay) {
+          navigator.mediaSession.setPositionState({
+            duration: video.duration,
+            playbackRate: video.playbackRate,
+            position: video.currentTime,
+          });
+        } else {
+          navigator.mediaSession.setPositionState({
+            duration: audio.duration,
+            playbackRate: audio.playbackRate,
+            position: audio.currentTime,
+          });
+        }
       }
     }
 
