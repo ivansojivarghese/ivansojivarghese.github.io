@@ -1343,6 +1343,7 @@
           backgroundPlay = false;
         }
         if (!video.paused) {
+            getScreenLock();
             document.exitPictureInPicture().then(function() {
               pipEnabled = false;
               releaseScreenLock(screenLock);
