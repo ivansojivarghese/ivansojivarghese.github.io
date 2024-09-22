@@ -1294,13 +1294,13 @@
     var longTap = false;
 
     function longTapStart(event) {
-      if (event.touches === 1) {
+      if (event.touches.length === 1) {
         touchStart = new Date.getTime();
       }
     }
 
     function longTapDetect(event) {
-      if (event.touches === 1) {
+      if (event.touches.length === 1) {
         touchEnd = new Date.getTime();
         if ((touchEnd - touchStart) >= 1000) { // 1 sec. threshold
           longTap = true;
