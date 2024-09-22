@@ -43,14 +43,14 @@ const actionHandlers = [
   ['play',          async () => { await audio.play().then(function () {
                                     // audioCtx = new AudioContext();
                                     setTimeout(function() {
-                                      if (!backgroundPlay) {
+                                      if (!backgroundPlay || pipEnabled) {
                                         video.play().then(function() {
                                           if (videoEnd) {
                                             videoEnd = false;
                                           }
                                           // videoPause = true;
                                         }).catch((err) => {
-                                          if (!backgroundPlay) {
+                                          if (!backgroundPlay || pipEnabled) {
                                             audio.pause();
                                           }
                                           video.pause();

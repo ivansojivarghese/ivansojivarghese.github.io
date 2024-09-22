@@ -130,7 +130,7 @@
 
     function updatePositionState() {
       if ('setPositionState' in navigator.mediaSession) {
-        if (!backgroundPlay) {
+        if (!backgroundPlay || pipEnabled) {
           navigator.mediaSession.setPositionState({
             duration: video.duration,
             playbackRate: video.playbackRate,
