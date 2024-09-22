@@ -1360,7 +1360,7 @@
               releaseScreenLock(screenLock);
             });
             hideVideoControls();
-        } else if (video.paused && !videoEnd) {
+        } else if (video.paused && !videoEnd && video.src !== "") {
           hideVideoControls();
           // play the video (only when it hasn't ended)
           audio.play().then(function () {
