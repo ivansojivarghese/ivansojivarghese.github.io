@@ -1293,9 +1293,15 @@
     var touchStart = 0;
     // var touchEnd = 0;
     var longTap = false;
+    var forwardSeek = null;
 
-    function longTapStart(event) {
+    function longTapStart(mod, event) {
       if (event.touches.length === 1) {
+        if (mod === "forward") {
+          forwardSeek = true;
+        } else if (mod === "backward") {
+          forwardSeek = false;
+        }
         touch = true;
         touchStart = new Date().getTime();
       }
@@ -1324,6 +1330,16 @@
         }
       }
     }, 1000/60);
+
+    setInterval(function() {
+      if (longTap) {
+        if (forwardSeek) {
+          seekForward(null);
+        } else if (forwardSeek === false) {
+          seekBackward(null);
+        }
+      }
+    }, 200);
 
     function tapHandler(event) {
       if (!event.target.classList.contains("no-tap")) {
@@ -1369,10 +1385,14 @@
 
     videoContainer.addEventListener("touchstart", tapHandler);
 
-    seekForwardButton.addEventListener("touchstart", longTapStart);
+    seekForwardButton.addEventListener("touchstart", function() {
+      longTapStart("forward");
+    });
     seekForwardButton.addEventListener("touchend", longTapDetect);
 
-    seekBackwardButton.addEventListener("touchstart", longTapStart);
+    seekBackwardButton.addEventListener("touchstart", function() {
+      longTapStart("backward");
+    });
     seekBackwardButton.addEventListener("touchend", longTapDetect);
 
     document.onvisibilitychange = function() {
