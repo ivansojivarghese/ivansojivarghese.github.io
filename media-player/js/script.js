@@ -1289,26 +1289,40 @@
     var firstTouchPlay = false;
     var secondTouchPlay = false;
 
+    var touch = false;
     var touchStart = 0;
-    var touchEnd = 0;
+    // var touchEnd = 0;
     var longTap = false;
 
     function longTapStart(event) {
       if (event.touches.length === 1) {
+        touch = true;
         touchStart = new Date().getTime();
       }
     }
 
     function longTapDetect(event) {
-      if (event.touches.length === 1) {
-        touchEnd = new Date().getTime();
-        if ((touchEnd - touchStart) >= 1000) { // 1 sec. threshold
+      touch = false;
+      touchStart = 0;
+      /*
+      touchEnd = new Date().getTime();
+      if ((touchEnd - touchStart) >= 1000) { // 1 sec. threshold
+        longTap = true;
+      } else {
+        longTap = false;
+      }*/
+    }
+
+    setInterval(function() {
+      var t = new Date().getTime();
+      if (touch && touchStart) {
+        if ((t - touchStart) > 1000) {
           longTap = true;
         } else {
           longTap = false;
         }
       }
-    }
+    }, 1000/60);
 
     function tapHandler(event) {
       if (!event.target.classList.contains("no-tap")) {
