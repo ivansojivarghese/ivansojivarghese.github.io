@@ -466,6 +466,9 @@
 
     function showVideoControls() {
       videoControls.classList.add('visible');
+      setTimeout(function() {
+        videoControls.classList.add('visible_ready');
+      }, 200);
       // videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
       // videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
     }
@@ -473,6 +476,7 @@
     function hideVideoControls() {
       if (video.src !== "") {
         videoControls.classList.remove('visible');
+        videoControls.classList.remove('visible_ready');
         seekForwardText.classList.remove('show');
         seekBackwardText.classList.remove('show');
       }
