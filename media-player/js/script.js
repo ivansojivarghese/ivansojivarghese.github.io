@@ -1340,7 +1340,7 @@
           seekBackward(null);
         }
       }
-    }, 500);
+    }, 100);
 
     function tapHandler(event) {
       if (!event.target.classList.contains("no-tap")) {
