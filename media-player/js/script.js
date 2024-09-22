@@ -299,10 +299,12 @@
           if (document.pictureInPictureElement) {
             document.exitPictureInPicture().then(function() {
               pipEnabled = false;
+              releaseScreenLock(screenLock);
             });
             // pipButton.children[0].classList.remove("exit");
           } else if (document.pictureInPictureEnabled) {
             video.requestPictureInPicture().then(function() {
+              getScreenLock();
               pipEnabled = true;
             });
             // pipButton.children[0].classList.add("exit");
@@ -1289,6 +1291,7 @@
         if (!video.paused && !document.fullscreenElement) {
           if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
             video.requestPictureInPicture().then(function() {
+              getScreenLock();
               pipEnabled = true;
             });
           }
@@ -1319,6 +1322,7 @@
         video.classList.remove("cover");
         if (!video.paused) {
             video.requestPictureInPicture().then(function() {
+              getScreenLock();
               pipEnabled = true;
             });
         } else if (video.paused && !pipEnabled) {
@@ -1333,6 +1337,7 @@
         if (!video.paused) {
             document.exitPictureInPicture().then(function() {
               pipEnabled = false;
+              releaseScreenLock(screenLock);
             });
             hideVideoControls();
         } else if (video.paused && !videoEnd) {

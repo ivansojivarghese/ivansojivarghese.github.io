@@ -78,6 +78,7 @@ const actionHandlers = [
   ['seekto',        (details) => { /* ... */ }],
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
                                       pipEnabled = true;
+                                      getScreenLock();
                                     }); 
                                   }]
   /* Video conferencing actions */
