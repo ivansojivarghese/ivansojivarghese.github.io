@@ -43,6 +43,8 @@
 
     var videoPause = false;
 
+    var appUnload = false;
+
     var loading = false;
 
     var seeking = false;
@@ -1328,7 +1330,7 @@
       if (document.visibilityState === 'hidden') {
         video.style.objectFit = "";
         video.classList.remove("cover");
-        if (!video.paused) {
+        if (!video.paused && !appUnload) {
             video.requestPictureInPicture().then(function() {
               getScreenLock();
               pipEnabled = true;
@@ -1381,3 +1383,15 @@
         pipEnabled = false;
       }
     }, 1000/60);
+
+    window.addEventListener('pagehide', function (event) {
+      if (event.persisted) {
+        // If the event's persisted property is `true` the page is about
+        // to enter the Back-Forward Cache, which is also in the frozen state
+      } else {
+        // If the event's persisted property is not `true` the page is about to be unloaded.
+        appUnload = true;
+      }
+    },
+      { capture: true }
+    );
