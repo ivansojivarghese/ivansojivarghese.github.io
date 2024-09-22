@@ -1289,6 +1289,27 @@
     var firstTouchPlay = false;
     var secondTouchPlay = false;
 
+    var touchStart = 0;
+    var touchEnd = 0;
+    var longTap = false;
+
+    function longTapStart(event) {
+      if (event.touches === 1) {
+        touchStart = new Date.getTime();
+      }
+    }
+
+    function longTapDetect(event) {
+      if (event.touches === 1) {
+        touchEnd = new Date.getTime();
+        if ((touchEnd - touchStart) >= 1000) { // 1 sec. threshold
+          longTap = true;
+        } else {
+          longTap = false;
+        }
+      }
+    }
+
     function tapHandler(event) {
       if (!event.target.classList.contains("no-tap")) {
         if(!tapedTwice) {
@@ -1332,6 +1353,9 @@
     }
 
     videoContainer.addEventListener("touchstart", tapHandler);
+
+    videoContainer.addEventListener("touchstart", longTapStart);
+    videoContainer.addEventListener("touchend", longTapDetect);
 
     document.onvisibilitychange = function() {
       if (document.visibilityState === 'hidden') {
