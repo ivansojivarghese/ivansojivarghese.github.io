@@ -1369,8 +1369,11 @@
 
     videoContainer.addEventListener("touchstart", tapHandler);
 
-    videoContainer.addEventListener("touchstart", longTapStart);
-    videoContainer.addEventListener("touchend", longTapDetect);
+    seekForwardButton.addEventListener("touchstart", longTapStart);
+    seekForwardButton.addEventListener("touchend", longTapDetect);
+
+    seekBackwardButton.addEventListener("touchstart", longTapStart);
+    seekBackwardButton.addEventListener("touchend", longTapDetect);
 
     document.onvisibilitychange = function() {
       if (document.visibilityState === 'hidden') {
