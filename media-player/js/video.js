@@ -44,6 +44,9 @@ const actionHandlers = [
                                     // audioCtx = new AudioContext();
                                     setTimeout(function() {
                                       video.play().then(function() {
+                                        if (videoEnd) {
+                                          videoEnd = false;
+                                        }
                                         videoPause = true;
                                       }).catch((err) => {
                                         audio.pause();

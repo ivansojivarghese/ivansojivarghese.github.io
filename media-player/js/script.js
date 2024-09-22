@@ -155,6 +155,10 @@
             setTimeout(function() {
               video.play().then(function() {
                 videoPause = true;
+                if (videoEnd) {
+                  audio.currentTime = video.currentTime;
+                  videoEnd = false;
+                }
               }).catch((err) => {
                 audio.pause();
                 video.pause();
@@ -1190,7 +1194,9 @@
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
-        videoEnd = false;
+        if (video.currentTime > 3) {
+          videoEnd = false;
+        }
         if (!videoControls.classList.contains('visible')) {
           return;
         }
