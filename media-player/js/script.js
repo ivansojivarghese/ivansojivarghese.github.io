@@ -488,7 +488,7 @@
       if (interactiveType === "touch" || interactiveType === "pen") {
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
-        if (videoControls.classList.contains('visible') && !seeking && !seekingLoad) {
+        if (videoControls.classList.contains('visible') && !seeking && !seekingLoad && !video.paused) {
           if (event.target === playPauseButton || event.target === playPauseButtonImg) { // IF PLAY/PAUSE button clicked
             setTimeout(hideVideoControls, 1000);
           } else {
@@ -498,7 +498,7 @@
           showVideoControls();
           if (controlsHideInt === null) {
             controlsHideInt = setTimeout(function() {
-              if (!loading) {
+              if (!loading && !video.paused) {
                 hideVideoControls();
               }
             }, 3000); // hide controls after 3 sec. if no activity
