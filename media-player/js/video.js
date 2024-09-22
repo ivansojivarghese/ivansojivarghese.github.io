@@ -71,6 +71,8 @@ const actionHandlers = [
                               bufferStartTime = 0;
                               bufferEndTime = 0;
 
+                              releaseScreenLock(screenLock);
+
                               // videoPause = false;
                             // }
                           }
