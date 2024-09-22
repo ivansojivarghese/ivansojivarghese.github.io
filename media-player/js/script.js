@@ -1296,7 +1296,7 @@
     var forwardSeek = null;
 
     function longTapStart(mod) {
-      if (Event.touches.length === 1) {
+      if (event.touches.length === 1) {
         if (mod === "forward") {
           forwardSeek = true;
         } else if (mod === "backward") {
