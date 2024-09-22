@@ -1311,6 +1311,7 @@
       touch = false;
       touchStart = 0;
       longTap = false;
+      forwardSeek = null;
       /*
       touchEnd = new Date().getTime();
       if ((touchEnd - touchStart) >= 1000) { // 1 sec. threshold
