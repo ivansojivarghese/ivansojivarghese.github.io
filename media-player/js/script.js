@@ -1319,8 +1319,11 @@
             video.requestPictureInPicture().then(function() {
               pipEnabled = true;
             });
+        } else if (video.paused && !pipEnabled) {
+          audio.volume = 0; // prevent accidental leakage 
         }
       } else {
+        audio.volume = 1; 
         if (backgroundPlay && !audio.paused && !pipEnabled) {
           video.currentTime = audio.currentTime;
           backgroundPlay = false;
