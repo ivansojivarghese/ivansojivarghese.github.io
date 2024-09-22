@@ -1367,3 +1367,7 @@
         }
       }
     };
+
+    video.addEventListener('leavepictureinpicture', () => {
+      pipEnabled = false;
+    });
