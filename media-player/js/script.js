@@ -1338,8 +1338,10 @@
         }
       } else {
         audio.volume = 1; 
-        if (backgroundPlay && !audio.paused && !pipEnabled) {
-          video.currentTime = audio.currentTime;
+        if (backgroundPlay) {
+          if (!audio.paused && !pipEnabled) {
+            video.currentTime = audio.currentTime;
+          }
           backgroundPlay = false;
         }
         if (!video.paused) {

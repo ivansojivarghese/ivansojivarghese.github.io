@@ -42,6 +42,7 @@ var firstPlay = true;
 const actionHandlers = [
   ['play',          async () => { await audio.play().then(function () {
                                     // audioCtx = new AudioContext();
+                                    audio.volume = 1;
                                     setTimeout(function() {
                                       if (!backgroundPlay || pipEnabled) {
                                         video.play().then(function() {
