@@ -51,6 +51,7 @@
     var interactiveType = "";
 
     var backgroundPlay = false; // background audio playback
+    var pipEnabled = false;
 
     // REFERENCE: https://stackoverflow.com/questions/21399872/how-to-detect-whether-html5-video-has-paused-for-buffering
     var checkInterval  = 50.0; // check every 50 ms (do not use lower values)
@@ -292,10 +293,14 @@
       if (videoControls.classList.contains('visible') && video.src !== "") {
         if (video.requestPictureInPicture) {
           if (document.pictureInPictureElement) {
-            document.exitPictureInPicture();
+            document.exitPictureInPicture().then(function() {
+              pipEnabled = false;
+            });
             // pipButton.children[0].classList.remove("exit");
           } else if (document.pictureInPictureEnabled) {
-            video.requestPictureInPicture();
+            video.requestPictureInPicture().then(function() {
+              pipEnabled = true;
+            });
             // pipButton.children[0].classList.add("exit");
           }
         }
@@ -306,6 +311,9 @@
       // videoEnd = false;
       if (!playPauseManual) {
         audio.play().then(function() {
+          if (videoEnd) {
+            audio.currentTime = 0;
+          }
           video.currentTime = audio.currentTime;
           videoPause = true;
         }); 
@@ -1268,7 +1276,9 @@
         //action on double tap goes below
         if (!video.paused && !document.fullscreenElement) {
           if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
-            video.requestPictureInPicture();
+            video.requestPictureInPicture().then(function() {
+              pipEnabled = true;
+            });
           }
         } else if (!video.paused) {
           if ((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) {
@@ -1296,19 +1306,23 @@
         video.style.objectFit = "";
         video.classList.remove("cover");
         if (!video.paused) {
-            video.requestPictureInPicture();
+            video.requestPictureInPicture().then(function() {
+              pipEnabled = true;
+            });
         }
       } else {
-        if (backgroundPlay) {
+        if (backgroundPlay && !audio.paused && !pipEnabled) {
           video.currentTime = audio.currentTime;
           backgroundPlay = false;
         }
         if (!video.paused) {
-            document.exitPictureInPicture();
+            document.exitPictureInPicture().then(function() {
+              pipEnabled = false;
+            });
             hideVideoControls();
-        } else {
+        } else if (video.paused && !videoEnd) {
           hideVideoControls();
-          // play the video
+          // play the video (only when it hasn't ended)
           audio.play().then(function () {
             // audioCtx = new AudioContext();
             setTimeout(function() {

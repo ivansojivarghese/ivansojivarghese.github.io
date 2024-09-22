@@ -73,7 +73,10 @@ const actionHandlers = [
   ['seekbackward',  (details) => { seekBackward(true); updatePositionState(); }],
   ['seekforward',   (details) => { seekForward(true); updatePositionState(); }],
   ['seekto',        (details) => { /* ... */ }],
-  ['enterpictureinpicture', () => { video.requestPictureInPicture(); }]
+  ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
+                                      pipEnabled = true;
+                                    }); 
+                                  }]
   /* Video conferencing actions */
   /*['togglemicrophone', () => {  }],
   ['togglecamera',     () => {  }],
