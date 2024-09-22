@@ -40,7 +40,12 @@ var firstPlay = true;
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
-  ['play',          async () => { await audio.play().then(function () {
+  ['play',          async () => { 
+                                  if (videoEnd) { 
+                                    video.currentTime = 0;
+                                    audio.currentTime = 0;
+                                  } 
+                                  await audio.play().then(function () {
                                     // audioCtx = new AudioContext();
                                     audio.volume = 1;
                                     setTimeout(function() {
@@ -60,6 +65,7 @@ const actionHandlers = [
                                       }
                                     }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
                                   }); 
+                    
                                   updatePositionState(); 
                                 }
   ],
