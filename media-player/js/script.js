@@ -831,7 +831,7 @@
     
     video.addEventListener('seeked', function() {
         seekingLoad = false;
-        hideVideoControls();
+        // hideVideoControls();
         setTimeout(function() {
             video.classList.remove('seeking');
         }, 300);
