@@ -1295,8 +1295,8 @@
     var longTap = false;
     var forwardSeek = null;
 
-    function longTapStart(mod, event) {
-      if (event.touches.length === 1) {
+    function longTapStart(mod) {
+      if (Event.touches.length === 1) {
         if (mod === "forward") {
           forwardSeek = true;
         } else if (mod === "backward") {
@@ -1307,7 +1307,7 @@
       }
     }
 
-    function longTapDetect(event) {
+    function longTapDetect() {
       touch = false;
       touchStart = 0;
       longTap = false;
@@ -1323,7 +1323,7 @@
     setInterval(function() {
       var t = new Date().getTime();
       if (touch && touchStart) {
-        if ((t - touchStart) > 1000) {
+        if ((t - touchStart) > 250) {
           longTap = true;
         } else {
           longTap = false;
