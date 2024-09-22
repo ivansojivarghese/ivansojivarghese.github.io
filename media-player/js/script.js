@@ -1339,7 +1339,7 @@
           seekBackward(null);
         }
       }
-    }, 200);
+    }, 500);
 
     function tapHandler(event) {
       if (!event.target.classList.contains("no-tap")) {
