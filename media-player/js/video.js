@@ -49,7 +49,9 @@ const actionHandlers = [
                                         }
                                         videoPause = true;
                                       }).catch((err) => {
-                                        audio.pause();
+                                        if (!backgroundPlay) {
+                                          audio.pause();
+                                        }
                                         video.pause();
                                         videoPause = false;
                                       });
