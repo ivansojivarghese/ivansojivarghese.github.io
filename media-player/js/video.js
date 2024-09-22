@@ -43,33 +43,35 @@ const actionHandlers = [
   ['play',          async () => { await audio.play().then(function () {
                                     // audioCtx = new AudioContext();
                                     setTimeout(function() {
-                                      video.play().then(function() {
-                                        if (videoEnd) {
-                                          videoEnd = false;
-                                        }
-                                        videoPause = true;
-                                      }).catch((err) => {
-                                        if (!backgroundPlay) {
-                                          audio.pause();
-                                        }
-                                        video.pause();
-                                        videoPause = false;
-                                      });
+                                      if (!backgroundPlay) {
+                                        video.play().then(function() {
+                                          if (videoEnd) {
+                                            videoEnd = false;
+                                          }
+                                          // videoPause = true;
+                                        }).catch((err) => {
+                                          if (!backgroundPlay) {
+                                            audio.pause();
+                                          }
+                                          video.pause();
+                                          // videoPause = false;
+                                        });
+                                      }
                                     }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
                                   }); 
                                   updatePositionState(); 
                                 }
   ],
   ['pause',         () => { 
-                            if (videoPause) {
+                            // if (videoPause) {
                               audio.pause();
                               video.pause();
 
                               bufferStartTime = 0;
                               bufferEndTime = 0;
 
-                              videoPause = false;
-                            }
+                              // videoPause = false;
+                            // }
                           }
   ],
   /*['previoustrack', () => { }],
