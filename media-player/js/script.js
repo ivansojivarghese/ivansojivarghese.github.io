@@ -383,10 +383,10 @@
       navigator.mediaSession.playbackState = 'paused';
       releaseScreenLock(screenLock);
     });
-    /*
+    
     audio.addEventListener('pause', function () {
-      video.pause();
-    });*/
+      releaseScreenLock(screenLock);
+    });
 
     video.addEventListener('ended', function() {
       playPauseButton.classList.remove('playing');
