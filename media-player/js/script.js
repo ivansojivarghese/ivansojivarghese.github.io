@@ -33,7 +33,7 @@
     var controlsHideInt = null;
     var seekForwardHideInt = null;
     var seekBackwardHideInt = null;
-    const skipTime = 10;
+    var skipTime = 10;
     const maxTime = 9999;
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
