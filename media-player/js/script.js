@@ -437,7 +437,9 @@
         fullscreenButton.children[0].classList.remove("exit");
         settingsButton.style.display = "block";
         // show PIP
-        pipButton.style.display = "";
+        if (!((window.innerWidth < 500 && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) || (window.innerHeight < 500 && (screen.orientation.angle === 90 || screen.orientation.angle === 270)))) {
+          pipButton.style.display = "";
+        }
       } else {
         // hide PIP
         pipButton.style.display = "none";
