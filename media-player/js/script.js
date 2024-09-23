@@ -1309,7 +1309,7 @@
     var longTap = false;
     var forwardSeek = null;
 
-    function longTapStart(mod) {
+    function longTapStart(mod, event) {
       if (event.touches.length === 1) {
         if (mod === "forward") {
           forwardSeek = true;
@@ -1400,13 +1400,13 @@
 
     videoContainer.addEventListener("touchstart", tapHandler);
 
-    seekForwardButton.addEventListener("touchstart", function() {
-      longTapStart("forward");
+    seekForwardButton.addEventListener("touchstart", function(event) {
+      longTapStart("forward", event);
     });
     seekForwardButton.addEventListener("touchend", longTapDetect);
 
-    seekBackwardButton.addEventListener("touchstart", function() {
-      longTapStart("backward");
+    seekBackwardButton.addEventListener("touchstart", function(event) {
+      longTapStart("backward", event);
     });
     seekBackwardButton.addEventListener("touchend", longTapDetect);
 
