@@ -563,8 +563,13 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       showVideoControls();
+      // remove pipButton, fitScreen buttons from display on mobile devices with width less than 500px (portrait), OR height less than 500px (landscape)
       if (!video.requestPictureInPicture) {
         pipButton.style.display = "none";
+      }
+      if ((window.innerWidth < 500 && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) || (window.innerHeight < 500 && (screen.orientation.angle === 90 || screen.orientation.angle === 270))) {
+        pipButton.style.display = "none";
+        fitscreenButton.style.display = "none";
       }
       if (op.pwa.a) { // if launched as TWA 
         fullscreenButton.style.display = "none";
