@@ -760,6 +760,8 @@
             seekingLoad = true;
             if (forwardSkippedTime <= (maxTime - skipTime)) {
               forwardSkippedTime += skipTime;
+            } else {
+              skipTime = 0;
             }
             seekForwardTextSec.innerHTML = forwardSkippedTime;
             clearTimeout(controlsHideInt);
@@ -801,6 +803,8 @@
             seekingLoad = true;
             if (backwardSkippedTime <= (maxTime - skipTime)) {
               backwardSkippedTime += skipTime;
+            } else {
+              skipTime = 0;
             }
             seekBackwardTextSec.innerHTML = backwardSkippedTime;
             clearTimeout(controlsHideInt);
