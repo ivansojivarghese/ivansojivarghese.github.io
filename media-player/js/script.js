@@ -388,6 +388,10 @@
       releaseScreenLock(screenLock);
     });
 
+    audio.addEventListener('play', function () {
+      getScreenLock();
+    });
+
     video.addEventListener('ended', function() {
       playPauseButton.classList.remove('playing');
       // video.currentTime = 0;
