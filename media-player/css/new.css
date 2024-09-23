@@ -141,9 +141,23 @@ video.seeking {
     margin-right: calc(env(safe-area-inset-right));
 }
 
+.seconds {
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    margin-left: 0.2rem;
+}
+
+.seekText.forward .seconds {
+    background: var(--predicate_col);
+}
+
 .seekText.backward {
     left: 1.2rem;
     margin-left: calc(env(safe-area-inset-left));
+}
+
+.seekText.backward .seconds {
+    background: var(--negate_col);
 }
 
 #seekForwardButton .img {
