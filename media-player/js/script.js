@@ -1334,7 +1334,12 @@
       touch = false;
       touchStart = 0;
       longTap = false;
+      longTapExt = false;
+      longTapExt2 = false;
       forwardSeek = null;
+
+      Lt_e = false;
+      Lt_e2 = false;
     }
 
     setInterval(function() {
@@ -1366,10 +1371,10 @@
           fastSeekInt = null;
           if (longTapExt && !Lt_e) {
             Lt_e = true;
-            fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[1]);
+            fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[1]); // speed 2 seeking
           } else if (longTapExt2 && !Lt_e2) {
             Lt_e2 = true;
-            fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[2]);
+            fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[2]); // speed 3 seeking
           }
         } else {
           if (forwardSeek) {
@@ -1381,7 +1386,7 @@
       }
     }
 
-    fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[0]);
+    fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[0]); // speed 1 seeking
 
     function tapHandler(event) {
       if (!event.target.classList.contains("no-tap")) {
