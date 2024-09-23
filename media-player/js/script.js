@@ -890,9 +890,10 @@
 
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
-      
-      bufferCount++;
-      bufferStartTime = new Date().getTime();
+      if (video.currentTime > 3) {
+        bufferCount++;
+        bufferStartTime = new Date().getTime();
+      }
       /*
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
