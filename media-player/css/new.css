@@ -145,6 +145,9 @@ video.seeking {
     padding: 0.2rem 0.4rem;
     border-radius: 0.3rem;
     margin-left: 0.2rem;
+    width: 2rem;
+    display: inline-block;
+    text-align: center;
 }
 
 .seekText.forward .seconds {

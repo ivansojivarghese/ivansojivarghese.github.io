@@ -34,6 +34,7 @@
     var seekForwardHideInt = null;
     var seekBackwardHideInt = null;
     const skipTime = 10;
+    const maxTime = 9999;
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
@@ -746,7 +747,9 @@
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
             seeking = true;
             seekingLoad = true;
-            forwardSkippedTime += skipTime;
+            if (forwardSkippedTime <= (maxTime - skipTime)) {
+              forwardSkippedTime += skipTime;
+            }
             seekForwardTextSec.innerHTML = forwardSkippedTime;
             clearTimeout(controlsHideInt);
             clearTimeout(seekForwardHideInt);
@@ -785,7 +788,9 @@
             videoEnd = false;
             seeking = true;
             seekingLoad = true;
-            backwardSkippedTime += skipTime;
+            if (backwardSkippedTime <= (maxTime - skipTime)) {
+              backwardSkippedTime += skipTime;
+            }
             seekBackwardTextSec.innerHTML = backwardSkippedTime;
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
