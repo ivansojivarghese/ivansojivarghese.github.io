@@ -1378,7 +1378,7 @@
             Lt_e = true;
             fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[1]); // speed 2 seeking
           } else if (longTapExt2 && !Lt_e2) {
-            seekBackward(null);
+            seekForward(null);
             Lt_e2 = true;
             fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[2]); // speed 3 seeking
           }
