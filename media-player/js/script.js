@@ -52,8 +52,8 @@
     var seekingLoad = false;
 
     var fastSeekInt = null;
-    var fastSeekVal = [250, 1000, 3000]; // fast seeking intervals
-    var fastSeekSpeeds = [300, 200, 100];
+    var fastSeekVal = [250, 1000, 3000]; // min. tap-hold times for each speed state
+    var fastSeekSpeeds = [300, 200, 50]; // fast seeking intervals
 
     var interactiveType = "";
 
