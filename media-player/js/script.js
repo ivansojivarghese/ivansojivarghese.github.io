@@ -51,6 +51,10 @@
     var seeking = false;
     var seekingLoad = false;
 
+    var fastSeekInt = null;
+    var fastSeekVal = [250, 1000, 3000]; // fast seeking intervals
+    var fastSeekSpeeds = [300, 200, 100];
+
     var interactiveType = "";
 
     var backgroundPlay = false; // background audio playback
@@ -1307,7 +1311,12 @@
     var touchStart = 0;
     // var touchEnd = 0;
     var longTap = false;
+    var longTapExt = false;
+    var longTapExt2 = false;
     var forwardSeek = null;
+
+    var Lt_e = false;
+    var Lt_e2 = false;
 
     function longTapStart(mod, event) {
       if (event.touches.length === 1) {
@@ -1326,35 +1335,53 @@
       touchStart = 0;
       longTap = false;
       forwardSeek = null;
-      /*
-      touchEnd = new Date().getTime();
-      if ((touchEnd - touchStart) >= 1000) { // 1 sec. threshold
-        longTap = true;
-      } else {
-        longTap = false;
-      }*/
     }
 
     setInterval(function() {
       var t = new Date().getTime();
       if (touch && touchStart) {
-        if ((t - touchStart) > 250) {
+        if ((t - touchStart) > fastSeekVal[0]) {
           longTap = true;
+          if ((t - touchStart) > fastSeekVal[1]) {
+            longTapExt = true;
+            if ((t - touchStart) > fastSeekVal[2]) {
+              longTapExt2 = true;
+            }
+          }
         } else {
           longTap = false;
+          longTapExt = false;
+          longTapExt2 = false;
+
+          Lt_e = false;
+          Lt_e2 = false;
         }
       }
     }, 1000/60);
 
-    setInterval(function() {
+    function fastSeekIteration() {
       if (longTap) {
-        if (forwardSeek) {
-          seekForward(null);
-        } else if (forwardSeek === false) {
-          seekBackward(null);
+        if ((longTapExt && !Lt_e) || (longTapExt2 && !Lt_e2)) {
+          clearInterval(fastSeekInt);
+          fastSeekInt = null;
+          if (longTapExt && !Lt_e) {
+            Lt_e = true;
+            fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[1]);
+          } else if (longTapExt2 && !Lt_e2) {
+            Lt_e2 = true;
+            fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[2]);
+          }
+        } else {
+          if (forwardSeek) {
+            seekForward(null);
+          } else if (forwardSeek === false) {
+            seekBackward(null);
+          }
         }
       }
-    }, 300);
+    }
+
+    fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[0]);
 
     function tapHandler(event) {
       if (!event.target.classList.contains("no-tap")) {
