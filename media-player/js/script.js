@@ -1340,6 +1340,10 @@
 
       Lt_e = false;
       Lt_e2 = false;
+
+      clearInterval(fastSeekInt);
+      fastSeekInt = null;
+      fastSeekInt = setInterval(fastSeekIteration, fastSeekSpeeds[0]); // speed 1 seeking
     }
 
     setInterval(function() {
