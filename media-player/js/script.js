@@ -759,6 +759,7 @@
             seeking = true;
             seekingLoad = true;
             if (forwardSkippedTime <= (maxTime - skipTime)) {
+              skipTime = 10;
               forwardSkippedTime += skipTime;
             } else {
               skipTime = 0;
@@ -802,6 +803,7 @@
             seeking = true;
             seekingLoad = true;
             if (backwardSkippedTime <= (maxTime - skipTime)) {
+              skipTime = 10;
               backwardSkippedTime += skipTime;
             } else {
               skipTime = 0;
