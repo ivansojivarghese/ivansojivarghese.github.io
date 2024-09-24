@@ -975,10 +975,13 @@
                 if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
                   
                   const cT = video.currentTime;
+                  var index = targetVideoIndex - 1;
 
                   // potential need to change/downgrade video quality
-                  targetVideo = targetVideoSources[targetVideoIndex - 1];
-                  if (targetVideo) { // if available
+
+                  if (targetVideoSources[index]) { // if available
+                    targetVideo = targetVideoSources[index];
+                    targetVideoIndex = index;
                     video.src = targetVideo.url;
                     video.currentTime = cT;
                     audio.currentTime = cT;
