@@ -991,11 +991,14 @@
           setTimeout(function() {
             video.play().then(function() {
 
+              loading = false;
+
               bufferEndTime = new Date().getTime();
-              if (bufferStartTime !== 0 && !loading) {
-                if (!loading) {
-                  bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
-                }
+
+              if (bufferStartTime !== 0 && !loading && bufferingDetected) {
+                
+                bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+
                 if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
                   
                   var index = targetVideoIndex + 1;
@@ -1030,7 +1033,6 @@
                 controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
               }*/
 
-              loading = false;
               // audio.currentTime = video.currentTime;
 
             }).catch((err) => {
