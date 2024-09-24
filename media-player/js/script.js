@@ -423,7 +423,7 @@
         showVideoControls();
         if (controlsHideInt === null) {
           controlsHideInt = setTimeout(function() { 
-            if (!loading) {
+            if (!loading && !video.paused) {
               hideVideoControls();
             }
           }, 3000); // hide controls after 3 sec. if no activity
