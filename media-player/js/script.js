@@ -976,7 +976,7 @@
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
                 if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
                   
-                  var index = targetVideoIndex - 1;
+                  var index = targetVideoIndex + 1;
                   refSeekTime = video.currentTime;
 
                   // potential need to change/downgrade video quality
