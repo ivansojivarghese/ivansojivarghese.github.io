@@ -1232,6 +1232,7 @@
             if (qualityChange) {
               video.currentTime = refSeekTime;
               // audio.currentTime = refSeekTime;
+              qualityChange = false;
             }
       
             audio.play().then(function () {
