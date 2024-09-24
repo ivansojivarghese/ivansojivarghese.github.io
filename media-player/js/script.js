@@ -1594,11 +1594,11 @@
               pipEnabled = false;
               releaseScreenLock(screenLock);
             });
-            if (!loading) {
+            if (!loading && !videoLoad && !seeking && !seekingLoad) {
               hideVideoControls();
             }
         } else if (video.paused && !videoEnd && video.src !== "") {
-          if (!loading) {
+          if (!loading && !videoLoad && !seeking && !seekingLoad) {
             hideVideoControls();
           }
           // play the video (only when it hasn't ended)
