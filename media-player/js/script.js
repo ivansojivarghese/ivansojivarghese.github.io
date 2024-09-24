@@ -973,8 +973,17 @@
               if (bufferStartTime !== 0) {
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
                 if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
-                  // potential need to change/downgrade video quality
                   
+                  const cT = video.currentTime;
+
+                  // potential need to change/downgrade video quality
+                  targetVideo = targetVideoSources[targetVideoIndex - 1];
+                  if (targetVideo) { // if available
+                    video.src = targetVideo.url;
+                    video.currentTime = cT;
+                    audio.currentTime = cT;
+                  }
+
                 }
               }
 

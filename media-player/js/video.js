@@ -14,6 +14,7 @@ var audioSources = [];
 var supportedVideoSources = [];
 var targetVideoSources = [];
 var targetVideo = null;
+var targetVideoIndex = 0;
 
 const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320]; // supports up to 8K video (for normal dimensions)
 var specialVideoQuality = []; 
@@ -151,6 +152,7 @@ async function getParams(id) {
   supportedVideoSources = [];
   targetVideoSources = [];
   targetVideo = null;
+  targetVideoIndex = 0;
 
   videoStreamScore = 0;
 
@@ -543,12 +545,14 @@ function getOptimalVideo() {
         for (i = 0; i < targetVideoSources.length; i++) {
           if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
             targetVideo = targetVideoSources[i];
+            targetVideoIndex = i;
             break;
           } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
 
             // targetVideo = typeof targetVideoSources[targetQuality + mod] === undefined ? null : targetVideoSources[targetQuality + mod];
             targetVideo = targetVideoSources[i];
-            
+            targetVideoIndex = i;
+
             break;
           }
         }
