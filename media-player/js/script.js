@@ -1034,7 +1034,7 @@
 
               bufferEndTime = new Date().getTime();
 
-              if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit) {
+              if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit && !seeking && !seekingLoad) {
                 
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
 
