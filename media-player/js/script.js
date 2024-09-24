@@ -949,17 +949,18 @@
 
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
-      // if (video.currentTime > minVideoLoad) {
-        bufferCount++;
-        bufferStartTime = new Date().getTime();
-      // }
-      /*
+
+      bufferCount++;
+      bufferStartTime = new Date().getTime();
+      
+      // CHECK FOR LONG BUFFERS
+
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
-      showVideoControls();*/
+      showVideoControls();
 
       loading = true;
 
@@ -982,13 +983,15 @@
       
       bufferCount++;
       bufferStartTime = new Date().getTime();
-      /*
+
+      // CHECK FOR LONG BUFFERS
+      
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
-      showVideoControls();*/
+      showVideoControls();
 
       loading = true;
 
