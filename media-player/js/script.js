@@ -38,6 +38,8 @@
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
+    var networkSpeedInt = null;
+
     var audioCtx;
 
     var playPauseManual = false;
@@ -407,6 +409,7 @@
 
     video.addEventListener('ended', function() {
       playPauseButton.classList.remove('playing');
+      clearInterval(networkSpeedInt);
       // video.currentTime = 0;
       // audio.currentTime = 0;
       videoEnd = true;
@@ -1170,6 +1173,8 @@
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
+
+      networkSpeedInt = setInterval(estimateNetworkSpeed, 3000); 
     });
 
     /*

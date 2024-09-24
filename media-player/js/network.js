@@ -44,4 +44,4 @@ navigator.connection.addEventListener('change', function() {
     estimateNetworkSpeed();
 });
 
-setInterval(estimateNetworkSpeed, 3000); 
+// setInterval(estimateNetworkSpeed, 3000); 
