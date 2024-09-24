@@ -1581,9 +1581,13 @@
               pipEnabled = false;
               releaseScreenLock(screenLock);
             });
-            hideVideoControls();
+            if (!loading) {
+              hideVideoControls();
+            }
         } else if (video.paused && !videoEnd && video.src !== "") {
-          hideVideoControls();
+          if (!loading) {
+            hideVideoControls();
+          }
           // play the video (only when it hasn't ended)
           audio.play().then(function () {
             // audioCtx = new AudioContext();
