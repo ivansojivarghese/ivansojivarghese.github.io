@@ -1030,6 +1030,8 @@
           setTimeout(function() {
             video.play().then(function() {
 
+              hideVideoControls();
+
               loading = false;
               if (videoLoad) {
                 videoLoad = false;
