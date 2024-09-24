@@ -1025,6 +1025,8 @@
 
                     video.src = targetVideo.url; // 'loadstart'
 
+                    console.log(bufferingTimes);
+
                     // video.currentTime = cT; // @ 'canplay'
                     // audio.currentTime = cT;
                   }
