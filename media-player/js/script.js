@@ -73,6 +73,9 @@
     var bufferingCountLoop = null;
     var bufferingTimes = [];
 
+    var bufferLimits = [100, 500]; // ms. limits for buffering [successive 3 times, single time]
+    var bufferLimitC = 3;
+
     var bufferStartTime = 0;
     var bufferEndTime = 0;
 
@@ -648,7 +651,7 @@
     var audioStall = false;
     var audioDiffMax = 5;
 
-    function checkAudioLatency(mArr, t) {
+    function checkLatency(mArr, t) {
       if (mArr.length < t) {
         return false;
       } else {
@@ -668,19 +671,14 @@
       var aT = audio.currentTime;
       var vT = video.currentTime;
       var diff = vT - aT;
-      /*
-      if (diff > 0.1) { // PAUSE AND PLAY
-        
-      } else if (diff > 0.05) { // MONITOR AND CONDITION (based on audioLatency)
-
-      } */
 
       audioLatencyArr[audioLatencyArr.length] = diff;
       audioTimes[audioTimes.length] = aT;
+      videoTimes[videoTimes.length] = vT;
 
       if (!video.paused && !seekingLoad && !videoEnd) {
-        // if (audioTimes[audioTimes.length - 1] === audioTimes[audioTimes.length - 2] && audioTimes[audioTimes.length - 2] === audioTimes[audioTimes.length - 3] && audioTimes[audioTimes.length - 3] === audioTimes[audioTimes.length - 4] && audioTimes[audioTimes.length - 4] === audioTimes[audioTimes.length - 5]) { // IF AUDIO STALLED
-        if (checkAudioLatency(audioTimes, audioDiffMax) && video.currentTime > minVideoLoad) {
+        
+        if (checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax) && video.currentTime > minVideoLoad) { // only buffer when audio has stalled
           bufferCount++;
           bufferStartTime = new Date().getTime();
 
@@ -951,6 +949,20 @@
       videoPause = false;
     });*/
 
+    function bufferExceedSuccessive(bArr, t, c) {
+      var count = 0;
+      for (var j = bArr.length - 1; j >= 0; j--) {
+        if (bArr[j] < t) {
+          return false;
+        } else if (count < c) {
+          count++;
+          if (count === c) {
+            return true;
+          }
+        }
+      }
+    }
+
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
         audio.play().then(function() {
@@ -960,6 +972,10 @@
               bufferEndTime = new Date().getTime();
               if (bufferStartTime !== 0) {
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+                if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
+                  // potential need to change/downgrade video quality
+                  
+                }
               }
 
               videoPause = true;
@@ -1544,7 +1560,7 @@
         fitscreenButton.style.display = "none";
       } else {
         fitscreenButton.style.display = "block";
-        
+
         if (video.requestPictureInPicture) {
           if (!document.fullscreenElement) {
             pipButton.style.display = "block";

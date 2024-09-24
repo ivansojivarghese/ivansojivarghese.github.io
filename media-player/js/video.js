@@ -34,6 +34,7 @@ var audioLatency = 0;
 var audioLatencyArr = [];
 
 var audioTimes = [];
+var videoTimes = [];
 
 var firstPlay = true;
 
@@ -157,6 +158,7 @@ async function getParams(id) {
   audioLatencyArr = [];
 
   audioTimes = [];
+  videoTimes = [];
 
   priorityQuality = 0;
   targetQuality = 0;
