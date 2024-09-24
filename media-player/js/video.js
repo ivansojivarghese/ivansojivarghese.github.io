@@ -357,6 +357,8 @@ function getOptimalQuality() {
 
       // REORDER SUPPORTED VIDEOS BASED ON PRIORITY OF (FASTEST) NETWORK SPEEDS
 
+      var tempQuality = 0;
+
       if (networkSpeed < 0.5) {
         // SD - 144p
         priorityQuality = 0;
@@ -487,12 +489,18 @@ function getOptimalQuality() {
       videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
 
       // TARGET QUALITY
-      targetQuality = Math.round(videoStreamScore * priorityQuality);
-      if (targetQuality > (videoQuality.length - 1)) {
-        targetQuality = videoQuality.length - 1;
+      if (!videoLoad) {
+        targetQuality = Math.round(videoStreamScore * priorityQuality);
+        if (targetQuality > (videoQuality.length - 1)) {
+          targetQuality = videoQuality.length - 1;
+        }
+      } else {
+        tempQuality = Math.round(videoStreamScore * priorityQuality);
+        if (tempQuality > (videoQuality.length - 1)) {
+          tempQuality = videoQuality.length - 1;
+        }
+        return tempQuality;
       }
-
-      return targetQuality;
 }
 
 function getOptimalVideo() {
