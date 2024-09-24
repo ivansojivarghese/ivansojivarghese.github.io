@@ -64,6 +64,7 @@
 
     var backgroundPlay = false; // background audio playback
     var pipEnabled = false;
+    var backgroundPlayInit = false;
 
     // REFERENCE: https://stackoverflow.com/questions/21399872/how-to-detect-whether-html5-video-has-paused-for-buffering
     var checkInterval  = 50.0; // check every 50 ms (do not use lower values)
@@ -390,6 +391,7 @@
         videoPause = false;
       } else {
         backgroundPlay = true;
+        backgroundPlayInit = true;
       }
       if (!audioVideoAligning) {
         playPauseButton.classList.remove('playing');
@@ -913,6 +915,9 @@
         }
         setTimeout(function() {
             video.classList.remove('seeking');
+            if (!audio.paused && !pipEnabled && document.visibilityState === 'visible') {
+              backgroundPlayInit = false;
+            }
         }, 300);
     });
     
@@ -1029,7 +1034,7 @@
 
               bufferEndTime = new Date().getTime();
 
-              if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected) {
+              if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit) {
                 
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
 
