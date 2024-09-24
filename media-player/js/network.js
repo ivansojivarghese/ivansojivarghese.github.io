@@ -39,4 +39,9 @@ function getNetworkInfo() {
 
 getNetworkInfo();
 
-navigator.connection.addEventListener('change', getNetworkInfo);
+navigator.connection.addEventListener('change', function() {
+    getNetworkInfo();
+    estimateNetworkSpeed();
+});
+
+setInterval(estimateNetworkSpeed, 3000); 

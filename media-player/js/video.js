@@ -351,33 +351,8 @@ async function getParams(id) {
   }
 }
 
-function getOptimalVideo() {
-
-  // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
-
-  if (videoDetails.error === undefined) {
-
-  for (i = 0; i <= videoDetails.adaptiveFormats.length - 1; i++) {
-    if (videoDetails.adaptiveFormats[i].audioQuality === undefined) { // video
-      videoSources[videoSources.length] = videoDetails.adaptiveFormats[i];
-    } else { // audio
-      audioSources[audioSources.length] = videoDetails.adaptiveFormats[i];
-    }
-  }
-
-  (async function checkSupports() {
-    for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
-      await videoSourceCheck(j);
-    }
-  })();
-
-  videoSupportLoop = setInterval(function() {
-
-    if (supportedVideoSources.length) {
-
-      clearInterval(videoSupportLoop);
-
-      // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
+function getOptimalQuality() {
+  // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
       // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
 
       // REORDER SUPPORTED VIDEOS BASED ON PRIORITY OF (FASTEST) NETWORK SPEEDS
@@ -516,6 +491,35 @@ function getOptimalVideo() {
       if (targetQuality > (videoQuality.length - 1)) {
         targetQuality = videoQuality.length - 1;
       }
+}
+
+function getOptimalVideo() {
+
+  // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
+
+  if (videoDetails.error === undefined) {
+
+  for (i = 0; i <= videoDetails.adaptiveFormats.length - 1; i++) {
+    if (videoDetails.adaptiveFormats[i].audioQuality === undefined) { // video
+      videoSources[videoSources.length] = videoDetails.adaptiveFormats[i];
+    } else { // audio
+      audioSources[audioSources.length] = videoDetails.adaptiveFormats[i];
+    }
+  }
+
+  (async function checkSupports() {
+    for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
+      await videoSourceCheck(j);
+    }
+  })();
+
+  videoSupportLoop = setInterval(function() {
+
+    if (supportedVideoSources.length) {
+
+      clearInterval(videoSupportLoop);
+
+      getOptimalQuality();
 
       // GET THE VIDEO
       var mod = 0;
@@ -574,25 +578,12 @@ function getOptimalVideo() {
             }
           }
 
-          /*
-          if ((targetQuality + mod) > 4 && (targetQuality + mod) <= 8) {
-            mod--;
-          } else if ((targetQuality + mod) >= 0 && (targetQuality + mod) <= 4) {
-            mod++;
-          }*/
-          /*
-          if (fetchedSources.includes(targetQuality + mod)) {
-            // CHOOSE THE LOWEST AVAILABLE QUALITY FIRST
-            targetVideo = targetVideoSources[targetVideoSources.length - 1];
-            break;
-          }*/
-
         }
       }
-
+      /*
       const videoWidth = targetVideo.width;
       const videoHeight = targetVideo.height;
-      videoSizeRatio = videoWidth / videoHeight;
+      videoSizeRatio = videoWidth / videoHeight;*/
 
       // video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
       video.src = targetVideo.url;
