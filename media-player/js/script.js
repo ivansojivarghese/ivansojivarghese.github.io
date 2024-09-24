@@ -972,7 +972,7 @@
             video.play().then(function() {
 
               bufferEndTime = new Date().getTime();
-              if (bufferStartTime !== 0) {
+              if (bufferStartTime !== 0 && !loading) {
                 if (!loading) {
                   bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
                 }
