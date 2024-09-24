@@ -84,6 +84,8 @@
 
     var videoEnd = false;
 
+    var qualityChange = false;
+
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
         currentPlayPos = video.currentTime;
@@ -974,17 +976,23 @@
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
                 if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
                   
-                  const cT = video.currentTime;
                   var index = targetVideoIndex - 1;
+                  refSeekTime = video.currentTime;
 
                   // potential need to change/downgrade video quality
 
                   if (targetVideoSources[index]) { // if available
                     targetVideo = targetVideoSources[index];
                     targetVideoIndex = index;
-                    video.src = targetVideo.url;
-                    video.currentTime = cT;
-                    audio.currentTime = cT;
+                    video.pause();
+                    audio.pause(); // pause content
+
+                    qualityChange = true;
+
+                    video.src = targetVideo.url; // 'loadstart'
+
+                    // video.currentTime = cT; // @ 'canplay'
+                    // audio.currentTime = cT;
                   }
 
                 }
@@ -1099,6 +1107,7 @@
 
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
+      showVideoControls();
 
       loading = true;
 
@@ -1219,6 +1228,11 @@
       
             // audio.play();
             // video.play();
+
+            if (qualityChange) {
+              video.currentTime = refSeekTime;
+              // audio.currentTime = refSeekTime;
+            }
       
             audio.play().then(function () {
               audioCtx = new AudioContext();

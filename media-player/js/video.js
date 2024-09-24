@@ -39,6 +39,8 @@ var videoTimes = [];
 
 var firstPlay = true;
 
+var refSeekTime = 0;
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -146,6 +148,8 @@ async function getParams(id) {
 
   videoSources = [];
   audioSources = [];
+
+  refSeekTime = 0;
 
   specialVideoQuality = [];
 
