@@ -514,8 +514,10 @@
       setTimeout(function() {
         videoControls.classList.add('visible_ready');
       }, 200);
-      videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
-      videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
+      if (!qualityChange) {
+        videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
+        videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
+      }
     }
 
     function hideVideoControls() {
@@ -907,11 +909,12 @@
           videoContainer.style.width = (rawHeight * videoSizeRatio) + "px"; 
         }*/
 
-        videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
-        videoProgressBar.style.transform = `scaleX(${
-          video.currentTime / video.duration
-        })`;
-
+        if (!qualityChange) {
+          videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
+          videoProgressBar.style.transform = `scaleX(${
+            video.currentTime / video.duration
+          })`;
+        }
     });
 
     
