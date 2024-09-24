@@ -1537,3 +1537,10 @@
     },
       { capture: true }
     );
+
+    window.addEventListener("resize", function() {
+      if ((window.innerWidth < 500 && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) || (window.innerHeight < 500 && (screen.orientation.angle === 90 || screen.orientation.angle === 270))) {
+        pipButton.style.display = "none";
+        fitscreenButton.style.display = "none";
+      }
+    });
