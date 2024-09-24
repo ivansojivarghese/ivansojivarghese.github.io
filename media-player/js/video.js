@@ -491,6 +491,8 @@ function getOptimalQuality() {
       if (targetQuality > (videoQuality.length - 1)) {
         targetQuality = videoQuality.length - 1;
       }
+
+      return targetQuality;
 }
 
 function getOptimalVideo() {
