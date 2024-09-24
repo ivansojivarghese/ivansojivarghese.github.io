@@ -973,7 +973,9 @@
 
               bufferEndTime = new Date().getTime();
               if (bufferStartTime !== 0) {
-                bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+                if (!loading) {
+                  bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+                }
                 if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
                   
                   var index = targetVideoIndex + 1;
@@ -1211,7 +1213,7 @@
             //console.log("video-play");
             // END LOAD
 
-            loading = false;
+            // loading = false;
 
             endLoad();
             
