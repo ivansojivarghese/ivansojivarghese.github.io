@@ -1041,8 +1041,10 @@
                 if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
                   
                   var newTargetQuality = getOptimalQuality();
-                  
                   var index = targetVideoIndex + 1;
+
+                  console.log("new: " + newTargetQuality + ", old: " + targetQuality);
+
                   refSeekTime = video.currentTime;
 
                   // potential need to change/downgrade video quality
