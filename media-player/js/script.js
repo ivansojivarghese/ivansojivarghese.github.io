@@ -706,7 +706,7 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused && !seekingLoad && !videoEnd) {
+      if (!video.paused && !seekingLoad && !videoEnd && !loading) {
         
         if (checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax) && video.currentTime > minVideoLoad) { // only buffer when audio has stalled
           bufferCount++;
