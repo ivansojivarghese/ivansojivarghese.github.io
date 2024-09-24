@@ -47,6 +47,7 @@
     var appUnload = false;
 
     var loading = false;
+    var videoLoad = false;
 
     var seeking = false;
     var seekingLoad = false;
@@ -752,7 +753,9 @@
                 }
 
                 // hideVideoControls();
-      
+                if (videoLoad) {
+                  videoLoad = false;
+                }
                 videoPause = true;
                 loading = false;
                 audio.currentTime = video.currentTime;
@@ -992,6 +995,9 @@
             video.play().then(function() {
 
               loading = false;
+              if (videoLoad) {
+                videoLoad = false;
+              }
 
               bufferEndTime = new Date().getTime();
 
@@ -1134,6 +1140,7 @@
       showVideoControls();
 
       loading = true;
+      videoLoad = true;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
