@@ -133,43 +133,42 @@ async function videoSourceCheck(i) {
   });
 }
 
-async function getParams(id) {
-  let params = new URLSearchParams(document.location.search);
-  const link = params.get("description"); 
-
+function resetVariables() {
+  // VARIABLE ACROSS DIFF. VIDEO SOURCES WITHIN A VIDEO FILE
   clearInterval(bufferingCountLoop);
   bufferingCountLoop = null;
   bufferCount = 0;
   bufferingCount = [];
   bufferingTimes = [];
-
   bufferStartTime = 0;
   bufferEndTime = 0;
+  firstPlay = true;
+}
 
+async function getParams(id) {
+  let params = new URLSearchParams(document.location.search);
+  const link = params.get("description"); 
+
+  resetVariables();
+
+  // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
   videoSources = [];
   audioSources = [];
-
-  refSeekTime = 0;
-
   specialVideoQuality = [];
-
   supportedVideoSources = [];
   targetVideoSources = [];
-  targetVideo = null;
-  targetVideoIndex = 0;
-
-  videoStreamScore = 0;
-
-  audioLatency = 0;
-  audioLatencyArr = [];
-
   audioTimes = [];
   videoTimes = [];
+  audioLatency = 0;
+  audioLatencyArr = [];
+  refSeekTime = 0;
 
+  // COULD CHANGE | UNDETERMINED (TBA)
   priorityQuality = 0;
   targetQuality = 0;
-
-  firstPlay = true;
+  targetVideo = null;
+  targetVideoIndex = 0;
+  videoStreamScore = 0;
 
   if (link !== null && id === null) {
     

@@ -886,6 +886,28 @@
     video.addEventListener('seeked', function() {
         seekingLoad = false;
         // hideVideoControls();
+        if (qualityChange) {
+          qualityChange = false;
+          endLoad();
+          setTimeout(function() {
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+            // reset the loader
+            setTimeout(function() {
+              resetLoad();
+            }, 10);
+          }, 1000);
+          updatePositionState();
+        
+          // START BUFFERING CHECK
+    
+          bufferingCountLoop = setInterval(function() {
+            if (bufferCount > 0) {
+              bufferingCount[bufferingCount.length] = bufferCount;
+            }
+            bufferCount = 0;
+          }, 1000);
+        }
         setTimeout(function() {
             video.classList.remove('seeking');
         }, 300);
@@ -1025,10 +1047,7 @@
 
                     video.src = targetVideo.url; // 'loadstart'
 
-                    console.log(bufferingTimes);
-
-                    // video.currentTime = cT; // @ 'canplay'
-                    // audio.currentTime = cT;
+                    // console.log(bufferingTimes);
                   }
 
                 }
@@ -1244,81 +1263,65 @@
     }
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
-            //console.log("video-play");
-            // END LOAD
-
-            // loading = false;
-
-            endLoad();
-            
-            setTimeout(function() {
-              loadingRing.style.display = "none";
-              playPauseButton.style.display = "block";
-
-              // reset the loader
-              setTimeout(function() {
-                resetLoad();
-              }, 10);
-
-            }, 1000);
-      
-            // audio.play();
-            // video.play();
 
             if (qualityChange) {
+
+              resetVariables();
+
               video.currentTime = refSeekTime;
               // audio.currentTime = refSeekTime;
-              qualityChange = false;
-            }
-      
-            audio.play().then(function () {
-              audioCtx = new AudioContext();
+
+            } else { 
+
+              endLoad();
+              
               setTimeout(function() {
-                video.play().then(function() {
-                  videoPause = true;
-      
-                  if (audioVideoAlignInt !== null) {
-                    clearInterval(audioVideoAlignInt);
-                    audioVideoAlignInt = null;
-                  }
-                  audioVideoAlignInt = setInterval(audioVideoAlign, 100);
-      
-                }).catch((err) => {
-                  audio.pause();
-                  video.pause();
-                  videoPause = false;
-      
-                  if (audioVideoAlignInt !== null) {
-                    clearInterval(audioVideoAlignInt);
-                    audioVideoAlignInt = null;
-                  }
-                });
-              }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-            });
-            
-            /*
-            setTimeout(function() {
-              if (audio.currentTime !== video.currentTime) {
-                audio.currentTime = video.currentTime;
-              }
-            }, 100);*/
-            /*
-            if (audioVideoAlignInt !== null) {
-              clearInterval(audioVideoAlignInt);
-              audioVideoAlignInt = null;
+                loadingRing.style.display = "none";
+                playPauseButton.style.display = "block";
+
+                // reset the loader
+                setTimeout(function() {
+                  resetLoad();
+                }, 10);
+
+              }, 1000);
+
+              audio.play().then(function () {
+                audioCtx = new AudioContext();
+                setTimeout(function() {
+                  video.play().then(function() {
+                    videoPause = true;
+        
+                    if (audioVideoAlignInt !== null) {
+                      clearInterval(audioVideoAlignInt);
+                      audioVideoAlignInt = null;
+                    }
+                    audioVideoAlignInt = setInterval(audioVideoAlign, 100);
+        
+                  }).catch((err) => {
+                    audio.pause();
+                    video.pause();
+                    videoPause = false;
+        
+                    if (audioVideoAlignInt !== null) {
+                      clearInterval(audioVideoAlignInt);
+                      audioVideoAlignInt = null;
+                    }
+                  });
+                }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+              });
+        
+              updatePositionState();
+        
+              // START BUFFERING CHECK
+        
+              bufferingCountLoop = setInterval(function() {
+                if (bufferCount > 0) {
+                  bufferingCount[bufferingCount.length] = bufferCount;
+                }
+                bufferCount = 0;
+              }, 1000);
             }
-            audioVideoAlignInt = setInterval(audioVideoAlign, 100);*/
-      
-            updatePositionState();
-      
-            // START BUFFERING CHECK
-      
-            bufferingCountLoop = setInterval(function() {
-              if (bufferCount > 0) {
-                bufferingCount[bufferingCount.length] = bufferCount;
-              }
-              bufferCount = 0;
-            }, 1000);
     })
 
     video.addEventListener('timeupdate', function() {
