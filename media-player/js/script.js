@@ -55,6 +55,8 @@
     var fastSeekVal = [1000, 5000, 10000]; // min. tap-hold times for each speed state
     var fastSeekSpeeds = [300, 200, 50]; // fast seeking intervals
 
+    var minVideoLoad = 3; // min. sec. for video to exit init load stage
+
     var interactiveType = "";
 
     var backgroundPlay = false; // background audio playback
@@ -644,6 +646,7 @@
     }
 
     var audioStall = false;
+    var audioDiffMax = 5;
 
     function checkAudioLatency(mArr, t) {
       if (mArr.length < t) {
@@ -677,7 +680,7 @@
 
       if (!video.paused && !seekingLoad && !videoEnd) {
         // if (audioTimes[audioTimes.length - 1] === audioTimes[audioTimes.length - 2] && audioTimes[audioTimes.length - 2] === audioTimes[audioTimes.length - 3] && audioTimes[audioTimes.length - 3] === audioTimes[audioTimes.length - 4] && audioTimes[audioTimes.length - 4] === audioTimes[audioTimes.length - 5]) { // IF AUDIO STALLED
-        if (checkAudioLatency(audioTimes, 10)) {
+        if (checkAudioLatency(audioTimes, audioDiffMax) && video.currentTime > minVideoLoad) {
           bufferCount++;
           bufferStartTime = new Date().getTime();
 
@@ -890,10 +893,10 @@
 
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
-      if (video.currentTime > 3) {
+      // if (video.currentTime > minVideoLoad) {
         bufferCount++;
         bufferStartTime = new Date().getTime();
-      }
+      // }
       /*
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
@@ -1244,7 +1247,7 @@
         updatePositionState();
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
-        if (video.currentTime > 3) {
+        if (video.currentTime > minVideoLoad) {
           videoEnd = false;
         }
         if (!videoControls.classList.contains('visible')) {
