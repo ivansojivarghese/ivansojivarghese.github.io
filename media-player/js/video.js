@@ -144,6 +144,13 @@ function resetVariables() {
   bufferEndTime = 0;
   bufferMode = false;
   firstPlay = true;
+
+  // COULD CHANGE | UNDETERMINED (TBA)
+  priorityQuality = 0;
+  targetQuality = 0;
+  targetVideo = null;
+  targetVideoIndex = 0;
+  videoStreamScore = 0;
 }
 
 async function getParams(id) {
@@ -163,13 +170,6 @@ async function getParams(id) {
   audioLatency = 0;
   audioLatencyArr = [];
   refSeekTime = 0;
-
-  // COULD CHANGE | UNDETERMINED (TBA)
-  priorityQuality = 0;
-  targetQuality = 0;
-  targetVideo = null;
-  targetVideoIndex = 0;
-  videoStreamScore = 0;
 
   if (link !== null && id === null) {
     
@@ -504,6 +504,69 @@ function getOptimalQuality() {
       }
 }
 
+function getVideoFromIndex() {
+
+  // GET THE VIDEO
+  var mod = 0;
+  var reverse = false;
+  var fetchedSources = [];
+  var normalVid = false;
+  targetVideoSources = supportedVideoSources;
+
+  for (i = 0; i < targetVideoSources.length; i++) { // CHECK IF VIDEO HAS NORMAL RES. (HEIGHT)
+    if (videoQuality.includes(targetVideoSources[i].height)) {
+      normalVid = true;
+      break;
+    }
+  }
+
+  if (!normalVid) {
+    var specialQuality = 0;
+    for (j = 0; j < targetVideoSources.length; j++) {
+      if (!specialVideoQuality.includes(targetVideoSources[j].height)) {
+        specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
+      }
+    }
+    specialVideoQuality.reverse();
+  }
+
+  while (targetVideo === null) {
+    if (!normalVid) {
+      specialQuality = Math.round(((targetQuality + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
+    }
+    for (i = 0; i < targetVideoSources.length; i++) {
+      if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
+        targetVideo = targetVideoSources[i];
+        targetVideoIndex = i;
+        break;
+      } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
+
+        // targetVideo = typeof targetVideoSources[targetQuality + mod] === undefined ? null : targetVideoSources[targetQuality + mod];
+        targetVideo = targetVideoSources[i];
+        targetVideoIndex = i;
+
+        break;
+      }
+    }
+    // console.log(targetQuality + mod);
+    if (targetVideo === null) {
+      var quality = normalVid ? targetQuality + mod : specialQuality;
+      fetchedSources[fetchedSources.length] = normalVid ? targetQuality + mod : specialQuality;
+      if ((quality) > 0 && !reverse) {
+        mod--;
+      } else {
+        if (!reverse) {
+          mod = 1;
+          reverse = true;
+        } else {
+          mod++;
+        }
+      }
+
+    }
+  }
+}
+
 function getOptimalVideo() {
 
   // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
@@ -532,71 +595,8 @@ function getOptimalVideo() {
 
       getOptimalQuality();
 
-      // GET THE VIDEO
-      var mod = 0;
-      var reverse = false;
-      var fetchedSources = [];
-      var normalVid = false;
-      targetVideoSources = supportedVideoSources;
+      getVideoFromIndex();
 
-      for (i = 0; i < targetVideoSources.length; i++) { // CHECK IF VIDEO HAS NORMAL RES. (HEIGHT)
-        if (videoQuality.includes(targetVideoSources[i].height)) {
-          normalVid = true;
-          break;
-        }
-      }
-
-      if (!normalVid) {
-        var specialQuality = 0;
-        for (j = 0; j < targetVideoSources.length; j++) {
-          if (!specialVideoQuality.includes(targetVideoSources[j].height)) {
-            specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
-          }
-        }
-        specialVideoQuality.reverse();
-      }
-
-      while (targetVideo === null) {
-        if (!normalVid) {
-          specialQuality = Math.round(((targetQuality + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
-        }
-        for (i = 0; i < targetVideoSources.length; i++) {
-          if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
-            targetVideo = targetVideoSources[i];
-            targetVideoIndex = i;
-            break;
-          } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
-
-            // targetVideo = typeof targetVideoSources[targetQuality + mod] === undefined ? null : targetVideoSources[targetQuality + mod];
-            targetVideo = targetVideoSources[i];
-            targetVideoIndex = i;
-
-            break;
-          }
-        }
-        // console.log(targetQuality + mod);
-        if (targetVideo === null) {
-          var quality = normalVid ? targetQuality + mod : specialQuality;
-          fetchedSources[fetchedSources.length] = normalVid ? targetQuality + mod : specialQuality;
-          if ((quality) > 0 && !reverse) {
-            mod--;
-          } else {
-            if (!reverse) {
-              mod = 1;
-              reverse = true;
-            } else {
-              mod++;
-            }
-          }
-
-        }
-      }
-      /*
-      const videoWidth = targetVideo.width;
-      const videoHeight = targetVideo.height;
-      videoSizeRatio = videoWidth / videoHeight;*/
-
-      // video.poster = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url;
       video.src = targetVideo.url;
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
@@ -607,10 +607,6 @@ function getOptimalVideo() {
           artist: videoDetails.channelTitle,
           // album: '',
           artwork: [
-            /*{ src: videoDetails.thumbnail[0].url,   sizes: videoDetails.thumbnail[0].width+'x'+videoDetails.thumbnail[0].height, type: 'image/jpg' },
-            { src: videoDetails.thumbnail[1].url,   sizes: videoDetails.thumbnail[1].width+'x'+videoDetails.thumbnail[1].height, type: 'image/jpg' },
-            { src: videoDetails.thumbnail[2].url,   sizes: videoDetails.thumbnail[2].width+'x'+videoDetails.thumbnail[2].height, type: 'image/jpg' },*/
-
             { src: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url,   sizes: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].width+'x'+videoDetails.thumbnail[videoDetails.thumbnail.length - 1].height, type: 'image/jpg' }
           ]
         });

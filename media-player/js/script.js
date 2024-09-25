@@ -1038,7 +1038,7 @@
         liveBufferVal[liveBufferIndex] = elapsedTime;
         if ((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) {
 
-          // CONFIRM THE CODE BELOW @Line 1085
+          getVideoFromBuffer();
         }
         bufferModeExe = true;
       } else if (!bufferMode && bufferModeExe) {
@@ -1058,6 +1058,36 @@
             return true;
           }
         }
+      }
+    }
+
+    function getVideoFromBuffer() {
+
+      var index = 0;
+      var mod = 1;
+      var newTargetQuality = getOptimalQuality();
+      if (newTargetQuality === targetQuality) { // if same quality rating as previous
+        do { // ensure that same res. is not picked again
+          index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
+          mod++;
+        } while (targetVideoSources[index].height === targetVideo.height && targetVideoSources[index]);
+      } else { // otherwise, if different quality rating
+
+        targetQuality = newTargetQuality;
+        getVideoFromIndex(); // loop qualities to get video again
+      }
+      refSeekTime = video.currentTime;
+
+      if (targetVideoSources[index]) { // if available
+        targetVideo = targetVideoSources[index];
+        targetVideoIndex = index;
+        video.pause();
+        audio.pause(); // pause content
+
+        qualityChange = true;
+
+        video.src = targetVideo.url; // 'loadstart'
+
       }
     }
 
@@ -1095,29 +1125,7 @@
 
                 if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
                   
-                  var newTargetQuality = getOptimalQuality();
-                  var index = targetVideoIndex + 1;
-
-                  console.log("new: " + newTargetQuality + ", old: " + targetQuality);
-
-                  // UPDATE targetQuality with newTargetQuality value
-
-                  refSeekTime = video.currentTime;
-
-                  // potential need to change/downgrade video quality
-
-                  if (targetVideoSources[index]) { // if available
-                    targetVideo = targetVideoSources[index];
-                    targetVideoIndex = index;
-                    video.pause();
-                    audio.pause(); // pause content
-
-                    qualityChange = true;
-
-                    video.src = targetVideo.url; // 'loadstart'
-
-                  }
-
+                  getVideoFromBuffer();
                 }
               }
 
