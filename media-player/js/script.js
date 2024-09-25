@@ -1067,7 +1067,20 @@
           setTimeout(function() {
             video.play().then(function() {
 
-              hideVideoControls();
+              endLoad();
+              
+              setTimeout(function() {
+                loadingRing.style.display = "none";
+                playPauseButton.style.display = "block";
+
+                hideVideoControls();
+
+                // reset the loader
+                setTimeout(function() {
+                  resetLoad();
+                }, 10);
+
+              }, 1000);
 
               loading = false;
               if (videoLoad) {
@@ -1086,6 +1099,8 @@
                   var index = targetVideoIndex + 1;
 
                   console.log("new: " + newTargetQuality + ", old: " + targetQuality);
+
+                  // UPDATE targetQuality with newTargetQuality value
 
                   refSeekTime = video.currentTime;
 
