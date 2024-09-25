@@ -142,6 +142,7 @@ function resetVariables() {
   bufferingTimes = [];
   bufferStartTime = 0;
   bufferEndTime = 0;
+  bufferMode = false;
   firstPlay = true;
 }
 

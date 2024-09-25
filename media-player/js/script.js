@@ -39,6 +39,7 @@
     var backwardSkippedTime = 0;
 
     var networkSpeedInt = null;
+    var bufferInt = null;
 
     var audioCtx;
 
@@ -76,6 +77,7 @@
     var bufferingCount = [];
     var bufferingCountLoop = null;
     var bufferingTimes = [];
+    var bufferMode = false;
 
     var bufferLimits = [100, 500]; // ms. limits for buffering [successive 3 times, single time]
     var bufferLimitC = 3;
@@ -342,7 +344,15 @@
     });
 
     video.addEventListener('play', function () {
+
       // videoEnd = false;
+      if (networkSpeedInt === null) {
+        networkSpeedInt = setInterval(estimateNetworkSpeed, 3000); 
+      }
+      if (bufferInt === null) {
+        bufferInt = setInterval(liveBuffer, 1000/60);
+      }
+
       if (!playPauseManual) {
         audio.play().then(function() {
           if (videoEnd) {
@@ -412,6 +422,9 @@
     video.addEventListener('ended', function() {
       playPauseButton.classList.remove('playing');
       clearInterval(networkSpeedInt);
+      networkSpeedInt = null;
+      clearInterval(bufferInt);
+      bufferInt = null;
       // video.currentTime = 0;
       // audio.currentTime = 0;
       videoEnd = true;
@@ -711,6 +724,7 @@
         if (checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax) && video.currentTime > minVideoLoad) { // only buffer when audio has stalled
           bufferCount++;
           bufferStartTime = new Date().getTime();
+          bufferMode = true;
 
           console.log("audioVideoAlign: paused");
 
@@ -754,6 +768,7 @@
             setTimeout(function() {
               video.play().then(function() {
 
+                bufferMode = false;
                 bufferEndTime = new Date().getTime();
                 if (bufferStartTime !== 0) {
                   bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
@@ -952,6 +967,7 @@
 
       bufferCount++;
       bufferStartTime = new Date().getTime();
+      bufferMode = true;
       
       // CHECK FOR LONG BUFFERS
 
@@ -983,6 +999,7 @@
       
       bufferCount++;
       bufferStartTime = new Date().getTime();
+      bufferMode = true;
 
       // CHECK FOR LONG BUFFERS
       
@@ -1010,6 +1027,26 @@
       videoPause = false;
     });*/
 
+    var liveBufferVal = [];
+    var liveBufferIndex = 0;
+    var bufferModeExe = false;
+
+    function liveBuffer() {
+      if (bufferMode) {
+        var currentTime = new Date().getTime();
+        var elapsedTime = currentTime - bufferStartTime;
+        liveBufferVal[liveBufferIndex] = elapsedTime;
+        if ((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) {
+
+          // CONFIRM THE CODE BELOW @Line 1085
+        }
+        bufferModeExe = true;
+      } else if (!bufferMode && bufferModeExe) {
+        liveBufferIndex++;
+        bufferModeExe = false;
+      }
+    }
+
     function bufferExceedSuccessive(bArr, t, c) {
       var count = 0;
       for (var j = bArr.length - 1; j >= 0; j--) {
@@ -1036,7 +1073,7 @@
               if (videoLoad) {
                 videoLoad = false;
               }
-
+              bufferMode = false;
               bufferEndTime = new Date().getTime();
 
               if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit && !seeking && !seekingLoad) {
@@ -1064,7 +1101,6 @@
 
                     video.src = targetVideo.url; // 'loadstart'
 
-                    // console.log(bufferingTimes);
                   }
 
                 }
@@ -1187,6 +1223,7 @@
       playPauseButton.style.display = "none";
 
       networkSpeedInt = setInterval(estimateNetworkSpeed, 3000); 
+      bufferInt = setInterval(liveBuffer, 1000/60);
     });
 
     /*
