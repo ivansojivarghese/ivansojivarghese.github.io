@@ -1248,7 +1248,7 @@
       playPauseButton.style.display = "none";
 
       if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
+        networkSpeedInt = setInterval(estimateNetworkSpeed, 60000); 
       }
       if (bufferInt === null) {
         bufferInt = setInterval(liveBuffer, 1000/60);
