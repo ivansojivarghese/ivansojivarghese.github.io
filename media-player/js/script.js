@@ -1212,6 +1212,8 @@
       
       // START LOAD
 
+      getScreenLock();
+
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
       showVideoControls();
