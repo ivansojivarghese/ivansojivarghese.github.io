@@ -347,7 +347,7 @@
 
       // videoEnd = false;
       if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 3000); 
+        networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
       }
       if (bufferInt === null) {
         bufferInt = setInterval(liveBuffer, 1000/60);
@@ -1247,7 +1247,7 @@
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
 
-      networkSpeedInt = setInterval(estimateNetworkSpeed, 3000); 
+      networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
       bufferInt = setInterval(liveBuffer, 1000/60);
     });
 
