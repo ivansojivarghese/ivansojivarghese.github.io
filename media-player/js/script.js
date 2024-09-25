@@ -1034,8 +1034,10 @@
     function liveBuffer() {
       if (bufferMode) {
         var currentTime = new Date().getTime();
-        var elapsedTime = currentTime - bufferStartTime;
-        liveBufferVal[liveBufferIndex] = elapsedTime;
+        if (bufferStartTime !== 0) {
+          var elapsedTime = currentTime - bufferStartTime;
+          liveBufferVal[liveBufferIndex] = elapsedTime;
+        }
         if ((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) {
 
           getVideoFromBuffer();
@@ -1248,7 +1250,7 @@
       playPauseButton.style.display = "none";
 
       if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 60000); 
+        networkSpeedInt = setInterval(estimateNetworkSpeed, 30000); 
       }
       if (bufferInt === null) {
         bufferInt = setInterval(liveBuffer, 1000/60);
