@@ -1040,7 +1040,13 @@
         }
         if ((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) {
 
+          liveBufferVal = [];
+          liveBufferIndex = 0;
+          bufferModeExe = false;
+          bufferStartTime = 0;
+
           getVideoFromBuffer();
+
         }
         bufferModeExe = true;
       } else if (!bufferMode && bufferModeExe) {
@@ -1657,6 +1663,12 @@
         audio.volume = 1; 
         if (backgroundPlay) {
           if (!audio.paused && !pipEnabled) {
+
+            liveBufferVal = [];
+             liveBufferIndex = 0;
+             bufferModeExe = false;
+             bufferStartTime = 0;
+
             video.currentTime = audio.currentTime;
           }
           backgroundPlay = false;
