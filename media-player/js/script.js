@@ -50,7 +50,8 @@
     var appUnload = false;
 
     var loading = false;
-    var videoLoad = false;
+    var initialVideoLoad = false;
+    var initialVideoLoadCount = 0;
 
     var seeking = false;
     var seekingLoad = false;
@@ -780,8 +781,8 @@
                 }
 
                 // hideVideoControls();
-                if (videoLoad) {
-                  videoLoad = false;
+                if (initialVideoLoad) {
+                  initialVideoLoad = false;
                 }
                 videoPause = true;
                 loading = false;
@@ -1137,8 +1138,8 @@
               }, 1000);
 
               loading = false;
-              if (videoLoad) {
-                videoLoad = false;
+              if (initialVideoLoad) {
+                initialVideoLoad = false;
               }
               bufferMode = false;
               bufferEndTime = new Date().getTime();
@@ -1266,7 +1267,10 @@
       showVideoControls();
 
       loading = true;
-      videoLoad = true;
+      if (initialVideoLoadCount === 0) {
+        initialVideoLoad = true;
+      }
+      initialVideoLoadCount++;
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";

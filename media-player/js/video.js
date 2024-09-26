@@ -168,6 +168,8 @@ async function getParams(id) {
   audioLatencyArr = [];
   refSeekTime = 0;
   targetVideo = null;
+  initialVideoLoadCount = false;
+  initialVideoLoadCount = 0;
 
   // COULD CHANGE | UNDETERMINED (TBA)
   priorityQuality = 0;
