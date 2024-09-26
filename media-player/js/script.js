@@ -1155,9 +1155,9 @@
               // audio.currentTime = video.currentTime;
 
             }).catch((err) => {
-              // audio.pause();
-              // video.pause();
-              // videoPause = false;
+              audio.pause();
+              video.pause();
+              videoPause = false;
             });
           }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
         });
