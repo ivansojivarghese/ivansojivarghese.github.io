@@ -1087,8 +1087,10 @@
 
         bufferModeExe = true;
 
-      } else if (!bufferMode && bufferModeExe) {
-        liveBufferIndex++;
+      } else if ((!bufferMode || !bufferingDetected) && bufferModeExe) {
+        if (!bufferMode) {
+          liveBufferIndex++;
+        }
         bufferModeExe = false;
       }
     }
