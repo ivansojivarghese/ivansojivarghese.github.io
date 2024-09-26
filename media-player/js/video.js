@@ -531,6 +531,9 @@ function getVideoFromIndex() {
   }
 
   while (targetVideo === null) {
+
+    console.log("null1");
+
     if (!normalVid) {
       specialQuality = Math.round(((targetQuality + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
     }
@@ -550,6 +553,9 @@ function getVideoFromIndex() {
     }
     // console.log(targetQuality + mod);
     if (targetVideo === null) {
+
+      console.log("null2");
+
       var quality = normalVid ? targetQuality + mod : specialQuality;
       fetchedSources[fetchedSources.length] = normalVid ? targetQuality + mod : specialQuality;
       if ((quality) > 0 && !reverse) {
