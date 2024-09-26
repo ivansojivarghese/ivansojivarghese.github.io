@@ -148,7 +148,6 @@ function resetVariables() {
   // COULD CHANGE | UNDETERMINED (TBA)
   priorityQuality = 0;
   targetQuality = 0;
-  targetVideo = null;
   targetVideoIndex = 0;
   videoStreamScore = 0;
 }
@@ -170,6 +169,7 @@ async function getParams(id) {
   audioLatency = 0;
   audioLatencyArr = [];
   refSeekTime = 0;
+  targetVideo = null;
 
   if (link !== null && id === null) {
     
