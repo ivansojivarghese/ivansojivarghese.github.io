@@ -115,6 +115,7 @@
             ) {
             // console.log("buffering")
             bufferingDetected = true;
+            bufferStartTime = new Date().getTime();
 
             // audio.currentTime = video.currentTime;
               /*
@@ -137,6 +138,7 @@
             ) {
             // console.log("not buffering anymore")
             bufferingDetected = false;
+            bufferStartTime = 0;
 
             // audio.currentTime = video.currentTime;
               /*
@@ -1063,7 +1065,7 @@
     var bufferModeExe = false;
 
     function liveBuffer() {
-      if (bufferMode) {
+      if (bufferMode || bufferingDetected) {
         var currentTime = new Date().getTime();
         if (bufferStartTime !== 0) {
           var elapsedTime = currentTime - bufferStartTime;
@@ -1425,7 +1427,7 @@
                 video.currentTime = refSeekTime;
                 audio.currentTime = refSeekTime;
               }
-              
+
               resetVariables();
 
               // bufferAllow = true;
