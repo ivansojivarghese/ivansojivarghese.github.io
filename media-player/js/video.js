@@ -145,6 +145,7 @@ function resetVariables() {
   bufferEndTime = 0;
   bufferMode = false;
   firstPlay = true;
+  refSeekTime = 0;
 
   liveBufferVal = [];
   liveBufferIndex = 0;
@@ -167,7 +168,6 @@ async function getParams(id) {
   videoTimes = [];
   audioLatency = 0;
   audioLatencyArr = [];
-  refSeekTime = 0;
   targetVideo = null;
   initialVideoLoad = false;
   initialVideoLoadCount = 0;
