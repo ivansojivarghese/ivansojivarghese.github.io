@@ -79,7 +79,7 @@
     var bufferingTimes = [];
     var bufferMode = false;
 
-    var bufferLimits = [100, 500]; // ms. limits for buffering [successive 3 times, single time]
+    var bufferLimits = [500, 1000]; // ms. limits for buffering [successive 3 times, single time]
     var bufferLimitC = 3;
 
     var bufferStartTime = 0;
