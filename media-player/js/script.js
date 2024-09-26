@@ -1103,7 +1103,7 @@
 
         targetVideo = null;
 
-        console.log("get video again");
+        // console.log("get video again");
 
         targetQuality = newTargetQuality;
         getVideoFromIndex(); // loop qualities to get video again
