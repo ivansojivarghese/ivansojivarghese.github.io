@@ -455,13 +455,13 @@
         showVideoControls();
         if (controlsHideInt === null) {
           controlsHideInt = setTimeout(function() { 
-            if (!loading && !video.paused) {
+            if (!loading && !video.paused && !videoLoad && !seeking && !seekingLoad) {
               hideVideoControls();
             } else if (!loading) {
               clearTimeout(controlsHideInt);
               controlsHideInt = null;
               controlsHideInt = setInterval(function() {
-                if (!loading) {
+                if (!loading && !videoLoad && !seeking && !seekingLoad) {
                   hideVideoControls();
                   clearInterval(controlsHideInt);
                   controlsHideInt = null;
