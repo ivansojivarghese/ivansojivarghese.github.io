@@ -50,6 +50,7 @@
     var appUnload = false;
 
     var loading = false;
+    var videoLoad = false;
     var initialVideoLoad = false;
     var initialVideoLoadCount = 0;
 
@@ -791,6 +792,7 @@
                 if (initialVideoLoad) {
                   initialVideoLoad = false;
                 }
+                videoLoad = false;
                 videoPause = true;
                 loading = false;
                 audio.currentTime = video.currentTime;
@@ -1150,10 +1152,11 @@
               if (initialVideoLoad) {
                 initialVideoLoad = false;
               }
+              videoLoad = false;
               bufferMode = false;
               bufferEndTime = new Date().getTime();
 
-              if (bufferStartTime !== 0 && !loading && !initialVideoLoad && bufferingDetected && !backgroundPlayInit && !seeking && !seekingLoad) {
+              if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit && !seeking && !seekingLoad) {
                 
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
 
@@ -1277,6 +1280,7 @@
       showVideoControls();
 
       loading = true;
+      videoLoad = true;
       if (initialVideoLoadCount === 0) {
         initialVideoLoad = true;
       }
@@ -1712,11 +1716,11 @@
               pipEnabled = false;
               releaseScreenLock(screenLock);
             });
-            if (!loading && !initialVideoLoad && !seeking && !seekingLoad) {
+            if (!loading && !videoLoad && !seeking && !seekingLoad) {
               hideVideoControls();
             }
         } else if (video.paused && !videoEnd && video.src !== "") {
-          if (!loading && !initialVideoLoad && !seeking && !seekingLoad) {
+          if (!loading && !videoLoad && !seeking && !seekingLoad) {
             hideVideoControls();
           }
           // play the video (only when it hasn't ended)

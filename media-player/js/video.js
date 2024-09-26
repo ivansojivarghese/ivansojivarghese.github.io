@@ -169,7 +169,7 @@ async function getParams(id) {
   audioLatencyArr = [];
   refSeekTime = 0;
   targetVideo = null;
-  initialVideoLoadCount = false;
+  initialVideoLoad = false;
   initialVideoLoadCount = 0;
 
   // COULD CHANGE | UNDETERMINED (TBA)
