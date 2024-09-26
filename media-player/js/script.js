@@ -1139,7 +1139,9 @@
                 loadingRing.style.display = "none";
                 playPauseButton.style.display = "block";
 
-                hideVideoControls();
+                if (!seekingLoad) {
+                  hideVideoControls();
+                }
 
                 // reset the loader
                 setTimeout(function() {
