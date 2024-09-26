@@ -394,6 +394,11 @@
     video.addEventListener('pause', function () {
       bufferStartTime = 0;
       bufferEndTime = 0;
+
+      liveBufferVal = [];
+      liveBufferIndex = 0;
+      bufferModeExe = false;
+
       // audio.pause();
       // videoPause = false;
       if (document.visibilityState === "visible") {
@@ -1150,9 +1155,9 @@
               // audio.currentTime = video.currentTime;
 
             }).catch((err) => {
-              audio.pause();
-              video.pause();
-              videoPause = false;
+              // audio.pause();
+              // video.pause();
+              // videoPause = false;
             });
           }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
         });
