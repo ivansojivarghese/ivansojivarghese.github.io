@@ -1043,7 +1043,7 @@
           var elapsedTime = currentTime - bufferStartTime;
           liveBufferVal[liveBufferIndex] = elapsedTime;
         }
-        if ((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) {
+        if (((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) && !backgroundPlay) {
 
           liveBufferVal = [];
           liveBufferIndex = 0;
