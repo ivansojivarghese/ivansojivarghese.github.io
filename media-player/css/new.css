@@ -148,6 +148,7 @@ video.seeking {
     width: 2rem;
     display: inline-block;
     text-align: center;
+    font-weight: bold;
 }
 
 .seekText.forward .seconds {
