@@ -79,6 +79,7 @@
     var bufferingCountLoop = null;
     var bufferingTimes = [];
     var bufferMode = false;
+    var bufferAllow = true;
 
     var bufferLimits = [500, 1000]; // ms. limits for buffering [successive 3 times, single time]
     var bufferLimitC = 3;
@@ -346,6 +347,10 @@
     });
 
     video.addEventListener('play', function () {
+
+      if (!bufferAllow) {
+        bufferAllow = true;
+      }
 
       // videoEnd = false;
       if (networkSpeedInt === null) {
@@ -1046,7 +1051,7 @@
           var elapsedTime = currentTime - bufferStartTime;
           liveBufferVal[liveBufferIndex] = elapsedTime;
         }
-        if (((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) && !backgroundPlay) {
+        if (((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) && !backgroundPlay && bufferAllow) {
 
           liveBufferVal = [];
           liveBufferIndex = 0;
@@ -1114,6 +1119,8 @@
       qualityChange = true;
 
       video.src = targetVideo.url; // 'loadstart'
+
+      bufferAllow = false;
 
       // }
     }
@@ -1386,6 +1393,8 @@
 
               video.currentTime = refSeekTime;
               // audio.currentTime = refSeekTime;
+
+              // bufferAllow = true;
 
             } else { 
 
