@@ -496,7 +496,7 @@ function getOptimalQuality() {
       videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
 
       // TARGET QUALITY
-      if (videoLoad) {
+      if (initialVideoLoad) {
         targetQuality = Math.round(videoStreamScore * priorityQuality);
         if (targetQuality > (videoQuality.length - 1)) {
           targetQuality = videoQuality.length - 1;
