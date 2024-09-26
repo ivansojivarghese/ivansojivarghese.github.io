@@ -366,9 +366,9 @@
           if (videoEnd) {
             audio.currentTime = 0;
           }
-          if (!loading) {
+          // if (!loading) {
             video.currentTime = audio.currentTime;
-          }
+          // }
           videoPause = true;
         }); 
         playPauseButton.classList.add('playing');
@@ -981,7 +981,7 @@
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
       getScreenLock();
-      
+
       bufferCount++;
       bufferStartTime = new Date().getTime();
       bufferMode = true;
@@ -1107,7 +1107,7 @@
 
         targetVideo = null;
 
-        // console.log("get video again");
+        console.log("get video again");
 
         targetQuality = newTargetQuality;
         getVideoFromIndex(); // loop qualities to get video again
