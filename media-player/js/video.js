@@ -313,6 +313,9 @@ async function getParams(id) {
   // START LOAD
   clearTimeout(controlsHideInt);
   controlsHideInt = null;
+
+  getScreenLock();
+
   loading = true;
   loadingRing.style.display = "block";
   playPauseButton.style.display = "none";
