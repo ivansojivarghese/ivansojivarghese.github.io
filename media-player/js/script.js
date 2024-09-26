@@ -1660,27 +1660,33 @@
         }
         event.preventDefault();
         //action on double tap goes below
-        if (!video.paused && !document.fullscreenElement) {
-          if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
-            video.requestPictureInPicture().then(function() {
-              getScreenLock();
-              pipEnabled = true;
-            });
-          }
-        } else if (!video.paused) {
-          if ((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) {
-            if (!video.classList.contains("cover")) {
-              video.style.objectFit = "cover";
-              video.classList.add("cover");
-            } else {
-              video.style.objectFit = "";
-              video.classList.remove("cover");
+        if (!video.paused) {
+          clearTimeout(controlsHideInt);
+          controlsHideInt = null;
+          setTimeout(hideVideoControls, 10);
+          if (!video.paused && !document.fullscreenElement) {
+            if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
+              video.requestPictureInPicture().then(function() {
+                getScreenLock();
+                pipEnabled = true;
+              });
+            }
+          } else if (!video.paused) {
+            if ((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) {
+              if (!video.classList.contains("cover")) {
+                video.style.objectFit = "cover";
+                video.classList.add("cover");
+              } else {
+                video.style.objectFit = "";
+                video.classList.remove("cover");
+              }
             }
           }
         }
-        clearTimeout(controlsHideInt);
-        controlsHideInt = null;
-        setTimeout(hideVideoControls, 10);
+          /*
+          clearTimeout(controlsHideInt);
+          controlsHideInt = null;
+          setTimeout(hideVideoControls, 10);*/
       } else {
         return;
       }
