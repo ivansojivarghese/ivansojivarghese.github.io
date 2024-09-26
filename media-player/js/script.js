@@ -1399,10 +1399,10 @@
 
             if (qualityChange) {
 
-              resetVariables();
-
               video.currentTime = refSeekTime;
               audio.currentTime = refSeekTime;
+
+              resetVariables();
 
               // bufferAllow = true;
 
