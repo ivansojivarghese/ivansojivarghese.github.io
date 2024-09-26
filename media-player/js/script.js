@@ -1088,7 +1088,7 @@
             targetVideoIndex = index;
           }
           mod++;
-        } while ((targetVideoSources[index].height === targetVideo.height) && targetVideoSources[index]);
+        } while ((targetVideoSources[index].height === targetVideo.height) && targetVideoSources[index + mod]);
       } else { // otherwise, if different quality rating
 
         targetVideo = null;
