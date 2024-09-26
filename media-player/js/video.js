@@ -497,18 +497,18 @@ function getOptimalQuality() {
       videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
 
       // TARGET QUALITY
-      // if () {
-      targetQuality = Math.round(videoStreamScore * priorityQuality);
-      if (targetQuality > (videoQuality.length - 1)) {
-        targetQuality = videoQuality.length - 1;
-      }
-      if (!initialVideoLoad) {
+      if (initialVideoLoadCount === 0) {
+        targetQuality = Math.round(videoStreamScore * priorityQuality);
+        if (targetQuality > (videoQuality.length - 1)) {
+          targetQuality = videoQuality.length - 1;
+        }
+      } else {
         tempQuality = Math.round(videoStreamScore * priorityQuality);
         if (tempQuality > (videoQuality.length - 1)) {
           tempQuality = videoQuality.length - 1;
         }
-        return tempQuality;
       }
+      return tempQuality;
 }
 
 function getVideoFromIndex() {
