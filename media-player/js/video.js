@@ -145,11 +145,9 @@ function resetVariables() {
   bufferMode = false;
   firstPlay = true;
 
-  // COULD CHANGE | UNDETERMINED (TBA)
-  priorityQuality = 0;
-  targetQuality = 0;
-  targetVideoIndex = 0;
-  videoStreamScore = 0;
+  liveBufferVal = [];
+  liveBufferIndex = 0;
+  bufferModeExe = false;
 }
 
 async function getParams(id) {
@@ -170,6 +168,12 @@ async function getParams(id) {
   audioLatencyArr = [];
   refSeekTime = 0;
   targetVideo = null;
+
+  // COULD CHANGE | UNDETERMINED (TBA)
+  priorityQuality = 0;
+  targetQuality = 0;
+  targetVideoIndex = 0;
+  videoStreamScore = 0;
 
   if (link !== null && id === null) {
     
