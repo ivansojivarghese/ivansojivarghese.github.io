@@ -20,6 +20,10 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         });
         var endTime = new Date().getTime(); // end time of fetch
         networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
+
+        if (qualityChange) {
+            video.src = targetVideo.url;
+        }
         
     } catch (err) { // if network error
         networkSpeed = 0; // return 0 mbps
