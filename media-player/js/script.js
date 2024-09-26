@@ -1480,12 +1480,14 @@
         
               // START BUFFERING CHECK
         
-              bufferingCountLoop = setInterval(function() {
-                if (bufferCount > 0) {
-                  bufferingCount[bufferingCount.length] = bufferCount;
-                }
-                bufferCount = 0;
-              }, 10000);
+              if (bufferingCountLoop === null) {
+                bufferingCountLoop = setInterval(function() {
+                  if (bufferCount > 0) {
+                    bufferingCount[bufferingCount.length] = bufferCount;
+                  }
+                  bufferCount = 0;
+                }, 10000);
+              }
             }
     })
 
