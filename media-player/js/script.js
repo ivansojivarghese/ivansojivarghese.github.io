@@ -1182,6 +1182,7 @@
               videoLoad = false;
               bufferMode = false;
               bufferEndTime = new Date().getTime();
+              bufferModeExe = false;
 
               if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit && !seeking && !seekingLoad) {
                 
