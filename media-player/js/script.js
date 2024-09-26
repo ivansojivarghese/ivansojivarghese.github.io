@@ -1079,29 +1079,38 @@
       var index = 0;
       var mod = 1;
       var newTargetQuality = getOptimalQuality();
+
       if (newTargetQuality === targetQuality) { // if same quality rating as previous
         do { // ensure that same res. is not picked again
           index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
+          if (targetVideoSources[index]) { // if available
+            targetVideo = targetVideoSources[index];
+            targetVideoIndex = index;
+          }
           mod++;
-        } while (targetVideoSources[index].height === targetVideo.height && targetVideoSources[index]);
+        } while ((targetVideoSources[index].height === targetVideo.height) && targetVideoSources[index]);
       } else { // otherwise, if different quality rating
+
+        targetVideo = null;
 
         targetQuality = newTargetQuality;
         getVideoFromIndex(); // loop qualities to get video again
       }
+
       refSeekTime = video.currentTime;
 
-      if (targetVideoSources[index]) { // if available
-        targetVideo = targetVideoSources[index];
-        targetVideoIndex = index;
-        video.pause();
-        audio.pause(); // pause content
+      // if (targetVideoSources[index]) { // if available
+        // targetVideo = targetVideoSources[index];
+        // targetVideoIndex = index;
 
-        qualityChange = true;
+      video.pause();
+      audio.pause(); // pause content
 
-        video.src = targetVideo.url; // 'loadstart'
+      qualityChange = true;
 
-      }
+      video.src = targetVideo.url; // 'loadstart'
+
+      // }
     }
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
