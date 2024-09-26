@@ -203,7 +203,7 @@
           updatePositionState();
 
         } else {
-          if (videoPause) {
+          // if (videoPause) {
             audio.pause();
             video.pause();
 
@@ -213,7 +213,7 @@
             releaseScreenLock(screenLock);
 
             videoPause = false;
-          }
+          // }
         }
       }
     });
@@ -615,7 +615,7 @@
 
         } else {
 
-          if (videoPause) {
+          // if (videoPause) {
             audio.pause();
             video.pause();
 
@@ -623,7 +623,7 @@
             bufferEndTime = 0;
 
             videoPause = false;
-          }
+          // }
           
         }
       }
@@ -746,8 +746,8 @@
 
           audioVideoAligning = true;
 
-          video.pause();
-          audio.pause();
+          // video.pause();
+          // audio.pause();
 
           videoPause = false;
 
@@ -776,6 +776,7 @@
         }*/
       } else if (audioStall) {
         audioStall = false;
+        audioVideoAligning = false;
         setTimeout(function() {
           audio.play().then(function() {
             audioCtx = new AudioContext();
@@ -795,9 +796,10 @@
                 videoLoad = false;
                 videoPause = true;
                 loading = false;
-                audio.currentTime = video.currentTime;
+                // audio.currentTime = video.currentTime;
+                video.currentTime = audio.currentTime;
                 // audioStall = false;
-                audioVideoAligning = false;
+                // audioVideoAligning = false;
 
               }).catch((err) => {
                 /*
