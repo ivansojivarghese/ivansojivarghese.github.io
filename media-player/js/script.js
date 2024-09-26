@@ -189,9 +189,10 @@
                   videoEnd = false;
                 }
               }).catch((err) => {
+                /*
                 audio.pause();
                 video.pause();
-                videoPause = false;
+                videoPause = false;*/
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
@@ -595,9 +596,10 @@
               video.play().then(function() {
                 videoPause = true;
               }).catch((err) => {
+                /*
                 audio.pause();
                 video.pause();
-                videoPause = false;
+                videoPause = false;*/
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
@@ -791,10 +793,10 @@
                 audioVideoAligning = false;
 
               }).catch((err) => {
-
+                /*
                 audio.pause();
                 video.pause();
-                videoPause = false;
+                videoPause = false;*/
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
@@ -1167,9 +1169,10 @@
               // audio.currentTime = video.currentTime;
 
             }).catch((err) => {
+              /*
               audio.pause();
               video.pause();
-              videoPause = false;
+              videoPause = false;*/
             });
           }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
         });
@@ -1412,6 +1415,7 @@
                     audioVideoAlignInt = setInterval(audioVideoAlign, 100);
         
                   }).catch((err) => {
+                    /*
                     audio.pause();
                     video.pause();
                     videoPause = false;
@@ -1419,7 +1423,7 @@
                     if (audioVideoAlignInt !== null) {
                       clearInterval(audioVideoAlignInt);
                       audioVideoAlignInt = null;
-                    }
+                    }*/
                   });
                 }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
               });
@@ -1713,9 +1717,10 @@
               video.play().then(function() {
                 videoPause = true;
               }).catch((err) => {
+                /*
                 audio.pause();
                 video.pause();
-                videoPause = false;
+                videoPause = false;*/
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });

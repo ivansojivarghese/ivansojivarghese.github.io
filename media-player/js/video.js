@@ -60,10 +60,11 @@ const actionHandlers = [
                                           }
                                           // videoPause = true;
                                         }).catch((err) => {
+                                          /*
                                           if (!backgroundPlay || pipEnabled) {
                                             audio.pause();
                                           }
-                                          video.pause();
+                                          video.pause();*/
                                           // videoPause = false;
                                         });
                                       }
