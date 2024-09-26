@@ -82,7 +82,7 @@
     var bufferMode = false;
     var bufferAllow = true;
 
-    var bufferLimits = [500, 1000]; // ms. limits for buffering [successive 3 times, single time]
+    var bufferLimits = [100, 250, 1000]; // ms. limits for buffering [successive 3 times, single time]
     var bufferLimitC = 3;
 
     var bufferStartTime = 0;
@@ -736,7 +736,7 @@
       if (!video.paused && !seekingLoad && !videoEnd && !loading && !bufferingDetected) {
         
         if (checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax) && video.currentTime > minVideoLoad) { // only buffer when audio has stalled
-          bufferCount++;
+          // bufferCount++;
           bufferStartTime = new Date().getTime();
           bufferMode = true;
 
@@ -944,12 +944,14 @@
         
           // START BUFFERING CHECK
     
-          bufferingCountLoop = setInterval(function() {
-            if (bufferCount > 0) {
-              bufferingCount[bufferingCount.length] = bufferCount;
-            }
-            bufferCount = 0;
-          }, 1000);
+          if (bufferingCountLoop === null) {
+            bufferingCountLoop = setInterval(function() {
+              if (bufferCount > 0) {
+                bufferingCount[bufferingCount.length] = bufferCount;
+              }
+              bufferCount = 0;
+            }, 10000);
+          }
         }
         setTimeout(function() {
             video.classList.remove('seeking');
@@ -990,7 +992,7 @@
 
       getScreenLock();
 
-      bufferCount++;
+      // bufferCount++;
       bufferStartTime = new Date().getTime();
       bufferMode = true;
       
@@ -1024,7 +1026,7 @@
       
       getScreenLock();
 
-      bufferCount++;
+      // bufferCount++;
       bufferStartTime = new Date().getTime();
       bufferMode = true;
 
@@ -1064,8 +1066,11 @@
         if (bufferStartTime !== 0) {
           var elapsedTime = currentTime - bufferStartTime;
           liveBufferVal[liveBufferIndex] = elapsedTime;
+          if (elapsedTime >= bufferLimits[0] && !bufferModeExe) {
+            bufferCount++;
+          }
         }
-        if (((liveBufferVal[liveBufferIndex] >= bufferLimits[1]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[0], bufferLimitC))) && !backgroundPlay && bufferAllow) {
+        if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC))) && !backgroundPlay && bufferAllow) {
 
           liveBufferVal = [];
           liveBufferIndex = 0;
@@ -1075,7 +1080,9 @@
           getVideoFromBuffer();
 
         }
+
         bufferModeExe = true;
+
       } else if (!bufferMode && bufferModeExe) {
         liveBufferIndex++;
         bufferModeExe = false;
@@ -1174,8 +1181,13 @@
                 
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
 
-                if ((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[1]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[0], bufferLimitC))) {
+                if (((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[2]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[1], bufferLimitC))) && !backgroundPlay && bufferAllow) {
                   
+                  liveBufferVal = [];
+                  liveBufferIndex = 0;
+                  bufferModeExe = false;
+                  bufferStartTime = 0;
+
                   getVideoFromBuffer();
                 }
               }
@@ -1464,7 +1476,7 @@
                   bufferingCount[bufferingCount.length] = bufferCount;
                 }
                 bufferCount = 0;
-              }, 1000);
+              }, 10000);
             }
     })
 
