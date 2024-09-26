@@ -820,6 +820,9 @@
     }
 
     function seekForward(m) {
+
+      maxTime = video.duration < maxTime ? video.duration : maxTime;
+
         if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !videoEnd) {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
@@ -861,12 +864,15 @@
                   // forwardSkippedTime = 0;
                   seekForwardTextSec.innerHTML = forwardSkippedTime;
                 }, 300);
-              }, 300);
+              }, 1000);
             }
         }
     }
 
     function seekBackward(m) {
+      
+      maxTime = video.duration < maxTime ? video.duration : maxTime;
+
         if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
@@ -910,7 +916,7 @@
                   // backwardSkippedTime = 0;
                   seekBackwardTextSec.innerHTML = backwardSkippedTime;
                 }, 300);
-              }, 300);
+              }, 1000);
             }
         }
     }
@@ -1167,7 +1173,7 @@
                 loadingRing.style.display = "none";
                 playPauseButton.style.display = "block";
 
-                if (!seekingLoad) {
+                if (!seekingLoad && !longTap && !seeking) {
                   hideVideoControls();
                 }
 
