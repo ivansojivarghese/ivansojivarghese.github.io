@@ -980,6 +980,8 @@
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
+      getScreenLock();
+      
       bufferCount++;
       bufferStartTime = new Date().getTime();
       bufferMode = true;
@@ -1012,6 +1014,8 @@
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
+      getScreenLock();
+
       bufferCount++;
       bufferStartTime = new Date().getTime();
       bufferMode = true;
