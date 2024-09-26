@@ -1396,7 +1396,7 @@
               resetVariables();
 
               video.currentTime = refSeekTime;
-              // audio.currentTime = refSeekTime;
+              audio.currentTime = refSeekTime;
 
               // bufferAllow = true;
 
