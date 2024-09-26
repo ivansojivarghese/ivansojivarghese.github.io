@@ -838,9 +838,13 @@
               seekBackwardTextSec.innerHTML = backwardSkippedTime;
             }, 300);
             seekForwardText.classList.add('show');
-            video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
+
+            if (Number.isFinite(Math.min(video.currentTime + skipTime, video.duration))) {
+              video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
+              audio.currentTime = video.currentTime;
+            }
             // audio.currentTime = Math.min(audio.currentTime + skipTime, audio.duration);
-            audio.currentTime = video.currentTime;
+
             if (controlsHideInt === null && !video.paused) {
               controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
             }
@@ -882,9 +886,13 @@
               seekForwardTextSec.innerHTML = forwardSkippedTime;
             }, 300);
             seekBackwardText.classList.add('show');
-            video.currentTime = Math.max(video.currentTime - skipTime, 0);
+
+            if (Number.isFinite(Math.max(video.currentTime - skipTime, 0))) {
+              video.currentTime = Math.max(video.currentTime - skipTime, 0);
+              audio.currentTime = video.currentTime;
+            }
             // audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
-            audio.currentTime = video.currentTime;
+
             if (controlsHideInt === null && !video.paused) {
               controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
             }
