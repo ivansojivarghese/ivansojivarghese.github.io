@@ -34,7 +34,7 @@
     var seekForwardHideInt = null;
     var seekBackwardHideInt = null;
     var skipTime = 10;
-    const maxTime = 9999;
+    var maxTime = 9999;
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
