@@ -1474,62 +1474,61 @@
 
               // bufferAllow = true;
 
-            } else { 
+            } 
 
-              endLoad();
-              
+            endLoad();
+            
+            setTimeout(function() {
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+
+              // reset the loader
               setTimeout(function() {
-                loadingRing.style.display = "none";
-                playPauseButton.style.display = "block";
+                resetLoad();
+              }, 10);
 
-                // reset the loader
-                setTimeout(function() {
-                  resetLoad();
-                }, 10);
+            }, 1000);
 
-              }, 1000);
-
-              audio.play().then(function () {
-                if (!getAudioContext) {
-                  audioCtx = new AudioContext();
-                  getAudioContext = true;
-                }
-                setTimeout(function() {
-                  video.play().then(function() {
-                    videoPause = true;
-        
-                    if (audioVideoAlignInt !== null) {
-                      clearInterval(audioVideoAlignInt);
-                      audioVideoAlignInt = null;
-                    }
-                    audioVideoAlignInt = setInterval(audioVideoAlign, 100);
-        
-                  }).catch((err) => {
-                    /*
-                    audio.pause();
-                    video.pause();
-                    videoPause = false;
-        
-                    if (audioVideoAlignInt !== null) {
-                      clearInterval(audioVideoAlignInt);
-                      audioVideoAlignInt = null;
-                    }*/
-                  });
-                }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-              });
-        
-              updatePositionState();
-        
-              // START BUFFERING CHECK
-        
-              if (bufferingCountLoop === null) {
-                bufferingCountLoop = setInterval(function() {
-                  if (bufferCount > 0) {
-                    bufferingCount[bufferingCount.length] = bufferCount;
-                  }
-                  bufferCount = 0;
-                }, 10000);
+            audio.play().then(function () {
+              if (!getAudioContext) {
+                audioCtx = new AudioContext();
+                getAudioContext = true;
               }
+              setTimeout(function() {
+                video.play().then(function() {
+                  videoPause = true;
+      
+                  if (audioVideoAlignInt !== null) {
+                    clearInterval(audioVideoAlignInt);
+                    audioVideoAlignInt = null;
+                  }
+                  audioVideoAlignInt = setInterval(audioVideoAlign, 100);
+      
+                }).catch((err) => {
+                  /*
+                  audio.pause();
+                  video.pause();
+                  videoPause = false;
+      
+                  if (audioVideoAlignInt !== null) {
+                    clearInterval(audioVideoAlignInt);
+                    audioVideoAlignInt = null;
+                  }*/
+                });
+              }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+            });
+      
+            updatePositionState();
+
+            // START BUFFERING CHECK
+        
+            if (bufferingCountLoop === null) {
+              bufferingCountLoop = setInterval(function() {
+                if (bufferCount > 0) {
+                  bufferingCount[bufferingCount.length] = bufferCount;
+                }
+                bufferCount = 0;
+              }, 10000);
             }
     })
 
