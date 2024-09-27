@@ -1456,6 +1456,8 @@
       loadRs.style.animationName = "loadR_transverse_rev";
     }
 
+    var getAudioContext = false;
+
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
 
             if (qualityChange) {
@@ -1485,7 +1487,10 @@
               }, 1000);
 
               audio.play().then(function () {
-                audioCtx = new AudioContext();
+                if (!getAudioContext) {
+                  audioCtx = new AudioContext();
+                  getAudioContext = true;
+                }
                 setTimeout(function() {
                   video.play().then(function() {
                     videoPause = true;
