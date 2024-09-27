@@ -787,7 +787,10 @@
         audioVideoAligning = false;
         setTimeout(function() {
           audio.play().then(function() {
-            audioCtx = new AudioContext();
+            if (!getAudioContext) {
+              audioCtx = new AudioContext();
+              getAudioContext = true;
+            }
             setTimeout(function() {
               video.play().then(function() {
 
