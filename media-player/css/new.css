@@ -96,6 +96,10 @@ video.seeking {
     }
 }
 
+#skipPreviousButton .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/skip_previous.svg");
+}
+
 #fitscreenButton .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/fitscreen.svg");
 }
