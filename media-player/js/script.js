@@ -623,7 +623,7 @@
           // audio.currentTime = video.currentTime;
           updatePositionState();
 
-        } else {
+        } else if (!video.paused && video.src !== "") {
 
           // if (videoPause) {
             audio.pause();
@@ -1176,7 +1176,7 @@
         // targetVideo = targetVideoSources[index];
         // targetVideoIndex = index;
 
-      video.pause();
+      // video.pause();
       audio.pause(); // pause content
 
       qualityChange = true;
