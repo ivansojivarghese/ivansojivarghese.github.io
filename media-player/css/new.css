@@ -66,10 +66,18 @@ video.seeking {
     height: 1.25rem;
 }
 
-#seekForwardButton, #seekBackwardButton {
+#seekForwardButton, #seekBackwardButton, #skipPreviousButton, #skipForwardButton {
     width: 1.25rem;
     height: 1.25rem;
     position: absolute;
+}
+
+#skipPreviousButton, #skipForwardButton {
+    padding: 1.5rem 1rem;
+}
+
+#skipPreviousButton {
+    left: 5.45rem;
 }
 
 #seekControls {
@@ -176,7 +184,7 @@ video.seeking {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/rewind.svg");
 }
 
-#seekForwardButton, #seekBackwardButton {
+#seekForwardButton, #seekBackwardButton, #skipPreviousButton, #skipForwardButton {
     top: 50%;
     transform: translateY(-50%);
 }
