@@ -431,6 +431,7 @@
     });
 
     audio.addEventListener('play', function () {
+      audio.volume = 1;
       getScreenLock();
     });
 
@@ -1751,6 +1752,7 @@
         } else if (video.paused && !pipEnabled) {
           audio.volume = 0; // prevent accidental leakage 
         }
+        backgroundPlay = true;
       } else {
         audio.volume = 1; 
         if (backgroundPlay) {
