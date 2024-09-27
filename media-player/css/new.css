@@ -77,7 +77,11 @@ video.seeking {
 }
 
 #skipPreviousButton {
-    left: 5.45rem;
+    left: calc(5.45rem + calc(env(safe-area-inset-left)));
+}
+
+#skipForwardButton {
+    right: calc(5.45rem + calc(env(safe-area-inset-right)));
 }
 
 #seekControls {
