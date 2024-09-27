@@ -371,9 +371,11 @@
           if (videoEnd) {
             audio.currentTime = 0;
           }
-          // if (!loading) {
+          
+          if (!videoPause && !backgroundPlay && !pipEnabled) {
             video.currentTime = audio.currentTime;
-          // }
+          }
+          
           videoPause = true;
         }); 
         playPauseButton.classList.add('playing');
@@ -1835,6 +1837,11 @@
         pipEnabled = true;
       } else {
         pipEnabled = false;
+      }
+      if (document.visibilityState === "hidden" && !pipEnabled) {
+        backgroundPlay = true;
+      } else {
+        backgroundPlay = false;
       }
     }, 1000/60);
 
