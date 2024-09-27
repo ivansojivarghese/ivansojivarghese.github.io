@@ -23,7 +23,7 @@
     const pipButton = document.querySelector('#pipButton');
     const seekForwardButton = document.querySelector('#seekForwardButton');
     const seekBackwardButton = document.querySelector('#seekBackwardButton');
-    const playPreviousButton = document.querySelector("#playPreviousButton");
+    const playPreviousButton = document.querySelector("#skipPreviousButton");
 
     const seekForwardText = document.querySelector('.seekText.forward');
     const seekBackwardText = document.querySelector('.seekText.backward');
