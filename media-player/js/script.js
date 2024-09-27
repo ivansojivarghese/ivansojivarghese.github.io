@@ -987,7 +987,7 @@
                 bufferingCount[bufferingCount.length] = bufferCount;
               }
               bufferCount = 0;
-            }, 10000);
+            }, 5000);
           }
         }
         setTimeout(function() {
@@ -1107,7 +1107,7 @@
             bufferCount++;
           }
         }
-        if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= 5)) && !backgroundPlay && bufferAllow) {
+        if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow) {
 
           bufferingCount = [];
           bufferCount = 0;
@@ -1224,7 +1224,7 @@
                 
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
 
-                if (((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[2]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= 5)) && !backgroundPlay && bufferAllow) {
+                if (((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[2]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow) {
                   
                   bufferingCount = [];
                   bufferCount = 0;
@@ -1530,7 +1530,7 @@
                   bufferingCount[bufferingCount.length] = bufferCount;
                 }
                 bufferCount = 0;
-              }, 10000);
+              }, 5000);
             }
     })
 
