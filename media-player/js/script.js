@@ -212,7 +212,9 @@
             bufferStartTime = 0;
             bufferEndTime = 0;
 
-            releaseScreenLock(screenLock);
+            if (screenLock) {
+              releaseScreenLock(screenLock); 
+            }
 
             videoPause = false;
           // }
