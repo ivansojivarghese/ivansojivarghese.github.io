@@ -825,8 +825,8 @@
       console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
     }
 
-    function playPrevious() {
-      if (videoControls.classList.contains('visible') && video.src !== "") {
+    function playPrevious(m) {
+      if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
 
         // FIRST INSTANCE (seek to the front)
         video.currentTime = 0;
