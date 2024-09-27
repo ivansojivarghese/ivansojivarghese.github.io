@@ -23,6 +23,7 @@
     const pipButton = document.querySelector('#pipButton');
     const seekForwardButton = document.querySelector('#seekForwardButton');
     const seekBackwardButton = document.querySelector('#seekBackwardButton');
+    const playPreviousButton = document.querySelector("#playPreviousButton");
 
     const seekForwardText = document.querySelector('.seekText.forward');
     const seekBackwardText = document.querySelector('.seekText.backward');
@@ -430,10 +431,12 @@
     
     audio.addEventListener('pause', function () {
       releaseScreenLock(screenLock);
+      navigator.mediaSession.playbackState = 'paused';
     });
 
     audio.addEventListener('play', function () {
       audio.volume = 1;
+      navigator.mediaSession.playbackState = 'playing';
       getScreenLock();
     });
 
@@ -822,6 +825,18 @@
       console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
     }
 
+    function playPrevious() {
+      if (videoControls.classList.contains('visible') && video.src !== "") {
+
+        // FIRST INSTANCE (seek to the front)
+        video.currentTime = 0;
+        audio.currentTime = 0;
+        videoEnd = false;
+
+        // SECOND INSTANCE - play a previous track in playlist (from the beginning)
+      }
+    }
+
     function seekForward(m) {
 
       maxTime = video.duration < maxTime ? video.duration : maxTime;
@@ -923,6 +938,10 @@
             }
         }
     }
+
+    playPreviousButton.addEventListener('click', function(event) {
+      playPrevious();
+    });
 
     seekForwardButton.addEventListener('click', function(event) {
       // event.stopPropagation();

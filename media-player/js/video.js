@@ -88,8 +88,8 @@ const actionHandlers = [
                             // }
                           }
   ],
-  /*['previoustrack', () => { }],
-  ['nexttrack',     () => { }],*/
+  ['previoustrack', (details) => { playPrevious(); updatePositionState(); }],
+  /*['nexttrack',     () => { }],*/
   ['stop',          () => { /* ... */ }],
   ['seekbackward',  (details) => { seekBackward(true); updatePositionState(); }],
   ['seekforward',   (details) => { seekForward(true); updatePositionState(); }],
