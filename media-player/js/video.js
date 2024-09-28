@@ -552,7 +552,7 @@ function getVideoFromIndex(m, q) {
 
     var compareIndex = -1;
 
-    while (targetVideoSources[compareIndex] === null) {
+    while (targetVideoSources[compareIndex] === undefined) {
 
       if (!normalVid) {
         specialQuality = Math.round(((q + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
@@ -570,7 +570,7 @@ function getVideoFromIndex(m, q) {
         }
       }
 
-      if (targetVideoSources[compareIndex] === null) {
+      if (targetVideoSources[compareIndex] === undefined) {
 
         var quality = normalVid ? q + mod : specialQuality;
         fetchedSources[fetchedSources.length] = normalVid ? q + mod : specialQuality;
