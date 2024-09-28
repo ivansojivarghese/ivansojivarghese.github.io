@@ -812,7 +812,7 @@
 
       // IF LATENCY IS GOING OFF FROM THE AVERAGE (ACCORDING TO THE DEVICE, ETC.), THEN PAUSE/PLAY
 
-      console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+      
     }
 
     function playPrevious(m) {
@@ -1403,6 +1403,10 @@
                     audioVideoAlignInt = null;
                   }
                   audioVideoAlignInt = setInterval(audioVideoAlign, 100);*/
+                  
+                  setInterval(function() {
+                    console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+                  }, 100);
       
                 }).catch((err) => {
                   /*
