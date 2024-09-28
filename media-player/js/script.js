@@ -6,7 +6,6 @@
 
     const video = document.querySelector('video.primary');
     const audio = document.querySelector('audio.primary');
-    const videoSec = document.querySelector('video.secondary');
     
     const videoContainer = document.querySelector("#videoContainer");
     const videoControls = document.querySelector("#videoControls");
@@ -404,13 +403,6 @@
         getScreenLock();
       }
     });
-    /*
-    audio.addEventListener('play', function () {
-      audioCtx = new AudioContext();
-      setTimeout(function() {
-        video.play();
-      }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
-    });*/
 
     video.addEventListener('pause', function () {
       bufferStartTime = 0;
@@ -688,20 +680,7 @@
       video.style.objectFit = "";
       video.classList.remove("cover");
     });
-/*
-    screen.orientation.addEventListener("change", function(event) {
-      const angle = event.target.angle;
-      const videoCSS = window.getComputedStyle(video, null);
-      var rawWidth = Number(videoCSS.getPropertyValue("width").slice(0, -2));
-      var rawHeight = Number(videoCSS.getPropertyValue("height").slice(0, -2));
-      if ((angle === 0 || angle === 180)) { // IN PORTRAIT MODE
-        videoContainer.style.width = rawWidth + "px"; 
-        videoContainer.style.height = (rawWidth / videoSizeRatio) + "px";
-      } else if ((angle === 90 || angle === 270)) { // IN LANDSCAPE MODE
-        videoContainer.style.height = rawHeight + "px";
-        videoContainer.style.width = (rawHeight * videoSizeRatio) + "px"; 
-      }
-    });*/
+
 
     // REFERENCE: https://github.com/chcunningham/wc-talk/blob/main/audio_renderer.js#L120
     // https://github.com/chcunningham/wc-talk 
@@ -1053,17 +1032,7 @@
       audio.pause();
       videoPause = false;
     });
-    /*
-    audio.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
-      bufferCount++;
-      bufferStartTime = new Date().getTime();
 
-      loading = true;
-
-      video.pause();
-
-      videoPause = false;
-    });*/
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
@@ -1087,17 +1056,6 @@
       audio.pause();
       videoPause = false;
     });
-    /*
-    audio.addEventListener('stalled', function () { // when playback has stopped because of a temporary lack of data
-      bufferCount++;
-      bufferStartTime = new Date().getTime();
-
-      loading = true;
-
-      video.pause();
-
-      videoPause = false;
-    });*/
 
     var liveBufferVal = [];
     var liveBufferIndex = 0;
@@ -1173,7 +1131,7 @@
         console.log("get video again");
 
         targetQuality = newTargetQuality;
-        getVideoFromIndex(); // loop qualities to get video again
+        getVideoFromIndex(false); // loop qualities to get video again
       }
 
       refSeekTime = video.currentTime;
@@ -1194,32 +1152,24 @@
       // }
     }
 
-    function getBestVideo() {
+    function getBestVideo() { // fetch best video according to network conditions - continuous
       
       var newTargetQuality = getOptimalQuality();
 
-      if (newTargetQuality !== targetQuality) { // if same quality rating as previous
+      if ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true) !== -1) && (targetVideoIndex !== getVideoFromIndex(true)))) { // if same quality rating as previous
+        
         targetVideo = null;
 
         console.log("prepare new video");
 
         targetQuality = newTargetQuality;
-        getVideoFromIndex(); // loop qualities to get video again
 
-        refSeekTime = video.currentTime;
+        getVideoFromIndex(false); // loop qualities to get video again
 
-        // if (targetVideoSources[index]) { // if available
-          // targetVideo = targetVideoSources[index];
-          // targetVideoIndex = index;
-
-        // video.pause();
-        // audio.pause(); // pause content
-
-        qualityChange = true;
+        refSeekTimeSec = video.currentTime;
 
         videoSec.src = targetVideo.url; // 'loadstart'
-
-        // bufferAllow = false;
+        videoSec.currentTime = refSeekTimeSec;
 
       }
     }
@@ -1338,44 +1288,7 @@
 
         }, 3000);*/
     });
-    /*
-    audio.addEventListener('playing', function () { // when playback has stopped because of a temporary lack of data
 
-      // loading = false;
-
-      // audioCtx = new AudioContext();
-
-      // setTimeout(function() {
-
-        // loading = false;
-
-        // loadingRing.style.display = "none";
-        // playPauseButton.style.display = "block";
-        // hideVideoControls();
-        /*
-        if (controlsHideInt === null) {
-          controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
-        }
-
-        video.play().then(function() {
-
-          bufferEndTime = new Date().getTime();
-          if (bufferStartTime !== 0) {
-            bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
-          }
-
-          videoPause = true;
-          loading = false;
-          // audio.currentTime = video.currentTime;
-
-        }).catch((err) => {
-          audio.pause();
-          video.pause();
-          videoPause = false;
-        });
-      // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
-
-    });*/
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
@@ -1407,61 +1320,6 @@
         bestVideoInt = setInterval(getBestVideo, 10000);
       }
     });
-
-    /*
-    video.addEventListener('loadeddata', function () { // fired when the frame at the current playback position of the media has finished loading; often the first frame
-
-      // END LOAD
-
-      loading = false;
-
-      loadingRing.style.display = "none";
-      playPauseButton.style.display = "block";
-
-      // audio.play();
-      // video.play();
-
-      audio.play().then(function () {
-        audioCtx = new AudioContext();
-        setTimeout(function() {
-          video.play().then(function() {
-            videoPause = true;
-
-            if (audioVideoAlignInt !== null) {
-              clearInterval(audioVideoAlignInt);
-              audioVideoAlignInt = null;
-            }
-            audioVideoAlignInt = setInterval(audioVideoAlign, 100);
-
-          }).catch((err) => {
-            audio.pause();
-            video.pause();
-            videoPause = false;
-
-            if (audioVideoAlignInt !== null) {
-              clearInterval(audioVideoAlignInt);
-              audioVideoAlignInt = null;
-            }
-          });
-        }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-      });
-
-      updatePositionState();
-
-      // START BUFFERING CHECK
-
-      bufferingCountLoop = setInterval(function() {
-        if (bufferCount > 0) {
-          bufferingCount[bufferingCount.length] = bufferCount;
-        }
-        bufferCount = 0;
-      }, 1000);
-      
-    });*/
-    /*
-    audio.addEventListener('canplay', function() {
-      console.log("audio-play");
-    });*/
 
     function endLoadRp() {
       const loadRp = document.querySelector("#loadR-p");

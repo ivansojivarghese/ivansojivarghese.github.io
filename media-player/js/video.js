@@ -518,7 +518,7 @@ function getOptimalQuality() {
       return tempQuality;
 }
 
-function getVideoFromIndex() {
+function getVideoFromIndex(m) {
 
   // GET THE VIDEO
   var mod = 0;
@@ -544,45 +544,90 @@ function getVideoFromIndex() {
     specialVideoQuality.reverse();
   }
 
-  while (targetVideo === null) {
+  if (m) {
 
-    console.log("null1");
+    var compareIndex = -1;
 
-    if (!normalVid) {
-      specialQuality = Math.round(((targetQuality + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
-    }
-    for (i = 0; i < targetVideoSources.length; i++) {
-      if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
-        targetVideo = targetVideoSources[i];
-        targetVideoIndex = i;
-        break;
-      } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
+    while (targetVideoSources[compareIndex] === null) {
 
-        // targetVideo = typeof targetVideoSources[targetQuality + mod] === undefined ? null : targetVideoSources[targetQuality + mod];
-        targetVideo = targetVideoSources[i];
-        targetVideoIndex = i;
-
-        break;
+      if (!normalVid) {
+        specialQuality = Math.round(((targetQuality + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
       }
-    }
-    // console.log(targetQuality + mod);
-    if (targetVideo === null) {
+      for (i = 0; i < targetVideoSources.length; i++) {
+        if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
+          compareIndex = i;
+          break;
 
-      console.log("null2");
+        } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
 
-      var quality = normalVid ? targetQuality + mod : specialQuality;
-      fetchedSources[fetchedSources.length] = normalVid ? targetQuality + mod : specialQuality;
-      if ((quality) > 0 && !reverse) {
-        mod--;
-      } else {
-        if (!reverse) {
-          mod = 1;
-          reverse = true;
-        } else {
-          mod++;
+          compareIndex = i;
+
+          break;
         }
       }
 
+      if (targetVideoSources[compareIndex] === null) {
+
+        var quality = normalVid ? targetQuality + mod : specialQuality;
+        fetchedSources[fetchedSources.length] = normalVid ? targetQuality + mod : specialQuality;
+
+        if ((quality) > 0 && !reverse) {
+          mod--;
+        } else {
+          if (!reverse) {
+            mod = 1;
+            reverse = true;
+          } else {
+            mod++;
+          }
+        }
+      }
+
+    }
+
+    return compareIndex;
+
+  } else {
+    while (targetVideo === null) {
+
+      // console.log("null1");
+
+      if (!normalVid) {
+        specialQuality = Math.round(((targetQuality + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
+      }
+      for (i = 0; i < targetVideoSources.length; i++) {
+        if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
+          targetVideo = targetVideoSources[i];
+          targetVideoIndex = i;
+          break;
+        } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
+
+          // targetVideo = typeof targetVideoSources[targetQuality + mod] === undefined ? null : targetVideoSources[targetQuality + mod];
+          targetVideo = targetVideoSources[i];
+          targetVideoIndex = i;
+
+          break;
+        }
+      }
+      // console.log(targetQuality + mod);
+      if (targetVideo === null) {
+
+        // console.log("null2");
+
+        var quality = normalVid ? targetQuality + mod : specialQuality;
+        fetchedSources[fetchedSources.length] = normalVid ? targetQuality + mod : specialQuality;
+        if ((quality) > 0 && !reverse) {
+          mod--;
+        } else {
+          if (!reverse) {
+            mod = 1;
+            reverse = true;
+          } else {
+            mod++;
+          }
+        }
+
+      }
     }
   }
 }
@@ -615,7 +660,7 @@ function getOptimalVideo() {
 
       getOptimalQuality();
 
-      getVideoFromIndex();
+      getVideoFromIndex(false);
 
       // video.src = targetVideo.url; // FOR TESTING
       video.src = videoDetails.adaptiveFormats[0].url;
