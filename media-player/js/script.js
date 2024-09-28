@@ -49,6 +49,7 @@
     var playPauseManual = false;
 
     var videoPause = false;
+    var videoPlay = true;
 
     var appUnload = false;
 
@@ -180,7 +181,7 @@
       controlsHideInt = null;
       if (videoControls.classList.contains('visible') && !audioVideoAligning) {
 
-        if (video.paused && video.src !== "") {
+        if (video.paused && video.src !== "" && videoPlay) {
           //audio.play();
           //video.play();
 
@@ -356,51 +357,54 @@
 
     video.addEventListener('play', function () {
 
-      if (!bufferAllow) {
-        bufferAllow = true;
-      }
+      if (videoPlay) {
 
-      // videoEnd = false;
-      if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
-      }
-      if (bufferInt === null) {
-        bufferInt = setInterval(liveBuffer, 1000/60);
-      }
+        if (!bufferAllow) {
+          bufferAllow = true;
+        }
 
-      if (!playPauseManual) {
-        audio.play().then(function() {
-          if (videoEnd) {
-            audio.currentTime = 0;
+        // videoEnd = false;
+        if (networkSpeedInt === null) {
+          networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
+        }
+        if (bufferInt === null) {
+          bufferInt = setInterval(liveBuffer, 1000/60);
+        }
+
+        if (!playPauseManual) {
+          audio.play().then(function() {
+            if (videoEnd) {
+              audio.currentTime = 0;
+            }
+            
+            if (!videoPause && !backgroundPlay && !pipEnabled) {
+              video.currentTime = audio.currentTime;
+            }
+            
+            videoPause = true;
+          }); 
+          playPauseButton.classList.add('playing');
+          if (firstPlay) {
+            hideVideoControls();
+            firstPlay = false;
+          } else {
+            clearTimeout(controlsHideInt);
+            controlsHideInt = null;
+            if (controlsHideInt === null) {
+              controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+            }
           }
-          
+          navigator.mediaSession.playbackState = 'playing';
+          getScreenLock();
+        } else {
           if (!videoPause && !backgroundPlay && !pipEnabled) {
             video.currentTime = audio.currentTime;
           }
-          
-          videoPause = true;
-        }); 
-        playPauseButton.classList.add('playing');
-        if (firstPlay) {
-          hideVideoControls();
-          firstPlay = false;
-        } else {
-          clearTimeout(controlsHideInt);
-          controlsHideInt = null;
-          if (controlsHideInt === null) {
-            controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
-          }
+          playPauseButton.classList.add('playing');
+          playPauseManual = false;
+          navigator.mediaSession.playbackState = 'playing';
+          getScreenLock();
         }
-        navigator.mediaSession.playbackState = 'playing';
-        getScreenLock();
-      } else {
-        if (!videoPause && !backgroundPlay && !pipEnabled) {
-          video.currentTime = audio.currentTime;
-        }
-        playPauseButton.classList.add('playing');
-        playPauseManual = false;
-        navigator.mediaSession.playbackState = 'playing';
-        getScreenLock();
       }
     });
 
@@ -599,7 +603,7 @@
           }
         }
       } else if (event.target === videoControls) {
-        if (video.paused && video.src !== "") {
+        if (video.paused && video.src !== "" && videoPlay) {
 
           //audio.play();
           //video.play();
@@ -1033,6 +1037,11 @@
       videoPause = false;
     });
 
+    audio.addEventListener('waiting', function() {
+      bufferAllow = false;
+      videoPlay = false;
+      video.pause();
+    });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
@@ -1055,6 +1064,12 @@
 
       audio.pause();
       videoPause = false;
+    });
+
+    audio.addEventListener('stalled', function() {
+      bufferAllow = false;
+      videoPlay = false;
+      video.pause();
     });
 
     var liveBufferVal = [];
@@ -1180,6 +1195,8 @@
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
+      if (videoPlay) {
+
         audio.play().then(function() {
           setTimeout(function() {
             video.play().then(function() {
@@ -1248,49 +1265,13 @@
             });
           }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
         });
-        
-        /*if (playbackBufferInt !== null) {
-          clearTimeout(playbackBufferInt);
-          playbackBufferInt = null;
-        } else {*/
-          /*
-          audio.pause();
-          video.pause();
-          videoPause = false;*/
-        // }
-        /*
-        playbackBufferInt = setTimeout(function() {
+      }
+    });
 
-          if (videoLoadPercentile > ((video.currentTime + 5) / video.duration)) { // HAVE AT LEAST 5 SEC. OF BUFFERED DATA LOADED before removing 'loading rings'
-
-            playbackBufferInt = null;
-
-            loadingRing.style.display = "none";
-            playPauseButton.style.display = "block";
-            // hideVideoControls();
-            if (controlsHideInt === null) {
-              controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
-            }
-
-            loading = false;
-            audio.currentTime = video.currentTime;
-
-          }
-
-          /*
-          audio.play().then(function() {
-            setTimeout(function() {
-              video.play().then(function() {
-                videoPause = true;
-              }).catch((err) => {
-                audio.pause();
-                video.pause();
-                videoPause = false;
-              });
-            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency));
-          });
-
-        }, 3000);*/
+    audio.addEventListener('playing', function() {
+      videoPlay = true;
+      bufferAllow = true;
+      video.play();
     });
 
 
@@ -1366,6 +1347,8 @@
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
 
+      if (videoPlay) {
+
             if (qualityChange) {
 
               if (refSeekTime) {
@@ -1438,6 +1421,9 @@
                 bufferCount = 0;
               }, 5000);
             }
+
+      }
+
     })
 
     video.addEventListener('timeupdate', function() {
@@ -1712,7 +1698,7 @@
             if (!loading && !videoLoad && !seeking && !seekingLoad) {
               hideVideoControls();
             }
-        } else if (video.paused && !videoEnd && video.src !== "") {
+        } else if (video.paused && !videoEnd && video.src !== "" && videoPlay) {
           if (!loading && !videoLoad && !seeking && !seekingLoad) {
             hideVideoControls();
           }

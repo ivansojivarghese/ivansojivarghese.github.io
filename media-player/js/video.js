@@ -45,33 +45,37 @@ var refSeekTime = 0;
 
 const actionHandlers = [
   ['play',          async () => { 
-                                  if (videoEnd) { 
-                                    video.currentTime = 0;
-                                    audio.currentTime = 0;
-                                  } 
-                                  await audio.play().then(function () {
-                                    // audioCtx = new AudioContext();
-                                    audio.volume = 1;
-                                    setTimeout(function() {
-                                      if (!backgroundPlay || pipEnabled) {
-                                        video.play().then(function() {
-                                          if (videoEnd) {
-                                            videoEnd = false;
-                                          }
-                                          // videoPause = true;
-                                        }).catch((err) => {
-                                          /*
-                                          if (!backgroundPlay || pipEnabled) {
-                                            audio.pause();
-                                          }
-                                          video.pause();*/
-                                          // videoPause = false;
-                                        });
-                                      }
-                                    }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-                                  }); 
-                    
-                                  updatePositionState(); 
+                                  if (videoPlay) {
+
+                                    if (videoEnd) { 
+                                      video.currentTime = 0;
+                                      audio.currentTime = 0;
+                                    } 
+                                    await audio.play().then(function () {
+                                      // audioCtx = new AudioContext();
+                                      audio.volume = 1;
+                                      setTimeout(function() {
+                                        if (!backgroundPlay || pipEnabled) {
+                                          video.play().then(function() {
+                                            if (videoEnd) {
+                                              videoEnd = false;
+                                            }
+                                            // videoPause = true;
+                                          }).catch((err) => {
+                                            /*
+                                            if (!backgroundPlay || pipEnabled) {
+                                              audio.pause();
+                                            }
+                                            video.pause();*/
+                                            // videoPause = false;
+                                          });
+                                        }
+                                      }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+                                    }); 
+                      
+                                    updatePositionState(); 
+
+                                  }
                                 }
   ],
   ['pause',         () => { 
