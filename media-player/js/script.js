@@ -1155,7 +1155,7 @@
         // targetVideo = targetVideoSources[index];
         // targetVideoIndex = index;
 
-      // video.pause();
+      video.pause();
       audio.pause(); // pause content
 
       qualityChange = true;
