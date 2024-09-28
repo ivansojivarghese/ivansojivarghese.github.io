@@ -348,7 +348,7 @@ async function getParams(id) {
     
     // video.src = videoDetails.formats["0"].url;
 
-    if (videoDetails.status === "fail") {
+    if (videoDetails.status === "fail" || videoDetails.error !== null) {
 
       statusIndicator.classList.remove("buffer");
       statusIndicator.classList.remove("smooth");
