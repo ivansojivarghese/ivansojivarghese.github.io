@@ -27,7 +27,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
 
             if (qualityChange) {
-                video.src = targetVideo.url;
+                // video.src = targetVideo.url;
             }
 
             networkSpeedClose = false;
