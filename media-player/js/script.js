@@ -1018,6 +1018,10 @@
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
+      statusIndicator.classList.remove("error");
+      statusIndicator.classList.remove("smooth");
+      statusIndicator.classList.add("buffer");
+
       getScreenLock();
 
       // bufferCount++;
@@ -1040,6 +1044,11 @@
     });
 
     audio.addEventListener('waiting', function() {
+
+      statusIndicator.classList.remove("error");
+      statusIndicator.classList.remove("smooth");
+      statusIndicator.classList.add("buffer");
+
       bufferAllow = false;
       videoPlay = false;
       video.pause();
@@ -1047,6 +1056,10 @@
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
       
+      statusIndicator.classList.remove("error");
+      statusIndicator.classList.remove("smooth");
+      statusIndicator.classList.add("buffer");
+
       getScreenLock();
 
       // bufferCount++;
@@ -1069,6 +1082,11 @@
     });
 
     audio.addEventListener('stalled', function() {
+
+      statusIndicator.classList.remove("error");
+      statusIndicator.classList.remove("smooth");
+      statusIndicator.classList.add("buffer");
+
       bufferAllow = false;
       videoPlay = false;
       video.pause();
@@ -1206,6 +1224,10 @@
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
       if (videoPlay) {
+
+        statusIndicator.classList.remove("error");
+        statusIndicator.classList.remove("buffer");
+        statusIndicator.classList.add("smooth");
 
         audio.play().then(function() {
           setTimeout(function() {

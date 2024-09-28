@@ -149,6 +149,14 @@ video.seeking {
 }
 
 #statusIndicator div.error {
+    background-color: var(--negate_col);
+}
+
+#statusIndicator div.buffer {
+    background-color: var(--buffer_col);
+}
+
+#statusIndicator div.smooth {
     background-color: var(--predicate_col);
 }
 

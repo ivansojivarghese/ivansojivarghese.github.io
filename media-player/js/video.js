@@ -350,6 +350,8 @@ async function getParams(id) {
 
     if (videoDetails.status === "fail") {
 
+      statusIndicator.classList.remove("buffer");
+      statusIndicator.classList.remove("smooth");
       statusIndicator.classList.add("error");
 
       endLoad();
@@ -389,6 +391,8 @@ async function getParams(id) {
   } catch (error) {
     console.error(error);
     
+    statusIndicator.classList.remove("buffer");
+    statusIndicator.classList.remove("smooth");
     statusIndicator.classList.add("error");
 
     endLoad();
