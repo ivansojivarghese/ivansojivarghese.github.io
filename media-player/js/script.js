@@ -1077,36 +1077,38 @@
     var bufferModeExe = false;
 
     function liveBuffer() {
-      if (bufferMode || bufferingDetected) {
-        var currentTime = new Date().getTime();
-        if (bufferStartTime !== 0) {
-          var elapsedTime = currentTime - bufferStartTime;
-          liveBufferVal[liveBufferIndex] = elapsedTime;
-          if (elapsedTime >= bufferLimits[0] && !bufferModeExe) {
-            bufferCount++;
+      if (bufferAllow) {
+        if (bufferMode || bufferingDetected) {
+          var currentTime = new Date().getTime();
+          if (bufferStartTime !== 0) {
+            var elapsedTime = currentTime - bufferStartTime;
+            liveBufferVal[liveBufferIndex] = elapsedTime;
+            if (elapsedTime >= bufferLimits[0] && !bufferModeExe) {
+              bufferCount++;
+            }
           }
-        }
-        if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow) {
+          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow) {
 
-          bufferingCount = [];
-          bufferCount = 0;
+            bufferingCount = [];
+            bufferCount = 0;
 
-          liveBufferVal = [];
-          liveBufferIndex = 0;
+            liveBufferVal = [];
+            liveBufferIndex = 0;
+            bufferModeExe = false;
+            bufferStartTime = 0;
+
+            getVideoFromBuffer();
+
+          }
+
+          bufferModeExe = true;
+
+        } else if ((!bufferMode || !bufferingDetected) && bufferModeExe) {
+          if (!bufferMode) {
+            liveBufferIndex++;
+          }
           bufferModeExe = false;
-          bufferStartTime = 0;
-
-          getVideoFromBuffer();
-
         }
-
-        bufferModeExe = true;
-
-      } else if ((!bufferMode || !bufferingDetected) && bufferModeExe) {
-        if (!bufferMode) {
-          liveBufferIndex++;
-        }
-        bufferModeExe = false;
       }
     }
 
