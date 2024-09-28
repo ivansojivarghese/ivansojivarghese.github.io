@@ -7,7 +7,6 @@
     const video = document.querySelector('video.primary');
     const audio = document.querySelector('audio.primary');
     const videoSec = document.querySelector('video.secondary');
-    const audioSec = document.querySelector('audio.secondary');
     
     const videoContainer = document.querySelector("#videoContainer");
     const videoControls = document.querySelector("#videoControls");
@@ -1219,7 +1218,6 @@
         qualityChange = true;
 
         videoSec.src = targetVideo.url; // 'loadstart'
-        audioSec.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
         // bufferAllow = false;
 
