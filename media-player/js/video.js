@@ -189,7 +189,7 @@ async function getParams(id, time) {
   if (link !== null && id === null) {
 
     if (!time) {
-      time = Number(link.slice(contents.indexOf("&t=") + 3)); // START FROM (in sec.)
+      time = Number(link.slice(link.indexOf("&t=") + 3)); // START FROM (in sec.)
     }
     
     // NO ACCESS TO SHORTS, LIVE, ATTRIBUTED OR EMBEDDED VIDEOS
