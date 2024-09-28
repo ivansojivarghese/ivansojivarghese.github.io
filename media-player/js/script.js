@@ -1278,7 +1278,7 @@
 
     audio.addEventListener('playing', function() {
       videoPlay = true;
-      bufferAllow = true;
+      // bufferAllow = true;
       video.play();
     });
 
