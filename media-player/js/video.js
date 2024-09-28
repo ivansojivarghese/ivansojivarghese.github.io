@@ -160,9 +160,13 @@ function resetVariables() {
   bufferModeExe = false;
 }
 
-async function getParams(id) {
+async function getParams(id, time) {
   let params = new URLSearchParams(document.location.search);
   const link = params.get("description"); 
+
+  if (!time) {
+    time = Number(link.slice(contents.indexOf("&t=") + 3)); // START FROM (in sec.)
+  }
 
   resetVariables();
 
@@ -420,7 +424,7 @@ async function getParams(id) {
         if (networkSpeed) {
           clearInterval(videoFetchLoop);
 
-          getOptimalVideo();
+          getOptimalVideo(time);
         }
       }, 10);
     }
@@ -723,7 +727,7 @@ function getVideoFromIndex(m, q) {
   }
 }
 
-function getOptimalVideo() {
+function getOptimalVideo(time) {
 
   // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
 
@@ -757,6 +761,11 @@ function getOptimalVideo() {
       video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
+      if (time) { // START FROM (if available)
+        video.currentTime = time;
+        audio.currentTime = time;
+      }
+
       // mediaSessions API
       if ("mediaSession" in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
@@ -775,6 +784,32 @@ function getOptimalVideo() {
 
   }, 10);
 
+  } else {
+
+    // error
+
+    statusIndicator.classList.remove("buffer");
+    statusIndicator.classList.remove("smooth");
+    statusIndicator.classList.add("error");
+
+    endLoad();
+              
+    setTimeout(function() {
+      loadingRing.style.display = "none";
+      playPauseButton.style.display = "block";
+
+      if (!seekingLoad && !longTap && !seeking) {
+        hideVideoControls();
+      }
+
+      // reset the loader
+      setTimeout(function() {
+        resetLoad();
+      }, 10);
+
+    }, 1000);
+
+    loading = false;
   }
 
   }

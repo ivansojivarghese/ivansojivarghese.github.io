@@ -156,13 +156,15 @@
       videoID = contents.match(VID_REGEX)[1];*/
 
       if (!error) {
+
+        var timestamp = Number(contents.slice(contents.indexOf("&t=") + 3)); // START FROM (in sec.)
       
         console.log("Video ID: " + videoID);
           
         videoSubmit = true;
         
         // if (videoID) {
-        getParams(videoID);
+        getParams(videoID, timestamp);
         // }
 
       }
