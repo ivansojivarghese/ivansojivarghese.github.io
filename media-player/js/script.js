@@ -392,6 +392,9 @@
         navigator.mediaSession.playbackState = 'playing';
         getScreenLock();
       } else {
+        if (!videoPause && !backgroundPlay && !pipEnabled) {
+          video.currentTime = audio.currentTime;
+        }
         playPauseButton.classList.add('playing');
         playPauseManual = false;
         navigator.mediaSession.playbackState = 'playing';

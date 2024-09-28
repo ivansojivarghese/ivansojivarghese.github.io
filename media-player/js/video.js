@@ -82,6 +82,10 @@ const actionHandlers = [
                               bufferStartTime = 0;
                               bufferEndTime = 0;
 
+                              liveBufferVal = [];
+                              liveBufferIndex = 0;
+                              bufferModeExe = false;
+
                               releaseScreenLock(screenLock);
 
                               // videoPause = false;
