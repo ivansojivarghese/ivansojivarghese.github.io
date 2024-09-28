@@ -300,11 +300,53 @@ async function getParams(id) {
       }
     } else {
       
-      //video.classList.add("error");
+      statusIndicator.classList.remove("buffer");
+      statusIndicator.classList.remove("smooth");
+      statusIndicator.classList.add("error");
+
+      endLoad();
+                
+      setTimeout(function() {
+        loadingRing.style.display = "none";
+        playPauseButton.style.display = "block";
+
+        if (!seekingLoad && !longTap && !seeking) {
+          hideVideoControls();
+        }
+
+        // reset the loader
+        setTimeout(function() {
+          resetLoad();
+        }, 10);
+
+      }, 1000);
+
+      loading = false;
     }
     } else {
       
-      //video.classList.add("error");
+      statusIndicator.classList.remove("buffer");
+      statusIndicator.classList.remove("smooth");
+      statusIndicator.classList.add("error");
+
+      endLoad();
+                
+      setTimeout(function() {
+        loadingRing.style.display = "none";
+        playPauseButton.style.display = "block";
+
+        if (!seekingLoad && !longTap && !seeking) {
+          hideVideoControls();
+        }
+
+        // reset the loader
+        setTimeout(function() {
+          resetLoad();
+        }, 10);
+
+      }, 1000);
+
+      loading = false;
     }
     
     console.log("Video ID: " + videoID);
@@ -383,11 +425,6 @@ async function getParams(id) {
       }, 10);
     }
 
-    /*
-    const videoCSS = window.getComputedStyle(video, null);
-    videoContainer.style.width = videoCSS.getPropertyValue("width");
-    videoContainer.style.height = videoCSS.getPropertyValue("height");
-    */
   } catch (error) {
     console.error(error);
     
