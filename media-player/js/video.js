@@ -666,8 +666,8 @@ function getOptimalVideo() {
 
       getVideoFromIndex(false);
 
-      // video.src = targetVideo.url; // FOR TESTING
-      video.src = videoDetails.adaptiveFormats[0].url;
+      // video.src = targetVideo.url; 
+      video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
       // mediaSessions API

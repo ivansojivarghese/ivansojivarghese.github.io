@@ -1188,8 +1188,14 @@
 
         refSeekTime = video.currentTime;
 
+        video.pause();
+        audio.pause(); // pause content
+
+        qualityChange = true;
+
         video.src = targetVideo.url; // 'loadstart'
 
+        bufferAllow = false;
       }
     }
 
