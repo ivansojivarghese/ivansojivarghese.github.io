@@ -359,9 +359,9 @@
 
       if (videoPlay) {
 
-        if (!bufferAllow) {
+        // if (!bufferAllow) {
           bufferAllow = true;
-        }
+        // }
 
         // videoEnd = false;
         if (networkSpeedInt === null) {
