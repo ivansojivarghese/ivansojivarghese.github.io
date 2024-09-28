@@ -4,8 +4,11 @@
 
     // https://googlesamples.github.io/web-fundamentals/fundamentals/media/mobile-web-video-playback.html 
 
-    const video = document.querySelector('video');
-    const audio = document.querySelector('audio');
+    const video = document.querySelector('video.primary');
+    const audio = document.querySelector('audio.primary');
+    const videoSec = document.querySelector('video.secondary');
+    const audioSec = document.querySelector('audio.secondary');
+    
     const videoContainer = document.querySelector("#videoContainer");
     const videoControls = document.querySelector("#videoControls");
 
@@ -1199,7 +1202,7 @@
       if (newTargetQuality !== targetQuality) { // if same quality rating as previous
         targetVideo = null;
 
-        console.log("get video again");
+        console.log("prepare new video");
 
         targetQuality = newTargetQuality;
         getVideoFromIndex(); // loop qualities to get video again
@@ -1210,14 +1213,15 @@
           // targetVideo = targetVideoSources[index];
           // targetVideoIndex = index;
 
-        video.pause();
-        audio.pause(); // pause content
+        // video.pause();
+        // audio.pause(); // pause content
 
         qualityChange = true;
 
-        video.src = targetVideo.url; // 'loadstart'
+        videoSec.src = targetVideo.url; // 'loadstart'
+        audioSec.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
-        bufferAllow = false;
+        // bufferAllow = false;
 
       }
     }
