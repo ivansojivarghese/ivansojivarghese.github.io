@@ -719,7 +719,7 @@
     }
 
     var audioStall = false;
-    var audioDiffMax = 5;
+    var audioDiffMax = 3;
 
     function checkLatency(mArr, t) {
       if (mArr.length < t) {
