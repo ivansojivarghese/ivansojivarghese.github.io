@@ -1397,11 +1397,12 @@
                 video.play().then(function() {
                   videoPause = true;
       
+                  /*
                   if (audioVideoAlignInt !== null) {
                     clearInterval(audioVideoAlignInt);
                     audioVideoAlignInt = null;
                   }
-                  audioVideoAlignInt = setInterval(audioVideoAlign, 100);
+                  audioVideoAlignInt = setInterval(audioVideoAlign, 100);*/
       
                 }).catch((err) => {
                   /*
