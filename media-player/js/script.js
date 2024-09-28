@@ -1210,10 +1210,10 @@
           // targetVideo = targetVideoSources[index];
           // targetVideoIndex = index;
 
-        // video.pause();
+        video.pause();
         audio.pause(); // pause content
 
-        // qualityChange = true;
+        qualityChange = true;
 
         video.src = targetVideo.url; // 'loadstart'
 
