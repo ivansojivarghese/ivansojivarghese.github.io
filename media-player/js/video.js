@@ -518,7 +518,7 @@ function getOptimalQuality() {
       return tempQuality;
 }
 
-function getVideoFromIndex(m) {
+function getVideoFromIndex(m, q) {
 
   // GET THE VIDEO
   var mod = 0;
@@ -551,10 +551,10 @@ function getVideoFromIndex(m) {
     while (targetVideoSources[compareIndex] === null) {
 
       if (!normalVid) {
-        specialQuality = Math.round(((targetQuality + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
+        specialQuality = Math.round(((q + mod) / (videoQuality.length - 1)) * (specialVideoQuality.length - 1));
       }
       for (i = 0; i < targetVideoSources.length; i++) {
-        if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
+        if ((normalVid && (targetVideoSources[i].height === videoQuality[q + mod]))) {
           compareIndex = i;
           break;
 
@@ -568,8 +568,8 @@ function getVideoFromIndex(m) {
 
       if (targetVideoSources[compareIndex] === null) {
 
-        var quality = normalVid ? targetQuality + mod : specialQuality;
-        fetchedSources[fetchedSources.length] = normalVid ? targetQuality + mod : specialQuality;
+        var quality = normalVid ? q + mod : specialQuality;
+        fetchedSources[fetchedSources.length] = normalVid ? q + mod : specialQuality;
 
         if ((quality) > 0 && !reverse) {
           mod--;

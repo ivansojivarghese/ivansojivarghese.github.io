@@ -1156,20 +1156,24 @@
       
       var newTargetQuality = getOptimalQuality();
 
-      if ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true) !== -1) && (targetVideoIndex !== getVideoFromIndex(true)))) { // if same quality rating as previous
+      if ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true, newTargetQuality) !== -1) && (targetVideoIndex !== getVideoFromIndex(true, newTargetQuality)))) { // if same quality rating as previous
         
         targetVideo = null;
 
         console.log("prepare new video");
 
+        if (newTargetQuality === targetQuality) {
+          var newIndex = getVideoFromIndex(true, newTargetQuality);
+          targetVideo = targetVideoSources[newIndex];
+        } else {
+          getVideoFromIndex(false); // loop qualities to get video again
+        }
+
         targetQuality = newTargetQuality;
 
-        getVideoFromIndex(false); // loop qualities to get video again
+        refSeekTime = video.currentTime;
 
-        refSeekTimeSec = video.currentTime;
-
-        videoSec.src = targetVideo.url; // 'loadstart'
-        videoSec.currentTime = refSeekTimeSec;
+        video.src = targetVideo.url; // 'loadstart'
 
       }
     }
@@ -1403,7 +1407,7 @@
                     audioVideoAlignInt = null;
                   }
                   audioVideoAlignInt = setInterval(audioVideoAlign, 100);*/
-                  
+
                   setInterval(function() {
                     console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
                   }, 100);
