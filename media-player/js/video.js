@@ -164,10 +164,6 @@ async function getParams(id, time) {
   let params = new URLSearchParams(document.location.search);
   const link = params.get("description"); 
 
-  if (!time) {
-    time = Number(link.slice(contents.indexOf("&t=") + 3)); // START FROM (in sec.)
-  }
-
   resetVariables();
 
   // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
@@ -191,6 +187,10 @@ async function getParams(id, time) {
   videoStreamScore = 0;
 
   if (link !== null && id === null) {
+
+    if (!time) {
+      time = Number(link.slice(contents.indexOf("&t=") + 3)); // START FROM (in sec.)
+    }
     
     // NO ACCESS TO SHORTS, LIVE, ATTRIBUTED OR EMBEDDED VIDEOS
     if (!link.includes("embed") && !link.includes("attribution_link") && !link.includes("shorts") && !link.includes("live")) {
