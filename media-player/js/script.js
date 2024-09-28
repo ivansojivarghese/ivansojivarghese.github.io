@@ -41,6 +41,7 @@
 
     var networkSpeedInt = null;
     var bufferInt = null;
+    var bestVideoInt = null;
 
     var audioCtx;
 
@@ -1191,6 +1192,36 @@
       // }
     }
 
+    function getBestVideo() {
+      
+      var newTargetQuality = getOptimalQuality();
+
+      if (newTargetQuality !== targetQuality) { // if same quality rating as previous
+        targetVideo = null;
+
+        console.log("get video again");
+
+        targetQuality = newTargetQuality;
+        getVideoFromIndex(); // loop qualities to get video again
+
+        refSeekTime = video.currentTime;
+
+        // if (targetVideoSources[index]) { // if available
+          // targetVideo = targetVideoSources[index];
+          // targetVideoIndex = index;
+
+        // video.pause();
+        audio.pause(); // pause content
+
+        qualityChange = true;
+
+        video.src = targetVideo.url; // 'loadstart'
+
+        bufferAllow = false;
+
+      }
+    }
+
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
         audio.play().then(function() {
@@ -1365,10 +1396,13 @@
       playPauseButton.style.display = "none";
 
       if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 30000); 
+        networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
       }
       if (bufferInt === null) {
         bufferInt = setInterval(liveBuffer, 1000/60);
+      }
+      if (bestVideoInt === null) {
+        bestVideoInt = setInterval(getBestVideo, 10000);
       }
     });
 
