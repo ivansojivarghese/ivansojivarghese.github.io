@@ -348,13 +348,38 @@ async function getParams(id) {
     
     // video.src = videoDetails.formats["0"].url;
 
-    videoFetchLoop = setInterval(function() {
-      if (networkSpeed) {
-        clearInterval(videoFetchLoop);
+    if (videoDetails.status === "fail") {
 
-        getOptimalVideo();
-      }
-    }, 10);
+      statusIndicator.classList.add("error");
+
+      endLoad();
+              
+      setTimeout(function() {
+        loadingRing.style.display = "none";
+        playPauseButton.style.display = "block";
+
+        if (!seekingLoad && !longTap && !seeking) {
+          hideVideoControls();
+        }
+
+        // reset the loader
+        setTimeout(function() {
+          resetLoad();
+        }, 10);
+
+      }, 1000);
+
+      loading = false;
+
+    } else {
+      videoFetchLoop = setInterval(function() {
+        if (networkSpeed) {
+          clearInterval(videoFetchLoop);
+
+          getOptimalVideo();
+        }
+      }, 10);
+    }
 
     /*
     const videoCSS = window.getComputedStyle(video, null);
@@ -364,7 +389,28 @@ async function getParams(id) {
   } catch (error) {
     console.error(error);
     
-    // video.classList.add("error");
+    statusIndicator.classList.add("error");
+
+    endLoad();
+              
+    setTimeout(function() {
+      loadingRing.style.display = "none";
+      playPauseButton.style.display = "block";
+
+      if (!seekingLoad && !longTap && !seeking) {
+        hideVideoControls();
+      }
+
+      // reset the loader
+      setTimeout(function() {
+        resetLoad();
+      }, 10);
+
+    }, 1000);
+
+    loading = false;
+
+
   }
     
   }

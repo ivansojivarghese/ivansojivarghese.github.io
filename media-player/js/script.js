@@ -4,6 +4,8 @@
 
     // https://googlesamples.github.io/web-fundamentals/fundamentals/media/mobile-web-video-playback.html 
 
+    const statusIndicator = document.querySelector("#statusIndicator div");
+
     const video = document.querySelector('video.primary');
     const audio = document.querySelector('audio.primary');
     
@@ -1227,6 +1229,7 @@
               }, 1000);
 
               loading = false;
+
               if (initialVideoLoad) {
                 initialVideoLoad = false;
               }
