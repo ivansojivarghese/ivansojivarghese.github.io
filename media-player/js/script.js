@@ -1313,6 +1313,9 @@
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
       if (networkSpeedInt === null) {
+        controller = new AbortController();
+        signal = controller.signal;
+
         networkSpeedInt = setInterval(estimateNetworkSpeed, 5000);
       }
 
