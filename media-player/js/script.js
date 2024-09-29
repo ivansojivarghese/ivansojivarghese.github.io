@@ -102,6 +102,8 @@
 
     var qualityChange = false;
     var qualityBestChange = false;
+    var preventQualityChange = false;
+    var preventQualityChangeInt = null;
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
@@ -362,6 +364,12 @@
     function qualityBestReset() {
       if (qualityBestChange && !video.paused && !audio.paused) {
         qualityBestChange = false;
+        clearTimeout(preventQualityChangeInt);
+        preventQualityChangeInt = null;
+        preventQualityChange = true;
+        preventQualityChangeInt = setTimeout(function() {
+          preventQualityChange = false;
+        }, 10000);
       }
     }
 
@@ -858,7 +866,7 @@
     }
 
     function playPrevious(m) {
-      if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
+      if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange) {
 
         // FIRST INSTANCE (seek to the front)
         video.currentTime = 0;
@@ -873,7 +881,7 @@
 
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !videoEnd) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !videoEnd && !qualityBestChange) {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
             seeking = true;
@@ -923,7 +931,7 @@
       
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "") {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange) {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
             videoEnd = false;
@@ -1249,7 +1257,7 @@
       
       var newTargetQuality = getOptimalQuality();
 
-      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true, newTargetQuality) !== -1) && (targetVideoIndex !== getVideoFromIndex(true, newTargetQuality)))) && !video.paused && !qualityBestChange) { // if same quality rating as previous
+      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true, newTargetQuality) !== -1) && (targetVideoIndex !== getVideoFromIndex(true, newTargetQuality)))) && !video.paused && !audio.paused && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
         
         var newIndex = getVideoFromIndex(true, newTargetQuality);
         
