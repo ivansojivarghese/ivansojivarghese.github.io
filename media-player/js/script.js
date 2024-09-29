@@ -419,6 +419,9 @@
     });
 
     video.addEventListener('pause', function () {
+
+      if (!qualityBestChange) {
+
       bufferStartTime = 0;
       bufferEndTime = 0;
 
@@ -441,6 +444,9 @@
       }
       navigator.mediaSession.playbackState = 'paused';
       releaseScreenLock(screenLock);
+    
+      }
+
     });
     
     audio.addEventListener('pause', function () {
@@ -1258,7 +1264,9 @@
         // audio.pause(); // pause content
 
         video.src = targetVideo.url; // 'loadstart'
-      } else if (qualityBestChange) {
+
+      } else if (qualityBestChange && !video.paused && !audio.paused && (Math.abs(video.currentTime - audio.currentTime) < 1)) {
+
         qualityBestChange = false;
       }
 

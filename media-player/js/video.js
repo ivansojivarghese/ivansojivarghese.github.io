@@ -79,7 +79,7 @@ const actionHandlers = [
                                 }
   ],
   ['pause',         () => { 
-                            // if (videoPause) {
+                            if (!qualityBestChange) {
                               audio.pause();
                               video.pause();
 
@@ -93,7 +93,7 @@ const actionHandlers = [
                               releaseScreenLock(screenLock);
 
                               // videoPause = false;
-                            // }
+                            }
                           }
   ],
   ['previoustrack', (details) => { playPrevious(true); updatePositionState(); }],
