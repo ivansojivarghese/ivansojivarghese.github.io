@@ -747,7 +747,7 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused && !seekingLoad && !videoEnd && !loading && !bufferingDetected) {
+      if (!video.paused && !seekingLoad && !videoEnd && (!loading || qualityBestChange) && !bufferingDetected) {
         
         if (checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax) /*&& video.currentTime > minVideoLoad*/) { // only buffer when audio has stalled
           // bufferCount++;
@@ -755,6 +755,11 @@
           bufferMode = true;
 
           console.log("audioVideoAlign: paused");
+
+          if (qualityBestChange && audio.paused) {
+            audio.play();
+            hideVideoControls();
+          }
 
           loading = true;
 
