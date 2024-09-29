@@ -364,11 +364,11 @@
 
         if (!qualityBestChange) {
           bufferAllow = true;
-        } else {
-          setTimeout(function() {
-            qualityBestChange = false;
-          }, 3000);
-        }
+        } 
+        
+        setTimeout(function() {
+          qualityBestChange = false;
+        }, 3000);
 
         // videoEnd = false;
         if (networkSpeedInt === null) {
