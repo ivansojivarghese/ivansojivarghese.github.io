@@ -1062,6 +1062,16 @@
       bufferAllow = false;
       videoPlay = false;
       video.pause();
+
+      setTimeout(function () {
+        statusIndicator.classList.remove("buffer");
+          statusIndicator.classList.remove("error");
+          statusIndicator.classList.add("smooth");
+    
+          // bufferAllow = true;
+          videoPlay = true;
+          video.play();
+    }, 1000);
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
@@ -1100,6 +1110,16 @@
       bufferAllow = false;
       videoPlay = false;
       video.pause();
+
+      setTimeout(function () {
+          statusIndicator.classList.remove("buffer");
+            statusIndicator.classList.remove("error");
+            statusIndicator.classList.add("smooth");
+      
+            // bufferAllow = true;
+            videoPlay = true;
+            video.play();
+      }, 1000);
     });
 
     var liveBufferVal = [];
@@ -1312,12 +1332,12 @@
         });
       }
     });
-
+/*
     audio.addEventListener('playing', function() {
       videoPlay = true;
       // bufferAllow = true;
       video.play();
-    });
+    });*/
 
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
