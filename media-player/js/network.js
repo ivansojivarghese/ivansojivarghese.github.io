@@ -5,6 +5,9 @@ const fileSize = 5301699; // resource file size (in bytes)
 var networkSpeed = 0;
 var networkSpeedClose = false;
 
+const controller = new AbortController();
+const signal = controller.signal;
+
 var rtt = 0,
     downlink = 0,
     downlinkMax = 0,
@@ -21,7 +24,8 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             var startTime = new Date().getTime(); // start time of fetch
             const online = await fetch("https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
                 cache : "no-store",
-                priority: "low"
+                priority : "low",
+                signal : controller.signal
             }).then(() => {
                 var endTime = new Date().getTime(); // end time of fetch
                 networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)

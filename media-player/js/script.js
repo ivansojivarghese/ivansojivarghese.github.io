@@ -994,6 +994,11 @@
     });
 
     video.addEventListener('seeking', function() {
+
+        clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+        controller.abort();
+
         video.classList.add('seeking');
         seekingLoad = true;
     });
@@ -1062,6 +1067,10 @@
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
+      clearInterval(networkSpeedInt);
+      networkSpeedInt = null;
+      controller.abort();
+
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
       statusIndicator.classList.add("buffer");
@@ -1089,6 +1098,10 @@
 
     audio.addEventListener('waiting', function() {
 
+      clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+        controller.abort();
+
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
       statusIndicator.classList.add("buffer");
@@ -1109,6 +1122,10 @@
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
+
+      clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+        controller.abort();
       
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
@@ -1136,6 +1153,10 @@
     });
 
     audio.addEventListener('stalled', function() {
+
+      clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+        controller.abort();
 
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
@@ -1291,6 +1312,10 @@
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
+      if (networkSpeedInt === null) {
+        networkSpeedInt = setInterval(estimateNetworkSpeed, 5000);
+      }
+
       if (videoPlay) {
 
         statusIndicator.classList.remove("error");
