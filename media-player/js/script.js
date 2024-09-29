@@ -1217,14 +1217,13 @@
 
         refSeekTime = video.currentTime;
 
+        qualityChange = true;
+        bufferAllow = false;
+
         video.pause();
         audio.pause(); // pause content
 
-        qualityChange = true;
-
         video.src = targetVideo.url; // 'loadstart'
-
-        bufferAllow = false;
       }
     }
 
