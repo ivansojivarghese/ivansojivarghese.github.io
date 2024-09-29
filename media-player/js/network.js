@@ -5,8 +5,8 @@ const fileSize = 5301699; // resource file size (in bytes)
 var networkSpeed = 0;
 var networkSpeedClose = false;
 
-const controller = new AbortController();
-const signal = controller.signal;
+var controller = new AbortController();
+var signal = controller.signal;
 
 var rtt = 0,
     downlink = 0,
