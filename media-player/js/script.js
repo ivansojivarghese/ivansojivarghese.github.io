@@ -1363,12 +1363,13 @@
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
       }
+      /*
       if (bufferInt === null) {
         bufferInt = setInterval(liveBuffer, 1000/60);
       }
       if (bestVideoInt === null) {
         bestVideoInt = setInterval(getBestVideo, 10000);
-      }
+      }*/
     });
 
     function endLoadRp() {
