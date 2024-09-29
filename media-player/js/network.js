@@ -22,15 +22,12 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             const online = await fetch("https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
                 cache : "no-store",
                 priority: "low"
+            }).then(() => {
+                var endTime = new Date().getTime(); // end time of fetch
+                networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
+
+                networkSpeedClose = false;
             });
-            var endTime = new Date().getTime(); // end time of fetch
-            networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
-
-            if (qualityChange) {
-                // video.src = targetVideo.url;
-            }
-
-            networkSpeedClose = false;
         }
         
     } catch (err) { // if network error
