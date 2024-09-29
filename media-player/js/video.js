@@ -45,7 +45,7 @@ var refSeekTime = 0;
 
 const actionHandlers = [
   ['play',          async () => { 
-                                  if (videoPlay) {
+                                  if (videoPlay && qualityBestChange) {
 
                                     if (videoEnd) { 
                                       video.currentTime = 0;
@@ -96,11 +96,11 @@ const actionHandlers = [
                             }
                           }
   ],
-  ['previoustrack', (details) => { playPrevious(true); updatePositionState(); }],
+  ['previoustrack', (details) => { if (qualityBestChange) { playPrevious(true); updatePositionState(); } }],
   /*['nexttrack',     () => { }],*/
   ['stop',          () => { /* ... */ }],
-  ['seekbackward',  (details) => { seekBackward(true); updatePositionState(); }],
-  ['seekforward',   (details) => { seekForward(true); updatePositionState(); }],
+  ['seekbackward',  (details) => { if (qualityBestChange) { seekBackward(true); updatePositionState(); } } ],
+  ['seekforward',   (details) => { if (qualityBestChange) { seekForward(true); updatePositionState(); } } ],
   ['seekto',        (details) => { /* ... */ }],
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
                                       pipEnabled = true;

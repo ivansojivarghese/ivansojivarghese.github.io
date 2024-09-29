@@ -182,7 +182,7 @@
       // event.stopPropagation();
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
-      if (videoControls.classList.contains('visible') && !audioVideoAligning) {
+      if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityBestChange) {
 
         if (video.paused && video.src !== "" && videoPlay) {
           //audio.play();
@@ -358,6 +358,12 @@
       }
     });
 
+    function qualityBestReset() {
+      if (qualityBestChange && !video.paused && !audio.paused) {
+        qualityBestChange = false;
+      }
+    }
+
     video.addEventListener('play', function () {
 
       if (videoPlay) {
@@ -379,6 +385,9 @@
         }
         if (bestVideoInt === null) {
           bestVideoInt = setInterval(getBestVideo, 10000);
+        }
+        if (qualityBestInt === null) {
+          qualityBestInt = setInterval(qualityBestReset, 1000/60);
         }
 
         if (!playPauseManual) {
@@ -471,6 +480,8 @@
       bufferInt = null;
       clearInterval(bestVideoInt);
       bestVideoInt = null;
+      clearInterval(qualityBestInt);
+      qualityBestInt = null;
       // video.currentTime = 0;
       // audio.currentTime = 0;
       videoEnd = true;
@@ -1265,10 +1276,7 @@
 
         video.src = targetVideo.url; // 'loadstart'
 
-      } else if (qualityBestChange && !video.paused && !audio.paused && (Math.abs(video.currentTime - audio.currentTime) < 1)) {
-
-        qualityBestChange = false;
-      }
+      } 
 
     }
 
