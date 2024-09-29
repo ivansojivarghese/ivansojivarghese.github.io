@@ -45,6 +45,7 @@
     var networkSpeedInt = null;
     var bufferInt = null;
     var bestVideoInt = null;
+    var qualityBestInt = null;
 
     var audioCtx;
 
