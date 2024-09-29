@@ -100,6 +100,7 @@
     var videoEnd = false;
 
     var qualityChange = false;
+    var qualityBestChange = false;
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
@@ -361,9 +362,13 @@
 
       if (videoPlay) {
 
-        // if (!bufferAllow) {
+        if (!qualityBestChange) {
           bufferAllow = true;
-        // }
+        } else {
+          setTimeout(function() {
+            qualityBestChange = false;
+          }, 3000);
+        }
 
         // videoEnd = false;
         if (networkSpeedInt === null) {
@@ -1217,6 +1222,7 @@
 
         refSeekTime = video.currentTime;
 
+        qualityBestChange = true;
         qualityChange = true;
         bufferAllow = false;
 
