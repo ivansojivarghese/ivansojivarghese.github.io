@@ -372,6 +372,9 @@
         if (bufferInt === null) {
           bufferInt = setInterval(liveBuffer, 1000/60);
         }
+        if (bestVideoInt === null) {
+          bestVideoInt = setInterval(getBestVideo, 10000);
+        }
 
         if (!playPauseManual) {
           audio.play().then(function() {
@@ -452,6 +455,8 @@
       networkSpeedInt = null;
       clearInterval(bufferInt);
       bufferInt = null;
+      clearInterval(bestVideoInt);
+      bestVideoInt = null;
       // video.currentTime = 0;
       // audio.currentTime = 0;
       videoEnd = true;
@@ -1193,15 +1198,17 @@
       
       var newTargetQuality = getOptimalQuality();
 
-      if ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true, newTargetQuality) !== -1) && (targetVideoIndex !== getVideoFromIndex(true, newTargetQuality)))) { // if same quality rating as previous
+      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true, newTargetQuality) !== -1) && (targetVideoIndex !== getVideoFromIndex(true, newTargetQuality)))) && !video.paused) { // if same quality rating as previous
+        
+        var newIndex = getVideoFromIndex(true, newTargetQuality);
         
         targetVideo = null;
 
         console.log("prepare new video");
 
         if (newTargetQuality === targetQuality) {
-          var newIndex = getVideoFromIndex(true, newTargetQuality);
           targetVideo = targetVideoSources[newIndex];
+          targetVideoIndex = newIndex;
         } else {
           getVideoFromIndex(false); // loop qualities to get video again
         }
