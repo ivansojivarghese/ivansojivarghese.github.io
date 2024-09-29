@@ -365,10 +365,10 @@
         if (!qualityBestChange) {
           bufferAllow = true;
         } 
-        
+        /*
         setTimeout(function() {
           qualityBestChange = false;
-        }, 3000);
+        }, 3000);*/
 
         // videoEnd = false;
         if (networkSpeedInt === null) {
@@ -444,6 +444,9 @@
     });
     
     audio.addEventListener('pause', function () {
+
+      refSeekTime = audio.currentTime;
+
       releaseScreenLock(screenLock);
       navigator.mediaSession.playbackState = 'paused';
     });
@@ -1208,7 +1211,7 @@
         // targetVideoIndex = index;
 
       video.pause();
-      audio.pause(); // pause content
+      // audio.pause(); // pause content
 
       qualityChange = true;
 
@@ -1247,10 +1250,13 @@
         bufferAllow = false;
 
         video.pause();
-        audio.pause(); // pause content
+        // audio.pause(); // pause content
 
         video.src = targetVideo.url; // 'loadstart'
+      } else if (qualityBestChange) {
+        qualityBestChange = false;
       }
+      
     }
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
