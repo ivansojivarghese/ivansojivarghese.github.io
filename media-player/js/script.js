@@ -1223,7 +1223,7 @@
       
       var newTargetQuality = getOptimalQuality();
 
-      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true, newTargetQuality) !== -1) && (targetVideoIndex !== getVideoFromIndex(true, newTargetQuality)))) && !video.paused) { // if same quality rating as previous
+      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true, newTargetQuality) !== -1) && (targetVideoIndex !== getVideoFromIndex(true, newTargetQuality)))) && !video.paused && !qualityBestChange) { // if same quality rating as previous
         
         var newIndex = getVideoFromIndex(true, newTargetQuality);
         
