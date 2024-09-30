@@ -113,7 +113,8 @@
 
         // checking offset should be at most the check interval
         // but allow for some margin
-        var offset = (checkInterval - 20) / 1000;
+        // var offset = (checkInterval - 20) / 1000;
+        var offset = 1000;
 
         // if no buffering is currently detected,
         // and the position does not seem to increase
@@ -186,7 +187,7 @@
             // audio.play();
         }
 
-        if (loading && bufferingDetected && !bufferLoad) {
+        if (loading && bufferingDetected) {
           statusIndicator.classList.remove("error");
           statusIndicator.classList.remove("smooth");
           statusIndicator.classList.add("buffer");
@@ -194,8 +195,6 @@
           loadingRing.style.display = "block";
           playPauseButton.style.display = "none";
           showVideoControls();
-  
-          bufferLoad = true;
         }  
 
         if (!loading && !bufferingDetected && bufferLoad) {
