@@ -1286,9 +1286,9 @@
 
       qualityChange = true;
 
-      if (video.src !== targetVideo.url) {
+      // if (video.src !== targetVideo.url) {
         video.src = targetVideo.url; // 'loadstart'
-      }
+      // }
 
       bufferAllow = false;
 
@@ -1325,9 +1325,9 @@
         video.pause();
         audio.pause(); // pause content
 
-        if (video.src !== targetVideo.url) {
+        // if (video.src !== targetVideo.url) {
           video.src = targetVideo.url; // 'loadstart'
-        }
+        // }
 
       } 
 
