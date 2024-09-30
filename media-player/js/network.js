@@ -13,7 +13,8 @@ var rtt = 0,
     downlinkMax = 0,
     droppedFrames = 0,
     effectiveType = "",
-    saveData = null;
+    saveData = null,
+    networkError = false;
 
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
@@ -31,12 +32,24 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
 
                 networkSpeedClose = false;
+
+                if (networkError) {
+
+                    video.src = targetVideo.url;
+
+                    networkError = false;
+                }
             });
         }
         
     } catch (err) { // if network error
         networkSpeed = 0; // return 0 mbps
         networkSpeedClose = false;
+
+        networkError = true;
+
+        refSeekTime = video.currentTime;
+
         // return true; // default true
     }
 }
