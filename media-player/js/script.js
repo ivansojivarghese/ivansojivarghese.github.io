@@ -88,6 +88,7 @@
     var bufferingTimes = [];
     var bufferMode = false;
     var bufferAllow = true;
+    var bufferLoad = false;
 
     var bufferLimits = [100, 250, 1000]; // ms. limits for buffering [successive 3 times, single time]
     var bufferLimitC = 3;
@@ -139,6 +140,8 @@
 
             loading = true;
 
+            bufferLoad = true;
+
             // audio.pause();
         } else if (
             bufferingDetected 
@@ -182,6 +185,26 @@
 
             // audio.play();
         }
+
+        if (!loading && !bufferingDetected && bufferLoad) {
+            bufferLoad = false;
+            
+            statusIndicator.classList.remove("buffer");
+            statusIndicator.classList.remove("error");
+            statusIndicator.classList.add("smooth");
+
+            endLoad();
+            setTimeout(function() {
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              hideVideoControls();
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+            }, 1000);
+        }
+
         lastPlayPos = currentPlayPos;
     }
 
@@ -1126,6 +1149,7 @@
       showVideoControls();
 
       loading = true;
+      bufferLoad = true;
 
       audio.pause();
       videoPause = false;
@@ -1182,6 +1206,7 @@
       showVideoControls();
 
       loading = true;
+      bufferLoad = true;
 
       audio.pause();
       videoPause = false;
@@ -1466,6 +1491,8 @@
 
       loadingRing.style.display = "block";
       playPauseButton.style.display = "none";
+
+      bufferLoad = true;
 
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
