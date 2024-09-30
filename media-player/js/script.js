@@ -397,8 +397,7 @@
         loadingRing.style.display = "block";
         playPauseButton.style.display = "none";
         showVideoControls();
-
-      } else if (!loading && video.src !== "") {
+      } else {
 
         if (networkSpeedInt === null) {
           controller = new AbortController();
