@@ -186,6 +186,18 @@
             // audio.play();
         }
 
+        if (loading && bufferingDetected && !bufferLoad) {
+          statusIndicator.classList.remove("error");
+          statusIndicator.classList.remove("smooth");
+          statusIndicator.classList.add("buffer");
+            
+          loadingRing.style.display = "block";
+          playPauseButton.style.display = "none";
+          showVideoControls();
+  
+          bufferLoad = true;
+        }  
+
         if (!loading && !bufferingDetected && bufferLoad) {
             bufferLoad = false;
             
