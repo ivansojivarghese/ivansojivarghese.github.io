@@ -1033,6 +1033,7 @@
           qualityChange = false;
 
           if (!loading) {
+
             statusIndicator.classList.remove("buffer");
             statusIndicator.classList.remove("error");
             statusIndicator.classList.add("smooth");
@@ -1046,6 +1047,10 @@
                 resetLoad();
               }, 10);
             }, 1000);
+
+          } else {
+
+            showVideoControls();
           }
 
           updatePositionState();
@@ -1546,6 +1551,9 @@
 
               }, 1000);
 
+            } else {
+
+              showVideoControls();
             }
 
             audio.play().then(function () {
