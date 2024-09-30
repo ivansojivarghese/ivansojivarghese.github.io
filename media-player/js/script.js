@@ -77,7 +77,7 @@
     var backgroundPlayInit = false;
 
     // REFERENCE: https://stackoverflow.com/questions/21399872/how-to-detect-whether-html5-video-has-paused-for-buffering
-    var checkInterval  = 500; // check every _ ms (do not use lower values)
+    var checkInterval  = 50; // check every _ ms (do not use lower values)
     var lastPlayPos    = 0;
     var currentPlayPos = 0;
     var bufferingDetected = false;
@@ -1388,7 +1388,9 @@
 
               }, 1000);
 
-              loading = false;
+              if (!bufferingDetected) {
+                loading = false;
+              }
 
               if (initialVideoLoad) {
                 initialVideoLoad = false;
