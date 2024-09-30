@@ -159,14 +159,11 @@
             // audio.currentTime = video.currentTime;
 
             // if (!loading) {
-
+            /*
             statusIndicator.classList.remove("buffer");
             statusIndicator.classList.remove("error");
             statusIndicator.classList.add("smooth");
-            /*
-            loadingRing.style.display = "none";
-            playPauseButton.style.display = "block";
-            hideVideoControls();*/
+
 
             endLoad();
             setTimeout(function() {
@@ -178,7 +175,7 @@
                 resetLoad();
               }, 10);
             }, 1000);
-
+              */
             // }
 
             // loading = false;
@@ -1034,7 +1031,7 @@
         if (qualityChange) {
           qualityChange = false;
 
-          if (!loading) {
+          if (!loading && !bufferingDetected) {
 
             statusIndicator.classList.remove("buffer");
             statusIndicator.classList.remove("error");
@@ -1367,26 +1364,28 @@
           setTimeout(function() {
             video.play().then(function() {
 
-              statusIndicator.classList.remove("error");
-              statusIndicator.classList.remove("buffer");
-              statusIndicator.classList.add("smooth");
+              if (!loading && !bufferingDetected) {
+                statusIndicator.classList.remove("error");
+                statusIndicator.classList.remove("buffer");
+                statusIndicator.classList.add("smooth");
 
-              endLoad();
-              
-              setTimeout(function() {
-                loadingRing.style.display = "none";
-                playPauseButton.style.display = "block";
-
-                if (!seekingLoad && !longTap && !seeking) {
-                  hideVideoControls();
-                }
-
-                // reset the loader
+                endLoad();
+                
                 setTimeout(function() {
-                  resetLoad();
-                }, 10);
+                  loadingRing.style.display = "none";
+                  playPauseButton.style.display = "block";
 
-              }, 1000);
+                  if (!seekingLoad && !longTap && !seeking) {
+                    hideVideoControls();
+                  }
+
+                  // reset the loader
+                  setTimeout(function() {
+                    resetLoad();
+                  }, 10);
+
+                }, 1000);
+              }
 
               if (!bufferingDetected) {
                 loading = false;
@@ -1536,7 +1535,7 @@
 
             } 
 
-            if (!loading) {
+            if (!loading && !bufferingDetected) {
 
               statusIndicator.classList.remove("buffer");
               statusIndicator.classList.remove("error");
