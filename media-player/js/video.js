@@ -757,8 +757,8 @@ function getOptimalVideo(time) {
 
       getVideoFromIndex(false);
 
-      // video.src = targetVideo.url; 
-      video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
+      video.src = targetVideo.url; 
+      // video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
       if (time) { // START FROM (if available)
