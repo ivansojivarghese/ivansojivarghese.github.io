@@ -1328,7 +1328,7 @@
         bufferAllow = false;
 
         video.pause();
-        audio.pause(); // pause content
+        // audio.pause(); // pause content
 
         video.src = targetVideo.url; // 'loadstart'
 
