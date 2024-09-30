@@ -775,7 +775,7 @@
 
       if (!video.paused && !seekingLoad && !videoEnd && (!loading || qualityBestChange) && !bufferingDetected) {
         
-        if (checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax) /*&& video.currentTime > minVideoLoad*/) { // only buffer when audio has stalled
+        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > 1) /*&& video.currentTime > minVideoLoad*/) { // only buffer when audio has stalled
           // bufferCount++;
           bufferStartTime = new Date().getTime();
           bufferMode = true;
