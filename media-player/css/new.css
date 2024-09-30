@@ -145,19 +145,21 @@ video.seeking {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    border: 0.125rem solid #FFF;
 }
 
 #statusIndicator div.error {
     background-color: var(--negate_col);
+    border: 0.125rem solid #FFF;
 }
 
 #statusIndicator div.buffer {
     background-color: var(--buffer_col);
+    border: 0.125rem solid #FFF;
 }
 
 #statusIndicator div.smooth {
     background-color: var(--predicate_col);
+    border: 0.125rem solid #FFF;
 }
 
 .seekText {
