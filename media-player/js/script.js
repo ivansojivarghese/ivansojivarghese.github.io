@@ -1596,6 +1596,8 @@
               setTimeout(function() {
                 video.play().then(function() {
                   videoPause = true;
+
+                  video.currentTime = audio.currentTime;
       
                   /*
                   if (audioVideoAlignInt !== null) {
