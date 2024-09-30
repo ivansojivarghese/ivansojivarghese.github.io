@@ -148,11 +148,13 @@
             bufferingDetected 
             && currentPlayPos > (lastPlayPos + offset)
             // && ((currentPlayPos > (lastPlayPos + offset)) || currentAudioPos > (lastPlayPos + offset))
-            && !video.paused && !loading
+            && !video.paused
             ) {
             // console.log("not buffering anymore")
             bufferingDetected = false;
             bufferStartTime = 0;
+
+            loading = false;
 
             // audio.currentTime = video.currentTime;
 
