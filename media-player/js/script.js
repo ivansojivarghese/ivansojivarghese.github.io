@@ -128,14 +128,18 @@
             bufferStartTime = new Date().getTime();
 
             // audio.currentTime = video.currentTime;
-              /*
+
+            statusIndicator.classList.remove("error");
+            statusIndicator.classList.remove("smooth");
+            statusIndicator.classList.add("buffer");
+              
             loadingRing.style.display = "block";
             playPauseButton.style.display = "none";
             showVideoControls();
 
             loading = true;
 
-            audio.pause();*/
+            // audio.pause();
         }
 
         // if we were buffering but the player has advanced,
@@ -151,14 +155,29 @@
             bufferStartTime = 0;
 
             // audio.currentTime = video.currentTime;
-              /*
+
+            statusIndicator.classList.remove("buffer");
+            statusIndicator.classList.remove("error");
+            statusIndicator.classList.add("smooth");
+            /*
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
-            hideVideoControls();
+            hideVideoControls();*/
+
+            endLoad();
+            setTimeout(function() {
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              hideVideoControls();
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+            }, 1000);
 
             loading = false;
 
-            audio.play();*/
+            // audio.play();
         }
         lastPlayPos = currentPlayPos;
     }
