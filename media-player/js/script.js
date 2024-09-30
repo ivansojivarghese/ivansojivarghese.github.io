@@ -1208,7 +1208,7 @@
 
       console.log("showVideo");
     });
-
+/*
     audio.addEventListener('waiting', function() {
 
       clearInterval(networkSpeedInt);
@@ -1232,7 +1232,7 @@
           videoPlay = true;
           video.play();
     }, 1000);
-    });
+    });*/
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
 
@@ -1269,7 +1269,7 @@
 
       videoPause = false;
     });
-
+    /*
     audio.addEventListener('stalled', function() {
 
       clearInterval(networkSpeedInt);
@@ -1294,7 +1294,7 @@
             video.play();
       }, 1000);
     });
-
+*/
     var liveBufferVal = [];
     var liveBufferIndex = 0;
     var bufferModeExe = false;
