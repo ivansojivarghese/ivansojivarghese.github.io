@@ -1111,7 +1111,7 @@
 
       loading = true;
 
-      audio.pause();
+      // audio.pause();
       videoPause = false;
 
       console.log("showVideo");
@@ -1171,7 +1171,7 @@
 
       loading = true;
 
-      audio.pause();
+      // audio.pause();
 
       console.log("pause");
 
