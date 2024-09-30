@@ -1263,7 +1263,7 @@
         // targetVideoIndex = index;
 
       video.pause();
-      // audio.pause(); // pause content
+      audio.pause(); // pause content
 
       qualityChange = true;
 
