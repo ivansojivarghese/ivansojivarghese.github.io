@@ -374,7 +374,7 @@
         }, 10000);
       }
     }
-    /*
+
     setInterval(function() {
       if (loading) {
         clearInterval(networkSpeedInt);
@@ -417,7 +417,7 @@
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
 
-          if (!seekingLoad && !longTap && !seeking && video.pa) {
+          if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
           }
 
@@ -428,7 +428,7 @@
 
         }, 1000);
       }
-    }, 100);*/
+    }, 100);
 
     video.addEventListener('play', function () {
 
