@@ -456,7 +456,7 @@
           bufferInt = setInterval(liveBuffer, 1000/60);
         }
         if (bestVideoInt === null) {
-          bestVideoInt = setInterval(getBestVideo, 10000);
+          // bestVideoInt = setInterval(getBestVideo, 10000);
         }
         if (qualityBestInt === null) {
           qualityBestInt = setInterval(qualityBestReset, 1000/60);
