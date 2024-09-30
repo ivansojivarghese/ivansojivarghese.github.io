@@ -375,6 +375,60 @@
       }
     }
 
+    setInterval(function() {
+      if (loading) {
+        clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+        controller.abort();
+
+        statusIndicator.classList.remove("error");
+        statusIndicator.classList.remove("smooth");
+        statusIndicator.classList.add("buffer");
+
+        // bufferCount++;
+        bufferStartTime = new Date().getTime();
+        bufferMode = true;
+        
+        // CHECK FOR LONG BUFFERS
+
+        clearTimeout(controlsHideInt);
+        controlsHideInt = null;
+
+        loadingRing.style.display = "block";
+        playPauseButton.style.display = "none";
+        showVideoControls();
+      } else {
+
+        if (networkSpeedInt === null) {
+          controller = new AbortController();
+          signal = controller.signal;
+  
+          networkSpeedInt = setInterval(estimateNetworkSpeed, 5000);
+        }
+
+        statusIndicator.classList.remove("error");
+        statusIndicator.classList.remove("buffer");
+        statusIndicator.classList.add("smooth");
+
+        endLoad();
+              
+        setTimeout(function() {
+          loadingRing.style.display = "none";
+          playPauseButton.style.display = "block";
+
+          if (!seekingLoad && !longTap && !seeking) {
+            hideVideoControls();
+          }
+
+          // reset the loader
+          setTimeout(function() {
+            resetLoad();
+          }, 10);
+
+        }, 1000);
+      }
+    }, 100);
+
     video.addEventListener('play', function () {
 
       if (videoPlay) {
