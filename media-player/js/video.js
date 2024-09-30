@@ -377,6 +377,10 @@ async function getParams(id, time) {
   loadingRing.style.display = "block";
   playPauseButton.style.display = "none";
 
+  statusIndicator.classList.remove("error");
+  statusIndicator.classList.remove("buffer");
+  statusIndicator.classList.add("smooth");
+
   showVideoControls();
 
   console.log("showVideo");
