@@ -80,9 +80,6 @@ const actionHandlers = [
   ],
   ['pause',         () => { 
                             if (!qualityBestChange) {
-
-                              console.log("pause");
-
                               audio.pause();
                               video.pause();
 
@@ -378,8 +375,6 @@ async function getParams(id, time) {
   playPauseButton.style.display = "none";
 
   showVideoControls();
-
-  console.log("showVideo");
   
   // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
   
