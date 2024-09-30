@@ -116,8 +116,6 @@
         currentPlayPos = video.currentTime;
         currentAudioPos = audio.currentTime;
 
-
-
         // if no buffering is currently detected,
         // and the position does not seem to increase
         // and the player isn't manually paused...
@@ -1056,6 +1054,9 @@
         clearInterval(networkSpeedInt);
         networkSpeedInt = null;
         controller.abort();
+
+        loading = true;
+        bufferingDetected = true;
 
         video.classList.add('seeking');
         seekingLoad = true;
