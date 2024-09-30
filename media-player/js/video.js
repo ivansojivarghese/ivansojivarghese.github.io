@@ -378,8 +378,8 @@ async function getParams(id, time) {
   playPauseButton.style.display = "none";
 
   statusIndicator.classList.remove("error");
-  statusIndicator.classList.remove("buffer");
-  statusIndicator.classList.add("smooth");
+  statusIndicator.classList.remove("smooth");
+  statusIndicator.classList.add("buffer");
 
   showVideoControls();
 
