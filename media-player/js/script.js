@@ -1082,19 +1082,15 @@
         // hideVideoControls();
         if (qualityChange) {
           qualityChange = false;
-
-          if (!loading) {
-            endLoad();
+          endLoad();
+          setTimeout(function() {
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+            // reset the loader
             setTimeout(function() {
-              loadingRing.style.display = "none";
-              playPauseButton.style.display = "block";
-              // reset the loader
-              setTimeout(function() {
-                resetLoad();
-              }, 10);
-            }, 1000);
-          }
-
+              resetLoad();
+            }, 10);
+          }, 1000);
           updatePositionState();
         
           // START BUFFERING CHECK

@@ -45,7 +45,7 @@ var refSeekTime = 0;
 
 const actionHandlers = [
   ['play',          async () => { 
-                                  if (videoPlay && !qualityBestChange) {
+                                  if (videoPlay && qualityBestChange) {
 
                                     if (videoEnd) { 
                                       video.currentTime = 0;
