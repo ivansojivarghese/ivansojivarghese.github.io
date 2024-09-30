@@ -1138,6 +1138,31 @@
         }
     });
 
+    video.addEventListener('loadeddata', function() { //  fired when the frame at the current playback position of the media has finished loading; often the first frame.
+      statusIndicator.classList.remove("error");
+      statusIndicator.classList.remove("buffer");
+      statusIndicator.classList.add("smooth");
+
+      endLoad();
+            
+      setTimeout(function() {
+        loadingRing.style.display = "none";
+        playPauseButton.style.display = "block";
+
+        if (!seekingLoad && !longTap && !seeking) {
+          hideVideoControls();
+        }
+
+        // reset the loader
+        setTimeout(function() {
+          resetLoad();
+        }, 10);
+
+      }, 1000);
+
+      loading = false;
+    }); 
+
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
@@ -1401,15 +1426,15 @@
       }
 
       if (videoPlay) {
-
+        /*
         statusIndicator.classList.remove("error");
         statusIndicator.classList.remove("buffer");
         statusIndicator.classList.add("smooth");
-
+*/
         audio.play().then(function() {
           setTimeout(function() {
             video.play().then(function() {
-
+/*
               endLoad();
               
               setTimeout(function() {
@@ -1427,7 +1452,7 @@
 
               }, 1000);
 
-              loading = false;
+              loading = false;*/
 
               if (initialVideoLoad) {
                 initialVideoLoad = false;
