@@ -148,13 +148,15 @@
             bufferingDetected 
             && currentPlayPos > (lastPlayPos + offset)
             // && ((currentPlayPos > (lastPlayPos + offset)) || currentAudioPos > (lastPlayPos + offset))
-            && !video.paused
+            && !video.paused && !loading
             ) {
             // console.log("not buffering anymore")
             bufferingDetected = false;
             bufferStartTime = 0;
 
             // audio.currentTime = video.currentTime;
+
+            // if (!loading) {
 
             statusIndicator.classList.remove("buffer");
             statusIndicator.classList.remove("error");
@@ -175,7 +177,9 @@
               }, 10);
             }, 1000);
 
-            loading = false;
+            // }
+
+            // loading = false;
 
             // audio.play();
         }
@@ -1027,15 +1031,23 @@
         // hideVideoControls();
         if (qualityChange) {
           qualityChange = false;
-          endLoad();
-          setTimeout(function() {
-            loadingRing.style.display = "none";
-            playPauseButton.style.display = "block";
-            // reset the loader
+
+          if (!loading) {
+            statusIndicator.classList.remove("buffer");
+            statusIndicator.classList.remove("error");
+            statusIndicator.classList.add("smooth");
+
+            endLoad();
             setTimeout(function() {
-              resetLoad();
-            }, 10);
-          }, 1000);
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+            }, 1000);
+          }
+
           updatePositionState();
         
           // START BUFFERING CHECK
@@ -1344,13 +1356,13 @@
 
       if (videoPlay) {
 
-        statusIndicator.classList.remove("error");
-        statusIndicator.classList.remove("buffer");
-        statusIndicator.classList.add("smooth");
-
         audio.play().then(function() {
           setTimeout(function() {
             video.play().then(function() {
+
+              statusIndicator.classList.remove("error");
+              statusIndicator.classList.remove("buffer");
+              statusIndicator.classList.add("smooth");
 
               endLoad();
               
@@ -1515,18 +1527,26 @@
 
             } 
 
-            endLoad();
-            
-            setTimeout(function() {
-              loadingRing.style.display = "none";
-              playPauseButton.style.display = "block";
+            if (!loading) {
 
-              // reset the loader
+              statusIndicator.classList.remove("buffer");
+              statusIndicator.classList.remove("error");
+              statusIndicator.classList.add("smooth");
+
+              endLoad();
+              
               setTimeout(function() {
-                resetLoad();
-              }, 10);
+                loadingRing.style.display = "none";
+                playPauseButton.style.display = "block";
 
-            }, 1000);
+                // reset the loader
+                setTimeout(function() {
+                  resetLoad();
+                }, 10);
+
+              }, 1000);
+
+            }
 
             audio.play().then(function () {
               if (!getAudioContext) {
