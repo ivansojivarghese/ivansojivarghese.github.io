@@ -140,16 +140,16 @@
             loading = true;
 
             // audio.pause();
-        }
-
-        // if we were buffering but the player has advanced,
-        // then there is no buffering
-        if (
+        } else if (
             bufferingDetected 
             && currentPlayPos > (lastPlayPos + offset)
             // && ((currentPlayPos > (lastPlayPos + offset)) || currentAudioPos > (lastPlayPos + offset))
             && !video.paused
             ) {
+
+              // if we were buffering but the player has advanced,
+        // then there is no buffering
+
             // console.log("not buffering anymore")
             bufferingDetected = false;
             bufferStartTime = 0;
