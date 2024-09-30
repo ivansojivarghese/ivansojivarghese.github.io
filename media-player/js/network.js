@@ -20,6 +20,13 @@ const estimateNetworkSpeed = async() => { // estimate network speed
     try {
         if (!networkSpeedClose) {
 
+            if (networkError) {
+
+                video.src = targetVideo.url;
+
+                networkError = false;
+            }
+
             networkSpeedClose = true;
 
             var startTime = new Date().getTime(); // start time of fetch
