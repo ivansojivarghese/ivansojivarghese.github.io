@@ -433,6 +433,12 @@
     video.addEventListener('play', function () {
 
       if (videoPlay) {
+        /*
+        setTimeout(function() {
+          preventQualityChange = false;
+        }, 15000);*/
+
+        qualityBestReset();
 
         if (!qualityBestChange) {
           bufferAllow = true;
@@ -496,6 +502,8 @@
     video.addEventListener('pause', function () {
 
       if (!qualityBestChange) {
+
+      preventQualityChange = true;
 
       bufferStartTime = 0;
       bufferEndTime = 0;
@@ -1088,7 +1096,7 @@
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
-              // reset the loader
+              // reset the loaderF
               setTimeout(function() {
                 resetLoad();
               }, 10);
