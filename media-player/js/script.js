@@ -208,7 +208,9 @@
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
-              hideVideoControls();
+              if (!seekingLoad && !longTap && !seeking) {
+                hideVideoControls();
+              }
               // reset the loader
               setTimeout(function() {
                 resetLoad();
@@ -469,13 +471,19 @@
           }); 
           playPauseButton.classList.add('playing');
           if (firstPlay) {
-            hideVideoControls();
+            if (!seekingLoad && !longTap && !seeking) {
+              hideVideoControls();
+            }
             firstPlay = false;
           } else {
             clearTimeout(controlsHideInt);
             controlsHideInt = null;
             if (controlsHideInt === null) {
-              controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+              controlsHideInt = setTimeout(function() {
+                if (!seekingLoad && !longTap && !seeking) {
+                  hideVideoControls();
+                }
+              }, 3000); // hide controls after 3 sec. if no activity
             }
           }
           navigator.mediaSession.playbackState = 'playing';
@@ -583,7 +591,7 @@
     });
 
     videoControls.addEventListener("mouseleave", function(event) {
-      if (!video.paused && video.src !== "" && interactiveType === "mouse") {
+      if (!video.paused && video.src !== "" && interactiveType === "mouse" && !seekingLoad && !longTap && !seeking) {
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
         hideVideoControls();
@@ -675,21 +683,27 @@
         controlsHideInt = null;
         if (videoControls.classList.contains('visible') && !seeking && !seekingLoad && !video.paused && !loading) {
           if (event.target === playPauseButton || event.target === playPauseButtonImg) { // IF PLAY/PAUSE button clicked
-            setTimeout(hideVideoControls, 1000);
+            setTimeout(function() {
+              if (!seekingLoad && !longTap && !seeking) {
+                hideVideoControls();
+              }
+            }, 1000);
           } else {
-            hideVideoControls();
+            if (!seekingLoad && !longTap && !seeking) {
+              hideVideoControls();
+            }
           }
         } else {
           showVideoControls();
           if (controlsHideInt === null) {
             controlsHideInt = setTimeout(function() {
-              if (!loading && !video.paused) {
+              if (!loading && !video.paused && !seekingLoad && !longTap && !seeking) {
                 hideVideoControls();
               } else if (loading) {
                 clearTimeout(controlsHideInt);
                 controlsHideInt = null;
                 controlsHideInt = setInterval(function() {
-                  if (!loading) {
+                  if (!loading && !seekingLoad && !longTap && !seeking) {
                     hideVideoControls();
                     clearInterval(controlsHideInt);
                     controlsHideInt = null;
@@ -838,7 +852,7 @@
 
           console.log("audioVideoAlign: paused");
 
-          if (qualityBestChange && audio.paused) {
+          if (qualityBestChange && audio.paused && !seekingLoad && !longTap && !seeking) {
             audio.play();
             hideVideoControls();
           }
@@ -967,7 +981,11 @@
             // audio.currentTime = Math.min(audio.currentTime + skipTime, audio.duration);
 
             if (controlsHideInt === null && !video.paused) {
-              controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+              controlsHideInt = setTimeout(function() {
+                if (!seekingLoad && !longTap && !seeking) {
+                  hideVideoControls();
+                }
+              }, 3000); // hide controls after 3 sec. if no activity
             }
             if (seekForwardHideInt === null) {
               seekForwardHideInt = setTimeout(function() {
@@ -1018,7 +1036,11 @@
             // audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
 
             if (controlsHideInt === null && !video.paused) {
-              controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
+              controlsHideInt = setTimeout(function() {
+                if (!seekingLoad && !longTap && !seeking) {
+                  hideVideoControls();
+                }
+              }, 3000); // hide controls after 3 sec. if no activity
             }
             if (seekBackwardHideInt === null) {
               seekBackwardHideInt = setTimeout(function() {
@@ -1856,7 +1878,11 @@
         if (!video.paused) {
           clearTimeout(controlsHideInt);
           controlsHideInt = null;
-          setTimeout(hideVideoControls, 10);
+          setTimeout(function() {
+            if (!seekingLoad && !longTap && !seeking) {
+              hideVideoControls();
+            }
+          }, 10);
           if (!video.paused && !document.fullscreenElement) {
             if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
               video.requestPictureInPicture().then(function() {
@@ -1930,11 +1956,11 @@
               pipEnabled = false;
               releaseScreenLock(screenLock);
             });
-            if (!loading && !videoLoad && !seeking && !seekingLoad) {
+            if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
               hideVideoControls();
             }
         } else if (video.paused && !videoEnd && video.src !== "" && videoPlay) {
-          if (!loading && !videoLoad && !seeking && !seekingLoad) {
+          if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
             hideVideoControls();
           }
           // play the video (only when it hasn't ended)
