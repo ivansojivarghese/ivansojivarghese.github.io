@@ -219,6 +219,8 @@
             audio.pause();
             video.pause();
 
+            console.log("showVideo");
+
             bufferStartTime = 0;
             bufferEndTime = 0;
 
@@ -452,6 +454,9 @@
       if (document.visibilityState === "visible") {
         audio.pause();
         videoPause = false;
+
+        console.log("showVideo");
+
       } else {
         backgroundPlay = true;
         backgroundPlayInit = true;
@@ -459,6 +464,9 @@
       if (!audioVideoAligning) {
         playPauseButton.classList.remove('playing');
         showVideoControls();
+
+        console.log("showVideo");
+
       }
       navigator.mediaSession.playbackState = 'paused';
       releaseScreenLock(screenLock);
@@ -498,6 +506,9 @@
       video.pause();
       audio.pause();
       showVideoControls();
+
+      console.log("showVideo");
+
       releaseScreenLock(screenLock);
   });
 
@@ -506,6 +517,9 @@
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
         showVideoControls();
+
+        console.log("showVideo");
+
         if (controlsHideInt === null) {
           controlsHideInt = setTimeout(function() { 
             if (!loading && !video.paused && !videoLoad && !seeking && !seekingLoad) {
@@ -625,6 +639,9 @@
           }
         } else {
           showVideoControls();
+
+          console.log("showVideo");
+
           if (controlsHideInt === null) {
             controlsHideInt = setTimeout(function() {
               if (!loading && !video.paused) {
@@ -671,6 +688,8 @@
           // if (videoPause) {
             audio.pause();
             video.pause();
+
+            console.log("pause");
 
             bufferStartTime = 0;
             bufferEndTime = 0;
@@ -1094,6 +1113,8 @@
 
       audio.pause();
       videoPause = false;
+
+      console.log("showVideo");
     });
 
     audio.addEventListener('waiting', function() {
@@ -1146,9 +1167,14 @@
       playPauseButton.style.display = "none";
       showVideoControls();
 
+      console.log("showVideo");
+
       loading = true;
 
       audio.pause();
+
+      console.log("pause");
+
       videoPause = false;
     });
 
@@ -1414,6 +1440,8 @@
       controlsHideInt = null;
       showVideoControls();
 
+      console.log("showVideo");
+
       loading = true;
       videoLoad = true;
       if (initialVideoLoadCount === 0) {
@@ -1520,10 +1548,10 @@
                     audioVideoAlignInt = null;
                   }
                   audioVideoAlignInt = setInterval(audioVideoAlign, 100);
-                  
+                  /*
                   setInterval(function() {
                     console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
-                  }, 100);
+                  }, 100);*/
       
                 }).catch((err) => {
                   /*
