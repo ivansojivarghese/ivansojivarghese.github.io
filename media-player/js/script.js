@@ -46,6 +46,7 @@
     var bufferInt = null;
     var bestVideoInt = null;
     var qualityBestInt = null;
+    var offsetInt = null;
 
     var audioCtx;
 
@@ -81,6 +82,10 @@
     var lastPlayPos    = 0;
     var currentPlayPos = 0;
     var bufferingDetected = false;
+    // checking offset should be at most the check interval
+        // but allow for some margin
+    var offset = (checkInterval - 20) / 1000;
+        // var offset = 1000;
 
     var bufferCount = 0;
     var bufferingCount = [];
@@ -111,10 +116,7 @@
         currentPlayPos = video.currentTime;
         currentAudioPos = audio.currentTime;
 
-        // checking offset should be at most the check interval
-        // but allow for some margin
-        // var offset = (checkInterval - 20) / 1000;
-        var offset = 1000;
+
 
         // if no buffering is currently detected,
         // and the position does not seem to increase
@@ -1136,6 +1138,8 @@
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
+      offset = (checkInterval - 20) / 1000;
+
       clearInterval(networkSpeedInt);
       networkSpeedInt = null;
       controller.abort();
@@ -1192,6 +1196,8 @@
     });*/
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
+
+      offset = (checkInterval - 20) / 1000;
 
       clearInterval(networkSpeedInt);
         networkSpeedInt = null;
@@ -1387,6 +1393,12 @@
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
+      clearTimeout(offsetInt);
+      offsetInt = null;
+      offsetInt = setTimeout(function() {
+        offset = 0;
+      }, 1000);
+
       if (networkSpeedInt === null) {
         controller = new AbortController();
         signal = controller.signal;
