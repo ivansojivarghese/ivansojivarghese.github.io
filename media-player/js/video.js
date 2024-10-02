@@ -650,7 +650,9 @@ function getVideoFromIndex(m, q, r) {
       }
       for (i = 0; i < targetVideoSources.length; i++) {
         if ((normalVid && (targetVideoSources[i].height === videoQuality[q + mod]))) {
+
           compareIndex = (q + mod);
+
           break;
 
         } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
@@ -697,12 +699,12 @@ function getVideoFromIndex(m, q, r) {
           targetVideoIndex = i;
 
           if (r) {
-            var mod2 = 1;
+            var mod2 = 0;
             do {
               targetVideo = targetVideoSources[i + mod2];
               targetVideoIndex = i + mod2;
               mod2++;
-            } while (targetVideoSources[i + mod2 + 1] && targetVideoSources[i + mod2].height === targetVideoSources[i].height);
+            } while (targetVideoSources[i + mod2] && targetVideoSources[i + (mod2 - 1)].height === targetVideoSources[i].height);
           }
 
           break;
@@ -713,12 +715,12 @@ function getVideoFromIndex(m, q, r) {
           targetVideoIndex = i;
 
           if (r) {
-            var mod2 = 1;
+            var mod2 = 0;
             do {
               targetVideo = targetVideoSources[i + mod2];
               targetVideoIndex = i + mod2;
               mod2++;
-            } while (targetVideoSources[i + mod2 + 1] && targetVideoSources[i + mod2].height === targetVideoSources[i].height);
+            } while (targetVideoSources[i + mod2] && targetVideoSources[i + (mod2 - 1)].height === targetVideoSources[i].height);
           }
 
           break;
