@@ -31,7 +31,9 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 
                 if (networkError) {
 
-                    video.src = targetVideo.url;
+                    if (!videoEnd) {
+                        video.src = targetVideo.url;
+                    }
 
                     if (networkSpeedInt !== null) {
                         clearInterval(networkSpeedInt);

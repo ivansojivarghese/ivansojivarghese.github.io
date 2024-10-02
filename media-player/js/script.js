@@ -70,6 +70,7 @@
     var fastSeekSpeeds = [300, 200, 50]; // fast seeking intervals
 
     var minVideoLoad = 3; // min. sec. for video to exit init load stage
+    var maxVideoLoad = 3;
 
     var interactiveType = "";
 
@@ -1369,9 +1370,9 @@
 
       qualityChange = true;
 
-      // if (video.src !== targetVideo.url) {
+      if (!videoEnd) {
         video.src = targetVideo.url; // 'loadstart'
-      // }
+      }
 
       bufferAllow = false;
 
@@ -1408,9 +1409,9 @@
         video.pause();
         audio.pause(); // pause content
 
-        // if (video.src !== targetVideo.url) {
+        if (!videoEnd) {
           video.src = targetVideo.url; // 'loadstart'
-        // }
+        }
 
       } 
 
@@ -1691,8 +1692,10 @@
           updatePositionState();
           videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
           videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
-          if (video.currentTime > minVideoLoad) {
+          if (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) {
             videoEnd = false;
+          } else {
+            videoEnd = true;
           }
           if (!videoControls.classList.contains('visible')) {
             return;

@@ -96,11 +96,11 @@ const actionHandlers = [
                             }
                           }
   ],
-  ['previoustrack', (details) => { if (qualityBestChange) { playPrevious(true); updatePositionState(); } }],
+  ['previoustrack', (details) => { if (!qualityBestChange) { playPrevious(true); updatePositionState(); } }],
   /*['nexttrack',     () => { }],*/
   ['stop',          () => { /* ... */ }],
-  ['seekbackward',  (details) => { if (qualityBestChange) { seekBackward(true); updatePositionState(); } } ],
-  ['seekforward',   (details) => { if (qualityBestChange) { seekForward(true); updatePositionState(); } } ],
+  ['seekbackward',  (details) => { if (!qualityBestChange) { seekBackward(true); updatePositionState(); } } ],
+  ['seekforward',   (details) => { if (!qualityBestChange) { seekForward(true); updatePositionState(); } } ],
   ['seekto',        (details) => { /* ... */ }],
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
                                       pipEnabled = true;
