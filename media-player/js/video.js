@@ -651,13 +651,23 @@ function getVideoFromIndex(m, q, r) {
       for (i = 0; i < targetVideoSources.length; i++) {
         if ((normalVid && (targetVideoSources[i].height === videoQuality[q + mod]))) {
 
-          compareIndex = (q + mod);
+          var val = q + mod;
+          var point = Math.floor((val / (videoQuality.length - 1)) * targetVideoSources.length);
+          if (!point) {
+            point = 1;
+          }
+          compareIndex = targetVideoSources.length - point;
 
           break;
 
         } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
 
-          compareIndex = specialQuality;
+          var val = specialQuality;
+          var point = Math.floor((val / (videoQuality.length - 1)) * targetVideoSources.length);
+          if (!point) {
+            point = 1;
+          }
+          compareIndex = targetVideoSources.length - point;
 
           break;
         }
