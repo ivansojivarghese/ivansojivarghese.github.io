@@ -50,6 +50,9 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         
     } catch (err) { // if network error
         if (!networkError) {
+            controller = new AbortController();
+            signal = controller.signal;
+
             networkError = true;
 
             networkSpeed = -1; // return 0 mbps
