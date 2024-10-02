@@ -444,15 +444,17 @@
         }, 3000);*/
 
         // videoEnd = false;
-        if (networkSpeedInt === null) {
-          networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
+        if (networkSpeedInt === null && !navigator.connection) {
+          networkSpeedInt = setInterval(estimateNetworkSpeed, 60000); 
         }
         if (bufferInt === null) {
           bufferInt = setInterval(liveBuffer, 1000/60);
         }
+        /////////////////////////
         if (bestVideoInt === null) {
           bestVideoInt = setInterval(getBestVideo, 10000);
         }
+        /////////////////////////
         if (qualityBestInt === null) {
           qualityBestInt = setInterval(qualityBestReset, 1000/60);
         }
@@ -1422,11 +1424,11 @@
         offset = 0;
       }, 1000);
 
-      if (networkSpeedInt === null) {
+      if (networkSpeedInt === null && !navigator.connection) {
         controller = new AbortController();
         signal = controller.signal;
 
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 5000);
+        networkSpeedInt = setInterval(estimateNetworkSpeed, 60000);
       }
 
       if (videoPlay) {
@@ -1540,8 +1542,8 @@
 
       bufferLoad = true;
 
-      if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 5000); 
+      if (networkSpeedInt === null && !navigator.connection) {
+        networkSpeedInt = setInterval(estimateNetworkSpeed, 60000); 
       }
       /*
       if (bufferInt === null) {

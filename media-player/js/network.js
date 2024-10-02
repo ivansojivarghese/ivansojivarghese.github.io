@@ -77,5 +77,3 @@ navigator.connection.addEventListener('change', function() {
     getNetworkInfo();
     estimateNetworkSpeed();
 });
-
-// setInterval(estimateNetworkSpeed, 3000); 
