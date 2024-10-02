@@ -20,15 +20,6 @@ const estimateNetworkSpeed = async() => { // estimate network speed
     try {
         if (!networkSpeedClose) {
 
-            if (networkError) {
-
-                video.src = targetVideo.url;
-
-                networkError = false;
-            }
-
-            networkSpeedClose = true;
-
             var startTime = new Date().getTime(); // start time of fetch
             const online = await fetch("https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
                 cache : "no-store",
@@ -38,26 +29,43 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 var endTime = new Date().getTime(); // end time of fetch
                 networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
 
-                networkSpeedClose = false;
-
                 if (networkError) {
 
                     video.src = targetVideo.url;
 
+                    if (networkSpeedInt !== null) {
+                        clearInterval(networkSpeedInt);
+                        networkSpeedInt = null;
+                    }
+                    if (networkSpeedInt === null && !navigator.connection) {
+                        networkSpeedInt = setInterval(estimateNetworkSpeed, 60000); 
+                    }
+    
                     networkError = false;
                 }
+
+                networkSpeedClose = false;
             });
         }
         
     } catch (err) { // if network error
-        networkSpeed = 0; // return 0 mbps
-        networkSpeedClose = false;
+        if (!networkError) {
+            networkError = true;
 
-        networkError = true;
+            networkSpeed = -1; // return 0 mbps
+            networkSpeedClose = false;
 
-        refSeekTime = video.currentTime;
+            refSeekTime = video.currentTime;
 
-        // return true; // default true
+            // start intervals to get network info
+            if (networkSpeedInt !== null) {
+                clearInterval(networkSpeedInt);
+                networkSpeedInt = null;
+            }
+            if (networkSpeedInt === null) {
+                networkSpeedInt = setInterval(estimateNetworkSpeed, 10000); 
+            }
+        }
     }
 }
 
