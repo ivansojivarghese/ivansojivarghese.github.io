@@ -702,7 +702,7 @@ function getVideoFromIndex(m, q, r) {
               targetVideo = targetVideoSources[i + mod2];
               targetVideoIndex = i + mod2;
               mod2++;
-            } while (targetVideoSources[i + mod2].height === targetVideoSources[i].height);
+            } while (targetVideoSources[i + mod2 + 1] && targetVideoSources[i + mod2].height === targetVideoSources[i].height);
           }
 
           break;
@@ -718,7 +718,7 @@ function getVideoFromIndex(m, q, r) {
               targetVideo = targetVideoSources[i + mod2];
               targetVideoIndex = i + mod2;
               mod2++;
-            } while (targetVideoSources[i + mod2].height === targetVideoSources[i].height);
+            } while (targetVideoSources[i + mod2 + 1] && targetVideoSources[i + mod2].height === targetVideoSources[i].height);
           }
 
           break;
