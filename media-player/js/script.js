@@ -1380,9 +1380,9 @@
       
       var newTargetQuality = getOptimalQuality();
 
-      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (getVideoFromIndex(true, newTargetQuality) !== -1) && (targetVideoIndex !== getVideoFromIndex(true, newTargetQuality)))) && !video.paused && !audio.paused && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
-        
-        var newIndex = getVideoFromIndex(true, newTargetQuality);
+      var newIndex = getVideoFromIndex(true, newTargetQuality);
+
+      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
         
         targetVideo = null;
 
