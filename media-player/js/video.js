@@ -613,7 +613,7 @@ function getOptimalQuality() {
       return tempQuality;
 }
 
-function getVideoFromIndex(m, q) {
+function getVideoFromIndex(m, q, r) {
 
   // GET THE VIDEO
   var mod = 0;
@@ -692,14 +692,34 @@ function getVideoFromIndex(m, q) {
       }
       for (i = 0; i < targetVideoSources.length; i++) {
         if ((normalVid && (targetVideoSources[i].height === videoQuality[targetQuality + mod]))) {
+          
           targetVideo = targetVideoSources[i];
           targetVideoIndex = i;
+
+          if (r) {
+            var mod2 = 1;
+            do {
+              targetVideo = targetVideoSources[i + mod2];
+              targetVideoIndex = i + mod2;
+              mod2++;
+            } while (targetVideoSources[i + mod2].height === targetVideoSources[i].height);
+          }
+
           break;
         } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
 
           // targetVideo = typeof targetVideoSources[targetQuality + mod] === undefined ? null : targetVideoSources[targetQuality + mod];
           targetVideo = targetVideoSources[i];
           targetVideoIndex = i;
+
+          if (r) {
+            var mod2 = 1;
+            do {
+              targetVideo = targetVideoSources[i + mod2];
+              targetVideoIndex = i + mod2;
+              mod2++;
+            } while (targetVideoSources[i + mod2].height === targetVideoSources[i].height);
+          }
 
           break;
         }
@@ -755,7 +775,7 @@ function getOptimalVideo(time) {
 
       getOptimalQuality();
 
-      getVideoFromIndex(false);
+      getVideoFromIndex(false, null, true);
 
       video.src = targetVideo.url; 
       // video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
