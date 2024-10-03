@@ -465,8 +465,8 @@
         }, 3000);*/
 
         // videoEnd = false;
-        if (networkSpeedInt === null && !navigator.connection) {
-          networkSpeedInt = setInterval(estimateNetworkSpeed, 60000); 
+        if (networkSpeedInt === null) {
+          networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
         }
         if (bufferInt === null) {
           bufferInt = setInterval(liveBuffer, 1000/60);
@@ -1450,9 +1450,9 @@
       controller = new AbortController();
       signal = controller.signal;
 
-      if (networkSpeedInt === null && !navigator.connection) {
+      if (networkSpeedInt === null) {
 
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 60000);
+        networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
       }
 
       if (videoPlay) {
@@ -1582,8 +1582,8 @@
 
       bufferLoad = true;
 
-      if (networkSpeedInt === null && !navigator.connection) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, 60000); 
+      if (networkSpeedInt === null) {
+        networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
       }
       /*
       if (bufferInt === null) {
