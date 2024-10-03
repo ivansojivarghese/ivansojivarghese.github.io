@@ -247,8 +247,6 @@
       if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityBestChange) {
 
         if (video.paused && video.src !== "" && videoPlay) {
-          //audio.play();
-          //video.play();
 
           playPauseManual = true;
 
@@ -262,10 +260,32 @@
                   videoEnd = false;
                 }
               }).catch((err) => {
-                /*
-                audio.pause();
-                video.pause();
-                videoPause = false;*/
+
+                console.log(err);
+                
+                statusIndicator.classList.remove("buffer");
+                statusIndicator.classList.remove("smooth");
+                statusIndicator.classList.add("error");
+
+                endLoad();
+                          
+                setTimeout(function() {
+                  loadingRing.style.display = "none";
+                  playPauseButton.style.display = "block";
+
+                  if (!seekingLoad && !longTap && !seeking) {
+                    hideVideoControls();
+                  }
+
+                  // reset the loader
+                  setTimeout(function() {
+                    resetLoad();
+                  }, 10);
+
+                }, 1000);
+
+                loading = false;
+
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
@@ -726,19 +746,38 @@
       } else if (event.target === videoControls) {
         if (video.paused && video.src !== "" && videoPlay) {
 
-          //audio.play();
-          //video.play();
-
           audio.play().then(function () {
             // audioCtx = new AudioContext();
             setTimeout(function() {
               video.play().then(function() {
                 videoPause = true;
               }).catch((err) => {
-                /*
-                audio.pause();
-                video.pause();
-                videoPause = false;*/
+
+                console.log(err);
+                
+                statusIndicator.classList.remove("buffer");
+                statusIndicator.classList.remove("smooth");
+                statusIndicator.classList.add("error");
+
+                endLoad();
+                          
+                setTimeout(function() {
+                  loadingRing.style.display = "none";
+                  playPauseButton.style.display = "block";
+
+                  if (!seekingLoad && !longTap && !seeking) {
+                    hideVideoControls();
+                  }
+
+                  // reset the loader
+                  setTimeout(function() {
+                    resetLoad();
+                  }, 10);
+
+                }, 1000);
+
+                loading = false;
+
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
@@ -930,10 +969,32 @@
                 // audioVideoAligning = false;
 
               }).catch((err) => {
-                /*
-                audio.pause();
-                video.pause();
-                videoPause = false;*/
+
+                console.log(err);
+                
+                statusIndicator.classList.remove("buffer");
+                statusIndicator.classList.remove("smooth");
+                statusIndicator.classList.add("error");
+
+                endLoad();
+                          
+                setTimeout(function() {
+                  loadingRing.style.display = "none";
+                  playPauseButton.style.display = "block";
+
+                  if (!seekingLoad && !longTap && !seeking) {
+                    hideVideoControls();
+                  }
+
+                  // reset the loader
+                  setTimeout(function() {
+                    resetLoad();
+                  }, 10);
+
+                }, 1000);
+
+                loading = false;
+
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
@@ -1149,9 +1210,6 @@
     });
     
     video.addEventListener('loadedmetadata', function () { //  fired when the metadata has been loaded
-        /*video.play();
-        audio.currentTime = video.currentTime;
-        audio.play();*/
 
         const portrait = window.matchMedia("(orientation: portrait)").matches;
         const videoCSS = window.getComputedStyle(video, null);
@@ -1208,31 +1266,6 @@
       audio.pause();
       videoPause = false;
     });
-/*
-    audio.addEventListener('waiting', function() {
-
-      clearInterval(networkSpeedInt);
-        networkSpeedInt = null;
-        controller.abort();
-
-      statusIndicator.classList.remove("error");
-      statusIndicator.classList.remove("smooth");
-      statusIndicator.classList.add("buffer");
-
-      bufferAllow = false;
-      videoPlay = false;
-      video.pause();
-
-      setTimeout(function () {
-        statusIndicator.classList.remove("buffer");
-          statusIndicator.classList.remove("error");
-          statusIndicator.classList.add("smooth");
-    
-          // bufferAllow = true;
-          videoPlay = true;
-          video.play();
-    }, 1000);
-    });*/
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
 
@@ -1267,31 +1300,6 @@
       audio.pause();
       videoPause = false;
     });
-/*
-    audio.addEventListener('stalled', function() {
-
-      clearInterval(networkSpeedInt);
-        networkSpeedInt = null;
-        controller.abort();
-
-      statusIndicator.classList.remove("error");
-      statusIndicator.classList.remove("smooth");
-      statusIndicator.classList.add("buffer");
-
-      bufferAllow = false;
-      videoPlay = false;
-      video.pause();
-
-      setTimeout(function () {
-          statusIndicator.classList.remove("buffer");
-            statusIndicator.classList.remove("error");
-            statusIndicator.classList.add("smooth");
-      
-            // bufferAllow = true;
-            videoPlay = true;
-            video.play();
-      }, 1000);
-    });*/
 
     var liveBufferVal = [];
     var liveBufferIndex = 0;
@@ -1517,21 +1525,37 @@
               // audio.currentTime = video.currentTime;
 
             }).catch((err) => {
-              /*
-              audio.pause();
-              video.pause();
-              videoPause = false;*/
+
+              console.log(err);
+              
+              statusIndicator.classList.remove("buffer");
+              statusIndicator.classList.remove("smooth");
+              statusIndicator.classList.add("error");
+
+              endLoad();
+                        
+              setTimeout(function() {
+                loadingRing.style.display = "none";
+                playPauseButton.style.display = "block";
+
+                if (!seekingLoad && !longTap && !seeking) {
+                  hideVideoControls();
+                }
+
+                // reset the loader
+                setTimeout(function() {
+                  resetLoad();
+                }, 10);
+
+              }, 1000);
+
+              loading = false;
+
             });
           }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
         });
       }
     });
-/*
-    audio.addEventListener('playing', function() {
-      videoPlay = true;
-      // bufferAllow = true;
-      video.play();
-    });*/
 
 
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
@@ -1669,15 +1693,32 @@
                   }, 100);
       
                 }).catch((err) => {
-                  /*
-                  audio.pause();
-                  video.pause();
-                  videoPause = false;
-      
-                  if (audioVideoAlignInt !== null) {
-                    clearInterval(audioVideoAlignInt);
-                    audioVideoAlignInt = null;
-                  }*/
+
+                  console.log(err);
+                  
+                  statusIndicator.classList.remove("buffer");
+                  statusIndicator.classList.remove("smooth");
+                  statusIndicator.classList.add("error");
+
+                  endLoad();
+                            
+                  setTimeout(function() {
+                    loadingRing.style.display = "none";
+                    playPauseButton.style.display = "block";
+
+                    if (!seekingLoad && !longTap && !seeking) {
+                      hideVideoControls();
+                    }
+
+                    // reset the loader
+                    setTimeout(function() {
+                      resetLoad();
+                    }, 10);
+
+                  }, 1000);
+
+                  loading = false;
+
                 });
               }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
             });
@@ -1988,10 +2029,32 @@
               video.play().then(function() {
                 videoPause = true;
               }).catch((err) => {
-                /*
-                audio.pause();
-                video.pause();
-                videoPause = false;*/
+
+                console.log(err);
+                
+                statusIndicator.classList.remove("buffer");
+                statusIndicator.classList.remove("smooth");
+                statusIndicator.classList.add("error");
+
+                endLoad();
+                          
+                setTimeout(function() {
+                  loadingRing.style.display = "none";
+                  playPauseButton.style.display = "block";
+
+                  if (!seekingLoad && !longTap && !seeking) {
+                    hideVideoControls();
+                  }
+
+                  // reset the loader
+                  setTimeout(function() {
+                    resetLoad();
+                  }, 10);
+
+                }, 1000);
+
+                loading = false;
+
               });
             }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           });
