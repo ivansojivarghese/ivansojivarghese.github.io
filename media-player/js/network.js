@@ -8,6 +8,7 @@ var networkSpeedClose = false;
 var controller = new AbortController();
 var signal = controller.signal;
 
+var avgInt = 10000;
 var networkIntRange = navigator.connection ? 30000 : 60000;
 
 var rtt = 0,
@@ -70,7 +71,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 networkSpeedInt = null;
             }
             if (networkSpeedInt === null) {
-                networkSpeedInt = setInterval(estimateNetworkSpeed, 10000); 
+                networkSpeedInt = setInterval(estimateNetworkSpeed, avgInt); 
             }
         }
     }

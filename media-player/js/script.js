@@ -464,15 +464,40 @@
       }
     });
 
+    var qualityBestResetInt = null;
+    var qualityBestResetControl = false;
+
     function qualityBestReset() {
       if (qualityBestChange && !video.paused && !audio.paused) {
+
+        qualityBestResetControl = false;
+        if (qualityBestResetInt !== null) {
+          clearTimeout(qualityBestResetInt);
+          qualityBestResetInt = null;
+        }
+
         qualityBestChange = false;
         clearTimeout(preventQualityChangeInt);
         preventQualityChangeInt = null;
         preventQualityChange = true;
         preventQualityChangeInt = setTimeout(function() {
           preventQualityChange = false;
-        }, 10000);
+        }, avgInt);
+
+      } else if (qualityBestChange && video.paused && audio.paused && !qualityBestResetControl) {
+
+        qualityBestResetControl = true;
+
+        qualityBestResetInt = setTimeout(function() {
+          qualityBestChange = false;
+          clearTimeout(preventQualityChangeInt);
+          preventQualityChangeInt = null;
+          preventQualityChange = true;
+          preventQualityChangeInt = setTimeout(function() {
+            preventQualityChange = false;
+          }, avgInt);
+        }, avgInt);
+
       }
     }
 
@@ -497,7 +522,7 @@
         }
         /////////////////////////
         if (bestVideoInt === null) {
-          bestVideoInt = setInterval(getBestVideo, 10000);
+          bestVideoInt = setInterval(getBestVideo, avgInt);
         }
         /////////////////////////
         if (qualityBestInt === null) {
@@ -1720,7 +1745,7 @@
         bufferInt = setInterval(liveBuffer, 1000/60);
       }
       if (bestVideoInt === null) {
-        bestVideoInt = setInterval(getBestVideo, 10000);
+        bestVideoInt = setInterval(getBestVideo, avgInt);
       }*/
     });
 
