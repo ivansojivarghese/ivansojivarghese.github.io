@@ -66,6 +66,10 @@ video.seeking {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/pause.svg");
 }
 
+#playPauseButton.repeat .img { /* replay button */
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/replay.svg");
+}
+
 .controlButton {
     width: 1.25rem;
     height: 1.25rem;

@@ -54,7 +54,8 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/svg/rewind.svg',
   'https://ivansojivarghese.github.io/media-player/svg/fitscreen.svg',
   'https://ivansojivarghese.github.io/media-player/svg/settings.svg',
-  'https://ivansojivarghese.github.io/media-player/svg/skip_previous.svg'
+  'https://ivansojivarghese.github.io/media-player/svg/skip_previous.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/replay.svg'
 ];
 
 self.addEventListener('install', evt => {

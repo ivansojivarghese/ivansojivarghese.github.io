@@ -472,7 +472,10 @@
             
             videoPause = true;
           }); 
+
+          playPauseButton.classList.remove('repeat');
           playPauseButton.classList.add('playing');
+
           if (firstPlay) {
             if (!seekingLoad && !longTap && !seeking) {
               hideVideoControls();
@@ -495,7 +498,10 @@
           if (!videoPause && !backgroundPlay && !pipEnabled && !videoEnd) {
             video.currentTime = audio.currentTime;
           }
+
+          playPauseButton.classList.remove('repeat');
           playPauseButton.classList.add('playing');
+
           playPauseManual = false;
           navigator.mediaSession.playbackState = 'playing';
           getScreenLock();
@@ -550,6 +556,8 @@
 
     video.addEventListener('ended', function() {
       playPauseButton.classList.remove('playing');
+      playPauseButton.classList.add('repeat');
+
       clearInterval(networkSpeedInt);
       networkSpeedInt = null;
       clearInterval(bufferInt);
@@ -558,8 +566,7 @@
       bestVideoInt = null;
       clearInterval(qualityBestInt);
       qualityBestInt = null;
-      // video.currentTime = 0;
-      // audio.currentTime = 0;
+
       videoEnd = true;
       firstPlay = true;
       video.pause();
@@ -957,6 +964,9 @@
         if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !videoEnd && !qualityBestChange) {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
+
+            playPauseButton.classList.remove('repeat');
+
             seeking = true;
             seekingLoad = true;
             if (forwardSkippedTime <= (maxTime - skipTime)) {
@@ -1011,6 +1021,9 @@
         if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange) {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
+
+            playPauseButton.classList.remove('repeat');
+            
             videoEnd = false;
             seeking = true;
             seekingLoad = true;
