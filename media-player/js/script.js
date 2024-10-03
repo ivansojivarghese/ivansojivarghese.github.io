@@ -1447,9 +1447,10 @@
         offset = 0;
       }, 1000);
 
+      controller = new AbortController();
+      signal = controller.signal;
+
       if (networkSpeedInt === null && !navigator.connection) {
-        controller = new AbortController();
-        signal = controller.signal;
 
         networkSpeedInt = setInterval(estimateNetworkSpeed, 60000);
       }
