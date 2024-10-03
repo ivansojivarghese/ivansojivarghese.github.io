@@ -77,16 +77,20 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 estimateNetworkSpeed();
 
 function getNetworkInfo() {
-    rtt = navigator.connection.rtt;
-    downlink = navigator.connection.downlink;
-    downlinkMax = navigator.connection.downlinkMax;
-    effectiveType = navigator.connection.effectiveType;
-    saveData = navigator.connection.saveData;
+    if (navigator.connection) {
+        rtt = navigator.connection.rtt;
+        downlink = navigator.connection.downlink;
+        downlinkMax = navigator.connection.downlinkMax;
+        effectiveType = navigator.connection.effectiveType;
+        saveData = navigator.connection.saveData;
+    }
 }
 
 getNetworkInfo();
 
-navigator.connection.addEventListener('change', function() {
-    getNetworkInfo();
-    estimateNetworkSpeed();
-});
+if (navigator.connection) {
+    navigator.connection.addEventListener('change', function() {
+        getNetworkInfo();
+        estimateNetworkSpeed();
+    });
+}

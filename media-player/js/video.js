@@ -558,45 +558,51 @@ function getOptimalQuality() {
         }*/
       }
 
-      // GET RTT SCORE
-      if (rtt <= rttGroupsArray[0]) { // 0 - 100
-        rttGroup = 3;
-      } else if (rtt <= rttGroupsArray[1]) { // >100 - 200
-        rttGroup = 2;
-      } else if (rtt <= rttGroupsArray[2]) { // >200 - 375
-        rttGroup = 1;
-      } else if (rtt > rttGroupsArray[2]) { // >375
-        rttGroup = 1;
-      }
-      rttScore = 1 - ((rtt / rttGroupsArray[2]) / rttGroup);
-      if (rttScore < 0) {
-        rttScore = 0;
-      }
+      if (navigator.connection) {
+        // GET RTT SCORE
+        if (rtt <= rttGroupsArray[0]) { // 0 - 100
+          rttGroup = 3;
+        } else if (rtt <= rttGroupsArray[1]) { // >100 - 200
+          rttGroup = 2;
+        } else if (rtt <= rttGroupsArray[2]) { // >200 - 375
+          rttGroup = 1;
+        } else if (rtt > rttGroupsArray[2]) { // >375
+          rttGroup = 1;
+        }
+        rttScore = 1 - ((rtt / rttGroupsArray[2]) / rttGroup);
+        if (rttScore < 0) {
+          rttScore = 0;
+        }
 
-      // DOWNLINK SCORE
-      downlinkScore = downlink / downlinkRef;
+        // DOWNLINK SCORE
+        downlinkScore = downlink / downlinkRef;
 
-      // SAVEDATA SCORE
-      saveDataScore = saveData ? 0.8 : 1;
+        // SAVEDATA SCORE
+        saveDataScore = saveData ? 0.8 : 1;
 
-      // EFFECTIVE TYPE SCORE
-      switch (effectiveType) {
-        case "4g":
-          effectiveTypeScore = 1.25;
-        break;
-        case "3g":
-          effectiveTypeScore = 1;
-        break;
-        case "2g":
-          effectiveTypeScore = 0.75;
-        break;
-        case "slow-2g":
-          effectiveTypeScore = 0.5;
-        break;
+        // EFFECTIVE TYPE SCORE
+        switch (effectiveType) {
+          case "4g":
+            effectiveTypeScore = 1.25;
+          break;
+          case "3g":
+            effectiveTypeScore = 1;
+          break;
+          case "2g":
+            effectiveTypeScore = 0.75;
+          break;
+          case "slow-2g":
+            effectiveTypeScore = 0.5;
+          break;
+        }
       }
 
       // FINAL SCORE
-      videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
+      if (navigator.connection) {
+        videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
+      } else {
+        videoStreamScore = 1;
+      }
 
       // TARGET QUALITY
       if (initialVideoLoadCount === 0) {
