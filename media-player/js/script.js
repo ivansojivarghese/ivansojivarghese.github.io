@@ -542,7 +542,8 @@
 
       // audio.pause();
       // videoPause = false;
-      if (document.visibilityState === "visible") {
+
+      if (document.visibilityState === "visible" && appUnload !== null) {
         audio.pause();
         videoPause = false;
       } else {
@@ -2083,10 +2084,24 @@
       if (event.persisted) {
         // If the event's persisted property is `true` the page is about
         // to enter the Back-Forward Cache, which is also in the frozen state
+        appUnload = null;
       } else {
         // If the event's persisted property is not `true` the page is about to be unloaded.
         appUnload = true;
       }
+    },
+      { capture: true }
+    );
+
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) {
+        // If the event's persisted property is `true` the page is about
+        // to enter the Back-Forward Cache, which is also in the frozen state
+        appUnload = false;
+      } /*else {
+        // If the event's persisted property is not `true` the page is about to be unloaded.
+        appUnload = false;
+      }*/
     },
       { capture: true }
     );
