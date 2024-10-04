@@ -1550,7 +1550,7 @@
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
-      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
+      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && (videoLoadPercentile > videoProgressPercentile) && !video.paused && !audio.paused && !backgroundPlay && !pipEnabled && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
         
         targetVideo = null;
 
