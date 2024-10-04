@@ -74,10 +74,12 @@ const actionHandlers = [
                                             setTimeout(function() {
                                               loadingRing.style.display = "none";
                                               playPauseButton.style.display = "block";
-
+                                              /*
                                               if (!seekingLoad && !longTap && !seeking) {
                                                 hideVideoControls();
-                                              }
+                                              }*/
+
+                                                showVideoControls();
 
                                               // reset the loader
                                               setTimeout(function() {
@@ -103,10 +105,12 @@ const actionHandlers = [
                                       setTimeout(function() {
                                         loadingRing.style.display = "none";
                                         playPauseButton.style.display = "block";
-
+                                        /*
                                         if (!seekingLoad && !longTap && !seeking) {
                                           hideVideoControls();
-                                        }
+                                        }*/
+
+                                          showVideoControls();
 
                                         // reset the loader
                                         setTimeout(function() {
