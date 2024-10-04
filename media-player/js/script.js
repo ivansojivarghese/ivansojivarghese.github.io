@@ -1942,16 +1942,18 @@
                 bufferCount = 0;
               }, 5000);
             }
-
       }
+    });
 
-    })
+    var videoProgressPercentile = 0,
+        audioProgressPercentile = 0;
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         if (!qualityChange) {
           updatePositionState();
           videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
+          videoProgressPercentile = (video.currentTime / video.duration);
           videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
           if (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) {
             videoEnd = false;
@@ -1965,6 +1967,7 @@
     });
 
     audio.addEventListener("timeupdate", function() {
+      audioProgressPercentile = (audio.currentTime / audio.duration);
       if (!qualityChange) {
         updatePositionState();
       }
