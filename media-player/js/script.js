@@ -1560,16 +1560,10 @@
       var diff = 0;
       var loadP = 0;
       var playQuality = playbackStats.totalVideoFrames ? ((playbackStats.totalVideoFrames - playbackStats.droppedVideoFrames) / playbackStats.totalVideoFrames) : 1;
-      if (q > targetQuality && videoLoadPercentile > videoProgressPercentile) {
+      if (q > targetQuality || q < targetQuality) {
         diff = q - targetQuality;
         loadP = getLoadedPercent();
-        return (Math.round((loadP * diff * (q / 2) * playQuality)));
-      } else if (q < targetQuality) {
-
-        /////
-        return q; // TEMP.
-        ////
-
+        return (Math.abs(Math.round((loadP * diff * (q / 2) * playQuality))));
       } else {
         return q;
       }
@@ -1586,7 +1580,7 @@
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
-      if (((p <= 0) || (p > 0.1)) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && (videoLoadPercentile > videoProgressPercentile) && !video.paused && !audio.paused && !backgroundPlay && !pipEnabled && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
+      if (((p <= 0) || (p > 0.1)) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && !backgroundPlay && !pipEnabled && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
         
         targetVideo = null;
 
