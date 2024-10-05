@@ -1475,7 +1475,7 @@
           fDiff = fEnd - fStart;
         }
       }
-      if (fDiff === fct) {
+      if (fDiff <= fct) {
         framesStuck = false;
       } else {
         framesStuck = true;
