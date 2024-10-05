@@ -1459,13 +1459,13 @@
 
     function checkFramesStuck(fps, tps, arr) {
       var det = tps / fps,
-          fct = 2,
+          fct = 1,
           fEnd = 0,
           fStart = 0,
           fDiff = 0;
       while (!Number.isInteger(det)) {
-        det = det * fct;
         fct++;
+        det = det * fct;
       }
       for (var i = arr.length - 1; i >= arr.length - det; i--) { // check for 'fct' frames increment per 'det' function calls recently
         if (i === arr.length - 1) { // last
