@@ -57,6 +57,8 @@
 
     var appUnload = false;
 
+    var tps = 60; // function call times per sec.
+
     var loading = false;
     var videoLoad = false;
     var initialVideoLoad = false;
@@ -523,7 +525,7 @@
           networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
         }
         if (bufferInt === null) {
-          bufferInt = setInterval(liveBuffer, 1000/60);
+          bufferInt = setInterval(liveBuffer, 1000/tps);
         }
         /////////////////////////
         if (bestVideoInt === null) {
@@ -531,7 +533,7 @@
         }
         /////////////////////////
         if (qualityBestInt === null) {
-          qualityBestInt = setInterval(qualityBestReset, 1000/60);
+          qualityBestInt = setInterval(qualityBestReset, 1000/tps);
         }
 
         if (!playPauseManual) {
@@ -1452,9 +1454,42 @@
     var liveBufferIndex = 0;
     var bufferModeExe = false;
 
+    var frameArr = [];
+    var framesStuck = false;
+
+    function checkFramesStuck(fps, tps, arr) {
+      var det = tps / fps,
+          fct = 2,
+          fEnd = 0,
+          fStart = 0,
+          fDiff = 0;
+      while (!Number.isInteger(det)) {
+        det = det * fct;
+        fct++;
+      }
+      for (var i = arr.length - 1; i >= arr.length - det; i--) { // check for 'fct' frames increment per 'det' function calls recently
+        if (i === arr.length - 1) { // last
+          fEnd = arr[i];
+        } else if (i === arr.length - det) { // last - det
+          fStart = arr[i];
+          fDiff = fEnd - fStart;
+        }
+      }
+      if (fDiff === fct) {
+        framesStuck = false;
+      } else {
+        framesStuck = true;
+      }
+    }
+
     function liveBuffer() {
 
       playbackStats = video.getVideoPlaybackQuality();
+
+      if (!video.paused) {
+        frameArr[frameArr.length] = playbackStats.totalVideoFrames;
+        checkFramesStuck(targetVideo.fps, 60, frameArr);
+      } 
 
       if (bufferAllow) {
         if (bufferMode || bufferingDetected) {
@@ -2125,7 +2160,7 @@
           Lt_e2 = false;
         }
       }
-    }, 1000/60);
+    }, 1000/tps);
 
     function fastSeekIteration() {
       if (longTap) {
@@ -2351,7 +2386,7 @@
       } else {
         backgroundPlay = false;
       }
-    }, 1000/60);
+    }, 1000/tps);
 
     window.addEventListener('pagehide', function (event) {
       if (event.persisted) {

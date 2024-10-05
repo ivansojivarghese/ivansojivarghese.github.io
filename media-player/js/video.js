@@ -207,6 +207,9 @@ function resetVariables() {
   liveBufferVal = [];
   liveBufferIndex = 0;
   bufferModeExe = false;
+
+  frameArr = [];
+  framesStuck = false;
 }
 
 async function getParams(id, time) {
