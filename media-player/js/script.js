@@ -589,7 +589,7 @@
             controlsHideInt = null;
             if (controlsHideInt === null) {
               controlsHideInt = setTimeout(function() {
-                if (!seekingLoad && !longTap && !seeking) {
+                if (!seekingLoad && !longTap && !seeking && !video.paused) {
                   hideVideoControls();
                 }
               }, 3000); // hide controls after 3 sec. if no activity
@@ -622,6 +622,9 @@
       liveBufferVal = [];
       liveBufferIndex = 0;
       bufferModeExe = false;
+
+      clearInterval(bestVideoInt);
+      bestVideoInt = null;
 
       // audio.pause();
       // videoPause = false;
@@ -692,7 +695,7 @@
               clearTimeout(controlsHideInt);
               controlsHideInt = null;
               controlsHideInt = setInterval(function() {
-                if (!loading && !videoLoad && !seeking && !seekingLoad) {
+                if (!loading && !videoLoad && !seeking && !seekingLoad && !video.paused) {
                   hideVideoControls();
                   clearInterval(controlsHideInt);
                   controlsHideInt = null;
@@ -817,7 +820,7 @@
                 clearTimeout(controlsHideInt);
                 controlsHideInt = null;
                 controlsHideInt = setInterval(function() {
-                  if (!loading && !seekingLoad && !longTap && !seeking) {
+                  if (!loading && !seekingLoad && !longTap && !seeking && !video.paused) {
                     hideVideoControls();
                     clearInterval(controlsHideInt);
                     controlsHideInt = null;
@@ -1200,7 +1203,7 @@
 
             if (controlsHideInt === null && !video.paused) {
               controlsHideInt = setTimeout(function() {
-                if (!seekingLoad && !longTap && !seeking) {
+                if (!seekingLoad && !longTap && !seeking && !video.paused) {
                   hideVideoControls();
                 }
               }, 3000); // hide controls after 3 sec. if no activity
@@ -1258,7 +1261,7 @@
 
             if (controlsHideInt === null && !video.paused) {
               controlsHideInt = setTimeout(function() {
-                if (!seekingLoad && !longTap && !seeking) {
+                if (!seekingLoad && !longTap && !seeking && !video.paused) {
                   hideVideoControls();
                 }
               }, 3000); // hide controls after 3 sec. if no activity
