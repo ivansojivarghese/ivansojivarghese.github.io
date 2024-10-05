@@ -77,7 +77,9 @@ const estimateNetworkSpeed = async() => { // estimate network speed
     }
 }
 
-estimateNetworkSpeed();
+if (networkSpeedInt === null) {
+    networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
+}
 
 function getNetworkInfo() {
     if (navigator.connection) {
