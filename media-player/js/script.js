@@ -48,6 +48,7 @@
     var offsetInt = null;
 
     var audioCtx;
+    var playbackStats;
 
     var playPauseManual = false;
 
@@ -1452,6 +1453,9 @@
     var bufferModeExe = false;
 
     function liveBuffer() {
+
+      playbackStats = video.getVideoPlaybackQuality();
+
       if (bufferAllow) {
         if (bufferMode || bufferingDetected) {
           var currentTime = new Date().getTime();
@@ -1462,7 +1466,7 @@
               bufferCount++;
             }
           }
-          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow) {
+          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow && !loading) {
 
             bufferingCount = [];
             bufferCount = 0;
@@ -1546,9 +1550,29 @@
       // }
     }
 
+    function getRegressionQuality(q) {
+      var diff = 0;
+      var loadP = 0;
+      var playQuality = playbackStats.totalVideoFrames ? ((playbackStats.totalVideoFrames - playbackStats.droppedVideoFrames) / playbackStats.totalVideoFrames) : 1;
+      if (q > targetQuality && videoLoadPercentile > videoProgressPercentile) {
+        diff = q - targetQuality;
+        loadP = ((videoLoadPercentile - videoProgressPercentile) * video.duration) / (video.duration - video.currentTime);
+        return (Math.round((loadP * diff * (q / 2) * playQuality)));
+      } else if (q < targetQuality) {
+
+        /////
+        return q; // TEMP.
+        ////
+
+      } else {
+        return q;
+      }
+    }
+
     function getBestVideo() { // fetch best video according to network conditions - continuous
       
       var newTargetQuality = getOptimalQuality();
+      newTargetQuality = getRegressionQuality(newTargetQuality);
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
@@ -1559,9 +1583,12 @@
         console.log("prepare new video");
 
         if (newTargetQuality === targetQuality) {
+
           targetVideo = targetVideoSources[newIndex];
           targetVideoIndex = newIndex;
+
         } else {
+
           getVideoFromIndex(false); // loop qualities to get video again
         }
 
@@ -1645,7 +1672,7 @@
                 
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
 
-                if (((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[2]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow) {
+                if (((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[2]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow && !loading) {
                   
                   bufferingCount = [];
                   bufferCount = 0;
