@@ -1507,6 +1507,8 @@
 
     function getVideoFromBuffer() {
 
+      var preventRefetch = false;
+
       var index = 0;
       var mod = 1;
       var newTargetQuality = getOptimalQuality();
@@ -1541,7 +1543,7 @@
 
       qualityChange = true;
 
-      if (!videoEnd) {
+      if (!videoEnd && !preventRefetch) {
         video.src = targetVideo.url; // 'loadstart'
       }
 
@@ -1550,13 +1552,17 @@
       // }
     }
 
+    function getLoadedPercent() {
+      return ((videoLoadPercentile - videoProgressPercentile) * video.duration) / (video.duration - video.currentTime);
+    }
+
     function getRegressionQuality(q) {
       var diff = 0;
       var loadP = 0;
       var playQuality = playbackStats.totalVideoFrames ? ((playbackStats.totalVideoFrames - playbackStats.droppedVideoFrames) / playbackStats.totalVideoFrames) : 1;
       if (q > targetQuality && videoLoadPercentile > videoProgressPercentile) {
         diff = q - targetQuality;
-        loadP = ((videoLoadPercentile - videoProgressPercentile) * video.duration) / (video.duration - video.currentTime);
+        loadP = getLoadedPercent();
         return (Math.round((loadP * diff * (q / 2) * playQuality)));
       } else if (q < targetQuality) {
 
@@ -1570,13 +1576,17 @@
     }
 
     function getBestVideo() { // fetch best video according to network conditions - continuous
+
+      var p = getLoadedPercent();
+
+      var preventRefetch = false;
       
       var newTargetQuality = getOptimalQuality();
       newTargetQuality = getRegressionQuality(newTargetQuality);
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
-      if (((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && (videoLoadPercentile > videoProgressPercentile) && !video.paused && !audio.paused && !backgroundPlay && !pipEnabled && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
+      if (((p <= 0) || (p > 0.1)) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && (videoLoadPercentile > videoProgressPercentile) && !video.paused && !audio.paused && !backgroundPlay && !pipEnabled && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
         
         targetVideo = null;
 
@@ -1586,13 +1596,13 @@
 
           targetVideo = targetVideoSources[newIndex];
           targetVideoIndex = newIndex;
+          targetQuality = newTargetQuality;
 
         } else {
 
+          targetQuality = newTargetQuality;
           getVideoFromIndex(false); // loop qualities to get video again
         }
-
-        targetQuality = newTargetQuality;
 
         refSeekTime = video.currentTime;
 
@@ -1603,7 +1613,7 @@
         video.pause();
         audio.pause(); // pause content
 
-        if (!videoEnd) {
+        if (!videoEnd && !preventRefetch) {
           video.src = targetVideo.url; // 'loadstart'
         }
 
