@@ -42,7 +42,6 @@
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
-    var networkSpeedInt = null;
     var bufferInt = null;
     var bestVideoInt = null;
     var qualityBestInt = null;

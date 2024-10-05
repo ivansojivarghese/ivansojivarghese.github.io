@@ -11,6 +11,8 @@ var signal = controller.signal;
 var avgInt = 10000;
 var networkIntRange = navigator.connection ? 30000 : 60000;
 
+var networkSpeedInt = null;
+
 var rtt = 0,
     downlink = 0,
     downlinkMax = 0,
