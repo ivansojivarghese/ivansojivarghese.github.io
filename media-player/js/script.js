@@ -1482,7 +1482,7 @@
       } else {
         framesStuck = true;
       }*/
-      if ((arr[arr.length - 1] - arr[arr.length - 1 - det]) <= (fct + 1)) {
+      if (((arr[arr.length - 1] - arr[arr.length - 1 - det]) <= (fct + 1)) && (arr[arr.length - 1] > arr[arr.length - 1 - det])) {
         framesStuck = false;
       } else {
         framesStuck = true;
