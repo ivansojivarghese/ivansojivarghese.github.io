@@ -1303,7 +1303,7 @@
 
         clearInterval(networkSpeedInt);
         networkSpeedInt = null;
-        controller.abort();
+        // controller.abort();
 
         loading = true;
         bufferingDetected = true;
@@ -1390,7 +1390,7 @@
 
       clearInterval(networkSpeedInt);
       networkSpeedInt = null;
-      controller.abort();
+      // controller.abort();
 
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
@@ -1424,7 +1424,7 @@
 
       clearInterval(networkSpeedInt);
         networkSpeedInt = null;
-        controller.abort();
+        // controller.abort();
       
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
