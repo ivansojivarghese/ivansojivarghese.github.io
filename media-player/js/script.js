@@ -1029,8 +1029,10 @@
 
           audioVideoAligning = true;
 
-          // video.pause();
-          // audio.pause();
+          video.pause();
+          audio.pause();
+          bufferingDetected = true;
+          framesStuck = true;
 
           videoPause = false;
 
