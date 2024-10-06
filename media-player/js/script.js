@@ -1310,6 +1310,11 @@
 
         video.classList.add('seeking');
         seekingLoad = true;
+
+        refSeekTime = video.currentTime;
+        targetVideo = null;
+        targetQuality = 0;
+        getVideoFromIndex(false); // loop qualities to get video again
     });
     
     video.addEventListener('seeked', function() {
