@@ -850,7 +850,7 @@ function getOptimalVideo(time) {
       // video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
       // video.src = targetVideo.url; 
       getMediaSources(targetVideoSources);
-      
+
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
       if (time) { // START FROM (if available)
@@ -918,16 +918,13 @@ function getMediaSources(sources) {
   }
 
   let currentResolution = targetVideo.qualityLabel;  // Default to initial
-  let fetchVideoSegment;
+  let fetchVideoSegment = async (url) => {
+    return fetch(url).then(response => response.arrayBuffer());
+  };
 
   mediaSource.addEventListener('sourceopen', function () {
     sourceBuffer = mediaSource.addSourceBuffer(targetVideo.mimeType);
     fetchAndAppend(resolutions[currentResolution]);
-
-    // Function to fetch and append video data
-    fetchVideoSegment = (url) => {
-      return fetch(url).then(response => response.arrayBuffer());
-    };
 
     // Monitor buffer and decide to switch resolution
     monitorNetworkAndSwitch();
