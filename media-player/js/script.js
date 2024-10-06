@@ -57,7 +57,7 @@
 
     var appUnload = false;
 
-    var tps = 60; // function call times per sec.
+    var tps = 0; // function call times per sec.
 
     var loading = false;
     var videoLoad = false;
@@ -1488,7 +1488,7 @@
 
       if (!video.paused) {
         frameArr[frameArr.length] = playbackStats.totalVideoFrames;
-        checkFramesStuck(targetVideo.fps, 60, frameArr);
+        checkFramesStuck(targetVideo.fps, tps, frameArr);
       } 
 
       if (bufferAllow) {
@@ -1816,6 +1816,8 @@
     video.addEventListener('loadstart', function () { // fired when the browser has started to load a resource
       
       // START LOAD
+
+      tps = targetVideo.fps;
 
       getScreenLock();
 
@@ -2171,7 +2173,7 @@
           Lt_e2 = false;
         }
       }
-    }, 1000/tps);
+    }, 1000/60);
 
     function fastSeekIteration() {
       if (longTap) {
@@ -2397,7 +2399,7 @@
       } else {
         backgroundPlay = false;
       }
-    }, 1000/tps);
+    }, 1000/60);
 
     window.addEventListener('pagehide', function (event) {
       if (event.persisted) {
