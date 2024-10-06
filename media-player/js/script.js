@@ -198,7 +198,7 @@
           showVideoControls();
         }  
 
-        if (!loading && !bufferingDetected && bufferLoad) {
+        if (!loading && !bufferingDetected && bufferLoad && !framesStuck) {
             bufferLoad = false;
             
             statusIndicator.classList.remove("buffer");
@@ -1316,7 +1316,7 @@
         if (qualityChange) {
           qualityChange = false;
 
-          if (!loading && !bufferingDetected) {
+          if (!loading && !bufferingDetected && !framesStuck) {
 
             statusIndicator.classList.remove("buffer");
             statusIndicator.classList.remove("error");
@@ -1690,7 +1690,7 @@
           setTimeout(function() {
             video.play().then(function() {
 
-              if (!loading && !bufferingDetected) {
+              if (!loading && !bufferingDetected && !framesStuck) {
                 statusIndicator.classList.remove("error");
                 statusIndicator.classList.remove("buffer");
                 statusIndicator.classList.add("smooth");
@@ -1912,7 +1912,7 @@
 
             } 
 
-            if (!loading && !bufferingDetected) {
+            if (!loading && !bufferingDetected && !framesStuck) {
 
               statusIndicator.classList.remove("buffer");
               statusIndicator.classList.remove("error");
