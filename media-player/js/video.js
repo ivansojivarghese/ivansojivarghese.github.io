@@ -847,8 +847,10 @@ function getOptimalVideo(time) {
 
       getVideoFromIndex(false, null, true);
 
-      video.src = targetVideo.url; 
       // video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
+      // video.src = targetVideo.url; 
+      getMediaSources(targetVideoSources);
+      
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
       if (time) { // START FROM (if available)
@@ -903,6 +905,82 @@ function getOptimalVideo(time) {
   }
 
   }
+
+function getMediaSources(sources) {
+  const mediaSource = new MediaSource();
+  video.src = URL.createObjectURL(mediaSource);
+
+  let sourceBuffer;
+  const resolutions = {};
+
+  for (var i = 0; i <= sources.length - 1; i++) {
+    resolutions[sources[i].qualityLabel] = sources[i].url;
+  }
+
+  let currentResolution = targetVideo.qualityLabel;  // Default to initial
+  let fetchVideoSegment;
+
+  mediaSource.addEventListener('sourceopen', function () {
+    sourceBuffer = mediaSource.addSourceBuffer(targetVideo.mimeType);
+    fetchAndAppend(resolutions[currentResolution]);
+
+    // Function to fetch and append video data
+    fetchVideoSegment = (url) => {
+      return fetch(url).then(response => response.arrayBuffer());
+    };
+
+    // Monitor buffer and decide to switch resolution
+    monitorNetworkAndSwitch();
+  });
+
+  function fetchAndAppend(url) {
+    fetchVideoSegment(url)
+      .then(data => {
+        if (!sourceBuffer.updating) {
+          sourceBuffer.appendBuffer(data);
+        }
+      });
+  }
+
+  // Monitor network conditions and switch resolution
+  function monitorNetworkAndSwitch() {
+    setInterval(() => {
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      const bandwidth = connection ? connection.downlink : 10;  // Example: 10 Mbps default if unknown
+
+      let desiredResolution;
+
+      if (bandwidth > 5) {
+        desiredResolution = '1080p';  // High bandwidth
+      } else if (bandwidth > 2) {
+        desiredResolution = '720p';   // Medium bandwidth
+      } else {
+        desiredResolution = '480p';   // Low bandwidth
+      }
+
+      if (desiredResolution !== currentResolution) {
+        switchResolution(desiredResolution);
+      }
+    }, 5000);  // Check every 5 seconds
+  }
+
+  function switchResolution(newResolution) {
+    if (sourceBuffer.updating) return;
+
+    // Stop playback and clear the buffer
+    video.pause();
+    sourceBuffer.remove(0, mediaSource.duration);
+
+    sourceBuffer.addEventListener('updateend', () => {
+      // Once the buffer is cleared, append new data
+      fetchAndAppend(resolutions[newResolution]);
+      currentResolution = newResolution;
+
+      // Resume playback once the new resolution segment is appended
+      video.play();
+    }, { once: true });
+  }
+}
 
 
 getParams(null);
