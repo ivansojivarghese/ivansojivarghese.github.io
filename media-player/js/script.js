@@ -1459,14 +1459,16 @@
 
     function checkFramesStuck(fps, tps, arr) {
       var det = tps / fps,
-          fct = 1,
+          fct = 1;
+          /*
           fEnd = 0,
           fStart = 0,
-          fDiff = 0;
+          fDiff = 0;*/
       while (!Number.isInteger(det)) {
         fct++;
         det = det * fct;
       }
+      /*
       for (var i = arr.length - 1; i >= arr.length - det; i--) { // check for 'fct' frames increment per 'det' function calls recently
         if (i === arr.length - 1) { // last
           fEnd = arr[i];
@@ -1476,6 +1478,11 @@
         }
       }
       if (fDiff <= fct) {
+        framesStuck = false;
+      } else {
+        framesStuck = true;
+      }*/
+      if ((arr[arr.length - 1] - arr[arr.length - 1 - det]) <= (fct + 1)) {
         framesStuck = false;
       } else {
         framesStuck = true;
