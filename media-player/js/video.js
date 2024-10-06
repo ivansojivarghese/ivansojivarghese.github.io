@@ -848,9 +848,9 @@ function getOptimalVideo(time) {
       getVideoFromIndex(false, null, true);
 
       // video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
-      // video.src = targetVideo.url; 
-      getMediaSources(targetVideoSources);
-
+      // getMediaSources(targetVideoSources);
+      
+      video.src = targetVideo.url; 
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
       if (time) { // START FROM (if available)
@@ -905,7 +905,7 @@ function getOptimalVideo(time) {
   }
 
   }
-
+/*
 function getMediaSources(sources) {
   const mediaSource = new MediaSource();
   video.src = URL.createObjectURL(mediaSource);
@@ -978,6 +978,7 @@ function getMediaSources(sources) {
     }, { once: true });
   }
 }
+  */
 
 
 getParams(null);
