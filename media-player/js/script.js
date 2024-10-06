@@ -126,7 +126,7 @@
                 !bufferingDetected 
                 && currentPlayPos < (lastPlayPos + offset)
                 // && ((currentPlayPos < (lastPlayPos + offset)) || currentAudioPos < (lastPlayPos + offset))
-                && !video.paused
+                && !video.paused && framesStuck
             ) {
             // console.log("buffering")
             bufferingDetected = true;
@@ -188,7 +188,7 @@
             // loading = false;
         }
 
-        if (loading && bufferingDetected) {
+        if (loading && bufferingDetected && framesStuck) {
           statusIndicator.classList.remove("error");
           statusIndicator.classList.remove("smooth");
           statusIndicator.classList.add("buffer");
