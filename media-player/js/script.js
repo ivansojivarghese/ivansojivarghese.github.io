@@ -1602,7 +1602,9 @@
       if (q > t || q < t) {
         diff = q - t;
         loadP = getLoadedPercent() + 0.1;
-        var val = (Math.abs(Math.round((loadP * diff * ((Math.abs(diff) + 1) / 2) * playQuality))));
+        var quo = (Math.abs(diff) + 1);
+        var div = ((quo - 2) * (9 / 35)) + 0.2;
+        var val = (Math.abs(Math.round((loadP * diff * (quo / div) * playQuality))));
         if (q > t) {
           return (t + val);
         } else {
