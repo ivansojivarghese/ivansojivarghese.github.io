@@ -1588,17 +1588,26 @@
     }
 
     function getLoadedPercent() {
-      return ((videoLoadPercentile - videoProgressPercentile) * video.duration) / (video.duration - video.currentTime);
+      if (video.duration) {
+        return ((videoLoadPercentile - videoProgressPercentile) * video.duration) / (video.duration - video.currentTime);
+      } else {
+        return 0;
+      }
     }
 
-    function getRegressionQuality(q) {
+    function getRegressionQuality(q, t) {
       var diff = 0;
       var loadP = 0;
       var playQuality = playbackStats.totalVideoFrames ? ((playbackStats.totalVideoFrames - playbackStats.droppedVideoFrames) / playbackStats.totalVideoFrames) : 1;
-      if (q > targetQuality || q < targetQuality) {
-        diff = q - targetQuality;
-        loadP = getLoadedPercent();
-        return (Math.abs(Math.round((loadP * diff * (q / 2) * playQuality))));
+      if (q > t || q < t) {
+        diff = q - t;
+        loadP = getLoadedPercent() + 0.1;
+        var val = (Math.abs(Math.round((loadP * diff * ((Math.abs(diff) + 1) / 2) * playQuality))));
+        if (q > t) {
+          return (t + val);
+        } else {
+          return (t - val);
+        }
       } else {
         return q;
       }
@@ -1611,7 +1620,7 @@
       var preventRefetch = false;
       
       var newTargetQuality = getOptimalQuality();
-      newTargetQuality = getRegressionQuality(newTargetQuality);
+      newTargetQuality = getRegressionQuality(newTargetQuality , targetQuality);
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
