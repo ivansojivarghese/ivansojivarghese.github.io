@@ -1510,9 +1510,47 @@
       }
     }
 
+    var wasRunning = false;
+
     function liveBuffer() {
 
       playbackStats = video.getVideoPlaybackQuality();
+
+      if (networkError) {
+        if (!video.paused || !audio.paused) {
+          wasRunning = true;
+
+          video.pause();
+          audio.pause();
+
+          statusIndicator.classList.remove("buffer");
+          statusIndicator.classList.remove("smooth");
+          statusIndicator.classList.add("error");
+
+          endLoad();
+                    
+          setTimeout(function() {
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+            playPauseButton.classList.remove('playing');
+
+            showVideoControls();
+
+            // reset the loader
+            setTimeout(function() {
+              resetLoad();
+            }, 10);
+
+          }, 1000);
+
+          loading = false;
+        }
+      } else {
+        if (wasRunning) {
+          video.play();
+          audio.play();
+        }
+      }
 
       if (!video.paused) {
         frameArr[frameArr.length] = playbackStats.totalVideoFrames;
