@@ -1547,8 +1547,13 @@
         }
       } else {
         if (wasRunning) {
-          video.play();
-          audio.play();
+          if (backgroundPlay) {
+            audio.play();
+          } else {
+            video.play();
+            audio.play();
+          }
+          wasRunning = false;
         }
       }
 
