@@ -579,7 +579,7 @@
             loading = false;
           });
 
-          playPauseButton.classList.remove('repeat');
+          // playPauseButton.classList.remove('repeat');
           playPauseButton.classList.add('playing');
 
           if (firstPlay) {
@@ -605,7 +605,7 @@
             video.currentTime = audio.currentTime;
           }
 
-          playPauseButton.classList.remove('repeat');
+          // playPauseButton.classList.remove('repeat');
           playPauseButton.classList.add('playing');
 
           playPauseManual = false;
@@ -668,7 +668,7 @@
 
     video.addEventListener('ended', function() {
       playPauseButton.classList.remove('playing');
-      playPauseButton.classList.add('repeat');
+      // playPauseButton.classList.add('repeat');
 
       clearInterval(networkSpeedInt);
       networkSpeedInt = null;
@@ -1180,7 +1180,7 @@
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
 
-            playPauseButton.classList.remove('repeat');
+            // playPauseButton.classList.remove('repeat');
 
             seeking = true;
             seekingLoad = true;
@@ -1238,7 +1238,7 @@
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
 
-            playPauseButton.classList.remove('repeat');
+            // playPauseButton.classList.remove('repeat');
             
             videoEnd = false;
             seeking = true;
