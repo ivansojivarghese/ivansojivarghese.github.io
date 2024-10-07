@@ -224,6 +224,7 @@
 
     function updatePositionState() {
       if ('setPositionState' in navigator.mediaSession && video.duration !== NaN) {
+        refSeekTime = video.currentTime;
         if (!backgroundPlay || pipEnabled) {
           navigator.mediaSession.setPositionState({
             duration: video.duration,
@@ -2058,7 +2059,7 @@
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
-        if (!qualityChange) {
+        if (!qualityChange && !qualityBestChange && !networkError) {
           updatePositionState();
           videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
           videoProgressPercentile = (video.currentTime / video.duration);
@@ -2076,7 +2077,7 @@
 
     audio.addEventListener("timeupdate", function() {
       audioProgressPercentile = (audio.currentTime / audio.duration);
-      if (!qualityChange) {
+      if (!qualityChange && !qualityBestChange && !networkError) {
         updatePositionState();
       }
     });
