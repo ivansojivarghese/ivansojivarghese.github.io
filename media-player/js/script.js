@@ -2059,6 +2059,7 @@
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
+        refSeekTime = video.currentTime;
         if (!qualityChange && !qualityBestChange && !networkError) {
           updatePositionState();
           videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
@@ -2076,6 +2077,7 @@
     });
 
     audio.addEventListener("timeupdate", function() {
+      refSeekTime = audio.currentTime;
       audioProgressPercentile = (audio.currentTime / audio.duration);
       if (!qualityChange && !qualityBestChange && !networkError) {
         updatePositionState();
