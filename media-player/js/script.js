@@ -273,6 +273,7 @@
                 setTimeout(function() {
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
+                  playPauseButton.classList.remove('playing');
 
                   /*
                   if (!seekingLoad && !longTap && !seeking && !loading) {
@@ -305,6 +306,7 @@
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
+              playPauseButton.classList.remove('playing');
               /*
               if (!seekingLoad && !longTap && !seeking) {
                 hideVideoControls();
@@ -562,6 +564,7 @@
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
+              playPauseButton.classList.remove('playing');
               /*
               if (!seekingLoad && !longTap && !seeking) {
                 hideVideoControls();
@@ -856,6 +859,7 @@
                 setTimeout(function() {
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
+                  playPauseButton.classList.remove('playing');
                   /*
                   if (!seekingLoad && !longTap && !seeking) {
                     hideVideoControls();
@@ -887,6 +891,7 @@
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
+              playPauseButton.classList.remove('playing');
               /*
               if (!seekingLoad && !longTap && !seeking) {
                 hideVideoControls();
@@ -1105,6 +1110,7 @@
                 setTimeout(function() {
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
+                  playPauseButton.classList.remove('playing');
                   /*
                   if (!seekingLoad && !longTap && !seeking) {
                     hideVideoControls();
@@ -1136,6 +1142,7 @@
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
+              playPauseButton.classList.remove('playing');
               /*
               if (!seekingLoad && !longTap && !seeking) {
                 hideVideoControls();
@@ -1786,6 +1793,7 @@
               setTimeout(function() {
                 loadingRing.style.display = "none";
                 playPauseButton.style.display = "block";
+                playPauseButton.classList.remove('playing');
                 /*
                 if (!seekingLoad && !longTap && !seeking) {
                   hideVideoControls();
@@ -1818,6 +1826,7 @@
           setTimeout(function() {
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
+            playPauseButton.classList.remove('playing');
             /*
             if (!seekingLoad && !longTap && !seeking) {
               hideVideoControls();
@@ -1992,6 +2001,7 @@
                   setTimeout(function() {
                     loadingRing.style.display = "none";
                     playPauseButton.style.display = "block";
+                    playPauseButton.classList.remove('playing');
                     /*
                     if (!seekingLoad && !longTap && !seeking) {
                       hideVideoControls();
@@ -2024,6 +2034,7 @@
               setTimeout(function() {
                 loadingRing.style.display = "none";
                 playPauseButton.style.display = "block";
+                playPauseButton.classList.remove('playing');
                 /*
                 if (!seekingLoad && !longTap && !seeking) {
                   hideVideoControls();
@@ -2364,6 +2375,7 @@
                 setTimeout(function() {
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
+                  playPauseButton.classList.remove('playing');
                   /*
                   if (!seekingLoad && !longTap && !seeking) {
                     hideVideoControls();
@@ -2396,6 +2408,7 @@
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
+              playPauseButton.classList.remove('playing');
               /*
               if (!seekingLoad && !longTap && !seeking) {
                 hideVideoControls();

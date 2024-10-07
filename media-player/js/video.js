@@ -74,6 +74,7 @@ const actionHandlers = [
                                             setTimeout(function() {
                                               loadingRing.style.display = "none";
                                               playPauseButton.style.display = "block";
+                                              playPauseButton.classList.remove('playing');
                                               /*
                                               if (!seekingLoad && !longTap && !seeking) {
                                                 hideVideoControls();
@@ -105,6 +106,7 @@ const actionHandlers = [
                                       setTimeout(function() {
                                         loadingRing.style.display = "none";
                                         playPauseButton.style.display = "block";
+                                        playPauseButton.classList.remove('playing');
                                         /*
                                         if (!seekingLoad && !longTap && !seeking) {
                                           hideVideoControls();
@@ -365,6 +367,7 @@ async function getParams(id, time) {
       setTimeout(function() {
         loadingRing.style.display = "none";
         playPauseButton.style.display = "block";
+        playPauseButton.classList.remove('playing');
 
         if (!seekingLoad && !longTap && !seeking) {
           hideVideoControls();
@@ -390,6 +393,7 @@ async function getParams(id, time) {
       setTimeout(function() {
         loadingRing.style.display = "none";
         playPauseButton.style.display = "block";
+        playPauseButton.classList.remove('playing');
 
         if (!seekingLoad && !longTap && !seeking) {
           hideVideoControls();
@@ -457,6 +461,7 @@ async function getParams(id, time) {
       setTimeout(function() {
         loadingRing.style.display = "none";
         playPauseButton.style.display = "block";
+        playPauseButton.classList.remove('playing');
 
         if (!seekingLoad && !longTap && !seeking) {
           hideVideoControls();
@@ -493,6 +498,7 @@ async function getParams(id, time) {
     setTimeout(function() {
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
+      playPauseButton.classList.remove('playing');
 
       if (!seekingLoad && !longTap && !seeking) {
         hideVideoControls();
@@ -889,6 +895,7 @@ function getOptimalVideo(time) {
     setTimeout(function() {
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
+      playPauseButton.classList.remove('playing');
 
       if (!seekingLoad && !longTap && !seeking) {
         hideVideoControls();
