@@ -37,6 +37,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 if (networkError) {
 
                     if (!videoEnd) {
+                        console.log("reload");
                         video.src = targetVideo.url;
                     }
 

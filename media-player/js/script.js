@@ -1602,6 +1602,7 @@
         qualityChange = true;
 
         if (!videoEnd && !preventRefetch) {
+          console.log("reload");
           video.src = targetVideo.url; // 'loadstart'
         }
 
@@ -1677,6 +1678,7 @@
         audio.pause(); // pause content
 
         if (!videoEnd && !preventRefetch) {
+          console.log("reload");
           video.src = targetVideo.url; // 'loadstart'
         }
 
