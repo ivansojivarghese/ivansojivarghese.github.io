@@ -659,9 +659,11 @@
     });
 
     audio.addEventListener('play', function () {
+      if (!networkError) {
           audio.volume = 1;
           navigator.mediaSession.playbackState = 'playing';
           getScreenLock();
+      }
     });
 
     video.addEventListener('ended', function() {
