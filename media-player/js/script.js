@@ -1311,10 +1311,12 @@
         video.classList.add('seeking');
         seekingLoad = true;
 
+        /*
         refSeekTime = video.currentTime;
         targetVideo = null;
         targetQuality = 0;
         getVideoFromIndex(false); // loop qualities to get video again
+        */
     });
     
     video.addEventListener('seeked', function() {
@@ -1562,43 +1564,45 @@
       var mod = 1;
       var newTargetQuality = getOptimalQuality();
 
-      if (newTargetQuality === targetQuality) { // if same quality rating as previous
-        do { // ensure that same res. is not picked again
-          index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
-          if (targetVideoSources[index]) { // if available
-            targetVideo = targetVideoSources[index];
-            targetVideoIndex = index;
-          }
-          mod++;
-        } while ((targetVideoSources[index].height === targetVideo.height) && targetVideoSources[index + mod]);
-      } else { // otherwise, if different quality rating
+      if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad)))) {
 
-        targetVideo = null;
+        if (newTargetQuality === targetQuality) { // if same quality rating as previous
+          do { // ensure that same res. is not picked again
+            index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
+            if (targetVideoSources[index]) { // if available
+              targetVideo = targetVideoSources[index];
+              targetVideoIndex = index;
+            }
+            mod++;
+          } while ((targetVideoSources[index].height === targetVideo.height) && targetVideoSources[index + mod]);
+        } else { // otherwise, if different quality rating
 
-        console.log("get video again");
+          targetVideo = null;
 
-        targetQuality = newTargetQuality;
-        getVideoFromIndex(false); // loop qualities to get video again
+          console.log("get video again");
+
+          targetQuality = newTargetQuality;
+          getVideoFromIndex(false); // loop qualities to get video again
+        }
+
+        refSeekTime = video.currentTime;
+
+        // if (targetVideoSources[index]) { // if available
+          // targetVideo = targetVideoSources[index];
+          // targetVideoIndex = index;
+
+        video.pause();
+        audio.pause(); // pause content
+
+        qualityChange = true;
+
+        if (!videoEnd && !preventRefetch) {
+          video.src = targetVideo.url; // 'loadstart'
+        }
+
+        bufferAllow = false;
+
       }
-
-      refSeekTime = video.currentTime;
-
-      // if (targetVideoSources[index]) { // if available
-        // targetVideo = targetVideoSources[index];
-        // targetVideoIndex = index;
-
-      video.pause();
-      audio.pause(); // pause content
-
-      qualityChange = true;
-
-      if (!videoEnd && !preventRefetch) {
-        video.src = targetVideo.url; // 'loadstart'
-      }
-
-      bufferAllow = false;
-
-      // }
     }
 
     function getLoadedPercent() {
@@ -1640,7 +1644,7 @@
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
-      if (((p <= 0 && ((newTargetQuality < targetQuality) || (newIndex > targetVideoIndex))) || (p > 0.1 && ((newTargetQuality > targetQuality) || (newIndex < targetVideoIndex)))) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && !backgroundPlay && !pipEnabled && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
+      if (((p <= 0 && ((newTargetQuality < targetQuality) || (newIndex > targetVideoIndex))) || (p > 0.1 && ((newTargetQuality > targetQuality) || (newIndex < targetVideoIndex)))) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && !backgroundPlay && !pipEnabled && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
         
         targetVideo = null;
 
