@@ -478,7 +478,7 @@ async function getParams(id, time) {
 
     } else {
       videoFetchLoop = setInterval(function() {
-        if (networkSpeed) {
+        if (networkSpeed && !networkError) {
           clearInterval(videoFetchLoop);
 
           getOptimalVideo(time);
