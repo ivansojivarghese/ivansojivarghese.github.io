@@ -45,7 +45,7 @@ var refSeekTime = 0;
 
 const actionHandlers = [
   ['play',          async () => { 
-                                  if (videoPlay && !qualityBestChange) {
+                                  if (videoPlay && !qualityBestChange && !networkError) {
 
                                     if (videoEnd) { 
                                       video.currentTime = 0;
@@ -145,11 +145,11 @@ const actionHandlers = [
                             }
                           }
   ],
-  ['previoustrack', (details) => { if (!qualityBestChange) { playPrevious(true); updatePositionState(); } }],
+  ['previoustrack', (details) => { if (!qualityBestChange && !networkError) { playPrevious(true); updatePositionState(); } }],
   /*['nexttrack',     () => { }],*/
   ['stop',          () => { /* ... */ }],
-  ['seekbackward',  (details) => { if (!qualityBestChange) { seekBackward(true); updatePositionState(); } } ],
-  ['seekforward',   (details) => { if (!qualityBestChange) { seekForward(true); updatePositionState(); } } ],
+  ['seekbackward',  (details) => { if (!qualityBestChange && !networkError) { seekBackward(true); updatePositionState(); } } ],
+  ['seekforward',   (details) => { if (!qualityBestChange && !networkError) { seekForward(true); updatePositionState(); } } ],
   ['seekto',        (details) => { /* ... */ }],
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
                                       pipEnabled = true;
