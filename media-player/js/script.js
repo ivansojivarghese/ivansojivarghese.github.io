@@ -620,34 +620,34 @@
 
     video.addEventListener('pause', function () {
 
-      if (!qualityBestChange) {
+      if (!qualityBestChange && !networkError) {
 
-      bufferStartTime = 0;
-      bufferEndTime = 0;
+        bufferStartTime = 0;
+        bufferEndTime = 0;
 
-      liveBufferVal = [];
-      liveBufferIndex = 0;
-      bufferModeExe = false;
+        liveBufferVal = [];
+        liveBufferIndex = 0;
+        bufferModeExe = false;
 
-      clearInterval(bestVideoInt);
-      bestVideoInt = null;
+        clearInterval(bestVideoInt);
+        bestVideoInt = null;
 
-      // audio.pause();
-      // videoPause = false;
+        // audio.pause();
+        // videoPause = false;
 
-      if (document.visibilityState === "visible" && appUnload !== null) {
-        audio.pause();
-        videoPause = false;
-      } else {
-        backgroundPlay = true;
-        backgroundPlayInit = true;
-      }
-      if (!audioVideoAligning) {
-        playPauseButton.classList.remove('playing');
-        showVideoControls();
-      }
-      navigator.mediaSession.playbackState = 'paused';
-      releaseScreenLock(screenLock);
+        if (document.visibilityState === "visible" && appUnload !== null) {
+          audio.pause();
+          videoPause = false;
+        } else {
+          backgroundPlay = true;
+          backgroundPlayInit = true;
+        }
+        if (!audioVideoAligning) {
+          playPauseButton.classList.remove('playing');
+          showVideoControls();
+        }
+        navigator.mediaSession.playbackState = 'paused';
+        releaseScreenLock(screenLock);
     
       }
 
@@ -1373,7 +1373,7 @@
         }
         setTimeout(function() {
             video.classList.remove('seeking');
-            if (!audio.paused && !pipEnabled && document.visibilityState === 'visible') {
+            if (!audio.paused && !pipEnabled && !networkError && document.visibilityState === 'visible') {
               backgroundPlayInit = false;
             }
         }, 300);
@@ -2474,15 +2474,17 @@
     });
 
     setInterval(function() {
-      if (document.pictureInPictureElement !== null) {
-        pipEnabled = true;
-      } else {
-        pipEnabled = false;
-      }
-      if (document.visibilityState === "hidden" && !pipEnabled) {
-        backgroundPlay = true;
-      } else {
-        backgroundPlay = false;
+      if (!networkError) {
+        if (document.pictureInPictureElement !== null) {
+          pipEnabled = true;
+        } else {
+          pipEnabled = false;
+        }
+        if (document.visibilityState === "hidden" && !pipEnabled) {
+          backgroundPlay = true;
+        } else {
+          backgroundPlay = false;
+        }
       }
     }, 1000/60);
 
