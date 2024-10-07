@@ -784,7 +784,7 @@
       setTimeout(function() {
         videoControls.classList.add('visible_ready');
       }, 200);
-      if (!qualityChange) {
+      if (!qualityChange && !qualityBestChange && !networkError) {
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
       }
@@ -1387,7 +1387,7 @@
           videoContainer.style.width = (rawHeight * videoSizeRatio) + "px"; 
         }*/
 
-        if (!qualityChange) {
+        if (!qualityChange && !qualityBestChange && !networkError) {
           videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
           videoProgressBar.style.transform = `scaleX(${
             video.currentTime / video.duration
