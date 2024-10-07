@@ -2355,114 +2355,116 @@
     seekBackwardButton.addEventListener("touchend", longTapDetect);
 
     document.onvisibilitychange = function() {
-      if (document.visibilityState === 'hidden') {
-        video.style.objectFit = "";
-        video.classList.remove("cover");
-        if (!video.paused && !appUnload) {
-            video.requestPictureInPicture().then(function() {
-              getScreenLock();
-              pipEnabled = true;
-            });
-        } else if (video.paused && !pipEnabled) {
-          audio.volume = 0; // prevent accidental leakage 
-        }
-        backgroundPlay = true;
-      } else {
-        audio.volume = 1; 
-        if (backgroundPlay) {
-          if (!audio.paused && !pipEnabled) {
-
-            liveBufferVal = [];
-             liveBufferIndex = 0;
-             bufferModeExe = false;
-             bufferStartTime = 0;
-
-            video.currentTime = audio.currentTime;
+      if (!networkError) {
+        if (document.visibilityState === 'hidden') {
+          video.style.objectFit = "";
+          video.classList.remove("cover");
+          if (!video.paused && !appUnload) {
+              video.requestPictureInPicture().then(function() {
+                getScreenLock();
+                pipEnabled = true;
+              });
+          } else if (video.paused && !pipEnabled) {
+            audio.volume = 0; // prevent accidental leakage 
           }
-          backgroundPlay = false;
-        }
-        if (!video.paused) {
-            getScreenLock();
-            document.exitPictureInPicture().then(function() {
-              pipEnabled = false;
-              releaseScreenLock(screenLock);
-            });
+          backgroundPlay = true;
+        } else {
+          audio.volume = 1; 
+          if (backgroundPlay) {
+            if (!audio.paused && !pipEnabled) {
+
+              liveBufferVal = [];
+              liveBufferIndex = 0;
+              bufferModeExe = false;
+              bufferStartTime = 0;
+
+              video.currentTime = audio.currentTime;
+            }
+            backgroundPlay = false;
+          }
+          if (!video.paused) {
+              getScreenLock();
+              document.exitPictureInPicture().then(function() {
+                pipEnabled = false;
+                releaseScreenLock(screenLock);
+              });
+              if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
+                hideVideoControls();
+              }
+          } else if (video.paused && !videoEnd && video.src !== "" && videoPlay) {
             if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
               hideVideoControls();
             }
-        } else if (video.paused && !videoEnd && video.src !== "" && videoPlay) {
-          if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
-            hideVideoControls();
-          }
-          // play the video (only when it hasn't ended)
-          audio.play().then(function () {
-            // audioCtx = new AudioContext();
-            setTimeout(function() {
-              video.play().then(function() {
-                videoPause = true;
-              }).catch((err) => {
-
-                console.log(err);
-                
-                statusIndicator.classList.remove("buffer");
-                statusIndicator.classList.remove("smooth");
-                statusIndicator.classList.add("error");
-
-                endLoad();
-                          
-                setTimeout(function() {
-                  loadingRing.style.display = "none";
-                  playPauseButton.style.display = "block";
-                  playPauseButton.classList.remove('playing');
-                  /*
-                  if (!seekingLoad && !longTap && !seeking) {
-                    hideVideoControls();
-                  }*/
-
-                    showVideoControls();
-
-                  // reset the loader
-                  setTimeout(function() {
-                    resetLoad();
-                  }, 10);
-
-                }, 1000);
-
-                loading = false;
-
-              });
-            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-
-          }).catch((err) => {
-
-            console.log(err);
-
-            statusIndicator.classList.remove("buffer");
-            statusIndicator.classList.remove("smooth");
-            statusIndicator.classList.add("error");
-
-            endLoad();
-                      
-            setTimeout(function() {
-              loadingRing.style.display = "none";
-              playPauseButton.style.display = "block";
-              playPauseButton.classList.remove('playing');
-              /*
-              if (!seekingLoad && !longTap && !seeking) {
-                hideVideoControls();
-              }*/
-
-                showVideoControls();
-
-              // reset the loader
+            // play the video (only when it hasn't ended)
+            audio.play().then(function () {
+              // audioCtx = new AudioContext();
               setTimeout(function() {
-                resetLoad();
-              }, 10);
+                video.play().then(function() {
+                  videoPause = true;
+                }).catch((err) => {
 
-            }, 1000);
+                  console.log(err);
+                  
+                  statusIndicator.classList.remove("buffer");
+                  statusIndicator.classList.remove("smooth");
+                  statusIndicator.classList.add("error");
 
-            loading = false;
-          });
+                  endLoad();
+                            
+                  setTimeout(function() {
+                    loadingRing.style.display = "none";
+                    playPauseButton.style.display = "block";
+                    playPauseButton.classList.remove('playing');
+                    /*
+                    if (!seekingLoad && !longTap && !seeking) {
+                      hideVideoControls();
+                    }*/
+
+                      showVideoControls();
+
+                    // reset the loader
+                    setTimeout(function() {
+                      resetLoad();
+                    }, 10);
+
+                  }, 1000);
+
+                  loading = false;
+
+                });
+              }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+
+            }).catch((err) => {
+
+              console.log(err);
+
+              statusIndicator.classList.remove("buffer");
+              statusIndicator.classList.remove("smooth");
+              statusIndicator.classList.add("error");
+
+              endLoad();
+                        
+              setTimeout(function() {
+                loadingRing.style.display = "none";
+                playPauseButton.style.display = "block";
+                playPauseButton.classList.remove('playing');
+                /*
+                if (!seekingLoad && !longTap && !seeking) {
+                  hideVideoControls();
+                }*/
+
+                  showVideoControls();
+
+                // reset the loader
+                setTimeout(function() {
+                  resetLoad();
+                }, 10);
+
+              }, 1000);
+
+              loading = false;
+            });
+          }
         }
       }
     };
