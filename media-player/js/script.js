@@ -247,7 +247,7 @@
       controlsHideInt = null;
       if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityBestChange) {
 
-        if (video.paused && video.src !== "" && videoPlay && !networkError) {
+        if (video.paused && video.src !== "" && videoPlay) {
 
           playPauseManual = true;
 
@@ -2062,7 +2062,7 @@
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         refSeekTime = video.currentTime;
-        if (!qualityChange && !qualityBestChange && !networkError) {
+        if (!qualityChange && !qualityBestChange) {
           updatePositionState();
           videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
           videoProgressPercentile = (video.currentTime / video.duration);
@@ -2081,7 +2081,7 @@
     audio.addEventListener("timeupdate", function() {
       refSeekTime = audio.currentTime;
       audioProgressPercentile = (audio.currentTime / audio.duration);
-      if (!qualityChange && !qualityBestChange && !networkError) {
+      if (!qualityChange && !qualityBestChange) {
         updatePositionState();
       }
     });
