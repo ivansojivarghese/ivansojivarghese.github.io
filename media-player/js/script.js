@@ -244,9 +244,9 @@
       // event.stopPropagation();
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
-      if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityBestChange && !networkError) {
+      if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityBestChange) {
 
-        if (video.paused && video.src !== "" && videoPlay) {
+        if (video.paused && video.src !== "" && videoPlay && !networkError) {
 
           playPauseManual = true;
 
