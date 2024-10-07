@@ -659,11 +659,9 @@
     });
 
     audio.addEventListener('play', function () {
-      if (!networkError) {
           audio.volume = 1;
           navigator.mediaSession.playbackState = 'playing';
           getScreenLock();
-      }
     });
 
     video.addEventListener('ended', function() {
@@ -1014,7 +1012,7 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused && !seekingLoad && !videoEnd && (!loading || qualityBestChange) && !bufferingDetected && !framesStuck && !networkError) {
+      if (!video.paused && !seekingLoad && !videoEnd && (!loading || qualityBestChange) && !bufferingDetected && !framesStuck) {
         
         if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > 1) /*&& video.currentTime > minVideoLoad*/) { // only buffer when audio has stalled
           // bufferCount++;
