@@ -247,7 +247,7 @@
       controlsHideInt = null;
       if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityChange && !qualityBestChange && !networkError) {
 
-        if (video.paused && video.src !== "" && videoPlay && !statusIndicator.classList.contains("error")) {
+        if (video.paused && video.src !== "" && videoPlay) {
 
           playPauseManual = true;
 

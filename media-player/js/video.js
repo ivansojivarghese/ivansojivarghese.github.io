@@ -45,7 +45,7 @@ var refSeekTime = 0;
 
 const actionHandlers = [
   ['play',          async () => { 
-                                  if (videoPlay && !qualityChange && !qualityBestChange && !networkError && !statusIndicator.classList.contains("error")) {
+                                  if (videoPlay && !qualityChange && !qualityBestChange && !networkError) {
 
                                     if (videoEnd) { 
                                       video.currentTime = 0;
