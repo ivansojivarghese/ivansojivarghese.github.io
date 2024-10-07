@@ -1160,7 +1160,7 @@
     }
 
     function playPrevious(m) {
-      if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !audioVideoAlign && !networkError) {
+      if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !audioVideoAligning && !networkError) {
 
         // FIRST INSTANCE (seek to the front)
         video.currentTime = 0;
@@ -1175,7 +1175,7 @@
 
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !videoEnd && !qualityBestChange && !audioVideoAlign && !networkError) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !videoEnd && !qualityBestChange && !audioVideoAligning && !networkError) {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
 
@@ -1233,7 +1233,7 @@
       
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !audioVideoAlign && !networkError) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !audioVideoAligning && !networkError) {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
 
