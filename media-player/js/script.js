@@ -1837,6 +1837,11 @@
 
       tps = targetVideo.fps;
 
+      if (refSeekTime) {
+        video.currentTime = refSeekTime;
+        audio.currentTime = refSeekTime;
+      }
+
       getScreenLock();
 
       clearTimeout(controlsHideInt);
