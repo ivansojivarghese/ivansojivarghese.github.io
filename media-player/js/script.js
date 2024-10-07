@@ -1202,6 +1202,7 @@
             if (Number.isFinite(Math.min(video.currentTime + skipTime, video.duration))) {
               video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
               audio.currentTime = video.currentTime;
+              refSeekTime = video.currentTime;
             }
             // audio.currentTime = Math.min(audio.currentTime + skipTime, audio.duration);
 
@@ -1260,6 +1261,7 @@
             if (Number.isFinite(Math.max(video.currentTime - skipTime, 0))) {
               video.currentTime = Math.max(video.currentTime - skipTime, 0);
               audio.currentTime = video.currentTime;
+              refSeekTime = video.currentTime;
             }
             // audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
 
