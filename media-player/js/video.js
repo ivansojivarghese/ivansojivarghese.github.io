@@ -163,12 +163,20 @@ const actionHandlers = [
   ['seekbackward',  (details) => { if (!qualityBestChange && !qualityChange && !networkError) { seekBackward(true); updatePositionState(); } } ],
   ['seekforward',   (details) => { if (!qualityBestChange && !qualityChange && !networkError) { seekForward(true); updatePositionState(); } } ],
   ['seekto',        (details) => { if (!qualityBestChange && !qualityChange && !networkError) {
-                                      if (details.fastSeek && 'fastSeek' in video) {
+                                      if (details.fastSeek && ('fastSeek' in video || ('fastSeek' in audio && backgroundPlay))) {
                                         // Only use fast seek if supported.
-                                        video.fastSeek(details.seekTime);
+                                        if (backgroundPlay) {
+                                          audio.fastSeek(details.seekTime);
+                                        } else {
+                                          video.fastSeek(details.seekTime);
+                                        }
                                         return;
                                       }
-                                      video.currentTime = details.seekTime;
+                                      if (backgroundPlay) {
+                                        audio.currentTime = details.seekTime;
+                                      } else {
+                                        video.currentTime = details.seekTime;
+                                      }
                                       updatePositionState();
                                     }
                                   }],
