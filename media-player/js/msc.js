@@ -50,4 +50,4 @@
         );
       }
       
-      document.getElementById('castButton').addEventListener('click', castMedia);
+      // document.getElementById('castButton').addEventListener('click', castMedia);
