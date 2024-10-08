@@ -776,7 +776,7 @@ function getVideoFromIndex(m, q, r) {
           
           targetVideo = targetVideoSources[i];
           targetVideoIndex = i;
-
+          /*
           if (r) {
             var mod2 = 0;
             do {
@@ -785,14 +785,14 @@ function getVideoFromIndex(m, q, r) {
               mod2++;
             } while (targetVideoSources[i + mod2] && targetVideoSources[i + (mod2 - 1)].height === targetVideoSources[i].height);
           }
-
+          */
           break;
         } else if ((!normalVid && (targetVideoSources[i].height === specialVideoQuality[specialQuality]))) {
 
           // targetVideo = typeof targetVideoSources[targetQuality + mod] === undefined ? null : targetVideoSources[targetQuality + mod];
           targetVideo = targetVideoSources[i];
           targetVideoIndex = i;
-
+          /*
           if (r) {
             var mod2 = 0;
             do {
@@ -801,7 +801,7 @@ function getVideoFromIndex(m, q, r) {
               mod2++;
             } while (targetVideoSources[i + mod2] && targetVideoSources[i + (mod2 - 1)].height === targetVideoSources[i].height);
           }
-
+          */
           break;
         }
       }
