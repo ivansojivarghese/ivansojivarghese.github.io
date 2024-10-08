@@ -1183,7 +1183,7 @@
 
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !videoEnd && !qualityBestChange && !audioVideoAligning && !networkError) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && /*!videoEnd*/ (video.currentTime < (video.duration - maxVideoLoad)) && !qualityBestChange && !audioVideoAligning && !networkError) {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
 
