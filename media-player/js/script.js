@@ -1559,7 +1559,9 @@
 
       if (!video.paused) {
         frameArr[frameArr.length] = playbackStats.totalVideoFrames;
-        checkFramesStuck(targetVideo.fps, tps, frameArr);
+        if (targetVideo.fps) {
+          checkFramesStuck(targetVideo.fps, tps, frameArr);
+        }
       } 
 
       if (bufferAllow) {
