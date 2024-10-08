@@ -1510,12 +1510,13 @@
       }
     }
 
-    var wasRunning = false;
+    // var wasRunning = false;
 
     function liveBuffer() {
 
       playbackStats = video.getVideoPlaybackQuality();
 
+      /*
       if (networkError) {
         if (!video.paused || !audio.paused) {
           wasRunning = true;
@@ -1555,7 +1556,7 @@
           }
           wasRunning = false;
         }
-      }
+      }*/
 
       if (!video.paused) {
         frameArr[frameArr.length] = playbackStats.totalVideoFrames;
