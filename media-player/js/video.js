@@ -149,10 +149,29 @@ const actionHandlers = [
   ],
   ['previoustrack', (details) => { if (!qualityBestChange && !qualityChange && !networkError) { playPrevious(true); updatePositionState(); } }],
   /*['nexttrack',     () => { }],*/
-  ['stop',          () => { /* ... */ }],
+  ['stop',          () => { video.src = ""; 
+                                // Reset position state when media is reset.
+                            navigator.mediaSession.setPositionState(null);
+                            for (const [action] of actionHandlers) {
+                              try {
+                                navigator.mediaSession.setActionHandler(action, null);
+                              } catch (error) {
+                                console.log(`The media session action "${action}" is not supported yet.`);
+                              }
+                            } 
+                          }],
   ['seekbackward',  (details) => { if (!qualityBestChange && !qualityChange && !networkError) { seekBackward(true); updatePositionState(); } } ],
   ['seekforward',   (details) => { if (!qualityBestChange && !qualityChange && !networkError) { seekForward(true); updatePositionState(); } } ],
-  ['seekto',        (details) => { /* ... */ }],
+  ['seekto',        (details) => { if (!qualityBestChange && !qualityChange && !networkError) {
+                                      if (details.fastSeek && 'fastSeek' in video) {
+                                        // Only use fast seek if supported.
+                                        video.fastSeek(details.seekTime);
+                                        return;
+                                      }
+                                      video.currentTime = details.seekTime;
+                                      updatePositionState();
+                                    }
+                                  }],
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
                                       pipEnabled = true;
                                       getScreenLock();
