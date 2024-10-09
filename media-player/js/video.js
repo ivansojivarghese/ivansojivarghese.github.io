@@ -169,6 +169,7 @@ const actionHandlers = [
                                           audio.fastSeek(details.seekTime);
                                         } else {
                                           video.fastSeek(details.seekTime);
+                                          audio.fastSeek(details.seekTime);
                                         }
                                         return;
                                       }
@@ -176,6 +177,7 @@ const actionHandlers = [
                                         audio.currentTime = details.seekTime;
                                       } else {
                                         video.currentTime = details.seekTime;
+                                        audio.fastSeek(details.seekTime);
                                       }
                                       updatePositionState();
                                     }
