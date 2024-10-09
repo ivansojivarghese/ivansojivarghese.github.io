@@ -2277,6 +2277,43 @@ function engLangUpdate(v) { // update eng. language variant
     }
 }
 
+function endLoadRp() {
+const loadRp = document.querySelector("#loadR-p");
+const loadRe = document.querySelector("#loadR-e");
+loadRp.style.animationName = "none";
+loadRp.classList.add("endLoad");
+loadRe.classList.add("endLoad_final");
+// loadRe.style.animationName = "loadR_end";
+}
+
+function endLoadRs() {
+const loadRe = document.querySelector("#loadR-e");
+const loadRs = document.querySelector("#loadR-s");
+loadRs.style.animationName = "none";
+loadRs.classList.add("endLoad_rev");
+loadRe.classList.add("endLoad_final");
+}
+
+function endLoad() {
+const loadRp = document.querySelector("#loadR-p");
+const loadRs = document.querySelector("#loadR-s");
+loadRp.addEventListener("animationiteration", endLoadRp);
+loadRs.addEventListener("animationiteration", endLoadRs);
+}
+
+function resetLoad() {
+const loadRp = document.querySelector("#loadR-p");
+const loadRs = document.querySelector("#loadR-s");
+const loadRe = document.querySelector("#loadR-e");
+loadRp.removeEventListener("animationiteration", endLoadRp);
+loadRs.removeEventListener("animationiteration", endLoadRs);
+loadRe.classList.remove("endLoad_final");
+loadRp.classList.remove("endLoad");
+loadRs.classList.remove("endLoad_rev");
+loadRp.style.animationName = "loadR_transverse";
+loadRs.style.animationName = "loadR_transverse_rev";
+}
+
 function startLoadPWA() {
     var y = op.d.getFullYear(), // get copyright year
         typer = null;
@@ -3222,13 +3259,26 @@ function pwaRead() {
                                                                 //rL.c.classList.add("aniM-p");
 
                                                                 setTimeout(function() {
+                                                                    /*
                                                                     e_Fd(loader, true);
 
                                                                     setTimeout(function() {
                                                                         loader.classList.add("d_n");
                                                                     }, op.t);
+                                                                    */
+
+                                                                    endLoad();
+                                                                    setTimeout(function() {
+                                                                        loadingRing.style.display = "none";
+                                                                        
+                                                                        // reset the loader
+                                                                        setTimeout(function() {
+                                                                            resetLoad();
+                                                                        }, 10);
+                                                                    }, 1000);
                                                                     
                                                                     resetRefresh();
+
                                                                     pwa_Load = true;
 
                                                                     e_Fd(pwa_body, false);
@@ -3281,13 +3331,25 @@ function pwaRead() {
                                                             //rL.c.classList.add("aniM-p");
 
                                                             setTimeout(function() {
+                                                                /*
                                                                 e_Fd(loader, true);
 
                                                                 setTimeout(function() {
                                                                     loader.classList.add("d_n");
-                                                                }, op.t);
+                                                                }, op.t);*/
+
+                                                                endLoad();
+                                                                setTimeout(function() {
+                                                                    loadingRing.style.display = "none";
+                                                                    
+                                                                    // reset the loader
+                                                                    setTimeout(function() {
+                                                                        resetLoad();
+                                                                    }, 10);
+                                                                }, 1000);
                                                                 
                                                                 resetRefresh();
+
                                                                 pwa_Load = true;
 
                                                                 e_Fd(pwa_body, false);
