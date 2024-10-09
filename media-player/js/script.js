@@ -532,7 +532,7 @@
         }
         /////////////////////////
         if (bestVideoInt === null) {
-          bestVideoInt = setInterval(getBestVideo, (avgInt * 3));
+          // bestVideoInt = setInterval(getBestVideo, (avgInt * 3));
         }
         /////////////////////////
         if (qualityBestInt === null) {
