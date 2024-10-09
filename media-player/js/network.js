@@ -39,6 +39,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                     if (!videoEnd && !refSeekTime) {
 
                         // get seek time from timestamp
+                        console.log("load again");
                         
                         refSeekTime = timeToSeconds(videoCurrentTime.textContent);
                         video.src = targetVideo.url;

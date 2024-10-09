@@ -1655,7 +1655,7 @@
         qualityChange = true;
 
         if (!videoEnd && !preventRefetch) {
-          // console.log("reload");
+          console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
         }
 
@@ -1731,7 +1731,7 @@
         audio.pause(); // pause content
 
         if (!videoEnd && !preventRefetch) {
-          // console.log("reload");
+          console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
         }
 
@@ -2031,7 +2031,7 @@
                   audioVideoAlignInt = setInterval(audioVideoAlign, 100);
                   
                   setInterval(function() {
-                    console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+                    // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
                   }, 100);
       
                 }).catch((err) => {
