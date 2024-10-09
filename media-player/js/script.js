@@ -1585,7 +1585,9 @@
             bufferModeExe = false;
             bufferStartTime = 0;
 
-            getVideoFromBuffer();
+            // getVideoFromBuffer();
+
+            console.log("buffer video");
 
           }
 
@@ -1810,7 +1812,9 @@
                   bufferModeExe = false;
                   bufferStartTime = 0;
 
-                  getVideoFromBuffer();
+                  // getVideoFromBuffer();
+
+                  console.log("buffer video");
                 }
               }
 
