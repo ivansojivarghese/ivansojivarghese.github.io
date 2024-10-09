@@ -26,12 +26,12 @@
     }
 
     // getScreenLock();
-
+    /*
     window['__onGCastApiAvailable'] = function(isAvailable) {
         if (isAvailable) {
           initializeCastApi();
         }
-      };
+      };*/
       
       function initializeCastApi() {
         cast.framework.CastContext.getInstance().setOptions({
