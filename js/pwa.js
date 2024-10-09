@@ -3261,14 +3261,14 @@ function pwaRead() {
                                                                 //rL.c.classList.add("aniM-p");
 
                                                                 setTimeout(function() {
-                                                                    /*
+                                                                    
                                                                     e_Fd(loader, true);
 
                                                                     setTimeout(function() {
                                                                         loader.classList.add("d_n");
                                                                     }, op.t);
-                                                                    */
-
+                                                                    
+                                                                    /*
                                                                     endLoad();
                                                                     setTimeout(function() {
                                                                         loadingRing.style.display = "none";
@@ -3277,7 +3277,7 @@ function pwaRead() {
                                                                         setTimeout(function() {
                                                                             resetLoad();
                                                                         }, 10);
-                                                                    }, 1000);
+                                                                    }, 1000);*/
                                                                     
                                                                     resetRefresh();
 
@@ -3333,13 +3333,14 @@ function pwaRead() {
                                                             //rL.c.classList.add("aniM-p");
 
                                                             setTimeout(function() {
-                                                                /*
+                                                                
                                                                 e_Fd(loader, true);
 
                                                                 setTimeout(function() {
                                                                     loader.classList.add("d_n");
-                                                                }, op.t);*/
+                                                                }, op.t);
 
+                                                                /*
                                                                 endLoad();
                                                                 setTimeout(function() {
                                                                     loadingRing.style.display = "none";
@@ -3348,7 +3349,7 @@ function pwaRead() {
                                                                     setTimeout(function() {
                                                                         resetLoad();
                                                                     }, 10);
-                                                                }, 1000);
+                                                                }, 1000);*/
                                                                 
                                                                 resetRefresh();
 
