@@ -15,6 +15,8 @@ var fter = { // footer
         v : document.getElementsByClassName("f_vr") // site version
     };
 
+const loadingRing = document.querySelector("#loadR");
+
 var btty = {
     level : 0,
     chargingTime : 0,
