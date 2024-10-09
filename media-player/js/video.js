@@ -177,7 +177,7 @@ const actionHandlers = [
                                         audio.currentTime = details.seekTime;
                                       } else {
                                         video.currentTime = details.seekTime;
-                                        audio.fastSeek(details.seekTime);
+                                        audio.currentTime = details.seekTime;
                                       }
                                       updatePositionState();
                                     }
