@@ -1405,6 +1405,10 @@
     video.addEventListener("suspend", (event) => {
       console.log("Data loading has been suspended.");
     });
+
+    video.addEventListener("error", () => {
+      console.error(`Error loading: ${videoSrc}`);
+    });
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
