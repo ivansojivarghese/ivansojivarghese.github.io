@@ -1409,6 +1409,10 @@
     video.addEventListener("error", () => {
       console.error(`Error loading: ${videoSrc}`);
     });
+
+    video.addEventListener("abort", () => {
+      console.log(`Abort loading: ${videoSrc}`);
+    });
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
