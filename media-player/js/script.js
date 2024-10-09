@@ -1402,6 +1402,9 @@
         }
     });
 
+    video.addEventListener("suspend", (event) => {
+      console.log("Data loading has been suspended.");
+    });
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
