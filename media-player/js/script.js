@@ -1642,7 +1642,7 @@
           } while ((targetVideoSources[index].height === targetVideo.height) && targetVideoSources[index + mod]);
         } else { // otherwise, if different quality rating
 
-          targetVideo = null;
+          // targetVideo = null;
 
           console.log("get video again");
 
