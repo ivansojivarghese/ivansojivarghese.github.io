@@ -51,12 +51,13 @@ const actionHandlers = [
                                       video.currentTime = 0;
                                       audio.currentTime = 0;
                                     } 
-                                    await audio.play().then(function () {
+                                    await video.play().then(function () {
                                       // audioCtx = new AudioContext();
-                                      audio.volume = 1;
+                                      
                                       setTimeout(function() {
                                         if (!backgroundPlay || pipEnabled) {
-                                          video.play().then(function() {
+                                          audio.play().then(function() {
+                                            audio.volume = 1;
                                             if (videoEnd) {
                                               videoEnd = false;
                                             }
@@ -887,10 +888,10 @@ function getOptimalVideo(time) {
 
       getVideoFromIndex(false, null, true);
 
-      video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
+      // video.src = videoDetails.adaptiveFormats[0].url; // FOR TESTING
       // getMediaSources(targetVideoSources);
       
-      // video.src = targetVideo.url; 
+      video.src = targetVideo.url; 
       audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
       if (time) { // START FROM (if available)

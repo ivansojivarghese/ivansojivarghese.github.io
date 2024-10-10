@@ -251,15 +251,16 @@
 
           playPauseManual = true;
 
-          audio.play().then(function () {
+          video.play().then(function () {
             // audioCtx = new AudioContext();
-            setTimeout(function() {
-              video.play().then(function() {
+            // setTimeout(function() {
+              if (videoEnd) {
+                audio.currentTime = video.currentTime;
+                videoEnd = false;
+              }
+              audio.play().then(function() {
                 videoPause = true;
-                if (videoEnd) {
-                  audio.currentTime = video.currentTime;
-                  videoEnd = false;
-                }
+                
               }).catch((err) => {
 
                 console.log(err);
@@ -292,7 +293,7 @@
                 loading = false;
 
               });
-            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+            // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           }).catch((err) => {
 
             console.log(err);
@@ -841,10 +842,10 @@
       } else if (event.target === videoControls) {
         if (video.paused && video.src !== "" && videoPlay) {
 
-          audio.play().then(function () {
+          video.play().then(function () {
             // audioCtx = new AudioContext();
-            setTimeout(function() {
-              video.play().then(function() {
+            // setTimeout(function() {
+              audio.play().then(function() {
                 videoPause = true;
               }).catch((err) => {
 
@@ -877,7 +878,7 @@
                 loading = false;
 
               });
-            }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+            // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           }).catch((err) => {
 
             console.log(err);
@@ -2419,10 +2420,10 @@
               hideVideoControls();
             }
             // play the video (only when it hasn't ended)
-            audio.play().then(function () {
+            video.play().then(function () {
               // audioCtx = new AudioContext();
-              setTimeout(function() {
-                video.play().then(function() {
+              // setTimeout(function() {
+                audio.play().then(function() {
                   videoPause = true;
                 }).catch((err) => {
 
@@ -2455,7 +2456,7 @@
                   loading = false;
 
                 });
-              }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+              // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
 
             }).catch((err) => {
 
