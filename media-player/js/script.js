@@ -1590,7 +1590,7 @@
             bufferModeExe = false;
             bufferStartTime = 0;
 
-            // getVideoFromBuffer();
+            getVideoFromBuffer();
 
             console.log("buffer video");
 
@@ -1647,14 +1647,10 @@
           console.log("get video again");
 
           targetQuality = newTargetQuality;
-          getVideoFromIndex(false); // loop qualities to get video again
+          // getVideoFromIndex(false); // loop qualities to get video again
         }
 
         refSeekTime = video.currentTime;
-
-        // if (targetVideoSources[index]) { // if available
-          // targetVideo = targetVideoSources[index];
-          // targetVideoIndex = index;
 
         video.pause();
         audio.pause(); // pause content
@@ -1663,12 +1659,14 @@
 
         if (!videoEnd && !preventRefetch) {
           console.log("load again");
-          video.src = targetVideo.url; // 'loadstart'
+          // video.src = targetVideo.url; // 'loadstart'
         }
 
         bufferAllow = false;
 
       }
+
+      console.log("tQ : " + targetQuality + ", nTQ: " + newTargetQuality);
     }
 
     function getLoadedPercent() {
