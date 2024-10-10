@@ -258,6 +258,7 @@
                 audio.currentTime = video.currentTime;
                 videoEnd = false;
               }
+              /*
               audio.play().then(function() {
                 // videoPause = true;
                 
@@ -276,10 +277,6 @@
                   playPauseButton.style.display = "block";
                   playPauseButton.classList.remove('playing');
 
-                  /*
-                  if (!seekingLoad && !longTap && !seeking && !loading) {
-                    hideVideoControls();
-                  }*/
 
                   showVideoControls();
 
@@ -292,7 +289,7 @@
 
                 loading = false;
 
-              });
+              });*/
             // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           }).catch((err) => {
 
@@ -541,14 +538,15 @@
         }
 
         if (!playPauseManual) {
+          if (videoEnd) {
+            audio.currentTime = 0;
+          }
+          
+          if (!backgroundPlay && !pipEnabled) {
+            video.currentTime = audio.currentTime;
+          }
+          /*
           audio.play().then(function() {
-            if (videoEnd) {
-              audio.currentTime = 0;
-            }
-            
-            if (!backgroundPlay && !pipEnabled) {
-              video.currentTime = audio.currentTime;
-            }
             
             // videoPause = true;
 
@@ -566,10 +564,6 @@
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
               playPauseButton.classList.remove('playing');
-              /*
-              if (!seekingLoad && !longTap && !seeking) {
-                hideVideoControls();
-              }*/
 
               showVideoControls();
 
@@ -581,7 +575,7 @@
             }, 1000);
 
             loading = false;
-          });
+          });*/
 
           // playPauseButton.classList.remove('repeat');
           playPauseButton.classList.add('playing');
@@ -845,6 +839,7 @@
           video.play().then(function () {
             // audioCtx = new AudioContext();
             // setTimeout(function() {
+            /*
               audio.play().then(function() {
                 // videoPause = true;
               }).catch((err) => {
@@ -861,10 +856,6 @@
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
                   playPauseButton.classList.remove('playing');
-                  /*
-                  if (!seekingLoad && !longTap && !seeking) {
-                    hideVideoControls();
-                  }*/
 
                   showVideoControls();
 
@@ -877,7 +868,7 @@
 
                 loading = false;
 
-              });
+              });*/
             // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           }).catch((err) => {
 
@@ -1768,7 +1759,7 @@
 
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
       }
-
+      /*
       if (videoPlay) {
 
         audio.play().then(function() {
@@ -1832,14 +1823,6 @@
 
               // videoPause = true;
 
-              /*
-              loadingRing.style.display = "none";
-              playPauseButton.style.display = "block";
-              // hideVideoControls();
-              if (controlsHideInt === null) {
-                controlsHideInt = setTimeout(hideVideoControls, 3000); // hide controls after 3 sec. if no activity
-              }*/
-
               // audio.currentTime = video.currentTime;
 
             }).catch((err) => {
@@ -1856,10 +1839,6 @@
                 loadingRing.style.display = "none";
                 playPauseButton.style.display = "block";
                 playPauseButton.classList.remove('playing');
-                /*
-                if (!seekingLoad && !longTap && !seeking) {
-                  hideVideoControls();
-                }*/
 
                   showVideoControls();
 
@@ -1889,10 +1868,6 @@
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
             playPauseButton.classList.remove('playing');
-            /*
-            if (!seekingLoad && !longTap && !seeking) {
-              hideVideoControls();
-            }*/
 
               showVideoControls();
 
@@ -1905,7 +1880,7 @@
 
           loading = false;
         });
-      }
+      }*/
     });
 
 
@@ -2030,12 +2005,14 @@
               showVideoControls();
             }
 
+            /*
             audio.play().then(function () {
               if (!getAudioContext) {
                 audioCtx = new AudioContext();
                 getAudioContext = true;
               }
               setTimeout(function() {
+              */
                 video.play().then(function() {
                   // videoPause = true;
       
@@ -2081,8 +2058,8 @@
                   loading = false;
 
                 });
-              }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-
+              // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+                /*
             }).catch((err) => {
 
               console.log(err);
@@ -2097,10 +2074,6 @@
                 loadingRing.style.display = "none";
                 playPauseButton.style.display = "block";
                 playPauseButton.classList.remove('playing');
-                /*
-                if (!seekingLoad && !longTap && !seeking) {
-                  hideVideoControls();
-                }*/
 
                   showVideoControls();
 
@@ -2112,7 +2085,7 @@
               }, 1000);
 
               loading = false;
-            });
+            });*/
       
             updatePositionState();
 
