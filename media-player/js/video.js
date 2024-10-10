@@ -51,13 +51,13 @@ const actionHandlers = [
                                       video.currentTime = 0;
                                       audio.currentTime = 0;
                                     } 
-                                    await audio.play().then(function () {
+                                    await video.play().then(function () {
                                       // audioCtx = new AudioContext();
-                                      audio.volume = 1;
+                                      
                                       setTimeout(function() {
                                         if (!backgroundPlay || pipEnabled) {
-                                          video.play().then(function() {
-                                            
+                                          audio.play().then(function() {
+                                            audio.volume = 1;
                                             if (videoEnd) {
                                               videoEnd = false;
                                             }
