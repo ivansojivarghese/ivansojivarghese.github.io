@@ -2513,6 +2513,17 @@
       } else {
         // If the event's persisted property is not `true` the page is about to be unloaded.
         appUnload = true;
+
+        video.src = ""; 
+            // Reset position state when media is reset.
+        navigator.mediaSession.setPositionState(null);
+        for (const [action] of actionHandlers) {
+          try {
+            navigator.mediaSession.setActionHandler(action, null);
+          } catch (error) {
+            console.log(`The media session action "${action}" is not supported yet.`);
+          }
+        } 
       }
     },
       { capture: true }
