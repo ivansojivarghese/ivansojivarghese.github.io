@@ -52,7 +52,7 @@
 
     var playPauseManual = false;
 
-    var videoPause = false;
+    // var videoPause = false;
     var videoPlay = true;
 
     var appUnload = false;
@@ -259,7 +259,7 @@
                 videoEnd = false;
               }
               audio.play().then(function() {
-                videoPause = true;
+                // videoPause = true;
                 
               }).catch((err) => {
 
@@ -340,7 +340,7 @@
               releaseScreenLock(screenLock); 
             }
 
-            videoPause = false;
+            // videoPause = false;
           // }
         }
       }
@@ -550,7 +550,7 @@
               video.currentTime = audio.currentTime;
             }
             
-            videoPause = true;
+            // videoPause = true;
 
           }).catch((err) => {
 
@@ -638,7 +638,7 @@
 
         if (document.visibilityState === "visible" && appUnload !== null) {
           audio.pause();
-          videoPause = false;
+          // videoPause = false;
         } else {
           backgroundPlay = true;
           backgroundPlayInit = true;
@@ -846,7 +846,7 @@
             // audioCtx = new AudioContext();
             // setTimeout(function() {
               audio.play().then(function() {
-                videoPause = true;
+                // videoPause = true;
               }).catch((err) => {
 
                 console.log(err);
@@ -922,7 +922,7 @@
             bufferStartTime = 0;
             bufferEndTime = 0;
 
-            videoPause = false;
+            // videoPause = false;
           // }
           
         }
@@ -1043,7 +1043,7 @@
           bufferingDetected = true;
           framesStuck = true;
 
-          videoPause = false;
+          // videoPause = false;
 
           audioStall = true;
 
@@ -1091,7 +1091,7 @@
                   initialVideoLoad = false;
                 }
                 videoLoad = false;
-                videoPause = true;
+                // videoPause = true;
                 loading = false;
                 // audio.currentTime = video.currentTime;
                 video.currentTime = audio.currentTime;
@@ -1446,7 +1446,7 @@
       bufferLoad = true;
 
       audio.pause();
-      videoPause = false;
+      // videoPause = false;
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
@@ -1480,7 +1480,7 @@
       bufferLoad = true;
 
       audio.pause();
-      videoPause = false;
+      // videoPause = false;
     });
 
     var liveBufferVal = [];
@@ -1830,7 +1830,7 @@
                 }
               }
 
-              videoPause = true;
+              // videoPause = true;
 
               /*
               loadingRing.style.display = "none";
@@ -2037,7 +2037,7 @@
               }
               setTimeout(function() {
                 video.play().then(function() {
-                  videoPause = true;
+                  // videoPause = true;
       
                   
                   if (audioVideoAlignInt !== null) {
@@ -2424,7 +2424,7 @@
               // audioCtx = new AudioContext();
               // setTimeout(function() {
                 audio.play().then(function() {
-                  videoPause = true;
+                  // videoPause = true;
                 }).catch((err) => {
 
                   console.log(err);
