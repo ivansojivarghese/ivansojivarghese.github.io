@@ -546,7 +546,7 @@
               audio.currentTime = 0;
             }
             
-            if (!videoPause && !backgroundPlay && !pipEnabled) {
+            if (!backgroundPlay && !pipEnabled) {
               video.currentTime = audio.currentTime;
             }
             
@@ -605,7 +605,7 @@
           navigator.mediaSession.playbackState = 'playing';
           getScreenLock();
         } else {
-          if (!videoPause && !backgroundPlay && !pipEnabled && !videoEnd) {
+          if (!backgroundPlay && !pipEnabled && !videoEnd) {
             video.currentTime = audio.currentTime;
           }
 
