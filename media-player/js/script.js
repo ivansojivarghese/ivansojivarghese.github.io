@@ -258,6 +258,7 @@
                 audio.currentTime = video.currentTime;
                 videoEnd = false;
               }
+              
               audio.play().then(function() {
                 // videoPause = true;
                 
@@ -275,11 +276,6 @@
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
                   playPauseButton.classList.remove('playing');
-
-                  /*
-                  if (!seekingLoad && !longTap && !seeking && !loading) {
-                    hideVideoControls();
-                  }*/
 
                   showVideoControls();
 
@@ -845,6 +841,7 @@
           video.play().then(function () {
             // audioCtx = new AudioContext();
             // setTimeout(function() {
+            /*
               audio.play().then(function() {
                 // videoPause = true;
               }).catch((err) => {
@@ -861,10 +858,6 @@
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
                   playPauseButton.classList.remove('playing');
-                  /*
-                  if (!seekingLoad && !longTap && !seeking) {
-                    hideVideoControls();
-                  }*/
 
                   showVideoControls();
 
@@ -877,7 +870,7 @@
 
                 loading = false;
 
-              });
+              });*/
             // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
           }).catch((err) => {
 
