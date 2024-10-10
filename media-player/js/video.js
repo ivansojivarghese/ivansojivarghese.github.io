@@ -64,9 +64,9 @@ const actionHandlers = [
                                         // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
 
                                       }).catch((err) => {
-
+                                        
                                         console.log(err);
-
+                                        /*
                                         statusIndicator.classList.remove("buffer");
                                         statusIndicator.classList.remove("smooth");
                                         statusIndicator.classList.add("error");
@@ -77,10 +77,6 @@ const actionHandlers = [
                                           loadingRing.style.display = "none";
                                           playPauseButton.style.display = "block";
                                           playPauseButton.classList.remove('playing');
-                                          /*
-                                          if (!seekingLoad && !longTap && !seeking) {
-                                            hideVideoControls();
-                                          }*/
 
                                             showVideoControls();
 
@@ -91,7 +87,7 @@ const actionHandlers = [
 
                                         }, 1000);
 
-                                        loading = false;
+                                        loading = false;*/
                                       });
                                     } else {
                                       await audio.play().then(function() {
@@ -101,7 +97,7 @@ const actionHandlers = [
                                       }).catch((err) => {
                                         
                                         console.log(err);
-
+                                        /*
                                         statusIndicator.classList.remove("buffer");
                                         statusIndicator.classList.remove("smooth");
                                         statusIndicator.classList.add("error");
@@ -112,10 +108,6 @@ const actionHandlers = [
                                           loadingRing.style.display = "none";
                                           playPauseButton.style.display = "block";
                                           playPauseButton.classList.remove('playing');
-                                          /*
-                                          if (!seekingLoad && !longTap && !seeking) {
-                                            hideVideoControls();
-                                          }*/
 
                                             showVideoControls();
 
@@ -126,7 +118,7 @@ const actionHandlers = [
 
                                         }, 1000);
 
-                                        loading = false;
+                                        loading = false;*/
                                       });
                                     }
                       
