@@ -51,79 +51,84 @@ const actionHandlers = [
                                       video.currentTime = 0;
                                       audio.currentTime = 0;
                                     } 
-                                    await video.play().then(function () {
-                                      // audioCtx = new AudioContext();
-                                      
-                                      setTimeout(function() {
-                                        if (!backgroundPlay || pipEnabled) {
-                                          audio.play().then(function() {
-                                            audio.volume = 1;
-                                            if (videoEnd) {
-                                              videoEnd = false;
-                                            }
-                                            // videoPause = true;
-                                          }).catch((err) => {
-                                            
-                                            console.log(err);
+                                    if (!backgroundPlay || pipEnabled) {
+                                      await video.play().then(function () {
+                                        // audioCtx = new AudioContext();
 
-                                            statusIndicator.classList.remove("buffer");
-                                            statusIndicator.classList.remove("smooth");
-                                            statusIndicator.classList.add("error");
-
-                                            endLoad();
-                                                      
-                                            setTimeout(function() {
-                                              loadingRing.style.display = "none";
-                                              playPauseButton.style.display = "block";
-                                              playPauseButton.classList.remove('playing');
-                                              /*
-                                              if (!seekingLoad && !longTap && !seeking) {
-                                                hideVideoControls();
-                                              }*/
-
-                                                showVideoControls();
-
-                                              // reset the loader
-                                              setTimeout(function() {
-                                                resetLoad();
-                                              }, 10);
-
-                                            }, 1000);
-
-                                            loading = false;
-                                          });
+                                        if (videoEnd) {
+                                          videoEnd = false;
                                         }
-                                      }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-                                    }).catch((err) => {
+                                        
+                                        // setTimeout(function() {
 
-                                      console.log(err);
+                                        // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
 
-                                      statusIndicator.classList.remove("buffer");
-                                      statusIndicator.classList.remove("smooth");
-                                      statusIndicator.classList.add("error");
+                                      }).catch((err) => {
 
-                                      endLoad();
-                                                
-                                      setTimeout(function() {
-                                        loadingRing.style.display = "none";
-                                        playPauseButton.style.display = "block";
-                                        playPauseButton.classList.remove('playing');
-                                        /*
-                                        if (!seekingLoad && !longTap && !seeking) {
-                                          hideVideoControls();
-                                        }*/
+                                        console.log(err);
 
-                                          showVideoControls();
+                                        statusIndicator.classList.remove("buffer");
+                                        statusIndicator.classList.remove("smooth");
+                                        statusIndicator.classList.add("error");
 
-                                        // reset the loader
+                                        endLoad();
+                                                  
                                         setTimeout(function() {
-                                          resetLoad();
-                                        }, 10);
+                                          loadingRing.style.display = "none";
+                                          playPauseButton.style.display = "block";
+                                          playPauseButton.classList.remove('playing');
+                                          /*
+                                          if (!seekingLoad && !longTap && !seeking) {
+                                            hideVideoControls();
+                                          }*/
 
-                                      }, 1000);
+                                            showVideoControls();
 
-                                      loading = false;
-                                    });
+                                          // reset the loader
+                                          setTimeout(function() {
+                                            resetLoad();
+                                          }, 10);
+
+                                        }, 1000);
+
+                                        loading = false;
+                                      });
+                                    } else {
+                                      await audio.play().then(function() {
+
+                                        audio.volume = 1;
+
+                                      }).catch((err) => {
+                                        
+                                        console.log(err);
+
+                                        statusIndicator.classList.remove("buffer");
+                                        statusIndicator.classList.remove("smooth");
+                                        statusIndicator.classList.add("error");
+
+                                        endLoad();
+                                                  
+                                        setTimeout(function() {
+                                          loadingRing.style.display = "none";
+                                          playPauseButton.style.display = "block";
+                                          playPauseButton.classList.remove('playing');
+                                          /*
+                                          if (!seekingLoad && !longTap && !seeking) {
+                                            hideVideoControls();
+                                          }*/
+
+                                            showVideoControls();
+
+                                          // reset the loader
+                                          setTimeout(function() {
+                                            resetLoad();
+                                          }, 10);
+
+                                        }, 1000);
+
+                                        loading = false;
+                                      });
+                                    }
                       
                                     updatePositionState(); 
 
