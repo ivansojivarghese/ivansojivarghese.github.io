@@ -189,6 +189,9 @@ const actionHandlers = [
                                     }
                                   }],
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
+                                      if (backgroundPlay) {
+                                        video.currentTime = audio.currentTime;
+                                      }
                                       pipEnabled = true;
                                       getScreenLock();
                                     }); 
