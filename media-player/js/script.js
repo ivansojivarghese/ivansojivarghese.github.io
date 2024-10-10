@@ -1628,6 +1628,8 @@
       var index = 0;
       var mod = 1;
       var newTargetQuality = getOptimalQuality();
+      
+      console.log("tQ : " + targetQuality + ", nTQ: " + newTargetQuality);
 
       if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad)))) {
 
@@ -1665,8 +1667,6 @@
         bufferAllow = false;
 
       }
-
-      console.log("tQ : " + targetQuality + ", nTQ: " + newTargetQuality);
     }
 
     function getLoadedPercent() {
