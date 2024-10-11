@@ -1157,7 +1157,7 @@
 
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && /*!videoEnd*/ (video.currentTime < (video.duration - maxVideoLoad)) && !qualityBestChange && !audioVideoAligning && !networkError) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && /*!videoEnd*/ (video.currentTime < (video.duration - skipTime)) && !qualityBestChange && !audioVideoAligning && !networkError) {
             //forwardSkippedTime = 0;
             //seekForwardTextSec.innerHTML = forwardSkippedTime;
 
@@ -1215,7 +1215,7 @@
       
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !audioVideoAligning && !networkError) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && (video.currentTime > (skipTime)) && !qualityBestChange && !audioVideoAligning && !networkError) {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
 
