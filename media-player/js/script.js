@@ -533,43 +533,45 @@
         }
 
         if (!playPauseManual) {
-          audio.play().then(function() {
-            if (videoEnd) {
-              audio.currentTime = 0;
-            }
-            
-            if (!backgroundPlay && !pipEnabled) {
-              video.currentTime = audio.currentTime;
-            }
-            
-            // videoPause = true;
+          if (audio.src) {
+            audio.play().then(function() {
+              if (videoEnd) {
+                audio.currentTime = 0;
+              }
+              
+              if (!backgroundPlay && !pipEnabled) {
+                video.currentTime = audio.currentTime;
+              }
+              
+              // videoPause = true;
 
-          }).catch((err) => {
+            }).catch((err) => {
 
-            console.log(err);
-            /*
-            statusIndicator.classList.remove("buffer");
-            statusIndicator.classList.remove("smooth");
-            statusIndicator.classList.add("error");
+              console.log(err);
+              /*
+              statusIndicator.classList.remove("buffer");
+              statusIndicator.classList.remove("smooth");
+              statusIndicator.classList.add("error");
 
-            endLoad();
-                      
-            setTimeout(function() {
-              loadingRing.style.display = "none";
-              playPauseButton.style.display = "block";
-              playPauseButton.classList.remove('playing');
-
-              showVideoControls();
-
-              // reset the loader
+              endLoad();
+                        
               setTimeout(function() {
-                resetLoad();
-              }, 10);
+                loadingRing.style.display = "none";
+                playPauseButton.style.display = "block";
+                playPauseButton.classList.remove('playing');
 
-            }, 1000);*/
+                showVideoControls();
 
-            loading = false;
-          });
+                // reset the loader
+                setTimeout(function() {
+                  resetLoad();
+                }, 10);
+
+              }, 1000);*/
+
+              loading = false;
+            });
+          }
 
           playPauseButton.classList.remove('repeat');
           playPauseButton.classList.add('playing');
@@ -1382,7 +1384,7 @@
 
     video.addEventListener("error", async () => {
       console.error(`Error loading: ${video}`);
-      console.error("Attempting secondary API fetch:");
+      console.error("Attempting Secondary API fetching...");
 
       const url = 'https://youtube-mp4-downloader.p.rapidapi.com/mp4?url=' + videoURL;
       const options = {
@@ -1765,7 +1767,7 @@
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
       }
 
-      if (videoPlay) {
+      if (videoPlay && audio.src) {
 
         audio.play().then(function() {
           // setTimeout(function() {
