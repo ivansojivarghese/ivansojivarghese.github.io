@@ -533,7 +533,7 @@
         }
 
         if (!playPauseManual) {
-          if (audio.src) {
+          if (audio.src !== null) {
             audio.play().then(function() {
               if (videoEnd) {
                 audio.currentTime = 0;
@@ -1404,7 +1404,7 @@
         targetVideo = targetVideoSources[targetVideoSources.length - 1];
 
         video.src = targetVideo.download;
-        audio.src = "";
+        audio.src = null;
 
       } catch (error) {
         console.error(error);
@@ -1767,7 +1767,7 @@
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
       }
 
-      if (videoPlay && audio.src) {
+      if (videoPlay && audio.src !== null) {
 
         audio.play().then(function() {
           // setTimeout(function() {
@@ -2021,7 +2021,7 @@
             }
 
             video.play().then(function() {
-              if (audio.src) {
+              if (audio.src !== null) {
                 audio.play();
               }
             });
