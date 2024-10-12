@@ -158,9 +158,9 @@ const actionHandlers = [
                               }
                             } 
                           }],
-  ['seekbackward',  (details) => { if (!qualityBestChange && !qualityChange && !networkError) { seekBackward(true); updatePositionState(); } } ],
-  ['seekforward',   (details) => { if (!qualityBestChange && !qualityChange && !networkError) { seekForward(true); updatePositionState(); } } ],
-  ['seekto',        (details) => { if (!qualityBestChange && !qualityChange && !networkError) {
+  ['seekbackward',  (details) => { if (!qualityBestChange && !qualityChange && !networkError && seekAllow) { seekBackward(true); updatePositionState(); } } ],
+  ['seekforward',   (details) => { if (!qualityBestChange && !qualityChange && !networkError && seekAllow) { seekForward(true); updatePositionState(); } } ],
+  ['seekto',        (details) => { if (!qualityBestChange && !qualityChange && !networkError && seekAllow) {
                                       if (details.fastSeek && ('fastSeek' in video || ('fastSeek' in audio && backgroundPlay))) {
                                         // Only use fast seek if supported.
                                         if (backgroundPlay) {
