@@ -1395,7 +1395,7 @@
 
       try {
         const response = await fetch(url, options);
-        const result = await response.text();
+        const result = await response.json();
         console.log(result);
 
         targetVideoSources = result.formats;
