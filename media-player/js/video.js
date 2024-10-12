@@ -951,7 +951,7 @@ function getOptimalVideo(time) {
   }
 
   }
-
+/*
 function getMediaSources(sources) {
   const mediaSource = new MediaSource();
   video.src = URL.createObjectURL(mediaSource);
@@ -1026,6 +1026,6 @@ function getMediaSources(sources) {
     }, { once: true });
   }
 }
-
+*/
 
 getParams(null);
