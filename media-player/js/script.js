@@ -1770,11 +1770,11 @@
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
       }
 
-      if (videoPlay && audio.src) {
+      // if (videoPlay && audio.src) {
 
-        audio.play().then(function() {
+        // audio.play().then(function() {
           // setTimeout(function() {
-            video.play().then(function() {
+            // video.play().then(function() {
 
               if (!loading && !bufferingDetected && !framesStuck) {
                 statusIndicator.classList.remove("error");
@@ -1843,7 +1843,7 @@
 
               // audio.currentTime = video.currentTime;
 
-            }).catch((err) => {
+            // }).catch((err) => {
 
               console.log(err);
               /*
@@ -1869,13 +1869,13 @@
 
               loading = false; */
 
-            });
+            // });
           // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
 
-        }).catch((err) => {
-
-          console.log(err);
+        // }).catch((err) => {
           /*
+          console.log(err);
+          
           statusIndicator.classList.remove("buffer");
           statusIndicator.classList.remove("smooth");
           statusIndicator.classList.add("error");
@@ -1897,8 +1897,8 @@
           }, 1000);
 
           loading = false;*/
-        });
-      }
+        // });
+      // } 
     });
 
 
