@@ -1385,7 +1385,7 @@
     video.addEventListener("error", async () => {
       console.error(`Error loading: ${video}`);
       console.error("Attempting Secondary API fetching...");
-
+      
       const url = 'https://youtube-mp4-downloader.p.rapidapi.com/mp4?url=' + videoURL;
       const options = {
         method: 'GET',
@@ -1396,14 +1396,17 @@
       };
 
       try {
+        /*
         const response = await fetch(url, options);
         const result = await response.json();
         console.log(result);
 
         targetVideoSources = result.formats;
         targetVideo = targetVideoSources[targetVideoSources.length - 1];
-
-        video.src = targetVideo.download;
+        */
+        
+        // video.src = targetVideo.download;
+        video.src = "https://kelaz.site/ready?mp4=azhoM2gzaTljN2gxZzFnMXk3bjIzZDNkcDR4N3YyajluMnowcTB4OWgzejA5eng3YzdrOGEzaTlnMW83djJqOW4yejBiM2IycDRzOWg3bTJsOGM1ajljNXA0cTNjN3k2ZTBxMzdiZzRnNHM5bDh0MWUwazFvNHUzbDh3MzhmdTN4Mm4yczNkMXgyazhxMGM1ajkyY2M1djBnNGQ4ZzJpNGUxdTNwNng5dzZzOW80eDlsOHQ3ZDh2MHc2aTlzM3UzajZkMWIxYjJ4MmQxZTB4OWsxaDdhNm0ycjR5N2IyYzVyNHM5azF5N3A0aDBnMnUzdDd5NzNkYjJnNGc3YjFzOWUwdzN2MHczZzRzOW85ZzR3NmY1ZDFsODhmeTczZGk0dzYzZG85bDhpNHEzZTB2MGk0czVmNXk2ZTBkMThmbTJ0N3M5ZTF5NmQxbjJlMXUzdDd5N3MzdjBlMXk3bzl0MWo2YzV6NXg5cDRkMXU2dDFnNDNkczljNWc0dTNmMmIybDgyY2M3ZDFlMGgwajl2MGw4cTNuMnk3M2R0N2s4YjJzM2w4czN1M3gyaDdmNXowcjRoMGcybTI4ZnEzYjFwMm4yYzVlMHQxZTF5NzdiYjJwNGgwaDN0MWk0czlwNmQxZzRpOWUwbDh4Mnk3cTNtMngyMmNoM3k2bDgyY2o5eTZkMWgwbTJ5N2sxYTZkOHk3aTRrOGgzdzNnNHQ3azhpNHI0eTduMmM1cjR5N3M5dDFvOWQxcDRuOThmdTNmNWk0ZzR5N3c2eDlvOWM1azFkMWUwZDFtMnM5OGZuMmEzcDJuMmw4cDR5N2o2czl4MnYwZzRxM3M5bTJlMWs4azhjNWsxcTNkMXowaTRsOG80eDlqNnQ3OGZiMmE2YTNiMXYwbjJpOXo1YjJlMGM1eDJpNHgybjJhM3UzcjRzNWIxcDJ3NnM5ZTFzOXc2aTlzM3owdzZ3NjhmcDJkMXk3cTBzOXQ3ZzdwNGc0aTRjNXk2bDhmNGgzM2RwMnI0dDdvOWQxZDFpOXEzdDFqNmM1ZzRpNHA0cTNsOHk3ZTFkMXMzaTRlMHk3N2J1M3MzcTNzOWk0azFpOXA0ejVpNGE2N2dwNGo2";
         audio.src = null;
 
       } catch (error) {
