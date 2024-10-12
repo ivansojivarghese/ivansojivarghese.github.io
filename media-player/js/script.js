@@ -2018,7 +2018,15 @@
               showVideoControls();
             }
 
+            video.play().then(function() {
+              if (audio.src) {
+                audio.play();
+              }
+            });
+
+            /*
             audio.play().then(function () {
+              /*
               if (!getAudioContext) {
                 audioCtx = new AudioContext();
                 getAudioContext = true;
@@ -2062,7 +2070,7 @@
 
                   }, 1000);
 
-                  loading = false; */
+                  loading = false; 
 
                 });
               //; }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
@@ -2089,10 +2097,10 @@
                   resetLoad();
                 }, 10);
 
-              }, 1000);*/
+              }, 1000);
 
               loading = false;
-            });
+            });*/
       
             updatePositionState();
 
