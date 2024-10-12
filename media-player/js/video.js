@@ -181,7 +181,7 @@ const actionHandlers = [
                                     }
                                   }],
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
-                                      if (backgroundPlay) {
+                                      if (backgroundPlay && audio.src) {
                                         video.currentTime = audio.currentTime;
                                       }
                                       pipEnabled = true;

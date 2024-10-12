@@ -539,7 +539,7 @@
                 audio.currentTime = 0;
               }
               
-              if (!backgroundPlay && !pipEnabled) {
+              if (!backgroundPlay && !pipEnabled && audio.src) {
                 video.currentTime = audio.currentTime;
               }
               
@@ -595,7 +595,7 @@
           navigator.mediaSession.playbackState = 'playing';
           getScreenLock();
         } else {
-          if (!backgroundPlay && !pipEnabled && !videoEnd) {
+          if (!backgroundPlay && !pipEnabled && !videoEnd && audio.src) {
             video.currentTime = audio.currentTime;
           }
 
@@ -1077,7 +1077,9 @@
                 // videoPause = true;
                 loading = false;
                 // audio.currentTime = video.currentTime;
-                video.currentTime = audio.currentTime;
+                if (audio.src) {
+                  video.currentTime = audio.currentTime;
+                }
                 // audioStall = false;
                 // audioVideoAligning = false;
 
@@ -1844,9 +1846,9 @@
               // audio.currentTime = video.currentTime;
 
             // }).catch((err) => {
-
-              console.log(err);
               /*
+              console.log(err);
+              
               statusIndicator.classList.remove("buffer");
               statusIndicator.classList.remove("smooth");
               statusIndicator.classList.add("error");
@@ -2395,7 +2397,9 @@
               bufferModeExe = false;
               bufferStartTime = 0;
 
-              video.currentTime = audio.currentTime;
+              if (audio.src) {
+                video.currentTime = audio.currentTime;
+              }
             }
             backgroundPlay = false;
           }
