@@ -1026,7 +1026,6 @@ function getMediaSources(sources) {
     }, { once: true });
   }
 }
-  */
 
 
 getParams(null);
