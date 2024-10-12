@@ -951,7 +951,7 @@ function getOptimalVideo(time) {
   }
 
   }
-/*
+
 function getMediaSources(sources) {
   const mediaSource = new MediaSource();
   video.src = URL.createObjectURL(mediaSource);
@@ -960,10 +960,12 @@ function getMediaSources(sources) {
   const resolutions = {};
 
   for (var i = 0; i <= sources.length - 1; i++) {
-    resolutions[sources[i].qualityLabel] = sources[i].url;
+    // resolutions[sources[i].qualityLabel] = sources[i].url;
+    resolutions[sources[i].resolution] = sources[i].download;
   }
 
-  let currentResolution = targetVideo.qualityLabel;  // Default to initial
+  // let currentResolution = targetVideo.qualityLabel;  // Default to initial
+  let currentResolution = targetVideo.resolution;  // Default to initial
   let fetchVideoSegment = async (url) => {
     return fetch(url).then(response => response.arrayBuffer());
   };
