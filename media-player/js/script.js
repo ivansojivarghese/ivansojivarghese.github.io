@@ -1380,8 +1380,33 @@
       console.log("Data loading has been suspended.");
     });
 
-    video.addEventListener("error", () => {
+    video.addEventListener("error", async () => {
       console.error(`Error loading: ${video}`);
+      console.error("Attempting secondary API fetch:");
+
+      const url = 'https://youtube-mp4-downloader.p.rapidapi.com/mp4?url=' + videoURL;
+      const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+          'x-rapidapi-host': 'youtube-mp4-downloader.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+
+        targetVideoSources = result.formats;
+        targetVideo = targetVideoSources[targetVideoSources.length - 1];
+
+        video.src = targetVideo.download;
+        audio.src = "";
+
+      } catch (error) {
+        console.error(error);
+      }
     });
 
     video.addEventListener("abort", () => {

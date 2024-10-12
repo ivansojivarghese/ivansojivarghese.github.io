@@ -1,4 +1,5 @@
 
+    var videoURL = "";
 
     var inp = document.getElementById('urlBar');
 
@@ -10,6 +11,8 @@
       var wrapURL = document.querySelector("#urlInput");
       var wrap = document.querySelector("#settingsOptions");
       var contents = inp.value;
+
+      videoURL = contents;
 
       var error = false;
       

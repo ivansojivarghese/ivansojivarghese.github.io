@@ -251,6 +251,8 @@ async function getParams(id, time) {
     let params = new URLSearchParams(document.location.search);
     const link = params.get("description"); 
 
+    videoURL = link;
+
     resetVariables();
 
     // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
