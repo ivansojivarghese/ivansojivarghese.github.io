@@ -722,7 +722,11 @@ function getOptimalQuality() {
           tempQuality = videoQuality.length - 1;
         }
       }
-      return tempQuality;
+      if (initialVideoLoadCount === 0) {
+        return targetQuality;
+      } else {
+        return tempQuality;
+      }
 }
 
 function getVideoFromIndex(m, q, r) {
