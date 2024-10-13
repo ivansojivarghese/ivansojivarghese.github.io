@@ -209,8 +209,12 @@ function replaceDoubleQuotes(str) {
   return str.replace(/"/g, "'");
 }
 
+function replaceSingleWithDoubleQuotes(str) {
+  return str.replace(/'vp9'/, '"vp9"');
+}
+
 async function videoSourceCheck(i) {
-  var mime = replaceDoubleQuotes(videoSources[i].mimeType);
+  var mime = replaceSingleWithDoubleQuotes(replaceDoubleQuotes(videoSources[i].mimeType));
   var videoConfiguration = {
     type: "file",
     video: {
