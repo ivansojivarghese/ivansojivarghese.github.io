@@ -214,11 +214,11 @@ function replaceSingleWithDoubleQuotes(str) {
 }
 
 async function videoSourceCheck(i) {
-  var mime = replaceSingleWithDoubleQuotes(replaceDoubleQuotes(videoSources[i].mimeType));
+  // var mime = replaceSingleWithDoubleQuotes(replaceDoubleQuotes(videoSources[i].mimeType));
   var videoConfiguration = {
     type: "file",
     video: {
-      contentType: mime,
+      contentType: videoSources[i].mimeType,
       width: videoSources[i].width,
       height: videoSources[i].height,
       bitrate: videoSources[i].bitrate,
