@@ -205,11 +205,16 @@ for (const [action, handler] of actionHandlers) {
   }
 }
 
+function replaceDoubleQuotes(str) {
+  return str.replace(/"/g, "'");
+}
+
 async function videoSourceCheck(i) {
+  var mime = replaceDoubleQuotes(videoSources[i].mimeType);
   var videoConfiguration = {
     type: "file",
     video: {
-      contentType: videoSources[i].mimeType,
+      contentType: mime,
       width: videoSources[i].width,
       height: videoSources[i].height,
       bitrate: videoSources[i].bitrate,

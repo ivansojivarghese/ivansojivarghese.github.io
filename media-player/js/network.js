@@ -32,7 +32,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 signal : controller.signal
             }).then(() => {
                 var endTime = new Date().getTime(); // end time of fetch
-                networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in MBps)
+                networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in Mbps)
 
                 if (networkError) {
                     
