@@ -1676,9 +1676,9 @@
             bufferModeExe = false;
             bufferStartTime = 0;
 
-            getVideoFromBuffer();
-
             console.log("buffer video");
+
+            getVideoFromBuffer();
 
           }
 
