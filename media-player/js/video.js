@@ -892,7 +892,7 @@ function getOptimalVideo(time) {
 
       getVideoFromIndex(false, null, true);
 
-      targetVideo = targetVideoSources[0];  // FOR TESTING
+      // targetVideo = targetVideoSources[0];  // FOR TESTING
       // getMediaSources(targetVideoSources);
       
       video.src = targetVideo.url; 
