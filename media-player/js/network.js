@@ -113,3 +113,57 @@ if (navigator.connection) {
         estimateNetworkSpeed();
     });
 }
+
+/////////////////////////////////////
+
+function measureBandwidth(url, fileSizeInBytes, callback) {
+    // Record the start time
+    let startTime = new Date().getTime();
+
+    // Create a new XMLHttpRequest
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url + '?cacheBuster=' + startTime, true); // Add cache buster to avoid caching
+    xhr.responseType = 'arraybuffer'; // Download as binary data
+
+    // When the download completes
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Record the end time
+            let endTime = new Date().getTime();
+            let duration = (endTime - startTime) / 1000; // Time in seconds
+
+            // Calculate bandwidth in bits per second
+            let bitsLoaded = fileSizeInBytes * 8; // Convert bytes to bits
+            let bandwidthBps = bitsLoaded / duration; // Bits per second
+            let bandwidthKbps = bandwidthBps / 1024; // Kilobits per second
+            let bandwidthMbps = bandwidthKbps / 1024; // Megabits per second
+
+            // Call the callback with the result
+            callback(bandwidthMbps);
+        } else {
+            console.error('Error downloading the file');
+            callback(null);
+        }
+    };
+
+    // Handle error
+    xhr.onerror = function() {
+        console.error('Network error occurred');
+        callback(null);
+    };
+
+    // Start the request
+    xhr.send();
+}
+
+// Usage example
+let testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
+let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
+
+measureBandwidth(testFileUrl, fileSizeInBytes, function(bandwidth) {
+    if (bandwidth !== null) {
+        console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps');
+    } else {
+        console.log('Failed to measure bandwidth');
+    }
+});
