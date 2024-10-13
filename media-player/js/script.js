@@ -914,6 +914,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       showVideoControls();
+      playPauseButton.classList.remove('repeat');
       // remove pipButton, fitScreen buttons from display on mobile devices with width less than 500px (portrait), OR height less than 500px (landscape)
       if (!video.requestPictureInPicture) {
         pipButton.style.display = "none";
