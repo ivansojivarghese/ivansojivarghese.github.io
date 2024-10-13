@@ -1496,6 +1496,72 @@
       // videoPause = false;
     });
 
+    audio.addEventListener('stalled', function() {
+      offset = (checkInterval - 20) / 1000;
+
+      clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+        // controller.abort();
+      
+      statusIndicator.classList.remove("error");
+      statusIndicator.classList.remove("smooth");
+      statusIndicator.classList.add("buffer");
+
+      getScreenLock();
+
+      // bufferCount++;
+      bufferStartTime = new Date().getTime();
+      bufferMode = true;
+
+      // CHECK FOR LONG BUFFERS
+      
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
+
+      loadingRing.style.display = "block";
+      playPauseButton.style.display = "none";
+      showVideoControls();
+
+      loading = true;
+      bufferLoad = true;
+
+      video.pause();
+      // videoPause = false;
+    }); 
+
+    audio.addEventListener("waiting", function() {
+      offset = (checkInterval - 20) / 1000;
+
+      clearInterval(networkSpeedInt);
+      networkSpeedInt = null;
+      // controller.abort();
+
+      statusIndicator.classList.remove("error");
+      statusIndicator.classList.remove("smooth");
+      statusIndicator.classList.add("buffer");
+
+      getScreenLock();
+
+      // bufferCount++;
+      bufferStartTime = new Date().getTime();
+      bufferMode = true;
+      
+      // CHECK FOR LONG BUFFERS
+
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
+
+      loadingRing.style.display = "block";
+      playPauseButton.style.display = "none";
+      showVideoControls();
+
+      loading = true;
+      bufferLoad = true;
+
+      video.pause();
+      // videoPause = false;
+    });
+
     var liveBufferVal = [];
     var liveBufferIndex = 0;
     var bufferModeExe = false;
@@ -1763,6 +1829,77 @@
       } 
 
     }
+
+    audio.addEventListener('playing', function() {
+      clearTimeout(offsetInt);
+      offsetInt = null;
+      offsetInt = setTimeout(function() {
+        offset = 0;
+      }, 1000);
+
+      controller = new AbortController();
+      signal = controller.signal;
+
+      if (networkSpeedInt === null) {
+
+        networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
+      }
+
+      if (!loading && !bufferingDetected && !framesStuck) {
+        statusIndicator.classList.remove("error");
+        statusIndicator.classList.remove("buffer");
+        statusIndicator.classList.add("smooth");
+
+        endLoad();
+        
+        setTimeout(function() {
+          loadingRing.style.display = "none";
+          playPauseButton.style.display = "block";
+
+          if (!seekingLoad && !longTap && !seeking) {
+            hideVideoControls();
+          }
+
+          // reset the loader
+          setTimeout(function() {
+            resetLoad();
+          }, 10);
+
+        }, 1000);
+      }
+
+      if (!bufferingDetected) {
+        loading = false;
+      }
+
+      if (initialVideoLoad) {
+        initialVideoLoad = false;
+      }
+      videoLoad = false;
+      bufferMode = false;
+      bufferEndTime = new Date().getTime();
+      bufferModeExe = false;
+
+      if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit && !seeking && !seekingLoad) {
+        
+        bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
+
+        if (((bufferingTimes[bufferingTimes.length - 1] >= bufferLimits[2]) || (bufferExceedSuccessive(bufferingTimes, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && !backgroundPlay && bufferAllow && !loading) {
+          
+          bufferingCount = [];
+          bufferCount = 0;
+
+          liveBufferVal = [];
+          liveBufferIndex = 0;
+          bufferModeExe = false;
+          bufferStartTime = 0;
+
+          // getVideoFromBuffer();
+
+          console.log("buffer video");
+        }
+      }
+    });
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
