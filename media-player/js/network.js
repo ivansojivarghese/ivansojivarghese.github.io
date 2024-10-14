@@ -3,6 +3,7 @@
 
 const fileSize = 5301699; // resource file size (in bytes)
 var networkSpeed = 0;
+var networkBandwidth = 0;
 var networkSpeedClose = false;
 
 var controller = new AbortController();
@@ -40,6 +41,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 
                 measureBandwidth(testFileUrl, fileSizeInBytes, function(bandwidth) {
                     if (bandwidth !== null) {
+                        networkBandwidth = bandwidth.toFixed(2);
                         console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps');
                     } else {
                         console.log('Failed to measure bandwidth');
