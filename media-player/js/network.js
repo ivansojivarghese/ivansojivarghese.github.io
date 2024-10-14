@@ -98,10 +98,10 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         }
     }
 }
-
+/*
 if (networkSpeedInt === null) {
     networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
-}
+}*/
 
 function timeToSeconds(txt) { // REFERENCE: https://javascript.plainenglish.io/how-to-convert-hh-mm-ss-time-string-to-seconds-only-in-javascript-e11a0a4726d2#:~:text=Convert%20HH%3AMM%3ASS%20Time%20String%20to%20Seconds%20Only%20in%20JavaScript,-We%20can%20convert&text=const%20hms%20%3D%20'02%3A04,)%20*%2060%20%2B%20(%2Bseconds)%3B
     const hms = txt;
