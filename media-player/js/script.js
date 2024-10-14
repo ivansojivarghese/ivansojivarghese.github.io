@@ -2533,6 +2533,9 @@
           }
           backgroundPlay = true;
         } else {
+          getNetworkInfo();
+          estimateNetworkSpeed();
+          
           audio.volume = 1; 
           if (backgroundPlay) {
             if (!audio.paused && !pipEnabled) {
