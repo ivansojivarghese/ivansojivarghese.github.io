@@ -21,6 +21,10 @@ var rtt = 0,
     saveData = null,
     networkError = false;
 
+// Usage example
+let testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
+let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
+
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
         if (!networkSpeedClose) {
@@ -33,6 +37,14 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             }).then(() => {
                 var endTime = new Date().getTime(); // end time of fetch
                 networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in Mbps)
+
+                measureBandwidth(testFileUrl, fileSizeInBytes, function(bandwidth) {
+                    if (bandwidth !== null) {
+                        console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps');
+                    } else {
+                        console.log('Failed to measure bandwidth');
+                    }
+                });                
 
                 if (networkError) {
                     
@@ -106,6 +118,7 @@ function getNetworkInfo() {
 }
 
 getNetworkInfo();
+estimateNetworkSpeed();
 
 if (navigator.connection) {
     navigator.connection.addEventListener('change', function() {
@@ -155,15 +168,3 @@ function measureBandwidth(url, fileSizeInBytes, callback) {
     // Start the request
     xhr.send();
 }
-
-// Usage example
-let testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
-let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
-
-measureBandwidth(testFileUrl, fileSizeInBytes, function(bandwidth) {
-    if (bandwidth !== null) {
-        console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps');
-    } else {
-        console.log('Failed to measure bandwidth');
-    }
-});
