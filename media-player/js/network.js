@@ -81,6 +81,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 
             networkError = true;
 
+            networkBandwidth = 0;
             networkSpeed = -1; // return 0 mbps
             networkSpeedClose = false;
 
