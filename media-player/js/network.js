@@ -50,7 +50,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 
                 if (networkError) {
                     
-                    if (!videoEnd && !refSeekTime) {
+                    if (!videoEnd && !refSeekTime && video.src !== "") {
 
                         // get seek time from timestamp
                         console.log("load again");
