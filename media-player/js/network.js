@@ -42,7 +42,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 measureBandwidth(testFileUrl, fileSizeInBytes, function(bandwidth) {
                     if (bandwidth !== null) {
                         networkBandwidth = Number(bandwidth.toFixed(2));
-                        console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps, Network speed: ' + networkSpeed + 'MBps');
+                        console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps, Network speed: ' + networkSpeed + ' MBps');
                     } else {
                         console.log('Failed to measure bandwidth');
                     }
