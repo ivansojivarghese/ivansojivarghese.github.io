@@ -41,6 +41,11 @@ var firstPlay = true;
 
 var refSeekTime = 0;
 
+var dpr = window.devicePixelRatio,
+    dHeight = window.outerHeight,
+    dWidth = window.outerWidth,
+    dRes = dHeight * dWidth;
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -578,13 +583,29 @@ function getDeviceResolution() {
 }
 
 function getOptimalQuality() {
+
+  dpr = window.devicePixelRatio;
+  dHeight = window.outerHeight;
+  dWidth = window.outerWidth;
+  dRes = dHeight * dWidth;
+
   // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
       // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
 
       // REORDER SUPPORTED VIDEOS BASED ON PRIORITY OF (FASTEST) NETWORK SPEEDS
 
-      var tempQuality = 0;
+      ////
 
+      // POINTS TO CHECK:
+      // Device resolution (portrait and/or landscape - combined)
+      // Device DPR (device-pixel-ratio)
+
+      ////
+
+      ////
+
+      var tempQuality = 0;
+      
       if (networkSpeed < 0.5) {
         // SD - 144p
         priorityQuality = 0;
@@ -673,6 +694,9 @@ function getOptimalQuality() {
           }
         }*/
       }
+
+      // UPDATES TO priorityQuality (based on Points above)
+      
 
       if (navigator.connection) {
         // GET RTT SCORE

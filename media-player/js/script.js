@@ -1389,8 +1389,8 @@
 
     video.addEventListener("error", async () => {
       console.error(`Error loading: ${video}`);
-      console.error("Attempting Secondary API fetching...");
-      
+      // console.error("Attempting Secondary API fetching...");
+      /*
       const url = 'https://youtube-mp4-downloader.p.rapidapi.com/mp4?url=' + videoURL;
       const options = {
         method: 'GET',
@@ -1421,7 +1421,7 @@
       
       } catch (error) {
         console.error(error);
-      }
+      }*/
     });
 
     video.addEventListener("abort", () => {
