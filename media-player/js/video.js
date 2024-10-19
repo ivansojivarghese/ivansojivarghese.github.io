@@ -23,6 +23,13 @@ var specialVideoQualityWidth = [];
 var priorityQuality = 0;
 var targetQuality = 0;
 
+var videoQualityArea = [];
+var specialQualityArea = [];
+
+for (i = 0; i < videoQuality.length; i++) {
+  videoQualityArea[i] = videoQuality[i] * videoQualityWidth[i];
+}
+
 const rttGroupsArray = [100, 200, 375];
 const downlinkRef = 10;
 var rttScore = 0, // SCORE FROM 0-1 (low to high)
@@ -287,6 +294,7 @@ async function getParams(id, time) {
     targetVideo = null;
     initialVideoLoad = false;
     initialVideoLoadCount = 0;
+    specialQualityArea = [];
 
     // COULD CHANGE | UNDETERMINED (TBA)
     priorityQuality = 0;
@@ -604,7 +612,7 @@ function getOptimalQuality() {
 
       var tempQuality = 0;
 
-      var screenPixels = dWidth * dHeight * dpr * (dWidth / dHeight);
+      var screenPixels = dWidth * dHeight * dpr * (dWidth / dHeight); // measure points on screen
 
 
       
@@ -779,6 +787,8 @@ function checkResolutions() {
       if (!specialVideoQuality.includes(targetVideoSources[j].height)) {
         specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
         specialVideoQualityWidth[specialVideoQualityWidth.length] = targetVideoSources[j].width; 
+
+        specialQualityArea[specialQualityArea.length] = targetVideoSources[j].height * targetVideoSources[j].width;
       }
     }
   }
