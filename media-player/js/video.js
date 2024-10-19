@@ -817,10 +817,14 @@ function getVideoFromIndex(m, q, r) {
       if (!specialVideoQuality.includes(targetVideoSources[j].height)) {
         specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
         specialVideoQualityWidth[specialVideoQualityWidth.length] = targetVideoSources[j].width; 
+
+        specialQualityArea[specialQualityArea.length] = targetVideoSources[j].height * targetVideoSources[j].width;
       }
     }
     specialVideoQuality.reverse();
     specialVideoQualityWidth.reverse();
+
+    specialQualityArea.reverse();
   }
 
   if (m) {
