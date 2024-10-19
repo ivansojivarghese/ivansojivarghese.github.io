@@ -605,6 +605,8 @@ function getOptimalQuality() {
       var tempQuality = 0;
 
       var screenPixels = dWidth * dHeight * dpr * (dWidth / dHeight);
+
+
       
       if (networkSpeed < 0.5) {
         // SD - 144p
@@ -779,7 +781,6 @@ function checkResolutions() {
         specialVideoQualityWidth[specialVideoQualityWidth.length] = targetVideoSources[j].width; 
       }
     }
-    specialVideoQuality.reverse();
   }
 }
 
@@ -809,6 +810,7 @@ function getVideoFromIndex(m, q, r) {
       }
     }
     specialVideoQuality.reverse();
+    specialVideoQualityWidth.reverse();
   }
 
   if (m) {
