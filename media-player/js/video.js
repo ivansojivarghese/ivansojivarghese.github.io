@@ -614,7 +614,7 @@ function getOptimalQuality() {
 
       var screenPixels = dWidth * dHeight * dpr * (dWidth / dHeight); // measure points on screen
 
-
+      // COMPARE screenPixels with ""Area arrays above to find the 480p res.
       
       if (networkSpeed < 0.5) {
         // SD - 144p
