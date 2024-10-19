@@ -17,7 +17,9 @@ var targetVideo = null;
 var targetVideoIndex = 0;
 
 const videoQuality = [144, 240, 360, 480, 720, 1080, 1440, 2160, 4320]; // supports up to 8K video (for normal dimensions)
+const videoQualityWidth = [256, 426, 640, 854, 1280, 1920, 2560, 3840, 7680]; // widths for above (for normal dim.)
 var specialVideoQuality = []; 
+var specialVideoQualityWidth = [];
 var priorityQuality = 0;
 var targetQuality = 0;
 
@@ -275,6 +277,7 @@ async function getParams(id, time) {
     videoSources = [];
     audioSources = [];
     specialVideoQuality = [];
+    specialVideoQualityWidth = [];
     supportedVideoSources = [];
     targetVideoSources = [];
     audioTimes = [];
@@ -584,11 +587,6 @@ function getDeviceResolution() {
 
 function getOptimalQuality() {
 
-  dpr = window.devicePixelRatio;
-  dHeight = window.outerHeight;
-  dWidth = window.outerWidth;
-  dRes = dHeight * dWidth;
-
   // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
       // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
 
@@ -605,6 +603,8 @@ function getOptimalQuality() {
       ////
 
       var tempQuality = 0;
+
+      var screenPixels = dWidth * dHeight * dpr * (dWidth / dHeight);
       
       if (networkSpeed < 0.5) {
         // SD - 144p
@@ -695,9 +695,6 @@ function getOptimalQuality() {
         }*/
       }
 
-      // UPDATES TO priorityQuality (based on Points above)
-      
-
       if (navigator.connection) {
         // GET RTT SCORE
         if (rtt <= rttGroupsArray[0]) { // 0 - 100
@@ -763,6 +760,29 @@ function getOptimalQuality() {
       }
 }
 
+function checkResolutions() {
+  var normalVid = false;
+
+  targetVideoSources = supportedVideoSources;
+
+  for (i = 0; i < targetVideoSources.length; i++) { // CHECK IF VIDEO HAS NORMAL RES. (HEIGHT)
+    if (videoQuality.includes(targetVideoSources[i].height)) {
+      normalVid = true;
+      break;
+    }
+  }
+
+  if (!normalVid) {
+    for (j = 0; j < targetVideoSources.length; j++) {
+      if (!specialVideoQuality.includes(targetVideoSources[j].height)) {
+        specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
+        specialVideoQualityWidth[specialVideoQualityWidth.length] = targetVideoSources[j].width; 
+      }
+    }
+    specialVideoQuality.reverse();
+  }
+}
+
 function getVideoFromIndex(m, q, r) {
 
   // GET THE VIDEO
@@ -770,6 +790,7 @@ function getVideoFromIndex(m, q, r) {
   var reverse = false;
   var fetchedSources = [];
   var normalVid = false;
+
   targetVideoSources = supportedVideoSources;
 
   for (i = 0; i < targetVideoSources.length; i++) { // CHECK IF VIDEO HAS NORMAL RES. (HEIGHT)
@@ -784,6 +805,7 @@ function getVideoFromIndex(m, q, r) {
     for (j = 0; j < targetVideoSources.length; j++) {
       if (!specialVideoQuality.includes(targetVideoSources[j].height)) {
         specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
+        specialVideoQualityWidth[specialVideoQualityWidth.length] = targetVideoSources[j].width; 
       }
     }
     specialVideoQuality.reverse();
@@ -934,6 +956,8 @@ function getOptimalVideo(time) {
     if (supportedVideoSources.length) {
 
       clearInterval(videoSupportLoop);
+
+      checkResolutions();
 
       getOptimalQuality();
 

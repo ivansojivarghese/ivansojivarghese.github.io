@@ -2690,6 +2690,14 @@
     );
 
     window.addEventListener("resize", function() {
+
+      dpr = window.devicePixelRatio;
+      dHeight = window.outerHeight;
+      dWidth = window.outerWidth;
+      dRes = dHeight * dWidth;
+
+      getOptimalQuality();
+
       if ((window.innerWidth < 500 && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) || (window.innerHeight < 500 && (screen.orientation.angle === 90 || screen.orientation.angle === 270))) {
         pipButton.style.display = "none";
         fitscreenButton.style.display = "none";
