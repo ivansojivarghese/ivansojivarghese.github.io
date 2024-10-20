@@ -620,12 +620,24 @@ function getOptimalQuality() {
       // COMPARE screenPixels with ""Area arrays above to find the 480p res.
 
       if (normalVideo) {
-        for (var i = 0; i < videoQualityArea.length; i++) {
+        for (var i = 0; i < videoQualityArea.length; i++) { // 9 elements
+
           console.log(screenPixels + ", " + videoQualityArea[i]);
+
+          if (screenPixels >= videoQualityArea[i] && (!videoQualityArea[i + 1] || (videoQualityArea[i + 1] && (screenPixels < videoQualityArea[i + 1])))) {
+            priorityQuality = i;
+            break;
+          }
         }
       } else {
-        for (var i = 0; i < specialQualityArea.length; i++) {
+        for (var i = specialQualityArea.length - 1; i >= 0; i--) { // varying no. of elements
+
           console.log(screenPixels + ", " + specialQualityArea[i]);
+
+          if (screenPixels >= specialQualityArea[i] && (!specialQualityArea[i + 1] || (specialQualityArea[i + 1] && (screenPixels < specialQualityArea[i + 1])))) {
+
+            break;
+          }
         } 
       }
 
