@@ -634,7 +634,7 @@ function getOptimalQuality() {
 
           // console.log(screenPixels + ", " + specialQualityArea[i]);
 
-          if (screenPixels >= specialQualityArea[i] && (!specialQualityArea[i - 1] || (specialQualityArea[i - 1] && (screenPixels < specialQualityArea[i - 1])))) {
+          if (screenPixels >= videoQualityArea[i] && (!videoQualityArea[i - 1] || (videoQualityArea[i - 1] && (screenPixels < videoQualityArea[i - 1])))) {
             priorityQuality = i;
             break;
           }
