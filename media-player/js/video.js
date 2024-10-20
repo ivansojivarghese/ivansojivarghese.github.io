@@ -817,6 +817,8 @@ function checkResolutions() {
         specialQualityArea[specialQualityArea.length] = targetVideoSources[j].height * targetVideoSources[j].width;
       }
     }
+
+    specialQualityArea.reverse();
   }
 }
 
