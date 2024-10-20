@@ -817,8 +817,6 @@ function checkResolutions() {
         specialQualityArea[specialQualityArea.length] = targetVideoSources[j].height * targetVideoSources[j].width;
       }
     }
-
-    specialQualityArea.reverse();
   }
 }
 
@@ -1003,35 +1001,38 @@ function getOptimalVideo(time) {
 
       checkResolutions();
 
-      getOptimalQuality();
+      setTimeout(function() {
 
-      getVideoFromIndex(false, null, true);
+        getOptimalQuality();
 
-      // targetVideo = targetVideoSources[0];  // FOR TESTING
-      // getMediaSources(targetVideoSources);
-      
-      video.src = targetVideo.url; 
-      audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+        getVideoFromIndex(false, null, true);
 
-      if (time) { // START FROM (if available)
-        video.currentTime = time;
-        audio.currentTime = time;
-      }
+        // targetVideo = targetVideoSources[0];  // FOR TESTING
+        // getMediaSources(targetVideoSources);
+        
+        video.src = targetVideo.url; 
+        audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
-      // mediaSessions API
-      if ("mediaSession" in navigator) {
-        navigator.mediaSession.metadata = new MediaMetadata({
-          title: videoDetails.title,
-          artist: videoDetails.channelTitle,
-          // album: '',
-          artwork: [
-            { src: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url,   sizes: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].width+'x'+videoDetails.thumbnail[videoDetails.thumbnail.length - 1].height, type: 'image/jpg' }
-          ]
-        });
-      
-        // TODO: Update playback state.
-      }
+        if (time) { // START FROM (if available)
+          video.currentTime = time;
+          audio.currentTime = time;
+        }
 
+        // mediaSessions API
+        if ("mediaSession" in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: videoDetails.title,
+            artist: videoDetails.channelTitle,
+            // album: '',
+            artwork: [
+              { src: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url,   sizes: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].width+'x'+videoDetails.thumbnail[videoDetails.thumbnail.length - 1].height, type: 'image/jpg' }
+            ]
+          });
+        
+          // TODO: Update playback state.
+        }
+        
+      }, 100);
     }
 
   }, 10);
