@@ -26,6 +26,9 @@ var targetQuality = 0;
 var videoQualityArea = [];
 var specialQualityArea = [];
 
+var normalVideo = false;
+
+
 for (i = 0; i < videoQuality.length; i++) {
   videoQualityArea[i] = videoQuality[i] * videoQualityWidth[i];
 }
@@ -615,6 +618,18 @@ function getOptimalQuality() {
       var screenPixels = dWidth * dHeight * dpr * (dWidth / dHeight); // measure points on screen
 
       // COMPARE screenPixels with ""Area arrays above to find the 480p res.
+
+      if (normalVideo) {
+        for (var i = 0; i < videoQualityArea.length; i++) {
+          console.log(screenPixels + ", " + videoQualityArea[i]);
+        }
+      } else {
+        for (var i = 0; i < specialQualityArea.length; i++) {
+          console.log(screenPixels + ", " + specialQualityArea[i]);
+        } 
+      }
+
+      /////
       
       if (networkSpeed < 0.5) {
         // SD - 144p
@@ -771,18 +786,17 @@ function getOptimalQuality() {
 }
 
 function checkResolutions() {
-  var normalVid = false;
 
   targetVideoSources = supportedVideoSources;
 
   for (i = 0; i < targetVideoSources.length; i++) { // CHECK IF VIDEO HAS NORMAL RES. (HEIGHT)
     if (videoQuality.includes(targetVideoSources[i].height)) {
-      normalVid = true;
+      normalVideo = true;
       break;
     }
   }
 
-  if (!normalVid) {
+  if (!normalVideo) {
     for (j = 0; j < targetVideoSources.length; j++) {
       if (!specialVideoQuality.includes(targetVideoSources[j].height)) {
         specialVideoQuality[specialVideoQuality.length] = targetVideoSources[j].height; 
