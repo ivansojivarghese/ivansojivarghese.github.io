@@ -718,6 +718,7 @@ function getOptimalQuality() {
       // FINAL SCORE
       if (navigator.connection) {
         videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
+        videoStreamScore = (videoStreamScore > 1) ? 1 : videoStreamScore;
       } else {
         videoStreamScore = 1;
       }
