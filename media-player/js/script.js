@@ -533,43 +533,46 @@
 
         if (!playPauseManual) {
           if (audio.src) {
-            audio.play().then(function() {
-              if (videoEnd) {
-                audio.currentTime = 0;
-              }
-              
-              if (!backgroundPlay && !pipEnabled && audio.src) {
-                video.currentTime = audio.currentTime;
-              }
-              
-              // videoPause = true;
+            console.log(seeking + ", " + seekingLoad + ", " + longTap);
+            if (!seeking && !seekingLoad && !longTap) {
+              audio.play().then(function() {
+                if (videoEnd) {
+                  audio.currentTime = 0;
+                }
+                
+                if (!backgroundPlay && !pipEnabled && audio.src) {
+                  video.currentTime = audio.currentTime;
+                }
+                
+                // videoPause = true;
 
-            }).catch((err) => {
+              }).catch((err) => {
 
-              console.log(err);
-              /*
-              statusIndicator.classList.remove("buffer");
-              statusIndicator.classList.remove("smooth");
-              statusIndicator.classList.add("error");
+                console.log(err);
+                /*
+                statusIndicator.classList.remove("buffer");
+                statusIndicator.classList.remove("smooth");
+                statusIndicator.classList.add("error");
 
-              endLoad();
-                        
-              setTimeout(function() {
-                loadingRing.style.display = "none";
-                playPauseButton.style.display = "block";
-                playPauseButton.classList.remove('playing');
-
-                showVideoControls();
-
-                // reset the loader
+                endLoad();
+                          
                 setTimeout(function() {
-                  resetLoad();
-                }, 10);
+                  loadingRing.style.display = "none";
+                  playPauseButton.style.display = "block";
+                  playPauseButton.classList.remove('playing');
 
-              }, 1000);*/
+                  showVideoControls();
 
-              loading = false;
-            });
+                  // reset the loader
+                  setTimeout(function() {
+                    resetLoad();
+                  }, 10);
+
+                }, 1000);*/
+
+                loading = false;
+              });
+            }
           }
 
           playPauseButton.classList.remove('repeat');
