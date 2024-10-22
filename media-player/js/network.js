@@ -203,13 +203,13 @@ async function measureRTT() {
         const rtt = end - start;
         rttValues.push(rtt);
         
-        console.log(`RTT: ${rtt.toFixed(2)} ms`);
+        //console.log(`RTT: ${rtt.toFixed(2)} ms`);
 
         // Calculate jitter once we have at least 2 RTT values
         if (rttValues.length > 1) {
             const jitter = Math.abs(rttValues[rttValues.length - 1] - rttValues[rttValues.length - 2]);
             jitterValues.push(jitter);
-            console.log(`Jitter: ${jitter.toFixed(2)} ms`);
+            //console.log(`Jitter: ${jitter.toFixed(2)} ms`);
         }
     } catch (error) {
         console.error('Network request failed:', error);
@@ -229,8 +229,8 @@ function measureJitter(repetitions, delay) {
             const exactRtt = totalRtt / rttValues.length;
             jitterVal = exactJitter;
             rttVal = exactRtt;
-            console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
-            console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
+            //console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
+            //console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
             return;
         }
 
@@ -254,16 +254,16 @@ async function measurePacketLoss(url, numPings = pingsCount) {
             await fetch(url, { method: 'HEAD', mode: 'no-cors' }); // Use 'HEAD' to minimize data transfer
             const endTime = performance.now();
             successfulPings++;
-            console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
+            //console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
         } catch (error) {
             lostPackets++;
-            console.log(`Ping ${i + 1}: Lost`);
+            //console.log(`Ping ${i + 1}: Lost`);
         }
     }
 
     const packetLossPercentage = (lostPackets / numPings) * 100;
-    console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
-    console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
+    //console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
+    //console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
 
     packetLossVal = packetLossPercentage;
 }
@@ -273,3 +273,64 @@ async function measurePacketLoss(url, numPings = pingsCount) {
 
 getNetworkInfo();
 estimateNetworkSpeed();
+
+/////////////////////////////////////////
+
+// REFERENCE: CHATGPT sources
+
+function determineNetworkQuality(speed, bandwidth, latency, jitter, packetLoss) {
+    // Weights for each factor (adjustable based on priority)
+    const speedWeight = 0.5;      // Speed is 50% of the rating
+    const latencyWeight = 0.2;    // Latency is 20% of the rating
+    const jitterWeight = 0.2;     // Jitter is 20% of the rating
+    const packetLossWeight = 0.1; // Packet loss is 10% of the rating
+
+    // Calculate Speed Rating (normalized against available bandwidth)
+    let speedRating;
+    const speedPercentage = (speed / bandwidth) * 100;
+
+    if (speedPercentage >= 90) speedRating = 5;        // Very Good
+    else if (speedPercentage >= 70) speedRating = 4;   // Good
+    else if (speedPercentage >= 50) speedRating = 3;   // Average
+    else if (speedPercentage >= 30) speedRating = 2;   // Bad
+    else speedRating = 1;                              // Very Bad
+
+    // Calculate Latency Rating
+    let latencyRating;
+    if (latency <= 20) latencyRating = 5;        // Very Good
+    else if (latency <= 50) latencyRating = 4;   // Good
+    else if (latency <= 100) latencyRating = 3;  // Average
+    else if (latency <= 200) latencyRating = 2;  // Bad
+    else latencyRating = 1;                      // Very Bad
+
+    // Calculate Jitter Rating
+    let jitterRating;
+    if (jitter <= 20) jitterRating = 5;        // Very Good
+    else if (jitter <= 30) jitterRating = 4;   // Good
+    else if (jitter <= 50) jitterRating = 3;   // Average
+    else if (jitter <= 100) jitterRating = 2;  // Bad
+    else jitterRating = 1;                     // Very Bad
+
+    // Calculate Packet Loss Rating
+    let packetLossRating;
+    if (packetLoss <= 0.5) packetLossRating = 5;       // Very Good
+    else if (packetLoss <= 1) packetLossRating = 4;    // Good
+    else if (packetLoss <= 2) packetLossRating = 3;    // Average
+    else if (packetLoss <= 5) packetLossRating = 2;    // Bad
+    else packetLossRating = 1;                         // Very Bad
+
+    // Calculate final weighted score
+    const finalScore = (speedRating * speedWeight) +
+                       (latencyRating * latencyWeight) +
+                       (jitterRating * jitterWeight) +
+                       (packetLossRating * packetLossWeight);
+
+    // Determine overall quality based on final score
+    if (finalScore >= 4.5) return 'Very Good';
+    if (finalScore >= 3.5) return 'Good';
+    if (finalScore >= 2.5) return 'Average';
+    if (finalScore >= 1.5) return 'Bad';
+    return 'Very Bad';
+}
+
+

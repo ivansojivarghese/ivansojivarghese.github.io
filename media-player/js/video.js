@@ -679,7 +679,10 @@ function getOptimalQuality() {
 
       // MODIFY priorityQuality based on Network Speed and Bandwidth
 
-      
+      // Example usage
+      const quality = determineNetworkQuality(networkSpeed, networkBandwidth, rttVal, jitterVal, packetLossVal);
+      console.log('Network Quality:', quality);  // Output: 'Good'
+
 
       if (navigator.connection) {
         // GET RTT SCORE
