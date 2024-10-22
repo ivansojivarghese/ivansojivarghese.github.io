@@ -13,6 +13,8 @@ var avgInt = 10000;
 var networkIntRange = navigator.connection ? 30000 : 60000;
 
 var networkSpeedInt = null;
+var networkQuality = "";
+var networkQualityRange = 0;
 
 var rtt = 0,
     downlink = 0,

@@ -680,8 +680,27 @@ function getOptimalQuality() {
       // MODIFY priorityQuality based on Network Speed and Bandwidth
 
       const quality = determineNetworkQuality(networkSpeed, networkBandwidth, rttVal, jitterVal, packetLossVal);
-      console.log('Network Quality:', quality);  
+      networkQuality = quality;
+      switch (networkQuality) {
+        case 'Very Good':
+          networkQualityRange = 1;
+        break;
+        case 'Good':
+          networkQualityRange = 0.75;
+        break;
+        case 'Average':
+          networkQualityRange = 0.5;
+        break;
+        case 'Bad':
+          networkQualityRange = 0.25;
+        break;
+        case 'Very Bad':
+          networkQualityRange = 0;
+        break;
+      }
+      // console.log('Network Quality:', quality);  
 
+      //////////////
 
       if (navigator.connection) {
         // GET RTT SCORE
@@ -724,10 +743,10 @@ function getOptimalQuality() {
 
       // FINAL SCORE
       if (navigator.connection) {
-        videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore;
+        videoStreamScore = rttScore * downlinkScore * saveDataScore * effectiveTypeScore * networkQualityRange;
         videoStreamScore = (videoStreamScore > 1) ? 1 : videoStreamScore;
       } else {
-        videoStreamScore = 1;
+        videoStreamScore = networkQualityRange;
       }
 
       // TARGET QUALITY
