@@ -1841,10 +1841,13 @@
 
       controller = new AbortController();
       signal = controller.signal;
-      /*
+      
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
-      }*/
+      }
+
+      getNetworkInfo();
+      estimateNetworkSpeed();
 
       if (!loading && !bufferingDetected && !framesStuck) {
         statusIndicator.classList.remove("error");
@@ -1912,10 +1915,13 @@
 
       controller = new AbortController();
       signal = controller.signal;
-      /*
+      
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
-      }*/
+      }
+
+      getNetworkInfo();
+      estimateNetworkSpeed();
 
       // if (videoPlay && audio.src) {
 
@@ -2541,11 +2547,11 @@
         } else {
           // start intervals to get network info
           if (networkSpeedInt === null) {
-              networkSpeedInt = setInterval(estimateNetworkSpeed, avgInt); 
-          }
+              networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
 
-          getNetworkInfo();
-          estimateNetworkSpeed();
+              getNetworkInfo();
+              estimateNetworkSpeed();
+          }
           
           audio.volume = 1; 
           if (backgroundPlay) {
