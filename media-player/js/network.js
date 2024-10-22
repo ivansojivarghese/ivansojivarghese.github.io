@@ -22,9 +22,19 @@ var rtt = 0,
     saveData = null,
     networkError = false;
 
+/////
+
+var jitterVal = 0,
+    packetLossVal = 0,
+    rttVal = 0;
+
+/////
+
 // Usage example
 let testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
 let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
+
+let pingFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/onlineResourceLocator.jpg'; 
 
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
@@ -171,3 +181,86 @@ function measureBandwidth(url, fileSizeInBytes, callback) {
     // Start the request
     xhr.send();
 }
+
+/////////////////////////////////////
+
+let rttValues = [];
+let jitterValues = [];
+
+// Function to send a network request and measure RTT
+async function measureRTT() {
+    const start = performance.now();
+    
+    try {
+        // Send a network request
+        await fetch(pingFileUrl, { method: 'HEAD' });
+        const end = performance.now();
+        const rtt = end - start;
+        rttValues.push(rtt);
+        
+        // console.log(`RTT: ${rtt.toFixed(2)} ms`);
+
+        // Calculate jitter once we have at least 2 RTT values
+        if (rttValues.length > 1) {
+            const jitter = Math.abs(rttValues[rttValues.length - 1] - rttValues[rttValues.length - 2]);
+            jitterValues.push(jitter);
+            // console.log(`Jitter: ${jitter.toFixed(2)} ms`);
+        }
+    } catch (error) {
+        console.error('Network request failed:', error);
+    }
+}
+
+// Measure RTT and jitter multiple times
+function measureJitter(repetitions, delay) {
+    let count = 0;
+    const intervalId = setInterval(() => {
+        if (count >= repetitions) {
+            clearInterval(intervalId);
+            // Calculate the exact jitter value
+            const totalJitter = jitterValues.reduce((sum, jitter) => sum + jitter, 0);
+            const exactJitter = totalJitter / jitterValues.length;
+            const totalRtt = rttValues.reduce((sum, rtt) => sum + rtt, 0);
+            const exactRtt = totalRtt / rttValues.length;
+            jitterVal = exactJitter;
+            rttVal = exactRtt;
+            // console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
+            return;
+        }
+
+        measureRTT();
+        count++;
+    }, delay);
+}
+
+// Example usage: Measure jitter 10 times with 1-second intervals
+measureJitter(10, 1000);
+
+/////////////////////////////////////////
+
+async function measurePacketLoss(url, numPings = 10) {
+    let lostPackets = 0;
+    let successfulPings = 0;
+
+    for (let i = 0; i < numPings; i++) {
+        try {
+            const startTime = performance.now();
+            await fetch(url, { method: 'HEAD', mode: 'no-cors' }); // Use 'HEAD' to minimize data transfer
+            const endTime = performance.now();
+            successfulPings++;
+            // console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
+        } catch (error) {
+            lostPackets++;
+            // console.log(`Ping ${i + 1}: Lost`);
+        }
+    }
+
+    const packetLossPercentage = (lostPackets / numPings) * 100;
+    // console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
+    // console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
+
+    packetLossVal = packetLossPercentage;
+}
+
+// Example usage
+measurePacketLoss(pingFileUrl);

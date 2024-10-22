@@ -600,6 +600,7 @@ function getOptimalQuality() {
 
   // REFERENCE: https://www.highspeedinternet.com/resources/how-internet-connection-speeds-affect-watching-hd-youtube-videos#:~:text=It%20is%20possible%20to%20watch,the%20quality%20of%20the%20video). 
       // REFERENCE: https://support.google.com/youtube/answer/78358?hl=en 
+      // REFERENCE: https://support.google.com/youtube/answer/1722171?hl=en&authuser=0#zippy=%2Cbitrate 
 
       // REORDER SUPPORTED VIDEOS BASED ON PRIORITY OF (FASTEST) NETWORK SPEEDS
 
@@ -675,6 +676,10 @@ function getOptimalQuality() {
         priorityQuality = 8;
         
       }*/
+
+      // MODIFY priorityQuality based on Network Speed and Bandwidth
+
+      
 
       if (navigator.connection) {
         // GET RTT SCORE
