@@ -629,7 +629,7 @@ function getOptimalQuality() {
         }
       }
 
-      console.log(priorityQuality);
+      // console.log(priorityQuality);
 
       /////
       /*

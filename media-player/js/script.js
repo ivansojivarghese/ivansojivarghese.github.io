@@ -517,9 +517,11 @@
         }, 3000);*/
 
         // videoEnd = false;
+        /*
         if (networkSpeedInt === null) {
           networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
-        }
+        }*/
+
         if (bufferInt === null) {
           bufferInt = setInterval(liveBuffer, 1000/tps);
         }
@@ -1839,11 +1841,10 @@
 
       controller = new AbortController();
       signal = controller.signal;
-
+      /*
       if (networkSpeedInt === null) {
-
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
-      }
+      }*/
 
       if (!loading && !bufferingDetected && !framesStuck) {
         statusIndicator.classList.remove("error");
@@ -1911,11 +1912,10 @@
 
       controller = new AbortController();
       signal = controller.signal;
-
+      /*
       if (networkSpeedInt === null) {
-
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
-      }
+      }*/
 
       // if (videoPlay && audio.src) {
 
@@ -2077,10 +2077,10 @@
       playPauseButton.style.display = "none";
 
       bufferLoad = true;
-
+      /*
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
-      }
+      }*/
       /*
       if (bufferInt === null) {
         bufferInt = setInterval(liveBuffer, 1000/60);
