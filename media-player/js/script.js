@@ -1680,7 +1680,7 @@
 
             console.log("buffer video");
 
-            getVideoFromBuffer();
+            // getVideoFromBuffer();
 
           }
 
