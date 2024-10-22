@@ -63,8 +63,8 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                     }
                 });   
                 
-                measureJitter(pingsCount, 1000);
-                measurePacketLoss(testFileUrl);
+                // measureJitter(pingsCount, 1000);
+                // measurePacketLoss(testFileUrl);
 
                 if (networkError) {
                     
@@ -240,7 +240,7 @@ function measureJitter(repetitions, delay) {
 }
 
 // Example usage: Measure jitter 10 times with 1-second intervals
-// measureJitter(pingsCount, 1000);
+measureJitter(pingsCount, 1000);
 
 /////////////////////////////////////////
 
@@ -269,7 +269,9 @@ async function measurePacketLoss(url, numPings = pingsCount) {
 }
 
 // Example usage
-// measurePacketLoss(testFileUrl);
+measurePacketLoss(testFileUrl);
+
+/////////////////////////////////////////
 
 getNetworkInfo();
 estimateNetworkSpeed();
