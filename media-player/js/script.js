@@ -2521,6 +2521,12 @@
     document.onvisibilitychange = function() {
       if (!networkError) {
         if (document.visibilityState === 'hidden') {
+          // clear intervals
+          if (networkSpeedInt !== null) {
+              clearInterval(networkSpeedInt);
+              networkSpeedInt = null;
+          }
+
           video.style.objectFit = "";
           video.classList.remove("cover");
           if (!video.paused && !appUnload) {
@@ -2534,10 +2540,6 @@
           backgroundPlay = true;
         } else {
           // start intervals to get network info
-          if (networkSpeedInt !== null) {
-              clearInterval(networkSpeedInt);
-              networkSpeedInt = null;
-          }
           if (networkSpeedInt === null) {
               networkSpeedInt = setInterval(estimateNetworkSpeed, avgInt); 
           }
