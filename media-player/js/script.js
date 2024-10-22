@@ -2533,6 +2533,15 @@
           }
           backgroundPlay = true;
         } else {
+          // start intervals to get network info
+          if (networkSpeedInt !== null) {
+              clearInterval(networkSpeedInt);
+              networkSpeedInt = null;
+          }
+          if (networkSpeedInt === null) {
+              networkSpeedInt = setInterval(estimateNetworkSpeed, avgInt); 
+          }
+
           getNetworkInfo();
           estimateNetworkSpeed();
           
