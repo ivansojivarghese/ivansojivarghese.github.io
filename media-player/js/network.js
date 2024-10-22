@@ -185,7 +185,7 @@ function measureBandwidth(url, fileSizeInBytes, callback) {
 /////////////////////////////////////
 
 let rttValues = [];
-let jitterValues = [];
+let jitterValues = []; 
 
 // Function to send a network request and measure RTT
 async function measureRTT() {
@@ -193,7 +193,7 @@ async function measureRTT() {
     
     try {
         // Send a network request
-        await fetch(pingFileUrl, { method: 'HEAD' });
+        await fetch(testFileUrl, { method: 'HEAD' });
         const end = performance.now();
         const rtt = end - start;
         rttValues.push(rtt);
@@ -263,4 +263,4 @@ async function measurePacketLoss(url, numPings = 10) {
 }
 
 // Example usage
-measurePacketLoss(pingFileUrl);
+measurePacketLoss(testFileUrl);
