@@ -30,6 +30,11 @@ var jitterVal = 0,
 
 /////
 
+const pingsCount = 10;
+
+
+/////
+
 // Usage example
 let testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
 let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
@@ -52,11 +57,14 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 measureBandwidth(testFileUrl, fileSizeInBytes, function(bandwidth) {
                     if (bandwidth !== null) {
                         networkBandwidth = Number(bandwidth.toFixed(2));
-                        console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps, Network speed: ' + networkSpeed + ' MBps');
+                        // console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps, Network speed: ' + networkSpeed + ' MBps');
                     } else {
                         console.log('Failed to measure bandwidth');
                     }
-                });                
+                });   
+                
+                measureJitter(pingsCount, 1000);
+                measurePacketLoss(testFileUrl);
 
                 if (networkError) {
                     
@@ -130,9 +138,6 @@ function getNetworkInfo() {
     }
 }
 
-getNetworkInfo();
-estimateNetworkSpeed();
-
 if (navigator.connection) {
     navigator.connection.addEventListener('change', function() {
         getNetworkInfo();
@@ -198,13 +203,13 @@ async function measureRTT() {
         const rtt = end - start;
         rttValues.push(rtt);
         
-        // console.log(`RTT: ${rtt.toFixed(2)} ms`);
+        console.log(`RTT: ${rtt.toFixed(2)} ms`);
 
         // Calculate jitter once we have at least 2 RTT values
         if (rttValues.length > 1) {
             const jitter = Math.abs(rttValues[rttValues.length - 1] - rttValues[rttValues.length - 2]);
             jitterValues.push(jitter);
-            // console.log(`Jitter: ${jitter.toFixed(2)} ms`);
+            console.log(`Jitter: ${jitter.toFixed(2)} ms`);
         }
     } catch (error) {
         console.error('Network request failed:', error);
@@ -224,7 +229,8 @@ function measureJitter(repetitions, delay) {
             const exactRtt = totalRtt / rttValues.length;
             jitterVal = exactJitter;
             rttVal = exactRtt;
-            // console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
+            console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
+            console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
             return;
         }
 
@@ -234,11 +240,11 @@ function measureJitter(repetitions, delay) {
 }
 
 // Example usage: Measure jitter 10 times with 1-second intervals
-measureJitter(10, 1000);
+// measureJitter(pingsCount, 1000);
 
 /////////////////////////////////////////
 
-async function measurePacketLoss(url, numPings = 10) {
+async function measurePacketLoss(url, numPings = pingsCount) {
     let lostPackets = 0;
     let successfulPings = 0;
 
@@ -248,19 +254,22 @@ async function measurePacketLoss(url, numPings = 10) {
             await fetch(url, { method: 'HEAD', mode: 'no-cors' }); // Use 'HEAD' to minimize data transfer
             const endTime = performance.now();
             successfulPings++;
-            // console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
+            console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
         } catch (error) {
             lostPackets++;
-            // console.log(`Ping ${i + 1}: Lost`);
+            console.log(`Ping ${i + 1}: Lost`);
         }
     }
 
     const packetLossPercentage = (lostPackets / numPings) * 100;
-    // console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
-    // console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
+    console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
+    console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
 
     packetLossVal = packetLossPercentage;
 }
 
 // Example usage
-measurePacketLoss(testFileUrl);
+// measurePacketLoss(testFileUrl);
+
+getNetworkInfo();
+estimateNetworkSpeed();
