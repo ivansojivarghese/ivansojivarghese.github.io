@@ -35,7 +35,7 @@ var jitterVal = 0,
 /////
 
 const pingsCount = 10;
-
+const pingsInt = 60000;
 
 /////
 
@@ -85,8 +85,18 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                         clearInterval(networkSpeedInt);
                         networkSpeedInt = null;
                     }
+                    if (networkParamInt !== null) {
+                        clearInterval(networkParamInt);
+                        networkParamInt = null;
+                    }
                     if (networkSpeedInt === null) {
                         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
+                    }
+                    if (networkParamInt === null) {
+                        networkParamInt = setInterval(function() {
+                            measureJitter(pingsCount, 1000);
+                            measurePacketLoss(testFileUrl);
+                        }, pingsInt);
                     }
     
                     networkError = false;
@@ -114,8 +124,18 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 clearInterval(networkSpeedInt);
                 networkSpeedInt = null;
             }
+            if (networkParamInt !== null) {
+                clearInterval(networkParamInt);
+                networkParamInt = null;
+            }
             if (networkSpeedInt === null) {
                 networkSpeedInt = setInterval(estimateNetworkSpeed, avgInt); 
+            }
+            if (networkParamInt === null) {
+                networkParamInt = setInterval(function() {
+                    measureJitter(pingsCount, 1000);
+                    measurePacketLoss(testFileUrl);
+                }, pingsInt);
             }
         }
     }
@@ -128,7 +148,7 @@ if (networkParamInt === null) {
     networkParamInt = setInterval(function() {
         measureJitter(pingsCount, 1000);
         measurePacketLoss(testFileUrl);
-    }, 60000); 
+    }, pingsInt); 
 }
 
 function timeToSeconds(txt) { // REFERENCE: https://javascript.plainenglish.io/how-to-convert-hh-mm-ss-time-string-to-seconds-only-in-javascript-e11a0a4726d2#:~:text=Convert%20HH%3AMM%3ASS%20Time%20String%20to%20Seconds%20Only%20in%20JavaScript,-We%20can%20convert&text=const%20hms%20%3D%20'02%3A04,)%20*%2060%20%2B%20(%2Bseconds)%3B

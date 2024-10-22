@@ -517,10 +517,7 @@
         }, 3000);*/
 
         // videoEnd = false;
-        /*
-        if (networkSpeedInt === null) {
-          networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
-        }*/
+        
 
         if (bufferInt === null) {
           bufferInt = setInterval(liveBuffer, 1000/tps);
@@ -668,6 +665,8 @@
 
       clearInterval(networkSpeedInt);
       networkSpeedInt = null;
+      clearInterval(networkParamInt);
+      networkParamInt = null;
       clearInterval(bufferInt);
       bufferInt = null;
       clearInterval(bestVideoInt);
@@ -1296,6 +1295,9 @@
 
         clearInterval(networkSpeedInt);
         networkSpeedInt = null;
+
+        clearInterval(networkParamInt);
+        networkParamInt = null;
         // controller.abort();
 
         loading = true;
@@ -1436,6 +1438,9 @@
 
       clearInterval(networkSpeedInt);
       networkSpeedInt = null;
+
+      clearInterval(networkParamInt);
+      networkParamInt = null;
       // controller.abort();
 
       statusIndicator.classList.remove("error");
@@ -1469,7 +1474,10 @@
       offset = (checkInterval - 20) / 1000;
 
       clearInterval(networkSpeedInt);
-        networkSpeedInt = null;
+      networkSpeedInt = null;
+
+      clearInterval(networkParamInt);
+      networkParamInt = null;
         // controller.abort();
       
       statusIndicator.classList.remove("error");
@@ -1502,7 +1510,10 @@
       offset = (checkInterval - 20) / 1000;
 
       clearInterval(networkSpeedInt);
-        networkSpeedInt = null;
+      networkSpeedInt = null;
+
+      clearInterval(networkParamInt);
+      networkParamInt = null;
         // controller.abort();
       
       statusIndicator.classList.remove("error");
@@ -1536,6 +1547,9 @@
 
       clearInterval(networkSpeedInt);
       networkSpeedInt = null;
+
+      clearInterval(networkParamInt);
+      networkParamInt = null;
       // controller.abort();
 
       statusIndicator.classList.remove("error");
@@ -1845,6 +1859,12 @@
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
       }
+      if (networkParamInt === null) {
+        networkParamInt = setInterval(function() {
+            measureJitter(pingsCount, 1000);
+            measurePacketLoss(testFileUrl);
+        }, pingsInt);
+      }   
 
       getNetworkInfo();
       estimateNetworkSpeed();
@@ -1918,6 +1938,12 @@
       
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
+      }
+      if (networkParamInt === null) {
+        networkParamInt = setInterval(function() {
+            measureJitter(pingsCount, 1000);
+            measurePacketLoss(testFileUrl);
+        }, pingsInt);
       }
 
       getNetworkInfo();
@@ -2179,6 +2205,10 @@
             video.play().then(function() {
               if (audio.src) {
                 audio.play();
+
+                setInterval(function() {
+                  console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+                }, 100);
               }
             });
 
@@ -2532,6 +2562,10 @@
               clearInterval(networkSpeedInt);
               networkSpeedInt = null;
           }
+          if (networkParamInt !== null) {
+            clearInterval(networkParamInt);
+            networkParamInt = null;
+          }
 
           video.style.objectFit = "";
           video.classList.remove("cover");
@@ -2551,6 +2585,15 @@
 
               getNetworkInfo();
               estimateNetworkSpeed();
+          }
+          if (networkParamInt === null) {
+            networkParamInt = setInterval(function() {
+                measureJitter(pingsCount, 1000);
+                measurePacketLoss(testFileUrl);
+            }, pingsInt);
+
+            measureJitter(pingsCount, 1000);
+            measurePacketLoss(testFileUrl);
           }
           
           audio.volume = 1; 
