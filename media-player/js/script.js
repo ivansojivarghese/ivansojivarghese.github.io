@@ -1312,6 +1312,10 @@
         loading = true;
         bufferingDetected = true;
 
+        loadingRing.style.display = "block";
+        playPauseButton.style.display = "none";
+        showVideoControls();
+
         video.classList.add('seeking');
         seekingLoad = true;
 
@@ -2192,6 +2196,10 @@
 
     audio.addEventListener('seeking', function() {
       audioRun = true;
+
+      loadingRing.style.display = "block";
+      playPauseButton.style.display = "none";
+      showVideoControls();
     });
 
     audio.addEventListener('canplay', function() {
