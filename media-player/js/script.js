@@ -1210,8 +1210,8 @@
             } else {
               skipTime = 0;
             }
-            // seekForwardTextSec.innerHTML = forwardSkippedTime;
-            seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
+            seekForwardTextSec.innerHTML = forwardSkippedTime;
+            // seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
             clearTimeout(controlsHideInt);
             clearTimeout(seekForwardHideInt);
             seekForwardHideInt = null;
@@ -1244,8 +1244,8 @@
                 forwardSkippedTime = 0;
                 setTimeout(function() {
                   // forwardSkippedTime = 0;
-                  // seekForwardTextSec.innerHTML = forwardSkippedTime;
-                  seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
+                  seekForwardTextSec.innerHTML = forwardSkippedTime;
+                  // seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
                 }, 300);
               }, 1000);
             }
@@ -1279,8 +1279,8 @@
             seekForwardText.classList.remove('show');
             setTimeout(function() {
               forwardSkippedTime = 0;
-              // seekForwardTextSec.innerHTML = forwardSkippedTime;
-              seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
+              seekForwardTextSec.innerHTML = forwardSkippedTime;
+              // seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
             }, 300);
             seekBackwardText.classList.add('show');
 
