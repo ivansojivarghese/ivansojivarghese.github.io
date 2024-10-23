@@ -1169,13 +1169,36 @@
       }
     }
 
+    function seekSecondsOutput(s) {
+      // Convert the number to a string to handle each digit
+      const numberStr = s.toString();
+      
+      // Create an array to hold the span elements
+      let spanArray = [];
+  
+      // Loop through each character (digit) in the string
+      for (let i = 0; i < numberStr.length; i++) {
+          // Create a span element and set its text content to the current digit
+          let span = document.createElement('span');
+          span.classList.add("digit");
+          span.textContent = numberStr[i];
+          
+          // Append the span element to the array
+          spanArray.push(span);
+      }
+  
+      // Return the array of span elements
+      const outputSpan = document.createElement('span');
+      spanArray.forEach(span => outputSpan.appendChild(span));
+
+      return outputSpan;
+  }
+
     function seekForward(m) {
 
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
         if ((videoControls.classList.contains('visible') || m) && video.src !== "" && /*!videoEnd*/ (video.currentTime < (video.duration - skipTime)) && !qualityBestChange && !audioVideoAligning && !networkError && seekAllow) {
-            //forwardSkippedTime = 0;
-            //seekForwardTextSec.innerHTML = forwardSkippedTime;
 
             playPauseButton.classList.remove('repeat');
 
@@ -1187,7 +1210,8 @@
             } else {
               skipTime = 0;
             }
-            seekForwardTextSec.innerHTML = forwardSkippedTime;
+            // seekForwardTextSec.innerHTML = forwardSkippedTime;
+            seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
             clearTimeout(controlsHideInt);
             clearTimeout(seekForwardHideInt);
             seekForwardHideInt = null;
@@ -1220,7 +1244,8 @@
                 forwardSkippedTime = 0;
                 setTimeout(function() {
                   // forwardSkippedTime = 0;
-                  seekForwardTextSec.innerHTML = forwardSkippedTime;
+                  // seekForwardTextSec.innerHTML = forwardSkippedTime;
+                  seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
                 }, 300);
               }, 1000);
             }
@@ -1254,7 +1279,8 @@
             seekForwardText.classList.remove('show');
             setTimeout(function() {
               forwardSkippedTime = 0;
-              seekForwardTextSec.innerHTML = forwardSkippedTime;
+              // seekForwardTextSec.innerHTML = forwardSkippedTime;
+              seekForwardTextSec.innerHTML = seekSecondsOutput(forwardSkippedTime);
             }, 300);
             seekBackwardText.classList.add('show');
 

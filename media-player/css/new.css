@@ -196,6 +196,12 @@ video.seeking {
     display: inline-block;
     text-align: center;
     font-weight: bold;
+    letter-spacing: 0.05rem;
+}
+
+.seconds .digit {
+    display: inline-block;
+    width: 0.05rem;
 }
 
 .seekText.forward .seconds {
