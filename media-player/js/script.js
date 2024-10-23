@@ -2677,9 +2677,11 @@
             networkParamInt = null;
           }
 
-          controller.abort();
-          controllerRTT.abort();
-          controllerPacket.abort();
+          if (video.src !== "") {
+            controller.abort();
+            controllerRTT.abort();
+            controllerPacket.abort();
+          }
 
           video.style.objectFit = "";
           video.classList.remove("cover");
