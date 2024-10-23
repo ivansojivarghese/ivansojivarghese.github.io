@@ -670,8 +670,10 @@
       playPauseButton.classList.remove('playing');
       playPauseButton.classList.add('repeat');
 
-      clearInterval(networkSpeedInt);
-      networkSpeedInt = null;
+      if (!networkError) {
+        clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+      }
       clearInterval(networkParamInt);
       networkParamInt = null;
       clearInterval(bufferInt);
@@ -1331,9 +1333,10 @@
 
         videoRun = true;
 
-        clearInterval(networkSpeedInt);
-        networkSpeedInt = null;
-
+        if (!networkError) {
+          clearInterval(networkSpeedInt);
+          networkSpeedInt = null;
+        }
         clearInterval(networkParamInt);
         networkParamInt = null;
 
@@ -1481,9 +1484,10 @@
 
       offset = (checkInterval - 20) / 1000;
 
-      clearInterval(networkSpeedInt);
-      networkSpeedInt = null;
-
+      if (!networkError) {
+        clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+      }
       clearInterval(networkParamInt);
       networkParamInt = null;
 
@@ -1521,9 +1525,10 @@
 
       offset = (checkInterval - 20) / 1000;
 
-      clearInterval(networkSpeedInt);
-      networkSpeedInt = null;
-
+      if (!networkError) {
+        clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+      }
       clearInterval(networkParamInt);
       networkParamInt = null;
       
@@ -1560,9 +1565,10 @@
     audio.addEventListener('stalled', function() {
       offset = (checkInterval - 20) / 1000;
 
-      clearInterval(networkSpeedInt);
-      networkSpeedInt = null;
-
+      if (!networkError) {
+        clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+      }
       clearInterval(networkParamInt);
       networkParamInt = null;
       
@@ -1604,9 +1610,10 @@
     audio.addEventListener('waiting', function() {
       offset = (checkInterval - 20) / 1000;
 
-      clearInterval(networkSpeedInt);
-      networkSpeedInt = null;
-
+      if (!networkError) {
+        clearInterval(networkSpeedInt);
+        networkSpeedInt = null;
+      }
       clearInterval(networkParamInt);
       networkParamInt = null;
       
@@ -2676,8 +2683,10 @@
         if (document.visibilityState === 'hidden') {
           // clear intervals
           if (networkSpeedInt !== null) {
+            if (!networkError) {
               clearInterval(networkSpeedInt);
               networkSpeedInt = null;
+            }
           }
           if (networkParamInt !== null) {
             clearInterval(networkParamInt);
