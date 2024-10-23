@@ -38,7 +38,7 @@
     var seekForwardHideInt = null;
     var seekBackwardHideInt = null;
     var skipTime = 10;
-    var maxTime = 9999;
+    var maxTime = 999;
     var forwardSkippedTime = 0;
     var backwardSkippedTime = 0;
 
@@ -1554,7 +1554,7 @@
       loading = true;
       bufferLoad = true;
 
-      console.log("pause", audio.paused);
+      // console.log("pause", audio.paused);
       if (audio.paused) {
         video.pause();
       }
@@ -1595,7 +1595,7 @@
       loading = true;
       bufferLoad = true;
 
-      console.log("pause", audio.paused);
+      // console.log("pause", audio.paused);
       if (audio.paused) {
         video.pause();
       }
