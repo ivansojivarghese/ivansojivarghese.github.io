@@ -198,7 +198,7 @@
           showVideoControls();
         }  
 
-        if (!loading && !bufferingDetected && bufferLoad && !framesStuck) {
+        if (!loading && !bufferingDetected && bufferLoad && !framesStuck && !seeking) {
             bufferLoad = false;
             
             statusIndicator.classList.remove("buffer");
