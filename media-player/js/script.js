@@ -508,7 +508,7 @@
 
       if (videoPlay) {
 
-        if (!qualityBestChange) {
+        if (!qualityBestChange && !qualityChange) {
           bufferAllow = true;
         } 
         /*
@@ -613,7 +613,7 @@
 
     video.addEventListener('pause', function () {
 
-      if (!qualityBestChange) {
+      if (!qualityBestChange && !qualityChange) {
 
         bufferStartTime = 0;
         bufferEndTime = 0;
@@ -1881,7 +1881,7 @@
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
-      if (((p <= 0 && ((newTargetQuality < targetQuality) || (newIndex > targetVideoIndex))) || (p > 0.1 && ((newTargetQuality > targetQuality) || (newIndex < targetVideoIndex)))) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && !backgroundPlay && !pipEnabled && !qualityBestChange && !preventQualityChange) { // if same quality rating as previous
+      if (((p <= 0 && ((newTargetQuality < targetQuality) || (newIndex > targetVideoIndex))) || (p > 0.1 && ((newTargetQuality > targetQuality) || (newIndex < targetVideoIndex)))) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && !backgroundPlay && !pipEnabled && !qualityBestChange && !qualityChange && !preventQualityChange) { // if same quality rating as previous
         
         targetVideo = null;
 
