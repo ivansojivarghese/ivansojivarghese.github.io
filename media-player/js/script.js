@@ -1803,6 +1803,7 @@
       if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad)))) {
 
         if (newTargetQuality === targetQuality) { // if same quality rating as previous
+          /*
           do { // ensure that same res. is not picked again
             index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
             if (targetVideoSources[index]) { // if available
@@ -1811,14 +1812,17 @@
             }
             mod++;
           } while ((targetVideoSources[index].height === targetVideo.height) && targetVideoSources[index + mod]);
+           */
+
         } else { // otherwise, if different quality rating
 
-          // targetVideo = null;
+          targetVideo = null;
 
-          // console.log("get video again");
+          console.log("get video again");
 
           targetQuality = newTargetQuality;
           getVideoFromIndex(false); // loop qualities to get video again
+
         }
 
         refSeekTime = video.currentTime;
@@ -1828,8 +1832,8 @@
 
         qualityChange = true;
 
-        if (!videoEnd && !preventRefetch) {
-          // console.log("load again");
+        if (!videoEnd && !preventRefetch && video.src !== targetVideo.url) {
+          console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
         }
 
