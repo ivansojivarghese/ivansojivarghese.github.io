@@ -1431,7 +1431,7 @@
     });
 
     video.addEventListener("suspend", (event) => {
-      console.log("Data loading has been suspended.");
+      // console.log("Data loading has been suspended.");
     });
 
     var seekAllow = true;
@@ -1761,7 +1761,7 @@
 
             console.log("buffer video");
 
-            // getVideoFromBuffer();
+            getVideoFromBuffer();
 
           }
 
@@ -1815,10 +1815,10 @@
 
           // targetVideo = null;
 
-          console.log("get video again");
+          // console.log("get video again");
 
           targetQuality = newTargetQuality;
-          // getVideoFromIndex(false); // loop qualities to get video again
+          getVideoFromIndex(false); // loop qualities to get video again
         }
 
         refSeekTime = video.currentTime;
@@ -1829,8 +1829,8 @@
         qualityChange = true;
 
         if (!videoEnd && !preventRefetch) {
-          console.log("load again");
-          // video.src = targetVideo.url; // 'loadstart'
+          // console.log("load again");
+          video.src = targetVideo.url; // 'loadstart'
         }
 
         bufferAllow = false;
@@ -1977,6 +1977,7 @@
       bufferEndTime = new Date().getTime();
       bufferModeExe = false;
 
+      /*
       if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit && !seeking && !seekingLoad) {
         
         bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
@@ -1995,7 +1996,8 @@
 
           console.log("buffer video");
         }
-      }
+      }*/
+
     });
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
@@ -2071,7 +2073,8 @@
               bufferMode = false;
               bufferEndTime = new Date().getTime();
               bufferModeExe = false;
-
+              
+              /*
               if (bufferStartTime !== 0 && !loading && !videoLoad && bufferingDetected && !backgroundPlayInit && !seeking && !seekingLoad) {
                 
                 bufferingTimes[bufferingTimes.length] = bufferEndTime - bufferStartTime;
@@ -2090,7 +2093,7 @@
 
                   console.log("buffer video");
                 }
-              }
+              }*/
 
               // videoPause = true;
 
