@@ -1749,7 +1749,7 @@
               bufferCount++;
             }
           }
-          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && bufferAllow && qualityChange) {
+          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && bufferAllow && !qualityChange) {
 
             bufferingCount = [];
             bufferCount = 0;
