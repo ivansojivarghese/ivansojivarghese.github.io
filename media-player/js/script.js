@@ -1541,7 +1541,12 @@
       loading = true;
       bufferLoad = true;
 
-      video.pause();
+      console.log("pause", audio.paused);
+      if (audio.paused) {
+        video.pause();
+      }
+
+      // video.pause();
       // videoPause = false;
     }); 
 
@@ -1577,7 +1582,12 @@
       loading = true;
       bufferLoad = true;
 
-      video.pause();
+      console.log("pause", audio.paused);
+      if (audio.paused) {
+        video.pause();
+      }
+
+      // video.pause();
       // videoPause = false;
     });
 
@@ -1952,6 +1962,9 @@
       getNetworkInfo();
       estimateNetworkSpeed();
 
+      // console.log("play");
+      audio.play();
+
       // if (videoPlay && audio.src) {
 
         // audio.play().then(function() {
@@ -2210,7 +2223,7 @@
                 audio.play();
 
                 setInterval(function() {
-                  console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+                  // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
                 }, 100);
               }
             });
