@@ -245,7 +245,7 @@
       // event.stopPropagation();
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
-      if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityChange && !qualityBestChange && !networkError) {
+      if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityChange && !qualityBestChange) {
 
         if (video.paused && video.src !== "" && videoPlay && !videoRun && !audioRun) {
 
@@ -506,7 +506,7 @@
 
     video.addEventListener('play', function () {
 
-      if (videoPlay && !networkError) {
+      if (videoPlay) {
 
         if (!qualityBestChange) {
           bufferAllow = true;
@@ -613,7 +613,7 @@
 
     video.addEventListener('pause', function () {
 
-      if (!qualityBestChange && !networkError) {
+      if (!qualityBestChange) {
 
         bufferStartTime = 0;
         bufferEndTime = 0;
@@ -659,11 +659,11 @@
     });
 
     audio.addEventListener('play', function () {
-      if (!networkError) {
+      // if (!networkError) {
           audio.volume = 1;
           navigator.mediaSession.playbackState = 'playing';
           getScreenLock();
-      }
+      // }
     });
 
     video.addEventListener('ended', function() {
@@ -786,7 +786,7 @@
       setTimeout(function() {
         videoControls.classList.add('visible_ready');
       }, 200);
-      if (!qualityChange && !qualityBestChange && !networkError) {
+      if (!qualityChange && !qualityBestChange) {
         videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
       }
@@ -1158,7 +1158,7 @@
     }
 
     function playPrevious(m) {
-      if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !audioVideoAligning && !networkError) {
+      if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !qualityChange && !audioVideoAligning) {
 
         // FIRST INSTANCE (seek to the front)
         video.currentTime = 0;
@@ -1198,7 +1198,7 @@
 
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && /*!videoEnd*/ (video.currentTime < (video.duration - skipTime)) && !qualityBestChange && !audioVideoAligning && !networkError && seekAllow) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && /*!videoEnd*/ (video.currentTime < (video.duration - skipTime)) && !qualityBestChange && !qualityChange && !audioVideoAligning && seekAllow) {
 
             playPauseButton.classList.remove('repeat');
 
@@ -1256,7 +1256,7 @@
       
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
-        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && (video.currentTime > (skipTime)) && !qualityBestChange && !audioVideoAligning && !networkError && seekAllow) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && (video.currentTime > (skipTime)) && !qualityBestChange && !qualityChange && !audioVideoAligning && seekAllow) {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
 
@@ -1401,7 +1401,7 @@
         }
         setTimeout(function() {
             video.classList.remove('seeking');
-            if (!audio.paused && !pipEnabled && !networkError && document.visibilityState === 'visible') {
+            if (!audio.paused && !pipEnabled && document.visibilityState === 'visible') {
               backgroundPlayInit = false;
             }
         }, 300);

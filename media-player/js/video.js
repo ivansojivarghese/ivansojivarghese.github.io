@@ -62,7 +62,7 @@ var dpr = window.devicePixelRatio,
 
 const actionHandlers = [
   ['play',          async () => { 
-                                  if (videoPlay && !qualityChange && !qualityBestChange && !networkError && !videoRun && !audioRun) {
+                                  if (videoPlay && !qualityChange && !qualityBestChange && !videoRun && !audioRun) {
 
                                     if (videoEnd) { 
                                       video.currentTime = 0;
@@ -162,7 +162,7 @@ const actionHandlers = [
                             }
                           }
   ],
-  ['previoustrack', (details) => { if (!qualityBestChange && !qualityChange && !networkError) { playPrevious(true); updatePositionState(); } }],
+  ['previoustrack', (details) => { if (!qualityBestChange && !qualityChange) { playPrevious(true); updatePositionState(); } }],
   /*['nexttrack',     () => { }],*/
   ['stop',          () => { video.src = ""; 
                                 // Reset position state when media is reset.
@@ -175,9 +175,9 @@ const actionHandlers = [
                               }
                             } 
                           }],
-  ['seekbackward',  (details) => { if (!qualityBestChange && !qualityChange && !networkError && seekAllow) { seekBackward(true); updatePositionState(); } } ],
-  ['seekforward',   (details) => { if (!qualityBestChange && !qualityChange && !networkError && seekAllow) { seekForward(true); updatePositionState(); } } ],
-  ['seekto',        (details) => { if (!qualityBestChange && !qualityChange && !networkError && seekAllow) {
+  ['seekbackward',  (details) => { if (!qualityBestChange && !qualityChange && seekAllow) { seekBackward(true); updatePositionState(); } } ],
+  ['seekforward',   (details) => { if (!qualityBestChange && !qualityChange && seekAllow) { seekForward(true); updatePositionState(); } } ],
+  ['seekto',        (details) => { if (!qualityBestChange && !qualityChange && seekAllow) {
                                       if (details.fastSeek && ('fastSeek' in video || ('fastSeek' in audio && backgroundPlay))) {
                                         // Only use fast seek if supported.
                                         if (backgroundPlay) {
