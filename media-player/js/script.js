@@ -1922,6 +1922,12 @@
 
       controller = new AbortController();
       signal = controller.signal;
+
+      controllerRTT = new AbortController();
+      signalRTT = controllerRTT.signal;
+
+      controllerPacket = new AbortController();
+      signalPacket = controllerPacket.signal;
       
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
@@ -2002,6 +2008,12 @@
 
       controller = new AbortController();
       signal = controller.signal;
+
+      controllerRTT = new AbortController();
+      signalRTT = controllerRTT.signal;
+
+      controllerPacket = new AbortController();
+      signalPacket = controllerPacket.signal;
       
       if (networkSpeedInt === null) {
         networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
@@ -2697,6 +2709,15 @@
             measureJitter(pingsCount, 1000);
             measurePacketLoss(pingFileUrl);
           }
+
+          controller = new AbortController();
+          signal = controller.signal;
+
+          controllerRTT = new AbortController();
+          signalRTT = controllerRTT.signal;
+
+          controllerPacket = new AbortController();
+          signalPacket = controllerPacket.signal;
           
           audio.volume = 1; 
           if (backgroundPlay) {
