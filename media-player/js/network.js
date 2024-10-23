@@ -118,6 +118,12 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             controller = new AbortController();
             signal = controller.signal;
 
+            controllerRTT = new AbortController();
+            signalRTT = controllerRTT.signal;
+
+            controllerPacket = new AbortController();
+            signalPacket = controllerPacket.signal;
+
             networkError = true;
 
             networkBandwidth = -1;
