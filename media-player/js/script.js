@@ -1944,7 +1944,7 @@
       }   
 
       getNetworkInfo();
-      estimateNetworkSpeed();
+      // estimateNetworkSpeed();
 
       if (!loading && !bufferingDetected && !framesStuck) {
         statusIndicator.classList.remove("error");
@@ -2032,7 +2032,7 @@
       }
 
       getNetworkInfo();
-      estimateNetworkSpeed();
+      // estimateNetworkSpeed();
 
       // console.log("play");
       audio.play();
@@ -2707,7 +2707,7 @@
               networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
 
               getNetworkInfo();
-              estimateNetworkSpeed();
+              // estimateNetworkSpeed();
           }
           if (networkParamInt === null) {
             networkParamInt = setInterval(function() {
@@ -2715,8 +2715,8 @@
                 measurePacketLoss(pingFileUrl);
             }, pingsInt);
 
-            measureJitter(pingsCount, 1000);
-            measurePacketLoss(pingFileUrl);
+            // measureJitter(pingsCount, 1000);
+            // measurePacketLoss(pingFileUrl);
           }
 
           controller = new AbortController();
