@@ -1749,7 +1749,7 @@
               bufferCount++;
             }
           }
-          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && bufferAllow) {
+          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && bufferAllow && qualityChange) {
 
             bufferingCount = [];
             bufferCount = 0;
@@ -1803,7 +1803,7 @@
       if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad)))) {
 
         if (newTargetQuality === targetQuality) { // if same quality rating as previous
-          
+
           do { // ensure that same res. is not picked again
             index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
             if (targetVideoSources[index]) { // if available
