@@ -6,8 +6,18 @@ var networkSpeed = 0;
 var networkBandwidth = 0;
 var networkSpeedClose = false;
 
+////////////
+
 var controller = new AbortController();
 var signal = controller.signal;
+
+var controllerRTT = new AbortController();
+var signalRTT = controllerRTT.signal;
+
+var controllerPacket = new AbortController();
+var signalPacket = controllerPacket.signal;
+
+////////////
 
 var avgInt = 10000;
 var networkIntRange = navigator.connection ? 30000 : 60000;
@@ -225,7 +235,7 @@ async function measureRTT() {
     
     try {
         // Send a network request
-        await fetch(pingFileUrl, { method: 'HEAD', signal : controller.signal });
+        await fetch(pingFileUrl, { method: 'HEAD', signal : controllerRTT.signal });
         const end = performance.now();
         const rtt = end - start;
         rttValues.push(rtt);
@@ -278,7 +288,7 @@ async function measurePacketLoss(url, numPings = pingsCount) {
     for (let i = 0; i < numPings; i++) {
         try {
             const startTime = performance.now();
-            await fetch(url, { method: 'HEAD', mode: 'no-cors', signal : controller.signal }); // Use 'HEAD' to minimize data transfer
+            await fetch(url, { method: 'HEAD', mode: 'no-cors', signal : controllerPacket.signal }); // Use 'HEAD' to minimize data transfer
             const endTime = performance.now();
             successfulPings++;
             //console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
