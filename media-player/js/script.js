@@ -1865,7 +1865,7 @@
       if (networkParamInt === null) {
         networkParamInt = setInterval(function() {
             measureJitter(pingsCount, 1000);
-            measurePacketLoss(testFileUrl);
+            measurePacketLoss(pingFileUrl);
         }, pingsInt);
       }   
 
@@ -1945,7 +1945,7 @@
       if (networkParamInt === null) {
         networkParamInt = setInterval(function() {
             measureJitter(pingsCount, 1000);
-            measurePacketLoss(testFileUrl);
+            measurePacketLoss(pingFileUrl);
         }, pingsInt);
       }
 
@@ -2592,11 +2592,11 @@
           if (networkParamInt === null) {
             networkParamInt = setInterval(function() {
                 measureJitter(pingsCount, 1000);
-                measurePacketLoss(testFileUrl);
+                measurePacketLoss(pingFileUrl);
             }, pingsInt);
 
             measureJitter(pingsCount, 1000);
-            measurePacketLoss(testFileUrl);
+            measurePacketLoss(pingFileUrl);
           }
           
           audio.volume = 1; 

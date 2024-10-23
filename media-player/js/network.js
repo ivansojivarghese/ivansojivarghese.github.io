@@ -43,14 +43,14 @@ const pingsInt = 60000;
 let testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
 let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
 
-let pingFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/onlineResourceLocator.jpg'; 
+let pingFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/onlineResourceLocator.png'; 
 
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
         if (!networkSpeedClose) {
 
             var startTime = new Date().getTime(); // start time of fetch
-            const online = await fetch("https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg", { // send a 'ping' signal to resource locator
+            const online = await fetch(testFileUrl, { // send a 'ping' signal to resource locator
                 cache : "no-store",
                 priority : "low",
                 signal : controller.signal
@@ -66,9 +66,6 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                         console.log('Failed to measure bandwidth');
                     }
                 });   
-                
-                // measureJitter(pingsCount, 1000);
-                // measurePacketLoss(testFileUrl);
 
                 if (networkError) {
                     
@@ -95,7 +92,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                     if (networkParamInt === null) {
                         networkParamInt = setInterval(function() {
                             measureJitter(pingsCount, 1000);
-                            measurePacketLoss(testFileUrl);
+                            measurePacketLoss(pingFileUrl);
                         }, pingsInt);
                     }
     
@@ -134,7 +131,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             if (networkParamInt === null) {
                 networkParamInt = setInterval(function() {
                     measureJitter(pingsCount, 1000);
-                    measurePacketLoss(testFileUrl);
+                    measurePacketLoss(pingFileUrl);
                 }, pingsInt);
             }
         }
@@ -147,7 +144,7 @@ if (networkSpeedInt === null) {
 if (networkParamInt === null) {
     networkParamInt = setInterval(function() {
         measureJitter(pingsCount, 1000);
-        measurePacketLoss(testFileUrl);
+        measurePacketLoss(pingFileUrl);
     }, pingsInt); 
 }
 
@@ -228,7 +225,7 @@ async function measureRTT() {
     
     try {
         // Send a network request
-        await fetch(testFileUrl, { method: 'HEAD' });
+        await fetch(pingFileUrl, { method: 'HEAD' });
         const end = performance.now();
         const rtt = end - start;
         rttValues.push(rtt);
@@ -299,7 +296,7 @@ async function measurePacketLoss(url, numPings = pingsCount) {
 }
 
 // Example usage
-measurePacketLoss(testFileUrl);
+measurePacketLoss(pingFileUrl);
 
 /////////////////////////////////////////
 
