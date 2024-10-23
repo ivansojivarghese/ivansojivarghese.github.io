@@ -533,7 +533,7 @@
 
         if (!playPauseManual) {
           if (audio.src) {
-            console.log(seeking + ", " + seekingLoad + ", " + longTap);
+            // console.log(seeking + ", " + seekingLoad + ", " + longTap);
             if (!seeking && !seekingLoad && !longTap) {
               audio.play().then(function() {
                 if (videoEnd) {
@@ -635,8 +635,12 @@
           backgroundPlay = true;
           backgroundPlayInit = true;
         }
-        if (!audioVideoAligning) {
+        if (!audioVideoAligning && !bufferLoad) {
           playPauseButton.classList.remove('playing');
+          showVideoControls();
+        } else if (bufferLoad) {
+          loadingRing.style.display = "block";
+          playPauseButton.style.display = "none";
           showVideoControls();
         }
         navigator.mediaSession.playbackState = 'paused';
