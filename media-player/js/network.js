@@ -179,6 +179,8 @@ if (navigator.connection) {
     navigator.connection.addEventListener('change', function() {
         getNetworkInfo();
         estimateNetworkSpeed();
+        measureJitter(pingsCount, 1000);
+        measurePacketLoss(pingFileUrl);
     });
 }
 
