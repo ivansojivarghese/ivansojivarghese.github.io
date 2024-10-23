@@ -247,7 +247,7 @@
       controlsHideInt = null;
       if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityChange && !qualityBestChange && !networkError) {
 
-        if (video.paused && video.src !== "" && videoPlay) {
+        if (video.paused && video.src !== "" && videoPlay && !videoRun && !audioRun) {
 
           playPauseManual = true;
 
@@ -838,7 +838,7 @@
           }
         }
       } else if (event.target === videoControls) {
-        if (video.paused && video.src !== "" && videoPlay) {
+        if (video.paused && video.src !== "" && videoPlay && !videoRun && !audioRun) {
 
           video.play().then(function () {
             // audioCtx = new AudioContext();
@@ -1064,6 +1064,8 @@
         audioStall = false;
         audioVideoAligning = false;
         setTimeout(function() {
+          if (!videoRun && !audioRun) {
+
           audio.play().then(function() {
             if (!getAudioContext) {
               audioCtx = new AudioContext();
@@ -1146,6 +1148,7 @@
 
             loading = false;*/
           });
+        }
         }, 100);
       }
 
@@ -2253,15 +2256,18 @@
               showVideoControls();
             }
 
-            video.play().then(function() {
-              if (audio.src) {
-                audio.play();
+            if (!videoRun && !audioRun) {
 
-                setInterval(function() {
-                  // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
-                }, 100);
-              }
-            });
+              video.play().then(function() {
+                if (audio.src) {
+                  audio.play();
+
+                  setInterval(function() {
+                    // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+                  }, 100);
+                }
+              });
+            }  
 
             /*
             audio.play().then(function () {
@@ -2671,7 +2677,7 @@
               if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
                 hideVideoControls();
               }
-          } else if (video.paused && !videoEnd && video.src !== "" && videoPlay) {
+          } else if (video.paused && !videoEnd && video.src !== "" && videoPlay && !videoRun && !audioRun) {
             if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
               hideVideoControls();
             }

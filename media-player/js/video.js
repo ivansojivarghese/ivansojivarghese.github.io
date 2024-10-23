@@ -62,7 +62,7 @@ var dpr = window.devicePixelRatio,
 
 const actionHandlers = [
   ['play',          async () => { 
-                                  if (videoPlay && !qualityChange && !qualityBestChange && !networkError) {
+                                  if (videoPlay && !qualityChange && !qualityBestChange && !networkError && !videoRun && !audioRun) {
 
                                     if (videoEnd) { 
                                       video.currentTime = 0;
