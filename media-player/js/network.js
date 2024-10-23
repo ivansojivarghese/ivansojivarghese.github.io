@@ -20,7 +20,7 @@ var signalPacket = controllerPacket.signal;
 ////////////
 
 var avgInt = 10000;
-var networkIntRange = navigator.connection ? 30000 : 60000;
+var networkIntRange = navigator.connection ? 180000 : 90000;
 
 var networkSpeedInt = null;
 var networkQuality = "";
@@ -45,7 +45,7 @@ var jitterVal = 0,
 /////
 
 const pingsCount = 10;
-const pingsInt = 60000;
+const pingsInt = 120000;
 
 /////
 
