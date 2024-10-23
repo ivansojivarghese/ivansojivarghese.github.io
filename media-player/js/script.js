@@ -1296,6 +1296,8 @@
 
     video.addEventListener('seeking', function() {
 
+        videoRun = true;
+
         clearInterval(networkSpeedInt);
         networkSpeedInt = null;
 
@@ -1550,7 +1552,7 @@
       // videoPause = false;
     }); 
 
-    audio.addEventListener("waiting", function() {
+    audio.addEventListener('waiting', function() {
       offset = (checkInterval - 20) / 1000;
 
       clearInterval(networkSpeedInt);
@@ -2176,10 +2178,31 @@
     }
 
     var getAudioContext = false;
+    var audioRun = false;
+    var videoRun = false;
+
+    /*
+    audio.addEventListener('seeked', function() {
+      
+    });*/
+
+    audio.addEventListener('seeking', function() {
+      audioRun = true;
+    });
+
+    audio.addEventListener('canplay', function() {
+      audioRun = false;
+
+      if (!videoRun) {
+        video.play();
+        audio.play();
+      }
+    });
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
+      videoRun = false;
 
-      if (videoPlay) {
+      if (videoPlay && !audioRun) {
 
             if (qualityChange) {
 
