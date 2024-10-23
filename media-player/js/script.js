@@ -219,10 +219,6 @@
             }, 1000);
         }
 
-        if (networkError) {
-          estimateNetworkSpeed();
-        }
-
         lastPlayPos = currentPlayPos;
     }
 
