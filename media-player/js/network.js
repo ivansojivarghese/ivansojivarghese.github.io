@@ -57,7 +57,7 @@ let pingFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/onlineRes
 
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
-        if (!networkSpeedClose) {
+        if (!networkSpeedClose && !backgroundPlay) {
 
             var startTime = new Date().getTime(); // start time of fetch
             const online = await fetch(testFileUrl, { // send a 'ping' signal to resource locator
@@ -264,24 +264,26 @@ async function measureRTT() {
 // Measure RTT and jitter multiple times
 function measureJitter(repetitions, delay) {
     let count = 0;
-    const intervalId = setInterval(() => {
-        if (count >= repetitions) {
-            clearInterval(intervalId);
-            // Calculate the exact jitter value
-            const totalJitter = jitterValues.reduce((sum, jitter) => sum + jitter, 0);
-            const exactJitter = totalJitter / jitterValues.length;
-            const totalRtt = rttValues.reduce((sum, rtt) => sum + rtt, 0);
-            const exactRtt = totalRtt / rttValues.length;
-            jitterVal = exactJitter;
-            rttVal = exactRtt;
-            //console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
-            //console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
-            return;
-        }
+    if (!backgroundPlay) {
+        const intervalId = setInterval(() => {
+            if (count >= repetitions) {
+                clearInterval(intervalId);
+                // Calculate the exact jitter value
+                const totalJitter = jitterValues.reduce((sum, jitter) => sum + jitter, 0);
+                const exactJitter = totalJitter / jitterValues.length;
+                const totalRtt = rttValues.reduce((sum, rtt) => sum + rtt, 0);
+                const exactRtt = totalRtt / rttValues.length;
+                jitterVal = exactJitter;
+                rttVal = exactRtt;
+                //console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
+                //console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
+                return;
+            }
 
-        measureRTT();
-        count++;
-    }, delay);
+            measureRTT();
+            count++;
+        }, delay);
+    }
 }
 
 // Example usage: Measure jitter 10 times with 1-second intervals
@@ -293,24 +295,27 @@ async function measurePacketLoss(url, numPings = pingsCount) {
     let lostPackets = 0;
     let successfulPings = 0;
 
-    for (let i = 0; i < numPings; i++) {
-        try {
-            const startTime = performance.now();
-            await fetch(url, { method: 'HEAD', mode: 'no-cors', signal : controllerPacket.signal }); // Use 'HEAD' to minimize data transfer
-            const endTime = performance.now();
-            successfulPings++;
-            //console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
-        } catch (error) {
-            lostPackets++;
-            //console.log(`Ping ${i + 1}: Lost`);
+    if (!backgroundPlay) {
+
+        for (let i = 0; i < numPings; i++) {
+            try {
+                const startTime = performance.now();
+                await fetch(url, { method: 'HEAD', mode: 'no-cors', signal : controllerPacket.signal }); // Use 'HEAD' to minimize data transfer
+                const endTime = performance.now();
+                successfulPings++;
+                //console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
+            } catch (error) {
+                lostPackets++;
+                //console.log(`Ping ${i + 1}: Lost`);
+            }
         }
+
+        const packetLossPercentage = (lostPackets / numPings) * 100;
+        //console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
+        //console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
+
+        packetLossVal = packetLossPercentage;
     }
-
-    const packetLossPercentage = (lostPackets / numPings) * 100;
-    //console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
-    //console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
-
-    packetLossVal = packetLossPercentage;
 }
 
 // Example usage
