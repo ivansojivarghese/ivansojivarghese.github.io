@@ -230,23 +230,40 @@ function replaceSingleWithDoubleQuotes(str) {
   return str.replace(/'vp9'/, '"vp9"');
 }
 
-async function videoSourceCheck(i) {
+async function sourceCheck(i, m) {
   // var mime = replaceSingleWithDoubleQuotes(replaceDoubleQuotes(videoSources[i].mimeType));
-  var videoConfiguration = {
-    type: "file",
-    video: {
-      contentType: videoSources[i].mimeType,
-      width: videoSources[i].width,
-      height: videoSources[i].height,
-      bitrate: videoSources[i].bitrate,
-      framerate: videoSources[i].fps,
-    }
-  };
-  await navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
-    if (result.supported && result.smooth) {
-      supportedVideoSources[supportedVideoSources.length] = videoSources[i];
-    }
-  });
+  if (m) { // video
+    var videoConfiguration = {
+      type: "file",
+      video: {
+        contentType: videoSources[i].mimeType,
+        width: videoSources[i].width,
+        height: videoSources[i].height,
+        bitrate: videoSources[i].bitrate,
+        framerate: videoSources[i].fps,
+      }
+    };
+    await navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
+      if (result.supported && result.smooth) {
+        supportedVideoSources[supportedVideoSources.length] = videoSources[i];
+      }
+    });
+  } else { // audio
+    var audioConfiguration = {
+      type: "file",
+      audio: {
+        contentType: audioSources[i].mimeType,
+        channels: audioSources[i].audioChannels, 
+        bitrate: audioSources[i].bitrate,
+        samplerate: audioSources[i].audioSampleRate
+      }
+    };
+    await navigator.mediaCapabilities.decodingInfo(audioConfiguration).then((result) => {
+      if (result.supported && result.smooth) {
+        // supportedVideoSources[supportedVideoSources.length] = audioSources[i];
+      }
+    });
+  }
 }
 
 function resetVariables() {
@@ -959,8 +976,14 @@ function getOptimalVideo(time) {
   }
 
   (async function checkSupports() {
-    for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED SOURCES
-      await videoSourceCheck(j);
+    for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED video SOURCES
+      await sourceCheck(j, true);
+    }
+  })();
+
+  (async function checkSupports() {
+    for (j = 0; j < audioSources.length - 1; j++) { // CHECK FOR SUPPORTED audio SOURCES
+      await sourceCheck(j, false);
     }
   })();
 
