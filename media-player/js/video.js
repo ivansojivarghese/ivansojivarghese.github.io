@@ -259,7 +259,7 @@ async function sourceCheck(i, m) {
       }
     };
     await navigator.mediaCapabilities.decodingInfo(audioConfiguration).then((result) => {
-      if (result.supported && result.smooth) {
+      if (result.supported && result.smooth && result.powerEfficient) {
         // supportedVideoSources[supportedVideoSources.length] = audioSources[i];
       }
     });
