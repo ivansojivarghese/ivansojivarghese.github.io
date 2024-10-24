@@ -1007,7 +1007,8 @@ function getOptimalVideo(time) {
         // getMediaSources(targetVideoSources);
         
         video.src = targetVideo.url; 
-        audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+        audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
+        // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
         if (time) { // START FROM (if available)
           video.currentTime = time;
