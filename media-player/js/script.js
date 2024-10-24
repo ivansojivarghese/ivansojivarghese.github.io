@@ -1761,7 +1761,7 @@
               bufferCount++;
             }
           }
-          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && bufferAllow && !qualityChange && !qualityBestChange && !networkError) {
+          if (((liveBufferVal[liveBufferIndex] >= bufferLimits[2]) || (bufferExceedSuccessive(liveBufferVal, bufferLimits[1], bufferLimitC)) || (bufferingCount[bufferingCount.length - 1] >= bufferLimitC)) && bufferAllow && !qualityChange && !qualityBestChange && !networkError && (video.currentTime > 1)) {
 
             bufferingCount = [];
             bufferCount = 0;
