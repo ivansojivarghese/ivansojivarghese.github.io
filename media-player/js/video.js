@@ -11,6 +11,7 @@ var videoSupportLoop = null;
 var videoSources = [];
 var audioSources = [];
 
+var supportedAudioSources = [];
 var supportedVideoSources = [];
 var targetVideoSources = [];
 var targetVideo = null;
@@ -244,7 +245,7 @@ async function sourceCheck(i, m) {
       }
     };
     await navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
-      if (result.supported && result.smooth) {
+      if (result.supported && result.smooth && result.powerEfficient) {
         supportedVideoSources[supportedVideoSources.length] = videoSources[i];
       }
     });
@@ -260,7 +261,7 @@ async function sourceCheck(i, m) {
     };
     await navigator.mediaCapabilities.decodingInfo(audioConfiguration).then((result) => {
       if (result.supported && result.smooth && result.powerEfficient) {
-        // supportedVideoSources[supportedVideoSources.length] = audioSources[i];
+        supportedAudioSources[supportedAudioSources.length] = audioSources[i];
       }
     });
   }
@@ -306,6 +307,7 @@ async function getParams(id, time) {
     specialVideoQuality = [];
     specialVideoQualityWidth = [];
     supportedVideoSources = [];
+    supportedAudioSources = [];
     targetVideoSources = [];
     audioTimes = [];
     videoTimes = [];
@@ -989,7 +991,7 @@ function getOptimalVideo(time) {
 
   videoSupportLoop = setInterval(function() {
 
-    if (supportedVideoSources.length) {
+    if (supportedVideoSources.length && supportedAudioSources.length) {
 
       clearInterval(videoSupportLoop);
 
