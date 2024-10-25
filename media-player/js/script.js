@@ -2475,7 +2475,7 @@
     
     var videoLoadPercentile = 0,
         audioLoadPercentile = 0;
-
+/*
     video.addEventListener('progress', function() {
       var range = 0;
       var bf = this.buffered;
@@ -2489,19 +2489,39 @@
       var loadPercentage = loadEndPercentage - loadStartPercentage;
 
       videoLoadPercentile = loadPercentage;
-      
-      // console.log(loadPercentage);
 
       videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
+  });
+  */
 
-      /*
-      if (videoLoadPercentile > audioLoadPercentile) {
-        videoLoadProgressBar.style.transform = `scaleX(${audioLoadPercentile})`;
-      } else {
-        videoLoadProgressBar.style.transform = `scaleX(${videoLoadPercentile})`;
-      }*/
+  video.addEventListener('progress', function() {
+    var range = 0;
+    var bf = this.buffered;
+    var time = this.currentTime;
+    
+    // Find the buffered range containing `currentTime`
+    while (range < bf.length && !(bf.start(range) <= time && time <= bf.end(range))) {
+      range += 1;
+    }
+  
+    // Ensure we have a valid range
+    if (range < bf.length) {
+      const loadStartPercentage = bf.start(range) / this.duration;
+      const loadEndPercentage = bf.end(range) / this.duration;
+      const loadPercentage = loadEndPercentage - loadStartPercentage;
+
+      videoLoadPercentile = loadPercentage;
+  
+      // Apply load percentage to the progress bar
+      videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
+    }
   });
 
+  requestAnimationFrame(() => {
+    videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
+  });
+
+  /*
   audio.addEventListener('progress', function() {
     var range = 0;
     var bf = this.buffered;
@@ -2515,15 +2535,31 @@
     var loadPercentage = loadEndPercentage - loadStartPercentage;
 
     audioLoadPercentile = loadPercentage;
-    
-    // console.log(loadPercentage);
-
-    // videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
-    /*
-    if (videoLoadPercentile === 1) {
-      videoLoadProgressBar.style.transform = `scaleX(${audioLoadPercentile})`;
-    }*/
 });
+*/
+
+    audio.addEventListener('progress', function() {
+      var range = 0;
+      var bf = this.buffered;
+      var time = this.currentTime;
+
+      // Find the buffered range containing `currentTime`
+      while (range < bf.length && !(bf.start(range) <= time && time <= bf.end(range))) {
+        range += 1;
+      }
+
+      // Ensure `range` is within bounds before accessing start and end
+      if (range < bf.length) {
+        const loadStartPercentage = bf.start(range) / this.duration;
+        const loadEndPercentage = bf.end(range) / this.duration;
+        const loadPercentage = loadEndPercentage - loadStartPercentage;
+
+        // Update audio load percentage
+        audioLoadPercentile = loadPercentage;
+        // console.log("Audio load percentage:", loadPercentage);
+      }
+    });
+
 
     // REFERENCED FROM: https://stackoverflow.com/questions/8825144/detect-double-tap-on-ipad-or-iphone-screen-using-javascript BY Anulal S.
 
