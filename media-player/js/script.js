@@ -1676,14 +1676,18 @@
 
           // Only pause the video if the audio is still buffering
           if (currentBufferDuration < BUFFER_THRESHOLD) { // Example threshold of 5 seconds
+            if (!initialVideoLoad) {
               console.log("Audio is buffering, pausing the video.");
               video.pause();
+            }
           } else {
               console.log("Audio has enough buffered data, keeping video playing.");
           }
       } else {
+        if (!initialVideoLoad) {
           console.log("No buffered data available for audio. Pausing video.");
           video.pause();
+        }
       }
 
       // console.log("pause", audio.paused);
@@ -1742,14 +1746,18 @@
 
           // Only pause the video if the audio is still buffering
           if (currentBufferDuration < BUFFER_THRESHOLD) { // Example threshold of 5 seconds
+            if (!initialVideoLoad) {
               console.log("Audio is buffering, pausing the video.");
               video.pause();
+            }
           } else {
               console.log("Audio has enough buffered data, keeping video playing.");
           }
       } else {
+        if (!initialVideoLoad) {
           console.log("No buffered data available for audio. Pausing video.");
           video.pause();
+        }
       }
 
       // console.log("pause", audio.paused);
