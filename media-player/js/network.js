@@ -44,6 +44,10 @@ var rtt = 0,
 
 /////
 
+var networkAlternate = false;
+
+/////
+
 var jitterVal = 0,
     packetLossVal = 0,
     rttVal = 0;
@@ -63,7 +67,11 @@ let pingFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/onlineRes
 
 const estimateNetworkSpeed = async() => { // estimate network speed
     try {
-        if (!networkSpeedClose && !backgroundPlay) {
+        if (!networkSpeedClose && (!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
+
+            if (!networkAlternate) {
+                networkAlternate = true;
+            }
 
             var startTime = new Date().getTime(); // start time of fetch
             const online = await fetch(testFileUrl, { // send a 'ping' signal to resource locator
@@ -117,6 +125,8 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 
                 networkSpeedClose = false;
             });
+        } else if (networkAlternate) {
+            networkAlternate = false;
         }
         
     } catch (err) { // if network error
@@ -271,7 +281,12 @@ async function measureRTT() {
 function measureJitter(repetitions, delay) {
     let count = 0;
     if (typeof backgroundPlay !== undefined) {
-        if (!backgroundPlay) {
+        if ((!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
+
+            if (!networkAlternate) {
+                networkAlternate = true;
+            }
+
             const intervalId = setInterval(() => {
                 if (count >= repetitions) {
                     clearInterval(intervalId);
@@ -290,6 +305,8 @@ function measureJitter(repetitions, delay) {
                 measureRTT();
                 count++;
             }, delay);
+        } else if (networkAlternate) {
+            networkAlternate = false;
         }
     }
 }
@@ -303,7 +320,11 @@ async function measurePacketLoss(url, numPings = pingsCount) {
     let lostPackets = 0;
     let successfulPings = 0;
 
-    if (!backgroundPlay) {
+    if ((!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
+
+        if (!networkAlternate) {
+            networkAlternate = true;
+        }
 
         for (let i = 0; i < numPings; i++) {
             try {
@@ -323,6 +344,8 @@ async function measurePacketLoss(url, numPings = pingsCount) {
         //console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
 
         packetLossVal = packetLossPercentage;
+    } else if (networkAlternate) {
+        networkAlternate = false;
     }
 }
 
