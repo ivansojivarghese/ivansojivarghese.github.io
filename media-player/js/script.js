@@ -2339,89 +2339,154 @@
     audio.addEventListener('canplay', function() {
       audioRun = false;
 
-      if (!videoRun) {
-        video.play();
-        audio.play();
+      // Check if the audio is buffered enough
+      const buffered = audio.buffered;
+
+      // Ensure there’s at least one buffered range
+      if (buffered.length > 0) {
+        const bufferedEndTime = buffered.end(buffered.length - 1); // Get the end of the last buffered range
+        const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
+
+        console.log(`Total buffered time: ${bufferedEndTime.toFixed(2)} seconds`);
+
+        // Check if at least 5 seconds have been buffered ahead
+        if (currentBufferDuration >= 5) {
+          console.log("Resuming audio playback as at least 5 seconds of audio have been buffered.");
+
+          if (!videoRun) {
+            video.play();
+            audio.play();
+          }
+        } else {
+          console.log("Not enough buffered data to resume audio playback. Waiting for more data...");
+          // Optionally, you can provide feedback to the user or update UI elements to indicate buffering
+        }
+
+      } else {
+        console.log("No buffered data available for audio.");
       }
     });
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
       videoRun = false;
 
-      if (videoPlay && !audioRun) {
+      // Check if the video is buffered enough
+      const buffered = video.buffered;
 
-            if (qualityChange) {
+      // Ensure there’s at least one buffered range
+      if (buffered.length > 0) {
+        const bufferedEndTime = buffered.end(buffered.length - 1); // Get the end of the last buffered range
+        const currentBufferDuration = bufferedEndTime - video.currentTime; // Calculate how much has been buffered
 
-              if (refSeekTime) {
-                video.currentTime = refSeekTime;
-                audio.currentTime = refSeekTime;
-              }
+        console.log(`Total buffered time: ${bufferedEndTime.toFixed(2)} seconds`);
 
-              resetVariables();
+        // Check if at least 5 seconds have been buffered ahead
+        if (currentBufferDuration >= 5) {
+          console.log("Resuming playback as at least 5 seconds of video have been buffered.");
 
-              // bufferAllow = true;
+          if (videoPlay && !audioRun) {
 
-            } 
+                if (qualityChange) {
 
-            if (!loading && !bufferingDetected && !framesStuck) {
-
-              statusIndicator.classList.remove("buffer");
-              statusIndicator.classList.remove("error");
-              statusIndicator.classList.add("smooth");
-
-              endLoad();
-              
-              setTimeout(function() {
-                loadingRing.style.display = "none";
-                playPauseButton.style.display = "block";
-
-                // reset the loader
-                setTimeout(function() {
-                  resetLoad();
-                }, 10);
-
-              }, 1000);
-
-            } else {
-
-              showVideoControls();
-            }
-
-            if (!videoRun && !audioRun) {
-
-              video.play().then(function() {
-                if (audio.src) {
-                  audio.play();
-
-                  setInterval(function() {
-                    // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
-                  }, 100);
-                }
-              });
-            }  
-
-            /*
-            audio.play().then(function () {
-              /*
-              if (!getAudioContext) {
-                audioCtx = new AudioContext();
-                getAudioContext = true;
-              }
-              //setTimeout(function() {
-                video.play().then(function() {
-                  // videoPause = true;
-      
-                  
-                  if (audioVideoAlignInt !== null) {
-                    clearInterval(audioVideoAlignInt);
-                    audioVideoAlignInt = null;
+                  if (refSeekTime) {
+                    video.currentTime = refSeekTime;
+                    audio.currentTime = refSeekTime;
                   }
-                  // audioVideoAlignInt = setInterval(audioVideoAlign, 100);
+
+                  resetVariables();
+
+                  // bufferAllow = true;
+
+                } 
+
+                if (!loading && !bufferingDetected && !framesStuck) {
+
+                  statusIndicator.classList.remove("buffer");
+                  statusIndicator.classList.remove("error");
+                  statusIndicator.classList.add("smooth");
+
+                  endLoad();
                   
-                  setInterval(function() {
-                    // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
-                  }, 100);
-      
+                  setTimeout(function() {
+                    loadingRing.style.display = "none";
+                    playPauseButton.style.display = "block";
+
+                    // reset the loader
+                    setTimeout(function() {
+                      resetLoad();
+                    }, 10);
+
+                  }, 1000);
+
+                } else {
+
+                  showVideoControls();
+                }
+
+                if (!videoRun && !audioRun) {
+
+                  video.play().then(function() {
+                    if (audio.src) {
+                      audio.play();
+
+                      setInterval(function() {
+                        // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+                      }, 100);
+                    }
+                  });
+                }  
+
+                /*
+                audio.play().then(function () {
+                  /*
+                  if (!getAudioContext) {
+                    audioCtx = new AudioContext();
+                    getAudioContext = true;
+                  }
+                  //setTimeout(function() {
+                    video.play().then(function() {
+                      // videoPause = true;
+          
+                      
+                      if (audioVideoAlignInt !== null) {
+                        clearInterval(audioVideoAlignInt);
+                        audioVideoAlignInt = null;
+                      }
+                      // audioVideoAlignInt = setInterval(audioVideoAlign, 100);
+                      
+                      setInterval(function() {
+                        // console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+                      }, 100);
+          
+                    }).catch((err) => {
+
+                      console.log(err);
+                      /*
+                      statusIndicator.classList.remove("buffer");
+                      statusIndicator.classList.remove("smooth");
+                      statusIndicator.classList.add("error");
+
+                      endLoad();
+                                
+                      setTimeout(function() {
+                        loadingRing.style.display = "none";
+                        playPauseButton.style.display = "block";
+                        playPauseButton.classList.remove('playing');
+
+                          showVideoControls();
+
+                        // reset the loader
+                        setTimeout(function() {
+                          resetLoad();
+                        }, 10);
+
+                      }, 1000);
+
+                      loading = false; 
+
+                    });
+                  //; }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+
                 }).catch((err) => {
 
                   console.log(err);
@@ -2446,50 +2511,28 @@
 
                   }, 1000);
 
-                  loading = false; 
+                  loading = false;
+                });*/
+          
+                updatePositionState();
 
-                });
-              //; }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-
-            }).catch((err) => {
-
-              console.log(err);
-              /*
-              statusIndicator.classList.remove("buffer");
-              statusIndicator.classList.remove("smooth");
-              statusIndicator.classList.add("error");
-
-              endLoad();
-                        
-              setTimeout(function() {
-                loadingRing.style.display = "none";
-                playPauseButton.style.display = "block";
-                playPauseButton.classList.remove('playing');
-
-                  showVideoControls();
-
-                // reset the loader
-                setTimeout(function() {
-                  resetLoad();
-                }, 10);
-
-              }, 1000);
-
-              loading = false;
-            });*/
-      
-            updatePositionState();
-
-            // START BUFFERING CHECK
-        
-            if (bufferingCountLoop === null) {
-              bufferingCountLoop = setInterval(function() {
-                if (bufferCount > 0) {
-                  bufferingCount[bufferingCount.length] = bufferCount;
+                // START BUFFERING CHECK
+            
+                if (bufferingCountLoop === null) {
+                  bufferingCountLoop = setInterval(function() {
+                    if (bufferCount > 0) {
+                      bufferingCount[bufferingCount.length] = bufferCount;
+                    }
+                    bufferCount = 0;
+                  }, 5000);
                 }
-                bufferCount = 0;
-              }, 5000);
-            }
+          }
+        } else {
+          console.log("Not enough buffered data to resume playback. Waiting for more data...");
+          // Optionally, you can provide feedback to the user or update UI elements to indicate buffering
+        }
+      } else {
+        console.log("No buffered data available.");
       }
     });
 
