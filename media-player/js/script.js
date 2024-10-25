@@ -1455,9 +1455,7 @@
     let suspendTimeout;
     const BUFFER_THRESHOLD = 5; // seconds of buffer needed
 
-    video.addEventListener("suspend", (event) => {
-      console.log("Data loading has been suspended.");
-
+    function updateVideoLoad() {
       const buffered = video.buffered;
       
       // Ensure there’s at least one buffered range
@@ -1494,6 +1492,12 @@
           }, 3000); // Throttle buffer check every 3 seconds
         }
       }
+    }
+
+    video.addEventListener("suspend", (event) => {
+      console.log("Data loading has been suspended.");
+
+      updateVideoLoad();
     });
 
 
@@ -2509,6 +2513,8 @@
             return;
           }
         }
+
+        updateVideoLoad();
     });
 
     audio.addEventListener("timeupdate", function() {
