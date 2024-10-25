@@ -1486,7 +1486,7 @@
           // Call a lower-quality load function or take another action
           // loadLowerQuality(); // Uncomment if this function exists
 
-          if (video.paused) { // at initial
+          if (video.paused && initialVideoLoad) { // at initial
             video.play();
           }
 
@@ -2576,9 +2576,17 @@
         } else {
           console.log("Not enough buffered data to resume playback. Waiting for more data...");
           // Optionally, you can provide feedback to the user or update UI elements to indicate buffering
+
+          if (video.paused && initialVideoLoad) { // at initial
+            video.play();
+          }
         }
       } else {
         console.log("No buffered data available.");
+
+        if (video.paused && initialVideoLoad) { // at initial
+          video.play();
+        }
       }
     });
 
