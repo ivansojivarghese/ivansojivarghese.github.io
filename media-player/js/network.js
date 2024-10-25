@@ -264,7 +264,7 @@ async function measureRTT() {
 // Measure RTT and jitter multiple times
 function measureJitter(repetitions, delay) {
     let count = 0;
-    if (!backgroundPlay) {
+    if (typeof backgroundPlay !== undefined && !backgroundPlay) {
         const intervalId = setInterval(() => {
             if (count >= repetitions) {
                 clearInterval(intervalId);
