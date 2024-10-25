@@ -264,25 +264,27 @@ async function measureRTT() {
 // Measure RTT and jitter multiple times
 function measureJitter(repetitions, delay) {
     let count = 0;
-    if (typeof backgroundPlay !== undefined && !backgroundPlay) {
-        const intervalId = setInterval(() => {
-            if (count >= repetitions) {
-                clearInterval(intervalId);
-                // Calculate the exact jitter value
-                const totalJitter = jitterValues.reduce((sum, jitter) => sum + jitter, 0);
-                const exactJitter = totalJitter / jitterValues.length;
-                const totalRtt = rttValues.reduce((sum, rtt) => sum + rtt, 0);
-                const exactRtt = totalRtt / rttValues.length;
-                jitterVal = exactJitter;
-                rttVal = exactRtt;
-                //console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
-                //console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
-                return;
-            }
+    if (typeof backgroundPlay !== undefined) {
+        if (!backgroundPlay) {
+            const intervalId = setInterval(() => {
+                if (count >= repetitions) {
+                    clearInterval(intervalId);
+                    // Calculate the exact jitter value
+                    const totalJitter = jitterValues.reduce((sum, jitter) => sum + jitter, 0);
+                    const exactJitter = totalJitter / jitterValues.length;
+                    const totalRtt = rttValues.reduce((sum, rtt) => sum + rtt, 0);
+                    const exactRtt = totalRtt / rttValues.length;
+                    jitterVal = exactJitter;
+                    rttVal = exactRtt;
+                    //console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
+                    //console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
+                    return;
+                }
 
-            measureRTT();
-            count++;
-        }, delay);
+                measureRTT();
+                count++;
+            }, delay);
+        }
     }
 }
 
