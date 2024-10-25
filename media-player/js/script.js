@@ -1486,6 +1486,10 @@
           // Call a lower-quality load function or take another action
           // loadLowerQuality(); // Uncomment if this function exists
 
+          if (video.paused) { // at initial
+            video.play();
+          }
+
           // Set timeout to avoid immediate re-triggering
           suspendTimeout = setTimeout(() => {
             suspendTimeout = null; // Reset timeout after the cooldown period
@@ -1671,7 +1675,7 @@
           const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
 
           // Only pause the video if the audio is still buffering
-          if (currentBufferDuration < 5) { // Example threshold of 5 seconds
+          if (currentBufferDuration < BUFFER_THRESHOLD) { // Example threshold of 5 seconds
               console.log("Audio is buffering, pausing the video.");
               video.pause();
           } else {
@@ -1737,7 +1741,7 @@
           const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
 
           // Only pause the video if the audio is still buffering
-          if (currentBufferDuration < 5) { // Example threshold of 5 seconds
+          if (currentBufferDuration < BUFFER_THRESHOLD) { // Example threshold of 5 seconds
               console.log("Audio is buffering, pausing the video.");
               video.pause();
           } else {
