@@ -1662,10 +1662,31 @@
       loading = true;
       bufferLoad = true;
 
+      // Check the buffered duration of the audio
+      const buffered = audio.buffered;
+      
+      // Ensure there’s at least one buffered range
+      if (buffered.length > 0) {
+          const bufferedEndTime = buffered.end(buffered.length - 1); // Get the end of the last buffered range
+          const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
+
+          // Only pause the video if the audio is still buffering
+          if (currentBufferDuration < 5) { // Example threshold of 5 seconds
+              console.log("Audio is buffering, pausing the video.");
+              video.pause();
+          } else {
+              console.log("Audio has enough buffered data, keeping video playing.");
+          }
+      } else {
+          console.log("No buffered data available for audio. Pausing video.");
+          video.pause();
+      }
+
       // console.log("pause", audio.paused);
+      /*
       if (audio.paused) {
         video.pause();
-      }
+      }*/
 
       // video.pause();
       // videoPause = false;
@@ -1707,10 +1728,31 @@
       loading = true;
       bufferLoad = true;
 
+      // Check the buffered duration of the audio
+      const buffered = audio.buffered;
+      
+      // Ensure there’s at least one buffered range
+      if (buffered.length > 0) {
+          const bufferedEndTime = buffered.end(buffered.length - 1); // Get the end of the last buffered range
+          const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
+
+          // Only pause the video if the audio is still buffering
+          if (currentBufferDuration < 5) { // Example threshold of 5 seconds
+              console.log("Audio is buffering, pausing the video.");
+              video.pause();
+          } else {
+              console.log("Audio has enough buffered data, keeping video playing.");
+          }
+      } else {
+          console.log("No buffered data available for audio. Pausing video.");
+          video.pause();
+      }
+
       // console.log("pause", audio.paused);
+      /*
       if (audio.paused) {
         video.pause();
-      }
+      }*/
 
       // video.pause();
       // videoPause = false;
@@ -2350,7 +2392,7 @@
         console.log(`Total buffered time: ${bufferedEndTime.toFixed(2)} seconds`);
 
         // Check if at least 5 seconds have been buffered ahead
-        if (currentBufferDuration >= 5) {
+        if (currentBufferDuration >= BUFFER_THRESHOLD) {
           console.log("Resuming audio playback as at least 5 seconds of audio have been buffered.");
 
           if (!videoRun) {
@@ -2381,7 +2423,7 @@
         console.log(`Total buffered time: ${bufferedEndTime.toFixed(2)} seconds`);
 
         // Check if at least 5 seconds have been buffered ahead
-        if (currentBufferDuration >= 5) {
+        if (currentBufferDuration >= BUFFER_THRESHOLD) {
           console.log("Resuming playback as at least 5 seconds of video have been buffered.");
 
           if (videoPlay && !audioRun) {
