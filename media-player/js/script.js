@@ -1438,6 +1438,7 @@
         }
     });
 
+    /*
     video.addEventListener("suspend", (event) => {
       console.log("Data loading has been suspended.");
       const buffered = video.buffered;
@@ -1448,6 +1449,53 @@
         // Load lower quality version or other buffering optimization steps
       }
     });
+    */
+
+
+    let suspendTimeout;
+    const BUFFER_THRESHOLD = 5; // seconds of buffer needed
+
+    video.addEventListener("suspend", (event) => {
+      console.log("Data loading has been suspended.");
+
+      const buffered = video.buffered;
+      
+      // Ensure there’s at least one buffered range
+      if (buffered.length === 0) {
+        console.log("No buffered data available.");
+        return;
+      }
+
+      // Calculate the buffered time remaining from the current time
+      const lastBufferedTime = buffered.end(buffered.length - 1);
+      const currentBuffer = lastBufferedTime - video.currentTime;
+
+      // Log the current buffer information
+      console.log(`Current buffer remaining: ${currentBuffer.toFixed(2)} seconds`);
+
+      // Calculate and log the total buffered percentage
+      const bufferedPercentage = (lastBufferedTime / video.duration) * 100;
+      console.log(`Total buffered: ${bufferedPercentage.toFixed(2)}%`);
+
+      // Update the video load progress bar
+      videoLoadProgressBar.style.transform = `scaleX(${bufferedPercentage / 100})`; // Assuming the progress bar uses a scale transform
+
+      // Check buffer threshold and optimize if below limit
+      if (currentBuffer < BUFFER_THRESHOLD) {
+        if (!suspendTimeout) {
+          console.log("Buffering more data due to low buffer availability.");
+
+          // Call a lower-quality load function or take another action
+          // loadLowerQuality(); // Uncomment if this function exists
+
+          // Set timeout to avoid immediate re-triggering
+          suspendTimeout = setTimeout(() => {
+            suspendTimeout = null; // Reset timeout after the cooldown period
+          }, 3000); // Throttle buffer check every 3 seconds
+        }
+      }
+    });
+
 
     var seekAllow = true;
 
@@ -2522,7 +2570,7 @@
   });
 
   requestAnimationFrame(() => {
-    videoLoadProgressBar.style.transform = `scaleX(${loadPercentage})`;
+    videoLoadProgressBar.style.transform = `scaleX(${videoLoadPercentile})`;
   });
 
   /*
