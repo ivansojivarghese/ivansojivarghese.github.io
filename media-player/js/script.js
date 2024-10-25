@@ -1439,7 +1439,14 @@
     });
 
     video.addEventListener("suspend", (event) => {
-      // console.log("Data loading has been suspended.");
+      console.log("Data loading has been suspended.");
+      const buffered = video.buffered;
+      const currentBuffer = buffered.end(buffered.length - 1) - video.currentTime;
+      console.log(currentBuffer);
+      if (currentBuffer < 5) { // e.g., less than 5 seconds of buffer
+        console.log("Buffering more data due to low buffer availability.");
+        // Load lower quality version or other buffering optimization steps
+      }
     });
 
     var seekAllow = true;
