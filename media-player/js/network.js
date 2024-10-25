@@ -8,6 +8,12 @@ var networkSpeedClose = false;
 
 ////////////
 
+var backgroundPlay = false; // background audio playback
+var pipEnabled = false;
+var backgroundPlayInit = false;
+
+////////////
+
 var controller = new AbortController();
 var signal = controller.signal;
 

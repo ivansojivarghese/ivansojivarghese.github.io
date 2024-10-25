@@ -75,11 +75,11 @@
     var maxVideoLoad = 3;
 
     var interactiveType = "";
-
+    /*
     var backgroundPlay = false; // background audio playback
     var pipEnabled = false;
     var backgroundPlayInit = false;
-
+    */
     // REFERENCE: https://stackoverflow.com/questions/21399872/how-to-detect-whether-html5-video-has-paused-for-buffering
     var checkInterval  = 50; // check every _ ms (do not use lower values)
     var lastPlayPos    = 0;
