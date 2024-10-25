@@ -2506,9 +2506,13 @@
   
     // Ensure we have a valid range
     if (range < bf.length) {
+      /*
       const loadStartPercentage = bf.start(range) / this.duration;
       const loadEndPercentage = bf.end(range) / this.duration;
       const loadPercentage = loadEndPercentage - loadStartPercentage;
+      */
+
+      const loadPercentage = bf.end(bf.length - 1) / this.duration;
 
       videoLoadPercentile = loadPercentage;
   
@@ -2550,9 +2554,13 @@
 
       // Ensure `range` is within bounds before accessing start and end
       if (range < bf.length) {
+        /*
         const loadStartPercentage = bf.start(range) / this.duration;
         const loadEndPercentage = bf.end(range) / this.duration;
         const loadPercentage = loadEndPercentage - loadStartPercentage;
+        */
+
+        const loadPercentage = bf.end(bf.length - 1) / this.duration;
 
         // Update audio load percentage
         audioLoadPercentile = loadPercentage;
