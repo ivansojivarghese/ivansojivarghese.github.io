@@ -1486,6 +1486,8 @@
           // Call a lower-quality load function or take another action
           // loadLowerQuality(); // Uncomment if this function exists
 
+          getVideoFromBuffer();
+
           if (video.paused && initialVideoLoad) { // at initial
             video.play();
           }
