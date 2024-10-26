@@ -1952,24 +1952,24 @@
 
         if (newTargetQuality === targetQuality) { // if same quality rating as previous
 
-          console.log(targetVideoIndex);
+          // console.log(targetVideoIndex);
 
           do { // ensure that same res. is not picked again
             index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
             if (targetVideoSources[index]) { // if available
 
-              console.log(targetVideo);
+              // console.log(targetVideo);
 
               targetVideo = targetVideoSources[index];
 
-              console.log(targetVideo);
+              // console.log(targetVideo);
             }
             mod++;
           } while ((targetVideoSources[targetVideoIndex].height === targetVideo.height) && targetVideoSources[index + mod]);
 
           targetVideoIndex = index;
 
-          console.log(targetVideoIndex);
+          // console.log(targetVideoIndex);
 
         } else { // otherwise, if different quality rating
 
@@ -1983,6 +1983,9 @@
         }
 
         refSeekTime = video.currentTime;
+
+        clearInterval(resumeInterval);
+        resumeInterval = null;
 
         video.pause();
         audio.pause(); // pause content
