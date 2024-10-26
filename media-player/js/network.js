@@ -193,10 +193,18 @@ function timeToSeconds(txt) { // REFERENCE: CHATGPT
     const hms = txt || "0:0:0"; // Default to "0:0:0" if txt is empty or undefined
     const parts = hms.split(':').map(Number);
 
-    // Validate and set default values
-    const hours = parts[0] || 0;
-    const minutes = parts[1] || 0;
-    const seconds = parts[2] || 0;
+    let hours = 0, minutes = 0, seconds = 0;
+
+    if (parts.length === 3) {
+        // Format: HH:MM:SS
+        [hours, minutes, seconds] = parts;
+    } else if (parts.length === 2) {
+        // Format: MM:SS
+        [minutes, seconds] = parts;
+    } else if (parts.length === 1) {
+        // Format: SS
+        [seconds] = parts;
+    }
 
     const totalSeconds = (hours * 60 * 60) + (minutes * 60) + seconds;
     return totalSeconds;
