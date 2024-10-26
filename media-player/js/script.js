@@ -1454,7 +1454,7 @@
 
     let suspendTimeout;
     const BUFFER_THRESHOLD = 5; // seconds of buffer needed
-    const BUFFER_THRESHOLD_AUDIO = 1; 
+    const BUFFER_THRESHOLD_AUDIO = 0; 
 
     function updateVideoLoad() {
       const buffered = video.buffered;
