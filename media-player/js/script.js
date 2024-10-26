@@ -1490,7 +1490,7 @@
 
           // getVideoFromBuffer();
 
-          if (video.paused && initialVideoLoad) { // at initial
+          if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
             console.log("play");
             video.play();
           }
@@ -2594,7 +2594,7 @@
           console.log("Not enough buffered data to resume playback. Waiting for more data...");
           // Optionally, you can provide feedback to the user or update UI elements to indicate buffering
 
-          if (video.paused && initialVideoLoad) { // at initial
+          if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
             console.log("play");
             video.play();
           }
@@ -2602,7 +2602,7 @@
       } else {
         console.log("No buffered data available.");
 
-        if (video.paused && initialVideoLoad) { // at initial
+        if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
           console.log("play");
           video.play();
         }
