@@ -1497,7 +1497,7 @@
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && !(initialVideoLoad && qualityBestChange && qualityChange)) {
+                if (buffered.length > 0 && video.paused && !initialVideoLoad && !qualityBestChange && !qualityChange) {
                   console.log("play");
                   video.play();
                   clearInterval(resumeInterval);
@@ -2627,7 +2627,7 @@
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && !(initialVideoLoad && qualityBestChange && qualityChange)) {
+                if (buffered.length > 0 && video.paused && !initialVideoLoad && !qualityBestChange && !qualityChange) {
                   console.log("play");
                   video.play();
                   clearInterval(resumeInterval);
@@ -2647,7 +2647,7 @@
           if (resumeInterval === null) {
             resumeInterval = setInterval(() => {
               var buffered = video.buffered;
-              if (buffered.length > 0 && video.paused && !(initialVideoLoad && qualityBestChange && qualityChange)) {
+              if (buffered.length > 0 && video.paused && !initialVideoLoad && !qualityBestChange && !qualityChange) {
                 console.log("play");
                 video.play();
                 clearInterval(resumeInterval);
