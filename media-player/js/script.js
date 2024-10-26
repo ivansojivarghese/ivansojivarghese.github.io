@@ -1452,7 +1452,7 @@
     });
     */
 
-
+    var resumeInterval = null;
     let suspendTimeout;
     const BUFFER_THRESHOLD = 5; // seconds of buffer needed
     const BUFFER_THRESHOLD_AUDIO = 0; 
@@ -1493,6 +1493,18 @@
           if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
             console.log("play");
             video.play();
+          } else {
+            if (resumeInterval === null) {
+              resumeInterval = setInterval(() => {
+                var buffered = video.buffered;
+                if (buffered.length > 0 && video.paused && !(initialVideoLoad && qualityBestChange && qualityChange)) {
+                  console.log("play");
+                  video.play();
+                  clearInterval(resumeInterval);
+                  resumeInterval = null;
+                }
+              }, 1000);
+            }
           }
 
           // Set timeout to avoid immediate re-triggering
@@ -2179,7 +2191,6 @@
       getNetworkInfo();
       // estimateNetworkSpeed();
 
-      // console.log("play");
       audio.play();
 
       // if (videoPlay && audio.src) {
@@ -2612,6 +2623,18 @@
           if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
             console.log("play");
             video.play();
+          } else {
+            if (resumeInterval === null) {
+              resumeInterval = setInterval(() => {
+                var buffered = video.buffered;
+                if (buffered.length > 0 && video.paused && !(initialVideoLoad && qualityBestChange && qualityChange)) {
+                  console.log("play");
+                  video.play();
+                  clearInterval(resumeInterval);
+                  resumeInterval = null;
+                }
+              }, 1000);
+            }
           }
         }
       } else {
@@ -2620,6 +2643,18 @@
         if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
           console.log("play");
           video.play();
+        } else {
+          if (resumeInterval === null) {
+            resumeInterval = setInterval(() => {
+              var buffered = video.buffered;
+              if (buffered.length > 0 && video.paused && !(initialVideoLoad && qualityBestChange && qualityChange)) {
+                console.log("play");
+                video.play();
+                clearInterval(resumeInterval);
+                resumeInterval = null;
+              }
+            }, 1000);
+          }
         }
       }
     });
