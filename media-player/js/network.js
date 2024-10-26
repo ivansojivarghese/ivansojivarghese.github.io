@@ -181,11 +181,24 @@ if (networkParamInt === null) {
         measurePacketLoss(pingFileUrl);
     }, pingsInt); 
 }
-
+/*
 function timeToSeconds(txt) { // REFERENCE: https://javascript.plainenglish.io/how-to-convert-hh-mm-ss-time-string-to-seconds-only-in-javascript-e11a0a4726d2#:~:text=Convert%20HH%3AMM%3ASS%20Time%20String%20to%20Seconds%20Only%20in%20JavaScript,-We%20can%20convert&text=const%20hms%20%3D%20'02%3A04,)%20*%2060%20%2B%20(%2Bseconds)%3B
     const hms = txt;
     const [hours, minutes, seconds] = hms.split(':');
     const totalSeconds = (+hours) * 60 * 60 + (+minutes) * 60 + (+seconds);
+    return totalSeconds;
+}*/
+
+function timeToSeconds(txt) { // REFERENCE: CHATGPT
+    const hms = txt || "0:0:0"; // Default to "0:0:0" if txt is empty or undefined
+    const parts = hms.split(':').map(Number);
+
+    // Validate and set default values
+    const hours = parts[0] || 0;
+    const minutes = parts[1] || 0;
+    const seconds = parts[2] || 0;
+
+    const totalSeconds = (hours * 60 * 60) + (minutes * 60) + seconds;
     return totalSeconds;
 }
 

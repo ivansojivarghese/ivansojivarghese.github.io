@@ -2698,7 +2698,7 @@
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
-        refSeekTime = video.currentTime;
+        refSeekTime = video.currentTime ? video.currentTime : timeToSeconds(videoCurrentTime.textContent);
         console.log("ref", refSeekTime);
         if (!qualityChange && !qualityBestChange) {
           updatePositionState();
