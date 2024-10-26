@@ -225,7 +225,7 @@
     function updatePositionState() {
       if ('setPositionState' in navigator.mediaSession && video.duration !== NaN) {
         refSeekTime = video.currentTime;
-        console.log("ref", refSeekTime);
+        // console.log("ref", refSeekTime);
         if (!backgroundPlay || pipEnabled) {
           navigator.mediaSession.setPositionState({
             duration: video.duration,
@@ -2008,7 +2008,7 @@
         }
 
         refSeekTime = video.currentTime;
-        console.log("ref", refSeekTime);
+        // console.log("ref", refSeekTime);
 
         clearInterval(resumeInterval);
         resumeInterval = null;
@@ -2699,7 +2699,7 @@
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         refSeekTime = video.currentTime ? video.currentTime : timeToSeconds(videoCurrentTime.textContent);
-        console.log("ref", refSeekTime);
+        // console.log("ref", refSeekTime);
         if (!qualityChange && !qualityBestChange) {
           updatePositionState();
           videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
