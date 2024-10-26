@@ -1454,6 +1454,7 @@
 
     let suspendTimeout;
     const BUFFER_THRESHOLD = 5; // seconds of buffer needed
+    const BUFFER_THRESHOLD_AUDIO = 1; 
 
     function updateVideoLoad() {
       const buffered = video.buffered;
@@ -1677,7 +1678,7 @@
           const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
 
           // Only pause the video if the audio is still buffering
-          if (currentBufferDuration < BUFFER_THRESHOLD) { // Example threshold of 5 seconds
+          if (currentBufferDuration < BUFFER_THRESHOLD_AUDIO) { // Example threshold of 5 seconds
             if (!initialVideoLoad && !video.paused) {
               console.log("Audio is buffering, pausing the video.");
               video.pause();
@@ -1747,7 +1748,7 @@
           const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
 
           // Only pause the video if the audio is still buffering
-          if (currentBufferDuration < BUFFER_THRESHOLD) { // Example threshold of 5 seconds
+          if (currentBufferDuration < BUFFER_THRESHOLD_AUDIO) { // Example threshold of 5 seconds
             if (!initialVideoLoad && !video.paused) {
               console.log("Audio is buffering, pausing the video.");
               video.pause();
@@ -2406,7 +2407,7 @@
         console.log(`Total buffered time: ${bufferedEndTime.toFixed(2)} seconds`);
 
         // Check if at least 5 seconds have been buffered ahead
-        if (currentBufferDuration >= BUFFER_THRESHOLD) {
+        if (currentBufferDuration >= BUFFER_THRESHOLD_AUDIO) {
           console.log("Resuming audio playback as at least 5 seconds of audio have been buffered.");
 
           if (!videoRun) {
