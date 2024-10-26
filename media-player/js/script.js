@@ -1360,6 +1360,9 @@
         video.classList.add('seeking');
         seekingLoad = true;
 
+        clearInterval(resumeInterval);
+        resumeInterval = null;
+
         /*
         refSeekTime = video.currentTime;
         targetVideo = null;
@@ -1987,6 +1990,7 @@
         clearInterval(resumeInterval);
         resumeInterval = null;
 
+        console.log("pause");
         video.pause();
         audio.pause(); // pause content
 
@@ -2442,6 +2446,7 @@
           console.log("Resuming audio playback as at least 5 seconds of audio have been buffered.");
 
           if (!videoRun) {
+            console.log("play");
             video.play();
             audio.play();
           }
