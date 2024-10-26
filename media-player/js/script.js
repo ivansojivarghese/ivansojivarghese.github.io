@@ -1931,12 +1931,16 @@
       var index = 0;
       var mod = 1;
       var newTargetQuality = getOptimalQuality();
+
+      newTargetQuality = targetQuality;
       
       console.log("tQ : " + targetQuality + ", nTQ: " + newTargetQuality);
 
       if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad)))) {
 
         if (newTargetQuality === targetQuality) { // if same quality rating as previous
+
+          console.log(targetVideoIndex);
 
           do { // ensure that same res. is not picked again
             index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
@@ -1947,6 +1951,8 @@
           } while ((targetVideoSources[targetVideoIndex].height === targetVideo.height) && targetVideoSources[index + mod]);
 
           targetVideoIndex = index;
+
+          console.log(targetVideoIndex);
 
         } else { // otherwise, if different quality rating
 
