@@ -1528,6 +1528,11 @@
             suspendTimeout = null; // Reset timeout after the cooldown period
           }, 3000); // Throttle buffer check every 3 seconds
         }
+      } else {
+        if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { 
+          console.log("play");
+          video.play();
+        }
       }
     }
 
