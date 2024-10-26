@@ -1382,7 +1382,7 @@
         if (resumeInterval === null) {
           resumeInterval = setInterval(() => {
             var buffered = video.buffered;
-            if (buffered.length > 0 && video.paused && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+            if (buffered.length > 0 && video.paused && bufferLoad && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
               // console.log("play", seeking, seekingLoad);
               video.play();
               clearInterval(resumeInterval);
@@ -1517,7 +1517,7 @@
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                if (buffered.length > 0 && video.paused && bufferLoad && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   // console.log("play", seeking, seekingLoad);
                   video.play();
                   clearInterval(resumeInterval);
@@ -2661,7 +2661,7 @@
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                if (buffered.length > 0 && video.paused && bufferLoad && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   // console.log("play", seeking, seekingLoad);
                   video.play();
                   clearInterval(resumeInterval);
@@ -2681,7 +2681,7 @@
           if (resumeInterval === null) {
             resumeInterval = setInterval(() => {
               var buffered = video.buffered;
-              if (buffered.length > 0 && video.paused && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+              if (buffered.length > 0 && video.paused && bufferLoad && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                 // console.log("play", seeking, seekingLoad);
                 video.play();
                 clearInterval(resumeInterval);
