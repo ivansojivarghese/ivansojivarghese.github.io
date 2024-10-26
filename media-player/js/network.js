@@ -121,6 +121,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                     }
     
                     networkError = false;
+                    bufferAllow = true;
                 }
 
                 networkSpeedClose = false;
@@ -141,6 +142,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
             signalPacket = controllerPacket.signal;
 
             networkError = true;
+            bufferAllow = false;
 
             networkBandwidth = -1;
             networkSpeed = -1; // return 0 mbps

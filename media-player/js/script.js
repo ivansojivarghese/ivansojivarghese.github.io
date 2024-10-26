@@ -1945,7 +1945,12 @@
           do { // ensure that same res. is not picked again
             index = targetVideoSources[targetVideoIndex + mod] ? (targetVideoIndex + mod) : (targetVideoIndex); // potential need to change/downgrade video quality (by 1 each time)
             if (targetVideoSources[index]) { // if available
+
+              console.log(targetVideo);
+
               targetVideo = targetVideoSources[index];
+              
+              console.log(targetVideo);
             }
             mod++;
           } while ((targetVideoSources[targetVideoIndex].height === targetVideo.height) && targetVideoSources[index + mod]);
