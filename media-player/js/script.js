@@ -1949,7 +1949,7 @@
               console.log(targetVideo);
 
               targetVideo = targetVideoSources[index];
-              
+
               console.log(targetVideo);
             }
             mod++;
@@ -2443,6 +2443,10 @@
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
       videoRun = false;
+
+      if (!qualityBestChange && !qualityChange) {
+        bufferAllow = true;
+      } 
 
       // Check if the video is buffered enough
       const buffered = video.buffered;
