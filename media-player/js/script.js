@@ -2189,6 +2189,9 @@
         offset = 0;
       }, 1000);
 
+      seekingLoad = false;
+      qualityChange = false;
+
       controller = new AbortController();
       signal = controller.signal;
 
