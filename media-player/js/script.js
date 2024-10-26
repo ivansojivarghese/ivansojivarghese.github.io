@@ -1374,6 +1374,19 @@
     video.addEventListener('seeked', function() {
         seekingLoad = false;
         // hideVideoControls();
+
+        if (resumeInterval === null) {
+          resumeInterval = setInterval(() => {
+            var buffered = video.buffered;
+            if (buffered.length > 0 && video.paused && !videoEnd && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+              console.log("play", seeking, seekingLoad);
+              video.play();
+              clearInterval(resumeInterval);
+              resumeInterval = null;
+            }
+          }, 1000);
+        }
+
         if (qualityChange) {
           qualityChange = false;
 
