@@ -1969,7 +1969,7 @@
       var mod = 1;
       var newTargetQuality = getOptimalQuality();
 
-      newTargetQuality = targetQuality;
+      // newTargetQuality = targetQuality; FOR TESTING
       
       console.log("tQ : " + targetQuality + ", nTQ: " + newTargetQuality);
 
