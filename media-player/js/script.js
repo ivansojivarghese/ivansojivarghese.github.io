@@ -2479,7 +2479,7 @@
 
         // Check if at least 5 seconds have been buffered ahead
         if (currentBufferDuration >= BUFFER_THRESHOLD_AUDIO) {
-          console.log("Resuming audio playback as at least 5 seconds of audio have been buffered.");
+          console.log("Resuming audio playback as at least 1 second of audio have been buffered.");
 
           if (!videoRun) {
             console.log("play");
