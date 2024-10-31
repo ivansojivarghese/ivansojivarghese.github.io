@@ -1512,7 +1512,12 @@
 
           if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
             console.log("play");
-            video.play();
+            // video.play();
+            if (backgroundPlay) {
+              audio.play();
+            } else {
+              video.play();
+            }
           } else {
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
@@ -1535,7 +1540,12 @@
       } else {
         if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { 
           console.log("play");
-          video.play();
+          // video.play();
+          if (backgroundPlay) {
+            audio.play();
+          } else {
+            video.play();
+          }
         }
       }
     }
@@ -2473,8 +2483,14 @@
 
           if (!videoRun) {
             console.log("play");
-            video.play();
-            audio.play();
+            // video.play();
+            // audio.play();
+            if (backgroundPlay) {
+              audio.play();
+            } else {
+              video.play();
+              audio.play();
+            }
           }
         } else {
           console.log("Not enough buffered data to resume audio playback. Waiting for more data...");
@@ -2656,7 +2672,12 @@
 
           if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
             console.log("play");
-            video.play();
+            // video.play();
+            if (backgroundPlay) {
+              audio.play();
+            } else {
+              video.play();
+            }
           } else {
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
@@ -2676,7 +2697,12 @@
 
         if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange)) { // at initial
           console.log("play");
-          video.play();
+          // video.play();
+          if (backgroundPlay) {
+            audio.play();
+          } else {
+            video.play();
+          }
         } else {
           if (resumeInterval === null) {
             resumeInterval = setInterval(() => {
