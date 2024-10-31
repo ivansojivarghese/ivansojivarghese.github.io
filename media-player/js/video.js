@@ -24,6 +24,8 @@ var specialVideoQualityWidth = [];
 var priorityQuality = 0;
 var targetQuality = 0;
 
+const videoHDmin = 720; 
+
 var videoQualityArea = [];
 var specialQualityArea = [];
 
@@ -245,7 +247,7 @@ async function sourceCheck(i, m) {
       }
     };
     await navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
-      if (result.supported && result.smooth && result.powerEfficient) {
+      if ((result.supported && result.smooth && result.powerEfficient) || (result.supported && video.height < videoHDmin)) {
         supportedVideoSources[supportedVideoSources.length] = videoSources[i];
       }
     });
