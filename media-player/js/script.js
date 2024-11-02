@@ -109,6 +109,7 @@
     var audioVideoAligning = false;
 
     var videoEnd = false;
+    var audioEnd = false;
 
     var qualityChange = false;
     var qualityBestChange = false;
@@ -260,6 +261,10 @@
             // audioCtx = new AudioContext();
             // setTimeout(function() {
               if (videoEnd) {
+                if (audioEnd) {
+                  video.currentTime = 0;
+                  audioEnd = false;
+                }
                 audio.currentTime = video.currentTime;
                 videoEnd = false;
               }
@@ -679,7 +684,7 @@
         playPauseButton.classList.add('repeat');
 
         if (backgroundPlay) {
-          // video.currentTime = 0;
+          audioEnd = true;
         }
 
         if (!networkError) {
