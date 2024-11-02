@@ -225,15 +225,18 @@
 
     function updatePositionState() {
       if ('setPositionState' in navigator.mediaSession && video.duration !== NaN) {
-        refSeekTime = video.currentTime;
-        // console.log("ref", refSeekTime);
+
         if (!backgroundPlay || pipEnabled) {
+          refSeekTime = video.currentTime;
+
           navigator.mediaSession.setPositionState({
             duration: video.duration,
             playbackRate: video.playbackRate,
             position: video.currentTime,
           });
         } else {
+          refSeekTime = audio.currentTime;
+
           navigator.mediaSession.setPositionState({
             duration: audio.duration,
             playbackRate: audio.playbackRate,
