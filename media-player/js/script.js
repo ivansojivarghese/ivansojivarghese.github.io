@@ -72,7 +72,7 @@
     var fastSeekVal = [1000, 5000, 10000]; // min. tap-hold times for each speed state
     var fastSeekSpeeds = [300, 200, 50]; // fast seeking intervals
 
-    var minVideoLoad = 3; // min. sec. for video to exit init load stage
+    var minVideoLoad = 1; // min. sec. for video to exit init load stage
     var maxVideoLoad = 3;
 
     var interactiveType = "";
@@ -127,7 +127,7 @@
                 !bufferingDetected 
                 && currentPlayPos < (lastPlayPos + offset)
                 // && ((currentPlayPos < (lastPlayPos + offset)) || currentAudioPos < (lastPlayPos + offset))
-                && !video.paused && framesStuck
+                && !video.paused && framesStuck && !videoEnd
             ) {
             // console.log("buffering")
             bufferingDetected = true;
@@ -189,7 +189,7 @@
             // loading = false;
         }
 
-        if (loading && bufferingDetected && framesStuck) {
+        if (loading && bufferingDetected && framesStuck && !videoEnd) {
           statusIndicator.classList.remove("error");
           statusIndicator.classList.remove("smooth");
           statusIndicator.classList.add("buffer");
@@ -643,7 +643,7 @@
         if (!audioVideoAligning && !bufferLoad) {
           playPauseButton.classList.remove('playing');
           showVideoControls();
-        } else if (bufferLoad) {
+        } else if (bufferLoad && !videoEnd) {
           loadingRing.style.display = "block";
           playPauseButton.style.display = "none";
           showVideoControls();
