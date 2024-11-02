@@ -318,6 +318,7 @@ async function getParams(id, time) {
     targetVideo = null;
     initialVideoLoad = false;
     initialVideoLoadCount = 0;
+    initialAudioLoad = false;
     specialQualityArea = [];
 
     // COULD CHANGE | UNDETERMINED (TBA)

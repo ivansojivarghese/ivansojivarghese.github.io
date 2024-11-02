@@ -63,6 +63,7 @@
     var videoLoad = false;
     var initialVideoLoad = false;
     var initialVideoLoadCount = 0;
+    var initialAudioLoad = false;
 
     var seeking = false;
     var seekingLoad = false;
@@ -3220,7 +3221,8 @@
 
       if (videoLoad && backgroundPlay) {
         checkAudioReady = setInterval(() => {
-          if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+          if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA && !initialAudioLoad) {
+              initialAudioLoad = true;
               console.log("Audio is ready to play on a slow network!");
               clearInterval(checkAudioReady);
               checkAudioReady = null;
