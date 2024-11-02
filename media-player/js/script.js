@@ -72,7 +72,7 @@
     var fastSeekVal = [1000, 5000, 10000]; // min. tap-hold times for each speed state
     var fastSeekSpeeds = [300, 200, 50]; // fast seeking intervals
 
-    var minVideoLoad = 1; // min. sec. for video to exit init load stage
+    var minVideoLoad = 3; // min. sec. for video to exit init load stage
     var maxVideoLoad = 3;
 
     var interactiveType = "";
