@@ -3028,6 +3028,11 @@
     document.onvisibilitychange = function() {
       if (!networkError) {
         if (document.visibilityState === 'hidden') {
+
+          if (videoLoad && audio.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+            audio.load();
+          }
+
           // clear intervals
           if (networkSpeedInt !== null) {
             if (!networkError) {
