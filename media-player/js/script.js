@@ -674,6 +674,34 @@
       // }
     });
 
+      audio.addEventListener('ended', function() {
+        playPauseButton.classList.remove('playing');
+        playPauseButton.classList.add('repeat');
+
+        if (!networkError) {
+          clearInterval(networkSpeedInt);
+          networkSpeedInt = null;
+        }
+        clearInterval(networkParamInt);
+        networkParamInt = null;
+        clearInterval(bufferInt);
+        bufferInt = null;
+        clearInterval(bestVideoInt);
+        bestVideoInt = null;
+        clearInterval(qualityBestInt);
+        qualityBestInt = null;
+
+        clearInterval(resumeInterval);
+        resumeInterval = null;
+
+        videoEnd = true;
+        firstPlay = true;
+        video.pause();
+        audio.pause();
+        showVideoControls();
+        releaseScreenLock(screenLock);
+      });
+
     video.addEventListener('ended', function() {
       playPauseButton.classList.remove('playing');
       playPauseButton.classList.add('repeat');
