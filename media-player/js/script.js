@@ -679,7 +679,7 @@
         playPauseButton.classList.add('repeat');
 
         if (backgroundPlay) {
-          video.currentTime = audio.currentTime;
+          video.currentTime = 0;
         }
 
         if (!networkError) {
