@@ -261,10 +261,11 @@
             // audioCtx = new AudioContext();
             // setTimeout(function() {
               if (videoEnd) {
+                /*
                 if (audioEnd) {
                   video.currentTime = 0;
                   audioEnd = false;
-                }
+                }*/
                 audio.currentTime = video.currentTime;
                 videoEnd = false;
               }
@@ -683,9 +684,10 @@
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
 
+        /*
         if (backgroundPlay) {
           audioEnd = true;
-        }
+        }*/
 
         if (!networkError) {
           clearInterval(networkSpeedInt);
