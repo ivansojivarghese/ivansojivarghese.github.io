@@ -678,6 +678,10 @@
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
 
+        if (backgroundPlay) {
+          video.currentTime = audio.currentTime;
+        }
+
         if (!networkError) {
           clearInterval(networkSpeedInt);
           networkSpeedInt = null;
