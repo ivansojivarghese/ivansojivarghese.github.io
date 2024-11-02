@@ -2467,6 +2467,8 @@
     audio.addEventListener('canplay', function() {
       audioRun = false;
 
+      console.log("audio_canplay");
+
       // Check if the audio is buffered enough
       const buffered = audio.buffered;
 
@@ -2504,6 +2506,8 @@
 
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
       videoRun = false;
+
+      console.log("video_canplay");
 
       if (!qualityBestChange && !qualityChange) {
         bufferAllow = true;
