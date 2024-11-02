@@ -2472,6 +2472,9 @@
 
       console.log("audio_canplay");
 
+      clearInterval(checkAudioReady);
+      checkAudioReady = null;
+
       // Check if the audio is buffered enough
       const buffered = audio.buffered;
 
