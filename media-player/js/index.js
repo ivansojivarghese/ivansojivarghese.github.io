@@ -16,7 +16,7 @@ navigator.serviceWorker.getRegistrations().then(function(registrations) {
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("service-worker.js", {
-      scope: './media-player/'
+      scope: '../'
     })
     .then((reg) => console.log("Service Worker registered", reg))
     .catch((err) => console.error("Service Worker **not** registered", err));
