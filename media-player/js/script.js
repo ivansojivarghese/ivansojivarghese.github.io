@@ -72,8 +72,8 @@
     var fastSeekVal = [1000, 5000, 10000]; // min. tap-hold times for each speed state
     var fastSeekSpeeds = [300, 200, 50]; // fast seeking intervals
 
-    var minVideoLoad = 0; // min. sec. for video to exit init load stage
-    var maxVideoLoad = 0;
+    var minVideoLoad = 3; // min. sec. for video to exit init load stage
+    var maxVideoLoad = 3;
 
     var interactiveType = "";
     /*
@@ -681,7 +681,7 @@
     });
 
       audio.addEventListener('ended', function() {
-        if (!videoEnd) {
+        if (!videoEnd && backgroundPlay) {
           playPauseButton.classList.remove('playing');
           playPauseButton.classList.add('repeat');
 
