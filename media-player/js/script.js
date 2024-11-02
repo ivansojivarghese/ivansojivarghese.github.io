@@ -3236,7 +3236,7 @@
         // to enter the Back-Forward Cache, which is also in the frozen state
         appUnload = null;
 
-        if (videoLoad) {
+        if (videoLoad && audio.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
           audio.load();
         }
 
