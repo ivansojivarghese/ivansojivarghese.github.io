@@ -664,6 +664,9 @@
           audio.volume = 1;
           navigator.mediaSession.playbackState = 'playing';
           getScreenLock();
+
+          clearInterval(checkAudioReady);
+          checkAudioReady = null;
       // }
     });
 
@@ -3179,6 +3182,20 @@
       pipEnabled = false;
     });
 
+    audio.addEventListener("loadeddata", () => {
+      console.log("Audio has loaded some data, canplay might not fire in the background.");
+
+      if (videoLoad && backgroundPlay) {
+        clearInterval(checkAudioReady);
+        checkAudioReady = null;
+
+        audio.play();
+      }
+
+    });
+
+    var checkAudioReady = null;
+
     setInterval(function() {
       if (!networkError) {
         if (document.pictureInPictureElement !== null) {
@@ -3192,6 +3209,22 @@
           backgroundPlay = false;
         }
       }
+
+      if (videoLoad && backgroundPlay) {
+        checkAudioReady = setInterval(() => {
+          if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+              console.log("Audio is ready to play on a slow network!");
+              clearInterval(checkAudioReady);
+              checkAudioReady = null;
+              // Trigger your play or any other logic
+              audio.play();
+          }
+        }, 100);
+      } else if (checkAudioReady) {
+        clearInterval(checkAudioReady);
+        checkAudioReady = null;
+      }
+
     }, 1000/60);
 
     window.addEventListener('pagehide', function (event) {
@@ -3199,6 +3232,11 @@
         // If the event's persisted property is `true` the page is about
         // to enter the Back-Forward Cache, which is also in the frozen state
         appUnload = null;
+
+        if (videoLoad) {
+          audio.load();
+        }
+
       } else {
         // If the event's persisted property is not `true` the page is about to be unloaded.
         appUnload = true;
