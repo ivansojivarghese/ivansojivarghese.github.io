@@ -180,7 +180,7 @@ const actionHandlers = [
                           }],
   ['seekbackward',  (details) => { if (!qualityBestChange && !qualityChange && seekAllow) { seekBackward(true); updatePositionState(); } } ],
   ['seekforward',   (details) => { if (!qualityBestChange && !qualityChange && seekAllow) { seekForward(true); updatePositionState(); } } ],
-  ['seekto',        (details) => { if (!qualityBestChange && !qualityChange && seekAllow) {
+  ['seekto',        (details) => { if (!qualityBestChange && !qualityChange && seekAllow && (!playPauseButton.classList.contains('repeat') || (playPauseButton.classList.contains('repeat') && ((details.seekTime < video.duration && !backgroundPlay) || (details.seekTime < audio.duration && backgroundPlay))))) {
                                       if (details.fastSeek && ('fastSeek' in video || ('fastSeek' in audio && backgroundPlay))) {
                                         // Only use fast seek if supported.
                                         if (backgroundPlay) {
