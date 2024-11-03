@@ -2069,8 +2069,8 @@
         refSeekTime = video.currentTime;
         // console.log("ref", refSeekTime);
 
-        clearInterval(resumeInterval);
-        resumeInterval = null;
+        // clearInterval(resumeInterval);
+        // resumeInterval = null;
 
         console.log("pause");
         video.pause();
@@ -2317,10 +2317,10 @@
               if (!bufferingDetected) {
                 loading = false;
               }
-
+              /*
               if (initialVideoLoad) {
                 initialVideoLoad = false;
-              }
+              }*/
               videoLoad = false;
               bufferMode = false;
               bufferEndTime = new Date().getTime();
