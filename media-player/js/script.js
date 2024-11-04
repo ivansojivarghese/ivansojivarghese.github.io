@@ -2317,10 +2317,10 @@
               if (!bufferingDetected) {
                 loading = false;
               }
-              /*
+              
               if (initialVideoLoad) {
                 initialVideoLoad = false;
-              }*/
+              }
               videoLoad = false;
               bufferMode = false;
               bufferEndTime = new Date().getTime();
