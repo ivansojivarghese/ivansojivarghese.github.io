@@ -848,6 +848,23 @@
     }
 
     function hideVideoControls() {
+
+      if (!loading && !bufferLoad && !seekingLoad && !bufferingDetected) {
+        statusIndicator.classList.remove("buffer");
+        statusIndicator.classList.remove("error");
+        statusIndicator.classList.add("smooth");
+
+        endLoad();
+        setTimeout(function() {
+          loadingRing.style.display = "none";
+          playPauseButton.style.display = "block";
+          // reset the loader
+          setTimeout(function() {
+            resetLoad();
+          }, 10);
+        }, 1000);
+      }
+
       if (video.src !== "") {
         videoControls.classList.remove('visible');
         videoControls.classList.remove('visible_ready');
