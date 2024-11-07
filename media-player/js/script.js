@@ -690,6 +690,8 @@
             audioEnd = true;
           }*/
 
+          refSeekTime = 0;
+
           if (!networkError) {
             clearInterval(networkSpeedInt);
             networkSpeedInt = null;
