@@ -334,7 +334,7 @@ async function getParams(id, time) {
       }
       
       // NO ACCESS TO SHORTS, LIVE, ATTRIBUTED OR EMBEDDED VIDEOS
-      if (!link.includes("embed") && !link.includes("attribution_link") && !link.includes("shorts") && !link.includes("live")) {
+      if (!link.includes("embed") && !link.includes("attribution_link") && !link.includes("shorts")) {
       
       if (link.includes("youtube.com") && !link.includes("m.youtube.com")) {
         
