@@ -148,7 +148,7 @@ const actionHandlers = [
                                 }
   ],
   ['pause',         () => { 
-                            if (!qualityBestChange && !qualityChange ) {
+                            if (!qualityBestChange && !qualityChange) {
                               audio.pause();
                               video.pause();
 

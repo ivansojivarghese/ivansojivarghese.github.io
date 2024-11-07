@@ -1415,11 +1415,11 @@
         }
         clearInterval(networkParamInt);
         networkParamInt = null;
-
+        /*
         controller.abort();
         controllerRTT.abort();
         controllerPacket.abort();
-
+        */
         loading = true;
         bufferingDetected = true;
 
@@ -1676,11 +1676,11 @@
       }
       clearInterval(networkParamInt);
       networkParamInt = null;
-
+      /*
       controller.abort();
       controllerRTT.abort();
       controllerPacket.abort();
-
+      */
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
       statusIndicator.classList.add("buffer");
@@ -1717,11 +1717,11 @@
       }
       clearInterval(networkParamInt);
       networkParamInt = null;
-      
+      /*
       controller.abort();
       controllerRTT.abort();
       controllerPacket.abort();
-      
+      */
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
       statusIndicator.classList.add("buffer");
@@ -1757,11 +1757,11 @@
       }
       clearInterval(networkParamInt);
       networkParamInt = null;
-      
+      /*
       controller.abort();
       controllerRTT.abort();
       controllerPacket.abort();
-      
+      */
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
       statusIndicator.classList.add("buffer");
@@ -1829,11 +1829,11 @@
       }
       clearInterval(networkParamInt);
       networkParamInt = null;
-      
+      /*
       controller.abort();
       controllerRTT.abort();
       controllerPacket.abort();
-
+      */
       statusIndicator.classList.remove("error");
       statusIndicator.classList.remove("smooth");
       statusIndicator.classList.add("buffer");
@@ -3109,9 +3109,11 @@
           }
 
           if (video.src !== "") {
+            /*
             controller.abort();
             controllerRTT.abort();
             controllerPacket.abort();
+            */
           }
 
           video.style.objectFit = "";
