@@ -2517,10 +2517,21 @@
     var audioRun = false;
     var videoRun = false;
 
-    /*
+
     audio.addEventListener('seeked', function() {
-      
-    });*/
+      if (!checkAudioReady) {
+        checkAudioReady = setInterval(() => {
+            if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+                audioRun = false;
+                console.log("Audio is ready to play on a slow network!");
+                clearInterval(checkAudioReady);
+                checkAudioReady = null;
+                // Trigger your play or any other logic
+                audio.play();
+            }
+        }, 100);
+      }
+    });
 
     audio.addEventListener('seeking', function() {
       audioRun = true;
@@ -3283,10 +3294,11 @@
         }
       }
 
-      if (videoLoad && backgroundPlay) {
+      if (videoLoad && backgroundPlay && !checkAudioReady) {
         checkAudioReady = setInterval(() => {
           if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA && !initialAudioLoad) {
               initialAudioLoad = true;
+              audioRun = false;
               console.log("Audio is ready to play on a slow network!");
               clearInterval(checkAudioReady);
               checkAudioReady = null;
