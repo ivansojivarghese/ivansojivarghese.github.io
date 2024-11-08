@@ -642,6 +642,9 @@
         if (document.visibilityState === "visible" && appUnload !== null) {
           audio.pause();
           // videoPause = false;
+
+          console.log("audio_pause");
+
         } else {
           backgroundPlay = true;
           backgroundPlayInit = true;
@@ -1707,6 +1710,8 @@
 
       audio.pause();
       // videoPause = false;
+
+      console.log("audio_pause");
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
@@ -1748,6 +1753,8 @@
 
       audio.pause();
       // videoPause = false;
+
+      console.log("audio_pause");
     });
 
     audio.addEventListener('stalled', function() {
@@ -2095,6 +2102,8 @@
         video.pause();
         audio.pause(); // pause content
 
+        console.log("audio_pause");
+
         qualityChange = true;
 
         if (!videoEnd && !preventRefetch && video.src !== targetVideo.url) {
@@ -2172,6 +2181,8 @@
 
         video.pause();
         audio.pause(); // pause content
+
+        console.log("audio_pause");
 
         if (!videoEnd && !preventRefetch) {
           console.log("load again");
