@@ -290,6 +290,8 @@ function resetVariables() {
   framesStuck = false;
 }
 
+var mediaSource;
+
 async function getParams(id, time) {
 
   if (!networkError) {
@@ -521,7 +523,7 @@ async function getParams(id, time) {
     
     // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
 
-    const mediaSource = new MediaSource();
+    mediaSource = new MediaSource();
     video.src = URL.createObjectURL(mediaSource);
     
     const url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=' + videoID;
