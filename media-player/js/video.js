@@ -290,7 +290,7 @@ function resetVariables() {
   framesStuck = false;
 }
 
-var mediaSource;
+// var mediaSource;
 
 async function getParams(id, time) {
 
@@ -523,9 +523,11 @@ async function getParams(id, time) {
     
     // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
 
+/*
     mediaSource = new MediaSource();
     video.src = URL.createObjectURL(mediaSource);
-    
+    */
+
     const url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=' + videoID;
     const options = {
       method: 'GET',
@@ -1016,12 +1018,62 @@ function getOptimalVideo(time) {
         // targetVideo = targetVideoSources[0];  // FOR TESTING
         // getMediaSources(targetVideoSources);
         
-        videoURLStream = targetVideo.url;
+        // videoURLStream = targetVideo.url;
+
         // video.src = targetVideo.url; 
         audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
 
+const mediaSource = new MediaSource();
+
+// Check if MediaSource is available and video element exists
+if (video && 'MediaSource' in window) {
+    // Set the MediaSource URL as the video source
+    video.src = URL.createObjectURL(mediaSource);
+
+    // Add an event listener for 'sourceopen' to load video segments
+    mediaSource.addEventListener("sourceopen", async () => {
+        console.log("MediaSource is open.");
+        
+        // Add a SourceBuffer with the correct MIME type for the video
+        const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001E, mp4a.40.2"');
+
+        try {
+            // Fetch the video data in chunks
+            const response = await fetch(targetVideo.url); // Replace with your actual video URL
+            const reader = response.body.getReader();
+            
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                // Wait if the buffer is currently updating
+                if (!sourceBuffer.updating) {
+                    sourceBuffer.appendBuffer(value);
+                    console.log("Appending chunk to SourceBuffer");
+                } else {
+                    await new Promise(resolve => sourceBuffer.addEventListener("updateend", resolve, { once: true }));
+                    sourceBuffer.appendBuffer(value);
+                    console.log("Appended after updateend");
+                }
+            }
+
+            // Signal end of stream when all chunks are appended
+            mediaSource.endOfStream();
+            console.log("End of stream");
+            video.play(); // Attempt to start playback once buffering is complete
+        } catch (error) {
+            console.error("Error fetching or appending video data:", error);
+        }
+    });
+} else {
+    console.error("MediaSource API is not available or video element is missing.");
+}
+
+
+
+/*
         // Once MediaSource is open, add and manage the SourceBuffer
           mediaSource.addEventListener("sourceopen", async () => {
             const sourceBuffer = mediaSource.addSourceBuffer(targetVideo.mimeType); // Match MIME type with video format from RapidAPI
@@ -1049,10 +1101,12 @@ function getOptimalVideo(time) {
 
             readChunks().catch(error => console.error("Error buffering video:", error));
           });
-
+*/
 
         //video.load();
         //audio.load();
+
+
 
         if (time) { // START FROM (if available)
           video.currentTime = time;
