@@ -1013,6 +1013,9 @@ function getOptimalVideo(time) {
         audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
+        video.load();
+        audio.load();
+
         if (time) { // START FROM (if available)
           video.currentTime = time;
           audio.currentTime = time;
