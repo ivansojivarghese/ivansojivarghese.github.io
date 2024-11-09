@@ -1708,10 +1708,12 @@
       loading = true;
       bufferLoad = true;
 
-      audio.pause();
-      // videoPause = false;
+      if (!backgroundPlay) {
+        audio.pause();
+        // videoPause = false;
 
-      console.log("audio_pause");
+        console.log("audio_pause");
+      }
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
@@ -1751,10 +1753,12 @@
       loading = true;
       bufferLoad = true;
 
-      audio.pause();
-      // videoPause = false;
+      if (!backgroundPlay) {
+        audio.pause();
+        // videoPause = false;
 
-      console.log("audio_pause");
+        console.log("audio_pause");
+      }
     });
 
     audio.addEventListener('stalled', function() {
