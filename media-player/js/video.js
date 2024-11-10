@@ -1049,8 +1049,8 @@ function getOptimalVideo(time) {
           });
 
 
-        //video.load();
-        //audio.load();
+        video.load();
+        audio.load();
 
         if (time) { // START FROM (if available)
           video.currentTime = time;
