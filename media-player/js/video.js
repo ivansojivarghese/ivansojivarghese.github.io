@@ -520,9 +520,6 @@ async function getParams(id, time) {
     showVideoControls();
     
     // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
-
-    const mediaSource = new MediaSource();
-    video.src = URL.createObjectURL(mediaSource);
     
     const url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=' + videoID;
     const options = {
@@ -995,8 +992,6 @@ function getOptimalVideo(time) {
     }
   })();
 
-  var videoURLStream = "";
-
   videoSupportLoop = setInterval(function() {
 
     if (supportedVideoSources.length && supportedAudioSources.length) {
@@ -1014,40 +1009,9 @@ function getOptimalVideo(time) {
         // targetVideo = targetVideoSources[0];  // FOR TESTING
         // getMediaSources(targetVideoSources);
         
-        videoURLStream = targetVideo.url;
-        // video.src = targetVideo.url; 
+        video.src = targetVideo.url; 
         audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
-
-
-        // Once MediaSource is open, add and manage the SourceBuffer
-          mediaSource.addEventListener("sourceopen", async () => {
-            const sourceBuffer = mediaSource.addSourceBuffer(targetVideo.mimeType); // Match MIME type with video format from RapidAPI
-
-            // Fetch the video stream in chunks
-            const response = await fetch(videoURLStream);
-            const reader = response.body.getReader();
-
-            async function readChunks() {
-              while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-
-                if (!sourceBuffer.updating) {
-                  sourceBuffer.appendBuffer(value);
-                } else {
-                  await new Promise(resolve => sourceBuffer.addEventListener("updateend", resolve, { once: true }));
-                  sourceBuffer.appendBuffer(value);
-                }
-              }
-              
-              // Signal the end of stream when done
-              mediaSource.endOfStream();
-            }
-
-            readChunks().catch(error => console.error("Error buffering video:", error));
-          });
-
 
         video.load();
         audio.load();
