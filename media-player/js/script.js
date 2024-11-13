@@ -211,7 +211,7 @@
             setTimeout(function() {
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
-              if (!seekingLoad && !longTap && !seeking) {
+              if (!seekingLoad && !longTap && !seeking && !videoEnd) {
                 hideVideoControls();
               }
               // reset the loader
