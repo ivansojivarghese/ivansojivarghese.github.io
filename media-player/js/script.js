@@ -2577,7 +2577,7 @@
         console.log(`Total buffered time: ${bufferedEndTime.toFixed(2)} seconds`);
 
         // Check if at least 5 seconds have been buffered ahead
-        if (currentBufferDuration >= BUFFER_THRESHOLD_AUDIO) {
+        if (currentBufferDuration >= BUFFER_THRESHOLD_AUDIO && audio.paused) {
           console.log("Resuming audio playback as at least 1 second of audio have been buffered.");
 
           if (!videoRun) {
@@ -3163,7 +3163,7 @@
             if (document.visibilityState === 'visible') {
               backgroundPlayManual = false;
             }
-          }, 100);
+          }, 1000);
 
           // start intervals to get network info
           if (networkSpeedInt === null) {
