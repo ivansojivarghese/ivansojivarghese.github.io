@@ -253,6 +253,7 @@ video.seeking {
     font-size: 1rem;
     margin-left: calc(env(safe-area-inset-left));
     letter-spacing: 0.1rem;
+    font-weight: bold;
 }
 
 #videoCurrentTime, #seekControls {
