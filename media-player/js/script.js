@@ -1614,7 +1614,7 @@
           // video.play();
           if (backgroundPlay) {
             audio.play();
-          } else {
+          } else if (!backgroundPlayManual) {
             video.play();
           }
         }
@@ -1708,7 +1708,7 @@
       loading = true;
       bufferLoad = true;
 
-      if (!backgroundPlay) {
+      if (!backgroundPlay && !backgroundPlayManual) {
         audio.pause();
         // videoPause = false;
 
@@ -1753,7 +1753,7 @@
       loading = true;
       bufferLoad = true;
 
-      if (!backgroundPlay) {
+      if (!backgroundPlay && !backgroundPlayManual) {
         audio.pause();
         // videoPause = false;
 
