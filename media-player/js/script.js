@@ -2842,7 +2842,9 @@
           }
         }
 
-        updateVideoLoad();
+        if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad))))) {
+          updateVideoLoad();
+        }
     });
 
     audio.addEventListener("timeupdate", function() {
