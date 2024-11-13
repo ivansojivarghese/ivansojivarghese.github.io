@@ -11,6 +11,7 @@ var networkSpeedClose = false;
 var backgroundPlay = false; // background audio playback
 var pipEnabled = false;
 var backgroundPlayInit = false;
+var backgroundPlayManual = false;
 
 ////////////
 

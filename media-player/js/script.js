@@ -2586,7 +2586,7 @@
             // audio.play();
             if (backgroundPlay) {
               audio.play();
-            } else {
+            } else if (!backgroundPlayManual) {
               video.play();
               audio.play();
             }
@@ -3120,6 +3120,8 @@
       if (!networkError) {
         if (document.visibilityState === 'hidden') {
 
+          backgroundPlayManual = true;
+
           if (videoLoad && audio.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
             audio.load();
           }
@@ -3156,6 +3158,13 @@
           }
           backgroundPlay = true;
         } else {
+
+          setTimeout(function() {
+            if (document.visibilityState === 'visible') {
+              backgroundPlayManual = false;
+            }
+          }, 100);
+
           // start intervals to get network info
           if (networkSpeedInt === null) {
               networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
