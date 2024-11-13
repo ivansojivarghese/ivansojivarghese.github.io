@@ -3161,6 +3161,22 @@
 
           if (backgroundPlay && videoEnd) {
             video.currentTime = audio.currentTime;
+
+            playPauseButton.classList.remove('playing');
+            playPauseButton.classList.add('repeat');
+
+            endLoad();
+                  
+            setTimeout(function() {
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+
+            }, 1000);
           }
 
           setTimeout(function() {
