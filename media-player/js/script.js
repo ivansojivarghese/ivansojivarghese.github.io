@@ -3159,6 +3159,10 @@
           backgroundPlay = true;
         } else {
 
+          if (backgroundPlay && videoEnd) {
+            video.currentTime = audio.currentTime;
+          }
+
           setTimeout(function() {
             if (document.visibilityState === 'visible') {
               backgroundPlayManual = false;
