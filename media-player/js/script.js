@@ -1104,16 +1104,16 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused && !seekingLoad && (!videoEnd) && (!loading || qualityBestChange) && !bufferingDetected && !framesStuck) {
+      if (!video.paused && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck) {
         
-        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > 1) /*&& video.currentTime > minVideoLoad*/) { // only buffer when audio has stalled
+        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > 1)) { // only buffer when audio has stalled
           // bufferCount++;
           bufferStartTime = new Date().getTime();
           bufferMode = true;
 
           console.log("audioVideoAlign: paused");
 
-          if (qualityBestChange && audio.paused && !seekingLoad && !longTap && !seeking) {
+          if ((qualityBestChange || qualityChange) && audio.paused && !seekingLoad && !longTap && !seeking) {
             audio.play();
             hideVideoControls();
           }
@@ -1132,6 +1132,7 @@
           audioStall = true;
 
         } 
+
       } else if (audioStall) {
         audioStall = false;
         audioVideoAligning = false;
