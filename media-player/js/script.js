@@ -2609,7 +2609,7 @@
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
       
       videoRun = false;
-      
+
       if (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) {
 
         console.log("video_canplay");
@@ -3172,7 +3172,7 @@
           backgroundPlay = true;
         } else {
 
-          if (backgroundPlay && videoEnd) {
+          if (backgroundPlay && videoEnd && !playPauseButton.classList.contains("repeat")) {
             video.currentTime = audio.currentTime;
 
             playPauseButton.classList.remove('playing');
