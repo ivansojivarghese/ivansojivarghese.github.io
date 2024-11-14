@@ -519,6 +519,15 @@
 
       if (videoPlay) {
 
+        if (audioVideoAlignInt !== null) {
+          clearInterval(audioVideoAlignInt);
+          audioVideoAlignInt = null;
+        }
+        audioVideoAlignInt = setInterval(audioVideoAlign, 100);     
+        setInterval(function() {
+          console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+        }, 1000);
+
         if (!qualityBestChange && !qualityChange) {
           bufferAllow = true;
         } 
