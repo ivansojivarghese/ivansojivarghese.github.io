@@ -66,11 +66,11 @@ var dpr = window.devicePixelRatio,
 const actionHandlers = [
   ['play',          async () => { 
                                   if (videoPlay && !qualityChange && !qualityBestChange && !videoRun && !audioRun) {
-
+                                    /*
                                     if (videoEnd) { 
                                       video.currentTime = 0;
                                       audio.currentTime = 0;
-                                    } 
+                                    } */
                                     if (!backgroundPlay || pipEnabled) {
                                       await video.play().then(function () {
                                         // audioCtx = new AudioContext();

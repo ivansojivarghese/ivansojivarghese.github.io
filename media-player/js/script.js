@@ -548,7 +548,7 @@
             if (!seeking && !seekingLoad && !longTap) {
               audio.play().then(function() {
                 if (videoEnd) {
-                  audio.currentTime = 0;
+                  // audio.currentTime = 0;
                 }
                 
                 if (!backgroundPlay && !pipEnabled && audio.src) {
