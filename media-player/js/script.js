@@ -2559,45 +2559,50 @@
     });
 
     audio.addEventListener('canplay', function() {
-      audioRun = false;
 
-      console.log("audio_canplay");
+      if (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) {
 
-      clearInterval(checkAudioReady);
-      checkAudioReady = null;
+        audioRun = false;
 
-      // Check if the audio is buffered enough
-      const buffered = audio.buffered;
+        console.log("audio_canplay");
 
-      // Ensure there’s at least one buffered range
-      if (buffered.length > 0) {
-        const bufferedEndTime = buffered.end(buffered.length - 1); // Get the end of the last buffered range
-        const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
+        clearInterval(checkAudioReady);
+        checkAudioReady = null;
 
-        console.log(`Total buffered time: ${bufferedEndTime.toFixed(2)} seconds`);
+        // Check if the audio is buffered enough
+        const buffered = audio.buffered;
 
-        // Check if at least 5 seconds have been buffered ahead
-        if (currentBufferDuration >= BUFFER_THRESHOLD_AUDIO && audio.paused) {
-          console.log("Resuming audio playback as at least 1 second of audio have been buffered.");
+        // Ensure there’s at least one buffered range
+        if (buffered.length > 0) {
+          const bufferedEndTime = buffered.end(buffered.length - 1); // Get the end of the last buffered range
+          const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
 
-          if (!videoRun) {
-            console.log("play");
-            // video.play();
-            // audio.play();
-            if (backgroundPlay) {
-              audio.play();
-            } else if (!backgroundPlayManual) {
-              video.play();
-              audio.play();
+          console.log(`Total buffered time: ${bufferedEndTime.toFixed(2)} seconds`);
+
+          // Check if at least 5 seconds have been buffered ahead
+          if (currentBufferDuration >= BUFFER_THRESHOLD_AUDIO && audio.paused) {
+            console.log("Resuming audio playback as at least 1 second of audio have been buffered.");
+
+            if (!videoRun) {
+              console.log("play");
+              // video.play();
+              // audio.play();
+              if (backgroundPlay) {
+                audio.play();
+              } else if (!backgroundPlayManual) {
+                video.play();
+                audio.play();
+              }
             }
+          } else {
+            console.log("Not enough buffered data to resume audio playback. Waiting for more data...");
+            // Optionally, you can provide feedback to the user or update UI elements to indicate buffering
           }
+
         } else {
-          console.log("Not enough buffered data to resume audio playback. Waiting for more data...");
-          // Optionally, you can provide feedback to the user or update UI elements to indicate buffering
+          console.log("No buffered data available for audio.");
         }
 
-      } else {
-        console.log("No buffered data available for audio.");
       }
     });
 
