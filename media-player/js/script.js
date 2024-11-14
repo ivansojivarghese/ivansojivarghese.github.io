@@ -685,8 +685,8 @@
 
       audio.addEventListener('ended', function() {
         if (!videoEnd && backgroundPlay) {
-          playPauseButton.classList.remove('playing');
-          playPauseButton.classList.add('repeat');
+          // playPauseButton.classList.remove('playing');
+          // playPauseButton.classList.add('repeat');
 
           /*
           if (backgroundPlay) {
