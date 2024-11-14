@@ -1225,6 +1225,9 @@
           }
         }, 100);
       } else if (audioStall && !audio.buffered && !loading) {
+        video.pause();
+        console.log("video_pause");
+
         loading = true;
         bufferingDetected = true;
 
