@@ -1104,7 +1104,7 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck) {
+      if (!video.paused && !networkError && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck) {
         
         if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > 1)) { // only buffer when audio has stalled
           // bufferCount++;
@@ -1133,7 +1133,7 @@
 
         } 
 
-      } else if (audioStall) {
+      } else if (audioStall && audio.buffered) {
         audioStall = false;
         audioVideoAligning = false;
         setTimeout(function() {
@@ -1224,6 +1224,13 @@
             });
           }
         }, 100);
+      } else if (audioStall && !audio.buffered && !loading) {
+        loading = true;
+        bufferingDetected = true;
+
+        loadingRing.style.display = "block";
+        playPauseButton.style.display = "none";
+        showVideoControls();
       }
 
       // IF LATENCY IS GOING OFF FROM THE AVERAGE (ACCORDING TO THE DEVICE, ETC.), THEN PAUSE/PLAY
