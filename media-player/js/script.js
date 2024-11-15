@@ -1776,7 +1776,10 @@
     audio.addEventListener('stalled', function() {
       offset = (checkInterval - 20) / 1000;
 
-      video.pause();
+      if (!video.paused) {
+        console.log("audiostalled");
+        video.pause();
+      }
 
       if (!networkError) {
         clearInterval(networkSpeedInt);
@@ -1850,7 +1853,10 @@
     audio.addEventListener('waiting', function() {
       offset = (checkInterval - 20) / 1000;
 
-      video.pause();
+      if (!video.paused) {
+        console.log("audiostalled");
+        video.pause();
+      }
 
       if (!networkError) {
         clearInterval(networkSpeedInt);
