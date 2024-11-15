@@ -523,11 +523,12 @@
           clearInterval(audioVideoAlignInt);
           audioVideoAlignInt = null;
         }
-        audioVideoAlignInt = setInterval(audioVideoAlign, 100);     
+        audioVideoAlignInt = setInterval(audioVideoAlign, 100); 
+        /*    
         setInterval(function() {
           console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
         }, 1000);
-
+        */
 
         if (!qualityBestChange && !qualityChange) {
           bufferAllow = true;
@@ -1095,10 +1096,20 @@
       }
     }
 
+    var aVcount = 0;
+
     function audioVideoAlign() {
       var aT = audio.currentTime;
       var vT = video.currentTime;
       var diff = vT - aT;
+
+      if (aVcount === 10) {
+        console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
+        aVcount = 0;
+        audioCtx = new AudioContext();
+      } else {
+        aVcount++;
+      }
 
       audioLatencyArr[audioLatencyArr.length] = diff;
       audioTimes[audioTimes.length] = aT;
@@ -1106,7 +1117,7 @@
 
       if (!video.paused && !networkError && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck) {
         
-        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > 1)) { // only buffer when audio has stalled
+        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > (audioCtx.playoutStats.maximumLatency / 100))) { // only buffer when audio has stalled
           // bufferCount++;
           bufferStartTime = new Date().getTime();
           bufferMode = true;
@@ -1140,10 +1151,11 @@
           if ((!videoRun || backgroundPlay) && !audioRun) {
 
             audio.play().then(function() {
+              /*
               if (!getAudioContext) {
                 audioCtx = new AudioContext();
                 getAudioContext = true;
-              }
+              }*/
               // setTimeout(function() {
                 video.play().then(function() {
 
@@ -1764,6 +1776,8 @@
     audio.addEventListener('stalled', function() {
       offset = (checkInterval - 20) / 1000;
 
+      video.pause();
+
       if (!networkError) {
         clearInterval(networkSpeedInt);
         networkSpeedInt = null;
@@ -1835,6 +1849,8 @@
 
     audio.addEventListener('waiting', function() {
       offset = (checkInterval - 20) / 1000;
+
+      video.pause();
 
       if (!networkError) {
         clearInterval(networkSpeedInt);
