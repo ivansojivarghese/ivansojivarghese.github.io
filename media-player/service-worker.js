@@ -105,7 +105,7 @@ self.addEventListener('notificationclick', event => {
           console.error("Error focusing the client:", error);
       })
   );*/
-
+  /*
   event.waitUntil(
     clients.matchAll({ type: "window" }).then((clientsArr) => {
       // If a Window tab matching the targeted URL already exists, focus that;
@@ -120,6 +120,30 @@ self.addEventListener('notificationclick', event => {
         .openWindow(event.notification.data.url)
         .then((windowClient) => (windowClient ? windowClient.focus() : null));
     }),
+  );*/
+
+  event.waitUntil(
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then((clientsArr) => {
+        let hadWindowToFocus = false;
+        
+        // Check if a window with the target URL already exists
+        for (const windowClient of clientsArr) {
+            if (windowClient.url.indexOf(event.notification.data.url) >= 0) {
+                hadWindowToFocus = true;
+                return windowClient.focus(); // Focus the existing window
+            }
+        }
+
+        // If no matching window exists, then open the URL in the same window
+        if (!hadWindowToFocus) {
+            return clients.openWindow(event.notification.data.url).then((windowClient) => {
+                // Focus the newly opened window
+                if (windowClient) {
+                    windowClient.focus();
+                }
+            });
+        }
+    })
   );
 });
 
