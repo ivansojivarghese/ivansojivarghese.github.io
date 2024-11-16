@@ -1153,6 +1153,7 @@
     }
 
     var aVcount = 0;
+    var aVcount2 = 0;
 
     function audioVideoAlign() {
       var aT = audio.currentTime;
@@ -1162,9 +1163,15 @@
       if (aVcount === 10) {
         console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
         aVcount = 0;
-        audioCtx = new AudioContext();
       } else {
         aVcount++;
+      }
+
+      if (aVcount2 === 100) {
+        audioCtx = new AudioContext();
+        aVcount2 = 0;
+      } else {
+        aVcount2++;
       }
 
       audioLatencyArr[audioLatencyArr.length] = diff;
