@@ -27,6 +27,8 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/play.png',
   'https://ivansojivarghese.github.io/media-player/play.svg',
   'https://ivansojivarghese.github.io/media-player/play_maskable.png',
+  'https://ivansojivarghese.github.io/media-player/play_maskable_monochrome.png',
+  'https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png',
   'https://ivansojivarghese.github.io/media-player/play_small.png',
   'https://ivansojivarghese.github.io/media-player/web_upload.png',
 
@@ -55,7 +57,8 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/svg/fitscreen.svg',
   'https://ivansojivarghese.github.io/media-player/svg/settings.svg',
   'https://ivansojivarghese.github.io/media-player/svg/skip_previous.svg',
-  'https://ivansojivarghese.github.io/media-player/svg/replay.svg'
+  'https://ivansojivarghese.github.io/media-player/svg/replay.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/error.svg'
 ];
 
 self.addEventListener('install', evt => {

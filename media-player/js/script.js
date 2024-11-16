@@ -1697,7 +1697,9 @@
 
     video.addEventListener("error", async () => {
       var ntfTitle = "",
-          ntfBody = "";
+          ntfBody = "",
+          ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
+          ntfIcon = "https://ivansojivarghese.github.io/media-player/svg/error.svg";
 
       console.error(`Error loading: ${video}`);
 
@@ -1727,15 +1729,15 @@
         navigator.serviceWorker.ready.then(registration => {
           registration.showNotification(ntfTitle, {
             body: ntfBody,
-            badge: "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome.png",
-            icon: "https://ivansojivarghese.github.io/media-player/play.png",
+            badge: ntfBadge,
+            icon: ntfIcon,
             tag: "videoError",
             data: {
-
+              
             }
           });
         });
-        
+
         /*
         notification.onclick = (event) => {
           event.preventDefault(); // Prevent the default action (usually focusing the notification)
