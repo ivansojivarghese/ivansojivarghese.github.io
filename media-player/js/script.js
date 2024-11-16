@@ -1034,7 +1034,7 @@
         pmsCheck = true;
 
         // Notifications
-        if ("Notification" in window && 'serviceWorker' in navigator) {
+        if ("Notification" in window || 'serviceWorker' in navigator) {
           switch (Notification.permission) {
             case 'granted':
                 console.log('Notifications are allowed.');
@@ -1750,28 +1750,36 @@
       }
 
       if (pms.ntf && !videoErr) {
-        navigator.serviceWorker.ready.then(registration => {
-          registration.showNotification(ntfTitle, {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then(registration => {
+            registration.showNotification(ntfTitle, {
+              body: ntfBody,
+              badge: ntfBadge,
+              icon: ntfIcon,
+              tag: "audioError",
+            });
+          });
+        } else {
+          const notification = new Notification(ntfTitle, {
             body: ntfBody,
             badge: ntfBadge,
             icon: ntfIcon,
             tag: "audioError",
           });
-        });
 
-        notification.onclick = (event) => {
-          event.preventDefault(); // Prevent the default action (usually focusing the notification)
-          
-          // Focus on the tab or open a new one
-          if (document.hasFocus()) {
-              console.log("App is already in focus.");
-          } else if (window.opener) {
-              window.opener.focus();
-          } else {
-              window.focus();
-          }
-        };
-
+          notification.onclick = (event) => {
+            event.preventDefault(); // Prevent the default action (usually focusing the notification)
+            
+            // Focus on the tab or open a new one
+            if (document.hasFocus()) {
+                console.log("App is already in focus.");
+            } else if (window.opener) {
+                window.opener.focus();
+            } else {
+                window.focus();
+            }
+          };
+        }
       }
     });
 
@@ -1824,27 +1832,36 @@
       }
 
       if (pms.ntf) {
-        navigator.serviceWorker.ready.then(registration => {
-          registration.showNotification(ntfTitle, {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then(registration => {
+            registration.showNotification(ntfTitle, {
+              body: ntfBody,
+              badge: ntfBadge,
+              icon: ntfIcon,
+              tag: "videoError",
+            });
+          });
+        } else {
+          const notification = new Notification(ntfTitle, {
             body: ntfBody,
             badge: ntfBadge,
             icon: ntfIcon,
             tag: "videoError",
           });
-        });
 
-        notification.onclick = (event) => {
-          event.preventDefault(); // Prevent the default action (usually focusing the notification)
-          
-          // Focus on the tab or open a new one
-          if (document.hasFocus()) {
-              console.log("App is already in focus.");
-          } else if (window.opener) {
-              window.opener.focus();
-          } else {
-              window.focus();
-          }
-        };
+          notification.onclick = (event) => {
+            event.preventDefault(); // Prevent the default action (usually focusing the notification)
+            
+            // Focus on the tab or open a new one
+            if (document.hasFocus()) {
+                console.log("App is already in focus.");
+            } else if (window.opener) {
+                window.opener.focus();
+            } else {
+                window.focus();
+            }
+          };
+        }
 
       }
 
