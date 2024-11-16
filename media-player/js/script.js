@@ -1726,8 +1726,8 @@
       if (pms.ntf) {
         new Notification(ntfTitle, {
           body: ntfBody,
-          badge: "../play_maskable_monochrome.png",
-          icon: "../play.png",
+          badge: "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome.png",
+          icon: "https://ivansojivarghese.github.io/media-player/play.png",
           tag: "videoError",
           dir: "auto"
         });
