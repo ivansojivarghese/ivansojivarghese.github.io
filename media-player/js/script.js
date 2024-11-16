@@ -1127,7 +1127,7 @@
 
       if (!video.paused && !networkError && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck) {
         
-        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > (audioCtx.playoutStats.maximumLatency / 100))) { // only buffer when audio has stalled
+        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > ((audioCtx.playoutStats.maximumLatency / 100) + (audioCtx.baseLatency * 10) + (audioCtx.outputLatency * 10)))) { // only buffer when audio has stalled
           // bufferCount++;
           bufferStartTime = new Date().getTime();
           bufferMode = true;
