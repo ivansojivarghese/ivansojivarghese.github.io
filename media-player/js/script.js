@@ -1726,7 +1726,10 @@
       if (pms.ntf) {
         new Notification(ntfTitle, {
           body: ntfBody,
+          badge: "../play_maskable_monochrome.png",
           icon: "",
+          tag: "videoError",
+          dir: "auto"
         });
       }
 
