@@ -1704,23 +1704,23 @@
       switch (video.error.code) {
         case 1: // MEDIA_ERR_ABORTED
           ntfTitle = "Aborted";
-          ntfBody = "";
+          ntfBody = "Fetching of the associated resource(s) was/were aborted at your request.";
         break;
         case 2: // MEDIA_ERR_NETWORK
           ntfTitle = "Network error";
-          ntfBody = "";
+          ntfBody = "An unexpected network error occurred - preventing further fetching of the associated resource(s).";
         break;
         case 3: // MEDIA_ERR_DECODE
           ntfTitle = "Decode error";
-          ntfBody = "";
+          ntfBody = "An unexpected error occurred while trying to decode the associated resource(s).";
         break;
         case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
           ntfTitle = "Unsupported";
-          ntfBody = "";
+          ntfBody = "The associated resource(s) has/have been found to be unusable.";
         break;
         default: // OTHER
           ntfTitle = "Unknown error";
-          ntfBody = "";
+          ntfBody = "Something went wrong.";
       }
 
       if (pms.ntf) {
