@@ -31,6 +31,7 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png',
   'https://ivansojivarghese.github.io/media-player/play_small.png',
   'https://ivansojivarghese.github.io/media-player/web_upload.png',
+  'https://ivansojivarghese.github.io/media-player/png/error.png',
 
   'https://ivansojivarghese.github.io/media-player/js/index.js',
   'https://ivansojivarghese.github.io/media-player/js/dev.js',

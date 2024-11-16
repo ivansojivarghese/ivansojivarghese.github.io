@@ -1713,7 +1713,7 @@
       var ntfTitle = "",
           ntfBody = "",
           ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
-          ntfIcon = "https://ivansojivarghese.github.io/media-player/svg/error.svg";
+          ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
 
       console.error(`Error loading: ${audio}`);
       audioErr = true;
@@ -1801,7 +1801,7 @@
       var ntfTitle = "",
           ntfBody = "",
           ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
-          ntfIcon = "https://ivansojivarghese.github.io/media-player/svg/error.svg";
+          ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
 
       console.error(`Error loading: ${video}`);
       videoErr = true;
