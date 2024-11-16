@@ -1759,7 +1759,6 @@
           });
         });
 
-        /*
         notification.onclick = (event) => {
           event.preventDefault(); // Prevent the default action (usually focusing the notification)
           
@@ -1771,7 +1770,7 @@
           } else {
               window.focus();
           }
-        };*/
+        };
 
       }
     });
@@ -1834,7 +1833,6 @@
           });
         });
 
-        /*
         notification.onclick = (event) => {
           event.preventDefault(); // Prevent the default action (usually focusing the notification)
           
@@ -1846,7 +1844,7 @@
           } else {
               window.focus();
           }
-        };*/
+        };
 
       }
 
