@@ -92,6 +92,7 @@ self.addEventListener('fetch', evt => {
 self.addEventListener('notificationclick', event => {
   event.notification.close(); // Close the notification
 
+  /*
   event.waitUntil(
       clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clientList => {
           // Focus the first controlled client (e.g., the window/tab that triggered the notification)
@@ -103,6 +104,22 @@ self.addEventListener('notificationclick', event => {
       }).catch(error => {
           console.error("Error focusing the client:", error);
       })
+  );*/
+
+  event.waitUntil(
+    clients.matchAll({ type: "window" }).then((clientsArr) => {
+      // If a Window tab matching the targeted URL already exists, focus that;
+      const hadWindowToFocus = clientsArr.some((windowClient) =>
+      windowClient.url.indexOf(event.notification.data.url) >= 0
+        ? (windowClient.focus(), true)
+        : false,
+      );
+      // Otherwise, open a new tab to the applicable URL and focus it.
+      if (!hadWindowToFocus)
+      clients
+        .openWindow(event.notification.data.url)
+        .then((windowClient) => (windowClient ? windowClient.focus() : null));
+    }),
   );
 });
 

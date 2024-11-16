@@ -1757,6 +1757,9 @@
               badge: ntfBadge,
               icon: ntfIcon,
               tag: "audioError",
+              data : {
+                url :  "https://ivansojivarghese.github.io/media-player/"
+              }
             });
           });
         } else {
@@ -1765,6 +1768,9 @@
             badge: ntfBadge,
             icon: ntfIcon,
             tag: "audioError",
+            data : {
+              url :  "https://ivansojivarghese.github.io/media-player/"
+            }
           });
 
           notification.onclick = (event) => {
@@ -1839,6 +1845,9 @@
               badge: ntfBadge,
               icon: ntfIcon,
               tag: "videoError",
+              data : {
+                url :  "https://ivansojivarghese.github.io/media-player/"
+              }
             });
           });
         } else {
@@ -1847,6 +1856,9 @@
             badge: ntfBadge,
             icon: ntfIcon,
             tag: "videoError",
+            data : {
+              url :  "https://ivansojivarghese.github.io/media-player/"
+            }
           });
 
           notification.onclick = (event) => {
