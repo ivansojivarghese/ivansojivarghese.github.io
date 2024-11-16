@@ -1018,16 +1018,20 @@
       }
     });
 
-    window.addEventListener('load', function() {
+    window.addEventListener('click', function() {
       if ("Notification" in window) {
         Notification.requestPermission().then(permission => {
           if (permission === 'granted') {
             console.log("granted");
           } else {
-
+            console.log("denied");
           }
         });
       }
+    });
+
+    window.addEventListener('load', function() {
+      
     });
 
     window.addEventListener('DOMContentLoaded', function() {
