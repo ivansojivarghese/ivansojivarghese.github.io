@@ -1696,7 +1696,40 @@
     var seekAllow = true;
 
     video.addEventListener("error", async () => {
+      var ntfTitle = "",
+          ntfBody = "";
+
       console.error(`Error loading: ${video}`);
+
+      switch (video.error.code) {
+        case 1: // MEDIA_ERR_ABORTED
+          ntfTitle = "Aborted";
+          ntfBody = "";
+        break;
+        case 2: // MEDIA_ERR_NETWORK
+          ntfTitle = "Network error";
+          ntfBody = "";
+        break;
+        case 3: // MEDIA_ERR_DECODE
+          ntfTitle = "Decode error";
+          ntfBody = "";
+        break;
+        case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
+          ntfTitle = "Unsupported";
+          ntfBody = "";
+        break;
+        default: // OTHER
+          ntfTitle = "Unknown error";
+          ntfBody = "";
+      }
+
+      if (pms.ntf) {
+        new Notification(ntfTitle, {
+          body: ntfBody,
+          icon: "",
+        });
+      }
+
       // console.error("Attempting Secondary API fetching...");
       /*
       const url = 'https://youtube-mp4-downloader.p.rapidapi.com/mp4?url=' + videoURL;
