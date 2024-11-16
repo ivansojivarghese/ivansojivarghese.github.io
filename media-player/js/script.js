@@ -213,6 +213,7 @@
               playPauseButton.style.display = "block";
               if (!seekingLoad && !longTap && !seeking && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad))))) {
                 hideVideoControls();
+                console.log("hideVC");
               }
               // reset the loader
               setTimeout(function() {
@@ -603,6 +604,7 @@
           if (firstPlay) {
             if (!seekingLoad && !longTap && !seeking) {
               hideVideoControls();
+              console.log("hideVC");
             }
             firstPlay = false;
           } else {
@@ -612,6 +614,7 @@
               controlsHideInt = setTimeout(function() {
                 if (!seekingLoad && !longTap && !seeking && !video.paused) {
                   hideVideoControls();
+                  console.log("hideVC");
                 }
               }, 3000); // hide controls after 3 sec. if no activity
             }
@@ -769,12 +772,14 @@
           controlsHideInt = setTimeout(function() { 
             if (!loading && !video.paused && !videoLoad && !seeking && !seekingLoad) {
               hideVideoControls();
+              console.log("hideVC");
             } else if (!loading) {
               clearTimeout(controlsHideInt);
               controlsHideInt = null;
               controlsHideInt = setInterval(function() {
                 if (!loading && !videoLoad && !seeking && !seekingLoad && !video.paused) {
                   hideVideoControls();
+                  console.log("hideVC");
                   clearInterval(controlsHideInt);
                   controlsHideInt = null;
                 }
@@ -790,6 +795,7 @@
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
         hideVideoControls();
+        console.log("hideVC");
       }
     });
 
@@ -898,11 +904,13 @@
             setTimeout(function() {
               if (!seekingLoad && !longTap && !seeking) {
                 hideVideoControls();
+                console.log("hideVC");
               }
             }, 1000);
           } else {
             if (!seekingLoad && !longTap && !seeking) {
               hideVideoControls();
+              console.log("hideVC");
             }
           }
         } else {
@@ -911,12 +919,14 @@
             controlsHideInt = setTimeout(function() {
               if (!loading && !video.paused && !seekingLoad && !longTap && !seeking) {
                 hideVideoControls();
+                console.log("hideVC");
               } else if (loading) {
                 clearTimeout(controlsHideInt);
                 controlsHideInt = null;
                 controlsHideInt = setInterval(function() {
                   if (!loading && !seekingLoad && !longTap && !seeking && !video.paused) {
                     hideVideoControls();
+                    console.log("hideVC");
                     clearInterval(controlsHideInt);
                     controlsHideInt = null;
                   }
@@ -1127,6 +1137,7 @@
           if ((qualityBestChange || qualityChange) && audio.paused && !seekingLoad && !longTap && !seeking) {
             audio.play();
             hideVideoControls();
+            console.log("hideVC");
           }
 
           loading = true;
@@ -1329,6 +1340,7 @@
               controlsHideInt = setTimeout(function() {
                 if (!seekingLoad && !longTap && !seeking && !video.paused) {
                   hideVideoControls();
+                  console.log("hideVC");
                 }
               }, 3000); // hide controls after 3 sec. if no activity
             }
@@ -1390,6 +1402,7 @@
               controlsHideInt = setTimeout(function() {
                 if (!seekingLoad && !longTap && !seeking && !video.paused) {
                   hideVideoControls();
+                  console.log("hideVC");
                 }
               }, 3000); // hide controls after 3 sec. if no activity
             }
@@ -1776,7 +1789,7 @@
     audio.addEventListener('stalled', function() {
       offset = (checkInterval - 20) / 1000;
 
-      if (!video.paused) {
+      if (!video.paused && video.currentTime > 1) {
         console.log("audiostalled");
         video.pause();
       }
@@ -1853,7 +1866,7 @@
     audio.addEventListener('waiting', function() {
       offset = (checkInterval - 20) / 1000;
 
-      if (!video.paused) {
+      if (!video.paused && video.currentTime > 1) {
         console.log("audiostalled");
         video.pause();
       }
@@ -2261,6 +2274,7 @@
 
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
+            console.log("hideVC");
           }
 
           // reset the loader
@@ -2360,6 +2374,7 @@
 
                   if (!seekingLoad && !longTap && !seeking) {
                     hideVideoControls();
+                    console.log("hideVC");
                   }
 
                   // reset the loader
@@ -3109,6 +3124,7 @@
           setTimeout(function() {
             if (!seekingLoad && !longTap && !seeking) {
               hideVideoControls();
+              console.log("hideVC");
             }
           }, 10);
           if (!video.paused && !document.fullscreenElement) {
@@ -3269,10 +3285,12 @@
               });
               if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
                 hideVideoControls();
+                console.log("hideVC");
               }
           } else if (video.paused && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
             if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
               hideVideoControls();
+              console.log("hideVC");
             }
             // play the video (only when it hasn't ended)
             video.play().then(function () {
