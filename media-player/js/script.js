@@ -3388,7 +3388,7 @@
     seekBackwardButton.addEventListener("touchend", longTapDetect);
 
     document.onvisibilitychange = function() {
-      if (!networkError) {
+      if (!networkError && !videoErr && !audioErr) {
         if (document.visibilityState === 'hidden') {
 
           backgroundPlayManual = true;
