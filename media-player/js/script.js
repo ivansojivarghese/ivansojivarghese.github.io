@@ -1054,6 +1054,18 @@
                 console.log('Unknown notification permission status.');
                 pms.ntf = false;
           }
+          notification.onclick = (event) => {
+            event.preventDefault(); // Prevent the default action (usually focusing the notification)
+            
+            // Focus on the tab or open a new one
+            if (document.hasFocus()) {
+                console.log("App is already in focus.");
+            } else if (window.opener) {
+                window.opener.focus();
+            } else {
+                window.focus();
+            }
+          };
         }
       }
     });
@@ -1729,7 +1741,9 @@
           badge: "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome.png",
           icon: "https://ivansojivarghese.github.io/media-player/play.png",
           tag: "videoError",
-          dir: "auto"
+          data: {
+
+          }
         });
       }
 
