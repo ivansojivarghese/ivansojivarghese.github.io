@@ -1727,7 +1727,7 @@
         new Notification(ntfTitle, {
           body: ntfBody,
           badge: "../play_maskable_monochrome.png",
-          icon: "",
+          icon: "../play.png",
           tag: "videoError",
           dir: "auto"
         });
