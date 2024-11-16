@@ -1027,14 +1027,31 @@
       if (!pmsCheck) {
         pmsCheck = true;
         if ("Notification" in window) {
-          Notification.requestPermission().then(permission => {
-            if (permission === 'granted') {
-              console.log("permission: granted");
-              pms.ntf = true;
-            } else {
-              console.log("permission: denied");
-            }
-          });
+          switch (Notification.permission) {
+            case 'granted':
+                console.log('Notifications are allowed.');
+                pms.ntf = true;
+                break;
+            case 'denied':
+                console.log('Notifications are denied.');
+                pms.ntf = false;
+                break;
+            case 'default':
+                console.log('Notifications permission has not been asked yet.');
+                  Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                      console.log("permission: granted");
+                      pms.ntf = true;
+                    } else {
+                      console.log("permission: denied");
+                      pms.ntf = false;
+                    }
+                  });
+                break;
+            default:
+                console.log('Unknown notification permission status.');
+                pms.ntf = false;
+          }
         }
       }
     });
