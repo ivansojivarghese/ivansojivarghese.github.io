@@ -1019,7 +1019,15 @@
     });
 
     window.addEventListener('load', function() {
-      // playPauseButton.classList.remove('playing');
+      if ("Notification" in window) {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            console.log("granted");
+          } else {
+
+          }
+        });
+      }
     });
 
     window.addEventListener('DOMContentLoaded', function() {
