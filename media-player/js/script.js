@@ -33,6 +33,11 @@
     const seekForwardTextSec = document.querySelector('.seekText.forward .seconds');
     const seekBackwardTextSec = document.querySelector('.seekText.backward .seconds');
 
+    var pms = { // permissions
+          ntf : false
+        },
+        pmsCheck = false;
+
     var playbackBufferInt = null;
     var controlsHideInt = null;
     var seekForwardHideInt = null;
@@ -1019,14 +1024,18 @@
     });
 
     window.addEventListener('click', function() {
-      if ("Notification" in window) {
-        Notification.requestPermission().then(permission => {
-          if (permission === 'granted') {
-            console.log("granted");
-          } else {
-            console.log("denied");
-          }
-        });
+      if (!pmsCheck) {
+        pmsCheck = true;
+        if ("Notification" in window) {
+          Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+              console.log("permission: granted");
+              pms.ntf = true;
+            } else {
+              console.log("permission: denied");
+            }
+          });
+        }
       }
     });
 
