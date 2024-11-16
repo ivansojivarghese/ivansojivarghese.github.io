@@ -1702,7 +1702,10 @@
     var seekAllow = true;
 
     audio.addEventListener("error", async () => {
-
+      var ntfTitle = "",
+          ntfBody = "",
+          ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
+          ntfIcon = "https://ivansojivarghese.github.io/media-player/svg/error.svg";
 
       console.error(`Error loading: ${audio}`);
       audioErr = true;
@@ -1721,6 +1724,56 @@
           resetLoad();
         }, 10);
       }, 1000);
+
+      // Notifications
+
+      switch (video.error.code) {
+        case 1: // MEDIA_ERR_ABORTED
+          ntfTitle = "Aborted";
+          ntfBody = "Fetching of the associated resource(s) was/were aborted at your request.";
+        break;
+        case 2: // MEDIA_ERR_NETWORK
+          ntfTitle = "Network error";
+          ntfBody = "An unexpected network error occurred - preventing further fetching of the associated resource(s).";
+        break;
+        case 3: // MEDIA_ERR_DECODE
+          ntfTitle = "Decode error";
+          ntfBody = "An unexpected error occurred while trying to decode the associated resource(s).";
+        break;
+        case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
+          ntfTitle = "Unsupported playback";
+          ntfBody = "The associated resource(s) has/have been found to be unusable.";
+        break;
+        default: // OTHER
+          ntfTitle = "Unknown error";
+          ntfBody = "Something went wrong.";
+      }
+
+      if (pms.ntf && !videoErr) {
+        navigator.serviceWorker.ready.then(registration => {
+          registration.showNotification(ntfTitle, {
+            body: ntfBody,
+            badge: ntfBadge,
+            icon: ntfIcon,
+            tag: "audioError",
+          });
+        });
+
+        /*
+        notification.onclick = (event) => {
+          event.preventDefault(); // Prevent the default action (usually focusing the notification)
+          
+          // Focus on the tab or open a new one
+          if (document.hasFocus()) {
+              console.log("App is already in focus.");
+          } else if (window.opener) {
+              window.opener.focus();
+          } else {
+              window.focus();
+          }
+        };*/
+
+      }
     });
 
     video.addEventListener("error", async () => {
@@ -1763,7 +1816,7 @@
           ntfBody = "An unexpected error occurred while trying to decode the associated resource(s).";
         break;
         case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
-          ntfTitle = "Unsupported";
+          ntfTitle = "Unsupported playback";
           ntfBody = "The associated resource(s) has/have been found to be unusable.";
         break;
         default: // OTHER
