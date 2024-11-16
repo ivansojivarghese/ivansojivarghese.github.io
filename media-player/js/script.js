@@ -1028,7 +1028,7 @@
         pmsCheck = true;
 
         // Notifications
-        if ("Notification" in window) {
+        if ("Notification" in window && 'serviceWorker' in navigator) {
           switch (Notification.permission) {
             case 'granted':
                 console.log('Notifications are allowed.');
@@ -1724,15 +1724,19 @@
       }
 
       if (pms.ntf) {
-        const notification = new Notification(ntfTitle, {
-          body: ntfBody,
-          badge: "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome.png",
-          icon: "https://ivansojivarghese.github.io/media-player/play.png",
-          tag: "videoError",
-          data: {
-            
-          }
+        navigator.serviceWorker.ready.then(registration => {
+          registration.showNotification(ntfTitle, {
+            body: ntfBody,
+            badge: "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome.png",
+            icon: "https://ivansojivarghese.github.io/media-player/play.png",
+            tag: "videoError",
+            data: {
+
+            }
+          });
         });
+        
+        /*
         notification.onclick = (event) => {
           event.preventDefault(); // Prevent the default action (usually focusing the notification)
           
@@ -1744,7 +1748,8 @@
           } else {
               window.focus();
           }
-        };
+        };*/
+
       }
 
       // console.error("Attempting Secondary API fetching...");

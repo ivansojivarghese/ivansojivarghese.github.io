@@ -85,3 +85,23 @@ self.addEventListener('fetch', evt => {
     })
   );
 });
+
+self.addEventListener('notificationclick', event => {
+  event.notification.close(); // Close the notification
+
+  const targetUrl = event.notification.data?.url || '/'; // Get the URL from the data
+  event.waitUntil(
+      clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clientList => {
+          // Check if the URL is already open in a tab
+          for (const client of clientList) {
+              if (client.url === targetUrl && 'focus' in client) {
+                  return client.focus();
+              }
+          }
+          // Open a new window if no existing tab is found
+          if (clients.openWindow) {
+              return clients.openWindow(targetUrl);
+          }
+      })
+  );
+});
