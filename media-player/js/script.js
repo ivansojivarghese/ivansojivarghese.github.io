@@ -1764,7 +1764,7 @@
               body: ntfBody,
               badge: ntfBadge,
               icon: ntfIcon,
-              tag: "audioError",
+              tag: "playbackError",
               data : {
                 url :  "https://ivansojivarghese.github.io/media-player/"
               }
@@ -1775,7 +1775,7 @@
             body: ntfBody,
             badge: ntfBadge,
             icon: ntfIcon,
-            tag: "audioError",
+            tag: "playbackError",
             data : {
               url :  "https://ivansojivarghese.github.io/media-player/"
             }
@@ -1852,7 +1852,7 @@
               body: ntfBody,
               badge: ntfBadge,
               icon: ntfIcon,
-              tag: "videoError",
+              tag: "playbackError",
               data : {
                 url :  "https://ivansojivarghese.github.io/media-player/"
               }
@@ -1863,7 +1863,7 @@
             body: ntfBody,
             badge: ntfBadge,
             icon: ntfIcon,
-            tag: "videoError",
+            tag: "playbackError",
             data : {
               url :  "https://ivansojivarghese.github.io/media-player/"
             }

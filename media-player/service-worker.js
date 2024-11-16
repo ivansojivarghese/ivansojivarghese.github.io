@@ -148,3 +148,19 @@ self.addEventListener('notificationclick', event => {
   );
 });
 
+
+// Service worker (sw.js)
+self.addEventListener('message', event => {
+  if (event.data && event.data.action === 'closeErrorNotification') {
+      const targetTag = event.data.tag; // Tag sent from the main thread
+
+      // Close all notifications (optional: add conditions to close specific ones)
+      self.registration.getNotifications({ tag: targetTag }).then(notifications => {
+          notifications.forEach(notification => {
+              notification.close();
+          });
+      });
+  }
+});
+
+

@@ -301,6 +301,12 @@ async function getParams(id, time) {
       videoURL = link;
     }
 
+    if (videoErr || audioErr) {
+      if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({ action: 'closeErrorNotification', tag: "playbackError" });
+      }
+    }
+
     resetVariables();
 
     // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
