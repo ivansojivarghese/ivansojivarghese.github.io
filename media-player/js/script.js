@@ -1155,24 +1155,86 @@
 
     var aVcount = 0;
     var aVcount2 = 0;
+    var aVcount3 = 0;
+
+    var offlineNotif = false;
 
     function audioVideoAlign() {
       var aT = audio.currentTime;
       var vT = video.currentTime;
       var diff = vT - aT;
 
-      if (aVcount === 10) {
+      if (aVcount === 10) { // 1 sec.
         console.log("video: " + video.currentTime + ", audio: " + audio.currentTime + ", difference: " + (video.currentTime - audio.currentTime));
         aVcount = 0;
       } else {
         aVcount++;
       }
 
-      if (aVcount2 === 100) {
+      if (aVcount2 === 100) { // 10 sec.
         audioCtx = new AudioContext();
         aVcount2 = 0;
       } else {
         aVcount2++;
+      }
+
+      if (aVcount3 === 50) { // 5 sec.
+        if (networkError) {
+          var ntfTitle = "You're offline",
+              ntfBody = "Check your connection.",
+              ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
+              ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
+
+          offlineNotif = true;
+
+          if (pms.ntf) {
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.ready.then(registration => {
+                registration.showNotification(ntfTitle, {
+                  body: ntfBody,
+                  badge: ntfBadge,
+                  icon: ntfIcon,
+                  tag: "offline",
+                  data : {
+                    url :  "https://ivansojivarghese.github.io/media-player/"
+                  }
+                });
+              });
+            } else {
+              const notification = new Notification(ntfTitle, {
+                body: ntfBody,
+                badge: ntfBadge,
+                icon: ntfIcon,
+                tag: "offline",
+                data : {
+                  url :  "https://ivansojivarghese.github.io/media-player/"
+                }
+              });
+    
+              notification.onclick = (event) => {
+                event.preventDefault(); // Prevent the default action (usually focusing the notification)
+                
+                // Focus on the tab or open a new one
+                if (document.hasFocus()) {
+                    console.log("App is already in focus.");
+                } else if (window.opener) {
+                    window.opener.focus();
+                } else {
+                    window.focus();
+                }
+              };
+            }
+    
+          }
+        } else if (offlineNotif) {
+          offlineNotif = false;
+          if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({ action: 'closeOfflineNotification', tag: "offline" });
+          }
+        }
+        aVcount3 = 0;
+      } else {
+        aVcount3++;
       }
 
       audioLatencyArr[audioLatencyArr.length] = diff;
