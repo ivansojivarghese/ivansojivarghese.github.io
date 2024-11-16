@@ -60,6 +60,9 @@
     // var videoPause = false;
     var videoPlay = true;
 
+    var videoErr = false,
+        audioErr = false;
+
     var appUnload = false;
 
     var tps = 0; // function call times per sec.
@@ -257,7 +260,7 @@
       // event.stopPropagation();
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
-      if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityChange && !qualityBestChange) {
+      if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityChange && !qualityBestChange && (!videoErr && !audioErr)) {
 
         if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
 
@@ -352,8 +355,11 @@
             // videoPause = false;
           // }
         }
+      } else if (videoErr || audioErr) {
+        video.load();
       }
     });
+
     /*
     loadingRing.addEventListener('click', function (event) {
       event.stopPropagation();
@@ -1695,6 +1701,28 @@
 
     var seekAllow = true;
 
+    audio.addEventListener("error", async () => {
+
+
+      console.error(`Error loading: ${audio}`);
+      audioErr = true;
+
+      // UI
+
+      playPauseButton.classList.remove('playing');
+      playPauseButton.classList.add('repeat');
+
+      endLoad();
+      setTimeout(function() {
+        loadingRing.style.display = "none";
+        playPauseButton.style.display = "block";
+        // reset the loader
+        setTimeout(function() {
+          resetLoad();
+        }, 10);
+      }, 1000);
+    });
+
     video.addEventListener("error", async () => {
       var ntfTitle = "",
           ntfBody = "",
@@ -1702,6 +1730,24 @@
           ntfIcon = "https://ivansojivarghese.github.io/media-player/svg/error.svg";
 
       console.error(`Error loading: ${video}`);
+      videoErr = true;
+
+      // UI
+
+      playPauseButton.classList.remove('playing');
+      playPauseButton.classList.add('repeat');
+
+      endLoad();
+      setTimeout(function() {
+        loadingRing.style.display = "none";
+        playPauseButton.style.display = "block";
+        // reset the loader
+        setTimeout(function() {
+          resetLoad();
+        }, 10);
+      }, 1000);
+
+      // Notifications
 
       switch (video.error.code) {
         case 1: // MEDIA_ERR_ABORTED
@@ -1732,9 +1778,6 @@
             badge: ntfBadge,
             icon: ntfIcon,
             tag: "videoError",
-            data: {
-              
-            }
           });
         });
 

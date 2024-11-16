@@ -320,6 +320,8 @@ async function getParams(id, time) {
     initialVideoLoadCount = 0;
     initialAudioLoad = false;
     specialQualityArea = [];
+    videoErr = false;
+    audioErr = false;
 
     // COULD CHANGE | UNDETERMINED (TBA)
     priorityQuality = 0;
