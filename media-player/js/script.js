@@ -1026,6 +1026,8 @@
     window.addEventListener('click', function() {
       if (!pmsCheck) {
         pmsCheck = true;
+
+        // Notifications
         if ("Notification" in window) {
           switch (Notification.permission) {
             case 'granted':
@@ -3448,6 +3450,19 @@
         checkAudioReady = null;
       }
 
+      if ("Notification" in window) {
+        switch (Notification.permission) {
+          case 'granted':
+              pms.ntf = true;
+              break;
+          case 'denied':
+          case 'default':
+              pms.ntf = false;
+              break;
+          default:
+              pms.ntf = false;
+        }
+      }
     }, 1000/60);
 
     window.addEventListener('pagehide', function (event) {
