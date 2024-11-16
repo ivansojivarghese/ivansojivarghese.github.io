@@ -1742,7 +1742,7 @@
         break;
         case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
           ntfTitle = "Unsupported playback";
-          ntfBody = "The associated resource(s) has/have been found to be unusable.";
+          ntfBody = "The associated resource(s) has/have been found unusable.";
         break;
         default: // OTHER
           ntfTitle = "Unknown error";
@@ -1817,7 +1817,7 @@
         break;
         case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
           ntfTitle = "Unsupported playback";
-          ntfBody = "The associated resource(s) has/have been found to be unusable.";
+          ntfBody = "The associated resource(s) has/have been found unusable.";
         break;
         default: // OTHER
           ntfTitle = "Unknown error";
