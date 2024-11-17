@@ -1160,6 +1160,7 @@
     var aVcount3 = 0;
 
     var offlineNotif = false;
+    var slowNotif = false;
 
     function audioVideoAlign() {
       var aT = audio.currentTime;
@@ -1181,6 +1182,8 @@
       }
 
       if (aVcount3 === 50) { // 5 sec.
+
+        // offline
         if (networkError) {
           var ntfTitle = "You're offline",
               ntfBody = "Check your connection.",
@@ -1234,6 +1237,62 @@
             navigator.serviceWorker.controller.postMessage({ action: 'closeOfflineNotification', tag: "offline" });
           }
         }
+
+        // slow/poor network
+        if (networkQuality === "Bad" || networkQuality === "Very Bad") {
+          var ntfTitle = "Slow network detected",
+              ntfBody = "Check your connection.",
+              ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
+              ntfIcon = "https://ivansojivarghese.github.io/media-player/png/warning.png";
+
+          slowNotif = true;
+
+          if (pms.ntf) {
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.ready.then(registration => {
+                registration.showNotification(ntfTitle, {
+                  body: ntfBody,
+                  badge: ntfBadge,
+                  icon: ntfIcon,
+                  tag: "slow",
+                  data : {
+                    url :  "https://ivansojivarghese.github.io/media-player/"
+                  }
+                });
+              });
+            } else {
+              const notification = new Notification(ntfTitle, {
+                body: ntfBody,
+                badge: ntfBadge,
+                icon: ntfIcon,
+                tag: "slow",
+                data : {
+                  url :  "https://ivansojivarghese.github.io/media-player/"
+                }
+              });
+    
+              notification.onclick = (event) => {
+                event.preventDefault(); // Prevent the default action (usually focusing the notification)
+                
+                // Focus on the tab or open a new one
+                if (document.hasFocus()) {
+                    console.log("App is already in focus.");
+                } else if (window.opener) {
+                    window.opener.focus();
+                } else {
+                    window.focus();
+                }
+              };
+            }
+    
+          }
+        } else if (slowNotif) {
+          slowNotif = false;
+          if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({ action: 'closeSlowNotification', tag: "slow" });
+          }
+        }
+
         aVcount3 = 0;
       } else {
         aVcount3++;

@@ -6,7 +6,7 @@
 
 
 
-const staticCacheName = 'media-player-v2.1';
+const staticCacheName = 'media-player-v2.2';
 
 const fonts = [
   'https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Poppins-Regular.woff2?v=1720415271771',
@@ -36,6 +36,7 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/play_small.png',
   'https://ivansojivarghese.github.io/media-player/web_upload.png',
   'https://ivansojivarghese.github.io/media-player/png/error.png',
+  'https://ivansojivarghese.github.io/media-player/png/warning.png',
 
   'https://ivansojivarghese.github.io/media-player/index.js',
   'https://ivansojivarghese.github.io/media-player/js/dev.js',
@@ -168,7 +169,19 @@ self.addEventListener('message', event => {
           });
       });
   }
+
   if (event.data && event.data.action === 'closeOfflineNotification') {
+    const targetTag = event.data.tag; // Tag sent from the main thread
+
+    // Close all notifications (optional: add conditions to close specific ones)
+    self.registration.getNotifications({ tag: targetTag }).then(notifications => {
+        notifications.forEach(notification => {
+            notification.close();
+        });
+    });
+  }
+
+  if (event.data && event.data.action === 'closeSlowNotification') {
     const targetTag = event.data.tag; // Tag sent from the main thread
 
     // Close all notifications (optional: add conditions to close specific ones)
