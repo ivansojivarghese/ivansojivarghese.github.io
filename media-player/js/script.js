@@ -3802,17 +3802,21 @@
         }
       }
     }, 1000/60);
-    /*
+    
     setInterval(() => { // CLEAN UP notifications frequently
       navigator.serviceWorker.getRegistration().then((registration) => {
         if (registration) {
           registration.getNotifications().then((notifications) => {
-            notifications.forEach((notification) => notification.close());
+            notifications.forEach((notification) => {
+              if (notification.tag !== 'offline' && notification.tag !== 'slow') { // Replace with your specific tag
+                notification.close();
+              }
+            });
           });
         }
       });
     }, 60000); // Run every 60 seconds    
-    */
+    
     window.addEventListener('pagehide', function (event) {
       if (event.persisted) {
         // If the event's persisted property is `true` the page is about
