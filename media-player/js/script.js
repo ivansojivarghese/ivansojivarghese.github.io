@@ -893,13 +893,15 @@
 
         endLoad();
         setTimeout(function() {
-          console.log("hideLR");
-          loadingRing.style.display = "none";
-          playPauseButton.style.display = "block";
-          // reset the loader
-          setTimeout(function() {
-            resetLoad();
-          }, 10);
+          if (!bufferLoad) {
+            console.log("hideLR");
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+            // reset the loader
+            setTimeout(function() {
+              resetLoad();
+            }, 10);
+          }
         }, 1000);
       }
 
