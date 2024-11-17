@@ -703,6 +703,8 @@
 
     audio.addEventListener('play', function () {
       // if (!networkError) {
+          networkErrorFetch = false;
+
           audio.volume = 1;
           navigator.mediaSession.playbackState = 'playing';
           getScreenLock();
@@ -1186,6 +1188,15 @@
       }
 
       if (aVcount3 === 50) { // 5 sec.
+
+        // re-fetch (if needed)
+        if (networkErrorFetch) {
+          if (backgroundPlay) {
+            audio.load();
+          } else {
+            video.load();
+          }
+        }
 
         // offline
         if (networkError) {

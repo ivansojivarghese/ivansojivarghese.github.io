@@ -43,6 +43,8 @@ var rtt = 0,
     saveData = null,
     networkError = false;
 
+var networkErrorFetch = false;
+
 /////
 
 var networkAlternate = false;
@@ -93,6 +95,8 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 });   
 
                 if (networkError) {
+
+                    networkErrorFetch = true;
                     
                     if (!videoEnd && !refSeekTime && video.src !== "") {
 
