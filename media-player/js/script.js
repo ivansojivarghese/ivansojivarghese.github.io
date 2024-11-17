@@ -1204,7 +1204,7 @@
         }
 
         // offline
-        if (networkError) {
+        if (networkError && !offlineNotif) {
           var ntfTitle = "You're offline",
               ntfBody = "Check your connection.",
               ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
@@ -1259,7 +1259,7 @@
         }
 
         // slow/poor network
-        if (networkQuality === "Bad" || networkQuality === "Very Bad") {
+        if ((networkQuality === "Bad" || networkQuality === "Very Bad") && !slowNotif) {
           var ntfTitle = "Slow network detected",
               ntfBody = "Check your connection.",
               ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
