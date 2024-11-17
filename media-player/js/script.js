@@ -704,6 +704,7 @@
     audio.addEventListener('play', function () {
       // if (!networkError) {
           networkErrorFetch = false;
+          networkErrorResume = false;
 
           audio.volume = 1;
           navigator.mediaSession.playbackState = 'playing';
@@ -1192,9 +1193,13 @@
         // re-fetch (if needed)
         if (networkErrorFetch) {
           if (backgroundPlay) {
+            console.log("audio_network_load");
             audio.load();
+            audio.currentTime = refSeekTime;
           } else {
+            console.log("video_network_load");
             video.load();
+            video.currentTime = refSeekTime;
           }
         }
 

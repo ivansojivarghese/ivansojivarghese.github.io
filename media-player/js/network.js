@@ -43,7 +43,8 @@ var rtt = 0,
     saveData = null,
     networkError = false;
 
-var networkErrorFetch = false;
+var networkErrorFetch = false,
+    networkErrorResume = false;
 
 /////
 
@@ -96,7 +97,9 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 
                 if (networkError) {
 
-                    networkErrorFetch = true;
+                    if (networkErrorResume) {
+                        networkErrorFetch = true;
+                    }
                     
                     if (!videoEnd && !refSeekTime && video.src !== "") {
 
@@ -137,6 +140,9 @@ const estimateNetworkSpeed = async() => { // estimate network speed
         
     } catch (err) { // if network error
         if (!networkError) {
+
+            networkErrorResume = (!video.paused || !audio.paused) ? true : false;
+
             controller = new AbortController();
             signal = controller.signal;
 
