@@ -3776,6 +3776,16 @@
       }
     }, 1000/60);
 
+    setInterval(() => { // CLEAN UP notifications frequently
+      navigator.serviceWorker.getRegistration().then((registration) => {
+        if (registration) {
+          registration.getNotifications().then((notifications) => {
+            notifications.forEach((notification) => notification.close());
+          });
+        }
+      });
+    }, 60000); // Run every 60 seconds    
+
     window.addEventListener('pagehide', function (event) {
       if (event.persisted) {
         // If the event's persisted property is `true` the page is about
@@ -3789,6 +3799,16 @@
       } else {
         // If the event's persisted property is not `true` the page is about to be unloaded.
         appUnload = true;
+
+        if (pms.ntf) { // CLOSE ALL notifications
+          navigator.serviceWorker.getRegistration().then((registration) => {
+            if (registration) {
+              registration.getNotifications().then((notifications) => {
+                notifications.forEach((notification) => notification.close());
+              });
+            }
+          });
+        }
 
         video.src = ""; 
             // Reset position state when media is reset.
