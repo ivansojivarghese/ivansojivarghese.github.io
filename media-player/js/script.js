@@ -275,6 +275,8 @@
                   video.currentTime = 0;
                   audioEnd = false;
                 }*/
+                video.currentTime = 0;
+                
                 audio.currentTime = video.currentTime;
                 videoEnd = false;
               }
