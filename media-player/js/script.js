@@ -217,6 +217,7 @@
 
             endLoad();
             setTimeout(function() {
+              console.log("hideLR");
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
               if (!seekingLoad && !longTap && !seeking && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad))))) {
@@ -892,6 +893,7 @@
 
         endLoad();
         setTimeout(function() {
+          console.log("hideLR");
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
           // reset the loader
@@ -1675,6 +1677,7 @@
 
             endLoad();
             setTimeout(function() {
+              console.log("hideLR");
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
               // reset the loader
@@ -1848,6 +1851,7 @@
 
       endLoad();
       setTimeout(function() {
+        console.log("hideLR");
         loadingRing.style.display = "none";
         playPauseButton.style.display = "block";
         // reset the loader
@@ -1936,6 +1940,7 @@
 
       endLoad();
       setTimeout(function() {
+        console.log("hideLR");
         loadingRing.style.display = "none";
         playPauseButton.style.display = "block";
         // reset the loader
@@ -2620,6 +2625,7 @@
         endLoad();
         
         setTimeout(function() {
+          console.log("hideLR");
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
 
@@ -2720,6 +2726,7 @@
                 endLoad();
                 
                 setTimeout(function() {
+                  console.log("hideLR");
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
 
@@ -3044,6 +3051,7 @@
                     endLoad();
                     
                     setTimeout(function() {
+                      console.log("hideLR");
                       loadingRing.style.display = "none";
                       playPauseButton.style.display = "block";
 
@@ -3570,6 +3578,7 @@
             endLoad();
                   
             setTimeout(function() {
+              console.log("hideLR");
               loadingRing.style.display = "none";
               playPauseButton.style.display = "block";
 
