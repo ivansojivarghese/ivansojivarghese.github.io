@@ -1251,7 +1251,7 @@
             }
     
           }
-        } else if (offlineNotif) {
+        } else if (offlineNotif && !networkError) {
           offlineNotif = false;
           if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
             navigator.serviceWorker.controller.postMessage({ action: 'closeOfflineNotification', tag: "offline" });
@@ -1306,7 +1306,7 @@
             }
     
           }
-        } else if (slowNotif) {
+        } else if (slowNotif && !(networkQuality === "Bad" || networkQuality === "Very Bad")) {
           slowNotif = false;
           if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
             navigator.serviceWorker.controller.postMessage({ action: 'closeSlowNotification', tag: "slow" });
