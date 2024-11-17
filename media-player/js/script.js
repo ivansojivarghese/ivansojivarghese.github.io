@@ -3802,7 +3802,7 @@
         }
       }
     }, 1000/60);
-
+    /*
     setInterval(() => { // CLEAN UP notifications frequently
       navigator.serviceWorker.getRegistration().then((registration) => {
         if (registration) {
@@ -3812,7 +3812,7 @@
         }
       });
     }, 60000); // Run every 60 seconds    
-
+    */
     window.addEventListener('pagehide', function (event) {
       if (event.persisted) {
         // If the event's persisted property is `true` the page is about
