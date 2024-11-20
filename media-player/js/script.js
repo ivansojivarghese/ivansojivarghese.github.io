@@ -3816,7 +3816,19 @@
         }
       });
     }, 60000); // Run every 60 seconds    
-    
+
+    window.addEventListener('beforeunload', () => {
+      if (pms.ntf) { // CLOSE ALL notifications
+        navigator.serviceWorker.getRegistration().then((registration) => {
+          if (registration) {
+            registration.getNotifications().then((notifications) => {
+              notifications.forEach((notification) => notification.close());
+            });
+          }
+        });
+      }
+    });
+
     window.addEventListener('pagehide', function (event) {
       if (event.persisted) {
         // If the event's persisted property is `true` the page is about
