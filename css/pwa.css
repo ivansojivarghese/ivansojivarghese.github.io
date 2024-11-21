@@ -1013,6 +1013,12 @@ h3.downsize {
     }
 }*/
 
+@media screen and (orientation: portrait) {
+    .titlebar {
+        background-color: #F4F4F4;
+    }
+}
+
 @media screen and (min-width: 490px) and (orientation: portrait) {
     .pwa .navbar {
         border-radius: 1rem;
