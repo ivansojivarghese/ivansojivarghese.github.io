@@ -6,7 +6,7 @@
 
 
 
-const staticCacheName = 'media-player-v2.5';
+const staticCacheName = 'media-player-v2.6';
 
 const fonts = [
   'https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Poppins-Regular.woff2?v=1720415271771',
@@ -160,7 +160,23 @@ self.addEventListener('notificationclick', event => {
     })
   );
 });
-/*
+
+// Register an event listener for Background Sync
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'clear-notifications') {
+      event.waitUntil(
+          clearAllNotifications()
+      );
+  }
+});
+
+// Function to clear all notifications
+async function clearAllNotifications() {
+  const notifications = await self.registration.getNotifications();
+  notifications.forEach((notification) => notification.close());
+  console.log('All notifications cleared via Background Sync.');
+}
+
 async function doWorkBeforeShutdown() {
   console.log('Performing shutdown tasks');
   // Perform the necessary work here
@@ -172,7 +188,7 @@ async function doWorkBeforeShutdown() {
       });
     }
   });
-}*/
+}
 
 // Service worker (sw.js)
 self.addEventListener('message', event => {
@@ -188,7 +204,7 @@ self.addEventListener('message', event => {
         }
       });
 
-      // event.waitUntil(doWorkBeforeShutdown());
+      event.waitUntil(doWorkBeforeShutdown());
   }
 
   if (event.data && event.data.action === 'closeErrorNotification') {

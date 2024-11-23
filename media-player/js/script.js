@@ -1222,6 +1222,7 @@
                   badge: ntfBadge,
                   icon: ntfIcon,
                   tag: "offline",
+                  requireInteraction: false, // Dismiss after default timeout
                   data : {
                     url :  "https://ivansojivarghese.github.io/media-player/"
                   }
@@ -1233,6 +1234,7 @@
                 badge: ntfBadge,
                 icon: ntfIcon,
                 tag: "offline",
+                requireInteraction: false, // Dismiss after default timeout
                 data : {
                   url :  "https://ivansojivarghese.github.io/media-player/"
                 }
@@ -1277,6 +1279,7 @@
                   badge: ntfBadge,
                   icon: ntfIcon,
                   tag: "slow",
+                  requireInteraction: false, // Dismiss after default timeout
                   data : {
                     url :  "https://ivansojivarghese.github.io/media-player/"
                   }
@@ -1288,6 +1291,7 @@
                 badge: ntfBadge,
                 icon: ntfIcon,
                 tag: "slow",
+                requireInteraction: false, // Dismiss after default timeout
                 data : {
                   url :  "https://ivansojivarghese.github.io/media-player/"
                 }
@@ -1912,6 +1916,7 @@
               badge: ntfBadge,
               icon: ntfIcon,
               tag: "playbackError",
+              requireInteraction: false, // Dismiss after default timeout
               data : {
                 url :  "https://ivansojivarghese.github.io/media-player/"
               }
@@ -1923,6 +1928,7 @@
             badge: ntfBadge,
             icon: ntfIcon,
             tag: "playbackError",
+            requireInteraction: false, // Dismiss after default timeout
             data : {
               url :  "https://ivansojivarghese.github.io/media-player/"
             }
@@ -2001,6 +2007,7 @@
               badge: ntfBadge,
               icon: ntfIcon,
               tag: "playbackError",
+              requireInteraction: false, // Dismiss after default timeout
               data : {
                 url :  "https://ivansojivarghese.github.io/media-player/"
               }
@@ -2012,6 +2019,7 @@
             badge: ntfBadge,
             icon: ntfIcon,
             tag: "playbackError",
+            requireInteraction: false, // Dismiss after default timeout
             data : {
               url :  "https://ivansojivarghese.github.io/media-player/"
             }
@@ -3819,6 +3827,18 @@
       });
     }, 60000); // Run every 60 seconds    
 
+    if ('serviceWorker' in navigator) {
+      // Ensure the service worker is ready
+      navigator.serviceWorker.ready.then((registration) => {
+        // Register the sync event
+        registration.sync.register('clear-notifications').then(() => {
+            console.log('Background Sync registered for clearing notifications.');
+        }).catch((err) => {
+            console.error('Failed to register Background Sync:', err);
+        });
+      });
+    }
+
     window.addEventListener('beforeunload', () => {
       if (pms.ntf) { // CLOSE ALL notifications
 
@@ -3849,6 +3869,14 @@
 
         if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
           navigator.serviceWorker.controller.postMessage({ action: 'app_closing' });
+        }
+
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then((registration) => {
+            registration.sync.register('clear-notifications').catch((err) => {
+                console.error('Background Sync registration failed on unload:', err);
+            });
+          });
         }
       }
     });
