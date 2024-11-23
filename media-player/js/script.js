@@ -1202,6 +1202,7 @@
             console.log("video_network_load");
             video.load();
             video.currentTime = refSeekTime;
+            console.log("refseektime");
           }
         }
 
@@ -1692,6 +1693,8 @@
 
         if (qualityChange) {
           qualityChange = false;
+
+          console.log("qC: false");
 
           if (!loading && !bufferingDetected && !framesStuck) {
 
@@ -2716,6 +2719,8 @@
       seekingLoad = false;
       qualityChange = false;
 
+      console.log("qC: false");
+
       controller = new AbortController();
       signal = controller.signal;
 
@@ -2884,6 +2889,8 @@
       if (refSeekTime) {
         video.currentTime = refSeekTime;
         audio.currentTime = refSeekTime;
+
+        console.log("refseektime");
       }
 
       getScreenLock();
@@ -3062,6 +3069,8 @@
                     if (refSeekTime) {
                       video.currentTime = refSeekTime;
                       audio.currentTime = refSeekTime;
+
+                      console.log("refseektime");
                     }
 
                     resetVariables();
