@@ -1792,7 +1792,10 @@
     const BUFFER_THRESHOLD_AUDIO = 0; 
 
     function updateVideoLoad() {
-      const buffered = video.buffered;
+      const buffered = (!backgroundPlay) ? video.buffered : audio.buffered;
+      const liveTime = (!backgroundPlay) ? video.currentTime : audio.currentTime;
+
+      const MOD_BUFFER_THRESHOLD = (!backgroundPlay) ? BUFFER_THRESHOLD : BUFFER_THRESHOLD_AUDIO;
       
       // Ensure there’s at least one buffered range
       if (buffered.length === 0) {
@@ -1802,20 +1805,22 @@
 
       // Calculate the buffered time remaining from the current time
       const lastBufferedTime = buffered.end(buffered.length - 1);
-      const currentBuffer = lastBufferedTime - video.currentTime;
+      const currentBuffer = lastBufferedTime - liveTime;
 
       // Log the current buffer information
       console.log(`Current buffer remaining: ${currentBuffer.toFixed(2)} seconds`);
 
       // Calculate and log the total buffered percentage
-      const bufferedPercentage = (lastBufferedTime / video.duration) * 100;
-      console.log(`Total buffered: ${bufferedPercentage.toFixed(2)}%`);
+      if (!backgroundPlay) {
+        const bufferedPercentage = (lastBufferedTime / video.duration) * 100;
+        console.log(`Total buffered: ${bufferedPercentage.toFixed(2)}%`);
 
-      // Update the video load progress bar
-      videoLoadProgressBar.style.transform = `scaleX(${bufferedPercentage / 100})`; // Assuming the progress bar uses a scale transform
+        // Update the video load progress bar
+        videoLoadProgressBar.style.transform = `scaleX(${bufferedPercentage / 100})`; // Assuming the progress bar uses a scale transform
+      }
 
       // Check buffer threshold and optimize if below limit
-      if (currentBuffer < BUFFER_THRESHOLD) {
+      if (currentBuffer < MOD_BUFFER_THRESHOLD) {
         if (!suspendTimeout) {
           console.log("Buffering more data due to low buffer availability.");
 
