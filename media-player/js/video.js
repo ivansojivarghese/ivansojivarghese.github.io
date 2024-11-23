@@ -301,6 +301,8 @@ async function getParams(id, time) {
     if (localStorage.getItem("mediaURL") !== null) {
       link = localStorage.getItem("mediaURL");
       time = Number(localStorage.getItem("timestamp"));
+
+      autoLoad = true;
     }
 
     if (videoURL === "") {

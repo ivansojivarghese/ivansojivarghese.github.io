@@ -65,6 +65,8 @@
 
     var appUnload = false;
 
+    var autoLoad = false;
+
     var tps = 0; // function call times per sec.
 
     var loading = false;
@@ -540,6 +542,8 @@
 
       if (videoPlay) {
 
+        autoLoad = false;
+
         if (audioVideoAlignInt !== null) {
           clearInterval(audioVideoAlignInt);
           audioVideoAlignInt = null;
@@ -709,6 +713,9 @@
 
     audio.addEventListener('play', function () {
       // if (!networkError) {
+
+          autoLoad = false;
+
           networkErrorFetch = false;
           networkErrorResume = false;
 
@@ -3031,7 +3038,7 @@
 
       audioRun = false;
 
-      if (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) {
+      if (!autoLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad))))) {
 
         console.log("audio_canplay");
 
@@ -3079,7 +3086,7 @@
       
       videoRun = false;
 
-      if (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) {
+      if (!autoLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad))))) {
 
         console.log("video_canplay");
 
