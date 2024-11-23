@@ -1094,7 +1094,7 @@
       if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage({ action: 'app_opened' });
       }
-      
+
       /*
       if (localStorage.getItem('videoURL') !== null && localStorage.getItem('audioURL') !== null && localStorage.getItem('timestamp') !== null) {
 
@@ -1872,7 +1872,7 @@
           }, 3000); // Throttle buffer check every 3 seconds
         }
       } else {
-        if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered && backgroundPlay) || video.buffered && !backgroundPlay))) { 
+        if (video.paused && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered && backgroundPlay) || video.buffered && !backgroundPlay && bufferLoad))) { 
           console.log("play");
           // video.play();
           if (backgroundPlay) {
