@@ -1745,6 +1745,11 @@
         const videoCSS = window.getComputedStyle(video, null);
         var rawWidth = Number(videoCSS.getPropertyValue("width").slice(0, -2));
         var rawHeight = Number(videoCSS.getPropertyValue("height").slice(0, -2));
+
+        console.log("qc: " + qualityChange);
+        qualityChange = false;
+        qualityBestChange = false;
+
 /*
         if (portrait) { // IN PORTRAIT MODE
           videoContainer.style.width = rawWidth + "px"; 
@@ -3788,6 +3793,13 @@
         } else {
           backgroundPlay = false;
         }
+      }
+
+      if (audio.buffered) {
+        audioRun = false;
+      }
+      if (video.buffered) {
+        videoRun = false;
       }
 
       if (videoLoad && backgroundPlay && !checkAudioReady) {
