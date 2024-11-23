@@ -731,6 +731,7 @@
             audioEnd = true;
           }*/
 
+          localStorage.removeItem('mediaURL');
           localStorage.removeItem('videoURL');
           localStorage.removeItem('audioURL');
           localStorage.removeItem('timestamp');
@@ -767,6 +768,7 @@
       playPauseButton.classList.remove('playing');
       playPauseButton.classList.add('repeat');
 
+      localStorage.removeItem('mediaURL');
       localStorage.removeItem('videoURL');
       localStorage.removeItem('audioURL');
       localStorage.removeItem('timestamp');
@@ -1092,6 +1094,11 @@
       if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage({ action: 'app_opened' });
       }
+      
+      /*
+      if (localStorage.getItem('videoURL') !== null && localStorage.getItem('audioURL') !== null && localStorage.getItem('timestamp') !== null) {
+
+      }*/
     });
 
     window.addEventListener('DOMContentLoaded', function() {

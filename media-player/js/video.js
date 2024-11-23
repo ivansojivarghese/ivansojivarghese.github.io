@@ -296,11 +296,16 @@ async function getParams(id, time) {
   if (!networkError) {
 
     let params = new URLSearchParams(document.location.search);
-    const link = params.get("description"); 
+    var link = params.get("description"); 
+
+    if (localStorage.getItem("mediaURL") !== null) {
+      link = localStorage.getItem("mediaURL");
+      time = Number(localStorage.getItem("timestamp"));
+    }
 
     if (videoURL === "") {
       videoURL = link;
-    }
+    } 
 
     if (videoErr || audioErr) {
       if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
@@ -1022,6 +1027,7 @@ function getOptimalVideo(time) {
         audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
+        localStorage.setItem('mediaURL', videoURL); // Set URL to memory state
         localStorage.setItem('videoURL', video.src); // Set URLs to memory state
         localStorage.setItem('audioURL', audio.src); // 
 
