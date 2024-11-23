@@ -6,7 +6,7 @@
 
 
 
-const staticCacheName = 'media-player-v2.2';
+const staticCacheName = 'media-player-v2.3';
 
 const fonts = [
   'https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Poppins-Regular.woff2?v=1720415271771',
@@ -162,7 +162,7 @@ self.addEventListener('message', event => {
   if (event.data.action === 'app_closing') {
       console.log('App is about to close');
       // Handle any pre-close logic
-      
+
       navigator.serviceWorker.getRegistration().then((registration) => {
         if (registration) {
           registration.getNotifications().then((notifications) => {
