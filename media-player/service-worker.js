@@ -6,7 +6,7 @@
 
 
 
-const staticCacheName = 'media-player-v2.3';
+const staticCacheName = 'media-player-v2.4';
 
 const fonts = [
   'https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Poppins-Regular.woff2?v=1720415271771',
@@ -156,6 +156,18 @@ self.addEventListener('notificationclick', event => {
   );
 });
 
+async function doWorkBeforeShutdown() {
+  console.log('Performing shutdown tasks');
+  // Perform the necessary work here
+
+  navigator.serviceWorker.getRegistration().then((registration) => {
+    if (registration) {
+      registration.getNotifications().then((notifications) => {
+        notifications.forEach((notification) => notification.close());
+      });
+    }
+  });
+}
 
 // Service worker (sw.js)
 self.addEventListener('message', event => {
@@ -163,13 +175,7 @@ self.addEventListener('message', event => {
       console.log('App is about to close');
       // Handle any pre-close logic
 
-      navigator.serviceWorker.getRegistration().then((registration) => {
-        if (registration) {
-          registration.getNotifications().then((notifications) => {
-            notifications.forEach((notification) => notification.close());
-          });
-        }
-      });
+      event.waitUntil(doWorkBeforeShutdown());
   }
 
   if (event.data && event.data.action === 'closeErrorNotification') {
