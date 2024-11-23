@@ -106,6 +106,11 @@ self.addEventListener('activate', (evt) => {
           );
       })
   );
+
+  self.registration.getNotifications().then((notifications) => {
+    notifications.forEach((notification) => notification.close());
+  });
+  
   console.log('Service worker activated!');
 });
 
