@@ -731,6 +731,10 @@
             audioEnd = true;
           }*/
 
+          localStorage.removeItem('videoURL');
+          localStorage.removeItem('audioURL');
+          localStorage.removeItem('timestamp');
+
           refSeekTime = 0;
 
           if (!networkError) {
@@ -762,6 +766,10 @@
 
       playPauseButton.classList.remove('playing');
       playPauseButton.classList.add('repeat');
+
+      localStorage.removeItem('videoURL');
+      localStorage.removeItem('audioURL');
+      localStorage.removeItem('timestamp');
 
       if (!networkError) {
         clearInterval(networkSpeedInt);
@@ -2551,6 +2559,9 @@
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch && video.src !== targetVideo.url) {
           // console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
+
+          localStorage.setItem('videoURL', video.src); // Set URL to memory state
+
         } else {
           qualityChange = false;
         }
@@ -2631,6 +2642,9 @@
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch) {
           console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
+
+          localStorage.setItem('videoURL', video.src); // Set URL to memory state
+
         }
 
       } 
@@ -3288,6 +3302,9 @@
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         refSeekTime = video.currentTime ? video.currentTime : timeToSeconds(videoCurrentTime.textContent);
+
+        localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+
         // console.log("ref", refSeekTime);
         if (!qualityChange && !qualityBestChange) {
           updatePositionState();
@@ -3311,6 +3328,9 @@
 
     audio.addEventListener("timeupdate", function() {
       refSeekTime = audio.currentTime;
+
+      localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+
       audioProgressPercentile = (audio.currentTime / audio.duration);
       if (!qualityChange && !qualityBestChange) {
         updatePositionState();
@@ -3890,6 +3910,12 @@
         }).catch((err) => {
             console.error('Failed to register Background Sync:', err);
         });
+      });
+    }
+
+    if ('storage' in navigator && 'persist' in navigator.storage) {
+      navigator.storage.persist().then((granted) => {
+          console.log(granted ? "Persistent storage granted" : "Persistent storage denied");
       });
     }
 

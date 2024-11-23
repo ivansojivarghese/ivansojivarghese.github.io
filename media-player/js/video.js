@@ -1022,6 +1022,9 @@ function getOptimalVideo(time) {
         audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
+        localStorage.setItem('videoURL', video.src); // Set URLs to memory state
+        localStorage.setItem('audioURL', audio.src); // 
+
         video.load();
         audio.load();
 
