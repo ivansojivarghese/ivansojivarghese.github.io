@@ -1710,7 +1710,7 @@
         if (resumeInterval === null) {
           resumeInterval = setInterval(() => {
             var buffered = video.buffered;
-            if (buffered.length > 0 && video.paused && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+            if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
               console.log("play", seeking, seekingLoad);
               video.play();
               clearInterval(resumeInterval);
@@ -1859,11 +1859,24 @@
             } else {
               video.play();
             }
+          } else if (autoLoad) {
+            
+            endLoad();
+            setTimeout(function() {
+              console.log("hideLR");
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+            }, 1000);
+
           } else {
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
                   clearInterval(resumeInterval);
@@ -1887,6 +1900,18 @@
           } else if (!backgroundPlayManual) {
             video.play();
           }
+        } else if (autoLoad) {
+
+          endLoad();
+            setTimeout(function() {
+              console.log("hideLR");
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+            }, 1000);
         }
       }
     }
@@ -3079,6 +3104,18 @@
           console.log("No buffered data available for audio.");
         }
 
+      } else if (autoLoad) {
+
+        endLoad();
+            setTimeout(function() {
+              console.log("hideLR");
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+            }, 1000);
       }
     });
 
@@ -3266,11 +3303,24 @@
               } else {
                 video.play();
               }
+            } else if (autoLoad) {
+            
+              endLoad();
+              setTimeout(function() {
+                console.log("hideLR");
+                loadingRing.style.display = "none";
+                playPauseButton.style.display = "block";
+                // reset the loader
+                setTimeout(function() {
+                  resetLoad();
+                }, 10);
+              }, 1000);
+
             } else {
               if (resumeInterval === null) {
                 resumeInterval = setInterval(() => {
                   var buffered = video.buffered;
-                  if (buffered.length > 0 && video.paused && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                  if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                     console.log("play", seeking, seekingLoad);
                     video.play();
                     clearInterval(resumeInterval);
@@ -3291,11 +3341,24 @@
             } else {
               video.play();
             }
+          } else if (autoLoad) {
+          
+            endLoad();
+            setTimeout(function() {
+              console.log("hideLR");
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+            }, 1000);
+            
           } else {
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
                   clearInterval(resumeInterval);
@@ -3306,6 +3369,18 @@
           }
         }
 
+      } else if (autoLoad) {
+
+        endLoad();
+            setTimeout(function() {
+              console.log("hideLR");
+              loadingRing.style.display = "none";
+              playPauseButton.style.display = "block";
+              // reset the loader
+              setTimeout(function() {
+                resetLoad();
+              }, 10);
+            }, 1000);
       }
 
     });
