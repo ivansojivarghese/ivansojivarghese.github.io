@@ -205,6 +205,7 @@ const actionHandlers = [
                                         video.currentTime = audio.currentTime;
                                       }
                                       pipEnabled = true;
+                                      backgroundPlayManual = false;
                                       getScreenLock();
                                     }); 
                                   }]

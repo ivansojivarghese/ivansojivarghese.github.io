@@ -479,6 +479,11 @@
           if (document.pictureInPictureElement) {
             document.exitPictureInPicture().then(function() {
               pipEnabled = false;
+              if (document.visibilityState === "visible") {
+                backgroundPlayManual = false;
+              } else {
+                backgroundPlayManual = true;
+              }
               releaseScreenLock(screenLock);
             });
             // pipButton.children[0].classList.remove("exit");
@@ -486,6 +491,7 @@
             video.requestPictureInPicture().then(function() {
               getScreenLock();
               pipEnabled = true;
+              backgroundPlayManual = false;
             });
             // pipButton.children[0].classList.add("exit");
           }
@@ -2540,6 +2546,8 @@
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch && video.src !== targetVideo.url) {
           // console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
+        } else {
+          qualityChange = false;
         }
 
         bufferAllow = false;
@@ -3533,6 +3541,7 @@
               video.requestPictureInPicture().then(function() {
                 getScreenLock();
                 pipEnabled = true;
+                backgroundPlayManual = false;
               });
             }
           } else if (!video.paused) {
@@ -3572,7 +3581,9 @@
       if (!networkError && !videoErr && !audioErr) {
         if (document.visibilityState === 'hidden') {
 
-          backgroundPlayManual = true;
+          if (!pipEnabled) {
+            backgroundPlayManual = true;
+          }
 
           if (videoLoad && audio.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
             audio.load();
@@ -3604,6 +3615,7 @@
               video.requestPictureInPicture().then(function() {
                 getScreenLock();
                 pipEnabled = true;
+                backgroundPlayManual = false;
               });
           } else if (video.paused && !pipEnabled) {
             audio.volume = 0; // prevent accidental leakage 
@@ -3683,6 +3695,11 @@
               getScreenLock();
               document.exitPictureInPicture().then(function() {
                 pipEnabled = false;
+                if (document.visibilityState === "visible") {
+                  backgroundPlayManual = false;
+                } else {
+                  backgroundPlayManual = true;
+                }
                 releaseScreenLock(screenLock);
               });
               if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
@@ -3765,6 +3782,11 @@
 
     video.addEventListener('leavepictureinpicture', () => {
       pipEnabled = false;
+      if (document.visibilityState === "visible") {
+        backgroundPlayManual = false;
+      } else {
+        backgroundPlayManual = true;
+      }
     });
 
     audio.addEventListener("loadeddata", () => {
@@ -3785,8 +3807,14 @@
       if (!networkError) {
         if (document.pictureInPictureElement !== null) {
           pipEnabled = true;
+          backgroundPlayManual = false;
         } else {
           pipEnabled = false;
+          if (document.visibilityState === "visible") {
+            backgroundPlayManual = false;
+          } else {
+            backgroundPlayManual = true;
+          }
         }
         if (document.visibilityState === "hidden" && !pipEnabled) {
           backgroundPlay = true;
