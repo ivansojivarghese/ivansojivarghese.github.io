@@ -159,6 +159,19 @@ self.addEventListener('notificationclick', event => {
 
 // Service worker (sw.js)
 self.addEventListener('message', event => {
+  if (event.data.action === 'app_closing') {
+      console.log('App is about to close');
+      // Handle any pre-close logic
+      
+      navigator.serviceWorker.getRegistration().then((registration) => {
+        if (registration) {
+          registration.getNotifications().then((notifications) => {
+            notifications.forEach((notification) => notification.close());
+          });
+        }
+      });
+  }
+
   if (event.data && event.data.action === 'closeErrorNotification') {
       const targetTag = event.data.tag; // Tag sent from the main thread
 

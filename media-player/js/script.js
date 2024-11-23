@@ -3819,6 +3819,7 @@
 
     window.addEventListener('beforeunload', () => {
       if (pms.ntf) { // CLOSE ALL notifications
+        
         navigator.serviceWorker.getRegistration().then((registration) => {
           if (registration) {
             registration.getNotifications().then((notifications) => {
@@ -3826,6 +3827,10 @@
             });
           }
         });
+
+        if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+          navigator.serviceWorker.controller.postMessage({ action: 'app_closing' });
+        }
       }
     });
 
