@@ -1075,7 +1075,9 @@
     });
 
     window.addEventListener('load', function() {
-      
+      if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({ action: 'app_opened' });
+      }
     });
 
     window.addEventListener('DOMContentLoaded', function() {
