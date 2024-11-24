@@ -168,7 +168,43 @@ self.addEventListener('sync', (event) => {
           clearAllNotifications()
       );
   }
+  if (event.tag === 'video-buffer-sync') {
+    event.waitUntil(bufferVideoChunks(self.videoUrl));
+  }
 });
+
+async function bufferVideoChunks(videoUrl) {
+  const videoUrl = '<googlevideo-url>'; // Replace with the extracted googlevideo URL
+  const chunkSize = 1024 * 1024; // Define a chunk size, e.g., 1 MB
+  let start = 0;
+
+  while (true) {
+    const response = await fetch(videoUrl, {
+      headers: {
+        Range: `bytes=${start}-${start + chunkSize - 1}`,
+      },
+    });
+
+    if (!response.ok) break;
+
+    const chunk = await response.blob();
+    await cacheVideoChunk(chunk, start);
+
+    start += chunkSize;
+
+    // Break if content length is exhausted
+    const contentRange = response.headers.get('Content-Range');
+    if (contentRange) {
+      const [, , total] = contentRange.split(/[ -/]/);
+      if (start >= parseInt(total)) break;
+    }
+  }
+}
+
+async function cacheVideoChunk(chunk, start) {
+  const cache = await caches.open('video-cache');
+  await cache.put(`/video-chunk-${start}`, new Response(chunk));
+}
 
 // Function to clear all notifications
 async function clearAllNotifications() {
@@ -192,6 +228,15 @@ async function doWorkBeforeShutdown() {
 
 // Service worker (sw.js)
 self.addEventListener('message', event => {
+
+  const { type, url } = event.data;
+  if (type === 'SET_VIDEO_URL') {
+    // Store the URL for later use
+    self.videoUrl = url;
+
+    console.log('Received video URL in Service Worker:', url);
+  }
+
   if (event.data.action === 'app_closing' || event.data.action === 'app_opened') {
       console.log('App is about to close/open');
       // Handle any pre-close logic

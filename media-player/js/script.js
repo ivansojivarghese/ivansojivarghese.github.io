@@ -4002,6 +4002,12 @@
       });
     }
 
+    if ('serviceWorker' in navigator && 'SyncManager' in window) {
+      navigator.serviceWorker.ready.then((registration) => {
+        registration.sync.register('video-buffer-sync');
+      });
+    }
+
     if ('storage' in navigator && 'persist' in navigator.storage) {
       navigator.storage.persist().then((granted) => {
           console.log(granted ? "Persistent storage granted" : "Persistent storage denied");

@@ -1029,6 +1029,15 @@ function getOptimalVideo(time) {
         audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then((registration) => {
+            registration.active.postMessage({
+              type: 'SET_VIDEO_URL',
+              url: targetVideo.url, // Pass the extracted URL
+            });
+          });
+        }
+
         localStorage.setItem('mediaURL', videoURL); // Set URL to memory state
         localStorage.setItem('videoURL', video.src); // Set URLs to memory state
         localStorage.setItem('audioURL', audio.src); // 
