@@ -6,7 +6,7 @@
 
 
 
-const staticCacheName = 'media-player-v2.72';
+const staticCacheName = 'media-player-v2.73';
 
 const fonts = [
   'https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Poppins-Regular.woff2?v=1720415271771',
@@ -168,11 +168,13 @@ self.addEventListener('sync', (event) => {
           clearAllNotifications()
       );
   }
+  /*
   if (event.tag === 'video-buffer-sync') {
     event.waitUntil(bufferVideoChunks(self.videoUrl));
-  }
+  }*/
 });
 
+/*
 async function bufferVideoChunks(videoUrl) {
   // const videoUrl = '<googlevideo-url>'; // Replace with the extracted googlevideo URL
   const chunkSize = 1024 * 1024; // Define a chunk size, e.g., 1 MB
@@ -204,7 +206,7 @@ async function bufferVideoChunks(videoUrl) {
 async function cacheVideoChunk(chunk, start) {
   const cache = await caches.open('video-cache');
   await cache.put(`/video-chunk-${start}`, new Response(chunk));
-}
+}*/
 
 // Function to clear all notifications
 async function clearAllNotifications() {

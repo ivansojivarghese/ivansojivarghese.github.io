@@ -168,6 +168,15 @@ const actionHandlers = [
   ['previoustrack', (details) => { if (!qualityBestChange && !qualityChange) { playPrevious(true); updatePositionState(); } }],
   /*['nexttrack',     () => { }],*/
   ['stop',          () => { video.src = ""; 
+
+                            if ('serviceWorker' in navigator) {
+                              navigator.serviceWorker.ready.then((registration) => {
+                                registration.active.postMessage({
+                                  type: 'SET_VIDEO_URL',
+                                  url: '', // Pass the extracted URL
+                                });
+                              });
+                            }
                                 // Reset position state when media is reset.
                             navigator.mediaSession.setPositionState(null);
                             for (const [action] of actionHandlers) {

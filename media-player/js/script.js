@@ -2599,6 +2599,15 @@
           // console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
 
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.then((registration) => {
+              registration.active.postMessage({
+                type: 'SET_VIDEO_URL',
+                url: targetVideo.url, // Pass the extracted URL
+              });
+            });
+          }
+
           localStorage.setItem('videoURL', video.src); // Set URL to memory state
 
         } else {
@@ -2681,6 +2690,15 @@
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch) {
           console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
+
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.then((registration) => {
+              registration.active.postMessage({
+                type: 'SET_VIDEO_URL',
+                url: targetVideo.url, // Pass the extracted URL
+              });
+            });
+          }
 
           localStorage.setItem('videoURL', video.src); // Set URL to memory state
 
@@ -4001,12 +4019,12 @@
         });
       });
     }
-
+    /*
     if ('serviceWorker' in navigator && 'SyncManager' in window) {
       navigator.serviceWorker.ready.then((registration) => {
         registration.sync.register('video-buffer-sync');
       });
-    }
+    }*/
 
     if ('storage' in navigator && 'persist' in navigator.storage) {
       navigator.storage.persist().then((granted) => {
@@ -4081,6 +4099,16 @@
         }
 
         video.src = ""; 
+
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then((registration) => {
+            registration.active.postMessage({
+              type: 'SET_VIDEO_URL',
+              url: '', // Pass the extracted URL
+            });
+          });
+        }
+
             // Reset position state when media is reset.
         navigator.mediaSession.setPositionState(null);
         for (const [action] of actionHandlers) {
