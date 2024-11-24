@@ -174,7 +174,7 @@ self.addEventListener('sync', (event) => {
 });
 
 async function bufferVideoChunks(videoUrl) {
-  const videoUrl = '<googlevideo-url>'; // Replace with the extracted googlevideo URL
+  // const videoUrl = '<googlevideo-url>'; // Replace with the extracted googlevideo URL
   const chunkSize = 1024 * 1024; // Define a chunk size, e.g., 1 MB
   let start = 0;
 
