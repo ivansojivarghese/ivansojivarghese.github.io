@@ -298,7 +298,7 @@ async function getParams(id, time) {
     let params = new URLSearchParams(document.location.search);
     var link = params.get("description"); 
 
-    if (localStorage.getItem("mediaURL") !== null) {
+    if (localStorage.getItem("mediaURL") !== null && link === null && videoURL === "") {
       link = localStorage.getItem("mediaURL");
       time = Number(localStorage.getItem("timestamp"));
 
