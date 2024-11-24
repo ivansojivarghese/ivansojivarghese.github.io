@@ -219,17 +219,19 @@
 
             endLoad();
             setTimeout(function() {
-              console.log("hideLR");
-              loadingRing.style.display = "none";
-              playPauseButton.style.display = "block";
-              if (!seekingLoad && !longTap && !seeking && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad))))) {
-                hideVideoControls();
-                console.log("hideVC");
+              if (!bufferLoad) {
+                console.log("hideLR");
+                loadingRing.style.display = "none";
+                playPauseButton.style.display = "block";
+                if (!seekingLoad && !longTap && !seeking && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad))))) {
+                  hideVideoControls();
+                  console.log("hideVC");
+                }
+                // reset the loader
+                setTimeout(function() {
+                  resetLoad();
+                }, 10);
               }
-              // reset the loader
-              setTimeout(function() {
-                resetLoad();
-              }, 10);
             }, 1000);
         }
 
@@ -2745,20 +2747,21 @@
         endLoad();
         
         setTimeout(function() {
-          console.log("hideLR");
-          loadingRing.style.display = "none";
-          playPauseButton.style.display = "block";
+          if (!bufferLoad) {
+            console.log("hideLR");
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
 
-          if (!seekingLoad && !longTap && !seeking) {
-            hideVideoControls();
-            console.log("hideVC");
+            if (!seekingLoad && !longTap && !seeking) {
+              hideVideoControls();
+              console.log("hideVC");
+            }
+
+            // reset the loader
+            setTimeout(function() {
+              resetLoad();
+            }, 10);
           }
-
-          // reset the loader
-          setTimeout(function() {
-            resetLoad();
-          }, 10);
-
         }, 1000);
       }
 
@@ -2848,20 +2851,21 @@
                 endLoad();
                 
                 setTimeout(function() {
-                  console.log("hideLR");
-                  loadingRing.style.display = "none";
-                  playPauseButton.style.display = "block";
+                  if (!bufferLoad) {
+                    console.log("hideLR");
+                    loadingRing.style.display = "none";
+                    playPauseButton.style.display = "block";
 
-                  if (!seekingLoad && !longTap && !seeking) {
-                    hideVideoControls();
-                    console.log("hideVC");
+                    if (!seekingLoad && !longTap && !seeking) {
+                      hideVideoControls();
+                      console.log("hideVC");
+                    }
+
+                    // reset the loader
+                    setTimeout(function() {
+                      resetLoad();
+                    }, 10);
                   }
-
-                  // reset the loader
-                  setTimeout(function() {
-                    resetLoad();
-                  }, 10);
-
                 }, 1000);
               }
 
