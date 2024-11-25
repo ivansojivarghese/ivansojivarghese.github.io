@@ -455,9 +455,10 @@ function determineNetworkQuality(speed, bandwidth, latency, jitter, packetLoss) 
 //////////////////////////////////////////////
 
 
-var ipAPIres = {},
-    clientAPIres = {},
-    countryAPIres = {};
+//ipAPIres = {}
+    //clientAPIres = {},
+    
+var countryAPIres = {};
 
 var API_Loop = null;
 
@@ -476,6 +477,15 @@ async function countryAPI(v) { // unlimited, https://country.is/
         countryAPIres.error = true;
     }
 }
+
+countryAPI("");
+
+API_Loop = setInterval(() => {
+    if (countryAPIres.online) {
+        clearInterval(API_Loop);
+    }
+}, 100);
+
 /*
 async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
     if (navigator.onLine) {
@@ -516,14 +526,5 @@ async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
         ipAPIres.error = true;
     }
 }*/
-
-countryAPI("");
-
-API_Loop = setInterval(() => {
-    if (countryAPIres.online) {
-        clearInterval(API_Loop);
-    }
-}, 100);
-
 
 
