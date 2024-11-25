@@ -579,8 +579,13 @@ async function getParams(id, time) {
 
       if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
 
-        video.pause();
-        console.log("video_pause");
+        if (!backgroundPlay) {
+          video.pause();
+          console.log("video_pause");
+        } else {
+          audio.pause();
+          console.log("audio_pause");
+        }
 
         statusIndicator.classList.remove("buffer");
         statusIndicator.classList.remove("smooth");
