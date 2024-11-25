@@ -324,6 +324,7 @@ async function getParams(id, time) {
       }
     }
 
+    /*
     resetVariables();
 
     // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
@@ -338,7 +339,7 @@ async function getParams(id, time) {
     videoTimes = [];
     audioLatency = 0;
     audioLatencyArr = [];
-    // targetVideo = null;
+    targetVideo = null;
     initialVideoLoad = false;
     initialVideoLoadCount = 0;
     initialAudioLoad = false;
@@ -351,6 +352,7 @@ async function getParams(id, time) {
     targetQuality = 0;
     targetVideoIndex = 0;
     videoStreamScore = 0;
+    */
 
     if (link !== null && id === null) {
 
@@ -622,6 +624,38 @@ async function getParams(id, time) {
         videoFetchLoop = setInterval(function() {
           if (networkSpeed) {
             clearInterval(videoFetchLoop);
+
+            ////////////////////
+
+            resetVariables();
+
+            // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
+            videoSources = [];
+            audioSources = [];
+            specialVideoQuality = [];
+            specialVideoQualityWidth = [];
+            supportedVideoSources = [];
+            supportedAudioSources = [];
+            targetVideoSources = [];
+            audioTimes = [];
+            videoTimes = [];
+            audioLatency = 0;
+            audioLatencyArr = [];
+            targetVideo = null;
+            initialVideoLoad = false;
+            initialVideoLoadCount = 0;
+            initialAudioLoad = false;
+            specialQualityArea = [];
+            videoErr = false;
+            audioErr = false;
+
+            // COULD CHANGE | UNDETERMINED (TBA)
+            priorityQuality = 0;
+            targetQuality = 0;
+            targetVideoIndex = 0;
+            videoStreamScore = 0;
+
+            //////////////////
 
             getOptimalVideo(time);
           }
