@@ -1894,7 +1894,7 @@
           }, 3000); // Throttle buffer check every 3 seconds
         }
       } else {
-        if (video.paused && !autoLoad && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered && backgroundPlay) || (video.buffered && audio.buffered && !backgroundPlay && bufferLoad && !seeking && !seekingLoad)))) { 
+        if (video.paused && !autoLoad && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered && backgroundPlay) || (video.buffered && audio.buffered && !backgroundPlay && bufferLoad && !seeking && !seekingLoad && framesStuck)))) { 
           console.log("play");
           // video.play();
           if (backgroundPlay) {
