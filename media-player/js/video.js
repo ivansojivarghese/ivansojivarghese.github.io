@@ -338,7 +338,7 @@ async function getParams(id, time) {
     videoTimes = [];
     audioLatency = 0;
     audioLatencyArr = [];
-    targetVideo = null;
+    // targetVideo = null;
     initialVideoLoad = false;
     initialVideoLoadCount = 0;
     initialAudioLoad = false;
