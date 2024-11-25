@@ -1221,7 +1221,7 @@
         aVcount2++;
       }
 
-      if (aVcount4 === 30) {
+      if (aVcount4 === 30) { // 3 SEC.
         if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {
           playPauseButton.classList.remove('playing');
           playPauseButton.classList.add('repeat');
