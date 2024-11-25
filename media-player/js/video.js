@@ -561,7 +561,7 @@ async function getParams(id, time) {
 
     // NEW
     // API: https://rapidapi.com/ytjar/api/yt-api/playground/endpoint_facba415-c341-4af1-b542-6f17c9fc464a
-    const url = 'https://yt-api.p.rapidapi.com/dl?id=' + videoID + '&cgeo=' + SG;
+    const url = 'https://yt-api.p.rapidapi.com/dl?id=' + videoID + '&cgeo=' /*+ SG*/;
     const options = {
       method: 'GET',
       headers: {
