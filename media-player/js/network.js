@@ -451,3 +451,79 @@ function determineNetworkQuality(speed, bandwidth, latency, jitter, packetLoss) 
 }
 
 
+
+//////////////////////////////////////////////
+
+
+var ipAPIres = {},
+    clientAPIres = {},
+    countryAPIres = {};
+
+var API_Loop = null;
+
+async function countryAPI(v) { // unlimited, https://country.is/
+    if (navigator.onLine) {
+        await fetch("https://api.country.is/" + v)
+            .then((response) => {
+                return response.json().then((data) => {
+                    countryAPIres = data;
+                    countryAPIres.online = true;
+                }).catch((error) => {
+                    countryAPIres.error = true;
+                });
+            })
+    } else {
+        countryAPIres.error = true;
+    }
+}
+/*
+async function clientAPI() { // unlimited, https://www.bigdatacloud.com/packages/free-api
+    if (navigator.onLine) {
+        await fetch("https://api-bdc.net/data/client-info")
+            .then((response) => {
+                return response.json().then((data) => {
+                    clientAPIres = data;
+                    clientAPIres.online = true;
+                }).catch((error) => {
+                    clientAPIres.error = true;
+                });
+            })
+    } else {
+        clientAPIres.error = true; // // // //
+    }
+}
+
+async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
+    if (navigator.onLine) {
+        await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138") // 'a' character may be added at end for TESTING
+            .then((response) => {
+                return response.json().then((data) => {
+                    ipAPIres = data;
+
+                    ipAPIres.lat = ipAPIres.location.latitude;
+                    ipAPIres.lon = ipAPIres.location.longitude;
+                    ipAPIres.city = ipAPIres.city.names.en;
+
+                    ipAPIres.online = true;
+                    // ipAPIres.verified = false;
+                }).catch((error) => {
+                    ipAPIres.error = true;
+                });
+            })
+    } else {
+        // ipAPIres.country = {};
+        // ipAPIres.country.iso_code = isolateRegionBCP47(navigator.language);
+        ipAPIres.error = true;
+    }
+}*/
+
+countryAPI("");
+
+API_Loop = setInterval(() => {
+    if (countryAPIres.online) {
+        clearInterval(API_Loop);
+    }
+}, 100);
+
+
+
