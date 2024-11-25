@@ -598,7 +598,9 @@ async function getParams(id, time) {
           playPauseButton.style.display = "block";
           playPauseButton.classList.remove('playing');
 
-          playPauseButton.classList.add('repeat');
+          if (targetVideo === null) {
+            playPauseButton.classList.add('repeat');
+          }
 
           /*
           if (!seekingLoad && !longTap && !seeking) {
