@@ -579,6 +579,9 @@ async function getParams(id, time) {
 
       if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
 
+        video.pause();
+        console.log("video_pause");
+
         statusIndicator.classList.remove("buffer");
         statusIndicator.classList.remove("smooth");
         statusIndicator.classList.add("error");
@@ -590,9 +593,14 @@ async function getParams(id, time) {
           playPauseButton.style.display = "block";
           playPauseButton.classList.remove('playing');
 
+          playPauseButton.classList.add('repeat');
+
+          /*
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
-          }
+          }*/
+
+          showVideoControls();
 
           // reset the loader
           setTimeout(function() {
