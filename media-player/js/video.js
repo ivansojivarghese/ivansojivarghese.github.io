@@ -577,7 +577,7 @@ async function getParams(id, time) {
       
       // video.src = videoDetails.formats["0"].url;
 
-      if (videoDetails.status === "fail" || videoDetails.error !== undefined || videoDetails.isLive) {
+      if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
 
         statusIndicator.classList.remove("buffer");
         statusIndicator.classList.remove("smooth");
