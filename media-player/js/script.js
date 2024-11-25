@@ -1197,6 +1197,7 @@
     var aVcount = 0;
     var aVcount2 = 0;
     var aVcount3 = 0;
+    var aVcount4 = 0;
 
     var offlineNotif = false;
     var slowNotif = false;
@@ -1218,6 +1219,30 @@
         aVcount2 = 0;
       } else {
         aVcount2++;
+      }
+
+      if (aVcount4 === 30) {
+        if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {
+          playPauseButton.classList.remove('playing');
+          playPauseButton.classList.add('repeat');
+
+          endLoad();
+                
+          setTimeout(function() {
+            console.log("hideLR");
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+
+            // reset the loader
+            setTimeout(function() {
+              resetLoad();
+            }, 10);
+
+          }, 1000);
+        }
+        aVcount4 = 0;
+      } else {
+        aVcount4++;
       }
 
       if (aVcount3 === 50) { // 5 sec.
