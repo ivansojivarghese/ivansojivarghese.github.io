@@ -2288,7 +2288,7 @@
           const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
 
           // Only pause the video if the audio is still buffering
-          if (currentBufferDuration < BUFFER_THRESHOLD_AUDIO) { // Example threshold of 5 seconds
+          if ((currentBufferDuration < BUFFER_THRESHOLD_AUDIO) || true) { // Example threshold of _ seconds
             if (!initialVideoLoad && !video.paused && video.currentTime > 1) {
               console.log("pause");
               console.log("Audio is buffering, pausing the video.");
@@ -2365,7 +2365,7 @@
           const currentBufferDuration = bufferedEndTime - audio.currentTime; // Calculate how much has been buffered
 
           // Only pause the video if the audio is still buffering
-          if (currentBufferDuration < BUFFER_THRESHOLD_AUDIO) { // Example threshold of 5 seconds
+          if ((currentBufferDuration < BUFFER_THRESHOLD_AUDIO) || true) { // Example threshold of _ seconds
             if (!initialVideoLoad && !video.paused && video.currentTime > 1) {
               console.log("pause");
               console.log("Audio is buffering, pausing the video.");
