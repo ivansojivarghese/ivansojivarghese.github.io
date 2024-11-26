@@ -4,6 +4,8 @@
 
     // https://googlesamples.github.io/web-fundamentals/fundamentals/media/mobile-web-video-playback.html 
 
+    var videoLoadLoop = null;
+
     const statusIndicator = document.querySelector("#statusIndicator div");
 
     const video = document.querySelector('video.primary');

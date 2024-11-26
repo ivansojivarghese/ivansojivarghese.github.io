@@ -531,85 +531,157 @@ async function getParams(id, time) {
       
     } 
     
-    if ((link !== null || videoSubmit) && countryAPIres.online) {
+    // videoLoadLoop = setInterval(function() {
+      if ((link !== null || videoSubmit) && countryAPIres.online) {
 
-    // PRELOAD HERE
-    // START LOAD
-    clearTimeout(controlsHideInt);
-    controlsHideInt = null;
+      // clearInterval(videoLoadLoop);
 
-    getScreenLock();
+      // PRELOAD HERE
+      // START LOAD
+      clearTimeout(controlsHideInt);
+      controlsHideInt = null;
 
-    loading = true;
-    loadingRing.style.display = "block";
-    playPauseButton.style.display = "none";
+      getScreenLock();
 
-    showVideoControls();
-    
-    // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
+      loading = true;
+      loadingRing.style.display = "block";
+      playPauseButton.style.display = "none";
 
-    // OLD
-    // API: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos/playground/endpoint_b308f78f-0faa-407a-902a-7afcd88c6a88
-    /*
-    const url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=' + videoID;
-    const options = {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
-        'x-rapidapi-host': 'ytstream-download-youtube-videos.p.rapidapi.com'
-      }
-    };
-    */
-
-    // NEW
-    // API: https://rapidapi.com/ytjar/api/yt-api/playground/endpoint_facba415-c341-4af1-b542-6f17c9fc464a
-    const url = 'https://yt-api.p.rapidapi.com/dl?id=' + videoID + '&cgeo=' + countryAPIres.country;
-    const options = {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
-        'x-rapidapi-host': 'yt-api.p.rapidapi.com'
-      }
-    };
-
-    try {
-      const response = await fetch(url, options);
-      videoDetails = await response.json();
-      console.log(videoDetails);
+      showVideoControls();
       
-      // video.src = videoDetails.formats["0"].url;
+      // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
 
-      if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
+      // OLD
+      // API: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos/playground/endpoint_b308f78f-0faa-407a-902a-7afcd88c6a88
+      /*
+      const url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=' + videoID;
+      const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+          'x-rapidapi-host': 'ytstream-download-youtube-videos.p.rapidapi.com'
+        }
+      };
+      */
 
-        if (!backgroundPlay) {
-          video.pause();
-          console.log("video_pause");
+      // NEW
+      // API: https://rapidapi.com/ytjar/api/yt-api/playground/endpoint_facba415-c341-4af1-b542-6f17c9fc464a
+      const url = 'https://yt-api.p.rapidapi.com/dl?id=' + videoID + '&cgeo=' + countryAPIres.country;
+      const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+          'x-rapidapi-host': 'yt-api.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(url, options);
+        videoDetails = await response.json();
+        console.log(videoDetails);
+        
+        // video.src = videoDetails.formats["0"].url;
+
+        if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
+
+          if (!backgroundPlay) {
+            video.pause();
+            console.log("video_pause");
+          } else {
+            audio.pause();
+            console.log("audio_pause");
+          }
+
+          statusIndicator.classList.remove("buffer");
+          statusIndicator.classList.remove("smooth");
+          statusIndicator.classList.add("error");
+
+          endLoad();
+                  
+          setTimeout(function() {
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+            playPauseButton.classList.remove('playing');
+
+            if (targetVideo === null) {
+              playPauseButton.classList.add('repeat');
+            }
+
+            /*
+            if (!seekingLoad && !longTap && !seeking) {
+              hideVideoControls();
+            }*/
+
+            showVideoControls();
+
+            // reset the loader
+            setTimeout(function() {
+              resetLoad();
+            }, 10);
+
+          }, 1000);
+
+          loading = false;
+
         } else {
-          audio.pause();
-          console.log("audio_pause");
+          videoFetchLoop = setInterval(function() {
+            if (networkSpeed) {
+              clearInterval(videoFetchLoop);
+
+              ////////////////////
+
+              resetVariables();
+
+              // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
+              videoSources = [];
+              audioSources = [];
+              specialVideoQuality = [];
+              specialVideoQualityWidth = [];
+              supportedVideoSources = [];
+              supportedAudioSources = [];
+              targetVideoSources = [];
+              audioTimes = [];
+              videoTimes = [];
+              audioLatency = 0;
+              audioLatencyArr = [];
+              targetVideo = null;
+              initialVideoLoad = false;
+              initialVideoLoadCount = 0;
+              initialAudioLoad = false;
+              specialQualityArea = [];
+              videoErr = false;
+              audioErr = false;
+
+              // COULD CHANGE | UNDETERMINED (TBA)
+              priorityQuality = 0;
+              targetQuality = 0;
+              targetVideoIndex = 0;
+              videoStreamScore = 0;
+
+              //////////////////
+
+              getOptimalVideo(time);
+            }
+          }, 10);
         }
 
+      } catch (error) {
+        console.error(error);
+        
         statusIndicator.classList.remove("buffer");
         statusIndicator.classList.remove("smooth");
         statusIndicator.classList.add("error");
 
         endLoad();
-                
+                  
         setTimeout(function() {
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
           playPauseButton.classList.remove('playing');
 
-          if (targetVideo === null) {
-            playPauseButton.classList.add('repeat');
-          }
-
-          /*
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
-          }*/
-
-          showVideoControls();
+          }
 
           // reset the loader
           setTimeout(function() {
@@ -620,79 +692,12 @@ async function getParams(id, time) {
 
         loading = false;
 
-      } else {
-        videoFetchLoop = setInterval(function() {
-          if (networkSpeed) {
-            clearInterval(videoFetchLoop);
 
-            ////////////////////
-
-            resetVariables();
-
-            // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
-            videoSources = [];
-            audioSources = [];
-            specialVideoQuality = [];
-            specialVideoQualityWidth = [];
-            supportedVideoSources = [];
-            supportedAudioSources = [];
-            targetVideoSources = [];
-            audioTimes = [];
-            videoTimes = [];
-            audioLatency = 0;
-            audioLatencyArr = [];
-            targetVideo = null;
-            initialVideoLoad = false;
-            initialVideoLoadCount = 0;
-            initialAudioLoad = false;
-            specialQualityArea = [];
-            videoErr = false;
-            audioErr = false;
-
-            // COULD CHANGE | UNDETERMINED (TBA)
-            priorityQuality = 0;
-            targetQuality = 0;
-            targetVideoIndex = 0;
-            videoStreamScore = 0;
-
-            //////////////////
-
-            getOptimalVideo(time);
-          }
-        }, 10);
+      }
+        
       }
 
-    } catch (error) {
-      console.error(error);
-      
-      statusIndicator.classList.remove("buffer");
-      statusIndicator.classList.remove("smooth");
-      statusIndicator.classList.add("error");
-
-      endLoad();
-                
-      setTimeout(function() {
-        loadingRing.style.display = "none";
-        playPauseButton.style.display = "block";
-        playPauseButton.classList.remove('playing');
-
-        if (!seekingLoad && !longTap && !seeking) {
-          hideVideoControls();
-        }
-
-        // reset the loader
-        setTimeout(function() {
-          resetLoad();
-        }, 10);
-
-      }, 1000);
-
-      loading = false;
-
-
-    }
-      
-    }
+    // }, 100);
 
   }
 }
@@ -1249,4 +1254,16 @@ function getMediaSources(sources) {
 }
 */
 
-getParams(null);
+if (videoLoadLoop === null) {
+  videoLoadLoop = setInterval(() => {
+
+    if (countryAPIres.online) {
+
+      clearInterval(videoLoadLoop);
+      videoLoadLoop = null;
+      
+      getParams(null);
+
+    }
+  }, 100);
+}

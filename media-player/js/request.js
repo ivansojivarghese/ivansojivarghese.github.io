@@ -168,7 +168,20 @@
         videoSubmit = true;
         
         // if (videoID) {
-        getParams(videoID, timestamp);
+        if (videoLoadLoop === null) {
+          
+          videoLoadLoop = setInterval(() => {
+
+            if (countryAPIres.online) {
+              clearInterval(videoLoadLoop);
+              videoLoadLoop = null;
+
+              getParams(videoID, timestamp);
+            }
+
+          }, 100);
+        }
+        
         // }
 
       }
