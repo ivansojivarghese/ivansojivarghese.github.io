@@ -2274,12 +2274,16 @@
       }
     });
 
+    var audioStalled = false;
+
     audio.addEventListener('stalled', function() {
       offset = (checkInterval - 20) / 1000;
 
       if (!video.paused && video.currentTime > 1) {
         console.log("audiostalled");
         video.pause();
+
+        audioStalled = true;
       }
 
       if (!networkError) {
@@ -2357,6 +2361,8 @@
       if (!video.paused && video.currentTime > 1) {
         console.log("audiostalled");
         video.pause();
+
+        audioStalled = true;
       }
 
       if (!networkError) {
