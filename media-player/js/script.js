@@ -723,6 +723,8 @@
 
           autoLoad = false;
 
+          audioStalled = false;
+
           networkErrorFetch = false;
           networkErrorResume = false;
 
