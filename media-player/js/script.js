@@ -1395,7 +1395,7 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused && !networkError && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && audioCtx.playoutStats.maximumLatency && audioCtx.baseLatency && audioCtx.outputLatency)) {
+      if (!video.paused /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && audioCtx.playoutStats.maximumLatency && audioCtx.baseLatency && audioCtx.outputLatency)) {
         
         if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > ((audioCtx.playoutStats.maximumLatency / 100) + (audioCtx.baseLatency * 10) + (audioCtx.outputLatency * 10)))) { // only buffer when audio has stalled
           // bufferCount++;
@@ -3978,7 +3978,7 @@
     var checkAudioReady = null;
 
     setInterval(function() {
-      if (!networkError) {
+      if (!networkError || true) {
         if (document.pictureInPictureElement !== null) {
           pipEnabled = true;
           backgroundPlayManual = false;
