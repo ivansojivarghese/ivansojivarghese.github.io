@@ -68,6 +68,7 @@
     var appUnload = false;
 
     var autoLoad = false;
+    var peekForward = false;
 
     var tps = 0; // function call times per sec.
 
@@ -547,6 +548,8 @@
       if (videoPlay) {
 
         autoLoad = false;
+
+        peekForward = false;
 
         if (audioVideoAlignInt !== null) {
           clearInterval(audioVideoAlignInt);
@@ -1224,6 +1227,7 @@
       }
 
       if (aVcount4 === 30) { // 3 SEC.
+
         if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {
           playPauseButton.classList.remove('playing');
           playPauseButton.classList.add('repeat');
@@ -1242,6 +1246,11 @@
 
           }, 1000);
         }
+
+        if (peekForward && pipEnabled && video.paused && !audio.paused && video.buffered) {
+          video.play();
+        }
+
         aVcount4 = 0;
       } else {
         aVcount4++;
@@ -1921,7 +1930,7 @@
           }, 3000); // Throttle buffer check every 3 seconds
         }
       } else {
-        if (video.paused && !autoLoad && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered && backgroundPlay) || (video.buffered && audio.buffered && !backgroundPlay && bufferLoad && !loading && !bufferingDetected && !seeking && !seekingLoad && framesStuck)))) { 
+        if (video.paused && !autoLoad && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered && backgroundPlay) || (video.buffered && audio.buffered && !backgroundPlay && bufferLoad && (!loading || pipEnabled) && !bufferingDetected && !seeking && !seekingLoad && framesStuck)))) { 
           console.log("play");
           // video.play();
           if (backgroundPlay) {
@@ -3147,6 +3156,8 @@
           } else {
             console.log("Not enough buffered data to resume audio playback. Waiting for more data...");
             // Optionally, you can provide feedback to the user or update UI elements to indicate buffering
+
+            peekForward = true;
           }
 
         } else {
