@@ -1251,6 +1251,11 @@
 
         if (peekForward && pipEnabled && video.paused && !audio.paused && video.buffered) {
           video.play();
+        } else if (video.paused && !audio.paused && audioStalled && video.buffered && !backgroundPlay) {
+          video.pause();
+          audio.load();
+          audio.currentTime = refSeekTime;
+          video.play();
         }
 
         aVcount4 = 0;
