@@ -1252,7 +1252,6 @@
         if (peekForward && pipEnabled && video.paused && !audio.paused && video.buffered) {
           video.play();
         } else if (video.paused && !audio.paused && audioStalled && video.buffered && !backgroundPlay) {
-          video.pause();
           audio.load();
           audio.currentTime = refSeekTime;
           video.play();
@@ -1963,6 +1962,12 @@
 
     video.addEventListener("suspend", (event) => {
       console.log("Data loading has been suspended.");
+
+      updateVideoLoad();
+    });
+
+    audio.addEventListener("suspend", (event) => {
+      console.log("Audio loading has been suspended.");
 
       updateVideoLoad();
     });
@@ -2816,6 +2821,10 @@
 
       if (!bufferingDetected) {
         loading = false;
+      }
+
+      if (!initialAudioLoad) {
+        initialAudioLoad = true;
       }
 /*
       if (initialVideoLoad) {
@@ -3808,7 +3817,7 @@
             audio.volume = 0; // prevent accidental leakage 
           }
           backgroundPlay = true;
-        } else {
+        } else if (document.visibilityState === 'visible' && !autoLoad) {
 
           if (backgroundPlay && videoEnd && !playPauseButton.classList.contains("repeat")) {
             video.currentTime = audio.currentTime;
