@@ -596,6 +596,9 @@ async function getParams(id, time) {
           statusIndicator.classList.remove("smooth");
           statusIndicator.classList.add("error");
 
+          videoErr = true;
+          audioErr = true;
+
           endLoad();
                   
           setTimeout(function() {
