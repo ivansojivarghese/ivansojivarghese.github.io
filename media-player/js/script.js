@@ -1986,7 +1986,7 @@
 
       // UI
 
-      if (audio.error.code === 2 && !audio.paused && backgroundPlay) {
+      if (audio.error.code === 2 && backgroundPlay) {
         audio.load();
       } else {
         playPauseButton.classList.remove('playing');
@@ -2082,7 +2082,7 @@
 
       // UI
 
-      if (video.error.code === 2 && !video.paused && !backgroundPlay) {
+      if (video.error.code === 2 && !backgroundPlay) {
         video.load();
       } else {
         playPauseButton.classList.remove('playing');
