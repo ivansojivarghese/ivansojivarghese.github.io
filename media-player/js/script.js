@@ -3796,6 +3796,11 @@
             audio.load();
           }
 
+          if (audio.buffered && (bufferLoad || loading || seekingLoad || bufferingDetected)) {
+            console.log("audio_play in background");
+            audio.play();
+          }
+
           // clear intervals
           if (networkSpeedInt !== null) {
             if (!networkError) {
