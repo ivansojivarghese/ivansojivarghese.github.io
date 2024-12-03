@@ -70,6 +70,12 @@
     var autoLoad = false;
     var peekForward = false;
 
+    var playEvents = 0;
+    var playEventsMax = 10;
+    var audioVideoAlignDivisor = 3; // range of 1 - 3
+    var audioVideoAlignDivisorMin = 1;
+    var audioVideoAlignDivisorMax = 3;
+
     var tps = 0; // function call times per sec.
 
     var loading = false;
@@ -550,6 +556,11 @@
         autoLoad = false;
 
         peekForward = false;
+
+        audioVideoAlignDivisor = audioVideoAlignDivisorMax - (playEvents * ((audioVideoAlignDivisorMax - audioVideoAlignDivisorMin) / (playEventsMax - 0)));
+        if (playEvents < playEventsMax) {
+          playEvents++;
+        }
 
         if (audioVideoAlignInt !== null) {
           clearInterval(audioVideoAlignInt);
@@ -1224,6 +1235,9 @@
       if (aVcount2 === 100) { // 10 sec.
         audioCtx = new AudioContext();
         aVcount2 = 0;
+
+        playEvents = 0;
+
       } else {
         aVcount2++;
       }
@@ -1405,7 +1419,7 @@
         
         var maxLatency = (typeof audioCtx.playoutStats !== 'undefined') ? audioCtx.playoutStats.maximumLatency : (audioCtx.baseLatency && audioCtx.outputLatency) ? 0 : 100;
 
-        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > (((maxLatency / 100) + (audioCtx.baseLatency * 10) + (audioCtx.outputLatency * 10)) / 2))) { // only buffer when audio has stalled
+        if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > (((maxLatency / 100) + (audioCtx.baseLatency * 10) + (audioCtx.outputLatency * 10)) / audioVideoAlignDivisor)) || (video.currentTime - audio.currentTime < 0)) { // only buffer when audio has stalled
           // bufferCount++;
           bufferStartTime = new Date().getTime();
           bufferMode = true;

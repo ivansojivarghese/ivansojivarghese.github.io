@@ -654,6 +654,8 @@ async function getParams(id, time) {
               specialQualityArea = [];
               videoErr = false;
               audioErr = false;
+              playEvents = 0;
+              audioVideoAlignDivisor = 3;
 
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;
