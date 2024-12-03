@@ -1249,12 +1249,12 @@
           }, 1000);
         }
 
-        if (peekForward && pipEnabled && video.paused && !audio.paused && video.buffered) {
+        if ((peekForward && pipEnabled && video.paused && !audio.paused && video.buffered) || (pipEnabled && video.paused && audio.paused && video.buffered && audio.buffered && (loading || bufferLoad || seekingLoad || bufferingDetected))) {
           video.play();
         } else if (video.paused && !audio.paused && audioStalled && video.buffered && !backgroundPlay) {
           audio.load();
           audio.currentTime = refSeekTime;
-          video.play();
+          // video.play();
         }
 
         aVcount4 = 0;
@@ -2205,6 +2205,7 @@
 
     video.addEventListener("abort", () => {
       console.log(`Abort loading: ${video}`);
+      video.load();
     });
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
