@@ -1401,9 +1401,9 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && (audioCtx.playoutStats.maximumLatency || !audioCtx.playoutStats.maximumLatency) && audioCtx.baseLatency && audioCtx.outputLatency)) {
+      if (!video.paused /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && ((typeof audioCtx.playoutStats !== 'undefined' && audioCtx.playoutStats.maximumLatency) || (typeof audioCtx.playoutStats === 'undefined')) && audioCtx.baseLatency && audioCtx.outputLatency)) {
         
-        var maxLatency = (audioCtx.playoutStats.maximumLatency) ? audioCtx.playoutStats.maximumLatency : (audioCtx.baseLatency && audioCtx.outputLatency) ? 0 : 100;
+        var maxLatency = (typeof audioCtx.playoutStats !== 'undefined') ? audioCtx.playoutStats.maximumLatency : (audioCtx.baseLatency && audioCtx.outputLatency) ? 0 : 100;
 
         if ((checkLatency(audioTimes, audioDiffMax) && !checkLatency(videoTimes, audioDiffMax)) || (Math.abs(video.currentTime - audio.currentTime) > (((maxLatency / 100) + (audioCtx.baseLatency * 10) + (audioCtx.outputLatency * 10)) / 2))) { // only buffer when audio has stalled
           // bufferCount++;
