@@ -1263,9 +1263,9 @@
           }, 1000);
         }
 
-        if ((peekForward && pipEnabled && video.paused && !audio.paused && video.buffered) || (pipEnabled && video.paused && audio.paused && video.buffered && audio.buffered && (loading || bufferLoad || seekingLoad || bufferingDetected))) {
+        if ((peekForward && pipEnabled && video.paused && !audio.paused && video.buffered.length) || (pipEnabled && video.paused && audio.paused && video.buffered.length && audio.buffered.length && (loading || bufferLoad || seekingLoad || bufferingDetected))) {
           video.play();
-        } else if (video.paused && !audio.paused && audioStalled && video.buffered && !backgroundPlay) {
+        } else if (video.paused && !audio.paused && audioStalled && video.buffered.length && !backgroundPlay) {
           audio.load();
           audio.currentTime = refSeekTime;
           // video.play();
@@ -1447,7 +1447,7 @@
 
         } 
 
-      } else if (audioStall && audio.buffered) {
+      } else if (audioStall && audio.buffered.length) {
         audioStall = false;
         audioVideoAligning = false;
         setTimeout(function() {
@@ -1539,7 +1539,7 @@
             });
           }
         }, 100);
-      } else if (audioStall && !audio.buffered && !loading) {
+      } else if (audioStall && !audio.buffered.length && !loading) {
         video.pause();
         console.log("video_pause");
 
@@ -1874,7 +1874,7 @@
     const BUFFER_THRESHOLD_AUDIO = 0; 
 
     function updateVideoLoad() {
-      const buffered = (!backgroundPlay) ? video.buffered : audio.buffered;
+      const buffered = (!backgroundPlay) ? video.buffered.length : audio.buffered.length;
       const liveTime = (!backgroundPlay) ? video.currentTime : audio.currentTime;
 
       const MOD_BUFFER_THRESHOLD = (!backgroundPlay) ? BUFFER_THRESHOLD : BUFFER_THRESHOLD_AUDIO;
@@ -1952,7 +1952,7 @@
           }, 3000); // Throttle buffer check every 3 seconds
         }
       } else {
-        if (video.paused && !autoLoad && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered && backgroundPlay) || (video.buffered && audio.buffered && !backgroundPlay && bufferLoad && (!loading || pipEnabled) && !bufferingDetected && !seeking && !seekingLoad && framesStuck)))) { 
+        if (video.paused && !autoLoad && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered.length && backgroundPlay) || (video.buffered.length && audio.buffered.length && !backgroundPlay && bufferLoad && (!loading || pipEnabled) && !bufferingDetected && !seeking && !seekingLoad && framesStuck)))) { 
           console.log("play");
           // video.play();
           if (backgroundPlay) {
@@ -3235,6 +3235,11 @@
 
         console.log("video_canplay");
 
+        audioVideoAlignDivisor = audioVideoAlignDivisorMax - (playEvents * ((audioVideoAlignDivisorMax - audioVideoAlignDivisorMin) / (playEventsMax - 0)));
+        if (playEvents < playEventsMax) {
+          playEvents++;
+        }
+
         if (!qualityBestChange && !qualityChange) {
           bufferAllow = true;
         } 
@@ -3811,7 +3816,7 @@
             audio.load();
           }
 
-          if (audio.buffered && audio.readyState > 2 && (bufferLoad || loading || seekingLoad || bufferingDetected)) {
+          if (audio.buffered.length && audio.readyState > 2 && (bufferLoad || loading || seekingLoad || bufferingDetected)) {
             console.log("audio_play in background");
             audio.play();
           }
@@ -4050,10 +4055,10 @@
         }
       }
 
-      if (audio.buffered) {
+      if (audio.buffered.length) {
         audioRun = false;
       }
-      if (video.buffered) {
+      if (video.buffered.length) {
         videoRun = false;
       }
 
