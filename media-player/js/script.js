@@ -3796,7 +3796,7 @@
             audio.load();
           }
 
-          if (audio.buffered && (bufferLoad || loading || seekingLoad || bufferingDetected)) {
+          if (audio.buffered && audio.readyState > 2 && (bufferLoad || loading || seekingLoad || bufferingDetected)) {
             console.log("audio_play in background");
             audio.play();
           }
