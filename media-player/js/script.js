@@ -2811,7 +2811,7 @@
       }
       if (networkParamInt === null) {
         networkParamInt = setInterval(function() {
-          if (!backgroundPlay) {
+          if (!backgroundPlay && !videoEnd) {
             measureJitter(pingsCount, 1000);
             measurePacketLoss(pingFileUrl);
           }
@@ -2915,7 +2915,7 @@
       }
       if (networkParamInt === null) {
         networkParamInt = setInterval(function() {
-          if (!backgroundPlay) {
+          if (!backgroundPlay && !videoEnd) {
             measureJitter(pingsCount, 1000);
             measurePacketLoss(pingFileUrl);
           }
@@ -3901,7 +3901,7 @@
           }
           if (networkParamInt === null) {
             networkParamInt = setInterval(function() {
-              if (!backgroundPlay) {
+              if (!backgroundPlay && !videoEnd) {
                 measureJitter(pingsCount, 1000);
                 measurePacketLoss(pingFileUrl);
               }

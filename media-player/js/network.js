@@ -136,7 +136,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                         }
                         if (networkParamInt === null) {
                             networkParamInt = setInterval(function() {
-                                if (!backgroundPlay) {
+                                if (!backgroundPlay && !videoEnd) {
                                     measureJitter(pingsCount, 1000);
                                     measurePacketLoss(pingFileUrl);
                                 }
@@ -190,7 +190,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 }
                 if (networkParamInt === null) {
                     networkParamInt = setInterval(function() {
-                        if (!backgroundPlay) {
+                        if (!backgroundPlay && !videoEnd) {
                             measureJitter(pingsCount, 1000);
                             measurePacketLoss(pingFileUrl);
                         }
@@ -206,7 +206,7 @@ if (networkSpeedInt === null) {
 }
 if (networkParamInt === null) {
     networkParamInt = setInterval(function() {
-        if (!backgroundPlay) {
+        if (!backgroundPlay && !videoEnd) {
             measureJitter(pingsCount, 1000);
             measurePacketLoss(pingFileUrl);
         }
@@ -253,7 +253,7 @@ function getNetworkInfo() {
 
 if (navigator.connection) {
     navigator.connection.addEventListener('change', function() {
-        if (!backgroundPlay) {
+        if (!backgroundPlay && !videoEnd) {
             getNetworkInfo();
             estimateNetworkSpeed();
             measureJitter(pingsCount, 1000);
