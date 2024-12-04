@@ -76,6 +76,8 @@
     var audioVideoAlignDivisorMin = 1;
     var audioVideoAlignDivisorMax = 3;
 
+    var notificationAliveTime = 300000;
+
     var tps = 0; // function call times per sec.
 
     var loading = false;
@@ -1375,6 +1377,13 @@
                     url :  "https://ivansojivarghese.github.io/media-player/"
                   }
                 });
+              }).then(() => {
+                // Wait for a specific duration before closing the notification
+                setTimeout(() => {
+                  registration.getNotifications({ tag: "slow" }).then(notifications => {
+                    notifications.forEach(notification => notification.close());
+                  });
+                }, notificationAliveTime); // Expiry time in milliseconds
               });
             } else {
               const notification = new Notification(ntfTitle, {
@@ -1387,6 +1396,10 @@
                   url :  "https://ivansojivarghese.github.io/media-player/"
                 }
               });
+
+              setTimeout(() => {
+                notification.close();
+              }, notificationAliveTime);
     
               notification.onclick = (event) => {
                 event.preventDefault(); // Prevent the default action (usually focusing the notification)
