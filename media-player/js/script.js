@@ -2769,7 +2769,7 @@
 
         console.log("audio_pause");
 
-        if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch) {
+        if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch && video.src !== targetVideo.url) {
           console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
 
@@ -2784,6 +2784,9 @@
 
           localStorage.setItem('videoURL', video.src); // Set URL to memory state
 
+        } else {
+          qualityBestChange = false;
+          qualityChange = false;
         }
 
       } 
