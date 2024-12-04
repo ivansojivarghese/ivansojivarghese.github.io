@@ -307,11 +307,14 @@ async function getParams(id, time) {
     let params = new URLSearchParams(document.location.search);
     var link = params.get("description"); 
 
-    if (localStorage.getItem("mediaURL") !== null && link === null && videoURL === "") {
+    if (localStorage.getItem("mediaURL") !== null && link === null && videoURL === "" && !autoLoad) {
       link = localStorage.getItem("mediaURL");
       time = Number(localStorage.getItem("timestamp"));
 
       autoLoad = true;
+    } else {
+
+      autoLoad = false;
     }
 
     if (videoURL === "") {
