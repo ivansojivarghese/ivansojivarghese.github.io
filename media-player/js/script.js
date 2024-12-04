@@ -2807,7 +2807,7 @@
       signalPacket = controllerPacket.signal;
       
       if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange);
+        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, networkIntRange);
       }
       if (networkParamInt === null) {
         networkParamInt = setInterval(function() {
@@ -2911,7 +2911,7 @@
       signalPacket = controllerPacket.signal;
       
       if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange);
+        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, networkIntRange);
       }
       if (networkParamInt === null) {
         networkParamInt = setInterval(function() {
@@ -3892,7 +3892,7 @@
 
           // start intervals to get network info
           if (networkSpeedInt === null) {
-              networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange); 
+              networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, networkIntRange); 
 
               if (!backgroundPlay) {
                 getNetworkInfo();

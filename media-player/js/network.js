@@ -119,7 +119,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                         networkParamInt = null;
                     }
                     if (networkSpeedInt === null) {
-                        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange); 
+                        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, networkIntRange); 
                     }
                     if (networkParamInt === null) {
                         networkParamInt = setInterval(function() {
@@ -173,7 +173,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 networkParamInt = null;
             }
             if (networkSpeedInt === null) {
-                networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, avgInt); 
+                networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, avgInt); 
             }
             if (networkParamInt === null) {
                 networkParamInt = setInterval(function() {
@@ -188,7 +188,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 }
 
 if (networkSpeedInt === null) {
-    networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange); 
+    networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, networkIntRange); 
 }
 if (networkParamInt === null) {
     networkParamInt = setInterval(function() {
