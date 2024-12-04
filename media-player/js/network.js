@@ -119,12 +119,14 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                         networkParamInt = null;
                     }
                     if (networkSpeedInt === null) {
-                        networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
+                        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange); 
                     }
                     if (networkParamInt === null) {
                         networkParamInt = setInterval(function() {
-                            measureJitter(pingsCount, 1000);
-                            measurePacketLoss(pingFileUrl);
+                            if (!backgroundPlay) {
+                                measureJitter(pingsCount, 1000);
+                                measurePacketLoss(pingFileUrl);
+                            }
                         }, pingsInt);
                     }
     
@@ -171,12 +173,14 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                 networkParamInt = null;
             }
             if (networkSpeedInt === null) {
-                networkSpeedInt = setInterval(estimateNetworkSpeed, avgInt); 
+                networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, avgInt); 
             }
             if (networkParamInt === null) {
                 networkParamInt = setInterval(function() {
-                    measureJitter(pingsCount, 1000);
-                    measurePacketLoss(pingFileUrl);
+                    if (!backgroundPlay) {
+                        measureJitter(pingsCount, 1000);
+                        measurePacketLoss(pingFileUrl);
+                    }
                 }, pingsInt);
             }
         }
@@ -184,12 +188,14 @@ const estimateNetworkSpeed = async() => { // estimate network speed
 }
 
 if (networkSpeedInt === null) {
-    networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
+    networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange); 
 }
 if (networkParamInt === null) {
     networkParamInt = setInterval(function() {
-        measureJitter(pingsCount, 1000);
-        measurePacketLoss(pingFileUrl);
+        if (!backgroundPlay) {
+            measureJitter(pingsCount, 1000);
+            measurePacketLoss(pingFileUrl);
+        }
     }, pingsInt); 
 }
 /*
@@ -233,10 +239,12 @@ function getNetworkInfo() {
 
 if (navigator.connection) {
     navigator.connection.addEventListener('change', function() {
-        getNetworkInfo();
-        estimateNetworkSpeed();
-        measureJitter(pingsCount, 1000);
-        measurePacketLoss(pingFileUrl);
+        if (!backgroundPlay) {
+            getNetworkInfo();
+            estimateNetworkSpeed();
+            measureJitter(pingsCount, 1000);
+            measurePacketLoss(pingFileUrl);
+        }
     });
 }
 

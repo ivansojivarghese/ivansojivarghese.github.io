@@ -2807,17 +2807,21 @@
       signalPacket = controllerPacket.signal;
       
       if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
+        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange);
       }
       if (networkParamInt === null) {
         networkParamInt = setInterval(function() {
+          if (!backgroundPlay) {
             measureJitter(pingsCount, 1000);
             measurePacketLoss(pingFileUrl);
+          }
         }, pingsInt);
       }   
 
-      getNetworkInfo();
-      // estimateNetworkSpeed();
+      if (!backgroundPlay) {
+        getNetworkInfo();
+        // estimateNetworkSpeed();
+      }
 
       if (!loading && !bufferingDetected && !framesStuck) {
         statusIndicator.classList.remove("error");
@@ -2907,17 +2911,21 @@
       signalPacket = controllerPacket.signal;
       
       if (networkSpeedInt === null) {
-        networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange);
+        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange);
       }
       if (networkParamInt === null) {
         networkParamInt = setInterval(function() {
+          if (!backgroundPlay) {
             measureJitter(pingsCount, 1000);
             measurePacketLoss(pingFileUrl);
+          }
         }, pingsInt);
       }
 
-      getNetworkInfo();
-      // estimateNetworkSpeed();
+      if (!backgroundPlay) {
+        getNetworkInfo();
+        // estimateNetworkSpeed();
+      }
 
       audio.play();
 
@@ -3884,15 +3892,19 @@
 
           // start intervals to get network info
           if (networkSpeedInt === null) {
-              networkSpeedInt = setInterval(estimateNetworkSpeed, networkIntRange); 
+              networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed } }, networkIntRange); 
 
-              getNetworkInfo();
-              // estimateNetworkSpeed();
+              if (!backgroundPlay) {
+                getNetworkInfo();
+                // estimateNetworkSpeed();
+              }
           }
           if (networkParamInt === null) {
             networkParamInt = setInterval(function() {
+              if (!backgroundPlay) {
                 measureJitter(pingsCount, 1000);
                 measurePacketLoss(pingFileUrl);
+              }
             }, pingsInt);
 
             // measureJitter(pingsCount, 1000);
