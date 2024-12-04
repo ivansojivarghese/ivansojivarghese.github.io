@@ -63,6 +63,12 @@ const pingsInt = 120000;
 
 /////
 
+var estimateNetworkSpeedFlag = false;
+var measureJitterFlag = false;
+var measurePacketLossFlag = false;
+
+/////
+
 // Usage example
 let testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
 let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
@@ -70,118 +76,126 @@ let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB
 let pingFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/onlineResourceLocator.png'; 
 
 const estimateNetworkSpeed = async() => { // estimate network speed
-    try {
-        if (!networkSpeedClose && (!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
 
-            if (!networkAlternate) {
-                networkAlternate = true;
-            }
+    if (!estimateNetworkSpeedFlag) {
+        estimateNetworkSpeedFlag = true;
+        setTimeout(function() {
+            estimateNetworkSpeedFlag = false;
+        }, (networkIntRange / 3));
 
-            var startTime = new Date().getTime(); // start time of fetch
-            const online = await fetch(testFileUrl, { // send a 'ping' signal to resource locator
-                cache : "no-store",
-                priority : "low",
-                signal : controller.signal
-            }).then(() => {
-                var endTime = new Date().getTime(); // end time of fetch
-                networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in Mbps)
+        try {
+            if (!networkSpeedClose && (!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
 
-                measureBandwidth(testFileUrl, fileSizeInBytes, function(bandwidth) {
-                    if (bandwidth !== null) {
-                        networkBandwidth = Number(bandwidth.toFixed(2));
-                        // console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps, Network speed: ' + networkSpeed + ' MBps');
-                    } else {
-                        console.log('Failed to measure bandwidth');
-                    }
-                });   
-
-                if (networkError) {
-
-                    if (networkErrorResume) {
-                        networkErrorFetch = true;
-                    }
-                    
-                    if (!videoEnd && !refSeekTime && video.src !== "") {
-
-                        // get seek time from timestamp
-                        console.log("load again");
-                        
-                        refSeekTime = timeToSeconds(videoCurrentTime.textContent);
-                        video.src = targetVideo.url;
-                    }
-
-                    if (networkSpeedInt !== null) {
-                        clearInterval(networkSpeedInt);
-                        networkSpeedInt = null;
-                    }
-                    if (networkParamInt !== null) {
-                        clearInterval(networkParamInt);
-                        networkParamInt = null;
-                    }
-                    if (networkSpeedInt === null) {
-                        networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, networkIntRange); 
-                    }
-                    if (networkParamInt === null) {
-                        networkParamInt = setInterval(function() {
-                            if (!backgroundPlay) {
-                                measureJitter(pingsCount, 1000);
-                                measurePacketLoss(pingFileUrl);
-                            }
-                        }, pingsInt);
-                    }
-    
-                    networkError = false;
-                    bufferAllow = true;
+                if (!networkAlternate) {
+                    networkAlternate = true;
                 }
 
-                networkSpeedClose = false;
-            });
-        } else if (networkAlternate) {
-            networkAlternate = false;
-        }
+                var startTime = new Date().getTime(); // start time of fetch
+                const online = await fetch(testFileUrl, { // send a 'ping' signal to resource locator
+                    cache : "no-store",
+                    priority : "low",
+                    signal : controller.signal
+                }).then(() => {
+                    var endTime = new Date().getTime(); // end time of fetch
+                    networkSpeed = (fileSize / ((endTime - startTime) / 1000)) / 1000000; // approx. network speed (in Mbps)
+
+                    measureBandwidth(testFileUrl, fileSizeInBytes, function(bandwidth) {
+                        if (bandwidth !== null) {
+                            networkBandwidth = Number(bandwidth.toFixed(2));
+                            // console.log('Estimated bandwidth: ' + bandwidth.toFixed(2) + ' Mbps, Network speed: ' + networkSpeed + ' MBps');
+                        } else {
+                            console.log('Failed to measure bandwidth');
+                        }
+                    });   
+
+                    if (networkError) {
+
+                        if (networkErrorResume) {
+                            networkErrorFetch = true;
+                        }
+                        
+                        if (!videoEnd && !refSeekTime && video.src !== "") {
+
+                            // get seek time from timestamp
+                            console.log("load again");
+                            
+                            refSeekTime = timeToSeconds(videoCurrentTime.textContent);
+                            video.src = targetVideo.url;
+                        }
+
+                        if (networkSpeedInt !== null) {
+                            clearInterval(networkSpeedInt);
+                            networkSpeedInt = null;
+                        }
+                        if (networkParamInt !== null) {
+                            clearInterval(networkParamInt);
+                            networkParamInt = null;
+                        }
+                        if (networkSpeedInt === null) {
+                            networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, networkIntRange); 
+                        }
+                        if (networkParamInt === null) {
+                            networkParamInt = setInterval(function() {
+                                if (!backgroundPlay) {
+                                    measureJitter(pingsCount, 1000);
+                                    measurePacketLoss(pingFileUrl);
+                                }
+                            }, pingsInt);
+                        }
         
-    } catch (err) { // if network error
-        if (!networkError) {
-
-            networkErrorResume = (!video.paused || !audio.paused) ? true : false;
-
-            controller = new AbortController();
-            signal = controller.signal;
-
-            controllerRTT = new AbortController();
-            signalRTT = controllerRTT.signal;
-
-            controllerPacket = new AbortController();
-            signalPacket = controllerPacket.signal;
-
-            networkError = true;
-            bufferAllow = false;
-
-            networkBandwidth = -1;
-            networkSpeed = -1; // return 0 mbps
-            networkSpeedClose = false;
-
-            refSeekTime = video.currentTime;
-
-            // start intervals to get network info
-            if (networkSpeedInt !== null) {
-                clearInterval(networkSpeedInt);
-                networkSpeedInt = null;
-            }
-            if (networkParamInt !== null) {
-                clearInterval(networkParamInt);
-                networkParamInt = null;
-            }
-            if (networkSpeedInt === null) {
-                networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, avgInt); 
-            }
-            if (networkParamInt === null) {
-                networkParamInt = setInterval(function() {
-                    if (!backgroundPlay) {
-                        measureJitter(pingsCount, 1000);
-                        measurePacketLoss(pingFileUrl);
+                        networkError = false;
+                        bufferAllow = true;
                     }
-                }, pingsInt);
+
+                    networkSpeedClose = false;
+                });
+            } else if (networkAlternate) {
+                networkAlternate = false;
+            }
+            
+        } catch (err) { // if network error
+            if (!networkError) {
+
+                networkErrorResume = (!video.paused || !audio.paused) ? true : false;
+
+                controller = new AbortController();
+                signal = controller.signal;
+
+                controllerRTT = new AbortController();
+                signalRTT = controllerRTT.signal;
+
+                controllerPacket = new AbortController();
+                signalPacket = controllerPacket.signal;
+
+                networkError = true;
+                bufferAllow = false;
+
+                networkBandwidth = -1;
+                networkSpeed = -1; // return 0 mbps
+                networkSpeedClose = false;
+
+                refSeekTime = video.currentTime;
+
+                // start intervals to get network info
+                if (networkSpeedInt !== null) {
+                    clearInterval(networkSpeedInt);
+                    networkSpeedInt = null;
+                }
+                if (networkParamInt !== null) {
+                    clearInterval(networkParamInt);
+                    networkParamInt = null;
+                }
+                if (networkSpeedInt === null) {
+                    networkSpeedInt = setInterval(function() { if (!backgroundPlay) { estimateNetworkSpeed() } }, avgInt); 
+                }
+                if (networkParamInt === null) {
+                    networkParamInt = setInterval(function() {
+                        if (!backgroundPlay) {
+                            measureJitter(pingsCount, 1000);
+                            measurePacketLoss(pingFileUrl);
+                        }
+                    }, pingsInt);
+                }
             }
         }
     }
@@ -321,34 +335,41 @@ async function measureRTT() {
 
 // Measure RTT and jitter multiple times
 function measureJitter(repetitions, delay) {
-    let count = 0;
-    if (typeof backgroundPlay !== undefined) {
-        if ((!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
+    if (!measureJitterFlag) {
+        measureJitterFlag = true;
+        setTimeout(function() {
+            measureJitterFlag = false;
+        }, (pingsInt / 3));
 
-            if (!networkAlternate) {
-                networkAlternate = true;
-            }
+        let count = 0;
+        if (typeof backgroundPlay !== undefined) {
+            if ((!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
 
-            const intervalId = setInterval(() => {
-                if (count >= repetitions) {
-                    clearInterval(intervalId);
-                    // Calculate the exact jitter value
-                    const totalJitter = jitterValues.reduce((sum, jitter) => sum + jitter, 0);
-                    const exactJitter = totalJitter / jitterValues.length;
-                    const totalRtt = rttValues.reduce((sum, rtt) => sum + rtt, 0);
-                    const exactRtt = totalRtt / rttValues.length;
-                    jitterVal = exactJitter;
-                    rttVal = exactRtt;
-                    //console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
-                    //console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
-                    return;
+                if (!networkAlternate) {
+                    networkAlternate = true;
                 }
 
-                measureRTT();
-                count++;
-            }, delay);
-        } else if (networkAlternate) {
-            networkAlternate = false;
+                const intervalId = setInterval(() => {
+                    if (count >= repetitions) {
+                        clearInterval(intervalId);
+                        // Calculate the exact jitter value
+                        const totalJitter = jitterValues.reduce((sum, jitter) => sum + jitter, 0);
+                        const exactJitter = totalJitter / jitterValues.length;
+                        const totalRtt = rttValues.reduce((sum, rtt) => sum + rtt, 0);
+                        const exactRtt = totalRtt / rttValues.length;
+                        jitterVal = exactJitter;
+                        rttVal = exactRtt;
+                        //console.log(`Exact Average Jitter: ${exactJitter.toFixed(2)} ms`);
+                        //console.log(`Exact Average RTT: ${exactRtt.toFixed(2)} ms`);
+                        return;
+                    }
+
+                    measureRTT();
+                    count++;
+                }, delay);
+            } else if (networkAlternate) {
+                networkAlternate = false;
+            }
         }
     }
 }
@@ -359,35 +380,42 @@ measureJitter(pingsCount, 1000);
 /////////////////////////////////////////
 
 async function measurePacketLoss(url, numPings = pingsCount) {
-    let lostPackets = 0;
-    let successfulPings = 0;
+    if (!measurePacketLossFlag) {
+        measurePacketLossFlag = true;
+        setTimeout(function() {
+            measurePacketLossFlag = false;
+        }, (pingsInt / 3));
 
-    if ((!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
+        let lostPackets = 0;
+        let successfulPings = 0;
 
-        if (!networkAlternate) {
-            networkAlternate = true;
-        }
+        if ((!backgroundPlay || (pipEnabled && !networkAlternate) || !pipEnabled)) {
 
-        for (let i = 0; i < numPings; i++) {
-            try {
-                const startTime = performance.now();
-                await fetch(url, { method: 'HEAD', mode: 'no-cors', signal : controllerPacket.signal }); // Use 'HEAD' to minimize data transfer
-                const endTime = performance.now();
-                successfulPings++;
-                //console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
-            } catch (error) {
-                lostPackets++;
-                //console.log(`Ping ${i + 1}: Lost`);
+            if (!networkAlternate) {
+                networkAlternate = true;
             }
+
+            for (let i = 0; i < numPings; i++) {
+                try {
+                    const startTime = performance.now();
+                    await fetch(url, { method: 'HEAD', mode: 'no-cors', signal : controllerPacket.signal }); // Use 'HEAD' to minimize data transfer
+                    const endTime = performance.now();
+                    successfulPings++;
+                    //console.log(`Ping ${i + 1}: Successful, Time: ${endTime - startTime}ms`);
+                } catch (error) {
+                    lostPackets++;
+                    //console.log(`Ping ${i + 1}: Lost`);
+                }
+            }
+
+            const packetLossPercentage = (lostPackets / numPings) * 100;
+            //console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
+            //console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
+
+            packetLossVal = packetLossPercentage;
+        } else if (networkAlternate) {
+            networkAlternate = false;
         }
-
-        const packetLossPercentage = (lostPackets / numPings) * 100;
-        //console.log(`Packet Loss: ${packetLossPercentage.toFixed(2)}%`);
-        //console.log(`Successful Pings: ${successfulPings}, Lost Packets: ${lostPackets}`);
-
-        packetLossVal = packetLossPercentage;
-    } else if (networkAlternate) {
-        networkAlternate = false;
     }
 }
 
