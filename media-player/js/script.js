@@ -589,8 +589,12 @@
           bufferInt = setInterval(liveBuffer, 1000/tps);
         }
         /////////////////////////
+        if (bestVideoInt !== null) {
+          clearInterval(bestVideoInt);
+          bestVideoInt = null;
+        }
         if (bestVideoInt === null) {
-          // bestVideoInt = setInterval(getBestVideo, (avgInt * 3));
+          bestVideoInt = setInterval(getBestVideo, avgInt);
         }
         /////////////////////////
         if (qualityBestInt === null) {
