@@ -2117,6 +2117,7 @@
 
       if (video.error.code && !backgroundPlay) {
         video.load();
+        video.currentTime = refSeekTime;
       } else {
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
@@ -2237,6 +2238,7 @@
     video.addEventListener("abort", () => {
       console.log(`Abort loading: ${video}`);
       video.load();
+      video.currentTime = refSeekTime;
     });
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
