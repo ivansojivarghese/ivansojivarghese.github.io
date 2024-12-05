@@ -1112,7 +1112,17 @@ function getOptimalVideo(time) {
         // getMediaSources(targetVideoSources);
         
         video.src = targetVideo.url; 
-        audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
+        for (var j = supportedAudioSources.length - 1; j >= 0; j--) {
+          if (supportedAudioSources[supportedAudioSources.length - 1].audioTrack && supportedAudioSources[supportedAudioSources.length - 1].audioTrack.audioIsDefault) {
+            audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
+            break;
+          } else {
+            audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
+            break;
+          }
+        }
+
+        // audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
         if ('serviceWorker' in navigator) {
