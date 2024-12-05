@@ -1969,7 +1969,7 @@
           }, 3000); // Throttle buffer check every 3 seconds
         }
       } else {
-        if (video.paused && !autoLoad && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered.length && backgroundPlay) || (video.buffered.length && audio.buffered.length && !backgroundPlay && bufferLoad && (!loading || pipEnabled) && !bufferingDetected && !seeking && !seekingLoad && framesStuck)))) { 
+        if (video.paused && !autoLoad && (initialVideoLoad || qualityBestChange || qualityChange || ((audio.buffered.length && backgroundPlay && (bufferLoad || loading || seekingLoad || bufferingDetected)) || (video.buffered.length && audio.buffered.length && !backgroundPlay && bufferLoad && (!loading || pipEnabled) && !bufferingDetected && !seeking && !seekingLoad && framesStuck)))) { 
           console.log("play");
           // video.play();
           if (backgroundPlay) {
