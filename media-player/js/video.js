@@ -1113,9 +1113,11 @@ function getOptimalVideo(time) {
         
         video.src = targetVideo.url; 
         for (var j = supportedAudioSources.length - 1; j >= 0; j--) {
-          if (supportedAudioSources[supportedAudioSources.length - 1].audioTrack && supportedAudioSources[supportedAudioSources.length - 1].audioTrack.audioIsDefault) {
-            audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
-            break;
+          if (supportedAudioSources[supportedAudioSources.length - 1].audioTrack) {
+            if (supportedAudioSources[supportedAudioSources.length - 1].audioTrack.audioIsDefault) {
+              audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
+              break;
+            }
           } else {
             audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
             break;
