@@ -2780,13 +2780,17 @@
         qualityBestChange = true;
         qualityChange = true;
         bufferAllow = false;
-
+        /*
         video.pause();
         audio.pause(); // pause content
-
+        */
         console.log("audio_pause");
 
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch && video.src !== targetVideo.url) {
+          
+          video.pause();
+          audio.pause(); // pause content
+
           console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
 
