@@ -33,10 +33,10 @@ video.seeking {
 #videoControls.visible_ready .trsButtons:active .img {
     transform: scale(0.8);
 }
-
+/*
 #videoControls .trsButtons {
     cursor: pointer;
-}
+}*/
 
 #loadingRing {
     display: none;
