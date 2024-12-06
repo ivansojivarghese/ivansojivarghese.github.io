@@ -70,12 +70,15 @@ var measurePacketLossFlag = false;
 /////
 
 // Usage example
-let testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
-let fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
+var testFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg'; // Replace with a valid URL to a known file
+var fileSizeInBytes = 5301699; // Replace with the file size in bytes (e.g., 5MB)
 
 let pingFileUrl = 'https://ivansojivarghese.github.io/media-player/msc/onlineResourceLocator.png'; 
 
 const estimateNetworkSpeed = async() => { // estimate network speed
+
+    testFileUrl = (networkQuality === 'Very Good' || networkQuality === 'Good') ? 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator.jpg' : 'https://ivansojivarghese.github.io/media-player/msc/networkSpeedEstimator_small.jpg';
+    fileSizeInBytes = (networkQuality === 'Very Good' || networkQuality === 'Good') ? 5301699 : 1665126;
 
     if (!estimateNetworkSpeedFlag) {
         estimateNetworkSpeedFlag = true;
