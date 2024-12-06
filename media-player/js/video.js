@@ -485,6 +485,7 @@ async function getParams(id, time) {
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
           playPauseButton.classList.remove('playing');
+          playPauseButton.title = "Play";
 
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
@@ -511,6 +512,7 @@ async function getParams(id, time) {
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
           playPauseButton.classList.remove('playing');
+          playPauseButton.title = "Play";
 
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
@@ -608,9 +610,11 @@ async function getParams(id, time) {
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
             playPauseButton.classList.remove('playing');
+            playPauseButton.title = "Play";
 
             if (targetVideo === null) {
               playPauseButton.classList.add('repeat');
+              playPauseButton.title = "Replay";
             }
 
             /*
@@ -686,6 +690,7 @@ async function getParams(id, time) {
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
           playPauseButton.classList.remove('playing');
+          playPauseButton.title = "Play";
 
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
@@ -1181,6 +1186,7 @@ function getOptimalVideo(time) {
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
       playPauseButton.classList.remove('playing');
+      playPauseButton.title = "Play";
 
       if (!seekingLoad && !longTap && !seeking) {
         hideVideoControls();

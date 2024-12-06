@@ -649,6 +649,7 @@
 
           playPauseButton.classList.remove('repeat');
           playPauseButton.classList.add('playing');
+          playPauseButton.title = "Pause";
 
           if (firstPlay) {
             if (!seekingLoad && !longTap && !seeking) {
@@ -677,6 +678,7 @@
 
           playPauseButton.classList.remove('repeat');
           playPauseButton.classList.add('playing');
+          playPauseButton.title = "Pause";
 
           playPauseManual = false;
           navigator.mediaSession.playbackState = 'playing';
@@ -714,6 +716,7 @@
         }
         if (!audioVideoAligning && !bufferLoad) {
           playPauseButton.classList.remove('playing');
+          playPauseButton.title = "Play";
           showVideoControls();
         } else if (bufferLoad && !videoEnd) {
           loadingRing.style.display = "block";
@@ -800,6 +803,7 @@
 
       playPauseButton.classList.remove('playing');
       playPauseButton.classList.add('repeat');
+      playPauseButton.title = "Replay";
 
       localStorage.removeItem('mediaURL');
       localStorage.removeItem('videoURL');
@@ -1253,6 +1257,7 @@
         if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {
           playPauseButton.classList.remove('playing');
           playPauseButton.classList.add('repeat');
+          playPauseButton.title = "Replay";
 
           endLoad();
                 
@@ -1616,6 +1621,7 @@
         if ((videoControls.classList.contains('visible') || m) && video.src !== "" && /*!videoEnd*/ (video.currentTime < (video.duration - skipTime)) && !qualityBestChange && !qualityChange && !audioVideoAligning && seekAllow) {
 
             playPauseButton.classList.remove('repeat');
+            playPauseButton.title = "Play";
 
             seeking = true;
             seekingLoad = true;
@@ -1677,6 +1683,7 @@
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
 
             playPauseButton.classList.remove('repeat');
+            playPauseButton.title = "Play";
             
             videoEnd = false;
             seeking = true;
@@ -2024,6 +2031,7 @@
       } else {
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
+        playPauseButton.title = "Replay";
 
         endLoad();
         setTimeout(function() {
@@ -2121,6 +2129,7 @@
       } else {
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
+        playPauseButton.title = "Replay";
 
         endLoad();
         setTimeout(function() {
@@ -3894,6 +3903,7 @@
 
             playPauseButton.classList.remove('playing');
             playPauseButton.classList.add('repeat');
+            playPauseButton.title = "Replay";
 
             endLoad();
                   

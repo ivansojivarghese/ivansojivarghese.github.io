@@ -142,6 +142,7 @@
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
             playPauseButton.classList.remove('playing');
+            playPauseButton.title = "Play";
 
             if (!seekingLoad && !longTap && !seeking) {
               hideVideoControls();
@@ -206,6 +207,7 @@
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
           playPauseButton.classList.remove('playing');
+          playPauseButton.title = "Play";
 
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
