@@ -184,6 +184,7 @@
       </div>
     </main>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
   <script src="https://ivansojivarghese.github.io/media-player/js/dev.js"></script>
   <script src="https://ivansojivarghese.github.io/media-player/js/network.js"></script>
@@ -192,6 +193,22 @@
   <script src="https://ivansojivarghese.github.io/media-player/js/script.js"></script>
   <script src="https://ivansojivarghese.github.io/media-player/js/request.js"></script>
   <script src="https://ivansojivarghese.github.io/media-player/js/video.js"></script>
+
+  <script type="module" src="app.js">
+    import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
+
+    const colorThief = new ColorThief();
+    const img = document.querySelector('img');
+
+    if (img.complete) {
+      colorThief.getColor(img);
+    } else {
+      image.addEventListener('load', function() {
+        colorThief.getColor(img);
+      });
+    }
+  </script>
+
   <script>
     
     var wrap = document.querySelector("#settingsOptions");
