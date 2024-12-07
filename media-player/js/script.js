@@ -295,6 +295,7 @@
                   audioEnd = false;
                 }*/
                 video.currentTime = 0;
+                videoSec.currentTime = 0;
                 
                 audio.currentTime = video.currentTime;
                 videoEnd = false;
@@ -622,6 +623,7 @@
                 
                 if (!backgroundPlay && !pipEnabled && audio.src) {
                   video.currentTime = audio.currentTime;
+                  videoSec.currentTime = audio.currentTime;
                 }
                 
                 // videoPause = true;
@@ -682,6 +684,7 @@
         } else {
           if (!backgroundPlay && !pipEnabled && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && audio.src) {
             video.currentTime = audio.currentTime;
+            videoSec.currentTime = audio.currentTime;
           }
 
           playPauseButton.classList.remove('repeat');
@@ -1318,6 +1321,7 @@
             console.log("video_network_load");
             video.load();
             video.currentTime = refSeekTime;
+            videoSec.currentTime = refSeekTime;
             console.log("refseektime");
           }
         }
@@ -1534,6 +1538,7 @@
                   // audio.currentTime = video.currentTime;
                   if (audio.src) {
                     video.currentTime = audio.currentTime;
+                    videoSec.currentTime = audio.currentTime;
                   }
                   // audioStall = false;
                   // audioVideoAligning = false;
@@ -1616,6 +1621,7 @@
 
         // FIRST INSTANCE (seek to the front)
         video.currentTime = 0;
+        videoSec.currentTime = 0;
         audio.currentTime = 0;
         videoEnd = false;
 
@@ -1680,6 +1686,7 @@
 
             if (Number.isFinite(Math.min(video.currentTime + skipTime, video.duration))) {
               video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
+              videoSec.currentTime = Math.min(videoSec.currentTime + skipTime, videoSec.duration);
               audio.currentTime = video.currentTime;
               refSeekTime = video.currentTime;
             }
@@ -1743,6 +1750,7 @@
 
             if (Number.isFinite(Math.max(video.currentTime - skipTime, 0))) {
               video.currentTime = Math.max(video.currentTime - skipTime, 0);
+              videoSec.currentTime = Math.max(videoSec.currentTime - skipTime, 0);
               audio.currentTime = video.currentTime;
               refSeekTime = video.currentTime;
             }
@@ -2164,6 +2172,7 @@
       if (video.error.code && !backgroundPlay) {
         video.load();
         video.currentTime = refSeekTime;
+        videoSec.currentTime = refSeekTime;
       } else {
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
@@ -2286,6 +2295,7 @@
       console.log(`Abort loading: ${video}`);
       video.load();
       video.currentTime = refSeekTime;
+      videoSec.currentTime = refSeekTime;
     });
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
@@ -3158,6 +3168,7 @@
 
       if (refSeekTime) {
         video.currentTime = refSeekTime;
+        videoSec.currentTime = refSeekTime;
         audio.currentTime = refSeekTime;
 
         console.log("refseektime");
@@ -3358,6 +3369,7 @@
 
                     if (refSeekTime) {
                       video.currentTime = refSeekTime;
+                      videoSec.currentTime = refSeekTime;
                       audio.currentTime = refSeekTime;
 
                       console.log("refseektime");
@@ -3956,6 +3968,7 @@
 
           if (backgroundPlay && videoEnd && !playPauseButton.classList.contains("repeat")) {
             video.currentTime = audio.currentTime;
+            videoSec.currentTime = audio.currentTime;
 
             playPauseButton.classList.remove('playing');
             playPauseButton.classList.add('repeat');
@@ -4023,6 +4036,7 @@
 
               if (audio.src) {
                 video.currentTime = audio.currentTime;
+                videoSec.currentTime = audio.currentTime;
               }
             }
             backgroundPlay = false;

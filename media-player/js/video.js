@@ -207,6 +207,7 @@ const actionHandlers = [
                                         audio.currentTime = details.seekTime;
                                       } else {
                                         video.currentTime = details.seekTime;
+                                        videoSec.currentTime = details.seekTime;
                                         audio.currentTime = details.seekTime;
                                       }
                                       updatePositionState();
@@ -215,6 +216,7 @@ const actionHandlers = [
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
                                       if (backgroundPlay && audio.src) {
                                         video.currentTime = audio.currentTime;
+                                        videoSec.currentTime = audio.currentTime;
                                       }
                                       pipEnabled = true;
                                       backgroundPlayManual = false;
@@ -1174,6 +1176,7 @@ function getOptimalVideo(time) {
 
         if (time) { // START FROM (if available)
           video.currentTime = time;
+          videoSec.currentTime = time;
           audio.currentTime = time;
         }
 
