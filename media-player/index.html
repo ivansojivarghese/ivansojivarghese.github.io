@@ -194,20 +194,7 @@
   <script src="https://ivansojivarghese.github.io/media-player/js/request.js"></script>
   <script src="https://ivansojivarghese.github.io/media-player/js/video.js"></script>
 
-  <script type="module" src="app.js">
-    import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
-
-    const colorThief = new ColorThief();
-    const img = document.querySelector('img');
-
-    if (img.complete) {
-      colorThief.getColor(img);
-    } else {
-      image.addEventListener('load', function() {
-        colorThief.getColor(img);
-      });
-    }
-  </script>
+  <script type="module" src="app.js"></script>
 
   <script>
     
