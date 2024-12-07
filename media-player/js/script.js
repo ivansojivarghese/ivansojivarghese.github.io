@@ -559,6 +559,8 @@
 
       if (videoPlay) {
 
+        videoSec.currentTime = video.currentTime;
+
         videoErr = false;
 
         autoLoad = false;
