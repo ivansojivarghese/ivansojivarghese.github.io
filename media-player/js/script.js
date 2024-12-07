@@ -1230,6 +1230,7 @@
     var aVcount2 = 0;
     var aVcount3 = 0;
     var aVcount4 = 0;
+    var aVcount5 = 0;
 
     var offlineNotif = false;
     var slowNotif = false;
@@ -1435,6 +1436,17 @@
         aVcount3 = 0;
       } else {
         aVcount3++;
+      }
+
+      if (aVcount5 === 600) { // 60 sec.
+
+        downlinkArr = [];
+        downlinkVariability = {};
+
+
+        aVcount5 = 0;
+      } else {
+        aVcount5++;
       }
 
       audioLatencyArr[audioLatencyArr.length] = diff;
