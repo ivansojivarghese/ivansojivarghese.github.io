@@ -1294,6 +1294,8 @@
 
       if (aVcount3 === 50) { // 5 sec.
 
+        getNetworkInfo();
+
         // re-fetch (if needed)
         if (networkErrorFetch) {
           if (backgroundPlay) {
