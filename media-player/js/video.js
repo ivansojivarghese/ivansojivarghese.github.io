@@ -484,8 +484,11 @@ async function getParams(id, time) {
         setTimeout(function() {
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
-          playPauseButton.classList.remove('playing');
-          playPauseButton.title = "Play";
+
+          if (video.src === "") {
+            playPauseButton.classList.remove('playing');
+            playPauseButton.title = "Play";
+          }
 
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
@@ -511,8 +514,11 @@ async function getParams(id, time) {
         setTimeout(function() {
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
-          playPauseButton.classList.remove('playing');
-          playPauseButton.title = "Play";
+
+          if (video.src === "") {
+            playPauseButton.classList.remove('playing');
+            playPauseButton.title = "Play";
+          }
 
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
@@ -610,8 +616,11 @@ async function getParams(id, time) {
           setTimeout(function() {
             loadingRing.style.display = "none";
             playPauseButton.style.display = "block";
-            playPauseButton.classList.remove('playing');
-            playPauseButton.title = "Play";
+
+            if (video.src === "") {
+              playPauseButton.classList.remove('playing');
+              playPauseButton.title = "Play";
+            }
 
             if (targetVideo === null) {
               playPauseButton.classList.add('repeat');
@@ -690,8 +699,11 @@ async function getParams(id, time) {
         setTimeout(function() {
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
-          playPauseButton.classList.remove('playing');
-          playPauseButton.title = "Play";
+
+          if (video.src === "") {
+            playPauseButton.classList.remove('playing');
+            playPauseButton.title = "Play";
+          }
 
           if (!seekingLoad && !longTap && !seeking) {
             hideVideoControls();
@@ -1186,8 +1198,11 @@ function getOptimalVideo(time) {
     setTimeout(function() {
       loadingRing.style.display = "none";
       playPauseButton.style.display = "block";
-      playPauseButton.classList.remove('playing');
-      playPauseButton.title = "Play";
+
+      if (video.src === "") {
+        playPauseButton.classList.remove('playing');
+        playPauseButton.title = "Play";
+      }
 
       if (!seekingLoad && !longTap && !seeking) {
         hideVideoControls();
