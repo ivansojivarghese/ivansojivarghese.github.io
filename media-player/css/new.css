@@ -25,6 +25,24 @@ video.secondary {
     left: -10%;
 }
 
+@media screen and (orientation: landscape) {
+    video.primary {
+        background: linear-gradient(
+            90deg, 
+            rgba(0, 0, 0), 
+            rgba(0, 0, 0, 0), 
+            rgba(0, 0, 0) 
+        );
+    }
+
+    video.secondary {
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+    }
+}
+
 video.seeking {
     filter: brightness(0.8);
 }
