@@ -5,7 +5,13 @@ video {
 }
 
 video.primary {
-    background: rgba(0,0,0,0.5);
+    position: absolute;
+    background: linear-gradient(
+        180deg, 
+        rgba(0, 0, 0), 
+        rgba(0, 0, 0, 0), 
+        rgba(0, 0, 0) 
+    );
 }
 
 video.secondary {
@@ -13,6 +19,10 @@ video.secondary {
     z-index: -1;
     filter: blur(10rem);
     -webkit-filter: blur(10rem);
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
 }
 
 video.seeking {
