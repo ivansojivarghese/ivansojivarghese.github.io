@@ -1141,7 +1141,8 @@ function getOptimalVideo(time) {
         // getMediaSources(targetVideoSources);
         
         video.src = targetVideo.url; 
-        videoSec.src = targetVideo.url; 
+        // videoSec.src = targetVideo.url; 
+        videoSec.src = supportedVideoSources[supportedVideoSources.length - 1].url;
 
         for (var j = supportedAudioSources.length - 1; j >= 0; j--) {
           if (supportedAudioSources[j].audioTrack) {
