@@ -5,14 +5,14 @@ video {
 }
 
 video.primary {
-    background: #80000000;
+    background: rgba(0,0,0,0.5);
 }
 
 video.secondary {
     position: absolute;
     z-index: -1;
-    filter: blur(100px);
-    -webkit-filter: blur(100px);
+    filter: blur(10rem);
+    -webkit-filter: blur(10rem);
 }
 
 video.seeking {
