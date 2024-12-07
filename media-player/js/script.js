@@ -2973,6 +2973,8 @@
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
+      videoSec.currentTime = video.currentTime;
+
       clearTimeout(offsetInt);
       offsetInt = null;
       offsetInt = setTimeout(function() {
