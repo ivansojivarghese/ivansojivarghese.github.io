@@ -9,10 +9,10 @@
     const statusIndicator = document.querySelector("#statusIndicator div");
 
     const video = document.querySelector('video.primary');
-    const videoSec = document.querySelector('video.secondary');
+    // const videoSec = document.querySelector('video.secondary');
     const audio = document.querySelector('audio.primary');
 
-    videoSec.disablePictureInPicture = true;
+    // videoSec.disablePictureInPicture = true;
     
     const videoContainer = document.querySelector("#videoContainer");
     const videoControls = document.querySelector("#videoControls");
@@ -140,10 +140,11 @@
     var preventQualityChange = false;
     var preventQualityChangeInt = null;
 
-    videoSec.addEventListener('enterpictureinpicture', (event) => {
+    /*
+    // videoSec.addEventListener('enterpictureinpicture', (event) => {
       console.log('Secondary PiP attempted!');
       event.preventDefault();
-    });
+    });*/
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {
@@ -293,7 +294,7 @@
           video.play().then(function () {
             // audioCtx = new AudioContext();
             // setTimeout(function() {
-              videoSec.play();
+              // videoSec.play();
 
               if (videoEnd) {
                 /*
@@ -302,7 +303,7 @@
                   audioEnd = false;
                 }*/
                 video.currentTime = 0;
-                videoSec.currentTime = 0;
+                // videoSec.currentTime = 0;
                 
                 audio.currentTime = video.currentTime;
                 videoEnd = false;
@@ -373,7 +374,7 @@
           // if (videoPause) {
             audio.pause();
             video.pause();
-            videoSec.pause();
+            // videoSec.pause();
 
             bufferStartTime = 0;
             bufferEndTime = 0;
@@ -567,7 +568,7 @@
 
       if (videoPlay) {
 
-        videoSec.currentTime = video.currentTime;
+        // videoSec.currentTime = video.currentTime;
 
         videoErr = false;
 
@@ -630,7 +631,7 @@
                 
                 if (!backgroundPlay && !pipEnabled && audio.src) {
                   video.currentTime = audio.currentTime;
-                  videoSec.currentTime = audio.currentTime;
+                  // videoSec.currentTime = audio.currentTime;
                 }
                 
                 // videoPause = true;
@@ -691,7 +692,7 @@
         } else {
           if (!backgroundPlay && !pipEnabled && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && audio.src) {
             video.currentTime = audio.currentTime;
-            videoSec.currentTime = audio.currentTime;
+            // videoSec.currentTime = audio.currentTime;
           }
 
           playPauseButton.classList.remove('repeat');
@@ -813,7 +814,7 @@
           videoEnd = true;
           firstPlay = true;
           video.pause();
-          videoSec.pause();
+          // videoSec.pause();
           audio.pause();
           showVideoControls();
           releaseScreenLock(screenLock);
@@ -850,7 +851,7 @@
       videoEnd = true;
       firstPlay = true;
       video.pause();
-      videoSec.pause();
+      // videoSec.pause();
       audio.pause();
       showVideoControls();
       releaseScreenLock(screenLock);
@@ -1035,7 +1036,7 @@
         if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
 
           video.play().then(function () {
-            videoSec.play();
+            // videoSec.play();
 
             // audioCtx = new AudioContext();
             // setTimeout(function() {
@@ -1105,7 +1106,7 @@
           // if (videoPause) {
             audio.pause();
             video.pause();
-            videoSec.pause();
+            // videoSec.pause();
 
             bufferStartTime = 0;
             bufferEndTime = 0;
@@ -1302,7 +1303,7 @@
 
         if ((peekForward && pipEnabled && video.paused && !audio.paused && video.buffered.length) || (pipEnabled && video.paused && audio.paused && video.buffered.length && audio.buffered.length && (loading || bufferLoad || seekingLoad || bufferingDetected))) {
           video.play();
-          videoSec.play();
+          // videoSec.play();
         } else if (video.paused && !audio.paused && audioStalled && video.buffered.length && !backgroundPlay) {
           audio.load();
           audio.currentTime = refSeekTime;
@@ -1328,7 +1329,7 @@
             console.log("video_network_load");
             video.load();
             video.currentTime = refSeekTime;
-            videoSec.currentTime = refSeekTime;
+            // videoSec.currentTime = refSeekTime;
             console.log("refseektime");
           }
         }
@@ -1500,7 +1501,7 @@
           audioVideoAligning = true;
 
           video.pause();
-          videoSec.pause();
+          // videoSec.pause();
           audio.pause();
           bufferingDetected = true;
           framesStuck = true;
@@ -1526,7 +1527,7 @@
               // setTimeout(function() {
                 video.play().then(function() {
 
-                  videoSec.play();
+                  // videoSec.play();
 
                   bufferMode = false;
                   bufferEndTime = new Date().getTime();
@@ -1545,7 +1546,7 @@
                   // audio.currentTime = video.currentTime;
                   if (audio.src) {
                     video.currentTime = audio.currentTime;
-                    videoSec.currentTime = audio.currentTime;
+                    // videoSec.currentTime = audio.currentTime;
                   }
                   // audioStall = false;
                   // audioVideoAligning = false;
@@ -1608,7 +1609,7 @@
         }, 100);
       } else if (audioStall && !audio.buffered.length && !loading) {
         video.pause();
-        videoSec.pause();
+        // videoSec.pause();
         console.log("video_pause");
 
         loading = true;
@@ -1628,7 +1629,7 @@
 
         // FIRST INSTANCE (seek to the front)
         video.currentTime = 0;
-        videoSec.currentTime = 0;
+        // videoSec.currentTime = 0;
         audio.currentTime = 0;
         videoEnd = false;
 
@@ -1693,7 +1694,7 @@
 
             if (Number.isFinite(Math.min(video.currentTime + skipTime, video.duration))) {
               video.currentTime = Math.min(video.currentTime + skipTime, video.duration);
-              videoSec.currentTime = Math.min(videoSec.currentTime + skipTime, videoSec.duration);
+              // videoSec.currentTime = Math.min(videoSec.currentTime + skipTime, videoSec.duration);
               audio.currentTime = video.currentTime;
               refSeekTime = video.currentTime;
             }
@@ -1757,7 +1758,7 @@
 
             if (Number.isFinite(Math.max(video.currentTime - skipTime, 0))) {
               video.currentTime = Math.max(video.currentTime - skipTime, 0);
-              videoSec.currentTime = Math.max(videoSec.currentTime - skipTime, 0);
+              // videoSec.currentTime = Math.max(videoSec.currentTime - skipTime, 0);
               audio.currentTime = video.currentTime;
               refSeekTime = video.currentTime;
             }
@@ -1846,7 +1847,7 @@
             if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
               console.log("play", seeking, seekingLoad);
               video.play();
-              videoSec.play();
+              // videoSec.play();
               clearInterval(resumeInterval);
               resumeInterval = null;
             }
@@ -1992,7 +1993,7 @@
               audio.play();
             } else {
               video.play();
-              videoSec.play();
+              // videoSec.play();
             }
           } else if (autoLoad) {
             
@@ -2014,7 +2015,7 @@
                 if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
-                  videoSec.play();
+                  // videoSec.play();
                   clearInterval(resumeInterval);
                   resumeInterval = null;
                 }
@@ -2035,7 +2036,7 @@
             audio.play();
           } else if (!backgroundPlayManual) {
             video.play();
-            videoSec.play();
+            // videoSec.play();
           }
         } else if (autoLoad) {
 
@@ -2179,7 +2180,7 @@
       if (video.error.code && !backgroundPlay) {
         video.load();
         video.currentTime = refSeekTime;
-        videoSec.currentTime = refSeekTime;
+        // videoSec.currentTime = refSeekTime;
       } else {
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
@@ -2302,7 +2303,7 @@
       console.log(`Abort loading: ${video}`);
       video.load();
       video.currentTime = refSeekTime;
-      videoSec.currentTime = refSeekTime;
+      // videoSec.currentTime = refSeekTime;
     });
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
@@ -2403,7 +2404,7 @@
       if (!video.paused && video.currentTime > 1) {
         console.log("audiostalled");
         video.pause();
-        videoSec.pause();
+        // videoSec.pause();
 
         audioStalled = true;
       }
@@ -2455,7 +2456,7 @@
               console.log("pause");
               console.log("Audio is buffering, pausing the video.");
               video.pause();
-              videoSec.pause();
+              // videoSec.pause();
             }
           } else {
               console.log("Audio has enough buffered data, keeping video playing.");
@@ -2465,7 +2466,7 @@
           console.log("pause");
           console.log("No buffered data available for audio. Pausing video.");
           video.pause();
-          videoSec.pause();
+          // videoSec.pause();
         }
       }
 
@@ -2485,7 +2486,7 @@
       if (!video.paused && video.currentTime > 1) {
         console.log("audiostalled");
         video.pause();
-        videoSec.pause();
+        // videoSec.pause();
 
         audioStalled = true;
       }
@@ -2537,7 +2538,7 @@
               console.log("pause");
               console.log("Audio is buffering, pausing the video.");
               video.pause();
-              videoSec.pause();
+              // videoSec.pause();
             }
           } else {
               console.log("Audio has enough buffered data, keeping video playing.");
@@ -2547,7 +2548,7 @@
           console.log("pause");
           console.log("No buffered data available for audio. Pausing video.");
           video.pause();
-          videoSec.pause();
+          // videoSec.pause();
         }
       }
 
@@ -2760,7 +2761,7 @@
 
         console.log("pause");
         video.pause();
-        videoSec.pause();
+        // videoSec.pause();
         audio.pause(); // pause content
 
         console.log("audio_pause");
@@ -2863,7 +2864,7 @@
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch && video.src !== targetVideo.url) {
           
           video.pause();
-          videoSec.pause();
+          // videoSec.pause();
           audio.pause(); // pause content
 
           console.log("load again");
@@ -2990,7 +2991,7 @@
 
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
-      videoSec.currentTime = video.currentTime;
+      // videoSec.currentTime = video.currentTime;
 
       clearTimeout(offsetInt);
       offsetInt = null;
@@ -3175,7 +3176,7 @@
 
       if (refSeekTime) {
         video.currentTime = refSeekTime;
-        videoSec.currentTime = refSeekTime;
+        // videoSec.currentTime = refSeekTime;
         audio.currentTime = refSeekTime;
 
         console.log("refseektime");
@@ -3309,7 +3310,7 @@
                 audio.play();
               } else if (!backgroundPlayManual) {
                 video.play();
-                videoSec.play();
+                // videoSec.play();
                 audio.play();
               }
             }
@@ -3376,7 +3377,7 @@
 
                     if (refSeekTime) {
                       video.currentTime = refSeekTime;
-                      videoSec.currentTime = refSeekTime;
+                      // videoSec.currentTime = refSeekTime;
                       audio.currentTime = refSeekTime;
 
                       console.log("refseektime");
@@ -3416,7 +3417,7 @@
                   if ((!videoRun || backgroundPlay) && !audioRun) {
 
                     video.play().then(function() {
-                      videoSec.play();
+                      // videoSec.play();
                       if (audio.src) {
                         audio.play();
 
@@ -3529,7 +3530,7 @@
                 audio.play();
               } else {
                 video.play();
-                videoSec.play();
+                // videoSec.play();
               }
             } else if (autoLoad) {
             
@@ -3551,7 +3552,7 @@
                   if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                     console.log("play", seeking, seekingLoad);
                     video.play();
-                    videoSec.play();
+                    // videoSec.play();
                     clearInterval(resumeInterval);
                     resumeInterval = null;
                   }
@@ -3569,7 +3570,7 @@
               audio.play();
             } else {
               video.play();
-              videoSec.play();
+              // videoSec.play();
             }
           } else if (autoLoad) {
           
@@ -3591,7 +3592,7 @@
                 if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
-                  videoSec.play();
+                  // videoSec.play();
                   clearInterval(resumeInterval);
                   resumeInterval = null;
                 }
@@ -3975,7 +3976,7 @@
 
           if (backgroundPlay && videoEnd && !playPauseButton.classList.contains("repeat")) {
             video.currentTime = audio.currentTime;
-            videoSec.currentTime = audio.currentTime;
+            // videoSec.currentTime = audio.currentTime;
 
             playPauseButton.classList.remove('playing');
             playPauseButton.classList.add('repeat');
@@ -4043,7 +4044,7 @@
 
               if (audio.src) {
                 video.currentTime = audio.currentTime;
-                videoSec.currentTime = audio.currentTime;
+                // videoSec.currentTime = audio.currentTime;
               }
             }
             backgroundPlay = false;
@@ -4070,7 +4071,7 @@
             }
             // play the video (only when it hasn't ended)
             video.play().then(function () {
-              videoSec.play();
+              // videoSec.play();
               // audioCtx = new AudioContext();
               // setTimeout(function() {
               if (audio.src) {
@@ -4325,7 +4326,7 @@
         }
 
         video.src = ""; 
-        videoSec.src = "";
+        // videoSec.src = "";
 
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then((registration) => {

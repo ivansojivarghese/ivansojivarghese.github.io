@@ -126,7 +126,7 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                             
                             refSeekTime = timeToSeconds(videoCurrentTime.textContent);
                             video.src = targetVideo.url;
-                            videoSec.src = targetVideo.url; 
+                            // videoSec.src = targetVideo.url; 
                         }
 
                         if (networkSpeedInt !== null) {

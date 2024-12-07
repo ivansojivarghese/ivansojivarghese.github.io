@@ -74,7 +74,7 @@ const actionHandlers = [
                                     if (!backgroundPlay || pipEnabled) {
                                       await video.play().then(function () {
                                         // audioCtx = new AudioContext();
-                                        videoSec.play();
+                                        // videoSec.play();
 
                                         if (videoEnd) {
                                           videoEnd = false;
@@ -152,7 +152,7 @@ const actionHandlers = [
                             if (!qualityBestChange && !qualityChange) {
                               audio.pause();
                               video.pause();
-                              videoSec.pause();
+                              // videoSec.pause();
 
                               bufferStartTime = 0;
                               bufferEndTime = 0;
@@ -170,7 +170,7 @@ const actionHandlers = [
   ['previoustrack', (details) => { if (!qualityBestChange && !qualityChange) { playPrevious(true); updatePositionState(); } }],
   /*['nexttrack',     () => { }],*/
   ['stop',          () => { video.src = ""; 
-                            videoSec.src = "";
+                            // videoSec.src = "";
 
                             if ('serviceWorker' in navigator) {
                               navigator.serviceWorker.ready.then((registration) => {
@@ -207,7 +207,7 @@ const actionHandlers = [
                                         audio.currentTime = details.seekTime;
                                       } else {
                                         video.currentTime = details.seekTime;
-                                        videoSec.currentTime = details.seekTime;
+                                        // videoSec.currentTime = details.seekTime;
                                         audio.currentTime = details.seekTime;
                                       }
                                       updatePositionState();
@@ -216,7 +216,7 @@ const actionHandlers = [
   ['enterpictureinpicture', () => { video.requestPictureInPicture().then(function() {
                                       if (backgroundPlay && audio.src) {
                                         video.currentTime = audio.currentTime;
-                                        videoSec.currentTime = audio.currentTime;
+                                        // videoSec.currentTime = audio.currentTime;
                                       }
                                       pipEnabled = true;
                                       backgroundPlayManual = false;
@@ -605,7 +605,7 @@ async function getParams(id, time) {
 
           if (!backgroundPlay) {
             video.pause();
-            videoSec.pause();
+            // videoSec.pause();
             audio.pause();
             console.log("video_pause");
           } else {
@@ -1142,7 +1142,7 @@ function getOptimalVideo(time) {
         
         video.src = targetVideo.url; 
         // videoSec.src = targetVideo.url; 
-        videoSec.src = supportedVideoSources[supportedVideoSources.length - 1].url;
+        // videoSec.src = supportedVideoSources[supportedVideoSources.length - 1].url;
 
         for (var j = supportedAudioSources.length - 1; j >= 0; j--) {
           if (supportedAudioSources[j].audioTrack) {
@@ -1177,7 +1177,7 @@ function getOptimalVideo(time) {
 
         if (time) { // START FROM (if available)
           video.currentTime = time;
-          videoSec.currentTime = time;
+          // videoSec.currentTime = time;
           audio.currentTime = time;
         }
 
