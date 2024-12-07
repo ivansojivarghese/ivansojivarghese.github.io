@@ -673,6 +673,8 @@ async function getParams(id, time) {
               audioErr = false;
               playEvents = 0;
               audioVideoAlignDivisor = 3;
+              downlinkArr = [];
+              downlinkVariability = {};
 
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;

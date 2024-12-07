@@ -37,6 +37,8 @@ var networkParamInt = null;
 
 var rtt = 0,
     downlink = 0,
+    downlinkArr = [],
+    downlinkVariability = {},
     downlinkMax = 0,
     droppedFrames = 0,
     effectiveType = "",
@@ -251,6 +253,13 @@ function getNetworkInfo() {
         downlinkMax = navigator.connection.downlinkMax;
         effectiveType = navigator.connection.effectiveType;
         saveData = navigator.connection.saveData;
+
+        downlinkArr[downlinkArr.length] = downlink;
+        downlinkVariability = calculateVariability(downlinkArr);
+
+        console.log("Mean:", downlinkVariability.mean);
+        console.log("Variance:", downlinkVariability.variance);
+        console.log("Standard Deviation:", downlinkVariability.standardDeviation);
     }
 }
 
@@ -489,6 +498,29 @@ function determineNetworkQuality(speed, bandwidth, latency, jitter, packetLoss) 
     return 'Very Bad';
 }
 
+function calculateVariability(values) {
+    if (values.length === 0) {
+        throw new Error("Values array cannot be empty.");
+    }
+
+    // Calculate the mean (average)
+    const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
+
+    // Calculate variance
+    const variance = values.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) / values.length;
+
+    // Standard deviation (square root of variance)
+    const standardDeviation = Math.sqrt(variance);
+
+    return {
+        mean: mean.toFixed(2),
+        variance: variance.toFixed(2),
+        standardDeviation: standardDeviation.toFixed(2),
+    };
+}
+
+// Example usage
+// const downlinkSpeeds = [24.00, 9.60, 19.34, 18.78, 49.79, 17.73];
 
 
 //////////////////////////////////////////////
