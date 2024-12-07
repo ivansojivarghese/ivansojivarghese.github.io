@@ -286,6 +286,8 @@
           video.play().then(function () {
             // audioCtx = new AudioContext();
             // setTimeout(function() {
+              videoSec.play();
+
               if (videoEnd) {
                 /*
                 if (audioEnd) {
@@ -363,6 +365,7 @@
           // if (videoPause) {
             audio.pause();
             video.pause();
+            videoSec.pause();
 
             bufferStartTime = 0;
             bufferEndTime = 0;
@@ -798,6 +801,7 @@
           videoEnd = true;
           firstPlay = true;
           video.pause();
+          videoSec.pause();
           audio.pause();
           showVideoControls();
           releaseScreenLock(screenLock);
@@ -834,6 +838,7 @@
       videoEnd = true;
       firstPlay = true;
       video.pause();
+      videoSec.pause();
       audio.pause();
       showVideoControls();
       releaseScreenLock(screenLock);
@@ -1018,6 +1023,8 @@
         if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
 
           video.play().then(function () {
+            videoSec.play();
+
             // audioCtx = new AudioContext();
             // setTimeout(function() {
             /*
@@ -1086,6 +1093,7 @@
           // if (videoPause) {
             audio.pause();
             video.pause();
+            videoSec.pause();
 
             bufferStartTime = 0;
             bufferEndTime = 0;
@@ -1282,6 +1290,7 @@
 
         if ((peekForward && pipEnabled && video.paused && !audio.paused && video.buffered.length) || (pipEnabled && video.paused && audio.paused && video.buffered.length && audio.buffered.length && (loading || bufferLoad || seekingLoad || bufferingDetected))) {
           video.play();
+          videoSec.play();
         } else if (video.paused && !audio.paused && audioStalled && video.buffered.length && !backgroundPlay) {
           audio.load();
           audio.currentTime = refSeekTime;
@@ -1478,6 +1487,7 @@
           audioVideoAligning = true;
 
           video.pause();
+          videoSec.pause();
           audio.pause();
           bufferingDetected = true;
           framesStuck = true;
@@ -1502,6 +1512,8 @@
               }*/
               // setTimeout(function() {
                 video.play().then(function() {
+
+                  videoSec.play();
 
                   bufferMode = false;
                   bufferEndTime = new Date().getTime();
@@ -1582,6 +1594,7 @@
         }, 100);
       } else if (audioStall && !audio.buffered.length && !loading) {
         video.pause();
+        videoSec.pause();
         console.log("video_pause");
 
         loading = true;
@@ -1816,6 +1829,7 @@
             if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
               console.log("play", seeking, seekingLoad);
               video.play();
+              videoSec.play();
               clearInterval(resumeInterval);
               resumeInterval = null;
             }
@@ -1961,6 +1975,7 @@
               audio.play();
             } else {
               video.play();
+              videoSec.play();
             }
           } else if (autoLoad) {
             
@@ -1982,6 +1997,7 @@
                 if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
+                  videoSec.play();
                   clearInterval(resumeInterval);
                   resumeInterval = null;
                 }
@@ -2002,6 +2018,7 @@
             audio.play();
           } else if (!backgroundPlayManual) {
             video.play();
+            videoSec.play();
           }
         } else if (autoLoad) {
 
@@ -2367,6 +2384,7 @@
       if (!video.paused && video.currentTime > 1) {
         console.log("audiostalled");
         video.pause();
+        videoSec.pause();
 
         audioStalled = true;
       }
@@ -2418,6 +2436,7 @@
               console.log("pause");
               console.log("Audio is buffering, pausing the video.");
               video.pause();
+              videoSec.pause();
             }
           } else {
               console.log("Audio has enough buffered data, keeping video playing.");
@@ -2427,6 +2446,7 @@
           console.log("pause");
           console.log("No buffered data available for audio. Pausing video.");
           video.pause();
+          videoSec.pause();
         }
       }
 
@@ -2446,6 +2466,7 @@
       if (!video.paused && video.currentTime > 1) {
         console.log("audiostalled");
         video.pause();
+        videoSec.pause();
 
         audioStalled = true;
       }
@@ -2497,6 +2518,7 @@
               console.log("pause");
               console.log("Audio is buffering, pausing the video.");
               video.pause();
+              videoSec.pause();
             }
           } else {
               console.log("Audio has enough buffered data, keeping video playing.");
@@ -2506,6 +2528,7 @@
           console.log("pause");
           console.log("No buffered data available for audio. Pausing video.");
           video.pause();
+          videoSec.pause();
         }
       }
 
@@ -2718,6 +2741,7 @@
 
         console.log("pause");
         video.pause();
+        videoSec.pause();
         audio.pause(); // pause content
 
         console.log("audio_pause");
@@ -2820,6 +2844,7 @@
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch && video.src !== targetVideo.url) {
           
           video.pause();
+          videoSec.pause();
           audio.pause(); // pause content
 
           console.log("load again");
@@ -3262,6 +3287,7 @@
                 audio.play();
               } else if (!backgroundPlayManual) {
                 video.play();
+                videoSec.play();
                 audio.play();
               }
             }
@@ -3367,6 +3393,7 @@
                   if ((!videoRun || backgroundPlay) && !audioRun) {
 
                     video.play().then(function() {
+                      videoSec.play();
                       if (audio.src) {
                         audio.play();
 
@@ -3479,6 +3506,7 @@
                 audio.play();
               } else {
                 video.play();
+                videoSec.play();
               }
             } else if (autoLoad) {
             
@@ -3500,6 +3528,7 @@
                   if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                     console.log("play", seeking, seekingLoad);
                     video.play();
+                    videoSec.play();
                     clearInterval(resumeInterval);
                     resumeInterval = null;
                   }
@@ -3517,6 +3546,7 @@
               audio.play();
             } else {
               video.play();
+              videoSec.play();
             }
           } else if (autoLoad) {
           
@@ -3538,6 +3568,7 @@
                 if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
+                  videoSec.play();
                   clearInterval(resumeInterval);
                   resumeInterval = null;
                 }
@@ -4014,6 +4045,7 @@
             }
             // play the video (only when it hasn't ended)
             video.play().then(function () {
+              videoSec.play();
               // audioCtx = new AudioContext();
               // setTimeout(function() {
               if (audio.src) {

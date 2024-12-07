@@ -4,6 +4,17 @@ video {
     transition: filter ease-out .2s;
 }
 
+video.primary {
+    background: #80000000;
+}
+
+video.secondary {
+    position: absolute;
+    z-index: -1;
+    filter: blur(100px);
+    -webkit-filter: blur(100px);
+}
+
 video.seeking {
     filter: brightness(0.8);
 }

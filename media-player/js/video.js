@@ -74,6 +74,7 @@ const actionHandlers = [
                                     if (!backgroundPlay || pipEnabled) {
                                       await video.play().then(function () {
                                         // audioCtx = new AudioContext();
+                                        videoSec.play();
 
                                         if (videoEnd) {
                                           videoEnd = false;
@@ -151,6 +152,7 @@ const actionHandlers = [
                             if (!qualityBestChange && !qualityChange) {
                               audio.pause();
                               video.pause();
+                              videoSec.pause();
 
                               bufferStartTime = 0;
                               bufferEndTime = 0;
@@ -601,6 +603,7 @@ async function getParams(id, time) {
 
           if (!backgroundPlay) {
             video.pause();
+            videoSec.pause();
             audio.pause();
             console.log("video_pause");
           } else {
