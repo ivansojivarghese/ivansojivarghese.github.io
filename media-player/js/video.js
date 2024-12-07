@@ -298,6 +298,9 @@ function resetVariables() {
 
   frameArr = [];
   framesStuck = false;
+
+  downlinkArr = [];
+  downlinkVariability = {};
 }
 
 async function getParams(id, time) {

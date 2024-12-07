@@ -513,9 +513,9 @@ function calculateVariability(values) {
     const standardDeviation = Math.sqrt(variance);
 
     return {
-        mean: mean.toFixed(2),
-        variance: variance.toFixed(2),
-        standardDeviation: standardDeviation.toFixed(2),
+        mean: Number(mean.toFixed(2)),
+        variance: Number(variance.toFixed(2)),
+        standardDeviation: Number(standardDeviation.toFixed(2)),
     };
 }
 
