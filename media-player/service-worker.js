@@ -6,7 +6,7 @@
 
 
 
-const staticCacheName = 'media-player-v2.75';
+const staticCacheName = 'media-player-v2.76';
 
 const fonts = [
   'https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Poppins-Regular.woff2?v=1720415271771',
@@ -38,6 +38,7 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/png/error.png',
   'https://ivansojivarghese.github.io/media-player/png/warning.png',
 
+  'https://ivansojivarghese.github.io/media-player/app.js',
   'https://ivansojivarghese.github.io/media-player/index.js',
   'https://ivansojivarghese.github.io/media-player/js/dev.js',
   'https://ivansojivarghese.github.io/media-player/js/msc.js',
