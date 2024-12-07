@@ -6,12 +6,13 @@ video {
 
 video.primary {
     position: absolute;
+    /*
     background: linear-gradient(
         180deg, 
         rgba(0, 0, 0), 
         rgba(0, 0, 0, 0), 
         rgba(0, 0, 0) 
-    );
+    );*/
     /*
     background: linear-gradient(
         120deg, /* Diagonal gradient 
