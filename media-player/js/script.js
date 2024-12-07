@@ -9,6 +9,7 @@
     const statusIndicator = document.querySelector("#statusIndicator div");
 
     const video = document.querySelector('video.primary');
+    const videoSec = document.querySelector('video.secondary');
     const audio = document.querySelector('audio.primary');
     
     const videoContainer = document.querySelector("#videoContainer");
@@ -2726,6 +2727,7 @@
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch && video.src !== targetVideo.url) {
           // console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
+          videoSec.src = targetVideo.url; 
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
@@ -2822,6 +2824,7 @@
 
           console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
+          videoSec.src = targetVideo.url; 
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
@@ -4265,6 +4268,7 @@
         }
 
         video.src = ""; 
+        videoSec.src = "";
 
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then((registration) => {

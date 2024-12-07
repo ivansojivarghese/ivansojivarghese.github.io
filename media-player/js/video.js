@@ -168,6 +168,7 @@ const actionHandlers = [
   ['previoustrack', (details) => { if (!qualityBestChange && !qualityChange) { playPrevious(true); updatePositionState(); } }],
   /*['nexttrack',     () => { }],*/
   ['stop',          () => { video.src = ""; 
+                            videoSec.src = "";
 
                             if ('serviceWorker' in navigator) {
                               navigator.serviceWorker.ready.then((registration) => {
@@ -1135,6 +1136,8 @@ function getOptimalVideo(time) {
         // getMediaSources(targetVideoSources);
         
         video.src = targetVideo.url; 
+        videoSec.src = targetVideo.url; 
+
         for (var j = supportedAudioSources.length - 1; j >= 0; j--) {
           if (supportedAudioSources[j].audioTrack) {
             if (supportedAudioSources[j].audioTrack.audioIsDefault) {
