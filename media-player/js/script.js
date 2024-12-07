@@ -2751,7 +2751,7 @@
         if ((!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !preventRefetch && video.src !== targetVideo.url) {
           // console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
-          videoSec.src = targetVideo.url; 
+          // videoSec.src = targetVideo.url; 
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
@@ -2849,7 +2849,7 @@
 
           console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
-          videoSec.src = targetVideo.url; 
+          // videoSec.src = targetVideo.url; 
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
