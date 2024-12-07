@@ -11,6 +11,8 @@
     const video = document.querySelector('video.primary');
     const videoSec = document.querySelector('video.secondary');
     const audio = document.querySelector('audio.primary');
+
+    videoSec.disablePictureInPicture = true;
     
     const videoContainer = document.querySelector("#videoContainer");
     const videoControls = document.querySelector("#videoControls");
@@ -137,6 +139,11 @@
     var qualityBestChange = false;
     var preventQualityChange = false;
     var preventQualityChangeInt = null;
+
+    videoSec.addEventListener('enterpictureinpicture', (event) => {
+      console.log('Secondary PiP attempted!');
+      event.preventDefault();
+    });
 
     setInterval(checkBuffering, checkInterval);
     function checkBuffering() {

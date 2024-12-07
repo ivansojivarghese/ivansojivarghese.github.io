@@ -12,6 +12,14 @@ video.primary {
         rgba(0, 0, 0, 0), 
         rgba(0, 0, 0) 
     );
+    /*
+    background: linear-gradient(
+        120deg, /* Diagonal gradient 
+        rgba(255, 0, 100, 0.3), /* Pinkish tint 
+        rgba(0, 150, 255, 0.3), /* Bluish tint 
+        rgba(0, 0, 0, 0.5) /* Subtle dark tint 
+    );
+    backdrop-filter: blur(10px); /* For a softer effect */
 }
 
 video.secondary {
