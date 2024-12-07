@@ -591,6 +591,7 @@ async function getParams(id, time) {
 
           if (!backgroundPlay) {
             video.pause();
+            audio.pause();
             console.log("video_pause");
           } else {
             audio.pause();

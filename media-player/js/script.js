@@ -555,6 +555,8 @@
 
       if (videoPlay) {
 
+        videoErr = false;
+
         autoLoad = false;
 
         peekForward = false;
@@ -740,6 +742,8 @@
 
     audio.addEventListener('play', function () {
       // if (!networkError) {
+
+          audioErr = false;
 
           autoLoad = false;
 
@@ -3848,7 +3852,7 @@
     seekBackwardButton.addEventListener("touchend", longTapDetect);
 
     document.onvisibilitychange = function() {
-      if (!networkError && !videoErr && !audioErr) {
+      if (!networkError && ((!videoErr && !audioErr && document.visibilityState === 'visible') || (!audioErr && document.visibilityState === 'hidden'))) {
         if (document.visibilityState === 'hidden') {
 
           if (!pipEnabled) {
