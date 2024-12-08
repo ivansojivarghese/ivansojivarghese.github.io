@@ -22,7 +22,7 @@ video.primary {
     );
     backdrop-filter: blur(10px); /* For a softer effect */
 }
-
+/*
 video.secondary {
     position: absolute;
     z-index: -1;
@@ -32,7 +32,7 @@ video.secondary {
     height: 120%;
     top: -10%;
     left: -10%;
-}
+}*/
 
 @media screen and (orientation: landscape) {
     /*
@@ -44,13 +44,13 @@ video.secondary {
             rgba(0, 0, 0) 
         );
     }*/
-
+    /*
     video.secondary {
         width: 200%;
         height: 200%;
         top: -50%;
         left: -50%;
-    }
+    }*/
 }
 
 video.seeking {

@@ -9,7 +9,7 @@
     const statusIndicator = document.querySelector("#statusIndicator div");
 
     const video = document.querySelector('video.primary');
-    // const videoSec = document.querySelector('video.secondary');
+    const videoSec = document.querySelector('video.secondary');
     const audio = document.querySelector('audio.primary');
 
     // videoSec.disablePictureInPicture = true;
@@ -1209,7 +1209,7 @@
       video.style.objectFit = "";
       video.classList.remove("cover");
 
-      video.style.background = generateGradientRGB(imagePrimary, imagePalette);
+      videoSec.style.background = generateGradientRGB(imagePrimary, imagePalette);
     });
 
 
@@ -1284,7 +1284,7 @@
       if (aVcount4 === 30) { // 3 SEC.
 
         if (imagePrimary) {
-          video.style.background = generateGradientRGB(imagePrimary, imagePalette); // REFERENCED FROM: https://lokeshdhakar.com/projects/color-thief/
+          videoSec.style.background = generateGradientRGB(imagePrimary, imagePalette); // REFERENCED FROM: https://lokeshdhakar.com/projects/color-thief/
         }
 
         if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {
