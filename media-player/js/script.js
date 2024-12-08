@@ -1288,15 +1288,15 @@
           
           videoSec.style.background = output;
 
-          setTimeout(function() {
-            video.style.background = "transparent";
-          }, 100);
-
           oldImagePrimary = imagePrimary;
           oldImagePalette = imagePalette;
 
           if (imageAmbientChange && output !== 'No colors provided!' && output !== "") {
             imageAmbientChange = false;
+          } else {
+            setTimeout(function() {
+              video.style.background = "transparent";
+            }, 100);
           }
         }
 
