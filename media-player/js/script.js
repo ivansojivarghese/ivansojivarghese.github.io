@@ -1209,7 +1209,7 @@
       video.style.objectFit = "";
       video.classList.remove("cover");
 
-      generateGradientRGB(imagePrimary, imagePalette);
+      video.style.background = generateGradientRGB(imagePrimary, imagePalette);
     });
 
 
