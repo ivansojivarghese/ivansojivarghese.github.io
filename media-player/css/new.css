@@ -4,6 +4,10 @@ video {
     transition: filter ease-out .2s;
 }
 
+video.secondary {
+    transition-duration: 3s;
+}
+
 video.primary {
     position: absolute;
     /*
