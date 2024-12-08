@@ -1196,6 +1196,8 @@ function getOptimalVideo(time) {
 
         // targetVideo = targetVideoSources[0];  // FOR TESTING
         // getMediaSources(targetVideoSources);
+
+        video.style.background = "";
         
         video.src = targetVideo.url; 
         // videoSec.src = targetVideo.url; 
