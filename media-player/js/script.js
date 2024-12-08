@@ -1293,11 +1293,10 @@
 
           if (imageAmbientChange && output !== 'No colors provided!' && output !== "") {
             imageAmbientChange = false;
-          } else {
             setTimeout(function() {
               video.style.background = "transparent";
             }, 100);
-          }
+          } 
         }
 
         if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {
