@@ -63,6 +63,12 @@ var dpr = window.devicePixelRatio,
 
 var imagePrimary = [];
 var imagePalette = [];
+var imageAmbientChange = false;
+
+var oldImagePrimary = [0, 0, 0];
+var oldImagePalette = [
+  [0, 0, 0]
+];
 
 // REFERENCE: https://web.dev/articles/media-session
 
@@ -1198,6 +1204,7 @@ function getOptimalVideo(time) {
         // getMediaSources(targetVideoSources);
 
         video.style.background = "";
+        imageAmbientChange = true;
         
         video.src = targetVideo.url; 
         // videoSec.src = targetVideo.url; 

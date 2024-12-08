@@ -1283,12 +1283,19 @@
 
       if (aVcount4 === 30) { // 3 SEC.
 
-        if (imagePrimary) {
+        if ((imageAmbientChange && imagePrimary !== oldImagePrimary && imagePalette !== oldImagePalette && imagePrimary && imagePalette)) {
           videoSec.style.background = generateGradientRGB(imagePrimary, imagePalette); // REFERENCED FROM: https://lokeshdhakar.com/projects/color-thief/
-        
+
           setTimeout(function() {
             video.style.background = "transparent";
           }, 100);
+
+          oldImagePrimary = imagePrimary;
+          oldImagePalette = imagePalette;
+
+          if (imageAmbientChange) {
+            imageAmbientChange = false;
+          }
         }
 
         if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {
