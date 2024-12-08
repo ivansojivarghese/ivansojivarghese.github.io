@@ -1122,6 +1122,8 @@ function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CH
       return '';
   }
 
+  var ori = (screen.orientation.angle === 0 || screen.orientation.angle === 180) ? '0' : '135'
+
   // Convert the primary color array to an rgb string
   const primaryColor = `rgb(${imagePrimary[0]}, ${imagePrimary[1]}, ${imagePrimary[2]})`;
 
@@ -1135,7 +1137,7 @@ function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CH
       .join(', ');
 
   // Construct the CSS linear-gradient value
-  return `linear-gradient(120deg, ${primaryColor}, ${gradientStops})`;
+  return `linear-gradient(` + ori + `deg, ${primaryColor}, ${gradientStops})`;
 }
 
 function generateSimpleGradient(primaryColor) {
@@ -1149,7 +1151,7 @@ function generateSimpleGradient(primaryColor) {
   const primaryColorString = `rgb(${primaryColor[0]}, ${primaryColor[1]}, ${primaryColor[2]})`;
 
   // Construct the gradient
-  return `linear-gradient(180deg, rgb(0, 0, 0), ${primaryColorString} 50%, rgb(0, 0, 0))`;
+  return `linear-gradient(0deg, rgb(0, 0, 0), ${primaryColorString} 50%, rgb(0, 0, 0))`;
 }
 
 function getOptimalVideo(time) {

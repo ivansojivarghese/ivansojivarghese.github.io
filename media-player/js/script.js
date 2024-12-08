@@ -1208,6 +1208,8 @@
       }
       video.style.objectFit = "";
       video.classList.remove("cover");
+
+      generateGradientRGB(imagePrimary, imagePalette);
     });
 
 
