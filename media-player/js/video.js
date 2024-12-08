@@ -1115,6 +1115,29 @@ function getImageData(url) {
   };
 }
 
+function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED BY CHATGPT
+  // Validate input
+  if (!imagePrimary.length || !imagePalette.length) {
+      console.error("No colors provided!");
+      return '';
+  }
+
+  // Use the primary RGB value as the starting color
+  const primaryColor = `rgb(${imagePrimary[0].join(',')})`;
+
+  // Use the palette RGB values for additional gradient stops
+  const gradientStops = imagePalette
+      .map((rgb, index) => {
+          const color = `rgb(${rgb.join(',')})`;
+          const position = ((index + 1) * (100 / imagePalette.length)).toFixed(2);
+          return `${color} ${position}%`;
+      })
+      .join(', ');
+
+  // Construct the CSS linear-gradient value
+  return `linear-gradient(135deg, ${primaryColor}, ${gradientStops})`;
+}
+
 function getOptimalVideo(time) {
 
   // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
@@ -1201,6 +1224,8 @@ function getOptimalVideo(time) {
 
         var thumbnailStr = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url
         getImageData(thumbnailStr);
+
+        video.style.background = generateGradientRGB(imagePrimary, imagePalette);
 
         // mediaSessions API
         if ("mediaSession" in navigator) {
