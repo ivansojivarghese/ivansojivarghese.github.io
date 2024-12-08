@@ -1145,14 +1145,11 @@ function generateSimpleGradient(primaryColor) {
       return '';
   }
 
-  var ori = (screen.orientation.angle === 0 || screen.orientation.angle === 180) ? '180' : '90';
-  var stop = (screen.orientation.angle === 0 || screen.orientation.angle === 180) ? '50' : '0';
-
   // Convert the primary color array to an rgb string
   const primaryColorString = `rgb(${primaryColor[0]}, ${primaryColor[1]}, ${primaryColor[2]})`;
 
   // Construct the gradient
-  return `linear-gradient(` + ori + `deg, rgb(0, 0, 0), ${primaryColorString}` + stop + `%, rgb(0, 0, 0))`;
+  return `linear-gradient(180deg, rgb(0, 0, 0), ${primaryColorString} 50%, rgb(0, 0, 0))`;
 }
 
 function getOptimalVideo(time) {
