@@ -1295,7 +1295,7 @@
           oldImagePrimary = imagePrimary;
           oldImagePalette = imagePalette;
 
-          if (imageAmbientChange && output !== 'No colors provided!') {
+          if (imageAmbientChange && output !== 'No colors provided!' && output !== "") {
             imageAmbientChange = false;
           }
         }
