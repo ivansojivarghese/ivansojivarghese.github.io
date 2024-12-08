@@ -1115,20 +1115,20 @@ function getImageData(url) {
   };
 }
 
-function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED BY CHATGPT
+function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CHATGPT
   // Validate input
   if (!imagePrimary.length || !imagePalette.length) {
       console.error("No colors provided!");
       return '';
   }
 
-  // Use the primary RGB value as the starting color
-  const primaryColor = `rgb(${imagePrimary[0].join(',')})`;
+  // Convert the primary color array to an rgb string
+  const primaryColor = `rgb(${imagePrimary[0]}, ${imagePrimary[1]}, ${imagePrimary[2]})`;
 
   // Use the palette RGB values for additional gradient stops
   const gradientStops = imagePalette
       .map((rgb, index) => {
-          const color = `rgb(${rgb.join(',')})`;
+          const color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`; // Directly construct rgb
           const position = ((index + 1) * (100 / imagePalette.length)).toFixed(2);
           return `${color} ${position}%`;
       })
