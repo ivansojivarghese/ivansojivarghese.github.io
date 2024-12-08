@@ -1135,7 +1135,7 @@ function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CH
       .join(', ');
 
   // Construct the CSS linear-gradient value
-  return `linear-gradient(135deg, ${primaryColor}, ${gradientStops})`;
+  return `linear-gradient(120deg, ${primaryColor}, ${gradientStops})`;
 }
 
 function generateSimpleGradient(primaryColor) {
