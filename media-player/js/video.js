@@ -61,6 +61,9 @@ var dpr = window.devicePixelRatio,
     dWidth = window.outerWidth,
     dRes = dHeight * dWidth;
 
+var imagePrimary = [];
+var imagePalette = [];
+
 // REFERENCE: https://web.dev/articles/media-session
 
 const actionHandlers = [
@@ -1095,6 +1098,19 @@ function getVideoFromIndex(m, q, r) {
       }
     }
   }
+}
+
+function getImageData(url) {
+  const image = new Image();
+  image.crossOrigin = 'Anonymous'; // Needed for cross-origin images
+  image.src = 'https://api.allorigins.win/raw?url=' + url; // attaching a proxy URL infront to bypass CORS
+
+  image.onload = () => {
+      const colorThief = new ColorThief();
+
+      imagePrimary = colorThief.getColor(image);
+      imagePalette = colorThief.getPalette(image);
+  };
 }
 
 function getOptimalVideo(time) {
