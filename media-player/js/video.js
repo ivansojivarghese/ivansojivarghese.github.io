@@ -1111,7 +1111,7 @@ function getImageData(url) {
       const colorThief = new ColorThief();
 
       imagePrimary = colorThief.getColor(image);
-      imagePalette = colorThief.getPalette(image);
+      imagePalette = colorThief.getPalette(image, 2);
   };
 }
 
@@ -1225,7 +1225,7 @@ function getOptimalVideo(time) {
         var thumbnailStr = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url
         getImageData(thumbnailStr);
 
-        video.style.background = generateGradientRGB(imagePrimary, imagePalette);
+        video.style.background = generateGradientRGB(imagePrimary, imagePalette); // REFERENCED FROM: https://lokeshdhakar.com/projects/color-thief/
 
         // mediaSessions API
         if ("mediaSession" in navigator) {
