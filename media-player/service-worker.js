@@ -38,7 +38,6 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/png/error.png',
   'https://ivansojivarghese.github.io/media-player/png/warning.png',
 
-  'https://ivansojivarghese.github.io/media-player/app.js',
   'https://ivansojivarghese.github.io/media-player/index.js',
   'https://ivansojivarghese.github.io/media-player/js/dev.js',
   'https://ivansojivarghese.github.io/media-player/js/msc.js',

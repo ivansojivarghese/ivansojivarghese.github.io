@@ -687,6 +687,8 @@ async function getParams(id, time) {
               audioVideoAlignDivisor = 3;
               downlinkArr = [];
               downlinkVariability = {};
+              imagePrimary = [];
+              imagePalette = [];
 
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;
