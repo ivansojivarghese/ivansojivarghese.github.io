@@ -1204,11 +1204,11 @@ function getOptimalVideo(time) {
         if ("mediaSession" in navigator) {
 
           var thumbnailExt = "";
-          if (thumbnailStr.contains(".jpg")) {
+          if (thumbnailStr.indexOf(".jpg") !== -1) {
             thumbnailExt = "jpg";
-          } else if (thumbnailStr.contains(".png")) {
+          } else if (thumbnailStr.indexOf(".png") !== -1) {
             thumbnailExt = "png";
-          } else if (thumbnailStr.contains(".webp")) {
+          } else if (thumbnailStr.indexOf(".webp") !== -1) {
             thumbnailExt = "webp";
           }
 
