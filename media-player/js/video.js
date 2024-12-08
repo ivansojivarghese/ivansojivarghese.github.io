@@ -1181,14 +1181,27 @@ function getOptimalVideo(time) {
           audio.currentTime = time;
         }
 
+        var thumbnailStr = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url
+        getImageData(thumbnailStr);
+
         // mediaSessions API
         if ("mediaSession" in navigator) {
+
+          var thumbnailExt = "";
+          if (thumbnailStr.contains(".jpg")) {
+            thumbnailExt = "jpg";
+          } else if (thumbnailStr.contains(".png")) {
+            thumbnailExt = "png";
+          } else if (thumbnailStr.contains(".webp")) {
+            thumbnailExt = "webp";
+          }
+
           navigator.mediaSession.metadata = new MediaMetadata({
             title: videoDetails.title,
             artist: videoDetails.channelTitle,
             // album: '',
             artwork: [
-              { src: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url,   sizes: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].width+'x'+videoDetails.thumbnail[videoDetails.thumbnail.length - 1].height, type: 'image/jpg' }
+              { src: thumbnailStr,   sizes: videoDetails.thumbnail[videoDetails.thumbnail.length - 1].width+'x'+videoDetails.thumbnail[videoDetails.thumbnail.length - 1].height, type: 'image/' + thumbnailExt }
             ]
           });
         

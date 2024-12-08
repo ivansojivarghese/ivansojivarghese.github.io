@@ -1,13 +1,16 @@
 
-// import ColorThief from './node_modules/colorthief/dist/color-thief.mjs'
+var imagePrimary = [];
+var imagePalette = [];
 
-const colorThief = new ColorThief();
-const img = document.querySelector('img');
+function getImageData(url) {
+    const image = new Image();
+    image.crossOrigin = 'Anonymous'; // Needed for cross-origin images
+    image.src = 'https://api.allorigins.win/raw?url=' + 'https://i.ytimg.com/vi_webp/XS7FNuhzYpc/maxresdefault.webp'; // attaching a proxy URL infront to bypass CORS
 
-if (img.complete) {
-    colorThief.getColor(img);
-} else {
-    image.addEventListener('load', function() {
-    colorThief.getColor(img);
-    });
+    image.onload = () => {
+        const colorThief = new ColorThief();
+
+        imagePrimary = colorThief.getColor(image);
+        imagePalette = colorThief.getPalette(image);
+    };
 }
