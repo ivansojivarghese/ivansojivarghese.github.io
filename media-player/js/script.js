@@ -1285,6 +1285,10 @@
 
         if (imagePrimary) {
           videoSec.style.background = generateGradientRGB(imagePrimary, imagePalette); // REFERENCED FROM: https://lokeshdhakar.com/projects/color-thief/
+        
+          setTimeout(function() {
+            video.style.background = "transparent";
+          }, 100);
         }
 
         if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {

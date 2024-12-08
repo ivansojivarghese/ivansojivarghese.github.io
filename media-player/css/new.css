@@ -4,13 +4,12 @@ video {
     transition: filter ease-out .2s;
 }
 
-video.secondary {
+video.secondary, video.primary {
     transition-duration: 3s;
 }
 
 video.primary {
     position: absolute;
-    background: transparent;
     /*
     background: linear-gradient(
         180deg, 
