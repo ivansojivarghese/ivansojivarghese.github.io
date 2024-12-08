@@ -1138,6 +1138,22 @@ function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CH
   return `linear-gradient(135deg, ${primaryColor}, ${gradientStops})`;
 }
 
+function generateSimpleGradient(primaryColor) {
+  // Validate input
+  if (!primaryColor || primaryColor.length !== 3) {
+      console.error("Invalid primary color!");
+      return '';
+  }
+
+  var ori = (screen.orientation.angle === 0 || screen.orientation.angle === 180) ? '180' : '90';
+
+  // Convert the primary color array to an rgb string
+  const primaryColorString = `rgb(${primaryColor[0]}, ${primaryColor[1]}, ${primaryColor[2]})`;
+
+  // Construct the gradient
+  return `linear-gradient(` + ori + `deg, rgb(0, 0, 0), ${primaryColorString} 50%, rgb(0, 0, 0))`;
+}
+
 function getOptimalVideo(time) {
 
   // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
@@ -1224,8 +1240,6 @@ function getOptimalVideo(time) {
 
         var thumbnailStr = videoDetails.thumbnail[videoDetails.thumbnail.length - 1].url
         getImageData(thumbnailStr);
-
-        video.style.background = generateGradientRGB(imagePrimary, imagePalette); // REFERENCED FROM: https://lokeshdhakar.com/projects/color-thief/
 
         // mediaSessions API
         if ("mediaSession" in navigator) {

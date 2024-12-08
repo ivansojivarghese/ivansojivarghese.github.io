@@ -1281,6 +1281,10 @@
 
       if (aVcount4 === 30) { // 3 SEC.
 
+        if (imagePrimary) {
+          video.style.background = generateSimpleGradient(imagePrimary); // REFERENCED FROM: https://lokeshdhakar.com/projects/color-thief/
+        }
+
         if (videoEnd && (Math.abs(video.currentTime - audio.currentTime) < 1) && video.paused && audio.paused && video.currentTime && audio.currentTime) {
           playPauseButton.classList.remove('playing');
           playPauseButton.classList.add('repeat');
