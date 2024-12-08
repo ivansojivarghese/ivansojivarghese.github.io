@@ -10,6 +10,7 @@ video.secondary {
 
 video.primary {
     position: absolute;
+    background: transparent;
     /*
     background: linear-gradient(
         180deg, 
