@@ -1288,6 +1288,7 @@
       }
 
       if (aVcount4 === 30) { // 3 SEC.
+        var output = generateGradientRGB(imagePrimary, imagePalette);
 
         if ((!loading && !bufferLoad && !seekingLoad && !bufferingDetected && !imageAmbientChange) || (imageAmbientChange && output !== 'No colors provided!' && output !== "")) {
           video.style.background = "transparent";
