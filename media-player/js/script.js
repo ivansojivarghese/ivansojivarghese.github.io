@@ -1289,7 +1289,7 @@
 
       if (aVcount4 === 30) { // 3 SEC.
 
-        if (!loading && !bufferLoad && !seekingLoad && !bufferingDetected) {
+        if ((!loading && !bufferLoad && !seekingLoad && !bufferingDetected && !imageAmbientChange) || (imageAmbientChange && output !== 'No colors provided!' && output !== "")) {
           video.style.background = "transparent";
         }
 
