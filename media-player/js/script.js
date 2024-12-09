@@ -3975,7 +3975,7 @@
             audio.load();
           }
 
-          if (audio.buffered.length && (!videoEnd || (videoEnd && (audio.currentTime < (audio.duration - maxVideoLoad)))) && audio.readyState > 2 && (bufferLoad || loading || seekingLoad || bufferingDetected)) {
+          if (audio.buffered.length && (!videoEnd /*|| (videoEnd && (audio.currentTime < (audio.duration - maxVideoLoad)))*/) && audio.readyState > 2 && (bufferLoad || loading || seekingLoad || bufferingDetected)) {
             console.log("audio_play in background");
             audio.play();
           }
