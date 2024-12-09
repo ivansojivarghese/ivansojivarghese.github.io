@@ -1120,7 +1120,7 @@ function getImageData(url) {
       imagePalette = colorThief.getPalette(image, 4);
   };
 }
-
+/*
 function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CHATGPT
   // Validate input
   if (!imagePrimary.length || !imagePalette.length) {
@@ -1144,7 +1144,42 @@ function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CH
 
   // Construct the CSS linear-gradient value
   return `linear-gradient(` + ori + `deg, ${primaryColor}, ${gradientStops})`;
+}*/
+
+function generateGradientRGB(imagePrimary, imagePalette) {
+  // Validate input
+  if (!imagePrimary.length || !imagePalette.length) {
+    console.error("No colors provided!");
+    return '';
+  }
+
+  // Determine orientation based on screen
+  const ori = (screen.orientation.angle === 0 || screen.orientation.angle === 180) ? '0' : '135';
+
+  // Convert the primary color array to an rgb string
+  const primaryColor = `rgb(${imagePrimary[0]}, ${imagePrimary[1]}, ${imagePrimary[2]})`;
+
+  // Use the palette RGB values to create stops for edges
+  const gradientStops = [];
+
+  // Colors for the first half (leading to 25%)
+  imagePalette.forEach((rgb, index) => {
+    const color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+    const position = ((index + 1) * (25 / imagePalette.length)).toFixed(2);
+    gradientStops.push(`${color} ${position}%`);
+  });
+
+  // Colors for the second half (from 75% onwards)
+  imagePalette.reverse().forEach((rgb, index) => {
+    const color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+    const position = (75 + ((index + 1) * (25 / imagePalette.length))).toFixed(2);
+    gradientStops.push(`${color} ${position}%`);
+  });
+
+  // Construct the CSS linear-gradient value
+  return `linear-gradient(${ori}deg, ${gradientStops.join(', ')}, ${primaryColor} 25%, ${primaryColor} 75%)`;
 }
+
 
 function generateSimpleGradient(primaryColor) {
   // Validate input
