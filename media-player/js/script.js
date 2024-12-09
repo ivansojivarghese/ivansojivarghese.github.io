@@ -1829,6 +1829,9 @@
 
         videoRun = true;
 
+        video.style.transitionDuration = "3s";
+        video.style.background = "";
+
         if (!networkError) {
           clearInterval(networkSpeedInt);
           networkSpeedInt = null;
