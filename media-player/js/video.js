@@ -1117,10 +1117,10 @@ function getImageData(url) {
       const colorThief = new ColorThief();
 
       imagePrimary = colorThief.getColor(image);
-      imagePalette = colorThief.getPalette(image, 5);
+      imagePalette = colorThief.getPalette(image, 3);
   };
 }
-
+/*
 function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CHATGPT
   // Validate input
   if (!imagePrimary.length || !imagePalette.length) {
@@ -1144,42 +1144,47 @@ function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CH
 
   // Construct the CSS linear-gradient value
   return `linear-gradient(` + ori + `deg, ${primaryColor}, ${gradientStops})`;
-}
+}*/
 
-/*
 function generateGradientRGB(imagePrimary, imagePalette) {
   // Validate input
-  if (!imagePrimary.length || !imagePalette.length) {
-    console.error("No colors provided!");
+  if (!imagePrimary || imagePrimary.length !== 3 || !imagePalette || imagePalette.length < 1) {
+    console.error("Invalid colors provided!");
     return '';
   }
 
-  // Determine orientation based on screen
+  // Determine orientation
   const ori = (screen.orientation.angle === 0 || screen.orientation.angle === 180) ? '0' : '135';
 
-  // Convert the primary color array to an rgb string
+  // Convert primary color to an rgb string
   const primaryColor = `rgb(${imagePrimary[0]}, ${imagePrimary[1]}, ${imagePrimary[2]})`;
 
-  // Use the palette RGB values to create stops for edges
-  const gradientStops = [];
+  // Function to calculate color distance
+  const colorDistance = (color1, color2) => {
+    return Math.sqrt(
+      Math.pow(color1[0] - color2[0], 2) +
+      Math.pow(color1[1] - color2[1], 2) +
+      Math.pow(color1[2] - color2[2], 2)
+    );
+  };
 
-  // Colors for the first half (leading to 25%)
-  imagePalette.forEach((rgb, index) => {
-    const color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-    const position = ((index + 1) * (25 / imagePalette.length)).toFixed(2);
-    gradientStops.push(`${color} ${position}%`);
-  });
+  // Sort the palette based on similarity to the primary color
+  const sortedPalette = [...imagePalette].sort(
+    (a, b) => colorDistance(imagePrimary, a) - colorDistance(imagePrimary, b)
+  );
 
-  // Colors for the second half (from 75% onwards)
-  imagePalette.reverse().forEach((rgb, index) => {
-    const color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-    const position = (75 + ((index + 1) * (25 / imagePalette.length))).toFixed(2);
-    gradientStops.push(`${color} ${position}%`);
-  });
+  // Build gradient stops
+  const gradientStops = sortedPalette
+    .map((rgb, index) => {
+      const color = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+      const position = ((index + 1) * (100 / sortedPalette.length)).toFixed(2);
+      return `${color} ${position}%`;
+    })
+    .join(', ');
 
   // Construct the CSS linear-gradient value
-  return `linear-gradient(${ori}deg, ${gradientStops.join(', ')}, ${primaryColor} 25%, ${primaryColor} 75%)`;
-}*/
+  return `linear-gradient(${ori}deg, ${primaryColor}, ${gradientStops})`;
+}
 
 function generateSimpleGradient(primaryColor) {
   // Validate input
