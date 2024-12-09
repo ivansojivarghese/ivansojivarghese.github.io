@@ -166,7 +166,7 @@
 
             // audio.currentTime = video.currentTime;
 
-            video.style.transitionDuration = "1s";
+            video.style.transitionDuration = "3s";
             video.style.background = "";
 
             statusIndicator.classList.remove("error");
