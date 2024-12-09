@@ -1120,7 +1120,7 @@ function getImageData(url) {
       imagePalette = colorThief.getPalette(image, 4);
   };
 }
-/*
+
 function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CHATGPT
   // Validate input
   if (!imagePrimary.length || !imagePalette.length) {
@@ -1144,8 +1144,9 @@ function generateGradientRGB(imagePrimary, imagePalette) { // REFERENCED FROM CH
 
   // Construct the CSS linear-gradient value
   return `linear-gradient(` + ori + `deg, ${primaryColor}, ${gradientStops})`;
-}*/
+}
 
+/*
 function generateGradientRGB(imagePrimary, imagePalette) {
   // Validate input
   if (!imagePrimary.length || !imagePalette.length) {
@@ -1178,8 +1179,7 @@ function generateGradientRGB(imagePrimary, imagePalette) {
 
   // Construct the CSS linear-gradient value
   return `linear-gradient(${ori}deg, ${gradientStops.join(', ')}, ${primaryColor} 25%, ${primaryColor} 75%)`;
-}
-
+}*/
 
 function generateSimpleGradient(primaryColor) {
   // Validate input
