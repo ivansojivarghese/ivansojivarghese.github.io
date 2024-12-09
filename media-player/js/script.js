@@ -166,6 +166,9 @@
 
             // audio.currentTime = video.currentTime;
 
+            video.style.transitionDuration = "1s";
+            video.style.background = "";
+
             statusIndicator.classList.remove("error");
             statusIndicator.classList.remove("smooth");
             statusIndicator.classList.add("buffer");
@@ -3010,6 +3013,9 @@
     video.addEventListener('playing', function () { // fired when playback resumes after having been paused or delayed due to lack of data
       
       // videoSec.currentTime = video.currentTime;
+
+      video.style.transitionDuration = "3s";
+      video.style.background = "";
 
       clearTimeout(offsetInt);
       offsetInt = null;
