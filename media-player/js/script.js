@@ -1865,6 +1865,9 @@
         seekingLoad = false;
         // hideVideoControls();
 
+        video.style.transitionDuration = "3s";
+        video.style.background = "";
+
         if (resumeInterval === null) {
           resumeInterval = setInterval(() => {
             var buffered = video.buffered;
