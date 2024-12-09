@@ -1289,6 +1289,11 @@
 
       if (aVcount4 === 30) { // 3 SEC.
 
+        if (!loading && !bufferLoad && !seekingLoad && !bufferingDetected) {
+          
+          video.style.background = "transparent";
+        }
+
         if ((imageAmbientChange && imagePrimary !== oldImagePrimary && imagePalette !== oldImagePalette && imagePrimary && imagePalette)) {
           var output = generateGradientRGB(imagePrimary, imagePalette); // REFERENCED FROM: https://lokeshdhakar.com/projects/color-thief/
           
@@ -3376,6 +3381,9 @@
     video.addEventListener('canplay', function() { //  fired when the user agent can play the media, but estimates that not enough data has been loaded to play the media up to its end without having to stop for further buffering of content.
       
       videoRun = false;
+
+      video.style.transitionDuration = "3s";
+      video.style.background = "";
 
       if (!autoLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad))))) {
 
