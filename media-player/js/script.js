@@ -1290,7 +1290,6 @@
       if (aVcount4 === 30) { // 3 SEC.
 
         if (!loading && !bufferLoad && !seekingLoad && !bufferingDetected) {
-          
           video.style.background = "transparent";
         }
 
