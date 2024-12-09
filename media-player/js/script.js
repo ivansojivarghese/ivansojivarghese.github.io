@@ -573,6 +573,9 @@
 
         // videoSec.currentTime = video.currentTime;
 
+        video.style.transitionDuration = "3s";
+        video.style.background = "";
+
         videoErr = false;
 
         autoLoad = false;
