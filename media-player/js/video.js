@@ -1117,7 +1117,7 @@ function getImageData(url) {
       const colorThief = new ColorThief();
 
       imagePrimary = colorThief.getColor(image);
-      imagePalette = colorThief.getPalette(image, 4);
+      imagePalette = colorThief.getPalette(image, 5);
   };
 }
 
