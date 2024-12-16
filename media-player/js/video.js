@@ -3,6 +3,8 @@
 var videoDetails;
 var videoSubmit;
 
+var subDetails;
+
 var videoSizeRatio = 0;
 
 var videoFetchLoop = null;
@@ -592,7 +594,7 @@ async function getParams(id, time) {
       };
       */
 
-      // NEW
+      // NEW (VIDEO)
       // API: https://rapidapi.com/ytjar/api/yt-api/playground/endpoint_facba415-c341-4af1-b542-6f17c9fc464a
       const url = 'https://yt-api.p.rapidapi.com/dl?id=' + videoID + '&cgeo=' + countryAPIres.country;
       const options = {
@@ -746,6 +748,30 @@ async function getParams(id, time) {
         loading = false;
 
 
+      }
+
+      // SUBTITLES
+      // API: https://rapidapi.com/ytjar/api/yt-api/playground/apiendpoint_c31d500a-4a76-4ccb-8617-004ef40febb8 
+      const urlSub = 'https://yt-api.p.rapidapi.com/subtitles?id=' + videoID + '&format=vtt';
+      const optionsSub = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+          'x-rapidapi-host': 'yt-api.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(urlSub, optionsSub);
+        subDetails = await response.json();
+        console.log(subDetails);
+
+        track.src = subDetails.subtitles["0"].url;
+        track.srclang = subDetails.subtitles["0"].languageCode;
+        track.label = subDetails.subtitles["0"].languageName;
+
+      } catch (error) {
+        console.error(error);
       }
         
       }

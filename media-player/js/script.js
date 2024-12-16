@@ -11,6 +11,7 @@
     const video = document.querySelector('video.primary');
     const videoSec = document.querySelector('video.secondary');
     const audio = document.querySelector('audio.primary');
+    const track = document.querySelector('track');
 
     // videoSec.disablePictureInPicture = true;
     
