@@ -4106,11 +4106,14 @@
                 console.log("hideVC");
               }
           } else if (video.paused && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
+            /*
             if (!loading && !videoLoad && !seeking && !seekingLoad && !longTap) {
               hideVideoControls();
               console.log("hideVC");
             }
+            */
             // play the video (only when it hasn't ended)
+            /*
             video.play().then(function () {
               // videoSec.play();
               // audioCtx = new AudioContext();
@@ -4121,6 +4124,7 @@
                 }).catch((err) => {
 
                   console.log(err);
+                  */
                   /*
                   statusIndicator.classList.remove("buffer");
                   statusIndicator.classList.remove("smooth");
@@ -4144,6 +4148,7 @@
 
                   loading = false;
 */
+/*
                 });
 
               }
@@ -4173,8 +4178,8 @@
 
               }, 1000);
 
-              loading = false; */
-            });
+              loading = false; 
+            });*/
           }
         }
       }
