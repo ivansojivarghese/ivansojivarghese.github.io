@@ -4469,8 +4469,8 @@
                 // Calculate an activity score
                 // const activityScore = (frameChange / timeDiff) * complexity;
                 const activityScore = (frameChange / timeDiff) * (complexity * 100);
-                avgActivityScore = activityScore.toFixed(3);
-                
+                avgActivityScore = Number(activityScore.toFixed(3));
+
                 // Log activity score per frame
                 console.log(`Activity Score: ${activityScore.toFixed(3)}`);
 
