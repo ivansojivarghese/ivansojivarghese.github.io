@@ -1190,7 +1190,7 @@ function generateGradientRGB(imagePrimary, imagePalette) {
   }
 
   // Determine orientation
-  const ori = (screen.orientation.angle === 0 || screen.orientation.angle === 180) ? '0' : '135';
+  const ori = ((screen.orientation.angle === 0 || screen.orientation.angle === 180) && (screen.orientation.type === "portrait-primary" || screen.orientation.type === "portrait-secondary")) ? '0' : '135';
 
   // Convert primary color to an rgb string
   const primaryColor = `rgb(${imagePrimary[0]}, ${imagePrimary[1]}, ${imagePrimary[2]})`;
