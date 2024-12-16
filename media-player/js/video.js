@@ -752,6 +752,7 @@ async function getParams(id, time) {
 
       // SUBTITLES
       // API: https://rapidapi.com/ytjar/api/yt-api/playground/apiendpoint_c31d500a-4a76-4ccb-8617-004ef40febb8 
+      /*
       const urlSub = 'https://yt-api.p.rapidapi.com/subtitles?id=' + videoID + '&format=vtt';
       const optionsSub = {
         method: 'GET',
@@ -772,7 +773,7 @@ async function getParams(id, time) {
 
       } catch (error) {
         console.error(error);
-      }
+      }*/
         
       }
 
