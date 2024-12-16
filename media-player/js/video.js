@@ -271,7 +271,7 @@ async function sourceCheck(i, m) {
       }
     };
     await navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
-      if ((result.supported && result.smooth && result.powerEfficient) || (result.supported && video.height < videoHDmin)) {
+      if ((result.supported && result.smooth && result.powerEfficient) || (result.supported && videoSources[i].height < videoHDmin) || (!result.supported && !result.smooth && !result.powerEfficient)) {
         supportedVideoSources[supportedVideoSources.length] = videoSources[i];
       }
     });
