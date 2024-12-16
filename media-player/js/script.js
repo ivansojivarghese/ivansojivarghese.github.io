@@ -4441,6 +4441,7 @@
     let lastMetadata = null; // Stores metadata of the previous frame
     let activityScores = []; // Stores frame activity scores
     let windowScores = [];   // Scores for aggregation over time
+    let avgActivityScore = 0; 
 
     // Analyze each frame
     function analyzeFrame(now, metadata) {
@@ -4468,7 +4469,8 @@
                 // Calculate an activity score
                 // const activityScore = (frameChange / timeDiff) * complexity;
                 const activityScore = (frameChange / timeDiff) * (complexity * 100);
-
+                avgActivityScore = activityScore.toFixed(3);
+                
                 // Log activity score per frame
                 console.log(`Activity Score: ${activityScore.toFixed(3)}`);
 
@@ -4490,6 +4492,7 @@
     setInterval(() => {
         if (windowScores.length > 0) {
             const avgScore = windowScores.reduce((a, b) => a + b, 0) / windowScores.length;
+
             console.log(`Average Activity Score (1s): ${avgScore.toFixed(3)}`);
             windowScores = []; // Clear the window for the next second
         }
