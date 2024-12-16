@@ -696,6 +696,11 @@ async function getParams(id, time) {
               imagePrimary = [];
               imagePalette = [];
 
+              lastMetadata = null; // Stores metadata of the previous frame
+              activityScores = []; // Stores frame activity scores
+              windowScores = [];   // Scores for aggregation over time
+              avgActivityScore = 0; 
+
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;
               targetQuality = 0;
@@ -911,6 +916,10 @@ function getOptimalQuality() {
         videoStreamScore = (videoStreamScore > 1) ? 1 : videoStreamScore;
       } else {
         videoStreamScore = networkQualityRange;
+      }
+
+      if (avgActivityScore > 1) {
+        videoStreamScore = videoStreamScore * avgActivityScore;
       }
 
       // TARGET QUALITY

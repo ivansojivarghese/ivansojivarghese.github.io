@@ -4438,10 +4438,10 @@
     });
 
 
-    let lastMetadata = null; // Stores metadata of the previous frame
-    let activityScores = []; // Stores frame activity scores
-    let windowScores = [];   // Scores for aggregation over time
-    let avgActivityScore = 0; 
+    var lastMetadata = null; // Stores metadata of the previous frame
+    var activityScores = []; // Stores frame activity scores
+    var windowScores = [];   // Scores for aggregation over time
+    var avgActivityScore = 0; 
 
     // Analyze each frame
     function analyzeFrame(now, metadata) {
@@ -4468,7 +4468,7 @@
 
                 // Calculate an activity score
                 // const activityScore = (frameChange / timeDiff) * complexity;
-                const activityScore = (frameChange / timeDiff) * (complexity * 100);
+                const activityScore = (frameChange / timeDiff) * (complexity * 1000);
                 avgActivityScore = Number(activityScore.toFixed(3));
 
                 // Log activity score per frame
