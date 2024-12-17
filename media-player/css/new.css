@@ -152,6 +152,12 @@ video.seeking {
     margin-right: calc(0.2rem + calc(env(safe-area-inset-right)));
 }
 
+#videoInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .seekButton {
     width: 1.25rem;
     height: 1.25rem;

@@ -257,10 +257,11 @@ function getNetworkInfo() {
 
         downlinkArr[downlinkArr.length] = downlink;
         downlinkVariability = calculateVariability(downlinkArr);
-
+        /*
         console.log("Mean:", downlinkVariability.mean);
         console.log("Variance:", downlinkVariability.variance);
         console.log("Standard Deviation:", downlinkVariability.standardDeviation);
+        */
     }
 }
 

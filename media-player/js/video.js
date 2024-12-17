@@ -1,4 +1,8 @@
 
+var videoInfoElm = {
+  title : document.querySelector("#videoInfo h1"),
+  channelTitle : document.querySelector("#videoInfo h2")
+};
     
 var videoDetails;
 var videoSubmit;
@@ -1349,6 +1353,10 @@ function getOptimalVideo(time) {
         
           // TODO: Update playback state.
         }
+
+        // videoInfo
+        videoInfoElm.title = videoDetails.title;
+        videoInfoElm.channelTitle = videoDetails.channelTitle;
 
       }, 100);
     }
