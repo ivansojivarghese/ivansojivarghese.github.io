@@ -157,6 +157,10 @@ video.seeking {
     top: 0;
     left: 0;
     color: #FFF;
+    padding-top: 1.5rem;
+    padding-left: 1.2rem;
+    margin-top: calc(env(safe-area-inset-top));
+    margin-left: calc(env(safe-area-inset-left));
 }
 
 #videoInfo h5 {
@@ -165,7 +169,7 @@ video.seeking {
 }
 
 #videoInfo .textStuff {
-    
+
 }
 
 .seekButton {
