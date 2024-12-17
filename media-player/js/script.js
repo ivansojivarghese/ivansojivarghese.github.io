@@ -2118,6 +2118,10 @@
 
       if (audio.error.code && backgroundPlay) {
         audio.load();
+
+        inp.value = videoURL;
+        getURL();
+        
       } else {
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
