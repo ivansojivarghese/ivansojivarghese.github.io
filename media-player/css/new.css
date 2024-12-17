@@ -163,13 +163,26 @@ video.seeking {
     margin-left: calc(env(safe-area-inset-left));
 }
 
+#videoInfo h5, #videoInfo p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 #videoInfo h5 {
     font-size: 2rem;
     font-weight: bold;
 }
 
 #videoInfo .textStuff {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: calc(100vw - 1.2rem - 2rem - calc(env(safe-area-inset-left)));
+}
 
+#videoInfo .infoOpener {
+    width: 2rem;
 }
 
 .seekButton {
