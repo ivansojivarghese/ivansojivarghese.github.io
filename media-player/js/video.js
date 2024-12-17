@@ -711,6 +711,7 @@ async function getParams(id, time) {
               avgActivityScore = 0; 
               derActivityScore = 0;
               derActivityScoreArr = []; 
+              derActivityScoreData = {};
 
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;
@@ -954,9 +955,24 @@ function getOptimalQuality() {
         videoStreamScore = networkQualityRange;
       }
 
+      var CVscore = derActivityScoreData.standardDeviation / derActivityScoreData.mean; // Coefficient of Variation 
+      var optimum = 0;
+      if (CVscore < 0.1) { // small variation
+        optimum = 1;
+      } else if (CVscore >= 0.1 && CVscore <= 0.2) { // moderate
+        optimum = derActivityScoreData.mean * derActivityScoreData.standardDeviation;
+      } else if (CVscore > 0.2) { // large
+        optimum = derActivityScoreData.mean * (derActivityScoreData.standardDeviation / CVscore);
+      }
+      if (optimum < 1) {
+        optimum = 1;
+      }
+      videoStreamScore = videoStreamScore * optimum;
+
+      /*
       if (avgActivityScore > 1) {
         videoStreamScore = videoStreamScore * avgActivityScore;
-      }
+      }*/
 
       // TARGET QUALITY
       if (initialVideoLoadCount === 0) {
