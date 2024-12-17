@@ -392,6 +392,9 @@
         }
       } else if (videoErr || audioErr) {
         video.load();
+
+        inp.value = videoURL;
+        getURL();
       }
     });
 
@@ -2121,7 +2124,7 @@
 
         inp.value = videoURL;
         getURL();
-        
+
       } else {
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
