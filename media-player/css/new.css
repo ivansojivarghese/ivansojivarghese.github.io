@@ -192,6 +192,8 @@ video.seeking {
     width: 2.2rem;
     height: 4rem;
     display: inline-block;
+    position: relative;
+    top: -0.5rem;
 }
 
 #videoInfo .infoOpener .img {
