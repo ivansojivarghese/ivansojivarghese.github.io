@@ -391,7 +391,7 @@
           // }
         }
       } else if (videoErr || audioErr) {
-        video.load();
+        // video.load();
 
         inp.value = videoURL || localStorage.getItem("mediaURL");
         getURL();
@@ -2119,7 +2119,7 @@
 
       // UI
 
-      if (audio.error.code && backgroundPlay) {
+      if (audio.error.code /*&& backgroundPlay*/) {
         audio.load();
 
         inp.value = videoURL || localStorage.getItem("mediaURL");
@@ -2221,8 +2221,8 @@
       // UI
 
       if (video.error.code && !backgroundPlay) {
-        video.load();
-        video.currentTime = refSeekTime;
+        // video.load();
+        // video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
 
         inp.value = videoURL || localStorage.getItem("mediaURL");
