@@ -393,7 +393,7 @@
       } else if (videoErr || audioErr) {
         video.load();
 
-        inp.value = videoURL;
+        inp.value = videoURL || localStorage.getItem("mediaURL");
         getURL();
       }
     });
@@ -2122,7 +2122,7 @@
       if (audio.error.code && backgroundPlay) {
         audio.load();
 
-        inp.value = videoURL;
+        inp.value = videoURL || localStorage.getItem("mediaURL");
         getURL();
 
       } else {
@@ -2225,7 +2225,7 @@
         video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
 
-        inp.value = videoURL;
+        inp.value = videoURL || localStorage.getItem("mediaURL");
         getURL();
 
       } else {
