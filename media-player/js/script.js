@@ -4453,7 +4453,7 @@
             const timeDiff = metadata.presentationTime - lastMetadata.presentationTime;
             
             // Debugging: Log times and differences to understand the values
-            console.log(`Time Diff: ${timeDiff.toFixed(3)} seconds`);
+            // console.log(`Time Diff: ${timeDiff.toFixed(3)} seconds`);
 
             // Check if the time difference is too small (e.g., 0)
             if (timeDiff > 0) {
@@ -4461,13 +4461,13 @@
                 const frameChange = Math.abs(metadata.presentedFrames - lastMetadata.presentedFrames);
 
                 // Debugging: Log frame change
-                console.log(`Frame Change: ${frameChange}`);
+                // console.log(`Frame Change: ${frameChange}`);
 
                 // Use processingDuration as a proxy for the complexity of the frame
                 const complexity = metadata.processingDuration;
                 
                 // Debugging: Log processing duration
-                console.log(`Processing Duration: ${complexity.toFixed(3)} seconds`);
+                // console.log(`Processing Duration: ${complexity.toFixed(3)} seconds`);
 
                 // Calculate an activity score
                 // const activityScore = (frameChange / timeDiff) * complexity;
@@ -4475,12 +4475,12 @@
                 avgActivityScore = Number(activityScore.toFixed(3));
 
                 // Log activity score per frame
-                console.log(`Activity Score: ${activityScore.toFixed(3)}`);
+                // console.log(`Activity Score: ${activityScore.toFixed(3)}`);
 
                 activityScores.push(activityScore);
                 windowScores.push(activityScore);
             } else {
-                console.log("Skipping frame due to zero time difference");
+                // console.log("Skipping frame due to zero time difference");
             }
         }
 
@@ -4496,7 +4496,7 @@
         if (windowScores.length > 0) {
             const avgScore = windowScores.reduce((a, b) => a + b, 0) / windowScores.length;
 
-            console.log(`Average Activity Score (1s): ${avgScore.toFixed(3)}`);
+            // console.log(`Average Activity Score (1s): ${avgScore.toFixed(3)}`);
             windowScores = []; // Clear the window for the next second
         }
     }, 1000);
