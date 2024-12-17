@@ -1,7 +1,7 @@
 
 var videoInfoElm = {
-  title : document.querySelector("#videoInfo h1"),
-  channelTitle : document.querySelector("#videoInfo h2")
+  title : document.querySelector("#videoInfo h5"),
+  channelTitle : document.querySelector("#videoInfo p")
 };
     
 var videoDetails;
@@ -1355,8 +1355,8 @@ function getOptimalVideo(time) {
         }
 
         // videoInfo
-        videoInfoElm.title = videoDetails.title;
-        videoInfoElm.channelTitle = videoDetails.channelTitle;
+        videoInfoElm.title.innerHTML = videoDetails.title;
+        videoInfoElm.channelTitle.innerHTML = videoDetails.channelTitle;
 
       }, 100);
     }
