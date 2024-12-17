@@ -179,9 +179,10 @@ video.seeking {
 }
 
 #videoInfo .textStuff {
+    /*
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: hidden;*/
     width: calc(100vw - 1.2rem - 1.2rem - 2.5rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
     height: 4rem;
     display: inline-block;
