@@ -710,6 +710,7 @@ async function getParams(id, time) {
               windowScores = [];   // Scores for aggregation over time
               avgActivityScore = 0; 
               derActivityScore = 0;
+              derActivityScoreArr = []; 
 
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;

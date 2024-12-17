@@ -4457,6 +4457,7 @@
     var windowScores = [];   // Scores for aggregation over time
     var avgActivityScore = 0; // average
     var derActivityScore = 0; // derivative
+    var derActivityScoreArr = []; 
 
     // Analyze each frame
     function analyzeFrame(now, metadata) {
@@ -4509,6 +4510,7 @@
             const avgScore = windowScores.reduce((a, b) => a + b, 0) / windowScores.length;
 
             derActivityScore = Number(avgScore.toFixed(3));
+            derActivityScoreArr[derActivityScoreArr.length] = derActivityScore; 
 
             // console.log(`Average Activity Score (1s): ${avgScore.toFixed(3)}`);
             windowScores = []; // Clear the window for the next second
