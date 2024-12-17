@@ -2217,6 +2217,10 @@
         video.load();
         video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
+
+        inp.value = videoURL;
+        getURL();
+
       } else {
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
