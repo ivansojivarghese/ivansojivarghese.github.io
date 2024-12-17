@@ -328,6 +328,8 @@ async function getParams(id, time) {
 
   if (!networkError) {
 
+    videoInfoElm.main.style.opacity = 0;
+
     let params = new URLSearchParams(document.location.search);
     var link = params.get("description"); 
 
@@ -1286,8 +1288,6 @@ function getOptimalVideo(time) {
 
         video.style.background = "";
         imageAmbientChange = true;
-
-        videoInfoElm.main.style.opacity = 0;
         
         video.src = targetVideo.url; 
         // videoSec.src = targetVideo.url; 
