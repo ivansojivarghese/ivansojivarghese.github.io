@@ -1287,7 +1287,7 @@ function getOptimalVideo(time) {
         video.style.background = "";
         imageAmbientChange = true;
 
-        videoInfoElm.main.opacity = 0;
+        videoInfoElm.main.style.opacity = 0;
         
         video.src = targetVideo.url; 
         // videoSec.src = targetVideo.url; 
@@ -1361,7 +1361,7 @@ function getOptimalVideo(time) {
         videoInfoElm.title.innerHTML = videoDetails.title;
         videoInfoElm.channelTitle.innerHTML = videoDetails.channelTitle;
 
-        videoInfoElm.main.opacity = 1;
+        videoInfoElm.main.style.opacity = 1;
 
       }, 100);
     }
