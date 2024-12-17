@@ -1,5 +1,6 @@
 
 var videoInfoElm = {
+  main: document.querySelector("#videoInfo"),
   title : document.querySelector("#videoInfo h5"),
   channelTitle : document.querySelector("#videoInfo p")
 };
@@ -1285,6 +1286,8 @@ function getOptimalVideo(time) {
 
         video.style.background = "";
         imageAmbientChange = true;
+
+        videoInfoElm.main.opacity = 0;
         
         video.src = targetVideo.url; 
         // videoSec.src = targetVideo.url; 
@@ -1357,6 +1360,8 @@ function getOptimalVideo(time) {
         // videoInfo
         videoInfoElm.title.innerHTML = videoDetails.title;
         videoInfoElm.channelTitle.innerHTML = videoDetails.channelTitle;
+
+        videoInfoElm.main.opacity = 1;
 
       }, 100);
     }

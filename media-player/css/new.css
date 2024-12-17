@@ -163,6 +163,7 @@ video.seeking {
     margin-top: calc(env(safe-area-inset-top));
     margin-left: calc(env(safe-area-inset-left));
     margin-right: calc(env(safe-area-inset-right));
+    opacity: 0;
 }
 
 #videoInfo h5, #videoInfo p {
