@@ -169,19 +169,13 @@ video.seeking {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-bottom: 0.4em;
     margin: 0;
 }
 
 #videoInfo h5 {
     font-size: 2rem;
     font-weight: bold;
-    padding-top: 0.4em;
-    padding-bottom: 0.4em;
-}
-
-#videoInfo p {
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
 }
 
 #videoInfo .textStuff {
