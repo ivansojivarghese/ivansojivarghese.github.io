@@ -159,14 +159,17 @@ video.seeking {
     color: #FFF;
     padding-top: 1.5rem;
     padding-left: 1.2rem;
+    padding-right: 1.2rem;
     margin-top: calc(env(safe-area-inset-top));
     margin-left: calc(env(safe-area-inset-left));
+    margin-right: calc(env(safe-area-inset-right));
 }
 
 #videoInfo h5, #videoInfo p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: 0;
 }
 
 #videoInfo h5 {
@@ -178,11 +181,16 @@ video.seeking {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    width: calc(100vw - 1.2rem - 2rem - calc(env(safe-area-inset-left)));
+    width: calc(100vw - 1.2rem - 1.2rem - 3.5rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+    height: 4rem;
+    display: inline-block;
 }
 
 #videoInfo .infoOpener {
-    width: 2rem;
+    width: 3.2rem;
+    height: 4rem;
+    display: inline-block;
+    background: red;
 }
 
 .seekButton {
