@@ -180,6 +180,10 @@ video.seeking {
     margin: 0;
 }
 
+#videoInfo p {
+    padding-bottom: 0.2em;
+}
+
 #videoInfo .textStuff {
     /*
     text-overflow: ellipsis;
