@@ -167,7 +167,7 @@
         if (!error) {
 
           var timestamp = Number(contents.slice(contents.indexOf("&t=") + 3)); // START FROM (in sec.)
-          if (!timestamp) {
+          if (!timestamp && (videoURL === localStorage.getItem("mediaURL"))) {
             timestamp = Number(localStorage.getItem("timestamp"));
           }
         
