@@ -167,6 +167,9 @@
         if (!error) {
 
           var timestamp = Number(contents.slice(contents.indexOf("&t=") + 3)); // START FROM (in sec.)
+          if (!timestamp) {
+            timestamp = Number(localStorage.getItem("timestamp"));
+          }
         
           console.log("Video ID: " + videoID);
             
