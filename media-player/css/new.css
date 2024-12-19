@@ -394,3 +394,12 @@ video.seeking {
     background-color: #C5C6D0;
     z-index: 5;
 }
+
+#infoContainer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: #303030;
+    display: none;
+}
