@@ -38,6 +38,9 @@ var specialQualityArea = [];
 
 var normalVideo = false;
 
+var failTimes = 0;
+var maxFailTimes = 10;
+
 
 for (i = 0; i < videoQuality.length; i++) {
   videoQualityArea[i] = videoQuality[i] * videoQualityWidth[i];
@@ -621,6 +624,8 @@ async function getParams(id, time) {
 
         if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
 
+          failTimes++;
+
           if (!backgroundPlay) {
             video.pause();
             // videoSec.pause();
@@ -665,8 +670,10 @@ async function getParams(id, time) {
             setTimeout(function() {
               resetLoad();
 
-              inp.value = videoURL || localStorage.getItem("mediaURL");
-              getURL();
+              if (failTimes <= maxFailTimes) {
+                inp.value = videoURL || localStorage.getItem("mediaURL");
+                getURL();
+              }
             }, 10);
 
           }, 1000);
@@ -674,6 +681,9 @@ async function getParams(id, time) {
           loading = false;
 
         } else {
+
+          failTimes = 0;
+
           videoFetchLoop = setInterval(function() {
             if (networkSpeed) {
               clearInterval(videoFetchLoop);
@@ -715,6 +725,8 @@ async function getParams(id, time) {
               derActivityScore = 0;
               derActivityScoreArr = []; 
               derActivityScoreData = {};
+
+              failTimes = 0;
 
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;
