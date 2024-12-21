@@ -6,7 +6,11 @@ var videoInfoElm = {
 
   videoTitle : document.querySelector("#infoContainer h5.videoTitle"),
   channelTitle2 : document.querySelector("#infoContainer p.channelTitle"),
-  category : document.querySelector("#infoContainer p.category")
+  category : document.querySelector("#infoContainer p.category"),
+  date : document.querySelector("#infoContainer p.date"),
+  duration : document.querySelector("#infoContainer p.duration"),
+  likes : document.querySelector("#infoContainer p.likes"),
+  views : document.querySelector("#infoContainer p.views")
 };
     
 var videoDetails;
@@ -1521,15 +1525,60 @@ function getMediaSources(sources) {
 }
 */
 
+function timeAgo(dateString) { // ISO8601 date string to human-readable string converter
+  const now = new Date();
+  const past = new Date(dateString);
+  const seconds = Math.floor((now - past) / 1000);
+
+  if (seconds < 60) {
+      return `${seconds} ${seconds === 1 ? 'second' : 'seconds'} ago`;
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) {
+      return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;
+  }
+
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) {
+      return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
+  }
+
+  const days = Math.floor(hours / 24);
+  if (days < 7) {
+      return `${days} ${days === 1 ? 'day' : 'days'} ago`;
+  }
+
+  const weeks = Math.floor(days / 7);
+  if (weeks < 4) {
+      return `${weeks} ${weeks === 1 ? 'week' : 'weeks'} ago`;
+  }
+
+  const months = Math.floor(days / 30);
+  if (months < 12) {
+      return `${months} ${months === 1 ? 'month' : 'months'} ago`;
+  }
+
+  const years = Math.floor(days / 365);
+  return `${years} ${years === 1 ? 'year' : 'years'} ago`;
+}
+
+
 function abstractVideoInfo() {
   videoInfoElm.videoTitle.innerHTML = '<a href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
   videoInfoElm.channelTitle2.innerHTML = videoDetails.channelTitle;
+
   if (videoDetails.category) {
     videoInfoElm.category.style.display = "block";
     videoInfoElm.category.innerHTML = videoDetails.category;
   } else {
     videoInfoElm.category.style.display = "none";
-  }
+  } 
+
+  videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
+  videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
+  videoInfoElm.likes.innerHTML;
+  videoInfoElm.views.innerHTML;
 }
 
 if (videoLoadLoop === null) {
