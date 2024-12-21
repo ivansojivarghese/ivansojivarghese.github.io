@@ -393,8 +393,10 @@
       } else if (videoErr || audioErr) {
         // video.load();
 
-        inp.value = videoURL || localStorage.getItem("mediaURL");
-        getURL();
+        if (failTimes <= maxFailTimes) {
+          inp.value = videoURL || localStorage.getItem("mediaURL");
+          getURL();
+        }
       }
     });
 
@@ -2122,8 +2124,10 @@
       if (audio.error.code /*&& backgroundPlay*/) {
         audio.load();
 
-        inp.value = videoURL || localStorage.getItem("mediaURL");
-        getURL();
+        if (failTimes <= maxFailTimes) {
+          inp.value = videoURL || localStorage.getItem("mediaURL");
+          getURL();
+        }
 
       } else {
         playPauseButton.classList.remove('playing');
@@ -2225,8 +2229,10 @@
         // video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
 
-        inp.value = videoURL || localStorage.getItem("mediaURL");
-        getURL();
+        if (failTimes <= maxFailTimes) {
+          inp.value = videoURL || localStorage.getItem("mediaURL");
+          getURL();
+        }
 
       } else {
         playPauseButton.classList.remove('playing');
