@@ -39,7 +39,7 @@ var specialQualityArea = [];
 var normalVideo = false;
 
 var failTimes = 0;
-var maxFailTimes = 10;
+var maxFailTimes = 5;
 
 
 for (i = 0; i < videoQuality.length; i++) {
