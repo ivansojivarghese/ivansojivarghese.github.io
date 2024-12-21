@@ -2,7 +2,10 @@
 var videoInfoElm = {
   main: document.querySelector("#videoInfo"),
   title : document.querySelector("#videoInfo h5"),
-  channelTitle : document.querySelector("#videoInfo p")
+  channelTitle : document.querySelector("#videoInfo p"),
+
+  videoTitle : document.querySelector("#infoContainer h5.videoTitle"),
+  channelTitle2 : document.querySelector("#infoContainer p.channelTitle")
 };
     
 var videoDetails;
@@ -1396,6 +1399,9 @@ function getOptimalVideo(time) {
         videoInfoElm.title.innerHTML = videoDetails.title;
         videoInfoElm.channelTitle.innerHTML = videoDetails.channelTitle;
 
+        // abstract other info
+        abstractVideoInfo();
+
         videoInfoElm.main.style.opacity = 1;
 
       }, 100);
@@ -1513,6 +1519,11 @@ function getMediaSources(sources) {
   }
 }
 */
+
+function abstractVideoInfo() {
+  videoInfoElm.videoTitle.innerHTML = videoDetails.title;
+  videoInfoElm.channelTitle2.innerHTML = videoDetails.channelTitle;
+}
 
 if (videoLoadLoop === null) {
   videoLoadLoop = setInterval(() => {
