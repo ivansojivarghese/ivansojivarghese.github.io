@@ -173,7 +173,7 @@ video.seeking {
     padding: 0;
 }
 
-#videoInfo h5 {
+#videoInfo h5, #infoContainer h5 {
     font-size: 1.5rem;
     font-weight: bold;
     padding-bottom: 0.4em;
@@ -401,6 +401,7 @@ video.seeking {
     height: 100vh;
     z-index: 10;
     background-color: #303030;
+    color: #FFF;
     display: none;
 }
 
@@ -418,9 +419,20 @@ video.seeking {
     width: 2rem;
     height: 2rem;
     margin-right: 0.35rem;
-    margin-left: calc(100% - 0.9rem - 2rem);
+    margin-left: calc(100% - 0.9rem - 2rem + 0.35rem);
 }
 
 #infoContainer .wrapper {
-    width: calc(100% - 1.2rem - 1.2rem - 2.5rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+    width: calc(100% - 1.2rem - 1.2rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+    padding: 0 1.2rem;
+}
+
+#infoContainer h5.videoTitle {
+    line-height: 1.25em;
+}
+
+#infoContainer p.channelTitle {
+    padding: 0;
+    padding-bottom: 0.2em;
+    line-height: 1.25em;
 }
