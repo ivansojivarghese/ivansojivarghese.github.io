@@ -1521,8 +1521,7 @@ function getMediaSources(sources) {
 */
 
 function abstractVideoInfo() {
-  videoInfoElm.videoTitle.innerHTML = videoDetails.title;
-  videoInfoElm.videoTitle.href = videoURL;
+  videoInfoElm.videoTitle.innerHTML = '<a href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
 
   videoInfoElm.channelTitle2.innerHTML = videoDetails.channelTitle;
 }
