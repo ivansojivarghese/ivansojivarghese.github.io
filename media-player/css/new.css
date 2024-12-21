@@ -402,7 +402,7 @@ video.seeking {
     z-index: 10;
     background-color: #303030;
     color: #FFF;
-    display: none;
+    transform: translateX(100%);
 }
 
 #infoContainer .closeBtn {
@@ -459,6 +459,6 @@ p.category, .criticalInfo p {
     width: 50%;
 }
 
-.criticalInfo .cI:nth-child(1) {
+.criticalInfo .cI:nth-child(2) {
     float: right;
 }

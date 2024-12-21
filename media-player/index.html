@@ -66,7 +66,7 @@
           <video class="secondary trs" preload="auto" disablePictureInPicture></video>
           
           <div id="videoControls" class="trs">
-              <div id="videoInfo" class="trs">
+              <div id="videoInfo" class="trs" onclick="openVideoInfo()">
                 <div class="textStuff">
                   <h5></h5>
                   <p></p>
@@ -129,7 +129,7 @@
         </div>
         <div id="infoContainer" class="trs">
           <div class="close">
-            <div class="closeBtn">
+            <div class="closeBtn" onclick="closeVideoInfo()">
               <div class="img"></div>
             </div>
           </div>
@@ -143,8 +143,8 @@
                 <p class="duration"></p>
               </div>
               <div class="cI">
-                <p class="likes"></p>
-                <p class="views"></p>
+                <p class="likes">0 likes</p>
+                <p class="views">0 views</p>
               </div>
             </div>
           </div>

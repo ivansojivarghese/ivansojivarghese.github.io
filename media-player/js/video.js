@@ -1577,8 +1577,8 @@ function abstractVideoInfo() {
 
   videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
-  videoInfoElm.likes.innerHTML;
-  videoInfoElm.views.innerHTML;
+  // videoInfoElm.likes.innerHTML;
+  // videoInfoElm.views.innerHTML;
 }
 
 if (videoLoadLoop === null) {

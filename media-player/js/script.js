@@ -1193,6 +1193,16 @@
       }
     });
 
+    function openVideoInfo(event) {
+      event.stopPropagation();
+
+      videoInfoElm.main.style.transform = "none";
+    }
+
+    function closeVideoInfo() {
+      videoInfoElm.main.style.transform = "";
+    }
+
     function secondsToTimeCode(seconds) {
       const h = Math.floor(seconds / 3600);
       const m = Math.floor((seconds % 3600) / 60);
