@@ -606,7 +606,7 @@ async function getParams(id, time) {
 
       // OLD
       // API: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos/playground/endpoint_b308f78f-0faa-407a-902a-7afcd88c6a88
-      
+      /*
       const url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=' + videoID;
       const options = {
         method: 'GET',
@@ -615,11 +615,11 @@ async function getParams(id, time) {
           'x-rapidapi-host': 'ytstream-download-youtube-videos.p.rapidapi.com'
         }
       };
-      
+      */
 
       // NEW (VIDEO)
       // API: https://rapidapi.com/ytjar/api/yt-api/playground/endpoint_facba415-c341-4af1-b542-6f17c9fc464a
-      /*
+      
       const url = 'https://yt-api.p.rapidapi.com/dl?id=' + videoID + '&cgeo=' + countryAPIres.country;
       const options = {
         method: 'GET',
@@ -628,7 +628,7 @@ async function getParams(id, time) {
           'x-rapidapi-host': 'yt-api.p.rapidapi.com'
         }
       };
-      */
+      
 
       try {
         const response = await fetch(url, options);
