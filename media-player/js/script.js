@@ -2869,6 +2869,8 @@
             });
           }
 
+          videoInfoElm.autoResLive.innerHTML = targetVideo.qualityLabel;
+
           localStorage.setItem('videoURL', video.src); // Set URL to memory state
 
         } else {
@@ -2968,6 +2970,8 @@
               });
             });
           }
+
+          videoInfoElm.autoResLive.innerHTML = targetVideo.qualityLabel;
 
           localStorage.setItem('videoURL', video.src); // Set URL to memory state
 
