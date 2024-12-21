@@ -1196,7 +1196,9 @@
     function openVideoInfo() {
       // event.stopPropagation();
 
-      videoInfoElm.info.style.transform = "none";
+      if (videoControls.classList.contains('visible')) {
+        videoInfoElm.info.style.transform = "none";
+      }
     }
 
     function closeVideoInfo() {
