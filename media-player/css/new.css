@@ -403,3 +403,7 @@ video.seeking {
     background-color: #303030;
     display: none;
 }
+
+#infoContainer .closeBtn .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/close.svg");
+}
