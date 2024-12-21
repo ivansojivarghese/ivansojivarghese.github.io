@@ -393,7 +393,7 @@
       } else if (videoErr || audioErr) {
         // video.load();
 
-        if (failTimes <= maxFailTimes) {
+        if (failTimes < maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
         }
@@ -2158,7 +2158,7 @@
       if (audio.error.code /*&& backgroundPlay*/) {
         audio.load();
 
-        if (failTimes <= maxFailTimes) {
+        if (failTimes < maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
         }
@@ -2263,7 +2263,7 @@
         // video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
 
-        if (failTimes <= maxFailTimes) {
+        if (failTimes < maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
         }

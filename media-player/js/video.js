@@ -685,7 +685,7 @@ async function getParams(id, time) {
             setTimeout(function() {
               resetLoad();
 
-              if (failTimes <= maxFailTimes) {
+              if (failTimes < maxFailTimes) {
                 inp.value = videoURL || localStorage.getItem("mediaURL");
                 getURL();
               }
@@ -697,7 +697,7 @@ async function getParams(id, time) {
 
         } else {
 
-          failTimes = 0;
+          // failTimes = 0;
 
           videoFetchLoop = setInterval(function() {
             if (networkSpeed) {
