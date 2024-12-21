@@ -1198,11 +1198,27 @@
 
       if (videoControls.classList.contains('visible')) {
         videoInfoElm.info.style.transform = "none";
+
+        video.requestPictureInPicture().then(function() {
+          getScreenLock();
+          pipEnabled = true;
+          backgroundPlayManual = false;
+        });
       }
     }
 
     function closeVideoInfo() {
       videoInfoElm.info.style.transform = "";
+
+      document.exitPictureInPicture().then(function() {
+        pipEnabled = false;
+        if (document.visibilityState === "visible") {
+          backgroundPlayManual = false;
+        } else {
+          backgroundPlayManual = true;
+        }
+        releaseScreenLock(screenLock);
+      });
     }
 
     function secondsToTimeCode(seconds) {
