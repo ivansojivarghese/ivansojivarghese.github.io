@@ -6,7 +6,7 @@
 
 
 
-const staticCacheName = 'media-player-v2.77';
+const staticCacheName = 'media-player-v2.78';
 
 const fonts = [
   'https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Poppins-Regular.woff2?v=1720415271771',
