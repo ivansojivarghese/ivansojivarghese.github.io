@@ -14,6 +14,7 @@ var videoInfoElm = {
   likes : document.querySelector("#infoContainer p.likes"),
   views : document.querySelector("#infoContainer p.views"),
 
+  autoResBtn : document.querySelector("#infoContainer div.autoResBtn"),
   autoResLive : document.querySelector("#infoContainer p.autoResLive")
 };
     
@@ -1583,6 +1584,11 @@ function abstractVideoInfo() {
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
   // videoInfoElm.likes.innerHTML;
   // videoInfoElm.views.innerHTML;
+
+  if (!videoInfoElm.autoResBtn.classList.contains("active")) {
+    videoInfoElm.autoResBtn.classList.add("active");
+  }
+  videoInfoElm.autoResLive.innerHTML = targetVideo.qualityLabel;
 }
 
 if (videoLoadLoop === null) {
