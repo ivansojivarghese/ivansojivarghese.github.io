@@ -5,7 +5,8 @@ var videoInfoElm = {
   channelTitle : document.querySelector("#videoInfo p"),
 
   videoTitle : document.querySelector("#infoContainer h5.videoTitle"),
-  channelTitle2 : document.querySelector("#infoContainer p.channelTitle")
+  channelTitle2 : document.querySelector("#infoContainer p.channelTitle"),
+  category : document.querySelector("#infoContainer p.category")
 };
     
 var videoDetails;
@@ -1522,8 +1523,8 @@ function getMediaSources(sources) {
 
 function abstractVideoInfo() {
   videoInfoElm.videoTitle.innerHTML = '<a href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
-
   videoInfoElm.channelTitle2.innerHTML = videoDetails.channelTitle;
+  videoInfoElm.category.innerHTML = videoDetails.category;
 }
 
 if (videoLoadLoop === null) {
