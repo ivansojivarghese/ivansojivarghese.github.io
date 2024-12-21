@@ -436,8 +436,29 @@ video.seeking {
     padding: 0;
     padding-bottom: 0.2em;
     line-height: 1.25em;
+    margin-bottom: 1em;
+}
+
+p.category {
+    margin-bottom: 1.5em;
+}
+
+.criticalInfo p {
+    margin-bottom: 0.5em;
 }
 
 p.category, .criticalInfo p {
     font-size: 1rem;
+    padding-right: 0;
+    padding-bottom: 0.2em;
+    line-height: 1.25em;
+}
+
+.criticalInfo div {
+    display: inline-block;
+    width: 50%;
+}
+
+.criticalInfo .cI:nth-child(1) {
+    float: right;
 }
