@@ -447,7 +447,7 @@ p.category {
     margin-bottom: 0.5em;
 }
 
-p.category, .criticalInfo p {
+p.category, .criticalInfo p, .resolutions p {
     font-size: 1rem;
     padding-right: 0;
     padding-bottom: 0.2em;
@@ -461,4 +461,31 @@ p.category, .criticalInfo p {
 
 .criticalInfo .cI:nth-child(2) {
     float: right;
+}
+
+.criticalInfo {
+    margin-bottom: 1rem;
+}
+
+.resBtn {
+    display: inline-block;
+    padding: 0.5rem;
+    background-color: #7a7a7a;
+    border-radius: 0.5rem;
+    width: 4rem;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.resBtn.active {
+    background-color: #3f3f3f;
+}
+
+.resBtn p {
+    padding: 0;
+}
+
+.autoResLive {
+    display: inline-block;
 }

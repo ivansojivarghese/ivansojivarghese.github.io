@@ -12,7 +12,9 @@ var videoInfoElm = {
   date : document.querySelector("#infoContainer p.date"),
   duration : document.querySelector("#infoContainer p.duration"),
   likes : document.querySelector("#infoContainer p.likes"),
-  views : document.querySelector("#infoContainer p.views")
+  views : document.querySelector("#infoContainer p.views"),
+
+  autoResLive : document.querySelector("#infoContainer p.autoResLive")
 };
     
 var videoDetails;
