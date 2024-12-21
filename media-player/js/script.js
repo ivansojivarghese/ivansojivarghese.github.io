@@ -1193,6 +1193,8 @@
       }
     });
 
+    var videoInfoOpen = false;
+
     function openVideoInfo() {
       // event.stopPropagation();
 
@@ -1203,6 +1205,8 @@
           getScreenLock();
           pipEnabled = true;
           backgroundPlayManual = false;
+
+          videoInfoOpen = true;
         });
       }
     }
@@ -1218,6 +1222,8 @@
           backgroundPlayManual = true;
         }
         releaseScreenLock(screenLock);
+
+        videoInfoOpen = false;
       });
     }
 
@@ -4138,7 +4144,7 @@
             }
             backgroundPlay = false;
           }
-          if (!video.paused) {
+          if (!video.paused && !videoInfoOpen) {
               getScreenLock();
               document.exitPictureInPicture().then(function() {
                 pipEnabled = false;
