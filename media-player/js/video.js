@@ -1524,7 +1524,12 @@ function getMediaSources(sources) {
 function abstractVideoInfo() {
   videoInfoElm.videoTitle.innerHTML = '<a href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
   videoInfoElm.channelTitle2.innerHTML = videoDetails.channelTitle;
-  videoInfoElm.category.innerHTML = videoDetails.category;
+  if (videoDetails.category) {
+    videoInfoElm.category.style.display = "block";
+    videoInfoElm.category.innerHTML = videoDetails.category;
+  } else {
+    videoInfoElm.category.style.display = "none";
+  }
 }
 
 if (videoLoadLoop === null) {
