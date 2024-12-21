@@ -4,6 +4,8 @@ var videoInfoElm = {
   title : document.querySelector("#videoInfo h5"),
   channelTitle : document.querySelector("#videoInfo p"),
 
+  info : document.querySelector("#infoContainer"),
+
   videoTitle : document.querySelector("#infoContainer h5.videoTitle"),
   channelTitle2 : document.querySelector("#infoContainer p.channelTitle"),
   category : document.querySelector("#infoContainer p.category"),

@@ -1193,14 +1193,14 @@
       }
     });
 
-    function openVideoInfo(event) {
-      event.stopPropagation();
+    function openVideoInfo() {
+      // event.stopPropagation();
 
-      videoInfoElm.main.style.transform = "none";
+      videoInfoElm.info.style.transform = "none";
     }
 
     function closeVideoInfo() {
-      videoInfoElm.main.style.transform = "";
+      videoInfoElm.info.style.transform = "";
     }
 
     function secondsToTimeCode(seconds) {
