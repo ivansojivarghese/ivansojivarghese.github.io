@@ -520,6 +520,17 @@ p.autoResLive {
     display: flex;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 1rem;
+}
+
+.otherRes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.otherResBtn {
+    margin-bottom: 1rem;
 }
 
 p.duration {
