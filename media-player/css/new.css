@@ -508,3 +508,7 @@ p.category, .criticalInfo p, .resolutions p {
 .autoResLive {
     display: inline-block;
 }
+
+p.duration {
+    letter-spacing: 0.1rem;
+}

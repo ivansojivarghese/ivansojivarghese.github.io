@@ -1005,7 +1005,7 @@
     }
 
     videoControls.addEventListener('click', function(event) {
-      if (interactiveType === "touch" || interactiveType === "pen") {
+      if ((interactiveType === "touch" || interactiveType === "pen") && !event.target.classList.contains("no-tap")) {
         clearTimeout(controlsHideInt);
         controlsHideInt = null;
         if (videoControls.classList.contains('visible') && !seeking && !seekingLoad && !video.paused && !loading) {
@@ -1044,7 +1044,7 @@
             }, 3000); // hide controls after 3 sec. if no activity
           }
         }
-      } else if (event.target === videoControls) {
+      } else if (event.target === videoControls && interactiveType === "mouse") {
         if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
 
           video.play().then(function () {
