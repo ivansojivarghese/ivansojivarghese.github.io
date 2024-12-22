@@ -1616,6 +1616,7 @@ function abstractVideoInfo() {
     var p = document.createElement("p");
 
     d.classList.add("resBtn", "trs");
+    p.innerHTML = supportedVideoSources[j].qualityLabel;
     d.appendChild(p);
 
     videoInfoElm.otherRes.appendChild(d);
