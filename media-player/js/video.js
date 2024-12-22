@@ -1327,13 +1327,15 @@ function getOptimalVideo(time) {
 
   (async function checkSupports() {
     for (j = 0; j < videoSources.length - 1; j++) { // CHECK FOR SUPPORTED video SOURCES
-      await sourceCheck(j, true);
+      // await sourceCheck(j, true);
+      sourceCheck(j, true);
     }
   })();
 
   (async function checkSupports() {
     for (j = 0; j < audioSources.length - 1; j++) { // CHECK FOR SUPPORTED audio SOURCES
-      await sourceCheck(j, false);
+      // await sourceCheck(j, false);
+      sourceCheck(j, false);
     }
   })();
 

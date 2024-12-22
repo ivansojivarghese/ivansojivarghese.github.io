@@ -1218,7 +1218,7 @@
     function openVideoInfo() {
       // event.stopPropagation();
 
-      if (videoControls.classList.contains('visible') && !loading) {
+      if (videoControls.classList.contains('visible') && (!loading || initialVideoLoad)) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
 
