@@ -561,3 +561,7 @@ p.duration {
     border-radius: 2rem;
     padding: 1rem;
 }
+
+.description p {
+    line-height: 1.75em;
+}
