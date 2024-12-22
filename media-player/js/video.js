@@ -290,7 +290,7 @@ function replaceSingleWithDoubleQuotes(str) {
 function checkDuplicateQuality(arr, q) {
   var res = false;
   for (var i = 0; i < arr.length; i++) {
-    if (arr[i].qualityLabel === q) {
+    if (arr[i].qualityLabel.indexOf(q) !== -1) {
       res = true;
       break;
     }
@@ -1639,7 +1639,7 @@ function abstractVideoInfo() {
         var label = qualityLabel(event.currentTarget.children[0].innerHTML);
         var index = 0;
         for (var b = 0; b < supportedVideoSources.length; b++) {
-          if (label === supportedVideoSources[b].qualityLabel) {
+          if (label.indexOf(supportedVideoSources[b].qualityLabel) !== -1) {
             index = b;
             break;
           }

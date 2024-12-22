@@ -499,7 +499,7 @@ p.category, .criticalInfo p, .resolutions p {
     padding: 0.5rem;
     background-color: #3f3f3f;
     border-radius: 0.5rem;
-    width: 4rem;
+    width: 5rem;
     text-align: center;
     font-weight: bold;
     margin-right: 1.25rem;
@@ -509,7 +509,7 @@ p.category, .criticalInfo p, .resolutions p {
     background-color: #606060;
 }
 
-.resBtn p, .keywords p {
+.resBtn p, .keywords p, .description p {
     padding: 0;
     font-size: 1rem;
     line-height: 1.25rem;

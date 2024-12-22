@@ -3032,9 +3032,9 @@
     }
 
     function qualityLabel(q) {
-      if (q === "1440p") {
+      if (q.indexOf("1440p") !== -1) {
         return "2K";
-      } else if (q === "2160p") {
+      } else if (q.indexOf("2160p") !== -1) {
         return "4K";
       } else if (q === "2K") {
         return "1440p";
