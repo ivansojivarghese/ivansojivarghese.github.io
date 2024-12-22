@@ -1634,7 +1634,7 @@ function abstractVideoInfo() {
         var label = qualityLabel(event.currentTarget.children[0].innerHTML);
         var index = 0;
         for (var b = 0; b < supportedVideoSources.length; b++) {
-          if (label === supportedVideoSources[b]) {
+          if (label === supportedVideoSources[b].qualityLabel) {
             index = b;
             break;
           }
