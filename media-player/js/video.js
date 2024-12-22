@@ -1628,47 +1628,49 @@ function abstractVideoInfo() {
     p.innerHTML = qualityLabel(supportedVideoSources[j].qualityLabel);
 
     d.addEventListener("click", function(event) {
-      autoRes = false;
+      if (!event.currentTarget.classList.contains("active")) {
+        autoRes = false;
 
-      var label = qualityLabel(event.currentTarget.children[0].innerHTML);
-      var index = 0;
-      for (var b = 0; b < supportedVideoSources.length; b++) {
-        if (label === supportedVideoSources[b]) {
-          index = b;
-          break;
+        var label = qualityLabel(event.currentTarget.children[0].innerHTML);
+        var index = 0;
+        for (var b = 0; b < supportedVideoSources.length; b++) {
+          if (label === supportedVideoSources[b]) {
+            index = b;
+            break;
+          }
         }
-      }
 
-      targetVideo = supportedVideoSources[index];
-      targetVideoIndex = index;
+        targetVideo = supportedVideoSources[index];
+        targetVideoIndex = index;
 
-      refSeekTime = video.currentTime;
+        refSeekTime = video.currentTime;
 
-      qualityBestChange = true;
-      qualityChange = true;
-      bufferAllow = false;
+        qualityBestChange = true;
+        qualityChange = true;
+        bufferAllow = false;
 
-      video.pause();
-      audio.pause(); // pause content
+        video.pause();
+        audio.pause(); // pause content
 
-      console.log("load set");
-      video.src = targetVideo.url; // 'loadstart'
+        console.log("load set");
+        video.src = targetVideo.url; // 'loadstart'
 
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.ready.then((registration) => {
-          registration.active.postMessage({
-            type: 'SET_VIDEO_URL',
-            url: targetVideo.url, // Pass the extracted URL
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then((registration) => {
+            registration.active.postMessage({
+              type: 'SET_VIDEO_URL',
+              url: targetVideo.url, // Pass the extracted URL
+            });
           });
-        });
+        }
+
+        videoInfoElm.autoResLive.innerHTML = "";
+        var activeBtn = document.querySelector(".autoResBtn.active") || document.querySelector(".otherResBtn.active");
+        activeBtn.classList.remove("active");
+        d.classList.add("active");
+
+        localStorage.setItem('videoURL', video.src); // Set URL to memory state
       }
-
-      videoInfoElm.autoResLive.innerHTML = "";
-      var activeBtn = document.querySelector(".autoResBtn.active") || document.querySelector(".otherResBtn.active");
-      activeBtn.classList.remove("active");
-      d.classList.add("active");
-
-      localStorage.setItem('videoURL', video.src); // Set URL to memory state
     });
 
     d.appendChild(p);
