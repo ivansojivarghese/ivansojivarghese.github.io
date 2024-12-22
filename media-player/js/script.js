@@ -1212,19 +1212,19 @@
 
       if (videoControls.classList.contains('visible') && !loading) {
         videoInfoElm.info.style.transform = "none";
+        videoInfoOpen = true;
 
         video.requestPictureInPicture().then(function() {
           getScreenLock();
           pipEnabled = true;
           backgroundPlayManual = false;
-
-          videoInfoOpen = true;
         });
       }
     }
 
     function closeVideoInfo() {
       videoInfoElm.info.style.transform = "";
+      videoInfoOpen = false;
 
       document.exitPictureInPicture().then(function() {
         pipEnabled = false;
@@ -1234,8 +1234,6 @@
           backgroundPlayManual = true;
         }
         releaseScreenLock(screenLock);
-
-        videoInfoOpen = false;
       });
     }
 
