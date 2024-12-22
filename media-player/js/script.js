@@ -395,10 +395,10 @@
       } else if (videoErr || audioErr) {
         // video.load();
 
-        if (failTimes < maxFailTimes) {
+        // if (failTimes < maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
-        }
+        // }
       }
     });
 
