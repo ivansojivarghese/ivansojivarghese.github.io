@@ -393,11 +393,13 @@
           // }
         }
       } else if (videoErr || audioErr) {
-        // video.load();
+        video.load();
+        video.currentTime = refSeekTime;
 
+        if (failTimes === maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
-
+        }
       }
     });
 
