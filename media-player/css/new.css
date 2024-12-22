@@ -132,11 +132,11 @@ div.replay:active, .autoResBtn:active {
     width: 1.25rem;
     height: 1.25rem;
     border-radius: 50%;
-    background-color: #7a7a7a;
+    background-color: #3f3f3f;
 }
 
 .replay.active {
-    background-color: #3f3f3f;
+    background-color: #606060;
 }
 
 .replay .img {
@@ -492,7 +492,7 @@ p.category, .criticalInfo p, .resolutions p {
 
 .resBtn {
     padding: 0.5rem;
-    background-color: #7a7a7a;
+    background-color: #3f3f3f;
     border-radius: 0.5rem;
     width: 4rem;
     text-align: center;
@@ -501,7 +501,7 @@ p.category, .criticalInfo p, .resolutions p {
 }
 
 .resBtn.active {
-    background-color: #3f3f3f;
+    background-color: #606060;
 }
 
 .resBtn p {
