@@ -184,9 +184,9 @@
                 clearInterval(videoLoadLoop);
                 videoLoadLoop = null;
 
-                if (failTimes < maxFailTimes) {
+                // if (failTimes < maxFailTimes) {
                   getParams(videoID, timestamp);
-                }
+                // }
               }
 
             }, 100);

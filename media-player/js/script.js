@@ -2177,7 +2177,7 @@
 
       // UI
 
-      if (audio.error.code /*&& backgroundPlay*/) {
+      if (audio.error.code && failTimes < maxFailTimes /*&& backgroundPlay*/) {
         audio.load();
         audio.currentTime = video.currentTime;
 
@@ -2282,11 +2282,10 @@
 
       // UI
 
-      if (video.error.code && !backgroundPlay) {
+      if (video.error.code && !backgroundPlay && failTimes < maxFailTimes) {
         video.load();
         video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
-
 /*
         if (failTimes < maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
