@@ -122,11 +122,10 @@ video.seeking {
 }
 
 .replay {
-    display: inline-block;
     padding: 0.5rem;
     margin-right: 1rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
     border-radius: 50%;
     background-color: #7a7a7a;
 }
@@ -136,8 +135,8 @@ video.seeking {
 }
 
 .replay .img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 .controlButton {
@@ -487,7 +486,6 @@ p.category, .criticalInfo p, .resolutions p {
 }
 
 .resBtn {
-    display: inline-block;
     padding: 0.5rem;
     background-color: #7a7a7a;
     border-radius: 0.5rem;
@@ -505,8 +503,10 @@ p.category, .criticalInfo p, .resolutions p {
     padding: 0;
 }
 
-.autoResLive {
-    display: inline-block;
+.autoRes {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
 p.duration {
