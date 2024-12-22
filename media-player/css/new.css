@@ -81,7 +81,7 @@ video.seeking {
     transform: scale(0.8);
 }
 
-div.replay:active, .autoResBtn:active, div.cast:active {
+div.replay:active, .resBtn:active, div.cast:active {
     transform: scale(0.9);
 }
 
@@ -520,7 +520,7 @@ p.autoResLive {
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .otherRes {
@@ -531,6 +531,7 @@ p.autoResLive {
 
 .otherResBtn {
     margin-bottom: 1rem;
+    margin-right: 1rem;
 }
 
 p.duration {
