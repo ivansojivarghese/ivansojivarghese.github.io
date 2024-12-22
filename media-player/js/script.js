@@ -1257,6 +1257,15 @@
       }
     }
 
+    function autoResToggle() {
+      if (!autoRes) {
+        var activeBtn = document.querySelector(".autoResBtn.active") || document.querySelector(".otherResBtn.active");
+        activeBtn.classList.remove("active");
+        autoRes = true;
+        videoInfoElm.autoResBtn.classList.add("active");
+      }
+    }
+
     function secondsToTimeCode(seconds) {
       const h = Math.floor(seconds / 3600);
       const m = Math.floor((seconds % 3600) / 60);
