@@ -686,11 +686,13 @@ async function getParams(id, time) {
             // reset the loader
             setTimeout(function() {
               resetLoad();
-/*
+
+              /*
               if (failTimes < maxFailTimes) {
                 inp.value = videoURL || localStorage.getItem("mediaURL");
                 getURL();
               }*/
+             
             }, 10);
 
           }, 1000);

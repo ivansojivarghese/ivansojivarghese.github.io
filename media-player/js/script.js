@@ -2179,11 +2179,13 @@
 
       if (audio.error.code /*&& backgroundPlay*/) {
         audio.load();
+        audio.currentTime = video.currentTime;
 
+        /*
         if (failTimes < maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
-        }
+        }*/
 
       } else {
         playPauseButton.classList.remove('playing');
@@ -2281,14 +2283,15 @@
       // UI
 
       if (video.error.code && !backgroundPlay) {
-        // video.load();
-        // video.currentTime = refSeekTime;
+        video.load();
+        video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
 
+/*
         if (failTimes < maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
-        }
+        }*/
 
       } else {
         playPauseButton.classList.remove('playing');
