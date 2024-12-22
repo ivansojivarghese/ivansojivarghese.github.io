@@ -2904,7 +2904,7 @@
             });
           }
 
-          videoInfoElm.autoResLive.innerHTML = targetVideo.qualityLabel;
+          videoInfoElm.autoResLive.innerHTML = qualityLabel(targetVideo.qualityLabel);
 
           localStorage.setItem('videoURL', video.src); // Set URL to memory state
 
@@ -3006,7 +3006,7 @@
             });
           }
 
-          videoInfoElm.autoResLive.innerHTML = targetVideo.qualityLabel;
+          videoInfoElm.autoResLive.innerHTML = qualityLabel(targetVideo.qualityLabel);
 
           localStorage.setItem('videoURL', video.src); // Set URL to memory state
 
@@ -3017,6 +3017,16 @@
 
       } 
 
+    }
+
+    function qualityLabel(q) {
+      if (q === "1440p") {
+        return "2K";
+      } else if (q === "2160p") {
+        return "4K";
+      } else {
+        return q;
+      }
     }
 
     audio.addEventListener('playing', function() {

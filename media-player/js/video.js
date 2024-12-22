@@ -17,7 +17,9 @@ var videoInfoElm = {
   replay : document.querySelector("#infoContainer div.replay"),
 
   autoResBtn : document.querySelector("#infoContainer div.autoResBtn"),
-  autoResLive : document.querySelector("#infoContainer p.autoResLive")
+  autoResLive : document.querySelector("#infoContainer p.autoResLive"),
+
+  otherRes : document.querySelector("#infoContainer div.otherRes")
 };
     
 var videoDetails;
@@ -282,6 +284,17 @@ function replaceSingleWithDoubleQuotes(str) {
   return str.replace(/'vp9'/, '"vp9"');
 }
 
+function checkDuplicateQuality(arr, q) {
+  var res = false;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].qualityLabel === q) {
+      res = true;
+      break;
+    }
+  }
+  return res;
+}
+
 async function sourceCheck(i, m) {
   // var mime = replaceSingleWithDoubleQuotes(replaceDoubleQuotes(videoSources[i].mimeType));
   if (m) { // video
@@ -296,7 +309,7 @@ async function sourceCheck(i, m) {
       }
     };
     await navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
-      if ((result.supported && result.smooth && result.powerEfficient) || (result.supported && videoSources[i].height < videoHDmin) || (!result.supported && !result.smooth && !result.powerEfficient)) {
+      if (((result.supported && result.smooth && result.powerEfficient) || (result.supported && videoSources[i].height < videoHDmin) || (!result.supported && !result.smooth && !result.powerEfficient)) && !checkDuplicateQuality(supportedVideoSources, videoSources[i].qualityLabel)) {
         supportedVideoSources[supportedVideoSources.length] = videoSources[i];
       }
     });
@@ -692,7 +705,7 @@ async function getParams(id, time) {
                 inp.value = videoURL || localStorage.getItem("mediaURL");
                 getURL();
               }*/
-             
+
             }, 10);
 
           }, 1000);
@@ -1593,10 +1606,20 @@ function abstractVideoInfo() {
   if (!videoInfoElm.autoResBtn.classList.contains("active")) {
     videoInfoElm.autoResBtn.classList.add("active");
   }
-  videoInfoElm.autoResLive.innerHTML = targetVideo.qualityLabel;
+  videoInfoElm.autoResLive.innerHTML = qualityLabel(targetVideo.qualityLabel);
 
   videoLoop = false;
   videoInfoElm.replay.classList.remove("active");
+
+  for (var j = 0; j < supportedVideoSources.length; j++) {
+    var d = document.createElement("div");
+    var p = document.createElement("p");
+
+    d.classList.add("resBtn", "trs");
+    d.appendChild(p);
+
+    videoInfoElm.otherRes.appendChild(d);
+  }
 }
 
 if (videoLoadLoop === null) {
