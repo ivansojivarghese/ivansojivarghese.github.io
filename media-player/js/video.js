@@ -620,6 +620,26 @@ async function getParams(id, time) {
       playPauseButton.style.display = "none";
 
       showVideoControls();
+
+      // LIKES/VIEWS
+      // API: https://rapidapi.com/ytjar/api/yt-api/playground/apiendpoint_73b163c4-7ffa-4ed7-b2cc-0665a3415f0b
+      const urlMeta = 'https://yt-api.p.rapidapi.com/updated_metadata?id=' + videoID;
+      const optionsMeta = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+          'x-rapidapi-host': 'yt-api.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(urlMeta, optionsMeta);
+        metaDetails = await response.json();
+        console.log(metaDetails);
+
+      } catch (error) {
+        console.error(error);
+      }
       
       // REFERENCE: https://rapidapi.com/ytjar/api/ytstream-download-youtube-videos
 
@@ -812,26 +832,6 @@ async function getParams(id, time) {
         loading = false;
 
 
-      }
-
-      // LIKES/VIEWS
-      // API: https://rapidapi.com/ytjar/api/yt-api/playground/apiendpoint_73b163c4-7ffa-4ed7-b2cc-0665a3415f0b
-      const urlMeta = 'https://yt-api.p.rapidapi.com/updated_metadata?id=' + videoID;
-      const optionsMeta = {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
-          'x-rapidapi-host': 'yt-api.p.rapidapi.com'
-        }
-      };
-
-      try {
-        const response = await fetch(urlMeta, optionsMeta);
-        metaDetails = await response.json();
-        console.log(metaDetails);
-
-      } catch (error) {
-        console.error(error);
       }
 
       // SUBTITLES
