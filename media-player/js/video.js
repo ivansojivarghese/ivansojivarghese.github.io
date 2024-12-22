@@ -1611,6 +1611,13 @@ function abstractVideoInfo() {
   videoLoop = false;
   videoInfoElm.replay.classList.remove("active");
 
+  var otherResBtn = document.querySelectorAll(".otherResBtn");
+  if (otherResBtn.length) {
+    for (var k = 0; k < otherResBtn.length; k++) {
+      otherResBtn[k].remove();
+    }
+  }
+
   for (var j = 0; j < supportedVideoSources.length; j++) {
     var d = document.createElement("div");
     var p = document.createElement("p");
