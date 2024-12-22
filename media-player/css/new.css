@@ -562,6 +562,10 @@ p.duration {
     padding: 1rem;
 }
 
+.description {
+    margin-bottom: 1.5rem;
+}
+
 .description p {
     line-height: 1.75em;
 }
