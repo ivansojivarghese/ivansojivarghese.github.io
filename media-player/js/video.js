@@ -21,7 +21,8 @@ var videoInfoElm = {
 
   otherRes : document.querySelector("#infoContainer div.otherRes"),
 
-  keywords : document.querySelector("#infoContainer div.keywords")
+  keywords : document.querySelector("#infoContainer div.keywords"),
+  description : document.querySelector("#infoContainer div.description")
 };
     
 var videoDetails;
@@ -1696,10 +1697,17 @@ function abstractVideoInfo() {
     d.classList.add("keywordsBtn", "resBtn", "trs");
     p.innerHTML = videoDetails.keywords[b];
 
+    d.addEventListener("click", function(event) {
+      // ADD CODE TO DIRECTLY PERFORM A SEARCH BASED ON KEYWORD(S)
+
+    });
+
     d.appendChild(p);
 
     videoInfoElm.keywords.appendChild(d);
   }
+
+  videoInfoElm.description.innerHTML = videoDetails.description;
 }
 
 if (videoLoadLoop === null) {

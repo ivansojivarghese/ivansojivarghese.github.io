@@ -430,6 +430,7 @@ div.replay:active, .resBtn:not(.active):active, div.cast:active {
     background-color: #303030;
     color: #FFF;
     transform: translateX(100%);
+    overflow-y: auto;
 }
 
 #infoContainer .closeBtn {
@@ -510,6 +511,8 @@ p.category, .criticalInfo p, .resolutions p {
 
 .resBtn p, .keywords p {
     padding: 0;
+    font-size: 1rem;
+    line-height: 1.25rem;
 }
 
 p.autoResLive {
@@ -542,9 +545,18 @@ p.duration {
     margin-bottom: 1.5rem;
 }
 
+.keywords {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
 .keywordsBtn {
     margin-bottom: 1rem;
     margin-right: 1rem;
     font-weight: normal;
     width: auto;
+    border-radius: 2rem;
+    padding: 1rem;
 }
