@@ -3026,6 +3026,10 @@
         return "2K";
       } else if (q === "2160p") {
         return "4K";
+      } else if (q === "2K") {
+        return "1440p";
+      } else if (q === "4K") {
+        return "2160p";
       } else {
         return q;
       }

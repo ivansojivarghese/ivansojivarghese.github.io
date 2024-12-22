@@ -1627,10 +1627,17 @@ function abstractVideoInfo() {
     d.classList.add("otherResBtn", "resBtn", "trs");
     p.innerHTML = qualityLabel(supportedVideoSources[j].qualityLabel);
 
-    d.addEventListener("click", function() {
+    d.addEventListener("click", function(event) {
       autoRes = false;
 
-      var index = j;
+      var label = qualityLabel(event.currentTarget.innerHTML);
+      var index = 0;
+      for (var b = 0; b < supportedVideoSources.length; b++) {
+        if (label === supportedVideoSources[b]) {
+          index = b;
+          break;
+        }
+      }
 
       targetVideo = supportedVideoSources[index];
       targetVideoIndex = index;
