@@ -29,6 +29,7 @@ var videoDetails;
 var videoSubmit;
 
 var subDetails;
+var metaDetails;
 
 var videoSizeRatio = 0;
 
@@ -811,6 +812,26 @@ async function getParams(id, time) {
         loading = false;
 
 
+      }
+
+      // LIKES/VIEWS
+      // API: https://rapidapi.com/ytjar/api/yt-api/playground/apiendpoint_73b163c4-7ffa-4ed7-b2cc-0665a3415f0b
+      const urlMeta = 'https://yt-api.p.rapidapi.com/updated_metadata?id=' + videoID;
+      const optionsMeta = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+          'x-rapidapi-host': 'yt-api.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await fetch(urlMeta, optionsMeta);
+        metaDetails = await response.json();
+        console.log(metaDetails);
+
+      } catch (error) {
+        console.error(error);
       }
 
       // SUBTITLES
@@ -1605,10 +1626,12 @@ function abstractVideoInfo() {
     videoInfoElm.category.style.display = "none";
   } 
 
+  var likesTxt = (metaDetails.likeCount === 1) ? "like" : "likes";
+
   videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
-  // videoInfoElm.likes.innerHTML;
-  // videoInfoElm.views.innerHTML;
+  videoInfoElm.likes.innerHTML = metaDetails.likeCountText + likesTxt;
+  videoInfoElm.views.innerHTML = metaDetails.viewCountText;
 
   if (!videoInfoElm.autoResBtn.classList.contains("active")) {
     videoInfoElm.autoResBtn.classList.add("active");
@@ -1708,7 +1731,7 @@ function abstractVideoInfo() {
   }
 
   var vidDes = videoDetails.description;
-  var formattedText = vidDes.replace(/\n/g, '<br><br>');
+  var formattedText = vidDes.replace(/\n/g, '<br>');
 
   videoInfoElm.description.innerHTML = formattedText;
 }
