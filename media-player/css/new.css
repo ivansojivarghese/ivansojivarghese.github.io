@@ -508,6 +508,10 @@ p.category, .criticalInfo p, .resolutions p {
     padding: 0;
 }
 
+p.autoResLive {
+    padding-bottom: 0;
+}
+
 .autoRes {
     display: flex;
     align-items: center;
