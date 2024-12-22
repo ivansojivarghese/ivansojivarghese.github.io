@@ -81,7 +81,7 @@ video.seeking {
     transform: scale(0.8);
 }
 
-div.replay:active, .autoResBtn:active {
+div.replay:active, .autoResBtn:active, div.cast:active {
     transform: scale(0.9);
 }
 
@@ -126,7 +126,7 @@ div.replay:active, .autoResBtn:active {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/replay.svg");
 }
 
-.replay {
+.replay, .cast {
     padding: 0.5rem;
     margin-right: 1.5rem;
     width: 1.25rem;
@@ -135,13 +135,17 @@ div.replay:active, .autoResBtn:active {
     background-color: #3f3f3f;
 }
 
-.replay.active {
+.replay.active, .cast.active {
     background-color: #606060;
 }
 
-.replay .img {
+.replay .img, .cast .img {
     width: 1.25rem;
     height: 1.25rem;
+}
+
+.cast .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/cast.svg");
 }
 
 .controlButton {
