@@ -19,7 +19,9 @@ var videoInfoElm = {
   autoResBtn : document.querySelector("#infoContainer div.autoResBtn"),
   autoResLive : document.querySelector("#infoContainer p.autoResLive"),
 
-  otherRes : document.querySelector("#infoContainer div.otherRes")
+  otherRes : document.querySelector("#infoContainer div.otherRes"),
+
+  keywords : document.querySelector("#infoContainer div.keywords")
 };
     
 var videoDetails;
@@ -1678,6 +1680,25 @@ function abstractVideoInfo() {
     d.appendChild(p);
 
     videoInfoElm.otherRes.appendChild(d);
+  }
+
+  var keywordsBtn = document.querySelectorAll(".keywordsBtn");
+  if (keywordsBtn.length) {
+    for (var k = 0; k < keywordsBtn.length; k++) {
+      keywordsBtn[k].remove();
+    }
+  }
+
+  for (var b = 0; b < videoDetails.keywords.length; b++) {
+    var d = document.createElement("div");
+    var p = document.createElement("p");
+
+    d.classList.add("keywordsBtn", "resBtn", "trs");
+    p.innerHTML = videoDetails.keywords[b];
+
+    d.appendChild(p);
+
+    videoInfoElm.keywords.appendChild(d);
   }
 }
 

@@ -508,7 +508,7 @@ p.category, .criticalInfo p, .resolutions p {
     background-color: #606060;
 }
 
-.resBtn p {
+.resBtn p, .keywords p {
     padding: 0;
 }
 
@@ -542,3 +542,9 @@ p.duration {
     margin-bottom: 1.5rem;
 }
 
+.keywordsBtn {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    font-weight: normal;
+    width: auto;
+}
