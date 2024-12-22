@@ -68,6 +68,7 @@
 
     var videoErr = false,
         audioErr = false;
+    var playbackErr = false;
 
     var videoLoop = false;
 
@@ -587,6 +588,8 @@
 
         videoErr = false;
 
+        playbackErr = false;
+
         autoLoad = false;
 
         peekForward = false;
@@ -776,6 +779,8 @@
       // if (!networkError) {
 
           audioErr = false;
+
+          playbackErr = false;
 
           autoLoad = false;
 
@@ -2184,7 +2189,8 @@
 
         failTimes++;
 
-        if (failTimes === maxFailTimes) {
+        if (failTimes === maxFailTimes && !playbackErr) {
+          playbackErr = true;
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
         }
@@ -2291,12 +2297,13 @@
         video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
 
-        if (failTimes === maxFailTimes) {
+        if (failTimes === maxFailTimes && !playbackErr) {
+          playbackErr = true;
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
         }
 
-      } else {
+      } else { 
         playPauseButton.classList.remove('playing');
         playPauseButton.classList.add('repeat');
         playPauseButton.title = "Replay";
