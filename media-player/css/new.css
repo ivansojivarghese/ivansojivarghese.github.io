@@ -431,6 +431,7 @@ div.replay:active, .resBtn:not(.active):active, div.cast:active {
     color: #FFF;
     transform: translateX(100%);
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #infoContainer .closeBtn {

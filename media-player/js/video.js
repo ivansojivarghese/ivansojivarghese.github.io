@@ -1707,7 +1707,10 @@ function abstractVideoInfo() {
     videoInfoElm.keywords.appendChild(d);
   }
 
-  videoInfoElm.description.innerHTML = videoDetails.description;
+  var vidDes = videoDetails.description;
+  var formattedText = vidDes.replace(/\n/g, '<br><br>');
+
+  videoInfoElm.description.innerHTML = formattedText;
 }
 
 if (videoLoadLoop === null) {
