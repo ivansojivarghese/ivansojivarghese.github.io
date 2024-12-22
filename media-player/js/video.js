@@ -1630,7 +1630,7 @@ function abstractVideoInfo() {
     d.addEventListener("click", function(event) {
       autoRes = false;
 
-      var label = qualityLabel(event.currentTarget.innerHTML);
+      var label = qualityLabel(event.currentTarget.children[0].innerHTML);
       var index = 0;
       for (var b = 0; b < supportedVideoSources.length; b++) {
         if (label === supportedVideoSources[b]) {
