@@ -1261,6 +1261,7 @@
       if (!autoRes) {
         var activeBtn = document.querySelector(".autoResBtn.active") || document.querySelector(".otherResBtn.active");
         activeBtn.classList.remove("active");
+        videoInfoElm.autoResLive.innerHTML = qualityLabel(targetVideo.qualityLabel);
         autoRes = true;
         videoInfoElm.autoResBtn.classList.add("active");
       }
