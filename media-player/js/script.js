@@ -395,10 +395,9 @@
       } else if (videoErr || audioErr) {
         // video.load();
 
-        // if (failTimes < maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
-        // }
+
       }
     });
 
@@ -2183,11 +2182,10 @@
 
         failTimes++;
 
-        /*
-        if (failTimes < maxFailTimes) {
+        if (failTimes === maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
-        }*/
+        }
 
       } else {
         playPauseButton.classList.remove('playing');
@@ -2286,15 +2284,15 @@
 
       if (video.error.code && !backgroundPlay && failTimes < maxFailTimes) {
         failTimes++;
-        
+
         video.load();
         video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
-/*
-        if (failTimes < maxFailTimes) {
+
+        if (failTimes === maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
-        }*/
+        }
 
       } else {
         playPauseButton.classList.remove('playing');
