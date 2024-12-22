@@ -1626,7 +1626,7 @@ function abstractVideoInfo() {
     videoInfoElm.category.style.display = "none";
   } 
 
-  var likesTxt = (metaDetails.likeCount === 1) ? "like" : "likes";
+  var likesTxt = (metaDetails.likeCount === 1) ? " like" : " likes";
 
   videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
