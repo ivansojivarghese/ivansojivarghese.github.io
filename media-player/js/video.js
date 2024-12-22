@@ -1667,7 +1667,7 @@ function abstractVideoInfo() {
         videoInfoElm.autoResLive.innerHTML = "";
         var activeBtn = document.querySelector(".autoResBtn.active") || document.querySelector(".otherResBtn.active");
         activeBtn.classList.remove("active");
-        d.classList.add("active");
+        event.currentTarget.classList.add("active");
 
         localStorage.setItem('videoURL', video.src); // Set URL to memory state
       }
