@@ -69,6 +69,8 @@
     var videoErr = false,
         audioErr = false;
 
+    var videoLoop = false;
+
     var appUnload = false;
 
     var autoLoad = false;
@@ -830,6 +832,11 @@
           audio.pause();
           showVideoControls();
           releaseScreenLock(screenLock);
+
+          if (videoLoop) {
+            video.currentTime = 0;
+            audio.currentTime = 0;
+          }
         }
       });
 
@@ -867,6 +874,11 @@
       audio.pause();
       showVideoControls();
       releaseScreenLock(screenLock);
+
+      if (videoLoop) {
+        video.currentTime = 0;
+        audio.currentTime = 0;
+      }
   });
 
     videoControls.addEventListener("mousemove", function(event) {
@@ -1225,6 +1237,16 @@
 
         videoInfoOpen = false;
       });
+    }
+
+    function loopVideoToggle() {
+      if (!videoLoop) {
+        videoLoop = true;
+        videoInfoElm.replay.classList.add("active");
+      } else {
+        videoLoop = false;
+        videoInfoElm.replay.classList.remove("active");
+      }
     }
 
     function secondsToTimeCode(seconds) {

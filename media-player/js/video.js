@@ -14,6 +14,8 @@ var videoInfoElm = {
   likes : document.querySelector("#infoContainer p.likes"),
   views : document.querySelector("#infoContainer p.views"),
 
+  replay : document.querySelector("#infoContainer div.replay"),
+
   autoResBtn : document.querySelector("#infoContainer div.autoResBtn"),
   autoResLive : document.querySelector("#infoContainer p.autoResLive")
 };
@@ -742,6 +744,7 @@ async function getParams(id, time) {
               derActivityScoreData = {};
 
               failTimes = 0;
+              videoLoop = false;
 
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;
@@ -1589,6 +1592,9 @@ function abstractVideoInfo() {
     videoInfoElm.autoResBtn.classList.add("active");
   }
   videoInfoElm.autoResLive.innerHTML = targetVideo.qualityLabel;
+
+  videoLoop = false;
+  videoInfoElm.replay.classList.remove("active");
 }
 
 if (videoLoadLoop === null) {
