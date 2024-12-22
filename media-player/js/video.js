@@ -309,7 +309,7 @@ async function sourceCheck(i, m) {
       }
     };
     await navigator.mediaCapabilities.decodingInfo(videoConfiguration).then((result) => {
-      if (((result.supported && result.smooth && result.powerEfficient) || (result.supported && videoSources[i].height < videoHDmin) || (!result.supported && !result.smooth && !result.powerEfficient)) && !checkDuplicateQuality(supportedVideoSources, videoSources[i].qualityLabel)) {
+      if (((result.supported && result.smooth && result.powerEfficient) || (result.supported && videoSources[i].height < videoHDmin) || (!result.supported && !result.smooth && !result.powerEfficient) || true) && !checkDuplicateQuality(supportedVideoSources, videoSources[i].qualityLabel)) {
         supportedVideoSources[supportedVideoSources.length] = videoSources[i];
       }
     });
