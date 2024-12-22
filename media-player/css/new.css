@@ -77,9 +77,14 @@ video.seeking {
     /*background-color: transparent;*/
 }
 
-#videoControls.visible_ready .trsButtons:active .img, div.replay, .autoResBtn {
+#videoControls.visible_ready .trsButtons:active .img {
     transform: scale(0.8);
 }
+
+div.replay:active, .autoResBtn:active {
+    transform: scale(0.9);
+}
+
 /*
 #videoControls .trsButtons {
     cursor: pointer;
