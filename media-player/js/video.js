@@ -761,6 +761,8 @@ async function getParams(id, time) {
               failTimes = 0;
               videoLoop = false;
 
+              autoRes = true;
+
               // COULD CHANGE | UNDETERMINED (TBA)
               priorityQuality = 0;
               targetQuality = 0;
