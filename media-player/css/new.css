@@ -81,7 +81,7 @@ video.seeking {
     transform: scale(0.8);
 }
 
-div.replay:active, .resBtn:active, div.cast:active {
+div.replay:active, .resBtn:not(.active):active, div.cast:active {
     transform: scale(0.9);
 }
 

@@ -1624,6 +1624,44 @@ function abstractVideoInfo() {
 
     d.classList.add("otherResBtn", "resBtn", "trs");
     p.innerHTML = qualityLabel(supportedVideoSources[j].qualityLabel);
+
+    d.addEventListener("click", function() {
+      autoRes = false;
+
+      var index = j;
+
+      targetVideo = supportedVideoSources[index];
+      targetVideoIndex = index;
+
+      refSeekTime = video.currentTime;
+
+      qualityBestChange = true;
+      qualityChange = true;
+      bufferAllow = false;
+
+      video.pause();
+      audio.pause(); // pause content
+
+      console.log("load set");
+      video.src = targetVideo.url; // 'loadstart'
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.ready.then((registration) => {
+          registration.active.postMessage({
+            type: 'SET_VIDEO_URL',
+            url: targetVideo.url, // Pass the extracted URL
+          });
+        });
+      }
+
+      videoInfoElm.autoResLive.innerHTML = "";
+      var activeBtn = document.querySelector(".autoResBtn.active") || document.querySelector(".otherResBtn.active");
+      activeBtn.classList.remove("active");
+      d.classList.add("active");
+
+      localStorage.setItem('videoURL', video.src); // Set URL to memory state
+    });
+
     d.appendChild(p);
 
     videoInfoElm.otherRes.appendChild(d);

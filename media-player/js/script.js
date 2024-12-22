@@ -70,6 +70,8 @@
         audioErr = false;
     var playbackErr = false;
 
+    var autoRes = true;
+
     var videoLoop = false;
 
     var appUnload = false;
@@ -2841,7 +2843,7 @@
       
       console.log("tQ : " + targetQuality + ", nTQ: " + newTargetQuality);
 
-      if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad)))) {
+      if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && autoRes) {
 
         if (newTargetQuality === targetQuality) { // if same quality rating as previous
 
@@ -2958,7 +2960,7 @@
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
-      if (((p <= 0 && (typeof downlinkVariability.standardDeviation === undefined || (typeof downlinkVariability.standardDeviation !== undefined && downlinkVariability.standardDeviation < 4)) && ((newTargetQuality < targetQuality) || (newIndex > targetVideoIndex))) || (p > 0 && ((newTargetQuality > targetQuality) || (newIndex < targetVideoIndex)))) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && !backgroundPlay && !qualityBestChange && !qualityChange && !preventQualityChange) { // if same quality rating as previous
+      if (((p <= 0 && (typeof downlinkVariability.standardDeviation === undefined || (typeof downlinkVariability.standardDeviation !== undefined && downlinkVariability.standardDeviation < 4)) && ((newTargetQuality < targetQuality) || (newIndex > targetVideoIndex))) || (p > 0 && ((newTargetQuality > targetQuality) || (newIndex < targetVideoIndex)))) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && !backgroundPlay && !qualityBestChange && !qualityChange && !preventQualityChange && autoRes) { // if same quality rating as previous
         
         targetVideo = null;
 
