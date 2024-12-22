@@ -1214,11 +1214,13 @@
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
 
-        video.requestPictureInPicture().then(function() {
-          getScreenLock();
-          pipEnabled = true;
-          backgroundPlayManual = false;
-        });
+        if (!videoEnd && !video.paused) {
+          video.requestPictureInPicture().then(function() {
+            getScreenLock();
+            pipEnabled = true;
+            backgroundPlayManual = false;
+          });
+        }
       }
     }
 
