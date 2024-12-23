@@ -299,6 +299,13 @@ function checkDuplicateQuality(arr, q) {
   return res;
 }
 
+// Usage example
+// const panel = document.getElementById("myPanel");
+setupSwipeToClose(videoInfoElm.info, () => {
+  console.log("videoInfo closed!");
+  panel.style.display = "none"; // Or any close action you prefer
+}); 
+
 async function sourceCheck(i, m) {
   // var mime = replaceSingleWithDoubleQuotes(replaceDoubleQuotes(videoSources[i].mimeType));
   if (m) { // video
