@@ -546,6 +546,7 @@ p.autoResLive {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 2.5rem;
 }
 
 p.duration {
