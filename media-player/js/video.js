@@ -1664,12 +1664,12 @@ function abstractVideoInfo() {
   videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
 
-  if (meta.likes !== NaN) {
+  if (Number(meta.likes) !== NaN) {
     videoInfoElm.likes.innerHTML = meta.likes + likesTxt;
   } else {
     videoInfoElm.likes.style.display = "none";
   }
-  if (meta.views !== NaN) {
+  if (Number(meta.views) !== NaN) {
     videoInfoElm.views.innerHTML = meta.views + viewsTxt;
   } else {
     videoInfoElm.views.style.display = "none";
