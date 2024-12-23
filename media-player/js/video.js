@@ -1713,21 +1713,23 @@ function abstractVideoInfo() {
     }
   }
 
-  for (var b = 0; b < videoDetails.keywords.length; b++) {
-    var d = document.createElement("div");
-    var p = document.createElement("p");
+  if (videoDetails.keywords) {
+    for (var b = 0; b < videoDetails.keywords.length; b++) {
+      var d = document.createElement("div");
+      var p = document.createElement("p");
 
-    d.classList.add("keywordsBtn", "resBtn", "trs");
-    p.innerHTML = videoDetails.keywords[b];
+      d.classList.add("keywordsBtn", "resBtn", "trs");
+      p.innerHTML = videoDetails.keywords[b];
 
-    d.addEventListener("click", function(event) {
-      // ADD CODE TO DIRECTLY PERFORM A SEARCH BASED ON KEYWORD(S)
+      d.addEventListener("click", function(event) {
+        // ADD CODE TO DIRECTLY PERFORM A SEARCH BASED ON KEYWORD(S)
 
-    });
+      });
 
-    d.appendChild(p);
+      d.appendChild(p);
 
-    videoInfoElm.keywords.appendChild(d);
+      videoInfoElm.keywords.appendChild(d);
+    }
   }
 
   var vidDes = videoDetails.description;
