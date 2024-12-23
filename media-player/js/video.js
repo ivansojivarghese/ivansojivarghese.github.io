@@ -1626,12 +1626,39 @@ function abstractVideoInfo() {
     videoInfoElm.category.style.display = "none";
   } 
 
-  var likesTxt = (metaDetails.likeCount === 1) ? " like" : " likes";
+  function formatCounts(likes, views) {
+    // Helper function to format numbers
+    function formatNumber(num) {
+      if (num >= 1_000_000_000_000) return (num / 1_000_000_000_000).toFixed(1).replace(/\.0$/, '') + 'T+';
+      if (num >= 1_000_000_000) return (num / 1_000_000_000).toFixed(1).replace(/\.0$/, '') + 'B';
+      if (num >= 1_000_000) return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+      if (num >= 1_000) return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+      return num.toString();
+    }
+  
+    // Format likes and views
+    const formattedLikes = formatNumber(likes);
+    const formattedViews = formatNumber(views);
+  
+    // Return the formatted likes and views as an object
+    return {
+      likes: formattedLikes,
+      views: formattedViews
+    };
+  }
+  
+  // Example usage
+  const likes = Number(metaDetails.likeCount);
+  const views = Number(metaDetails.viewCount);
+  var meta = formatCounts(likes, views);
+  var likesTxt = (likes === 1) ? " like" : " likes";
+  var viewsTxt = (metaDetails.viewCountText.indexOf("watching now") !== -1) ? " watching now" : " views";
 
   videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
-  videoInfoElm.likes.innerHTML = metaDetails.likeCountText + likesTxt;
-  videoInfoElm.views.innerHTML = metaDetails.viewCountText;
+
+  videoInfoElm.likes.innerHTML = meta.likes + likesTxt;
+  videoInfoElm.views.innerHTML = meta.views + viewsTxt;
 
   if (!videoInfoElm.autoResBtn.classList.contains("active")) {
     videoInfoElm.autoResBtn.classList.add("active");
