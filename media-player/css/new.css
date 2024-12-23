@@ -432,6 +432,13 @@ div.replay:active, .resBtn:not(.active):active, div.cast:active {
     transform: translateX(100%);
     overflow-y: auto;
     overflow-x: hidden;
+    right: 0;
+}
+
+@media screen and (orientation: landscape) {
+    #infoContainer {
+        width: 50vw;
+    }
 }
 
 #infoContainer .closeBtn {

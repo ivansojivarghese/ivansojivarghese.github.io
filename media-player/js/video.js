@@ -1616,6 +1616,10 @@ function timeAgo(dateString) { // ISO8601 date string to human-readable string c
 
 
 function abstractVideoInfo() {
+
+  videoInfoElm.keywords.style.display = "block";
+  videoInfoElm.description.style.display = "block";
+
   videoInfoElm.videoTitle.innerHTML = '<a href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
   videoInfoElm.channelTitle2.innerHTML = videoDetails.channelTitle;
 
@@ -1758,13 +1762,17 @@ function abstractVideoInfo() {
       videoInfoElm.keywords.appendChild(d);
     }
   } else {
-    videoInfoElm.keywords.remove();
+    videoInfoElm.keywords.style.display = "none";
   }
 
   var vidDes = videoDetails.description;
   var formattedText = vidDes.replace(/\n/g, '<br>');
 
-  videoInfoElm.description.innerHTML = formattedText;
+  if (videoDetails.description) {
+    videoInfoElm.description.innerHTML = formattedText;
+  } else {
+    videoInfoElm.description.style.display = "none";
+  }
 }
 
 if (videoLoadLoop === null) {
