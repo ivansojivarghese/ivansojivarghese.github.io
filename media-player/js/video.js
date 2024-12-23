@@ -303,7 +303,7 @@ function checkDuplicateQuality(arr, q) {
 const panel = videoInfoElm.info;
 setupSwipeToClose(panel, () => {
   console.log("videoInfo closed!");
-  panel.style.display = "none"; // Or any close action you prefer
+  panel.style.transform = "none"; // Or any close action you prefer
 }); 
 
 async function sourceCheck(i, m) {
