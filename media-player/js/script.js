@@ -1214,6 +1214,7 @@
     });
 
     var videoInfoOpen = false;
+    var mainContent = document.querySelector("div.content");
 
     function openVideoInfo() {
       // event.stopPropagation();
@@ -1223,6 +1224,11 @@
       if (videoControls.classList.contains('visible') && (!loading || initialVideoLoad)) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
+
+        if (ori === "landscape-primary" || ori === "landscape-secondary") {
+          mainContent.style.backgroundColor = "#000";
+          videoContainer.style.opacity = 0.5;
+        }
 
         if (!videoEnd && !video.paused && (ori === "portrait-primary" || ori === "portrait-secondary")) {
           video.requestPictureInPicture().then(function() {
@@ -1237,6 +1243,13 @@
     function closeVideoInfo() {
       videoInfoElm.info.style.transform = "";
       videoInfoOpen = false;
+
+      var ori = screen.orientation.type;
+
+      if (ori === "landscape-primary" || ori === "landscape-secondary") {
+        mainContent.style.backgroundColor = "";
+        videoContainer.style.opacity = 1;
+      }
 
       document.exitPictureInPicture().then(function() {
         pipEnabled = false;
