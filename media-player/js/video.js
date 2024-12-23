@@ -300,8 +300,8 @@ function checkDuplicateQuality(arr, q) {
 }
 
 // Usage example
-// const panel = document.getElementById("myPanel");
-setupSwipeToClose(videoInfoElm.info, () => {
+const panel = videoInfoElm.info;
+setupSwipeToClose(panel, () => {
   console.log("videoInfo closed!");
   panel.style.display = "none"; // Or any close action you prefer
 }); 
