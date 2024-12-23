@@ -437,7 +437,7 @@ div.replay:active, .resBtn:not(.active):active, div.cast:active {
 
 @media screen and (orientation: landscape) {
     #infoContainer {
-        width: 50vw;
+        width: 21rem;
     }
 }
 
