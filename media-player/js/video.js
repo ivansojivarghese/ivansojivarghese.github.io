@@ -1730,6 +1730,8 @@ function abstractVideoInfo() {
 
       videoInfoElm.keywords.appendChild(d);
     }
+  } else {
+    videoInfoElm.keywords.remove();
   }
 
   var vidDes = videoDetails.description;
