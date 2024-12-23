@@ -543,6 +543,9 @@ p.autoResLive {
 .otherResBtn {
     margin-bottom: 1rem;
     margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 p.duration {
@@ -567,6 +570,9 @@ p.duration {
     width: auto;
     border-radius: 2rem;
     padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .description {

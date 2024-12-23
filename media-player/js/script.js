@@ -3033,13 +3033,25 @@
 
     function qualityLabel(q) {
       if (q.indexOf("1440p") !== -1) {
-        return "2K";
+        if (q.indexOf("HDR") !== -1) {
+          return "2K HDR";
+        } else {
+          return "2K";
+        }
       } else if (q.indexOf("2160p") !== -1) {
-        return "4K";
+        if (q.indexOf("HDR") !== -1) {
+          return "4K HDR";
+        } else {
+          return "4K";
+        }
       } else if (q === "2K") {
         return "1440p";
+      } else if (q === "2K HDR") {
+        return "1440p HDR";
       } else if (q === "4K") {
         return "2160p";
+      } else if (q === "4K HDR") {
+        return "2160p HDR";
       } else {
         return q;
       }

@@ -1617,8 +1617,11 @@ function timeAgo(dateString) { // ISO8601 date string to human-readable string c
 
 function abstractVideoInfo() {
 
-  videoInfoElm.keywords.style.display = "block";
+  videoInfoElm.keywords.style.display = "flex";
   videoInfoElm.description.style.display = "block";
+
+  videoInfoElm.likes.style.display = "block";
+  videoInfoElm.views.style.display = "block";
 
   videoInfoElm.videoTitle.innerHTML = '<a href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
   videoInfoElm.channelTitle2.innerHTML = videoDetails.channelTitle;
@@ -1661,8 +1664,16 @@ function abstractVideoInfo() {
   videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
 
-  videoInfoElm.likes.innerHTML = meta.likes + likesTxt;
-  videoInfoElm.views.innerHTML = meta.views + viewsTxt;
+  if (meta.likes !== NaN) {
+    videoInfoElm.likes.innerHTML = meta.likes + likesTxt;
+  } else {
+    videoInfoElm.likes.style.display = "none";
+  }
+  if (meta.views !== NaN) {
+    videoInfoElm.views.innerHTML = meta.views + viewsTxt;
+  } else {
+    videoInfoElm.views.style.display = "none";
+  }
 
   if (!videoInfoElm.autoResBtn.classList.contains("active")) {
     videoInfoElm.autoResBtn.classList.add("active");
