@@ -1248,47 +1248,61 @@
     }
 
     function setupSwipeToClose(panelElement, onClose) {
-          let startX = 0;
-          let isSwiping = false;
-      
-          panelElement.addEventListener("touchstart", (event) => {
-              const touch = event.touches[0];
-              startX = touch.clientX;
-              isSwiping = true;
-          });
-      
-          panelElement.addEventListener("touchmove", (event) => {
-              if (!isSwiping) return;
-      
-              const touch = event.touches[0];
-              const deltaX = touch.clientX - startX;
-      
-              // Optionally, you can provide visual feedback like sliding the panel.
-              if (deltaX > 0) {
-                  panelElement.style.transform = `translateX(${deltaX}px)`;
-              }
-          });
-      
-          panelElement.addEventListener("touchend", (event) => {
-              if (!isSwiping) return;
+      let startX = 0;
+      let startY = 0;
+      let isSwiping = false;
+  
+      panelElement.addEventListener("touchstart", (event) => {
+          const touch = event.touches[0];
+          startX = touch.clientX;
+          startY = touch.clientY;
+          isSwiping = true;
+      });
+  
+      panelElement.addEventListener("touchmove", (event) => {
+          if (!isSwiping) return;
+  
+          const touch = event.touches[0];
+          const deltaX = touch.clientX - startX;
+          const deltaY = touch.clientY - startY;
+  
+          // Cancel swiping if the movement is more vertical than horizontal
+          if (Math.abs(deltaY) > Math.abs(deltaX)) {
               isSwiping = false;
-      
-              const touch = event.changedTouches[0];
-              const deltaX = touch.clientX - startX;
-      
-              // Consider it a swipe if the drag is significant (e.g., more than 100px).
-              if (deltaX > 100) {
-                  // Trigger the close action
-                  onClose();
-      
-                  // Reset the panel's style if you provided visual feedback
-                  panelElement.style.transform = "";
-              } else {
-                  // Reset the panel's position if it wasn't a swipe
-                  panelElement.style.transform = "";
-              }
-          });
-      }
+              return;
+          }
+  
+          // Provide visual feedback during horizontal swipe
+          if (deltaX > 0) {
+              panelElement.style.transform = `translateX(${deltaX}px)`;
+          }
+      });
+  
+      panelElement.addEventListener("touchend", (event) => {
+          if (!isSwiping) return;
+  
+          isSwiping = false;
+          const touch = event.changedTouches[0];
+          const deltaX = touch.clientX - startX;
+  
+          // Consider it a swipe if the drag is significant (e.g., more than 100px)
+          if (deltaX > 100) {
+              // Trigger the close action
+              onClose();
+  
+              // Reset the panel's style
+              panelElement.style.transform = "";
+          } else {
+              // Reset the panel's position if it wasn't a swipe
+              panelElement.style.transform = "";
+          }
+      });
+  
+      // Prevent closing when interacting with child elements
+      panelElement.addEventListener("click", (event) => {
+          event.stopPropagation();
+      });
+    }
 
     function loopVideoToggle() {
       if (!videoLoop) {
