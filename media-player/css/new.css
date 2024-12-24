@@ -208,6 +208,10 @@ video.seeking {
     height: 1.5rem;
 }
 
+#videoInfo a {
+    text-decoration: underline;
+}
+
 #videoInfo h5, #videoInfo p {
     white-space: nowrap;
     overflow: hidden;
@@ -231,6 +235,10 @@ video.seeking {
 
 a.url .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/open.svg");
+    width: 1.25rem;
+    height: 1.25rem;
+    position: relative;
+    top: 0.2rem;
 }
 
 #videoInfo .textStuff {
