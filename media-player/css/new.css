@@ -87,7 +87,7 @@ video.seeking {
     transform: scale(0.9);
 }
 
-.trsButtons:not(.active):active, .resBtn:not(.active):active {
+.trsButtons:not(.active):active, .resBtn:not(.active):active, .trsButtons.cursor:active {
     transform: scale(0.9);
 }
 
@@ -197,6 +197,10 @@ video.seeking {
     margin-left: calc(env(safe-area-inset-left));
     margin-right: calc(env(safe-area-inset-right));
     opacity: 1;
+}
+
+#videoInfo h5 {
+    height: 1.5rem;
 }
 
 #videoInfo h5, #videoInfo p {
