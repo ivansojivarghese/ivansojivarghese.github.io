@@ -1825,15 +1825,15 @@ function formatEmailLinks(text) {
   });
 }
 
-// Function to detect and link phone numbers
+// Function to detect and link valid international phone numbers
 function formatPhoneNumbers(text) {
-  // Regular expression to match phone numbers (basic pattern for various formats)
-  const phoneRegex = /(\+?[0-9]{1,3}[-.\s]?[0-9]{1,4}[-.\s]?[0-9]{1,4}[-.\s]?[0-9]{1,9})/g;
+  // Regular expression to match phone numbers starting with "+"
+  const phoneRegex = /(\+\d{1,3}[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9})/g;
 
   return text.replace(phoneRegex, (phone) => {
-    // Normalize the phone number to remove spaces/dots for the tel link
+    // Normalize the phone number by removing spaces/dots/dashes
     const normalizedPhone = phone.replace(/[-.\s]/g, '');
-    return `<a href="tel:${normalizedPhone}" class="phone-link trs">${phone}</a>`;
+    return `<a href="tel:${normalizedPhone}" class="phone-link">${phone}</a>`;
   });
 }
 
