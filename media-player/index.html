@@ -65,7 +65,7 @@
           </video> 
           <video class="secondary trs" preload="auto" disablePictureInPicture></video>
           <div id="videoControls" class="trs">
-              <div id="videoInfo" class="trs no-tap" onclick="openVideoInfo()">
+              <div id="videoInfo" class="trs no-tap trsButtons" onclick="openVideoInfo()">
                 <div class="textStuff">
                   <h5></h5>
                   <p></p>
@@ -127,7 +127,7 @@
           </div>
           <div id="infoContainer" class="trs">
             <div class="close">
-              <div class="closeBtn trsButtons" onclick="closeVideoInfo()">
+              <div class="closeBtn trsButtons" onclick="closeVideoInfo()" title="Close">
                 <div class="img"></div>
               </div>
             </div>
@@ -147,11 +147,11 @@
               </div>
               <div class="resolutions">
                 <div class="autoRes">
-                  <div class="replay trs trsButtons" onclick="loopVideoToggle()">
+                  <div class="replay trs trsButtons" onclick="loopVideoToggle()" title="Loop video">
                     <div class="img"></div>
                   </div>
   
-                  <div class="cast trs trsButtons" onclick="">
+                  <div class="cast trs trsButtons" onclick="" title="Cast">
                     <div class="img"></div>
                   </div>
   

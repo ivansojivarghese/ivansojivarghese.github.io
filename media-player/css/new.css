@@ -1,5 +1,5 @@
 
-.trsButtons, #videoInfo, .resBtn {
+.trsButtons:not(.active), .resBtn:not(.active) {
     cursor: pointer;
 }
 
