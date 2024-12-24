@@ -1795,20 +1795,31 @@ function abstractVideoInfo() {
     });    
   }
 
-  // Function to detect and replace URLs with a generic "Visit link"
-  function formatURLsToGenericLink(text) {
-    const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
-    return text.replace(urlRegex, () => {
-      return `<a href="${RegExp.lastMatch}" target="_blank" class="url">Link</a><br>`;
-    });
-  }
+  // Function to detect and format video timestamps
+function formatTimestamps(text) {
+  const timestampRegex = /\b(\d{1,2}:\d{2})(?::\d{2})?\b/g; // Matches timestamps like 1:23, 12:34, or 1:23:45
+  return text.replace(timestampRegex, (timestamp) => {
+    return `<span class="timestamp" data-time="${timestamp}">${timestamp}</span>`;
+  });
+}
 
-  // Combine with hashtag formatting
-  function formatDescription(text) {
-    const textWithHashtags = highlightHashtags(text); // Assuming this function exists for hashtags
-    const textWithGenericLinks = formatURLsToGenericLink(textWithHashtags);
-    return textWithGenericLinks;
-  }
+  // Function to detect and replace URLs with a generic "Visit link"
+function formatURLsToGenericLink(text) {
+  const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
+  return text.replace(urlRegex, (url) => {
+    // Use the matched URL directly
+    const clickableURL = url.startsWith('http') ? url : `http://${url}`;
+    return `<a href="${clickableURL}" target="_blank" class="url">Visit link</a>`;
+  });
+}
+
+  // Combine formatting for timestamps, URLs, and hashtags
+function formatDescription(text) {
+  const textWithTimestamps = formatTimestamps(text);
+  const textWithURLs = formatURLsToGenericLink(textWithTimestamps);
+  const textWithHashtags = highlightHashtags(textWithURLs); // Assuming highlightHashtags exists
+  return textWithHashtags;
+}
 
   var vidDes = videoDetails.description;
 
