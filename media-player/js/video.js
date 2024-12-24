@@ -371,7 +371,7 @@ async function getParams(id, time) {
 
   if (!networkError) {
 
-    videoInfoElm.main.style.opacity = 0;
+    // videoInfoElm.main.style.opacity = 0;
 
     let params = new URLSearchParams(document.location.search);
     var link = params.get("description"); 
@@ -1466,7 +1466,7 @@ function getOptimalVideo(time) {
         // abstract other info
         abstractVideoInfo();
 
-        videoInfoElm.main.style.opacity = 1;
+        // videoInfoElm.main.style.opacity = 1;
 
       }, 100);
     }
