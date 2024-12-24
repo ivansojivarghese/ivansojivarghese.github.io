@@ -1,6 +1,8 @@
 
-.trsButtons:not(.active), .resBtn:not(.active) {
-    cursor: pointer;
+@media screen and (pointer: fine) {
+    .trsButtons:not(.active), .resBtn:not(.active) {
+        cursor: pointer;
+    }
 }
 
 video {
