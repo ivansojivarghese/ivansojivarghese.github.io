@@ -1821,7 +1821,19 @@ function formatEmailLinks(text) {
 
   return text.replace(emailRegex, (email) => {
     // Wrap the email in a mailto link
-    return `<a href="mailto:${email}" class="email-link">${email}</a>`;
+    return `<a href="mailto:${email}" class="email-link trs">${email}</a>`;
+  });
+}
+
+// Function to detect and link phone numbers
+function formatPhoneNumbers(text) {
+  // Regular expression to match phone numbers (basic pattern for various formats)
+  const phoneRegex = /(\+?[0-9]{1,3}[-.\s]?[0-9]{1,4}[-.\s]?[0-9]{1,4}[-.\s]?[0-9]{1,9})/g;
+
+  return text.replace(phoneRegex, (phone) => {
+    // Normalize the phone number to remove spaces/dots for the tel link
+    const normalizedPhone = phone.replace(/[-.\s]/g, '');
+    return `<a href="tel:${normalizedPhone}" class="phone-link trs">${phone}</a>`;
   });
 }
 
@@ -1829,8 +1841,9 @@ function formatEmailLinks(text) {
 function formatDescription(text) {
   const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
   const textWithURLs = formatURLsToGenericLink(textWithTimestamps); // Assuming formatURLsToGenericLink exists
-  const textWithEmails = formatEmailLinks(textWithURLs);
-  const textWithHashtags = highlightHashtags(textWithEmails); // Assuming highlightHashtags exists
+  const textWithEmails = formatEmailLinks(textWithURLs); // Assuming formatEmailLinks exists
+  const textWithPhones = formatPhoneNumbers(textWithEmails);
+  const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
   return textWithHashtags;
 }
 
