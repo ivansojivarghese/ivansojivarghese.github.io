@@ -1838,6 +1838,7 @@ function formatDescription(text) {
         const timeParts = timestampElem.dataset.time.split(':').map(Number);
         const seconds = timeParts.reduce((acc, part) => acc * 60 + part, 0);
         video.currentTime = seconds; // Assuming `videoPlayer` references your video element
+        audio.currentTime = seconds;
       });
     });
 
