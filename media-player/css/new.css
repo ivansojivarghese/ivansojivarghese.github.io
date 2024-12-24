@@ -10,6 +10,10 @@
     font-weight: bold;
 } 
 
+.timestamp:hover {
+    opacity: 0.75;
+}
+
 video {
     will-change: filter;
     transition: filter ease-out .2s;

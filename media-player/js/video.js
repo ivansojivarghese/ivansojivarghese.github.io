@@ -1799,7 +1799,7 @@ function abstractVideoInfo() {
 function formatTimestamps(text) {
   const timestampRegex = /\b(\d{1,2}:\d{2})(?::\d{2})?\b/g; // Matches timestamps like 1:23, 12:34, or 1:23:45
   return text.replace(timestampRegex, (timestamp) => {
-    return `<span class="timestamp" data-time="${timestamp}">${timestamp}</span>`;
+    return `<span class="timestamp trs" data-time="${timestamp}">${timestamp}</span>`;
   });
 }
 
@@ -1810,7 +1810,7 @@ function formatURLsToGenericLink(text) {
   return text.replace(urlRegex, (url) => {
     // Use the matched URL directly
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
-    return `<a href="${clickableURL}" target="_blank" class="url"><div class="img"></div></a>`;
+    return `<a href="${clickableURL}" target="_blank" class="url trs"><div class="img"></div></a>`;
   });
 }
 
