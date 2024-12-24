@@ -211,10 +211,12 @@ video.seeking {
     font-weight: bold;
     padding-bottom: 0.4em;
     margin: 0;
+    padding-top: 0.2em;
 }
 
 #videoInfo p {
     padding-bottom: 0.2em;
+    padding-top: 0.1em;
 }
 
 #videoInfo .textStuff {
