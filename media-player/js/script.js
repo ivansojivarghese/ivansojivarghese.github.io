@@ -1295,61 +1295,65 @@
       let startX = 0;
       let startY = 0;
       let isSwiping = false;
-      let ori = screen.orientation.type;
+      let hasMoved = false; // Track if a significant movement occurred
+      const ori = screen.orientation.type;
   
       if (ori === "portrait-primary" || ori === "portrait-secondary") {
-        panelElement.addEventListener("touchstart", (event) => {
-            const touch = event.touches[0];
-            startX = touch.clientX;
-            startY = touch.clientY;
-            isSwiping = true;
-        });
-    
-        panelElement.addEventListener("touchmove", (event) => {
-            if (!isSwiping) return;
-    
-            const touch = event.touches[0];
-            const deltaX = touch.clientX - startX;
-            const deltaY = touch.clientY - startY;
-    
-            // Cancel swiping if the movement is more vertical than horizontal
-            if (Math.abs(deltaY) > Math.abs(deltaX)) {
-                isSwiping = false;
-                return;
-            }
-    
-            // Provide visual feedback during horizontal swipe
-            if (deltaX > 0) {
-                panelElement.style.transform = `translateX(${deltaX}px)`;
-            }
-        });
-    
-        panelElement.addEventListener("touchend", (event) => {
-            if (!isSwiping) return;
-    
-            isSwiping = false;
-            const touch = event.changedTouches[0];
-            const deltaX = touch.clientX - startX;
-    
-            // Consider it a swipe if the drag is significant (e.g., more than 100px)
-            if (deltaX > 100) {
-                // Trigger the close action
-                onClose();
-    
-                // Reset the panel's style
-                panelElement.style.transform = "";
-            } else {
-                // Reset the panel's position if it wasn't a swipe
-                panelElement.style.transform = "";
-            }
-        });
-    
-        // Prevent closing when interacting with child elements
-        panelElement.addEventListener("click", (event) => {
-            event.stopPropagation();
-        });
+          panelElement.addEventListener("touchstart", (event) => {
+              const touch = event.touches[0];
+              startX = touch.clientX;
+              startY = touch.clientY;
+              isSwiping = true;
+              hasMoved = false;
+          });
+  
+          panelElement.addEventListener("touchmove", (event) => {
+              if (!isSwiping) return;
+  
+              const touch = event.touches[0];
+              const deltaX = touch.clientX - startX;
+              const deltaY = touch.clientY - startY;
+  
+              // Cancel swiping if the movement is more vertical than horizontal
+              if (Math.abs(deltaY) > Math.abs(deltaX)) {
+                  isSwiping = false;
+                  return;
+              }
+  
+              // Mark as moved if significant horizontal movement occurs
+              if (Math.abs(deltaX) > 10) {
+                  hasMoved = true;
+                  panelElement.style.transform = `translateX(${deltaX}px)`;
+              }
+          });
+  
+          panelElement.addEventListener("touchend", (event) => {
+              if (!isSwiping || !hasMoved) {
+                  // Reset state if it was a simple tap
+                  isSwiping = false;
+                  panelElement.style.transform = "";
+                  return;
+              }
+  
+              const touch = event.changedTouches[0];
+              const deltaX = touch.clientX - startX;
+  
+              // Consider it a swipe if the drag is significant (e.g., more than 100px)
+              if (deltaX > 100) {
+                  onClose(); // Trigger the close action
+              }
+  
+              // Reset the panel's style
+              panelElement.style.transform = "";
+              isSwiping = false;
+          });
+  
+          // Prevent propagation of clicks inside the panel
+          panelElement.addEventListener("click", (event) => {
+              event.stopPropagation();
+          });
       }
-    }
+  }  
 
     function loopVideoToggle() {
       if (!videoLoop) {
