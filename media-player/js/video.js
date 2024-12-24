@@ -1631,7 +1631,7 @@ function abstractVideoInfo() {
   videoInfoElm.likes.style.display = "block";
   videoInfoElm.views.style.display = "block";
 
-  videoInfoElm.videoTitle.innerHTML = '<a href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
+  videoInfoElm.videoTitle.innerHTML = '<a class="trs" href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
   videoInfoElm.channelTitle2.innerHTML = videoDetails.channelTitle;
 
   if (videoDetails.category) {

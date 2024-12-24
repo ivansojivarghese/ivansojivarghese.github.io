@@ -1,4 +1,8 @@
 
+.trsButtons, #videoInfo, .resBtn {
+    cursor: pointer;
+}
+
 video {
     will-change: filter;
     transition: filter ease-out .2s;
