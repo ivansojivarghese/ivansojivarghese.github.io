@@ -1,6 +1,6 @@
 
 @media screen and (pointer: fine) {
-    .trsButtons:not(.active), .resBtn:not(.active) {
+    .trsButtons:not(.active), .resBtn:not(.active), .cursor {
         cursor: pointer;
     }
 }
@@ -84,11 +84,11 @@ video.seeking {
 }
 
 .trsButtons:not(.noimg):active .img {
-    transform: scale(0.8);
+    transform: scale(0.9);
 }
 
 .trsButtons:not(.active):active, .resBtn:not(.active):active {
-    transform: scale(0.8);
+    transform: scale(0.9);
 }
 
 /*
