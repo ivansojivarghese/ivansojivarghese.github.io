@@ -64,7 +64,6 @@
             <track src="" kind="subtitles" srclang="" label="" default>
           </video> 
           <video class="secondary trs" preload="auto" disablePictureInPicture></video>
-          
           <div id="videoControls" class="trs">
               <div id="videoInfo" class="trs no-tap" onclick="openVideoInfo()">
                 <div class="textStuff">
@@ -126,50 +125,50 @@
               <div id="videoLoadProgressBar"></div>
               <div id="videoBarPlaceholder"></div>
           </div>
-        </div>
-        <div id="infoContainer" class="trs">
-          <div class="close">
-            <div class="closeBtn" onclick="closeVideoInfo()">
-              <div class="img"></div>
+          <div id="infoContainer" class="trs">
+            <div class="close">
+              <div class="closeBtn" onclick="closeVideoInfo()">
+                <div class="img"></div>
+              </div>
             </div>
+            <div class="wrapper">
+              <h5 class="videoTitle"></h5>
+              <p class="channelTitle"></p>
+              <p class="category"></p>
+              <div class="criticalInfo">
+                <div class="cI">
+                  <p class="date"></p>
+                  <p class="duration"></p>
+                </div>
+                <div class="cI">
+                  <p class="likes"></p>
+                  <p class="views"></p>
+                </div>
+              </div>
+              <div class="resolutions">
+                <div class="autoRes">
+                  <div class="replay trs" onclick="loopVideoToggle()">
+                    <div class="img"></div>
+                  </div>
+  
+                  <div class="cast trs" onclick="">
+                    <div class="img"></div>
+                  </div>
+  
+                  <div class="autoResBtn resBtn trs" onclick="autoResToggle()">
+                    <p>AUTO</p>
+                  </div>
+                  <p class="autoResLive"></p>
+                </div>
+                <div class="otherRes"></div>
+              </div>
+              <div class="keywords"></div>
+              <div class="description">
+                <p></p>
+              </div>
+            </div>
+  
           </div>
-          <div class="wrapper">
-            <h5 class="videoTitle"></h5>
-            <p class="channelTitle"></p>
-            <p class="category"></p>
-            <div class="criticalInfo">
-              <div class="cI">
-                <p class="date"></p>
-                <p class="duration"></p>
-              </div>
-              <div class="cI">
-                <p class="likes"></p>
-                <p class="views"></p>
-              </div>
-            </div>
-            <div class="resolutions">
-              <div class="autoRes">
-                <div class="replay trs" onclick="loopVideoToggle()">
-                  <div class="img"></div>
-                </div>
-
-                <div class="cast trs" onclick="">
-                  <div class="img"></div>
-                </div>
-
-                <div class="autoResBtn resBtn trs" onclick="autoResToggle()">
-                  <p>AUTO</p>
-                </div>
-                <p class="autoResLive"></p>
-              </div>
-              <div class="otherRes"></div>
-            </div>
-            <div class="keywords"></div>
-            <div class="description">
-              <p></p>
-            </div>
-          </div>
-
         </div>
 
         <!-- 
