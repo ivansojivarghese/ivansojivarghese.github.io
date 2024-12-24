@@ -1799,7 +1799,7 @@ function abstractVideoInfo() {
   function formatURLsToGenericLink(text) {
     const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
     return text.replace(urlRegex, () => {
-      return `<a href="${RegExp.lastMatch}" target="_blank" class="url">Visit link</a>`;
+      return `<a href="${RegExp.lastMatch}" target="_blank" class="url">Link</a><br>`;
     });
   }
 

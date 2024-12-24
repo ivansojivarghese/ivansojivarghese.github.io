@@ -226,6 +226,7 @@ video.seeking {
 #videoInfo p {
     padding-bottom: 0.2em;
     padding-top: 0.1em;
+    height: 1.2rem;
 }
 
 #videoInfo .textStuff {
