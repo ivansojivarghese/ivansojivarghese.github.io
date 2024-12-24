@@ -1256,7 +1256,7 @@
 
         if (ori === "landscape-primary" || ori === "landscape-secondary") {
           // mainContent.style.backgroundColor = "#000";
-          videoContainer.style.opacity = 0.5;
+          // videoContainer.style.opacity = 0.5;
         }
 
         if (!videoEnd && !video.paused && (ori === "portrait-primary" || ori === "portrait-secondary")) {
@@ -1277,7 +1277,7 @@
 
       if (ori === "landscape-primary" || ori === "landscape-secondary") {
         // mainContent.style.backgroundColor = "";
-        videoContainer.style.opacity = 1;
+        // videoContainer.style.opacity = 1;
       }
 
       document.exitPictureInPicture().then(function() {
