@@ -1236,7 +1236,7 @@
         videoInfoOpen = true;
 
         if (ori === "landscape-primary" || ori === "landscape-secondary") {
-          mainContent.style.backgroundColor = "#000";
+          // mainContent.style.backgroundColor = "#000";
           videoContainer.style.opacity = 0.5;
         }
 
@@ -1257,7 +1257,7 @@
       var ori = screen.orientation.type;
 
       if (ori === "landscape-primary" || ori === "landscape-secondary") {
-        mainContent.style.backgroundColor = "";
+        // mainContent.style.backgroundColor = "";
         videoContainer.style.opacity = 1;
       }
 
