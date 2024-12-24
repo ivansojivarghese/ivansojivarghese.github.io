@@ -1814,11 +1814,23 @@ function formatURLsToGenericLink(text) {
   });
 }
 
-  // Combine formatting for timestamps, URLs, and hashtags
+// Function to detect and link email addresses
+function formatEmailLinks(text) {
+  // Regular expression to match email addresses
+  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+
+  return text.replace(emailRegex, (email) => {
+    // Wrap the email in a mailto link
+    return `<a href="mailto:${email}" class="email-link">${email}</a>`;
+  });
+}
+
+// Combine all formatting functions
 function formatDescription(text) {
-  const textWithTimestamps = formatTimestamps(text);
-  const textWithURLs = formatURLsToGenericLink(textWithTimestamps);
-  const textWithHashtags = highlightHashtags(textWithURLs); // Assuming highlightHashtags exists
+  const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
+  const textWithURLs = formatURLsToGenericLink(textWithTimestamps); // Assuming formatURLsToGenericLink exists
+  const textWithEmails = formatEmailLinks(textWithURLs);
+  const textWithHashtags = highlightHashtags(textWithEmails); // Assuming highlightHashtags exists
   return textWithHashtags;
 }
 
