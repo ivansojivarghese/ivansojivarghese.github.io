@@ -1805,7 +1805,8 @@ function formatTimestamps(text) {
 
   // Function to detect and replace URLs with a generic "Visit link"
 function formatURLsToGenericLink(text) {
-  const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
+  // Match URLs, stopping before <br> or whitespace characters
+  const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
   return text.replace(urlRegex, (url) => {
     // Use the matched URL directly
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
