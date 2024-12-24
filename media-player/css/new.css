@@ -83,12 +83,12 @@ video.seeking {
     /*background-color: transparent;*/
 }
 
-#videoControls.visible_ready .trsButtons:active .img {
+.trsButtons:not(.noimg):active .img {
     transform: scale(0.8);
 }
 
-div.replay:active, .resBtn:not(.active):active, div.cast:active {
-    transform: scale(0.9);
+.trsButtons:not(.active):active, .resBtn:not(.active):active {
+    transform: scale(0.8);
 }
 
 /*
