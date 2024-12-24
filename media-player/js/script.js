@@ -399,10 +399,10 @@
         video.load();
         video.currentTime = refSeekTime;
 
-        if (failTimes === maxFailTimes) {
+        // if (failTimes === maxFailTimes) {
           inp.value = videoURL || localStorage.getItem("mediaURL");
           getURL();
-        }
+        // }
       }
     });
 
