@@ -5,6 +5,10 @@
     }
 }
 
+.trsButtons:not(.active):hover, .resBtn:not(.active):hover {
+    opacity: 0.75;
+}
+
 .hashtag, .timestamp {
     color: #0073e6; /* Blue color */
     font-weight: bold;
