@@ -1791,18 +1791,33 @@ function abstractVideoInfo() {
 
     // Replace hashtags with a span for styling or interactivity
     return text.replace(hashtagRegex, (hashtag) => {
-      return `<a onclick="" class="hashtag">${hashtag}</a>`;
+      return `<a onclick="" class="trs hashtag">${hashtag}</a>`;
     });    
+  }
+
+  // Function to detect and replace URLs with a generic "Visit link"
+  function formatURLsToGenericLink(text) {
+    const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
+    return text.replace(urlRegex, () => {
+      return `<a href="${RegExp.lastMatch}" target="_blank" class="url">Visit link</a>`;
+    });
+  }
+
+  // Combine with hashtag formatting
+  function formatDescription(text) {
+    const textWithHashtags = highlightHashtags(text); // Assuming this function exists for hashtags
+    const textWithGenericLinks = formatURLsToGenericLink(textWithHashtags);
+    return textWithGenericLinks;
   }
 
   var vidDes = videoDetails.description;
 
   if (videoDetails.description) {
     var formattedText = vidDes.replace(/\n/g, '<br>');
-    var highlightedText = highlightHashtags(formattedText);
+    var fullyFormattedText = formatDescription(formattedText);
 
-    // Set the description with formatted and highlighted text
-    videoInfoElm.description.innerHTML = highlightedText;
+    // Set the description with the fully formatted text
+    videoInfoElm.description.innerHTML = fullyFormattedText;
 
   } else {
     videoInfoElm.description.style.display = "none";
