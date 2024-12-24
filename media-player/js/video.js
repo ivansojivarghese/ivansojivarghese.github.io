@@ -1810,7 +1810,7 @@ function formatURLsToGenericLink(text) {
   return text.replace(urlRegex, (url) => {
     // Use the matched URL directly
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
-    return `<a href="${clickableURL}" target="_blank" class="url trs"><div class="img"></div></a>`;
+    return `<a href="${clickableURL}" target="_blank" class="url trs"><div class="img" style="background-image: url('https://www.google.com/s2/favicons?domain=${url}')"></div></a>`;
   });
 }
 
@@ -1833,7 +1833,7 @@ function formatPhoneNumbers(text) {
   return text.replace(phoneRegex, (phone) => {
     // Normalize the phone number by removing spaces/dots/dashes
     const normalizedPhone = phone.replace(/[-.\s]/g, '');
-    return `<a href="tel:${normalizedPhone}" class="phone-link">${phone}</a>`;
+    return `<a href="tel:${normalizedPhone}" class="phone-link trs">${phone}</a>`;
   });
 }
 
