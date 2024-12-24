@@ -1031,6 +1031,25 @@
 
         if (videoInfoOpen) {
           closeVideoInfo();
+          if (controlsHideInt === null) {
+            controlsHideInt = setTimeout(function() {
+              if (!loading && !video.paused && !seekingLoad && !longTap && !seeking) {
+                hideVideoControls();
+                console.log("hideVC");
+              } else if (loading) {
+                clearTimeout(controlsHideInt);
+                controlsHideInt = null;
+                controlsHideInt = setInterval(function() {
+                  if (!loading && !seekingLoad && !longTap && !seeking && !video.paused) {
+                    hideVideoControls();
+                    console.log("hideVC");
+                    clearInterval(controlsHideInt);
+                    controlsHideInt = null;
+                  }
+                }, 100);
+              }
+            }, 3000); // hide controls after 3 sec. if no activity
+          }
         } else {
           if (videoControls.classList.contains('visible') && !seeking && !seekingLoad && !video.paused && !loading) {
             if (event.target === playPauseButton || event.target === playPauseButtonImg) { // IF PLAY/PAUSE button clicked
