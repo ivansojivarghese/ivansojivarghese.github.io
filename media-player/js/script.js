@@ -1388,22 +1388,47 @@
 
     screen.orientation.addEventListener("change", (event) => {
       const angle = event.target.angle;
-      if ((angle === 90 || angle === 270) && !document.fullscreenElement) {
+      const type = event.target.type;
+      if ((angle === 90 || angle === 270 || type === "landscape-primary" || type === "landscape-secondary") && !document.fullscreenElement) {
         requestFullscreenVideo();
         lockScreenInLandscape();
         // fullscreenButton.children[0].classList.add("exit");
         settingsButton.style.display = "none";
-      } else if ((angle === 0 || angle === 180) && document.fullscreenElement) {
+
+        if (videoInfoOpen) {
+          document.exitPictureInPicture().then(function() {
+            pipEnabled = false;
+            if (document.visibilityState === "visible") {
+              backgroundPlayManual = false;
+            } else {
+              backgroundPlayManual = true;
+            }
+            releaseScreenLock(screenLock);
+          });
+        }
+
+      } else if ((angle === 0 || angle === 180 || type === "portrait-primary" || type === "portrait-secondary") && document.fullscreenElement) {
         document.exitFullscreen();
         video.style.objectFit = "";
         video.classList.remove("cover");
         // fullscreenButton.children[0].classList.remove("exit");
         settingsButton.style.display = "block";
+
+        if (videoInfoOpen) {
+          if (!videoEnd && !video.paused) {
+            video.requestPictureInPicture().then(function() {
+              getScreenLock();
+              pipEnabled = true;
+              backgroundPlayManual = false;
+            });
+          }
+        }
       }
       video.style.objectFit = "";
       video.classList.remove("cover");
 
       videoSec.style.background = generateGradientRGB(imagePrimary, imagePalette);
+
     });
 
 
