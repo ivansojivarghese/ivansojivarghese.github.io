@@ -1346,12 +1346,12 @@
             const deltaX = touch.clientX - startX;
     
             // Consider it a swipe if the drag is significant (e.g., more than 100px)
-            if (deltaX > 100) {
+            if (deltaX > 100 || ((ori === "landscape-primary" || ori === "landscape-secondary") && deltaX < 0)) {
                 onClose(); // Trigger the close action
             }
     
             // Reset the panel's style
-            if (ori === "portrait-primary" || ori === "portrait-secondary") {
+            if (((ori === "portrait-primary" || ori === "portrait-secondary") || deltaX > 100) || ((ori === "landscape-primary" || ori === "landscape-secondary") && deltaX < 0)) {
               panelElement.style.transform = "";
             }
         });
