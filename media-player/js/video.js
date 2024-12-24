@@ -1831,6 +1831,16 @@ function formatDescription(text) {
     // Set the description with the fully formatted text
     videoInfoElm.description.innerHTML = fullyFormattedText;
 
+    // Add event listeners to timestamps for interactivity
+    const timestamps = videoInfoElm.description.querySelectorAll('.timestamp');
+    timestamps.forEach((timestampElem) => {
+      timestampElem.addEventListener('click', () => {
+        const timeParts = timestampElem.dataset.time.split(':').map(Number);
+        const seconds = timeParts.reduce((acc, part) => acc * 60 + part, 0);
+        video.currentTime = seconds; // Assuming `videoPlayer` references your video element
+      });
+    });
+
   } else {
     videoInfoElm.description.style.display = "none";
   }
