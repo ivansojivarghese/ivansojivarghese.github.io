@@ -67,7 +67,8 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/svg/error.svg',
   'https://ivansojivarghese.github.io/media-player/svg/chevron.svg',
   'https://ivansojivarghese.github.io/media-player/svg/close.svg',
-  'https://ivansojivarghese.github.io/media-player/svg/cast.svg'
+  'https://ivansojivarghese.github.io/media-player/svg/cast.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/open.svg'
 ];
 
 const cacheItems = [...assets, ...fonts];

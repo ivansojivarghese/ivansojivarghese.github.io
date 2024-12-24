@@ -229,6 +229,10 @@ video.seeking {
     height: 1.2rem;
 }
 
+a.url .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/open.svg");
+}
+
 #videoInfo .textStuff {
     /*
     text-overflow: ellipsis;

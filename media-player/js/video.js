@@ -1810,7 +1810,7 @@ function formatURLsToGenericLink(text) {
   return text.replace(urlRegex, (url) => {
     // Use the matched URL directly
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
-    return `<a href="${clickableURL}" target="_blank" class="url">Link</a><br>`;
+    return `<a href="${clickableURL}" target="_blank" class="url"><div class="img"></div></a>`;
   });
 }
 
