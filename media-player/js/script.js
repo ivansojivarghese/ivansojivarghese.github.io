@@ -1297,6 +1297,8 @@
         let isSwiping = false;
         let hasMovedHorizontally = false;
         let isScrolling = false; // Flag to indicate a vertical scroll
+
+        var ori = screen.orientation.type;
     
         panelElement.addEventListener("touchstart", (event) => {
             const touch = event.touches[0];
@@ -1349,7 +1351,9 @@
             }
     
             // Reset the panel's style
-            panelElement.style.transform = "";
+            if (ori === "portrait-primary" || ori === "portrait-secondary") {
+              panelElement.style.transform = "";
+            }
         });
     
         // Prevent propagation of clicks or taps inside the panel
