@@ -1250,7 +1250,7 @@
 
       var ori = screen.orientation.type;
 
-      if (videoControls.classList.contains('visible') && (!loading || initialVideoLoad) && (!videoErr && !audioErr)) {
+      if (video.src !== "" && videoControls.classList.contains('visible') && (!loading || initialVideoLoad) && (!videoErr && !audioErr)) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
 
