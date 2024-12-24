@@ -1,9 +1,14 @@
 
 @media screen and (pointer: fine) {
-    .trsButtons:not(.active), .resBtn:not(.active), .cursor {
+    .trsButtons:not(.active), .resBtn:not(.active), .cursor, .hashtag {
         cursor: pointer;
     }
 }
+
+.hashtag {
+    color: #0073e6; /* Blue color */
+    font-weight: bold;
+}  
 
 video {
     will-change: filter;

@@ -1784,11 +1784,26 @@ function abstractVideoInfo() {
     videoInfoElm.keywords.style.display = "none";
   }
 
+  // Function to highlight hashtags or words starting with #_
+  function highlightHashtags(text) {
+    // Regular expression to match words starting with #_
+    const hashtagRegex = /#\w+/g;
+
+    // Replace hashtags with a span for styling or interactivity
+    return text.replace(hashtagRegex, (hashtag) => {
+      return `<a onclick="" class="hashtag">${hashtag}</a>`;
+    });    
+  }
+
   var vidDes = videoDetails.description;
-  var formattedText = vidDes.replace(/\n/g, '<br>');
 
   if (videoDetails.description) {
-    videoInfoElm.description.innerHTML = formattedText;
+    var formattedText = vidDes.replace(/\n/g, '<br>');
+    var highlightedText = highlightHashtags(formattedText);
+
+    // Set the description with formatted and highlighted text
+    videoInfoElm.description.innerHTML = highlightedText;
+
   } else {
     videoInfoElm.description.style.display = "none";
   }
