@@ -190,7 +190,7 @@ div.replay:active, .resBtn:not(.active):active, div.cast:active {
     margin-top: calc(env(safe-area-inset-top));
     margin-left: calc(env(safe-area-inset-left));
     margin-right: calc(env(safe-area-inset-right));
-    opacity: 0;
+    opacity: 1;
 }
 
 #videoInfo h5, #videoInfo p {
