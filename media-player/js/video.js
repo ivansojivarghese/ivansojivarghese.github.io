@@ -1854,7 +1854,7 @@ function formatURLsToGenericLink(text) {
     const displayTitle = title || 'Visit Link';
     const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
 
-    const el = `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
+    el = `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
                   <span>${displayTitle}</span>
                 </a>`;
