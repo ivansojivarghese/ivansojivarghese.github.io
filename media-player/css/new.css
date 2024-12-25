@@ -266,6 +266,7 @@ a.url .img {
 
 a.url .img.link {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/link.svg");
+    margin-left: 0.5rem;
 }
 
 a.url span {
