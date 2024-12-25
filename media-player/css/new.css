@@ -245,11 +245,12 @@ a.url {
     display: inline-flex;
     height: 1rem;
     background: #3f3f3f;
-    padding: 0.4rem 0.75rem;
+    padding: 0.4rem 0.4rem;
     border-radius: 1rem;
     position: relative;
     top: 0.4rem;
     width: auto;
+    padding-right: 0.75rem;
 }
 
 a.url .img {
@@ -258,6 +259,14 @@ a.url .img {
     height: 1.25rem;
     position: relative;
     top: -0.1rem;
+    border-radius: 50%;
+}
+
+a.url span {
+    margin-left: 0.4rem;
+    position: relative;
+    top: -0.3rem;
+    font-size: 0.9rem;
 }
 
 a.noUnderline {
