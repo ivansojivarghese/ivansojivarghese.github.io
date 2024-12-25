@@ -242,14 +242,14 @@ video.seeking {
 }
 
 a.url {
-    display: inline-block;
+    display: inline-flex;
     height: 1rem;
     background: #3f3f3f;
     padding: 0.4rem 0.75rem;
     border-radius: 1rem;
     position: relative;
     top: 0.4rem;
-    margin-left: 0.5rem;
+    width: auto;
 }
 
 a.url .img {
