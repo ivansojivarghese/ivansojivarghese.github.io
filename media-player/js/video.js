@@ -1834,18 +1834,32 @@ function formatURLsToGenericLink(text) {
   });
 }
 
-// Helper function to fetch metadata (title and favicon)
-async function fetchMetadataForURL(url) {
-  await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
-    .then((response) => response.json())
+function fetchMetadataForURL(url) {
+  return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch URL metadata: ${response.statusText}`);
+      }
+      return response.json();
+    })
     .then((data) => {
+      if (!data.contents) {
+        throw new Error('No contents found in the response');
+      }
+
       const parser = new DOMParser();
       const doc = parser.parseFromString(data.contents, 'text/html');
       const title = doc.querySelector('title')?.innerText || 'No title found';
       const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
+
       return { title, favicon };
+    })
+    .catch((error) => {
+      console.error('Error fetching metadata:', error.message);
+      return { title: 'Unavailable', favicon: null }; // Fallback values
     });
 }
+
 
 // Function to detect and link email addresses
 function formatEmailLinks(text) {
