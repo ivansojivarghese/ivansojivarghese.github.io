@@ -1855,7 +1855,8 @@ function formatURLsToGenericLink(text) {
 
     el = `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
-                  <span>${displayTitle}</span>
+                  <div class="img link"></div>
+                  <span style="display: none;">${displayTitle}</span>
                 </a>`;
 
     return el;

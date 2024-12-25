@@ -6,7 +6,7 @@
 
 
 
-const staticCacheName = 'media-player-v2.79';
+const staticCacheName = 'media-player-v2.8';
 
 const fonts = [
   'https://cdn.glitch.global/4604ff4b-6eb8-48c8-899f-321d23359af1/Poppins-Regular.woff2?v=1720415271771',
@@ -68,7 +68,8 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/svg/chevron.svg',
   'https://ivansojivarghese.github.io/media-player/svg/close.svg',
   'https://ivansojivarghese.github.io/media-player/svg/cast.svg',
-  'https://ivansojivarghese.github.io/media-player/svg/open.svg'
+  'https://ivansojivarghese.github.io/media-player/svg/open.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/link.svg'
 ];
 
 const cacheItems = [...assets, ...fonts];
