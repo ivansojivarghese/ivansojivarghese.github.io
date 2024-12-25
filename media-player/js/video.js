@@ -1809,6 +1809,7 @@ function formatURLsToGenericLink(text) {
   const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
   return text.replace(urlRegex, (url) => {
 
+    var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
 
     // Use the matched URL directly
@@ -1818,7 +1819,7 @@ function formatURLsToGenericLink(text) {
       const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
       
       // Dynamically update the content (requires asynchronous handling in real DOM)
-      return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
+      el = `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
                 <div class="img" style="background-image: url('${faviconURL}')"></div>
                 <span>${displayTitle}</span>
               </a>`;
@@ -1827,7 +1828,9 @@ function formatURLsToGenericLink(text) {
       console.error('Error fetching metadata:', error);
     });
 
-    return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons"><div class="img"></div></a>`;
+    return el;
+
+    // return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons"><div class="img"></div></a>`;
   });
 }
 
