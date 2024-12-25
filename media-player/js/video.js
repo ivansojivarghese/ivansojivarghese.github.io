@@ -1841,8 +1841,8 @@ function formatTimestamps(text) {
 }
 
   // Function to detect and replace URLs with a generic "Visit link"
-  /*
-function formatURLsToGenericLink(text) {
+  
+async function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
   return text.replace(urlRegex, async (url) => {
@@ -1858,14 +1858,13 @@ function formatURLsToGenericLink(text) {
                   <span>${displayTitle}</span>
                 </a>`;
 
-
-
     return el;
 
     // return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons"><div class="img"></div></a>`;
   });
-}*/
+}
 
+/*
 async function formatURLsToGenericLink(text) {
   // Match URLs
   const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
@@ -1898,7 +1897,7 @@ async function formatURLsToGenericLink(text) {
   });
 
   return formattedText;
-}
+}*/
 
 
 // Function to detect and link email addresses
