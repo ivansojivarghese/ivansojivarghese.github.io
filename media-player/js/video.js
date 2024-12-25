@@ -1808,10 +1808,42 @@ function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
   return text.replace(urlRegex, (url) => {
-    // Use the matched URL directly
+
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
-    return `<a href="${clickableURL}" target="_blank" class="url trs"><div class="img" style="background-image: url('https://www.google.com/s2/favicons?domain=${url}')"></div></a>`;
+
+    // Use the matched URL directly
+    fetchMetadataForURL(url)
+    .then(({ title, favicon }) => {
+      const displayTitle = title || 'Visit Link';
+      const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
+      
+      // Dynamically update the content (requires asynchronous handling in real DOM)
+      console.log(
+        `<a href="${clickableURL}" target="_blank" class="url trs">
+           <div class="img" style="background-image: url('${faviconURL}')"></div>
+           <span>${displayTitle}</span>
+         </a>`
+      );
+    })
+    .catch((error) => {
+      console.error('Error fetching metadata:', error);
+    });
+
+    return `<a href="${clickableURL}" target="_blank" class="url trs"><div class="img"></div></a>`;
   });
+}
+
+// Helper function to fetch metadata (title and favicon)
+function fetchMetadataForURL(url) {
+  return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data.contents, 'text/html');
+      const title = doc.querySelector('title')?.innerText || 'No title found';
+      const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
+      return { title, favicon };
+    });
 }
 
 // Function to detect and link email addresses
