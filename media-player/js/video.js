@@ -1622,6 +1622,31 @@ function timeAgo(dateString) { // ISO8601 date string to human-readable string c
   return `${years} ${years === 1 ? 'year' : 'years'} ago`;
 }
 
+async function fetchMetadataForURL(url) {
+  await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch URL metadata: ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (!data.contents) {
+        throw new Error('No contents found in the response');
+      }
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data.contents, 'text/html');
+      const title = doc.querySelector('title')?.innerText || 'No title found';
+      const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
+
+      return { title, favicon };
+    })
+    .catch((error) => {
+      console.error('Error fetching metadata:', error.message);
+      return { title: 'Unavailable', favicon: null }; // Fallback values
+    });
+}
 
 function abstractVideoInfo() {
 
@@ -1832,32 +1857,6 @@ function formatURLsToGenericLink(text) {
 
     // return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons"><div class="img"></div></a>`;
   });
-}
-
-async function fetchMetadataForURL(url) {
-  await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Failed to fetch URL metadata: ${response.statusText}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      if (!data.contents) {
-        throw new Error('No contents found in the response');
-      }
-
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(data.contents, 'text/html');
-      const title = doc.querySelector('title')?.innerText || 'No title found';
-      const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
-
-      return { title, favicon };
-    })
-    .catch((error) => {
-      console.error('Error fetching metadata:', error.message);
-      return { title: 'Unavailable', favicon: null }; // Fallback values
-    });
 }
 
 
