@@ -1818,12 +1818,10 @@ function formatURLsToGenericLink(text) {
       const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
       
       // Dynamically update the content (requires asynchronous handling in real DOM)
-      console.log(
-        `<a href="${clickableURL}" target="_blank" class="url trs">
-           <div class="img" style="background-image: url('${faviconURL}')"></div>
-           <span>${displayTitle}</span>
-         </a>`
-      );
+      return `<a href="${clickableURL}" target="_blank" class="url trs">
+                <div class="img" style="background-image: url('${faviconURL}')"></div>
+                <span>${displayTitle}</span>
+              </a>`;
     })
     .catch((error) => {
       console.error('Error fetching metadata:', error);
