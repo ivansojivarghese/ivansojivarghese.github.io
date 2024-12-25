@@ -1841,6 +1841,7 @@ function formatTimestamps(text) {
 }
 
   // Function to detect and replace URLs with a generic "Visit link"
+  /*
 function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
@@ -1857,27 +1858,46 @@ function formatURLsToGenericLink(text) {
                   <span>${displayTitle}</span>
                 </a>`;
 
-    // Use the matched URL directly
-    /*
-    fetchMetadataForURL(url)
-    .then(({ title, favicon }) => {
-      const displayTitle = title || 'Visit Link';
-      const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
-      
-      // Dynamically update the content (requires asynchronous handling in real DOM)
-      el = `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
-                <div class="img" style="background-image: url('${faviconURL}')"></div>
-                <span>${displayTitle}</span>
-              </a>`;
-    })
-    .catch((error) => {
-      console.error('Error fetching metadata:', error);
-    });*/
+
 
     return el;
 
     // return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons"><div class="img"></div></a>`;
   });
+}*/
+
+async function formatURLsToGenericLink(text) {
+  // Match URLs
+  const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
+  const urls = [...text.matchAll(urlRegex)];
+
+  // Fetch metadata for each URL
+  const metadataPromises = urls.map(async (match) => {
+    const url = match[0];
+    const clickableURL = url.startsWith('http') ? url : `http://${url}`;
+    const { title, favicon } = await getMetadata(url);
+    const displayTitle = title || 'Visit Link';
+    const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
+
+    return {
+      original: url,
+      replacement: `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
+                      <div class="img" style="background-image: url('${faviconURL}')"></div>
+                      <span>${displayTitle}</span>
+                    </a>`
+    };
+  });
+
+  // Wait for all metadata to be fetched
+  const metadataResults = await Promise.all(metadataPromises);
+
+  // Replace the URLs in the original text with the formatted HTML
+  let formattedText = text;
+  metadataResults.forEach(({ original, replacement }) => {
+    formattedText = formattedText.replace(original, replacement);
+  });
+
+  return formattedText;
 }
 
 
