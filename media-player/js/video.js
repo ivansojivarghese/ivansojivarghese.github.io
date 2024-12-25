@@ -1842,7 +1842,7 @@ function formatTimestamps(text) {
 
   // Function to detect and replace URLs with a generic "Visit link"
   
-async function formatURLsToGenericLink(text) {
+function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
   return text.replace(urlRegex, async (url) => {
