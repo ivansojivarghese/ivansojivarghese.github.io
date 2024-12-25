@@ -1623,29 +1623,27 @@ function timeAgo(dateString) { // ISO8601 date string to human-readable string c
 }
 
 async function fetchMetadataForURL(url) {
-  await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Failed to fetch URL metadata: ${response.statusText}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      if (!data.contents) {
-        throw new Error('No contents found in the response');
-      }
+  try {
+    const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch URL metadata: ${response.statusText}`);
+    }
 
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(data.contents, 'text/html');
-      const title = doc.querySelector('title')?.innerText || 'No title found';
-      const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
+    const data = await response.json();
+    if (!data.contents) {
+      throw new Error('No contents found in the response');
+    }
 
-      return { title, favicon };
-    })
-    .catch((error) => {
-      console.error('Error fetching metadata:', error.message);
-      return { title: 'Unavailable', favicon: null }; // Fallback values
-    });
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data.contents, 'text/html');
+    const title = doc.querySelector('title')?.innerText || 'No title found';
+    const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
+
+    return { title, favicon };
+  } catch (error) {
+    console.error('Error fetching metadata:', error.message);
+    return { title: 'Unavailable', favicon: null }; // Fallback values
+  }
 }
 
 async function getMetadata(url) {
