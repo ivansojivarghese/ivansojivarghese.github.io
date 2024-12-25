@@ -1845,11 +1845,11 @@ function formatTimestamps(text) {
 function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
-  return text.replace(urlRegex, async (url) => {
+  return text.replace(urlRegex, (url) => {
 
     var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
-    const { title, favicon } = await getMetadata(url);
+    const { title, favicon } = getMetadata(url);
     const displayTitle = title || 'Visit Link';
     const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
 
