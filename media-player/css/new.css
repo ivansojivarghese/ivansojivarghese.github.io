@@ -260,6 +260,10 @@ a.url .img {
     top: -0.1rem;
 }
 
+a.noUnderline {
+    text-decoration: none;
+}
+
 #videoInfo .textStuff {
     /*
     text-overflow: ellipsis;
