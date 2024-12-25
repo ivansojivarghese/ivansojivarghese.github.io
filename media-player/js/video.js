@@ -1834,8 +1834,8 @@ function formatURLsToGenericLink(text) {
   });
 }
 
-function fetchMetadataForURL(url) {
-  return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+async function fetchMetadataForURL(url) {
+  await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Failed to fetch URL metadata: ${response.statusText}`);
