@@ -242,7 +242,7 @@ video.seeking {
 }
 
 a.url {
-    display: flex;
+    display: inline-flex;
     height: 1rem;
     background: #3f3f3f;
     padding: 0.4rem 0.4rem;

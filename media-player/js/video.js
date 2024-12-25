@@ -1864,41 +1864,6 @@ function formatURLsToGenericLink(text) {
   });
 }
 
-/*
-async function formatURLsToGenericLink(text) {
-  // Match URLs
-  const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
-  const urls = [...text.matchAll(urlRegex)];
-
-  // Fetch metadata for each URL
-  const metadataPromises = urls.map(async (match) => {
-    const url = match[0];
-    const clickableURL = url.startsWith('http') ? url : `http://${url}`;
-    const { title, favicon } = await getMetadata(url);
-    const displayTitle = title || 'Visit Link';
-    const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
-
-    return {
-      original: url,
-      replacement: `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
-                      <div class="img" style="background-image: url('${faviconURL}')"></div>
-                      <span>${displayTitle}</span>
-                    </a>`
-    };
-  });
-
-  // Wait for all metadata to be fetched
-  const metadataResults = await Promise.all(metadataPromises);
-
-  // Replace the URLs in the original text with the formatted HTML
-  let formattedText = text;
-  metadataResults.forEach(({ original, replacement }) => {
-    formattedText = formattedText.replace(original, replacement);
-  });
-
-  return formattedText;
-}*/
-
 
 // Function to detect and link email addresses
 function formatEmailLinks(text) {
