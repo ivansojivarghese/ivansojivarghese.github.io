@@ -1648,6 +1648,20 @@ async function fetchMetadataForURL(url) {
     });
 }
 
+async function getMetadata(url) {
+  // const url = 'https://example.com';
+  
+  // Store the result into a variable
+  const metadata = await fetchMetadataForURL(url);
+
+  // Safely log or use the metadata
+  console.log('Title:', metadata.title);
+  console.log('Favicon:', metadata.favicon);
+
+  // You can use this metadata object for further processing
+  return metadata;
+}
+
 function abstractVideoInfo() {
 
   videoInfoElm.keywords.style.display = "flex";
@@ -1832,12 +1846,21 @@ function formatTimestamps(text) {
 function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
-  return text.replace(urlRegex, (url) => {
+  return text.replace(urlRegex, async (url) => {
 
     var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
+    const { title, favicon } = await getMetadata(url);
+    const displayTitle = title || 'Visit Link';
+    const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
+
+    const el = `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
+                  <div class="img" style="background-image: url('${faviconURL}')"></div>
+                  <span>${displayTitle}</span>
+                </a>`;
 
     // Use the matched URL directly
+    /*
     fetchMetadataForURL(url)
     .then(({ title, favicon }) => {
       const displayTitle = title || 'Visit Link';
@@ -1851,7 +1874,7 @@ function formatURLsToGenericLink(text) {
     })
     .catch((error) => {
       console.error('Error fetching metadata:', error);
-    });
+    });*/
 
     return el;
 
