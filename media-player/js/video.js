@@ -1833,7 +1833,7 @@ function formatURLsToGenericLink(text) {
 
 // Helper function to fetch metadata (title and favicon)
 async function fetchMetadataForURL(url) {
-  return fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+  await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
     .then((response) => response.json())
     .then((data) => {
       const parser = new DOMParser();
