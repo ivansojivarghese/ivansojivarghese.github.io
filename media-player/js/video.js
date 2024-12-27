@@ -1653,7 +1653,7 @@ function findSocialMediaIdentifier(data) {
       github: /github\.com\/([\w-]+)/,
       medium: /medium\.com\/@([\w.]+)/,
       twitch: /twitch\.tv\/([\w-]+)/,
-      telegram: /t\.me\/([\w]+)/
+      telegram: /t\.me\/([\w]+)/,
   };
 
   // Iterate over anchors to automatically identify the platform and extract the identifier
@@ -1664,7 +1664,10 @@ function findSocialMediaIdentifier(data) {
           if (href.includes(platform)) {
               const identifier = extractIdentifier(href, pattern);
               if (identifier) {
-                  return { platform, identifier };
+                  // Check if the data.status.url matches the identified platform URL
+                  if (data.status.url && href.includes(data.status.url)) {
+                      return { platform, identifier };
+                  }
               }
           } else if (href.includes('youtube.com')) {
               if (href.includes('watch')) {
@@ -1682,9 +1685,10 @@ function findSocialMediaIdentifier(data) {
       }
   }
 
-  // Return null if no identifier is found
+  // Return null if no identifier is found or the URL does not match
   return null;
 }
+
 
 async function fetchMetadataForURL(url) {
   try {
