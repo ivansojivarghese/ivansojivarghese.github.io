@@ -1962,16 +1962,15 @@ function abstractVideoInfo() {
     videoInfoElm.keywords.style.display = "none";
   }
 
-  // Function to highlight hashtags or words starting with #_
   function highlightHashtags(text) {
-    // Regular expression to match words starting with #_
-    const hashtagRegex = /#\w+/g;
-
+    // Regular expression to match words starting with #_ but not inside URLs
+    const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#\w+)/g;
+  
     // Replace hashtags with a span for styling or interactivity
     return text.replace(hashtagRegex, (hashtag) => {
       return `<a onclick="" class="trs hashtag">${hashtag}</a>`;
-    });    
-  }
+    });
+  }  
 
   // Function to detect and format video timestamps
 function formatTimestamps(text) {
