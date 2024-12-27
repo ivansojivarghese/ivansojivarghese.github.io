@@ -1623,7 +1623,7 @@ function timeAgo(dateString) { // ISO8601 date string to human-readable string c
 }
 
 // CHAT GPT (AI) assisted code
-
+/*
 function findSocialMediaIdentifier(data) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(data.contents, 'text/html');
@@ -1688,7 +1688,7 @@ function findSocialMediaIdentifier(data) {
   // Return null if no identifier is found or the URL does not match
   return null;
 }
-
+*/
 
 async function fetchMetadataForURL(url) {
   try {
@@ -1706,10 +1706,10 @@ async function fetchMetadataForURL(url) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(data.contents, 'text/html');
 
-    var title = findSocialMediaIdentifier(data);
-    if (title === null) {
-      title = doc.querySelector('title')?.innerText || '';
-    }
+    // var title = findSocialMediaIdentifier(data);
+    // if (title === null) {
+    var title = doc.querySelector('title')?.innerText || '';
+    // }
     const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
 
     return { title, favicon };
