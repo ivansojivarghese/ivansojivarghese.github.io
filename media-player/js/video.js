@@ -1687,8 +1687,8 @@ async function fetchMetadataForURL(url) {
       throw new Error('No contents found in the response');
     }
 
-    // const parser = new DOMParser();
-    // const doc = parser.parseFromString(data.contents, 'text/html');
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data.contents, 'text/html');
 
     var title = findSocialMediaIdentifier(data);
     if (title === null) {
