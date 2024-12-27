@@ -253,6 +253,7 @@ a.url {
     padding-right: 0.75rem;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 0.8rem;
 }
 
 a.url .img {

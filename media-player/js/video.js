@@ -1690,6 +1690,27 @@ function findSocialMediaIdentifier(data) {
 }
 */
 
+function determineYouTubeType(doc) {
+  let type = 'unknown';
+  
+  // Check for video by looking for the 'videoId' in metadata or video-specific DOM elements
+  if (doc.querySelector('meta[itemprop="videoId"]')) {
+      type = 'video';  // Found video ID, it's a video page
+  }
+  // Check for channel by looking for the 'channelId' in metadata or URL path like /channel/
+  else if (doc.querySelector('meta[itemprop="channelId"]') || 
+           doc.querySelector('meta[property="og:type"][content="profile"]')) {
+      type = 'channel';  // Found channel ID or 'profile' content type, it's a channel page
+  }
+  // Check for playlist by looking for the 'playlistId' or specific playlist DOM structure
+  else if (doc.querySelector('meta[itemprop="playlistId"]') || 
+           doc.querySelector('yt-formatted-string[aria-label="Playlist"]')) {
+      type = 'playlist';  // Found playlist ID or playlist label, it's a playlist page
+  }
+
+  return type;
+}
+
 async function fetchMetadataForURL(url) {
   try {
     // const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
@@ -1711,33 +1732,13 @@ async function fetchMetadataForURL(url) {
     if (data.status.url.includes('youtube.com')) {
       let title = '';
       let type = '';
-  
-      // Retrieve the title from the <title> tag
-      const pageTitle = doc.querySelector('title')?.innerText || '';
     
-        // Determine the type of YouTube link based on the URL structure
+      // Determine the type of YouTube link based on the URL structure
+      /*
       if (data.status.url.includes('watch')) {
           type = 'video';
 
-          // Attempt to get the video title from metadata
-          let videoTitle = doc.querySelector('meta[name="title"]')?.content || 
-                          doc.querySelector('meta[property="og:title"]')?.content || 
-                          doc.querySelector('meta[name="twitter:title"]')?.content;
-
-          // Fallback to structured data (JSON-LD)
-          if (!videoTitle) {
-              const jsonLdScript = doc.querySelector('script[type="application/ld+json"]');
-              if (jsonLdScript) {
-                  try {
-                      const jsonLd = JSON.parse(jsonLdScript.textContent);
-                      if (jsonLd["@type"] === "VideoObject") {
-                          videoTitle = jsonLd.name || ''; // 'name' often contains the video title
-                      }
-                  } catch (error) {
-                      console.error('Failed to parse JSON-LD:', error);
-                  }
-              }
-          }
+          
 
           // Fallback to <title> tag
           videoTitle = videoTitle || doc.querySelector('title')?.innerText || 'Unknown Video Title';
@@ -1767,15 +1768,19 @@ async function fetchMetadataForURL(url) {
 
           type = 'unknown';
           title = 'Unknown YouTube Page';
-      }
+      }*/
+
+      type = determineYouTubeType(doc);
   
       console.log({ platform: 'youtube', type, title });
+
     } else {
       var title = doc.querySelector('title')?.innerText || '';
       var favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
     }
 
     return { title, favicon };
+
   } catch (error) {
     console.error('Error fetching metadata:', error.message);
     return { title: 'Unavailable', favicon: null }; // Fallback values
