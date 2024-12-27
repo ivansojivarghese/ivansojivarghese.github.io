@@ -1707,10 +1707,38 @@ async function fetchMetadataForURL(url) {
     const doc = parser.parseFromString(data.contents, 'text/html');
 
     // var title = findSocialMediaIdentifier(data);
-    // if (title === null) {
-    var title = doc.querySelector('title')?.innerText || '';
-    // }
-    const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
+
+    if (data.status.url.includes('youtube.com')) {
+      let title = '';
+      let type = '';
+  
+      // Retrieve the title from the <title> tag
+      const pageTitle = doc.querySelector('title')?.innerText || '';
+  
+      // Determine the type of YouTube link based on the URL structure
+      if (data.status.url.includes('watch')) {
+          type = 'video';
+          title = pageTitle; // Title of the video
+      } else if (data.status.url.includes('playlist')) {
+          type = 'playlist';
+          title = pageTitle; // Title of the playlist
+      } else if (
+          data.status.url.includes('channel') ||
+          data.status.url.includes('user') ||
+          data.status.url.includes('/c/')
+      ) {
+          type = 'channel';
+          title = pageTitle; // Title of the channel
+      } else {
+          type = 'unknown';
+          title = 'Unknown YouTube Page';
+      }
+  
+      console.log({ platform: 'youtube', type, title });
+    } else {
+      var title = doc.querySelector('title')?.innerText || '';
+      var favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
+    }
 
     return { title, favicon };
   } catch (error) {
