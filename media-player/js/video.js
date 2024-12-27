@@ -1717,18 +1717,47 @@ async function fetchMetadataForURL(url) {
   
       // Determine the type of YouTube link based on the URL structure
       if (data.status.url.includes('watch')) {
-          type = 'video';
-          title = pageTitle; // Title of the video
-      } else if (data.status.url.includes('playlist')) {
+        type = 'video';
+    
+        // Attempt to get the video title from metadata
+        let videoTitle = doc.querySelector('meta[name="title"]')?.content;
+    
+        // Fallback to structured data (JSON-LD)
+        if (!videoTitle) {
+            const jsonLdScript = doc.querySelector('script[type="application/ld+json"]');
+            if (jsonLdScript) {
+                try {
+                    const jsonLd = JSON.parse(jsonLdScript.textContent);
+                    videoTitle = jsonLd.name || ''; // 'name' often contains the video title
+                } catch (error) {
+                    console.error('Failed to parse JSON-LD:', error);
+                }
+            }
+        }
+    
+        // Fallback to <title> tag
+        videoTitle = videoTitle || doc.querySelector('title')?.innerText || 'Unknown Video Title';
+    
+        title = videoTitle; // Assign the extracted title
+        
+      }  else if (data.status.url.includes('playlist')) {
           type = 'playlist';
           title = pageTitle; // Title of the playlist
       } else if (
           data.status.url.includes('channel') ||
           data.status.url.includes('user') ||
-          data.status.url.includes('/c/')
+          data.status.url.includes('/c/') || 
+          data.status.url.includes('/@')
       ) {
           type = 'channel';
-          title = pageTitle; // Title of the channel
+
+          // Extract the channel name or handle
+          const channelNameMeta = doc.querySelector('meta[itemprop="name"]')?.content;
+          const handleFromUrl = data.status.url.match(/\/@([\w.-]+)/)?.[1];
+
+          // Prefer channel name from metadata if available
+          title = channelNameMeta ? `@${channelNameMeta}` : handleFromUrl || pageTitle || 'Unknown Channel';
+
       } else {
           type = 'unknown';
           title = 'Unknown YouTube Page';
