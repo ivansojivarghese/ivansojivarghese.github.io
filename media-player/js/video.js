@@ -1622,6 +1622,58 @@ function timeAgo(dateString) { // ISO8601 date string to human-readable string c
   return `${years} ${years === 1 ? 'year' : 'years'} ago`;
 }
 
+// CHAT GPT (AI) assisted code
+
+function findSocialMediaIdentifier(data) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(data.contents, 'text/html');
+  
+  // Helper function to extract identifiers from URLs
+  function extractIdentifier(url, pattern) {
+      const match = url.match(pattern);
+      return match ? match[1] : null;
+  }
+
+  // Get all anchor tags
+  const anchors = doc.querySelectorAll('a');
+
+  // Define patterns for each platform
+  const patterns = {
+      facebook: /facebook\.com\/(?:profile\.php\?id=|)([\w.]+)/,
+      instagram: /instagram\.com\/([\w.]+)/,
+      twitter: /twitter\.com\/([\w]+)/,
+      linkedin: /linkedin\.com\/in\/([\w-]+)/,
+      tiktok: /tiktok\.com\/@([\w.]+)/,
+      snapchat: /snapchat\.com\/add\/([\w]+)/,
+      pinterest: /pinterest\.com\/([\w.]+)/,
+      reddit: /reddit\.com\/user\/([\w-]+)/,
+      tumblr: /([\w-]+)\.tumblr\.com/,
+      discord: /discord\.gg\/([\w]+)/,
+      youtube: /youtube\.com\/(?:c|channel|user)\/([\w-]+)/,
+      github: /github\.com\/([\w-]+)/,
+      medium: /medium\.com\/@([\w.]+)/,
+      twitch: /twitch\.tv\/([\w-]+)/,
+      telegram: /t\.me\/([\w]+)/
+  };
+
+  // Iterate over anchors to automatically identify the platform and extract the identifier
+  for (const anchor of anchors) {
+      const href = anchor.href;
+
+      for (const [platform, pattern] of Object.entries(patterns)) {
+          if (href.includes(platform)) {
+              const identifier = extractIdentifier(href, pattern);
+              if (identifier) {
+                  return { platform, identifier };
+              }
+          }
+      }
+  }
+
+  // Return null if no identifier is found
+  return null;
+}
+
 async function fetchMetadataForURL(url) {
   try {
     // const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
@@ -1635,9 +1687,13 @@ async function fetchMetadataForURL(url) {
       throw new Error('No contents found in the response');
     }
 
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data.contents, 'text/html');
-    const title = doc.querySelector('title')?.innerText || 'No title found';
+    // const parser = new DOMParser();
+    // const doc = parser.parseFromString(data.contents, 'text/html');
+
+    var title = findSocialMediaIdentifier(data);
+    if (title === null) {
+      title = doc.querySelector('title')?.innerText || '';
+    }
     const favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
 
     return { title, favicon };
