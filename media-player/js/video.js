@@ -1624,7 +1624,8 @@ function timeAgo(dateString) { // ISO8601 date string to human-readable string c
 
 async function fetchMetadataForURL(url) {
   try {
-    const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+    // const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+    const response = await fetch(`https://api.allorigins.win/get?url=${url}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch URL metadata: ${response.statusText}`);
     }
@@ -1850,8 +1851,11 @@ function formatURLsToGenericLink(text) {
     var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
     const { title, favicon } = getMetadata(url);
+    /*
     const displayTitle = title || 'Visit Link';
-    const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;
+    const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;*/
+    const displayTitle = title || '';
+    const faviconURL = favicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
 
     el = `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
