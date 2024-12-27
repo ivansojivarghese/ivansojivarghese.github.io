@@ -1673,6 +1673,10 @@ function findSocialMediaIdentifier(data) {
               } else if (href.includes('playlist')) {
                   const playlistTitle = doc.querySelector('title')?.textContent;
                   return { platform: 'youtube', type: 'playlist', title: playlistTitle || 'Unknown Title' };
+              } else if (href.includes('channel') || href.includes('user') || href.includes('c')) {
+                  const channelTitle = doc.querySelector('title')?.textContent;
+                  const identifier = extractIdentifier(href, patterns.youtube);
+                  return { platform: 'youtube', type: 'channel', identifier: identifier || 'Unknown Identifier', title: channelTitle || 'Unknown Title' };
               }
           }
       }
@@ -1681,7 +1685,6 @@ function findSocialMediaIdentifier(data) {
   // Return null if no identifier is found
   return null;
 }
-
 
 async function fetchMetadataForURL(url) {
   try {
