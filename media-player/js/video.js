@@ -1689,7 +1689,7 @@ function findSocialMediaIdentifier(data) {
   return null;
 }
 */
-
+/*
 function determineYouTubeType(doc) {
   let type = 'unknown';
   
@@ -1709,6 +1709,60 @@ function determineYouTubeType(doc) {
   }
 
   return type;
+}*/
+
+function determineYouTubeTypeAndTitle(doc) {
+  let type = 'unknown';
+  let title = 'Unknown Title';
+  
+  // Check for video by looking for the 'videoId' in metadata or video-specific DOM elements
+  if (doc.querySelector('meta[itemprop="videoId"]')) {
+      type = 'video';  // Found video ID, it's a video page
+      
+      // Extract the video title from the meta tag or structured data
+      title = doc.querySelector('meta[name="title"]')?.content || title;
+      if (!title) {
+          const jsonLdScript = doc.querySelector('script[type="application/ld+json"]');
+          if (jsonLdScript) {
+              try {
+                  const jsonLd = JSON.parse(jsonLdScript.textContent);
+                  title = jsonLd.name || title; // 'name' often contains the video title
+              } catch (error) {
+                  console.error('Failed to parse JSON-LD:', error);
+              }
+          }
+      }
+      // Fallback to <title> tag if no title found
+      title = title || doc.querySelector('title')?.innerText || 'Unknown Video Title';
+  }
+  // Check for channel by looking for the 'channelId' in metadata or URL path like /channel/
+  else if (doc.querySelector('meta[itemprop="channelId"]') || 
+           doc.querySelector('meta[property="og:type"][content="profile"]')) {
+      type = 'channel';  // Found channel ID or 'profile' content type, it's a channel page
+      
+      // Extract the channel username from the URL or metadata
+      const channelMeta = doc.querySelector('meta[itemprop="name"]');
+      if (channelMeta) {
+          title = channelMeta.content; // Channel name or username
+      } else {
+          const url = window.location.href;  // Get the current URL
+          const channelMatch = url.match(/(?:\/channel\/|\/user\/|\/c\/|\/@)([a-zA-Z0-9_-]+)/);
+          if (channelMatch) {
+              title = channelMatch[1]; // Extract channel username from URL path
+          }
+      }
+  }
+  // Check for playlist by looking for the 'playlistId' or specific playlist DOM structure
+  else if (doc.querySelector('meta[itemprop="playlistId"]') || 
+           doc.querySelector('yt-formatted-string[aria-label="Playlist"]')) {
+      type = 'playlist';  // Found playlist ID or playlist label, it's a playlist page
+      
+      // Extract the playlist title from the meta tag or the <title> tag
+      title = doc.querySelector('meta[itemprop="name"]')?.content || title;
+      title = title || doc.querySelector('title')?.innerText || 'Unknown Playlist Title';
+  }
+
+  return { type, title };
 }
 
 async function fetchMetadataForURL(url) {
@@ -1730,9 +1784,8 @@ async function fetchMetadataForURL(url) {
     // var title = findSocialMediaIdentifier(data);
 
     if (data.status.url.includes('youtube.com')) {
-      let title = '';
-      let type = '';
-    
+      // let title = '';
+      // let type = '';
       // Determine the type of YouTube link based on the URL structure
       /*
       if (data.status.url.includes('watch')) {
@@ -1770,7 +1823,7 @@ async function fetchMetadataForURL(url) {
           title = 'Unknown YouTube Page';
       }*/
 
-      type = determineYouTubeType(doc);
+      var { type, title } = determineYouTubeTypeAndTitle(doc);
   
       console.log({ platform: 'youtube', type, title });
 
