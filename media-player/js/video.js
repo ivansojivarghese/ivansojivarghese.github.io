@@ -1714,32 +1714,37 @@ async function fetchMetadataForURL(url) {
   
       // Retrieve the title from the <title> tag
       const pageTitle = doc.querySelector('title')?.innerText || '';
-  
-      // Determine the type of YouTube link based on the URL structure
+    
+        // Determine the type of YouTube link based on the URL structure
       if (data.status.url.includes('watch')) {
-        type = 'video';
-    
-        // Attempt to get the video title from metadata
-        let videoTitle = doc.querySelector('meta[name="title"]')?.content;
-    
-        // Fallback to structured data (JSON-LD)
-        if (!videoTitle) {
-            const jsonLdScript = doc.querySelector('script[type="application/ld+json"]');
-            if (jsonLdScript) {
-                try {
-                    const jsonLd = JSON.parse(jsonLdScript.textContent);
-                    videoTitle = jsonLd.name || ''; // 'name' often contains the video title
-                } catch (error) {
-                    console.error('Failed to parse JSON-LD:', error);
-                }
-            }
-        }
-    
-        // Fallback to <title> tag
-        videoTitle = videoTitle || doc.querySelector('title')?.innerText || 'Unknown Video Title';
-    
-        title = videoTitle; // Assign the extracted title
-        
+          type = 'video';
+
+          // Attempt to get the video title from metadata
+          let videoTitle = doc.querySelector('meta[name="title"]')?.content || 
+                          doc.querySelector('meta[property="og:title"]')?.content || 
+                          doc.querySelector('meta[name="twitter:title"]')?.content;
+
+          // Fallback to structured data (JSON-LD)
+          if (!videoTitle) {
+              const jsonLdScript = doc.querySelector('script[type="application/ld+json"]');
+              if (jsonLdScript) {
+                  try {
+                      const jsonLd = JSON.parse(jsonLdScript.textContent);
+                      if (jsonLd["@type"] === "VideoObject") {
+                          videoTitle = jsonLd.name || ''; // 'name' often contains the video title
+                      }
+                  } catch (error) {
+                      console.error('Failed to parse JSON-LD:', error);
+                  }
+              }
+          }
+
+          // Fallback to <title> tag
+          videoTitle = videoTitle || doc.querySelector('title')?.innerText || 'Unknown Video Title';
+
+          // Assign the extracted title
+          title = videoTitle;
+
       }  else if (data.status.url.includes('playlist')) {
           type = 'playlist';
           title = pageTitle; // Title of the playlist
@@ -1759,6 +1764,7 @@ async function fetchMetadataForURL(url) {
           title = channelNameMeta ? `@${channelNameMeta}` : handleFromUrl || pageTitle || 'Unknown Channel';
 
       } else {
+
           type = 'unknown';
           title = 'Unknown YouTube Page';
       }
