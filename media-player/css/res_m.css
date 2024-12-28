@@ -623,14 +623,14 @@
     * {
         cursor: none !important;
     }*/
-
+    /*
     a:hover, .hoverB:hover {
         opacity: 0.75;
     }
 
     .hoverB.revert:hover {
         opacity: 1;
-    }
+    }*/
 
     #footer_end {
         width: calc(100% - 10rem);

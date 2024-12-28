@@ -3,20 +3,16 @@
     .trsButtons:not(.active), .resBtn:not(.active), .cursor, .hashtag, .timestamp, a {
         cursor: pointer;
     }
-}
 
-.trsButtons:not(.active):hover, .resBtn:not(.active):hover {
-    opacity: 0.75;
+    .trsButtons:not(.active):hover, .resBtn:not(.active):hover, .timestamp:hover, a:hover {
+        opacity: 0.75;
+    }
 }
 
 .hashtag, .timestamp, .email-link, .phone-link {
     color: #0073e6; /* Blue color */
     font-weight: bold;
 } 
-
-.timestamp:hover {
-    opacity: 0.75;
-}
 
 video {
     will-change: filter;
