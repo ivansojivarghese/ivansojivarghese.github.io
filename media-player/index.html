@@ -95,7 +95,7 @@
                     console.log('Casting session resumed');
 
                     videoInfoElm.cast.classList.add("active");
-                    
+
                     break;
                   default:
                     console.log('Other session state:', event.sessionState);
@@ -124,6 +124,8 @@
                 });
             } else {
                 console.error("No active cast session found.");
+
+                castVideoWithAudio(videoDetails.formats["0"].url);
             }
         }
     </script>
