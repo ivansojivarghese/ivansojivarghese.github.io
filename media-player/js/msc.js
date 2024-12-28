@@ -25,6 +25,24 @@
         });
     }
 
+    function castVideo(videoUrl) {
+        const castContext = cast.framework.CastContext.getInstance();
+        const session = castContext.getCurrentSession();
+
+        if (session) {
+            // Create media information
+            const mediaInfo = new chrome.cast.media.MediaInfo(videoUrl, 'video/mp4'); // Set MIME type as video/mp4
+            const request = new chrome.cast.media.LoadRequest(mediaInfo);
+
+            // Load the media onto the device
+            session.loadMedia(request).then(() => {
+                console.log('Media loaded successfully.');
+            }, (error) => {
+                console.error('Error loading media:', error);
+            });
+        }
+    }
+
     function initializeCastApi() {
       cast.framework.CastContext.getInstance().setOptions({
           receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID, // Use default receiver
@@ -40,6 +58,7 @@
     };
 
     // getScreenLock();
+    
     /*
     window['__onGCastApiAvailable'] = function(isAvailable) {
         if (isAvailable) {
