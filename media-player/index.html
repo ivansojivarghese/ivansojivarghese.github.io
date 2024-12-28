@@ -127,6 +127,18 @@
                       }
                     });
 
+                    // Listen for changes in the receiver's playback state
+                    playerController.addEventListener(
+                        cast.framework.RemotePlayerEventType.IS_PAUSED_CHANGED,
+                        () => {
+                            if (player.isPaused) {
+                                localVideo.pause(); // Pause the sender's video
+                            } else {
+                                localVideo.play(); // Play the sender's video
+                            }
+                        }
+                    );
+
                     videoInfoElm.cast.classList.add("active");
                     videoInfoElm.gCast.classList.add("disabled");
                     videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
@@ -185,6 +197,18 @@
                         // Update local player to disconnected state
                       }
                     });
+
+                    // Listen for changes in the receiver's playback state
+                    playerController.addEventListener(
+                        cast.framework.RemotePlayerEventType.IS_PAUSED_CHANGED,
+                        () => {
+                            if (player.isPaused) {
+                                localVideo.pause(); // Pause the sender's video
+                            } else {
+                                localVideo.play(); // Play the sender's video
+                            }
+                        }
+                    );
 
                     videoInfoElm.cast.classList.add("active");
                     videoInfoElm.gCast.classList.add("disabled");
