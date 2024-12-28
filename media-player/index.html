@@ -5,7 +5,7 @@
 
     <!-- Include Google Cast SDK -->
     <!-- <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script> -->
-    <script type="text/javascript" src="https://www.gstatic.com/cast/sdk/libs/sender/1.0/cast_framework.js"></script>
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/cast/sdk/libs/sender/1.0/cast_framework.js"></script> -->
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
     <script type="text/javascript">
         // Initialize the Cast API when the Cast SDK is available
@@ -39,10 +39,11 @@
 
         // Cast the video and audio to a Chromecast device
         function castVideoWithAudio(videoUrl, audioUrl) {
+          /*
             if (!isCastAvailable) {
                 console.error("Google Cast API is not available. Cannot cast video and audio.");
                 return;
-            }
+            }*/
 
             const castContext = cast.framework.CastContext.getInstance();
             const session = castContext.getCurrentSession();
