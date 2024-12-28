@@ -2146,10 +2146,4 @@ setInterval(() => {
   } else {
     videoInfoElm.cast.style.display = "none";
   }
-  /*
-  if (videoInfoElm.gCastPath.classList.contains("cast_caf_state_c")) {
-    videoInfoElm.cast.classList.add("active");
-  } else {
-    videoInfoElm.cast.classList.remove("active");
-  }*/
 }, 1000/60);

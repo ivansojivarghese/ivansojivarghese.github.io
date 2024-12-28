@@ -30,8 +30,8 @@
                     });
                     console.log("Google Cast initialized.");
 
+                    /*
                     chrome.cast.requestSession(onSessionSuccess, onSessionError);
-
                     // Listen for changes to the session state
                     chrome.cast.sessionManager.addSessionListener(function(session) {
                       console.log('Casting session started:', session);
@@ -43,7 +43,7 @@
                           // Handle casting stopped
                         }
                       });
-                    });
+                    });*/
 
                 } catch (error) {
                     console.error("Error initializing Google Cast:", error);
@@ -53,13 +53,14 @@
             }
         }
 
+        /*
         function onSessionSuccess(session) {
           console.log('Casting session established:', session);
         }
 
         function onSessionError(error) {
           console.error('Error starting session:', error);
-        }
+        }*/
 
         // Cast the video and audio to a Chromecast device
         function castVideoWithAudio(videoUrl) {
@@ -117,6 +118,8 @@
                 });
             } else {
                 console.error("No active cast session found.");
+
+
             }
         }
     </script>
