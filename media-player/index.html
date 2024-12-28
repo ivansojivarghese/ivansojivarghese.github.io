@@ -3,11 +3,13 @@
   <head>
     <title>Media Player</title>
 
-    <!-- Include the Google Cast SDK -->
+    <!-- Include Google Cast SDK -->
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
     <script type="text/javascript">
-        // Check if the Cast SDK is available
+        // Initialize Cast API when available
         window['__onGCastApiAvailable'] = function(isAvailable) {
+            console.log("Google Cast API is available: " + isAvailable);
+
             if (isAvailable) {
                 initializeCastApi();
             } else {
@@ -15,22 +17,21 @@
             }
         };
 
-        // Initialize the Cast API
+        // Initialize Cast API
         function initializeCastApi() {
-            if (cast && cast.framework) {
+            if (window.cast && window.cast.framework) {
                 const castContext = cast.framework.CastContext.getInstance();
                 castContext.setOptions({
                     receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID, // Default receiver ID
                     autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED, // Auto join policy
                 });
-
                 console.log("Google Cast initialized.");
             } else {
-                console.error("Cast framework is not available.");
+                console.error("Cast framework is not defined.");
             }
         }
 
-        // Cast the video to a Chromecast device
+        // Cast video to a Chromecast device
         function castVideo(videoUrl) {
             const castContext = cast.framework.CastContext.getInstance();
             const session = castContext.getCurrentSession();
@@ -39,11 +40,13 @@
                 const mediaInfo = new chrome.cast.media.MediaInfo(videoUrl, 'video/mp4');
                 const request = new chrome.cast.media.LoadRequest(mediaInfo);
 
-                session.loadMedia(request).then(() => {
+                session.loadMedia(request).then(function() {
                     console.log('Media loaded successfully.');
-                }, (error) => {
+                }, function(error) {
                     console.error('Error loading media:', error);
                 });
+            } else {
+                console.error("No active cast session found.");
             }
         }
     </script>
@@ -183,7 +186,7 @@
 
               <!-- Cast Button -->
               <cast-button style="width: 40px; height: 40px;"></cast-button>
-              
+
               <div class="criticalInfo">
                 <div class="cI">
                   <p class="date"></p>
