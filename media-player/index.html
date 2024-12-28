@@ -147,6 +147,9 @@
 
                 const request = new chrome.cast.media.LoadRequest(mediaInfo);
 
+                // Set the startTime to the saved position or 0 if none is available
+                request.currentTime = parseFloat(localStorage.getItem('timestamp') || refSeekTime) || 0;
+
                 session.loadMedia(request).then(function() {
                     console.log('Video and Audio loaded successfully.');
 
