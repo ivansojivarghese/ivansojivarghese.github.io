@@ -63,6 +63,28 @@
 
                     videoInfoElm.cast.classList.add("active");
 
+                    // Listen for session state changes
+                    castContext.addEventListener(
+                      cast.framework.CastContextEventType.SESSION_STATE_CHANGED,
+                      function(event) {
+                        switch (event.sessionState) {
+                          case cast.framework.SessionState.SESSION_STARTED:
+                            console.log('Casting session started');
+                            break;
+                          case cast.framework.SessionState.SESSION_ENDED:
+                            console.log('Casting session ended');
+                            // Handle casting stopped
+                            break;
+                          case cast.framework.SessionState.SESSION_RESUMED:
+                            console.log('Casting session resumed');
+                            break;
+                          default:
+                            console.log('Other session state:', event.sessionState);
+                            break;
+                        }
+                      }
+                    );
+
                 }, function(error) {
                     console.error('Error loading media:', error);
                 });
