@@ -16,6 +16,7 @@ var videoInfoElm = {
 
   replay : document.querySelector("#infoContainer div.replay"),
   cast : document.querySelector("#infoContainer div.cast"),
+  gCast : document.querySelector("google-cast-launcher"),
 
   autoResBtn : document.querySelector("#infoContainer div.autoResBtn"),
   autoResLive : document.querySelector("#infoContainer p.autoResLive"),
@@ -2138,3 +2139,11 @@ if (videoLoadLoop === null) {
     }
   }, 100);
 }
+
+setInterval(() => {
+  if (videoInfoElm.gCast.style.display !== "none") {
+    videoInfoElm.cast.style.display = "";
+  } else {
+    videoInfoElm.cast.style.display = "none";
+  }
+}, 1000/60);
