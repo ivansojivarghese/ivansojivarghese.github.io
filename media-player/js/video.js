@@ -1411,7 +1411,8 @@ function getOptimalVideo(time) {
         // audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
 
-        videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
+        // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
+        videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
 
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then((registration) => {

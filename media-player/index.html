@@ -38,7 +38,7 @@
         }
 
         // Cast the video and audio to a Chromecast device
-        function castVideoWithAudio(videoUrl, audioUrl) {
+        function castVideoWithAudio(videoUrl) {
           /*
             if (!isCastAvailable) {
                 console.error("Google Cast API is not available. Cannot cast video and audio.");
@@ -51,9 +51,10 @@
             if (session) {
                 // Create the media info object for video and audio
                 const mediaInfo = new chrome.cast.media.MediaInfo(videoUrl, 'video/mp4');
+                /*
                 const audioTrack = new chrome.cast.media.AudioTrack();
                 audioTrack.src = audioUrl; // Set the audio URL
-                mediaInfo.tracks = [audioTrack]; // Add the audio track to media info
+                mediaInfo.tracks = [audioTrack]; // Add the audio track to media info*/
 
                 const request = new chrome.cast.media.LoadRequest(mediaInfo);
 

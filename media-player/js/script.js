@@ -3047,7 +3047,8 @@
           video.src = targetVideo.url; // 'loadstart'
           // videoSec.src = targetVideo.url; 
 
-          videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
+          // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
+          // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
@@ -3151,7 +3152,8 @@
           video.src = targetVideo.url; // 'loadstart'
           // videoSec.src = targetVideo.url; 
 
-          videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
+          // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
+          // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
