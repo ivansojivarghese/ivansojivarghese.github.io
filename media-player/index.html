@@ -136,6 +136,10 @@
             if (session) {
                 // Create the media info object for video and audio
                 const mediaInfo = new chrome.cast.media.MediaInfo(videoUrl, 'video/mp4');
+                mediaInfo.customData = {
+                    lastPlaybackPosition: localStorage.getItem('timestamp') || refSeekTime || 0,
+                };
+
                 /*
                 const audioTrack = new chrome.cast.media.AudioTrack();
                 audioTrack.src = audioUrl; // Set the audio URL
