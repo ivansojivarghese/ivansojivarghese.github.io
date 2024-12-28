@@ -4,7 +4,9 @@
     <title>Media Player</title>
 
     <!-- Include Google Cast SDK -->
-    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script> -->
+    <script type="text/javascript" src="www.gstatic.com/cast/sdk/libs/sender/1.0/cast_framework.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
     <script type="text/javascript">
         // Initialize the Cast API when the Cast SDK is available
         window['__onGCastApiAvailable'] = function(isAvailable) {

@@ -1716,7 +1716,8 @@ function determineYouTubeTypeAndTitle(doc) {
   let title = 'Unknown Title';
   
   // Check for video by looking for the 'videoId' in metadata or video-specific DOM elements
-  if (doc.querySelector('meta[itemprop="videoId"]')) {
+  const canonicalUrl = doc.querySelector('link[rel="canonical"]')?.href || '';
+  if (canonicalUrl.includes('/watch') || doc.querySelector('meta[itemprop="videoId"]')) {
       type = 'video';  // Found video ID, it's a video page
       
       // Extract the video title from the meta tag or structured data
