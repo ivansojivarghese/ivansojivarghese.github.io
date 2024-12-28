@@ -71,6 +71,7 @@
           castSession.endSession(true);
         }
 
+        /*
         function addPlayerControl() {
           var player = new cast.framework.RemotePlayer();
           var playerController = new cast.framework.RemotePlayerController(player); 
@@ -147,7 +148,110 @@
                   }
               }
           );
+        }*/
+
+        function addPlayerControl() {
+    var player = new cast.framework.RemotePlayer();
+    var playerController = new cast.framework.RemotePlayerController(player);
+
+    // Get reference to the sender's video player
+    const localVideo = video;
+
+    // Flags to avoid circular updates
+    let isSenderUpdatingReceiver = false;
+    let isReceiverUpdatingSender = false;
+
+    // Sync Pause
+    localVideo.addEventListener('pause', () => {
+        if (!isReceiverUpdatingSender) {
+            isSenderUpdatingReceiver = true;
+            if (!player.isPaused) {
+                playerController.playOrPause(); // Toggle to pause the receiver
+            }
+            isSenderUpdatingReceiver = false;
         }
+    });
+
+    // Sync Play
+    localVideo.addEventListener('play', () => {
+        if (!isReceiverUpdatingSender) {
+            isSenderUpdatingReceiver = true;
+            if (player.isPaused) {
+                playerController.playOrPause(); // Toggle to play the receiver
+            }
+            isSenderUpdatingReceiver = false;
+        }
+    });
+
+    // Sync Seek
+    localVideo.addEventListener('seeked', () => {
+        if (!isReceiverUpdatingSender) {
+            isSenderUpdatingReceiver = true;
+            player.currentTime = localVideo.currentTime; // Update the receiver's position
+            playerController.seek();
+            isSenderUpdatingReceiver = false;
+        }
+    });
+
+    // Update sender's video position when the receiver changes
+    playerController.addEventListener(
+        cast.framework.RemotePlayerEventType.CURRENT_TIME_CHANGED,
+        () => {
+            if (!isSenderUpdatingReceiver) {
+                isReceiverUpdatingSender = true;
+                localVideo.currentTime = player.currentTime; // Sync sender's video position
+                isReceiverUpdatingSender = false;
+            }
+        }
+    );
+
+    // Sync play/pause state between sender and receiver
+    playerController.addEventListener(
+        cast.framework.RemotePlayerEventType.IS_PAUSED_CHANGED,
+        () => {
+            if (!isSenderUpdatingReceiver) {
+                isReceiverUpdatingSender = true;
+                if (player.isPaused) {
+                    localVideo.pause(); // Pause the sender's video
+                } else {
+                    localVideo.play(); // Play the sender's video
+                }
+                isReceiverUpdatingSender = false;
+            }
+        }
+    );
+
+    // Handle play/pause button
+    playPauseButton.addEventListener('click', () => {
+        playerController.playOrPause();
+    });
+
+    // Handle media info updates
+    playerController.addEventListener(
+        cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED,
+        () => {
+            let session = cast.framework.CastContext.getInstance().getCurrentSession();
+            if (!session) return;
+
+            let mediaStatus = session.getMediaSession();
+            if (!mediaStatus) return;
+
+            let mediaInfo = mediaStatus.media;
+            console.log('Media Info:', mediaInfo);
+        }
+    );
+
+    // Handle connection state changes
+    playerController.addEventListener(
+        cast.framework.RemotePlayerEventType.IS_CONNECTED_CHANGED,
+        () => {
+            if (!player.isConnected) {
+                console.log('RemotePlayerController: Player disconnected');
+                // Update local player to disconnected state
+            }
+        }
+    );
+}
 
         var casted = false;
 
