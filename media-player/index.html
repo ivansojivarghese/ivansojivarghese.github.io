@@ -71,28 +71,14 @@
           castSession.endSession(true);
         }
 
-        /*
+        
         function addPlayerControl() {
           var player = new cast.framework.RemotePlayer();
           var playerController = new cast.framework.RemotePlayerController(player); 
 
           // Listen to the sender's video player's events
           const localVideo = video;
-
-          // Sync Pause
-          localVideo.addEventListener('pause', () => {
-              if (!player.isPaused) {
-                  playerController.playOrPause(); // Toggle to pause the receiver
-              }
-          });
-
-          // Sync Play
-          localVideo.addEventListener('play', () => {
-              if (player.isPaused) {
-                  playerController.playOrPause(); // Toggle to play the receiver
-              }
-          });
-
+/*
           localVideo.addEventListener('seeked', () => {
               player.currentTime = localVideo.currentTime; // Update the receiver's position
               playerController.seek();
@@ -103,7 +89,7 @@
               () => {
                   localVideo.currentTime = player.currentTime; // Sync sender's video position
               }
-          );
+          );*/
 
           playPauseButton.addEventListener('click', () => {
             playerController.playOrPause();
@@ -137,18 +123,7 @@
             }
           });
 
-          // Listen for changes in the receiver's playback state
-          playerController.addEventListener(
-              cast.framework.RemotePlayerEventType.IS_PAUSED_CHANGED,
-              () => {
-                  if (player.isPaused) {
-                      localVideo.pause(); // Pause the sender's video
-                  } else {
-                      localVideo.play(); // Play the sender's video
-                  }
-              }
-          );
-        }*/
+        }
 /*
         function addPlayerControl() {
     var player = new cast.framework.RemotePlayer();
@@ -348,7 +323,7 @@ function addPlayerControl() {
         }
     );
 }*/
-
+/*
 function addPlayerControl() {
     var player = new cast.framework.RemotePlayer();
     var playerController = new cast.framework.RemotePlayerController(player);
@@ -441,7 +416,7 @@ function addPlayerControl() {
         }
     );
 }
-
+*/
 
         var casted = false;
 
