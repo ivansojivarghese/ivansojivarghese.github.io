@@ -17,6 +17,7 @@ var videoInfoElm = {
   replay : document.querySelector("#infoContainer div.replay"),
   cast : document.querySelector("#infoContainer div.cast"),
   gCast : document.querySelector("google-cast-launcher"),
+  gCastPath : document.querySelectorAll("google-cast-launcher path")[0],
 
   autoResBtn : document.querySelector("#infoContainer div.autoResBtn"),
   autoResLive : document.querySelector("#infoContainer p.autoResLive"),
@@ -2145,5 +2146,11 @@ setInterval(() => {
     videoInfoElm.cast.style.display = "";
   } else {
     videoInfoElm.cast.style.display = "none";
+  }
+
+  if (videoInfoElm.gCastPath.classList.contains("cast_caf_state_c")) {
+    videoInfoElm.cast.classList.add("active");
+  } else {
+    videoInfoElm.cast.classList.remove("active");
   }
 }, 1000/60);
