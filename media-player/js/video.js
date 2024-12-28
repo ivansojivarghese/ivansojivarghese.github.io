@@ -1848,8 +1848,8 @@ async function getMetadata(url) {
   const metadata = await fetchMetadataForURL(url);
 
   // Safely log or use the metadata
-  console.log('Title:', metadata.title);
-  console.log('Favicon:', metadata.favicon);
+  // console.log('Title:', metadata.title);
+  // console.log('Favicon:', metadata.favicon);
 
   // You can use this metadata object for further processing
   return metadata;
