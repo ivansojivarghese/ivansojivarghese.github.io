@@ -117,15 +117,13 @@
                 session.loadMedia(request).then(function() {
                     console.log('Video and Audio loaded successfully.');
 
-                    // videoInfoElm.cast.classList.add("active");
+                    castVideoWithAudio(videoDetails.formats["0"].url);
 
                 }, function(error) {
                     console.error('Error loading media:', error);
                 });
             } else {
                 console.error("No active cast session found.");
-
-                castVideoWithAudio(videoDetails.formats["0"].url);
             }
         }
     </script>
