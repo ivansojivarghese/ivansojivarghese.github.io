@@ -29,12 +29,36 @@
                         autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED, // Auto join policy
                     });
                     console.log("Google Cast initialized.");
+
+                    chrome.cast.requestSession(onSessionSuccess, onSessionError);
+
+                    // Listen for changes to the session state
+                    chrome.cast.sessionManager.addSessionListener(function(session) {
+                      console.log('Casting session started:', session);
+
+                      // Listen for when the session ends
+                      session.addUpdateListener(function(isAlive) {
+                        if (!isAlive) {
+                          console.log('Casting session has ended.');
+                          // Handle casting stopped
+                        }
+                      });
+                    });
+
                 } catch (error) {
                     console.error("Error initializing Google Cast:", error);
                 }
             } else {
                 console.error("cast.framework is not defined.");
             }
+        }
+
+        function onSessionSuccess(session) {
+          console.log('Casting session established:', session);
+        }
+
+        function onSessionError(error) {
+          console.error('Error starting session:', error);
         }
 
         // Cast the video and audio to a Chromecast device
