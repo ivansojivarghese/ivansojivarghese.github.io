@@ -71,6 +71,72 @@
           castSession.endSession(true);
         }
 
+        function addPlayerControl() {
+          var player = new cast.framework.RemotePlayer();
+          var playerController = new cast.framework.RemotePlayerController(player); 
+
+          // Listen to the sender's video player's events
+          const localVideo = video;
+
+          // Sync Pause
+          localVideo.addEventListener('pause', () => {
+              if (!player.isPaused) {
+                  playerController.playOrPause(); // Toggle to pause the receiver
+              }
+          });
+
+          // Sync Play
+          localVideo.addEventListener('play', () => {
+              if (player.isPaused) {
+                  playerController.playOrPause(); // Toggle to play the receiver
+              }
+          });
+
+          playPauseButton.addEventListener('click', () => {
+            playerController.playOrPause();
+          });
+
+          playerController.addEventListener(
+          cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function() {
+            // Use the current session to get an up to date media status.
+            let session = cast.framework.CastContext.getInstance().getCurrentSession();
+
+            if (!session) {
+                return;
+            }
+
+            // Contains information about the playing media including currentTime.
+            let mediaStatus = session.getMediaSession();
+            if (!mediaStatus) {
+                return;
+            }
+
+            // mediaStatus also contains the mediaInfo containing metadata and other
+            // information about the in progress content.
+            let mediaInfo = mediaStatus.media;
+          });
+
+          playerController.addEventListener(
+          cast.framework.RemotePlayerEventType.IS_CONNECTED_CHANGED, function() {
+            if (!player.isConnected) {
+              console.log('RemotePlayerController: Player disconnected');
+              // Update local player to disconnected state
+            }
+          });
+
+          // Listen for changes in the receiver's playback state
+          playerController.addEventListener(
+              cast.framework.RemotePlayerEventType.IS_PAUSED_CHANGED,
+              () => {
+                  if (player.isPaused) {
+                      localVideo.pause(); // Pause the sender's video
+                  } else {
+                      localVideo.play(); // Play the sender's video
+                  }
+              }
+          );
+        }
+
         var casted = false;
 
         // Cast the video and audio to a Chromecast device
@@ -92,52 +158,7 @@
                   case cast.framework.SessionState.SESSION_STARTED:
                     console.log('Casting session started');
 
-                    var player = new cast.framework.RemotePlayer();
-                    var playerController = new cast.framework.RemotePlayerController(player);
-
-                    playPauseButton.addEventListener('click', () => {
-                      playerController.playOrPause();
-                    });
-
-                    playerController.addEventListener(
-                    cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function() {
-                      // Use the current session to get an up to date media status.
-                      let session = cast.framework.CastContext.getInstance().getCurrentSession();
-
-                      if (!session) {
-                          return;
-                      }
-
-                      // Contains information about the playing media including currentTime.
-                      let mediaStatus = session.getMediaSession();
-                      if (!mediaStatus) {
-                          return;
-                      }
-
-                      // mediaStatus also contains the mediaInfo containing metadata and other
-                      // information about the in progress content.
-                      let mediaInfo = mediaStatus.media;
-                    });
-
-                    playerController.addEventListener(
-                    cast.framework.RemotePlayerEventType.IS_CONNECTED_CHANGED, function() {
-                      if (!player.isConnected) {
-                        console.log('RemotePlayerController: Player disconnected');
-                        // Update local player to disconnected state
-                      }
-                    });
-
-                    // Listen for changes in the receiver's playback state
-                    playerController.addEventListener(
-                        cast.framework.RemotePlayerEventType.IS_PAUSED_CHANGED,
-                        () => {
-                            if (player.isPaused) {
-                                localVideo.pause(); // Pause the sender's video
-                            } else {
-                                localVideo.play(); // Play the sender's video
-                            }
-                        }
-                    );
+                    addPlayerControl();
 
                     videoInfoElm.cast.classList.add("active");
                     videoInfoElm.gCast.classList.add("disabled");
@@ -163,52 +184,7 @@
                   case cast.framework.SessionState.SESSION_RESUMED:
                     console.log('Casting session resumed');
 
-                    var player = new cast.framework.RemotePlayer();
-                    var playerController = new cast.framework.RemotePlayerController(player); 
-
-                    playPauseButton.addEventListener('click', () => {
-                      playerController.playOrPause();
-                    });
-
-                    playerController.addEventListener(
-                    cast.framework.RemotePlayerEventType.MEDIA_INFO_CHANGED, function() {
-                      // Use the current session to get an up to date media status.
-                      let session = cast.framework.CastContext.getInstance().getCurrentSession();
-
-                      if (!session) {
-                          return;
-                      }
-
-                      // Contains information about the playing media including currentTime.
-                      let mediaStatus = session.getMediaSession();
-                      if (!mediaStatus) {
-                          return;
-                      }
-
-                      // mediaStatus also contains the mediaInfo containing metadata and other
-                      // information about the in progress content.
-                      let mediaInfo = mediaStatus.media;
-                    });
-
-                    playerController.addEventListener(
-                    cast.framework.RemotePlayerEventType.IS_CONNECTED_CHANGED, function() {
-                      if (!player.isConnected) {
-                        console.log('RemotePlayerController: Player disconnected');
-                        // Update local player to disconnected state
-                      }
-                    });
-
-                    // Listen for changes in the receiver's playback state
-                    playerController.addEventListener(
-                        cast.framework.RemotePlayerEventType.IS_PAUSED_CHANGED,
-                        () => {
-                            if (player.isPaused) {
-                                localVideo.pause(); // Pause the sender's video
-                            } else {
-                                localVideo.play(); // Play the sender's video
-                            }
-                        }
-                    );
+                    addPlayerControl();
 
                     videoInfoElm.cast.classList.add("active");
                     videoInfoElm.gCast.classList.add("disabled");
