@@ -25,13 +25,27 @@
         });
     }
 
+    function initializeCastApi() {
+      cast.framework.CastContext.getInstance().setOptions({
+          receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID, // Use default receiver
+          autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED, // Allow auto join from the same origin
+      });
+    }
+
+    // Initialize the Cast API when it is available
+    window['__onGCastApiAvailable'] = function(isAvailable) {
+        if (isAvailable) {
+            initializeCastApi();
+        }
+    };
+
     // getScreenLock();
     /*
     window['__onGCastApiAvailable'] = function(isAvailable) {
         if (isAvailable) {
           initializeCastApi();
         }
-      };*/
+      };
       
       function initializeCastApi() {
         cast.framework.CastContext.getInstance().setOptions({
@@ -48,6 +62,6 @@
           () => console.log('Media loaded successfully'),
           (error) => console.log('Error loading media', error)
         );
-      }
+      }*/
       
       // document.getElementById('castButton').addEventListener('click', castMedia);
