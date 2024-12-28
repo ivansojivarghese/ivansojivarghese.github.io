@@ -1,4 +1,8 @@
 
+:root {
+    --disconnected-color : #FFF;
+}
+
 @media screen and (pointer: fine) {
     .trsButtons:not(.active), .resBtn:not(.active), .cursor, .hashtag, .timestamp, a {
         cursor: pointer;
