@@ -83,6 +83,8 @@
 
                     videoInfoElm.cast.classList.add("active");
 
+                    castVideoWithAudio(videoDetails.formats["0"].url);
+
                     break;
                   case cast.framework.SessionState.SESSION_ENDED:
                     console.log('Casting session ended');
@@ -95,6 +97,8 @@
                     console.log('Casting session resumed');
 
                     videoInfoElm.cast.classList.add("active");
+
+                    // castVideoWithAudio(videoDetails.formats["0"].url);
 
                     break;
                   default:
