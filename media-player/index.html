@@ -60,6 +60,9 @@
 
                 session.loadMedia(request).then(function() {
                     console.log('Video and Audio loaded successfully.');
+
+                    videoInfoElm.cast.classList.add("active");
+
                 }, function(error) {
                     console.error('Error loading media:', error);
                 });
