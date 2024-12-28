@@ -63,6 +63,8 @@
         }*/
 
         function stopCasting() {
+          event.stopPropagation();
+
           var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
           // End the session and pass 'true' to indicate
           // that Web Receiver app should be stopped.
