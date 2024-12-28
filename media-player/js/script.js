@@ -585,6 +585,10 @@
 
         // videoSec.currentTime = video.currentTime;
 
+        if (player.isPaused) {
+          playerController.playOrPause(); // Toggle to play the receiver
+        }
+
         video.style.transitionDuration = "3s";
         video.style.background = "";
 
@@ -729,6 +733,10 @@
     video.addEventListener('pause', function () {
 
       if (!qualityBestChange && !qualityChange) {
+
+        if (!player.isPaused) {
+          playerController.playOrPause(); // Toggle to pause the receiver
+        }
 
         bufferStartTime = 0;
         bufferEndTime = 0;
