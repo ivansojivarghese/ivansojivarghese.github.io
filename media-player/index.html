@@ -70,13 +70,16 @@
                         switch (event.sessionState) {
                           case cast.framework.SessionState.SESSION_STARTED:
                             console.log('Casting session started');
+                            videoInfoElm.cast.classList.add("active");
                             break;
                           case cast.framework.SessionState.SESSION_ENDED:
                             console.log('Casting session ended');
                             // Handle casting stopped
+                            videoInfoElm.cast.classList.remove("active");
                             break;
                           case cast.framework.SessionState.SESSION_RESUMED:
                             console.log('Casting session resumed');
+                            videoInfoElm.cast.classList.add("active");
                             break;
                           default:
                             console.log('Other session state:', event.sessionState);
