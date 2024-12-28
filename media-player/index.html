@@ -71,6 +71,8 @@
           castSession.endSession(true);
         }
 
+        var casted = false;
+
         // Cast the video and audio to a Chromecast device
         function castVideoWithAudio(videoUrl) {
           /*
@@ -93,12 +95,17 @@
                     videoInfoElm.cast.classList.add("active");
                     videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
 
-                    castVideoWithAudio(videoDetails.formats["0"].url);
+                    if (!casted) {
+                      casted = true;
+                      castVideoWithAudio(videoDetails.formats["0"].url);
+                    }
 
                     break;
                   case cast.framework.SessionState.SESSION_ENDED:
                     console.log('Casting session ended');
                     // Handle casting stopped
+
+                    casted = false;
 
                     videoInfoElm.cast.classList.remove("active");
                     videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
@@ -110,7 +117,10 @@
                     videoInfoElm.cast.classList.add("active");
                     videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
 
-                    castVideoWithAudio(videoDetails.formats["0"].url);
+                    if (!casted) {
+                      casted = true;
+                      castVideoWithAudio(videoDetails.formats["0"].url);
+                    }
 
                     break;
                   default:
@@ -132,8 +142,6 @@
 
                 session.loadMedia(request).then(function() {
                     console.log('Video and Audio loaded successfully.');
-
-                    castVideoWithAudio(videoDetails.formats["0"].url);
 
                 }, function(error) {
                     console.error('Error loading media:', error);
