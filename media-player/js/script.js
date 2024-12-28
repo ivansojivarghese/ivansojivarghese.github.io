@@ -3047,6 +3047,8 @@
           video.src = targetVideo.url; // 'loadstart'
           // videoSec.src = targetVideo.url; 
 
+          videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio(" + video.src + ", " + audio.src + ")");
+
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
               registration.active.postMessage({
@@ -3148,6 +3150,8 @@
           console.log("load again");
           video.src = targetVideo.url; // 'loadstart'
           // videoSec.src = targetVideo.url; 
+
+          videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio(" + video.src + ", " + audio.src + ")");
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {

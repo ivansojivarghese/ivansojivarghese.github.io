@@ -15,6 +15,7 @@ var videoInfoElm = {
   views : document.querySelector("#infoContainer p.views"),
 
   replay : document.querySelector("#infoContainer div.replay"),
+  cast : document.querySelector("#infoContainer div.cast"),
 
   autoResBtn : document.querySelector("#infoContainer div.autoResBtn"),
   autoResLive : document.querySelector("#infoContainer p.autoResLive"),
@@ -1409,6 +1410,8 @@ function getOptimalVideo(time) {
 
         // audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
         // audio.src = videoDetails.adaptiveFormats[videoDetails.adaptiveFormats.length - 1].url;
+
+        videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio(" + video.src + ", " + audio.src + ")");
 
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then((registration) => {

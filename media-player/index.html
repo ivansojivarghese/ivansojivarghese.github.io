@@ -37,17 +37,27 @@
             }
         }
 
-        // Cast the video to a Chromecast device
-        function castVideo(videoUrl) {
+        // Cast the video and audio to a Chromecast device
+        function castVideoWithAudio(videoUrl, audioUrl) {
+            if (!isCastAvailable) {
+                console.error("Google Cast API is not available. Cannot cast video and audio.");
+                return;
+            }
+
             const castContext = cast.framework.CastContext.getInstance();
             const session = castContext.getCurrentSession();
 
             if (session) {
+                // Create the media info object for video and audio
                 const mediaInfo = new chrome.cast.media.MediaInfo(videoUrl, 'video/mp4');
+                const audioTrack = new chrome.cast.media.AudioTrack();
+                audioTrack.src = audioUrl; // Set the audio URL
+                mediaInfo.tracks = [audioTrack]; // Add the audio track to media info
+
                 const request = new chrome.cast.media.LoadRequest(mediaInfo);
 
                 session.loadMedia(request).then(function() {
-                    console.log('Media loaded successfully.');
+                    console.log('Video and Audio loaded successfully.');
                 }, function(error) {
                     console.error('Error loading media:', error);
                 });
@@ -208,11 +218,9 @@
                   <div class="replay trs trsButtons noimg cursor" onclick="loopVideoToggle()" title="Loop video">
                     <div class="img"></div>
                   </div>
-  
                   <div class="cast trs trsButtons noimg cursor" onclick="" title="Cast">
                     <div class="img"></div>
                   </div>
-  
                   <div class="autoResBtn resBtn trs" onclick="autoResToggle()">
                     <p>AUTO</p>
                   </div>
