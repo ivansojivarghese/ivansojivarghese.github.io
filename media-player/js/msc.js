@@ -25,6 +25,7 @@
         });
     }
 
+    /*
     function castVideo(videoUrl) {
         const castContext = cast.framework.CastContext.getInstance();
         const session = castContext.getCurrentSession();
@@ -55,10 +56,10 @@
         if (isAvailable) {
             initializeCastApi();
         }
-    };
+    };*/
 
     // getScreenLock();
-    
+
     /*
     window['__onGCastApiAvailable'] = function(isAvailable) {
         if (isAvailable) {

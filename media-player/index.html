@@ -2,6 +2,51 @@
 <html lang="en">
   <head>
     <title>Media Player</title>
+
+    <!-- Include the Google Cast SDK -->
+    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+    <script type="text/javascript">
+        // Check if the Cast SDK is available
+        window['__onGCastApiAvailable'] = function(isAvailable) {
+            if (isAvailable) {
+                initializeCastApi();
+            } else {
+                console.error("Google Cast API is not available.");
+            }
+        };
+
+        // Initialize the Cast API
+        function initializeCastApi() {
+            if (cast && cast.framework) {
+                const castContext = cast.framework.CastContext.getInstance();
+                castContext.setOptions({
+                    receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID, // Default receiver ID
+                    autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED, // Auto join policy
+                });
+
+                console.log("Google Cast initialized.");
+            } else {
+                console.error("Cast framework is not available.");
+            }
+        }
+
+        // Cast the video to a Chromecast device
+        function castVideo(videoUrl) {
+            const castContext = cast.framework.CastContext.getInstance();
+            const session = castContext.getCurrentSession();
+
+            if (session) {
+                const mediaInfo = new chrome.cast.media.MediaInfo(videoUrl, 'video/mp4');
+                const request = new chrome.cast.media.LoadRequest(mediaInfo);
+
+                session.loadMedia(request).then(() => {
+                    console.log('Media loaded successfully.');
+                }, (error) => {
+                    console.error('Error loading media:', error);
+                });
+            }
+        }
+    </script>
     
     <meta name="theme-color" content="#000">
 
@@ -239,7 +284,7 @@
     </main>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+  <!-- <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script> -->
 
   <script src="https://ivansojivarghese.github.io/media-player/js/dev.js"></script>
   <script src="https://ivansojivarghese.github.io/media-player/js/network.js"></script>
