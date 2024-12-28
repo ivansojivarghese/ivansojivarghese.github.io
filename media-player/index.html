@@ -92,6 +92,18 @@
               }
           });
 
+          localVideo.addEventListener('seeked', () => {
+              player.currentTime = localVideo.currentTime; // Update the receiver's position
+              playerController.seek();
+          });
+
+          playerController.addEventListener(
+              cast.framework.RemotePlayerEventType.CURRENT_TIME_CHANGED,
+              () => {
+                  localVideo.currentTime = player.currentTime; // Sync sender's video position
+              }
+          );
+
           playPauseButton.addEventListener('click', () => {
             playerController.playOrPause();
           });
