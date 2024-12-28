@@ -6,7 +6,7 @@
     <!-- Include Google Cast SDK -->
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
     <script type="text/javascript">
-        // Initialize Cast API when available
+        // Initialize the Cast API when the Cast SDK is available
         window['__onGCastApiAvailable'] = function(isAvailable) {
             console.log("Google Cast API is available: " + isAvailable);
 
@@ -17,21 +17,25 @@
             }
         };
 
-        // Initialize Cast API
+        // Initialize the Cast API only when the SDK is available
         function initializeCastApi() {
             if (window.cast && window.cast.framework) {
-                const castContext = cast.framework.CastContext.getInstance();
-                castContext.setOptions({
-                    receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID, // Default receiver ID
-                    autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED, // Auto join policy
-                });
-                console.log("Google Cast initialized.");
+                try {
+                    const castContext = cast.framework.CastContext.getInstance();
+                    castContext.setOptions({
+                        receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID, // Default receiver ID
+                        autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED, // Auto join policy
+                    });
+                    console.log("Google Cast initialized.");
+                } catch (error) {
+                    console.error("Error initializing Google Cast:", error);
+                }
             } else {
-                console.error("Cast framework is not defined.");
+                console.error("cast.framework is not defined.");
             }
         }
 
-        // Cast video to a Chromecast device
+        // Cast the video to a Chromecast device
         function castVideo(videoUrl) {
             const castContext = cast.framework.CastContext.getInstance();
             const session = castContext.getCurrentSession();
