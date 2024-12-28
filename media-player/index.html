@@ -93,6 +93,7 @@
                     console.log('Casting session started');
 
                     videoInfoElm.cast.classList.add("active");
+                    videoInfoElm.gCast.classList.add("disabled");
                     videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
 
                     if (!casted) {
@@ -108,6 +109,7 @@
                     casted = false;
 
                     videoInfoElm.cast.classList.remove("active");
+                    videoInfoElm.gCast.classList.remove("disabled");
                     videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
 
                     break;
@@ -115,6 +117,7 @@
                     console.log('Casting session resumed');
 
                     videoInfoElm.cast.classList.add("active");
+                    videoInfoElm.gCast.classList.add("disabled");
                     videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
 
                     if (!casted) {
