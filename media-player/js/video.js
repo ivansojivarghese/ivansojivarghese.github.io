@@ -1428,6 +1428,8 @@ function getOptimalVideo(time) {
 
         var diffVideo = false;
         if (videoURL !== localStorage.getItem("mediaURL")) {
+          refSeekTime = 0;
+          localStorage.setItem('timestamp', refSeekTime);
           diffVideo = true;
         }
 
