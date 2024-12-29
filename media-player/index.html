@@ -102,7 +102,9 @@
 
             videoLoadProgressBar.style.opacity = 1;
 
-            castCurrentTime = timeToSeconds(videoCurrentTime.textContent);
+            if (timeToSeconds(videoCurrentTime.textContent)) {
+              castCurrentTime = timeToSeconds(videoCurrentTime.textContent);
+            }
 
             video.src = localStorage.getItem("videoURL");
             audio.src = localStorage.getItem("audioURL");
