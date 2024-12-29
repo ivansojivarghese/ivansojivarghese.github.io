@@ -42,7 +42,7 @@
                       casted = true;
                       castVideoWithAudio(videoDetails.formats["0"].url);
                     }
-                    
+
                     /*
                     chrome.cast.requestSession(onSessionSuccess, onSessionError);
                     // Listen for changes to the session state
@@ -105,6 +105,17 @@
 
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
+
+          autoResToggle();
+          videoInfoElm.autoResLive.innerHTML = videoDetails.formats["0"].qualityLabel;
+          // add .disabled to all .resBtn
+          // Select all elements with the class 'resBtn'
+          const btnElements = document.querySelectorAll('#infoContainer .otherResBtn, #infoContainer .autoResBtn');
+
+          // Add another class to each element
+          btnElements.forEach(element => {
+            element.classList.add('disabled'); // Replace 'newClass' with the class you want to add
+          });
         }
 
         var castCurrentTime = 0;

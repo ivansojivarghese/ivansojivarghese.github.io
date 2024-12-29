@@ -172,8 +172,12 @@ video.seeking {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/cast_connected.svg") !important;
 }
 
-google-cast-launcher.disabled {
+google-cast-launcher.disabled, .disabled {
     pointer-events: none;
+}
+
+.otherResBtn.disabled {
+    opacity: 0.25;
 }
 
 .controlButton {
