@@ -4056,14 +4056,14 @@
           } else {
             refSeekTime = Number(localStorage.getItem("timestamp"));
           }*/
-          // if (refSeekTime !== 0) {
+          if (refSeekTime !== 0) {
             localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
-          // }
+          }
         } else {
           refSeekTime = player.currentTime ? player.currentTime : timeToSeconds(videoCurrentTime.textContent);
-          // if (refSeekTime !== 0) {
+          if (refSeekTime !== 0) {
             localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
-          // }
+          }
         }
 
         // console.log("ref", refSeekTime);
@@ -4095,14 +4095,14 @@
         } else {
           refSeekTime = Number(localStorage.getItem("timestamp"));
         }*/
-        // if (refSeekTime !== 0) {
+        if (refSeekTime !== 0) {
           localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
-        // }
+        }
       } else {
         refSeekTime = player.currentTime;
-        // if (refSeekTime !== 0) {
+        if (refSeekTime !== 0) {
           localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
-        // }
+        }
       }
 
       audioProgressPercentile = (audio.currentTime / audio.duration);
