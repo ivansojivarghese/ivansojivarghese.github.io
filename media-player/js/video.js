@@ -1476,13 +1476,14 @@ function getOptimalVideo(time) {
         // videoInfoElm.main.style.opacity = 1;
 
         if (casting) {
+          /*
           addPlayerControl();
 
           initCastPlayer();
 
           videoInfoElm.cast.classList.add("active");
           videoInfoElm.gCast.classList.add("disabled");
-          videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
+          videoInfoElm.cast.setAttribute("onclick", "stopCasting()");*/
 
           castVideoWithAudio(videoDetails.formats["0"].url);
           playerController.playOrPause();
