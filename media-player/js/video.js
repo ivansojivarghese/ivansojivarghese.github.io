@@ -1393,7 +1393,7 @@ function getOptimalVideo(time) {
         video.style.background = "";
         imageAmbientChange = true;
         
-        if (!casting && !casted) {
+        if (!casted) {
           video.src = targetVideo.url; 
           // videoSec.src = targetVideo.url; 
           // videoSec.src = supportedVideoSources[supportedVideoSources.length - 1].url;

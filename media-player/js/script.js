@@ -294,7 +294,7 @@
       // event.stopPropagation();
       clearTimeout(controlsHideInt);
       controlsHideInt = null;
-      if (!casting) {
+      if (!casted) {
         if (videoControls.classList.contains('visible') && !audioVideoAligning && !qualityChange && !qualityBestChange && (!videoErr && !audioErr)) {
 
           if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
