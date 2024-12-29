@@ -39,12 +39,12 @@
                       videoInfoElm.gCast.classList.add("disabled");
                       videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
 
-                      if (!casted) {
-                        casted = true;
+                      // if (!casted) {
+                        // casted = true;
                         castVideoWithAudio(videoDetails.formats["0"].url);
 
                         playerController.playOrPause();
-                      }
+                      // }
 
                     }, 1000);
 
