@@ -2058,7 +2058,7 @@
 
     video.addEventListener('seeking', function() {
 
-        if (!player.isConnected) {
+        if ((player && !player.isConnected) || !player) {
 
           videoRun = true;
 
@@ -2100,7 +2100,7 @@
     
     video.addEventListener('seeked', function() {
 
-        if (!player.isConnected) {
+        if ((player && !player.isConnected) || !player) {
 
         seekingLoad = false;
         // hideVideoControls();
@@ -2346,7 +2346,7 @@
 
       // var player = new cast.framework.RemotePlayer();
 
-      if (!player.isConnected) {
+      if ((player && !player.isConnected) || !player) {
 
         console.error(`Error loading: ${audio}`);
         audioErr = true;
@@ -2459,7 +2459,7 @@
 
       // var player = new cast.framework.RemotePlayer();
 
-      if (!player.isConnected) {
+      if ((player && !player.isConnected) || !player) {
 
         console.error(`Error loading: ${video}`);
         videoErr = true;
@@ -2603,7 +2603,7 @@
       console.log(`Abort loading: ${video}`);
       // var player = new cast.framework.RemotePlayer();
 
-      if (!player.isConnected) {
+      if ((player && !player.isConnected) || !player) {
         video.load();
         video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
@@ -3540,8 +3540,10 @@
       }
       initialVideoLoadCount++;
 
-      loadingRing.style.display = "block";
-      playPauseButton.style.display = "none";
+      if ((player && !player.isConnected) || !player) {
+        loadingRing.style.display = "block";
+        playPauseButton.style.display = "none";
+      }
 
       bufferLoad = true;
       /*
@@ -3601,7 +3603,7 @@
 
     audio.addEventListener('seeked', function() {
 
-      if (!player.isConnected) {
+      if ((player && !player.isConnected) || !player) {
 
       if (!checkAudioReady) {
         checkAudioReady = setInterval(() => {
@@ -3621,7 +3623,7 @@
 
     audio.addEventListener('seeking', function() {
 
-      if (!player.isConnected) {
+      if ((player && !player.isConnected) || !player) {
         audioRun = true;
 
         loadingRing.style.display = "block";
