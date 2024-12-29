@@ -88,6 +88,8 @@
 
           videoLoadProgressBar.style.opacity = 0;
 
+          loading = false;
+
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
         }
@@ -152,6 +154,9 @@
                   videoCurrentTime.textContent = secondsToTimeCode(player.currentTime);
                   videoProgressPercentile = (player.currentTime / player.duration);
                   videoProgressBar.style.transform = `scaleX(${player.currentTime / player.duration})`;
+
+                  loadingRing.style.display = "none";
+                  playPauseButton.style.display = "block";
               }
           );
 
