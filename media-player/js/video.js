@@ -1475,7 +1475,7 @@ function getOptimalVideo(time) {
 
         // videoInfoElm.main.style.opacity = 1;
 
-        if (casting) {
+        if (casting && casted) {
           /*
           addPlayerControl();
 
