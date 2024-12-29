@@ -4040,11 +4040,12 @@
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         if ((player && !player.isConnected) || !player) {
-          if (video.currentTime > Number(localStorage.getItem("timestamp"))) {
+          // if (video.currentTime > Number(localStorage.getItem("timestamp"))) {
             refSeekTime = video.currentTime ? video.currentTime : timeToSeconds(videoCurrentTime.textContent);
+          /*
           } else {
             refSeekTime = Number(localStorage.getItem("timestamp"));
-          }
+          }*/
           if (refSeekTime !== 0) {
             localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
           }
@@ -4078,11 +4079,12 @@
 
     audio.addEventListener("timeupdate", function() {
       if ((player && !player.isConnected) || !player) {
-        if (audio.currentTime > Number(localStorage.getItem("timestamp"))) {
+        // if (audio.currentTime > Number(localStorage.getItem("timestamp"))) {
           refSeekTime = audio.currentTime;
+        /*
         } else {
           refSeekTime = Number(localStorage.getItem("timestamp"));
-        }
+        }*/
         if (refSeekTime !== 0) {
           localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
         }
