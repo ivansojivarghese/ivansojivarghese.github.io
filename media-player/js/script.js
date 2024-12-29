@@ -2330,68 +2330,84 @@
           ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
           ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
 
-      console.error(`Error loading: ${audio}`);
-      audioErr = true;
+      var player = new cast.framework.RemotePlayer();
 
-      // UI
+      if (!player.isConnected) {
 
-      if (audio.error.code && failTimes < maxFailTimes /*&& backgroundPlay*/) {
-        audio.load();
-        audio.currentTime = video.currentTime;
+        console.error(`Error loading: ${audio}`);
+        audioErr = true;
 
-        failTimes++;
+        // UI
 
-        if (failTimes === maxFailTimes && !playbackErr) {
-          playbackErr = true;
-          inp.value = videoURL || localStorage.getItem("mediaURL");
-          getURL();
+        if (audio.error.code && failTimes < maxFailTimes /*&& backgroundPlay*/) {
+          audio.load();
+          audio.currentTime = video.currentTime;
+
+          failTimes++;
+
+          if (failTimes === maxFailTimes && !playbackErr) {
+            playbackErr = true;
+            inp.value = videoURL || localStorage.getItem("mediaURL");
+            getURL();
+          }
+
+        } else {
+          playPauseButton.classList.remove('playing');
+          playPauseButton.classList.add('repeat');
+          playPauseButton.title = "Replay";
+
+          endLoad();
+          setTimeout(function() {
+            console.log("hideLR");
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+            // reset the loader
+            setTimeout(function() {
+              resetLoad();
+            }, 10);
+          }, 1000);
         }
 
-      } else {
-        playPauseButton.classList.remove('playing');
-        playPauseButton.classList.add('repeat');
-        playPauseButton.title = "Replay";
+        // Notifications
 
-        endLoad();
-        setTimeout(function() {
-          console.log("hideLR");
-          loadingRing.style.display = "none";
-          playPauseButton.style.display = "block";
-          // reset the loader
-          setTimeout(function() {
-            resetLoad();
-          }, 10);
-        }, 1000);
-      }
+        switch (audio.error.code) {
+          case 1: // MEDIA_ERR_ABORTED
+            ntfTitle = "Aborted";
+            ntfBody = "Fetching of the associated resource(s) was/were aborted at your request.";
+          break;
+          case 2: // MEDIA_ERR_NETWORK
+            ntfTitle = "Network error";
+            ntfBody = "An unexpected network error occurred - preventing further fetching of the associated resource(s).";
+          break;
+          case 3: // MEDIA_ERR_DECODE
+            ntfTitle = "Decode error";
+            ntfBody = "An unexpected error occurred while trying to decode the associated resource(s).";
+          break;
+          case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
+            ntfTitle = "Unsupported playback";
+            ntfBody = "The associated resource(s) has/have been found unusable.";
+          break;
+          default: // OTHER
+            ntfTitle = "Unknown error";
+            ntfBody = "Something went wrong.";
+        }
 
-      // Notifications
-
-      switch (audio.error.code) {
-        case 1: // MEDIA_ERR_ABORTED
-          ntfTitle = "Aborted";
-          ntfBody = "Fetching of the associated resource(s) was/were aborted at your request.";
-        break;
-        case 2: // MEDIA_ERR_NETWORK
-          ntfTitle = "Network error";
-          ntfBody = "An unexpected network error occurred - preventing further fetching of the associated resource(s).";
-        break;
-        case 3: // MEDIA_ERR_DECODE
-          ntfTitle = "Decode error";
-          ntfBody = "An unexpected error occurred while trying to decode the associated resource(s).";
-        break;
-        case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
-          ntfTitle = "Unsupported playback";
-          ntfBody = "The associated resource(s) has/have been found unusable.";
-        break;
-        default: // OTHER
-          ntfTitle = "Unknown error";
-          ntfBody = "Something went wrong.";
-      }
-
-      if (pms.ntf) {
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.ready.then(registration => {
-            registration.showNotification(ntfTitle, {
+        if (pms.ntf) {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.then(registration => {
+              registration.showNotification(ntfTitle, {
+                body: ntfBody,
+                badge: ntfBadge,
+                icon: ntfIcon,
+                tag: "playbackError",
+                requireInteraction: false, // Dismiss after default timeout
+                data : {
+                  url :  "https://ivansojivarghese.github.io/media-player/"
+                }
+              });
+            });
+          } else {
+            const notification = new Notification(ntfTitle, {
               body: ntfBody,
               badge: ntfBadge,
               icon: ntfIcon,
@@ -2401,34 +2417,24 @@
                 url :  "https://ivansojivarghese.github.io/media-player/"
               }
             });
-          });
-        } else {
-          const notification = new Notification(ntfTitle, {
-            body: ntfBody,
-            badge: ntfBadge,
-            icon: ntfIcon,
-            tag: "playbackError",
-            requireInteraction: false, // Dismiss after default timeout
-            data : {
-              url :  "https://ivansojivarghese.github.io/media-player/"
-            }
-          });
 
-          notification.onclick = (event) => {
-            event.preventDefault(); // Prevent the default action (usually focusing the notification)
-            
-            // Focus on the tab or open a new one
-            if (document.hasFocus()) {
-                console.log("App is already in focus.");
-            } else if (window.opener) {
-                window.opener.focus();
-            } else {
-                window.focus();
-            }
-          };
+            notification.onclick = (event) => {
+              event.preventDefault(); // Prevent the default action (usually focusing the notification)
+              
+              // Focus on the tab or open a new one
+              if (document.hasFocus()) {
+                  console.log("App is already in focus.");
+              } else if (window.opener) {
+                  window.opener.focus();
+              } else {
+                  window.focus();
+              }
+            };
+          }
+
         }
-
       }
+      
     });
 
     video.addEventListener("error", async () => {
@@ -2437,69 +2443,85 @@
           ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
           ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
 
-      console.error(`Error loading: ${video}`);
-      videoErr = true;
+      var player = new cast.framework.RemotePlayer();
 
-      // UI
+      if (!player.isConnected) {
 
-      if (video.error.code && !backgroundPlay && failTimes < maxFailTimes) {
-        failTimes++;
+        console.error(`Error loading: ${video}`);
+        videoErr = true;
 
-        video.load();
-        video.currentTime = refSeekTime;
-        // videoSec.currentTime = refSeekTime;
+        // UI
 
-        if (failTimes === maxFailTimes && !playbackErr) {
-          playbackErr = true;
-          inp.value = videoURL || localStorage.getItem("mediaURL");
-          getURL();
+        if (video.error.code && !backgroundPlay && failTimes < maxFailTimes) {
+          failTimes++;
+
+          video.load();
+          video.currentTime = refSeekTime;
+          // videoSec.currentTime = refSeekTime;
+
+          if (failTimes === maxFailTimes && !playbackErr) {
+            playbackErr = true;
+            inp.value = videoURL || localStorage.getItem("mediaURL");
+            getURL();
+          }
+
+        } else { 
+          playPauseButton.classList.remove('playing');
+          playPauseButton.classList.add('repeat');
+          playPauseButton.title = "Replay";
+
+          endLoad();
+          setTimeout(function() {
+            console.log("hideLR");
+            loadingRing.style.display = "none";
+            playPauseButton.style.display = "block";
+            // reset the loader
+            setTimeout(function() {
+              resetLoad();
+            }, 10);
+          }, 1000);
         }
 
-      } else { 
-        playPauseButton.classList.remove('playing');
-        playPauseButton.classList.add('repeat');
-        playPauseButton.title = "Replay";
+        // Notifications
 
-        endLoad();
-        setTimeout(function() {
-          console.log("hideLR");
-          loadingRing.style.display = "none";
-          playPauseButton.style.display = "block";
-          // reset the loader
-          setTimeout(function() {
-            resetLoad();
-          }, 10);
-        }, 1000);
-      }
+        switch (video.error.code) {
+          case 1: // MEDIA_ERR_ABORTED
+            ntfTitle = "Aborted";
+            ntfBody = "Fetching of the associated resource(s) was/were aborted at your request.";
+          break;
+          case 2: // MEDIA_ERR_NETWORK
+            ntfTitle = "Network error";
+            ntfBody = "An unexpected network error occurred - preventing further fetching of the associated resource(s).";
+          break;
+          case 3: // MEDIA_ERR_DECODE
+            ntfTitle = "Decode error";
+            ntfBody = "An unexpected error occurred while trying to decode the associated resource(s).";
+          break;
+          case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
+            ntfTitle = "Unsupported playback";
+            ntfBody = "The associated resource(s) has/have been found unusable.";
+          break;
+          default: // OTHER
+            ntfTitle = "Unknown error";
+            ntfBody = "Something went wrong.";
+        }
 
-      // Notifications
-
-      switch (video.error.code) {
-        case 1: // MEDIA_ERR_ABORTED
-          ntfTitle = "Aborted";
-          ntfBody = "Fetching of the associated resource(s) was/were aborted at your request.";
-        break;
-        case 2: // MEDIA_ERR_NETWORK
-          ntfTitle = "Network error";
-          ntfBody = "An unexpected network error occurred - preventing further fetching of the associated resource(s).";
-        break;
-        case 3: // MEDIA_ERR_DECODE
-          ntfTitle = "Decode error";
-          ntfBody = "An unexpected error occurred while trying to decode the associated resource(s).";
-        break;
-        case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED	
-          ntfTitle = "Unsupported playback";
-          ntfBody = "The associated resource(s) has/have been found unusable.";
-        break;
-        default: // OTHER
-          ntfTitle = "Unknown error";
-          ntfBody = "Something went wrong.";
-      }
-
-      if (pms.ntf) {
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.ready.then(registration => {
-            registration.showNotification(ntfTitle, {
+        if (pms.ntf) {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.then(registration => {
+              registration.showNotification(ntfTitle, {
+                body: ntfBody,
+                badge: ntfBadge,
+                icon: ntfIcon,
+                tag: "playbackError",
+                requireInteraction: false, // Dismiss after default timeout
+                data : {
+                  url :  "https://ivansojivarghese.github.io/media-player/"
+                }
+              });
+            });
+          } else {
+            const notification = new Notification(ntfTitle, {
               body: ntfBody,
               badge: ntfBadge,
               icon: ntfIcon,
@@ -2509,31 +2531,21 @@
                 url :  "https://ivansojivarghese.github.io/media-player/"
               }
             });
-          });
-        } else {
-          const notification = new Notification(ntfTitle, {
-            body: ntfBody,
-            badge: ntfBadge,
-            icon: ntfIcon,
-            tag: "playbackError",
-            requireInteraction: false, // Dismiss after default timeout
-            data : {
-              url :  "https://ivansojivarghese.github.io/media-player/"
-            }
-          });
 
-          notification.onclick = (event) => {
-            event.preventDefault(); // Prevent the default action (usually focusing the notification)
-            
-            // Focus on the tab or open a new one
-            if (document.hasFocus()) {
-                console.log("App is already in focus.");
-            } else if (window.opener) {
-                window.opener.focus();
-            } else {
-                window.focus();
-            }
-          };
+            notification.onclick = (event) => {
+              event.preventDefault(); // Prevent the default action (usually focusing the notification)
+              
+              // Focus on the tab or open a new one
+              if (document.hasFocus()) {
+                  console.log("App is already in focus.");
+              } else if (window.opener) {
+                  window.opener.focus();
+              } else {
+                  window.focus();
+              }
+            };
+          }
+
         }
 
       }
@@ -2575,9 +2587,13 @@
 
     video.addEventListener("abort", () => {
       console.log(`Abort loading: ${video}`);
-      video.load();
-      video.currentTime = refSeekTime;
-      // videoSec.currentTime = refSeekTime;
+      var player = new cast.framework.RemotePlayer();
+
+      if (!player.isConnected) {
+        video.load();
+        video.currentTime = refSeekTime;
+        // videoSec.currentTime = refSeekTime;
+      }
     });
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
