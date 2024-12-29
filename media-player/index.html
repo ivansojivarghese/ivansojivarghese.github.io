@@ -100,6 +100,15 @@
             video.src = localStorage.getItem("videoURL");
             audio.src = localStorage.getItem("audioURL");
           // }
+
+          videoInfoElm.autoResLive.innerHTML = qualityLabel(targetVideo.qualityLabel);
+
+          const btnElements = document.querySelectorAll('#infoContainer .otherResBtn');
+
+          // Add another class to each element
+          btnElements.forEach(element => {
+            element.classList.remove('disabled'); // Replace 'newClass' with the class you want to add
+          });
             
             casting = false;
         }
