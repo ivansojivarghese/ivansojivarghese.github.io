@@ -308,11 +308,12 @@
                 mediaInfo.tracks = [audioTrack]; // Add the audio track to media info*/
 
                 const request = new chrome.cast.media.LoadRequest(mediaInfo);
+                /*
                 if (videoLoop) {
                   request.media = mediaInfo;
                   request.media.metadata = new chrome.cast.media.GenericMediaMetadata();
                   request.media.repeatMode = chrome.cast.media.RepeatMode.SINGLE; // Loop the video
-                }
+                }*/
 
                 var a = parseFloat(localStorage.getItem('timestamp') || refSeekTime);
                 var c = parseFloat(localStorage.getItem('duration'));
@@ -340,7 +341,19 @@
                     videoInfoElm.gCast.classList.add("disabled");
                     videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
 
-                    // playerController.playOrPause();
+                    // Get the media session
+                    const media = session.getMediaSession();
+
+                    if (media) {
+                        // Listen for the MEDIA_FINISHED event
+                        media.addUpdateListener(() => {
+                            if (media.playerState === chrome.cast.media.PlayerState.IDLE &&
+                                media.idleReason === chrome.cast.media.IdleReason.FINISHED && videoLoop) {
+                                console.log('Video finished. Restarting...');
+                                session.loadMedia(mediaLoadRequest); // Restart the media
+                            }
+                        });
+                    }
 
                 }, function(error) {
                     console.error('Error loading media:', error);
