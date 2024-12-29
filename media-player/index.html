@@ -98,7 +98,7 @@
           videoLoadProgressBar.style.opacity = 1;
 
           video.src = localStorage.getItem("videoURL");
-          audio.src = localStorage.getItem("audioURL");;
+          audio.src = localStorage.getItem("audioURL");
         }
 
         var player;
@@ -143,9 +143,10 @@
                   // console.log(`Current time: ${player.currentTime}`);
                   // You can perform actions based on the updated time here
 
-                  refSeekTime = player.currentTime ? player.currentTime : timeToSeconds(videoCurrentTime.textContent);
-
-                  localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+                  if (player.currentTime || timeToSeconds(videoCurrentTime.textContent)) {
+                    refSeekTime = player.currentTime ? player.currentTime : timeToSeconds(videoCurrentTime.textContent);
+                    localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+                  }
 
                   // updatePositionState();
                   videoCurrentTime.textContent = secondsToTimeCode(player.currentTime);
