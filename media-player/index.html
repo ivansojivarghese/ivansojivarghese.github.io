@@ -308,6 +308,11 @@
                 mediaInfo.tracks = [audioTrack]; // Add the audio track to media info*/
 
                 const request = new chrome.cast.media.LoadRequest(mediaInfo);
+                if (videoLoop) {
+                  request.media = mediaInfo;
+                  request.media.metadata = new chrome.cast.media.GenericMediaMetadata();
+                  request.media.repeatMode = chrome.cast.media.RepeatMode.SINGLE; // Loop the video
+                }
 
                 // Set the startTime to the saved position or 0 if none is available
                 request.currentTime = parseFloat(localStorage.getItem('timestamp') || refSeekTime) || 0;

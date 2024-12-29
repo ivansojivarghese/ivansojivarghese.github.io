@@ -1375,9 +1375,15 @@
       if (!videoLoop) {
         videoLoop = true;
         videoInfoElm.replay.classList.add("active");
+
+        if (casting && casted) {
+          castVideoWithAudio(videoDetails.formats["0"].url);
+        }
       } else {
         videoLoop = false;
         videoInfoElm.replay.classList.remove("active");
+
+
       }
     }
 
