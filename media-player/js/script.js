@@ -1880,15 +1880,28 @@
     }
 
     function playPrevious(m) {
-      if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !qualityChange && !audioVideoAligning) {
+      if ((player && !player.isConnected) || !player) {
+        if ((videoControls.classList.contains('visible') || m) && video.src !== "" && !qualityBestChange && !qualityChange && !audioVideoAligning) {
 
-        // FIRST INSTANCE (seek to the front)
-        video.currentTime = 0;
-        // videoSec.currentTime = 0;
-        audio.currentTime = 0;
-        videoEnd = false;
+          // FIRST INSTANCE (seek to the front)
+          video.currentTime = 0;
+          // videoSec.currentTime = 0;
+          audio.currentTime = 0;
+          videoEnd = false;
 
-        // SECOND INSTANCE - play a previous track in playlist (from the beginning)
+          // SECOND INSTANCE - play a previous track in playlist (from the beginning)
+        }
+      } else {
+        
+        // FIRST INSTANCE
+        // Set the player's current time to 0
+        player.currentTime = 0;
+
+        // Send the seek command to the player
+        playerController.seek();
+
+        // SECOND INSTANCE
+
       }
     }
 
@@ -1921,6 +1934,7 @@
 
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
+      if ((player && !player.isConnected) || !player) {
         if ((videoControls.classList.contains('visible') || m) && video.src !== "" && /*!videoEnd*/ (video.currentTime < (video.duration - skipTime)) && !qualityBestChange && !qualityChange && !audioVideoAligning && seekAllow) {
 
             playPauseButton.classList.remove('repeat');
@@ -1975,13 +1989,29 @@
                 }, 300);
               }, 1000);
             }
+        } 
+      } else {
+        // Calculate the new time
+        let newTime = player.currentTime + skipTime;
+
+        // Ensure the new time is not less than 0
+        if (newTime < 0) {
+            newTime = 0;
         }
+
+        // Update the player's current time
+        player.currentTime = newTime;
+
+        // Send the seek command to the player
+        playerController.seek();
+      }
     }
 
     function seekBackward(m) {
       
       maxTime = video.duration < maxTime ? video.duration : maxTime;
 
+      if ((player && !player.isConnected) || !player) {
         if ((videoControls.classList.contains('visible') || m) && video.src !== "" && (video.currentTime > (skipTime)) && !qualityBestChange && !qualityChange && !audioVideoAligning && seekAllow) {
             //backwardSkippedTime = 0;
             //seekBackwardTextSec.innerHTML = backwardSkippedTime;
@@ -2040,6 +2070,21 @@
               }, 1000);
             }
         }
+      } else {
+        // Calculate the new time
+        let newTime = player.currentTime - skipTime;
+
+        // Ensure the new time is not less than 0
+        if (newTime < 0) {
+            newTime = 0;
+        }
+
+        // Update the player's current time
+        player.currentTime = newTime;
+
+        // Send the seek command to the player
+        playerController.seek();
+      }
     }
 
     playPreviousButton.addEventListener('click', function(event) {
