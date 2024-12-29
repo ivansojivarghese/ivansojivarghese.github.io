@@ -3580,6 +3580,7 @@
           video.currentTime = castCurrentTime;
           // videoSec.currentTime = refSeekTime;
           audio.currentTime = castCurrentTime;
+          castCurrentTime = 0;
         }
 
         console.log("refseektime");
