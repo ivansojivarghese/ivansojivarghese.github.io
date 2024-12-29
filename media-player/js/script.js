@@ -990,7 +990,7 @@
         videoControls.classList.add('visible_ready');
       }, 200);
       if (!qualityChange && !qualityBestChange) {
-        if (!player.isConnected) {
+        if (player && !player.isConnected) {
           videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
           videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
         } else {
