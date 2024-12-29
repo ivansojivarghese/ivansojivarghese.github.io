@@ -3565,7 +3565,12 @@
 
       tps = targetVideo.fps;
 
-      if (refSeekTime) {
+      if (refSeekTime || Number(localStorage.getItem("timestamp"))) {
+
+        if (!refSeekTime) {
+          refSeekTime = Number(localStorage.getItem("timestamp"));
+        }
+
         video.currentTime = refSeekTime;
         // videoSec.currentTime = refSeekTime;
         audio.currentTime = refSeekTime;
@@ -4027,8 +4032,9 @@
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         refSeekTime = video.currentTime ? video.currentTime : timeToSeconds(videoCurrentTime.textContent);
-
-        localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+        if (refSeekTime !== 0) {
+          localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+        }
 
         // console.log("ref", refSeekTime);
         if (!qualityChange && !qualityBestChange) {
@@ -4053,8 +4059,9 @@
 
     audio.addEventListener("timeupdate", function() {
       refSeekTime = audio.currentTime;
-
-      localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+      if (refSeekTime !== 0) {
+        localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+      }
 
       audioProgressPercentile = (audio.currentTime / audio.duration);
       if (!qualityChange && !qualityBestChange) {
