@@ -1487,8 +1487,6 @@ function getOptimalVideo(time) {
 
           castVideoWithAudio(videoDetails.formats["0"].url);
 
-          console.log(casted);
-          // playerController.playOrPause();
         }
 
       }, 100);

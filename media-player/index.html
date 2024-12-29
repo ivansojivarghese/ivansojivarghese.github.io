@@ -649,6 +649,18 @@ function addPlayerControl() {
 
                     casted = true;
 
+                    console.log('Casting session resumed');
+
+                    addPlayerControl();
+
+                    initCastPlayer();
+
+                    videoInfoElm.cast.classList.add("active");
+                    videoInfoElm.gCast.classList.add("disabled");
+                    videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
+
+                    // playerController.playOrPause();
+
                 }, function(error) {
                     console.error('Error loading media:', error);
                 });
