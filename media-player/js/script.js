@@ -3571,9 +3571,16 @@
           refSeekTime = Number(localStorage.getItem("timestamp"));
         }
 
-        video.currentTime = refSeekTime;
-        // videoSec.currentTime = refSeekTime;
-        audio.currentTime = refSeekTime;
+        if (!castCurrentTime) {
+          video.currentTime = refSeekTime;
+          // videoSec.currentTime = refSeekTime;
+          audio.currentTime = refSeekTime;
+        } else {
+          refSeekTime = castCurrentTime;
+          video.currentTime = castCurrentTime;
+          // videoSec.currentTime = refSeekTime;
+          audio.currentTime = castCurrentTime;
+        }
 
         console.log("refseektime");
       }
