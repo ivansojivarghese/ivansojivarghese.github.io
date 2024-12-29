@@ -3565,11 +3565,6 @@
 
       tps = targetVideo.fps;
 
-      if (castCurrentTime) {
-        refSeekTime = castCurrentTime;
-        castCurrentTime = 0;
-      }
-
       if (refSeekTime || Number(localStorage.getItem("timestamp"))) {
 
         if (!refSeekTime) {

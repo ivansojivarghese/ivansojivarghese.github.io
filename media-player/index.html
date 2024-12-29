@@ -94,14 +94,10 @@
           playPauseButton.style.display = "block";
         }
 
-        var castCurrentTime = 0;
-
         function stopCastPlayer() {
           playPauseButton.classList.remove('cast_connected');
 
           videoLoadProgressBar.style.opacity = 1;
-
-          castCurrentTime = timeToSeconds(videoCurrentTime.textContent);
 
           video.src = localStorage.getItem("videoURL");
           audio.src = localStorage.getItem("audioURL");
