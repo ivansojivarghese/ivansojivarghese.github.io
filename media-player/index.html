@@ -315,7 +315,8 @@
                 }
 
                 var a = parseFloat(localStorage.getItem('timestamp') || refSeekTime);
-                var b = (request.currentTime > minVideoLoad && (request.currentTime < (request.duration - maxVideoLoad)));
+                var c = parseFloat(localStorage.getItem('duration'));
+                var b = (a > minVideoLoad && (a < (c - maxVideoLoad)));
 
                 // Set the startTime to the saved position or 0 if none is available
                 if (!b) {

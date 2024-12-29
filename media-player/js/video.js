@@ -1429,6 +1429,7 @@ function getOptimalVideo(time) {
         localStorage.setItem('mediaURL', videoURL); // Set URL to memory state
         localStorage.setItem('videoURL', video.src); // Set URLs to memory state
         localStorage.setItem('audioURL', audio.src); // 
+        localStorage.setItem('duration', videoDetails.lengthSeconds);
 
         video.load();
         audio.load();
