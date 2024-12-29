@@ -1383,7 +1383,9 @@
         videoLoop = false;
         videoInfoElm.replay.classList.remove("active");
 
-
+        if (casting && casted) {
+          castVideoWithAudio(videoDetails.formats["0"].url);
+        }
       }
     }
 
