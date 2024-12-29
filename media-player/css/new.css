@@ -94,7 +94,7 @@ video.seeking {
 
 #playPauseButton {
     padding: 3rem 0.5rem;
-    /*background-color: transparent;*/
+    background-color: transparent;
 }
 
 .trsButtons:not(.noimg):active .img {
@@ -166,6 +166,10 @@ video.seeking {
 
 .cast .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/cast.svg");
+}
+
+.cast_connected .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/cast_connected.svg") !important;
 }
 
 google-cast-launcher.disabled {

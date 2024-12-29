@@ -68,6 +68,7 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/svg/chevron.svg',
   'https://ivansojivarghese.github.io/media-player/svg/close.svg',
   'https://ivansojivarghese.github.io/media-player/svg/cast.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/cast_connected.svg',
   'https://ivansojivarghese.github.io/media-player/svg/open.svg',
   'https://ivansojivarghese.github.io/media-player/svg/link.svg',
   'https://ivansojivarghese.github.io/media-player/svg/globe.svg'

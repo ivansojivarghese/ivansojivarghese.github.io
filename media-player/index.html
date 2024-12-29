@@ -71,6 +71,20 @@
           castSession.endSession(true);
         }
 
+        function initCastPlayer() {
+          playPauseButton.classList.remove('playing');
+          playPauseButton.classList.remove('repeat');
+          playPauseButton.classList.add('cast_connected');
+
+          video.src = "";
+          audio.src = "";
+
+          videoLoadProgressBar.style.transform = `scaleX(1)`;
+          videoProgressBar.style.transform = `scaleX(1)`;
+
+          videoCurrentTime.textContent = "casting";
+        }
+
         function addPlayerControl() {
           var player = new cast.framework.RemotePlayer();
           var playerController = new cast.framework.RemotePlayerController(player);
@@ -371,7 +385,6 @@ function addPlayerControl() {
         }
     );
 }*/
-
 /*
 function addPlayerControl() {
     var player = new cast.framework.RemotePlayer();
@@ -468,7 +481,6 @@ function addPlayerControl() {
     );
 }*/
 
-
         var casted = false;
 
         // Cast the video and audio to a Chromecast device
@@ -491,6 +503,8 @@ function addPlayerControl() {
                     console.log('Casting session started');
 
                     addPlayerControl();
+
+                    initCastPlayer();
 
                     videoInfoElm.cast.classList.add("active");
                     videoInfoElm.gCast.classList.add("disabled");
@@ -517,6 +531,8 @@ function addPlayerControl() {
                     console.log('Casting session resumed');
 
                     addPlayerControl();
+
+                    initCastPlayer();
 
                     videoInfoElm.cast.classList.add("active");
                     videoInfoElm.gCast.classList.add("disabled");
