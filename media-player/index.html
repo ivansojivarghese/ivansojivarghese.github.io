@@ -42,7 +42,10 @@
                       if (!casted) {
                         casted = true;
                         castVideoWithAudio(videoDetails.formats["0"].url);
+
+                        playerController.playOrPause();
                       }
+
                     }, 1000);
 
                     /*
