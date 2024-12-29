@@ -647,6 +647,8 @@ function addPlayerControl() {
                 session.loadMedia(request).then(function() {
                     console.log('Video and Audio loaded successfully.');
 
+                    casted = true;
+
                 }, function(error) {
                     console.error('Error loading media:', error);
                 });
