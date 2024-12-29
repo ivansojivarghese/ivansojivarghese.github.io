@@ -4031,9 +4031,16 @@
 
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
-        refSeekTime = video.currentTime ? video.currentTime : timeToSeconds(videoCurrentTime.textContent);
-        if (refSeekTime !== 0) {
-          localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+        if ((player && !player.isConnected) || !player) {
+          refSeekTime = video.currentTime ? video.currentTime : timeToSeconds(videoCurrentTime.textContent);
+          if (refSeekTime !== 0) {
+            localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+          }
+        } else {
+          refSeekTime = player.currentTime ? player.currentTime : timeToSeconds(videoCurrentTime.textContent);
+          if (refSeekTime !== 0) {
+            localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+          }
         }
 
         // console.log("ref", refSeekTime);
@@ -4058,9 +4065,16 @@
     });
 
     audio.addEventListener("timeupdate", function() {
-      refSeekTime = audio.currentTime;
-      if (refSeekTime !== 0) {
-        localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+      if ((player && !player.isConnected) || !player) {
+        refSeekTime = audio.currentTime;
+        if (refSeekTime !== 0) {
+          localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+        }
+      } else {
+        refSeekTime = player.currentTime;
+        if (refSeekTime !== 0) {
+          localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+        }
       }
 
       audioProgressPercentile = (audio.currentTime / audio.duration);
