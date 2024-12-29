@@ -314,8 +314,15 @@
                   request.media.repeatMode = chrome.cast.media.RepeatMode.SINGLE; // Loop the video
                 }
 
+                var a = parseFloat(localStorage.getItem('timestamp') || refSeekTime);
+                var b = (request.currentTime > minVideoLoad && (request.currentTime < (request.duration - maxVideoLoad)));
+
                 // Set the startTime to the saved position or 0 if none is available
-                request.currentTime = parseFloat(localStorage.getItem('timestamp') || refSeekTime) || 0;
+                if (!b) {
+                  request.currentTime = 0;
+                } else {
+                  request.currentTime = parseFloat(localStorage.getItem('timestamp') || refSeekTime) || 0;
+                }
 
                 session.loadMedia(request).then(function() {
                     console.log('Video and Audio loaded successfully.');
