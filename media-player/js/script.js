@@ -2052,44 +2052,50 @@
 
     video.addEventListener('seeking', function() {
 
-        videoRun = true;
+        if (!player.isConnected) {
 
-        video.style.transitionDuration = "3s";
-        video.style.background = "";
+          videoRun = true;
 
-        if (!networkError) {
-          clearInterval(networkSpeedInt);
-          networkSpeedInt = null;
+          video.style.transitionDuration = "3s";
+          video.style.background = "";
+
+          if (!networkError) {
+            clearInterval(networkSpeedInt);
+            networkSpeedInt = null;
+          }
+          clearInterval(networkParamInt);
+          networkParamInt = null;
+          /*
+          controller.abort();
+          controllerRTT.abort();
+          controllerPacket.abort();
+          */
+          loading = true;
+          bufferingDetected = true;
+
+          loadingRing.style.display = "block";
+          playPauseButton.style.display = "none";
+          showVideoControls();
+
+          video.classList.add('seeking');
+          seekingLoad = true;
+
+          clearInterval(resumeInterval);
+          resumeInterval = null;
+
+          /*
+          refSeekTime = video.currentTime;
+          targetVideo = null;
+          targetQuality = 0;
+          getVideoFromIndex(false); // loop qualities to get video again
+          */
         }
-        clearInterval(networkParamInt);
-        networkParamInt = null;
-        /*
-        controller.abort();
-        controllerRTT.abort();
-        controllerPacket.abort();
-        */
-        loading = true;
-        bufferingDetected = true;
-
-        loadingRing.style.display = "block";
-        playPauseButton.style.display = "none";
-        showVideoControls();
-
-        video.classList.add('seeking');
-        seekingLoad = true;
-
-        clearInterval(resumeInterval);
-        resumeInterval = null;
-
-        /*
-        refSeekTime = video.currentTime;
-        targetVideo = null;
-        targetQuality = 0;
-        getVideoFromIndex(false); // loop qualities to get video again
-        */
     });
     
     video.addEventListener('seeked', function() {
+
+        if (!player.isConnected) {
+
         seekingLoad = false;
         // hideVideoControls();
 
@@ -2155,6 +2161,8 @@
               backgroundPlayInit = false;
             }
         }, 300);
+
+        }
     });
     
     video.addEventListener('loadedmetadata', function () { //  fired when the metadata has been loaded
@@ -3586,6 +3594,9 @@
 
 
     audio.addEventListener('seeked', function() {
+
+      if (!player.isConnected) {
+
       if (!checkAudioReady) {
         checkAudioReady = setInterval(() => {
             if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
@@ -3598,14 +3609,19 @@
             }
         }, 100);
       }
+
+      }
     });
 
     audio.addEventListener('seeking', function() {
-      audioRun = true;
 
-      loadingRing.style.display = "block";
-      playPauseButton.style.display = "none";
-      showVideoControls();
+      if (!player.isConnected) {
+        audioRun = true;
+
+        loadingRing.style.display = "block";
+        playPauseButton.style.display = "none";
+        showVideoControls();
+      }
     });
 
     audio.addEventListener('canplay', function() {
