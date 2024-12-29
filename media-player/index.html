@@ -87,9 +87,12 @@
           videoCurrentTime.textContent = "casting";
         }
 
+        var player;
+        var playerController;
+
         function addPlayerControl() {
-          var player = new cast.framework.RemotePlayer();
-          var playerController = new cast.framework.RemotePlayerController(player);
+          player = new cast.framework.RemotePlayer();
+          playerController = new cast.framework.RemotePlayerController(player);
 
           // Play/Pause Button for controlling the receiver
           playPauseButton.addEventListener('click', () => {

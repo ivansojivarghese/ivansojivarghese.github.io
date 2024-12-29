@@ -2330,7 +2330,7 @@
           ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
           ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
 
-      var player = new cast.framework.RemotePlayer();
+      // var player = new cast.framework.RemotePlayer();
 
       if (!player.isConnected) {
 
@@ -2434,7 +2434,7 @@
 
         }
       }
-      
+
     });
 
     video.addEventListener("error", async () => {
@@ -2443,7 +2443,7 @@
           ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
           ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
 
-      var player = new cast.framework.RemotePlayer();
+      // var player = new cast.framework.RemotePlayer();
 
       if (!player.isConnected) {
 
@@ -2587,7 +2587,7 @@
 
     video.addEventListener("abort", () => {
       console.log(`Abort loading: ${video}`);
-      var player = new cast.framework.RemotePlayer();
+      // var player = new cast.framework.RemotePlayer();
 
       if (!player.isConnected) {
         video.load();
