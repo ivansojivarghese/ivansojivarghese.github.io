@@ -97,14 +97,16 @@
         var castCurrentTime = 0;
 
         function stopCastPlayer() {
-          playPauseButton.classList.remove('cast_connected');
+          if (casted) {
+            playPauseButton.classList.remove('cast_connected');
 
-          videoLoadProgressBar.style.opacity = 1;
+            videoLoadProgressBar.style.opacity = 1;
 
-          castCurrentTime = timeToSeconds(videoCurrentTime.textContent);
+            castCurrentTime = timeToSeconds(videoCurrentTime.textContent);
 
-          video.src = localStorage.getItem("videoURL");
-          audio.src = localStorage.getItem("audioURL");
+            video.src = localStorage.getItem("videoURL");
+            audio.src = localStorage.getItem("audioURL");
+          }
         }
 
         var player;
@@ -172,9 +174,9 @@
                       console.log('Receiver disconnected.');
                       // Perform any necessary cleanup or UI updates for disconnection
 
-                      casted = false;
-
                       stopCastPlayer();
+
+                      casted = false;
 
                       videoInfoElm.cast.classList.remove("active");
                       videoInfoElm.gCast.classList.remove("disabled");
@@ -588,9 +590,9 @@ function addPlayerControl() {
                     console.log('Casting session ended');
                     // Handle casting stopped
 
-                    casted = false;
-
                     stopCastPlayer();
+
+                    casted = false;
 
                     videoInfoElm.cast.classList.remove("active");
                     videoInfoElm.gCast.classList.remove("disabled");
