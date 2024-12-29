@@ -1409,17 +1409,6 @@ function getOptimalVideo(time) {
               break;
             }
           }
-        } else {
-          addPlayerControl();
-
-          initCastPlayer();
-
-          videoInfoElm.cast.classList.add("active");
-          videoInfoElm.gCast.classList.add("disabled");
-          videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
-
-          castVideoWithAudio(videoDetails.formats["0"].url);
-          playerController.playOrPause();
         }
 
         // audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;
@@ -1485,6 +1474,19 @@ function getOptimalVideo(time) {
         abstractVideoInfo();
 
         // videoInfoElm.main.style.opacity = 1;
+
+        if (casting) {
+          addPlayerControl();
+
+          initCastPlayer();
+
+          videoInfoElm.cast.classList.add("active");
+          videoInfoElm.gCast.classList.add("disabled");
+          videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
+
+          castVideoWithAudio(videoDetails.formats["0"].url);
+          playerController.playOrPause();
+        }
 
       }, 100);
     }
