@@ -124,6 +124,10 @@
           playPauseButton.addEventListener('click', () => {
               console.log('Play/Pause button clicked.');
               playerController.playOrPause(); // Toggles play/pause state on the receiver
+
+              if (!player.isMediaLoaded) {
+                castVideoWithAudio(videoDetails.formats["0"].url, true);
+              }
           });
 
           // Handle Media Info Changes
