@@ -226,7 +226,7 @@
         var casted = false;
 
         // Cast the video and audio to a Chromecast device
-        function castVideoWithAudio(videoUrl) {
+        function castVideoWithAudio(videoUrl, reset) {
           /*
             if (!isCastAvailable) {
                 console.error("Google Cast API is not available. Cannot cast video and audio.");
@@ -319,7 +319,7 @@
                 var b = (a > minVideoLoad && (a < (c - maxVideoLoad)));
 
                 // Set the startTime to the saved position or 0 if none is available
-                if (!b) {
+                if (!b || reset) {
                   request.currentTime = 0;
                 } else {
                   request.currentTime = parseFloat(localStorage.getItem('timestamp') || refSeekTime) || 0;

@@ -1426,6 +1426,11 @@ function getOptimalVideo(time) {
           });
         }
 
+        var diffVideo = false;
+        if (videoURL !== localStorage.getItem("mediaURL")) {
+          diffVideo = true;
+        }
+
         localStorage.setItem('mediaURL', videoURL); // Set URL to memory state
         localStorage.setItem('videoURL', video.src); // Set URLs to memory state
         localStorage.setItem('audioURL', audio.src); // 
@@ -1486,7 +1491,7 @@ function getOptimalVideo(time) {
           videoInfoElm.gCast.classList.add("disabled");
           videoInfoElm.cast.setAttribute("onclick", "stopCasting()");*/
 
-          castVideoWithAudio(videoDetails.formats["0"].url);
+          castVideoWithAudio(videoDetails.formats["0"].url, diffVideo);
 
         }
 
