@@ -171,8 +171,8 @@
                    // Add loop functionality: Check if the video is close to the end
                   if ((player.currentTime >= player.duration - 0.1) && videoLoop) { // Tolerance of 0.1 seconds
                       console.log("Video ended, restarting...");
-                      player.currentTime = 0; // Reset the video to the beginning
-                      playerController.seek(); // Trigger seek to restart playback
+                      // player.currentTime = 0; // Reset the video to the beginning
+                      // playerController.seek(); // Trigger seek to restart playback
 
                       castVideoWithAudio(videoDetails.formats["0"].url, true);
                   }
