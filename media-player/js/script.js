@@ -890,38 +890,42 @@
   });
 
     videoControls.addEventListener("mousemove", function(event) {
-      if (video.src !== "" && interactiveType === "mouse") {
-        clearTimeout(controlsHideInt);
-        controlsHideInt = null;
-        showVideoControls();
-        if (controlsHideInt === null) {
-          controlsHideInt = setTimeout(function() { 
-            if (!loading && !video.paused && !videoLoad && !seeking && !seekingLoad) {
-              hideVideoControls();
-              console.log("hideVC");
-            } else if (!loading) {
-              clearTimeout(controlsHideInt);
-              controlsHideInt = null;
-              controlsHideInt = setInterval(function() {
-                if (!loading && !videoLoad && !seeking && !seekingLoad && !video.paused) {
-                  hideVideoControls();
-                  console.log("hideVC");
-                  clearInterval(controlsHideInt);
-                  controlsHideInt = null;
-                }
-              }, 100);
-            }
-          }, 3000); // hide controls after 3 sec. if no activity
+      if (!player.isConnected) {
+        if (video.src !== "" && interactiveType === "mouse") {
+          clearTimeout(controlsHideInt);
+          controlsHideInt = null;
+          showVideoControls();
+          if (controlsHideInt === null) {
+            controlsHideInt = setTimeout(function() { 
+              if (!loading && !video.paused && !videoLoad && !seeking && !seekingLoad) {
+                hideVideoControls();
+                console.log("hideVC");
+              } else if (!loading) {
+                clearTimeout(controlsHideInt);
+                controlsHideInt = null;
+                controlsHideInt = setInterval(function() {
+                  if (!loading && !videoLoad && !seeking && !seekingLoad && !video.paused) {
+                    hideVideoControls();
+                    console.log("hideVC");
+                    clearInterval(controlsHideInt);
+                    controlsHideInt = null;
+                  }
+                }, 100);
+              }
+            }, 3000); // hide controls after 3 sec. if no activity
+          }
         }
       }
     });
 
     videoControls.addEventListener("mouseleave", function(event) {
-      if (!video.paused && video.src !== "" && interactiveType === "mouse" && !seekingLoad && !longTap && !seeking) {
-        clearTimeout(controlsHideInt);
-        controlsHideInt = null;
-        hideVideoControls();
-        console.log("hideVC");
+      if (!player.isConnected) {
+        if (!video.paused && video.src !== "" && interactiveType === "mouse" && !seekingLoad && !longTap && !seeking) {
+          clearTimeout(controlsHideInt);
+          controlsHideInt = null;
+          hideVideoControls();
+          console.log("hideVC");
+        }
       }
     });
 
@@ -1029,48 +1033,13 @@
     }
 
     videoControls.addEventListener('click', function(event) {
-      if ((interactiveType === "touch" || interactiveType === "pen") && !event.target.classList.contains("no-tap")) {
-        clearTimeout(controlsHideInt);
-        controlsHideInt = null;
+      if (!player.isConnected) {
+        if ((interactiveType === "touch" || interactiveType === "pen") && !event.target.classList.contains("no-tap")) {
+          clearTimeout(controlsHideInt);
+          controlsHideInt = null;
 
-        if (videoInfoOpen) {
-          closeVideoInfo();
-          if (controlsHideInt === null) {
-            controlsHideInt = setTimeout(function() {
-              if (!loading && !video.paused && !seekingLoad && !longTap && !seeking) {
-                hideVideoControls();
-                console.log("hideVC");
-              } else if (loading) {
-                clearTimeout(controlsHideInt);
-                controlsHideInt = null;
-                controlsHideInt = setInterval(function() {
-                  if (!loading && !seekingLoad && !longTap && !seeking && !video.paused) {
-                    hideVideoControls();
-                    console.log("hideVC");
-                    clearInterval(controlsHideInt);
-                    controlsHideInt = null;
-                  }
-                }, 100);
-              }
-            }, 3000); // hide controls after 3 sec. if no activity
-          }
-        } else {
-          if (videoControls.classList.contains('visible') && !seeking && !seekingLoad && !video.paused && !loading) {
-            if (event.target === playPauseButton || event.target === playPauseButtonImg) { // IF PLAY/PAUSE button clicked
-              setTimeout(function() {
-                if (!seekingLoad && !longTap && !seeking) {
-                  hideVideoControls();
-                  console.log("hideVC");
-                }
-              }, 1000);
-            } else {
-              if (!seekingLoad && !longTap && !seeking) {
-                hideVideoControls();
-                console.log("hideVC");
-              }
-            }
-          } else {
-            showVideoControls();
+          if (videoInfoOpen) {
+            closeVideoInfo();
             if (controlsHideInt === null) {
               controlsHideInt = setTimeout(function() {
                 if (!loading && !video.paused && !seekingLoad && !longTap && !seeking) {
@@ -1090,95 +1059,132 @@
                 }
               }, 3000); // hide controls after 3 sec. if no activity
             }
-          }
-        }
-
-      } else if (event.target === videoControls && interactiveType === "mouse") {
-        if (!videoInfoOpen) {
-          if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
-
-            video.play().then(function () {
-              // videoSec.play();
-
-              // audioCtx = new AudioContext();
-              // setTimeout(function() {
-              /*
-                audio.play().then(function() {
-                  // videoPause = true;
-                }).catch((err) => {
-
-                  console.log(err);
-                  
-                  statusIndicator.classList.remove("buffer");
-                  statusIndicator.classList.remove("smooth");
-                  statusIndicator.classList.add("error");
-
-                  endLoad();
-                            
-                  setTimeout(function() {
-                    loadingRing.style.display = "none";
-                    playPauseButton.style.display = "block";
-                    playPauseButton.classList.remove('playing');
-
-                    showVideoControls();
-
-                    // reset the loader
-                    setTimeout(function() {
-                      resetLoad();
-                    }, 10);
-
-                  }, 1000);
-
-                  loading = false;
-
-                });*/
-              // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-            }).catch((err) => {
-
-              console.log(err);
-              /*
-              statusIndicator.classList.remove("buffer");
-              statusIndicator.classList.remove("smooth");
-              statusIndicator.classList.add("error");
-
-              endLoad();
-                        
-              setTimeout(function() {
-                loadingRing.style.display = "none";
-                playPauseButton.style.display = "block";
-                playPauseButton.classList.remove('playing');
-
-                showVideoControls();
-
-                // reset the loader
+          } else {
+            if (videoControls.classList.contains('visible') && !seeking && !seekingLoad && !video.paused && !loading) {
+              if (event.target === playPauseButton || event.target === playPauseButtonImg) { // IF PLAY/PAUSE button clicked
                 setTimeout(function() {
-                  resetLoad();
-                }, 10);
+                  if (!seekingLoad && !longTap && !seeking) {
+                    hideVideoControls();
+                    console.log("hideVC");
+                  }
+                }, 1000);
+              } else {
+                if (!seekingLoad && !longTap && !seeking) {
+                  hideVideoControls();
+                  console.log("hideVC");
+                }
+              }
+            } else {
+              showVideoControls();
+              if (controlsHideInt === null) {
+                controlsHideInt = setTimeout(function() {
+                  if (!loading && !video.paused && !seekingLoad && !longTap && !seeking) {
+                    hideVideoControls();
+                    console.log("hideVC");
+                  } else if (loading) {
+                    clearTimeout(controlsHideInt);
+                    controlsHideInt = null;
+                    controlsHideInt = setInterval(function() {
+                      if (!loading && !seekingLoad && !longTap && !seeking && !video.paused) {
+                        hideVideoControls();
+                        console.log("hideVC");
+                        clearInterval(controlsHideInt);
+                        controlsHideInt = null;
+                      }
+                    }, 100);
+                  }
+                }, 3000); // hide controls after 3 sec. if no activity
+              }
+            }
+          }
 
-              }, 1000);
+        } else if (event.target === videoControls && interactiveType === "mouse") {
+          if (!videoInfoOpen) {
+            if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
 
-              loading = false;*/
-            });
-            
-            // audio.currentTime = video.currentTime;
-            updatePositionState();
+              video.play().then(function () {
+                // videoSec.play();
 
-          } else if (!video.paused && video.src !== "") {
+                // audioCtx = new AudioContext();
+                // setTimeout(function() {
+                /*
+                  audio.play().then(function() {
+                    // videoPause = true;
+                  }).catch((err) => {
 
-            // if (videoPause) {
-              audio.pause();
-              video.pause();
-              // videoSec.pause();
+                    console.log(err);
+                    
+                    statusIndicator.classList.remove("buffer");
+                    statusIndicator.classList.remove("smooth");
+                    statusIndicator.classList.add("error");
 
-              bufferStartTime = 0;
-              bufferEndTime = 0;
+                    endLoad();
+                              
+                    setTimeout(function() {
+                      loadingRing.style.display = "none";
+                      playPauseButton.style.display = "block";
+                      playPauseButton.classList.remove('playing');
 
-              // videoPause = false;
-            // }
-            
-          } 
-        } else {
-          closeVideoInfo();
+                      showVideoControls();
+
+                      // reset the loader
+                      setTimeout(function() {
+                        resetLoad();
+                      }, 10);
+
+                    }, 1000);
+
+                    loading = false;
+
+                  });*/
+                // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
+              }).catch((err) => {
+
+                console.log(err);
+                /*
+                statusIndicator.classList.remove("buffer");
+                statusIndicator.classList.remove("smooth");
+                statusIndicator.classList.add("error");
+
+                endLoad();
+                          
+                setTimeout(function() {
+                  loadingRing.style.display = "none";
+                  playPauseButton.style.display = "block";
+                  playPauseButton.classList.remove('playing');
+
+                  showVideoControls();
+
+                  // reset the loader
+                  setTimeout(function() {
+                    resetLoad();
+                  }, 10);
+
+                }, 1000);
+
+                loading = false;*/
+              });
+              
+              // audio.currentTime = video.currentTime;
+              updatePositionState();
+
+            } else if (!video.paused && video.src !== "") {
+
+              // if (videoPause) {
+                audio.pause();
+                video.pause();
+                // videoSec.pause();
+
+                bufferStartTime = 0;
+                bufferEndTime = 0;
+
+                // videoPause = false;
+              // }
+              
+            } 
+          } else {
+            closeVideoInfo();
+          }
         }
       }
     });
