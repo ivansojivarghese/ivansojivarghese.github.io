@@ -1393,20 +1393,33 @@ function getOptimalVideo(time) {
         video.style.background = "";
         imageAmbientChange = true;
         
-        video.src = targetVideo.url; 
-        // videoSec.src = targetVideo.url; 
-        // videoSec.src = supportedVideoSources[supportedVideoSources.length - 1].url;
+        if (!casting) {
+          video.src = targetVideo.url; 
+          // videoSec.src = targetVideo.url; 
+          // videoSec.src = supportedVideoSources[supportedVideoSources.length - 1].url;
 
-        for (var j = supportedAudioSources.length - 1; j >= 0; j--) {
-          if (supportedAudioSources[j].audioTrack) {
-            if (supportedAudioSources[j].audioTrack.audioIsDefault) {
+          for (var j = supportedAudioSources.length - 1; j >= 0; j--) {
+            if (supportedAudioSources[j].audioTrack) {
+              if (supportedAudioSources[j].audioTrack.audioIsDefault) {
+                audio.src = supportedAudioSources[j].url;
+                break;
+              }
+            } else {
               audio.src = supportedAudioSources[j].url;
               break;
             }
-          } else {
-            audio.src = supportedAudioSources[j].url;
-            break;
           }
+        } else {
+          addPlayerControl();
+
+          initCastPlayer();
+
+          videoInfoElm.cast.classList.add("active");
+          videoInfoElm.gCast.classList.add("disabled");
+          videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
+
+          castVideoWithAudio(videoDetails.formats["0"].url);
+          playerController.playOrPause();
         }
 
         // audio.src = supportedAudioSources[supportedAudioSources.length - 1].url;

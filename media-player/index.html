@@ -19,6 +19,8 @@
             }
         };
 
+        var casting = false;
+
         // Initialize the Cast API only when the SDK is available
         function initializeCastApi() {
             if (window.cast && window.cast.framework) {
@@ -30,38 +32,7 @@
                     });
                     console.log("Google Cast initialized.");
 
-                    setTimeout(function() {
-                      addPlayerControl();
-
-                      initCastPlayer();
-
-                      videoInfoElm.cast.classList.add("active");
-                      videoInfoElm.gCast.classList.add("disabled");
-                      videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
-
-                      // if (!casted) {
-                        // casted = true;
-                        castVideoWithAudio(videoDetails.formats["0"].url);
-
-                        playerController.playOrPause();
-                      // }
-
-                    }, 1000);
-
-                    /*
-                    chrome.cast.requestSession(onSessionSuccess, onSessionError);
-                    // Listen for changes to the session state
-                    chrome.cast.sessionManager.addSessionListener(function(session) {
-                      console.log('Casting session started:', session);
-
-                      // Listen for when the session ends
-                      session.addUpdateListener(function(isAlive) {
-                        if (!isAlive) {
-                          console.log('Casting session has ended.');
-                          // Handle casting stopped
-                        }
-                      });
-                    });*/
+                    casting = true;
 
                 } catch (error) {
                     console.error("Error initializing Google Cast:", error);
@@ -138,6 +109,8 @@
             video.src = localStorage.getItem("videoURL");
             audio.src = localStorage.getItem("audioURL");
           // }
+            
+            casting = false;
         }
 
         var player;
