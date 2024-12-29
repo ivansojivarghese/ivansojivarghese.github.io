@@ -890,7 +890,7 @@
   });
 
     videoControls.addEventListener("mousemove", function(event) {
-      if (!player.isConnected) {
+      if ((player && !player.isConnected) || !player) {
         if (video.src !== "" && interactiveType === "mouse") {
           clearTimeout(controlsHideInt);
           controlsHideInt = null;
@@ -919,7 +919,7 @@
     });
 
     videoControls.addEventListener("mouseleave", function(event) {
-      if (!player.isConnected) {
+      if ((player && !player.isConnected) || !player) {
         if (!video.paused && video.src !== "" && interactiveType === "mouse" && !seekingLoad && !longTap && !seeking) {
           clearTimeout(controlsHideInt);
           controlsHideInt = null;
@@ -1029,7 +1029,7 @@
     }
 
     videoControls.addEventListener('click', function(event) {
-      if (!player.isConnected) {
+      if ((player && !player.isConnected) || !player) {
         if ((interactiveType === "touch" || interactiveType === "pen") && !event.target.classList.contains("no-tap")) {
           clearTimeout(controlsHideInt);
           controlsHideInt = null;
