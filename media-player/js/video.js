@@ -1475,7 +1475,7 @@ function getOptimalVideo(time) {
 
         // videoInfoElm.main.style.opacity = 1;
 
-        if (casting && casted) {
+        if (casting) {
           /*
           addPlayerControl();
 
@@ -1486,7 +1486,9 @@ function getOptimalVideo(time) {
           videoInfoElm.cast.setAttribute("onclick", "stopCasting()");*/
 
           castVideoWithAudio(videoDetails.formats["0"].url);
-          playerController.playOrPause();
+
+          console.log(casted);
+          // playerController.playOrPause();
         }
 
       }, 100);
