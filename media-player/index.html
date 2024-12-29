@@ -30,6 +30,19 @@
                     });
                     console.log("Google Cast initialized.");
 
+                    addPlayerControl();
+
+                    initCastPlayer();
+
+                    videoInfoElm.cast.classList.add("active");
+                    videoInfoElm.gCast.classList.add("disabled");
+                    videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
+
+                    if (!casted) {
+                      casted = true;
+                      castVideoWithAudio(videoDetails.formats["0"].url);
+                    }
+                    
                     /*
                     chrome.cast.requestSession(onSessionSuccess, onSessionError);
                     // Listen for changes to the session state
