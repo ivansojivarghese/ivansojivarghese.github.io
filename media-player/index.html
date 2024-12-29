@@ -81,13 +81,24 @@
           video.src = "";
           audio.src = "";
 
-          videoLoadProgressBar.style.transform = `scaleX(1)`;
-          videoProgressBar.style.transform = `scaleX(1)`;
+          // videoLoadProgressBar.style.transform = `scaleX(1)`;
+          // videoProgressBar.style.transform = `scaleX(1)`;
 
-          videoCurrentTime.textContent = "casting";
+          // videoCurrentTime.textContent = "casting";
+
+          videoLoadProgressBar.style.opacity = 0;
 
           loadingRing.style.display = "none";
           playPauseButton.style.display = "block";
+        }
+
+        function stopCastPlayer() {
+          playPauseButton.classList.remove('cast_connected');
+
+          videoLoadProgressBar.style.opacity = 1;
+
+          video.src = localStorage.getItem("videoURL");
+          audio.src = localStorage.getItem("audioURL");;
         }
 
         var player;
@@ -126,6 +137,23 @@
               }
           );
 
+          playerController.addEventListener(
+              cast.framework.RemotePlayerEventType.CURRENT_TIME_CHANGED,
+              () => {
+                  // console.log(`Current time: ${player.currentTime}`);
+                  // You can perform actions based on the updated time here
+
+                  refSeekTime = player.currentTime ? player.currentTime : timeToSeconds(videoCurrentTime.textContent);
+
+                  localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
+
+                  updatePositionState();
+                  videoCurrentTime.textContent = secondsToTimeCode(player.currentTime);
+                  videoProgressPercentile = (player.currentTime / player.duration);
+                  videoProgressBar.style.transform = `scaleX(${player.currentTime / player.duration})`;
+              }
+          );
+
           // Handle Connection State Changes
           playerController.addEventListener(
               cast.framework.RemotePlayerEventType.IS_CONNECTED_CHANGED,
@@ -133,9 +161,31 @@
                   if (!player.isConnected) {
                       console.log('Receiver disconnected.');
                       // Perform any necessary cleanup or UI updates for disconnection
+
+                      casted = false;
+
+                      stopCastPlayer();
+
+                      videoInfoElm.cast.classList.remove("active");
+                      videoInfoElm.gCast.classList.remove("disabled");
+                      videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
+
                   } else {
                       console.log('Receiver connected.');
                       // Perform any necessary setup for connection
+
+                      addPlayerControl();
+
+                      initCastPlayer();
+
+                      videoInfoElm.cast.classList.add("active");
+                      videoInfoElm.gCast.classList.add("disabled");
+                      videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
+
+                      if (!casted) {
+                        casted = true;
+                        castVideoWithAudio(videoDetails.formats["0"].url);
+                      }
                   }
               }
           );
@@ -529,6 +579,8 @@ function addPlayerControl() {
                     // Handle casting stopped
 
                     casted = false;
+
+                    stopCastPlayer();
 
                     videoInfoElm.cast.classList.remove("active");
                     videoInfoElm.gCast.classList.remove("disabled");

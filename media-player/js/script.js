@@ -994,7 +994,8 @@
         videoControls.classList.add('visible_ready');
       }, 200);
       if (!qualityChange && !qualityBestChange) {
-        videoCurrentTime.textContent = ((player && !player.isConnected) || !player) ? secondsToTimeCode(video.currentTime) : "casting";
+        // videoCurrentTime.textContent = ((player && !player.isConnected) || !player) ? secondsToTimeCode(video.currentTime) : "casting";
+        videoCurrentTime.textContent = secondsToTimeCode(video.currentTime);
         videoProgressBar.style.transform = `scaleX(${video.currentTime / video.duration})`;
       }
     }
