@@ -85,6 +85,9 @@
           videoProgressBar.style.transform = `scaleX(1)`;
 
           videoCurrentTime.textContent = "casting";
+
+          loadingRing.style.display = "none";
+          playPauseButton.style.display = "block";
         }
 
         var player;
