@@ -167,6 +167,13 @@
 
                   loadingRing.style.display = "none";
                   playPauseButton.style.display = "block";
+
+                   // Add loop functionality: Check if the video is close to the end
+                  if ((player.currentTime >= player.duration - 0.1) && videoLoop) { // Tolerance of 0.1 seconds
+                      console.log("Video ended, restarting...");
+                      player.currentTime = 0; // Reset the video to the beginning
+                      playerController.seek(); // Trigger seek to restart playback
+                  }
               }
           );
 
@@ -341,6 +348,7 @@
                     videoInfoElm.gCast.classList.add("disabled");
                     videoInfoElm.cast.setAttribute("onclick", "stopCasting()");
 
+                    /*
                     // Get the media session
                     const media = session.getMediaSession();
 
@@ -353,7 +361,7 @@
                                 session.loadMedia(mediaLoadRequest); // Restart the media
                             }
                         });
-                    }
+                    }*/
 
                 }, function(error) {
                     console.error('Error loading media:', error);
