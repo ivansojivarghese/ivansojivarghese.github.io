@@ -126,7 +126,7 @@
         var castCurrentTime = 0;
 
         function stopCastPlayer() {
-          if (casted) {
+          // if (casted) {
             playPauseButton.classList.remove('cast_connected');
 
             videoLoadProgressBar.style.opacity = 1;
@@ -137,7 +137,7 @@
 
             video.src = localStorage.getItem("videoURL");
             audio.src = localStorage.getItem("audioURL");
-          }
+          // }
         }
 
         var player;
