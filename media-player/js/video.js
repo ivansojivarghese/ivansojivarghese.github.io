@@ -2069,8 +2069,8 @@ function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   // const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
 
-  // Match URLs, including full paths, query strings, and fragments.
-  const urlRegex = /\b(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})([^\s<]*)(?=\b)/g;
+  // Match URLs, ensuring they can have an @ at the end but not treat it like an email address
+  const urlRegex = /\b(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})([^\s<@]*)\b/g;
 
   return text.replace(urlRegex, (url) => {
 
@@ -2102,8 +2102,8 @@ function formatURLsToGenericLink(text) {
 
 // Function to detect and link email addresses
 function formatEmailLinks(text) {
-  // Regular expression to match email addresses correctly
-  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+  // Regular expression to match email addresses (including @ symbol)
+  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zAZ0-9.-]+\.[a-zA-Z]{2,})/g;
 
   return text.replace(emailRegex, (email) => {
     // Wrap the email in a mailto link
