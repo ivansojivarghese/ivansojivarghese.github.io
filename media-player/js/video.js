@@ -2140,7 +2140,7 @@ function formatMentions(text) {
     return match;
   });
 }*/
-
+/*
 function formatMentions(text) {
   // Match mentions in the format @username, ensuring it is not an email address
   const mentionRegex = /@([a-zA-Z0-9_]+)/g;
@@ -2166,19 +2166,20 @@ function formatMentions(text) {
     return match;
   });
 }
-
+*/
 
 // Combine all formatting functions
-/*
+
 function formatDescription(text) {
   const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
   const textWithURLs = formatURLsToGenericLink(textWithTimestamps); // Assuming formatURLsToGenericLink exists
   const textWithEmails = formatEmailLinks(textWithURLs); // Assuming formatEmailLinks exists
   const textWithPhones = formatPhoneNumbers(textWithEmails); // Assuming formatPhoneNumbers exists
   const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
-  const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
-  return textWithMentions;
-}*/
+  // const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
+  return textWithHashtags;
+}
+
 /*
 // Combine all formatting functions
 function formatDescription(text) {
@@ -2190,7 +2191,7 @@ function formatDescription(text) {
   const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
   return textWithHashtags;
 }*/
-
+/*
 function formatDescription(text) {
   // First, format the emails so they are prioritized over mentions
   const textWithEmails = formatEmailLinks(text);
@@ -2208,7 +2209,7 @@ function formatDescription(text) {
   const textWithMentions = formatMentions(textWithHashtags);
 
   return textWithMentions;
-}
+}*/
 
 
   var vidDes = videoDetails.description;
