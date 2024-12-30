@@ -155,7 +155,7 @@ video.seeking {
     background-color: #3f3f3f;
 }
 
-.replay.active, .cast.active {
+.replay.active, .cast.active, #infoContainer .head .cursor.active {
     background-color: #606060;
 }
 
@@ -541,15 +541,19 @@ a.noUnderline {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
+    padding-top: 1.75rem;
+    padding-bottom: 1rem;
 }
 
 #infoContainer .head .cursor {
     height: 2rem;
     width: 3rem;
     padding: 0.75rem 0;
-    padding-top: 2.25rem;
-    padding-bottom: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     margin-top: calc(env(safe-area-inset-top));
+    border-radius: 50%;
+    background-color: #3f3f3f;
 }
 
 #infoContainer .homeBtn .img { 
@@ -572,8 +576,10 @@ a.noUnderline {
 #infoContainer .head .cursor .img {
     width: 2rem;
     height: 2rem;
+    /*
     margin-right: 0.35rem;
-    margin-left: calc(100% - 0.9rem - 2rem + 0.35rem);
+    margin-left: calc(100% - 0.9rem - 2rem + 0.35rem); */
+    margin: 0 auto;
 }
 
 #infoContainer .closeBtn .img {
