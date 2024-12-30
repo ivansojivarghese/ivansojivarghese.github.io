@@ -2120,8 +2120,8 @@ function formatPhoneNumbers(text) {
 }
 
 function formatMentions(text) {
-  // Match mentions in the format @{mention}
-  const mentionRegex = /@\{([a-zA-Z0-9_]+)\}/g;
+  // Match mentions in the format @username
+  const mentionRegex = /@([a-zA-Z0-9_]+)/g;
 
   return text.replace(mentionRegex, (match, username) => {
     const channelURL = `https://www.youtube.com/@${username}`;
