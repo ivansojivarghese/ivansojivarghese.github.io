@@ -14,7 +14,7 @@
     }
 }
 
-.hashtag, .timestamp, .email-link, .phone-link {
+.hashtag, .timestamp, .email-link, .phone-link, .mention-link {
     color: #0073e6; /* Blue color */
     font-weight: bold;
 } 
