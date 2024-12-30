@@ -71,7 +71,11 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/svg/cast_connected.svg',
   'https://ivansojivarghese.github.io/media-player/svg/open.svg',
   'https://ivansojivarghese.github.io/media-player/svg/link.svg',
-  'https://ivansojivarghese.github.io/media-player/svg/globe.svg'
+  'https://ivansojivarghese.github.io/media-player/svg/globe.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/home.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/trending.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/search.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/info.svg'
 ];
 
 const cacheItems = [...assets, ...fonts];
