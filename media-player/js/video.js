@@ -2182,7 +2182,7 @@ function formatMentions(text) {
 
     // Create a YouTube link for valid mentions
     const channelURL = `https://www.youtube.com/@${username}`;
-    return `<a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
+    return ` <a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
   });
 }
 
