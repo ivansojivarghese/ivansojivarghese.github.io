@@ -2148,8 +2148,8 @@ function formatDescription(text) {
   const textWithEmails = formatEmailLinks(textWithURLs); // Assuming formatEmailLinks exists
   const textWithPhones = formatPhoneNumbers(textWithEmails); // Assuming formatPhoneNumbers exists
   const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
-  // const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
-  return textWithHashtags;
+  const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
+  return textWithMentions;
 }
 
   var vidDes = videoDetails.description;
