@@ -548,6 +548,7 @@ a.noUnderline {
     width: 3rem;
     padding: 0.75rem 0;
     padding-top: 2.25rem;
+    padding-bottom: 1.5rem;
     margin-top: calc(env(safe-area-inset-top));
 }
 

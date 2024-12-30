@@ -2069,8 +2069,8 @@ function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   // const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
 
-  // Match valid domain names and URLs with extensions like .com, .org, .net, etc.
-  const urlRegex = /\b(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(\/[^\s<]*)?\b/g;
+  // Match URLs, including full paths and query strings
+  const urlRegex = /\b(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})([^\s<]*)\b/g;
 
   return text.replace(urlRegex, (url) => {
 
