@@ -2185,4 +2185,17 @@ setInterval(() => {
   } else {
     videoInfoElm.cast.style.display = "none";
   }
+
+  const transformValue = videoProgressBar.style.transform;
+  const match = transformValue.match(/scaleX\(([\d.-]+)\)/);
+  const numericValue = match ? parseFloat(match[1]) : null;
+
+  const computedStyle = getComputedStyle(videoBarPlaceholder);       
+  const width = computedStyle.width;  
+  const numericWidth = parseFloat(width);   
+
+  var scrubX = numericValue * numericWidth;
+
+  videoScrub.style.left = "calc("+ scrubX +"px + 0.8rem + calc(env(safe-area-inset-left)))";
+  
 }, 1000/60);

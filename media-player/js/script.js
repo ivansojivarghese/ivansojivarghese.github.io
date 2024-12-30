@@ -22,6 +22,7 @@
     const videoCurrentTime = document.querySelector('#videoCurrentTime');
     const videoProgressBar = document.querySelector('#videoProgressBar');
     const videoLoadProgressBar = document.querySelector('#videoLoadProgressBar');
+    const videoBarPlaceholder = document.querySelector("#videoBarPlaceholder");
     const videoScrub = document.querySelector('#videoScrub');
 
     const loadingRing = document.querySelector("#loadingRing");

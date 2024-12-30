@@ -101,7 +101,7 @@ video.seeking {
     transform: scale(0.9);
 }
 
-.trsButtons:not(.active):active, .resBtn:not(.active):active, .trsButtons.cursor:active {
+.trsButtons:not(.active):active, .resBtn:not(.active):active, .trsButtons.cursor:not(.active):active {
     transform: scale(0.9);
 }
 
