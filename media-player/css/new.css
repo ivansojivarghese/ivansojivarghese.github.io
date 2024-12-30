@@ -551,20 +551,20 @@ a.noUnderline {
     margin-top: calc(env(safe-area-inset-top));
 }
 
-#infoContainer .homeBtn { 
+#infoContainer .homeBtn .img { 
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/home.svg");
     margin-left: calc(env(safe-area-inset-left));
 }
 
-#infoContainer .trendingBtn { 
+#infoContainer .trendingBtn .img { 
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/trending.svg");
 }
 
-#infoContainer .searchBtn { 
+#infoContainer .searchBtn .img { 
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/search.svg");
 }
 
-#infoContainer .infoBtn { 
+#infoContainer .infoBtn .img { 
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/info.svg");
 }
 
@@ -575,7 +575,7 @@ a.noUnderline {
     margin-left: calc(100% - 0.9rem - 2rem + 0.35rem);
 }
 
-#infoContainer .closeBtn {
+#infoContainer .closeBtn .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/close.svg");
     margin-right: calc(env(safe-area-inset-right));
 }
