@@ -2067,16 +2067,16 @@ function formatTimestamps(text) {
   
 function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
-  // const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
+  const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
 
   // Match URLs that start with http://, https://, or www. and have common domain extensions like .com, .net, .org, etc.
-  const urlRegex = /\b(?:https?:\/\/|www\.)[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}(\.[a-zA-Z]{2,})?(\S*)\b/g;
+  // const urlRegex = /\b(?:https?:\/\/|www\.)[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}(\.[a-zA-Z]{2,})?(\S*)\b/g;
 
   return text.replace(urlRegex, (url) => {
-
+    /*
     if (/^[a-zA-Z0-9_.+-]+$/.test(url)) {
       return url; // Return as plain text if it doesn't look like a valid URL
-    }
+    }*/
 
     var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
@@ -2148,8 +2148,8 @@ function formatDescription(text) {
   const textWithEmails = formatEmailLinks(textWithURLs); // Assuming formatEmailLinks exists
   const textWithPhones = formatPhoneNumbers(textWithEmails); // Assuming formatPhoneNumbers exists
   const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
-  const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
-  return textWithMentions;
+  // const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
+  return textWithHashtags;
 }
 
   var vidDes = videoDetails.description;
