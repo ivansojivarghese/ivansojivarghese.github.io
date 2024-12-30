@@ -2064,7 +2064,7 @@ function formatTimestamps(text) {
 }
 
   // Function to detect and replace URLs with a generic "Visit link"
-  
+  /*
 function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   // const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
@@ -2081,9 +2081,7 @@ function formatURLsToGenericLink(text) {
     var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
     const { title, favicon } = getMetadata(url);
-    /*
-    const displayTitle = title || 'Visit Link';
-    const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;*/
+
     const displayTitle = title || '';
     const faviconURL = favicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
 
@@ -2095,8 +2093,41 @@ function formatURLsToGenericLink(text) {
 
     return el;
 
-    // return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons"><div class="img"></div></a>`;
   });
+}*/
+
+
+// Function to detect and link URLs (including .com and others, without http, https, or www)
+function formatURLsToGenericLink(text) {
+  // Match URLs starting with http, https, or www and containing valid domain extensions
+  const urlRegex = /\b(?:https?:\/\/|www\.)[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})*(?:[^\s<@]*)\b/g;
+
+  // Also match URLs without http, https, or www but with common domain extensions (like .com, .org, etc.)
+  const fallbackUrlRegex = /\b[a-zA-Z0-9-]+\.(com|net|org|edu|gov|co|io|info|biz|tv)\b/g;
+
+  // Replace both URL formats (with or without http, https, or www)
+  text = text.replace(urlRegex, (url) => {
+    const clickableURL = url.startsWith('http') ? url : `http://${url}`;
+    const { title, favicon } = getMetadata(url); // Assuming getMetadata is a function for fetching meta info
+    const displayTitle = title || '';
+    const faviconURL = favicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
+
+    return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
+              <div class="img" style="background-image: url('${faviconURL}')"></div>
+              <div class="img link"></div>
+              <span style="display: none;">${displayTitle}</span>
+            </a>`;
+  });
+
+  // Handle URLs without http, https, or www but with domain extensions like .com, .net, etc.
+  text = text.replace(fallbackUrlRegex, (url) => {
+    const clickableURL = `http://${url}`;
+    return `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
+              <div class="img link"></div>
+            </a>`;
+  });
+
+  return text;
 }
 
 
