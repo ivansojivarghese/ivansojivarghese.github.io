@@ -2069,10 +2069,14 @@ function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   // const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
 
-  // Match URLs, including full paths and query strings
-  const urlRegex = /\b(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})([^\s<]*)\b/g;
+  // Match URLs, including full paths, query strings, and fragments.
+  const urlRegex = /\b(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})([^\s<]*)(?=\b)/g;
 
   return text.replace(urlRegex, (url) => {
+
+    if (/^[a-zA-Z0-9_.+-]+$/.test(url)) {
+      return url; // Return as plain text if it doesn't look like a valid URL
+    }
 
     var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
@@ -2098,7 +2102,7 @@ function formatURLsToGenericLink(text) {
 
 // Function to detect and link email addresses
 function formatEmailLinks(text) {
-  // Regular expression to match email addresses
+  // Regular expression to match email addresses correctly
   const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
 
   return text.replace(emailRegex, (email) => {
@@ -2109,8 +2113,8 @@ function formatEmailLinks(text) {
 
 // Function to detect and link valid international phone numbers
 function formatPhoneNumbers(text) {
-  // Regular expression to match phone numbers starting with "+"
-  const phoneRegex = /(\+\d{1,3}[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9})/g;
+  // Regular expression to match phone numbers with various formats
+  const phoneRegex = /(\+?\d{1,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9})/g;
 
   return text.replace(phoneRegex, (phone) => {
     // Normalize the phone number by removing spaces/dots/dashes
