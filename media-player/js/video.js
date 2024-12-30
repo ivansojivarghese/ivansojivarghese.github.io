@@ -2067,7 +2067,11 @@ function formatTimestamps(text) {
   
 function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
-  const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
+  // const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
+
+  // Match URLs including those without protocols or 'www'
+  const urlRegex = /(?:https?:\/\/)?(?:www\.)?([^\s<]+)/g;
+
   return text.replace(urlRegex, (url) => {
 
     var el;
