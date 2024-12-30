@@ -2124,12 +2124,20 @@ function formatPhoneNumbers(text) {
 }
 
 function formatMentions(text) {
-  // Match mentions in the format @username
+  // Match mentions in the format @username and ensure the username is valid for YouTube
   const mentionRegex = /@([a-zA-Z0-9_]+)/g;
 
   return text.replace(mentionRegex, (match, username) => {
+    // Only consider YouTube usernames with the @ prefix (no other @mentions for now)
     const channelURL = `https://www.youtube.com/@${username}`;
-    return `<a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
+
+    // Check if the username follows YouTube conventions (alphanumeric or underscores)
+    if (/^[a-zA-Z0-9_]+$/.test(username)) {
+      return `<a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
+    }
+
+    // Return the original text if not a valid YouTube username
+    return match;
   });
 }
 
