@@ -2144,12 +2144,12 @@ function formatMentions(text) {
 function formatMentions(text) {
   // Match mentions in the format @username and ensure the username is valid for YouTube
   const mentionRegex = /@([a-zA-Z0-9_]+)/g;
-  
+
   return text.replace(mentionRegex, (match, username) => {
     // Check if the username is part of an email address (i.e., contains a dot after @)
     if (/@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(match)) {
-      // Return the email as it is without formatting as a YouTube mention
-      return match;
+      // If the '@' is followed by a domain (e.g., @gmail.com), it's an email, not a YouTube mention
+      return match; // Return email as is
     }
 
     // Only consider YouTube usernames with the @ prefix (no other @mentions for now)
@@ -2166,6 +2166,7 @@ function formatMentions(text) {
 }
 
 // Combine all formatting functions
+/*
 function formatDescription(text) {
   const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
   const textWithURLs = formatURLsToGenericLink(textWithTimestamps); // Assuming formatURLsToGenericLink exists
@@ -2174,6 +2175,17 @@ function formatDescription(text) {
   const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
   const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
   return textWithMentions;
+}*/
+
+// Combine all formatting functions
+function formatDescription(text) {
+  const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
+  const textWithURLs = formatURLsToGenericLink(textWithTimestamps); // Assuming formatURLsToGenericLink exists
+  const textWithMentions = formatMentions(textWithURLs); // Check for mentions before emails
+  const textWithEmails = formatEmailLinks(textWithMentions); // Assuming formatEmailLinks exists
+  const textWithPhones = formatPhoneNumbers(textWithEmails); // Assuming formatPhoneNumbers exists
+  const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
+  return textWithHashtags;
 }
 
   var vidDes = videoDetails.description;
