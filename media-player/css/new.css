@@ -538,6 +538,7 @@ a.noUnderline {
 
 #infoContainer .closeBtn {
     height: 2rem;
+    width: 3rem;
     padding: 0.75rem 0;
     padding-top: 2.25rem;
     margin-top: calc(env(safe-area-inset-top));
