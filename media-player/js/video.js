@@ -2122,12 +2122,36 @@ function formatPhoneNumbers(text) {
     return `<a href="tel:${normalizedPhone}" class="phone-link trs">${phone}</a>`;
   });
 }
-
+/*
 function formatMentions(text) {
   // Match mentions in the format @username and ensure the username is valid for YouTube
   const mentionRegex = /@([a-zA-Z0-9_]+)/g;
 
   return text.replace(mentionRegex, (match, username) => {
+    // Only consider YouTube usernames with the @ prefix (no other @mentions for now)
+    const channelURL = `https://www.youtube.com/@${username}`;
+
+    // Check if the username follows YouTube conventions (alphanumeric or underscores)
+    if (/^[a-zA-Z0-9_]+$/.test(username)) {
+      return `<a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
+    }
+
+    // Return the original text if not a valid YouTube username
+    return match;
+  });
+}*/
+
+function formatMentions(text) {
+  // Match mentions in the format @username and ensure the username is valid for YouTube
+  const mentionRegex = /@([a-zA-Z0-9_]+)/g;
+  
+  return text.replace(mentionRegex, (match, username) => {
+    // Check if the username is part of an email address (i.e., contains a dot after @)
+    if (/@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(match)) {
+      // Return the email as it is without formatting as a YouTube mention
+      return match;
+    }
+
     // Only consider YouTube usernames with the @ prefix (no other @mentions for now)
     const channelURL = `https://www.youtube.com/@${username}`;
 
