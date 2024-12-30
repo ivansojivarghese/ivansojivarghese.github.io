@@ -2146,10 +2146,9 @@ function formatMentions(text) {
   const mentionRegex = /@([a-zA-Z0-9_]+)/g;
 
   return text.replace(mentionRegex, (match, username) => {
-    // Check if the username is part of an email address (i.e., contains a dot after @)
-    if (/@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(match)) {
-      // If the '@' is followed by a domain (e.g., @gmail.com), it's an email, not a YouTube mention
-      return match; // Return email as is
+    // Ensure that we don't mistakenly treat email addresses as YouTube usernames
+    if (username.includes('@')) {
+      return match; // If it contains @, it's an email, not a username
     }
 
     // Only consider YouTube usernames with the @ prefix (no other @mentions for now)
@@ -2164,6 +2163,7 @@ function formatMentions(text) {
     return match;
   });
 }
+
 
 // Combine all formatting functions
 /*
