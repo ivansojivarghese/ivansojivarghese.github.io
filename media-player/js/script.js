@@ -22,6 +22,7 @@
     const videoCurrentTime = document.querySelector('#videoCurrentTime');
     const videoProgressBar = document.querySelector('#videoProgressBar');
     const videoLoadProgressBar = document.querySelector('#videoLoadProgressBar');
+    const videoScrub = document.querySelector('#videoScrub');
 
     const loadingRing = document.querySelector("#loadingRing");
     const playPauseButton = document.querySelector('#playPauseButton');
@@ -991,6 +992,9 @@
   });
 
     function showVideoControls() {
+
+      videoScrub.style.transform = "scale(1)";
+
       videoControls.classList.add('visible');
       setTimeout(function() {
         videoControls.classList.add('visible_ready');
@@ -1003,6 +1007,8 @@
     }
 
     function hideVideoControls() {
+
+      videoScrub.style.transform = "";
 
       if (!loading && !bufferLoad && !seekingLoad && !bufferingDetected) {
         statusIndicator.classList.remove("buffer");

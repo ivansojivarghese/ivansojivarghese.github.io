@@ -477,7 +477,19 @@ a.noUnderline {
     margin-bottom: calc(env(safe-area-inset-bottom));
 }
 
-#videoProgressBar, #videoLoadProgressBar, #videoBarPlaceholder {
+#videoScrub {
+    width: 0.8rem;
+    transform: none;
+    height: 0.8rem;
+    border-radius: 50%;
+    bottom: 2.4375rem;
+    left: calc(0.8rem + calc(env(safe-area-inset-left)));
+    bottom: 2.4465rem;
+    transform: scale(0);
+    transform-origin: center;
+}
+
+#videoProgressBar, #videoLoadProgressBar, #videoBarPlaceholder, #videoScrub {
     background-color: #A10000;
     position: absolute;
     bottom: 2.75rem;
