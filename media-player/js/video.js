@@ -2142,19 +2142,22 @@ function formatMentions(text) {
 }*/
 
 function formatMentions(text) {
-  // Match mentions in the format @username and ensure the username is valid for YouTube
+  // Match mentions in the format @username, ensuring it is not an email address
   const mentionRegex = /@([a-zA-Z0-9_]+)/g;
 
   return text.replace(mentionRegex, (match, username) => {
-    // Ensure that we don't mistakenly treat email addresses as YouTube usernames
-    if (username.includes('@')) {
-      return match; // If it contains @, it's an email, not a username
+    // Check if the username matches an email format (anything that contains '@' and '.')
+    const emailRegex = /\S+@\S+\.\S+/;
+    
+    // If the match looks like an email, format it as an email link
+    if (emailRegex.test(match)) {
+      return `<a href="mailto:${match}" class="email-link trs">${match}</a>`;
     }
 
-    // Only consider YouTube usernames with the @ prefix (no other @mentions for now)
+    // Only consider YouTube usernames with the @ prefix (ignore if it looks like an email)
     const channelURL = `https://www.youtube.com/@${username}`;
 
-    // Check if the username follows YouTube conventions (alphanumeric or underscores)
+    // If it passes YouTube conventions (alphanumeric or underscores), treat it as a YouTube channel
     if (/^[a-zA-Z0-9_]+$/.test(username)) {
       return `<a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
     }
@@ -2176,7 +2179,7 @@ function formatDescription(text) {
   const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
   return textWithMentions;
 }*/
-
+/*
 // Combine all formatting functions
 function formatDescription(text) {
   const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
@@ -2186,7 +2189,27 @@ function formatDescription(text) {
   const textWithPhones = formatPhoneNumbers(textWithEmails); // Assuming formatPhoneNumbers exists
   const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
   return textWithHashtags;
+}*/
+
+function formatDescription(text) {
+  // First, format the emails so they are prioritized over mentions
+  const textWithEmails = formatEmailLinks(text);
+
+  // Then format URLs
+  const textWithURLs = formatURLsToGenericLink(textWithEmails);
+
+  // Format phone numbers
+  const textWithPhones = formatPhoneNumbers(textWithURLs);
+
+  // Format hashtags
+  const textWithHashtags = highlightHashtags(textWithPhones);
+
+  // Finally, format mentions (after emails)
+  const textWithMentions = formatMentions(textWithHashtags);
+
+  return textWithMentions;
 }
+
 
   var vidDes = videoDetails.description;
 
