@@ -2168,6 +2168,25 @@ function formatMentions(text) {
 }
 */
 
+function formatMentions(text) {
+  // Match mentions that start with a space or are at the beginning of the string
+  const mentionRegex = /(?:\s|^)@([a-zA-Z0-9_]+)/g;
+
+  return text.replace(mentionRegex, (match, username, offset, originalText) => {
+    // Check if it is part of an email by looking ahead for a dot (e.g., @domain.com)
+    const isEmail = /\S+@\S+\.\S+/.test(originalText);
+
+    if (isEmail) {
+      return match; // Do not format as a mention if it's part of an email
+    }
+
+    // Create a YouTube link for valid mentions
+    const channelURL = `https://www.youtube.com/@${username}`;
+    return `<a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
+  });
+}
+
+
 // Combine all formatting functions
 
 function formatDescription(text) {
@@ -2210,6 +2229,26 @@ function formatDescription(text) {
 
   return textWithMentions;
 }*/
+
+function formatDescription(text) {
+  // Format emails first
+  const textWithEmails = formatEmailLinks(text);
+
+  // Then URLs
+  const textWithURLs = formatURLsToGenericLink(textWithEmails);
+
+  // Format phone numbers
+  const textWithPhones = formatPhoneNumbers(textWithURLs);
+
+  // Format hashtags
+  const textWithHashtags = highlightHashtags(textWithPhones);
+
+  // Format mentions after other rules
+  const textWithMentions = formatMentions(textWithHashtags);
+
+  return textWithMentions;
+}
+
 
 
   var vidDes = videoDetails.description;
