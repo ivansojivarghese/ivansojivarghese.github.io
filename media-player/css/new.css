@@ -536,7 +536,7 @@ a.noUnderline {
     }
 }
 
-#infoContainer .closeBtn {
+#infoContainer .head .cursor {
     height: 2rem;
     width: 3rem;
     padding: 0.75rem 0;
