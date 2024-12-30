@@ -2069,8 +2069,8 @@ function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
   // const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
 
-  // Match URLs, including full paths, query strings, and fragments.
-  const urlRegex = /\b(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})([^\s<]*)(?=\b)/g;
+  // Match URLs, including full paths and query strings, ensuring it won't interfere with email detection
+  const urlRegex = /\b(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})([^\s<]*)\b/g;
 
   return text.replace(urlRegex, (url) => {
 
@@ -2102,7 +2102,7 @@ function formatURLsToGenericLink(text) {
 
 // Function to detect and link email addresses
 function formatEmailLinks(text) {
-  // Regular expression to match email addresses correctly
+  // Regular expression to match email addresses (this should not match parts of URLs)
   const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
 
   return text.replace(emailRegex, (email) => {
@@ -2135,11 +2135,10 @@ function formatMentions(text) {
 
 // Combine all formatting functions
 function formatDescription(text) {
-  const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
-  const textWithURLs = formatURLsToGenericLink(textWithTimestamps); // Assuming formatURLsToGenericLink exists
-  const textWithEmails = formatEmailLinks(textWithURLs); // Assuming formatEmailLinks exists
-  const textWithPhones = formatPhoneNumbers(textWithEmails); // Assuming formatPhoneNumbers exists
-  const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
+  const textWithEmails = formatEmailLinks(text); // First format email links
+  const textWithURLs = formatURLsToGenericLink(textWithEmails); // Then format URLs
+  const textWithTimestamps = formatTimestamps(textWithURLs); // Assuming formatTimestamps exists
+  const textWithHashtags = highlightHashtags(textWithTimestamps); // Assuming highlightHashtags exists
   const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
   return textWithMentions;
 }
