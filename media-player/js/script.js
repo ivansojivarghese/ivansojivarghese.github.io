@@ -1263,6 +1263,9 @@
     function openVideoInfo() {
       event.stopPropagation();
 
+      const infoBtn = document.querySelector("#infoContainer .head .infoBtn");
+      infoBtn.classList.add("active");
+
       var ori = screen.orientation.type;
 
       if (video.src !== "" && videoControls.classList.contains('visible') && ((!loading || loading) || initialVideoLoad) && (!videoErr && !audioErr)) {
@@ -1289,6 +1292,10 @@
       videoInfoOpen = false;
 
       var ori = screen.orientation.type;
+
+      const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
+      // Remove 'active' class from all elements
+      allBtn.forEach(btn => btn.classList.remove('active'));
 
       if (ori === "landscape-primary" || ori === "landscape-secondary") {
         // mainContent.style.backgroundColor = "";
