@@ -1767,8 +1767,8 @@ const apiKey = "AIzaSyAtcIpyHJI05qb0cIo4wdMVYfuC-Z9bQQI"; // Replace with your A
 async function checkYouTubeURL(url, apiKey) {
   let videoId, channelId, playlistId;
 
-  // Regex to extract video ID
-  const videoRegex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:watch\?v=|(?:v|e(?:mbed)?)\/))([a-zA-Z0-9_-]{11})/;
+  // Regex to extract video ID, channel ID, and playlist ID
+  const videoRegex = /(?:https?:\/\/(?:www\.)?(?:youtube\.com\/(?:watch\?v=|v\/|embed\/)|youtu\.be\/))([a-zA-Z0-9_-]{11})/;
   const channelRegex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:channel|user)\/)([a-zA-Z0-9_-]+)/;
   const playlistRegex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:playlist\?list=))([a-zA-Z0-9_-]+)/;
 
