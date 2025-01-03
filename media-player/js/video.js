@@ -1824,7 +1824,7 @@ async function getPlaylistDetails(playlistId, apiKey) {
   }
 }
 
-function determineYouTubeTypeAndTitle(url) {
+function determineYouTubeTypeAndTitle(url, id) {
   let type = 'unknown';
   let title = 'Unknown Title';
   
@@ -1880,12 +1880,18 @@ function determineYouTubeTypeAndTitle(url) {
   (async () => {
     const result = await checkYouTubeURL(url, apiKey);
     console.log(result);
+
+    var aTarget = document.querySelector("#" + id + " span");
+    var aImg = document.querySelector("#" + id + " div.img.link");
+    aTarget.innerHTML = result.title;
+    aTarget.style.display = "block";
+    aImg.style.display = "none";
   })();
 
   // return { type, title };
 }
 
-async function fetchMetadataForURL(url) {
+async function fetchMetadataForURL(url, id) {
   try {
     // const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
     /*
@@ -1944,7 +1950,7 @@ async function fetchMetadataForURL(url) {
           title = 'Unknown YouTube Page';
       }*/
 
-      var metadata = determineYouTubeTypeAndTitle(url);
+      var metadata = determineYouTubeTypeAndTitle(url, id);
       (async () => {
         title = await metadata.title;
       });
@@ -1964,11 +1970,11 @@ async function fetchMetadataForURL(url) {
   }
 }
 
-async function getMetadata(url) {
+async function getMetadata(url, id) {
   // const url = 'https://example.com';
   
   // Store the result into a variable
-  const metadata = await fetchMetadataForURL(url);
+  const metadata = await fetchMetadataForURL(url, id);
 
   // Safely log or use the metadata
   // console.log('Title:', metadata.title);
@@ -2166,6 +2172,28 @@ function formatTimestamps(text) {
   });
 }
 
+function generateRandomizedIdFromUrl(url) {
+  // Convert the URL into an array of characters
+  const urlArray = url.split('');
+
+  // Shuffle the array randomly
+  for (let i = urlArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [urlArray[i], urlArray[j]] = [urlArray[j], urlArray[i]]; // Swap elements
+  }
+
+  // Rebuild the URL string from the shuffled array
+  const randomizedUrl = urlArray.join('');
+
+  // Generate a random string to append to the shuffled URL
+  const randomString = Math.random().toString(36).substring(2, 8);
+
+  // Combine the randomized URL with the random string
+  const uniqueId = `randomized-${randomizedUrl}-${randomString}`;
+
+  return uniqueId;
+}
+
   // Function to detect and replace URLs with a generic "Visit link"
   
 function formatURLsToGenericLink(text) {
@@ -2182,16 +2210,21 @@ function formatURLsToGenericLink(text) {
       return url; // Return as plain text if it doesn't look like a valid URL
     }*/
 
+    var id = "";
+    if (url.includes("youtube.com")) {
+      id = generateRandomizedIdFromUrl(url);
+    }
+
     var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
-    const { title, favicon } = getMetadata(url);
+    const { title, favicon } = getMetadata(url, id);
     /*
     const displayTitle = title || 'Visit Link';
     const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;*/
     const displayTitle = title || '';
     const faviconURL = favicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
 
-    el = `<a href="${clickableURL}" target="_blank" class="url trs trsButtons">
+    el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
                   <div class="img link"></div>
                   <span style="display: none;">${displayTitle}</span>
