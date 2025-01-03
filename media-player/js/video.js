@@ -1888,6 +1888,7 @@ function determineYouTubeTypeAndTitle(doc, url) {
 async function fetchMetadataForURL(url) {
   try {
     // const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+    /*
     const response = await fetch(`https://api.allorigins.win/get?url=${url}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch URL metadata: ${response.statusText}`);
@@ -1899,7 +1900,7 @@ async function fetchMetadataForURL(url) {
     }
 
     const parser = new DOMParser();
-    const doc = parser.parseFromString(data.contents, 'text/html');
+    const doc = parser.parseFromString(data.contents, 'text/html');*/
 
     // var title = findSocialMediaIdentifier(data);
 
