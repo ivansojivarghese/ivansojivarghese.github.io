@@ -1884,6 +1884,8 @@ async function getMetadata(url) {
   return metadata;
 }
 
+var isMusic = false;
+
 function abstractVideoInfo() {
 
   videoInfoElm.keywords.style.display = "flex";
@@ -1898,6 +1900,12 @@ function abstractVideoInfo() {
   if (videoDetails.category) {
     videoInfoElm.category.style.display = "block";
     videoInfoElm.category.innerHTML = videoDetails.category;
+
+    if (videoDetails.category === "Music") {
+      isMusic = true;
+    } else {
+      isMusic = false;
+    }
   } else {
     videoInfoElm.category.style.display = "none";
   } 

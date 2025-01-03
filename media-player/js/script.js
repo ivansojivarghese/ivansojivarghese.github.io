@@ -1278,7 +1278,7 @@
           // videoContainer.style.opacity = 0.5;
         }
 
-        if (!videoEnd && !video.paused && (ori === "portrait-primary" || ori === "portrait-secondary")) {
+        if (!videoEnd && !video.paused && !isMusic && (ori === "portrait-primary" || ori === "portrait-secondary")) {
           video.requestPictureInPicture().then(function() {
             getScreenLock();
             pipEnabled = true;
@@ -1453,7 +1453,7 @@
         settingsButton.style.display = "block";
 
         if (videoInfoOpen) {
-          if (!videoEnd && !video.paused) {
+          if (!videoEnd && !video.paused && !isMusic) {
             video.requestPictureInPicture().then(function() {
               getScreenLock();
               pipEnabled = true;
@@ -4429,7 +4429,7 @@
 
           video.style.objectFit = "";
           video.classList.remove("cover");
-          if (!video.paused && !appUnload) {
+          if (!video.paused && !appUnload && !isMusic) {
               video.requestPictureInPicture().then(function() {
                 getScreenLock();
                 pipEnabled = true;
