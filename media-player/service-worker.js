@@ -37,6 +37,7 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/web_upload.png',
   'https://ivansojivarghese.github.io/media-player/png/error.png',
   'https://ivansojivarghese.github.io/media-player/png/warning.png',
+  'https://ivansojivarghese.github.io/media-player/png/youtube_social_circle_red.png',
 
   'https://ivansojivarghese.github.io/media-player/index.js',
   'https://ivansojivarghese.github.io/media-player/js/dev.js',

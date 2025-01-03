@@ -2236,6 +2236,10 @@ function formatURLsToGenericLink(text) {
     var el;
     const clickableURL = url.startsWith('http') ? url : `http://${url}`;
     const { title, favicon } = getMetadata(url, id);
+
+    if (id) {
+      favicon = 'https://ivansojivarghese.github.io/media-player/png/youtube_social_circle_red.png';
+    }
     /*
     const displayTitle = title || 'Visit Link';
     const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;*/
