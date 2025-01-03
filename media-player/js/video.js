@@ -2238,13 +2238,13 @@ function formatURLsToGenericLink(text) {
     const { title, favicon } = getMetadata(url, id);
 
     if (id) {
-      favicon = 'https://ivansojivarghese.github.io/media-player/png/youtube_social_circle_red.png';
+      var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube_social_circle_red.png';
     }
     /*
     const displayTitle = title || 'Visit Link';
     const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;*/
     const displayTitle = title || '';
-    const faviconURL = favicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
+    const faviconURL = favicon || youtubeFavicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
 
     el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
