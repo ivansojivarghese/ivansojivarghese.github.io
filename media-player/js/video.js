@@ -1739,7 +1739,7 @@ function determineYouTubeType(doc) {
 
   return type;
 }*/
-
+/*
 async function getYouTubeVideoTitle(videoId, apiKey) {
   const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
   
@@ -1759,16 +1759,76 @@ async function getYouTubeVideoTitle(videoId, apiKey) {
   } catch (error) {
       console.error("Error fetching video title:", error);
   }
-}
+}*/
 
 // Usage
 const apiKey = "AIzaSyAtcIpyHJI05qb0cIo4wdMVYfuC-Z9bQQI"; // Replace with your API key
 
+async function checkYouTubeURL(url, apiKey) {
+  let videoId, channelId, playlistId;
 
-function determineYouTubeTypeAndTitle(doc) {
+  // Regex to extract video ID
+  const videoRegex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:watch\?v=|(?:v|e(?:mbed)?)\/))([a-zA-Z0-9_-]{11})/;
+  const channelRegex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:channel|user)\/)([a-zA-Z0-9_-]+)/;
+  const playlistRegex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:playlist\?list=))([a-zA-Z0-9_-]+)/;
+
+  if (videoRegex.test(url)) {
+      videoId = url.match(videoRegex)[1];
+  } else if (channelRegex.test(url)) {
+      channelId = url.match(channelRegex)[1];
+  } else if (playlistRegex.test(url)) {
+      playlistId = url.match(playlistRegex)[1];
+  }
+
+  if (videoId) {
+      return getVideoDetails(videoId, apiKey);
+  } else if (channelId) {
+      return getChannelDetails(channelId, apiKey);
+  } else if (playlistId) {
+      return getPlaylistDetails(playlistId, apiKey);
+  } else {
+      return { error: "Invalid YouTube URL" };
+  }
+}
+
+async function getVideoDetails(videoId, apiKey) {
+  const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  if (data.items.length > 0) {
+      return { type: "video", title: data.items[0].snippet.title, videoId };
+  } else {
+      return { error: "No video found" };
+  }
+}
+
+async function getChannelDetails(channelId, apiKey) {
+  const apiUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${apiKey}`;
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  if (data.items.length > 0) {
+      return { type: "channel", title: data.items[0].snippet.title, channelId };
+  } else {
+      return { error: "No channel found" };
+  }
+}
+
+async function getPlaylistDetails(playlistId, apiKey) {
+  const apiUrl = `https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${apiKey}`;
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  if (data.items.length > 0) {
+      return { type: "playlist", title: data.items[0].snippet.title, playlistId };
+  } else {
+      return { error: "No playlist found" };
+  }
+}
+
+function determineYouTubeTypeAndTitle(doc, url) {
   let type = 'unknown';
   let title = 'Unknown Title';
   
+  /*
   // Check for video by looking for the 'videoId' in metadata or video-specific DOM elements
   const canonicalUrl = doc.querySelector('link[rel="canonical"]')?.href || '';
 
@@ -1785,21 +1845,6 @@ function determineYouTubeTypeAndTitle(doc) {
       type = 'video';  // Found video ID, it's a video page
       
       // Extract the video title from the meta tag or structured data
-      /*
-      title = doc.querySelector('meta[name="title"]')?.content || title;
-      if (!title) {
-          const jsonLdScript = doc.querySelector('script[type="application/ld+json"]');
-          if (jsonLdScript) {
-              try {
-                  const jsonLd = JSON.parse(jsonLdScript.textContent);
-                  title = jsonLd.name || title; // 'name' often contains the video title
-              } catch (error) {
-                  console.error('Failed to parse JSON-LD:', error);
-              }
-          }
-      }
-      // Fallback to <title> tag if no title found
-      title = title || doc.querySelector('title')?.innerText || 'Unknown Video Title';*/
 
       (async () => {
         title = await fetchYouTubeVideoDetails(videoID, apiKey);
@@ -1830,9 +1875,14 @@ function determineYouTubeTypeAndTitle(doc) {
       // Extract the playlist title from the meta tag or the <title> tag
       title = doc.querySelector('meta[itemprop="name"]')?.content || title;
       title = title || doc.querySelector('title')?.innerText || 'Unknown Playlist Title';
-  }
+  }*/
 
-  return { type, title };
+  (async () => {
+    const result = await checkYouTubeURL(url, apiKey);
+    console.log(result);
+  })();
+
+  // return { type, title };
 }
 
 async function fetchMetadataForURL(url) {
@@ -1893,7 +1943,7 @@ async function fetchMetadataForURL(url) {
           title = 'Unknown YouTube Page';
       }*/
 
-      var { type, title } = determineYouTubeTypeAndTitle(doc);
+      var { type, title } = determineYouTubeTypeAndTitle(doc, url);
   
       console.log({ platform: 'youtube', type, title });
 
