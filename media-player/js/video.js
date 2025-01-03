@@ -1885,13 +1885,14 @@ function determineYouTubeTypeAndTitle(url, id) {
     const result = await checkYouTubeURL(url, apiKey);
     console.log(result);
 
+    var a = document.querySelector("#" + id);
     var aTarget = document.querySelector("#" + id + " span");
     var aImg = document.querySelector("#" + id + " div.img.link");
     aTarget.innerHTML = result.title;
     aTarget.style.display = "block";
     aImg.style.display = "none";
 
-    if (isTextOverflowing(aTarget)) {
+    if (isTextOverflowing(a)) {
       aTarget.style.width = "15rem";
     } 
   })();
