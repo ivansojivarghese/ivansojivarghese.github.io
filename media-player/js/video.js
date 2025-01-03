@@ -1921,7 +1921,7 @@ function determineYouTubeTypeAndTitle(url, id) {
     aTarget.style.display = "block";
     aImg.style.display = "none";
 
-    if (isTextOverflowing(aTarget.innerText)) {
+    if (isTextOverflowing(a.innerText)) {
       aTarget.style.width = "15rem";
     } 
   })();
