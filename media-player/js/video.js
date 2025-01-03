@@ -2152,7 +2152,7 @@ function formatMentions(text) {
 
 
 // Combine all formatting functions
-
+/*
 function formatDescription(text) {
   const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
   const textWithURLs = formatURLsToGenericLink(textWithTimestamps); // Assuming formatURLsToGenericLink exists
@@ -2161,8 +2161,7 @@ function formatDescription(text) {
   const textWithHashtags = highlightHashtags(textWithPhones); // Assuming highlightHashtags exists
   // const textWithMentions = formatMentions(textWithHashtags); // Add mention detection here
   return textWithHashtags;
-}
-
+}*/
 /*
 // Combine all formatting functions
 function formatDescription(text) {
@@ -2195,8 +2194,11 @@ function formatDescription(text) {
 }*/
 
 function formatDescription(text) {
+  // Format timestamps
+  const textWithTimestamps = formatTimestamps(text); // Assuming formatTimestamps exists
+
   // Format emails first
-  const textWithEmails = formatEmailLinks(text);
+  const textWithEmails = formatEmailLinks(textWithTimestamps);
 
   // Then URLs
   const textWithURLs = formatURLsToGenericLink(textWithEmails);
@@ -2212,8 +2214,6 @@ function formatDescription(text) {
 
   return textWithMentions;
 }
-
-
 
   var vidDes = videoDetails.description;
 
