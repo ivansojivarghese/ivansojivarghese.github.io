@@ -1746,7 +1746,17 @@ function determineYouTubeTypeAndTitle(doc) {
   
   // Check for video by looking for the 'videoId' in metadata or video-specific DOM elements
   const canonicalUrl = doc.querySelector('link[rel="canonical"]')?.href || '';
-  if (canonicalUrl.includes('/watch') || doc.querySelector('meta[itemprop="videoId"]')) {
+
+  var videoID = "";
+  const regex = /(?<=\/vi\/)[^/]+/;
+  const vidPlaceholder = doc.querySelector("#player-placeholder").style.backgroundImage;
+  const match = vidPlaceholder.match(regex);
+  if (match) {
+    videoID = match[0];
+    console.log(videoID);
+}
+
+  if (canonicalUrl.includes('/watch') || videoID || doc.querySelector('meta[itemprop="videoId"]')) {
       type = 'video';  // Found video ID, it's a video page
       
       // Extract the video title from the meta tag or structured data
