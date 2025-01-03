@@ -1921,7 +1921,7 @@ function determineYouTubeTypeAndTitle(url, id) {
     aTarget.style.display = "block";
     aImg.style.display = "none";
 
-    if (isTextOverflowing(a)) {
+    if (isTextOverflowing(aTarget.innerText)) {
       aTarget.style.width = "15rem";
     } 
   })();
@@ -2277,7 +2277,7 @@ function formatURLsToGenericLink(text) {
     const displayTitle = title || '';
     const faviconURL = favicon || youtubeFavicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
 
-    el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons '${youtubeClass}'">
+    el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons ${youtubeClass}">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
                   <div class="img link"></div>
                   <span style="display: none;">${displayTitle}</span>
