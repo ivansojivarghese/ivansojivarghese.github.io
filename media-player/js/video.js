@@ -1801,7 +1801,9 @@ function determineYouTubeTypeAndTitle(doc) {
       // Fallback to <title> tag if no title found
       title = title || doc.querySelector('title')?.innerText || 'Unknown Video Title';*/
 
-      title = getYouTubeVideoTitle(videoID, apiKey);
+      (async () => {
+        title = await fetchYouTubeVideoDetails(videoID, apiKey);
+      })();
   }
   // Check for channel by looking for the 'channelId' in metadata or URL path like /channel/
   else if (canonicalUrl.includes('/channel') || canonicalUrl.includes('/c/') || canonicalUrl.includes('/@') || doc.querySelector('meta[itemprop="channelId"]') || 
