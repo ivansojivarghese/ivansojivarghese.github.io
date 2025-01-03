@@ -1945,7 +1945,7 @@ async function fetchMetadataForURL(url) {
 
       var metadata = determineYouTubeTypeAndTitle(doc, url);
       title = metadata.title;
-      
+
       // console.log({ platform: 'youtube', type, title });
 
     } else {
@@ -1965,15 +1965,15 @@ async function getMetadata(url) {
   // const url = 'https://example.com';
   
   // Store the result into a variable
-  // const metadata = await fetchMetadataForURL(url);
+  const metadata = await fetchMetadataForURL(url);
 
   // Safely log or use the metadata
   // console.log('Title:', metadata.title);
   // console.log('Favicon:', metadata.favicon);
 
   // You can use this metadata object for further processing
-  // return metadata;
-  return url;
+  return metadata;
+  // return url;
 }
 
 var isMusic = false;
