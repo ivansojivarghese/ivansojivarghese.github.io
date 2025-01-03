@@ -1805,7 +1805,7 @@ async function getVideoDetails(videoId, apiKey) {
       return { error: "No video found" };
   }
 }
-
+/*
 async function getChannelDetails(channelId, apiKey) {
   const apiUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${apiKey}`;
   const response = await fetch(apiUrl);
@@ -1814,6 +1814,35 @@ async function getChannelDetails(channelId, apiKey) {
       return { type: "channel", title: data.items[0].snippet.title, channelId };
   } else {
       return { error: "No channel found" };
+  }
+}*/
+
+async function getChannelDetails(identifier, apiKey) {
+  let apiUrl;
+
+  if (identifier.startsWith("UC")) {
+    // Assume it's a channel ID
+    apiUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${identifier}&key=${apiKey}`;
+  } else {
+    // Assume it's a username
+    apiUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&forUsername=${identifier}&key=${apiKey}`;
+  }
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if (data.items && data.items.length > 0) {
+      return { 
+        type: "channel", 
+        title: data.items[0].snippet.title, 
+        channelId: data.items[0].id 
+      };
+    } else {
+      return { error: "No channel found" };
+    }
+  } catch (error) {
+    return { error: "An error occurred while fetching channel details", details: error.message };
   }
 }
 
