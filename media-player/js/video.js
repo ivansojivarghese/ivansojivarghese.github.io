@@ -2075,10 +2075,14 @@ function formatTimestamps(text) {
   
 function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
-  const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
+  // const urlRegex = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/g;
 
   // Match URLs that start with http://, https://, or www. and have common domain extensions like .com, .net, .org, etc.
   // const urlRegex = /\b(?:https?:\/\/|www\.)[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}(\.[a-zA-Z]{2,})?(\S*)\b/g;
+
+  // Match URLs with optional http(s), www, subdomains, paths, and query strings
+  const urlRegex = /\b(?:https?:\/\/|www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}(\/[^\s]*)?/g;
+
 
   return text.replace(urlRegex, (url) => {
     /*
@@ -2130,51 +2134,6 @@ function formatPhoneNumbers(text) {
     return `<a href="tel:${normalizedPhone}" class="phone-link trs">${phone}</a>`;
   });
 }
-/*
-function formatMentions(text) {
-  // Match mentions in the format @username and ensure the username is valid for YouTube
-  const mentionRegex = /@([a-zA-Z0-9_]+)/g;
-
-  return text.replace(mentionRegex, (match, username) => {
-    // Only consider YouTube usernames with the @ prefix (no other @mentions for now)
-    const channelURL = `https://www.youtube.com/@${username}`;
-
-    // Check if the username follows YouTube conventions (alphanumeric or underscores)
-    if (/^[a-zA-Z0-9_]+$/.test(username)) {
-      return `<a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
-    }
-
-    // Return the original text if not a valid YouTube username
-    return match;
-  });
-}*/
-/*
-function formatMentions(text) {
-  // Match mentions in the format @username, ensuring it is not an email address
-  const mentionRegex = /@([a-zA-Z0-9_]+)/g;
-
-  return text.replace(mentionRegex, (match, username) => {
-    // Check if the username matches an email format (anything that contains '@' and '.')
-    const emailRegex = /\S+@\S+\.\S+/;
-    
-    // If the match looks like an email, format it as an email link
-    if (emailRegex.test(match)) {
-      return `<a href="mailto:${match}" class="email-link trs">${match}</a>`;
-    }
-
-    // Only consider YouTube usernames with the @ prefix (ignore if it looks like an email)
-    const channelURL = `https://www.youtube.com/@${username}`;
-
-    // If it passes YouTube conventions (alphanumeric or underscores), treat it as a YouTube channel
-    if (/^[a-zA-Z0-9_]+$/.test(username)) {
-      return `<a href="${channelURL}" target="_blank" class="mention-link trs">@${username}</a>`;
-    }
-
-    // Return the original text if not a valid YouTube username
-    return match;
-  });
-}
-*/
 
 function formatMentions(text) {
   // Match mentions that start with a space or are at the beginning of the string
