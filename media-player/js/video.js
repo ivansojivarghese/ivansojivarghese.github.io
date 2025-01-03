@@ -1943,9 +1943,10 @@ async function fetchMetadataForURL(url) {
           title = 'Unknown YouTube Page';
       }*/
 
-      var { type, title } = determineYouTubeTypeAndTitle(doc, url);
-  
-      console.log({ platform: 'youtube', type, title });
+      var metadata = determineYouTubeTypeAndTitle(doc, url);
+      title = metadata.title;
+      
+      // console.log({ platform: 'youtube', type, title });
 
     } else {
       var title = doc.querySelector('title')?.innerText || '';
