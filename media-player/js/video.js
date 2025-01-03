@@ -2229,6 +2229,7 @@ function formatURLsToGenericLink(text) {
     }*/
 
     var id = "";
+    var youtubeClass = "";
     if (url.includes("youtube.com") || url.includes("youtu.be")) {
       id = generateValidIdFromUrl(url);
     }
@@ -2239,6 +2240,7 @@ function formatURLsToGenericLink(text) {
 
     if (id) {
       var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube_social_icon_red.png';
+      youtubeClass = "youtube";
     }
     /*
     const displayTitle = title || 'Visit Link';
@@ -2246,7 +2248,7 @@ function formatURLsToGenericLink(text) {
     const displayTitle = title || '';
     const faviconURL = favicon || youtubeFavicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
 
-    el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons">
+    el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons '${youtubeClass}'">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
                   <div class="img link"></div>
                   <span style="display: none;">${displayTitle}</span>

@@ -283,6 +283,10 @@ a.url .img.link {
     margin-left: 0.5rem;
 }
 
+a.url.youtube .img {
+    background-position: -0.3em;
+}
+
 a.url span {
     margin-left: 0.4rem;
     position: relative;
