@@ -1914,7 +1914,7 @@ async function getMetadata(url) {
   // const url = 'https://example.com';
   
   // Store the result into a variable
-  const metadata = await fetchMetadataForURL(url);
+  // const metadata = await fetchMetadataForURL(url);
 
   // Safely log or use the metadata
   // console.log('Title:', metadata.title);
