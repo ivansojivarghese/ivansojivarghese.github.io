@@ -4350,7 +4350,7 @@
             }
           }, 10);
           if (!video.paused && !document.fullscreenElement) {
-            if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
+            if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && !isMusic && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
               video.requestPictureInPicture().then(function() {
                 getScreenLock();
                 pipEnabled = true;
