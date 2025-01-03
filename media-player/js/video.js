@@ -1910,7 +1910,7 @@ async function fetchMetadataForURL(url, id) {
 
     // var title = findSocialMediaIdentifier(data);
 
-    if (url.includes('youtube.com')) {
+    if (url.includes("youtube.com") || url.includes("youtu.be")) {
       // let title = '';
       // let type = '';
       // Determine the type of YouTube link based on the URL structure
@@ -2211,7 +2211,7 @@ function formatURLsToGenericLink(text) {
     }*/
 
     var id = "";
-    if (url.includes("youtube.com")) {
+    if (url.includes("youtube.com") || url.includes("youtu.be")) {
       id = generateRandomizedIdFromUrl(url);
     }
 
