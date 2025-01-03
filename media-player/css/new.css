@@ -288,6 +288,9 @@ a.url span {
     position: relative;
     top: -0.3rem;
     font-size: 0.9rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 a.noUnderline {
