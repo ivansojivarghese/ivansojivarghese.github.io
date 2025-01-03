@@ -1740,6 +1740,31 @@ function determineYouTubeType(doc) {
   return type;
 }*/
 
+async function getYouTubeVideoTitle(videoId, apiKey) {
+  const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`;
+  
+  try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) throw new Error("Failed to fetch data");
+
+      const data = await response.json();
+      if (data.items && data.items.length > 0) {
+          const title = data.items[0].snippet.title;
+          console.log("Video Title:", title);
+          return title;
+      } else {
+          console.log("No video found for the given ID.");
+          return null;
+      }
+  } catch (error) {
+      console.error("Error fetching video title:", error);
+  }
+}
+
+// Usage
+const apiKey = "AIzaSyAtcIpyHJI05qb0cIo4wdMVYfuC-Z9bQQI"; // Replace with your API key
+
+
 function determineYouTubeTypeAndTitle(doc) {
   let type = 'unknown';
   let title = 'Unknown Title';
@@ -1760,6 +1785,7 @@ function determineYouTubeTypeAndTitle(doc) {
       type = 'video';  // Found video ID, it's a video page
       
       // Extract the video title from the meta tag or structured data
+      /*
       title = doc.querySelector('meta[name="title"]')?.content || title;
       if (!title) {
           const jsonLdScript = doc.querySelector('script[type="application/ld+json"]');
@@ -1773,7 +1799,9 @@ function determineYouTubeTypeAndTitle(doc) {
           }
       }
       // Fallback to <title> tag if no title found
-      title = title || doc.querySelector('title')?.innerText || 'Unknown Video Title';
+      title = title || doc.querySelector('title')?.innerText || 'Unknown Video Title';*/
+
+      title = getYouTubeVideoTitle(videoID, apiKey);
   }
   // Check for channel by looking for the 'channelId' in metadata or URL path like /channel/
   else if (canonicalUrl.includes('/channel') || canonicalUrl.includes('/c/') || canonicalUrl.includes('/@') || doc.querySelector('meta[itemprop="channelId"]') || 
