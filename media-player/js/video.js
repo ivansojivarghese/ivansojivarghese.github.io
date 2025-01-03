@@ -2120,6 +2120,7 @@ function formatEmailLinks(text) {
   });
 }
 
+/*
 // Function to detect and link valid international phone numbers
 function formatPhoneNumbers(text) {
   // Regular expression to match phone numbers with various formats
@@ -2127,6 +2128,18 @@ function formatPhoneNumbers(text) {
 
   return text.replace(phoneRegex, (phone) => {
     // Normalize the phone number by removing spaces/dots/dashes
+    const normalizedPhone = phone.replace(/[-.\s]/g, '');
+    return `<a href="tel:${normalizedPhone}" class="phone-link trs">${phone}</a>`;
+  });
+}*/
+
+// Function to detect and link valid international phone numbers, excluding currency or money values
+function formatPhoneNumbers(text) {
+  // Regular expression to match phone numbers with various formats while excluding money values
+  const phoneRegex = /(?<![\$€£₹¥])(\+?\d{1,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9})(?![\$€£₹¥])/g;
+
+  return text.replace(phoneRegex, (phone) => {
+    // Normalize the phone number by removing spaces, dots, and dashes
     const normalizedPhone = phone.replace(/[-.\s]/g, '');
     return `<a href="tel:${normalizedPhone}" class="phone-link trs">${phone}</a>`;
   });
