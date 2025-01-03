@@ -1904,7 +1904,7 @@ async function fetchMetadataForURL(url) {
 
     // var title = findSocialMediaIdentifier(data);
 
-    if (data.status.url.includes('youtube.com')) {
+    if (url.includes('youtube.com')) {
       // let title = '';
       // let type = '';
       // Determine the type of YouTube link based on the URL structure
