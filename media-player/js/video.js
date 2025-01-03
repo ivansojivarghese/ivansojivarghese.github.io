@@ -1766,7 +1766,7 @@ function determineYouTubeTypeAndTitle(doc) {
       title = title || doc.querySelector('title')?.innerText || 'Unknown Video Title';
   }
   // Check for channel by looking for the 'channelId' in metadata or URL path like /channel/
-  else if (doc.querySelector('meta[itemprop="channelId"]') || 
+  else if (canonicalUrl.includes('/channel') || canonicalUrl.includes('/c/') || canonicalUrl.includes('/@') || doc.querySelector('meta[itemprop="channelId"]') || 
            doc.querySelector('meta[property="og:type"][content="profile"]')) {
       type = 'channel';  // Found channel ID or 'profile' content type, it's a channel page
       
@@ -1783,7 +1783,7 @@ function determineYouTubeTypeAndTitle(doc) {
       }
   }
   // Check for playlist by looking for the 'playlistId' or specific playlist DOM structure
-  else if (doc.querySelector('meta[itemprop="playlistId"]') || 
+  else if (canonicalUrl.includes('/playlist') || doc.querySelector('meta[itemprop="playlistId"]') || 
            doc.querySelector('yt-formatted-string[aria-label="Playlist"]')) {
       type = 'playlist';  // Found playlist ID or playlist label, it's a playlist page
       
