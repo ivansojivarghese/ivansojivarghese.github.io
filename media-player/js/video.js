@@ -1944,7 +1944,9 @@ async function fetchMetadataForURL(url) {
       }*/
 
       var metadata = determineYouTubeTypeAndTitle(doc, url);
-      title = metadata.title;
+      (async () => {
+        title = await metadata.title;
+      });
 
       // console.log({ platform: 'youtube', type, title });
 
