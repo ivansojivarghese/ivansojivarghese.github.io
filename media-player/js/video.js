@@ -2172,7 +2172,7 @@ function formatTimestamps(text) {
   });
 }
 
-function generateRandomizedIdFromUrl(url) {
+function generateValidIdFromUrl(url) {
   // Convert the URL into an array of characters
   const urlArray = url.split('');
 
@@ -2183,15 +2183,24 @@ function generateRandomizedIdFromUrl(url) {
   }
 
   // Rebuild the URL string from the shuffled array
-  const randomizedUrl = urlArray.join('');
+  let randomizedUrl = urlArray.join('');
 
-  // Generate a random string to append to the shuffled URL
+  // Ensure the ID is valid (it should start with a letter and contain no special characters)
+  // Replace any non-alphanumeric characters with underscores and ensure it doesn't start with a number
+  randomizedUrl = randomizedUrl.replace(/[^a-zA-Z0-9]/g, '_');
+
+  // If the ID starts with a number, prepend a letter to make it valid
+  if (/^[0-9]/.test(randomizedUrl)) {
+      randomizedUrl = 'a' + randomizedUrl;
+  }
+
+  // Generate a random string for uniqueness
   const randomString = Math.random().toString(36).substring(2, 8);
 
   // Combine the randomized URL with the random string
-  const uniqueId = `randomized-${randomizedUrl}-${randomString}`;
+  const validId = `randomized-${randomizedUrl}-${randomString}`;
 
-  return uniqueId;
+  return validId;
 }
 
   // Function to detect and replace URLs with a generic "Visit link"
@@ -2212,7 +2221,7 @@ function formatURLsToGenericLink(text) {
 
     var id = "";
     if (url.includes("youtube.com") || url.includes("youtu.be")) {
-      id = generateRandomizedIdFromUrl(url);
+      id = generateValidIdFromUrl(url);
     }
 
     var el;
