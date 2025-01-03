@@ -1921,7 +1921,8 @@ async function getMetadata(url) {
   // console.log('Favicon:', metadata.favicon);
 
   // You can use this metadata object for further processing
-  return metadata;
+  // return metadata;
+  return url;
 }
 
 var isMusic = false;
