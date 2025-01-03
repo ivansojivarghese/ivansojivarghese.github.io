@@ -2238,7 +2238,7 @@ function formatURLsToGenericLink(text) {
     const { title, favicon } = getMetadata(url, id);
 
     if (id) {
-      var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube_social_square_red.png';
+      var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube_social_icon_red.png';
     }
     /*
     const displayTitle = title || 'Visit Link';
