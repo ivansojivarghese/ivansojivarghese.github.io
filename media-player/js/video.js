@@ -1824,7 +1824,7 @@ async function getPlaylistDetails(playlistId, apiKey) {
   }
 }
 
-function determineYouTubeTypeAndTitle(doc, url) {
+function determineYouTubeTypeAndTitle(url) {
   let type = 'unknown';
   let title = 'Unknown Title';
   
@@ -1944,7 +1944,7 @@ async function fetchMetadataForURL(url) {
           title = 'Unknown YouTube Page';
       }*/
 
-      var metadata = determineYouTubeTypeAndTitle(doc, url);
+      var metadata = determineYouTubeTypeAndTitle(url);
       (async () => {
         title = await metadata.title;
       });
