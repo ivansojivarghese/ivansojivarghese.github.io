@@ -1269,7 +1269,7 @@
 
       var ori = screen.orientation.type;
 
-      if (video.src !== "" && videoControls.classList.contains('visible') && ((!loading || loading) || initialVideoLoad) && (!videoErr && !audioErr)) {
+      if (video.src !== "" && videoControls.classList.contains('visible') && ((!loading || loading) || initialVideoLoad) /*&& (!videoErr && !audioErr)*/) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
 
