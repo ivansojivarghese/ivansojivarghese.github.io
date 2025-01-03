@@ -295,6 +295,7 @@ a.url span {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    max-width: 15rem;
 }
 
 a.noUnderline {

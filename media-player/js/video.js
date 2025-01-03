@@ -1761,10 +1761,6 @@ async function getYouTubeVideoTitle(videoId, apiKey) {
   }
 }*/
 
-function isTextOverflowing(element) {
-  return element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
-}
-
 // Usage
 const apiKey = "AIzaSyAtcIpyHJI05qb0cIo4wdMVYfuC-Z9bQQI"; // Replace with your API key
 
@@ -1920,10 +1916,6 @@ function determineYouTubeTypeAndTitle(url, id) {
     aTarget.innerHTML = result.title;
     aTarget.style.display = "block";
     aImg.style.display = "none";
-
-    if (isTextOverflowing(a.innerText)) {
-      aTarget.style.width = "15rem";
-    } 
   })();
 
   // return { type, title };
