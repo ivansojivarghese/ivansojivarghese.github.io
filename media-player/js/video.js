@@ -2135,8 +2135,8 @@ function formatPhoneNumbers(text) {
 
 // Function to detect and link valid international phone numbers, excluding currency or money values
 function formatPhoneNumbers(text) {
-  // Regular expression to match phone numbers with various formats while excluding money values
-  const phoneRegex = /(?<![\$€£₹¥])(\+?\d{1,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9})(?![\$€£₹¥])/g;
+  // Regular expression to match phone numbers while avoiding parts of monetary values
+  const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?\d{1,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9})\b(?!\.\d{2,})/g;
 
   return text.replace(phoneRegex, (phone) => {
     // Normalize the phone number by removing spaces, dots, and dashes
