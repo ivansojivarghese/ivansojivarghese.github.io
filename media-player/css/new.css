@@ -9,6 +9,10 @@
         cursor: pointer;
     }
 
+    .replay {
+        cursor: pointer !important;
+    }
+
     .trsButtons:not(.active):hover, .resBtn:not(.active):hover, .timestamp:hover, a:hover {
         opacity: 0.75;
     }
