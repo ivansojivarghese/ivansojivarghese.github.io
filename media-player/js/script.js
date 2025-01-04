@@ -1057,8 +1057,39 @@
       videoScrub.style.transitionDuration = "";
     });
 
+    // Touch events
+    videoScrub.addEventListener("touchstart", () => {
+      isDragging = true;
+    });
+
+    document.addEventListener("touchend", () => {
+      isDragging = false;
+      videoScrub.style.transitionDuration = "";
+    });
+
+    document.addEventListener("touchmove", (e) => {
+      if (isDragging && e.touches.length === 1 && video.src !== "") {
+        videoScrub.style.transitionDuration = "0s";
+
+        const rect = videoBarPlaceholder.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left;
+        const width = rect.width;
+        const percentage = Math.min(Math.max(offsetX / width, 0), 1);
+        const newTime = percentage * video.duration;
+    
+        // Update scrubber and progress bar
+        // videoScrub.style.left = `calc(${percentage * 100}% - ${videoScrub.offsetWidth / 2}px)`;
+        videoScrub.style.left = "calc("+ (width * percentage) +"px + 0.8rem + calc(env(safe-area-inset-left)))";
+        // progressBar.style.transform = `scaleX(${percentage})`;
+    
+        // Update video current time
+        video.currentTime = newTime;
+        audio.currentTime = newTime;
+      }
+    });
+
     document.addEventListener("mousemove", (e) => {
-      if (isDragging) {
+      if (isDragging && video.src !== "") {
         videoScrub.style.transitionDuration = "0s";
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
