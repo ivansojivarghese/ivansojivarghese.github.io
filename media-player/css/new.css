@@ -9,7 +9,7 @@
         cursor: pointer;
     }
 
-    .replay {
+    .replay, .cast {
         cursor: pointer !important;
     }
 
