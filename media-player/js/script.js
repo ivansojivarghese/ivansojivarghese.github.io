@@ -977,6 +977,8 @@
     }
   }); 
 
+  var dblclick = false;
+
   document.addEventListener("dblclick", (event) => { // double-click (by pointing device)
     if (video.src !== "" && !op.pwa.a && interactiveType === "mouse" && event.target === videoControls) {
       if (!document.fullscreenElement) {
@@ -989,6 +991,11 @@
         // fullscreenButton.children[0].classList.remove("exit");
         settingsButton.style.display = "block";
       }
+
+      dblclick = true;
+      setTimeout(function() {
+        dblclick = false;
+      }, 1000);
     }
   });
 
@@ -1106,20 +1113,50 @@
 
         } else if (event.target === videoControls && interactiveType === "mouse") {
           if (!videoInfoOpen) {
-            if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
+            setTimeout(function() {
+              if (!dblclick) {
+                if (video.paused && video.src !== "" && videoPlay && (!videoRun || backgroundPlay) && !audioRun) {
 
-              video.play().then(function () {
-                // videoSec.play();
+                  video.play().then(function () {
+                    // videoSec.play();
 
-                // audioCtx = new AudioContext();
-                // setTimeout(function() {
-                /*
-                  audio.play().then(function() {
-                    // videoPause = true;
+                    // audioCtx = new AudioContext();
+                    // setTimeout(function() {
+                    /*
+                      audio.play().then(function() {
+                        // videoPause = true;
+                      }).catch((err) => {
+
+                        console.log(err);
+                        
+                        statusIndicator.classList.remove("buffer");
+                        statusIndicator.classList.remove("smooth");
+                        statusIndicator.classList.add("error");
+
+                        endLoad();
+                                  
+                        setTimeout(function() {
+                          loadingRing.style.display = "none";
+                          playPauseButton.style.display = "block";
+                          playPauseButton.classList.remove('playing');
+
+                          showVideoControls();
+
+                          // reset the loader
+                          setTimeout(function() {
+                            resetLoad();
+                          }, 10);
+
+                        }, 1000);
+
+                        loading = false;
+
+                      });*/
+                    // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
                   }).catch((err) => {
 
                     console.log(err);
-                    
+                    /*
                     statusIndicator.classList.remove("buffer");
                     statusIndicator.classList.remove("smooth");
                     statusIndicator.classList.add("error");
@@ -1140,54 +1177,28 @@
 
                     }, 1000);
 
-                    loading = false;
+                    loading = false;*/
+                  });
+                  
+                  // audio.currentTime = video.currentTime;
+                  updatePositionState();
 
-                  });*/
-                // }, getTotalOutputLatencyInSeconds(audioCtx.outputLatency) * 1000);
-              }).catch((err) => {
+                } else if (!video.paused && video.src !== "") {
 
-                console.log(err);
-                /*
-                statusIndicator.classList.remove("buffer");
-                statusIndicator.classList.remove("smooth");
-                statusIndicator.classList.add("error");
+                  // if (videoPause) {
+                    audio.pause();
+                    video.pause();
+                    // videoSec.pause();
 
-                endLoad();
-                          
-                setTimeout(function() {
-                  loadingRing.style.display = "none";
-                  playPauseButton.style.display = "block";
-                  playPauseButton.classList.remove('playing');
+                    bufferStartTime = 0;
+                    bufferEndTime = 0;
 
-                  showVideoControls();
-
-                  // reset the loader
-                  setTimeout(function() {
-                    resetLoad();
-                  }, 10);
-
-                }, 1000);
-
-                loading = false;*/
-              });
-              
-              // audio.currentTime = video.currentTime;
-              updatePositionState();
-
-            } else if (!video.paused && video.src !== "") {
-
-              // if (videoPause) {
-                audio.pause();
-                video.pause();
-                // videoSec.pause();
-
-                bufferStartTime = 0;
-                bufferEndTime = 0;
-
-                // videoPause = false;
-              // }
-              
-            } 
+                    // videoPause = false;
+                  // }
+                  
+                } 
+              }
+            }, 500);
           } else {
             closeVideoInfo();
           }
