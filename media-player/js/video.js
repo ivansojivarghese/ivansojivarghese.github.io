@@ -2237,11 +2237,11 @@ function generateValidIdFromUrl(url) {
 
 function getSocialsFavicon(url) {
   if (url.includes("instagram.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/instagram.png'
+    return 'https://ivansojivarghese.github.io/media-player/png/instagram.png';
   } else if (url.includes("twitter.com") || url.includes("x.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/x.png'
+    return 'https://ivansojivarghese.github.io/media-player/png/x.png';
   } else if (url.includes("facebook.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/facebook.png'
+    return 'https://ivansojivarghese.github.io/media-player/png/facebook.png';
   } else if (url.includes("tiktok.com")) {
 
   } else if (url.includes("snapchat.com")) {
@@ -2253,21 +2253,21 @@ function getSocialsFavicon(url) {
   } else if (url.includes("ko-fi.com")) {
 
   } else if (url.includes("twitch.tv")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/twitch.png';
   } else if (url.includes("discord")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/discord.png';
   } else if (url.includes("amazon.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/amazon.png';
   } else if (url.includes("soundcloud.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/soundcloud.png';
   } else if (url.includes("spotify.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/spotify.png';
   } else if (url.includes("reddit.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/reddit.png';
   } else if (url.includes("pinterest.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/pinterest.png';
   } else if (url.includes("linktr.ee")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/linktree.png';
   } else {
     return "";
   }
