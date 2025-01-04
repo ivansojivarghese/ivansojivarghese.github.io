@@ -2350,7 +2350,10 @@ function formatPhoneNumbers(text) {
 // Function to detect and link valid international phone numbers, excluding currency or money values
 function formatPhoneNumbers(text) {
   // Regular expression to match phone numbers while avoiding parts of monetary values
-  const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?\d{1,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9})\b(?!\.\d{2,})/g;
+  // const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?\d{1,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9})\b(?!\.\d{2,})/g;
+
+  // Regular expression to match phone numbers with the correct prefix rules
+  const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9}|\b\d{5,})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
 
   return text.replace(phoneRegex, (phone) => {
     // Normalize the phone number by removing spaces, dots, and dashes
