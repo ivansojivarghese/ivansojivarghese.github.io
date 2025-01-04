@@ -2234,6 +2234,44 @@ function generateValidIdFromUrl(url) {
 }
 
   // Function to detect and replace URLs with a generic "Visit link"
+
+function getSocialsFavicon(url) {
+  if (url.includes("instagram.com")) {
+    return 'https://ivansojivarghese.github.io/media-player/png/instagram.png'
+  } else if (url.includes("twitter.com") || url.includes("x.com")) {
+    return 'https://ivansojivarghese.github.io/media-player/png/x.png'
+  } else if (url.includes("facebook.com")) {
+    return 'https://ivansojivarghese.github.io/media-player/png/facebook.png'
+  } else if (url.includes("tiktok.com")) {
+
+  } else if (url.includes("snapchat.com")) {
+
+  } else if (url.includes("linkedin.com")) {
+
+  } else if (url.includes("patreon.com")) {
+
+  } else if (url.includes("ko-fi.com")) {
+
+  } else if (url.includes("twitch.tv")) {
+
+  } else if (url.includes("discord")) {
+
+  } else if (url.includes("amazon.com")) {
+
+  } else if (url.includes("soundcloud.com")) {
+
+  } else if (url.includes("spotify.com")) {
+
+  } else if (url.includes("reddit.com")) {
+
+  } else if (url.includes("pinterest.com")) {
+
+  } else if (url.includes("linktr.ee")) {
+
+  } else {
+    return "";
+  }
+}
   
 function formatURLsToGenericLink(text) {
   // Match URLs, stopping before <br> or whitespace characters
@@ -2260,9 +2298,12 @@ function formatURLsToGenericLink(text) {
     const { title, favicon } = getMetadata(url, id);
 
     if (id) {
-      var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube_social_icon_red.png';
+      var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube.png';
       youtubeClass = "youtube";
     }
+
+    favicon = getSocialsFavicon(url);
+
     /*
     const displayTitle = title || 'Visit Link';
     const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;*/
