@@ -1045,6 +1045,34 @@
       }
     }
 
+    // Scrubber dragging logic
+    let isDragging = false;
+
+    videoScrub.addEventListener("mousedown", (e) => {
+      isDragging = true;
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        const rect = videoContainer.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left;
+        const width = rect.width;
+        const percentage = Math.min(Math.max(offsetX / width, 0), 1);
+        const newTime = percentage * video.duration;
+    
+        // Update scrubber and progress bar
+        videoScrub.style.left = `calc(${percentage * 100}% - ${videoScrub.offsetWidth / 2}px)`;
+        progressBar.style.transform = `scaleX(${percentage})`;
+    
+        // Update video current time
+        video.currentTime = newTime;
+      }
+    });
+
     videoControls.addEventListener('click', function(event) {
       if ((player && !player.isConnected) || !player) {
         if ((interactiveType === "touch" || interactiveType === "pen") && !event.target.classList.contains("no-tap")) {
