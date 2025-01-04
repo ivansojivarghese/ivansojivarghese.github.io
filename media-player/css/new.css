@@ -5,7 +5,7 @@
 }
 
 @media screen and (pointer: fine) {
-    .trsButtons:not(.active), .resBtn:not(.active), .cursor:not(.active), .hashtag, .timestamp, a:not(.active) {
+    .trsButtons:not(.active), .resBtn:not(.active), .cursor:not(.active):not(.noimg), .hashtag, .timestamp, a:not(.active) {
         cursor: pointer;
     }
 
