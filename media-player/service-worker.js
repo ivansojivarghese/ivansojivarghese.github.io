@@ -53,6 +53,7 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/png/linkedin.png',
   'https://ivansojivarghese.github.io/media-player/png/patreon.png',
   'https://ivansojivarghese.github.io/media-player/png/kofi.png',
+  'https://ivansojivarghese.github.io/media-player/png/tiktok.png',
 
   'https://ivansojivarghese.github.io/media-player/index.js',
   'https://ivansojivarghese.github.io/media-player/js/dev.js',

@@ -2243,7 +2243,7 @@ function getSocialsFavicon(url) {
   } else if (url.includes("facebook.com")) {
     return 'https://ivansojivarghese.github.io/media-player/png/facebook.png';
   } else if (url.includes("tiktok.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/tiktok.png';
   } else if (url.includes("snapchat.com")) {
 
   } else if (url.includes("linkedin.com")) {
