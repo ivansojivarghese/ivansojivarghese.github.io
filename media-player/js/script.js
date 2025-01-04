@@ -1072,7 +1072,7 @@
         videoScrub.style.transitionDuration = "0s";
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
-        const offsetX = e.clientX - rect.left;
+        const offsetX = e.touches[0].clientX - rect.left;
         const width = rect.width;
         const percentage = Math.min(Math.max(offsetX / width, 0), 1);
         const newTime = percentage * video.duration;
