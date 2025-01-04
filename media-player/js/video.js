@@ -2302,13 +2302,13 @@ function formatURLsToGenericLink(text) {
       youtubeClass = "youtube";
     }
 
-    favicon = getSocialsFavicon(url);
+    var socialFavicon = getSocialsFavicon(url);
 
     /*
     const displayTitle = title || 'Visit Link';
     const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;*/
     const displayTitle = title || '';
-    const faviconURL = favicon || youtubeFavicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
+    const faviconURL = favicon || socialFavicon || youtubeFavicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
 
     el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons ${youtubeClass}">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
