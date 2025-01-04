@@ -2247,11 +2247,11 @@ function getSocialsFavicon(url) {
   } else if (url.includes("snapchat.com")) {
 
   } else if (url.includes("linkedin.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/linkedin.png';
   } else if (url.includes("patreon.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/patreon.png';
   } else if (url.includes("ko-fi.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/kofi.png';
   } else if (url.includes("twitch.tv")) {
     return 'https://ivansojivarghese.github.io/media-player/png/twitch.png';
   } else if (url.includes("discord")) {
