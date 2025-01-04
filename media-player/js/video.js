@@ -2245,7 +2245,7 @@ function getSocialsFavicon(url) {
   } else if (url.includes("tiktok.com")) {
     return 'https://ivansojivarghese.github.io/media-player/png/tiktok.png';
   } else if (url.includes("snapchat.com")) {
-
+    return 'https://ivansojivarghese.github.io/media-player/png/snapchat.png';
   } else if (url.includes("linkedin.com")) {
     return 'https://ivansojivarghese.github.io/media-player/png/linkedin.png';
   } else if (url.includes("patreon.com")) {
