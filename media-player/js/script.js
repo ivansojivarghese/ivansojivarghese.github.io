@@ -4879,6 +4879,16 @@
               pms.ntf = false;
         }
       }
+
+      if (videoLoop) {
+        if (backgroundPlay && audio.currentTime === audio.duration) {
+          audio.currentTime = 0;
+          audio.play();
+        } else if (video.currentTime === video.duration) {
+          video.currentTime = 0;
+          audio.currentTime = 0;
+        }
+      }
     }, 1000/60);
     
     setInterval(() => { // CLEAN UP notifications frequently
