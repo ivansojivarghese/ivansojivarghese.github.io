@@ -2237,37 +2237,37 @@ function generateValidIdFromUrl(url) {
 
 function getSocialsFavicon(url) {
   if (url.includes("instagram.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/instagram.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/instagram.svg';
   } else if (url.includes("twitter.com") || url.includes("x.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/x.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/x.svg';
   } else if (url.includes("facebook.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/facebook.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/facebook.svg';
   } else if (url.includes("tiktok.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/tiktok.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/tiktok.svg';
   } else if (url.includes("snapchat.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/snapchat.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/snapchat.svg';
   } else if (url.includes("linkedin.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/linkedin.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/linkedin.svg';
   } else if (url.includes("patreon.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/patreon.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/patreon.svg';
   } else if (url.includes("ko-fi.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/kofi.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/kofi.svg';
   } else if (url.includes("twitch.tv")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/twitch.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/twitch.svg';
   } else if (url.includes("discord")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/discord.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/discord.svg';
   } else if (url.includes("amazon.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/amazon.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/amazon.svg';
   } else if (url.includes("soundcloud.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/soundcloud.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/soundcloud.svg';
   } else if (url.includes("spotify.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/spotify.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/spotify.svg';
   } else if (url.includes("reddit.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/reddit.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/reddit.svg';
   } else if (url.includes("pinterest.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/pinterest.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/pinterest.svg';
   } else if (url.includes("linktr.ee")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/linktree.png';
+    return 'https://ivansojivarghese.github.io/media-player/png/linktree.svg';
   } else {
     return "";
   }
@@ -2298,7 +2298,7 @@ function formatURLsToGenericLink(text) {
     const { title, favicon } = getMetadata(url, id);
 
     if (id) {
-      var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube.png';
+      var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube.svg';
       youtubeClass = "youtube";
     }
 
