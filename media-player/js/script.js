@@ -1055,6 +1055,8 @@
     document.addEventListener("mouseup", () => {
       isDragging = false;
       videoScrub.style.transitionDuration = "";
+      videoProgressBar.style.transitionDuration = "";
+      videoLoadProgressBar.style.transitionDuration = "";
     });
 
     // Touch events
@@ -1065,11 +1067,15 @@
     document.addEventListener("touchend", () => {
       isDragging = false;
       videoScrub.style.transitionDuration = "";
+      videoProgressBar.style.transitionDuration = "";
+      videoLoadProgressBar.style.transitionDuration = "";
     });
 
     document.addEventListener("touchmove", (e) => {
       if (isDragging && e.touches.length === 1 && video.src !== "") {
         videoScrub.style.transitionDuration = "0s";
+        videoProgressBar.style.transitionDuration = "0s";
+        videoLoadProgressBar.style.transitionDuration = "0s";
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.touches[0].clientX - rect.left;
@@ -1091,6 +1097,8 @@
     document.addEventListener("mousemove", (e) => {
       if (isDragging && video.src !== "") {
         videoScrub.style.transitionDuration = "0s";
+        videoProgressBar.style.transitionDuration = "0s";
+        videoLoadProgressBar.style.transitionDuration = "0s";
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
@@ -1112,6 +1120,8 @@
     function directSeek(e) {
       if (!isDragging && video.src !== "") {
         videoScrub.style.transitionDuration = "0s";
+        videoProgressBar.style.transitionDuration = "0s";
+        videoLoadProgressBar.style.transitionDuration = "0s";
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
