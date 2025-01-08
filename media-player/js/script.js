@@ -848,8 +848,13 @@
           releaseScreenLock(screenLock);
 
           if (videoLoop) {
-            video.currentTime = 0;
-            audio.currentTime = 0;
+            if (backgroundPlay) {
+              audio.currentTime = 0;
+              audio.play();
+            } else {
+              video.currentTime = 0;
+              audio.currentTime = 0;
+            }
           }
         }
       });
@@ -890,8 +895,13 @@
       releaseScreenLock(screenLock);
 
       if (videoLoop) {
-        video.currentTime = 0;
-        audio.currentTime = 0;
+        if (backgroundPlay) {
+          audio.currentTime = 0;
+          audio.play();
+        } else {
+          video.currentTime = 0;
+          audio.currentTime = 0;
+        }
       }
   });
 
