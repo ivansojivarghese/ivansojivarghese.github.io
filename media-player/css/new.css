@@ -263,7 +263,7 @@ a.url {
     height: 1rem;
     background: #3f3f3f;
     padding: 0.4rem 0.4rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     position: relative;
     top: 0.4rem;
     width: fit-content;
