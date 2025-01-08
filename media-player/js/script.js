@@ -1066,7 +1066,7 @@
       videoProgressBar.style.transitionDuration = "";
       videoLoadProgressBar.style.transitionDuration = "";
 
-      videoScrub.style.transform = "scale(1)";
+      // videoScrub.style.transform = "scale(1)";
     });
 
     // Touch events
@@ -1080,7 +1080,7 @@
       videoProgressBar.style.transitionDuration = "";
       videoLoadProgressBar.style.transitionDuration = "";
 
-      videoScrub.style.transform = "scale(1)";
+      // videoScrub.style.transform = "scale(1)";
     });
 
     document.addEventListener("touchmove", (e) => {
@@ -1089,7 +1089,7 @@
         videoProgressBar.style.transitionDuration = "0s";
         videoLoadProgressBar.style.transitionDuration = "0s";
 
-        videoScrub.style.transform = "scale(1.2)";
+        // videoScrub.style.transform = "scale(1.2)";
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.touches[0].clientX - rect.left;
@@ -1114,7 +1114,7 @@
         videoProgressBar.style.transitionDuration = "0s";
         videoLoadProgressBar.style.transitionDuration = "0s";
 
-        videoScrub.style.transform = "scale(1.2)";
+        // videoScrub.style.transform = "scale(1.2)";
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
