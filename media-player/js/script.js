@@ -1105,6 +1105,8 @@
         // Update video current time
         video.currentTime = newTime;
         audio.currentTime = newTime;
+
+        video.play();
       }
     });
 
@@ -1130,6 +1132,8 @@
         // Update video current time
         video.currentTime = newTime;
         audio.currentTime = newTime;
+
+        video.play();
       }
     });
 
@@ -1153,6 +1157,8 @@
         // Update video current time
         video.currentTime = newTime;
         audio.currentTime = newTime;
+
+        video.play();
       }
     }
 
