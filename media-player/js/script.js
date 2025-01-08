@@ -1103,11 +1103,17 @@
         videoScrub.style.left = "calc("+ (width * percentage) +"px + 0.8rem + calc(env(safe-area-inset-left)))";
         // progressBar.style.transform = `scaleX(${percentage})`;
     
-        // Update video current time
-        video.currentTime = newTime;
-        audio.currentTime = newTime;
+        if (player && player.isConnected) {
+          player.currentTime = newTime;
+          // Send the seek command to the player
+          playerController.seek();
+        } else {
+          // Update video current time
+          video.currentTime = newTime;
+          audio.currentTime = newTime;
 
-        video.play();
+          video.play();
+        }
       }
     });
 
@@ -1131,11 +1137,17 @@
         videoScrub.style.left = "calc("+ (width * percentage) +"px + 0.8rem + calc(env(safe-area-inset-left)))";
         // progressBar.style.transform = `scaleX(${percentage})`;
     
-        // Update video current time
-        video.currentTime = newTime;
-        audio.currentTime = newTime;
+        if (player && player.isConnected) {
+          player.currentTime = newTime;
+          // Send the seek command to the player
+          playerController.seek();
+        } else {
+          // Update video current time
+          video.currentTime = newTime;
+          audio.currentTime = newTime;
 
-        video.play();
+          video.play();
+        }
       }
     });
 
@@ -1158,11 +1170,17 @@
         videoScrub.style.left = "calc("+ (width * percentage) +"px + 0.8rem + calc(env(safe-area-inset-left)))";
         // progressBar.style.transform = `scaleX(${percentage})`;
     
-        // Update video current time
-        video.currentTime = newTime;
-        audio.currentTime = newTime;
+        if (player && player.isConnected) {
+          player.currentTime = newTime;
+          // Send the seek command to the player
+          playerController.seek();
+        } else {
+          // Update video current time
+          video.currentTime = newTime;
+          audio.currentTime = newTime;
 
-        video.play();
+          video.play();
+        }
       }
     }
 
