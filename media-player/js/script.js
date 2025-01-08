@@ -1563,11 +1563,15 @@
       const h = Math.floor(seconds / 3600);
       const m = Math.floor((seconds % 3600) / 60);
       const s = Math.floor(seconds % 60);
-      return [
-        h,
-        m > 9 ? m : '0' + m,
-        s > 9 ? s : '0' + s,
-      ].filter(Boolean).join(':');
+      if (h !== NaN && m !== NaN && s !== NaN) {
+        return [
+          h,
+          m > 9 ? m : '0' + m,
+          s > 9 ? s : '0' + s,
+        ].filter(Boolean).join(':');
+      } else {
+        return "";
+      }
     }
 
     screen.orientation.addEventListener("change", (event) => {
