@@ -1169,8 +1169,14 @@
     });
 
     barElements.forEach((barElement) => {
-      barElement.addEventListener("mouseover", function(event) {
-        
+      barElement.addEventListener("mouseover", function(e) {
+        const rect = videoBarPlaceholder.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left;
+        const width = rect.width;
+        const percentage = Math.min(Math.max(offsetX / width, 0), 1);
+        const newTime = secondsToTimeCode(percentage * video.duration);
+
+        barElement.setAttribute("title", newTime);
       });
     });
 
