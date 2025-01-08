@@ -1084,18 +1084,19 @@
     });
 
     document.addEventListener("touchmove", (e) => {
-      if (isDragging && e.touches.length === 1 && video.src !== "") {
+      if (isDragging && e.touches.length === 1 && (video.src !== "" || (player && !player.isConnected))) {
         videoScrub.style.transitionDuration = "0s";
         videoProgressBar.style.transitionDuration = "0s";
         videoLoadProgressBar.style.transitionDuration = "0s";
 
         // videoScrub.style.transform = "scale(1.2)";
+        var dur = (player && !player.isConnected) ? player.duration : video.duration;
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.touches[0].clientX - rect.left;
         const width = rect.width;
         const percentage = Math.min(Math.max(offsetX / width, 0), 1);
-        const newTime = percentage * video.duration;
+        const newTime = percentage * dur;
     
         // Update scrubber and progress bar
         // videoScrub.style.left = `calc(${percentage * 100}% - ${videoScrub.offsetWidth / 2}px)`;
@@ -1111,18 +1112,19 @@
     });
 
     document.addEventListener("mousemove", (e) => {
-      if (isDragging && video.src !== "") {
+      if (isDragging && (video.src !== "" || (player && !player.isConnected))) {
         videoScrub.style.transitionDuration = "0s";
         videoProgressBar.style.transitionDuration = "0s";
         videoLoadProgressBar.style.transitionDuration = "0s";
 
         // videoScrub.style.transform = "scale(1.2)";
+        var dur = (player && !player.isConnected) ? player.duration : video.duration;
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
         const width = rect.width;
         const percentage = Math.min(Math.max(offsetX / width, 0), 1);
-        const newTime = percentage * video.duration;
+        const newTime = percentage * dur;
     
         // Update scrubber and progress bar
         // videoScrub.style.left = `calc(${percentage * 100}% - ${videoScrub.offsetWidth / 2}px)`;
@@ -1138,16 +1140,18 @@
     });
 
     function directSeek(e) {
-      if (!isDragging && video.src !== "") {
+      if (!isDragging && (video.src !== "" || (player && !player.isConnected))) {
         videoScrub.style.transitionDuration = "0s";
         videoProgressBar.style.transitionDuration = "0s";
         videoLoadProgressBar.style.transitionDuration = "0s";
+
+        var dur = (player && !player.isConnected) ? player.duration : video.duration;
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
         const width = rect.width;
         const percentage = Math.min(Math.max(offsetX / width, 0), 1);
-        const newTime = percentage * video.duration;
+        const newTime = percentage * dur;
     
         // Update scrubber and progress bar
         // videoScrub.style.left = `calc(${percentage * 100}% - ${videoScrub.offsetWidth / 2}px)`;
