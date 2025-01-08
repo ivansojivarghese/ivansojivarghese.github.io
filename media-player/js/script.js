@@ -1085,6 +1085,8 @@
         videoProgressBar.style.transitionDuration = "0s";
         videoLoadProgressBar.style.transitionDuration = "0s";
 
+        videoScrub.style.transform = "scale(1.2)";
+
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.touches[0].clientX - rect.left;
         const width = rect.width;
@@ -1107,6 +1109,8 @@
         videoScrub.style.transitionDuration = "0s";
         videoProgressBar.style.transitionDuration = "0s";
         videoLoadProgressBar.style.transitionDuration = "0s";
+
+        videoScrub.style.transform = "scale(1.2)";
 
         const rect = videoBarPlaceholder.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
