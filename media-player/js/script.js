@@ -25,6 +25,8 @@
     const videoBarPlaceholder = document.querySelector("#videoBarPlaceholder");
     const videoScrub = document.querySelector('#videoScrub');
 
+    const barElements = document.querySelectorAll(".bar");
+
     const loadingRing = document.querySelector("#loadingRing");
     const playPauseButton = document.querySelector('#playPauseButton');
     const playPauseButtonImg = document.querySelector('#playPauseButton .img');    
@@ -1002,6 +1004,9 @@
     function showVideoControls() {
 
       videoScrub.style.transform = "scale(1)";
+      barElements.forEach((barElement) => {
+        barElement.style.height = "0.3rem"; 
+      });
 
       videoControls.classList.add('visible');
       setTimeout(function() {
@@ -1017,6 +1022,9 @@
     function hideVideoControls() {
 
       videoScrub.style.transform = "";
+      barElements.forEach((barElement) => {
+        barElement.style.height = "0.15rem"; 
+      });
 
       if (!loading && !bufferLoad && !seekingLoad && !bufferingDetected) {
         statusIndicator.classList.remove("buffer");
