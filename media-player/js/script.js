@@ -1065,6 +1065,8 @@
       videoScrub.style.transitionDuration = "";
       videoProgressBar.style.transitionDuration = "";
       videoLoadProgressBar.style.transitionDuration = "";
+
+      videoScrub.style.transform = "scale(1)";
     });
 
     // Touch events
@@ -1077,6 +1079,8 @@
       videoScrub.style.transitionDuration = "";
       videoProgressBar.style.transitionDuration = "";
       videoLoadProgressBar.style.transitionDuration = "";
+
+      videoScrub.style.transform = "scale(1)";
     });
 
     document.addEventListener("touchmove", (e) => {
