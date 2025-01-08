@@ -1168,6 +1168,12 @@
       directSeek(event);
     });
 
+    barElements.forEach((barElement) => {
+      barElement.addEventListener("mouseover", function(event) {
+        
+      });
+    });
+
     videoControls.addEventListener('click', function(event) {
       if ((player && !player.isConnected) || !player) {
         if ((interactiveType === "touch" || interactiveType === "pen") && !event.target.classList.contains("no-tap")) {
