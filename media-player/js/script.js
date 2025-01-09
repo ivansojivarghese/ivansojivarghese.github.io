@@ -1214,7 +1214,9 @@
         const percentage = Math.min(Math.max(offsetX / width, 0), 1);
         const newTime = secondsToTimeCode(percentage * video.duration);
 
-        barElement.setAttribute("title", newTime);
+        if (video.src !== "") {
+          barElement.setAttribute("title", newTime);
+        }
       });
     });
 
