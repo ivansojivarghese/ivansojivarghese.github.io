@@ -63,6 +63,7 @@
     var offsetInt = null;
 
     var audioCtx;
+    var oscillator;
     var playbackStats;
 
     var playPauseManual = false;
@@ -612,6 +613,47 @@
           audioVideoAlignInt = null;
         }
         audioCtx = new AudioContext();
+        oscillator = audioCtx.createOscillator();
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+
+        // Listen for state change in the AudioContext
+        audioCtx.onstatechange = () => {
+          console.log(`AudioContext state: ${audioCtx.state}`);
+          
+          // If the AudioContext state is 'suspended', assume the audio is interrupted (e.g., by a call)
+          if (audioCtx.state === 'suspended') {
+              console.log('Audio playback interrupted. Pausing video...');
+              
+              // Pause the video if it's playing
+              if (backgroundPlay) {
+                if (!audio.paused) {
+                  audio.pause();
+                }
+              } else {
+                if (!video.paused) {
+                  video.pause();
+                }
+              }
+          }
+
+          // If the AudioContext state changes back to 'running', resume the video
+          if (audioContext.state === 'running') {
+            console.log('Audio playback resumed. Resuming video...');
+            
+            // Resume the video if it was paused
+            if (backgroundPlay) {
+              if (audio.paused) {
+                audio.play();
+              }
+            } else {
+              if (video.paused) {
+                video.play();
+              }
+            }
+          }
+        };
+
         audioVideoAlignInt = setInterval(audioVideoAlign, 100); 
         /*    
         setInterval(function() {
@@ -1720,6 +1762,47 @@
 
       if (aVcount2 === 100) { // 10 sec.
         audioCtx = new AudioContext();
+        oscillator = audioCtx.createOscillator();
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+
+        // Listen for state change in the AudioContext
+        audioCtx.onstatechange = () => {
+          console.log(`AudioContext state: ${audioCtx.state}`);
+          
+          // If the AudioContext state is 'suspended', assume the audio is interrupted (e.g., by a call)
+          if (audioCtx.state === 'suspended') {
+              console.log('Audio playback interrupted. Pausing video...');
+              
+              // Pause the video if it's playing
+              if (backgroundPlay) {
+                if (!audio.paused) {
+                  audio.pause();
+                }
+              } else {
+                if (!video.paused) {
+                  video.pause();
+                }
+              }
+          }
+
+          // If the AudioContext state changes back to 'running', resume the video
+          if (audioContext.state === 'running') {
+            console.log('Audio playback resumed. Resuming video...');
+            
+            // Resume the video if it was paused
+            if (backgroundPlay) {
+              if (audio.paused) {
+                audio.play();
+              }
+            } else {
+              if (video.paused) {
+                video.play();
+              }
+            }
+          }
+        };
+
         aVcount2 = 0;
 
         playEvents = 0;
