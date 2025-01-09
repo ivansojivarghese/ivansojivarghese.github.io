@@ -1778,12 +1778,12 @@
       }
 
       if (aVcount2 === 100) { // 10 sec.
-        audioCtx = new AudioContext();
+        // audioCtx = new AudioContext();
         /*
         oscillator = audioCtx.createOscillator();
         oscillator.connect(audioCtx.destination);
         oscillator.start();*/
-
+        /*
         if (audioCtx.state === 'suspended') {
           console.log('Audio playback suspended. Pausing video...');
               
@@ -1797,7 +1797,7 @@
               video.pause();
             }
           }
-        }
+        }*/
 
         // Listen for state change in the AudioContext
         /*
