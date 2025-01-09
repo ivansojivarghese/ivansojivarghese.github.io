@@ -1986,7 +1986,6 @@ async function fetchMetadataForURL(url, id) {
       (async () => {
         title = await metadata.title;
         type = await metadata.type;
-        url = url;
       });
 
       // console.log({ platform: 'youtube', type, title });
@@ -1996,7 +1995,7 @@ async function fetchMetadataForURL(url, id) {
       var favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
     }
 
-    return { title, favicon, type, url };
+    return { title, favicon, type };
 
   } catch (error) {
     console.error('Error fetching metadata:', error.message);
@@ -2308,7 +2307,7 @@ function formatURLsToGenericLink(text) {
     }
 
     var el;
-    const { title, favicon, type, url } = getMetadata(url, id);
+    const { title, favicon, type } = getMetadata(url, id);
     const clickableURL = (id === "") ? (url.startsWith('http') ? url : `http://${url}`) : (type === "video") ? "javascript:getURL('" + (url.startsWith('http') ? url : `http://${url}`) + "')" : (url.startsWith('http') ? url : `http://${url}`);
 
     if (id) {
