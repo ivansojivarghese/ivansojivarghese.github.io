@@ -641,6 +641,8 @@
           // If the AudioContext state changes back to 'running', resume the video
           if (audioCtx.state === 'running') {
             console.log('Audio playback resumed. Resuming video...');
+
+            audio.currentTime = video.currentTime;
             
             // Resume the video if it was paused
             if (backgroundPlay) {
@@ -656,6 +658,8 @@
 
           if (audioCtx.state === "interrupted") {
             console.log('Audio playback interrupted. Resuming...');
+
+            audio.currentTime = video.currentTime;
 
             // Resume the video if it was paused
             if (backgroundPlay) {
