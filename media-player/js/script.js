@@ -639,7 +639,7 @@
           }
 
           // If the AudioContext state changes back to 'running', resume the video
-          /*
+          
           if (audioCtx.state === 'running') {
             console.log('Audio playback resumed. Resuming video...');
 
@@ -656,7 +656,7 @@
               }
             }
           }
-
+/*
           if (audioCtx.state === "interrupted") {
             console.log('Audio playback interrupted. Resuming...');
 
@@ -5012,6 +5012,12 @@
           default:
               pms.ntf = false;
         }
+      }
+
+      if (!document.hasFocus() && document.visibilityState === "visible" && audio.paused && !backgroundPlay) {
+        video.pause();
+      } else if (document.hasFocus() && document.visibilityState === "visible" && !audio.paused && !backgroundPlay) {
+        video.play();
       }
 
       if (videoLoop) {
