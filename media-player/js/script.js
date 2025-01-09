@@ -624,7 +624,9 @@
           
           // If the AudioContext state is 'suspended', assume the audio is interrupted (e.g., by a call)
           if (audioCtx.state === 'suspended') {
-              console.log('Audio playback interrupted. Pausing video...');
+              console.log('Audio playback suspended. Pausing video...');
+
+
               
               // Pause the video if it's playing
               if (backgroundPlay) {
@@ -639,6 +641,7 @@
           }
 
           // If the AudioContext state changes back to 'running', resume the video
+          /*
           if (audioCtx.state === 'running') {
             console.log('Audio playback resumed. Resuming video...');
 
@@ -667,7 +670,7 @@
             } else {
               video.play();
             }
-          }
+          }*/
         };
 
         audioVideoAlignInt = setInterval(audioVideoAlign, 100); 
@@ -2065,7 +2068,7 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && ((typeof audioCtx.playoutStats !== 'undefined' && audioCtx.playoutStats.maximumLatency) || (typeof audioCtx.playoutStats === 'undefined')) && audioCtx.baseLatency && audioCtx.outputLatency)) {
+      if (!video.paused && audioCtx.state === "running" /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && ((typeof audioCtx.playoutStats !== 'undefined' && audioCtx.playoutStats.maximumLatency) || (typeof audioCtx.playoutStats === 'undefined')) && audioCtx.baseLatency && audioCtx.outputLatency)) {
         
         var maxLatency = (typeof audioCtx.playoutStats !== 'undefined') ? audioCtx.playoutStats.maximumLatency : (audioCtx.baseLatency && audioCtx.outputLatency) ? 0 : 100;
 
