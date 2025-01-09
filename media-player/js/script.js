@@ -1784,6 +1784,7 @@
         oscillator.start();*/
 
         // Listen for state change in the AudioContext
+        /*
         audioCtx.onstatechange = () => {
           console.log(`AudioContext state: ${audioCtx.state}`);
           
@@ -1833,7 +1834,7 @@
               video.play();
             }
           }
-        };
+        };*/
 
         aVcount2 = 0;
 
