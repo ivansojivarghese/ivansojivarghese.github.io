@@ -1985,6 +1985,8 @@ async function fetchMetadataForURL(url, id) {
       var metadata = determineYouTubeTypeAndTitle(url, id);
       (async () => {
         title = await metadata.title;
+        type = await metadata.type;
+        url = url;
       });
 
       // console.log({ platform: 'youtube', type, title });
@@ -1994,11 +1996,11 @@ async function fetchMetadataForURL(url, id) {
       var favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
     }
 
-    return { title, favicon };
+    return { title, favicon, type, url };
 
   } catch (error) {
     console.error('Error fetching metadata:', error.message);
-    return { title: 'Unavailable', favicon: null }; // Fallback values
+    return { title: 'Unavailable', favicon: null, type: null, url: null }; // Fallback values
   }
 }
 
@@ -2306,8 +2308,8 @@ function formatURLsToGenericLink(text) {
     }
 
     var el;
-    const clickableURL = url.startsWith('http') ? url : `http://${url}`;
-    const { title, favicon } = getMetadata(url, id);
+    const { title, favicon, type, url } = getMetadata(url, id);
+    const clickableURL = (id === "") ? (url.startsWith('http') ? url : `http://${url}`) : (type === "video") ? "javascript:getURL('" + (url.startsWith('http') ? url : `http://${url}`) + "')" : (url.startsWith('http') ? url : `http://${url}`);
 
     if (id) {
       var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube.svg';

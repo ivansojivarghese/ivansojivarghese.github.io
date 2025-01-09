@@ -850,6 +850,10 @@
     audio.addEventListener('play', function () {
       // if (!networkError) {
 
+          if (!loading && !bufferLoad && !seekingLoad && !bufferingDetected) {
+            video.play();
+          }
+
           audioErr = false;
 
           playbackErr = false;
