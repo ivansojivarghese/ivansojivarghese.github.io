@@ -837,7 +837,9 @@
     
     audio.addEventListener('pause', function () {
 
-      video.pause();
+      if (!loading && !bufferLoad && !seekingLoad && !bufferingDetected) {
+        video.pause();
+      }
 
       refSeekTime = audio.currentTime;
 
@@ -5016,12 +5018,12 @@
               pms.ntf = false;
         }
       }
-
+/*
       if (!document.hasFocus() && document.visibilityState === "visible" && audio.paused && !backgroundPlay) {
         video.pause();
       } else if (document.hasFocus() && document.visibilityState === "visible" && !audio.paused && !backgroundPlay) {
         video.play();
-      }
+      }*/
 
       if (videoLoop) {
         if (backgroundPlay && audio.currentTime === audio.duration) {
