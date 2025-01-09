@@ -14,6 +14,10 @@
         var wrap = document.querySelector("#settingsOptions");
         var contents = inp.value || u;
 
+        if (u) {
+          closeVideoInfo();
+        }
+
         if (contents !== "") {
           videoURL = contents;
         }

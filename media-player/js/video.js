@@ -1921,6 +1921,7 @@ function determineYouTubeTypeAndTitle(url, id) {
 
     if (result.type === "video") {
       a.href = "javascript:getURL('" + url + "')";
+      a.target = "";
     }
   })();
 
