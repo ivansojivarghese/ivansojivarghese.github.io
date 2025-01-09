@@ -639,7 +639,7 @@
           }
 
           // If the AudioContext state changes back to 'running', resume the video
-          
+          /*
           if (audioCtx.state === 'running') {
             console.log('Audio playback resumed. Resuming video...');
 
@@ -655,7 +655,7 @@
                 video.play();
               }
             }
-          }
+          }*/
 /*
           if (audioCtx.state === "interrupted") {
             console.log('Audio playback interrupted. Resuming...');
