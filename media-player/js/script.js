@@ -76,6 +76,7 @@
     var playbackErr = false;
 
     var autoRes = true;
+    var autoResInt = true;
 
     var videoLoop = false;
 
@@ -3424,7 +3425,7 @@
       
       console.log("tQ : " + targetQuality + ", nTQ: " + newTargetQuality);
 
-      if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && autoRes) {
+      if ((video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && autoRes && autoResInt) {
 
         if (newTargetQuality === targetQuality) { // if same quality rating as previous
 
@@ -3480,6 +3481,11 @@
 
           // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
           // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
+
+          autoResInt = false;
+          setTimeout(function() {
+            autoResInt = true;
+          }, 30000);
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
@@ -3544,7 +3550,7 @@
 
       var newIndex = getVideoFromIndex(true, newTargetQuality);
 
-      if (((p <= 0 && (typeof downlinkVariability.standardDeviation === undefined || (typeof downlinkVariability.standardDeviation !== undefined && downlinkVariability.standardDeviation < 4)) && ((newTargetQuality < targetQuality) || (newIndex > targetVideoIndex))) || (p > 0 && ((newTargetQuality > targetQuality) || (newIndex < targetVideoIndex)))) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && !backgroundPlay && !qualityBestChange && !qualityChange && !preventQualityChange && autoRes) { // if same quality rating as previous
+      if (((p <= 0 && (typeof downlinkVariability.standardDeviation === undefined || (typeof downlinkVariability.standardDeviation !== undefined && downlinkVariability.standardDeviation < 4)) && ((newTargetQuality < targetQuality) || (newIndex > targetVideoIndex))) || (p > 0 && ((newTargetQuality > targetQuality) || (newIndex < targetVideoIndex)))) && ((newTargetQuality !== targetQuality) || ((newTargetQuality === targetQuality) && (newIndex !== -1) && (targetVideoIndex !== newIndex))) && !video.paused && !audio.paused && (video.currentTime > minVideoLoad && (video.currentTime < (video.duration - maxVideoLoad))) && !backgroundPlay && !qualityBestChange && !qualityChange && !preventQualityChange && autoRes && autoResInt) { // if same quality rating as previous
         
         targetVideo = null;
 
@@ -3585,6 +3591,11 @@
 
           // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
           // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
+
+          autoResInt = false;
+          setTimeout(function() {
+            autoResInt = true;
+          }, 30000);
 
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.ready.then((registration) => {
