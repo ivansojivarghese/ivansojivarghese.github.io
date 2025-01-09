@@ -1918,6 +1918,10 @@ function determineYouTubeTypeAndTitle(url, id) {
       aTarget.style.display = "block";
       aImg.style.display = "none";
     }
+
+    if (result.type === "video") {
+      a.href = "javascript:getURL('" + url + "')";
+    }
   })();
 
   // return { type, title };
@@ -1985,7 +1989,6 @@ async function fetchMetadataForURL(url, id) {
       var metadata = determineYouTubeTypeAndTitle(url, id);
       (async () => {
         title = await metadata.title;
-        type = await metadata.type;
       });
 
       // console.log({ platform: 'youtube', type, title });
@@ -1995,7 +1998,7 @@ async function fetchMetadataForURL(url, id) {
       var favicon = doc.querySelector('link[rel~="icon"]')?.href || null;
     }
 
-    return { title, favicon, type };
+    return { title, favicon };
 
   } catch (error) {
     console.error('Error fetching metadata:', error.message);
@@ -2307,8 +2310,9 @@ function formatURLsToGenericLink(text) {
     }
 
     var el;
-    const { title, favicon, type } = getMetadata(url, id);
-    const clickableURL = (id === "") ? (url.startsWith('http') ? url : `http://${url}`) : (type === "video") ? "javascript:getURL('" + (url.startsWith('http') ? url : `http://${url}`) + "')" : (url.startsWith('http') ? url : `http://${url}`);
+    const { title, favicon } = getMetadata(url, id);
+    // const clickableURL = (id === "") ? (url.startsWith('http') ? url : `http://${url}`) : (type === "video") ? "javascript:getURL('" + (url.startsWith('http') ? url : `http://${url}`) + "')" : (url.startsWith('http') ? url : `http://${url}`);
+    const clickableURL = url.startsWith('http') ? url : `http://${url}`;
 
     if (id) {
       var youtubeFavicon = 'https://ivansojivarghese.github.io/media-player/png/youtube.svg';
