@@ -2068,7 +2068,7 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused && /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && ((typeof audioCtx.playoutStats !== 'undefined' && audioCtx.playoutStats.maximumLatency) || (typeof audioCtx.playoutStats === 'undefined')) && audioCtx.baseLatency && audioCtx.outputLatency)) {
+      if (!video.paused /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && ((typeof audioCtx.playoutStats !== 'undefined' && audioCtx.playoutStats.maximumLatency) || (typeof audioCtx.playoutStats === 'undefined')) && audioCtx.baseLatency && audioCtx.outputLatency)) {
         
         var maxLatency = (typeof audioCtx.playoutStats !== 'undefined') ? audioCtx.playoutStats.maximumLatency : (audioCtx.baseLatency && audioCtx.outputLatency) ? 0 : 100;
 
