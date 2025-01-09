@@ -620,13 +620,11 @@
 
         // Listen for state change in the AudioContext
         audioCtx.onstatechange = () => {
-          console.log(`AudioContext state: ${audioCtx.state}`);
+          // console.log(`AudioContext state: ${audioCtx.state}`);
           
           // If the AudioContext state is 'suspended', assume the audio is interrupted (e.g., by a call)
           if (audioCtx.state === 'suspended') {
               console.log('Audio playback suspended. Pausing video...');
-
-
               
               // Pause the video if it's playing
               if (backgroundPlay) {
@@ -1785,6 +1783,21 @@
         oscillator = audioCtx.createOscillator();
         oscillator.connect(audioCtx.destination);
         oscillator.start();*/
+
+        if (audioCtx.state === 'suspended') {
+          console.log('Audio playback suspended. Pausing video...');
+              
+          // Pause the video if it's playing
+          if (backgroundPlay) {
+            if (!audio.paused) {
+              audio.pause();
+            }
+          } else {
+            if (!video.paused) {
+              video.pause();
+            }
+          }
+        }
 
         // Listen for state change in the AudioContext
         /*
