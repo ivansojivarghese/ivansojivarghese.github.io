@@ -836,6 +836,8 @@
     
     audio.addEventListener('pause', function () {
 
+      video.pause();
+
       refSeekTime = audio.currentTime;
 
       releaseScreenLock(screenLock);
