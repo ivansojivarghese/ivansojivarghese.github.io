@@ -63,7 +63,7 @@
     var offsetInt = null;
 
     var audioCtx;
-    var oscillator;
+    // var oscillator;
     var playbackStats;
 
     var playPauseManual = false;
@@ -613,9 +613,10 @@
           audioVideoAlignInt = null;
         }
         audioCtx = new AudioContext();
+        /*
         oscillator = audioCtx.createOscillator();
         oscillator.connect(audioCtx.destination);
-        oscillator.start();
+        oscillator.start();*/
 
         // Listen for state change in the AudioContext
         audioCtx.onstatechange = () => {
@@ -1773,9 +1774,10 @@
 
       if (aVcount2 === 100) { // 10 sec.
         audioCtx = new AudioContext();
+        /*
         oscillator = audioCtx.createOscillator();
         oscillator.connect(audioCtx.destination);
-        oscillator.start();
+        oscillator.start();*/
 
         // Listen for state change in the AudioContext
         audioCtx.onstatechange = () => {
