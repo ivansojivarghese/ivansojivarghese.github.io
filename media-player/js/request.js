@@ -7,12 +7,12 @@
       this.selectionStart = this.selectionEnd;
     }, false);
     
-    function getURL() {
-      if (inp.value !== "") {
+    function getURL(u) {
+      if (inp.value !== "" || u) {
 
         var wrapURL = document.querySelector("#urlInput");
         var wrap = document.querySelector("#settingsOptions");
-        var contents = inp.value;
+        var contents = inp.value || u;
 
         if (contents !== "") {
           videoURL = contents;
