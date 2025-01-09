@@ -369,6 +369,13 @@ function resetVariables() {
   downlinkVariability = {};
 }
 
+function capitalizeFirstChar(str) {
+  if (typeof str !== "string" || str.length === 0) {
+      return str; // Return as is if not a string or empty
+  }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 async function getParams(id, time) {
 
   if (!networkError) {
@@ -687,6 +694,54 @@ async function getParams(id, time) {
         // video.src = videoDetails.formats["0"].url;
 
         if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
+
+          if (videoDetails.error !== undefined) {
+            var ntfTitle = capitalizeFirstChar(videoDetails.status),
+              ntfBody =  capitalizeFirstChar(videoDetails.error),
+              ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
+              ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
+
+            if (pms.ntf) {
+              if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.ready.then(registration => {
+                  registration.showNotification(ntfTitle, {
+                    body: ntfBody,
+                    badge: ntfBadge,
+                    icon: ntfIcon,
+                    tag: "playbackError",
+                    requireInteraction: false, // Dismiss after default timeout
+                    data : {
+                      url :  "https://ivansojivarghese.github.io/media-player/"
+                    }
+                  });
+                });
+              } else {
+                const notification = new Notification(ntfTitle, {
+                  body: ntfBody,
+                  badge: ntfBadge,
+                  icon: ntfIcon,
+                  tag: "playbackError",
+                  requireInteraction: false, // Dismiss after default timeout
+                  data : {
+                    url :  "https://ivansojivarghese.github.io/media-player/"
+                  }
+                });
+    
+                notification.onclick = (event) => {
+                  event.preventDefault(); // Prevent the default action (usually focusing the notification)
+                  
+                  // Focus on the tab or open a new one
+                  if (document.hasFocus()) {
+                      console.log("App is already in focus.");
+                  } else if (window.opener) {
+                      window.opener.focus();
+                  } else {
+                      window.focus();
+                  }
+                };
+              }
+            }
+          }
 
           failTimes++;
 
