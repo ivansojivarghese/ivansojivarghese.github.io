@@ -287,8 +287,9 @@ a.url .img.link {
 }
 
 a.url.youtube .img {
-    background-position: -0.3em;
-    border-radius: 50%;
+    background-size: contain;
+    width: 1.5rem;
+    top: 0.015rem;
 }
 
 a.url span {

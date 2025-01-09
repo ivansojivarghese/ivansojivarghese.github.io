@@ -1913,9 +1913,11 @@ function determineYouTubeTypeAndTitle(url, id) {
     var a = document.querySelector("#" + id);
     var aTarget = document.querySelector("#" + id + " span");
     var aImg = document.querySelector("#" + id + " div.img.link");
-    aTarget.innerHTML = result.title;
-    aTarget.style.display = "block";
-    aImg.style.display = "none";
+    if (result.title !== undefined) {
+      aTarget.innerHTML = result.title;
+      aTarget.style.display = "block";
+      aImg.style.display = "none";
+    }
   })();
 
   // return { type, title };
@@ -2183,7 +2185,7 @@ function abstractVideoInfo() {
   } else {
     videoInfoElm.keywords.style.display = "none";
   }
-
+/*
   function highlightHashtags(text) {
     // Regular expression to match words starting with #_ but not inside URLs
     const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#\w+)/g;
@@ -2192,7 +2194,17 @@ function abstractVideoInfo() {
     return text.replace(hashtagRegex, (hashtag) => {
       return `<a onclick="" class="trs hashtag">${hashtag}</a>`;
     });
-  }  
+  }  */
+
+  function highlightHashtags(text) {
+    // Regular expression to match hashtags in various languages
+    const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#[\p{L}\p{N}_]+)/gu;
+    
+    // Replace hashtags with a span for styling or interactivity
+    return text.replace(hashtagRegex, (hashtag) => {
+      return `<a onclick="" class="trs hashtag">${hashtag}</a>`;
+    });
+  }
 
   // Function to detect and format video timestamps
 function formatTimestamps(text) {
