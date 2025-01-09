@@ -623,6 +623,7 @@
           // console.log(`AudioContext state: ${audioCtx.state}`);
           
           // If the AudioContext state is 'suspended', assume the audio is interrupted (e.g., by a call)
+          /*
           if (audioCtx.state === 'suspended') {
               console.log('Audio playback suspended. Pausing video...');
               
@@ -636,7 +637,7 @@
                   video.pause();
                 }
               }
-          }
+          }*/
 
           // If the AudioContext state changes back to 'running', resume the video
           /*
