@@ -1787,7 +1787,7 @@
           }
 
           // If the AudioContext state changes back to 'running', resume the video
-          if (audioContext.state === 'running') {
+          if (audioCtx.state === 'running') {
             console.log('Audio playback resumed. Resuming video...');
             
             // Resume the video if it was paused
@@ -1799,6 +1799,17 @@
               if (video.paused) {
                 video.play();
               }
+            }
+          }
+
+          if (audioCtx.state === "interrupted") {
+            console.log('Audio playback interrupted. Resuming...');
+
+            // Resume the video if it was paused
+            if (backgroundPlay) {
+              audioCtx.resume().then(() => play());
+            } else {
+              video.play();
             }
           }
         };
