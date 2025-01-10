@@ -474,7 +474,7 @@ a.noUnderline {
     margin-left: calc(env(safe-area-inset-left));
 }
 
-#videoCurrentTime {
+#videoCurrentTime, p.duration, p.durationDiv {
     color: #FFF;
     bottom: 0.75rem;
     position: absolute;
@@ -694,7 +694,11 @@ p.autoResLive {
 }
 
 p.duration {
-    letter-spacing: 0.1rem;
+    left: 3rem;
+}
+
+p.durationDiv {
+    left: 2rem;
 }
 
 .resolutions {
