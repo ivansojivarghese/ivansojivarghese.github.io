@@ -2597,7 +2597,7 @@ function formatPhoneNumbers(text) {
 
   // Regular expression to match phone numbers with an optional international prefix
   // const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
-  const phoneRegex = /(?<=\s|\b)\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9}\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
+  const phoneRegex = /(?<=\s|\b)\+?[1-9]\d{0,3}[-.\s()]*\(?\d{1,4}\)?[-.\s()]*\d{1,4}[-.\s()]*\d{2,9}\b/g;
 
   return text.replace(phoneRegex, (phone) => {
     // Encode the "+" sign in the phone number for the tel: link
