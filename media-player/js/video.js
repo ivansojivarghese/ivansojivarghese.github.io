@@ -2602,8 +2602,7 @@ function formatPhoneNumbers(text) {
   return text.replace(phoneRegex, (phone) => {
     // Encode the "+" sign in the phone number for the tel: link
     const telLink = phone.startsWith('+') ? `tel:+${phone.slice(1)}` : `tel:${phone}`;
-    const newphone = phone.startsWith('+') ? `+${phone}` : `${phone}`;
-    return `<a href="${telLink}" class="phone-link trs">${newphone}</a>`;
+    return `<a href="${telLink}" class="phone-link trs">${phone}</a>`;
   });
 }
 
