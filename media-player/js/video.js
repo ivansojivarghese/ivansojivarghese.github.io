@@ -2573,7 +2573,7 @@ function formatPhoneNumbers(text) {
   // const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9}|\b\d{5,})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
 
   // Regular expression to match phone numbers with an optional international prefix
-  const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
+  // const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
 
   /*
   return text.replace(phoneRegex, (phone) => {
@@ -2581,11 +2581,20 @@ function formatPhoneNumbers(text) {
     const normalizedPhone = phone.replace(/[-.\s]/g, '');
     return `<a href="tel:${normalizedPhone}" class="phone-link trs">${phone}</a>`;
   });*/
-
+  /*
   return text.replace(phoneRegex, (phone) => {
     // Encode the "+" sign in the phone number for the tel: link
     const telLink = phone.startsWith('+') ? `tel:%2B${phone.slice(1)}` : `tel:${phone}`;
     return `<a href="${telLink}" class="phone-link trs">${phone}</a>`;
+  });*/
+
+  // Regular expression to match phone numbers with an optional international prefix
+  const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
+
+  return text.replace(phoneRegex, (phone) => {
+    // For tel link: Replace + with %2B to ensure correct handling
+    let formattedPhone = phone.replace(/\+/g, '%2B');
+    return `<a href="tel:${formattedPhone}" class="phone-link trs">${phone}</a>`;
   });
 }
 
