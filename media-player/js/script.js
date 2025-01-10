@@ -445,7 +445,8 @@
 
     settingsButton.addEventListener("click", function(event) {
       if (videoControls.classList.contains('visible')) {
-        openWrap('settings');
+        // openWrap('settings');
+        openWrap('webupload');
       }
     });
 /*
