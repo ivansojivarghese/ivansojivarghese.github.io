@@ -2597,13 +2597,15 @@ function formatPhoneNumbers(text) {
 
   // Regular expression to match phone numbers with an optional international prefix
   // const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
-  const phoneRegex = /\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,9}\)?/g;
-
+  // const phoneRegex = /\+?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,4}\)?[-.\s]?\(?\d{1,9}\)?/g;
+  /*
   return text.replace(phoneRegex, (phone) => {
     // Encode the "+" sign in the phone number for the tel: link
     const telLink = phone.startsWith('+') ? `tel:+${phone.slice(1)}` : `tel:${phone}`;
     return `<a href="${telLink}" class="phone-link trs">${phone}</a>`;
-  });
+  });*/
+
+  return text;
 }
 
 function formatMentions(text) {
