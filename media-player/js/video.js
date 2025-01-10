@@ -2192,7 +2192,7 @@ function resetVideoInfo() {
   //////////
 
   videoInfoElm.title.innerHTML = "";
-  videoInfoElm.channelTitle = "";
+  videoInfoElm.channelTitle.innerHTML = "";
 
   videoInfoElm.videoTitle.classList.add("textReset");
   videoInfoElm.channelTitle2.classList.add("textReset");
