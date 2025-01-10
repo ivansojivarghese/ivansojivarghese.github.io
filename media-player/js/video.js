@@ -2587,12 +2587,19 @@ function formatPhoneNumbers(text) {
     const telLink = phone.startsWith('+') ? `tel:%2B${phone.slice(1)}` : `tel:${phone}`;
     return `<a href="${telLink}" class="phone-link trs">${phone}</a>`;
   });*/
-
+  /*
   // Regular expression to match phone numbers with an optional international prefix
   const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
 
   return text.replace(phoneRegex, (phone) => {
     return `<a href="tel:${phone}" class="phone-link trs">${phone}</a>`;
+  });*/
+
+  // Regular expression to match phone numbers with an optional international prefix
+  const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
+
+  return text.replace(phoneRegex, (phone) => {
+    return `<a href="tel:${phone.replace(/\s/g, '')}" class="phone-link trs">${phone}</a>`;
   });
 }
 
