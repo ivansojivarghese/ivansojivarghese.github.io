@@ -4410,6 +4410,8 @@
     var videoProgressPercentile = 0,
         audioProgressPercentile = 0;
 
+    const videoTitleLink = document.querySelector("#infoContainer h5.videoTitle a");
+
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         if ((player && !player.isConnected) || !player) {
@@ -4428,6 +4430,22 @@
             localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
           // }
         }
+
+        // Create a URL object from the current href
+        const url = new URL(videoTitleLink.href);
+
+        // Get the current value of the 't' parameter, if it exists
+        const currentTValue = url.searchParams.get('t');
+
+        // If the 't' parameter exists, modify its value. If not, add it.
+        if (currentTValue) {
+          url.searchParams.set('t', String(refSeekTime));  // Modify the 't' parameter value
+        } else {
+          url.searchParams.append('t', String(refSeekTime));  // Add the 't' parameter if it doesn't exist
+        }
+
+        // Update the href with the modified URL
+        videoTitleLink.href = url.toString();
 
         // console.log("ref", refSeekTime);
         if (!qualityChange && !qualityBestChange) {
