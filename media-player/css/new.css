@@ -673,12 +673,12 @@ p.category, .criticalInfo p, .resolutions p {
 
 .criticalInfo div {
     display: inline-block;
-    width: 65%;
+    width: 60%;
 }
 
 .criticalInfo .cI:nth-child(2) {
     float: right;
-    width: 35%;
+    width: 40%;
 }
 
 .criticalInfo {

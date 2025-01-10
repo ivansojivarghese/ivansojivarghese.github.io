@@ -442,6 +442,8 @@ async function getParams(id, time) {
       autoLoad = true;
     } else {
 
+      resetVideoInfo();
+
       autoLoad = false;
     }
 
