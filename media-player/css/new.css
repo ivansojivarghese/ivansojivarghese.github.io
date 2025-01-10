@@ -645,11 +645,12 @@ p.category, .criticalInfo p, .resolutions p {
 
 .criticalInfo div {
     display: inline-block;
-    width: 50%;
+    width: 65%;
 }
 
 .criticalInfo .cI:nth-child(2) {
     float: right;
+    width: 35%;
 }
 
 .criticalInfo {

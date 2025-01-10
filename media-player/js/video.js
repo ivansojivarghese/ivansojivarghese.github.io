@@ -377,6 +377,55 @@ function capitalizeFirstChar(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+function videoReset() {
+    resetVariables();
+
+    // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
+    videoSources = [];
+    audioSources = [];
+    specialVideoQuality = [];
+    specialVideoQualityWidth = [];
+    supportedVideoSources = [];
+    supportedAudioSources = [];
+    targetVideoSources = [];
+    audioTimes = [];
+    videoTimes = [];
+    audioLatency = 0;
+    audioLatencyArr = [];
+    targetVideo = null;
+    initialVideoLoad = false;
+    initialVideoLoadCount = 0;
+    initialAudioLoad = false;
+    specialQualityArea = [];
+    videoErr = false;
+    audioErr = false;
+    playEvents = 0;
+    audioVideoAlignDivisor = 3;
+    downlinkArr = [];
+    downlinkVariability = {};
+    imagePrimary = [];
+    imagePalette = [];
+
+    lastMetadata = null; // Stores metadata of the previous frame
+    activityScores = []; // Stores frame activity scores
+    windowScores = [];   // Scores for aggregation over time
+    avgActivityScore = 0; 
+    derActivityScore = 0;
+    derActivityScoreArr = []; 
+    derActivityScoreData = {};
+
+    failTimes = 0;
+    videoLoop = false;
+
+    autoRes = true;
+
+    // COULD CHANGE | UNDETERMINED (TBA)
+    priorityQuality = 0;
+    targetQuality = 0;
+    targetVideoIndex = 0;
+    videoStreamScore = 0;
+}
+
 async function getParams(id, time) {
 
   if (!networkError) {
@@ -812,6 +861,9 @@ async function getParams(id, time) {
 
               ////////////////////
 
+              videoReset();
+
+              /*
               resetVariables();
 
               // FIXED (VARIABLE ACROSS DIFF. VIDEOS ONLY)
@@ -858,7 +910,7 @@ async function getParams(id, time) {
               targetQuality = 0;
               targetVideoIndex = 0;
               videoStreamScore = 0;
-
+              */
               //////////////////
 
               getOptimalVideo(time);
@@ -1539,7 +1591,16 @@ function getOptimalVideo(time) {
 
         // videoInfoElm.main.style.opacity = 1;
 
-        if (casting) {
+        if (videoInfoElm.expires.innerHTML === "Expired") {
+          video.src = "";
+          audio.src = "";
+
+          videoReset();
+
+          // resetVideoInfo();
+        }
+
+        if (casting && videoInfoElm.expires.innerHTML !== "Expired") {
           /*
           addPlayerControl();
 
@@ -2176,7 +2237,6 @@ function abstractVideoInfo() {
 
   videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
-
   videoInfoElm.expires.innerHTML = getReadableRemainingTime(targetVideo.url);
 
   if (meta.likes !== 'NaN') {
