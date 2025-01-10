@@ -561,6 +561,34 @@ a.noUnderline {
     }
 }
 
+#videoTitle.textReset {
+    height: 5rem;
+    background: #3f3f3f;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#channelTitle.textReset {
+    height: 2rem;
+    border-radius: 0.5rem;
+    background: #3f3f3f;
+}
+
+.category.textReset {
+    height: 2rem;
+    border-radius: 0.5rem;
+    width: 50%;
+    background: #3f3f3f;
+}
+
+.cI p.textReset {
+    height: 2rem;
+    background: #3f3f3f;
+    border-radius: 0.5rem;
+    width: 50%;
+    margin-bottom: 0.5rem;
+}
+
 #infoContainer .head {
     display: flex;
     flex-direction: row;

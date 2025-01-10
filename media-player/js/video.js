@@ -1597,7 +1597,8 @@ function getOptimalVideo(time) {
 
           videoReset();
 
-          // resetVideoInfo();
+          resetVideoInfo();
+          playPauseButton.classList.remove("repeat");
         }
 
         if (casting && videoInfoElm.expires.innerHTML !== "Expired") {
@@ -2181,7 +2182,43 @@ function getReadableRemainingTime(url) {
 
 var isMusic = false;
 
+function resetVideoInfo() {
+  videoInfoElm.replay.style.display = "none";
+  videoInfoElm.cast.style.display = "none";
+  videoInfoElm.autoResBtn.style.display = "none";
+
+  //////////
+
+  videoInfoElm.title.innerHTML = "";
+  videoInfoElm.channelTitle = "";
+
+  videoInfoElm.videoTitle.classList.add("textReset");
+  videoInfoElm.channelTitle2.classList.add("textReset");
+  videoInfoElm.category.classList.add("textReset");
+
+  videoInfoElm.date.classList.add("textReset");
+  videoInfoElm.expires.classList.add("textReset");
+  videoInfoElm.likes.classList.add("textReset");
+  videoInfoElm.views.classList.add("textReset");
+}
+
 function abstractVideoInfo() {
+  videoInfoElm.replay.style.display = "block";
+  videoInfoElm.cast.style.display = "block";
+  videoInfoElm.autoResBtn.style.display = "block";
+
+  ///////////
+
+  videoInfoElm.videoTitle.classList.remove("textReset");
+  videoInfoElm.channelTitle2.classList.remove("textReset");
+  videoInfoElm.category.classList.remove("textReset");
+
+  videoInfoElm.date.classList.remove("textReset");
+  videoInfoElm.expires.classList.remove("textReset");
+  videoInfoElm.likes.classList.remove("textReset");
+  videoInfoElm.views.classList.remove("textReset");
+
+  ///////////
 
   videoInfoElm.info.scrollTo(0,0);
 
@@ -2531,7 +2568,10 @@ function formatPhoneNumbers(text) {
   // const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?\d{1,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9})\b(?!\.\d{2,})/g;
 
   // Regular expression to match phone numbers with the correct prefix rules
-  const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9}|\b\d{5,})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
+  // const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9}|\b\d{5,})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
+
+  // Regular expression to match phone numbers with an optional international prefix
+  const phoneRegex = /(?<![\$€£₹¥]\d*)\b(\+?[1-9]\d{0,3}[-.\s()]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{2,9})\b(?!\.\d{2,})(?!\b\d{4}\b)/g;
 
   return text.replace(phoneRegex, (phone) => {
     // Normalize the phone number by removing spaces, dots, and dashes
