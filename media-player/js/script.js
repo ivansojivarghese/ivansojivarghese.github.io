@@ -4410,8 +4410,6 @@
     var videoProgressPercentile = 0,
         audioProgressPercentile = 0;
 
-    const videoTitleLink = document.querySelector("#infoContainer h5.videoTitle a");
-
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         if ((player && !player.isConnected) || !player) {
@@ -4431,6 +4429,7 @@
           // }
         }
 
+        const videoTitleLink = document.querySelector("#infoContainer h5.videoTitle a");
         // Create a URL object from the current href
         const url = new URL(videoTitleLink.href);
 
