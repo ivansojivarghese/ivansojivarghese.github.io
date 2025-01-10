@@ -3482,6 +3482,8 @@
           // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
           // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
 
+          videoInfoElm.expires.innerHTML = getReadableRemainingTime(targetVideo.url);
+
           autoResInt = false;
           setTimeout(function() {
             autoResInt = true;
@@ -3591,6 +3593,8 @@
 
           // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + video.src + "', '" + audio.src + "')");
           // videoInfoElm.cast.setAttribute("onclick", "castVideoWithAudio('" + videoDetails.formats["0"].url + "')");
+
+          videoInfoElm.expires.innerHTML = getReadableRemainingTime(targetVideo.url);
 
           autoResInt = false;
           setTimeout(function() {

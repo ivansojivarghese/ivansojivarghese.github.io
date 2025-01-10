@@ -11,6 +11,7 @@ var videoInfoElm = {
   category : document.querySelector("#infoContainer p.category"),
   date : document.querySelector("#infoContainer p.date"),
   duration : document.querySelector("p.duration"),
+  expires : document.querySelector("p.expires"),
   likes : document.querySelector("#infoContainer p.likes"),
   views : document.querySelector("#infoContainer p.views"),
 
@@ -2077,6 +2078,46 @@ async function getMetadata(url, id) {
   // return url;
 }
 
+function getReadableRemainingTime(url) {
+  try {
+      // Parse the URL and extract the 'expire' parameter
+      const urlParams = new URL(url).searchParams;
+      const expireTimestamp = urlParams.get("expire");
+
+      if (!expireTimestamp) {
+          throw new Error("No 'expire' parameter found in the URL.");
+      }
+
+      // Get the current time and calculate the difference in seconds
+      const currentTimestamp = Math.floor(Date.now() / 1000);
+      const timeDifference = Number(expireTimestamp) - currentTimestamp;
+
+      if (timeDifference <= 0) {
+          return "Expired";
+      }
+
+      // Calculate remaining time in different units
+      const seconds = timeDifference % 60;
+      const minutes = Math.floor(timeDifference / 60) % 60;
+      const hours = Math.floor(timeDifference / 3600) % 24;
+      const days = Math.floor(timeDifference / (3600 * 24)) % 7;
+      const weeks = Math.floor(timeDifference / (3600 * 24 * 7)) % 4;
+      const months = Math.floor(timeDifference / (3600 * 24 * 30.44)) % 12; // Approximate months
+      const years = Math.floor(timeDifference / (3600 * 24 * 365.25)); // Approximate years
+
+      // Build the most readable value
+      if (years > 0) return `Expires in ${years} year${years > 1 ? "s" : ""}`;
+      if (months > 0) return `Expires in ${months} month${months > 1 ? "s" : ""}`;
+      if (weeks > 0) return `Expires in ${weeks} week${weeks > 1 ? "s" : ""}`;
+      if (days > 0) return `Expires in ${days} day${days > 1 ? "s" : ""}`;
+      if (hours > 0) return `Expires in ${hours} hour${hours > 1 ? "s" : ""}`;
+      if (minutes > 0) return `Expires in ${minutes} minute${minutes > 1 ? "s" : ""}`;
+      return `Expires in ${seconds} second${seconds > 1 ? "s" : ""}`;
+  } catch (error) {
+      return `N.A.`;
+  }
+}
+
 var isMusic = false;
 
 function abstractVideoInfo() {
@@ -2135,6 +2176,8 @@ function abstractVideoInfo() {
 
   videoInfoElm.date.innerHTML = timeAgo(videoDetails.uploadDate);
   videoInfoElm.duration.innerHTML = secondsToTimeCode(Number(videoDetails.lengthSeconds));
+
+  videoInfoElm.expires.innerHTML = getReadableRemainingTime(targetVideo.url);
 
   if (meta.likes !== 'NaN') {
     videoInfoElm.likes.innerHTML = meta.likes + likesTxt;
