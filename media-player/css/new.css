@@ -474,7 +474,9 @@ a.noUnderline {
     margin-left: calc(env(safe-area-inset-left));
 }
 
-#videoCurrentTime, p.duration, p.durationDiv {
+/*
+#videoCurrentTime, p.duration, p.durationDiv {*/
+.timestamps {
     color: #FFF;
     bottom: 0.75rem;
     position: absolute;
@@ -486,7 +488,9 @@ a.noUnderline {
     font-weight: bold;
 }
 
-#videoCurrentTime, #seekControls {
+/*
+#videoCurrentTime, #seekControls {*/
+.timestamps, #seekControls {
     margin-bottom: calc(env(safe-area-inset-bottom));
 }
 
