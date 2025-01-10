@@ -488,6 +488,11 @@ a.noUnderline {
     font-weight: bold;
 }
 
+.timestamps p {
+    display: inline-block;
+    padding: 0;
+}
+
 /*
 #videoCurrentTime, #seekControls {*/
 .timestamps, #seekControls {
