@@ -4438,9 +4438,9 @@
 
         // If the 't' parameter exists, modify its value. If not, add it.
         if (currentTValue) {
-          url.searchParams.set('t', String(refSeekTime));  // Modify the 't' parameter value
+          url.searchParams.set('t', String(Math.round(Number(refSeekTime))));  // Modify the 't' parameter value
         } else {
-          url.searchParams.append('t', String(refSeekTime));  // Add the 't' parameter if it doesn't exist
+          url.searchParams.append('t', String(Math.round(Number(refSeekTime))));  // Add the 't' parameter if it doesn't exist
         }
 
         // Update the href with the modified URL
