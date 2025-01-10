@@ -10,7 +10,7 @@ var videoInfoElm = {
   channelTitle2 : document.querySelector("#infoContainer p.channelTitle"),
   category : document.querySelector("#infoContainer p.category"),
   date : document.querySelector("#infoContainer p.date"),
-  duration : document.querySelector("#infoContainer p.duration"),
+  duration : document.querySelector("p.duration"),
   likes : document.querySelector("#infoContainer p.likes"),
   views : document.querySelector("#infoContainer p.views"),
 
