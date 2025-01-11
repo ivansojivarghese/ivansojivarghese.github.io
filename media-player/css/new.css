@@ -800,6 +800,7 @@ p.durationDiv {
     padding-left: 1rem;
     margin-top: 0.5rem;
     color: #303030;
+    background-color: #F6F6F6;
 }
 
 .wrapper.search input[type="submit"] {
@@ -807,6 +808,7 @@ p.durationDiv {
     width: 6rem;
     padding: 0;
     margin-top: 1rem;
+    background-color: #A10000 !important;
 }
 
 select {
