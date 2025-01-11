@@ -1549,6 +1549,12 @@
       searchWrapper.style.display = "block";
 
       if (v) {
+        if (v.contains("#")) {
+          inp.style.color = "#0073e6";
+        } else {
+          inp.style.color = "#303030";
+        }
+
         searchPath = "query";
 
         inp.value = v;
