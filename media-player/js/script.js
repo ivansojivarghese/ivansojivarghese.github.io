@@ -1548,23 +1548,25 @@
       const searchWrapper = document.querySelector("#infoContainer .wrapper.search");
       searchWrapper.style.display = "block";
 
+      if (v) {
+        searchPath = "query";
+
+        inp.value = v;
+
+        // perform a query
+
+      } else {
+        setTimeout(function() {
+          inp.focus();
+        }, 100);
+      }
+
       const allSearchPathBtn = document.querySelectorAll("#infoContainer .wrapper.search .resBtn");
       // Remove 'active' class from all elements
       allSearchPathBtn.forEach(btn => btn.classList.remove('active'));
 
       const searchPathBtn = document.querySelector("#infoContainer .wrapper.search ." + searchPath); 
       searchPathBtn.classList.add("active");
-
-      if (v) {
-        inp.value = v;
-
-        // search URL or perform a query
-        
-      } else {
-        setTimeout(function() {
-          inp.focus();
-        }, 100);
-      }
     }
 
     function openVideoInfo() {
