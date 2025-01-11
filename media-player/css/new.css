@@ -819,6 +819,10 @@ select {
     margin-bottom: 0.5rem;
 }
 
+select:focus-visible {
+    outline: none;
+}
+
 .searchOptions p {
     padding: 0;
     margin-bottom: 0.5rem;
