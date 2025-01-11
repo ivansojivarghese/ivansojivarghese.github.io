@@ -1526,7 +1526,7 @@
       // Remove 'active' class from all elements
       allBtn.forEach(btn => btn.classList.remove('active'));
 
-      const wrappers = document.querySelector("#infoContainer .wrapper");
+      const wrappers = document.querySelectorAll("#infoContainer .wrapper");
       wrappers.forEach(wrapper => wrapper.style.display = "");
 
       const searchBtn = document.querySelector("#infoContainer .head .searchBtn");
@@ -1542,6 +1542,9 @@
       const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
       // Remove 'active' class from all elements
       allBtn.forEach(btn => btn.classList.remove('active'));
+
+      const wrappers = document.querySelectorAll("#infoContainer .wrapper");
+      wrappers.forEach(wrapper => wrapper.style.display = "");
 
       const infoBtn = document.querySelector("#infoContainer .head .infoBtn");
       infoBtn.classList.add("active");
@@ -1580,7 +1583,7 @@
       // Remove 'active' class from all elements
       allBtn.forEach(btn => btn.classList.remove('active'));
 
-      const wrappers = document.querySelector("#infoContainer .wrapper");
+      const wrappers = document.querySelectorAll("#infoContainer .wrapper");
       wrappers.forEach(wrapper => wrapper.style.display = "");
 
       if (ori === "landscape-primary" || ori === "landscape-secondary") {
