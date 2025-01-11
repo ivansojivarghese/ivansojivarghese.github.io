@@ -605,7 +605,6 @@ a.noUnderline {
     padding-top: 1.75rem;
     padding-bottom: 1rem;
     padding-right: calc(env(safe-area-inset-right));
-    padding-left: calc(env(safe-area-inset-left));
 }
 
 #infoContainer .head .cursor {
@@ -651,7 +650,7 @@ a.noUnderline {
 }
 
 #infoContainer .wrapper {
-    width: calc(100% - 1.2rem - 1.2rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
+    width: calc(100% - 1.2rem - 1.2rem - calc(env(safe-area-inset-right)));
     padding: 0 1.2rem;
     display: none;
 }
