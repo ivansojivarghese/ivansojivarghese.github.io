@@ -1549,7 +1549,7 @@
       searchWrapper.style.display = "block";
 
       if (v) {
-        if (v.contains("#")) {
+        if (v.includes("#")) {
           inp.style.color = "#0073e6";
         } else {
           inp.style.color = "#303030";

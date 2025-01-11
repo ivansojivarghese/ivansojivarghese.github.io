@@ -263,7 +263,7 @@
     const querySearchBtn = document.querySelector(".resBtn.query");
 
     function setSearchPath(e) {
-      if (e.currentTarget.classList.contains("query") || e === "query") {
+      if (e === "query" || e.currentTarget.classList.contains("query")) {
         searchPath = "query";
 
         searchOptions.style.display = "block";
