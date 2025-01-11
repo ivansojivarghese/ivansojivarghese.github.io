@@ -268,6 +268,7 @@
         querySearchBtn.classList.add("active");
 
         inp.type = "text";
+        inp.focus();
       } else {
         searchPath = "url";
 
@@ -275,5 +276,6 @@
         urlSearchBtn.classList.add("active");
 
         inp.type = "url";
+        inp.focus();
       }
     }
