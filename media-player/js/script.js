@@ -1530,6 +1530,8 @@
     function openSearch(v) {
       event.stopPropagation();
 
+      videoInfoElm.info.scrollTo(0,0);
+
       if (!videoInfoOpen) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
@@ -1550,7 +1552,7 @@
 
       if (v) {
         setSearchPath("query");
-        
+
         if (v.includes("#")) {
           inp.style.color = "#0073e6";
         } else {
@@ -1577,6 +1579,8 @@
 
     function openVideoInfo() {
       event.stopPropagation();
+
+      videoInfoElm.info.scrollTo(0,0);
 
       const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
       // Remove 'active' class from all elements
