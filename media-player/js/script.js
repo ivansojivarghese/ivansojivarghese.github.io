@@ -1525,6 +1525,9 @@
       const infoBtn = document.querySelector("#infoContainer .head .infoBtn");
       infoBtn.classList.add("active");
 
+      const infoWrapper = document.querySelector("#infoContainer .wrapper.info");
+      infoWrapper.style.display = "block";
+
       var ori = screen.orientation.type;
 
       if (videoControls.classList.contains('visible') && ((!loading || loading) || initialVideoLoad) /*&& (!videoErr && !audioErr)*/) {
@@ -1555,6 +1558,9 @@
       const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
       // Remove 'active' class from all elements
       allBtn.forEach(btn => btn.classList.remove('active'));
+
+      const wrappers = document.querySelector("#infoContainer .wrapper");
+      wrappers.forEach(wrapper => wrapper.style.display = "");
 
       if (ori === "landscape-primary" || ori === "landscape-secondary") {
         // mainContent.style.backgroundColor = "";

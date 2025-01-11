@@ -647,6 +647,7 @@ a.noUnderline {
 #infoContainer .wrapper {
     width: calc(100% - 1.2rem - 1.2rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
     padding: 0 1.2rem;
+    display: none;
 }
 
 #infoContainer h5.videoTitle {
