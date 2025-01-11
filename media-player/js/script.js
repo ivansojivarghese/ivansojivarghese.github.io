@@ -446,7 +446,6 @@
 
     searchButton.addEventListener("click", function(event) {
       if (videoControls.classList.contains('visible')) {
-        openVideoInfo();
         openSearch();
       }
     });
@@ -1530,6 +1529,11 @@
 
     function openSearch() {
       event.stopPropagation();
+
+      if (!videoInfoOpen) {
+        videoInfoElm.info.style.transform = "none";
+        videoInfoOpen = true;
+      }
 
       const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
       // Remove 'active' class from all elements
