@@ -263,6 +263,12 @@
     const querySearchBtn = document.querySelector(".resBtn.query");
 
     function setSearchPath(e) {
+      if (inp.value.includes("#")) {
+        inp.style.color = "#0073e6";
+      } else {
+        inp.style.color = "#303030";
+      }
+ 
       inp.value = "";
 
       if (e === "query" || e.currentTarget.classList.contains("query")) {
