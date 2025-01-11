@@ -1530,6 +1530,8 @@
     function openSearch(v) {
       event.stopPropagation();
 
+      console.log(v);
+
       if (!videoInfoOpen) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
