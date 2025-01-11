@@ -794,7 +794,7 @@ p.durationDiv {
 }
 
 .wrapper.search input {
-    width: calc(100% - 2.4rem - calc(env(safe-area-inset-right)));
+    width: calc(100% - 2.4rem);
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     padding-left: 1rem;
