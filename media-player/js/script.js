@@ -1548,6 +1548,13 @@
       const searchWrapper = document.querySelector("#infoContainer .wrapper.search");
       searchWrapper.style.display = "block";
 
+      const allSearchPathBtn = document.querySelectorAll("#infoContainer .wrapper.search .resBtn");
+      // Remove 'active' class from all elements
+      allSearchPathBtn.forEach(btn => btn.classList.remove('active'));
+
+      const searchPathBtn = document.querySelector("#infoContainer .wrapper.search ." + searchPath); 
+      searchPathBtn.classList.add("active");
+
       setTimeout(function() {
         inp.focus();
       }, 100);
