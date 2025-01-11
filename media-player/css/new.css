@@ -817,3 +817,8 @@ select {
     display: flex;
     margin-bottom: 0.5rem;
 }
+
+.searchOptions p {
+    padding: 0;
+    margin-bottom: 0.5rem;
+}

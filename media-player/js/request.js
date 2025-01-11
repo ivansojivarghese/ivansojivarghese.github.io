@@ -2,6 +2,8 @@
     var videoURL = "";
 
     var inp = document.getElementById('urlBar');
+
+    const searchOptions = document.querySelector(".searchOptions");
 /*
     inp.addEventListener('select', function() {
       this.selectionStart = this.selectionEnd;
@@ -264,6 +266,8 @@
       if (e.currentTarget.classList.contains("query")) {
         searchPath = "query";
 
+        searchOptions.style.display = "none";
+
         urlSearchBtn.classList.remove("active");
         querySearchBtn.classList.add("active");
 
@@ -271,6 +275,8 @@
         inp.focus();
       } else {
         searchPath = "url";
+
+        searchOptions.style.display = "block";
 
         querySearchBtn.classList.remove("active");
         urlSearchBtn.classList.add("active");
