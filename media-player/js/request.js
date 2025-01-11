@@ -298,5 +298,7 @@
         } else {
           inp.style.color = "#303030";
         }
+      } else {
+        inp.style.color = "#303030";
       }
     });
