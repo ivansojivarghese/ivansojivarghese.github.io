@@ -561,7 +561,7 @@ a.noUnderline {
 
 @media screen and (orientation: landscape) {
     #infoContainer {
-        width: 21rem;
+        width: calc(21rem + calc(env(safe-area-inset-left)) + calc(env(safe-area-inset-right)));
     }
 }
 
@@ -600,6 +600,8 @@ a.noUnderline {
     justify-content: space-evenly;
     padding-top: 1.75rem;
     padding-bottom: 1rem;
+    padding-right: calc(env(safe-area-inset-right));
+    padding-left: calc(env(safe-area-inset-left));
 }
 
 #infoContainer .head .cursor {
