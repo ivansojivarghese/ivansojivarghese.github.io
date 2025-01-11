@@ -287,14 +287,16 @@
     }
 
     inp.addEventListener('input', () => {
-      const text = inp.value;
+      if (searchPath === "query") {
+        const text = inp.value;
 
-      // Detect hashtags using a regex and wrap them in a span
-      const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#[\p{L}\p{N}_]+)/gu;
-    
-      if (text.match(hashtagRegex)) {
-        inp.style.color = "#0073e6";
-      } else {
-        inp.style.color = "#303030";
+        // Detect hashtags using a regex and wrap them in a span
+        const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#[\p{L}\p{N}_]+)/gu;
+      
+        if (text.match(hashtagRegex)) {
+          inp.style.color = "#0073e6";
+        } else {
+          inp.style.color = "#303030";
+        }
       }
     });

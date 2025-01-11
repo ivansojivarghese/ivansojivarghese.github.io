@@ -2407,7 +2407,7 @@ function abstractVideoInfo() {
     
     // Replace hashtags with a span for styling or interactivity
     return text.replace(hashtagRegex, (hashtag) => {
-      return `<a onclick="openSearch(${hashtag})" class="trs hashtag">${hashtag}</a>`;
+      return `<a onclick="openSearch('${hashtag}')" class="trs hashtag">${hashtag}</a>`;
     });
   }
 
