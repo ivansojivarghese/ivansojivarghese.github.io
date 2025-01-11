@@ -255,9 +255,19 @@
     });*/
 
     var searchPath = "url";
+    const urlSearchBtn = document.querySelector(".resBtn.url");
+    const querySearchBtn = document.querySelector(".resBtn.query");
 
     function setSearchPath(e) {
-      if (e) {
-        
+      if (e.currentTarget.classList.contains("query")) {
+        searchPath = "query";
+
+        urlSearchBtn.classList.remove("active");
+        querySearchBtn.classList.add("active");
+      } else {
+        searchPath = "url";
+
+        querySearchBtn.classList.remove("active");
+        urlSearchBtn.classList.add("active");
       }
     }
