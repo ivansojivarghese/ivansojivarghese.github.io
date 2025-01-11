@@ -540,7 +540,25 @@
                 </div>
               </div>
               <input class="" type="url" id="urlBar" placeholder="" name="">
-              <div class="searchOptions"></div>
+              <div class="searchOptions">
+                <select id="searchType">
+                  <option value="video">Video</option>
+                  <option value="playlist">Playlist</option>
+                </select>
+                <select id="searchUpload">
+                  <option value="today">Today</option>
+                  <option value="hour">Hour</option>
+                  <option value="week">Week</option>
+                  <option value="month">Month</option>
+                  <option value="year">Year</option>
+                </select>
+                <select id="searchSort">
+                  <option value="relevance">Relevance</option>
+                  <option value="rating">Rating</option>
+                  <option value="date">Date</option>
+                  <option value="views">Views</option>
+                </select>
+              </div>
               <input id="urlSubmit" class="resBtn trs" type="submit" onclick="getURL()">
             </div>
             <div class="wrapper info">
