@@ -2380,6 +2380,7 @@ function abstractVideoInfo() {
       d.addEventListener("click", function(event) {
         // ADD CODE TO DIRECTLY PERFORM A SEARCH BASED ON KEYWORD(S)
 
+        openSearch(p.innerHTML);
       });
 
       d.appendChild(p);
@@ -2406,7 +2407,7 @@ function abstractVideoInfo() {
     
     // Replace hashtags with a span for styling or interactivity
     return text.replace(hashtagRegex, (hashtag) => {
-      return `<a onclick="" class="trs hashtag">${hashtag}</a>`;
+      return `<a onclick="openSearch(${hashtag})" class="trs hashtag">${hashtag}</a>`;
     });
   }
 

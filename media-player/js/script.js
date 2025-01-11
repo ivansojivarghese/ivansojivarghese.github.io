@@ -1527,7 +1527,7 @@
     var videoInfoOpen = false;
     var mainContent = document.querySelector("div.content");
 
-    function openSearch() {
+    function openSearch(v) {
       event.stopPropagation();
 
       if (!videoInfoOpen) {
