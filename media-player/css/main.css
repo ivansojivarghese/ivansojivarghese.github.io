@@ -564,11 +564,11 @@ input.upload {
   margin-bottom: 0.5rem;
 }
 
-#urlInput input {
+input {
   user-select: none;
 }
 
-#urlInput input[type="url"] {
+input[type="url"] {
   height: 1.5rem;
   font-size: 1.2rem;
   font-family: 'Poppins', sans-serif;
@@ -579,13 +579,13 @@ input.upload {
   margin-bottom: 1rem;
 }
 
-#urlInput input[type="url"]:focus-visible {
+input[type="url"]:focus-visible {
   outline: none;
   /*color: #FFF;
   background-color: #A10000;*/
 }
 
-#urlInput input[type="submit"] {
+input[type="submit"] {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   border-radius: 0.5rem;
@@ -671,7 +671,7 @@ input {
     cursor: pointer;
   }
   
-  #urlInput input[type="submit"] {
+  input[type="submit"] {
      cursor: pointer; 
   }
 /*

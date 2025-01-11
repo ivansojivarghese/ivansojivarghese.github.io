@@ -776,3 +776,12 @@ p.durationDiv {
 .description p {
     line-height: 1.75em;
 }
+
+.wrapper.search .searchPath {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.wrapper.search .searchPath .resBtn {
+    height: 1rem;
+}
