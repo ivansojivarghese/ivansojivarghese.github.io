@@ -1526,8 +1526,14 @@
       // Remove 'active' class from all elements
       allBtn.forEach(btn => btn.classList.remove('active'));
 
-      const infoBtn = document.querySelector("#infoContainer .head .infoBtn");
-      infoBtn.classList.add("active");
+      const wrappers = document.querySelector("#infoContainer .wrapper");
+      wrappers.forEach(wrapper => wrapper.style.display = "");
+
+      const searchBtn = document.querySelector("#infoContainer .head .searchBtn");
+      searchBtn.classList.add("active");
+
+      const searchWrapper = document.querySelector("#infoContainer .wrapper.search");
+      searchWrapper.style.display = "block";
     }
 
     function openVideoInfo() {
