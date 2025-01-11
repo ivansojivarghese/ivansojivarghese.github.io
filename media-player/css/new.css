@@ -363,6 +363,10 @@ a.noUnderline {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/settings.svg");
 }
 
+#searchButton .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/search.svg");
+}
+
 #fullscreenButton .img {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/fullscreen.svg");
 }
@@ -793,4 +797,10 @@ p.durationDiv {
     padding-left: 1rem;
     margin-top: 0.5rem;
     color: #303030;
+}
+
+.wrapper.search input[type="submit"] {
+    color: #FFF;
+    width: 6rem;
+    padding: 0;
 }
