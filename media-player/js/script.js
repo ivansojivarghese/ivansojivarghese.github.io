@@ -478,11 +478,11 @@
       if (videoContainer.requestFullscreen) {
         videoContainer.requestFullscreen({ navigationUI: "hide" }).catch((err) => {
           // fullscreenButton.children[0].classList.remove("exit");
-          searchButton.style.display = "block";
+          // searchButton.style.display = "block";
           return;
         });
         // fullscreenButton.children[0].classList.add("exit");
-        searchButton.style.display = "none";
+        // searchButton.style.display = "none";
       } else {
         video.webkitEnterFullscreen();
       }
@@ -526,7 +526,7 @@
             window.removeEventListener('deviceorientation', onDeviceOrientationChange);
             if (!document.fullscreenElement) {
               // fullscreenButton.children[0].classList.remove("exit");
-              searchButton.style.display = "block";
+              // searchButton.style.display = "block";
             }
           }
         }
@@ -1027,7 +1027,7 @@
     document.addEventListener('fullscreenchange', function() {
       if (!document.fullscreenElement) {
         // fullscreenButton.children[0].classList.remove("exit");
-        searchButton.style.display = "block";
+        // searchButton.style.display = "block";
         // show PIP
         if (!((window.innerWidth < 500 && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) || (window.innerHeight < 500 && (screen.orientation.angle === 90 || screen.orientation.angle === 270)))) {
           pipButton.style.display = "block";
@@ -1045,15 +1045,15 @@
           requestFullscreenVideo();
           lockScreenInLandscape();
           // fullscreenButton.children[0].classList.add("exit");
-          searchButton.style.display = "none";
+          // searchButton.style.display = "none";
         } else if (((evt.code == 122 && op.sys === "Windows") || (evt.code == 70 && evt.metaKey && evt.ctrlKey)) && document.fullscreenElement && (op.sys === "MacOS" || op.sys === "iOS")) { // F11 for Windows or Ctrl+Cmd+F for Mac
           // fullscreenButton.children[0].classList.remove("exit");
-          searchButton.style.display = "block";
+          // searchButton.style.display = "block";
         }
 
         if (evt.code == 27 && document.fullscreenElement) { // esc.
           // fullscreenButton.children[0].classList.remove("exit");
-          searchButton.style.display = "block";
+          // searchButton.style.display = "block";
         }
       }
   };
@@ -1076,11 +1076,11 @@
         requestFullscreenVideo();
         lockScreenInLandscape();
         // fullscreenButton.children[0].classList.add("exit");
-        searchButton.style.display = "none";
+        // searchButton.style.display = "none";
       } else {
         document.exitFullscreen();
         // fullscreenButton.children[0].classList.remove("exit");
-        searchButton.style.display = "block";
+        // searchButton.style.display = "block";
       }
 
       dblclick = true;
@@ -1736,7 +1736,7 @@
         requestFullscreenVideo();
         lockScreenInLandscape();
         // fullscreenButton.children[0].classList.add("exit");
-        searchButton.style.display = "none";
+        // searchButton.style.display = "none";
 
         if (videoInfoOpen) {
           document.exitPictureInPicture().then(function() {
@@ -1755,7 +1755,7 @@
         video.style.objectFit = "";
         video.classList.remove("cover");
         // fullscreenButton.children[0].classList.remove("exit");
-        searchButton.style.display = "block";
+        // searchButton.style.display = "block";
 
         if (videoInfoOpen) {
           if (!videoEnd && !video.paused && !isMusic) {
