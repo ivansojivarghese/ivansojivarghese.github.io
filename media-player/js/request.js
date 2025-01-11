@@ -203,6 +203,8 @@
         wrapURL.style.display = "";
         wrap.style.display = "";
         inp.value = "";
+
+        closeVideoInfo();
           
       } else {
         
