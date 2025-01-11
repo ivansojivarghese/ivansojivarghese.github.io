@@ -266,7 +266,7 @@
       if (e.currentTarget.classList.contains("query")) {
         searchPath = "query";
 
-        searchOptions.style.display = "none";
+        searchOptions.style.display = "block";
 
         urlSearchBtn.classList.remove("active");
         querySearchBtn.classList.add("active");
@@ -276,7 +276,7 @@
       } else {
         searchPath = "url";
 
-        searchOptions.style.display = "block";
+        searchOptions.style.display = "none";
 
         querySearchBtn.classList.remove("active");
         urlSearchBtn.classList.add("active");
