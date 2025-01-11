@@ -593,6 +593,8 @@ input[type="submit"] {
   background-color: #A10000;
   color: #FFF;
   padding: 0.5rem 1rem;
+  width: 6rem;
+  height: 2.5rem;
 }
 
 /*

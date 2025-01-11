@@ -2,10 +2,10 @@
     var videoURL = "";
 
     var inp = document.getElementById('urlBar');
-
+/*
     inp.addEventListener('select', function() {
       this.selectionStart = this.selectionEnd;
-    }, false);
+    }, false);*/
     
     function getURL(u) {
       if (inp.value !== "" || u) {
