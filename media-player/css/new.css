@@ -801,6 +801,7 @@ p.durationDiv {
     margin-top: 0.5rem;
     color: #303030;
     background-color: #F6F6F6;
+    font-weight: bold;
 }
 
 .wrapper.search input[type="submit"] {
