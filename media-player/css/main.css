@@ -310,7 +310,7 @@ ul {
     margin-left: 1.5em
 }
 
-h1,h2,h3,h4.revert,h5,h6,p,ul {
+h1,h2,h3,h4.revert,h5,h6,p,ul, select {
     font-family: Poppins,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
