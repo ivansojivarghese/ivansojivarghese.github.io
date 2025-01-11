@@ -253,3 +253,11 @@
         event.preventDefault();
       }
     });*/
+
+    var searchPath = "url";
+
+    function setSearchPath(e) {
+      if (e) {
+        
+      }
+    }
