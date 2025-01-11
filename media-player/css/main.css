@@ -568,7 +568,7 @@ input {
   user-select: none;
 }
 
-input[type="url"] {
+input {
   height: 1.5rem;
   font-size: 1.2rem;
   font-family: 'Poppins', sans-serif;
@@ -579,7 +579,7 @@ input[type="url"] {
   margin-bottom: 1rem;
 }
 
-input[type="url"]:focus-visible {
+input:focus-visible {
   outline: none;
   /*color: #FFF;
   background-color: #A10000;*/
