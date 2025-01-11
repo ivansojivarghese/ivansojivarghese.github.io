@@ -1555,7 +1555,7 @@
           inp.style.color = "#303030";
         }
 
-        searchPath = "query";
+        setSearchPath("query");
 
         inp.value = v;
 

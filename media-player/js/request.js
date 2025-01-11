@@ -263,7 +263,7 @@
     const querySearchBtn = document.querySelector(".resBtn.query");
 
     function setSearchPath(e) {
-      if (e.currentTarget.classList.contains("query")) {
+      if (e.currentTarget.classList.contains("query") || e === "query") {
         searchPath = "query";
 
         searchOptions.style.display = "block";
@@ -272,7 +272,9 @@
         querySearchBtn.classList.add("active");
 
         inp.type = "text";
-        inp.focus();
+        if (e !== "query") {
+          inp.focus();
+        }
       } else {
         searchPath = "url";
 
