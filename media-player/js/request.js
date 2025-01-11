@@ -264,10 +264,14 @@
 
         urlSearchBtn.classList.remove("active");
         querySearchBtn.classList.add("active");
+
+        inp.type = "text";
       } else {
         searchPath = "url";
 
         querySearchBtn.classList.remove("active");
         urlSearchBtn.classList.add("active");
+
+        inp.type = "url";
       }
     }
