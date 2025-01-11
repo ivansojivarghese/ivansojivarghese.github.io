@@ -806,6 +806,7 @@ p.durationDiv {
     color: #FFF;
     width: 6rem;
     padding: 0;
+    margin-top: 1rem;
 }
 
 select {
