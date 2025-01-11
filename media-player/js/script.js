@@ -1519,6 +1519,10 @@
     var videoInfoOpen = false;
     var mainContent = document.querySelector("div.content");
 
+    function openSearch() {
+      
+    }
+
     function openVideoInfo() {
       event.stopPropagation();
 
