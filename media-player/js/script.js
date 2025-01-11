@@ -1530,8 +1530,6 @@
     function openSearch(v) {
       event.stopPropagation();
 
-      console.log(v);
-
       if (!videoInfoOpen) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
@@ -1557,9 +1555,16 @@
       const searchPathBtn = document.querySelector("#infoContainer .wrapper.search ." + searchPath); 
       searchPathBtn.classList.add("active");
 
-      setTimeout(function() {
-        inp.focus();
-      }, 100);
+      if (v) {
+        inp.value = v;
+
+        // search URL or perform a query
+        
+      } else {
+        setTimeout(function() {
+          inp.focus();
+        }, 100);
+      }
     }
 
     function openVideoInfo() {

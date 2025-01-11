@@ -2380,7 +2380,7 @@ function abstractVideoInfo() {
       d.addEventListener("click", function(event) {
         // ADD CODE TO DIRECTLY PERFORM A SEARCH BASED ON KEYWORD(S)
 
-        openSearch(p.innerHTML);
+        openSearch(event.currentTarget.children[0].innerHTML);
       });
 
       d.appendChild(p);
