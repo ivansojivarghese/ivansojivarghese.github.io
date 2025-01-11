@@ -1520,11 +1520,22 @@
     var mainContent = document.querySelector("div.content");
 
     function openSearch() {
-      
+      event.stopPropagation();
+
+      const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
+      // Remove 'active' class from all elements
+      allBtn.forEach(btn => btn.classList.remove('active'));
+
+      const infoBtn = document.querySelector("#infoContainer .head .infoBtn");
+      infoBtn.classList.add("active");
     }
 
     function openVideoInfo() {
       event.stopPropagation();
+
+      const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
+      // Remove 'active' class from all elements
+      allBtn.forEach(btn => btn.classList.remove('active'));
 
       const infoBtn = document.querySelector("#infoContainer .head .infoBtn");
       infoBtn.classList.add("active");
