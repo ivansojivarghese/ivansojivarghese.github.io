@@ -790,6 +790,10 @@ p.durationDiv {
     height: 1rem;
 }
 
+.wrapper.search .searchPath .resBtn p {
+    line-height: 1rem;
+}
+
 .wrapper.search input {
     width: calc(100% - 2.4rem - calc(env(safe-area-inset-right)));
     padding-top: 0.75rem;
