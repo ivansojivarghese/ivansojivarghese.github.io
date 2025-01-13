@@ -12,6 +12,7 @@
         querySort = document.querySelector("#searchSort");
 
     var searchResults;
+
 /*
     inp.addEventListener('select', function() {
       this.selectionStart = this.selectionEnd;
@@ -287,8 +288,26 @@
         const response = await fetch(url, options);
         searchResults = await response.json();
         console.log(searchResults);
+
+        displaySearchResults();
+
       } catch (error) {
         console.error(error);
+      }
+    }
+
+    function displaySearchResults() {
+      var data = searchResults.data;
+
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].type === "video" || data[i].type === "playlist") {
+
+          var main = document.createElement("div");
+
+          
+          
+          videoInfoElm.results.appendChild(main);
+        }
       }
     }
     

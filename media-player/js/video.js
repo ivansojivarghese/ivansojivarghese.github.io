@@ -25,7 +25,9 @@ var videoInfoElm = {
   otherRes : document.querySelector("#infoContainer div.otherRes"),
 
   keywords : document.querySelector("#infoContainer div.keywords"),
-  description : document.querySelector("#infoContainer div.description p")
+  description : document.querySelector("#infoContainer div.description p"),
+
+  results : document.querySelector("#infoContainer div.wrapper.search div.results")
 };
     
 var videoDetails;
