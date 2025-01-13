@@ -13,7 +13,7 @@
     
     function getURL(u) {
 
-      if ((inp.value !== "" && pattern.test(inp.value)) || (u)) {
+      if ((inp.value !== "" && (pattern.test(inp.value) || searchPath === "query")) || (u)) {
 
         var wrapURL = document.querySelector("#urlInput");
         var wrap = document.querySelector("#settingsOptions");
@@ -209,7 +209,9 @@
         wrap.style.display = "";
         inp.value = "";
 
-        closeVideoInfo();
+        if (searchPath === "url") {
+          closeVideoInfo();
+        }
           
       } else {
         
@@ -248,7 +250,7 @@
     
     document.addEventListener("keypress", function(event) {
       if (event.key === "Enter" && inp.value && videoInfoOpen) {
-        if (pattern.test(inp.value)) {
+        if (pattern.test(inp.value) || searchPath === "query") {
           document.getElementById("urlSubmit").click();
           closeWrap(event, 'webupload');
           closeWrap(event, 'settings');
