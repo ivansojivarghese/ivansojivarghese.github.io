@@ -810,7 +810,7 @@ p.durationDiv {
     padding: 0;
     margin-top: 1rem;
     background-color: #A10000 !important;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 select {
@@ -830,4 +830,12 @@ select:focus-visible {
 .searchOptions p {
     padding: 0;
     margin-bottom: 0.5rem;
+}
+
+div.results div.result_wrapper {
+    width: 100%;
+}
+
+div.result_wrapper div.badges_row {
+    display: flex;
 }

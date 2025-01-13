@@ -303,9 +303,24 @@
         if (data[i].type === "video" || data[i].type === "playlist") {
 
           var main = document.createElement("div");
+          main.classList.add("result_wrapper");
+
+          var badgesRow = document.createElement("div");
+          badgesRow.classList.add("badges_row");
+          for (var j = 0; j < data[i].badges.length; j++) {
+            var badge = document.createElement("div");
+            badge.classList.add("badge");
+
+            var badge_text = document.createElement("p");
+            badge_text.innerHTML = data[i].badges[j];
+
+            badge.appendChild(badge_text);
+            badgesRow.appendChild(badge);
+          }
 
           
-          
+
+          main.appendChild(badgesRow);
           videoInfoElm.results.appendChild(main);
         }
       }
