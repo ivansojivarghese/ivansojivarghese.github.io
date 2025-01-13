@@ -304,7 +304,9 @@
 
           var main = document.createElement("div");
           main.classList.add("result_wrapper", "trs", "cursor", "trsButtons", "noimg");
-          main.setAttribute("data-url", "https://www.youtube.com/watch?v=" + data[i].videoId);
+          if (data[i].type === "video") {
+            main.setAttribute("data-url", "https://www.youtube.com/watch?v=" + data[i].videoId);
+          }
           main.onclick = function(event) {
             getURL(event.currentTarget.setAttribute("data-url"));
           };
