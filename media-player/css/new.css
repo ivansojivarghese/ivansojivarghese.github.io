@@ -237,14 +237,14 @@ google-cast-launcher.disabled, .disabled {
     text-decoration: underline;
 }
 
-#videoInfo h5, #videoInfo p {
+#videoInfo h5, #videoInfo p, .overflow {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0;
 }
 
-#videoInfo h5, #infoContainer h5 {
+#videoInfo h5, #infoContainer h5, .resultTitle {
     font-size: 1.5rem;
     font-weight: bold;
     padding-bottom: 0.4em;
@@ -659,7 +659,7 @@ a.noUnderline {
     line-height: 1.5em;
 }
 
-#infoContainer p.channelTitle {
+#infoContainer p.channelTitle, .resultChannelTitle {
     padding: 0;
     padding-bottom: 0.2em;
     line-height: 1.25em;
@@ -842,4 +842,11 @@ div.result_wrapper div.badges_row {
 
 div.badge {
     height: 1rem;
+}
+
+div.thumbnail {
+    height: 10rem;
+    border-radius: 0.5rem;
+    background-position: center;
+    margin-bottom: 1rem;
 }

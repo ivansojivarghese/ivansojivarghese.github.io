@@ -321,10 +321,21 @@
           }
 
           var thumbnail = document.createElement("div");
-          thumbnail.style.backgroundImage = "url('" + data[i].thumbnail[data[i].thumbnail.length - 1] + "')";
+          thumbnail.classList.add("thumbnail");
+          thumbnail.style.backgroundImage = "url('" + data[i].thumbnail[data[i].thumbnail.length - 1].url + "')";
+
+          var title = document.createElement("h5");
+          title.innerHTML = data[i].title;
+          title.classList.add("overflow", "resultTitle");
+
+          var channelTitle = document.createElement("p");
+          channelTitle.innerHTML = data[i].channelTitle;
+          channelTitle.classList.add("overflow", "resultChannelTitle");
 
           main.appendChild(badgesRow);
           main.appendChild(thumbnail);
+          main.appendChild(title);
+          main.appendChild(channelTitle);
           videoInfoElm.results.appendChild(main);
         }
       }
