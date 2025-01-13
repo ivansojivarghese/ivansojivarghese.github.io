@@ -310,7 +310,7 @@
             badgesRow.classList.add("badges_row");
             for (var j = 0; j < data[i].badges.length; j++) {
               var badge = document.createElement("div");
-              badge.classList.add("badge");
+              badge.classList.add("badge", "otherResBtn", "resBtn", "trs");
 
               var badge_text = document.createElement("p");
               badge_text.innerHTML = data[i].badges[j];

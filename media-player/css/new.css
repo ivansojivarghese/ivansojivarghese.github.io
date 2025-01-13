@@ -839,3 +839,7 @@ div.results div.result_wrapper {
 div.result_wrapper div.badges_row {
     display: flex;
 }
+
+div.badge {
+    height: 1rem;
+}
