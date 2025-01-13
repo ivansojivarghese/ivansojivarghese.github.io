@@ -305,7 +305,7 @@
           var main = document.createElement("div");
           main.classList.add("result_wrapper");
 
-          if (data[i].badges.length) {
+          if (data[i].badges && data[i].badges.length) {
             var badgesRow = document.createElement("div");
             badgesRow.classList.add("badges_row");
             for (var j = 0; j < data[i].badges.length; j++) {
