@@ -299,6 +299,11 @@
     function displaySearchResults() {
       var data = searchResults.data;
 
+      var res = document.querySelectorAll(".result_wrapper");
+      if (res.length) {
+        res.remove();
+      }
+
       for (var i = 0; i < data.length; i++) {
         if (data[i].type === "video" || data[i].type === "playlist") {
 
