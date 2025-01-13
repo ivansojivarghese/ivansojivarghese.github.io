@@ -255,7 +255,7 @@
         }
       } else {
 
-
+        searchQuery(inp.value);
       }
     }
     
