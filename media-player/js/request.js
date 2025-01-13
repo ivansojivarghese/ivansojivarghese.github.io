@@ -312,6 +312,7 @@
             // FOR PLAYLISTS
           }
           main.onclick = function(event) {
+            searchPath = "url";
             getURL(event.currentTarget.getAttribute("data-url"));
           };
 
