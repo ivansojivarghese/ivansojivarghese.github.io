@@ -1563,6 +1563,8 @@
 
         // perform a query
 
+        searchQuery(v);
+
       } else {
         setTimeout(function() {
           inp.focus();
