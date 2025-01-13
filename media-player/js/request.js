@@ -263,8 +263,8 @@
       if (event.key === "Enter" && inp.value && videoInfoOpen) {
         if (pattern.test(inp.value) || searchPath === "query") {
           document.getElementById("urlSubmit").click();
-          closeWrap(event, 'webupload');
-          closeWrap(event, 'settings');
+          // closeWrap(event, 'webupload');
+          // closeWrap(event, 'settings');
           event.preventDefault();
         } else {
 
