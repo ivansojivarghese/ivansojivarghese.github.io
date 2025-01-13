@@ -18,10 +18,10 @@
       this.selectionStart = this.selectionEnd;
     }, false);*/
     
-    function getURL(u) {
+    function getURL(u, m) {
 
-      if (searchPath === "url") {
-        if ((inp.value !== "" && (pattern.test(inp.value) && searchPath === "url")) || (u)) {
+      if (searchPath === "url" || m) {
+        if ((inp.value !== "" && (pattern.test(inp.value) && searchPath === "url")) || u || m) {
 
           var wrapURL = document.querySelector("#urlInput");
           var wrap = document.querySelector("#settingsOptions");
@@ -312,8 +312,7 @@
             // FOR PLAYLISTS
           }
           main.onclick = function(event) {
-            searchPath = "url";
-            getURL(event.currentTarget.getAttribute("data-url"));
+            getURL(event.currentTarget.getAttribute("data-url"), true);
           };
 
           if (data[i].badges && data[i].badges.length) {
