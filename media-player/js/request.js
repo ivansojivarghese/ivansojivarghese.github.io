@@ -305,17 +305,19 @@
           var main = document.createElement("div");
           main.classList.add("result_wrapper");
 
-          var badgesRow = document.createElement("div");
-          badgesRow.classList.add("badges_row");
-          for (var j = 0; j < data[i].badges.length; j++) {
-            var badge = document.createElement("div");
-            badge.classList.add("badge");
+          if (data[i].badges.length) {
+            var badgesRow = document.createElement("div");
+            badgesRow.classList.add("badges_row");
+            for (var j = 0; j < data[i].badges.length; j++) {
+              var badge = document.createElement("div");
+              badge.classList.add("badge");
 
-            var badge_text = document.createElement("p");
-            badge_text.innerHTML = data[i].badges[j];
+              var badge_text = document.createElement("p");
+              badge_text.innerHTML = data[i].badges[j];
 
-            badge.appendChild(badge_text);
-            badgesRow.appendChild(badge);
+              badge.appendChild(badge_text);
+              badgesRow.appendChild(badge);
+            }
           }
 
           var thumbnail = document.createElement("div");
