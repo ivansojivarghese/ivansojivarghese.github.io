@@ -4,13 +4,16 @@
     var inp = document.getElementById('urlBar');
 
     const searchOptions = document.querySelector(".searchOptions");
+
+    const pattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)(\/.*)?$/;
 /*
     inp.addEventListener('select', function() {
       this.selectionStart = this.selectionEnd;
     }, false);*/
     
     function getURL(u) {
-      if (inp.value !== "" || u) {
+
+      if ((inp.value !== "" && pattern.test(inp.value)) || (u)) {
 
         var wrapURL = document.querySelector("#urlInput");
         var wrap = document.querySelector("#settingsOptions");
@@ -237,15 +240,23 @@
       }
       
       // document.getElementById("urlSubmit").click();
+      } else {
+
+        // ERROR
       }
     }
     
     document.addEventListener("keypress", function(event) {
-      if (event.key === "Enter" && inp.value) {
-        document.getElementById("urlSubmit").click();
-        closeWrap(event, 'webupload');
-        closeWrap(event, 'settings');
-        event.preventDefault();
+      if (event.key === "Enter" && inp.value && videoInfoOpen) {
+        if (pattern.test(inp.value)) {
+          document.getElementById("urlSubmit").click();
+          closeWrap(event, 'webupload');
+          closeWrap(event, 'settings');
+          event.preventDefault();
+        } else {
+
+          // ERROR
+        }
       }
     });
     
