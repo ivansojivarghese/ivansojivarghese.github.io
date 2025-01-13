@@ -834,6 +834,7 @@ select:focus-visible {
 
 div.results div.result_wrapper {
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 div.result_wrapper div.badges_row {

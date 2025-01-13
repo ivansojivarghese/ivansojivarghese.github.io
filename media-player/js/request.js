@@ -306,6 +306,9 @@
           main.classList.add("result_wrapper", "trs", "cursor", "trsButtons", "noimg");
           if (data[i].type === "video") {
             main.setAttribute("data-url", "https://www.youtube.com/watch?v=" + data[i].videoId);
+          } else {
+
+            // FOR PLAYLISTS
           }
           main.onclick = function(event) {
             getURL(event.currentTarget.setAttribute("data-url"));
@@ -338,10 +341,19 @@
           channelTitle.innerHTML = data[i].channelTitle;
           channelTitle.classList.add("overflow", "resultChannelTitle");
 
+          var duration = document.createElement("p");
+          duration.innerHTML = data[i].lengthText;
+
+          var date = document.createElement("p");
+          date.innerHTML = data[i].publishedTimeText;
+
           main.appendChild(badgesRow);
           main.appendChild(thumbnail);
           main.appendChild(title);
           main.appendChild(channelTitle);
+          main.appendChild(duration);
+          main.appendChild(date);
+
           videoInfoElm.results.appendChild(main);
         }
       }
