@@ -304,6 +304,7 @@
 
           var main = document.createElement("div");
           main.classList.add("result_wrapper", "trs", "cursor", "trsButtons", "noimg");
+          main.title = data[i].title;
           if (data[i].type === "video") {
             main.setAttribute("data-url", "https://www.youtube.com/watch?v=" + data[i].videoId);
           } else {
@@ -311,7 +312,7 @@
             // FOR PLAYLISTS
           }
           main.onclick = function(event) {
-            getURL(event.currentTarget.setAttribute("data-url"));
+            getURL(event.currentTarget.getAttribute("data-url"));
           };
 
           if (data[i].badges && data[i].badges.length) {
@@ -343,16 +344,23 @@
 
           var duration = document.createElement("p");
           duration.innerHTML = data[i].lengthText;
+          duration.classList.add("resultDuration");
 
           var date = document.createElement("p");
           date.innerHTML = data[i].publishedTimeText;
+          date.classList.add("resultDate");
+
+          var textDiv = document.createElement("div");
+          textDiv.classList.add("resultText");
 
           main.appendChild(badgesRow);
           main.appendChild(thumbnail);
           main.appendChild(title);
           main.appendChild(channelTitle);
-          main.appendChild(duration);
-          main.appendChild(date);
+
+          textDiv.appendChild(duration);
+          textDiv.appendChild(date);
+          main.appendChild(textDiv);
 
           videoInfoElm.results.appendChild(main);
         }

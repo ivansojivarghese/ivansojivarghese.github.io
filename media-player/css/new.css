@@ -841,7 +841,7 @@ div.result_wrapper div.badges_row {
     display: flex;
 }
 
-div.badge {
+div.badge, div.resultText {
     height: 1rem;
 }
 
@@ -858,4 +858,16 @@ div.thumbnail {
 
 .resultChannelTitle {
     font-size: 1rem;
+}
+
+.wrapper.search .resultDuration, .wrapper.search .resultDate {
+    font-size: 1rem;
+}
+
+.wrapper.search .resultDuration {
+    float: left;
+}
+
+.wrapper.search .resultDate {
+    float: right;
 }
