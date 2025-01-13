@@ -321,7 +321,7 @@
           }
 
           var thumbnail = document.createElement("div");
-          thumbnail.style.backgroundImage = "url(" + data[i].thumbnail[data[i].thumbnail.length - 1] + ")";
+          thumbnail.style.backgroundImage = "url('" + data[i].thumbnail[data[i].thumbnail.length - 1] + "')";
 
           main.appendChild(badgesRow);
           main.appendChild(thumbnail);
