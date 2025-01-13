@@ -301,7 +301,9 @@
 
       var res = document.querySelectorAll(".result_wrapper");
       if (res.length) {
-        res.remove();
+        res.forEach((element) => {
+          element.remove();
+        });
       }
 
       for (var i = 0; i < data.length; i++) {
