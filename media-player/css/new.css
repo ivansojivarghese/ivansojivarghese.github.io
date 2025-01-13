@@ -850,3 +850,11 @@ div.thumbnail {
     background-position: center;
     margin-bottom: 1rem;
 }
+
+.resultTitle {
+    font-size: 1.2rem;
+}
+
+.resultChannelTitle {
+    font-size: 1rem;
+}

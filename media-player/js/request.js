@@ -303,7 +303,11 @@
         if (data[i].type === "video" || data[i].type === "playlist") {
 
           var main = document.createElement("div");
-          main.classList.add("result_wrapper");
+          main.classList.add("result_wrapper", "trs", "cursor", "trsButtons", "noimg");
+          main.setAttribute("data-url", "https://www.youtube.com/watch?v=" + data[i].videoId);
+          main.onclick = function(event) {
+            getURL(event.currentTarget.setAttribute("data-url"));
+          };
 
           if (data[i].badges && data[i].badges.length) {
             var badgesRow = document.createElement("div");
@@ -321,7 +325,7 @@
           }
 
           var thumbnail = document.createElement("div");
-          thumbnail.classList.add("thumbnail");
+          thumbnail.classList.add("thumbnail", "img");
           thumbnail.style.backgroundImage = "url('" + data[i].thumbnail[data[i].thumbnail.length - 1].url + "')";
 
           var title = document.createElement("h5");
