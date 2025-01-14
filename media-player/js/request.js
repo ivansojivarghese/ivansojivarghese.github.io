@@ -360,7 +360,9 @@
           var textDiv = document.createElement("div");
           textDiv.classList.add("resultText");
 
-          main.appendChild(badgesRow);
+          if (badgesRow) {
+            main.appendChild(badgesRow);
+          }
           main.appendChild(thumbnail);
           main.appendChild(title);
           main.appendChild(channelTitle);

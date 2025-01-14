@@ -866,6 +866,7 @@ div.thumbnail {
 
 .wrapper.search .resultDuration {
     float: left;
+    letter-spacing: 0.1rem;
 }
 
 .wrapper.search .resultDate {
