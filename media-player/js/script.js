@@ -596,11 +596,18 @@
       }
     }
 
+    var autoInfoClose = false;
+
     video.addEventListener('play', function () {
 
       if (videoPlay) {
 
         // videoSec.currentTime = video.currentTime;
+
+        if (autoInfoClose) {
+          closeVideoInfo();
+          autoInfoClose = false;
+        }
 
         video.style.transitionDuration = "3s";
         video.style.background = "";

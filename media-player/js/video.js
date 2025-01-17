@@ -428,7 +428,7 @@ function videoReset() {
     videoStreamScore = 0;
 }
 
-async function getParams(id, time) {
+async function getParams(id, time, a, b) {
 
   if (!networkError) {
 
@@ -444,7 +444,9 @@ async function getParams(id, time) {
       autoLoad = true;
     } else {
 
-      resetVideoInfo();
+      if (!videoErr && !audioErr) {
+        resetVideoInfo();
+      }
 
       autoLoad = false;
     }
@@ -917,7 +919,7 @@ async function getParams(id, time) {
               */
               //////////////////
 
-              getOptimalVideo(time);
+              getOptimalVideo(time, a, b);
             }
           }, 10);
         }
@@ -1457,7 +1459,7 @@ function generateSimpleGradient(primaryColor) {
   return `linear-gradient(0deg, rgb(0, 0, 0), ${primaryColorString} 50%, rgb(0, 0, 0))`;
 }
 
-function getOptimalVideo(time) {
+function getOptimalVideo(time, a, b) {
 
   // IDENTIFY VIDEO AND AUDIO SOURCES IN THE FETCH ARRAY RESULT
 
@@ -1617,6 +1619,12 @@ function getOptimalVideo(time) {
 
           castVideoWithAudio(videoDetails.formats["0"].url, diffVideo);
 
+        }
+
+        if ((a || b === "url") && !videoErr && !audioErr) {
+          autoInfoClose = true;
+        } else {
+          autoInfoClose = false;
         }
 
       }, 100);

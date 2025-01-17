@@ -231,7 +231,7 @@
                   videoLoadLoop = null;
 
                   // if (failTimes < maxFailTimes) {
-                    getParams(videoID, timestamp);
+                    getParams(videoID, timestamp, u, searchPath);
                   // }
                 }
 
