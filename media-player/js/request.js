@@ -54,7 +54,7 @@
 
           var wrapURL = document.querySelector("#urlInput");
           var wrap = document.querySelector("#settingsOptions");
-          var contents = inp.value || u;
+          var contents = u || inp.value;
 
           if (u) {
             closeVideoInfo();
