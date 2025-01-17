@@ -1588,13 +1588,6 @@ function getOptimalVideo(time, a, b) {
           // TODO: Update playback state.
         }
 
-        // videoInfo
-        videoInfoElm.title.innerHTML = videoDetails.title;
-        videoInfoElm.channelTitle.innerHTML = videoDetails.channelTitle;
-
-        // abstract other info
-        abstractVideoInfo();
-
         // videoInfoElm.main.style.opacity = 1;
 
         if (videoInfoElm.expires.innerHTML === "Expired") {
@@ -1619,6 +1612,15 @@ function getOptimalVideo(time, a, b) {
 
           castVideoWithAudio(videoDetails.formats["0"].url, diffVideo);
 
+        }
+
+        if (!videoErr && !audioErr) {
+          // videoInfo
+          videoInfoElm.title.innerHTML = videoDetails.title;
+          videoInfoElm.channelTitle.innerHTML = videoDetails.channelTitle;
+
+          // abstract other info
+          abstractVideoInfo();
         }
 
         if ((a || b === "url") && !videoErr && !audioErr) {
