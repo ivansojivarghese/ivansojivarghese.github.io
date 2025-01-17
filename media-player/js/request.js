@@ -11,12 +11,41 @@
         queryDate = document.querySelector("#searchUpload"),
         querySort = document.querySelector("#searchSort");
 
-    var searchResults;
+    var searchResults = null;
 
 /*
     inp.addEventListener('select', function() {
       this.selectionStart = this.selectionEnd;
     }, false);*/
+
+    function getDeviceType() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isFinePointer = window.matchMedia("(pointer: fine)").matches;
+      const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    
+      if (/iphone/.test(userAgent)) {
+        return "iphone";
+      } else if (/android/.test(userAgent)) {
+        return "android";
+      } else if (isFinePointer) {
+        // Fine pointer (e.g., mouse or trackpad)
+        return "desktop";
+      } else if (isCoarsePointer) {
+        // Coarse pointer (e.g., touch or pen/stylus input)
+        if (/tablet|ipad/.test(userAgent) || (/android/.test(userAgent) && !/mobile/.test(userAgent))) {
+          return "tablet";
+        } else {
+          return "mobile-or-pen";
+        }
+      } else {
+        // No detectable pointer
+        return "unknown";
+      }
+    }
+    
+    const deviceType = getDeviceType();
+    console.log(`Detected device type: ${deviceType}`);
+    
     
     function getURL(u, m) {
 
@@ -408,7 +437,9 @@
 
         inp.type = "text";
         if (e !== "query") {
-          inp.focus();
+          if ((searchResults !== null && getDeviceType === "desktop") || (searchResults === null)) {
+            inp.focus();
+          }
         }
       } else {
         searchPath = "url";
@@ -419,7 +450,9 @@
         urlSearchBtn.classList.add("active");
 
         inp.type = "url";
-        inp.focus();
+        if ((searchResults !== null && getDeviceType === "desktop") || (searchResults === null)) {
+          inp.focus();
+        }
       }
     }
 

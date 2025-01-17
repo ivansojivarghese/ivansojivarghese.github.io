@@ -1567,7 +1567,9 @@
 
       } else {
         setTimeout(function() {
-          inp.focus();
+          if ((searchResults !== null && getDeviceType === "desktop") || (searchResults === null)) {
+            inp.focus();
+          }
         }, 100);
       }
 
