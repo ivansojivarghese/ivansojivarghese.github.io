@@ -325,6 +325,11 @@
       }
     }
 
+    function containsWord(arr, word) {
+      const lowerCaseWord = word.toLowerCase();
+      return arr.some(element => element.toLowerCase().includes(lowerCaseWord));
+    }
+
     function displaySearchResults() {
       var data = searchResults.data;
 
@@ -336,7 +341,7 @@
       }
 
       for (var i = 0; i < data.length; i++) {
-        if (data[i].type === "video" || data[i].type === "playlist") {
+        if ((data[i].type === "video" || (data[i].type === "playlist" && !data[i].title.includes("Mix"))) && !containsWord(data[i].badges, 'live')) {
 
           var main = document.createElement("div");
           main.classList.add("result_wrapper", "trs", "cursor", "trsButtons", "noimg");
