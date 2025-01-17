@@ -341,7 +341,7 @@
       }
 
       for (var i = 0; i < data.length; i++) {
-        if ((data[i].type === "video" || (data[i].type === "playlist" && !data[i].title.includes("Mix"))) && !containsWord(data[i].badges, 'live')) {
+        if ((data[i].type === "video" || (data[i].type === "playlist" && !data[i].title.includes("Mix"))) && (!data[i].badges || (data[i].badges && !containsWord(data[i].badges, 'live')))) {
 
           var main = document.createElement("div");
           main.classList.add("result_wrapper", "trs", "cursor", "trsButtons", "noimg");
