@@ -46,6 +46,11 @@
     const deviceType = getDeviceType();
     console.log(`Detected device type: ${deviceType}`);
     
+    const urlRegex = /https?:\/\/[^\s/$.?#].[^\s]*$/i;
+    
+    function testForUrl(url) {
+        return urlRegex.test(url);
+    }
     
     function getURL(u, m) {
 
@@ -283,7 +288,7 @@
 
           // ERROR
         }
-      } else {
+      } else if (!testForUrl(inp.value)) {
 
         searchQuery(inp.value);
       }
