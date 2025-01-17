@@ -752,8 +752,8 @@ async function getParams(id, time, a, b) {
         if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
 
           if (videoDetails.error !== undefined) {
-            var ntfTitle = capitalizeFirstChar(videoDetails.status),
-              ntfBody =  capitalizeFirstChar(videoDetails.error),
+            var ntfTitle = (videoDetails.status === "fail" || videoDetails.status === "processing") ? "Loading has failed" : capitalizeFirstChar(videoDetails.status),
+              ntfBody =  (videoDetails.status === "fail" || videoDetails.status === "processing") ? "Try again." : capitalizeFirstChar(videoDetails.error),
               ntfBadge = "https://ivansojivarghese.github.io/media-player/play_maskable_monochrome_409.png",
               ntfIcon = "https://ivansojivarghese.github.io/media-player/png/error.png";
 
