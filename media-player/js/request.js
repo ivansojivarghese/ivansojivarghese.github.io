@@ -337,6 +337,7 @@
 
     function displaySearchResults() {
       var data = searchResults.data;
+      var ref = searchResults.refinements;
 
       var res = document.querySelectorAll(".result_wrapper");
       if (res.length) {
@@ -345,7 +346,25 @@
         });
       }
 
-      
+      var refStuff = document.querySelectorAll("div.refinements div.keywordsBtn");
+      if (refStuff.length) {
+        refStuff.forEach((element) => {
+          element.remove();
+        });
+      }
+
+      for (var k = 0; k < ref.length; k++) {
+        var refText = document.createElement("p");
+        var refBtn = document.createElement("div");
+
+        refText.innerHTML = ref[k];
+
+        refBtn.classList.add("keywordsBtn", "resBtn", "trs");
+
+        refBtn.appendChild(refText);
+
+        videoInfoElm.refinements.appendChild(refBtn);
+      }
 
       for (var i = 0; i < data.length; i++) {
         if ((data[i].type === "video" || (data[i].type === "playlist" && !data[i].title.includes("Mix"))) && (!data[i].badges || (data[i].badges && !containsWord(data[i].badges, 'live')))) {
