@@ -2415,7 +2415,9 @@ function abstractVideoInfo() {
 
   function highlightHashtags(text) {
     // Regular expression to match hashtags in various languages
-    const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#[\p{L}\p{N}_]+)/gu;
+    // const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#[\p{L}\p{N}_]+)/gu;
+    // Regular expression to match hashtags with extended character support
+    const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#[\p{L}\p{N}_.&\-]+)/gu;
     
     // Replace hashtags with a span for styling or interactivity
     return text.replace(hashtagRegex, (hashtag) => {
