@@ -52,7 +52,7 @@
         return urlRegex.test(url);
     }
     
-    function getURL(u, m) {
+    function getURL(u, m) { // 
 
       if (searchPath === "url" || m) {
         if ((inp.value !== "" && (pattern.test(inp.value) && searchPath === "url")) || u || m) {
