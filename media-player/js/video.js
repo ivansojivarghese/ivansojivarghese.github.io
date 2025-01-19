@@ -2195,7 +2195,7 @@ function getReadableRemainingTime(url) {
   }
 }
 
-var isMusic = false;
+var isMusic = false; // 
 
 function resetVideoInfo() {
   videoInfoElm.replay.style.display = "none";
