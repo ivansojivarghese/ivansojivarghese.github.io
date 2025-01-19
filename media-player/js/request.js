@@ -356,17 +356,19 @@
         });
       }
 
-      for (var k = 0; k < ref.length; k++) {
-        var refText = document.createElement("p");
-        var refBtn = document.createElement("div");
+      if (ref) {
+        for (var k = 0; k < ref.length; k++) {
+          var refText = document.createElement("p");
+          var refBtn = document.createElement("div");
 
-        refText.innerHTML = ref[k];
+          refText.innerHTML = ref[k];
 
-        refBtn.classList.add("keywordsBtn", "resBtn", "trs");
+          refBtn.classList.add("keywordsBtn", "resBtn", "trs");
 
-        refBtn.appendChild(refText);
+          refBtn.appendChild(refText);
 
-        videoInfoElm.refinements.appendChild(refBtn);
+          videoInfoElm.refinements.appendChild(refBtn);
+        }
       }
 
       for (var i = 0; i < data.length; i++) {
