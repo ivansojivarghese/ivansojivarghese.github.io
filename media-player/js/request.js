@@ -345,6 +345,8 @@
         });
       }
 
+      
+
       for (var i = 0; i < data.length; i++) {
         if ((data[i].type === "video" || (data[i].type === "playlist" && !data[i].title.includes("Mix"))) && (!data[i].badges || (data[i].badges && !containsWord(data[i].badges, 'live')))) {
 
