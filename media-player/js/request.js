@@ -291,6 +291,9 @@
       } else if (!testForUrl(inp.value)) {
 
         searchQuery(inp.value);
+      } else {
+
+        inp.value = "";
       }
     }
     
