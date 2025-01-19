@@ -830,6 +830,7 @@ select:focus-visible {
 .searchOptions p {
     padding: 0;
     margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 div.results div.result_wrapper {
@@ -871,4 +872,11 @@ div.thumbnail {
 
 .wrapper.search .resultDate {
     float: right;
+}
+
+.searchOptions div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 }
