@@ -363,6 +363,12 @@
 
           refText.innerHTML = ref[k];
 
+          refBtn.addEventListener("click", function(event) {
+            // ADD CODE TO DIRECTLY PERFORM A SEARCH BASED ON KEYWORD(S)
+    
+            openSearch(event.currentTarget.children[0].innerHTML);
+          });
+
           refBtn.classList.add("keywordsBtn", "resBtn", "trs");
 
           refBtn.appendChild(refText);
