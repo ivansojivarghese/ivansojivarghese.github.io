@@ -887,6 +887,8 @@ div.thumbnail {
     position: absolute;
     background: #303030;
     opacity: 0.85;
+    z-index: 10;
+    display: none;
 }
 
 .loaderDots {
@@ -899,6 +901,10 @@ div.thumbnail {
       var(--_g) 100% 50%;
     background-size: calc(100%/3) 50%;
     animation: l3 1s infinite linear;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   @keyframes l3 {
       20%{background-position:0%   0%, 50%  50%,100%  50%}

@@ -328,6 +328,8 @@
 
         displaySearchResults();
 
+        loadingSpace.style.display = "none";
+
       } catch (error) {
         console.error(error);
       }

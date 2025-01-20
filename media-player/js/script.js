@@ -1534,6 +1534,8 @@
     var videoInfoOpen = false;
     var mainContent = document.querySelector("div.content");
 
+    const loadingSpace = document.querySelector("div.loadingSpace");
+
     function openSearch(v) {
       event.stopPropagation();
 
@@ -1570,6 +1572,7 @@
 
         // perform a query
 
+        loadingSpace.style.display = "block";
         searchQuery(v);
 
       } else {
