@@ -329,6 +329,7 @@
         displaySearchResults();
 
         loadingSpace.style.display = "none";
+        videoInfoElm.info.style.overflow = "";
 
       } catch (error) {
         console.error(error);

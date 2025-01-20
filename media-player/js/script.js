@@ -1573,6 +1573,7 @@
         // perform a query
 
         loadingSpace.style.display = "block";
+        videoInfoElm.info.style.overflow = "hidden";
         searchQuery(v);
 
       } else {
