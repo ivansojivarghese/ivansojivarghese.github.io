@@ -881,10 +881,18 @@ div.thumbnail {
     align-items: center;
 }
 
+.loadingSpace {
+    width: 100vw;
+    height: 100svh;
+    position: absolute;
+    background: #303030;
+    opacity: 0.85;
+}
+
 .loaderDots {
     width: 60px;
     aspect-ratio: 2;
-    --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
+    --_g: no-repeat radial-gradient(circle closest-side,#fff 90%,#0000);
     background: 
       var(--_g) 0%   50%,
       var(--_g) 50%  50%,
