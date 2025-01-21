@@ -473,6 +473,16 @@
       var inputElement = document.querySelector("input");
       var index = 0; // Track the current word
       var charIndex = 0; // Track the character position in the word
+      var isTyping = false; // Track if typing is in progress
+      var timeoutId; // Store timeout ID to cancel ongoing effects
+  
+      function clearPlaceholder() {
+          if (!inputElement) return;
+          inputElement.placeholder = ""; // Clear the placeholder
+          index = 0; // Reset the word index
+          charIndex = 0; // Reset the character index
+          if (timeoutId) clearTimeout(timeoutId); // Cancel any ongoing timeouts
+      }
   
       function typeEffect() {
           if (!inputElement) return;
@@ -480,9 +490,9 @@
           if (charIndex < words[index].length) {
               inputElement.placeholder += words[index][charIndex];
               charIndex++;
-              setTimeout(typeEffect, 100); // Typing speed
+              timeoutId = setTimeout(typeEffect, 100); // Typing speed
           } else {
-              setTimeout(eraseEffect, 1000); // Pause before erasing
+              timeoutId = setTimeout(eraseEffect, 1000); // Pause before erasing
           }
       }
   
@@ -492,18 +502,18 @@
           if (charIndex > 0) {
               inputElement.placeholder = inputElement.placeholder.slice(0, -1);
               charIndex--;
-              setTimeout(eraseEffect, 50); // Erasing speed
+              timeoutId = setTimeout(eraseEffect, 50); // Erasing speed
           } else {
               index = (index + 1) % words.length; // Move to the next word
-              setTimeout(typeEffect, 500); // Pause before typing the next word
+              timeoutId = setTimeout(typeEffect, 500); // Pause before typing the next word
           }
       }
   
-      function toggleWords() {
-          isQuery = !isQuery;
+      function toggleWords(pathType) {
+          isQuery = pathType; // Set the type dynamically
           words = isQuery ? queryWords : urlWords;
-          index = 0; // Reset to the first word in the new array
-          charIndex = 0; // Reset the character index
+          clearPlaceholder(); // Clear any ongoing effects and reset placeholder
+          typeEffect(); // Restart the typing effect with the new words
       }
   
       // Start the typing effect
@@ -511,7 +521,7 @@
   
       // Attach the extension logic to the default setSearchPath function
       const originalSetSearchPath = window.setSearchPath;
-
+  
       window.setSearchPath = function (pathType) {
           if (originalSetSearchPath) {
               originalSetSearchPath(pathType); // Call the original logic if it exists
@@ -521,7 +531,7 @@
     }
     
     // Initialize the function
-    inputPlaceholder();  
+    inputPlaceholder();
 
     function setSearchPath(e) {
       if (inp.value.includes("#")) {
