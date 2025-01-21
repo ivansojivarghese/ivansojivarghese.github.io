@@ -320,6 +320,9 @@
 
       if (hashtagRegex.test(q)) {
 
+        // Remove the '#' character from the q variable
+        q = q.replace('#', '');
+
         const url = 'https://yt-api.p.rapidapi.com/hashtag?tag=' + q + '&geo=' + countryAPIres.country + '&lang=en&type=' + queryType.value + '&upload_date=' + queryDate.value + '&sort_by=' + querySort.value;
         const options = {
           method: 'GET',
