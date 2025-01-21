@@ -12,6 +12,7 @@
         querySort = document.querySelector("#searchSort");
 
     var searchResults = null;
+    var hashtagResults = null;
 
 /*
     inp.addEventListener('select', function() {
@@ -314,27 +315,59 @@
     });
 
     async function searchQuery(q) {
-      const url = 'https://yt-api.p.rapidapi.com/search?query=' + q + '&geo=' + countryAPIres.country + '&lang=en&type=' + queryType.value + '&upload_date=' + queryDate.value + '&sort_by=' + querySort.value;
-      const options = {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
-          'x-rapidapi-host': 'yt-api.p.rapidapi.com'
+
+      const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#[\p{L}\p{N}_.&\-]+)/gu;
+
+      if (hashtagRegex.test(q)) {
+
+        const url = 'https://yt-api.p.rapidapi.com/hashtag?tag=' + q;
+        const options = {
+          method: 'GET',
+          headers: {
+            'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+            'x-rapidapi-host': 'yt-api.p.rapidapi.com'
+          }
+        };
+
+        try {
+          const response = await fetch(url, options);
+          hashtagResults = await response.json();
+          console.log(hashtagResults);
+
+          displaySearchResults(false);
+
+          loadingSpace.style.display = "none";
+          videoInfoElm.info.style.overflow = "";
+
+        } catch (error) {
+          console.error(error);
         }
-      };
 
-      try {
-        const response = await fetch(url, options);
-        searchResults = await response.json();
-        console.log(searchResults);
+      } else {
+      
+        const url = 'https://yt-api.p.rapidapi.com/search?query=' + q + '&geo=' + countryAPIres.country + '&lang=en&type=' + queryType.value + '&upload_date=' + queryDate.value + '&sort_by=' + querySort.value;
+        const options = {
+          method: 'GET',
+          headers: {
+            'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+            'x-rapidapi-host': 'yt-api.p.rapidapi.com'
+          }
+        };
 
-        displaySearchResults();
+        try {
+          const response = await fetch(url, options);
+          searchResults = await response.json();
+          console.log(searchResults);
 
-        loadingSpace.style.display = "none";
-        videoInfoElm.info.style.overflow = "";
+          displaySearchResults(true);
 
-      } catch (error) {
-        console.error(error);
+          loadingSpace.style.display = "none";
+          videoInfoElm.info.style.overflow = "";
+
+        } catch (error) {
+          console.error(error);
+        }
+
       }
     }
 
@@ -343,9 +376,9 @@
       return arr.some(element => element.toLowerCase().includes(lowerCaseWord));
     }
 
-    function displaySearchResults() {
-      var data = searchResults.data;
-      var ref = searchResults.refinements;
+    function displaySearchResults(m) {
+      var data = m ? searchResults.data : hashtagResults.data;
+      var ref = m ? searchResults.refinements : null;
 
       var res = document.querySelectorAll(".result_wrapper");
       if (res.length) {
