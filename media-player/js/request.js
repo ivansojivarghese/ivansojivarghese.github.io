@@ -290,6 +290,8 @@
         }
       } else if (!testForUrl(inp.value)) {
 
+        loadingSpace.style.display = "block";
+        videoInfoElm.info.style.overflow = "hidden";
         searchQuery(inp.value);
       } else {
 
