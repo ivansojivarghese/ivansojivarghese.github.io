@@ -320,7 +320,7 @@
 
       if (hashtagRegex.test(q)) {
 
-        const url = 'https://yt-api.p.rapidapi.com/hashtag?tag=' + q;
+        const url = 'https://yt-api.p.rapidapi.com/hashtag?tag=' + q + '&geo=' + countryAPIres.country + '&lang=en&type=' + queryType.value + '&upload_date=' + queryDate.value + '&sort_by=' + querySort.value;
         const options = {
           method: 'GET',
           headers: {
