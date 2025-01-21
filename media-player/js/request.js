@@ -465,12 +465,12 @@
     const urlSearchBtn = document.querySelector(".resBtn.url");
     const querySearchBtn = document.querySelector(".resBtn.query");
 
-    function inputPlaceholder(t) {
-      var words = t
-          ? ["funny videos", "music", "tutorial", "movie trailers", "tech reviews"] // query words
-          : ["youtube.com", "youtu.be", "youtube.com/watch?v=", "youtube.com/playlist?list="]; // url words
-  
-      var inputElement = document.querySelector("input"); // Assuming there's a single input field to update the placeholder
+    function inputPlaceholder() {
+      var queryWords = ["funny videos", "music", "tutorials", "movie trailers", "tech reviews"];
+      var urlWords = ["youtube.com", "youtu.be", "youtube.com/watch?v=", "youtube.com/playlist?list="];
+      var isQuery = true; // Start with query words
+      var words = queryWords;
+      var inputElement = document.querySelector("input");
       var index = 0; // Track the current word
       var charIndex = 0; // Track the character position in the word
   
@@ -499,8 +499,29 @@
           }
       }
   
+      function toggleWords() {
+          isQuery = !isQuery;
+          words = isQuery ? queryWords : urlWords;
+          index = 0; // Reset to the first word in the new array
+          charIndex = 0; // Reset the character index
+      }
+  
+      // Start the typing effect
       typeEffect();
-  }  
+  
+      // Attach the extension logic to the default setSearchPath function
+      const originalSetSearchPath = window.setSearchPath;
+
+      window.setSearchPath = function (pathType) {
+          if (originalSetSearchPath) {
+              originalSetSearchPath(pathType); // Call the original logic if it exists
+          }
+          toggleWords(pathType); // Add the toggleWords behavior
+      };
+    }
+    
+    // Initialize the function
+    inputPlaceholder();  
 
     function setSearchPath(e) {
       if (inp.value.includes("#")) {
