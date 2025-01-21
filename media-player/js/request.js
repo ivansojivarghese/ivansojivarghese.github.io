@@ -562,8 +562,6 @@
       if (e === "query" || e.currentTarget.classList.contains("query")) {
         searchPath = "query";
 
-        inputPlaceholder(true);
-
         searchOptions.style.display = "block";
 
         urlSearchBtn.classList.remove("active");
@@ -577,8 +575,6 @@
         }
       } else {
         searchPath = "url";
-
-        inputPlaceholder(false);
 
         searchOptions.style.display = "none";
 
