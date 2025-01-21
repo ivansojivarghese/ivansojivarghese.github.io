@@ -465,6 +465,43 @@
     const urlSearchBtn = document.querySelector(".resBtn.url");
     const querySearchBtn = document.querySelector(".resBtn.query");
 
+    function inputPlaceholder(t) {
+      var words = t
+          ? ["funny videos", "music", "tutorial", "movie trailers", "tech reviews"] // query words
+          : ["youtube.com", "youtu.be", "youtube.com/watch?v=", "youtube.com/playlist?list="]; // url words
+  
+      var inputElement = document.querySelector("input"); // Assuming there's a single input field to update the placeholder
+      var index = 0; // Track the current word
+      var charIndex = 0; // Track the character position in the word
+  
+      function typeEffect() {
+          if (!inputElement) return;
+  
+          if (charIndex < words[index].length) {
+              inputElement.placeholder += words[index][charIndex];
+              charIndex++;
+              setTimeout(typeEffect, 100); // Typing speed
+          } else {
+              setTimeout(eraseEffect, 1000); // Pause before erasing
+          }
+      }
+  
+      function eraseEffect() {
+          if (!inputElement) return;
+  
+          if (charIndex > 0) {
+              inputElement.placeholder = inputElement.placeholder.slice(0, -1);
+              charIndex--;
+              setTimeout(eraseEffect, 50); // Erasing speed
+          } else {
+              index = (index + 1) % words.length; // Move to the next word
+              setTimeout(typeEffect, 500); // Pause before typing the next word
+          }
+      }
+  
+      typeEffect();
+  }  
+
     function setSearchPath(e) {
       if (inp.value.includes("#")) {
         inp.style.color = "#0073e6";
@@ -476,6 +513,8 @@
 
       if (e === "query" || e.currentTarget.classList.contains("query")) {
         searchPath = "query";
+
+        inputPlaceholder(true);
 
         searchOptions.style.display = "block";
 
@@ -490,6 +529,8 @@
         }
       } else {
         searchPath = "url";
+
+        inputPlaceholder(false);
 
         searchOptions.style.display = "none";
 
