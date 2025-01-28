@@ -75,7 +75,7 @@ video.secondary {
     }*/
 
     .loaderDots {
-        left: 10.5rem;
+        left: 10.5rem !important;
     }
 }
 
