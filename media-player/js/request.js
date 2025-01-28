@@ -462,11 +462,15 @@
           channelTitle.classList.add("overflow", "resultChannelTitle");
 
           var duration = document.createElement("p");
-          duration.innerHTML = data[i].lengthText;
+          if (data[i].lengthText) {
+            duration.innerHTML = data[i].lengthText;
+          }
           duration.classList.add("resultDuration");
 
           var date = document.createElement("p");
-          date.innerHTML = data[i].publishedTimeText;
+          if (data[i].publishedTimeText) {
+            date.innerHTML = data[i].publishedTimeText;
+          }
           date.classList.add("resultDate");
 
           var textDiv = document.createElement("div");
