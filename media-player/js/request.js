@@ -63,7 +63,7 @@
           var contents = u || inp.value;
 
           if (u) {
-            closeVideoInfo();
+            // closeVideoInfo();
           }
 
           if (contents !== "") {
@@ -253,7 +253,7 @@
           inp.value = "";
 
           if (searchPath === "url") {
-            closeVideoInfo();
+            // closeVideoInfo();
           }
             
         } else {
