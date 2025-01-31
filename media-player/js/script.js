@@ -446,7 +446,7 @@
 
     searchButton.addEventListener("click", function(event) {
       if (videoControls.classList.contains('visible')) {
-        openSearch(false, true);
+        openSearch(false, true, event);
       }
     });
 
@@ -1536,12 +1536,12 @@
 
     const loadingSpace = document.querySelector("div.loadingSpace");
 
-    function openSearch(v, i) {
+    function openSearch(v, i, e) {
       event.stopPropagation();
 
       videoInfoElm.info.scrollTo(0,0);
 
-      if (!videoInfoOpen) {
+      if (!videoInfoOpen || e) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
       }
