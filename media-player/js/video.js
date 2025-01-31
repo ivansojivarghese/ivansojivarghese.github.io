@@ -2244,7 +2244,7 @@ function abstractVideoInfo() {
 
   ///////////
 
-  videoInfoElm.info.scrollTo(0,0);
+  // videoInfoElm.info.scrollTo(0,0);
 
   videoInfoElm.keywords.style.display = "flex";
   videoInfoElm.description.style.display = "block";

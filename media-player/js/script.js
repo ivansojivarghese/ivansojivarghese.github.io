@@ -1661,6 +1661,9 @@
       const wrappers = document.querySelectorAll("#infoContainer .wrapper");
       wrappers.forEach(wrapper => wrapper.style.display = "");
 
+      loadingSpace.style.display = "";
+      videoInfoElm.info.style.overflow = "";
+
       if (ori === "landscape-primary" || ori === "landscape-secondary") {
         // mainContent.style.backgroundColor = "";
         // videoContainer.style.opacity = 1;

@@ -64,6 +64,9 @@
 
           if (u) {
             // closeVideoInfo();
+
+            loadingSpace.style.display = "block";
+            videoInfoElm.info.style.overflow = "hidden";
           }
 
           if (contents !== "") {
@@ -254,6 +257,9 @@
 
           if (searchPath === "url") {
             // closeVideoInfo();
+
+            loadingSpace.style.display = "block";
+            videoInfoElm.info.style.overflow = "hidden";
           }
             
         } else {
