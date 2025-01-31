@@ -604,8 +604,10 @@
 
         // videoSec.currentTime = video.currentTime;
 
-        if (autoInfoClose) {
+        if (autoInfoClose && (!pipEnabled && !clickedWithin5Sec)) {
           closeVideoInfo();
+          autoInfoClose = false;
+        } else if (pipEnabled || clickedWithin5Sec) {
           autoInfoClose = false;
         }
 
@@ -1466,6 +1468,9 @@
       }
     });
 
+    let lastClickTime = 0;
+    let clickedWithin5Sec = false;
+
     window.addEventListener('click', function() {
       if (!pmsCheck) {
         pmsCheck = true;
@@ -1499,6 +1504,14 @@
           }
         }
       }
+
+      const currentTime = Date.now();
+      clickedWithin5Sec = (currentTime - lastClickTime <= 5000);
+      lastClickTime = currentTime;
+      // Reset the flag after 5 seconds
+      setTimeout(() => {
+          clickedWithin5Sec = false;
+      }, 5000);
     });
 
     window.addEventListener('load', function() {
