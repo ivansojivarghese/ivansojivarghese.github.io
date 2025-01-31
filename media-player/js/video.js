@@ -2211,10 +2211,19 @@ function resetVideoInfo() {
   videoInfoElm.channelTitle2.classList.add("textReset");
   videoInfoElm.category.classList.add("textReset");
 
+  videoInfoElm.videoTitle.innerHTML = "";
+  videoInfoElm.channelTitle2.innerHTML = "";
+  videoInfoElm.category.innerHTML = "";
+
   videoInfoElm.date.classList.add("textReset");
   videoInfoElm.expires.classList.add("textReset");
   videoInfoElm.likes.classList.add("textReset");
   videoInfoElm.views.classList.add("textReset");
+
+  videoInfoElm.date.innerHTML = "";
+  videoInfoElm.expires.innerHTML = "";
+  videoInfoElm.likes.innerHTML = "";
+  videoInfoElm.views.innerHTML = "";
 }
 
 function abstractVideoInfo() {
