@@ -320,7 +320,11 @@
       }
     });
 
+    var searchQueried = false;
+
     async function searchQuery(q) {
+
+      searchQueried = true;
 
       const hashtagRegex = /(?<!https?:\/\/[^\s]*)(#[\p{L}\p{N}_.&\-]+)/gu;
 
@@ -496,6 +500,8 @@
           videoInfoElm.results.appendChild(main);
         }
       }
+
+      searchQueried = false;
     }
     
     /*

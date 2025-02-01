@@ -609,6 +609,11 @@
           autoInfoClose = false;
         } else if (pipEnabled || clickedWithin5Sec) {
           autoInfoClose = false;
+
+          if (!searchQueried) { // if not query/url searching
+            loadingSpace.style.display = "";
+            videoInfoElm.info.style.overflow = "";
+          }
         }
 
         video.style.transitionDuration = "3s";
