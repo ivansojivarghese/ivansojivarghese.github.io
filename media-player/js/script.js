@@ -1776,7 +1776,7 @@
 
     function autoResToggle() {
       if (!autoRes) {
-        var activeBtn = document.querySelectorAll(".autoResBtn.active") || document.querySelectorAll(".otherResBtn.active");
+        var activeBtn = document.querySelectorAll(".autoResBtn.active").length ? document.querySelectorAll(".autoResBtn.active") : document.querySelectorAll(".otherResBtn.active");
         // activeBtn.classList.remove("active");
         activeBtn.forEach(btn => btn.classList.remove('active'));
         videoInfoElm.autoResLive.innerHTML = qualityLabel(targetVideo.qualityLabel);

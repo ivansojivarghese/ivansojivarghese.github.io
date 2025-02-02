@@ -2386,7 +2386,7 @@ function abstractVideoInfo() {
         }
 
         videoInfoElm.autoResLive.innerHTML = "";
-        var activeBtn = document.querySelectorAll(".autoResBtn.active") || document.querySelectorAll(".otherResBtn.active");
+        var activeBtn = document.querySelectorAll(".autoResBtn.active").length ? document.querySelectorAll(".autoResBtn.active") : document.querySelectorAll(".otherResBtn.active");
         // activeBtn.classList.remove("active");
         activeBtn.forEach(btn => btn.classList.remove('active'));
         event.currentTarget.classList.add("active");
