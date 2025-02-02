@@ -2260,6 +2260,9 @@ function abstractVideoInfo() {
   videoInfoElm.likes.style.display = "block";
   videoInfoElm.views.style.display = "block";
 
+  videoInfoElm.title.innerHTML = videoDetails.title;
+  videoInfoElm.channelTitle.innerHTML = videoDetails.channelTitle;
+
   videoInfoElm.videoTitle.innerHTML = '<a class="trs noUnderline" href="' + videoURL + '" target="_blank">' + videoDetails.title + '</a>';
   videoInfoElm.channelTitle2.innerHTML = '<a class="trs noUnderline" href="https://www.youtube.com/channel/' + videoDetails.channelId + '" target="_blank">' + videoDetails.channelTitle + '</a>';
 
