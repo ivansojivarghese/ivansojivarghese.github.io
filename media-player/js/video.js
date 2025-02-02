@@ -31,7 +31,8 @@ var videoInfoElm = {
   refinements : document.querySelector("#infoContainer div.wrapper.search div.refinements")
 };
     
-var videoDetails;
+var preVideoDetails = null;
+var videoDetails = null;
 var videoSubmit;
 
 var subDetails;
@@ -745,12 +746,19 @@ async function getParams(id, time, a, b) {
 
       try {
         const response = await fetch(url, options);
+
+        if (videoDetails !== null) {
+          preVideoDetails = videoDetails;
+        }
+
         videoDetails = await response.json();
         console.log(videoDetails);
         
         // video.src = videoDetails.formats["0"].url;
 
         if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
+
+          videoDetails = preVideoDetails;
 
           if (videoDetails.error !== undefined) {
             var ntfTitle = (videoDetails.status === "fail" || videoDetails.status === "processing") ? "Loading has failed" : capitalizeFirstChar(videoDetails.status),
