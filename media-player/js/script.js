@@ -4543,12 +4543,13 @@
         }
 
         const videoTitleLink = document.querySelector("#infoContainer h5.videoTitle a");
-        // Create a URL object from the current href
-        const url = new URL(videoTitleLink.href);
 
         if (videoTitleLink === null) {
           abstractVideoInfo();
         }
+
+        // Create a URL object from the current href
+        const url = new URL(videoTitleLink.href);
 
         // Get the current value of the 't' parameter, if it exists
         const currentTValue = url.searchParams.get('t');
