@@ -759,6 +759,10 @@ async function getParams(id, time, a, b) {
         if (videoDetails.status === "fail" || videoDetails.status === "processing" || videoDetails.error !== undefined || videoDetails.isLive) {
 
           videoDetails = preVideoDetails;
+          if (!searchQueried) { // if not query/url searching
+            loadingSpace.style.display = "";
+            videoInfoElm.info.style.overflow = "";
+          }
 
           if (videoDetails.error !== undefined) {
             var ntfTitle = (videoDetails.status === "fail" || videoDetails.status === "processing") ? "Loading has failed" : capitalizeFirstChar(videoDetails.status),
