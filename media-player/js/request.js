@@ -55,7 +55,7 @@
     
     function getURL(u, m) { // 
 
-      if (searchPath === "url" || m) {
+      if (searchPath === "url" || m || u) {
         if ((inp.value !== "" && (pattern.test(inp.value) && searchPath === "url")) || u || m) {
 
           var wrapURL = document.querySelector("#urlInput");
@@ -354,6 +354,8 @@
 
         } catch (error) {
           console.error(error);
+
+          searchQueried = false;
         }
 
       } else {
@@ -379,6 +381,8 @@
 
         } catch (error) {
           console.error(error);
+
+          searchQueried = false;
         }
 
       }
