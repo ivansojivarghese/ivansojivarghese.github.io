@@ -2386,8 +2386,9 @@ function abstractVideoInfo() {
         }
 
         videoInfoElm.autoResLive.innerHTML = "";
-        var activeBtn = document.querySelector(".autoResBtn.active") || document.querySelector(".otherResBtn.active");
-        activeBtn.classList.remove("active");
+        var activeBtn = document.querySelectorAll(".autoResBtn.active") || document.querySelectorAll(".otherResBtn.active");
+        // activeBtn.classList.remove("active");
+        activeBtn.forEach(btn => btn.classList.remove('active'));
         event.currentTarget.classList.add("active");
 
         localStorage.setItem('videoURL', video.src); // Set URL to memory state
