@@ -61,6 +61,11 @@
       inputError.style.display = "block";
       inputError.innerHTML = str;
     }
+
+    function hideInputErrorFeedback() {
+      inputError.style.display = "none";
+      inputError.innerHTML = "";
+    }
     
     function getURL(u, m) { // 
 
@@ -267,6 +272,8 @@
           if (searchPath === "url") {
             // closeVideoInfo();
 
+            hideInputErrorFeedback();
+
             loadingSpace.style.display = "block";
             videoInfoElm.info.style.overflow = "hidden";
           }
@@ -360,6 +367,8 @@
 
           displaySearchResults(false);
 
+          hideInputErrorFeedback();
+
           loadingSpace.style.display = "none";
           videoInfoElm.info.style.overflow = "";
 
@@ -393,6 +402,8 @@
           console.log(searchResults);
 
           displaySearchResults(true);
+
+          hideInputErrorFeedback();
 
           loadingSpace.style.display = "none";
           videoInfoElm.info.style.overflow = "";

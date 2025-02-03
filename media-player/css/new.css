@@ -518,6 +518,10 @@ a.noUnderline {
 
 .inputError {
     display: none;
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+    color: #ff0000;
+    font-weight: bold;
 }
 
 /*
