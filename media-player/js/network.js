@@ -118,6 +118,10 @@ const estimateNetworkSpeed = async() => { // estimate network speed
                         if (networkErrorResume) {
                             networkErrorFetch = true;
                         }
+
+                        if (searchQueried) { // if query/url searching
+                            document.getElementById("urlSubmit").click();
+                        }
                         
                         if (!videoEnd && !refSeekTime && video.src !== "") {
 
