@@ -477,10 +477,15 @@
           main.classList.add("result_wrapper", "trs", "cursor", "trsButtons", "noimg");
           main.title = data[i].title;
           if (data[i].type === "video") {
+
+            // FOR VIDEOS
+
             main.setAttribute("data-url", "https://www.youtube.com/watch?v=" + data[i].videoId);
           } else {
 
             // FOR PLAYLISTS
+
+            main.setAttribute("data-url", "https://www.youtube.com/playlist?list=" + data[i].playlistId);
           }
           main.onclick = function(event) {
             getURL(event.currentTarget.getAttribute("data-url"), true);
@@ -522,6 +527,8 @@
           var date = document.createElement("p");
           if (data[i].publishedTimeText) {
             date.innerHTML = data[i].publishedTimeText;
+          } else if (data[i].type === "playlist") {
+            date.innerHTML = data[i].videoCount + " videos";
           }
           date.classList.add("resultDate");
 
