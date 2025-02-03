@@ -58,6 +58,7 @@
     function showInputErrorFeedback(str) {
       // inp.placeholder = str;
       // inp.classList.add("placeholder-error");
+      inputError.style.display = "block";
       inputError.innerHTML = str;
     }
     

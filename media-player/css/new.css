@@ -514,7 +514,11 @@ a.noUnderline {
 
 .placeholder-error::placeholder {
     color: #A10000;
-  }
+}
+
+.inputError {
+    display: none;
+}
 
 /*
 #videoCurrentTime, #seekControls {*/
