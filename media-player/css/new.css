@@ -863,6 +863,8 @@ div.thumbnail {
 
 .resultTitle {
     font-size: 1.2rem !important;
+    line-height: 1.25em;
+    white-space: unset;
 }
 
 .resultChannelTitle {
