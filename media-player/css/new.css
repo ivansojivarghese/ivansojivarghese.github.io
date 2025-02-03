@@ -77,6 +77,10 @@ video.secondary {
     .loaderDots {
         left: 10.5rem !important;
     }
+
+    div.thumbnail {
+        height: 10rem;
+    }
 }
 
 video.seeking {
@@ -851,22 +855,22 @@ div.badge, div.resultText {
 }
 
 div.thumbnail {
-    height: 10rem;
+    height: 11rem;
     border-radius: 0.5rem;
     background-position: center;
     margin-bottom: 1rem;
 }
 
 .resultTitle {
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
 }
 
 .resultChannelTitle {
-    font-size: 1rem;
+    font-size: 1rem !important;
 }
 
 .wrapper.search .resultDuration, .wrapper.search .resultDate {
-    font-size: 1rem;
+    font-size: 1rem !important;
 }
 
 .wrapper.search .resultDuration {
