@@ -52,6 +52,14 @@
     function testForUrl(url) {
         return urlRegex.test(url);
     }
+
+    var inputError = document.querySelector(".inputError");
+
+    function showInputErrorFeedback(str) {
+      // inp.placeholder = str;
+      // inp.classList.add("placeholder-error");
+      inputError.innerHTML = str;
+    }
     
     function getURL(u, m) { // 
 
@@ -293,7 +301,9 @@
         // document.getElementById("urlSubmit").click();
         } else {
 
-          // ERROR
+          // INPUT ERROR
+
+          showInputErrorFeedback("Invalid URL. Try again.");
         }
       } else if (!testForUrl(inp.value)) {
 
@@ -355,6 +365,13 @@
         } catch (error) {
           console.error(error);
 
+          loadingSpace.style.display = "none";
+          videoInfoElm.info.style.overflow = "";
+
+          // INPUT ERROR
+
+          showInputErrorFeedback("Something went wrong. Try again.");
+
           searchQueried = false;
         }
 
@@ -381,6 +398,13 @@
 
         } catch (error) {
           console.error(error);
+
+          loadingSpace.style.display = "none";
+          videoInfoElm.info.style.overflow = "";
+
+          // INPUT ERROR
+
+          showInputErrorFeedback("Something went wrong. Try again.");
 
           searchQueried = false;
         }

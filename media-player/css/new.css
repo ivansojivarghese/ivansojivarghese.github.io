@@ -512,6 +512,10 @@ a.noUnderline {
     font-size: 1rem;
 }
 
+.placeholder-error::placeholder {
+    color: #A10000;
+  }
+
 /*
 #videoCurrentTime, #seekControls {*/
 .timestamps, #seekControls {
