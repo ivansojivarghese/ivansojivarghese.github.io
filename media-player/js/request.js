@@ -512,8 +512,8 @@
 
           if (data[i].type === "playlist") {
             var thumbnailIcon = document.createElement("div");
-            thumbnail.classList.add("thumbnailIcon", "img");
-            thumbnail.style.backgroundImage = "url('https://ivansojivarghese.github.io/media-player/svg/playlist_play.svg')";
+            thumbnailIcon.classList.add("thumbnailIcon", "img");
+            thumbnailIcon.style.backgroundImage = "url('https://ivansojivarghese.github.io/media-player/svg/playlist_play.svg')";
 
             thumbnail.appendChild(thumbnailIcon);
           }
