@@ -83,7 +83,7 @@ video.secondary {
     }
 
     div.thumbnailIconWrap {
-        padding: 2.5rem 0;
+        padding: 2.5rem 0 !important;
     }
 }
 
