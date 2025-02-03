@@ -333,7 +333,9 @@
           event.preventDefault();
         } else {
 
-          // ERROR
+          // INPUT ERROR
+
+          showInputErrorFeedback("Invalid URL. Try again.");
         }
       }
     });
