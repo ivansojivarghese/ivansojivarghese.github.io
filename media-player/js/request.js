@@ -511,11 +511,15 @@
           thumbnail.style.backgroundImage = "url('" + data[i].thumbnail[data[i].thumbnail.length - 1].url + "')";
 
           if (data[i].type === "playlist") {
+            var thumbnailIconWrap = document.createElement("div");
+            thumbnailIconWrap.classList.add("thumbnailIconWrap");
+
             var thumbnailIcon = document.createElement("div");
             thumbnailIcon.classList.add("thumbnailIcon", "img");
             thumbnailIcon.style.backgroundImage = "url('https://ivansojivarghese.github.io/media-player/svg/playlist_play.svg')";
 
-            thumbnail.appendChild(thumbnailIcon);
+            thumbnailIconWrap.appendChild(thumbnailIcon);
+            thumbnail.appendChild(thumbnailIconWrap);
           }
 
           var title = document.createElement("h5");
