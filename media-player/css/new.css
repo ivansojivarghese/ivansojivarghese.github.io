@@ -239,6 +239,7 @@ google-cast-launcher.disabled, .disabled {
 
 #videoInfo h5 {
     height: 1.5rem;
+    font-size: 1.2rem !important;
 }
 
 #videoInfo a {
@@ -264,6 +265,7 @@ google-cast-launcher.disabled, .disabled {
     padding-bottom: 0.2em;
     padding-top: 0.1em;
     height: 1.2rem;
+    font-size: 1rem;
 }
 
 a.url {
@@ -507,6 +509,7 @@ a.noUnderline {
 .timestamps p {
     display: inline-block;
     padding: 0;
+    font-size: 1rem;
 }
 
 /*
