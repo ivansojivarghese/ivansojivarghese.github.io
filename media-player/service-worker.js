@@ -93,7 +93,8 @@ const assets = [
   'https://ivansojivarghese.github.io/media-player/svg/home.svg',
   'https://ivansojivarghese.github.io/media-player/svg/trending.svg',
   'https://ivansojivarghese.github.io/media-player/svg/search.svg',
-  'https://ivansojivarghese.github.io/media-player/svg/info.svg'
+  'https://ivansojivarghese.github.io/media-player/svg/info.svg',
+  'https://ivansojivarghese.github.io/media-player/svg/playlist_play.svg'
 ];
 
 const cacheItems = [...assets, ...fonts];

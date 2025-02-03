@@ -510,6 +510,14 @@
           thumbnail.classList.add("thumbnail", "img");
           thumbnail.style.backgroundImage = "url('" + data[i].thumbnail[data[i].thumbnail.length - 1].url + "')";
 
+          if (data[i].type === "playlist") {
+            var thumbnailIcon = document.createElement("div");
+            thumbnail.classList.add("thumbnailIcon", "img");
+            thumbnail.style.backgroundImage = "url('https://ivansojivarghese.github.io/media-player/svg/playlist_play.svg')";
+
+            thumbnail.appendChild(thumbnailIcon);
+          }
+
           var title = document.createElement("h5");
           title.innerHTML = data[i].title;
           title.classList.add("overflow", "resultTitle");
