@@ -340,6 +340,14 @@
       }
     });
 
+    const clearBtn = document.querySelector(".clear-btn");
+
+    function clearInput() {
+      inp.value = "";
+      clearBtn.style.display = "none";
+      inp.focus();
+    }
+
     var searchQueried = false;
 
     async function searchQuery(q) {
@@ -685,6 +693,8 @@
     }
 
     inp.addEventListener('input', () => {
+      clearBtn.style.display = inp.value ? "block" : "none";
+
       if (searchPath === "query") {
         const text = inp.value;
 
