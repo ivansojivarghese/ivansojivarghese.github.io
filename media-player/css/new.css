@@ -848,7 +848,7 @@ p.durationDiv {
 
 .clear-btn {
     color: #303030;
-    transform: translate(-2.4rem, 1rem);
+    transform: translate(-2.4rem, 1.1rem);
     font-size: 1.75rem;
     position: absolute;
     font-weight: bolder;
