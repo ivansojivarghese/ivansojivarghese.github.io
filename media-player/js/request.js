@@ -367,9 +367,17 @@
           hashtagResults = await response.json();
           console.log(hashtagResults);
 
-          displaySearchResults(false);
-
           hideInputErrorFeedback();
+
+          if (!hashtagResults.data.length) {
+
+            // INPUT ERROR
+
+            showInputErrorFeedback("No results found. Try again.");
+          } else {
+
+            displaySearchResults(false);
+          }
 
           loadingSpace.style.display = "none";
           videoInfoElm.info.style.overflow = "";
@@ -403,9 +411,17 @@
           searchResults = await response.json();
           console.log(searchResults);
 
-          displaySearchResults(true);
-
           hideInputErrorFeedback();
+
+          if (!searchResults.data.length) {
+            
+            // INPUT ERROR
+
+            showInputErrorFeedback("No results found. Try again.");
+          } else {
+            
+            displaySearchResults(true);
+          }
 
           loadingSpace.style.display = "none";
           videoInfoElm.info.style.overflow = "";
