@@ -835,7 +835,7 @@ p.durationDiv {
 }
 
 .wrapper.search input {
-    width: calc(100% - 2.4rem);
+    width: calc(100% - 2.4rem - 3rem);
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     padding-left: 1rem;
@@ -843,6 +843,18 @@ p.durationDiv {
     color: #303030;
     background-color: #F6F6F6;
     font-weight: bold;
+    padding-right: 3rem;
+}
+
+.clear-btn {
+    color: #303030;
+    transform: translate(-2.4rem, 1rem);
+    font-size: 1.75rem;
+    position: absolute;
+    font-weight: bolder;
+    background: #F6F6F6;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .wrapper.search input[type="submit"] {
