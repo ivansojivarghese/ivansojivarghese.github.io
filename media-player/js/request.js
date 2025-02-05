@@ -693,7 +693,7 @@
     }
 
     inp.addEventListener('input', () => {
-      clearBtn.style.display = inp.value ? "block" : "none";
+      clearBtn.style.display = inp.value ? "" : "none";
 
       if (searchPath === "query") {
         const text = inp.value;
