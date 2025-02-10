@@ -267,7 +267,8 @@
             
           wrapURL.style.display = "";
           wrap.style.display = "";
-          inp.value = "";
+          // inp.value = "";
+          clearInput(false);
 
           if (searchPath === "url") {
             // closeVideoInfo();
@@ -320,7 +321,8 @@
         searchQuery(inp.value);
       } else {
 
-        inp.value = "";
+        // inp.value = "";
+        clearInput(false);
       }
     }
     
@@ -342,10 +344,12 @@
 
     const clearBtn = document.querySelector(".clear-btn");
 
-    function clearInput() {
+    function clearInput(m) {
       inp.value = "";
       clearBtn.style.display = "none";
-      inp.focus();
+      if (m) {
+        inp.focus();
+      }
     }
 
     var searchQueried = false;
@@ -661,7 +665,8 @@
         inp.style.color = "#303030";
       }
  
-      inp.value = "";
+      // inp.value = "";
+      clearInput(false);
 
       if (e === "query" || e.currentTarget.classList.contains("query")) {
         searchPath = "query";
