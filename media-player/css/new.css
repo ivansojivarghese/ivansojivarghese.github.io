@@ -855,6 +855,7 @@ p.durationDiv {
     background: #F6F6F6;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    border-radius: 50%;
 }
 
 .wrapper.search input[type="submit"] {
