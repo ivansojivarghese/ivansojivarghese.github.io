@@ -1554,6 +1554,12 @@
 
     const loadingSpace = document.querySelector("div.loadingSpace");
 
+    function decodeHTML(encodedStr) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(encodedStr, "text/html");
+      return doc.documentElement.textContent;
+    }
+
     function openSearch(v, i, e) {
       event.stopPropagation();
 
@@ -1590,7 +1596,7 @@
           inp.style.color = "#303030";
         }
 
-        inp.value = v;
+        inp.value = decodeHTML(v);
 
         // perform a query
 
