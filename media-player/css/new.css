@@ -719,7 +719,7 @@ div.badge {
 #infoContainer .wrapper {
     width: calc(100% - 1.2rem - 1.2rem - calc(env(safe-area-inset-right)));
     padding: 0 1.2rem;
-    margin-top: 7rem;
+    margin-top: calc(7rem + calc(env(safe-area-inset-top)));
     display: none;
 }
 
