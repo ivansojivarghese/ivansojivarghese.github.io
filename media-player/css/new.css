@@ -653,7 +653,6 @@ div.thumbnailIcon {
     width: 100%;
     z-index: 100;
     backdrop-filter: blur(0.53rem);
-    box-shadow: 0 0.21rem 0.53rem rgba(0, 0, 0, 0.2);
     background: rgba(48, 48, 48, 0.7);
 }
 
