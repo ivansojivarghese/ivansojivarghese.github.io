@@ -639,6 +639,25 @@ div.thumbnailIcon {
 }
 
 #infoContainer .head {
+    /*
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    padding-top: 1.75rem;
+    padding-bottom: 1rem;
+    padding-right: calc(env(safe-area-inset-right));*/
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(0.53rem);
+    box-shadow: 0 0.21rem 0.53rem rgba(0, 0, 0, 0.2);
+    background: rgba(48, 48, 48, 0.7);
+}
+
+#infoContainer .headSec {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -701,6 +720,7 @@ div.badge {
 #infoContainer .wrapper {
     width: calc(100% - 1.2rem - 1.2rem - calc(env(safe-area-inset-right)));
     padding: 0 1.2rem;
+    margin-top: 7rem;
     display: none;
 }
 

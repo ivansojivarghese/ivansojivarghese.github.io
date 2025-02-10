@@ -1563,7 +1563,7 @@
     function openSearch(v, i, e) {
       event.stopPropagation();
 
-      videoInfoElm.info.scrollTo(0,0);
+      // videoInfoElm.info.scrollTo(0,0);
 
       if (!videoInfoOpen || e) {
         videoInfoElm.info.style.transform = "none";
@@ -1623,7 +1623,7 @@
     function openVideoInfo() {
       event.stopPropagation();
 
-      videoInfoElm.info.scrollTo(0,0);
+      // videoInfoElm.info.scrollTo(0,0);
 
       const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
       // Remove 'active' class from all elements
