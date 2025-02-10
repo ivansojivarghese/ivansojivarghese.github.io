@@ -70,6 +70,9 @@
     function getURL(u, m) { // 
 
       if (searchPath === "url" || m || u) {
+
+        clearBtn.style.display = inp.value ? "" : "none";
+
         if ((inp.value !== "" && (pattern.test(inp.value) && searchPath === "url")) || u || m) {
 
           var wrapURL = document.querySelector("#urlInput");
@@ -452,6 +455,8 @@
         }
 
       }
+
+      clearBtn.style.display = q ? "" : "none";
     }
 
     function containsWord(arr, word) {

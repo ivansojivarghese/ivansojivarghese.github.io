@@ -655,7 +655,7 @@ div.thumbnailIcon {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-top: calc(env(safe-area-inset-top));
-    border-radius: 50%;
+    border-radius: 0.5rem;
     background-color: #3f3f3f;
 }
 
