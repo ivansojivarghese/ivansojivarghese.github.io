@@ -465,7 +465,7 @@
     }
 
     function gradientButtons(cls) {
-      const buttons = document.querySelectorAll("." + cls);
+      const buttons = document.querySelectorAll(cls);
       const numButtons = buttons.length;
 
       // High-contrast vibrant gradient suitable for white text
@@ -518,7 +518,7 @@
           videoInfoElm.refinements.appendChild(refBtn);
         }
 
-        gradientButtons("keywordsBtn");
+        gradientButtons(".refinements .keywordsBtn");
       }
 
       for (var i = 0; i < data.length; i++) {

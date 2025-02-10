@@ -663,6 +663,10 @@ div.badge {
     background-color: #A10000 !important;
 }
 
+.keywords p, .keywordsBtn p {
+    font-weight: bold;
+}
+
 #infoContainer .homeBtn .img { 
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/home.svg");
     margin-left: calc(env(safe-area-inset-left));
