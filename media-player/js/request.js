@@ -464,6 +464,22 @@
       return arr.some(element => element.toLowerCase().includes(lowerCaseWord));
     }
 
+    function gradientButtons(cls) {
+      const buttons = document.querySelectorAll("." + cls);
+      const numButtons = buttons.length;
+
+      // High-contrast vibrant gradient suitable for white text
+      const gradient = "linear-gradient(90deg, #FF4D4D, #FF8C1A, #47D147, #1E90FF, #8A2BE2, #FF1493)";
+
+      buttons.forEach((button, index) => {
+        const sliceStart = (100 / numButtons) * index;
+        
+        button.style.background = `${gradient}`;
+        button.style.backgroundSize = `${numButtons * 100}% 100%`;
+        button.style.backgroundPosition = `${sliceStart}%`;
+      });
+    }
+
     function displaySearchResults(m) {
       var data = m ? searchResults.data : hashtagResults.data;
       var ref = m ? searchResults.refinements : null;
@@ -501,6 +517,8 @@
 
           videoInfoElm.refinements.appendChild(refBtn);
         }
+
+        gradientButtons("keywordsBtn");
       }
 
       for (var i = 0; i < data.length; i++) {
