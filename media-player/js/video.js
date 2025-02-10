@@ -5,6 +5,7 @@ var videoInfoElm = {
   channelTitle : document.querySelector("#videoInfo p"),
 
   info : document.querySelector("#infoContainer"),
+  infoHead : document.querySelector("#infoContainer .head"),
 
   videoTitle : document.querySelector("#infoContainer h5.videoTitle"),
   channelTitle2 : document.querySelector("#infoContainer p.channelTitle"),

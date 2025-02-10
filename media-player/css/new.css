@@ -605,7 +605,7 @@ div.thumbnailIcon {
 }
 
 @media screen and (orientation: landscape) {
-    #infoContainer {
+    #infoContainer, #infoContainer .head {
         width: calc(21rem + calc(env(safe-area-inset-left)) + calc(env(safe-area-inset-right)));
     }
 }
