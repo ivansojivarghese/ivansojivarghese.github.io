@@ -720,6 +720,20 @@
       }
     }
 
+    async function getYouTubeSuggestions(query) {
+        const url = `https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${encodeURIComponent(query)}`;
+    
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log(data[1]); // Suggestions are in the second index
+        } catch (error) {
+            console.error("Error fetching suggestions:", error);
+            return [];
+        }
+    }
+  
+
     inp.addEventListener('input', () => {
       clearBtn.style.display = inp.value ? "" : "none";
 
@@ -734,6 +748,9 @@
         } else {
           inp.style.color = "#303030";
         }
+
+        getYouTubeSuggestions(text);
+
       } else {
         inp.style.color = "#303030";
       }
