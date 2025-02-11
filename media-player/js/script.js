@@ -2220,7 +2220,7 @@
       audioTimes[audioTimes.length] = aT;
       videoTimes[videoTimes.length] = vT;
 
-      if (!video.paused && !isMusic /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && ((typeof audioCtx.playoutStats !== 'undefined' && audioCtx.playoutStats.maximumLatency) || (typeof audioCtx.playoutStats === 'undefined')) && audioCtx.baseLatency && audioCtx.outputLatency)) {
+      if (!video.paused && (!isMusic || (isMusic && CVactivityScore > 0.2)) /*&& !networkError */ && !seekingLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && (!loading || qualityBestChange || qualityChange) && !bufferingDetected && !framesStuck && (audioCtx && ((typeof audioCtx.playoutStats !== 'undefined' && audioCtx.playoutStats.maximumLatency) || (typeof audioCtx.playoutStats === 'undefined')) && audioCtx.baseLatency && audioCtx.outputLatency)) {
         
         var maxLatency = (typeof audioCtx.playoutStats !== 'undefined') ? audioCtx.playoutStats.maximumLatency : (audioCtx.baseLatency && audioCtx.outputLatency) ? 0 : 100;
 
@@ -3143,7 +3143,7 @@
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
-      if (!isMusic) {
+      if (!isMusic || (isMusic && CVactivityScore > 0.2)) {
 
         offset = (checkInterval - 20) / 1000;
 
@@ -3193,7 +3193,7 @@
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
 
-      if (!isMusic) {
+      if (!isMusic || (isMusic && CVactivityScore > 0.2)) {
 
         offset = (checkInterval - 20) / 1000;
 
