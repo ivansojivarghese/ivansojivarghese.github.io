@@ -719,7 +719,7 @@
         }
       }
     }
-
+    /*
     async function getYouTubeSuggestions(query) {
         const url = `https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${encodeURIComponent(query)}`;
     
@@ -731,8 +731,7 @@
             console.error("Error fetching suggestions:", error);
             return [];
         }
-    }
-  
+    }*/
 
     inp.addEventListener('input', () => {
       clearBtn.style.display = inp.value ? "" : "none";
@@ -749,7 +748,7 @@
           inp.style.color = "#303030";
         }
 
-        getYouTubeSuggestions(text);
+        // getYouTubeSuggestions(text);
 
       } else {
         inp.style.color = "#303030";
