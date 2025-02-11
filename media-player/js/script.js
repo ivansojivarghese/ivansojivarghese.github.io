@@ -3143,91 +3143,100 @@
     
     video.addEventListener('waiting', function () { // when playback has stopped because of a temporary lack of data
 
-      offset = (checkInterval - 20) / 1000;
+      if (!isMusic) {
 
-      if (!networkError) {
-        clearInterval(networkSpeedInt);
-        networkSpeedInt = null;
+        offset = (checkInterval - 20) / 1000;
+
+        if (!networkError) {
+          clearInterval(networkSpeedInt);
+          networkSpeedInt = null;
+        }
+        clearInterval(networkParamInt);
+        networkParamInt = null;
+        /*
+        controller.abort();
+        controllerRTT.abort();
+        controllerPacket.abort();
+        */
+        statusIndicator.classList.remove("error");
+        statusIndicator.classList.remove("smooth");
+        statusIndicator.classList.add("buffer");
+
+        getScreenLock();
+
+        // bufferCount++;
+        bufferStartTime = new Date().getTime();
+        bufferMode = true;
+        
+        // CHECK FOR LONG BUFFERS
+
+        clearTimeout(controlsHideInt);
+        controlsHideInt = null;
+
+        loadingRing.style.display = "block";
+        playPauseButton.style.display = "none";
+        showVideoControls();
+
+        loading = true;
+        bufferLoad = true;
+
+        if (!backgroundPlay && !backgroundPlayManual) {
+          audio.pause();
+          // videoPause = false;
+
+          console.log("audio_pause");
+        }
+        
       }
-      clearInterval(networkParamInt);
-      networkParamInt = null;
-      /*
-      controller.abort();
-      controllerRTT.abort();
-      controllerPacket.abort();
-      */
-      statusIndicator.classList.remove("error");
-      statusIndicator.classList.remove("smooth");
-      statusIndicator.classList.add("buffer");
 
-      getScreenLock();
-
-      // bufferCount++;
-      bufferStartTime = new Date().getTime();
-      bufferMode = true;
-      
-      // CHECK FOR LONG BUFFERS
-
-      clearTimeout(controlsHideInt);
-      controlsHideInt = null;
-
-      loadingRing.style.display = "block";
-      playPauseButton.style.display = "none";
-      showVideoControls();
-
-      loading = true;
-      bufferLoad = true;
-
-      if (!backgroundPlay && !backgroundPlayManual) {
-        audio.pause();
-        // videoPause = false;
-
-        console.log("audio_pause");
-      }
     });
 
     video.addEventListener('stalled', function () { // trying to fetch media data, but data is unexpectedly not forthcoming
 
-      offset = (checkInterval - 20) / 1000;
+      if (!isMusic) {
 
-      if (!networkError) {
-        clearInterval(networkSpeedInt);
-        networkSpeedInt = null;
-      }
-      clearInterval(networkParamInt);
-      networkParamInt = null;
-      /*
-      controller.abort();
-      controllerRTT.abort();
-      controllerPacket.abort();
-      */
-      statusIndicator.classList.remove("error");
-      statusIndicator.classList.remove("smooth");
-      statusIndicator.classList.add("buffer");
+        offset = (checkInterval - 20) / 1000;
 
-      getScreenLock();
+        if (!networkError) {
+          clearInterval(networkSpeedInt);
+          networkSpeedInt = null;
+        }
+        clearInterval(networkParamInt);
+        networkParamInt = null;
+        /*
+        controller.abort();
+        controllerRTT.abort();
+        controllerPacket.abort();
+        */
+        statusIndicator.classList.remove("error");
+        statusIndicator.classList.remove("smooth");
+        statusIndicator.classList.add("buffer");
 
-      // bufferCount++;
-      bufferStartTime = new Date().getTime();
-      bufferMode = true;
+        getScreenLock();
 
-      // CHECK FOR LONG BUFFERS
-      
-      clearTimeout(controlsHideInt);
-      controlsHideInt = null;
+        // bufferCount++;
+        bufferStartTime = new Date().getTime();
+        bufferMode = true;
 
-      loadingRing.style.display = "block";
-      playPauseButton.style.display = "none";
-      showVideoControls();
+        // CHECK FOR LONG BUFFERS
+        
+        clearTimeout(controlsHideInt);
+        controlsHideInt = null;
 
-      loading = true;
-      bufferLoad = true;
+        loadingRing.style.display = "block";
+        playPauseButton.style.display = "none";
+        showVideoControls();
 
-      if (!backgroundPlay && !backgroundPlayManual) {
-        audio.pause();
-        // videoPause = false;
+        loading = true;
+        bufferLoad = true;
 
-        console.log("audio_pause");
+        if (!backgroundPlay && !backgroundPlayManual) {
+          audio.pause();
+          // videoPause = false;
+
+          console.log("audio_pause");
+        }
+
       }
     });
 
