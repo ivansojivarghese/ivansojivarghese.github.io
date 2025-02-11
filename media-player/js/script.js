@@ -5400,6 +5400,8 @@
     var derActivityScoreArr = []; 
     var derActivityScoreData = {};
 
+    var CVactivityScore = 0;
+
 
     // Analyze each frame
     function analyzeFrame(now, metadata) {

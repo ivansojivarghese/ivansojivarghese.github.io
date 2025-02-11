@@ -1168,7 +1168,10 @@ function getOptimalQuality() {
       }
 
       var CVscore = derActivityScoreData.standardDeviation / derActivityScoreData.mean; // Coefficient of Variation 
+      CVactivityScore = CVscore;
+
       var optimum = 0;
+      
       if (CVscore < 0.1) { // small variation
         optimum = 1;
       } else if (CVscore >= 0.1 && CVscore <= 0.2) { // moderate
