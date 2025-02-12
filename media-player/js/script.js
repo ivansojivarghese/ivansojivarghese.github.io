@@ -1655,7 +1655,7 @@
           // videoContainer.style.opacity = 0.5;
         }
 
-        if (!videoEnd && !video.paused && !isMusic && (ori === "portrait-primary" || ori === "portrait-secondary")) {
+        if (!videoEnd && !video.paused && (!isMusic || (isMusic && CVactivityScore > 0.2)) && (ori === "portrait-primary" || ori === "portrait-secondary")) {
           video.requestPictureInPicture().then(function() {
             getScreenLock();
             pipEnabled = true;
@@ -1841,7 +1841,7 @@
         // searchButton.style.display = "block";
 
         if (videoInfoOpen) {
-          if (!videoEnd && !video.paused && !isMusic) {
+          if (!videoEnd && !video.paused && (!isMusic || (isMusic && CVactivityScore > 0.2))) {
             video.requestPictureInPicture().then(function() {
               getScreenLock();
               pipEnabled = true;
@@ -4856,7 +4856,7 @@
             }
           }, 10);
           if (!video.paused && !document.fullscreenElement) {
-            if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && !isMusic && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
+            if (((firstTouchPlay && secondTouchPlay) || (!firstTouchPlay && !secondTouchPlay)) && (!isMusic || (isMusic && CVactivityScore > 0.2)) && (screen.orientation.angle === 0 || screen.orientation.angle === 180)) {
               video.requestPictureInPicture().then(function() {
                 getScreenLock();
                 pipEnabled = true;
@@ -4935,7 +4935,7 @@
 
           video.style.objectFit = "";
           video.classList.remove("cover");
-          if (!video.paused && !appUnload && !isMusic) {
+          if (!video.paused && !appUnload && (!isMusic || (isMusic && CVactivityScore > 0.2))) {
               video.requestPictureInPicture().then(function() {
                 getScreenLock();
                 pipEnabled = true;
