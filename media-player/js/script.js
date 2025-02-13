@@ -948,6 +948,12 @@
               video.currentTime = 0;
               audio.currentTime = 0;
             }
+          } else if (radioLoop) {
+            if (backgroundPlay) {
+              // JUST PLAY AUDIO
+            } else {
+              getURL("https://www.youtube.com/watch?v=" + relatedContent.data[0].videoId, true);
+            }
           }
         }
       });
@@ -994,6 +1000,12 @@
         } else {
           video.currentTime = 0;
           audio.currentTime = 0;
+        }
+      } else if (radioLoop) {
+        if (backgroundPlay) {
+          // JUST PLAY AUDIO
+        } else {
+          getURL("https://www.youtube.com/watch?v=" + relatedContent.data[0].videoId, true);
         }
       }
   });
@@ -1773,17 +1785,9 @@
       if (!videoLoop) {
         videoLoop = true;
         videoInfoElm.replay.classList.add("active");
-/*
-        if (casting && casted) {
-          castVideoWithAudio(videoDetails.formats["0"].url);
-        }*/
       } else {
         videoLoop = false;
         videoInfoElm.replay.classList.remove("active");
-/*
-        if (casting && casted) {
-          castVideoWithAudio(videoDetails.formats["0"].url);
-        }*/
       }
     }
 
@@ -5228,6 +5232,14 @@
         } else if (video.currentTime === video.duration) {
           video.currentTime = 0;
           audio.currentTime = 0;
+        }
+      } else if (radioLoop) {
+        if (backgroundPlay && audio.currentTime === audio.duration) {
+
+          // JUST PLAY AUDIO
+
+        } else if (video.currentTime === video.duration) {
+          getURL("https://www.youtube.com/watch?v=" + relatedContent.data[0].videoId, true);
         }
       }
     }, 1000/60);
