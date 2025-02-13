@@ -518,7 +518,9 @@
           videoInfoElm.refinements.appendChild(refBtn);
         }
 
-        gradientButtons(".refinements .keywordsBtn");
+        if (videoDetails.keywords.length > 10) {
+          gradientButtons(".refinements .keywordsBtn");
+        }
       }
 
       for (var i = 0; i < data.length; i++) {

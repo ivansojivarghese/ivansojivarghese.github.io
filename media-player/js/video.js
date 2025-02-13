@@ -2429,7 +2429,9 @@ function abstractVideoInfo() {
 
       videoInfoElm.keywords.appendChild(d);
 
-      gradientButtons(".info .keywordsBtn");
+      if (videoDetails.keywords.length > 10) {
+        gradientButtons(".info .keywordsBtn");
+      }
     }
   } else {
     videoInfoElm.keywords.style.display = "none";
