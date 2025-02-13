@@ -1794,11 +1794,18 @@
     function radioToggle() {
       if (!radioLoop) {
         radioLoop = true;
+        localStorage.setItem('radioLoop', "true"); 
         videoInfoElm.radio.classList.add("active");
       } else {
         radioLoop = false;
+        localStorage.setItem('radioLoop', "false"); 
         videoInfoElm.radio.classList.remove("active");
       }
+    }
+
+    if (localStorage.getItem('radioLoop') === "true") {
+      radioLoop = true;
+      videoInfoElm.radio.classList.add("active");
     }
 
     function autoResToggle() {
