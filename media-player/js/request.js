@@ -391,7 +391,7 @@
             showInputErrorFeedback("No results found. Try again.");
           } else {
 
-            displaySearchResults(false);
+            displaySearchResults(false, null, "div.wrapper.search");
           }
 
           loadingSpace.style.display = "none";
@@ -435,7 +435,7 @@
             showInputErrorFeedback("No results found. Try again.");
           } else {
             
-            displaySearchResults(true);
+            displaySearchResults(true, null, "div.wrapper.search");
           }
 
           loadingSpace.style.display = "none";
@@ -480,22 +480,24 @@
       });
     }
 
-    function displaySearchResults(m) {
-      var data = m ? searchResults.data : hashtagResults.data;
-      var ref = m ? searchResults.refinements : null;
+    function displaySearchResults(m, s, c) {
+      var data = s ? relatedContent.data : m ? searchResults.data : hashtagResults.data;
+      var ref = s ? null : m ? searchResults.refinements : null;
 
-      var res = document.querySelectorAll(".result_wrapper");
+      var res = document.querySelectorAll(c + ".result_wrapper");
       if (res.length) {
         res.forEach((element) => {
           element.remove();
         });
       }
 
-      var refStuff = document.querySelectorAll("div.refinements div.keywordsBtn");
-      if (refStuff.length) {
-        refStuff.forEach((element) => {
-          element.remove();
-        });
+      if (!s) {
+        var refStuff = document.querySelectorAll("div.refinements div.keywordsBtn");
+        if (refStuff.length) {
+          refStuff.forEach((element) => {
+            element.remove();
+          });
+        }
       }
 
       if (ref) {
@@ -611,7 +613,11 @@
           textDiv.appendChild(date);
           main.appendChild(textDiv);
 
-          videoInfoElm.results.appendChild(main);
+          if (!s) {
+            videoInfoElm.results.appendChild(main);
+          } else {
+            videoInfoElm.relatedResults.appendChild(main);
+          }
         }
       }
 

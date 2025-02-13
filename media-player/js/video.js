@@ -2788,6 +2788,11 @@ async function getRelatedContent(id) {
 
     console.log(relatedContent);
 
+    if (relatedContent.data.length) {
+
+      displaySearchResults(null, true, "div.wrapper.info");
+    }
+
   } catch (error) {
 
     console.error(error);
