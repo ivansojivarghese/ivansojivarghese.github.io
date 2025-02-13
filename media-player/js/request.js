@@ -520,7 +520,7 @@
           videoInfoElm.refinements.appendChild(refBtn);
         }
 
-        if (videoDetails.keywords.length > 10) {
+        if (ref.length > 10) {
           gradientButtons(".refinements .keywordsBtn");
         }
       }
