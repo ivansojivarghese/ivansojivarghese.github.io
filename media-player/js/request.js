@@ -391,7 +391,7 @@
             showInputErrorFeedback("No results found. Try again.");
           } else {
 
-            displaySearchResults(false, null, "div.wrapper.search");
+            displaySearchResults(false, null, "div.wrapper.search ");
           }
 
           loadingSpace.style.display = "none";
@@ -435,7 +435,7 @@
             showInputErrorFeedback("No results found. Try again.");
           } else {
             
-            displaySearchResults(true, null, "div.wrapper.search");
+            displaySearchResults(true, null, "div.wrapper.search ");
           }
 
           loadingSpace.style.display = "none";

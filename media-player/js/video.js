@@ -2790,7 +2790,7 @@ async function getRelatedContent(id) {
 
     if (relatedContent.data.length) {
 
-      displaySearchResults(null, true, "div.wrapper.info");
+      displaySearchResults(null, true, "div.wrapper.info ");
     }
 
   } catch (error) {
