@@ -80,6 +80,7 @@
     var autoResInt = true;
 
     var videoLoop = false;
+    var radioLoop = false;
 
     var appUnload = false;
 
@@ -1783,6 +1784,16 @@
         if (casting && casted) {
           castVideoWithAudio(videoDetails.formats["0"].url);
         }*/
+      }
+    }
+
+    function radioToggle() {
+      if (!radioLoop) {
+        radioLoop = true;
+        videoInfoElm.radio.classList.add("active");
+      } else {
+        radioLoop = false;
+        videoInfoElm.radio.classList.remove("active");
       }
     }
 
