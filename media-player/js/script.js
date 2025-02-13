@@ -4560,6 +4560,8 @@
     var videoProgressPercentile = 0,
         audioProgressPercentile = 0;
 
+    var readyForNext = false;
+
     video.addEventListener('timeupdate', function() {
         // audio.currentTime = video.currentTime;
         if ((player && !player.isConnected) || !player) {
@@ -4583,6 +4585,8 @@
           videoInfoElm.title.innerHTML = "<span class='nextSpan'>NEXT</span>" + relatedContent.data[0].title;
           videoInfoElm.channelTitle.innerHTML = relatedContent.data[0].channelTitle;
           showVideoControls();
+
+          readyForNext = true;
         }
 
         const videoTitleLink = document.querySelector("#infoContainer h5.videoTitle a");
@@ -4644,6 +4648,11 @@
         // if (refSeekTime !== 0) {
           localStorage.setItem('timestamp', refSeekTime); // SET timestamp memory
         // }
+      }
+
+      if ((audio.currentTime > (audio.duration - 10)) && (audio.currentTime < (audio.duration - 5)) && radioLoop && !videoLoop && backgroundPlay) {
+
+        readyForNext = true;
       }
 
       audioProgressPercentile = (audio.currentTime / audio.duration);
@@ -5239,7 +5248,7 @@
           video.currentTime = 0;
           audio.currentTime = 0;
         }
-      } else if (radioLoop) {
+      } else if (radioLoop && readyForNext) {
         if (backgroundPlay && audio.currentTime === audio.duration) {
 
           // JUST PLAY AUDIO

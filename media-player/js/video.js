@@ -423,6 +423,7 @@ function videoReset() {
 
     failTimes = 0;
     videoLoop = false;
+    readyForNext = false;
 
     autoRes = true;
 
