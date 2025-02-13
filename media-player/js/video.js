@@ -29,6 +29,7 @@ var videoInfoElm = {
   description : document.querySelector("#infoContainer div.description p"),
 
   results : document.querySelector("#infoContainer div.wrapper.search div.results"),
+  relatedResults : document.querySelector("#infoContainer div.wrapper.info div.results"),
   refinements : document.querySelector("#infoContainer div.wrapper.search div.refinements")
 };
     
@@ -2762,6 +2763,34 @@ function formatDescription(text) {
 
   } else {
     videoInfoElm.description.style.display = "none";
+  }
+
+  // related videos/playlists
+
+  getRelatedContent(videoDetails.id);
+}
+
+var relatedContent = null;
+
+async function getRelatedContent(id) {
+  const url = 'https://yt-api.p.rapidapi.com/related?id=' + id + '&geo=' + countryAPIres.country + '&lang=en';
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': '89ce58ef37msh8e59da617907bbcp1455bajsn66709ef67e50',
+      'x-rapidapi-host': 'yt-api.p.rapidapi.com'
+    }
+  };
+
+  try {
+    const response = await fetch(url, options);
+    relatedContent = await response.json();
+
+    console.log(relatedContent);
+
+  } catch (error) {
+
+    console.error(error);
   }
 }
 
