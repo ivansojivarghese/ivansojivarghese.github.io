@@ -173,6 +173,10 @@ video.seeking {
     border-radius: 0.5rem;
 }
 
+.autoResBtn {
+    width: 3rem;
+}
+
 .videoInfoBtns {
     padding: 0.5rem;
     margin-right: 1rem;
