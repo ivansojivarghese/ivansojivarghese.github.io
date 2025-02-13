@@ -1803,11 +1803,6 @@
       }
     }
 
-    if (localStorage.getItem('radioLoop') === "true") {
-      radioLoop = true;
-      videoInfoElm.radio.classList.add("active");
-    }
-
     function autoResToggle() {
       if (!autoRes) {
         var activeBtn = document.querySelectorAll(".autoResBtn.active").length ? document.querySelectorAll(".autoResBtn.active") : document.querySelectorAll(".otherResBtn.active");

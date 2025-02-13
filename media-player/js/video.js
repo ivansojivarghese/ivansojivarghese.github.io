@@ -2817,6 +2817,11 @@ if (videoLoadLoop === null) {
   }, 100);
 }
 
+if (localStorage.getItem('radioLoop') === "true") {
+  radioLoop = true;
+  videoInfoElm.radio.classList.add("active");
+}
+
 setInterval(() => {
   if (videoInfoElm.gCast.style.display !== "none") {
     videoInfoElm.cast.style.display = "";
