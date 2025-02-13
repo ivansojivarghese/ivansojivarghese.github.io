@@ -2659,8 +2659,8 @@ function formatPhoneNumbers(text) {
 }
 
 function formatMentions(text) {
-  // Match mentions that start with a space or are at the beginning of the string
-  const mentionRegex = /(?:\s|^)@([a-zA-Z0-9_]+)/g;
+  // Match mentions that start with a space, newline, or are at the beginning of the string
+  const mentionRegex = /(?:\s|\n|^)@([a-zA-Z0-9_]+)/g;
 
   return text.replace(mentionRegex, (match, username, offset, originalText) => {
     // Check if it is part of an email by looking ahead for a dot (e.g., @domain.com)
