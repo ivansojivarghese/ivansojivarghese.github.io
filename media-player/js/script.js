@@ -4582,6 +4582,7 @@
         if ((video.currentTime > (video.duration - 10)) && (video.currentTime < (video.duration - 5)) && radioLoop && !videoLoop && !backgroundPlay) {
           videoInfoElm.title.innerHTML = "<span class='nextSpan'>NEXT</span>" + relatedContent.data[0].title;
           videoInfoElm.channelTitle.innerHTML = relatedContent.data[0].channelTitle;
+          showVideoControls();
         }
 
         const videoTitleLink = document.querySelector("#infoContainer h5.videoTitle a");
