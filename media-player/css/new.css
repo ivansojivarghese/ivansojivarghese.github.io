@@ -166,6 +166,13 @@ video.seeking {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/radio.svg");
 }
 
+.nextSpan {
+    background: var(--predicate_col);
+    padding: 0 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+}
+
 .videoInfoBtns {
     padding: 0.5rem;
     margin-right: 1rem;
