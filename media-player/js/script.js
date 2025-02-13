@@ -5251,6 +5251,7 @@
           audio.currentTime = 0;
         }
       } else if (radioLoop && readyForNext) {
+        readyForNext = false;
         if (backgroundPlay && audio.currentTime === audio.duration) {
 
           // JUST PLAY AUDIO
