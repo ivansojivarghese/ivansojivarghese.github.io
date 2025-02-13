@@ -9,7 +9,7 @@
         cursor: pointer;
     }
 
-    .replay, .cast {
+    .videoInfoBtns {
         cursor: pointer !important;
     }
 
@@ -162,7 +162,11 @@ video.seeking {
     background-image: url("https://ivansojivarghese.github.io/media-player/svg/replay.svg");
 }
 
-.replay, .cast {
+.radio .img {
+    background-image: url("https://ivansojivarghese.github.io/media-player/svg/radio.svg");
+}
+
+.videoInfoBtns {
     padding: 0.5rem;
     margin-right: 1.25rem;
     width: 1.25rem;
@@ -171,11 +175,11 @@ video.seeking {
     background-color: #3f3f3f;
 }
 
-.replay.active, .cast.active, #infoContainer .head .cursor.active {
+.videoInfoBtns.active, #infoContainer .head .cursor.active {
     background-color: #606060;
 }
 
-.replay .img, .cast .img {
+.videoInfoBtns .img {
     width: 1.25rem;
     height: 1.25rem;
 }
