@@ -949,16 +949,16 @@ div.thumbnail {
     font-size: 1rem !important;
 }
 
-.wrapper.search .resultDuration, .wrapper.search .resultDate {
+.wrapper .resultDuration, .wrapper .resultDate {
     font-size: 1rem !important;
 }
 
-.wrapper.search .resultDuration {
+.wrapper .resultDuration {
     float: left;
     letter-spacing: 0.1rem;
 }
 
-.wrapper.search .resultDate {
+.wrapper .resultDate {
     float: right;
 }
 
