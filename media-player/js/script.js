@@ -4583,7 +4583,7 @@
           // }
         }
 
-        if ((video.currentTime > (video.duration - 30)) && (video.currentTime < (video.duration - 5)) && radioLoop && !videoLoop && !backgroundPlay) {
+        if ((video.currentTime > (video.duration - 30)) && (video.currentTime < (video.duration - 5)) && radioLoop && !videoLoop && !backgroundPlay && !readyForNext) {
           videoInfoElm.title.innerHTML = "<span class='nextSpan'>NEXT</span>" + relatedContent.data[0].title;
           videoInfoElm.channelTitle.innerHTML = relatedContent.data[0].channelTitle;
           showVideoControls();
@@ -4652,7 +4652,7 @@
         // }
       }
 
-      if ((audio.currentTime > (audio.duration - 30)) && (audio.currentTime < (audio.duration - 5)) && radioLoop && !videoLoop && backgroundPlay) {
+      if ((audio.currentTime > (audio.duration - 30)) && (audio.currentTime < (audio.duration - 5)) && radioLoop && !videoLoop && backgroundPlay && !readyForNext) {
 
         readyForNext = true;
       }
