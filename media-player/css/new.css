@@ -380,6 +380,10 @@ a.noUnderline {
     #fitscreenButton {
         display: block;
     }
+
+    #infoContainer.openInfo {
+        box-shadow: -0.21rem 0px 0.53rem rgba(0, 0, 0, 0.2);
+    }
 }
 
 #skipPreviousButton .img {

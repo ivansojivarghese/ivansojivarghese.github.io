@@ -1584,6 +1584,8 @@
       if (!videoInfoOpen || e) {
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
+
+        videoInfoElm.info.classList.add("openInfo");
       }
 
       const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
@@ -1663,6 +1665,8 @@
         videoInfoElm.info.style.transform = "none";
         videoInfoOpen = true;
 
+        videoInfoElm.info.classList.add("openInfo");
+
         if (ori === "landscape-primary" || ori === "landscape-secondary") {
           // mainContent.style.backgroundColor = "#000";
           // videoContainer.style.opacity = 0.5;
@@ -1683,6 +1687,8 @@
       videoInfoOpen = false;
 
       var ori = screen.orientation.type;
+
+      videoInfoElm.info.classList.remove("openInfo");
 
       const allBtn = document.querySelectorAll("#infoContainer .head .cursor");
       // Remove 'active' class from all elements
@@ -2659,7 +2665,7 @@
         if (resumeInterval === null) {
           resumeInterval = setInterval(() => {
             var buffered = video.buffered;
-            if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+            if (buffered.length > 0 && video.paused && !autoLoad /*&& bufferLoad*/ && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
               console.log("play", seeking, seekingLoad);
               video.play();
               // videoSec.play();
@@ -2829,7 +2835,7 @@
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                if (buffered.length > 0 && video.paused && !autoLoad /*&& bufferLoad*/ && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
                   // videoSec.play();
@@ -4491,7 +4497,7 @@
               if (resumeInterval === null) {
                 resumeInterval = setInterval(() => {
                   var buffered = video.buffered;
-                  if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                  if (buffered.length > 0 && video.paused && !autoLoad /*&& bufferLoad*/ && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                     console.log("play", seeking, seekingLoad);
                     video.play();
                     // videoSec.play();
@@ -4531,7 +4537,7 @@
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                if (buffered.length > 0 && video.paused && !autoLoad /*&& bufferLoad*/ && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
                   // videoSec.play();
