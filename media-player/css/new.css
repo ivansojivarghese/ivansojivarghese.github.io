@@ -174,7 +174,8 @@ video.seeking {
 }
 
 .autoResBtn {
-    width: 3rem;
+    width: 3rem !important;
+    margin-right: 1rem !important;
 }
 
 .videoInfoBtns {
@@ -184,6 +185,7 @@ video.seeking {
     height: 1.25rem;
     border-radius: 50%;
     background-color: #3f3f3f;
+    margin-right: 0.5rem;
 }
 
 .videoInfoBtns.active, #infoContainer .head .cursor.active {
