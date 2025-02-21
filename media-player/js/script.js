@@ -2665,7 +2665,7 @@
         if (resumeInterval === null) {
           resumeInterval = setInterval(() => {
             var buffered = video.buffered;
-            if (buffered.length > 0 && video.paused && !autoLoad /*&& bufferLoad*/ && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+            if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
               console.log("play", seeking, seekingLoad);
               video.play();
               // videoSec.play();
@@ -2835,7 +2835,7 @@
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && !autoLoad /*&& bufferLoad*/ && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
                   // videoSec.play();
@@ -4497,7 +4497,7 @@
               if (resumeInterval === null) {
                 resumeInterval = setInterval(() => {
                   var buffered = video.buffered;
-                  if (buffered.length > 0 && video.paused && !autoLoad /*&& bufferLoad*/ && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                  if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                     console.log("play", seeking, seekingLoad);
                     video.play();
                     // videoSec.play();
@@ -4537,7 +4537,7 @@
             if (resumeInterval === null) {
               resumeInterval = setInterval(() => {
                 var buffered = video.buffered;
-                if (buffered.length > 0 && video.paused && !autoLoad /*&& bufferLoad*/ && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
+                if (buffered.length > 0 && video.paused && !autoLoad && bufferLoad && (!videoEnd || (videoEnd && (video.currentTime < (video.duration - maxVideoLoad)))) && !initialVideoLoad && !qualityBestChange && !qualityChange && !seekingLoad) {
                   console.log("play", seeking, seekingLoad);
                   video.play();
                   // videoSec.play();
