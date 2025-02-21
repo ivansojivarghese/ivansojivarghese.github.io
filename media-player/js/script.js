@@ -247,7 +247,7 @@
           showVideoControls();
         }  
 
-        if (!loading && !bufferingDetected && bufferLoad && !framesStuck && !seeking && !video.paused) {
+        if (!loading && !bufferingDetected && bufferLoad && !framesStuck && !seeking && !video.paused && video.buffered.length) {
             bufferLoad = false;
             
             statusIndicator.classList.remove("buffer");
