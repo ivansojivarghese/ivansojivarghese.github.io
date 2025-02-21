@@ -1021,3 +1021,12 @@ div.thumbnail {
       60%{background-position:0%  50%, 50% 100%,100%   0%}
       80%{background-position:0%  50%, 50%  50%,100% 100%}
   }
+
+  a.url .ko-fi {
+    top: 0.15rem;
+  }
+
+  a.url .ko-fi .img {
+    height: 1rem;
+    top: 0.025rem;
+  }

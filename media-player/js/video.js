@@ -2507,39 +2507,90 @@ function generateValidIdFromUrl(url) {
 
 function getSocialsFavicon(url) {
   if (url.includes("instagram.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/instagram.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/instagram.svg', 
+      id: "instagram"
+    };
   } else if (url.includes("twitter.com") || url.includes("x.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/x.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/x.svg',
+      id: "twitter"
+    };
   } else if (url.includes("facebook.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/facebook.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/facebook.svg',
+      id: "facebook"
+    };
   } else if (url.includes("tiktok.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/tiktok.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/tiktok.svg',
+      id : "tiktok"
+    };
   } else if (url.includes("snapchat.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/snapchat.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/snapchat.svg',
+      id: "snapchat"
+    };
   } else if (url.includes("linkedin.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/linkedin.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/linkedin.svg',
+      id: "linkedin"
+    };
   } else if (url.includes("patreon.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/patreon.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/patreon.svg',
+      id: "patreon"
+    };
   } else if (url.includes("ko-fi.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/kofi.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/kofi.svg',
+      id: "ko-fi"
+    };
   } else if (url.includes("twitch.tv")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/twitch.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/twitch.svg',
+      id: "twitch"
+    };
   } else if (url.includes("discord")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/discord.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/discord.svg',
+      id: "discord"
+    };
   } else if (url.includes("amazon.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/amazon.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/amazon.svg',
+      id: "amazon"
+    };
   } else if (url.includes("soundcloud.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/soundcloud.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/soundcloud.svg',
+      id: "soundcloud"
+    };
   } else if (url.includes("spotify.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/spotify.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/spotify.svg',
+      id: "spotify"
+    };
   } else if (url.includes("reddit.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/reddit.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/reddit.svg',
+      id : "reddit"
+    };
   } else if (url.includes("pinterest.com")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/pinterest.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/pinterest.svg',
+      id: "pinterest"
+    };
   } else if (url.includes("linktr.ee")) {
-    return 'https://ivansojivarghese.github.io/media-player/png/linktree.svg';
+    return {
+      url: 'https://ivansojivarghese.github.io/media-player/png/linktree.svg',
+      id: "linktree"
+    };
   } else {
-    return "";
+    return {
+      url: "",
+      id: ""
+    };
   }
 }
   
@@ -2559,6 +2610,7 @@ function formatURLsToGenericLink(text) {
 
     var id = "";
     var youtubeClass = "";
+    var imgClass = "";
     if (url.includes("youtube.com") || url.includes("youtu.be")) {
       id = generateValidIdFromUrl(url);
     }
@@ -2574,14 +2626,15 @@ function formatURLsToGenericLink(text) {
     }
 
     var socialFavicon = getSocialsFavicon(url);
+    imgClass = socialFavicon.id;
 
     /*
     const displayTitle = title || 'Visit Link';
     const faviconURL = favicon || `https://www.google.com/s2/favicons?domain=${url}`;*/
     const displayTitle = title || '';
-    const faviconURL = favicon || socialFavicon || youtubeFavicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
+    const faviconURL = favicon || socialFavicon.url || youtubeFavicon || `https://ivansojivarghese.github.io/media-player/svg/globe.svg`;
 
-    el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons ${youtubeClass}">
+    el = `<a href="${clickableURL}" target="_blank" id='${id}' class="url trs trsButtons ${youtubeClass} ${imgClass}">
                   <div class="img" style="background-image: url('${faviconURL}')"></div>
                   <div class="img link"></div>
                   <span style="display: none;">${displayTitle}</span>
