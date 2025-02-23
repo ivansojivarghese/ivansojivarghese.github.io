@@ -895,6 +895,10 @@ p.durationDiv {
     box-sizing: content-box;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}  
+
 .clear-btn {
     color: #303030;
     transform: translate(-2.4rem, 1.1rem);
