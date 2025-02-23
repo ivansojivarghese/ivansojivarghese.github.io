@@ -766,3 +766,9 @@
         inp.style.color = "#303030";
       }
     });
+
+    inp.addEventListener('keydown', function (event) {
+      if (event.key === "Enter") {
+        this.blur(); // Hides the keyboard
+      }
+    });
