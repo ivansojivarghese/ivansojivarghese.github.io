@@ -892,6 +892,7 @@ p.durationDiv {
     background-color: #F6F6F6;
     font-weight: bold;
     padding-right: 3rem;
+    box-sizing: content-box;
 }
 
 .clear-btn {
@@ -1029,4 +1030,4 @@ div.thumbnail {
   a.url.ko-fi .img {
     height: 1rem;
     top: 0.025rem;
-  }}
+  }
