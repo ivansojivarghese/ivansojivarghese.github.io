@@ -707,7 +707,9 @@
         urlSearchBtn.classList.remove("active");
         querySearchBtn.classList.add("active");
 
-        inp.type = "text";
+        inp.type = "search";
+        inp.inputMode = "search";
+        inp.enterkeyhint = "search";
         if (e !== "query") {
           if ((searchResults !== null && getDeviceType === "desktop") || (searchResults === null)) {
             inp.focus();
@@ -722,6 +724,8 @@
         urlSearchBtn.classList.add("active");
 
         inp.type = "url";
+        inp.inputMode = "url";
+        inp.enterkeyhint = "go";
         if ((searchResults !== null && getDeviceType === "desktop") || (searchResults === null)) {
           inp.focus();
         }
