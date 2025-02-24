@@ -4591,7 +4591,11 @@
 
         if ((video.currentTime > (video.duration - 30)) && (video.currentTime < (video.duration - 5)) && radioLoop && !videoLoop && !backgroundPlay && !readyForNext) {
           videoInfoElm.title.innerHTML = "<span class='nextSpan'>NEXT</span>" + relatedContent.data[0].title;
-          videoInfoElm.channelTitle.innerHTML = relatedContent.data[0].channelTitle;
+          if (relatedContent.data[0].channelTitle) {
+            videoInfoElm.channelTitle.innerHTML = relatedContent.data[0].channelTitle;
+          } else {
+            videoInfoElm.channelTitle.innerHTML = relatedContent.data[0].channelHandle;
+          }
           showVideoControls();
 
           readyForNext = true;
