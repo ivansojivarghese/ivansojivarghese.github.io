@@ -33,7 +33,7 @@
   "theme_color": "#000",
   "orientation": "any",
   "share_target": {
-    "action": "/index.html",
+    "action": "https://media-sphere.vercel.app/",
     "method": "GET",
     "params": {
       "text": "description",
