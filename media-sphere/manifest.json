@@ -2,7 +2,7 @@
   "name": "Media Sphere",
   "scope" : "https://media-sphere.vercel.app/",
   "start_url": "https://media-sphere.vercel.app/",
-  "id": "/media-sphere/index.html",
+  "id": "https://media-sphere.vercel.app/",
   "short_name": "Media Sphere",
   "description": "An installable Media Sphere app.",
   "display": "standalone",
@@ -33,7 +33,7 @@
   "theme_color": "#000",
   "orientation": "any",
   "share_target": {
-    "action": "/",
+    "action": "/index.html",
     "method": "GET",
     "params": {
       "text": "description",
