@@ -571,7 +571,7 @@
 
             var thumbnailIcon = document.createElement("div");
             thumbnailIcon.classList.add("thumbnailIcon", "img");
-            thumbnailIcon.style.backgroundImage = "url('https://ivansojivarghese.github.io/media-player/svg/playlist_play.svg')";
+            thumbnailIcon.style.backgroundImage = "url('https://ivansojivarghese.github.io/media-sphere/svg/playlist_play.svg')";
 
             thumbnailIconWrap.appendChild(thumbnailIcon);
             thumbnail.appendChild(thumbnailIconWrap);

@@ -1,8 +1,8 @@
 {
-  "name": "Media Player",
-  "scope" : "https://ivansojivarghese.github.io/media-player/",
-  "start_url": "https://ivansojivarghese.github.io/media-player/index.html",
-  "id": "/media-player/index.html",
+  "name": "Media Sphere",
+  "scope" : "https://ivansojivarghese.github.io/media-sphere/",
+  "start_url": "https://ivansojivarghese.github.io/media-sphere/index.html",
+  "id": "/media-sphere/index.html",
   "short_name": "Media Player",
   "description": "An installable media player app.",
   "display": "standalone",
@@ -11,19 +11,19 @@
     }, 
   "icons": [
     {
-      "src": "https://ivansojivarghese.github.io/media-player/play_small.png",
+      "src": "https://ivansojivarghese.github.io/media-sphere/play_small.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://ivansojivarghese.github.io/media-player/play.png",
+      "src": "https://ivansojivarghese.github.io/media-sphere/play.png",
       "sizes": "1080x1080",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://ivansojivarghese.github.io/media-player/play_maskable.png",
+      "src": "https://ivansojivarghese.github.io/media-sphere/play_maskable.png",
       "sizes": "1620x1620",
       "type": "image/png",
       "purpose": "maskable"
@@ -33,7 +33,7 @@
   "theme_color": "#000",
   "orientation": "any",
   "share_target": {
-    "action": "/media-player/index.html",
+    "action": "/media-sphere/index.html",
     "method": "GET",
     "params": {
       "text": "description",
