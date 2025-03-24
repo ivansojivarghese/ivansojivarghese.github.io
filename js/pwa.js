@@ -3366,7 +3366,7 @@ function pwaRead() {
                                                     }, 10);
                                                 }
 
-                                            } /*else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                                            } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                                                 clearInterval(weather_L);
                                                 clearInterval(ip_L);
                                                 clearInterval(client_L);
@@ -3376,9 +3376,9 @@ function pwaRead() {
                                                 loadTimes.slow = true;
 
                                                 loadError("timeout");
-                                            }*/
+                                            }
                                         }, op.t);
-                                    } /*else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                                    } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                                         clearInterval(ip_L);
                                         clearInterval(client_L);
 
@@ -3387,9 +3387,9 @@ function pwaRead() {
                                         loadTimes.slow = true;
 
                                         loadError("timeout");
-                                    }*/
+                                    }
                                 }, op.t);
-                            } /*else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
+                            } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
                                 clearInterval(client_L);
 
                                 // end load
@@ -3397,7 +3397,7 @@ function pwaRead() {
                                 loadTimes.slow = true;
 
                                 loadError("timeout");
-                            }*/
+                            }
                         } else {
                             clearInterval(client_L);
 
