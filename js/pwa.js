@@ -3375,7 +3375,7 @@ function pwaRead() {
 
                                                 loadTimes.slow = true;
 
-                                                loadError("timeout");
+                                                // loadError("timeout");
                                             }
                                         }, op.t);
                                     } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
@@ -3386,7 +3386,7 @@ function pwaRead() {
 
                                         loadTimes.slow = true;
 
-                                        loadError("timeout");
+                                        // loadError("timeout");
                                     }
                                 }, op.t);
                             } else if (!optimalLoadTimes(loadTimes.start, loadTimes.end)) {
@@ -3396,7 +3396,7 @@ function pwaRead() {
 
                                 loadTimes.slow = true;
 
-                                loadError("timeout");
+                                // loadError("timeout");
                             }
                         } else {
                             clearInterval(client_L);
