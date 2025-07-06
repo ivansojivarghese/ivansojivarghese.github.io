@@ -307,6 +307,42 @@ function isolateRegionBCP47(str) { // for BCP 47 language tags (https://www.tech
 
 // APIs
 
+async function getGeolocationInfo() {
+  try {
+    if (navigator.onLine) {
+        const response = await fetch('https://ip-address-sigma.vercel.app/api/get-ip');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data = await response.json();
+        ipAPIres = data;
+
+        const loc = ipAPIres.loc;
+        const [lat, lon] = loc.split(',');
+        ipAPIres.lat = parseFloat(lat);
+        ipAPIres.lon = parseFloat(lon);
+
+        ipAPIres.online = true;
+        ipAPIres.verified = false;
+
+        // console.log('Geolocation Info:', data);
+
+        // You can use the data like this:
+        // document.getElementById('city').textContent = data.city;
+
+        // return data;
+    } else {
+        ipAPIres.country = {};
+        ipAPIres.country.iso_code = isolateRegionBCP47(navigator.language);
+        ipAPIres.error = true;
+    }
+  } catch (error) {
+    console.error('Error fetching geolocation info:', error);
+    ipAPIres.error = true;
+    // return null;
+  }
+}
+
+
 async function ipAPI(v) {  // Free usage, unlimited, https://www.findip.net/
     if (navigator.onLine) {
         await fetch("https://api.findip.net/" + v + "/?token=129d26297cb44c6d9845c1414b896138") // 'a' character may be added at end for TESTING

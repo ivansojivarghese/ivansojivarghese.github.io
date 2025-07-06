@@ -3070,8 +3070,11 @@ function pwaRead() {
 
                                 console.log("Load 1: " + (loadTimes.end - loadTimes.start) + "ms");
 
-                                ipAPI(clientAPIres.ipString);
+                                // ipAPI(clientAPIres.ipString);
                                 // ipAPI("216.73.163.219"); // FOR TESTING
+
+                                getGeolocationInfo();
+
                                 clearInterval(client_L);
                                 ip_L = setInterval(function() {
                                     if ((ipAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || (!navigator.onLine && ipAPIres.error)) {
