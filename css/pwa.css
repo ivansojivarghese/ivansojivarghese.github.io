@@ -279,6 +279,10 @@ h3.downsize {
     background-color: #DBDBDB;
 }
 
+.wait_header {
+    margin-left: 2rem;
+}
+
 /*
 .iconAlert {
     animation-name: iconAlert;
