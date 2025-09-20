@@ -1,3 +1,4 @@
+const { local } = require("d3-selection");
 
 
 var sI_1 = {},
@@ -2340,9 +2341,12 @@ function startLoadPWA() {
     fter.y[0].innerHTML = y;
     fter.v[0].innerHTML = dev.version;
 
-    if (dev.versionUp !== "") { // upgrade(s) available soon
+    if (dev.versionUp !== "" && localStorage.getItem("upgradeInfoAck") !== "true") { // upgrade(s) available soon
         // check cookies
         openPopUp('upgradeInfo');
+        localStorage.setItem("upgradeInfoAck", "true");
+    } else if (dev.versionUp === "") {
+        localStorage.removeItem("upgradeInfoAck");
     }
 
     /*
