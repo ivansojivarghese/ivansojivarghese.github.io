@@ -1,5 +1,3 @@
-const { local } = require("d3-selection");
-
 
 var sI_1 = {},
     sI_2 = {},
