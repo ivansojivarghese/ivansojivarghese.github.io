@@ -237,6 +237,12 @@ h3.downsize {
     line-height: 1.1em;
 }
 
+.pwa .popups .pills p.ip {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .pwa .popups .pills p.attr {
     line-height: 1.25rem;
     padding-right: 0.5rem;
