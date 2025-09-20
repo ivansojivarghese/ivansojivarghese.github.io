@@ -2340,6 +2340,11 @@ function startLoadPWA() {
     fter.y[0].innerHTML = y;
     fter.v[0].innerHTML = dev.version;
 
+    if (dev.versionUp !== "") { // upgrade(s) available soon
+        // check cookies
+        openPopUp('upgradeInfo');
+    }
+
     /*
     sI_1.e = stat1;
     sI_2.e = stat2;
