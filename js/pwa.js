@@ -2379,7 +2379,7 @@ function openPopUp(target) {
     const popups = document.querySelector('.pwa .popups');
     const titlebar = document.querySelector('.titlebar');
     var t = document.querySelector('.pwa .popups .' + target);
-    if (target !== 'terms') {
+    if (target !== 'terms' && target !== 'upgradeInfo') {
         // popups.style.height = "calc(100lvh - calc(env(safe-area-inset-top))) !important";
         if (target === 'deviceInfo') {
             if (updateAvailable) {
@@ -2418,7 +2418,7 @@ function closePopUp(target) {
     const popups = document.querySelector('.pwa .popups');
     const titlebar = document.querySelector('.titlebar');
     var t = document.querySelector('.pwa .popups .' + target);
-    if (target !== 'terms') {
+    if (target !== 'terms' && target !== 'upgradeInfo') {
         popups.removeEventListener("click", function(e) {
             if (e.target !== this) {
                 return
@@ -2434,7 +2434,7 @@ function closePopUp(target) {
     setTimeout(function() {
         t.classList.add("d_n");
         popups.classList.add("d_n");
-        if (target !== 'terms') {
+        if (target !== 'terms' && target !== 'upgradeInfo') {
             // popups.style.height = "";
             popups.classList.remove("lvh");
             popups.classList.remove("ovy-h");
