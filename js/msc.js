@@ -4106,7 +4106,7 @@ const positionElement = (e)=> {
             cursorSmall.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
             if (!hoverActive) {
                 // cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
-                cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.43rem), calc(${mouseY}px - 0.43rem), 0)`;
+                cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.45rem), calc(${mouseY}px - 0.45rem), 0)`;
             } 
 
             // } else {
@@ -4222,7 +4222,7 @@ function hoverMiddle(e) {
         if ((e.currentTarget.classList.contains("toggleBackg") && !e.currentTarget.classList.contains("hide") && e.currentTarget.classList.contains("hoverB") && !e.currentTarget.classList.contains("quickToggle"))) {
             cursorBig.classList.remove("extra");
             // cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
-            cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.43rem), calc(${mouseY}px - 0.43rem), 0)`;
+            cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.45rem), calc(${mouseY}px - 0.45rem), 0)`;
         } else {
             // cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.7rem), calc(${mouseY}px - 0.7rem), 0)`;
             cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.6rem), calc(${mouseY}px - 0.6rem), 0)`;
@@ -4235,7 +4235,7 @@ function hoverMiddle(e) {
         cursorBig.classList.remove("extra");
 
         // cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.2rem), calc(${mouseY}px - 0.2rem), 0)`;
-        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.43rem), calc(${mouseY}px - 0.43rem), 0)`;
+        cursorBig.style.transform = `translate3d(calc(${mouseX}px - 0.45rem), calc(${mouseY}px - 0.45rem), 0)`;
 
         hoverActive = false;
     }
