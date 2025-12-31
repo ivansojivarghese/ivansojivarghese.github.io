@@ -1405,11 +1405,11 @@ h3.downsize {
     }
 
     .pwa .popups.lvh, .pwa .popups {
-        height: calc(calc(env(viewport-segment-height, 0, 0, 100dvh)) - calc(env(safe-area-inset-top))) !important;
+        height: calc(calc(env(viewport-segment-height, 0, 0)) - calc(env(safe-area-inset-top))) !important;
     }
 
     .pwa .popups .pills.settingsInfo {
-        height: calc(calc(env(viewport-segment-height, 0, 0, 100dvh)) - 5rem - 8rem);
+        height: calc(calc(env(viewport-segment-height, 0, 0)) - 5rem - 8rem);
         left: calc(7rem + calc(env(safe-area-inset-left)));
     }
 
@@ -1420,30 +1420,30 @@ h3.downsize {
 
     .pwaSecondary {
         display: block;
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh)) !important;
-        top: calc(env(viewport-segment-top, 0, 1, 0px)) !important;
+        height: calc(env(viewport-segment-height, 0, 0)) !important;
+        top: calc(env(viewport-segment-top, 0, 1)) !important;
     }
 
     .pwaSecondary.swapped {
         display: block;
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh)) !important;
+        height: calc(env(viewport-segment-height, 0, 0)) !important;
         top: 0 !important;
     }
 
     .pwaSecondary .reserved {
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 1));
     }
 
     .pwa .sections {
         float: right;
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 0));
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
 
     .pwa.swapped .sections {
         float: right;
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 1));
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
@@ -1453,7 +1453,7 @@ h3.downsize {
         transform: none;
         left: 0;
         width: 4rem;
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 1));
         box-shadow: none;
         padding-left: calc(env(safe-area-inset-left));
     }
@@ -1472,7 +1472,7 @@ h3.downsize {
     }
 
     .pwa .fab2 {
-        top: calc(env(viewport-segment-height, 0, 0, 100dvh) - 5rem);
+        top: calc(env(viewport-segment-height, 0, 0) - 5rem);
         bottom: auto;
     }
 
@@ -1525,39 +1525,39 @@ h3.downsize {
     }
 
     #load_sc {
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh));
-        width: calc(env(viewport-segment-width, 0, 0, 100vw));
+        height: calc(env(viewport-segment-height, 0, 0));
+        width: calc(env(viewport-segment-width, 0, 0));
     }
 
     #load_sc.swapped {
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
-        width: calc(env(viewport-segment-width, 0, 1, 100vw));
-        top: calc(env(viewport-segment-top, 0, 1, 0px));
+        height: calc(env(viewport-segment-height, 0, 1));
+        width: calc(env(viewport-segment-width, 0, 1));
+        top: calc(env(viewport-segment-top, 0, 1));
     }
     
     #load_sc .container {
-        margin-top: calc((calc(env(viewport-segment-height, 0, 0, 100dvh)) - 8rem) / 2);
+        margin-top: calc((calc(env(viewport-segment-height, 0, 0)) - 8rem) / 2);
     }
 
     #load_sc.swapped .container {
-        margin-top: calc((calc(env(viewport-segment-height, 0, 1, 100dvh)) - 8rem) / 2);
+        margin-top: calc((calc(env(viewport-segment-height, 0, 1)) - 8rem) / 2);
     }
 
     .pwa {
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh)) !important;
+        height: calc(env(viewport-segment-height, 0, 0)) !important;
     }
 
     .pwa.swapped {
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh)) !important;
-        top: calc(env(viewport-segment-top, 0, 1, 0px));
+        height: calc(env(viewport-segment-height, 0, 1)) !important;
+        top: calc(env(viewport-segment-top, 0, 1));
     }
 
     .pwa .sections {
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 0));
     }
 
     .pwa.swapped .sections {
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 1));
     }
 
     .pwa .navbar {
@@ -1565,11 +1565,11 @@ h3.downsize {
     }
 
     .puller {
-        left: calc((calc(env(viewport-segment-width, 0, 0, 100vw)) - 11rem) / 2) !important;
+        left: calc((calc(env(viewport-segment-width, 0, 0)) - 11rem) / 2) !important;
     }
 
     .puller.refreshing {
-        left: calc((calc(env(viewport-segment-width, 0, 0, 100vw)) - 3rem) / 2) !important;
+        left: calc((calc(env(viewport-segment-width, 0, 0)) - 3rem) / 2) !important;
     }
 }
 
@@ -1609,46 +1609,46 @@ h3.downsize {
     }
 
     .pwa.notFullscreen .popups.lvh, .pwa.notFullscreen .popups {
-        height: calc(calc(env(viewport-segment-height, 0, 0, 100dvh)) - calc(env(safe-area-inset-top))) !important;
+        height: calc(calc(env(viewport-segment-height, 0, 0)) - calc(env(safe-area-inset-top))) !important;
     }
 
     .pwa.notFullscreen .popups .pills.settingsInfo {
-        height: calc(calc(env(viewport-segment-height, 0, 0, 100dvh)) - 5rem - 2rem);
+        height: calc(calc(env(viewport-segment-height, 0, 0)) - 5rem - 2rem);
         left: calc(7rem + calc(env(safe-area-inset-left)));
     }
 
     .pwa.swapped.notFullscreen .navbar .button.swap {
         margin: 0;
         /*margin-bottom: calc((20rem - 15rem) / 6);*/
-        margin-bottom: calc((env(viewport-segment-height, 0, 1, 100dvh) - 19rem) / 6);
+        margin-bottom: calc((env(viewport-segment-height, 0, 1) - 19rem) / 6);
     }
 
     .pwaSecondary.notFullscreen {
         display: block;
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh)) !important;
-        top: calc(env(viewport-segment-top, 0, 1, 0px)) !important;
+        height: calc(env(viewport-segment-height, 0, 0)) !important;
+        top: calc(env(viewport-segment-top, 0, 1)) !important;
     }
 
     .pwaSecondary.swapped.notFullscreen {
         display: block;
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh)) !important;
+        height: calc(env(viewport-segment-height, 0, 0)) !important;
         top: 0 !important;
     }
 
     .pwaSecondary.notFullscreen .reserved {
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 1));
     }
 
     .pwa.notFullscreen .sections {
         float: right;
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 0));
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
 
     .pwa.swapped.notFullscreen .sections {
         float: right;
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 1));
         width: calc(100vw - 4rem - calc(env(safe-area-inset-left)) - calc(env(safe-area-inset-right)));
         padding-right: calc(env(safe-area-inset-right));
     }
@@ -1658,7 +1658,7 @@ h3.downsize {
         transform: none;
         left: 0;
         width: 4rem;
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 1));
         box-shadow: none;
         padding-left: calc(env(safe-area-inset-left));
     }
@@ -1682,7 +1682,7 @@ h3.downsize {
     }
 
     .pwa.notFullscreen .fab2 {
-        top: calc(env(viewport-segment-height, 0, 0, 100dvh) - 5rem);
+        top: calc(env(viewport-segment-height, 0, 0) - 5rem);
         bottom: auto;
     }
 
@@ -1726,11 +1726,11 @@ h3.downsize {
     .pwa.notFullscreen .navbar .button {
         margin: 0 0.5rem;
         /*margin-bottom: calc((20rem - 15rem) / 6);*/
-        margin-bottom: calc((env(viewport-segment-height, 0, 0, 100dvh) - 19rem) / 6);
+        margin-bottom: calc((env(viewport-segment-height, 0, 0) - 19rem) / 6);
     }
 
     .pwa.swapped.notFullscreen .navbar .button {
-        margin-bottom: calc((env(viewport-segment-height, 0, 1, 100dvh) - 19rem) / 6);
+        margin-bottom: calc((env(viewport-segment-height, 0, 1) - 19rem) / 6);
     }
 
     .pwa.notFullscreen .navbar .button:first-child {
@@ -1738,39 +1738,39 @@ h3.downsize {
     }
 
     #load_sc.notFullscreen {
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh));
-        width: calc(env(viewport-segment-width, 0, 0, 100vw));
+        height: calc(env(viewport-segment-height, 0, 0));
+        width: calc(env(viewport-segment-width, 0, 0));
     }
 
     #load_sc.swapped.notFullscreen {
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
-        width: calc(env(viewport-segment-width, 0, 1, 100vw));
-        top: calc(env(viewport-segment-top, 0, 1, 0px));
+        height: calc(env(viewport-segment-height, 0, 1));
+        width: calc(env(viewport-segment-width, 0, 1));
+        top: calc(env(viewport-segment-top, 0, 1));
     }
     
     #load_sc.notFullscreen .container {
-        margin-top: calc((calc(env(viewport-segment-height, 0, 0, 100dvh)) - 8rem) / 2);
+        margin-top: calc((calc(env(viewport-segment-height, 0, 0)) - 8rem) / 2);
     }
 
     #load_sc.swapped.notFullscreen .container {
-        margin-top: calc((calc(env(viewport-segment-height, 0, 1, 100dvh)) - 8rem) / 2);
+        margin-top: calc((calc(env(viewport-segment-height, 0, 1)) - 8rem) / 2);
     }
 
     .pwa.notFullscreen {
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh)) !important;
+        height: calc(env(viewport-segment-height, 0, 0)) !important;
     }
 
     .pwa.swapped.notFullscreen {
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh)) !important;
-        top: calc(env(viewport-segment-top, 0, 1, 0px));
+        height: calc(env(viewport-segment-height, 0, 1)) !important;
+        top: calc(env(viewport-segment-top, 0, 1));
     }
 
     .pwa.notFullscreen .sections {
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 0));
     }
 
     .pwa.swapped.notFullscreen .sections {
-        height: calc(env(viewport-segment-height, 0, 1, 100dvh));
+        height: calc(env(viewport-segment-height, 0, 1));
     }
 
     .pwa.notFullscreen .navbar {
@@ -1778,11 +1778,11 @@ h3.downsize {
     }
 
     .puller.notFullscreen {
-        left: calc((calc(env(viewport-segment-width, 0, 0, 100vw)) - 11rem) / 2) !important;
+        left: calc((calc(env(viewport-segment-width, 0, 0)) - 11rem) / 2) !important;
     }
 
     .puller.refreshing.notFullscreen {
-        left: calc((calc(env(viewport-segment-width, 0, 0, 100vw)) - 3rem) / 2) !important;
+        left: calc((calc(env(viewport-segment-width, 0, 0)) - 3rem) / 2) !important;
     }
 }
 
@@ -1812,7 +1812,7 @@ h3.downsize {
     }
 
     .pwa.swapped .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped .fab2:not([class='fab2 trs hoverB hide']) {
-        left: calc(env(viewport-segment-left, 1, 0, 0px) + 2rem);
+        left: calc(env(viewport-segment-left 1 0) + 2rem);
     }
 
     .pwa .navbar.fab2_nav {
@@ -1834,7 +1834,7 @@ h3.downsize {
     }
 
     .pwa .popups {
-        width: calc(env(viewport-segment-width, 1, 0, 100vw));
+        width: calc(env(viewport-segment-width 1 0));
     }
 
     .pwa .popups .pills.settingsInfo {
@@ -1856,30 +1856,30 @@ h3.downsize {
 
     .pwaSecondary {
         display: block;
-        width: calc(env(viewport-segment-width, 1, 0, 100vw)) !important;
-        left: calc(env(viewport-segment-left, 1, 0, 0px)) !important;
+        width: calc(env(viewport-segment-width 1 0)) !important;
+        left: calc(env(viewport-segment-left 1 0)) !important;
     }
 
     .pwaSecondary.swapped {
         display: block;
-        width: calc(env(viewport-segment-width, 0, 0, 100vw)) !important;
+        width: calc(env(viewport-segment-width, 0, 0)) !important;
         left: 0 !important;
     }
 
     .puller {
-        left: calc((calc(env(viewport-segment-width, 0, 0, 100vw)) - 11rem) / 2) !important;
+        left: calc((calc(env(viewport-segment-width, 0, 0)) - 11rem) / 2) !important;
     }
 
     .puller.swapped {
-        left: calc(calc(env(viewport-segment-left, 1, 0, 0px)) + calc((calc(env(viewport-segment-width, 1, 0, 100vw)) - 11rem) / 2)) !important;
+        left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 11rem) / 2)) !important;
     }
 
     .puller.refreshing {
-        left: calc((calc(env(viewport-segment-width, 0, 0, 100vw)) - 3rem) / 2) !important;
+        left: calc((calc(env(viewport-segment-width, 0, 0)) - 3rem) / 2) !important;
     }
 
     .puller.refreshing.swapped {
-        left: calc(calc(env(viewport-segment-left, 1, 0, 0px)) + calc((calc(env(viewport-segment-width, 1, 0, 100vw)) - 3rem) / 2)) !important;
+        left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 3rem) / 2)) !important;
     }
 
     .pwa .m_L-10 {
@@ -1888,32 +1888,32 @@ h3.downsize {
     }
 
     #load_sc {
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh));
-        width: calc(env(viewport-segment-width, 0, 0, 100vw));
+        height: calc(env(viewport-segment-height, 0, 0));
+        width: calc(env(viewport-segment-width, 0, 0));
     }
 
     #load_sc.swapped {
-        height: calc(env(viewport-segment-height, 1, 0, 100dvh));
-        width: calc(env(viewport-segment-width, 1, 0, 100vw));
-        left: calc(env(viewport-segment-left, 1, 0, 0px));
+        height: calc(env(viewport-segment-height 1 0));
+        width: calc(env(viewport-segment-width 1 0));
+        left: calc(env(viewport-segment-left 1 0));
     }
 
     .pwa {
-        width: calc(env(viewport-segment-width, 0, 0, 100vw)) !important;
+        width: calc(env(viewport-segment-width, 0, 0)) !important;
     }
 
     .pwa.swapped {
-        left: calc(env(viewport-segment-left, 1, 0, 0px)) !important;
-        width: calc(env(viewport-segment-width, 1, 0, 100vw)) !important;
+        left: calc(env(viewport-segment-left 1 0)) !important;
+        width: calc(env(viewport-segment-width 1 0)) !important;
     }
 
     .pwa .sections {
-        width: calc(env(viewport-segment-width, 0, 0, 100vw));
+        width: calc(env(viewport-segment-width, 0, 0));
         padding: 0;
     }
 
     .pwa.swapped .sections {
-        width: calc(env(viewport-segment-width, 1, 0, 100vw));
+        width: calc(env(viewport-segment-width 1 0));
         padding: 0;
     }
 
@@ -1966,11 +1966,11 @@ h3.downsize {
 
 @media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (max-width: 1049px) {
     .pwa.notFullscreen .profile_image {
-        margin-left: calc(((env(viewport-segment-width, 0, 0, 100vw) - 15rem) / 2) - 5vw);
+        margin-left: calc(((env(viewport-segment-width, 0, 0) - 15rem) / 2) - 5vw);
     }
 
     .pwa.swapped.notFullscreen .profile_image {
-        margin-left: calc(((env(viewport-segment-width, 1, 0, 100vw) - 15rem) / 2) - 5vw);
+        margin-left: calc(((env(viewport-segment-width 1 0) - 15rem) / 2) - 5vw);
     }
 
     .pwa.notFullscreen .home .flexActive {
@@ -1994,7 +1994,7 @@ h3.downsize {
     }
 
     .pwa.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.notFullscreen .fab2:not([class='fab2 trs hoverB hide']) {
-        left: calc(env(viewport-segment-width, 0, 0, 100vw) - 5rem);
+        left: calc(env(viewport-segment-width, 0, 0) - 5rem);
     }
 
     .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB shade hide']), .pwa.swapped.notFullscreen .fab2:not([class='fab2 trs hoverB hide']) {
@@ -2020,7 +2020,7 @@ h3.downsize {
     }
 
     .pwa.notFullscreen .popups {
-        width: calc(env(viewport-segment-width, 1, 0, 100vw));
+        width: calc(env(viewport-segment-width 1 0));
     }
 
     .pwa.notFullscreen .popups .pills.settingsInfo {
@@ -2045,30 +2045,30 @@ h3.downsize {
 
     .pwaSecondary.notFullscreen {
         display: block;
-        width: calc(env(viewport-segment-width, 1, 0, 100vw)) !important;
-        left: calc(env(viewport-segment-left, 1, 0, 0px)) !important;
+        width: calc(env(viewport-segment-width 1 0)) !important;
+        left: calc(env(viewport-segment-left 1 0)) !important;
     }
 
     .pwaSecondary.swapped.notFullscreen {
         display: block;
-        width: calc(env(viewport-segment-width, 0, 0, 100vw)) !important;
+        width: calc(env(viewport-segment-width, 0, 0)) !important;
         left: 0 !important;
     }
 
     .puller.notFullscreen {
-        left: calc((calc(env(viewport-segment-width, 0, 0, 100vw)) - 11rem) / 2) !important;
+        left: calc((calc(env(viewport-segment-width, 0, 0)) - 11rem) / 2) !important;
     }
 
     .puller.swapped.notFullscreen {
-        left: calc(calc(env(viewport-segment-left, 1, 0, 0px)) + calc((calc(env(viewport-segment-width, 1, 0, 100vw)) - 11rem) / 2)) !important;
+        left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 11rem) / 2)) !important;
     }
 
     .puller.refreshing.notFullscreen {
-        left: calc((calc(env(viewport-segment-width, 0, 0, 100vw)) - 3rem) / 2) !important;
+        left: calc((calc(env(viewport-segment-width, 0, 0)) - 3rem) / 2) !important;
     }
 
     .puller.refreshing.swapped.notFullscreen {
-        left: calc(calc(env(viewport-segment-left, 1, 0, 0px)) + calc((calc(env(viewport-segment-width, 1, 0, 100vw)) - 3rem) / 2)) !important;
+        left: calc(calc(env(viewport-segment-left 1 0)) + calc((calc(env(viewport-segment-width 1 0)) - 3rem) / 2)) !important;
     }
 
     .pwa.notFullscreen .m_L-10 {
@@ -2077,32 +2077,32 @@ h3.downsize {
     }
 
     #load_sc.notFullscreen {
-        height: calc(env(viewport-segment-height, 0, 0, 100dvh));
-        width: calc(env(viewport-segment-width, 0, 0, 100vw));
+        height: calc(env(viewport-segment-height, 0, 0));
+        width: calc(env(viewport-segment-width, 0, 0));
     }
 
     #load_sc.swapped.notFullscreen {
-        height: calc(env(viewport-segment-height, 1, 0, 100dvh));
-        width: calc(env(viewport-segment-width, 1, 0, 100vw));
-        left: calc(env(viewport-segment-left, 1, 0, 0px));
+        height: calc(env(viewport-segment-height 1 0));
+        width: calc(env(viewport-segment-width 1 0));
+        left: calc(env(viewport-segment-left 1 0));
     }
 
     .pwa.notFullscreen {
-        width: calc(env(viewport-segment-width, 0, 0, 100vw)) !important;
+        width: calc(env(viewport-segment-width, 0, 0)) !important;
     }
 
     .pwa.swapped.notFullscreen {
-        left: calc(env(viewport-segment-left, 1, 0, 0px)) !important;
-        width: calc(env(viewport-segment-width, 1, 0, 100vw)) !important;
+        left: calc(env(viewport-segment-left 1 0)) !important;
+        width: calc(env(viewport-segment-width 1 0)) !important;
     }
 
     .pwa.notFullscreen .sections {
-        width: calc(env(viewport-segment-width, 0, 0, 100vw));
+        width: calc(env(viewport-segment-width, 0, 0));
         padding: 0;
     }
 
     .pwa.swapped.notFullscreen .sections {
-        width: calc(env(viewport-segment-width, 1, 0, 100vw));
+        width: calc(env(viewport-segment-width 1 0));
         padding: 0;
     }
 
@@ -2164,5 +2164,3 @@ h3.downsize {
         margin: 0 !important;
     }
 }
-
-
