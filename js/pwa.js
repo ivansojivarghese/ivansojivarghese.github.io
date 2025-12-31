@@ -3488,7 +3488,7 @@ function swapDisplays() { // swap between display areas in dual screen devices
 
     const swapToggle = document.querySelector('.swapToggle');
 
-    if (primarySegment === 0) { // default
+    if (primarySegment === 0 || primarySegment === null) { // default
         load_sc.classList.add("swapped");
         puller.classList.add("swapped");
         pwa_body.classList.add("swapped");
