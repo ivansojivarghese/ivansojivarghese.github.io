@@ -795,3 +795,67 @@
         font-size: 47px;
     }
 }
+
+/* Dual-screen / Foldable Device Support */
+
+/* Single-fold vertical (portrait orientation, stacked vertically) */
+@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) and (min-height: 1050px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) and (min-height: 1200px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media screen and (vertical-viewport-segments: 2) and (horizontal-viewport-segments: 1) and (min-height: 1400px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+/* Single-fold horizontal (landscape orientation, side-by-side) */
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (min-width: 1050px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (min-width: 1200px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (min-width: 1400px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (min-width: 1600px) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media screen and (horizontal-viewport-segments: 2) and (vertical-viewport-segments: 1) and (min-width: 1800px) {
+    html {
+        font-size: 26px;
+    }
+}

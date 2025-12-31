@@ -814,7 +814,7 @@ h3.downsize {
 
 .pwa .skillset > div, .pwa .toolset > div {
     width: 4rem;
-    height: 4rem;
+    height: 4rem !important;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -849,7 +849,7 @@ h3.downsize {
 }
 
 .pwa .skillset > div.pwa {
-    width: 11rem;
+    width: 11rem !important;
 }
 
 .pwa .toolset .vscode .img {
