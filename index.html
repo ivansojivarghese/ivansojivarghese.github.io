@@ -15,9 +15,9 @@
             })(window,document,'script','dataLayer','GTM-KRQX2NV');
         </script> 
         <!-- <script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script> -->
-        <script src="js/dev.js"></script>
-        <!-- JS -->
+        <!-- JS - Load os.js first before any inline scripts that reference 'op' -->
         <script src="js/os.js"></script>
+        <script src="js/dev.js"></script>
         <!-- jQuery 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
         <script>
@@ -166,6 +166,7 @@
                 var cacheEnabled = true; // default, assumed true
                 var aborted = false; // check if resource fails to fetch
                 var loadedImages = 0;
+                var timeout = 5000; // timeout for fetch requests in milliseconds
                 var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png", "logo/logo_hybrid_inverse.png", "logo/favicon_dark_512.png", "ext/png/signature.png", "ext/png/signature_white.png");
                 var allLoaded = false;
                 
@@ -2285,9 +2286,10 @@
         <!-- install service worker -->
         <script>
             if ("serviceWorker" in navigator) { // register a service worker
+                // Service worker registration - commented out to prevent errors
                 // var sw = navigator.serviceWorker.register("service-worker.js");
-                var sw = new Worker("service-worker.js");
-                navigator.serviceWorker.register("service-worker.js", { scope: "/" });
+                // var sw = new Worker("service-worker.js");
+                // navigator.serviceWorker.register("service-worker.js", { scope: "/" });
             }
         </script>
 
