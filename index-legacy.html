@@ -1,0 +1,2859 @@
+<!DOCTYPE html>
+<html class="ovy-h" lang="en">
+    <head>
+        <!-- Google Tag Manager -->
+        <script>
+            (function(w,d,s,l,i){
+                w[l]=w[l]||[];
+                w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KRQX2NV');
+        </script> 
+        <!-- <script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script> -->
+        <script src="js/dev.js"></script>
+        <!-- JS -->
+        <script src="js/os.js"></script>
+        <!-- jQuery 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+        <script>
+            // (heavy resource) pre-load
+
+            var svg = {
+                    upd : false,
+                    pln : false,
+                    bcy : false,
+                    van : false,
+                    tck : false,
+                    apt : false,
+                    str : false,
+                    cld : false,
+                    frt : false,
+                    nte : false,
+                    lnd : false,
+                    lb : false,
+                    lbw : false,
+                    d : false,
+                    dw : false,
+                    dm : false,
+                    Lm : false,
+                    i : false,
+                    f : false,
+                    a : false,
+                    w_o : false,
+                    w_ow : false,
+                    t : false,
+                    w : false,
+                    w_w : false,
+                    w_s : false,
+                    L_a : false,
+                    L_aw : false,
+                    w_f : false,
+                    c : false,
+                    cw : false,
+                    ck : false,
+                    ch : false,
+                    wk : false,
+                    wk_w : false,
+                    sc : false,
+                    sc_w : false,
+                    lc : false,
+                    lc_w : false,
+                    sct : false,
+                    sct_w : false,
+                    cfe : false,
+                    tm_w : false,
+                    ds_w : false,
+                    st : false,
+                    st_w : false,
+                    btty_0 : false,
+                    btty_1 : false,
+                    btty_2 : false,
+                    btty_3 : false,
+                    btty_4 : false,
+                    btty_5 : false,
+                    btty_6 : false,
+                    btty_full : false,
+                    btty_chg : false,
+                    btty_2_w : false,
+                    btty_3_w : false,
+                    btty_4_w : false,
+                    btty_5_w : false,
+                    btty_6_w : false,
+                    btty_full_w : false,
+                    cl : false,
+                    cl_w : false,
+                    inf : false,
+                    inf_w : false,
+                    shr_w : false,
+                    wnd : false,
+                    tmp : false,
+                    hmd : false,
+                    wnd_w : false,
+                    tmp_w : false,
+                    hmd_w : false,
+                    walk : false,
+                    walk_w : false,
+                    run : false,
+                    run_w : false,
+                    commute : false,
+                    commute_w : false
+                },
+                img = {
+                    p : false,
+                    L_h : false,
+                    L_i : false,
+                    L_hi : false,
+                    L_d : false,
+                    hm : false,
+                    ck : false,
+                    cd : false,
+                    dy : false,
+                    ab : false,
+                    hm_a : false,
+                    ck_a : false, 
+                    cd_a : false,
+                    dy_a : false,
+                    ab_a : false,
+                    hm_d : false,
+                    ck_d : false,
+                    cd_d : false,
+                    dy_d : false,
+                    ab_d : false,
+                    hm_d_a : false,
+                    ck_d_a : false,
+                    cd_d_a : false,
+                    dy_d_a : false,
+                    ab_d_a : false,
+                    sg : false,
+                    sg_w : false,
+                    ig : false,
+                    fb : false,
+                    lk : false,
+                    gh : false,
+                    gl : false,
+                    xt : false,
+                    ig_w : false,
+                    fb_w : false,
+                    lk_w : false,
+                    gh_w : false,
+                    gl_w : false,
+                    xt_w : false,
+                    sw_L : false,
+                    sw_R : false,
+                    sw_Lw : false,
+                    sw_Rw : false,
+                    html : false,
+                    css : false,
+                    javascript : false,
+                    jQuery : false,
+                    canva : false,
+                    vscode : false,
+                    pwa : false
+                },
+                res_ar = [svg, img]; // array containing all objects (resource categories) above 
+
+                // image(s) preloading
+                // CODE REFERENCED FROM kirupa.com
+                // ADDITIONAL MODS REFERENCED FROM Dmitri Pavlutin
+
+                this.addEventListener("DOMContentLoaded", preloadImages, true);
+ 
+                var cacheEnabled = true; // default, assumed true
+                var aborted = false; // check if resource fails to fetch
+                var loadedImages = 0;
+                var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png", "logo/logo_hybrid_inverse.png", "logo/favicon_dark_512.png", "ext/png/signature.png", "ext/png/signature_white.png");
+                var allLoaded = false;
+                
+                async function preloadImages(e) { // pre-load heavy images
+
+                    for (var i = 0; i < imageArray.length; i++) {
+                        var tempImage = new Image();
+                        tempImage.addEventListener("load", trackProgress, true);
+
+                        const controller = new AbortController(); // abort controller for fetch
+                        const id = setTimeout(function() { 
+                            controller.abort()
+                        }, timeout);
+
+                        const result = await fetch(window.location.origin + "/" + imageArray[i], {
+                                                cache: "only-if-cached",
+                                                mode: "same-origin",
+                                                signal: controller.signal
+                                            }).then((response) => {
+                                                tempImage.src = window.location.origin + "/" + imageArray[i];
+                                                clearTimeout(id);
+                                                return true;
+                                            }).catch((error) => {
+                                                if (error.name.match(/TypeError/g)) { // typeerror
+                                                    return false;
+                                                } else if (error.name.match(/AbortError/g)) { // aborterror
+                                                    return null;
+                                                }
+                                            });
+
+                        if (result === false && !op.b.s && !op.b.fbApp && !op.b.iGApp && !op.b.LnApp) { // check if caching (NOT in safari or other in-app browsers)
+                            cacheEnabled = result;
+                        } else if (result === null) { // fetch fail (timeout)
+                            aborted = true;
+                        }
+                    }
+                }
+                
+                function trackProgress() {
+                    loadedImages++;
+                    if (loadedImages == imageArray.length) {
+                        imagesLoaded();
+                    }
+                }
+
+                function imagesLoaded() {
+                    
+                    allLoaded = true;
+                }
+        </script>
+        <!-- End Google Tag Manager -->
+        <title>Ivan (Soji) Varghese | Clicks, Code & Concepts</title>
+        <script type="application/ld+json">
+            {
+                "@context" : "https://schema.org",
+                "@type" : "WebSite",
+                "name" : "Ivan Varghese",
+                "url" : "https://ivansojivarghese.github.io/"
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ImageObject",
+                "contentUrl": "https://ivansojivarghese.github.io/ext/jpg/ivan_profile.jpg",
+                "creator": {
+                    "@type": "Person",
+                    "name": "Ivan Varghese"
+                }
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ImageObject",
+                "contentUrl": "https://ivansojivarghese.github.io/logo/logo_og.png",
+                "creator": {
+                    "@type": "Person",
+                    "name": "Ivan Varghese"
+                }
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "url": "https://ivansojivarghese.github.io/",
+                "logo": "https://ivansojivarghese.github.io/favicon/maskable-512x512.png",
+                "creator": {
+                    "@type": "Person",
+                    "name": "Ivan Varghese"
+                }
+            }
+        </script>
+        <meta charset="UTF-8">
+        <!-- <meta http-equiv="content-type" content="text/html; charset=UTF-8"> -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org https://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com raw.githubusercontent.com gist.githubusercontent.com api.country.is https://www.cloudflare.com/ cdn.jsdelivr.net api.findip.net api.ipgeolocation.io api.apilayer.com api.sunrisesunset.io api.github.com esm.sh; 
+        connect-src 'self' www.googletagmanager.com www.google-analytics.com ajax.googleapis.com updatemybrowser.org ipinfo.io api.openweathermap.org openweathermap.org https://api.openweathermap.org api.ipify.org api-bdc.net worldtimeapi.org github.com raw.githubusercontent.com gist.githubusercontent.com api.country.is https://www.cloudflare.com/ cdn.jsdelivr.net api.findip.net api.ipgeolocation.io api.apilayer.com api.sunrisesunset.io api.github.com esm.sh;
+        img-src 'self' www.googletagmanager.com openweathermap.org; 
+        style-src 'self' 'unsafe-inline'; 
+        base-uri 'self'; "> -->
+        <meta name="publisher" content="Ivan Varghese">
+        <meta name="creator" content="Ivan Varghese">
+        <meta name="author" content="Ivan Varghese">
+        <meta name="description" content="An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!">
+        <meta name="keywords" content="ntu, nanyang technological university, ivan, varghese, ivan varghese, ivan soji varghese, ivan soji, photography, blog, concepts, code, coding web, developer, developer tools, development, education, books & reference, design, lifestyle, personalization, photo, photo & video, multimedia, multimedia design, network, networking, productivity, reference">
+        <meta name="robots" content="index, follow">
+        <meta name="robots" content="max-image-preview:standard">
+        <meta name="robots" content="nositelinkssearchbox">
+        <meta name="robots" content="notranslate">
+        <meta name="robots" content="nopagereadaloud">
+        <meta name="robots" content="noodp">
+        <meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, shrink-to-fit=no, interactive-widget=overlays-content" >
+        <meta name="theme-color" content="#F4F4F4">
+        <meta name="color-scheme" content="[light|dark]+">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="thumbnail" content="https://ivansojivarghese.github.io/ext/jpg/ivan_profile.jpg">
+        <meta name="application-name" content="Ivan Varghese">
+        <meta id="msConfig" name="msapplication-config" content="browserconfig.xml">
+        <meta id="msTcol" name="msapplication-TileColor" content="#303030">
+        <meta id="msTimg" name="msapplication-TileImage" content="favicon/windows/mstile-144x144.png?1">
+        <!--
+        <PageMap>
+            <DataObject type="thumbnail">
+                <Attribute name="src" value="https://ivansojivarghese.github.io/ext/jpg/ivan_profile.jpg"/>
+                <Attribute name="width" value="150"/>
+                <Attribute name="height" value="150"/>
+            </DataObject>
+        </PageMap>
+        -->
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="Ivan (Soji) Varghese | Clicks, Code & Concepts">
+        <meta itemprop="description" content="An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!">
+        <meta itemprop="image" content="https://ivansojivarghese.github.io/logo/logo_og.png">
+        <!-- Social Media Preview (Facebook) -->
+        <meta property="og:title" content="Ivan (Soji) Varghese | Clicks, Code & Concepts">
+        <meta property="og:url" content="https://ivansojivarghese.github.io/">
+        <meta property="og:image" content="https://ivansojivarghese.github.io/logo/logo_og.png">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!">
+        <meta property="og:image:alt" content="logo of Ivan Varghese">
+        <meta property="og:site_name" content="Ivan Varghese">
+        <!-- Social Media Preview (Twitter) -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:url" content="https://ivansojivarghese.github.io/">
+        <meta name="twitter:title" content="Ivan (Soji) Varghese | Clicks, Code & Concepts">
+        <meta name="twitter:description" content="An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society. Have a peek at my photography, projects and ideas!">
+        <meta name="twitter:image" content="https://ivansojivarghese.github.io/logo/logo_twitter.png">
+        <meta name="twitter:image:alt" content="logo of Ivan Varghese">
+        <meta name="twitter:creator" content="@ivansoji">
+        <meta name="twitter:creator:id" content="1497880891380867078">
+        <!-- Apple -->
+        <link href="splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="Ivan">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <!-- Fonts -->
+        <link rel="preload" href="msc/fonts/poppins/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+        <link rel="preload" href="msc/fonts/raleway/Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+        <!-- Icons -->
+        <!-- 
+        <link rel="preload" fetchpriority="low" href="svg/full.svg" as="image" type="image/svg+xml" onload="svg.f = true;">
+        <link rel="preload" fetchpriority="low" href="svg/wifi_off.svg" as="image" type="image/svg+xml" onload="svg.w_o = true;">
+        <link rel="preload" fetchpriority="low" href="svg/timeout.svg" as="image" type="image/svg+xml" onload="svg.t = true;">
+        <link rel="preload" href="svg/wifi_find.svg" as="image" type="image/svg+xml" onload="svg.w_f = true;">
+        <link rel="preload" href="svg/wifi.svg" as="image" type="image/svg+xml" onload="svg.w = true;">
+        <link rel="preload" href="svg/lead_arrow_forward.svg" as="image" type="image/svg+xml" onload="svg.L_a = true;">
+        <link rel="preload" href="svg/wifi_slow.svg" as="image" type="image/svg+xml" onload="svg.w_s = true;">
+        <link rel="preload" href="svg/cache.svg" as="image" type="image/svg+xml" onload="svg.ch = true;">
+        <link rel="preload" href="svg/abort.svg" as="image" type="image/svg+xml" onload="svg.a = true;">
+        <link rel="preload" href="svg/chevron_down.svg" as="image" type="image/svg+xml" onload="svg.c = true;">
+        <link rel="preload" href="svg/chevron_down_white.svg" as="image" type="image/svg+xml" onload="svg.cw = true;"> -->
+        <!-- Images -->
+        <link rel="preload" fetchpriority="low" href="ext/jpg/ivan_profile.jpg" as="image" type="image/jpg" onload="img.p = true;">
+        <link rel="preload" fetchpriority="low" href="logo/logo_hybrid.png" as="image" type="image/png" onload="img.L_h = true;">
+        <link rel="preload" fetchpriority="low" href="logo/favicon_inverse_512.png" as="image" type="image/png" onload="img.L_i = true;">
+        <link rel="preload" fetchpriority="low" href="logo/logo_hybrid_inverse.png" as="image" type="image/png" onload="img.L_hi = true;">
+        <link rel="preload" fetchpriority="low" href="logo/favicon_dark_512.png" as="image" type="image/png" onload="img.L_d = true;">
+        <!-- Images 2 -->
+        <link rel="preload" fetchpriority="low" href="pwa/home.png" as="image" type="image/png" onload="img.hm = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/clicks.png" as="image" type="image/png" onload="img.ck = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/code.png" as="image" type="image/png" onload="img.cd = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/diary.png" as="image" type="image/png" onload="img.dy = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/about.png" as="image" type="image/png" onload="img.ab = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/home_active.png" as="image" type="image/png" onload="img.hm_a = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/clicks_active.png" as="image" type="image/png" onload="img.ck_a = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/code_active.png" as="image" type="image/png" onload="img.cd_a = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/diary_active.png" as="image" type="image/png" onload="img.dy_a = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/about_active.png" as="image" type="image/png" onload="img.ab_a = true;">
+        <!-- Images 2.1 -->
+        <link rel="preload" fetchpriority="low" href="pwa/home_dark.png" as="image" type="image/png" onload="img.hm_d = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/clicks_dark.png" as="image" type="image/png" onload="img.ck_d = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/code_dark.png" as="image" type="image/png" onload="img.cd_d = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/diary_dark.png" as="image" type="image/png" onload="img.dy_d = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/about_dark.png" as="image" type="image/png" onload="img.ab_d = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/home_active_dark.png" as="image" type="image/png" onload="img.hm_d_a = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/clicks_active_dark.png" as="image" type="image/png" onload="img.ck_d_a = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/code_active_dark.png" as="image" type="image/png" onload="img.cd_d_a = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/diary_active_dark.png" as="image" type="image/png" onload="img.dy_d_a = true;">
+        <link rel="preload" fetchpriority="low" href="pwa/about_active_dark.png" as="image" type="image/png" onload="img.ab_d_a = true;">
+        <!-- Images 2.2 -->
+        <link rel="preload" fetchpriority="low" href="socials/instagram.svg" as="image" type="image/svg+xml" onload="img.ig = true;">
+        <link rel="preload" fetchpriority="low" href="socials/facebook.svg" as="image" type="image/svg+xml" onload="img.fb = true;">
+        <link rel="preload" fetchpriority="low" href="socials/linkedin.svg" as="image" type="image/svg+xml" onload="img.lk = true;">
+        <link rel="preload" fetchpriority="low" href="socials/github.svg" as="image" type="image/svg+xml" onload="img.gh = true;">
+        <link rel="preload" fetchpriority="low" href="socials/x.svg" as="image" type="image/svg+xml" onload="img.xt = true;">
+        <link rel="preload" fetchpriority="low" href="socials/glitch.svg" as="image" type="image/svg+xml" onload="img.gl = true;">
+        <link rel="preload" fetchpriority="low" href="socials/instagram_white.svg" as="image" type="image/svg+xml" onload="img.ig_w = true;">
+        <link rel="preload" fetchpriority="low" href="socials/facebook_white.svg" as="image" type="image/svg+xml" onload="img.fb_w = true;">
+        <link rel="preload" fetchpriority="low" href="socials/linkedin_white.svg" as="image" type="image/svg+xml" onload="img.lk_w = true;">
+        <link rel="preload" fetchpriority="low" href="socials/github_white.svg" as="image" type="image/svg+xml" onload="img.gh_w = true;">
+        <link rel="preload" fetchpriority="low" href="socials/x_white.svg" as="image" type="image/svg+xml" onload="img.xt_w = true;">
+        <link rel="preload" fetchpriority="low" href="socials/glitch_white.svg" as="image" type="image/svg+xml" onload="img.gl_w = true;">
+        <!-- Images 3 -->
+        <link rel="preload" fetchpriority="low" href="ext/png/signature.png" as="image" type="image/png" onload="img.sg = true;">
+        <link rel="preload" fetchpriority="low" href="ext/png/signature_white.png" as="image" type="image/png" onload="img.sg_w = true;">
+        <!-- Images 4 -->
+        <link rel="preload" fetchpriority="low" href="logo_ext/html.svg" as="image" type="image/svg+xml" onload="img.html = true;">
+        <link rel="preload" fetchpriority="low" href="logo_ext/css.svg" as="image" type="image/svg+xml" onload="img.css = true;">
+        <link rel="preload" fetchpriority="low" href="logo_ext/js.svg" as="image" type="image/svg+xml" onload="img.javascript = true;">
+        <link rel="preload" fetchpriority="low" href="logo_ext/jquery.svg" as="image" type="image/svg+xml" onload="img.jQuery = true;">
+        <link rel="preload" fetchpriority="low" href="logo_ext/vscode.svg" as="image" type="image/svg+xml" onload="img.vscode = true;">
+        <link rel="preload" fetchpriority="low" href="logo_ext/canva.svg" as="image" type="image/svg+xml" onload="img.canva = true;">
+        <link rel="preload" fetchpriority="low" href="logo_ext/pwa.svg" as="image" type="image/svg+xml" onload="img.pwa = true;">
+        <!-- SVGs -->
+        <!-- 
+        <link rel="preload" fetchpriority="low" href="svg/wifi_off_white.svg" as="image" type="image/svg+xml" onload="svg.w_ow = true;">
+        <link rel="preload" fetchpriority="low" href="svg/wifi_white.svg" as="image" type="image/svg+xml" onload="svg.w_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/cookies_white.svg" as="image" type="image/svg+xml" onload="svg.ck = true;">
+        <link rel="preload" fetchpriority="low" href="svg/info_white.svg" as="image" type="image/svg+xml" onload="svg.i = true;">
+        <link rel="preload" href="svg/lead_arrow_forward_white.svg" as="image" type="image/svg+xml" onload="svg.L_aw = true;">
+        <link rel="preload" href="svg/work_white.svg" as="image" type="image/svg+xml" onload="svg.wk_w = true;">
+        <link rel="preload" href="svg/work.svg" as="image" type="image/svg+xml" onload="svg.wk = true;">
+        <link rel="preload" href="svg/school_white.svg" as="image" type="image/svg+xml" onload="svg.sc_w = true;">
+        <link rel="preload" href="svg/school.svg" as="image" type="image/svg+xml" onload="svg.sc = true;">
+        <link rel="preload" href="svg/location_white.svg" as="image" type="image/svg+xml" onload="svg.lc_w = true;">
+        <link rel="preload" href="svg/location.svg" as="image" type="image/svg+xml" onload="svg.lc = true;">
+        <link rel="preload" href="svg/download.svg" as="image" type="image/svg+xml" onload="svg.d = true;">
+        <link rel="preload" href="svg/download_white.svg" as="image" type="image/svg+xml" onload="svg.dw = true;"> -->
+
+        <link rel="preload" fetchpriority="low" href="svg/dark_mode.svg" as="image" type="image/svg+xml" onload="svg.dm = true;">
+        <link rel="preload" fetchpriority="low" href="svg/light_mode.svg" as="image" type="image/svg+xml" onload="svg.Lm = true;">
+        <link rel="preload" fetchpriority="low" href="svg/settings.svg" as="image" type="image/svg+xml" onload="svg.st = true;">
+        <link rel="preload" fetchpriority="low" href="svg/settings_white.svg" as="image" type="image/svg+xml" onload="svg.st_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_0.svg" as="image" type="image/svg+xml" onload="svg.btty_0 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_1.svg" as="image" type="image/svg+xml" onload="svg.btty_1 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_2.svg" as="image" type="image/svg+xml" onload="svg.btty_2 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_3.svg" as="image" type="image/svg+xml" onload="svg.btty_3 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_4.svg" as="image" type="image/svg+xml" onload="svg.btty_4 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_5.svg" as="image" type="image/svg+xml" onload="svg.btty_5 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_6.svg" as="image" type="image/svg+xml" onload="svg.btty_6 = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_full.svg" as="image" type="image/svg+xml" onload="svg.btty_full = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_charging.svg" as="image" type="image/svg+xml" onload="svg.btty_chg = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_2_white.svg" as="image" type="image/svg+xml" onload="svg.btty_2_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_3_white.svg" as="image" type="image/svg+xml" onload="svg.btty_3_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_4_white.svg" as="image" type="image/svg+xml" onload="svg.btty_4_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_5_white.svg" as="image" type="image/svg+xml" onload="svg.btty_5_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_6_white.svg" as="image" type="image/svg+xml" onload="svg.btty_6_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/battery_full_white.svg" as="image" type="image/svg+xml" onload="svg.btty_full_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/switch_left.svg" as="image" type="image/svg+xml" onload="svg.sw_L = true;">
+        <link rel="preload" fetchpriority="low" href="svg/switch_left_white.svg" as="image" type="image/svg+xml" onload="svg.sw_Lw = true;">
+        <link rel="preload" fetchpriority="low" href="svg/switch_right.svg" as="image" type="image/svg+xml" onload="svg.sw_R = true;">
+        <link rel="preload" fetchpriority="low" href="svg/switch_right_white.svg" as="image" type="image/svg+xml" onload="svg.sw_Rw = true;">
+        <link rel="preload" fetchpriority="low" href="svg/close.svg" as="image" type="image/svg+xml" onload="svg.cl = true;">
+        <link rel="preload" fetchpriority="low" href="svg/close_white.svg" as="image" type="image/svg+xml" onload="svg.cl_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/info.svg" as="image" type="image/svg+xml" onload="svg.inf = true;">
+        <link rel="preload" fetchpriority="low" href="svg/info_white.svg" as="image" type="image/svg+xml" onload="svg.inf_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/share_white.svg" as="image" type="image/svg+xml" onload="svg.shr_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/wind.svg" as="image" type="image/svg+xml" onload="svg.wnd = true;">
+        <link rel="preload" fetchpriority="low" href="svg/wind_white.svg" as="image" type="image/svg+xml" onload="svg.wnd_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/temp.svg" as="image" type="image/svg+xml" onload="svg.tmp = true;">
+        <link rel="preload" fetchpriority="low" href="svg/temp_white.svg" as="image" type="image/svg+xml" onload="svg.tmp_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/humid.svg" as="image" type="image/svg+xml" onload="svg.hmd = true;">
+        <link rel="preload" fetchpriority="low" href="svg/humid_white.svg" as="image" type="image/svg+xml" onload="svg.hmd_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/walk.svg" as="image" type="image/svg+xml" onload="svg.walk = true;">
+        <link rel="preload" fetchpriority="low" href="svg/walk_white.svg" as="image" type="image/svg+xml" onload="svg.walk_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/run.svg" as="image" type="image/svg+xml" onload="svg.run = true;">
+        <link rel="preload" fetchpriority="low" href="svg/run_white.svg" as="image" type="image/svg+xml" onload="svg.run_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/commute.svg" as="image" type="image/svg+xml" onload="svg.commute = true;">
+        <link rel="preload" fetchpriority="low" href="svg/commute_white.svg" as="image" type="image/svg+xml" onload="svg.commute_w = true;">
+        <link rel="preload" fetchpriority="low" href="svg/update.svg" as="image" type="image/svg+xml" onload="svg.upd = true;">
+
+        <!-- 
+        <link rel="preload" href="svg/scrolltop.svg" as="image" type="image/svg+xml" onload="svg.sct = true;">
+        <link rel="preload" href="svg/scrolltop_white.svg" as="image" type="image/svg+xml" onload="svg.sct_w = true;">
+        <link rel="preload" href="svg/coffee_white.svg" as="image" type="image/svg+xml" onload="svg.cfe = true;">
+        <link rel="preload" href="svg/time_white.svg" as="image" type="image/svg+xml" onload="svg.tm_w = true;">
+        <link rel="preload" href="svg/distance_white.svg" as="image" type="image/svg+xml" onload="svg.ds_w = true;">
+        <link rel="preload" href="svg/light_bulb.svg" as="image" type="image/svg+xml" onload="svg.lb = true;">
+        <link rel="preload" href="svg/light_bulb_white.svg" as="image" type="image/svg+xml" onload="svg.lbw = true;">
+        <link rel="preload" href="svg/cloud.svg" as="image" type="image/svg+xml" onload="svg.cld = true;">
+        <link rel="preload" href="svg/forest.svg" as="image" type="image/svg+xml" onload="svg.frt = true;">
+        <link rel="preload" href="svg/nature.svg" as="image" type="image/svg+xml" onload="svg.nte = true;">
+        <link rel="preload" href="svg/landscape.svg" as="image" type="image/svg+xml" onload="svg.lnd = true;">
+        <link rel="preload" href="svg/apartment.svg" as="image" type="image/svg+xml" onload="svg.apt = true;">
+        <link rel="preload" href="svg/store.svg" as="image" type="image/svg+xml" onload="svg.str = true;">
+        <link rel="preload" href="svg/bicycle.svg" as="image" type="image/svg+xml" onload="svg.bcy = true;">
+        <link rel="preload" href="svg/van.svg" as="image" type="image/svg+xml" onload="svg.van = true;">
+        <link rel="preload" href="svg/truck.svg" as="image" type="image/svg+xml" onload="svg.tck = true;">
+        <link rel="preload" href="svg/plane.svg" as="image" type="image/svg+xml" onload="svg.pln = true;"> -->
+        <!-- Other Pages 
+        <link rel="prerender" href="https://ivansojivarghese.github.io/clicks">
+        <link rel="prefetch" href="https://ivansojivarghese.github.io/clicks">
+        <link rel="prerender" href="https://ivansojivarghese.github.io/code">
+        <link rel="prefetch" href="https://ivansojivarghese.github.io/code">
+        <link rel="prerender" href="https://ivansojivarghese.github.io/diary">
+        <link rel="prefetch" href="https://ivansojivarghese.github.io/diary">
+        <link rel="prerender" href="https://ivansojivarghese.github.io/about">
+        <link rel="prefetch" href="https://ivansojivarghese.github.io/about"> -->
+        <!-- Technical -->
+        <link rel="canonical" href="https://ivansojivarghese.github.io/">
+        <link 
+            class="favicons"
+            rel="mask-icon" 
+            href="safari-pinned-tab.svg" 
+            type="image/svg+xml"
+            color="#303030"
+        >
+        <link 
+            class="favicons"
+            rel="apple-touch-icon" 
+            type="image/png" 
+            sizes="180x180" 
+            href="apple-touch-icon.png"
+        >
+        <link 
+            class="favicons"
+            rel="icon" 
+            type="image/x-icon"
+            href="favicon.ico" 
+            sizes="32x32"
+        >
+        <link 
+            class="favicons"
+            rel="icon" 
+            type="image/svg+xml" 
+            href="favicon/favicon.svg"
+        >
+        <link 
+            class="favicons"
+            rel="icon" 
+            type="image/png" 
+            sizes="512x512" 
+            href="favicon/android-chrome-512x512.png"
+        >
+        <link 
+            class="favicons"
+            rel="icon" 
+            type="image/png" 
+            sizes="192x192" 
+            href="favicon/android-chrome-192x192.png"
+        >
+        <link 
+            class="favicons"
+            rel="icon" 
+            type="image/png" 
+            sizes="32x32" 
+            href="favicon/favicon-32x32.png"
+        >
+        <link 
+            class="favicons"
+            rel="icon" 
+            type="image/png" 
+            sizes="16x16" 
+            href="favicon/favicon-16x16.png"
+        >
+        <link rel="icon" href="https://ivansojivarghese.github.io/favicon.ico" sizes="32x32" type="image/x-icon">
+        <!-- Manifest -->
+        <link id="mft" rel="manifest" href="app.webmanifest"> 
+        <!-- CSS files -->
+        <link href="css/weather.css" rel="stylesheet" type="text/css">
+        <link id="pwa_css_link" href="css/pwa.css" rel="stylesheet" type="text/css">
+        <link href="css/sty.css" rel="stylesheet" type="text/css">
+        <link href="css/res_m.css" rel="stylesheet" type="text/css">
+        <!-- 
+        <link href="ext/css/in.css" rel="stylesheet" type="text/css">
+        <link href="ext/css/res.css" rel="stylesheet" type="text/css"> -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZFE1LHEQP"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-MZFE1LHEQP');
+        </script>
+        <!--
+        <script id="script-batch" type="text/javascript">
+            (function(d){
+                var js = d.createElement('script'); js.async = true; js.defer = true;
+                js.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js";
+                d.getElementsByTagName('head')[0].appendChild(js);
+            }(document));
+        </script> -->
+        <!-- JS 
+        <script src="js/os.js"></script> -->
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            var ajxL;
+            op.Ld = { // load
+                c : null, // cookie-based load?
+                b : false, // abort status
+                s : null, // load status
+            };
+            /*
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 1 || xhr.readyState === 2) {
+                    op.Ld.b = true;
+                } else if ((xhr.readyState === 3 || xhr.readyState === 4) && (xhr.status >= 200 && xhr.status < 300)) {
+                    op.Ld.b = false;
+                }
+            };
+
+            ajxL = setInterval(function() {
+                if (op.Ld.s === false) {
+                    xhr.open('GET', 'https://ivansojivarghese.github.io/msc/abortionDetection.mp4');
+                    xhr.send();
+                    clearInterval(ajxL);
+                }
+            }, 10);*/
+            /*
+            function checkCacheLoad(e) {
+                op.Ld.c = e.persisted; // check if browser has cached the page (forward/back navigation)
+                if (op.Ld.c) {
+                    setCookie("cacheReload", "true", op.c.t); // set 'cache reload' cookie
+                    reL();
+                }
+            }*/
+            /*
+            $(document).scroll(function() {
+                document.title = "Ivan Varghese"; // default the title
+            });*/
+
+            // CODE referenced from Kyle Mitofsky at jsfiddle.net 
+
+            $(document).on("mousedown", function (e1) { // detect middle button click (on mouse)
+                if (e1.which === 2) {
+                    $(document).one("mouseup", function (e2) {
+                        if (e1.target === e2.target) {
+                            var e3 = $.event.fix(e2);
+                            e3.type = "middleclick";
+                            $(e2.target).trigger(e3);
+                        }
+                    });
+                }
+            }); 
+
+            $(document).on("middleclick", function (e) { // prevent event occurrence on mouse middle clicks
+                e.preventDefault();
+                disabledEvent(e);
+                return false;
+            });
+
+            // REFERENCED FROM Alvaro Trigo: https://alvarotrigo.com/blog/jquery-smooth-scroll/ 
+
+            function scrollToAnchor(selector) {
+                const destination = $("a[name='"+ selector +"']");
+                $('html,body').animate({
+                    scrollTop: destination.offset().top
+                },'slow');
+            }
+
+            // LIVE APIs
+
+            // obtaining the IP Address, ipify (unlimited - 1 request per sec.)
+            var ipifyAPIres = {};
+            $(function() {
+                $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+                    function(json) {
+                        try {
+                            ipifyAPIres.ip =  json.ip;
+                            ipifyAPIres.online = true;   
+                        } catch (error) {
+                            ipifyAPIres.error = true;   
+                        }
+                    }
+                );
+            });
+
+            // LIVE JSON FETCHING - 
+
+            var jsonloc = {
+                    eng : 'https://raw.githubusercontent.com/hyperreality/American-British-English-Translator/master/data/british_spellings.json'
+                    
+                    // tzc : 'https://gist.githubusercontent.com/riamaria/d08b352bc671f6615bd9/raw/57200f042af7f464e21f687e2fbb27b872c043ff/timezones-per-country.json'
+                    // tzc : 'https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.json',
+                    // tzc : 'https://raw.githubusercontent.com/mledoze/countries/master/countries.json'
+
+                },
+                engAPIres = {};
+                // tzConAPIres = {};
+
+            $.getJSON(jsonloc.eng, function(data) { // british eng. to american eng. trs - https://github.com/hyperreality/American-British-English-Translator
+                try {
+                    engAPIres = data;
+                    engAPIres.online = true;   
+                } catch (error) {
+                    engAPIres.error = true;   
+                }
+            });
+            
+            /*
+            $.getJSON(jsonloc.tzc, function(data) { // timezone to country code
+                try {
+                    tzConAPIres = data;
+                    tzConAPIres.online = true;   
+                } catch (error) {
+                    tzConAPIres.error = true;   //
+                }
+            });*/
+
+        </script>
+
+        <!-- Advertising - Google Adsense 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2266437936984562" crossorigin="anonymous"></script> -->
+
+        <!-- Google Search Console verification -->
+        <meta name="google-site-verification" content="y2jEuLixlOHx_teeYYwwSS6Lk_AXnhzY9VPaTnHyB1o"/>
+        <!-- Microsoft Webmaster verification -->
+        <meta name="msvalidate.01" content="5534539BE20C7554AD9C3555B3D27655"/>
+    </head>
+    <!-- onload="SmoothScroll_init()" onpageshow="checkCacheLoad(event)" -->
+    <body class="ovy-h lightBackground" ondragstart="return false;" onselectstart="return false;" oncopy="return false;">
+        <div id="control-height" class="p-f h-f"></div>
+        <div id="ui-height" class="p-f h-svh"></div>
+        <style type="text/css">
+            @media (scripting: none), (scripting: initial-only) {
+                body {
+                    overflow: hidden;
+                }
+
+                #main_sc, #print_sc {
+                    display: none;
+                }
+
+                #error_sc, #error_js {
+                    display: block;
+                }
+            }
+        </style>
+        <style type="text/css" media="print">
+            #main_sc {
+                visibility: hidden; 
+                display: none;
+            }
+
+            .print_sc {
+                display: block;
+            }
+        </style>
+        <noscript>
+            <style type="text/css">
+                body {
+                    background-color: var(--negate_col);
+                    color: #FFF;
+                }
+
+                #main_sc {
+                    display: none;
+                }
+
+                @media screen and (max-width: 240px) and (orientation: portrait) and (max-height: 440px) and (orientation: portrait), screen and (max-height: 240px) and (orientation: landscape) and (max-width: 440px) and (orientation: landscape) { /* wearables, below minimums */
+                    #js_message {
+                        display: none;
+                    }
+
+                    #js_message_dot {
+                        display: block;
+                    }
+                }
+
+                @media screen and (min-width: 240px) and (orientation: portrait) and (min-height: 440px) and (orientation: portrait), screen and (min-height: 240px) and (orientation: landscape) and (min-width: 440px) and (orientation: landscape) { 
+                    #js_message {
+                        display: block;
+                    }
+
+                    #js_message_dot {
+                        display: none;
+                    }
+                }
+
+                @media print {
+                    body {
+                        background-color: #FFF;
+                        color: #303030;
+                    }
+
+                    #js_message, #js_message_dot, .print_sc.m {
+                        display: none;
+                    }
+
+                    .print_sc {
+                        display: block;
+                    }   
+                }
+            </style>
+            <div data-nosnippet class="print_sc">
+                <h2 style="font-size: 40pt;"><span class="em">printing</span> is forbidden</h2>
+            </div>
+            <div data-nosnippet class="error_main c-xy">
+                <div id="js_message" class="err p-a">
+                    <p class="p_Bz c-y m_z"><span class="em">javascript</span> is disabled</p>
+                </div>
+                <div id="js_message_dot" class="d_n p-a c-xy img_icon bC_m b-r aniM-f e"></div>
+            </div>
+        </noscript>
+        <!-- 
+        <img style="display: none;" src="https://ivansojivarghese.github.io/ext/jpg/ivan_profile.jpg" alt="thumbnail of Ivan Varghese" title="thumbnail of Ivan Varghese">
+        <img style="display: none;" src="https://ivansojivarghese.github.io/favicon/maskable-512x512.png" alt="maskable thumbnail icon of Ivan Varghese" title="maskable thumbnail icon of Ivan Varghese">
+        <img style="display: none;" src="https://ivansojivarghese.github.io/logo/logo_og.png" alt="cover image of Ivan Varghese" title="cover image of Ivan Varghese">
+        -->
+        <h1 style="display: none">Ivan (Soji) Varghese | Clicks, Code & Concepts</h1>
+        <div data-nosnippet class="print_sc m">
+            <h2 style="font-size: 40pt;"><span class="em">printing</span> is forbidden</h2>
+        </div>
+        <div data-nosnippet id="main_sc">
+            <div class="cursor small bC_d b-r p-f z-P d_n z_O trs"></div>
+            <div class="cursor big bC_t b-r p-f z-P d_n z_O trs"></div>
+            <div class="puller trs z_O">
+                <div class="progressBar trs"></div>
+                <p class="f_wg-b p_z trs">pull to refresh</p>
+                <div class="pullerRefresher trs z_O">
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+            <div id="load_sc" class="loader loader_pwa lightBackground h-fp trs z-K z_O"> 
+                <div id="load_box" class="container p-a c-x trs">
+                    <div id="loadR" class="wrap aniM h_wd h-h trs">
+                        <div id="loadR-p" class="load_r load_r_pwa aniM trs"></div>
+                        <div id="loadR-m" class="load_r load_r_pwa aniM trs"></div>
+                        <div id="loadR-e" class="load_r load_r_pwa aniM-f trs"></div>
+                        <div id="loadR-s" class="load_r load_r_pwa aniM trs"></div>
+                    </div>
+                </div>
+                <div id="load_message" class="darkText d_n c-y p-a trs z_O">
+                    <h3 class="downsize m_z"></h3>
+                </div>
+            </div>
+            <div class="pwa p-a h-f d_n trs z_O">
+                <div id="scrollBar" class="desktop trs z_O"></div>
+                <div class="popups darkText trs z_O d_n">
+                    <div class="terms lightBackground d_n">
+                        <div class="banner">
+                            <div class="img_iconBtn hoverB trs" onclick="closePopUp('terms')">
+                                <div class="close_img img trs img_icon d_i"></div>
+                            </div>
+                        </div>
+                        <div class="m_L-10 m_wd">
+                            <h3>t&c</h3>
+                            <p class="attr lh-ex lang">Welcome. If you continue to browse and use this service, you are agreeing to comply with, and be bound by the following terms and conditions of use. If you disagree with any part of these terms and conditions, please do not use this service.</p>
+                            <p class="attr lh-ex lang">The term 'Ivan', 'Ivan (Soji) Varghese', 'us' or 'we' refers to the owner of this service. The term 'you' refers to the user or viewer of this service.</p>
+                            <p class="attr lh-ex lang">The use of this service is subject to the following terms/conditions of use:</p>
+                            <ul class="attr">
+                                <li>The content of this service is for your general information and use only. It is subject to change without notice.</li>
+                                <li>This service uses cookies to monitor browsing preferences. Your personal information might be stored by us for use by third parties. </li>
+                                <li>Neither we nor any third party provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this service for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li>
+                                <li>Your use of any information or materials on this service is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products or information available through this service meet your specific requirements.</li>
+                                <li>This service contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</li>
+                                <li>All trademarks reproduced in this service which are not the property of, or licensed to, the owner are acknowledged.</li>
+                                <li>Unauthorised use of this service may give rise to a claim for damages and/or be a criminal offence.</li>
+                                <li>From time to time this service may also include links to other services. These links are provided for your convenience to provide further information. They do not signify that we endorse those service(s). We have no responsibility for the content of the linked service(s).</li>
+                                <li>Your use of this service and any dispute arising out of such use is subject to local laws.</li>
+                            </ul>
+                                    
+                            <h3>disclaimer</h3>
+                            <p class="attr lh-ex lang">The information contained in this service is for general information purposes only. It is provided by Ivan (Soji) Varghese and while we endeavour to keep it up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the service or the information, products, and related graphics contained for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
+                            <p class="attr lh-ex lang">We do not follow most of the Web/Software Content Accessibility Guidelines (WCAG), which form part of a series of web/software accessibility guidelines published by the Web/Software Accessibility Initiative (WAI) of the World Wide Web/Software Consortium (W3C).</p>
+                            <p class="attr lh-ex lang">In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this service.</p>
+                            <p class="attr lh-ex lang">Through this service, you are able to link to other services which are not under the control of us. We have no control over the nature, content and availability of those services. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>
+                            <p class="attr lh-ex lang">Every effort is made to keep the service up and running smoothly. However, we take no responsibility for, and will not be liable for, the service being temporarily unavailable due to technical issues beyond our control.</p>
+                                    
+                            <h3>copyright</h3>
+                            <p class="attr lh-ex lang">This service and its content is copyright of Ivan (Soji) Varghese. All rights reserved. Any redistribution or reproduction of part, or all of its contents in any form is prohibited.</p>
+                            <p class="attr lh-ex lang">You may not, except with our express written permission, distribute or commercially exploit the content. Nor may you transmit or store it in any other service or form of electronic retrieval system.</p>
+                                    
+                            <h3>privacy</h3>
+                            <p class="attr lh-ex lang">This privacy policy will help you understand how we use and protect the data you provide to us when you visit and use this service.</p>
+                            <p class="attr lh-ex lang">We reserve the right to change this policy at any given time. If you want to make sure that you are up to date with the latest changes, we advise you to frequently visit this service. </p>
+                            <p class="attr lh-ex lang">When you visit this service, we may collect the following data:</p>
+                            <ul class="attr">
+                                <li>Your IP address.</li>
+                                <li>Your contact information and email address.</li>
+                                <li>Other information such as interests and preferences.</li>
+                                <li>Data profile regarding your online behaviour on our service.</li>
+                            </ul>
+                            <p class="attr lh-ex lang">We are collecting your data for several reasons:</p>
+                            <ul class="attr">
+                                <li>To better understand your needs.</li>
+                                <li>To improve our products.</li>
+                                <li>To customise our service according to your online behaviour and personal preferences.</li>
+                            </ul>
+                            <p class="attr lh-ex lang">We are committed to securing your data and keeping it confidential. We have done all in our power to prevent data theft, unauthorised access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online. </p>
+                            <p class="attr lh-ex lang">Once you agree to allow this service to use cookies, you also agree to use the data it collects regarding your online behaviour (analyse web traffic, web pages you visit and spend the most time on). The data we collect by using cookies is used to customise our service to your needs.</p>
+                            <p class="attr lh-ex lang">After we use the data for statistical analysis, the data is completely removed from our systems. Please note that cookies don't allow us to gain control of your device in any way. They are strictly used to monitor which pages you find useful and which you do not, so that we can provide a better experience for you. </p>
+                            <p class="attr lh-ex lang">Our service contains links that lead to other services. If you click on these links, we are not responsible for your data and privacy protection. Visiting those services is not governed by this privacy policy agreement. Make sure to read the privacy policy documentations of the services you visit from us. </p>
+                            <p class="attr lh-ex lang">We will not lease, sell or distribute your personal information to any third parties, unless we have your permission.</p>
+
+                            <h3>attributions</h3>
+                            <p class="attr lh-ex lang">This service is powered by GitHub Pages and other third-party APIs. We also express our gratitude to Google's Material Design Guidelines - which has been an inspiration for the structure, layout, graphics and icons of this service. </p>
+                            <p class="attr lh-ex lang">Thank you.</p>
+                        </div>
+                    </div>
+                    <div class="batteryInfo pills lightBackground d_n">
+                        <div class="m_Tp">
+                            <h3 class="level"></h3>
+                            <p class="status"></p>
+                            <p class="time"></p>
+                        </div>
+                    </div>
+                    <div class="deviceInfo pills lightBackground d_n">
+                        <div class="m_Tp">
+                            <h3 class="sfr"></h3>
+                            <p class="ip"></p>
+                            <p class="ipType"></p>
+                            <p class="vpn"></p>
+                            <p class="networkType"></p>
+                            <p class="networkEffType"></p>
+                            <p class="networkDownlink"></p>
+                            <p class="illuminance"></p>
+                            <p class="steps"></p>
+                            <p class="velocity"></p>
+                            <!-- 
+                            <p class="commute"></p>
+                            <p class="accDir"></p>
+                            <p class="speedX"></p>
+                            <p class="motionX"></p>
+                            <p class="stride"></p>
+                            <p class="vel"></p>
+                            <p class="velPoints"></p>
+                            <p class="acc"></p>
+                            <p class="sec"></p> -->
+                        </div>
+                        <div class="syncUpdateButton hoverB trs d_n" onclick="hardReload()">
+                            <h6>update available</h6>
+                        </div>
+                    </div>
+                    <div class="settingsInfo pills lightBackground d_n">
+                        <div class="m_Tp">
+                            <h3>settings</h3>
+                            <div class="m_T defaultP">
+                                <div class="toggleDiv fullscreen">
+                                    <p>fullscreen</p>
+                                    <div class="fullScreenToggle toggleBackg quickToggle trs lightBackground" onclick="
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('fullScreen', '1');
+                                                toggles.fullScreen = 1;
+
+                                                const pwa = document.querySelector('.pwa');
+                                                const pwaSec = document.querySelector('.pwaSecondary');
+                                                const puller = document.querySelector('.puller');
+                                                const load_sc = document.querySelector('#load_sc');
+                                                const swapToggle = document.querySelector('.swapToggle');
+
+                                                pwa.classList.remove('notFullscreen');
+                                                pwaSec.classList.remove('notFullscreen');
+                                                puller.classList.remove('notFullscreen');
+                                                load_sc.classList.remove('notFullscreen');
+                                                swapToggle.classList.add('hide');
+
+                                            } else {
+
+                                                const pwa = document.querySelector('.pwa');
+                                                const pwaSec = document.querySelector('.pwaSecondary');
+                                                const puller = document.querySelector('.puller');
+                                                const load_sc = document.querySelector('#load_sc');
+                                                const swapToggle = document.querySelector('.swapToggle');
+
+                                                pwa.classList.add('notFullscreen');
+                                                pwaSec.classList.add('notFullscreen');
+                                                puller.classList.add('notFullscreen');
+                                                load_sc.classList.add('notFullscreen');
+                                                swapToggle.classList.remove('hide');
+
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('fullScreen', '0');
+                                                toggles.fullScreen = 0;
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">activate full screen viewing</p>
+                                </div>
+                                <div class="toggleDiv swap">
+                                    <p>swap</p>
+                                    <div class="swapToggle toggleBackg quickToggle trs lightBackground" onclick="
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                swapDisplays();
+                                                toggles.swap = 1;
+                                            } else {
+                                                
+                                                this.classList.remove('toggleOn');
+                                                swapDisplays();
+                                                toggles.swap = 0;
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">change the position of the primary viewing segment</p>
+                                </div>
+                                <div class="toggleDiv">
+                                    <p>MotionSense</p>
+                                    <div class="motionSenseToggle toggleBackg quickToggle trs lightBackground hide" onclick="
+                                        var keyW = ['run', 'walk', 'commute'],
+                                            exist = findClasses(motionIcon.children[0].classList, keyW);
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('motionSense', '1');
+                                                toggles.motionSense = 1;
+                                            } else {
+                                                motionType = '';
+                                                motionUXChange('', oldMotionType);
+                                                e_Fd(motionIcon, true);
+                                                if (exist) {
+                                                    setTimeout(function() {
+                                                        motionIcon.children[0].classList.remove(exist);
+                                                        motionIcon.classList.add('d_n');
+                                                    }, op.t);
+                                                }
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('motionSense', '0');
+                                                toggles.motionSense = 0;
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">allows accelerometer sensors in device to determine type of motion, thereby allowing potential changes in UI</p>
+                                </div>
+                                <div class="toggleDiv">
+                                    <p>location</p>
+                                    <div class="locationToggle toggleBackg trs hoverB lightBackground" onclick="
+
+                                        const options = {
+                                            enableHighAccuracy: true
+                                        }
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('location', '1');
+                                                toggles.location = 1;
+                                                gpsID = navigator.geolocation.watchPosition((position) => {
+                                                   gpsPos = position
+                                                }, (error) => {
+                                                    if (error.code === error.PERMISSION_DENIED) {
+                                                        this.classList.add('hide');
+                                                        this.classList.remove('hoverB');
+                                                        this.removeEventListener('mousemove', hoverInit);
+                                                        hoverEnd(null);
+
+                                                        // this.removeEventListener('click', hoverMiddle);
+                                                        // this.removeEventListener('mouseleave', hoverEnd);
+                                                    }
+                                                    this.classList.remove('toggleOn');
+                                                    localStorage.setItem('location', '0');
+                                                    toggles.location = 0;
+                                                    gpsPos = null;
+                                                    navigator.geolocation.clearWatch(gpsID);
+                                                }, options);
+                                            } else {
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('location', '0');
+                                                toggles.location = 0;
+                                                gpsPos = null;
+                                                navigator.geolocation.clearWatch(gpsID);
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">allows the usage of GPS to improve MotionSense, velocity and weather reading patterns</p>
+                                </div>
+                                <div class="toggleDiv">
+                                    <p>notifications</p>
+                                    <div class="notificationsToggle toggleBackg trs hoverB lightBackground" onclick="
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                if ('Notification' in window) {
+                                                    Notification.requestPermission().then(permission => {
+                                                        if (permission === 'granted') {
+                                                            this.classList.add('toggleOn');
+                                                            localStorage.setItem('notifications', '1');
+                                                            toggles.notifications = 1; //
+
+                                                        } else {
+                                                            this.classList.remove('toggleOn');
+                                                            localStorage.setItem('notifications', '0');
+                                                            toggles.notifications = 0;
+
+                                                            this.classList.add('hide');
+                                                            this.classList.remove('hoverB');
+                                                            this.removeEventListener('mousemove', hoverInit);
+                                                        }
+                                                    });
+                                                } else {
+                                                    this.classList.add('hide');
+                                                    this.classList.remove('hoverB');
+                                                    this.removeEventListener('mousemove', hoverInit);
+                                                }
+
+                                            } else {
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('notifications', '0');
+                                                toggles.notifications = 0;
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">receive app notifications on device</p>
+                                </div>
+                                <div class="toggleDiv">
+                                    <p>sync</p>
+                                    <div class="syncToggle toggleBackg quickToggle trs hoverB lightBackground" onclick="
+
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('sync', '1');
+                                                toggles.sync = 1;
+
+                                                periodicSync();
+                                            } else {
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('sync', '0');
+                                                toggles.sync = 0;
+                                                
+                                                noPeriodicSync();
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">fetch updates periodically in the background</p>
+                                </div>
+                                <div class="toggleDiv">
+                                    <p>battery</p>
+                                    <div class="batteryToggle toggleBackg quickToggle trs hoverB lightBackground" onclick="
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('battery', '1');
+                                                toggles.battery = 1;
+
+                                                const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
+                                                navigator.getBattery().then(monitorBattery);
+                                                for (j = 0; j < batteryIcons.length; j++) {
+                                                    batteryIcons[j].parentElement.classList.remove('d_n');
+
+                                                    batteryIcons[j].parentElement.classList.add('hoverB', 'trs');
+
+                                                    batteryIcons[j].parentElement.addEventListener('mousemove', hoverInit);
+                                                    batteryIcons[j].parentElement.addEventListener('mouseleave', hoverEnd);
+                                                    batteryIcons[j].parentElement.addEventListener('click', hoverMiddle);
+                                                }
+                                            } else {
+
+                                                const batteryIcons = document.querySelectorAll('.pwa .banner .battery'); 
+        
+                                                for (j = 0; j < batteryIcons.length; j++) {
+                                                    batteryIcons[j].parentElement.classList.add('d_n');
+                                                }
+
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('battery', '0');
+                                                toggles.battery = 0;
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">show battery information on the status bar</p>
+                                </div>
+                                <div class="toggleDiv">
+                                    <p>screen lock</p>
+                                    <div class="screenWakeToggle toggleBackg quickToggle trs hoverB lightBackground" onclick="
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+                                                this.classList.add('toggleOn');
+                                                localStorage.setItem('screenWake', '1');
+                                                toggles.screenWake = 1;
+
+                                                getScreenLock();
+                                                
+                                            } else {
+
+                                                releaseScreenLock(screenLock);
+
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('screenWake', '0');
+                                                toggles.screenWake = 0;
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">prevents your screen from locking or dimming (conditional)</p>
+                                </div>
+                                <div class="toggleDiv">
+                                    <p>rotation lock</p>
+                                    <div class="rotationToggle toggleBackg trs hoverB lightBackground" onclick="
+                                        if (!this.classList.contains('hide')) {
+                                            if (!this.classList.contains('toggleOn')) {
+
+                                                oriLock = screen.orientation.lock(screen.orientation.type).then(() => {
+                                                    this.classList.add('toggleOn');
+                                                    localStorage.setItem('rotationLock', '1');
+                                                    toggles.rotationLock = 1;
+                                                }).catch((err) => {
+                                                    this.classList.add('hide');
+                                                    this.classList.remove('hoverB');
+                                                    this.removeEventListener('mousemove', hoverInit);
+                                                    hoverEnd(null);
+
+                                                    // this.removeEventListener('click', hoverMiddle);
+                                                    // this.removeEventListener('mouseleave', hoverEnd);
+                                                    this.classList.remove('toggleOn');
+                                                    localStorage.setItem('rotationLock', '0');
+                                                    toggles.rotationLock = 0;
+                                                });
+                                                
+                                            } else {
+
+                                                screen.orientation.unlock();
+
+                                                this.classList.remove('toggleOn');
+                                                localStorage.setItem('rotationLock', '0');
+                                                toggles.rotationLock = 0;
+
+                                            }
+                                        } else {
+                                            // event.preventDefault();
+
+                                            disabledEventGlobal(event);
+                                        }
+                                    ">
+                                        <div class="toggleSwitch trs darkBackground"></div>
+                                    </div>
+                                    <p class="attr">prevents your screen from rotating</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weatherInfo pills lightBackground d_n">
+                        <div class="m_Tp">
+                            <div class="factWrap">
+                                <div class="img img_icon m_z humid_img d_i"></div>
+                                <p class="humidity fact">-</p>
+                            </div>
+                            <div class="factWrap">
+                                <div class="img img_icon m_z wind_img d_i"></div>
+                                <p class="windSpeed fact">-</p>
+                                <h6 class="windDir">-</h6>
+                            </div>
+                            <div class="factWrap">
+                                <div class="img img_icon m_z temp_img d_i"></div>
+                                <p class="feelsLike fact">-</p> 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <div class="upgradeInfo pills lightBackground d_n">
+                        <h1>Heads up!</h1>
+                        <p>Potential changes and upgrades are coming by mid-2026.</p>
+                        <div onclick="closePopUp('upgradeInfo')" class="darkBackground hoverB trs">
+                            <p class="in lightText">Got it</p>
+                        </div>
+                    </div>
+                    <!-- -->
+                </div>
+                <div class="fab trs hoverB hide">
+                    <div class="img_iconBtn trs">
+                        <div class="share_w_img img trs img_icon d_i"></div>
+                    </div>
+                </div>
+                <div class="fab2 trs hoverB hide">
+                    <div class="img_iconBtn trs">
+                        <div class="img trs img_icon d_i"></div>
+                    </div>
+                </div>
+                <div class="titlebar">
+                    <div class="img_iconBtn hoverB trs" onclick="openPopUp('settingsInfo')">
+                        <div class="settings settings_img img trs img_icon d_i"></div>
+                    </div>
+                    <div class="img_iconBtn deviceInfoIcon hoverB trs" onclick="openPopUp('deviceInfo')">
+                        <div class="info info_img img trs img_icon d_i"></div>
+                    </div>
+                </div>
+                <div class="sections scrollBarFunction lightBackground">
+                    <div class="home d_n">
+                        <div class="banner">
+                            <div class="motionIcon lightBackground img_iconBtn trs z_O d_n">
+                                <div class="img trs img_icon d_i"></div>
+                            </div>
+                            <div></div>
+                            <div class="weatherIcon hoverB trs" onclick="openPopUp('weatherInfo')"></div>
+                            <div class="weather">
+                                <p class="darkText lightBackground"><span id="temp">-</span>°<span id="unit">-</span></p>
+                            </div>
+                            <div class="wifiOff d_n">
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="m_L-10 m_wd darkText">
+                            <h5>This is</h5>
+                            <div class="logo-full img"></div>
+                            <div class="content">
+                                <div class="flexActive">
+                                    <div class="flexActive flexCol">
+                                        <p class="paragraph">Good <span id="greeting">time</span>! I'm an aspiring computer science geek. With some pens & papers, I seek [to solve] the complexities that intrigue society.</p>
+                                        <div id="wordsTyper">
+                                            <h2 id="wordsTyperDet" class="d_i o-img">&nbsp;</h2><div id="wordsTyperDet_cursor" class="darkBackground d_i bC_d p-r o-img"></div>
+                                        </div>
+                                    </div>
+                                    <div class="container wordcloud">
+                                        <h1></h1>
+                                        <h1></h1>
+                                        <h1></h1>
+                                        <h1></h1>
+                                        <h1></h1>
+                                        <h1></h1>
+                                        <h1></h1>
+                                        <h1></h1>
+                                        <h1></h1>
+                                        <h1></h1>
+                                    </div>
+                                </div>
+                                <div class="container m_T exh">
+                                    <p class="paragraph p_Bh">coffee <span class="em">galore</span><br><span class="em">thinker</span><br><span class="em">dreamer</span><br><span class="em">dev</span></p>
+                                </div>
+                                <div class="container">
+                                    <div class="signature img"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clicks d_n">
+                        <div class="banner">
+                            <div></div>
+                            <div class="img_iconBtn d_n" onclick="openPopUp('batteryInfo')">
+                                <div class="battery img trs img_icon d_i"></div>
+                            </div>
+                            <div class="img_iconBtn deviceInfoIcon hoverB trs" onclick="openPopUp('deviceInfo')">
+                                <div class="info info_img img trs img_icon d_i"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h1 class="wait_header darkText">coming soon...</h1>
+                        </div>
+                    </div>
+                    <div class="code d_n">
+                        <div class="banner">
+                            <div></div>
+                            <div class="img_iconBtn d_n" onclick="openPopUp('batteryInfo')">
+                                <div class="battery img trs img_icon d_i"></div>
+                            </div>
+                            <div class="img_iconBtn deviceInfoIcon hoverB trs" onclick="openPopUp('deviceInfo')">
+                                <div class="info info_img img trs img_icon d_i"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h1 class="wait_header darkText">coming soon...</h1>
+                        </div>
+                    </div>
+                    <div class="diary d_n">
+                        <div class="banner">
+                            <div></div>
+                            <div class="img_iconBtn d_n" onclick="openPopUp('batteryInfo')">
+                                <div class="battery img trs img_icon d_i"></div>
+                            </div>
+                            <div class="img_iconBtn deviceInfoIcon hoverB trs" onclick="openPopUp('deviceInfo')">
+                                <div class="info info_img img trs img_icon d_i"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h1 class="wait_header darkText">coming soon...</h1>
+                        </div>
+                    </div>
+                    <div class="about d_n">
+                        <div class="banner">
+                            <div class="img_iconBtn hoverB trs" onclick="openPopUp('settingsInfo')">
+                                <div class="settings_img img trs img_icon d_i"></div>
+                            </div>
+                            <div class="img_iconBtn hoverB trs" onclick="toggleColorMode(event)">
+                                <div class="dark_mode_img img trs img_icon d_i"></div>
+                            </div>
+                            <div class="ham_auto p-r trs z_O">
+                                <h4 class="m_z f_wg-b attr darkText">auto</h4>
+                            </div>
+                            <div></div>
+                            <div class="img_iconBtn d_n" onclick="openPopUp('batteryInfo')">
+                                <div class="battery img trs img_icon d_i"></div>
+                            </div>
+                            <div class="img_iconBtn deviceInfoIcon hoverB trs" onclick="openPopUp('deviceInfo')">
+                                <div class="info info_img img trs img_icon d_i"></div>
+                            </div>
+                        </div>
+                        <div class="m_L-10 m_wd">
+                            <div class="content darkText">
+                                <div class="profile_image img b-r"></div>
+                                <p class="paragraph size p_B_1">Hello. I'm a<br><span id="span1" class="h3dup"></span> &<br><span id="span2" class="h3dup"></span><br>based in <span id="span3"></span>.</p>
+                                <div id="artGraphic">
+                                    <div class="shape shape1"></div>
+                                    <div class="shape shape6"></div>
+                                    <div class="shape shape2"></div>
+                                    <div class="shape shape3"></div>
+                                    <div class="shape shape4"></div>
+                                    <div class="shape shape5"></div>
+                                    <div class="shape shape7"></div>
+                                </div>
+                                <div class="container">
+                                    <h5>and?</h5>
+                                    <p class="paragraph noRSpace">I've been building stuff on the web for the last <span id="span4"></span> years. My focus is on creating engaging & efficient interfaces for humans. When I'm not writing code or writing about writing code, I enjoy photography, cooking and some good comedy.</p>
+                                </div>
+                                <div class="container">
+                                    <h5>skillset</h5>
+                                    <div class="skillset">
+                                        <div class="html" title="HTML5">
+                                            <div class="img"></div>
+                                        </div>
+                                        <div class="css" title="CSS3">
+                                            <div class="img"></div>
+                                        </div>
+                                        <div class="js" title="JavaScript">
+                                            <div class="img"></div>
+                                        </div>
+                                        <div class="jquery" title="jQuery">
+                                            <div class="img"></div>
+                                        </div>
+                                        <div class="pwa" title="Progressive Web Apps">
+                                            <div class="img"></div>
+                                        </div>
+                                    </div>
+                                    <h5>tools i use</h5>
+                                    <div class="toolset">
+                                        <div class="vscode" title="Visual Studio Code">
+                                            <div class="img"></div>
+                                        </div>
+                                        <div class="canva" title="Canva">
+                                            <div class="img"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container block m_B exh darkText">
+                                    <h5>credits</h5>
+                                    <p class="copy">&copy; <span class="f_yr"></span> <span class="em">Ivan</span> Varghese</p>
+                                    <p class="attr lh-ex p_Bh">
+                                        Refer to the copyright statement,
+                                        terms & conditions of usage, 
+                                        content disclaimer,
+                                        attributions,
+                                        and privacy policy <a class="t-u trs" onclick="openPopUp('terms')">here</a>.
+                                    </p>
+                                    <p class="lh-ex attr p_TBh">v<span class="f_vr"></span> with <span id="g_commits"></span> commits on <a class="t-u trs" href="https://github.com/ivansojivarghese/ivansojivarghese.github.io" target="_blank" rel="nofollow">GitHub</a>.</p>
+                                    <p id="" class="lh-ex attr">Made with <span class='em'>love</span> by me.</p>
+                                    <div class="social_media">
+                                        <a href="https://www.instagram.com/ivansojivarghese/" target="_blank" rel="nofollow" class="trs">
+                                            <div class="img trs img_icon instagram"></div>
+                                        </a>
+                                        <a href="https://www.facebook.com/ivan.varghese.16" target="_blank" rel="nofollow" class="trs">
+                                            <div class="img trs img_icon facebook"></div>
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/ivansojivarghese/" target="_blank" rel="nofollow" class="trs">
+                                            <div class="img trs img_icon linkedin"></div>
+                                        </a>
+                                        <a href="https://github.com/ivansojivarghese" target="_blank" rel="nofollow" class="trs">
+                                            <div class="img trs img_icon github"></div>
+                                        </a>
+                                        <a href="https://twitter.com/ivansoji" target="_blank" rel="nofollow" class="trs">
+                                            <div class="img trs img_icon x_twitter"></div>
+                                        </a>
+                                        <a href="https://glitch.com/@ivanvarghese" target="_blank" rel="nofollow" class="trs" style="display: none;">
+                                            <div class="img trs img_icon glitch"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar trs lightBackground darkText">
+                    <div class="button home hoverB trs" data-pwanavbutton="true" onclick="navButtonActive('home', event)">
+                        <div class="img trs">
+                            <div class="active lightBackground trs z_O"></div>
+                        </div>
+                        <p>home</p>
+                    </div>
+                    <div class="button clicks hoverB trs" data-pwanavbutton="true" onclick="navButtonActive('clicks', event)">
+                        <div class="img trs">
+                            <div class="active lightBackground trs z_O"></div>
+                        </div>
+                        <p>clicks</p>
+                    </div>
+                    <div class="button code hoverB trs" data-pwanavbutton="true" onclick="navButtonActive('code', event)">
+                        <div class="img trs">
+                            <div class="active lightBackground trs z_O"></div>
+                        </div>
+                        <p>code</p>
+                    </div>
+                    <div class="button diary hoverB trs" data-pwanavbutton="true" onclick="navButtonActive('diary', event)">
+                        <div class="img trs">
+                            <div class="active lightBackground trs z_O"></div>
+                        </div>
+                        <p>diary</p>
+                    </div>
+                    <div class="button about hoverB trs" data-pwanavbutton="true" onclick="navButtonActive('about', event)">
+                        <div class="img trs">
+                            <div class="active lightBackground trs z_O"></div>
+                        </div>
+                        <p>about</p>
+                    </div>
+                    <div class="button swap hoverB trs darkBackground lightText" onclick="swapDisplays()">
+                        <div class="img trs"></div>
+                        <p>swap</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pwaSecondary lightBackground darkText p-a h-f trs z_O">
+                <div class="reserved">
+                    <h1 class="m_z">reserved.</h1>
+                </div>
+            </div>
+            <!-- 
+            <div class="non-pwa">
+                <div id="load_sc" class="loader lightBackground h-fp trs z-K"> 
+                    <div id="load_C">
+                        <div id="load_box" class="container p-a c-x trs z_O">
+                            <div id="load_text_ex" class="p-a trs z_O" style="top: -1rem;">
+                                <h6 id="load_text_ex_p" class="darkText"></h6>
+                                <div id="load_text_ex_s" class="p_z">
+                                    <object id="load_text_arrow" data="../svg/lead_arrow_forward.svg" class="img img_icon md d_i p-r trs" type="image/svg+xml"></object>
+                                </div>
+                            </div>
+                            <div id="load_dot" class="trs p-a c-xy img_icon bC_m b-r aniM"></div>
+                            <div id="load_icon" class="img img_icon p-a c-x b-z trs z_O"></div>
+                            <div id="loadR" class="wrap aniM h_wd h-h trs z_O">
+                                <div id="loadR-p" class="load_r aniM trs"></div>
+                                <div id="loadR-m" class="load_r aniM trs"></div>
+                                <div id="loadR-e" class="load_r aniM-f trs"></div>
+                                <div id="loadR-s" class="load_r aniM trs"></div>
+                            </div>
+                        </div>
+                        <div id="load_text" class="trs z_O">
+                            <p id="load_text_cnt" class="error em darkText"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="error_sc" class="error_main d_n z-A h-fp">
+                    <div id="error_sp" class="d_n trs z_O">
+                        <div class="c-xy p-a">
+                            <div class="p-a c-xy img_icon img md full_img"></div>
+                        </div>
+                    </div>
+                    <div id="error_z" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p id="error_z_h" class="p_Bz">incompatible <span class="em">zoom</span></p>
+                            <h4>set to <span id="error_z_s">100%</span></h4>
+                            <p id="err_t_z" class="err_t d_n">use a faster network & reload</p>
+                        </div>
+                    </div>
+                    <div id="error_vs" class="d_n trs z_O">
+                        <div class="err c-xy p-a">
+                            <div class="p-a c-xy img_icon bC_m b-r aniM-f dot_negate"></div>
+                        </div>
+                    </div>
+                    <div id="error_vL" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz md">incompatible <span class="em">display</span></p>
+                        </div>
+                    </div>
+                    <div id="error_lnd" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz"><span class="em">landscape</span> view is unsupported</p>
+                            <h4>use portrait mode if available</h4>
+                        </div>
+                    </div> 
+                    <div id="error_dp" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz">low device <span class="em">performance</span></p>
+                            <h4>try again</h4>
+                        </div>
+                    </div> 
+                    <div id="error_or" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz"><span class="em">orientation</span> was changed</p>
+                            <h4>reload or recalibrate</h4>
+                        </div>
+                    </div> 
+                    <div id="error_pl" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz"><span id="error_plp" class="em">unsupported</span> platform</p>
+                            <h4 id="error_plh4"></h4>
+                        </div>
+                    </div> 
+                    <div id="error_vp" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz">something ain't right, <span class="em">vpn?</span></p>
+                            <h4 id="error_vph4"></h4>
+                            <h4 id="error_vph4_2"></h4>
+                            <h4 class="m_Te attr">ensure that device time zone is set correctly</h4>
+                        </div>
+                    </div> 
+                    <div id="error_ft" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz">fatal <span class="em">error</span></p>
+                            <h4 class="revert">it's not you, it's us - try again</h4>
+                        </div>
+                    </div> 
+                    <div id="error_mt" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz"><span class="em">service</span> is under maintenance</p>
+                            <p class="copy">v<span class="f_vr"></span>
+                                <span id="vrU" class="d_n">
+                                    <span class="lead_arrow_forward_img img img_icon ex-s d_i p-r" style="top: 0.15rem;"></span>
+                                    v<span class="vr-u"></span>
+                                </span>
+                            </p>
+                        </div>
+                    </div> 
+                    <div id="error_cke" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz"><span class="em">cookies</span> are disabled</p>
+                            <p class="attr lh-ex">By using this service, you agree to our use of cookies. 
+                                We use cookies to provide you with a great experience.
+                            </p>
+                        </div>
+                    </div> 
+                    <div id="error_dt" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz"><span class="em">multiple</span> tabs detected</p>
+                            <h4 class="revert">on <span id="error_dtsp"></span></h4>
+                            <h4 class="m_Te attr trs z_O">clear your cookies</h4>
+                        </div>
+                    </div> 
+                    <div id="error_fS" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz md"><span class="em">fullscreen</span> is unsupported</p>
+                        </div>
+                    </div>
+                    <div id="error_fC" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz">undetected <span class="em">focus</span></p>
+                            <h4>provide inputs</h4>
+                        </div>
+                    </div>
+                    <div id="error_tr" class="d_n trs z_O">
+                        <div class="err c-y p-a">
+                            <p class="p_Bz">set to <span class="em">English</span> language</p>
+                            <h4 class="notranslate">set to English</h4>
+                        </div>
+                    </div>
+                    <div id="error_js" class="d_n">
+                        <div id="js_message_dot" class="p-a c-x img_icon bC_m b-r aniM-f e" style="top: calc((100vh - 1.8rem) / 2);"></div>
+                    </div>
+                </div> 
+                <div id="display_sc" class="trs z_O d_n">
+                    <div id="msg_sc" class="p-a h-f trs z-T">
+                        <div id="msg_tint" class="z-T trs tint md"></div>
+                        <div id="ckA_msg" class="lightBackground z-Te p-f trs b-z bC_L d_n msg down">
+                            <div class="ham mini bt trs hoverB" onclick="cookiesAccept()">
+                                <div class="darkBackground stroke bC_d" style="transform: rotate(45deg)"></div>
+                                <div class="darkBackground stroke bC_d" style="transform: translateY(-0.2rem) rotate(-45deg);"></div>
+                            </div>
+                            <div id="ckA_msg_wrap" class="darkText m_L-1">
+                                <p class="attr lh-ex">By using this service, you agree to our use of cookies. 
+                                    We use cookies to provide you with a great experience.
+                                </p>
+                                <p class="attr lh-ex p_Bdh">
+                                    Refer to the <a class="t-u trs" onclick="popU_toggle('cond', 'cpy', false, true)">copyright</a> statement,
+                                    <a class="t-u trs" onclick="popU_toggle('cond', 'tnc', false, true)">terms & conditions</a> of usage, 
+                                    content <a class="t-u trs" onclick="popU_toggle('cond', 'dcr', false, true)">disclaimer,</a>
+                                    and <a class="t-u trs" onclick="popU_toggle('cond', 'prv', false, true)">privacy</a> policy for further information.
+                                </p>
+                            </div>
+                        </div>
+                        <div id="net_msg" class="z-Te p-f trs bC_t b-z d_n msg down">
+                            <div id="net_msg_pill" class="pill msg_m p_TB m_L-5 oe_wd m_B">
+                                <div class="f_wd d_i">
+                                    <div id="net_msg-i" class="img_icon img md"></div>
+                                </div><h5 id="net_msg-t" class="d_i m_B z p-r c_w"></h5><h4 id="net_msg-e" class="d_n m_L-20 c_w m_T p_z"></h4>
+                            </div>
+                        </div> 
+                    </div>
+                    <div id="cond_sc" class="lightBackground scrollBarFunction bC_L ovy-s h-f p-f trs z-G z_O">
+                        <div class="lightBackground head bC_L">
+                            <div class="ham bt trs hoverB scrollBarActivate" onclick="popU_toggle(pg.t, pg.w, true, !op.c.u)">
+                                <div class="darkBackground stroke bC_d"></div>
+                                <div class="darkBackground stroke bC_d"></div>
+                            </div>
+                        </div>
+                        <div class="darkText head_b scrollBarContainer">
+                            <div class="m_L-10 m_wd p_Bdxx">
+                                <div id="tnc" class="d_n">
+                                    <h3>t&c</h3>
+                                    <p class="attr lh-ex lang">Welcome. If you continue to browse and use this service, you are agreeing to comply with, and be bound by the following terms and conditions of use. If you disagree with any part of these terms and conditions, please do not use this service.</p>
+                                    <p class="attr lh-ex lang">The term 'Ivan', 'Ivan (Soji) Varghese', 'us' or 'we' refers to the owner of this service. The term 'you' refers to the user or viewer of this service.</p>
+                                    <p class="attr lh-ex lang">The use of this service is subject to the following terms/conditions of use:</p>
+                                    <ul class="attr">
+                                        <li>The content of this service is for your general information and use only. It is subject to change without notice.</li>
+                                        <li>This service uses cookies to monitor browsing preferences. Your personal information might be stored by us for use by third parties. </li>
+                                        <li>Neither we nor any third party provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this service for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li>
+                                        <li>Your use of any information or materials on this service is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products or information available through this service meet your specific requirements.</li>
+                                        <li>This service contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</li>
+                                        <li>All trademarks reproduced in this service which are not the property of, or licensed to, the owner are acknowledged.</li>
+                                        <li>Unauthorised use of this service may give rise to a claim for damages and/or be a criminal offence.</li>
+                                        <li>From time to time this service may also include links to other services. These links are provided for your convenience to provide further information. They do not signify that we endorse those service(s). We have no responsibility for the content of the linked service(s).</li>
+                                        <li>Your use of this service and any dispute arising out of such use is subject to local laws.</li>
+                                    </ul>
+                                </div>
+                                <div id="dcr" class="d_n">
+                                    <h3>disclaimer</h3>
+                                    <p class="attr lh-ex lang">The information contained in this service is for general information purposes only. It is provided by Ivan (Soji) Varghese and while we endeavour to keep it up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the service or the information, products, and related graphics contained for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
+                                    <p class="attr lh-ex lang">In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this service.</p>
+                                    <p class="attr lh-ex lang">Through this service, you are able to link to other services which are not under the control of us. We have no control over the nature, content and availability of those services. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>
+                                    <p class="attr lh-ex lang">Every effort is made to keep the service up and running smoothly. However, we take no responsibility for, and will not be liable for, the service being temporarily unavailable due to technical issues beyond our control.</p>
+                                </div>
+                                <div id="cpy" class="d_n">
+                                    <h3>copyright</h3>
+                                    <p class="attr lh-ex lang">This service and its content is copyright of Ivan (Soji) Varghese. All rights reserved. Any redistribution or reproduction of part, or all of its contents in any form is prohibited.</p>
+                                    <p class="attr lh-ex lang">You may not, except with our express written permission, distribute or commercially exploit the content. Nor may you transmit or store it in any other service or form of electronic retrieval system.</p>
+                                </div>
+                                <div id="prv" class="d_n">
+                                    <h3>privacy</h3>
+                                    <p class="attr lh-ex lang">This privacy policy will help you understand how we use and protect the data you provide to us when you visit and use this service.</p>
+                                    <p class="attr lh-ex lang">We reserve the right to change this policy at any given time. If you want to make sure that you are up to date with the latest changes, we advise you to frequently visit this service. </p>
+                                    <p class="attr lh-ex lang">When you visit this service, we may collect the following data:</p>
+                                    <ul class="attr">
+                                        <li>Your IP address.</li>
+                                        <li>Your contact information and email address.</li>
+                                        <li>Other information such as interests and preferences.</li>
+                                        <li>Data profile regarding your online behaviour on our service.</li>
+                                    </ul>
+                                    <p class="attr lh-ex lang">We are collecting your data for several reasons:</p>
+                                    <ul class="attr">
+                                        <li>To better understand your needs.</li>
+                                        <li>To improve our products.</li>
+                                        <li>To customise our service according to your online behaviour and personal preferences.</li>
+                                    </ul>
+                                    <p class="attr lh-ex lang">We are committed to securing your data and keeping it confidential. We have done all in our power to prevent data theft, unauthorised access, and disclosure by implementing the latest technologies and software, which help us safeguard all the information we collect online. </p>
+                                    <p class="attr lh-ex lang">Once you agree to allow this service to use cookies, you also agree to use the data it collects regarding your online behaviour (analyse web traffic, web pages you visit and spend the most time on). The data we collect by using cookies is used to customise our service to your needs.</p>
+                                    <p class="attr lh-ex lang">After we use the data for statistical analysis, the data is completely removed from our systems. Please note that cookies don't allow us to gain control of your device in any way. They are strictly used to monitor which pages you find useful and which you do not, so that we can provide a better experience for you. </p>
+                                    <p class="attr lh-ex lang">Our service contains links that lead to other services. If you click on these links, we are not responsible for your data and privacy protection. Visiting those services is not governed by this privacy policy agreement. Make sure to read the privacy policy documentations of the services you visit from us. </p>
+                                    <p class="attr lh-ex lang">We will not lease, sell or distribute your personal information to any third parties, unless we have your permission.</p>
+                                </div>
+                            </div>                    
+                        </div>
+                    </div>
+                    <div id="content_sc" class="lightBackground">
+                        <div id="scrollBar" class="desktop trs z_O"></div>
+                        <a name="topPos" class="d_n"></a>
+                        <div id="intro_main">
+                            <div id="cursorIntSpace" class="desktop p-a h-f z-R"></div>
+                            <div id="hm_ph_tint" class="tint phablet trs z_O d_n"></div>
+                            <div class="head z-K">
+                                <div id="hamburger_button" class="ham bt mobile trs">
+                                    <div class="darkBackground stroke st trs bC_d z_wd z_O"></div>
+                                    <div class="darkBackground stroke st trs bC_d z_wd z_O"></div>
+                                    <div class="darkBackground stroke st trs bC_d z_wd z_O"></div>
+                                </div>
+                                <div id="hamburger_button_phablet" class="phablet trs">
+                                    <div id="hm_btn_ar" class="lead_arrow_forward_img img img_icon d_i trs p-r"></div>
+                                </div>
+                                <div id="navbar" class="darkText tablet h-fp">
+                                    <div class="ham_auto p-a c_ta trs z_O">
+                                        <h4 class="m_z f_wg-b attr darkText">auto</h4>
+                                    </div>
+                                    <div class="wrap d_i p-r">
+                                        <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/clicks'" class="d_i navbarlinks trs">
+                                            <h5 class="m_z">clicks</h5>
+                                        </a><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/code'" class="d_i navbarlinks trs">
+                                            <h5 class="m_z">code</h5>
+                                        </a><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/diary'" class="d_i navbarlinks trs">
+                                            <h5 class="m_z">diary</h5>
+                                        </a><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/about'" class="d_i navbarlinks trs">
+                                            <h5 class="m_z">about</h5>
+                                        </a>
+                                    </div><div id="dm_btn" class="d_i img_iconBtn trs m_R-1 hoverB" title="Dark theme" onclick="toggleColorMode(event)">
+                                        <div class="dark_mode_img img img_icon d_i"></div>
+                                    </div>
+                                </div>
+                                <div id="link_4" class="darkBackground link_h bC_d o-img p-a trs_e trs_md z_wd desktop"></div>
+                            </div>
+                            <div id="ham_sc" class="lightBackground hm h-fp mobile trs z-G z_O"> 
+                                <div id="ham_C" class="darkText">
+                                    <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/clicks'" class="bt trs">
+                                        <h5>clicks</h5>
+                                    </a>
+                                    <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/code'" class="bt trs">
+                                        <h5>code</h5>
+                                    </a>
+                                    <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/diary'" class="bt trs">
+                                        <h5>diary</h5>
+                                    </a>
+                                    <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/about'" class="bt trs">
+                                        <h5>about</h5>
+                                    </a>
+                                </div> 
+                                <div class="ham_auto p-a c_ta trs z_O">
+                                    <h4 class="m_z f_wg-b attr darkText">auto</h4>
+                                </div>
+                                <div id="ham_footer" class="p-a b-z">
+                                    <div class="m_L-5">
+                                        <div id="dm_btn" class="d_i img_iconBtn" onclick="toggleColorMode(event)">
+                                            <div class="dark_mode_img img img_icon d_i"></div>
+                                        </div>
+                                        <div id="dw_btn" class="darkText d_i a_wd b-rz trs o-img img_iconBtn" style="transform: translateX(calc(7.63rem - 5vw));">
+                                            <div class="download_img img img_icon d_i"></div>
+                                            <h4 id="dw_btn_h4" class="trs d_i z_O m_B z f_wg-b" style="transform: translateY(-0.5rem); margin: 0 0.5rem;">install</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="ham_phablet_sc" class="lightBackground hm trs z-N phablet z_O d_n" style="transform: translateY(-30%);">
+                                <div class="head_b">
+                                    <div class="darkText m_L-2 p_T ex">
+                                        <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/clicks'" class="bt trs">
+                                            <h5>clicks</h5>
+                                        </a>
+                                        <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/code'" class="bt trs">
+                                            <h5>code</h5>
+                                        </a>
+                                        <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/diary'" class="bt trs">
+                                            <h5>diary</h5>
+                                        </a>
+                                        <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/about'" class="bt trs m_z">
+                                            <h5>about</h5>
+                                        </a>
+                                    </div>
+                                    <div class="ham_auto p-a c_ta trs z_O">
+                                        <h4 class="m_z f_wg-b attr darkText">auto</h4>
+                                    </div>
+                                    <div class="m_L-1 p_T ex">
+                                        <div id="dm_btn" class="d_i img_iconBtn" onclick="toggleColorMode(event)">
+                                            <div class="dark_mode_img img img_icon d_i"></div>
+                                        </div>
+                                        <div id="dw_btn" class="dw_btns d_i a_wd b-rz trs o-img img_iconBtn" style="transform: translateX(calc(7.63rem - 5vw));">
+                                            <div class="download_img img img_icon d_i"></div>
+                                            <h4 id="dw_btn_h4" class="darkText dw_btn_h4s trs d_i z_O m_B z f_wg-b" style="transform: translateY(-0.5rem); margin: 0 0.5rem;">install</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-circles mobile z-G p-a ov-h">
+                                <div class="overlay h-fp z-R p-a"></div>
+                                <div class="bg-circle darkBackground circle-0_5 p-a b-r bC_d z-G trs_e z_O"></div>
+                                <div class="bg-circle darkBackground circle-1 p-a b-r bC_d z-G trs_e z_O"></div>
+                                <div class="bg-circle darkBackground circle-2 p-a b-r bC_d z-G trs_e z_O"></div>
+                                <div class="bg-circle darkBackground circle-3 p-a b-r bC_d z-G trs_e z_O"></div>
+                                <div id="bg-cir4" class="bg-circle darkBackground circle-4 p-a b-r bC_d z-G trs_e z_O d_n"></div>
+                                <div id="bg-cir5" class="circle-5 darkBackground trs p-a b-r bC_d z-G"></div>
+                            </div>
+                            <div id="intro_sc" class="lightBackground head_b">
+                                <div class="profile_image img m_Az b-r"></div>
+                                <div id="wordsTyper" class="p-f z-N a_wd d_n">
+                                    <h3 id="wordsTyperDet" class="darkText m_z d_i o-img"></h3><div id="wordsTyperDet_cursor" class="darkBackground d_i bC_d p-r o-img e_wSe"></div>
+                                </div>
+                                <div id="localTime" class="darkText d_n p-a">
+                                    <h6 id="localTimeDet" class="m_z r_ta">00:00</h6>
+                                </div>
+                                <div id="localInfo" class="darkText d_n z_O a_wd d_i trs">
+                                    <div id="localWeather" class="desktop p-a">
+                                        <div class="wrap r_ta h-fp">
+                                            <div class="img_icon trs d_i b-rz"><div id="localWeatherIcon" class="img img_icon m_z"></div></div><div class="container a_wd fL-r d_i r_ta">
+                                                <h6 class="compact m_z"><span id="localWeatherReading">0</span>°<span id="localWeatherUnit">C</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="localCity" class="desktop p-a">
+                                        <p id="localCityName" class="r_ta attr text_overflow">-</p>
+                                    </div>
+                                </div>
+                                <div id="profile_greeting" class="phablet">
+                                    <h5 id="pr_gt_ph" class="darkText m_z">Hello.</h5>
+                                </div>
+                                <div id="profile_banner" class="content m_L-10 m_wd">
+                                    <h5 id="profile_greetingFull" class="darkText trs mobile tablet">Hello. I'm</h5>
+                                    <h5 id="profile_greetingSec" class="darkText phablet">I'm</h5>
+                                    <div id="logo-h" class="logo-hybrid img"></div>
+                                    <div id="link_3" class="link trs z-G mobile">
+                                        <div id="link_3a" class="h-z trs">
+                                            <div class="p_TBm" style="height: calc(100% - 2.5rem);">
+                                                <div id="link_3b" class="darkBackground bC_d p-a trs_e h-z c-x"></div>
+                                                <div id="chev_d" class="img_icon img chevron_down_img p-a trs_e z_O"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="intro_link" class="d_n b-r bC_L"></div>
+                                <div class="tablet">
+                                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                                        <defs>
+                                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                                        </defs>
+                                        <g class="parallax">
+                                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(48,48,48,0.7" />
+                                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(48,48,48,0.5)" />
+                                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(48,48,48,0.3)" />
+                                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#303030"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="desktop p-a">
+                                    <div id="link_3c" class="darkBackground bC_d p-a trs h-z"></div>
+                                    <div id="link_3cbtn" class="darkText p-a trs left hoverB revert">
+                                        <h4 id="link_3cH" class="p-a m_z f_wg-b"><span class="trs scr">s</span><span class="trs scr">c</span><span class="trs scr">r</span><span class="trs scr">o</span><span class="trs scr">l</span><span class="trs scr">l</span><span class="trs z_O">d</span><span class="trs z_O">o</span><span class="trs z_O">w</span><span class="trs z_O">n</span><span class="trs z_O">&nbsp;</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="intro_ws" class="mobile lightBackground bC_t"></div>
+                        </div>
+                        <div id="lead_sc" class="bC_d p-r c_w">
+                            <div id="cursorBlendSpace" class="desktop"></div>
+                            <div id="lead_wrap" class="lightBackground m_L-15 m_wd-15 text">
+                                <div id="pLa-1" class="trs parallax_la lead_arrow_forward_w_img mobile img img_icon d_i p-a"></div>
+                                <div id="pLa-2" class="trs parallax_la lead_arrow_forward_w_img mobile img img_icon d_i p-a"></div>
+                                <div id="lead_point_4" class="trs">
+                                    <p class="darkText lh-ex">i <span class="em">create</span> photos, stories, projects, ideas & coffee.</p>
+                                </div>
+                                <div id="lead_point">
+                                    <h2 id="lead_point_0-5" class="mobile m_z">i</h2>
+                                    <h2 id="lead_point_1" class="darkText">create</h2>
+                                </div>
+                                <div id="c_Info-m" class="darkText c_Info trs">
+                                    <div id="lead_point_3" class="c_Info_s m_z">
+                                        <a class="c_Info_a" href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/clicks'">
+                                            <h5 class="d_i t-u">photos</h5>
+                                        </a>
+                                        <div class="c_Info_arrows lead_arrow_forward_w_img img img_icon d_i p-r"></div>
+                                    </div>
+                                    <h5 class="c_Info_s" style="margin-bottom: 0.1em;">stories</h5>
+                                    <div class="c_Info_s" style="margin-bottom: 0.3em;">
+                                        <a class="c_Info_a" href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/code'">
+                                            <h5 class="d_i t-u">projects</h5>
+                                        </a>
+                                        <div class="c_Info_arrows lead_arrow_forward_w_img img img_icon d_i p-r"></div>
+                                    </div>
+                                    <h5 class="c_Info_s">ideas</h5>
+                                    <h5 class="c_Info_s">& coffee</h5>    
+                                </div>
+                                <div id="q_Info-m" class="darkText q_Info m_T ex">
+                                    <h2 id="lead_point_2" class="q_Info_scr trs">me?</h2>
+                                    <div id="workInfo">
+                                        <div class="q_Info_scr trs">
+                                            <div class="q_Info_icons img img_icon work_w_img d_i"></div><h5 id="qIn1" class="cr">&nbsp;</h5><div id="qIn1_typer" class="darkBackground d_i bC_L e_wS"></div>
+                                        </div>
+                                        <h6 id="qIn2" class="q_Info_scr trs"></h6>
+                                    </div>
+                                    <h5 class="desktop m_B p_T ult">#me</h5>
+                                    <div id="educationInfo">
+                                        <div class="q_Info_scr trs">
+                                            <div id="educationIcon" class="q_Info_icons img img_icon school_w_img d_i"></div><h5 id="qIn3" class="cr"></h5>
+                                            <h5 class="desktop p-r cre">ntu</h5>
+                                        </div>
+                                        <h6 id="qIn4" class="q_Info_scr trs"></h6>
+                                    </div>
+                                    <div id="locationInfo">
+                                        <div class="q_Info_scr trs">
+                                            <div class="q_Info_icons img img_icon location_w_img d_i"></div><h5 id="qIn5" class="cr"></h5>
+                                        </div>
+                                        <h6 id="qIn6" class="q_Info_scr trs"></h6>
+                                        <h3 id="fullCoords" class="desktop m_T r_ta">
+                                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                                        </h3>
+                                    </div>
+                                    <div class="m_T ult desktop m_L-5">
+                                        <div id="distanceInfo" class="desktop">
+                                            <div class="q_Info_scr trs">
+                                                <div class="q_Info_icons img img_icon distance_w_img d_i"></div><h5 id="qIn9" class="cr">0</h5>
+                                            </div>
+                                            <h6 id="qIn10" class="q_Info_scr trs">km</h6>
+                                        </div>
+                                        <div id="hoursInfo" class="desktop">
+                                            <div class="q_Info_scr trs">
+                                                <div class="q_Info_icons img img_icon time_w_img d_i"></div><h5 id="qIn11" class="cr">0</h5>
+                                            </div>
+                                            <h6 id="qIn12" class="q_Info_scr trs">hours</h6>
+                                        </div>
+                                        <div id="coffeeCups" class="desktop">
+                                            <div class="q_Info_scr trs">
+                                                <div class="q_Info_icons img img_icon coffee_w_img d_i"></div><h5 id="qIn7" class="cr">0</h5>
+                                            </div>
+                                            <h6 id="qIn8" class="q_Info_scr trs">cappuccinos</h6>
+                                        </div>
+                                    </div>
+                                    <div id="profile_btn" class="m_T exh q_Info_scr trs">
+                                        <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/about'">
+                                            <h5 class="d_i t-u">profile</h5>
+                                        </a>
+                                        <div class="c_Info_arrows lead_arrow_forward_w_img img img_icon d_i p-r"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mid_sc">
+                            <div id="pLa-3" class="trs lead_arrow_forward_img img img_icon mobile d_i p-a" style="transform: translateX(-2rem);"></div>
+                            <div id="pLa-4" class="img img_icon d_i p-a mobile v_n"></div>
+                            <div id="mid_head" class="m_L-15 m_wd-15 text p_Bd">
+                                <h2 class="darkText mobile phablet">how?</h2>
+                                <div id="stats" class="darkText">
+                                    <div>
+                                        <h5 id="sIn1">0</h5><h6 id="distanceVariant">km</h6>
+                                    </div>
+                                    <div>
+                                        <h5 id="sIn2">0</h5><h6 id="mid_sc_h">hours</h6>
+                                    </div>
+                                    <div>
+                                        <h5 id="sIn3">0</h5><h6>cappuccinos</h6>
+                                    </div>
+                                </div>
+                                <h6 id="mid_sc_k" class="darkText m_R-15 r_ta m_T">& counting.</h6>
+                                <div id="link_1" class="darkBackground link mobile bC_mL m_T exh"></div>
+                                <p id="mid_sc_p" class="darkText m_L-1 m_T ex lh-ex">every <span class="em">moment</span> becomes a chapter to share.</p>
+                                <div id="mid_connect" class="darkText r_ta m_wd m_T h1-rep">
+                                    <h2>every</h2>
+                                    <h2>moment</h2>
+                                    <h2>becomes</h2>
+                                    <h2>a chapter</h2>
+                                </div>
+                                <div id="mid_sc_e" class="darkText m_T ex">
+                                    <h5 class="m_B z">in</h5>
+                                    <h5>the 
+                                        <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/diary'">
+                                            <h5 class="d_i t-u">blog</h5>
+                                        </a><div class="lead_arrow_forward_img img img_icon d_i p-r" style="left: 0.3rem;"></div>
+                                    </h5>
+                                    <h5><span class="key-sm">:</span>)</h5>
+                                </div>
+                            </div>
+                            <div id="phablet_banner" class="ovx-h d_n">
+                                <div class="darkBackground pscroll circle-1 b-r bC_d z-G trs" style="transform: translateX(-1rem);"></div>
+                                <div class="darkBackground pscroll circle-2 b-r bC_d z-G trs" style="transform: translateX(-3rem);"></div>
+                            </div>
+                        </div>
+                        <div id="prefooter_sc" class="mobile">
+                            <div id="pf_scrollbar" class="darkBackground p-a bC_d trs"></div>
+                            <h2 id="pf_wow" class="darkText m_L-20">
+                                <span id="wow_head1" class="d_i p-r trs">w</span><span id="wow_head2" class="d_i p-r">o</span><span id="wow_head3" class="d_i p-r trs">w</span>
+                            </h2>
+                            <div id="scroll_banner" class="darkText m_L-20 o_wd">
+                                <h2 class="m_z trs_e">you</h2>
+                                <h2 class="m_z trs_e">really</h2>
+                                <h2 class="m_z trs_e">like to</h2>
+                                <h2 class="m_z trs_e">scroll</h2>
+                            </div>
+                            <div id="design_banner" class="h-h ovx-h p_Bvhq">
+                                <div class="darkBackground xscroll circle-5 b-r bC_d z-G trs" style="transform: translateX(-3rem);"></div>
+                                <div class="darkBackground xscroll circle-1 b-r bC_d z-G trs" style="transform: translateX(-2rem);"></div>
+                                <div class="darkBackground xscroll circle-2 b-r bC_d z-G trs" style="transform: translateX(-4rem);"></div>
+                            </div>
+                        </div>
+                        <div id="blend_sc" class="tablet">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div id="wordcloud_sc" class="desktop ov-h p-r z-N h-fhh">
+                            <div class="lightBackground h-fp bC_mLL m_wd-15 m_L-10"></div>
+                            <div class="p-a c-y">
+                                <h5 class="darkText m_L-10 m_B">#skills</h5>
+                                <h3 id="wordclouds1" class="darkText m_z">
+                                    <span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span>    
+                                </h3>
+                                <h3 id="wordclouds2" class="darkText m_z">
+                                    <span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span>    
+                                </h3>
+                                <h3 id="wordclouds3" class="darkText m_z">
+                                    <span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span>
+                                </h3>
+                                <h3 id="wordclouds4" class="darkText m_z">
+                                    <span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span><span class="v_n"></span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div id="pitch_sc" class="lightBackground desktop ov-h p-r z-N bC_mLLL">
+                            <div id="pitch_dark" class="d_n"></div>
+                            <h5 class="darkText m_L-10 m_B p_T ult">#things</h5>
+                            <div class="darkText m_L-10 m_wd">
+                                <div class="d_i h_wd">
+                                    <div class="wrap">
+                                        <h1 class="m_B rSpace">i capture moments</h1>
+                                        <p class="lh-ex">photography, streetscapes & people vibes</p>
+                                        <p class="attr"><a class="darkBackground lightText bC_d c_w c_ta trs" href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/clicks'">embrace my shots</a><span class="lead_arrow_forward_img img img_icon ex-s d_i p-r" style="top: 0.25rem;"></span></p>
+                                    </div>
+                                </div><div class="d_i h_wd">
+                                    <div class="wrap">
+                                        <h1 class="m_B rSpace">& design to build stuff</h1>
+                                        <p class="lh-ex">open source projects, web apps and experiments</p>
+                                        <p class="attr"><a class="darkBackground lightText bC_d c_w c_ta trs" href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/code'">see my works</a><span class="lead_arrow_forward_img img img_icon ex-s d_i p-r" style="top: 0.25rem;"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="darkText m_L-10">
+                                <div class="lightbulb_img img o-img d_i"></div>
+                                <div class="wrap p_B3x h_wd d_i m_L-3">
+                                    <h1 class="m_B rSpace">sometimes, <br>i write</h1>
+                                    <p class="lh-ex">about design, frontend dev, learning and life</p>
+                                    <p class="attr"><a class="darkBackground lightText bC_d c_w c_ta trs" href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/diary'">read my articles</a><span class="lead_arrow_forward_img img img_icon ex-s d_i p-r" style="top: 0.25rem;"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="random_sc" class="desktop bC_mLLLL p-r z-N">
+                            <h5 class="darkText m_L-10 m_B p_T ult m_L-20">#random</h5>
+                            <div id="random_box" class="bC_d ov-h trs">
+                                <div class="bC_mL random_boxCircle b-r p-a trs z_O">
+                                    <h1 id="rbc_t1" class="z_O trs">
+                                        let's<br>
+                                        dive<br>
+                                        into<br>
+                                        the<br>
+                                        parallax
+                                    </h1>
+                                </div>
+                                <div class="bC_m random_boxCircle b-r p-a trs z_O"></div>
+                                <div id="stary_night" class="p-a trs z_O"></div>
+                            </div>
+                            <div id="landscape_parallax" class="trs p-a">
+                                <div class="clouds"></div>
+                                <div class="terrain p-a">
+                                    <div class="nature_img img" style="left: -20%;"></div>
+                                    <div class="nature_img img" style="position: absolute; left: 30%;"></div>
+                                    <div class="forest_img img" style="position: absolute; top: 0.25rem; left: 40%;"></div>
+                                    <div class="nature_img img" style="position: absolute; left: 50%;"></div>
+                                    <div class="landscape_img img" style="position: absolute; top: 1.7rem; left: 55%;"></div>
+                                    <div class="forest_img img" style="position: absolute; left: 10%; bottom: 0;"></div>
+                                    <div class="apartment_img img" style="position: absolute; right: 15%; bottom: 0;"></div>
+                                    <div class="store_img img" style="position: absolute; right: 5%; bottom: 0;"></div>
+                                    <div class="bicycle_img img mini trs_linear v_n" style="position: absolute; left: -2rem; bottom: 1.85rem;"></div>
+                                    <div class="truck_img img mini trs_linear v_n" style="position: absolute; left: -2rem; bottom: 1.65rem;"></div>
+                                    <div class="van_img img mini trs_linear v_n" style="position: absolute; left: -2rem; bottom: 1.55rem;"></div>
+                                    <div class="plane_img img mini trs_linear" style="position: absolute; left: 0rem; bottom: 2rem;"></div>
+                                    <div class="ground p-a"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="random2_sc" class="desktop h-f">
+                            <div class="textbox">
+                                <h1 class="darkText">
+                                    &<br>
+                                    explore<br>
+                                    boundaries.
+                                </h1>
+                            </div>
+                        </div>
+                        <div id="random3_sc" class="desktop h-f">
+                            <div id="boundarycontainer">
+                                <div class="boundarybox darkBackground"></div>
+                                <div class="boundarybox darkBackground"></div>
+                                <div class="boundarybox darkBackground"></div>
+                            </div>
+                        </div>
+                        <div id="random4_sc" class="desktop h-f">
+                            <div class="textbox">
+                                <h1 class="darkText">
+                                    see<br>
+                                    you<br>
+                                    there :<span class="key-sm">)</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <div id="random5_sc" class="desktop h-f">
+                            <h2 class="darkText m_L-5 m_z o-img">xplore...</h2>
+                            <div class="darkText c-y p-r c_ta">
+                                <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/clicks'" class="d_i navbarlinks trs">
+                                    <h5 class="m_z">clicks</h5>
+                                </a><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/code'" class="d_i navbarlinks trs">
+                                    <h5 class="m_z">code</h5>
+                                </a><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/diary'" class="d_i navbarlinks trs">
+                                    <h5 class="m_z">diary</h5>
+                                </a><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/about'" class="d_i navbarlinks trs">
+                                    <h5 class="m_z">about</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="mid_tablet_sc" class="tablet h-f">
+                            <div id="mid_tablet_wrap" class="darkText m_L-10 m_wd c-y p-r">
+                                <p><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/clicks'">photos</a> are potent</p>
+                                <p><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/diary'">stories</a> are striking</p>
+                                <p><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/code'">projects</a> are precise</p>
+                                <p>ideas are intuitive</p>
+                                <p>coffee is hot</p>
+                                <p>&amp; we are <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/about'">cooler</a></p>
+                            </div>
+                            <div id="mid_desktop_wrap" class="desktop m_L-5 m_wd c-y p-r">
+                                <p><span class="em">photos</span> are potent</p>
+                                <p><span class="em">stories</span> are striking</p>
+                                <p><span class="em">projects</span> are precise</p>
+                                <p>ideas are intuitive</p>
+                                <p>coffee is hot</p>
+                                <p>&amp; we are <a href="javascript:void(0)" class="trs" onclick="location.href='https://ivansojivarghese.github.io/about'">cooler</a></p>
+                            </div>
+                        </div>
+                        <div id="footer_main_sc" class="p_Tvhq">
+                            <div id="footer_blurb" class="darkText m_L-10 m_wd mobile phablet">
+                                <p><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/clicks'">photos</a> are potent</p>
+                                <p><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/diary'">stories</a> are striking</p>
+                                <p><a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/code'">projects</a> are precise</p>
+                                <p>ideas are intuitive</p>
+                                <p>coffee is hot</p>
+                                <p>& we are <a href="javascript:void(0)" onclick="location.href='https://ivansojivarghese.github.io/about'">cooler</a></p>
+                            </div>
+                            <div id="footer_sc" class="m_T vhq">
+                                <div class="m_T ex">
+                                    <div class="bC_mL p-a h-s z-G"></div>
+                                    <div class="img p-r z-N logo-inverse"></div>
+                                    <div class="bC_mL p-a w-s z-G"></div>
+                                </div>
+                                <div class="darkText content p_T m_L-10 m_wd">
+                                    <h2>credits</h2> 
+                                    <p class="p_Bh">Powered by <a href="https://pages.github.com/" rel="nofollow" target="_blank" class="t-u trs">GitHub Pages</a></p>
+                                    <div class="wrap p_B">
+                                        <p><a href="https://design.google/" rel="nofollow" target="_blank" class="t-u trs">Google Design</a></p>
+                                        <p>JavaScript</p>
+                                        <p>jQuery</p>
+                                        <p>HTML &</p>
+                                        <p>CSS</p>
+                                    </div>
+                                    <p class="copy">&copy; <span class="f_yr"></span> <span class="em">Ivan</span> Varghese</p>
+                                    <div>
+                                        <p class="attr lh-ex">
+                                            Refer to the <a class="t-u trs" onclick="popU_toggle('cond', 'cpy', false, null)">copyright</a> statement,
+                                            <a class="t-u trs" onclick="popU_toggle('cond', 'tnc', false, null)">terms & conditions</a> of usage, 
+                                            content <a class="t-u trs" onclick="popU_toggle('cond', 'dcr', false, null)">disclaimer,</a>
+                                            and <a class="t-u trs" onclick="popU_toggle('cond', 'prv', false, null)">privacy</a> policy for further information.
+                                        </p>
+                                        <p class="attr lh-ex"><span class="em lang">Optimised</span> for Chrome, Edge, Safari & Opera.</p>
+                                    </div>
+                                    <div>
+                                        <div id="footer_end" class="p_B d_i">
+                                            <p class="attr p_TBh">v<span class="f_vr"></span></p>
+                                            <p id="f_LangD" class="attr">Made with <span class='em'>love</span> by me.</p>
+                                        </div><div id="scrolltop_btn" class="d_i img_iconBtn m_R-1 mobile desktop trs hoverB" title="Scroll to top">
+                                            <div class="scrolltop_img img img_icon d_i"></div>
+                                        </div><div id="dw_btn" class="dw_btns d_i trs o-img img_iconBtn m_R-1 tablet" title="Install">
+                                            <div class="download_img img img_icon d_i"></div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <!-- dummy (non-display) elements (for resource loadups) -->
+        <!-- 
+        <div class="d_n">
+            <div class="logo-hybrid-inverse"></div>
+            <div class="logo-inverse-dark"></div>
+            <div class="signature"></div>
+            <div class="signature_w"></div>
+            <div class="profile_image"></div>
+        </div> -->
+
+        <!-- install service worker -->
+        <script>
+            if ("serviceWorker" in navigator) { // register a service worker
+                // var sw = navigator.serviceWorker.register("service-worker.js");
+                var sw = new Worker("service-worker.js");
+                navigator.serviceWorker.register("service-worker.js", { scope: "/" });
+            }
+        </script>
+
+        <!-- scrollbar (desktop) -->
+        <script>
+            var condScrollBar = false,
+                scrollBarPos = 0;
+
+            var normalScrollLoop = null;
+
+            var pwaScrollTimeout = null,
+                pwaScrollTimeoutCheck = false;
+
+            var scrollBarPosArr = [0, 0, 0, 0, 0];
+
+            var startPos = 0,
+                endPos = 0;
+            /*
+            var pos = {
+                cE : null,
+                sB : null
+            };*/
+
+            const navbar = document.querySelector('.pwa .navbar');
+            const fab = document.querySelector('.pwa .fab');
+            const fab2 = document.querySelector('.pwa .fab2');
+            const fab2i = document.querySelector('.pwa .fab2 .img_icon');
+
+            const aboutShareData = {
+                title: "Ivan Varghese",
+                text: "Check me out @",
+                url: "https://ivansojivarghese.github.io/"
+            };
+
+            // const parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
+
+            // var scrolling = false;
+
+            setInterval(function() {
+                if (typeof pos !== 'undefined') {
+                    pos.cE = false;
+                }
+            }, 1000); // check every sec.
+            
+            $(".scrollBarFunction").scroll(function() {
+                var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer'),
+                    parentParentTop = Number(window.getComputedStyle(document.querySelector(".pwa .scrollBarFunction")).getPropertyValue("padding-top").slice(0, -2)),
+                    parentTop = parent.getBoundingClientRect().top;
+                
+                scrollBarPos = Math.abs(parentTop - parentParentTop); // get scroll dis.
+                pos.cE = true; // scrolling (extended) : true
+                if (!pos.sBc) {
+                    e_Fd(pos.sB, false);
+                    pos.sBc = true;
+                }
+                
+                if (op.pwa.s) {
+                    if (!pwaScrollTimeoutCheck) {
+                        // scrolling = true;
+                        e_Fd(pos.sB, false);
+                        pwaScrollTimeout = setTimeout(function() {
+                            if (!pos.cE && !pwaScrollTimeoutCheck) {
+                                endPos = scrollBarPos;
+                                startPos = scrollBarPos;
+                                pwaScrollTimeoutCheck = true;
+                                setTimeout(function() {
+                                    pwaScrollTimeoutCheck = false;
+                                }, 10);
+                                e_Fd(pos.sB, true);
+                                // scrolling = false;
+                            } else {
+                                endPos = scrollBarPos;
+                                clearTimeout(pwaScrollTimeout);
+                            }
+                        }, dev.i);
+                    }
+                }
+                
+            });
+
+            var parentTop = null,
+                parentBottom = null;
+
+            var navbarHide = false,
+                navbarHideMod = false;
+
+            var oldMotionType = "";
+            var fab2Check = false;
+            var fab2Close = false;
+
+            normalScrollLoop = setInterval(function () {
+                var scrollBarF = op.pwa.s ? ".pwa .scrollBarFunction" : ".non-pwa .scrollBarFunction";
+                if (!$(scrollBarF).hasClass("z_O")) {
+                    condScrollBar = true;
+
+                    // var parentParent = document.querySelector(".scrollBarFunction.z-Kk") || document.querySelector(".scrollBarFunction.z-I") || document.querySelector('.pwa .scrollBarFunction.z-I');
+                    var parent = document.querySelector(".scrollBarFunction.z-Kk .scrollBarContainer") || document.querySelector(".scrollBarFunction.z-I .scrollBarContainer") || document.querySelector('.pwa .scrollBarFunction.z-I .scrollBarContainer');
+
+                    if (parent !== null) {
+                        var parentHeight = parent.getBoundingClientRect().height,
+                            // parentBottom = Number(window.getComputedStyle(parent).getPropertyValue("padding-bottom").slice(0, -2)),
+                            // parentTop = (parentTop !== undefined) ? parent.getBoundingClientRect().top : parentTop,
+                            parentTotal = 0,
+                            scrollTr = 0;
+
+                        parentBottom = (parentTop === null || parentTop === 0) ? Number(window.getComputedStyle(parent).getPropertyValue("padding-bottom").slice(0, -2)) : parentBottom;
+                        parentTop = (parentTop === null || parentTop === 0) ? parent.getBoundingClientRect().top : parentTop;
+                        
+                    } else if (!op.pwa.s || (op.pwa.s && typeof pwa_Load !== 'undefined' && pwa_Load)) {
+                        clearInterval(normalScrollLoop);
+                    }
+
+                    // parentHeight = parentHeight + Number(window.getComputedStyle(parentParent).getPropertyValue("padding-top").slice(0, -2));
+                    parentTotal = parentHeight + parentTop + parentBottom;
+
+                    var scrollDis = Math.abs(endPos - startPos);
+
+                    if (typeof pos !== 'undefined') {
+                        if (pos.sB) {
+                            if (parentTotal <= (window.innerHeight + parentTop + parentBottom)) { // hide scrollbar
+                                e_Fd(pos.sB, true);
+                            } else { // show/move scrollbar
+                                var fraction = ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) >= 0) ? ((scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) <= 1) ? (scrollBarPos / (parentTotal - (window.innerHeight + parentTop + parentBottom))) : 1 : 0;
+                                scrollTr = fraction * ((window.innerHeight + parentTop + parentBottom) - (4 * op.fN) - (parentTop + parentBottom)); // move scrollbar
+                                pos.sB.style.transform = "translateY(" + (scrollTr) + "px)";
+
+                                // console.log(fraction + ", " + scrollTr);
+
+                                scrollBarPosArr[0] = scrollBarPosArr[1];
+                                scrollBarPosArr[1] = scrollBarPosArr[2];
+                                scrollBarPosArr[2] = scrollBarPosArr[3];
+                                scrollBarPosArr[3] = scrollBarPosArr[4];
+                                scrollBarPosArr[4] = scrollTr;
+
+                                // console.log(scrollBarPosArr);
+
+                                // console.log(scrollDis + ", " + endPos + ", " + startPos);
+
+                                if (scrollBarPosArr.every(item => item === 0)) {
+                                    navbar.classList.remove("hide");
+                                    if ((activeTab === "about" || (activeTab === "home" && fab2Check)) && 'share' in navigator) {
+                                        // fab.classList.add("share_w_img");
+                                        fab.classList.remove("hide");
+                                        fab.addEventListener("click", async () => {
+                                            try {
+                                                await navigator.share(aboutShareData);
+                                            } catch (err) {
+                                                // console.log(err);
+                                            }
+                                        });
+                                        if (fab2Check) {
+                                            fab2.classList.remove("hide");
+                                            if (activeTab === "about") {
+                                                fab2i.classList.add("home_w_img");
+                                                fab2i.classList.remove("close_w_img");
+                                                fab2.style.backgroundColor = "";
+                                                fab2Close = false;
+                                            } else if (activeTab === "home") {
+                                                fab2i.classList.add("close_w_img");
+                                                fab2i.classList.remove("home_w_img");
+                                                fab2.style.backgroundColor = "var(--negate_col)";
+                                                fab2Close = true;
+                                            }
+                                            fab2.addEventListener("click", fab2Action);
+                                        }
+                                    }
+                                } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
+                                    navbar.classList.add("hide");
+                                    fab.classList.add("hide");
+                                    if (fab2Check) {
+                                        fab2.classList.add("hide");
+                                        fab2.removeEventListener("click", fab2Action);
+                                    }
+                                } else {
+                                    if (navbarHide && scrollDis > 100 && scrollTr < scrollBarPosArr[0] && scrollBarPosArr[1] <= scrollBarPosArr[0] && scrollBarPosArr[2] <= scrollBarPosArr[1] && scrollBarPosArr[3] <= scrollBarPosArr[2] && scrollBarPosArr[4] <= scrollBarPosArr[3] && scrollTr <= scrollBarPosArr[4]) {
+                                        
+                                        // console.log("show");
+
+                                        navbar.classList.remove("hide");
+                                        if ((activeTab === "about" || (activeTab === "home" && fab2Check)) && 'share' in navigator) {
+                                            // fab.classList.add("share_w_img");
+                                            fab.classList.remove("hide");
+                                            fab.addEventListener("click", async () => {
+                                                try {
+                                                    await navigator.share(aboutShareData);
+                                                } catch (err) {
+                                                    // console.log(err);
+                                                }
+                                            });
+                                            if (fab2Check) {
+                                                fab2.classList.remove("hide");
+                                                if (activeTab === "about") {
+                                                    fab2i.classList.add("home_w_img");
+                                                    fab2i.classList.remove("close_w_img");
+                                                    fab2.style.backgroundColor = "";
+                                                    fab2Close = false;
+                                                } else if (activeTab === "home") {
+                                                    fab2i.classList.add("close_w_img");
+                                                    fab2i.classList.remove("home_w_img");
+                                                    fab2.style.backgroundColor = "var(--negate_col)";
+                                                    fab2Close = true;
+                                                }
+                                                fab2.addEventListener("click", fab2Action);
+                                            }
+                                        }
+                                        if (!navbarHideMod) {
+                                            navbarHideMod = true;
+                                            setTimeout(function() {
+                                                navbarHide = false;
+                                                navbarHideMod = false;
+                                            }, dev.i);
+                                        }
+                                    } else if (!navbarHide && scrollDis > 100 && scrollTr > scrollBarPosArr[0] && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
+                                        
+                                        // console.log("hide");
+                                        
+                                        navbar.classList.add("hide");
+                                        fab.classList.add("hide");
+                                        if (fab2Check) {
+                                            fab2.classList.add("hide");
+                                            fab2.removeEventListener("click", fab2Action);
+                                        }
+                                        if (!navbarHideMod) {
+                                            navbarHideMod = true;
+                                            setTimeout(function() {
+                                                navbarHide = true;
+                                                navbarHideMod = false;
+                                            }, dev.i);
+                                        }
+                                    } 
+                                }
+                                    
+                            }
+                        }
+                    }
+                } else {
+                    if (condScrollBar && pos.y) {
+                        e_Fd(pos.sB, false);
+                    }
+                    condScrollBar = false;
+                }
+            }, op.Ls);
+
+        </script>
+        <!-- scroll to top -->
+        <script>
+            $("#scrolltop_btn").on('click', function() {
+                op.as = true; // anchor scrolling true
+                scrollToAnchor('topPos');
+            });
+        </script>
+        <!-- Browser Detection, © 2023 Nabble, All rights reserved -->
+        <script>
+            if (!op.pwa.s) {
+                var _umb = {
+                    display: false
+                };
+                (function(u) {
+                    var s = document.createElement('script'); s.async = true; s.src = u;
+                    var b = document.getElementsByTagName('script')[0]; b.parentNode.insertBefore(s, b);
+                })('//updatemybrowser.org/umb.js');
+            }
+        </script>
+
+        <!--  shake detection, REFERENCE: https://github.com/alexgibson/shake.js -->
+        <script src="https://cdn.jsdelivr.net/gh/alexgibson/shake.js/shake.js"></script>
+        <script>
+            var myShakeEvent = new Shake({
+                    threshold: 15, // optional shake strength threshold
+                    timeout: 10 // optional, determines the frequency of event generation
+                }),
+                shaked = false;
+
+            myShakeEvent.start();
+            window.addEventListener('shake', shakeEventDidOccur, false);
+
+            //function to call when shake occurs
+            function shakeEventDidOccur () {
+                shaked = true; 
+                setTimeout(function() {
+                    shaked = false;
+                }, 10);
+
+                //put your own code here etc.
+                // alert('shake!');
+            }
+        </script>
+        <!-- Device detector (client-side device detecting), REFERENCE: https://github.com/PoeHaH/devicedetector -->
+        <script src="https://cdn.jsdelivr.net/gh/PoeHaH/devicedetector/devicedetector-min.js"></script>
+        <!-- incognito mode detection -->
+        <script src="https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@v1.3.0/dist/es5/detectIncognito.min.js"></script>
+        <script>
+
+            // REFERENCE: https://github.com/Joe12387/detectIncognito?tab=readme-ov-file 
+
+            detectIncognito().then((result) => {
+                // console.log(result.browserName, result.isPrivate);
+
+                if (result.isPrivate && (localStorage.getItem('incognito') === null || localStorage.getItem('themeColor') === '1')) {
+                    op.darkMode = true;
+                } else {
+                    localStorage.setItem('incognito', '0');
+                }
+
+                if (op.darkMode && (localStorage.getItem('incognito') === null || localStorage.getItem('themeColor') === '1')) {
+                    var loader = document.querySelector(".loader_pwa");
+                    var load_r = document.querySelectorAll(".load_r_pwa");
+                    var load_message = document.querySelector("#load_message");
+                    var ham_auto = document.querySelector(".pwa .about .ham_auto");
+                    var pwaSec = document.querySelector(".pwaSecondary");
+
+                    ham_auto.classList.add("z_O");
+                    localStorage.setItem('themeColor', '1');
+                    if (localStorage.getItem('systemColor') === '1' && localStorage.getItem('incognito') === null) {
+                        localStorage.setItem('systemColor', '0');
+                    }
+                    localStorage.setItem('incognito', '1');
+                    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#303030');
+                    loader.style.backgroundColor = "#303030";
+                    pwaSec.style.backgroundColor = "#303030";
+                    pwaSec.style.color = "#FFF";
+                    load_message.style.color = "#FFF";
+                    let i = 0;
+                    while (i < load_r.length) {
+                        load_r[i].style.borderTopColor = "#FFF";
+                        i++;
+                    }
+                    // toggleColorMode(null, true);
+                }
+            });
+        </script>
+        <!-- Multiple tabs detection -->
+        <script>
+
+            // REFERENCE: https://stackoverflow.com/questions/23690666/check-if-my-website-is-open-in-another-tab
+
+            if (!op.pwa.s) {
+                var duplicated = false;
+                // Broadcast that you're opening a page.
+                localStorage.openpages = Date.now();
+                var onLocalStorageEvent = function(e){
+                    if (e.key == "openpages"){
+                        // Listen if anybody else is opening the same page!
+                        localStorage.page_available = Date.now();
+                    }
+                    if (e.key == "page_available"){
+                        // alert("One more page already open");
+
+                        setTimeout(function() {
+                            console.log("localStorage being used");
+                            duplicated = true;
+
+                            // eR.p = "dt";
+                            // eR.h = "dt";
+                        }, op.t);
+                    }
+                };
+                window.addEventListener('storage', onLocalStorageEvent, false);
+            }
+        </script>
+        <!-- Custom pull-to-refresh -->
+        <script>
+
+            // REFERENCE: https://developer.chrome.com/blog/overscroll-behavior, https://github.com/ebidel/demos/blob/master/chatbox.html
+
+            var dotsLoad = false,
+                cancelRefresh = false;
+
+            async function simulateRefreshAction() {
+                const sleep = (timeout) => new Promise(resolve => setTimeout(resolve, timeout));
+
+                const transitionEnd = function(propertyName, node) {
+                    return new Promise(resolve => {
+                    function callback(e) {
+                        e.stopPropagation();
+                        if (e.propertyName === propertyName) {
+                        node.removeEventListener('transitionend', callback);
+                        resolve(e);
+                        }
+                    }
+                    node.addEventListener('transitionend', callback);
+                    });
+                }
+
+                const puller = document.querySelector('.puller');
+                const pullerRefresher = document.querySelector('.pullerRefresher');
+
+                document.body.classList.add('refreshing');
+
+                pullerRefresher.addEventListener("click", function() {
+                    puller.classList.add('shrink');
+                    cancelRefresh = true;
+                    setTimeout(function() {
+                        resetRefresh();
+                        document.body.classList.remove('refreshing');
+                    }, op.t);
+                });
+
+                await sleep(2000);
+
+                window.addEventListener("beforeunload", function() {
+                    puller.classList.add('shrink');
+                });
+
+                if (!cancelRefresh) {
+                    // reL();
+                    window.location.reload(true);
+                    window.location.assign(window.location.href); // FIREFOX support
+                } else {
+                    cancelRefresh = false;
+                    puller.classList.remove('shrink');
+                }
+
+            }
+
+            function startRefresh() {
+                const puller = document.querySelector('.puller');
+
+                e_Fd(puller, false);
+                puller.style.top = "calc(env(safe-area-inset-top))";
+            }
+
+            function endRefresh() {
+                dotsLoad = true;
+
+                const puller = document.querySelector('.puller');
+                const pullerP = document.querySelector('.puller p');
+                const pullerRefresher = document.querySelector('.puller .pullerRefresher');
+                const pullerProgress = document.querySelector('.puller .progressBar');
+
+                // e_Fd(pullerProgress, true);
+                pullerProgress.classList.add("d_n");
+                e_Fd(pullerP, true);
+                puller.style.width = "3rem";
+                if (window.visualViewport.segments && window.visualViewport.segments !== null && window.visualViewport.segments.length === 2) {
+                    puller.classList.add("refreshing");
+                } else {
+                    puller.style.left = "calc(50% - 3rem / 2)";
+                }
+                puller.style.overflow = "visible";
+
+                e_Fd(pullerRefresher, false);
+            }
+
+            function resetRefresh() {
+                dotsLoad = false;
+
+                const puller = document.querySelector('.puller');
+                const pullerP = document.querySelector('.puller p');
+                const pullerRefresher= document.querySelector('.puller .pullerRefresher');
+                const pullerProgress = document.querySelector('.puller .progressBar');
+
+                e_Fd(puller, true);
+                puller.classList.remove("shrinkDown");
+
+                e_Fd(pullerRefresher, true);
+
+                puller.classList.remove("refreshing");
+
+                puller.style.overflow = "hidden";
+                puller.style.top = "-1rem";
+                puller.style.width = "11rem";
+                puller.style.left = "calc(50% - 11rem / 2)";
+                e_Fd(pullerP, false);
+                e_Fd(pullerProgress, false);
+
+                pullerProgress.style.width = "0rem";
+                pullerProgress.classList.remove("d_n");
+            }
+
+            var refreshX = false;
+            let _startY;
+            let _documentStartY;
+            let _documentMoveY;
+            const contentBody = document.querySelector('body');
+            const puller = document.querySelector('.puller');
+            const pullerProgress = document.querySelector('.puller .progressBar');
+
+            var pwa_Load = false;
+            
+            contentBody.addEventListener('touchstart', e => {
+                const popups = document.querySelector('.pwa .popups');
+
+                if (popups.classList.contains("d_n") && !cancelRefresh) {
+                    var scrollEl = document.querySelector('.scrollBarContainer');
+                    var scrollBarFunction = document.querySelector('.scrollBarFunction');
+                    var scrollElTop = scrollEl.getBoundingClientRect().top;
+                    var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
+
+                    _startY = e.touches[0].pageY;
+                    _documentStartY = scrollElTop - scrollElTopPadding;
+                }
+
+            }, {passive: true});
+            
+            contentBody.addEventListener('touchmove', e => {
+                const popups = document.querySelector('.pwa .popups');
+                if (popups.classList.contains("d_n")) {
+                    if (!cancelRefresh) {
+
+                        const y = e.touches[0].pageY;
+                        // Activate custom pull-to-refresh effects when at the top of the container
+                        // and user is scrolling up.
+
+                        var scrollEl = document.querySelector('.scrollBarContainer');
+                        var scrollBarFunction = document.querySelector('.scrollBarFunction');
+                        var scrollElTop = scrollEl.getBoundingClientRect().top;
+                        var scrollElTopPadding = Number(window.getComputedStyle(scrollBarFunction, null).getPropertyValue('padding-top').slice(0, -2));
+
+                        _documentMoveY = scrollElTop - scrollElTopPadding;
+
+                        if (document.scrollingElement.scrollTop === 0 && (_documentStartY === 0 || (window.visualViewport.segments && window.visualViewport.segments !== null && window.visualViewport.segments.length === 2 && window.visualViewport.segments[primarySegment].top === _documentStartY)) && y > _startY && !document.body.classList.contains('refreshing') && !cancelRefresh && pwa_Load && rL.i && op.pwa.s && !sectionScroll && (sectionScrollPos === 0)) {
+
+                            var controlHeight = (window.visualViewport.segments && window.visualViewport.segments !== null && window.visualViewport.segments.length === 2) ? window.visualViewport.segments[primarySegment].height : window.innerHeight;
+
+                            if (y > (_startY + ((controlHeight + parentTop + parentBottom) / 8))) {
+                                if (!refreshX) {
+                                    refreshX = true;
+                                    startRefresh(); // show ux feedback (pull down to refresh)
+                                }
+                                if (refreshX) { // ux feedback movement to user touch-drag
+                                    var progress = (y - (_startY + ((controlHeight + parentTop + parentBottom) / 8))) / ((_startY + ((controlHeight + parentTop + parentBottom) / 3)) - (_startY + ((controlHeight + parentTop + parentBottom) / 8)));
+                                    puller.style.top = "calc(env(safe-area-inset-top) + " + ((y - (_startY + ((controlHeight + parentTop + parentBottom) / 8))) / op.fN) + "rem)";
+                                    pullerProgress.style.width = "calc(" + progress + " * 11rem)"; // show progress of drag to refresh
+                                }
+                                if (y > (_startY + ((controlHeight + parentTop + parentBottom) / 3))) { 
+                                    endRefresh();
+                                    simulateRefreshAction(); // refresh contentBody.
+                                } 
+                            }
+                        } else if (y < _startY) {
+                            if (!dotsLoad) {
+                                puller.style.top = "-1rem";
+                                pullerProgress.style.width = "0rem"; // show progress of drag to refresh
+                                e_Fd(puller, true);
+                                refreshX = false;
+                            }
+                        }
+                    } else {
+                        _startY = e.touches[0].pageY;
+                    }
+                }
+            }, {passive: true});
+
+            contentBody.addEventListener('touchend', e => {
+                refreshX = false;
+                if (dotsLoad) {
+                    puller.style.top = "calc(1rem + env(safe-area-inset-top))";
+                } else {
+                    pullerProgress.style.width = "0rem";
+                    puller.style.top = "-1rem";
+                    e_Fd(puller, true);
+                }
+
+            }, {passive: true}); //
+        </script>
+        <!--  JS files -->
+        <script defer src="js/pwa.js"></script>
+        <script async src="js/fn.js"></script>
+        <script async src="js/msc.js"></script>
+        <script async src="js/fahrenheit_countries.jsonc"></script>
+        <!-- <script async src="ext/js/fch.js"></script> -->
+        <script async src="js/ef.js"></script>
+        <!-- <script async src="js/ld.js"></script> -->
+        <!-- 
+        <script async src="ext/js/ham.js"></script>
+        <script async src="ext/js/scr.js"></script> -->
+    </body>
+</html>

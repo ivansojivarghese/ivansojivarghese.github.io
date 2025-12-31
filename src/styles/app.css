@@ -1,0 +1,60 @@
+/* Loading Screen Styles */
+#load_sc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  transition: opacity 0.5s ease;
+}
+
+.dark #load_sc {
+  background-color: var(--color-background);
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#load_message {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Content Styles */
+#content {
+  padding: var(--space-2xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Main App Styles */
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

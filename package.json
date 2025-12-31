@@ -1,0 +1,38 @@
+{
+  "name": "ivansojivarghese-portfolio",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Modern portfolio website with PWA support",
+  "author": "Ivan Varghese",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.ts --fix",
+    "format": "prettier --write \"**/*.{js,ts,css,html,json,md}\"",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "workbox-window": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-pwa": "^0.17.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-html": "^3.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
