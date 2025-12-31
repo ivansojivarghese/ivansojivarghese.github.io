@@ -1,8 +1,8 @@
 # Dependencies
 node_modules/
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
+# Note: package-lock.json should be committed for CI/CD
 
 # Build outputs
 dist/
@@ -47,4 +47,3 @@ coverage/
 *.tmp
 *.temp
 .tmp/
-*.md
