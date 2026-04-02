@@ -297,12 +297,23 @@ h3.downsize {
     margin-top: 2rem;
 }
 
+.home_buttons_container {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-top: 0.5rem
+}
+
 .home_buttons {
-    width: fit-content;
-    background: #303030;
-    color: white;
-    margin-right: 1rem;
-    border-radius: 0.3rem;
+    width: 10rem;
+    margin-bottom: 2rem;
+}
+
+.home_buttons p {
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
 }
 
 .syncUpdateButton h6 {
