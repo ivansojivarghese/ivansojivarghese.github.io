@@ -297,6 +297,14 @@ h3.downsize {
     margin-top: 2rem;
 }
 
+.home_buttons {
+    width: fit-content;
+    background: #303030;
+    color: white;
+    margin-right: 1rem;
+    border-radius: 0.3rem;
+}
+
 .syncUpdateButton h6 {
     margin-bottom: 0;
     padding-left: 10%;
