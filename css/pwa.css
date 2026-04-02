@@ -298,14 +298,15 @@ h3.downsize {
 }
 
 .home_buttons_container {
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
     flex-direction: column;
-    margin-top: 0.5rem
+    margin-top: 0.5rem !important;
 }
 
 .home_buttons {
     width: 10rem;
     margin-bottom: 2rem;
+    border-radius: 0.5rem
 }
 
 .home_buttons p {
