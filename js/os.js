@@ -400,6 +400,9 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             navbar_pwa = document.querySelector('.pwa .navbar'),
             fab = document.querySelector('.pwa .fab'),
 
+            hb_github = document.querySelector('.pwa .hb_github'),
+            hb_linkedin = document.querySelector('.pwa .hb_linkedin'),
+
             settings_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .banner .settings_img') : document.querySelector('.pwa .about .banner .settings_w_img'),
             batteryIcons = document.querySelectorAll('.pwa .banner .battery'),
             infoIcons = document.querySelectorAll('.pwa .banner .info'),
@@ -632,6 +635,9 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fab.classList.add("shade");
             fab2.classList.add("shade");
 
+            hb_github.classList.add("shade");
+            hb_linkedin.classList.add("shade");
+
             navButtonActive(active_icon_name, active_icon, true);
         }
 
@@ -833,6 +839,9 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             navbar_pwa.classList.remove("shade");
             fab.classList.remove("shade");
             fab2.classList.remove("shade");
+
+            hb_github.classList.remove("shade");
+            hb_linkedin.classList.remove("shade");
 
             navButtonActive(active_icon_name, active_icon, true);
         }
