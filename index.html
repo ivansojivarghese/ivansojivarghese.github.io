@@ -2464,7 +2464,7 @@
                                             fab2.addEventListener("click", fab2Action);
                                         }
                                     }
-                                } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4)))) {
+                                } else if (scrollBarPosArr.every(item => Math.round(item) === (window.innerHeight - (op.fN * 4))) && !window.matchMedia('(orientation: landscape)').matches) {
                                     navbar.classList.add("hide");
                                     fab.classList.add("hide");
                                     if (fab2Check) {
@@ -2510,7 +2510,7 @@
                                                 navbarHideMod = false;
                                             }, dev.i);
                                         }
-                                    } else if (!navbarHide && scrollDis > 100 && scrollTr > scrollBarPosArr[0] && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
+                                    } else if (!navbarHide && (!window.matchMedia('(orientation: landscape)').matches) && scrollDis > 100 && scrollTr > scrollBarPosArr[0] && scrollBarPosArr[1] >= scrollBarPosArr[0] && scrollBarPosArr[2] >= scrollBarPosArr[1] && scrollBarPosArr[3] >= scrollBarPosArr[2] && scrollBarPosArr[4] >= scrollBarPosArr[3] && scrollTr >= scrollBarPosArr[4]) { // hide navbar
                                         
                                         // console.log("hide");
                                         
