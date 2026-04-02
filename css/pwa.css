@@ -312,7 +312,7 @@ h3.downsize {
 }
 
 .home_buttons p {
-    padding: 1rem 0;
+    padding: 1rem 0 1.4rem;
     text-align: center;
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -326,7 +326,7 @@ h3.downsize {
     height: 1.2rem;
     transform: rotate(-45deg);
     position: relative;
-    top: 0.25rem;
+    top: 0.3rem;
     left: -0.25rem;
 }
 
