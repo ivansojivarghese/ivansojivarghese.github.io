@@ -1103,6 +1103,7 @@ h3.downsize {
         background-color: #FFF;
         max-width: 20rem;
         max-height: 20rem;
+        padding-bottom: calc((env(safe-area-inset-top) / 2));
     }
 
     .pwa .navbar.fab2_nav {
