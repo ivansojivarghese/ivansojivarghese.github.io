@@ -320,6 +320,16 @@ h3.downsize {
     color: #FFF;
 }
 
+.home_buttons .img_icon {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    transform: rotate(-45deg);
+    position: relative;
+    top: 0.25rem;
+    left: -0.25rem;
+}
+
 .syncUpdateButton h6 {
     margin-bottom: 0;
     padding-left: 10%;
