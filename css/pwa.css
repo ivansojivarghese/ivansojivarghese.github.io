@@ -230,7 +230,7 @@ h3.downsize {
     font-size: 2rem;
 }
 
-.pwa .popups .pills p, .button p {
+.pwa .popups .pills p {
     padding: 0;
     font-size: 0.85rem;
     margin-bottom: 0.5em;
@@ -275,19 +275,19 @@ h3.downsize {
     padding: 1.5rem 0 1rem 1rem;
 }
 
-.pwa .popups .pills.upgradeInfo p, .button p {
+.pwa .popups .pills.upgradeInfo p {
     padding: 0 1.5rem 0 1rem;
     font-size: 1rem;
     line-height: 1.5em;
     margin-top: 0.5rem;
 }
 
-.pwa .popups .pills.upgradeInfo p.in, .button p {
+.pwa .popups .pills.upgradeInfo p.in {
     padding: 0.5rem 1.25rem;
     font-weight: bold;
 }
 
-.pwa .popups .pills.upgradeInfo div, .button {
+.pwa .popups .pills.upgradeInfo div {
     width: fit-content;
     background: #303030;
     color: white;
