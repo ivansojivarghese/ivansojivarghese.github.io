@@ -597,7 +597,7 @@ h3.downsize {
 }
 
 .pwa .navbar.hide {
-    bottom: calc(-4rem - calc(env(safe-area-inset-top) * 1.5));
+    bottom: calc(-4.5rem - calc(env(safe-area-inset-top) * 1.5));
 }
 
 .pwa .navbar .button {
