@@ -1196,6 +1196,7 @@ h3.downsize {
         height: 100dvh;
         box-shadow: none;
         padding-left: calc(env(safe-area-inset-left));
+        padding-bottom: calc((env(safe-area-inset-top) / 2))
     }
 
     .pwa .navbar .button {
