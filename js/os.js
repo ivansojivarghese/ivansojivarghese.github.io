@@ -624,9 +624,9 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             wind_icon.classList.add("wind_w_img");
             temp_icon.classList.add("temp_w_img");
 
-            if (weather_icon) {
+            // if (weather_icon) {
                 weather_icon.style.borderRadius = "0.5rem";
-            }
+            // }
             motionIcon.classList.add("shade");
             navbar_pwa.classList.add("shade");
             fab.classList.add("shade");
