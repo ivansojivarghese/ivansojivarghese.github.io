@@ -588,7 +588,7 @@ h3.downsize {
     transform: translateX(-50%);
     box-shadow: rgba(100, 100, 111, 0.2) 0 0.4rem 1.7rem 0;
     background-color: #FFF;
-    padding-bottom: calc(env(safe-area-inset-top) / 2);
+    padding-bottom: calc((env(safe-area-inset-top) / 2) + 0.5rem);
 }
 
 .pwa .navbar.outView {
