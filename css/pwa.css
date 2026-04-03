@@ -335,7 +335,7 @@ h3.downsize {
 
 .home_buttons.hb_viewProjects {
     width: calc(100% - 1rem);
-    margin-bottom: 50vh;
+    margin-bottom: 40vh;
 }
 
 .home_buttons .img_icon {
