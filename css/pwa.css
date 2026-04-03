@@ -1132,6 +1132,10 @@ a.no_inline {
         width: 21rem;
     }
 
+    a.no_inline {
+        width: fit-content;
+    }
+
     .pwa .navbar.fab2_nav {
         max-width: 17rem;
     }
@@ -1383,6 +1387,11 @@ a.no_inline {
     .pwa .home .flexActive .paragraph {
         padding-bottom: 2rem;
         padding-right: 2em;
+    }
+
+    a.no_inline {
+        height: 4rem;
+        margin-bottom: 7rem;
     }
 }
 
