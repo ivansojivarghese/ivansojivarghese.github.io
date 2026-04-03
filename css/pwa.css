@@ -1124,6 +1124,10 @@ h3.downsize {
         padding-bottom: calc((env(safe-area-inset-top) / 2));
     }
 
+    .home_buttons.hb_viewProjects {
+        width: 21rem;
+    }
+
     .pwa .navbar.fab2_nav {
         max-width: 17rem;
     }
