@@ -317,7 +317,7 @@ h3.downsize {
 
 .home_buttons.hb_viewProjects .img_icon {
     left: 0.1rem;
-    transform: rotate(90deg);
+    transform: rotate(0deg);
 }
 
 .home_buttons p {
@@ -335,6 +335,7 @@ h3.downsize {
 
 .home_buttons.hb_viewProjects {
     width: calc(100% - 1rem);
+    margin-bottom: 50vh;
 }
 
 .home_buttons .img_icon {
@@ -1156,6 +1157,10 @@ h3.downsize {
 @media screen and (orientation: landscape) {
     .pwa .navbar.hide {
         bottom: 0;
+    }
+
+    .home_buttons.hb_viewProjects {
+        width: 21rem;
     }
 
     .pwa .fab {
