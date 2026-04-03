@@ -1179,6 +1179,10 @@ a.no_inline {
         bottom: 0;
     }
 
+    a.no_inline {
+        width: fit-content;
+    }
+
     .home_buttons.hb_viewProjects {
         width: 21rem;
     }
