@@ -316,7 +316,7 @@ h3.downsize {
 }
 
 .home_buttons.hb_viewProjects .img_icon {
-    left: 0;
+    left: 0.1rem;
     transform: rotate(90deg);
 }
 
