@@ -861,6 +861,10 @@ h3.downsize {
     background-image: url("../svg/info_white.svg");
 }
 
+a.no_inline {
+    display: block !important;
+}
+
 /* -- */
 
 .pwa .skillset > div, .pwa .toolset > div {
