@@ -1141,7 +1141,7 @@ a.no_inline {
     }
 
     a.no_inline {
-        width: fit-content;
+        width: 21rem;
     }
 
     .pwa .navbar.fab2_nav {
@@ -1180,7 +1180,7 @@ a.no_inline {
     }
 
     a.no_inline {
-        width: fit-content;
+        width: 21rem;
     }
 
     .home_buttons.hb_viewProjects {
@@ -1402,7 +1402,7 @@ a.no_inline {
     }
 
     a.no_inline {
-        height: 4rem;
+        height: 3.7rem;
         margin-bottom: 7rem;
     }
 }
