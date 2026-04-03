@@ -328,6 +328,10 @@ h3.downsize {
     color: #303030;
 }
 
+.home_buttons.hb_viewProjects {
+    width: calc(100% - 1rem);
+}
+
 .home_buttons .img_icon {
     display: inline-block;
     width: 1.2rem;
