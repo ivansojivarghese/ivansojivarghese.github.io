@@ -1367,6 +1367,7 @@ h3.downsize {
 @media screen and (min-width: 1200px) and (orientation: landscape) {
     .pwa .home .flexActive {
         display: flex;
+        flex-direction: column;
     }
 
     .pwa .home .container.wordcloud {
@@ -1376,7 +1377,7 @@ h3.downsize {
     }
 
     .pwa .home .flexActive .paragraph {
-        padding-bottom: 0;
+        padding-bottom: 2rem;
         padding-right: 2em;
     }
 }
@@ -1417,8 +1418,12 @@ h3.downsize {
     }
 
     .pwa .m_L-10 {
+        /*
         margin-left: 3rem !important;
-        width: calc(100% - 3rem);
+        width: calc(100% - 3rem);*/
+        margin-left: 15vw !important;
+        width: calc(100% - 15vw - 10vw) !important;
+        margin-right: 10vw !important;
     }
 }
 
