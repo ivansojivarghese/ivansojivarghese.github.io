@@ -139,7 +139,7 @@ body {
 }
 
 .pwa .fab.shade, .pwa .fab2.shade, .home_buttons.shade {
-    background-color: #3D3D3D;
+    background-color: #3D3D3D !important;
 }
 
 .pwa .toggleDiv {
@@ -339,11 +339,11 @@ h3.downsize {
 }
 
 .home_buttons.hb_viewProjects_ovr {
-    background: #303030 !important;
+    background: #303030;
 }
 
 .home_buttons.hb_viewProjects_ovr p {
-    color: #FFF !important;
+    color: #FFF;
 }
 
 .home_buttons .img_icon {
