@@ -311,7 +311,7 @@ h3.downsize {
     margin-right: 1rem;
 }
 
-.home_buttons.hb_linkedin {
+.home_buttons.hb_linkedin, .home_buttons.hb_viewProjects {
     background: #E4E4E4;
 }
 
@@ -324,7 +324,7 @@ h3.downsize {
     color: #FFF;
 }
 
-.home_buttons.hb_linkedin p {
+.home_buttons.hb_linkedin p, .home_buttons.hb_viewProjects p {
     color: #303030;
 }
 
