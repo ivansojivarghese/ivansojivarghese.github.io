@@ -311,6 +311,10 @@ h3.downsize {
     margin-right: 1rem;
 }
 
+.home_buttons.hb_linkedin {
+    background: #E4E4E4;
+}
+
 .home_buttons p {
     padding: 1rem 0 1.4rem;
     text-align: center;
@@ -318,6 +322,10 @@ h3.downsize {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: #FFF;
+}
+
+.home_buttons.hb_linkedin p {
+    color: #303030;
 }
 
 .home_buttons .img_icon {
