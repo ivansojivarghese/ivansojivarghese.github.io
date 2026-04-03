@@ -401,7 +401,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fab = document.querySelector('.pwa .fab'),
 
             hb_github = document.querySelector('.pwa .hb_github'),
-            hb_linkedin = document.querySelector('.pwa .hb_linkedin'),
+            hb_linkedin = document.querySelector('.pwa .hb_viewProjects_ovr'),
 
             settings_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .banner .settings_img') : document.querySelector('.pwa .about .banner .settings_w_img'),
             batteryIcons = document.querySelectorAll('.pwa .banner .battery'),
