@@ -276,6 +276,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .linkedin') : document.querySelector('.pwa .about .linkedin_w'),
             gh_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .github') : document.querySelector('.pwa .about .github_w'),
             x_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .x_twitter') : document.querySelector('.pwa .about .x_twitter_w'),
+            orcid_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .orcid') : document.querySelector('.pwa .about .orcid_w'),
+            hackerrank_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .hackerrank') : document.querySelector('.pwa .about .hackerrank_w'),
 
             close_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .close_img') : document.querySelector('.pwa .popups .close_w_img'),
 
@@ -449,6 +451,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fb_icon.classList.remove("facebook");
             lk_icon.classList.remove("linkedin");
             gh_icon.classList.remove("github");
+            orcid_icon.classList.remove("orcid");
+            hackerrank_icon.classList.remove("hackerrank");
             x_icon.classList.remove("x_twitter");
 
             close_icon.classList.remove("close_img");
@@ -473,6 +477,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.add("linkedin_w");
             gh_icon.classList.add("github_w");
             x_icon.classList.add("x_twitter_w");
+            orcid_icon.classList.add("orcid_w");
+            hackerrank_icon.classList.add("hackerrank_w");
 
             close_icon.classList.add("close_w_img");
 
@@ -646,6 +652,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.remove("linkedin_w");
             gh_icon.classList.remove("github_w");
             x_icon.classList.remove("x_twitter_w");
+            orcid_icon.classList.remove("orcid_w");
+            hackerrank_icon.classList.remove("hackerrank_w");
 
             close_icon.classList.remove("close_w_img");
 
@@ -669,6 +677,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             lk_icon.classList.add("linkedin");
             gh_icon.classList.add("github");
             x_icon.classList.add("x_twitter");
+            orcid_icon.classList.add("orcid");
+            hackerrank_icon.classList.add("hackerrank");
 
             close_icon.classList.add("close_img");
 
