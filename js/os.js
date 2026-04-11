@@ -421,6 +421,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             gl_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .glitch') : document.querySelector('.pwa .about .glitch_w'),
             orcid_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .orcid') : document.querySelector('.pwa .about .orcid_w'),
             hackerrank_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .hackerrank') : document.querySelector('.pwa .about .hackerrank_w'),
+            researchgate_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .researchgate') : document.querySelector('.pwa .about .researchgate_w'),
 
             close_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .close_img') : document.querySelector('.pwa .popups .close_w_img'),
 
@@ -600,6 +601,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             gl_icon.classList.remove("glitch");
             orcid_icon.classList.remove("orcid");
             hackerrank_icon.classList.remove("hackerrank");
+            researchgate_icon.classList.remove("researchgate");
 
             close_icon.classList.remove("close_img");
 
@@ -626,6 +628,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             gl_icon.classList.add("glitch_w");
             orcid_icon.classList.add("orcid_w");
             hackerrank_icon.classList.add("hackerrank_w");
+            researchgate_icon.classList.add("researchgate_w");
 
             close_icon.classList.add("close_w_img");
 
@@ -809,6 +812,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             gl_icon.classList.remove("glitch_w");
             orcid_icon.classList.remove("orcid_w");
             hackerrank_icon.classList.remove("hackerrank_w");
+            researchgate_icon.classList.remove("researchgate_w");
 
             close_icon.classList.remove("close_w_img");
 
@@ -835,6 +839,7 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             gl_icon.classList.add("glitch");
             orcid_icon.classList.add("orcid");
             hackerrank_icon.classList.add("hackerrank");
+            researchgate_icon.classList.add("researchgate");
 
             close_icon.classList.add("close_img");
 
