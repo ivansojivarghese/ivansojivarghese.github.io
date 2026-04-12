@@ -685,9 +685,6 @@
 		window.addEventListener('devicemotion', function(event) {
 			if (event.acceleration.x || event.acceleration.y || event.acceleration.z) {
 				deviceMotion = true;
-				trackWakeLockActivity();
-			} else if (event.accelerationIncludingGravity && (event.accelerationIncludingGravity.x || event.accelerationIncludingGravity.y || event.accelerationIncludingGravity.z)) {
-				trackWakeLockActivity();
 			}
 
 			const mStoggle = document.querySelector('.pwa .motionSenseToggle');
@@ -702,6 +699,7 @@
 			var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
 
 			var gpsVelocity = 0;
+			var meaningfulMotion = false;
 
 			if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked /*&& !docHide*/) {
 				var gAcc = 9.81,
@@ -882,6 +880,7 @@
 							}
 							stepsCountInterval[stepsCountInterval.length] = time;
 							stepsCount++;
+							meaningfulMotion = true;
 							if (timerCounting) {
 								timerCount++;
 							}
@@ -1068,6 +1067,13 @@
 						cadenceVelocity: latestCadenceVelocity,
 						deviceAcc: nDeviceAcc
 					};
+				}
+
+				if (!meaningfulMotion && Math.abs(Number(velocityEstRef) || 0) >= 0.35) {
+					meaningfulMotion = true;
+				}
+				if (meaningfulMotion) {
+					trackWakeLockActivity();
 				}
 
 			} else {
