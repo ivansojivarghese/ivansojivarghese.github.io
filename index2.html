@@ -68,6 +68,10 @@
 			width: 100%;
 			height: 100%;
 		}
+
+        .steps, .velocityMagnitude {
+            font-size: 4rem;
+        }
 	</style>
 </head>
 <body>
@@ -83,7 +87,8 @@
 			<div class="deviceInfo panel">
 				<!-- <div class="steps">steps: 0</div> -->
                  <div class=""><div class="steps">0</div> steps</div>
-				<div class="velocity" style="display: none;"></div>
+				<!-- <div class="velocity" style="display: none;"></div> -->
+                 <div class="velocity"><div class="velocityMagnitude"></div></div>
 			</div>
 		</div>
 	</div>
@@ -746,9 +751,11 @@
 						}
 						velocityEstRef = velocityEst;
 						if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
-							velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit;
+							// velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit;
+                            velocity.innerHTML = "<div class='velocityMagnitude'>" + velocityEst.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
 						} else {
-							velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + velLimiter + " " + velocityUnit;
+							// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + velLimiter + " " + velocityUnit;
+                            velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
 						}
 					}
 
@@ -770,9 +777,11 @@
 					velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
 					velocityEstRef = velocityEst;
 					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
-						velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit;
+						// velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit;
+                        velocity.innerHTML = "<div class='velocityMagnitude'>" + velocitySign + velocityEst.toFixed(1) + ' ' + velocityUnit + "</div>Δ velocity";
 					} else {
-						velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+						// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+                        velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + ' ' + velocityUnit + "</div> velocity";
 					}
 				}
 
@@ -780,9 +789,11 @@
 				velocityEst = 0;
 				velocityEstRef = 0;
 				if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
-					velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit;
+					// velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit;
+                    velocity.innerHTML = "<div class='velocityMagnitude'>" + velocityEst.toFixed(1) + ' ' + velocityUnit + "</div> velocity";
 				} else {
-					velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+					// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+                    velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + ' ' + velocityUnit + "</div> velocity";
 				}
 				if (typeof velocityUnit === 'undefined') {
 					velocity.innerHTML = "";
@@ -838,9 +849,11 @@
 									timerCountStep = [];
 
 									if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
-										velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit;
+										// velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit;
+                                        velocity.innerHTML = "<div class='velocityMagnitude'>" + velocityEst.toFixed(1) + ' ' + velocityUnit + "</div> velocity";
 									} else {
-										velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+										// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+                                        velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + ' ' + velocityUnit + "</div> velocity";
 									}
 
 									break;
