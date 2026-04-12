@@ -780,58 +780,24 @@
 					var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
 					var velLimiter = "";
 					var cadenceVelocity = 0;
-					var velocityOverride = 0;
-
-					if ((timerCountStep.length > timerCountStepCheck)) {
-						timerCountStepCheck = timerCountStep.length;
-						if (velocityConstantRef === 0) {
-							velocityConstantRef = velMag;
-						}
-						if (timerCountStep.length >= 3) {
-							var motionTrend = [timerCountStep[timerCountStep.length - 3],
-												timerCountStep[timerCountStep.length - 2],
-												timerCountStep[timerCountStep.length - 1]
-											],
-								motionRes = motionTrendCal(motionTrend);
-							if (motionRes === "decre") {
-								var diff = Math.abs(motionTrend[0] - motionTrend[2]),
-									velReduction = (diff * avgMotionStride) / 3;
-								velocityConstantRef -= velReduction;
-							} else if (motionRes === "incre") {
-								var diff = Math.abs(motionTrend[2] - motionTrend[0]),
-									velIncrease = (diff * avgMotionStride) / 3;
-								velocityConstantRef += velIncrease;
-							}
-						}
-						if (velocityConstantRef < 0) {
-							velocityConstantRef = 0;
-						}
-					}
-
 					if (stepsCountTimes.length >= 2 && avgMotionStride > 0) {
 						var recentStrides = stepsCountTimes.slice(-4);
 						var avgStrideMs = mean(recentStrides);
 						if (avgStrideMs >= 300 && avgStrideMs <= 1500) {
-							var cadence = 1000 / avgStrideMs;
-							cadenceVelocity = cadence * avgMotionStride;
+							cadenceVelocity = (1000 / avgStrideMs) * avgMotionStride;
 						}
 					}
 
-					if (cadenceVelocity > 0) {
-						velocityOverride = cadenceVelocity;
-						if (velMag > 0) {
-							var liveSpeedRef = Math.abs(velMag) / 2;
-							var minVel = liveSpeedRef * 0.5;
-							var maxVel = liveSpeedRef * 1.8;
-							if (maxVel > minVel) {
-								velocityOverride = Math.max(minVel, Math.min(cadenceVelocity, maxVel));
-							}
-						}
+					var liveVelocityFallback = Math.abs(velMag) / 2;
+					var velocityOverride = (cadenceVelocity > 0) ? cadenceVelocity : liveVelocityFallback;
+
+					if (velocityConstantRef === 0) {
+						velocityConstantRef = velocityOverride;
 					} else {
-						velocityOverride = Math.abs(velMag) / 2;
+						velocityConstantRef = (velocityConstantRef * 0.75) + (velocityOverride * 0.25);
 					}
 
-					velocityEst = (velocityOverride >= 0) ? (velocityOverride <= 10) ? velocityOverride : 10.1 : 0;
+					velocityEst = (velocityConstantRef >= 0) ? (velocityConstantRef <= 10) ? velocityConstantRef : 10.1 : 0;
 					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
 						if (velocityEst === 10.1) {
 							velocityEst = 10;
