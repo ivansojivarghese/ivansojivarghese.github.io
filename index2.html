@@ -998,5 +998,29 @@
 		}, { passive: false });
 
 	</script>
+    <!--  shake detection, REFERENCE: https://github.com/alexgibson/shake.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/alexgibson/shake.js/shake.js"></script> -->
+    <script src="shake.js"></script>
+    <script>
+        var myShakeEvent = new Shake({
+                threshold: 15, // optional shake strength threshold
+                timeout: 10 // optional, determines the frequency of event generation
+            }),
+            shaked = false;
+
+        myShakeEvent.start();
+        window.addEventListener('shake', shakeEventDidOccur, false);
+
+        //function to call when shake occurs
+        function shakeEventDidOccur () {
+            shaked = true; 
+            setTimeout(function() {
+                shaked = false;
+            }, 10);
+
+            //put your own code here etc.
+            // alert('shake!');
+        }
+    </script>
 </body>
 </html>
