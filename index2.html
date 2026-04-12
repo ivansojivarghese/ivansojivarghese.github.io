@@ -780,16 +780,37 @@
 					var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
 					var velLimiter = "";
 					var cadenceVelocity = 0;
+					var velocityOutlier = false;
+					var avgStrideMs = 0;
+					var cadenceHz = 0;
+					var runningCadence = false;
 					if (stepsCountTimes.length >= 2 && avgMotionStride > 0) {
 						var recentStrides = stepsCountTimes.slice(-4);
-						var avgStrideMs = mean(recentStrides);
+						avgStrideMs = mean(recentStrides);
 						if (avgStrideMs >= 300 && avgStrideMs <= 1500) {
-							cadenceVelocity = (1000 / avgStrideMs) * avgMotionStride;
+							cadenceHz = (1000 / avgStrideMs);
+							cadenceVelocity = cadenceHz * avgMotionStride;
+							runningCadence = (cadenceHz >= 2.1);
 						}
 					}
 
 					var liveVelocityFallback = Math.abs(velMag) / 2;
 					var velocityOverride = (cadenceVelocity > 0) ? cadenceVelocity : liveVelocityFallback;
+					if (cadenceVelocity > 0) {
+						var maxExpectedVelocity = runningCadence ? 6.0 : 2.8;
+						if (cadenceVelocity > maxExpectedVelocity) {
+							velocityOutlier = true;
+						}
+						if (liveVelocityFallback > 0) {
+							var mismatchRatio = Math.abs(cadenceVelocity - liveVelocityFallback) / Math.max(cadenceVelocity, 0.1);
+							var mismatchLimit = runningCadence ? 1.8 : 1.2;
+							if (mismatchRatio > mismatchLimit) {
+								velocityOutlier = true;
+							}
+						}
+					} else if (liveVelocityFallback >= 4.5) {
+						velocityOutlier = true;
+					}
 
 					if (velocityConstantRef === 0) {
 						velocityConstantRef = velocityOverride;
@@ -817,9 +838,11 @@
 					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
 						// velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit;
                         velocity.innerHTML = "<div class='velocityMagnitude'>" + velocityEst.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
+						setRecalibrateVisible(velocityOutlier);
 					} else {
 						// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + velLimiter + " " + velocityUnit;
                         velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
+						setRecalibrateVisible(false);
 					}
 
 				} else if (motionVelocity) {
