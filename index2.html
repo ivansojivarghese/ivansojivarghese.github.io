@@ -192,7 +192,10 @@
 			velocityLiveInterval = null,
 			velocityEstRef = 0,
 			pitchRef = 0,
-			refZForce = 0;
+			refZForce = 0,
+			stepGravityMag = 9.81,
+			stepPeakArmed = true,
+			stepLastTimestamp = 0;
 
 		var nDeviceTimeout = null;
 
@@ -290,6 +293,9 @@
 			velocityEstRef = 0;
 			pitchRef = 0;
 			refZForce = 0;
+			stepGravityMag = 9.81;
+			stepPeakArmed = true;
+			stepLastTimestamp = 0;
 
 			motionEndCount = 0;
 			motionEndCountInterval = null;
@@ -542,9 +548,11 @@
 
 			var gpsVelocity = 0;
 
-			if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked && !rotation /*&& !docHide*/) {
+			if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked /*&& !docHide*/) {
 				var gAcc = 9.81,
 					strideDis = 0.72,
+					xGAcc = event.accelerationIncludingGravity.x,
+					yGAcc = event.accelerationIncludingGravity.y,
 					zGAcc = event.accelerationIncludingGravity.z,
 					yAcc = event.acceleration.y,
 					xAcc = event.acceleration.x,
@@ -553,9 +561,13 @@
 					cosVal = Math.cos(pitchRad),
 					resAcc = gAcc / cosVal,
 					resZForce = Math.round((zGAcc / resAcc) * 100),
+					totalGMag = Math.sqrt(Math.pow(xGAcc, 2) + Math.pow(yGAcc, 2) + Math.pow(zGAcc, 2)),
 					zThreshold = 40,
 					velocityEst = 0,
 					velocitySign = "~";
+
+				stepGravityMag = (stepGravityMag * 0.92) + (totalGMag * 0.08);
+				var linearMag = Math.abs(totalGMag - stepGravityMag);
 
 				avgMotionStride = (tempUnit(ipAPIres.country.iso_code) === "metric") ? strideDis : (strideDis * 3.2808);
 
@@ -685,13 +697,17 @@
 						}
 					}
 
-				} else if (motionRef && similarAngle(pitch, pitchRef, 20)) {
-					if (!shaked && !rotation) {
-						const zDiff = resZForce - refZForce;
-						if (zDiff <= 10) {
+				} else if (motionRef) {
+					if (!shaked) {
+						var stepThresholdHigh = 0.85,
+							stepThresholdLow = 0.35,
+							refractoryMs = 280,
+							time = new Date().getTime();
+
+						if (linearMag <= stepThresholdLow) {
+							stepPeakArmed = true;
 							noStep = false;
-						} else if (zDiff > zThreshold && !noStep && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 0 && gpsPos.coords.speed <= 2))) {
-							var time = new Date().getTime();
+						} else if (linearMag >= stepThresholdHigh && stepPeakArmed && !noStep && (time - stepLastTimestamp) >= refractoryMs && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 0 && gpsPos.coords.speed <= 3))) {
 							if (stepsCountInterval.length > 0) {
 								stepsCountTimes[stepsCountTimes.length] = time - stepsCountInterval[stepsCountInterval.length - 1];
 							}
@@ -700,6 +716,8 @@
 							if (timerCounting) {
 								timerCount++;
 							}
+							stepPeakArmed = false;
+							stepLastTimestamp = time;
 							noStep = true;
 						}
 					}
