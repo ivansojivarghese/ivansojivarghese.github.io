@@ -125,6 +125,7 @@
 				<!-- <div class="velocity" style="display: none;"></div> -->
                  <div class="velocity"><div class="velocityMagnitude"></div></div>
 			</div>
+			<div class="profile panel d_n">Look ahead of surroundings</div>
 		</div>
 	</div>
 
@@ -223,6 +224,7 @@
 		const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 		const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
 		const recalibrateToggle = document.querySelector('.pwa .home .banner .motionSenseToggle.recalibrate');
+		const profilePanel = document.querySelector('.pwa .popups .profile.panel');
 
 		var metricsRecording = false,
 			metricsRecords = [],
@@ -230,7 +232,54 @@
 			metricsRecordingStartedAt = 0,
 			stepsDefaultColor = '',
 			latestLinearMag = 0,
-			latestCadenceVelocity = 0;
+			latestCadenceVelocity = 0,
+			lookAheadLastAlertAt = 0;
+
+		window.__lastGammaAngle = 0;
+
+		var lookAheadAlertCooldownMs = 45000;
+
+		function maybeAlertLookAhead() {
+			var now = Date.now();
+			if (now - lookAheadLastAlertAt < lookAheadAlertCooldownMs) {
+				return;
+			}
+
+			if (stepsCountInterval.length < 4) {
+				return;
+			}
+
+			var recentSteps = stepsCountInterval.slice(-4);
+			var spanMs = recentSteps[recentSteps.length - 1] - recentSteps[0];
+			if (spanMs <= 0) {
+				return;
+			}
+
+			var cadenceSpm = ((recentSteps.length - 1) / (spanMs / 1000)) * 60;
+			var holdingViewingPosture = !rotation && Math.abs(betaAngle) >= 20 && Math.abs(betaAngle) <= 85;
+
+			if (holdingViewingPosture && cadenceSpm >= 70) {
+				lookAheadLastAlertAt = now;
+				alert('Look ahead while walking.');
+			}
+		}
+
+		function isFacingUserPosture() {
+			var beta = Math.abs(betaAngle || 0);
+			var gamma = (typeof window.__lastGammaAngle === 'number') ? Math.abs(window.__lastGammaAngle) : 0;
+			return beta >= 25 && beta <= 85 && gamma <= 35;
+		}
+
+		function updateProfilePanelVisibility() {
+			if (!profilePanel) {
+				return;
+			}
+			if (isFacingUserPosture()) {
+				profilePanel.classList.remove('d_n');
+			} else {
+				profilePanel.classList.add('d_n');
+			}
+		}
 
 		function vibrateDevice(pattern) {
 			if (navigator.vibrate) {
@@ -250,6 +299,7 @@
 		function stopMetricsRecording() {
 			metricsRecording = false;
 			steps.style.color = stepsDefaultColor;
+			updateProfilePanelVisibility();
 			vibrateDevice([60, 40, 60]);
 
 			if (!metricsRecords.length) {
@@ -277,7 +327,7 @@
 			var velocityAvg = velocitySum / metricsRecords.length,
 				linearAvg = linearSum / metricsRecords.length,
 				cadenceSpm = (stepsDelta / durationSec) * 60;
-
+            /*
 			alert(
 				'Metrics Summary\n' +
 				'Duration: ' + durationSec.toFixed(1) + ' s\n' +
@@ -288,7 +338,7 @@
 				'Cadence: ' + cadenceSpm.toFixed(0) + ' spm\n' +
 				'Avg Linear Mag: ' + linearAvg.toFixed(3) + '\n' +
 				'Last Cadence Velocity: ' + latestCadenceVelocity.toFixed(2) + ' m/s'
-			);
+			);*/
 		}
 
 		function toggleMetricsRecording() {
@@ -489,6 +539,7 @@
 
 		window.addEventListener('load', function() {
 			requestWakeLock();
+			updateProfilePanelVisibility();
 		});
 
 		function motionTrendCal(arr) {
@@ -880,6 +931,7 @@
 							}
 							stepsCountInterval[stepsCountInterval.length] = time;
 							stepsCount++;
+							maybeAlertLookAhead();
 							meaningfulMotion = true;
 							if (timerCounting) {
 								timerCount++;
@@ -1172,6 +1224,7 @@
 
 			// if (!docHide) {
 				betaAngle = event.beta;
+				window.__lastGammaAngle = event.gamma;
 
 				var bVal = Math.abs(Math.round(event.beta)),
 					gVal = Math.abs(Math.round(event.gamma));
@@ -1181,6 +1234,7 @@
 				} else {
 					rotation = false;
 				}
+				updateProfilePanelVisibility();
 			// }
 
 		}, false);
