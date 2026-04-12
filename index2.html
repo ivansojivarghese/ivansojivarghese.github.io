@@ -282,6 +282,22 @@
 			accelerationInterval = null;
 		}
 
+		var wakeLockSentinel = null;
+
+		async function requestWakeLock() {
+			if (!('wakeLock' in navigator) || document.hidden) {
+				return;
+			}
+			try {
+				wakeLockSentinel = await navigator.wakeLock.request('screen');
+				wakeLockSentinel.addEventListener('release', function() {
+					wakeLockSentinel = null;
+				});
+			} catch (err) {
+				// Ignore wake lock failures (unsupported, denied, low battery, etc.)
+			}
+		}
+
 		var docHide = false;
 		document.addEventListener("visibilitychange", () => {
 			if (document.hidden) {
@@ -289,7 +305,12 @@
 				resetMotionParams();
 			} else {
 				docHide = false;
+				requestWakeLock();
 			}
+		});
+
+		window.addEventListener('load', function() {
+			requestWakeLock();
 		});
 
 		function motionTrendCal(arr) {
