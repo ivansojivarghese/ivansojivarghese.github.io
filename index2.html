@@ -69,6 +69,11 @@
             background: #A10000;
         }
 
+        .motionSenseToggle.recalibrate {
+            background: #EBC106;
+            color: #000;
+        }
+
         /*
 		.hide {
 			display: none;
@@ -109,6 +114,7 @@
 			<div class="banner row panel">
 				<div class="motionIcon d_n"><div class="img"></div></div>
 				<div class="motionSenseToggle hide">failed</div>
+                <div class="motionSenseToggle recalibrate">recalibrate</div>
 			</div>
 		</div>
 
@@ -211,6 +217,20 @@
 		const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 		const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
 		const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
+		const recalibrateToggle = document.querySelector('.pwa .home .banner .motionSenseToggle.recalibrate');
+
+		function setRecalibrateVisible(show) {
+			if (!recalibrateToggle) {
+				return;
+			}
+			if (show) {
+				recalibrateToggle.classList.remove('d_n');
+			} else {
+				recalibrateToggle.classList.add('d_n');
+			}
+		}
+
+		setRecalibrateVisible(false);
 
 		screen.orientation.addEventListener("change", function() {
 			resetMotionParams();
@@ -719,6 +739,7 @@
                 steps.innerHTML = stepsCount;
 
 				if (refVelocity && motionVelocity) {
+					setRecalibrateVisible(false);
 					let i = 0;
 					var velocityTotal = 0;
 					var threshold = 0.2;
@@ -830,13 +851,16 @@
 					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
 						// velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit;
                         velocity.innerHTML = "<div class='velocityMagnitude'>" + velocitySign + velocityEst.toFixed(1) + ' ' + velocityUnit + "</div>Δ velocity";
+						setRecalibrateVisible(true);
 					} else {
 						// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
                         velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + ' ' + velocityUnit + "</div> velocity";
+						setRecalibrateVisible(false);
 					}
 				}
 
 			} else {
+				setRecalibrateVisible(false);
 				velocityEst = 0;
 				velocityEstRef = 0;
 				if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
