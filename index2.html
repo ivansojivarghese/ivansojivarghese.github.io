@@ -779,9 +779,8 @@
 					var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
 					var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
 					var velLimiter = "";
-					var timerBucketUpdated = (timerCountStep.length > timerCountStepCheck);
 
-					if (timerBucketUpdated) {
+					if ((timerCountStep.length > timerCountStepCheck)) {
 						timerCountStepCheck = timerCountStep.length;
 						if (velocityConstantRef === 0) {
 							velocityConstantRef = velMag;
@@ -805,46 +804,36 @@
 						if (velocityConstantRef < 0) {
 							velocityConstantRef = 0;
 						}
-					} else {
-						if (velocityConstantRef === 0) {
-							velocityConstantRef = velMag;
+						velocityEst = velocityConstantRef / 2;
+						velocityEst = (velocityEst >= 0) ? (velocityEst <= 10) ? velocityEst : 10.1 : 0;
+						if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+							if (velocityEst === 10.1) {
+								velocityEst = 10;
+								velLimiter = "+";
+							} else {
+								velLimiter = "";
+							}
 						} else {
-							// Smoothly decay/settle toward live magnitude after short speed bursts.
-							velocityConstantRef = (velocityConstantRef * 0.94) + (velMag * 0.06);
-							if (Math.abs(velocityConstantRef - velMag) > 1.5) {
-								velocityConstantRef = (velocityConstantRef * 0.85) + (velMag * 0.15);
+							if (gpsVelocity > 100) {
+								gpsVelocity = 100;
+								velLimiter = "+";
+							} else {
+								velLimiter = "";
 							}
 						}
-						if (velocityConstantRef < 0) {
-							velocityConstantRef = 0;
+						velocityEstRef = velocityEst;
+						if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+							// velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit;
+                            velocity.innerHTML = "<div class='velocityMagnitude'>" + velocityEst.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
+						} else {
+							// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + velLimiter + " " + velocityUnit;
+                            velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
 						}
 					}
 
-					velocityEst = velocityConstantRef / 2;
-					velocityEst = (velocityEst >= 0) ? (velocityEst <= 10) ? velocityEst : 10.1 : 0;
-					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
-						if (velocityEst === 10.1) {
-							velocityEst = 10;
-							velLimiter = "+";
-						} else {
-							velLimiter = "";
-						}
-					} else {
-						if (gpsVelocity > 100) {
-							gpsVelocity = 100;
-							velLimiter = "+";
-						} else {
-							velLimiter = "";
-						}
-					}
+					velocityEst = velocityTotal;
+					velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : (velocityEst > -10) ? Math.abs(velocityEst.toFixed(1)) : "10+";
 					velocityEstRef = velocityEst;
-					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
-						// velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit;
-                        velocity.innerHTML = "<div class='velocityMagnitude'>" + velocityEst.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
-					} else {
-						// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + velLimiter + " " + velocityUnit;
-                        velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
-					}
 
 				} else if (motionVelocity) {
 					if (accelerationPoints.length === 1) {
