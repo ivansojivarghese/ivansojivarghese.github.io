@@ -542,7 +542,7 @@
 
 			var gpsVelocity = 0;
 
-			if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked && !rotation && !docHide) {
+			if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked && !rotation /*&& !docHide*/) {
 				var gAcc = 9.81,
 					strideDis = 0.72,
 					zGAcc = event.accelerationIncludingGravity.z,
@@ -963,18 +963,18 @@
                 mStoggle.innerHTML = "reading";
 			}
 
-			if (!docHide) {
+			// if (!docHide) {
 				betaAngle = event.beta;
 
 				var bVal = Math.abs(Math.round(event.beta)),
 					gVal = Math.abs(Math.round(event.gamma));
 
 				if (bVal > 90 || gVal > 45) {
-					rotation = true;
+					// rotation = true;
 				} else {
 					rotation = false;
 				}
-			}
+			// }
 
 		}, false);
 
