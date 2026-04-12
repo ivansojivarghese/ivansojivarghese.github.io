@@ -15,6 +15,7 @@
 		:root {
 			color-scheme: light dark;
 			font-family: "MainFont", "Segoe UI", sans-serif;
+            font-size: 2rem;
 		}
 
 		body {
@@ -80,8 +81,9 @@
 
 		<div class="popups">
 			<div class="deviceInfo panel">
-				<div class="steps">steps: 0</div>
-				<div class="velocity"></div>
+				<!-- <div class="steps">steps: 0</div> -->
+                 <div class=""><div class="steps">0</div> steps</div>
+				<div class="velocity" style="display: none;"></div>
 			</div>
 		</div>
 	</div>
@@ -657,7 +659,8 @@
 					motionRef = false;
 				}
 
-				steps.innerHTML = "steps: " + stepsCount;
+				// steps.innerHTML = "steps: " + stepsCount;
+                steps.innerHTML = stepsCount;
 
 				if (refVelocity && motionVelocity) {
 					let i = 0;
