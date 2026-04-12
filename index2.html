@@ -238,7 +238,7 @@
 		setRecalibrateVisible(false);
 
 		screen.orientation.addEventListener("change", function() {
-			resetMotionParams();
+			// resetMotionParams();
 		});
 
 		function resetMotionParams() {
@@ -313,18 +313,72 @@
 		}
 
 		var wakeLockSentinel = null;
+		var wakeLockInactivityTimeout = null;
+		var wakeLockRequestPending = false;
+		var wakeLockIdleMs = 60000;
 
-		async function requestWakeLock() {
-			if (!('wakeLock' in navigator) || document.hidden) {
+		function clearWakeLockInactivityTimer() {
+			if (wakeLockInactivityTimeout !== null) {
+				clearTimeout(wakeLockInactivityTimeout);
+				wakeLockInactivityTimeout = null;
+			}
+		}
+
+		function armWakeLockInactivityTimer() {
+			clearWakeLockInactivityTimer();
+			wakeLockInactivityTimeout = setTimeout(async function() {
+				if (wakeLockSentinel) {
+					try {
+						await wakeLockSentinel.release();
+					} catch (err) {
+						// Ignore release errors.
+					}
+					wakeLockSentinel = null;
+				}
+				wakeLockInactivityTimeout = null;
+			}, wakeLockIdleMs);
+		}
+
+		async function releaseWakeLock() {
+			clearWakeLockInactivityTimer();
+			if (!wakeLockSentinel) {
 				return;
 			}
+			try {
+				await wakeLockSentinel.release();
+			} catch (err) {
+				// Ignore release errors.
+			}
+			wakeLockSentinel = null;
+		}
+
+		async function requestWakeLock() {
+			if (!('wakeLock' in navigator) || document.hidden || wakeLockSentinel || wakeLockRequestPending) {
+				return;
+			}
+			wakeLockRequestPending = true;
 			try {
 				wakeLockSentinel = await navigator.wakeLock.request('screen');
 				wakeLockSentinel.addEventListener('release', function() {
 					wakeLockSentinel = null;
+					clearWakeLockInactivityTimer();
 				});
+				armWakeLockInactivityTimer();
 			} catch (err) {
 				// Ignore wake lock failures (unsupported, denied, low battery, etc.)
+			} finally {
+				wakeLockRequestPending = false;
+			}
+		}
+
+		function trackWakeLockActivity() {
+			if (document.hidden || !('wakeLock' in navigator)) {
+				return;
+			}
+			if (wakeLockSentinel) {
+				armWakeLockInactivityTimer();
+			} else {
+				requestWakeLock();
 			}
 		}
 
@@ -332,7 +386,8 @@
 		document.addEventListener("visibilitychange", () => {
 			if (document.hidden) {
 				docHide = true;
-				resetMotionParams();
+				releaseWakeLock();
+				// resetMotionParams();
 			} else {
 				docHide = false;
 				requestWakeLock();
@@ -537,6 +592,9 @@
 		window.addEventListener('devicemotion', function(event) {
 			if (event.acceleration.x || event.acceleration.y || event.acceleration.z) {
 				deviceMotion = true;
+				trackWakeLockActivity();
+			} else if (event.accelerationIncludingGravity && (event.accelerationIncludingGravity.x || event.accelerationIncludingGravity.y || event.accelerationIncludingGravity.z)) {
+				trackWakeLockActivity();
 			}
 
 			const mStoggle = document.querySelector('.pwa .motionSenseToggle');
