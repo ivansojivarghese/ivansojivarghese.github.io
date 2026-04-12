@@ -195,7 +195,9 @@
 			refZForce = 0,
 			stepGravityMag = 9.81,
 			stepPeakArmed = true,
-			stepLastTimestamp = 0;
+			stepLastTimestamp = 0,
+			stepMagMean = 0,
+			stepMagDev = 0.2;
 
 		var nDeviceTimeout = null;
 
@@ -296,6 +298,8 @@
 			stepGravityMag = 9.81;
 			stepPeakArmed = true;
 			stepLastTimestamp = 0;
+			stepMagMean = 0;
+			stepMagDev = 0.2;
 
 			motionEndCount = 0;
 			motionEndCountInterval = null;
@@ -568,6 +572,10 @@
 
 				stepGravityMag = (stepGravityMag * 0.92) + (totalGMag * 0.08);
 				var linearMag = Math.abs(totalGMag - stepGravityMag);
+				var stepStatAlpha = 0.08;
+				var magDiff = Math.abs(linearMag - stepMagMean);
+				stepMagMean = (stepMagMean * (1 - stepStatAlpha)) + (linearMag * stepStatAlpha);
+				stepMagDev = (stepMagDev * (1 - stepStatAlpha)) + (magDiff * stepStatAlpha);
 
 				avgMotionStride = (tempUnit(ipAPIres.country.iso_code) === "metric") ? strideDis : (strideDis * 3.2808);
 
@@ -699,10 +707,19 @@
 
 				} else if (motionRef) {
 					if (!shaked) {
-						var stepThresholdHigh = 0.85,
-							stepThresholdLow = 0.35,
+						var stepThresholdHigh = Math.max(0.45, stepMagMean + (2.2 * stepMagDev)),
+							stepThresholdLow = Math.max(0.18, stepMagMean + (0.8 * stepMagDev)),
 							refractoryMs = 280,
 							time = new Date().getTime();
+
+						if (stepThresholdLow >= (stepThresholdHigh * 0.8)) {
+							stepThresholdLow = stepThresholdHigh * 0.55;
+						}
+
+						if (stepsCountTimes.length >= 2) {
+							var recentStepMs = mean(stepsCountTimes.slice(-3));
+							refractoryMs = Math.min(380, Math.max(220, recentStepMs * 0.45));
+						}
 
 						if (linearMag <= stepThresholdLow) {
 							stepPeakArmed = true;
