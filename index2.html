@@ -192,7 +192,6 @@
 			velocityLiveInterval = null,
 			velocityEstRef = 0,
 			pitchRef = 0,
-			tiltRef = 0,
 			refZForce = 0;
 
 		var nDeviceTimeout = null;
@@ -290,7 +289,6 @@
 			velocityLiveInterval = null;
 			velocityEstRef = 0;
 			pitchRef = 0;
-			tiltRef = 0;
 			refZForce = 0;
 
 			motionEndCount = 0;
@@ -544,19 +542,22 @@
 
 			var gpsVelocity = 0;
 
-			if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked && !rotation && !docHide) {
+			if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked && !docHide) {
 				var gAcc = 9.81,
 					strideDis = 0.72,
+					xGAcc = event.accelerationIncludingGravity.x,
+					yGAcc = event.accelerationIncludingGravity.y,
 					zGAcc = event.accelerationIncludingGravity.z,
 					yAcc = event.acceleration.y,
 					xAcc = event.acceleration.x,
+					zAcc = event.acceleration.z,
 					pitch = Math.abs(betaAngle),
-					tilt = Math.sqrt(Math.pow(Math.abs(event.beta || 0), 2) + Math.pow(Math.abs(event.gamma || 0), 2)),
 					pitchRad = pitch * (Math.PI / 180),
 					cosVal = Math.cos(pitchRad),
 					resAcc = gAcc / cosVal,
-					resZForce = Math.round((zGAcc / resAcc) * 100),
-					zThreshold = 40,
+					gForce = Math.sqrt(Math.pow(xGAcc, 2) + Math.pow(yGAcc, 2) + Math.pow(zGAcc, 2)),
+					resZForce = Math.round((gForce / gAcc) * 100),
+					zThreshold = 10,
 					velocityEst = 0,
 					velocitySign = "~";
 
@@ -566,7 +567,13 @@
 					gpsVelocity = (tempUnit(ipAPIres.country.iso_code) === "metric") ? gpsPos.coords.speed : (gpsPos.coords.speed * 3.2808);
 				}
 
-				var dominantAcc = (Math.abs(yAcc) >= Math.abs(xAcc)) ? yAcc : xAcc;
+				var dominantAcc = yAcc;
+				if (Math.abs(xAcc) > Math.abs(dominantAcc)) {
+					dominantAcc = xAcc;
+				}
+				if (Math.abs(zAcc) > Math.abs(dominantAcc)) {
+					dominantAcc = zAcc;
+				}
 				normalAcc = filteredAcceleration(dominantAcc);
 
 				if (accelerationDir) {
@@ -577,7 +584,6 @@
 
 				if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) {
 					pitchRef = pitch;
-					tiltRef = tilt;
 					refZForce = resZForce;
 					motionRef = true;
 					if (!motionVelocity) {
@@ -674,7 +680,7 @@
 							if (nDeviceAcc < 0.5) {
 								if (nDeviceTimeout === null) {
 									nDeviceTimeout = setTimeout(function() {
-										resetMotionParams();
+										commuteMode = false;
 										nDeviceTimeout = null;
 									}, 3000);
 								}
@@ -686,8 +692,8 @@
 						}
 					}
 
-				} else if (motionRef && similarAngle(tilt, tiltRef, 25)) {
-					if (!shaked && !rotation) {
+				} else if (motionRef) {
+					if (!shaked) {
 						const zDiff = resZForce - refZForce;
 						if (zDiff <= 10) {
 							noStep = false;
