@@ -224,6 +224,99 @@
 		const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
 		const recalibrateToggle = document.querySelector('.pwa .home .banner .motionSenseToggle.recalibrate');
 
+		var metricsRecording = false,
+			metricsRecords = [],
+			metricsTapTimes = [],
+			metricsRecordingStartedAt = 0,
+			stepsDefaultColor = '',
+			latestLinearMag = 0,
+			latestCadenceVelocity = 0;
+
+		function vibrateDevice(pattern) {
+			if (navigator.vibrate) {
+				navigator.vibrate(pattern || [60, 40, 60]);
+			}
+		}
+
+		function startMetricsRecording() {
+			metricsRecording = true;
+			metricsRecords = [];
+			metricsRecordingStartedAt = Date.now();
+			stepsDefaultColor = steps.style.color || '';
+			steps.style.color = '#007000';
+			vibrateDevice([60, 40, 60]);
+		}
+
+		function stopMetricsRecording() {
+			metricsRecording = false;
+			steps.style.color = stepsDefaultColor;
+			vibrateDevice([60, 40, 60]);
+
+			if (!metricsRecords.length) {
+				alert('Recording stopped.\nNo samples captured.');
+				return;
+			}
+
+			var first = metricsRecords[0],
+				last = metricsRecords[metricsRecords.length - 1],
+				durationSec = Math.max(0.1, (last.ts - first.ts) / 1000),
+				stepsDelta = Math.max(0, last.steps - first.steps),
+				velocitySum = 0,
+				velocityMax = 0,
+				linearSum = 0,
+				i = 0;
+
+			for (i = 0; i < metricsRecords.length; i++) {
+				velocitySum += metricsRecords[i].velocity;
+				linearSum += metricsRecords[i].linearMag;
+				if (metricsRecords[i].velocity > velocityMax) {
+					velocityMax = metricsRecords[i].velocity;
+				}
+			}
+
+			var velocityAvg = velocitySum / metricsRecords.length,
+				linearAvg = linearSum / metricsRecords.length,
+				cadenceSpm = (stepsDelta / durationSec) * 60;
+
+			alert(
+				'Metrics Summary\n' +
+				'Duration: ' + durationSec.toFixed(1) + ' s\n' +
+				'Samples: ' + metricsRecords.length + '\n' +
+				'Steps Recorded: ' + stepsDelta + '\n' +
+				'Avg Velocity: ' + velocityAvg.toFixed(2) + ' m/s\n' +
+				'Peak Velocity: ' + velocityMax.toFixed(2) + ' m/s\n' +
+				'Cadence: ' + cadenceSpm.toFixed(0) + ' spm\n' +
+				'Avg Linear Mag: ' + linearAvg.toFixed(3) + '\n' +
+				'Last Cadence Velocity: ' + latestCadenceVelocity.toFixed(2) + ' m/s'
+			);
+		}
+
+		function toggleMetricsRecording() {
+			if (metricsRecording) {
+				stopMetricsRecording();
+			} else {
+				startMetricsRecording();
+			}
+		}
+
+		function registerOutsideTripleTap(clientX, clientY) {
+			var tappedElement = document.elementFromPoint(clientX, clientY);
+			if (tappedElement && tappedElement.closest('.pwa')) {
+				return;
+			}
+
+			var now = Date.now();
+			metricsTapTimes[metricsTapTimes.length] = now;
+			metricsTapTimes = metricsTapTimes.filter(function(t) {
+				return now - t <= 900;
+			});
+
+			if (metricsTapTimes.length >= 3) {
+				metricsTapTimes = [];
+				toggleMetricsRecording();
+			}
+		}
+
 		function setRecalibrateVisible(show) {
 			if (!recalibrateToggle) {
 				return;
@@ -630,6 +723,7 @@
 
 				stepGravityMag = (stepGravityMag * 0.92) + (totalGMag * 0.08);
 				var linearMag = Math.abs(totalGMag - stepGravityMag);
+				latestLinearMag = linearMag;
 				var stepStatAlpha = 0.08;
 				var magDiff = Math.abs(linearMag - stepMagMean);
 				stepMagMean = (stepMagMean * (1 - stepStatAlpha)) + (linearMag * stepStatAlpha);
@@ -886,6 +980,7 @@
 							runningCadence = (cadenceHz >= 2.1);
 						}
 					}
+					latestCadenceVelocity = cadenceVelocity;
 
 					var liveVelocityFallback = Math.abs(velMag) / 2;
 					var velocityOverride = (cadenceVelocity > 0) ? cadenceVelocity : liveVelocityFallback;
@@ -960,6 +1055,19 @@
                         velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + ' ' + velocityUnit + "</div> velocity";
 						setRecalibrateVisible(false);
 					}
+				}
+
+				if (metricsRecording) {
+					metricsRecords[metricsRecords.length] = {
+						ts: Date.now(),
+						elapsedMs: Date.now() - metricsRecordingStartedAt,
+						steps: stepsCount,
+						velocity: Number(velocityEstRef) || 0,
+						velocityLive: Number(velocityLive) || 0,
+						linearMag: latestLinearMag,
+						cadenceVelocity: latestCadenceVelocity,
+						deviceAcc: nDeviceAcc
+					};
 				}
 
 			} else {
@@ -1083,6 +1191,11 @@
 
 		var lastTouchEnd = 0;
 		document.addEventListener('touchend', function(e) {
+			if (e.changedTouches && e.changedTouches.length === 1) {
+				var touchPoint = e.changedTouches[0];
+				registerOutsideTripleTap(touchPoint.clientX, touchPoint.clientY);
+			}
+
 			var now = Date.now();
 			if (now - lastTouchEnd <= 300) {
 				e.preventDefault();
