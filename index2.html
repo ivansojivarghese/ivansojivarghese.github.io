@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="viewport-fit=cover, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
     <link href="res_m.css" rel="stylesheet" type="text/css">
-	<title>Pedometer</title>
+	<title>MotionSense</title>
 	<style>
         @font-face {
             font-family: 'MainFont';
@@ -53,16 +53,26 @@
 			flex-wrap: wrap;
 		}
 
-		.motionSenseToggle {
-			border: 1px solid #666;
-			border-radius: 999px;
-			padding: 0.4rem 0.75rem;
-			cursor: pointer;
-		}
+        .motionSenseToggle {
+            border: 1px solid #666;
+            border-radius: 999px;
+            padding: 0.4rem 0.75rem;
+            cursor: pointer;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            color: #fff;
+            background: #007000;
+        }
 
+        .motionSenseToggle.hide {
+            background: #A10000;
+        }
+
+        /*
 		.hide {
 			display: none;
-		}
+		}*/
 
 		.d_n {
 			display: none;
@@ -98,7 +108,7 @@
 		<div class="home">
 			<div class="banner row panel">
 				<div class="motionIcon d_n"><div class="img"></div></div>
-				<div class="motionSenseToggle hide">MotionSense ready</div>
+				<div class="motionSenseToggle hide">failed</div>
 			</div>
 		</div>
 
@@ -481,6 +491,7 @@
 			const mStoggle = document.querySelector('.pwa .motionSenseToggle');
 			if (mStoggle.classList.contains("hide") && deviceOrientation) {
 				mStoggle.classList.remove("hide");
+                mStoggle.innerHTML = "reading";
 			}
 
 			if (typeof ipAPIres.country !== 'undefined') {
@@ -894,6 +905,7 @@
 			const mStoggle = document.querySelector('.pwa .motionSenseToggle');
 			if (mStoggle.classList.contains("hide") && deviceMotion) {
 				mStoggle.classList.remove("hide");
+                mStoggle.innerHTML = "reading";
 			}
 
 			if (!docHide) {
