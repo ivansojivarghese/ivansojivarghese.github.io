@@ -235,8 +235,6 @@
 			latestCadenceVelocity = 0,
 			lookAheadLastAlertAt = 0;
 
-		window.__lastGammaAngle = 0;
-
 		var lookAheadAlertCooldownMs = 45000;
 
 		function maybeAlertLookAhead() {
@@ -264,23 +262,6 @@
 			}
 		}
 
-		function isFacingUserPosture() {
-			var beta = Math.abs(betaAngle || 0);
-			var gamma = (typeof window.__lastGammaAngle === 'number') ? Math.abs(window.__lastGammaAngle) : 0;
-			return beta >= 25 && beta <= 85 && gamma <= 35;
-		}
-
-		function updateProfilePanelVisibility() {
-			if (!profilePanel) {
-				return;
-			}
-			if (isFacingUserPosture()) {
-				profilePanel.classList.remove('d_n');
-			} else {
-				profilePanel.classList.add('d_n');
-			}
-		}
-
 		function vibrateDevice(pattern) {
 			if (navigator.vibrate) {
 				navigator.vibrate(pattern || [60, 40, 60]);
@@ -293,13 +274,18 @@
 			metricsRecordingStartedAt = Date.now();
 			stepsDefaultColor = steps.style.color || '';
 			steps.style.color = '#007000';
+			if (profilePanel) {
+				profilePanel.classList.remove('d_n');
+			}
 			vibrateDevice([60, 40, 60]);
 		}
 
 		function stopMetricsRecording() {
 			metricsRecording = false;
 			steps.style.color = stepsDefaultColor;
-			updateProfilePanelVisibility();
+			if (profilePanel) {
+				profilePanel.classList.add('d_n');
+			}
 			vibrateDevice([60, 40, 60]);
 
 			if (!metricsRecords.length) {
@@ -539,7 +525,6 @@
 
 		window.addEventListener('load', function() {
 			requestWakeLock();
-			updateProfilePanelVisibility();
 		});
 
 		function motionTrendCal(arr) {
@@ -1224,7 +1209,6 @@
 
 			// if (!docHide) {
 				betaAngle = event.beta;
-				window.__lastGammaAngle = event.gamma;
 
 				var bVal = Math.abs(Math.round(event.beta)),
 					gVal = Math.abs(Math.round(event.gamma));
@@ -1234,7 +1218,6 @@
 				} else {
 					rotation = false;
 				}
-				updateProfilePanelVisibility();
 			// }
 
 		}, false);
