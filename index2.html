@@ -192,6 +192,7 @@
 			velocityLiveInterval = null,
 			velocityEstRef = 0,
 			pitchRef = 0,
+			tiltRef = 0,
 			refZForce = 0;
 
 		var nDeviceTimeout = null;
@@ -289,6 +290,7 @@
 			velocityLiveInterval = null;
 			velocityEstRef = 0;
 			pitchRef = 0;
+			tiltRef = 0;
 			refZForce = 0;
 
 			motionEndCount = 0;
@@ -549,6 +551,7 @@
 					yAcc = event.acceleration.y,
 					xAcc = event.acceleration.x,
 					pitch = Math.abs(betaAngle),
+					tilt = Math.sqrt(Math.pow(Math.abs(event.beta || 0), 2) + Math.pow(Math.abs(event.gamma || 0), 2)),
 					pitchRad = pitch * (Math.PI / 180),
 					cosVal = Math.cos(pitchRad),
 					resAcc = gAcc / cosVal,
@@ -563,11 +566,8 @@
 					gpsVelocity = (tempUnit(ipAPIres.country.iso_code) === "metric") ? gpsPos.coords.speed : (gpsPos.coords.speed * 3.2808);
 				}
 
-				if (screen.orientation.angle === 0 || screen.orientation.angle === 180) {
-					normalAcc = filteredAcceleration(yAcc);
-				} else if (screen.orientation.angle === 90 || screen.orientation.angle === 270) {
-					normalAcc = filteredAcceleration(xAcc);
-				}
+				var dominantAcc = (Math.abs(yAcc) >= Math.abs(xAcc)) ? yAcc : xAcc;
+				normalAcc = filteredAcceleration(dominantAcc);
 
 				if (accelerationDir) {
 					normalAcc = Math.abs(normalAcc);
@@ -577,6 +577,7 @@
 
 				if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) {
 					pitchRef = pitch;
+					tiltRef = tilt;
 					refZForce = resZForce;
 					motionRef = true;
 					if (!motionVelocity) {
@@ -673,7 +674,7 @@
 							if (nDeviceAcc < 0.5) {
 								if (nDeviceTimeout === null) {
 									nDeviceTimeout = setTimeout(function() {
-										commuteMode = false;
+										resetMotionParams();
 										nDeviceTimeout = null;
 									}, 3000);
 								}
@@ -685,7 +686,7 @@
 						}
 					}
 
-				} else if (motionRef && similarAngle(pitch, pitchRef, 20)) {
+				} else if (motionRef && similarAngle(tilt, tiltRef, 25)) {
 					if (!shaked && !rotation) {
 						const zDiff = resZForce - refZForce;
 						if (zDiff <= 10) {
