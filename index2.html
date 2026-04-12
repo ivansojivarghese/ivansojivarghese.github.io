@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pedometer</title>
+	<style>
+		:root {
+			color-scheme: light dark;
+			font-family: "Segoe UI", sans-serif;
+		}
+
+		body {
+			margin: 0;
+			padding: 1rem;
+		}
+
+		.pwa {
+			max-width: 700px;
+			margin: 0 auto;
+		}
+
+		.panel {
+			border: 1px solid #8884;
+			border-radius: 12px;
+			padding: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.row {
+			display: flex;
+			gap: 0.75rem;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.motionSenseToggle {
+			border: 1px solid #666;
+			border-radius: 999px;
+			padding: 0.4rem 0.75rem;
+			cursor: pointer;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.d_n {
+			display: none;
+		}
+
+		.motionIcon {
+			width: 28px;
+			height: 28px;
+			border-radius: 50%;
+			border: 1px solid #666;
+		}
+
+		.motionIcon .img {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="pwa">
+		<div class="home">
+			<div class="banner row panel">
+				<div class="motionIcon d_n"><div class="img"></div></div>
+				<div class="motionSenseToggle hide">MotionSense ready</div>
+			</div>
+		</div>
+
+		<div class="popups">
+			<div class="deviceInfo panel">
+				<div class="steps">steps: 0</div>
+				<div class="velocity"></div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var op = { t: 250, te: 1000 };
+
+		var ipAPIres = {
+			country: { iso_code: "US" },
+			online: true
+		};
+
+		var clientAPIres = {
+			online: true
+		};
+
+		var gpsPos = null;
+		var shaked = false;
+
+		function tempUnit(c) {
+			return "metric";
+		}
+
+		function mean(arr) {
+			if (!arr || !arr.length) {
+				return 0;
+			}
+			return arr.reduce((acc, curr) => acc + curr, 0) / arr.length;
+		}
+
+		var normalAcc = 0,
+			timerCountStepCheck = 0,
+			timerCountStepInterval = null,
+			timerCountStep = [],
+			timerCounting = false,
+			timerCount = 0,
+			stepsCount = 0,
+			stepsCountInterval = [],
+			stepsCountTimes = [],
+			betaAngle = 0,
+			rotation = false,
+			noStep = false,
+			motion = false,
+			oneStopMotion = false,
+			motionInterval = null,
+			motionVelocity = false,
+			motionStride = 0,
+			avgMotionStride = 0,
+			refVelocity = false,
+			motionEnd = false,
+			motionEndInterval = null,
+			motionStart = false,
+			motionStartRef = 0,
+			motionStartInterval = null,
+			motionRef = false,
+			velocityConstantRef = 0,
+			velocityPoints = [],
+			velocityError = false,
+			velocityCycle = 0,
+			velocityCycleLatch = false,
+			velocityCycleLive = 0,
+			velocityCycleMax = 0,
+			velocityCycleMaxPoints = [],
+			velocityLive = 0,
+			velocityLiveCheck = false,
+			velocityLiveInterval = null,
+			velocityEstRef = 0,
+			pitchRef = 0,
+			refZForce = 0;
+
+		var nDeviceTimeout = null;
+
+		var motionType = "",
+			commuteMode = false,
+			motionTypeCommute = null,
+			motionTypeStep = null;
+
+		var motionEndCount = 0,
+			motionEndCountInterval = null,
+			motionEndCountArray = [];
+
+		var accelerationCount = 0,
+			accelerationDir = true,
+			accelerationPoints = [],
+			accelerationTimePoints = [],
+			accelerationInterval = null;
+
+		var deviceMotion = false,
+			deviceOrientation = false;
+
+		const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
+		const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
+		const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
+
+		screen.orientation.addEventListener("change", function() {
+			resetMotionParams();
+		});
+
+		function resetMotionParams() {
+			clearInterval(timerCountStepInterval);
+			clearTimeout(motionEndInterval);
+			clearInterval(accelerationInterval);
+			clearTimeout(motionEndCountInterval);
+
+			clearTimeout(nDeviceTimeout);
+
+			motionType = "";
+			commuteMode = false;
+			motionTypeCommute = null,
+			motionTypeStep = null;
+
+			nDeviceTimeout = null;
+
+			normalAcc = 0;
+			timerCountStepCheck = 0;
+			timerCountStepInterval = null;
+			timerCountStep = [];
+			timerCounting = false;
+			timerCount = 0;
+			stepsCount = 0;
+			stepsCountInterval = [];
+			stepsCountTimes = [];
+			betaAngle = 0;
+			rotation = false;
+			noStep = false;
+			motion = false;
+			oneStopMotion = false;
+			motionInterval = null;
+			motionVelocity = false;
+			motionStride = 0;
+			avgMotionStride = 0;
+			refVelocity = false;
+			motionEnd = false;
+			motionEndInterval = null;
+			motionStart = false;
+			motionStartRef = 0;
+			motionStartInterval = null;
+			motionRef = false;
+			velocityConstantRef = 0;
+			velocityPoints = [];
+			velocityError = false;
+			velocityCycle = 0;
+			velocityCycleLatch = false;
+			velocityCycleLive = 0;
+			velocityCycleMax = 0;
+			velocityCycleMaxPoints = [];
+			velocityLive = 0;
+			velocityLiveCheck = false;
+			velocityLiveInterval = null;
+			velocityEstRef = 0;
+			pitchRef = 0;
+			refZForce = 0;
+
+			motionEndCount = 0;
+			motionEndCountInterval = null;
+			motionEndCountArray = [];
+
+			accelerationCount = 0;
+			accelerationDir = true;
+			accelerationPoints = [];
+			accelerationTimePoints = [];
+			accelerationInterval = null;
+		}
+
+		var docHide = false;
+		document.addEventListener("visibilitychange", () => {
+			if (document.hidden) {
+				docHide = true;
+				resetMotionParams();
+			} else {
+				docHide = false;
+			}
+		});
+
+		function motionTrendCal(arr) {
+			var key = [],
+				trendArr = [],
+				trend = "";
+			for (j = 0; j < arr.length; j++) {
+				if (j === 0) {
+					key[key.length] = arr[j];
+				} else {
+					var val = arr[j],
+						eVal = key[key.length - 1];
+					if (val > eVal) {
+						trendArr[trendArr.length] = "incre";
+					} else if (val < eVal) {
+						trendArr[trendArr.length] = "decre";
+					} else {
+						trendArr[trendArr.length] = "const";
+					}
+					key[key.length] = val;
+				}
+			}
+			if ((trendArr[0] === "incre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "incre") || (trendArr[0] === "const" && trendArr[1] === "const")) {
+				var diff1 = Math.abs(key[1] - key[0]),
+					diff2 = Math.abs(key[1] - key[2]);
+				if (Math.abs(diff2 - diff1) > 1) {
+					if (diff1 > diff2) {
+						trend = "incre";
+					} else {
+						trend = "decre";
+					}
+				} else {
+					trend = "const";
+				}
+			} else if ((trendArr[0] === "decre" && trendArr[1] === "decre") || (trendArr[0] === "decre" && trendArr[1] === "const") || (trendArr[0] === "const" && trendArr[1] === "decre")) {
+				trend = "decre";
+			} else if ((trendArr[0] === "incre" && trendArr[1] === "incre") || (trendArr[0] === "incre" && trendArr[1] === "const") || (trendArr[0] === "const" && trendArr[1] === "incre")) {
+				trend = "incre";
+			}
+			return trend;
+		}
+
+		function StandardDeviation(arr) {
+			let mean = arr.reduce((acc, curr) => {
+				return acc + curr
+			}, 0) / arr.length;
+
+			arr = arr.map((k) => {
+				return (k - mean) ** 2
+			});
+
+			let sum = arr.reduce((acc, curr) => acc + curr, 0);
+			let variance = sum / arr.length
+			return Math.sqrt(sum / arr.length)
+		}
+
+		function remove_array_element(array, n) {
+			var index = array.indexOf(n);
+			if (index > -1) {
+				array.splice(index, 1);
+			}
+			return array;
+		}
+
+		function similarInterval(a, b, t) {
+			const diff = Math.abs(a - b);
+			const res = diff > t ? false : true;
+			return res;
+		}
+
+		function similarAngle(t, r, d) {
+			const diff = Math.abs(t - r);
+			const res = diff > d ? false : true;
+			return res;
+		}
+
+		function filteredAcceleration(r) {
+			if (motionStart && r > 0 && r < 0.5) {
+				var output = r;
+				if (output > motionStartRef && motionStride === 0) {
+					motionStartRef = output;
+				}
+				return output;
+			} else if ((!motionStart && r > -0.5 && r < 0.5) || (motionStart && r === 0)) {
+				return 0;
+			} else if (r > motionStartRef) {
+				var output = r;
+				if (motionStride === 0) {
+					motionStartRef = output;
+				}
+				return output;
+			} else if (motionStartRef !== 0 && ((r > 0 && r < motionStartRef) || r === motionStartRef)) {
+				var output = r;
+				return output;
+			} else if (motionStartRef > 0 && !motionStart && (r < 0 && (r >= (-1 * motionStartRef)))) {
+				var output = r,
+					strideTrends = (stepsCountTimes.length >= 3) ? [
+						stepsCountTimes[stepsCountTimes.length - 1],
+						stepsCountTimes[stepsCountTimes.length - 2],
+						stepsCountTimes[stepsCountTimes.length - 3]
+					] : null,
+					strideMean = mean(stepsCountTimes),
+					strideDeviation = StandardDeviation(stepsCountTimes);
+				if (!motionEnd && strideTrends !== null) {
+					var reduction = true,
+						redMod = 0,
+						margin = 0,
+						percentile = 0;
+					for (a = 0; a < strideTrends.length - 1; a++) {
+						if ((strideTrends[a] > (strideMean - (3 * strideDeviation))) && (strideTrends[a] < (strideMean + (3 * strideDeviation)))) {
+							reduction = false;
+							break;
+						} else if (similarInterval(strideTrends[a], strideMean, 100)) {
+							reduction = false;
+							break;
+						} else if (strideTrends[a] > (strideMean * 1.5)) {
+							redMod = 0.25;
+							break;
+						} else {
+							redMod = 0.75;
+							remove_array_element(stepsCountTimes, stepsCountTimes[stepsCountTimes.length - (a + 1)]);
+							break;
+						}
+					}
+					if (!reduction) {
+						margin = output - (-1 * motionStartRef);
+						percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
+						output = output * (1 - percentile) * percentile;
+					} else {
+						margin = output - (-1 * motionStartRef);
+						percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
+						output = (output - ((1 - percentile) * output)) * redMod;
+					}
+				}
+
+				return output;
+			}
+
+			if (motionStart && accelerationPoints.length >= 3) {
+				var incrVelCheck = [false, false, false];
+				for (i = 0, j = 0; i < accelerationPoints.length; i++) {
+					if (accelerationPoints[i] > 0) {
+						if (j < incrVelCheck.length) {
+							incrVelCheck[j] = true;
+							j++;
+						} else {
+							break;
+						}
+					} else if (accelerationPoints[i] < 0) {
+						break;
+					}
+				}
+				motionStart = false;
+				for (k = 0; k < incrVelCheck.length; k++) {
+					if (incrVelCheck[k] === false) {
+						motionStart = true;
+						break;
+					}
+				}
+				if (!motionStart) {
+					motionStride = velocityLive * stepsCountTimes[stepsCountTimes.length - 1];
+				}
+			} else if (!motionStart && accelerationPoints.length >= 3) {
+				motionStride = motionStartRef * stepsCountTimes[stepsCountTimes.length - 1];
+			}
+
+			if (!motionStart || refVelocity) {
+				if (timerCountStepInterval === null) {
+					timerCounting = true;
+					timerCountStepInterval = setInterval(function() {
+						timerCountStep[timerCountStep.length] = timerCount;
+						timerCount = 0;
+					}, 3000);
+				}
+			}
+
+			if ((motionStartRef === 0 && r < motionStartRef) || (motionStartRef > 0 && r < 0 && motionStart)) {
+				var output = Math.abs(r);
+				if (output > motionStartRef && motionStride === 0) {
+					motionStartRef = output;
+				}
+				return output;
+			} else if (r < (-1 * motionStartRef)) {
+				var margin = r - (-1 * motionStartRef),
+					percentile = ((Math.abs(margin) / motionStartRef) <= 1) ? (Math.abs(margin) / motionStartRef) : 1;
+
+				return (motionStartRef * percentile * -1);
+			} else if (r < 0 && r >= (-1 * motionStartRef)) {
+				var output = r;
+				return output;
+			}
+		}
+
+		window.addEventListener('devicemotion', function(event) {
+			if (event.acceleration.x || event.acceleration.y || event.acceleration.z) {
+				deviceMotion = true;
+			}
+
+			const mStoggle = document.querySelector('.pwa .motionSenseToggle');
+			if (mStoggle.classList.contains("hide") && deviceOrientation) {
+				mStoggle.classList.remove("hide");
+			}
+
+			if (typeof ipAPIres.country !== 'undefined') {
+				var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s";
+			}
+			var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
+
+			var gpsVelocity = 0;
+
+			if (typeof ipAPIres !== 'undefined' && typeof ipAPIres.online !== 'undefined' && clientAPIres.online && !shaked && !rotation && !docHide) {
+				var gAcc = 9.81,
+					strideDis = 0.72,
+					zGAcc = event.accelerationIncludingGravity.z,
+					yAcc = event.acceleration.y,
+					xAcc = event.acceleration.x,
+					pitch = Math.abs(betaAngle),
+					pitchRad = pitch * (Math.PI / 180),
+					cosVal = Math.cos(pitchRad),
+					resAcc = gAcc / cosVal,
+					resZForce = Math.round((zGAcc / resAcc) * 100),
+					zThreshold = 40,
+					velocityEst = 0,
+					velocitySign = "~";
+
+				avgMotionStride = (tempUnit(ipAPIres.country.iso_code) === "metric") ? strideDis : (strideDis * 3.2808);
+
+				if (gpsPos !== null) {
+					gpsVelocity = (tempUnit(ipAPIres.country.iso_code) === "metric") ? gpsPos.coords.speed : (gpsPos.coords.speed * 3.2808);
+				}
+
+				if (screen.orientation.angle === 0 || screen.orientation.angle === 180) {
+					normalAcc = filteredAcceleration(yAcc);
+				} else if (screen.orientation.angle === 90 || screen.orientation.angle === 270) {
+					normalAcc = filteredAcceleration(xAcc);
+				}
+
+				if (accelerationDir) {
+					normalAcc = Math.abs(normalAcc);
+				} else {
+					normalAcc = (normalAcc < 0) ? normalAcc : (-1 * normalAcc);
+				}
+
+				if (!Math.round(event.acceleration.x) && !Math.round(event.acceleration.y) && !Math.round(event.acceleration.z)) {
+					pitchRef = pitch;
+					refZForce = resZForce;
+					motionRef = true;
+					if (!motionVelocity) {
+						accelerationInterval = setInterval(function() {
+							if (accelerationCount < 3) {
+								accelerationCount++;
+							} else {
+								accelerationDir = (accelerationDir) ? false : true;
+								accelerationCount = 0;
+							}
+
+							accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808);
+							velocityPoints[velocityPoints.length] = Math.abs(velocityLive);
+
+							if (Math.abs(velocityLive) > velocityCycleMax) {
+								velocityCycleMax = Math.abs(velocityLive);
+								velocityCycleMaxPoints[velocityCycleLive] = Math.abs(velocityLive);
+							}
+
+						}, 1000);
+						motionVelocity = true;
+					} else if (!refVelocity && oneStopMotion) {
+						refVelocity = true;
+						clearInterval(accelerationInterval);
+						accelerationPoints = [];
+						velocityPoints = [];
+						stepsCountInterval = [];
+						stepsCountTimes = [];
+						accelerationInterval = setInterval(function() {
+							if (accelerationCount < 3) {
+								accelerationCount++;
+							} else {
+								accelerationDir = (accelerationDir) ? false : true;
+								accelerationCount = 0;
+							}
+
+							accelerationPoints[accelerationPoints.length] = (tempUnit(ipAPIres.country.iso_code) === "metric") ? normalAcc : (normalAcc * 3.2808);
+							velocityPoints[velocityPoints.length] = Math.abs(velocityLive);
+
+							if (Math.abs(velocityLive) > velocityCycleMax) {
+								velocityCycleMax = Math.abs(velocityLive);
+								velocityCycleMaxPoints[velocityCycleLive] = Math.abs(velocityLive);
+							}
+						}, 1000);
+					}
+
+					if (motion && motionInterval === null) {
+						motionEndInterval = setTimeout(function() {
+							motionStartRef = 0;
+							accelerationPoints = [];
+							accelerationDir = false;
+							velocityPoints = [];
+							stepsCountInterval = [];
+							stepsCountTimes = [];
+
+							motionEnd = true;
+							motionEndCount++;
+
+							clearTimeout(motionEndInterval);
+						}, 100);
+
+						motionInterval = setTimeout(function() {
+							velocityEst = 0;
+							velocityEstRef = 0;
+							motion = false;
+
+							motionEnd = false;
+
+							accelerationDir = true;
+							oneStopMotion = true;
+							clearTimeout(motionInterval);
+
+							motionInterval = null;
+						}, 1000);
+
+					} else if (!motion && !motionEnd) {
+						motionStartRef = 0;
+						accelerationPoints = [];
+						accelerationDir = true;
+						velocityPoints = [];
+						stepsCountInterval = [];
+						stepsCountTimes = [];
+
+						velocityCycleMax = 0;
+						velocityCycle = 0;
+						velocityCycleLive = 0;
+						velocityCycleMaxPoints = []
+
+						velocityEst = 0;
+						velocityConstantRef = 0;
+						velocityEstRef = 0;
+
+						if (motionType !== "commute") {
+							if (nDeviceAcc < 0.5) {
+								if (nDeviceTimeout === null) {
+									nDeviceTimeout = setTimeout(function() {
+										commuteMode = false;
+										nDeviceTimeout = null;
+									}, 3000);
+								}
+							} else {
+								clearTimeout(nDeviceTimeout);
+								nDeviceTimeout = null;
+							}
+							motionType = "";
+						}
+					}
+
+				} else if (motionRef && similarAngle(pitch, pitchRef, 20)) {
+					if (!shaked && !rotation) {
+						const zDiff = resZForce - refZForce;
+						if (zDiff <= 10) {
+							noStep = false;
+						} else if (zDiff > zThreshold && !noStep && (gpsPos === null || (gpsPos && gpsPos.coords.speed > 0 && gpsPos.coords.speed <= 2))) {
+							var time = new Date().getTime();
+							if (stepsCountInterval.length > 0) {
+								stepsCountTimes[stepsCountTimes.length] = time - stepsCountInterval[stepsCountInterval.length - 1];
+							}
+							stepsCountInterval[stepsCountInterval.length] = time;
+							stepsCount++;
+							if (timerCounting) {
+								timerCount++;
+							}
+							noStep = true;
+						}
+					}
+					motion = true;
+					motionStart = true;
+
+					if (motionInterval !== null) {
+						clearTimeout(motionInterval);
+						motionInterval = null;
+					}
+
+					motionEnd = false;
+
+					if (motionEndInterval !== null) {
+						clearTimeout(motionEndInterval);
+						motionEndInterval = null;
+					}
+				} else {
+					motion = true;
+					motionStart = true;
+
+					if (motionInterval !== null) {
+						clearTimeout(motionInterval);
+						motionInterval = null;
+					}
+
+					motionEnd = false;
+
+					if (motionEndInterval !== null) {
+						clearTimeout(motionEndInterval);
+						motionEndInterval = null;
+					}
+					motionRef = false;
+				}
+
+				steps.innerHTML = "steps: " + stepsCount;
+
+				if (refVelocity && motionVelocity) {
+					let i = 0;
+					var velocityTotal = 0;
+					var threshold = 0.2;
+
+					while (i < accelerationPoints.length) {
+						var addOn = 0;
+						if (i < 1) {
+							addOn = ((accelerationPoints[i] + 0) / 2) * 1;
+						} else {
+							addOn = ((accelerationPoints[i] + accelerationPoints[i - 1]) / 2) * 1;
+						}
+						velocityTotal += addOn;
+						i++;
+					}
+
+					if (!velocityCycleLatch && (velocityTotal <= 0 || (velocityTotal <= (velocityCycleMax - (velocityCycleMax * threshold)))) && !motionStart && !motionEnd) {
+						accelerationPoints = [];
+						accelerationDir = true;
+						velocityTotal = 0;
+						velocityError = true;
+
+						velocityCycleMax = 0;
+						velocityCycleLive++;
+						if (velocityCycleLive > 1) {
+							velocityCycle++;
+						}
+						velocityCycleLatch = true;
+					} else {
+						if (velocityError && accelerationPoints.length >= 3) {
+							velocityError = false;
+							velocityCycleLatch = false;
+						}
+						velocityLive = Number(velocityTotal.toFixed(1));
+					}
+
+					var v = (velocityCycleMaxPoints.length) ? velocityCycleMaxPoints[velocityCycle] : 0;
+					var inRange = (Math.abs(velocityLive - v) < (threshold * v)) ? true : false;
+					var velMag = inRange ? velocityLive : (velocityLive < v) ? (v - (v * threshold)) : (v + (v * threshold));
+					var velLimiter = "";
+
+					if ((timerCountStep.length > timerCountStepCheck)) {
+						timerCountStepCheck = timerCountStep.length;
+						if (velocityConstantRef === 0) {
+							velocityConstantRef = velMag;
+						}
+						if (timerCountStep.length >= 3) {
+							var motionTrend = [timerCountStep[timerCountStep.length - 3],
+												timerCountStep[timerCountStep.length - 2],
+												timerCountStep[timerCountStep.length - 1]
+											],
+								motionRes = motionTrendCal(motionTrend);
+							if (motionRes === "decre") {
+								var diff = Math.abs(motionTrend[0] - motionTrend[2]),
+									velReduction = (diff * avgMotionStride) / 3;
+								velocityConstantRef -= velReduction;
+							} else if (motionRes === "incre") {
+								var diff = Math.abs(motionTrend[2] - motionTrend[0]),
+									velIncrease = (diff * avgMotionStride) / 3;
+								velocityConstantRef += velIncrease;
+							}
+						}
+						if (velocityConstantRef < 0) {
+							velocityConstantRef = 0;
+						}
+						velocityEst = velocityConstantRef / 2;
+						velocityEst = (velocityEst >= 0) ? (velocityEst <= 10) ? velocityEst : 10.1 : 0;
+						if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+							if (velocityEst === 10.1) {
+								velocityEst = 10;
+								velLimiter = "+";
+							} else {
+								velLimiter = "";
+							}
+						} else {
+							if (gpsVelocity > 100) {
+								gpsVelocity = 100;
+								velLimiter = "+";
+							} else {
+								velLimiter = "";
+							}
+						}
+						velocityEstRef = velocityEst;
+						if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+							velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit;
+						} else {
+							velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + velLimiter + " " + velocityUnit;
+						}
+					}
+
+					velocityEst = velocityTotal;
+					velocityEst = (velocityEst > 0) ? (velocityEst < 10) ? velocityEst.toFixed(1) : "10+" : (velocityEst > -10) ? Math.abs(velocityEst.toFixed(1)) : "10+";
+					velocityEstRef = velocityEst;
+
+				} else if (motionVelocity) {
+					if (accelerationPoints.length === 1) {
+						var accelerationDelta = accelerationPoints[accelerationPoints.length - 1] + 0;
+						velocityEst = (accelerationDelta / 2) * 1;
+						velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
+					} else if (accelerationPoints.length > 1) {
+						var accelerationTango = accelerationPoints[accelerationPoints.length - 1] + accelerationPoints[accelerationPoints.length - 2];
+						velocityEst = (accelerationTango / 2) * 1;
+						velocitySign = (velocityEst > 0) ? "+" : (velocityEst === 0) ? "~" : "";
+					}
+
+					velocityEst = (velocityEst >= 0) ? (velocityEst < 10) ? velocityEst : 10 : (velocityEst > -10) ? velocityEst : -10;
+					velocityEstRef = velocityEst;
+					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+						velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit;
+					} else {
+						velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+					}
+				}
+
+			} else {
+				velocityEst = 0;
+				velocityEstRef = 0;
+				if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+					velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit;
+				} else {
+					velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+				}
+				if (typeof velocityUnit === 'undefined') {
+					velocity.innerHTML = "";
+				}
+			}
+
+			if (motion) {
+				if (motionEndCountInterval === null) {
+					motionEndCountInterval = setTimeout(function() {
+						var stepsArray = [timerCountStep[timerCountStep.length - 3],
+									timerCountStep[timerCountStep.length - 2],
+									timerCountStep[timerCountStep.length - 1]
+								],
+							walking = true,
+							walkingChange = false,
+							walkingCount = 0;
+
+						for (var i = 0; i < stepsArray.length; i++) {
+							if (stepsArray[i] < 2) {
+								walking = false;
+								break;
+							}
+						}
+						for (var i = 0; i < stepsArray.length; i++) {
+							if (stepsArray[i] < 2) {
+								walkingCount++;
+							}
+						}
+						if (walkingCount > 0 && walkingCount < 3) {
+							walkingChange = true;
+						}
+
+						motionEndCountArray[motionEndCountArray.length] = motionEndCount;
+						motionEndCount = 0;
+						clearTimeout(motionEndCountInterval);
+						motionEndCountInterval = null;
+
+						if (walking) {
+							motionEndCount = 0;
+							clearTimeout(motionEndCountInterval);
+							motionEndCountInterval = null;
+							motionEndCountArray = [];
+							commuteMode = false;
+						} else {
+							let b = 0;
+							while (b < motionEndCountArray.length) {
+								if (motionEndCountArray[b] > 2 && nDeviceAcc > 1 && !walkingChange) {
+									commuteMode = true;
+
+									velocityConstantRef = 0;
+									velocityEst = 0;
+									velocityEstRef = 0;
+									timerCountStep = [];
+
+									if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
+										velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + " " + velocityUnit;
+									} else {
+										velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
+									}
+
+									break;
+								}
+								b++;
+							}
+						}
+					}, 3000);
+				}
+			}
+
+		}, false);
+
+		window.addEventListener('deviceorientation', function(event) {
+			if (event.alpha || event.beta || event.gamma) {
+				deviceOrientation = true;
+			}
+
+			const mStoggle = document.querySelector('.pwa .motionSenseToggle');
+			if (mStoggle.classList.contains("hide") && deviceMotion) {
+				mStoggle.classList.remove("hide");
+			}
+
+			if (!docHide) {
+				betaAngle = event.beta;
+
+				var bVal = Math.abs(Math.round(event.beta)),
+					gVal = Math.abs(Math.round(event.gamma));
+
+				if (bVal > 90 || gVal > 45) {
+					rotation = true;
+				} else {
+					rotation = false;
+				}
+			}
+
+		}, false);
+	</script>
+</body>
+</html>
