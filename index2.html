@@ -240,8 +240,7 @@
 			latestGravityNormalized = 0,
 			lookAheadLastAlertAt = 0;
 
-		var dataAppendLastAt = 0,
-			dataLines = [];
+		var dataAppendLastAt = 0;
 
 		function appendDataRealtime(line) {
 			if (!dataPanel) {
@@ -252,11 +251,7 @@
 				return;
 			}
 			dataAppendLastAt = now;
-			dataLines[dataLines.length] = line;
-			if (dataLines.length > 120) {
-				dataLines.shift();
-			}
-			dataPanel.innerHTML = dataLines.join('<br>');
+			dataPanel.textContent = line;
 		}
 
 		var lookAheadAlertCooldownMs = 45000;
