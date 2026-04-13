@@ -106,6 +106,26 @@
         .pedometer {
             margin-bottom: 2rem;
         }
+
+		.startstop {
+			background: #808080;
+			color: #fff;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 0.1rem;
+			margin-top: 2rem;
+			pointer-events: none;
+		}
+
+		.startstop.start {
+			background: #007000;
+			pointer-events: auto;
+		}
+
+		.startstop.stop {
+			background: #A10000;
+			pointer-events: auto;
+		}
 	</style>
 </head>
 <body ondragstart="return false;" onselectstart="return false;" oncopy="return false;">
@@ -126,9 +146,8 @@
                  <div class="velocity"><div class="velocityMagnitude"></div></div>
 			</div>
 			<!-- <div class="profile panel d_n">Watch your surroundings.</div> -->
+			<div class="startstop panel"></div>
 		</div>
-
-		<div class="data"></div>
 	</div>
 
 	<script>
@@ -227,7 +246,8 @@
 		const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
 		const recalibrateToggle = document.querySelector('.pwa .home .banner .motionSenseToggle.recalibrate');
 		const profilePanel = document.querySelector('.pwa .popups .profile.panel');
-		const dataPanel = document.querySelector('.data');
+		const startStopButton = document.querySelector('.pwa .startstop');
+		// const dataPanel = document.querySelector('.data');
 
 		var metricsRecording = false,
 			metricsRecords = [],
@@ -252,6 +272,37 @@
 			}
 			dataAppendLastAt = now;
 			dataPanel.textContent = line;
+		}
+
+		function setStartStopReadingState(isReading) {
+			if (!startStopButton) {
+				return;
+			}
+			if (isReading) {
+				startStopButton.classList.add('start');
+				startStopButton.classList.remove('stop');
+				startStopButton.textContent = 'start';
+			} else {
+				startStopButton.classList.remove('start');
+				startStopButton.classList.remove('stop');
+				startStopButton.textContent = '';
+			}
+		}
+
+		if (startStopButton) {
+			startStopButton.addEventListener('click', function() {
+				if (startStopButton.classList.contains('start')) {
+					startMetricsRecording();
+					startStopButton.classList.remove('start');
+					startStopButton.classList.add('stop');
+					startStopButton.textContent = 'stop';
+				} else if (startStopButton.classList.contains('stop')) {
+					stopMetricsRecording();
+					startStopButton.classList.remove('stop');
+					startStopButton.classList.add('start');
+					startStopButton.textContent = 'start';
+				}
+			});
 		}
 
 		var lookAheadAlertCooldownMs = 45000;
@@ -788,6 +839,7 @@
 			if (mStoggle.classList.contains("hide") && deviceOrientation) {
 				mStoggle.classList.remove("hide");
                 mStoggle.innerHTML = "reading";
+				setStartStopReadingState(true);
 			}
 
 			if (typeof ipAPIres.country !== 'undefined') {
@@ -1268,6 +1320,7 @@
 			if (mStoggle.classList.contains("hide") && deviceMotion) {
 				mStoggle.classList.remove("hide");
                 mStoggle.innerHTML = "reading";
+				setStartStopReadingState(true);
 			}
 
 			// if (!docHide) {
