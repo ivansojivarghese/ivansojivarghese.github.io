@@ -390,8 +390,11 @@
 			var stepsDelta = Math.max(0, stepsCount - distanceStartSteps);
 			var stepDistanceMeters = stepsDelta * (avgMotionStride > 0 ? avgMotionStride : 0.72);
 
-			// Fuse velocity integration with stride-based step distance for stability.
-			distanceMeters = (distanceFromVelocityMeters * 0.7) + (stepDistanceMeters * 0.3);
+			// Keep distance primarily step-based, with a small velocity correction.
+			distanceMeters = stepDistanceMeters + ((distanceFromVelocityMeters - stepDistanceMeters) * 0.1);
+			if (distanceMeters < 0) {
+				distanceMeters = 0;
+			}
 			renderDistanceValue();
 		}
 
