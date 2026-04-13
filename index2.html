@@ -514,6 +514,27 @@
 			}
 		}
 
+		function renderDistanceValue() {
+			if (!distance) {
+				return;
+			}
+			if (unitMode === 'metric') {
+				if (distanceMeters >= 1000) {
+					distance.innerHTML = "<div class='distanceMagnitude'>" + (distanceMeters / 1000).toFixed(2) + " km</div>distance";
+				} else {
+					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceMeters.toFixed(1) + " m</div>distance";
+				}
+			} else {
+				var distanceFeet = distanceMeters * 3.2808;
+				var distanceMiles = distanceMeters / 1609.344;
+				if (distanceFeet >= 5280) {
+					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceMiles.toFixed(2) + " mi</div>distance";
+				} else {
+					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceFeet.toFixed(1) + " ft</div>distance";
+				}
+			}
+		}
+
 		function resetDistanceTracking() {
 			distanceTrackingStartedAt = 0;
 			distanceLastSampleAt = 0;
