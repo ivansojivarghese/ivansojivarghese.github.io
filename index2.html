@@ -248,7 +248,8 @@
 			var metrics = {
 				steps: stepsCount,
 				distance: distanceMeters,
-				starValue: starValue
+				starValue: starValue,
+				distanceStartSteps: distanceStartSteps
 			};
 			localStorage.setItem(storageKey, JSON.stringify(metrics));
 			localStorage.setItem(storageDateKey, new Date().getTime());
@@ -262,6 +263,8 @@
 					stepsCount = metrics.steps || 0;
 					distanceMeters = metrics.distance || 0;
 					starValue = metrics.starValue || 0;
+					distanceStartSteps = metrics.distanceStartSteps || 0;
+					distanceTrackingStartedAt = Date.now();
 					return true;
 				} catch (e) {
 					console.log('Failed to parse stored metrics');
@@ -274,6 +277,8 @@
 			stepsCount = 0;
 			distanceMeters = 0;
 			starValue = 0;
+			distanceStartSteps = 0;
+			distanceTrackingStartedAt = 0;
 			localStorage.removeItem(storageKey);
 			localStorage.removeItem(storageDateKey);
 		}
