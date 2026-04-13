@@ -239,6 +239,8 @@
 		}
 
 		var starIncrementTimeout = null;
+		var lookAheadStarTimeout = null;
+		var lookAheadStarMarkup = '';
 
 		function flashStarIncrement() {
 			var starsToggle = document.querySelector('.pwa .unitToggle.stars');
@@ -252,6 +254,29 @@
 			starIncrementTimeout = setTimeout(function() {
 				starsToggle.classList.remove('increment');
 				starIncrementTimeout = null;
+			}, 5000);
+		}
+
+		function flashLookAheadStars() {
+			var starsToggle = document.querySelector('.pwa .unitToggle.stars');
+			if (!starsToggle) {
+				return;
+			}
+			if (!lookAheadStarMarkup) {
+				lookAheadStarMarkup = starsToggle.innerHTML;
+			}
+			starsToggle.style.background = "#A10000";
+			starsToggle.style.color = "#fff";
+			starsToggle.innerHTML = 'look up';
+			if (lookAheadStarTimeout !== null) {
+				clearTimeout(lookAheadStarTimeout);
+			}
+			lookAheadStarTimeout = setTimeout(function() {
+				starsToggle.innerHTML = lookAheadStarMarkup;
+				starsToggle.style.background = "";
+				starsToggle.style.color = "";
+				updateStarValueDisplay();
+				lookAheadStarTimeout = null;
 			}, 5000);
 		}
 
@@ -547,7 +572,7 @@
 
 			if (holdingViewingPosture && cadenceSpm >= 70) {
 				lookAheadLastAlertAt = now;
-				// alert('Look ahead while walking.');
+				flashLookAheadStars();
 			}
 		}
 
