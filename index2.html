@@ -168,7 +168,7 @@
 			<!-- <div class="profile panel d_n">Watch your surroundings.</div> -->
 			<div class="startstop panel">start</div>
 			<div class="reset panel">reset</div>
-			<div class="unitToggle panel">imperial</div>
+			<div class="unitToggle panel">metric</div>
 		</div>
 	</div>
 
@@ -365,7 +365,9 @@
 
 		if (resetButton) {
 			resetButton.addEventListener('click', function() {
+				vibrateDevice([40]);
 				metricsRecording = false;
+				steps.style.color = stepsDefaultColor;
 				metricsRecords = [];
 				metricsTapTimes = [];
 				metricsRecordingStartedAt = 0;
@@ -394,6 +396,7 @@
 		if (unitToggleButton) {
 			updateUnitToggleLabel();
 			unitToggleButton.addEventListener('click', function() {
+				vibrateDevice([40]);
 				unitMode = (unitMode === 'metric') ? 'imperial' : 'metric';
 				updateUnitToggleLabel();
 				renderDistanceValue();
