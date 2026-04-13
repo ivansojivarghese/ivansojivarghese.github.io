@@ -111,7 +111,7 @@
             margin-bottom: 2rem;
         }
 
-		.startstop {
+		.startstop, .reset {
 			background: #808080;
 			color: #fff;
 			text-align: center;
@@ -129,6 +129,12 @@
 		.startstop.stop {
 			background: #A10000;
 			pointer-events: auto;
+		}
+
+		.reset {
+			background: #A10000;
+			pointer-events: auto;
+			cursor: pointer;
 		}
 	</style>
 </head>
@@ -152,6 +158,7 @@
 			</div>
 			<!-- <div class="profile panel d_n">Watch your surroundings.</div> -->
 			<div class="startstop panel">start</div>
+			<div class="reset panel">reset</div>
 		</div>
 	</div>
 
@@ -253,6 +260,7 @@
 		const recalibrateToggle = document.querySelector('.pwa .home .banner .motionSenseToggle.recalibrate');
 		const profilePanel = document.querySelector('.pwa .popups .profile.panel');
 		const startStopButton = document.querySelector('.pwa .startstop');
+		const resetButton = document.querySelector('.pwa .reset');
 		// const dataPanel = document.querySelector('.data');
 
 		var metricsRecording = false,
@@ -309,6 +317,34 @@
 					startStopButton.textContent = 'stop';
 				} else if (startStopButton.classList.contains('stop')) {
 					stopMetricsRecording();
+					startStopButton.classList.remove('stop');
+					startStopButton.classList.add('start');
+					startStopButton.textContent = 'start';
+				}
+			});
+		}
+
+		if (resetButton) {
+			resetButton.addEventListener('click', function() {
+				metricsRecording = false;
+				metricsRecords = [];
+				metricsTapTimes = [];
+				metricsRecordingStartedAt = 0;
+
+				resetMotionParams();
+				resetDistanceTracking();
+
+				steps.innerHTML = 0;
+				velocityEstRef = 0;
+				velocityLive = 0;
+				velocity.innerHTML = "<div class='velocityMagnitude'>0.0</div> velocity";
+				setRecalibrateVisible(false);
+
+				if (profilePanel) {
+					profilePanel.classList.add('d_n');
+				}
+
+				if (startStopButton && startStopButton.classList.contains('stop')) {
 					startStopButton.classList.remove('stop');
 					startStopButton.classList.add('start');
 					startStopButton.textContent = 'start';
