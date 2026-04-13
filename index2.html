@@ -99,7 +99,11 @@
             font-size: 4rem;
         }
 
-        .velocityMagnitude {
+		.velocity {
+			margin-bottom: 1rem;
+		}
+
+        .velocityMagnitude, .distanceMagnitude {
             font-size: 2rem;
         }
 
@@ -411,7 +415,6 @@
 		function stopMetricsRecording() {
 			metricsRecording = false;
 			steps.style.color = stepsDefaultColor;
-			resetDistanceTracking();
 			if (profilePanel) {
 				profilePanel.classList.add('d_n');
 			}
