@@ -174,7 +174,7 @@
 			<div class="startstop panel">start</div>
 			<div class="reset panel">reset</div>
 			<div class="unitToggle panel">metric</div>
-			<div class="unitToggle stars panel">0 / 50</div>
+			<div class="unitToggle stars panel"><span class="starValue">0</span> / 50</div>
 		</div>
 	</div>
 
@@ -225,6 +225,59 @@
 			unitToggleButton.textContent = unitMode;
 		}
 
+		var storageKey = 'motionSenseMetrics';
+		var storageDateKey = 'motionSenseMetricsDate';
+
+		function getStorageDate() {
+			var dateStr = localStorage.getItem(storageDateKey);
+			if (dateStr) {
+				return new Date(parseInt(dateStr));
+			}
+			return new Date();
+		}
+
+		function isNewDay() {
+			var savedDate = getStorageDate();
+			var today = new Date();
+			return (savedDate.getFullYear() !== today.getFullYear() ||
+					savedDate.getMonth() !== today.getMonth() ||
+					savedDate.getDate() !== today.getDate());
+		}
+
+		function saveMetricsToStorage() {
+			var metrics = {
+				steps: stepsCount,
+				distance: distanceMeters,
+				starValue: starValue
+			};
+			localStorage.setItem(storageKey, JSON.stringify(metrics));
+			localStorage.setItem(storageDateKey, new Date().getTime());
+		}
+
+		function loadMetricsFromStorage() {
+			var stored = localStorage.getItem(storageKey);
+			if (stored) {
+				try {
+					var metrics = JSON.parse(stored);
+					stepsCount = metrics.steps || 0;
+					distanceMeters = metrics.distance || 0;
+					starValue = metrics.starValue || 0;
+					return true;
+				} catch (e) {
+					console.log('Failed to parse stored metrics');
+				}
+			}
+			return false;
+		}
+
+		function resetMetricsStorage() {
+			stepsCount = 0;
+			distanceMeters = 0;
+			starValue = 0;
+			localStorage.removeItem(storageKey);
+			localStorage.removeItem(storageDateKey);
+		}
+
 		function mean(arr) {
 			if (!arr || !arr.length) {
 				return 0;
@@ -232,7 +285,8 @@
 			return arr.reduce((acc, curr) => acc + curr, 0) / arr.length;
 		}
 
-		var normalAcc = 0,
+		var starValue = 0,
+			normalAcc = 0,
 			timerCountStepCheck = 0,
 			timerCountStepInterval = null,
 			timerCountStep = [],
@@ -381,7 +435,14 @@
 				resetMotionParams();
 				resetDistanceTracking();
 
+				stepsCount = 0;
+				distanceMeters = 0;
+				starValue = 0;
+				resetMetricsStorage();
+
 				steps.innerHTML = 0;
+				var starEl = document.querySelector('.starValue');
+				if (starEl) starEl.textContent = '0';
 				velocityEstRef = 0;
 				velocityLive = 0;
 				renderVelocityValue(0, 'velocity', '', '');
@@ -437,30 +498,19 @@
 			}
 		}
 
-		function vibrateDevice(pattern) {
-			if (navigator.vibrate) {
-				navigator.vibrate(pattern || [60, 40, 60]);
-			}
-		}
-
-		function renderDistanceValue() {
-			if (!distance) {
-				return;
-			}
-			if (unitMode === 'metric') {
-				if (distanceMeters >= 1000) {
-					distance.innerHTML = "<div class='distanceMagnitude'>" + (distanceMeters / 1000).toFixed(2) + " km</div>distance";
-				} else {
-					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceMeters.toFixed(1) + " m</div>distance";
-				}
+		function initializeDailyReset() {
+			if (isNewDay()) {
+				resetMetricsStorage();
+				if (steps) steps.innerHTML = 0;
+				if (distance) renderDistanceValue();
+				var starEl = document.querySelector('.starValue');
+				if (starEl) starEl.textContent = '0';
 			} else {
-				var distanceFeet = distanceMeters * 3.2808;
-				var distanceMiles = distanceMeters / 1609.344;
-				if (distanceFeet >= 5280) {
-					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceMiles.toFixed(2) + " mi</div>distance";
-				} else {
-					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceFeet.toFixed(1) + " ft</div>distance";
-				}
+				loadMetricsFromStorage();
+				if (steps) steps.innerHTML = stepsCount;
+				if (distance) renderDistanceValue();
+				var starEl = document.querySelector('.starValue');
+				if (starEl) starEl.textContent = starValue;
 			}
 		}
 
@@ -500,6 +550,7 @@
 				distanceMeters = 0;
 			}
 			renderDistanceValue();
+			saveMetricsToStorage();
 		}
 
 		function startMetricsRecording() {
@@ -1192,6 +1243,7 @@
 							}
 							stepsCountInterval[stepsCountInterval.length] = time;
 							stepsCount++;
+							saveMetricsToStorage();
 							maybeAlertLookAhead();
 							meaningfulMotion = true;
 							if (timerCounting) {
@@ -1550,6 +1602,8 @@
             //put your own code here etc.
             // alert('shake!');
         }
+
+        initializeDailyReset();
     </script>
 </body>
 </html>
