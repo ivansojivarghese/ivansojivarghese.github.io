@@ -370,10 +370,6 @@
 		}
 
 		function updateDistanceTracking(velocityMetersPerSec) {
-			if (!metricsRecording) {
-				return;
-			}
-
 			var now = Date.now();
 			if (!distanceTrackingStartedAt) {
 				distanceTrackingStartedAt = now;
@@ -403,7 +399,6 @@
 			metricsRecording = true;
 			metricsRecords = [];
 			metricsRecordingStartedAt = Date.now();
-			resetDistanceTracking();
 			stepsDefaultColor = steps.style.color || '';
 			steps.style.color = '#007000';
 			if (profilePanel) {
