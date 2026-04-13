@@ -150,6 +150,12 @@
 		.unitToggle.stars {
 			margin-left: 5%;
 		}
+
+		.unitToggle.stars.increment {
+			background: #007000;
+			color: #fff;
+			font-weight: bold;
+		}
 	</style>
 </head>
 <body ondragstart="return false;" onselectstart="return false;" oncopy="return false;">
@@ -230,6 +236,23 @@
 			if (starEl) {
 				starEl.textContent = starValue;
 			}
+		}
+
+		var starIncrementTimeout = null;
+
+		function flashStarIncrement() {
+			var starsToggle = document.querySelector('.pwa .unitToggle.stars');
+			if (!starsToggle) {
+				return;
+			}
+			starsToggle.classList.add('increment');
+			if (starIncrementTimeout !== null) {
+				clearTimeout(starIncrementTimeout);
+			}
+			starIncrementTimeout = setTimeout(function() {
+				starsToggle.classList.remove('increment');
+				starIncrementTimeout = null;
+			}, 5000);
 		}
 
 		var storageKey = 'motionSenseMetrics';
@@ -1305,6 +1328,7 @@
 								var nextStarValue = Math.min(50, Math.floor(trackedStepCount / 100));
 								if (nextStarValue !== starValue) {
 									starValue = nextStarValue;
+									flashStarIncrement();
 									updateStarValueDisplay();
 								}
 							}
