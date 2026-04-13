@@ -267,6 +267,7 @@
 			}
 			starsToggle.style.background = "#A10000";
 			starsToggle.style.color = "#fff";
+			starsToggle.style.fontWeight = 'bold';
 			starsToggle.innerHTML = 'look up';
 			if (lookAheadStarTimeout !== null) {
 				clearTimeout(lookAheadStarTimeout);
@@ -275,6 +276,7 @@
 				starsToggle.innerHTML = lookAheadStarMarkup;
 				starsToggle.style.background = "";
 				starsToggle.style.color = "";
+				starsToggle.style.fontWeight = "";
 				updateStarValueDisplay();
 				lookAheadStarTimeout = null;
 			}, 5000);
@@ -549,7 +551,7 @@
 			});
 		}
 
-		var lookAheadAlertCooldownMs = 45000;
+		var lookAheadAlertCooldownMs = 10000;
 
 		function maybeAlertLookAhead() {
 			var now = Date.now();
