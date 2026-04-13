@@ -225,6 +225,13 @@
 			unitToggleButton.textContent = unitMode;
 		}
 
+		function updateStarValueDisplay() {
+			var starEl = document.querySelector('.starValue');
+			if (starEl) {
+				starEl.textContent = starValue;
+			}
+		}
+
 		var storageKey = 'motionSenseMetrics';
 		var storageDateKey = 'motionSenseMetricsDate';
 		var unitModeStorageKey = 'motionSenseUnitMode';
@@ -250,6 +257,7 @@
 				steps: stepsCount,
 				distance: distanceMeters,
 				starValue: starValue,
+				trackedStepCount: trackedStepCount,
 				distanceStartSteps: distanceStartSteps
 			};
 			localStorage.setItem(storageKey, JSON.stringify(metrics));
@@ -263,7 +271,8 @@
 					var metrics = JSON.parse(stored);
 					stepsCount = metrics.steps || 0;
 					distanceMeters = metrics.distance || 0;
-					starValue = metrics.starValue || 0;
+					trackedStepCount = metrics.trackedStepCount || ((metrics.starValue || 0) * 100);
+					starValue = Math.min(50, metrics.starValue || Math.floor(trackedStepCount / 100));
 					distanceStartSteps = metrics.distanceStartSteps || 0;
 					distanceTrackingStartedAt = Date.now();
 					return true;
@@ -278,6 +287,7 @@
 			stepsCount = 0;
 			distanceMeters = 0;
 			starValue = 0;
+			trackedStepCount = 0;
 			distanceStartSteps = 0;
 			distanceTrackingStartedAt = 0;
 			localStorage.removeItem(storageKey);
@@ -312,6 +322,7 @@
 			timerCounting = false,
 			timerCount = 0,
 			stepsCount = 0,
+			trackedStepCount = 0,
 			stepsCountInterval = [],
 			stepsCountTimes = [],
 			betaAngle = 0,
@@ -460,8 +471,7 @@
 				resetMetricsStorage();
 
 				steps.innerHTML = 0;
-				var starEl = document.querySelector('.starValue');
-				if (starEl) starEl.textContent = '0';
+				updateStarValueDisplay();
 				velocityEstRef = 0;
 				velocityLive = 0;
 				renderVelocityValue(0, 'velocity', '', '');
@@ -525,14 +535,12 @@
 				resetMetricsStorage();
 				if (steps) steps.innerHTML = 0;
 				if (distance) renderDistanceValue();
-				var starEl = document.querySelector('.starValue');
-				if (starEl) starEl.textContent = '0';
+				updateStarValueDisplay();
 			} else {
 				loadMetricsFromStorage();
 				if (steps) steps.innerHTML = stepsCount;
 				if (distance) renderDistanceValue();
-				var starEl = document.querySelector('.starValue');
-				if (starEl) starEl.textContent = starValue;
+				updateStarValueDisplay();
 			}
 		}
 
@@ -1292,6 +1300,14 @@
 							}
 							stepsCountInterval[stepsCountInterval.length] = time;
 							stepsCount++;
+							if (metricsRecording) {
+								trackedStepCount++;
+								var nextStarValue = Math.min(50, Math.floor(trackedStepCount / 100));
+								if (nextStarValue !== starValue) {
+									starValue = nextStarValue;
+									updateStarValueDisplay();
+								}
+							}
 							saveMetricsToStorage();
 							maybeAlertLookAhead();
 							meaningfulMotion = true;
