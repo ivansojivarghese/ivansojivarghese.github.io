@@ -144,6 +144,7 @@
                  <div class="pedometer"><div class="steps">0</div> steps</div>
 				<!-- <div class="velocity" style="display: none;"></div> -->
                  <div class="velocity"><div class="velocityMagnitude"></div></div>
+				 <div class="distance"><div class="distanceMagnitude"></div></div>
 			</div>
 			<!-- <div class="profile panel d_n">Watch your surroundings.</div> -->
 			<div class="startstop panel">start</div>
@@ -243,6 +244,7 @@
 
 		const steps = document.querySelector('.pwa .popups .deviceInfo .steps');
 		const velocity = document.querySelector('.pwa .popups .deviceInfo .velocity');
+		const distance = document.querySelector('.pwa .popups .deviceInfo .distance');
 		const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
 		const recalibrateToggle = document.querySelector('.pwa .home .banner .motionSenseToggle.recalibrate');
 		const profilePanel = document.querySelector('.pwa .popups .profile.panel');
@@ -253,6 +255,11 @@
 			metricsRecords = [],
 			metricsTapTimes = [],
 			metricsRecordingStartedAt = 0,
+			distanceTrackingStartedAt = 0,
+			distanceLastSampleAt = 0,
+			distanceMeters = 0,
+			distanceStartSteps = 0,
+			distanceFromVelocityMeters = 0,
 			stepsDefaultColor = '',
 			latestLinearMag = 0,
 			latestCadenceVelocity = 0,
@@ -338,10 +345,61 @@
 			}
 		}
 
+		function renderDistanceValue() {
+			if (!distance) {
+				return;
+			}
+			if (distanceMeters >= 1000) {
+				distance.innerHTML = "<div class='distanceMagnitude'>" + (distanceMeters / 1000).toFixed(2) + " km</div>distance";
+			} else {
+				distance.innerHTML = "<div class='distanceMagnitude'>" + distanceMeters.toFixed(1) + " m</div>distance";
+			}
+		}
+
+		function resetDistanceTracking() {
+			distanceTrackingStartedAt = 0;
+			distanceLastSampleAt = 0;
+			distanceMeters = 0;
+			distanceStartSteps = stepsCount;
+			distanceFromVelocityMeters = 0;
+			renderDistanceValue();
+		}
+
+		function updateDistanceTracking(velocityMetersPerSec) {
+			if (!metricsRecording) {
+				return;
+			}
+
+			var now = Date.now();
+			if (!distanceTrackingStartedAt) {
+				distanceTrackingStartedAt = now;
+				distanceLastSampleAt = now;
+				distanceStartSteps = stepsCount;
+				return;
+			}
+
+			var deltaSec = (now - distanceLastSampleAt) / 1000;
+			distanceLastSampleAt = now;
+			if (deltaSec < 0 || deltaSec > 3) {
+				return;
+			}
+
+			var v = Math.max(0, Number(velocityMetersPerSec) || 0);
+			distanceFromVelocityMeters += v * deltaSec;
+
+			var stepsDelta = Math.max(0, stepsCount - distanceStartSteps);
+			var stepDistanceMeters = stepsDelta * (avgMotionStride > 0 ? avgMotionStride : 0.72);
+
+			// Fuse velocity integration with stride-based step distance for stability.
+			distanceMeters = (distanceFromVelocityMeters * 0.7) + (stepDistanceMeters * 0.3);
+			renderDistanceValue();
+		}
+
 		function startMetricsRecording() {
 			metricsRecording = true;
 			metricsRecords = [];
 			metricsRecordingStartedAt = Date.now();
+			resetDistanceTracking();
 			stepsDefaultColor = steps.style.color || '';
 			steps.style.color = '#007000';
 			if (profilePanel) {
@@ -353,6 +411,7 @@
 		function stopMetricsRecording() {
 			metricsRecording = false;
 			steps.style.color = stepsDefaultColor;
+			resetDistanceTracking();
 			if (profilePanel) {
 				profilePanel.classList.add('d_n');
 			}
@@ -435,6 +494,7 @@
 		}
 
 		setRecalibrateVisible(false);
+		resetDistanceTracking();
 
 		screen.orientation.addEventListener("change", function() {
 			// resetMotionParams();
@@ -1224,6 +1284,7 @@
 				if (!meaningfulMotion && Math.abs(Number(velocityEstRef) || 0) >= 0.35) {
 					meaningfulMotion = true;
 				}
+				updateDistanceTracking(Number(velocityEstRef) || 0);
 				if (meaningfulMotion) {
 					trackWakeLockActivity();
 				}
