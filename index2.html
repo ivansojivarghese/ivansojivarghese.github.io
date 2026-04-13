@@ -227,6 +227,7 @@
 
 		var storageKey = 'motionSenseMetrics';
 		var storageDateKey = 'motionSenseMetricsDate';
+		var unitModeStorageKey = 'motionSenseUnitMode';
 
 		function getStorageDate() {
 			var dateStr = localStorage.getItem(storageDateKey);
@@ -281,6 +282,19 @@
 			distanceTrackingStartedAt = 0;
 			localStorage.removeItem(storageKey);
 			localStorage.removeItem(storageDateKey);
+		}
+
+		function saveUnitModeToStorage() {
+			localStorage.setItem(unitModeStorageKey, unitMode);
+		}
+
+		function loadUnitModeFromStorage() {
+			var stored = localStorage.getItem(unitModeStorageKey);
+			if (stored && (stored === 'metric' || stored === 'imperial')) {
+				unitMode = stored;
+				return true;
+			}
+			return false;
 		}
 
 		function mean(arr) {
@@ -470,6 +484,7 @@
 			unitToggleButton.addEventListener('click', function() {
 				vibrateDevice([40]);
 				unitMode = (unitMode === 'metric') ? 'imperial' : 'metric';
+				saveUnitModeToStorage();
 				updateUnitToggleLabel();
 				renderDistanceValue();
 				renderVelocityValue(Number(velocityEstRef) || 0, 'velocity', '', '');
@@ -504,6 +519,8 @@
 		}
 
 		function initializeDailyReset() {
+			loadUnitModeFromStorage();
+			updateUnitToggleLabel();
 			if (isNewDay()) {
 				resetMetricsStorage();
 				if (steps) steps.innerHTML = 0;
