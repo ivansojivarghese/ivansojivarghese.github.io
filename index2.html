@@ -111,7 +111,7 @@
             margin-bottom: 2rem;
         }
 
-		.startstop, .reset {
+		.startstop, .reset, .unitToggle {
 			background: #808080;
 			color: #fff;
 			text-align: center;
@@ -132,6 +132,11 @@
 		}
 
 		.reset {
+			pointer-events: auto;
+			margin-top: 1rem;
+		}
+
+		.unitToggle {
 			pointer-events: auto;
 			margin-top: 1rem;
 		}
@@ -158,6 +163,7 @@
 			<!-- <div class="profile panel d_n">Watch your surroundings.</div> -->
 			<div class="startstop panel">start</div>
 			<div class="reset panel">reset</div>
+			<div class="unitToggle panel">metric</div>
 		</div>
 	</div>
 
@@ -175,9 +181,37 @@
 
 		var gpsPos = null;
 		var shaked = false;
+		var unitMode = "metric";
 
 		function tempUnit(c) {
 			return "metric";
+		}
+
+		function getVelocityUnitLabel() {
+			return (unitMode === "metric") ? "m/s" : "ft/s";
+		}
+
+		function velocityForDisplay(metersPerSecond) {
+			var v = Number(metersPerSecond) || 0;
+			return (unitMode === "metric") ? v : (v * 3.2808);
+		}
+
+		function renderVelocityValue(valueMps, label, sign, limiter) {
+			if (!velocity) {
+				return;
+			}
+			var displayValue = velocityForDisplay(valueMps);
+			var velocityUnit = getVelocityUnitLabel();
+			var signText = sign || "";
+			var limiterText = limiter || "";
+			velocity.innerHTML = "<div class='velocityMagnitude'>" + signText + displayValue.toFixed(1) + limiterText + " " + velocityUnit + "</div>" + label;
+		}
+
+		function updateUnitToggleLabel() {
+			if (!unitToggleButton) {
+				return;
+			}
+			unitToggleButton.textContent = unitMode;
 		}
 
 		function mean(arr) {
@@ -260,6 +294,7 @@
 		const profilePanel = document.querySelector('.pwa .popups .profile.panel');
 		const startStopButton = document.querySelector('.pwa .startstop');
 		const resetButton = document.querySelector('.pwa .reset');
+		const unitToggleButton = document.querySelector('.pwa .unitToggle');
 		// const dataPanel = document.querySelector('.data');
 
 		var metricsRecording = false,
@@ -336,7 +371,7 @@
 				steps.innerHTML = 0;
 				velocityEstRef = 0;
 				velocityLive = 0;
-				velocity.innerHTML = "<div class='velocityMagnitude'>0.0</div> velocity";
+				renderVelocityValue(0, 'velocity', '', '');
 				setRecalibrateVisible(false);
 
 				if (profilePanel) {
@@ -348,6 +383,16 @@
 					startStopButton.classList.add('start');
 					startStopButton.textContent = 'start';
 				}
+			});
+		}
+
+		if (unitToggleButton) {
+			updateUnitToggleLabel();
+			unitToggleButton.addEventListener('click', function() {
+				unitMode = (unitMode === 'metric') ? 'imperial' : 'metric';
+				updateUnitToggleLabel();
+				renderDistanceValue();
+				renderVelocityValue(Number(velocityEstRef) || 0, 'velocity', '', '');
 			});
 		}
 
@@ -388,10 +433,20 @@
 			if (!distance) {
 				return;
 			}
-			if (distanceMeters >= 1000) {
-				distance.innerHTML = "<div class='distanceMagnitude'>" + (distanceMeters / 1000).toFixed(2) + " km</div>distance";
+			if (unitMode === 'metric') {
+				if (distanceMeters >= 1000) {
+					distance.innerHTML = "<div class='distanceMagnitude'>" + (distanceMeters / 1000).toFixed(2) + " km</div>distance";
+				} else {
+					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceMeters.toFixed(1) + " m</div>distance";
+				}
 			} else {
-				distance.innerHTML = "<div class='distanceMagnitude'>" + distanceMeters.toFixed(1) + " m</div>distance";
+				var distanceFeet = distanceMeters * 3.2808;
+				var distanceMiles = distanceMeters / 1609.344;
+				if (distanceFeet >= 5280) {
+					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceMiles.toFixed(2) + " mi</div>distance";
+				} else {
+					distance.innerHTML = "<div class='distanceMagnitude'>" + distanceFeet.toFixed(1) + " ft</div>distance";
+				}
 			}
 		}
 
@@ -938,9 +993,7 @@
 				setStartStopReadingState(true);
 			}
 
-			if (typeof ipAPIres.country !== 'undefined') {
-				var velocityUnit = (tempUnit(ipAPIres.country.iso_code) === "metric") ? "m/s" : "ft/s";
-			}
+			var velocityUnit = getVelocityUnitLabel();
 			var nDeviceAcc = Math.sqrt(Math.pow(event.acceleration.y, 2) + Math.pow(event.acceleration.x, 2));
 
 			var gpsVelocity = 0;
@@ -1270,11 +1323,11 @@
 					velocityEstRef = velocityEst;
 					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
 						// velocity.innerHTML = "velocity: " + velocityEst.toFixed(1) + velLimiter + " " + velocityUnit;
-                        velocity.innerHTML = "<div class='velocityMagnitude'>" + velocityEst.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
+						renderVelocityValue(velocityEst, 'velocity', '', velLimiter);
 						setRecalibrateVisible(velocityOutlier);
 					} else {
 						// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + velLimiter + " " + velocityUnit;
-                        velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + velLimiter + ' ' + velocityUnit + "</div> velocity";
+						renderVelocityValue(gpsVelocity, 'velocity', '', velLimiter);
 						setRecalibrateVisible(false);
 					}
 
@@ -1293,11 +1346,11 @@
 					velocityEstRef = velocityEst;
 					if ((gpsPos === null || (gpsPos && gpsPos.coords.speed === null))) {
 						// velocity.innerHTML = "Δ velocity: " + velocitySign + velocityEst.toFixed(1) + " " + velocityUnit;
-                        velocity.innerHTML = "<div class='velocityMagnitude'>" + velocitySign + velocityEst.toFixed(1) + ' ' + velocityUnit + "</div>Δ velocity";
+						renderVelocityValue(velocityEst, 'Δ velocity', velocitySign, '');
 						setRecalibrateVisible(true);
 					} else {
 						// velocity.innerHTML = "velocity: " + gpsVelocity.toFixed(1) + " " + velocityUnit;
-                        velocity.innerHTML = "<div class='velocityMagnitude'>" + gpsVelocity.toFixed(1) + ' ' + velocityUnit + "</div> velocity";
+						renderVelocityValue(gpsVelocity, 'velocity', '', '');
 						setRecalibrateVisible(false);
 					}
 				}
