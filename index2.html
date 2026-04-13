@@ -127,6 +127,8 @@
 			</div>
 			<!-- <div class="profile panel d_n">Watch your surroundings.</div> -->
 		</div>
+
+		<div class="data"></div>
 	</div>
 
 	<script>
@@ -225,6 +227,7 @@
 		const motionIcon = document.querySelector('.pwa .home .banner .motionIcon');
 		const recalibrateToggle = document.querySelector('.pwa .home .banner .motionSenseToggle.recalibrate');
 		const profilePanel = document.querySelector('.pwa .popups .profile.panel');
+		const dataPanel = document.querySelector('.data');
 
 		var metricsRecording = false,
 			metricsRecords = [],
@@ -233,7 +236,28 @@
 			stepsDefaultColor = '',
 			latestLinearMag = 0,
 			latestCadenceVelocity = 0,
+			latestGravityMagnitude = 0,
+			latestGravityNormalized = 0,
 			lookAheadLastAlertAt = 0;
+
+		var dataAppendLastAt = 0,
+			dataLines = [];
+
+		function appendDataRealtime(line) {
+			if (!dataPanel) {
+				return;
+			}
+			var now = Date.now();
+			if ((now - dataAppendLastAt) < 200) {
+				return;
+			}
+			dataAppendLastAt = now;
+			dataLines[dataLines.length] = line;
+			if (dataLines.length > 120) {
+				dataLines.shift();
+			}
+			dataPanel.innerHTML = dataLines.join('<br>');
+		}
 
 		var lookAheadAlertCooldownMs = 45000;
 
@@ -601,6 +625,34 @@
 			return res;
 		}
 
+		function getNormalizedGravityFromMotion(event) {
+			var xG = Number(event.accelerationIncludingGravity && event.accelerationIncludingGravity.x) || 0;
+			var yG = Number(event.accelerationIncludingGravity && event.accelerationIncludingGravity.y) || 0;
+			var zG = Number(event.accelerationIncludingGravity && event.accelerationIncludingGravity.z) || 0;
+			var xA = Number(event.acceleration && event.acceleration.x) || 0;
+			var yA = Number(event.acceleration && event.acceleration.y) || 0;
+			var zA = Number(event.acceleration && event.acceleration.z) || 0;
+
+			var gAbsX = Math.abs(xG - xA);
+			var gAbsY = Math.abs(yG - yA);
+			var gAbsZ = Math.abs(zG - zA);
+
+			var gravityMagnitude = Math.sqrt((gAbsX * gAbsX) + (gAbsY * gAbsY) + (gAbsZ * gAbsZ));
+			var gravityNormalized = gravityMagnitude / 9.81;
+
+			if (gravityNormalized < 0) {
+				gravityNormalized = 0;
+			}
+
+			return {
+				gAbsX: gAbsX,
+				gAbsY: gAbsY,
+				gAbsZ: gAbsZ,
+				gravityMagnitude: gravityMagnitude,
+				gravityNormalized: gravityNormalized
+			};
+		}
+
 		function filteredAcceleration(r) {
 			if (motionStart && r > 0 && r < 0.5) {
 				var output = r;
@@ -719,6 +771,19 @@
 		}
 
 		window.addEventListener('devicemotion', function(event) {
+			var gravityMetrics = getNormalizedGravityFromMotion(event);
+			var gravityMagnitude = gravityMetrics.gravityMagnitude;
+			var gravityNormalized = gravityMetrics.gravityNormalized;
+			latestGravityMagnitude = gravityMagnitude;
+			latestGravityNormalized = gravityNormalized;
+			appendDataRealtime(
+				't=' + Date.now() +
+				' | gMag=' + gravityMagnitude.toFixed(3) +
+				' | gNorm=' + gravityNormalized.toFixed(3) +
+				' | steps=' + stepsCount +
+				' | vel=' + (Number(velocityEstRef) || 0).toFixed(2)
+			);
+
 			if (event.acceleration.x || event.acceleration.y || event.acceleration.z) {
 				deviceMotion = true;
 			}
@@ -1102,7 +1167,9 @@
 						velocityLive: Number(velocityLive) || 0,
 						linearMag: latestLinearMag,
 						cadenceVelocity: latestCadenceVelocity,
-						deviceAcc: nDeviceAcc
+						deviceAcc: nDeviceAcc,
+						gravityMagnitude: latestGravityMagnitude,
+						gravityNormalized: latestGravityNormalized
 					};
 				}
 
