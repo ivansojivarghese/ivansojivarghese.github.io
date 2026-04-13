@@ -771,13 +771,14 @@
 			var gravityNormalized = gravityMetrics.gravityNormalized;
 			latestGravityMagnitude = gravityMagnitude;
 			latestGravityNormalized = gravityNormalized;
+			/*
 			appendDataRealtime(
 				't=' + Date.now() +
 				' | gMag=' + gravityMagnitude.toFixed(3) +
 				' | gNorm=' + gravityNormalized.toFixed(3) +
 				' | steps=' + stepsCount +
 				' | vel=' + (Number(velocityEstRef) || 0).toFixed(2)
-			);
+			);*/
 
 			if (event.acceleration.x || event.acceleration.y || event.acceleration.z) {
 				deviceMotion = true;
