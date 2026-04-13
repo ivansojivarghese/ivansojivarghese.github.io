@@ -540,6 +540,12 @@
 			}
 		}
 
+		function vibrateDevice(pattern) {
+			if (navigator.vibrate) {
+				navigator.vibrate(pattern || [60, 40, 60]);
+			}
+		}
+
 		function resetDistanceTracking() {
 			distanceTrackingStartedAt = 0;
 			distanceLastSampleAt = 0;
