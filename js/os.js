@@ -422,6 +422,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             orcid_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .orcid') : document.querySelector('.pwa .about .orcid_w'),
             hackerrank_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .hackerrank') : document.querySelector('.pwa .about .hackerrank_w'),
             researchgate_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .researchgate') : document.querySelector('.pwa .about .researchgate_w'),
+            scholar_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .scholar') : document.querySelector('.pwa .about .scholar_w'),
+            medium_icon = (!op.darkMode || init) ? document.querySelector('.pwa .about .medium') : document.querySelector('.pwa .about .medium_w'),
 
             close_icon = (!op.darkMode || init) ? document.querySelector('.pwa .popups .close_img') : document.querySelector('.pwa .popups .close_w_img'),
 
@@ -602,6 +604,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             orcid_icon.classList.remove("orcid");
             hackerrank_icon.classList.remove("hackerrank");
             researchgate_icon.classList.remove("researchgate");
+            scholar_icon.classList.remove("scholar");
+            medium_icon.classList.remove("medium");
 
             close_icon.classList.remove("close_img");
 
@@ -629,6 +633,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             orcid_icon.classList.add("orcid_w");
             hackerrank_icon.classList.add("hackerrank_w");
             researchgate_icon.classList.add("researchgate_w");
+            scholar_icon.classList.add("scholar_w");
+            medium_icon.classList.add("medium_w");
 
             close_icon.classList.add("close_w_img");
 
@@ -813,6 +819,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             orcid_icon.classList.remove("orcid_w");
             hackerrank_icon.classList.remove("hackerrank_w");
             researchgate_icon.classList.remove("researchgate_w");
+            scholar_icon.classList.remove("scholar_w");
+            medium_icon.classList.remove("medium_w");
 
             close_icon.classList.remove("close_w_img");
 
@@ -840,6 +848,8 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             orcid_icon.classList.add("orcid");
             hackerrank_icon.classList.add("hackerrank");
             researchgate_icon.classList.add("researchgate");
+            scholar_icon.classList.add("scholar");
+            medium_icon.classList.add("medium");
 
             close_icon.classList.add("close_img");
 
