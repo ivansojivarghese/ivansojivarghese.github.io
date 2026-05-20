@@ -754,7 +754,14 @@ h3.downsize {
 }
 
 .pwa .about .social_media a {
-    margin-right: 1em;
+    /*margin-right: 1em;*/
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.pwa .about .social_media a:hover {
+    transform: scale(1.3);
+    transform-origin: center center;
 }
 
 .pwa .about .social_media .img_icon {
@@ -1216,6 +1223,12 @@ a.no_inline {
 @media screen and (orientation: landscape) {
     .pwa .navbar.hide {
         bottom: 0;
+    }
+
+    .pwa .about .social_media a {
+        /*margin-right: 1em;*/
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     a.no_inline {
