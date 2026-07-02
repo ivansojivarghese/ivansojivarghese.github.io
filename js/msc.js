@@ -10,7 +10,7 @@ var wH = window.outerHeight, // height
     Rd = [], // load-ready - boolean statuses for loading resource elements
     timer = {}, // keep track of timer instances
     gps = { // CURRENT LOCATION (UPDATE WHEN NEEDED!)
-        city : "Sf",
+        city : "Sf - 94103",
         country : "US", // (ISO 3116 code) // SG
         lat : "37.785", // 1.343
         lon : "-122.429" // 103.689
