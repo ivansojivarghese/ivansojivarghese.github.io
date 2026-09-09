@@ -689,7 +689,8 @@ h3.downsize {
     background: linear-gradient(90deg,#cf8d7c,#a77cb4);
     background-clip: text;
     -webkit-background-clip: text;
-    padding-right: 0.5rem;
+    padding: 0.5rem 0 1rem;
+    margin: 0;
 }
 
 .pwa .h3dup#span2 {
