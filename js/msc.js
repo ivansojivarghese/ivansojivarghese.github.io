@@ -1671,7 +1671,7 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
 
-                    document.title = "Ivan Varghese";
+                    document.title = "Ivan Soji Varghese";
                 }
             }, op.t);
         }
@@ -1736,7 +1736,7 @@ function pL() { // site parameters loop
                     eR.h = "";
                     eR.p = "";
 
-                    document.title = "Ivan Varghese";
+                    document.title = "Ivan Soji Varghese";
                 }
             }, op.t);
         }
@@ -1852,7 +1852,7 @@ function pL() { // site parameters loop
                         eR.h = "";
                         eR.p = "";
 
-                        document.title = "Ivan Varghese";
+                        document.title = "Ivan Soji Varghese";
                     }
                 }, op.t);
             }
@@ -3077,7 +3077,7 @@ function checkSplitScreen() {
                                 scr_t(true, null); // enable scrolling
                                 op.s = false;
 
-                                document.title = "Ivan Varghese";
+                                document.title = "Ivan Soji Varghese";
 
                             }, op.t);
                         }
@@ -3178,7 +3178,7 @@ window.addEventListener("resize", function(e) {
                 eR.z.classList.add("d_n"); 
                 eR.s = false;
                 eR.p = "";
-                document.title = "Ivan Varghese";
+                document.title = "Ivan Soji Varghese";
             }, op.t);  
 
         }
@@ -3512,7 +3512,7 @@ screen.orientation.addEventListener("change", function() { // mobile/tablet orie
                             } else {
                                 eR.m.classList.add("d_n");
                                 eR.s = false;
-                                document.title = "Ivan Varghese";
+                                document.title = "Ivan Soji Varghese";
                             }
                             if (aborted || !cacheEnabled) { // show load
                                 rL.el.classList.remove("d_n");

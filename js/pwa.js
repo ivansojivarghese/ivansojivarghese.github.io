@@ -3423,10 +3423,10 @@ function pwaRead() {
                 
                 if (!loadTimes.slow) {
                     // normal_body.classList.add("d_n");
-                    // document.title = "Ivan Varghese";
+                    // document.title = "Ivan Soji Varghese";
                     
                     $(sections).scroll(function() {
-                        document.title = "Ivan Varghese"; // default the title
+                        document.title = "Ivan Soji Varghese"; // default the title
                     });
 
                     rL.i = true; // end load

@@ -54,7 +54,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon/*.png', 'logo/*.png', 'splashscreens/*.png'],
       manifest: {
-        name: 'Ivan Varghese',
+        name: 'Ivan Soji Varghese',
         short_name: 'Ivan',
         description: 'An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society.',
         theme_color: '#303030',

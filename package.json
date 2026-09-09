@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "type": "module",
   "description": "Modern portfolio website with PWA support",
-  "author": "Ivan Varghese",
+  "author": "Ivan Soji Varghese",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
