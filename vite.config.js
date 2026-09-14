@@ -56,7 +56,7 @@ export default defineConfig({
       manifest: {
         name: 'Ivan Soji Varghese',
         short_name: 'Ivan',
-        description: 'An aspiring computer science geek. With a pen and paper, I seek the complexities that intrigue society.',
+        description: 'An aspiring computer science geek. With some pens and papers, I seek the complexities that intrigue society.',
         theme_color: '#303030',
         background_color: '#F4F4F4',
         display: 'standalone',
