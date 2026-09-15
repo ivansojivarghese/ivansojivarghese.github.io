@@ -202,7 +202,6 @@ body {
 }
 
 .pwa .reposContainer .home_buttons p.repoLang {
-    letter-spacing: 0.15em;
     width: fit-content;
     background: #303030;
     padding: 0.3rem;
@@ -214,6 +213,15 @@ body {
 .pwa .reposContainer .home_buttons p.repoDesc {
     font-weight: normal;
     line-height: 1.25rem;
+}
+
+.pwa .reposContainer .home_buttons p.repoTopics span {
+    background: #f4f4f4;
+    border-radius: 0.2rem;
+    margin-right: 0.5rem;
+    padding: 0.2rem;
+    font-weight: normal;
+    font-size: 0.7rem;
 }
 
 .pwa .popups {
