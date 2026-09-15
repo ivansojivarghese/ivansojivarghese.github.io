@@ -187,6 +187,8 @@ body {
     width: 20rem;
     margin-right: 2rem;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .pwa .reposContainer .home_buttons p {
@@ -262,6 +264,8 @@ p.repoTopics {
     letter-spacing: 0.15em;
     font-weight: bold;
     margin-bottom: 2rem;
+    margin-top: auto;
+    align-self: start;
 }
 
 .pwa .popups {
