@@ -175,6 +175,14 @@ body {
     margin-left: 1.5rem;
 }
 
+.pwa .reposContainer {
+    margin-top: 3rem;
+}
+
+.pwa .reposContainer .home_buttons {
+    background: #E4E4E4;
+}
+
 .pwa .popups {
     position: fixed;
     height: calc(100dvh - calc(env(safe-area-inset-top))) !important;

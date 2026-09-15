@@ -2393,7 +2393,7 @@ function displayRepos(r) {
     const reposContainer = document.querySelector('.pwa .reposContainer');
     for (i = 0; i < r.length; i++) {
         var repo = document.createElement("div");
-        repo.classList.add("repo", "hoverB", "trs");
+        repo.classList.add("hoverB", "trs", "home_buttons");
         repo.setAttribute("data-repo", r[i].name);
         repo.setAttribute("data-repo-url", r[i].html_url);
         repo.setAttribute("data-repo-desc", r[i].description);
@@ -2401,6 +2401,10 @@ function displayRepos(r) {
         repo.setAttribute("data-repo-stars", r[i].stargazers_count);
         repo.setAttribute("data-repo-forks", r[i].forks_count);
         reposContainer.appendChild(repo);
+
+        var repoName = document.createElement("h5");
+        repoName.innerHTML = r[i].name;
+        repo.appendChild(repoName);
     }
 }
 
