@@ -2454,6 +2454,11 @@ function displayRepos(r) {
             repoLink.target = "_blank";
             repoLink.rel = "noopener noreferrer";
             repoLink.classList.add("repoLink", "hoverB", "trs");
+
+            repoLink.addEventListener("mousemove", hoverInit);
+            repoLink.addEventListener("mouseleave", hoverEnd);
+            repoLink.addEventListener("click", hoverMiddle);
+
             repo.appendChild(repoLink);
         }
     }
