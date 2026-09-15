@@ -261,7 +261,7 @@ p.repoTopics {
     margin-bottom: 1rem;
 }
 
-.pwa .reposContainer a {
+.pwa .code a {
     font-family: Poppins,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -283,6 +283,15 @@ p.repoTopics {
     margin-bottom: 2rem;
     margin-top: auto;
     align-self: start;
+}
+
+.pwa .reposCTA {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.pwa .reposCTA .a {
+    padding: 1rem;
 }
 
 .pwa .popups {
