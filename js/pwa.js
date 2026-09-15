@@ -2394,7 +2394,10 @@ function displayRepos(r) {
     for (i = 0; i < r.length; i++) {
         if (!r[i].name.includes("ivansojivarghese")) {
             var repo = document.createElement("div");
-            repo.classList.add("home_buttons", "lightBackground", "shade");
+            repo.classList.add("home_buttons", "lightBackground");
+            if (op.darkMode) { // if dark mode
+                repo.classList.add("shade");
+            }
             repo.setAttribute("data-repo", r[i].name);
             repo.setAttribute("data-repo-url", r[i].html_url);
             repo.setAttribute("data-repo-desc", r[i].description);
