@@ -650,9 +650,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fab.classList.add("shade");
             fab2.classList.add("shade");
 
-
-            document.querySelectorAll
-            ('.pwa .reposContainer .home_buttons').classList.add("shade");
+            var repoBtns = document.querySelectorAll('.pwa .reposContainer .home_buttons');
+            for (var i = 0; i < repoBtns.length; i++) {
+                repoBtns[i].classList.add("shade");
+            }
 
             hb_github.classList.add("shade");
             hb_linkedin.classList.add("shade");
@@ -869,8 +870,10 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             fab.classList.remove("shade");
             fab2.classList.remove("shade");
 
-             document.querySelectorAll
-            ('.pwa .reposContainer .home_buttons').classList.remove("shade");
+            var repoBtns = document.querySelectorAll('.pwa .reposContainer .home_buttons');
+            for (var i = 0; i < repoBtns.length; i++) {
+                repoBtns[i].classList.remove("shade");
+            }
 
             hb_github.classList.remove("shade");
             hb_linkedin.classList.remove("shade");
