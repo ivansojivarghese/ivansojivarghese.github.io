@@ -2348,7 +2348,7 @@ function startLoadPWA() {
 
     if (dev.versionUp !== "" && localStorage.getItem("upgradeInfoAck") !== "true") { // upgrade(s) available soon
         // check cookies
-        openPopUp('upgradeInfo');
+        // openPopUp('upgradeInfo');
         localStorage.setItem("upgradeInfoAck", "true");
     } else if (dev.versionUp === "") {
         localStorage.removeItem("upgradeInfoAck");
