@@ -16,6 +16,8 @@ var fter = { // footer
 
 const loadingRing = document.querySelector("#loadR");
 
+var codeRepos;
+
 var btty = {
     level : 0,
     chargingTime : 0,
@@ -2356,6 +2358,12 @@ function startLoadPWA() {
     if (window.innerWidth >= (800 + (window.innerWidth * 0.075) + (5 * op.fN))) {
         aboutOffline.classList.add("mod");
     }*/
+
+    codeRepos = fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc")
+    .then(res => res.json())
+    .then(repos => {
+        return repos;
+    });
 
     typer = setInterval(function() { // typing effect
         e_wCycle(typerDet, dev.info.work, typer);
