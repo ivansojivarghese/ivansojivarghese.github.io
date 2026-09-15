@@ -235,6 +235,11 @@ body {
     padding: 0.2rem;
     font-weight: normal;
     font-size: 0.7rem;
+    display: inline-flex;
+}
+
+p.repoTopics {
+    margin-bottom: 1rem;
 }
 
 .pwa .reposContainer a {
@@ -256,6 +261,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 
 .pwa .popups {
