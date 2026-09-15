@@ -2395,8 +2395,10 @@ async function fetchRepos() {
 
 function displayRepos(r) {
     const reposContainer = document.querySelector('.pwa .reposContainer');
-    for (i = 0; i < r.length; i++) {
+    var repos = [];
+    for (i = 0; i < r.length && repos.length < 6; i++) {
         if (!r[i].name.includes("ivansojivarghese")) {
+            repos.push(r[i]);
             var repo = document.createElement("div");
             repo.classList.add("home_buttons", "lightBackground");
             if (op.darkMode) { // if dark mode
