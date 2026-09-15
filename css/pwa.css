@@ -206,11 +206,12 @@ body {
 .pwa .reposContainer .home_buttons p.repoLang {
     width: fit-content;
     background: #303030;
-    padding: 0.3rem;
+    padding: 0.5rem;
     margin-left: 1rem;
     border-radius: 0.3rem;
     color: #fff;
     margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .pwa .reposContainer .home_buttons p.repoForked {
@@ -227,8 +228,21 @@ body {
 
 .pwa .reposContainer .home_buttons p.repoDesc {
     font-weight: normal;
-    line-height: 1.25rem;
+    line-height: 1.5em;
     margin-bottom: 1rem;
+    display: -webkit-box;
+    line-clamp: 6;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-bottom: 0;
+}
+
+p.repoName {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3em !important;
 }
 
 .pwa .reposContainer .home_buttons p.repoTopics span {
@@ -236,9 +250,9 @@ body {
     border-radius: 0.2rem;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
-    padding: 0.2rem;
+    padding: 0.3rem;
     font-weight: normal;
-    font-size: 0.7rem;
+    font-size: 1rem;
     display: inline-flex;
 }
 
