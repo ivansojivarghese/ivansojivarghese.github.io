@@ -2418,7 +2418,12 @@ function displayRepos(r) {
 
         var repoTopics = document.createElement("p");
         repoTopics.classList.add("repoTopics");
-        repoTopics.innerHTML = r[i].topics.join(", ");
+        // repoTopics.innerHTML = r[i].topics.join(", ");
+        for (j = 0; j < r[i].topics.length; j++) {
+            var topic = document.createElement("span");
+            topic.innerHTML = r[i].topics[j];
+            repoTopics.appendChild(topic);
+        }
         repo.appendChild(repoTopics);
     }
 }
