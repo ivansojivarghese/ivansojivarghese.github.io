@@ -2406,6 +2406,11 @@ function displayRepos(r) {
         repoName.innerHTML = r[i].name;
         repo.appendChild(repoName);
 
+        var repoLang = document.createElement("p");
+        repoLang.innerHTML = r[i].language;
+        repoLang.classList.add("repoLang");
+        repo.appendChild(repoLang);
+
         var repoDesc = document.createElement("p");
         repoDesc.innerHTML = r[i].description;
         repoDesc.classList.add("repoDesc");
