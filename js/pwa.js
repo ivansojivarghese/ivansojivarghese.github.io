@@ -2359,11 +2359,11 @@ function startLoadPWA() {
         aboutOffline.classList.add("mod");
     }*/
 
-    codeRepos = fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc")
-    .then(res => res.json())
-    .then(repos => {
-        return repos;
-    });
+    fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc")
+        .then(res => res.json())
+        .then(repos => {
+            codeRepos = repos;
+        });
 
     typer = setInterval(function() { // typing effect
         e_wCycle(typerDet, dev.info.work, typer);
