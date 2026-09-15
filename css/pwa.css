@@ -213,6 +213,13 @@ body {
 .pwa .reposContainer .home_buttons p.repoForked {
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    background: #A10000;
+}
+
+.pwa .reposContainer .home_buttons p.repoLink {
+    font-size: 0.8rem;
+    color: #007bff;
+    text-decoration: underline;
 }
 
 .pwa .reposContainer .home_buttons p.repoDesc {

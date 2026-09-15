@@ -2435,6 +2435,11 @@ function displayRepos(r) {
                 repoTopics.appendChild(topic);
             }
             repo.appendChild(repoTopics);
+
+            var repoLink = document.createElement("p");
+            repoLink.innerHTML = r[i].html_url;
+            repoLink.classList.add("repoLink");
+            repo.appendChild(repoLink);
         }
     }
 }
