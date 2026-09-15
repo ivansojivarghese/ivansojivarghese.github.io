@@ -50,6 +50,10 @@ var githubCommitsres = {
     val : 0
 };
 
+var githubRepos = {
+    online : false
+};
+
 var normalAcc = 0,
     timerCountStepCheck = 0,
     timerCountStepInterval = null,
@@ -2359,14 +2363,7 @@ function startLoadPWA() {
         aboutOffline.classList.add("mod");
     }*/
 
-    async function fetchRepos() {
-        const response = await fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc");
-        const repos = await response.json();
-        codeRepos = repos;
-        displayRepos(codeRepos);
-    }
-
-    fetchRepos();
+    // fetchRepos();
 
     typer = setInterval(function() { // typing effect
         e_wCycle(typerDet, dev.info.work, typer);
@@ -2387,6 +2384,13 @@ function startLoadPWA() {
             e_Ic(sI_3, null, sI_3.n);
         }
     }, (1000 / dev.t));*/
+}
+
+async function fetchRepos() {
+    const response = await fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc");
+    const repos = await response.json();
+    codeRepos = repos;
+    displayRepos(codeRepos);
 }
 
 function displayRepos(r) {
@@ -3172,8 +3176,12 @@ function pwaRead() {
                                             weatherAPI(ipAPIres.lat, ipAPIres.lon, tempUnit(ipAPIres.country.iso_code));
                                         }
                                         clearInterval(ip_L);
+
+                                        fetchRepos();
+                                        githubRepos.online = true;
+
                                         weather_L = setInterval(function() {
-                                            if ((weatherAPIres.online && countryAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end)) || !navigator.onLine) {
+                                            if ((weatherAPIres.online && countryAPIres.online && optimalLoadTimes(loadTimes.start, loadTimes.end) && githubRepos.online) || !navigator.onLine) {
 
                                                 console.log("Load 3: " + (loadTimes.end - loadTimes.start) + "ms");
 
