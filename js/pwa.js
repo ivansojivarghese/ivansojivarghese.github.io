@@ -2415,6 +2415,12 @@ function displayRepos(r) {
         repoDesc.innerHTML = r[i].description;
         repoDesc.classList.add("repoDesc");
         repo.appendChild(repoDesc);
+
+        var repoTags = document.createElement("div");
+        repoTags.classList.add("repoTags");
+        repo.appendChild(repoTags);
+
+        
     }
 }
 

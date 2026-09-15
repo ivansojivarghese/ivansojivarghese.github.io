@@ -201,6 +201,17 @@ body {
     letter-spacing: normal;
 }
 
+.pwa .reposContainer .home_buttons p.repoLang {
+    letter-spacing: 0.15em;
+    text-transform: capitalize;
+    width: fit-content;
+    background: #303030;
+    padding: 0.3rem;
+    margin-left: 1rem;
+    border-radius: 0.3rem;
+    color: #fff;
+}
+
 .pwa .reposContainer .home_buttons p.repoDesc {
     font-weight: normal;
     line-height: 1.25rem;
