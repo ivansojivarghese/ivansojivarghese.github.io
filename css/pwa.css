@@ -286,12 +286,12 @@ p.repoTopics {
 }
 
 .pwa .reposCTA {
-    text-align: center;
     margin: 2rem 0;
 }
 
 .pwa .reposCTA a {
     padding: 1rem;
+    margin-left: 0;
 }
 
 .pwa .popups {
