@@ -2394,7 +2394,7 @@ function displayRepos(r) {
     for (i = 0; i < r.length; i++) {
         if (!r[i].name.includes("ivansojivarghese")) {
             var repo = document.createElement("div");
-            repo.classList.add("home_buttons");
+            repo.classList.add("home_buttons", "lightBackground", "shade");
             repo.setAttribute("data-repo", r[i].name);
             repo.setAttribute("data-repo-url", r[i].html_url);
             repo.setAttribute("data-repo-desc", r[i].description);
@@ -2405,6 +2405,7 @@ function displayRepos(r) {
 
             var repoName = document.createElement("p");
             repoName.innerHTML = r[i].name;
+            repoName.classList.add("repoName", "darkText");
             repo.appendChild(repoName);
 
             if (r[i].language) {   
@@ -2424,7 +2425,7 @@ function displayRepos(r) {
             if (r[i].description) {
                 var repoDesc = document.createElement("p");
                 repoDesc.innerHTML = r[i].description;
-                repoDesc.classList.add("repoDesc");
+                repoDesc.classList.add("repoDesc", "darkText");
                 repo.appendChild(repoDesc);
             }
 
