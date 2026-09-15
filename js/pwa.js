@@ -2392,39 +2392,50 @@ function startLoadPWA() {
 function displayRepos(r) {
     const reposContainer = document.querySelector('.pwa .reposContainer');
     for (i = 0; i < r.length; i++) {
-        var repo = document.createElement("div");
-        repo.classList.add("hoverB", "trs", "home_buttons");
-        repo.setAttribute("data-repo", r[i].name);
-        repo.setAttribute("data-repo-url", r[i].html_url);
-        repo.setAttribute("data-repo-desc", r[i].description);
-        repo.setAttribute("data-repo-lang", r[i].language);
-        repo.setAttribute("data-repo-stars", r[i].stargazers_count);
-        repo.setAttribute("data-repo-forks", r[i].forks_count);
-        reposContainer.appendChild(repo);
+        if (!r[i].name.includes("ivansojivarghese")) {
+            var repo = document.createElement("div");
+            repo.classList.add("hoverB", "trs", "home_buttons");
+            repo.setAttribute("data-repo", r[i].name);
+            repo.setAttribute("data-repo-url", r[i].html_url);
+            repo.setAttribute("data-repo-desc", r[i].description);
+            repo.setAttribute("data-repo-lang", r[i].language);
+            repo.setAttribute("data-repo-stars", r[i].stargazers_count);
+            repo.setAttribute("data-repo-forks", r[i].forks_count);
+            reposContainer.appendChild(repo);
 
-        var repoName = document.createElement("p");
-        repoName.innerHTML = r[i].name;
-        repo.appendChild(repoName);
+            var repoName = document.createElement("p");
+            repoName.innerHTML = r[i].name;
+            repo.appendChild(repoName);
 
-        var repoLang = document.createElement("p");
-        repoLang.innerHTML = r[i].language;
-        repoLang.classList.add("repoLang");
-        repo.appendChild(repoLang);
+            if (r[i].language) {   
+                var repoLang = document.createElement("p");
+                repoLang.innerHTML = r[i].language;
+                repoLang.classList.add("repoLang");
+                repo.appendChild(repoLang);
+            }
 
-        var repoDesc = document.createElement("p");
-        repoDesc.innerHTML = r[i].description;
-        repoDesc.classList.add("repoDesc");
-        repo.appendChild(repoDesc);
+            if (r[i].fork) {
+                var repoLang = document.createElement("p");
+                repoLang.innerHTML = "forked";
+                repoLang.classList.add("repoLang", "repoForked");
+                repo.appendChild(repoLang);
+            }
 
-        var repoTopics = document.createElement("p");
-        repoTopics.classList.add("repoTopics");
-        // repoTopics.innerHTML = r[i].topics.join(", ");
-        for (j = 0; j < r[i].topics.length; j++) {
-            var topic = document.createElement("span");
-            topic.innerHTML = r[i].topics[j];
-            repoTopics.appendChild(topic);
+            var repoDesc = document.createElement("p");
+            repoDesc.innerHTML = r[i].description;
+            repoDesc.classList.add("repoDesc");
+            repo.appendChild(repoDesc);
+
+            var repoTopics = document.createElement("p");
+            repoTopics.classList.add("repoTopics");
+            // repoTopics.innerHTML = r[i].topics.join(", ");
+            for (j = 0; j < r[i].topics.length; j++) {
+                var topic = document.createElement("span");
+                topic.innerHTML = r[i].topics[j];
+                repoTopics.appendChild(topic);
+            }
+            repo.appendChild(repoTopics);
         }
-        repo.appendChild(repoTopics);
     }
 }
 

@@ -210,6 +210,11 @@ body {
     color: #fff;
 }
 
+.pwa .reposContainer .home_buttons p.repoForked {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
 .pwa .reposContainer .home_buttons p.repoDesc {
     font-weight: normal;
     line-height: 1.25rem;
@@ -219,6 +224,7 @@ body {
     background: #f4f4f4;
     border-radius: 0.2rem;
     margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
     padding: 0.2rem;
     font-weight: normal;
     font-size: 0.7rem;
