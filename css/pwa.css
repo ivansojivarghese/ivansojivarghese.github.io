@@ -203,7 +203,6 @@ body {
 
 .pwa .reposContainer .home_buttons p.repoLang {
     letter-spacing: 0.15em;
-    text-transform: capitalize;
     width: fit-content;
     background: #303030;
     padding: 0.3rem;

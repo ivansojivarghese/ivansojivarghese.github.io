@@ -2416,11 +2416,10 @@ function displayRepos(r) {
         repoDesc.classList.add("repoDesc");
         repo.appendChild(repoDesc);
 
-        var repoTags = document.createElement("div");
-        repoTags.classList.add("repoTags");
-        repo.appendChild(repoTags);
-
-        
+        var repoTopics = document.createElement("p");
+        repoTopics.classList.add("repoTopics");
+        repoTopics.innerHTML = r[i].topics.join(", ");
+        repo.appendChild(repoTopics);
     }
 }
 
