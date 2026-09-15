@@ -2436,8 +2436,10 @@ function displayRepos(r) {
             }
             repo.appendChild(repoTopics);
 
-            var repoLink = document.createElement("p");
-            repoLink.innerHTML = r[i].html_url;
+            var repoLink = document.createElement("a");
+            repoLink.href = r[i].html_url;
+            repoLink.innerHTML = "view";
+            repoLink.target = "_blank";
             repoLink.classList.add("repoLink");
             repo.appendChild(repoLink);
         }
