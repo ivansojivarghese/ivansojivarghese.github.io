@@ -2402,7 +2402,7 @@ function displayRepos(r) {
         repo.setAttribute("data-repo-forks", r[i].forks_count);
         reposContainer.appendChild(repo);
 
-        var repoName = document.createElement("h5");
+        var repoName = document.createElement("p");
         repoName.innerHTML = r[i].name;
         repo.appendChild(repoName);
     }
