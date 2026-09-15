@@ -2421,25 +2421,30 @@ function displayRepos(r) {
                 repo.appendChild(repoLang);
             }
 
-            var repoDesc = document.createElement("p");
-            repoDesc.innerHTML = r[i].description;
-            repoDesc.classList.add("repoDesc");
-            repo.appendChild(repoDesc);
-
-            var repoTopics = document.createElement("p");
-            repoTopics.classList.add("repoTopics");
-            // repoTopics.innerHTML = r[i].topics.join(", ");
-            for (j = 0; j < r[i].topics.length; j++) {
-                var topic = document.createElement("span");
-                topic.innerHTML = r[i].topics[j];
-                repoTopics.appendChild(topic);
+            if (r[i].description) {
+                var repoDesc = document.createElement("p");
+                repoDesc.innerHTML = r[i].description;
+                repoDesc.classList.add("repoDesc");
+                repo.appendChild(repoDesc);
             }
-            repo.appendChild(repoTopics);
+
+            if (r[i].topics.length > 0) {
+                var repoTopics = document.createElement("p");
+                repoTopics.classList.add("repoTopics");
+                // repoTopics.innerHTML = r[i].topics.join(", ");
+                for (j = 0; j < r[i].topics.length; j++) {
+                    var topic = document.createElement("span");
+                    topic.innerHTML = r[i].topics[j];
+                    repoTopics.appendChild(topic);
+                }
+                repo.appendChild(repoTopics);
+            }
 
             var repoLink = document.createElement("a");
             repoLink.href = r[i].html_url;
             repoLink.innerHTML = "view";
             repoLink.target = "_blank";
+            repoLink.rel = "noopener noreferrer";
             repoLink.classList.add("repoLink", "hoverB", "trs");
             repo.appendChild(repoLink);
         }

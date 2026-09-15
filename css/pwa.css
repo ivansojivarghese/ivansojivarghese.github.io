@@ -247,7 +247,8 @@ body {
     /* text-decoration: underline; */
     width: 5rem;
     /* height: 2rem; */
-    background: #f4f4f4;
+    background: #303030;
+    color: #fff;
     /* padding-left: 0.5rem; */
     text-align: center;
     border-radius: 0.5rem;
