@@ -2394,7 +2394,7 @@ function displayRepos(r) {
     for (i = 0; i < r.length; i++) {
         if (!r[i].name.includes("ivansojivarghese")) {
             var repo = document.createElement("div");
-            repo.classList.add("hoverB", "trs", "home_buttons");
+            repo.classList.add("home_buttons");
             repo.setAttribute("data-repo", r[i].name);
             repo.setAttribute("data-repo-url", r[i].html_url);
             repo.setAttribute("data-repo-desc", r[i].description);
@@ -2440,7 +2440,7 @@ function displayRepos(r) {
             repoLink.href = r[i].html_url;
             repoLink.innerHTML = "view";
             repoLink.target = "_blank";
-            repoLink.classList.add("repoLink");
+            repoLink.classList.add("repoLink", "hoverB", "trs");
             repo.appendChild(repoLink);
         }
     }

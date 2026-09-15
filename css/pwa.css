@@ -237,6 +237,26 @@ body {
     font-size: 0.7rem;
 }
 
+.pwa .reposContainer a {
+    font-family: Poppins,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    /* text-decoration: underline; */
+    width: 5rem;
+    /* height: 2rem; */
+    background: #f4f4f4;
+    /* padding-left: 0.5rem; */
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: bold;
+}
+
 .pwa .popups {
     position: fixed;
     height: calc(100dvh - calc(env(safe-area-inset-top))) !important;
