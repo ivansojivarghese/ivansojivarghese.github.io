@@ -181,8 +181,12 @@ body {
 
 .pwa .reposContainer .home_buttons {
     background: #E4E4E4;
-    color: #303030;
     width: 20rem;
+}
+
+.pwa .reposContainer .home_buttons p {
+    color: #303030;
+    padding: 1rem 0;
 }
 
 .pwa .popups {
