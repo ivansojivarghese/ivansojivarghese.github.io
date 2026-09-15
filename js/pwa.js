@@ -2405,6 +2405,10 @@ function displayRepos(r) {
         var repoName = document.createElement("p");
         repoName.innerHTML = r[i].name;
         repo.appendChild(repoName);
+
+        var repoDesc = document.createElement("p");
+        repoDesc.innerHTML = r[i].description;
+        repo.appendChild(repoDesc);
     }
 }
 
