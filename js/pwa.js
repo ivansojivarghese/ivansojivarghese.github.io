@@ -2363,11 +2363,10 @@ function startLoadPWA() {
         const response = await fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc");
         const repos = await response.json();
         codeRepos = repos;
+        displayRepos(codeRepos);
     }
 
     fetchRepos();
-
-    displayRepos(codeRepos);
 
     typer = setInterval(function() { // typing effect
         e_wCycle(typerDet, dev.info.work, typer);
