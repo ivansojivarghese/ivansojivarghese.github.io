@@ -2359,11 +2359,15 @@ function startLoadPWA() {
         aboutOffline.classList.add("mod");
     }*/
 
-    fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc")
-        .then(res => res.json())
-        .then(repos => {
-            codeRepos = repos;
-        });
+    async function fetchRepos() {
+        const response = await fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc");
+        const repos = await response.json();
+        codeRepos = repos;
+    }
+
+    fetchRepos();
+
+    displayRepos(codeRepos);
 
     typer = setInterval(function() { // typing effect
         e_wCycle(typerDet, dev.info.work, typer);
@@ -2384,6 +2388,21 @@ function startLoadPWA() {
             e_Ic(sI_3, null, sI_3.n);
         }
     }, (1000 / dev.t));*/
+}
+
+function displayRepos(r) {
+    const reposContainer = document.querySelector('.pwa .reposContainer');
+    for (i = 0; i < r.length; i++) {
+        var repo = document.createElement("div");
+        repo.classList.add("repo", "hoverB", "trs");
+        repo.setAttribute("data-repo", r[i].name);
+        repo.setAttribute("data-repo-url", r[i].html_url);
+        repo.setAttribute("data-repo-desc", r[i].description);
+        repo.setAttribute("data-repo-lang", r[i].language);
+        repo.setAttribute("data-repo-stars", r[i].stargazers_count);
+        repo.setAttribute("data-repo-forks", r[i].forks_count);
+        reposContainer.appendChild(repo);
+    }
 }
 
 function openPopUp(target) {
