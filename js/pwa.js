@@ -2408,6 +2408,7 @@ function displayRepos(r) {
 
         var repoDesc = document.createElement("p");
         repoDesc.innerHTML = r[i].description;
+        repoDesc.classList.add("repoDesc");
         repo.appendChild(repoDesc);
     }
 }

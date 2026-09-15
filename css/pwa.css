@@ -196,6 +196,12 @@ body {
     text-align: left;
     padding-left: 1rem;
     font-weight: bold;
+    line-height: 1rem;
+    padding-right: 1rem;
+}
+
+.pwa .reposContainer .home_buttons p.repoDesc {
+    font-weight: normal;
 }
 
 .pwa .popups {
