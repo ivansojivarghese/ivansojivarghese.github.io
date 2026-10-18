@@ -65,7 +65,7 @@ var wH = window.outerHeight, // height
                 },
                 {
                     title: "Software Engineer Intern / Forward Deployed Engineer Intern", // designation
-                    company: "Infosys", // organization
+                    company: "Infosys Ltd.", // organization
                     duration: ["06-2025", "06-2026"], // start and end dates (MM-YYYY format)
                     location: "Bengaluru & Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
@@ -74,7 +74,7 @@ var wH = window.outerHeight, // height
                 },
                 {
                     title: "Software Engineer Intern", // designation
-                    company: "CloudLab (p;log Pte. Ltd.)", // organization
+                    company: "CloudLab AG (p;log Pte. Ltd.)", // organization
                     duration: ["06-2024", "12-2024"], // start and end dates (MM-YYYY format)
                     location: "Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
