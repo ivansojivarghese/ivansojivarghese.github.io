@@ -454,15 +454,8 @@ h3.downsize {
     color: #303030;
 }
 
-.divider {
-    height: 0.1rem;
-    background: #E4E4E4;
-    margin-bottom: 2rem;
-}
-
 .pwa .info_text {
     text-align: left;
-    padding-bottom: 0;
 }
 
 #edu_title {
