@@ -1728,12 +1728,10 @@ function showExpertise() {
     const db_sys = document.querySelector('#exp_db_sys');
     let cat = [lang, swe, ai_ml, cloud_devops, db_sys]
 
-    var str = "";
-    var keywords = "";
-
-    for (c of cat) {
+    for (const c of cat) {
+        let str = "";
         const category = c.id.replace("exp_", "");
-        keywords = dev.info.expertise[category].split(", ")
+        let keywords = dev.info.expertise[category].split(", ")
         for (const k of keywords) {
             var s = document.createElement("span")
             s.innerHTML = k
