@@ -484,6 +484,10 @@ h3.downsize {
     padding: 0.5rem 1rem;
 }
 
+.work-exp {
+    margin-top: 3rem;
+}
+
 .pwa .open_to_work .info_text {
     padding: 0;
     color: #FFF !important;

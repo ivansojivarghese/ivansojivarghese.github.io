@@ -1749,11 +1749,11 @@ function showWorkExp() {
         expDiv.classList.add('work-exp');
         expDiv.innerHTML = `
             <h5>${exp.title}</h5>
-            <p class="paragraph">${exp.company}</p>
-            <p class="paragraph">${exp.duration}</p>
-            <p class="paragraph">${exp.location}</p>
-            <p class="paragraph">${exp.commitment}</p>
-            <p class="paragraph">${exp.type}</p>
+            <p class="">${exp.company}</p>
+            <p class="">${exp.duration}</p>
+            <p class="">${exp.location}</p>
+            <span class="tile">${exp.commitment}</span>
+            <span class="tile">${exp.type}</span>
             <p class="paragraph">${exp.description}</p>
         `;
         workExp.appendChild(expDiv);
