@@ -441,7 +441,7 @@ h3.downsize {
     transform: rotate(0deg);
 }
 
-.home_buttons p, .pwa .info_text {
+.home_buttons p, .pwa .info_text, .tile {
     padding: 1rem 0 1.4rem;
     text-align: center;
     font-size: 0.8rem;
@@ -479,6 +479,9 @@ h3.downsize {
     background: #E4E4E4;
     color: #303030;
     display: inline-block;
+    margin: 0.5rem;
+    margin-left: 0;
+    padding: 0.5rem 1rem;
 }
 
 .pwa .open_to_work .info_text {
