@@ -1743,14 +1743,16 @@ function showExpertise() {
 }
 
 function durationToText(arr) {
-    const formatDate = (date) =>
-        new Date(date + "-01").toLocaleDateString("en-US", {
+    const formatDate = (str) => {
+        const [month, year] = str.split("-").map(Number);
+        return new Date(year, month - 1).toLocaleDateString("en-US", {
             month: "long",
             year: "numeric"
         });
+    };
 
     const startDate = formatDate(arr[0]);
-    const endDate = arr[1]?.toLowerCase() === "present" || !arr[1]
+    const endDate = !arr[1] || arr[1].toLowerCase() === "present"
         ? "present"
         : formatDate(arr[1]);
 

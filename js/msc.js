@@ -48,7 +48,7 @@ var wH = window.outerHeight, // height
                 {
                     title: "Undergraduate Student Researcher", // designation
                     company: "College of Computing & Data Science (CCDS), NTU", // organization
-                    duration: ["08-2025", "05-2026"], // start and end dates (MM-YYYY format)
+                    duration: ["08-2025", "05-2026"], // start and end dates (MM-YYYY format), end date can be "present" if ongoing
                     location: "Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
                     type: "onsite", // 'onsite', 'remote' or 'hybrid'
