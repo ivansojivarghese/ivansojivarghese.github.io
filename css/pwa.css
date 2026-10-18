@@ -694,6 +694,10 @@ h3.downsize {
     font-size: 1.5rem;
 }
 
+#footer {
+    margin-top: 40vh;
+}
+
 .pwa .content h1 {
     line-height: 1em;
     /*margin-right: 0.5rem;*/
