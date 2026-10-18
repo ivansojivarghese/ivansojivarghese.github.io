@@ -1752,8 +1752,8 @@ function showWorkExp() {
             <p class="">${exp.company}</p>
             <p class="">${exp.duration}</p>
             <p class="">${exp.location}</p>
-            <span class="tile"><p>${exp.commitment}</p></span>
-            <span class="tile"><p>${exp.type}</p></span>
+            <p><span class="tile">${exp.commitment}</span></p>
+            <p><span class="tile">${exp.type}</span></p>
             <p class="paragraph">${exp.description}</p>
         `;
         workExp.appendChild(expDiv);

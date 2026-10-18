@@ -74,7 +74,7 @@ var wH = window.outerHeight, // height
                 },
                 {
                     title: "Software Engineer Intern", // designation
-                    company: "CloudLab (p;log Pte Ltd)", // organization
+                    company: "CloudLab (p;log Pte. Ltd.)", // organization
                     duration: ["06-2024", "12-2024"], // start and end dates (MM-YYYY format)
                     location: "Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
