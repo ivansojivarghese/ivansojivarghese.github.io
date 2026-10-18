@@ -1732,7 +1732,8 @@ function showExpertise() {
     var keywords = "";
 
     for (c of cat) {
-        keywords = dev.info.expertise[c.id].split(", ")
+        const category = c.id.replace("exp_", "");
+        keywords = dev.info.expertise[category].split(", ")
         for (const k of keywords) {
             var s = document.createElement("span")
             s.innerHTML = k
