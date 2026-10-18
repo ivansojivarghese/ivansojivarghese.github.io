@@ -1734,6 +1734,7 @@ function showExpertise() {
         let keywords = dev.info.expertise[category].split(", ")
         for (const k of keywords) {
             var s = document.createElement("span")
+            s.classList.add("tile")
             s.innerHTML = k
             str += s.outerHTML
         }

@@ -465,7 +465,7 @@ h3.downsize {
     padding-bottom: 0;
 }
 
-.pwa .open_to_work {
+.pwa .open_to_work, .tile {
     background: var(--predicate_col);
     color: #FFF;
     width: fit-content;
@@ -473,6 +473,12 @@ h3.downsize {
     border-radius: 0.5rem;
     margin-bottom: 2rem;
     display: none;
+}
+
+.tile {
+    background: #E4E4E4;
+    color: #303030;
+    display: inline-block;
 }
 
 .pwa .open_to_work .info_text {
