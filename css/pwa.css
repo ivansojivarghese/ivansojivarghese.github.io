@@ -454,6 +454,10 @@ h3.downsize {
     color: #303030;
 }
 
+.pwa .info_text {
+    text-align: left;
+}
+
 .home_buttons.hb_viewProjects {
     width: calc(100% - 1rem);
     margin-bottom: 40vh;
