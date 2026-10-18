@@ -686,6 +686,10 @@ h3.downsize {
     line-height: 1.5em !important;
 }
 
+.pwa .paragraph_single.mini {
+    font-size: 1rem;
+}
+
 .pwa .paragraph.size {
     font-size: 1.5rem;
 }
