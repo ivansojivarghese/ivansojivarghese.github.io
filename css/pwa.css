@@ -696,6 +696,7 @@ h3.downsize {
 
 #footer {
     margin-top: 40vh;
+    flex-direction: column;
 }
 
 .pwa .content h1 {
