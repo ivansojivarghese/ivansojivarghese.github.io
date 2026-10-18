@@ -682,6 +682,11 @@ h3.downsize {
     padding-bottom: 1.5em;
 }
 
+.pwa .paragraph.single {
+    line-height: 1.5em;
+    padding-bottom: 0;
+}
+
 .pwa .paragraph.size {
     font-size: 1.5rem;
 }
