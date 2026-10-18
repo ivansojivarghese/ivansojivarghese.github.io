@@ -1720,6 +1720,28 @@ async function updateDatabase() {
     });
 }*/
 
+function showExpertise() {
+    const lang = document.querySelector('#exp_lang');
+    const swe = document.querySelector('#exp_swe');
+    const ai_ml = document.querySelector('#exp_ai_ml');
+    const cloud_devops = document.querySelector('#exp_cloud_devops');
+    const db_sys = document.querySelector('#exp_db_sys');
+    let cat = [lang, swe, ai_ml, cloud_devops, db_sys]
+
+    var str = "";
+    var keywords = "";
+
+    for (c of cat) {
+        keywords = dev.info.expertise[c.id].split(", ")
+        for (const k of keywords) {
+            var s = document.createElement("span")
+            s.innerHTML = k
+            str += s.outerHTML
+        }
+        c.innerHTML += str;
+    }
+}
+
 async function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
@@ -1746,7 +1768,7 @@ async function fetchPWAInfo() {
 
     // expertise
 
-    
+    showExpertise();
 
     const swapToggle = document.querySelector('.pwa .swapToggle');
     var status = Number(localStorage.getItem('primarySegment'));
