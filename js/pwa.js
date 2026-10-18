@@ -1744,6 +1744,10 @@ async function fetchPWAInfo() {
         openToWork_tile.style.display = 'block';
     }
 
+    // expertise
+
+    
+
     const swapToggle = document.querySelector('.pwa .swapToggle');
     var status = Number(localStorage.getItem('primarySegment'));
     if (status) {

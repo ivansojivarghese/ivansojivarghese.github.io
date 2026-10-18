@@ -35,8 +35,18 @@ var wH = window.outerHeight, // height
         info : { // personal information - CHANGE WHEN NEEDED
             // work : ["web dev", "designer", "photog", "barista", "player"], // work labels
             // work: ["fullstack", "backend", "systems", "cloud", "ai/ml/data"], // work labels
-            openToWork: false, // open to work status
-            work: ["i think", "we can", "do better.", "let's do this,", "cheers! :)"], // labels
+            openToWork: true, // open to work status
+            work: ["i think", "we can", "do better.", "let's do this,", "cheers! :)"], // labels for typing effect
+            expertise: {
+                lang : "Python, C/C++, Java, Go, TypeScript/JavaScript, Shell",
+                swe : "React, Next.js, Node.js, Django, Spring, FastAPI, REST APIs",
+                ai_ml : "PyTorch, TensorFlow, LangChain, LLMOps, Pandas",
+                cloud_devops : "GCP, AWS, Azure, Docker, Kubernetes, Terraform, CI/CD",
+                db_sys : "PostgreSQL, MySQL, MongoDB, Ubuntu, SQL, Git/GitHub"
+            },
+
+            ///
+
             workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
             // college : !(window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200 && wiH >= 700) || wiH >= 800)) ? "ntu" : "mshs", // name of institution
             college : !(window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200) || wiH >= 800)) ? "ntu" : "mshs", // name of institution
