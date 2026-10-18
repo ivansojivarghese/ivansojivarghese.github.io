@@ -35,9 +35,9 @@ var wH = window.outerHeight, // height
         info : { // personal information - CHANGE WHEN NEEDED
             // work : ["web dev", "designer", "photog", "barista", "player"], // work labels
             // work: ["fullstack", "backend", "systems", "cloud", "ai/ml/data"], // work labels
-            openToWork: true, // open to work status
+            openToWork: false, // open to work status
             work: ["i think", "we can", "do better.", "let's do this,", "cheers! :)"], // labels for typing effect
-            expertise: {
+            expertise: { // ensure comma separated
                 lang : "Python, C/C++, Java, Go, TypeScript/JavaScript, Shell",
                 swe : "React, Next.js, Node.js, Django, Spring, FastAPI, REST APIs",
                 ai_ml : "PyTorch, TensorFlow, LangChain, LLMOps, Pandas",
