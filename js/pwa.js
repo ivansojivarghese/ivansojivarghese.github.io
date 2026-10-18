@@ -1467,6 +1467,13 @@ function updateGreeting() {
 
 updateGreeting();
 
+// open to work status
+
+const openToWork_tile = document.querySelector('#openToWork_tile');
+if (dev.info.openToWork) {
+    openToWork_tile.style.display = 'block';
+}
+
 // REFERENCED FROM: https://stackoverflow.com/questions/7490660/converting-wind-direction-in-angles-to-text-words
 
 function degToCompass(num) {
