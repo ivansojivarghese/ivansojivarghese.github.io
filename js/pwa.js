@@ -1453,6 +1453,20 @@ const feelsLike = document.querySelector('.pwa .popups .pills.weatherInfo .feels
 
 const greeting = document.querySelector('.pwa .home #greeting');
 
+function updateGreeting() {
+  greeting.innerHTML = timeOfDay();
+
+  const now = new Date();
+  const msUntilNextHour =
+    (60 - now.getMinutes()) * 60_000 -
+    now.getSeconds() * 1000 -
+    now.getMilliseconds();
+
+  setTimeout(updateGreeting, msUntilNextHour);
+}
+
+updateGreeting();
+
 // REFERENCED FROM: https://stackoverflow.com/questions/7490660/converting-wind-direction-in-angles-to-text-words
 
 function degToCompass(num) {

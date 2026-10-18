@@ -441,7 +441,7 @@ h3.downsize {
     transform: rotate(0deg);
 }
 
-.home_buttons p {
+.home_buttons p, .pwa .info_text {
     padding: 1rem 0 1.4rem;
     text-align: center;
     font-size: 0.8rem;
@@ -450,7 +450,7 @@ h3.downsize {
     color: #FFF;
 }
 
-.home_buttons.hb_linkedin p, .home_buttons.hb_viewProjects p {
+.home_buttons.hb_linkedin p, .home_buttons.hb_viewProjects p, .pwa .info_text {
     color: #303030;
 }
 
