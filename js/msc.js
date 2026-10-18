@@ -64,7 +64,7 @@ var wH = window.outerHeight, // height
                     description: "Engineered models that predicted user preferences in head-to-head chatbot comparisons. Optimized for human-aligned responses by capturing key signals and minimizing bias in LLM outputs." 
                 },
                 {
-                    title: "Software Engineer / Forward Deployed Engineer Intern", // designation
+                    title: "Software Engineer Intern / Forward Deployed Engineer Intern", // designation
                     company: "Infosys", // organization
                     duration: ["06-2025", "06-2026"], // start and end dates (MM-YYYY format)
                     location: "Bengaluru & Singapore", // geographic location/region/city/country/state
