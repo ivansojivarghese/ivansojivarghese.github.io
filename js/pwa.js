@@ -1742,6 +1742,24 @@ function showExpertise() {
     }
 }
 
+function showWorkExp() {
+    const workExp = document.querySelector('#work_exp');
+    for (const exp of dev.info.workExp) {
+        const expDiv = document.createElement('div');
+        expDiv.classList.add('work-exp');
+        expDiv.innerHTML = `
+            <h3>${exp.title}</h3>
+            <p>${exp.company}</p>
+            <p>${exp.duration}</p>
+            <p>${exp.location}</p>
+            <p>${exp.commitment}</p>
+            <p>${exp.type}</p>
+            <p>${exp.description}</p>
+        `;
+        workExp.appendChild(expDiv);
+    }
+}
+
 async function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
@@ -1769,6 +1787,10 @@ async function fetchPWAInfo() {
     // expertise
 
     showExpertise();
+
+    // work exp
+
+    showWorkExp();
 
     const swapToggle = document.querySelector('.pwa .swapToggle');
     var status = Number(localStorage.getItem('primarySegment'));

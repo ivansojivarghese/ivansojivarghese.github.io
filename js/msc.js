@@ -44,6 +44,44 @@ var wH = window.outerHeight, // height
                 cloud_devops : "GCP, AWS, Azure, Docker, Kubernetes, Terraform, CI/CD",
                 db_sys : "PostgreSQL, MySQL, MongoDB, Ubuntu, SQL, Git/GitHub"
             },
+            workExp: [ // Add work experience details here
+                {
+                    title: "Undergraduate Student Researcher", // designation
+                    company: "College of Computing & Data Science (CCDS), NTU", // organization
+                    duration: ["08-2025", "05-2026"], // start and end dates (MM-YYYY format)
+                    location: "Singapore", // geographic location/region/city/country/state
+                    commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
+                    type: "onsite", // 'onsite', 'remote' or 'hybrid'
+                    description: "Worked under Prof. Cai Wentong & Dr. Philipp Andelfinger on integrating advanced gradient estimation techniques into ML frameworks to better handle discrete decision branches during training - within the Parallel and Distributed Computing Lab (PDCL) here at NTU." 
+                },
+                {
+                    title: "Machine Learning Engineer", // designation
+                    company: "College of Computing & Data Science (CCDS), NTU", // organization
+                    duration: ["09-2025", "11-2025"], // start and end dates (MM-YYYY format)
+                    location: "Singapore", // geographic location/region/city/country/state
+                    commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
+                    type: "onsite", // 'onsite', 'remote' or 'hybrid'
+                    description: "Engineered models that predicted user preferences in head-to-head chatbot comparisons. Optimized for human-aligned responses by capturing key signals and minimizing bias in LLM outputs." 
+                },
+                {
+                    title: "Software Engineer / Forward Deployed Engineer Intern", // designation
+                    company: "Infosys", // organization
+                    duration: ["06-2025", "06-2026"], // start and end dates (MM-YYYY format)
+                    location: "Bengaluru & Singapore", // geographic location/region/city/country/state
+                    commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
+                    type: "onsite & remote", // 'onsite', 'remote' or 'hybrid'
+                    description: "Owned and developed custom internal Agentic tools/platforms that streamline code verifications and technical debt assessments by using Python/LangChain agents, LangGraph workflows + RAG pipelines." 
+                },
+                {
+                    title: "Software Engineer Intern", // designation
+                    company: "CloudLab (p;log Pte Ltd)", // organization
+                    duration: ["06-2024", "12-2024"], // start and end dates (MM-YYYY format)
+                    location: "Singapore", // geographic location/region/city/country/state
+                    commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
+                    type: "onsite", // 'onsite', 'remote' or 'hybrid'
+                    description: "Built and maintained production‑grade features for Magento‑based platforms, debugging and optimizing backend PHP/MySQL components to improve system reliability and execution efficiency."
+                },
+            ],
 
             ///
 
@@ -67,7 +105,7 @@ var wH = window.outerHeight, // height
         sC_a : [], // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
         cH : document.getElementById("control-height"), // dummy element, to check height changes relative to viewport
         uH : document.getElementById("ui-height"), // dummy element, check for URL/interface bar resizing
-        version : "3.14", // site version
+        version : "3.15", // site version
         version_up : "", // version upgrade (if applicable, during maintenance)
         v : 1, // max view time (days)
         i : 1000, // interface timeout (max.)
