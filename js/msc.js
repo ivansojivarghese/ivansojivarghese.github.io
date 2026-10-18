@@ -35,7 +35,7 @@ var wH = window.outerHeight, // height
         info : { // personal information - CHANGE WHEN NEEDED
             // work : ["web dev", "designer", "photog", "barista", "player"], // work labels
             // work: ["fullstack", "backend", "systems", "cloud", "ai/ml/data"], // work labels
-            openToWork: true,
+            openToWork: false, // open to work status
             work: ["i think", "we can", "do better.", "let's do this,", "cheers! :)"], // labels
             workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
             // college : !(window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200 && wiH >= 700) || wiH >= 800)) ? "ntu" : "mshs", // name of institution
