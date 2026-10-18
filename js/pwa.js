@@ -1743,7 +1743,7 @@ function showExpertise() {
 }
 
 function showWorkExp() {
-    const workExp = document.querySelector('#work_exp');
+    const workExp = document.querySelector('#workExp');
     for (const exp of dev.info.workExp) {
         const expDiv = document.createElement('div');
         expDiv.classList.add('work-exp');
