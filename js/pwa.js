@@ -1748,13 +1748,13 @@ function showWorkExp() {
         const expDiv = document.createElement('div');
         expDiv.classList.add('work-exp');
         expDiv.innerHTML = `
-            <h3>${exp.title}</h3>
-            <p>${exp.company}</p>
-            <p>${exp.duration}</p>
-            <p>${exp.location}</p>
-            <p>${exp.commitment}</p>
-            <p>${exp.type}</p>
-            <p>${exp.description}</p>
+            <h5>${exp.title}</h5>
+            <p class="paragraph">${exp.company}</p>
+            <p class="paragraph">${exp.duration}</p>
+            <p class="paragraph">${exp.location}</p>
+            <p class="paragraph">${exp.commitment}</p>
+            <p class="paragraph">${exp.type}</p>
+            <p class="paragraph">${exp.description}</p>
         `;
         workExp.appendChild(expDiv);
     }
