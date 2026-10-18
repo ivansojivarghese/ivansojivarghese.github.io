@@ -465,6 +465,11 @@ h3.downsize {
     padding-bottom: 0;
 }
 
+.pwa .open_to_work {
+    background: var(--predicate_col);
+    color: #FFF;
+}
+
 #edu_title {
     margin-bottom: 2rem;
 }
