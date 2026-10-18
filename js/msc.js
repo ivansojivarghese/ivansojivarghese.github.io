@@ -66,7 +66,7 @@ var wH = window.outerHeight, // height
                 {
                     title: "Software Engineer Intern / Forward Deployed Engineer Intern", // designation
                     company: "Infosys Ltd.", // organization
-                    duration: ["06-2025", "06-2026"], // start and end dates (MM-YYYY format)
+                    duration: ["05-2025", "06-2026"], // start and end dates (MM-YYYY format)
                     location: "Bengaluru & Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
                     type: "onsite & remote", // 'onsite', 'remote' or 'hybrid'
