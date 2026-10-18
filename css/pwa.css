@@ -458,6 +458,10 @@ h3.downsize {
     text-align: left;
 }
 
+#edu_title {
+    margin-bottom: 2rem;
+}
+
 .home_buttons.hb_viewProjects {
     width: calc(100% - 1rem);
     margin-bottom: 40vh;
