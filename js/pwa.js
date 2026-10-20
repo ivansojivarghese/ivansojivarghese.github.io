@@ -2242,9 +2242,9 @@ async function fetchPWAInfo() {
     const aboutS3 = document.querySelector('.pwa .about #span3');
     const aboutS4 = document.querySelector('.pwa .about #span4');
 
-    aboutS1.innerHTML = "engineer";
+    aboutS1.innerHTML = "tinkerer";
     // aboutS2.innerHTML = dev.info.work[1];
-    aboutS2.innerHTML = "builder";
+    aboutS2.innerHTML = "creator";
     // aboutS2_1.innerHTML = dev.info.work[2];
     aboutS3.innerHTML = gps.city.toLowerCase();
     aboutS4.innerHTML = new Date().getFullYear() - 2018;
