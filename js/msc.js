@@ -46,7 +46,7 @@ var wH = window.outerHeight, // height
             headline_Secondary: "cs @ ntu", // profile headline secondary
             openToWork: false, // open to work status
             work: ["i think", "we can", "do better.", "let's do this,", "cheers! :)"], // labels for typing effect
-            desc1: "I'm a graduate with a Bachelor of Engineering (Honours) in Computer Science from <a class='hoverB trs' style='display: inline;' href='https://www.ntu.edu.sg/' target='_blank' rel='noopener noreferrer'><strong>Nanyang Technological University</strong></a>, with a strong interest in Artificial Intelligence.",
+            desc1: "I'm a graduate with a Bachelor of Engineering (Honours) in Computer Science from <strong>Nanyang Technological University</strong>, with a strong interest in Artificial Intelligence.",
             desc2: "Fundamentally — crazy when I'm tackling challenging technical problems, experimenting with new ideas, and turning them into systems that work reliably in the real world (sounds cliché but I can't possibly be making this up).",
             desc3: "I want to make a difference.",
             expertise: { // ensure comma separated
@@ -107,6 +107,9 @@ var wH = window.outerHeight, // height
             hoursNo : 183,
             cappuccinosNo : 245
         },
+
+        /// NOT IN USE 
+
         skillsNum : 10, // num. of skills per line (UPDATE)
         skills : { // relevant skills (UPDATE IF NEEDED, WORDS MUST NOT EXCEED 2 WORDS (5-6 CHARACTERS) IN LENGTH)
             s1 : ["design", "canva", "wireframe", "figma", "ux", "dreamweaver", "ui", "studio", "experience", "responsive"], // ux/ui
@@ -114,6 +117,9 @@ var wH = window.outerHeight, // height
             s3 : ["logic", "debug", "flow", "object", "algorithm", "python", "ai", "boolean", "array", "ascii"], // software
             s4 : ["frame", "memory", "camera", "pen", "light", "blur", "vision", "shadow", "chocolate", "espresso"] // personal
         },
+
+        ///
+
         sC_a : [], // split-screen ratio array (mobile/tablet/phablet/touch-device : desktop)
         cH : document.getElementById("control-height"), // dummy element, to check height changes relative to viewport
         uH : document.getElementById("ui-height"), // dummy element, check for URL/interface bar resizing
