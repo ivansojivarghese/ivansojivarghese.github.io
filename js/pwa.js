@@ -1228,6 +1228,11 @@ window.addEventListener('devicemotion', function(event) { // estimate walking st
 
 // var commuteModeRevert = null;
 
+function viewProjects() {
+    const codeBtn = document.querySelector('.pwa .navbar .button.code') || document.querySelector('.pwa .navbar .button.code_dark');
+    navButtonActive('code', codeBtn, false);
+}
+
 function fab2Action() {
     const aboutBtn = document.querySelector('.pwa .navbar .button.about') || document.querySelector('.pwa .navbar .button.about_dark');
     if (fab2Close) { // close
