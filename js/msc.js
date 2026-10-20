@@ -12,11 +12,14 @@ var wH = window.outerHeight, // height
     gps = { // CURRENT LOCATION (UPDATE WHEN NEEDED!)
         // city : "Sf - 94103",
         city : "singapore",
-        country : "US", // (ISO 3116 code) // SG
-        lat : "37.785", // 1.343
-        lon : "-122.429" // 103.689
+        country : "SG", // (ISO 3116 code) // US
+        lat : "1.343", // 1.343
+        lon : "103.689" // 103.689
         // 37.785222, -122.429722.
     },
+
+    /// REDUNDANT VARIABLES (NOT IN USE)
+
     gpsInfo = {
         latDeg : "1°", // RETRIEVED FROM https://www.latlong.net/convert-address-to-lat-long.html
         latMin : "20\'",
@@ -27,16 +30,25 @@ var wH = window.outerHeight, // height
         lonSec : 'xx"',
         lonDir : "E"
     },
+
+    ///
+
     dev = {
-        mode : developer,  
+        mode : developer,  // change in dev.js
         mtne : false, // maintenance check
         z : 100, // zoom level, default
         url : "https://ivansojivarghese.github.io/", // live URL that [currently] hosts the site: FOR TESTING PURPOSE - CHANGE WHEN NEEDED
         info : { // personal information - CHANGE WHEN NEEDED
             // work : ["web dev", "designer", "photog", "barista", "player"], // work labels
             // work: ["fullstack", "backend", "systems", "cloud", "ai/ml/data"], // work labels
+
+            headline: "software, ai & ml engineering", // profile headline
+            headline_Secondary: "cs @ ntu", // profile headline secondary
             openToWork: false, // open to work status
             work: ["i think", "we can", "do better.", "let's do this,", "cheers! :)"], // labels for typing effect
+            desc1: "I'm a graduate with a Bachelor of Engineering (Honours) in Computer Science from <a class='trs' style='display: inline;' href='https://www.ntu.edu.sg/' target='_blank' rel='noopener noreferrer'><strong>Nanyang Technological University</strong></a>, with a strong interest in Artificial Intelligence.",
+            desc2: "Fundamentally — crazy when I'm tackling challenging technical problems, experimenting with new ideas, and turning them into systems that work reliably in the real world (sounds cliché but I can't possibly be making this up).",
+            desc3: "I want to make a difference.",
             expertise: { // ensure comma separated
                 lang : "Python, C/C++, Java, Go, TypeScript/JavaScript, Shell",
                 swe : "React, Next.js, Node.js, Django, Spring, FastAPI, REST APIs",
@@ -83,7 +95,7 @@ var wH = window.outerHeight, // height
                 },
             ],
 
-            ///
+            /// -- NOT IN USE BELOW
 
             workType : "freelance", // 'full-time', 'part-time', 'casual' or 'freelance'
             // college : !(window.matchMedia('(orientation: landscape)').matches && ((wiD >= 1200 && wiH >= 700) || wiH >= 800)) ? "ntu" : "mshs", // name of institution

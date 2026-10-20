@@ -1782,6 +1782,22 @@ function showWorkExp() {
     }
 }
 
+function showDescriptions() {
+    const role_title = document.querySelector("#role_title");
+    const edu_title = document.querySelector("#edu_title");
+
+    const desc1 = document.querySelector("#desc1");
+    const desc2 = document.querySelector("#desc2");
+    const desc3 = document.querySelector("#desc3");
+
+    role_title.innerHTML = dev.info.headline;
+    edu_title.innerHTML = dev.info.headline_Secondary;
+
+    desc1.innerHTML = dev.info.desc1;
+    desc2.innerHTML = dev.info.desc2;
+    desc3.innerHTML = dev.info.desc3;
+}
+
 async function fetchPWAInfo() {
     const sections = document.querySelector('.pwa .sections');
     const navbar = document.querySelector('.pwa .navbar');
@@ -1805,6 +1821,10 @@ async function fetchPWAInfo() {
     if (dev.info.openToWork) {
         openToWork_tile.style.display = 'block';
     }
+
+    // descriptions
+
+    showDescriptions();
 
     // expertise
 
