@@ -46,7 +46,7 @@ var wH = window.outerHeight, // height
             headline_Secondary: "cs @ ntu", // profile headline secondary
             openToWork: false, // open to work status
             work: ["i think", "we can", "do better.", "let's do this,", "cheers! :)"], // labels for typing effect
-            desc1: "I'm a graduate with a Bachelor of Engineering (Honours) in Computer Science from <a class='trs' style='display: inline;' href='https://www.ntu.edu.sg/' target='_blank' rel='noopener noreferrer'><strong>Nanyang Technological University</strong></a>, with a strong interest in Artificial Intelligence.",
+            desc1: "I'm a graduate with a Bachelor of Engineering (Honours) in Computer Science from <a class='hoverB trs' style='display: inline;' href='https://www.ntu.edu.sg/' target='_blank' rel='noopener noreferrer'><strong>Nanyang Technological University</strong></a>, with a strong interest in Artificial Intelligence.",
             desc2: "Fundamentally — crazy when I'm tackling challenging technical problems, experimenting with new ideas, and turning them into systems that work reliably in the real world (sounds cliché but I can't possibly be making this up).",
             desc3: "I want to make a difference.",
             expertise: { // ensure comma separated
