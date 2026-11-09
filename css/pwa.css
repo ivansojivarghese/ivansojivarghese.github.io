@@ -1691,8 +1691,11 @@ a.no_inline {
 #spotify_container .text {
     display: inline-block;
     padding: 0;
-    font-size: 1rem;
     font-family: Raleway, sans-serif;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    position: relative;
+    bottom: 0.25rem;
 }
 
 .spotify_img {
