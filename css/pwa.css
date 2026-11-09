@@ -1688,6 +1688,11 @@ a.no_inline {
     background-image: url("../svg/spotify.svg");
 }
 
+.spotify_img.img_icon {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
 .pwa .navbar .button.swap .img {
     background-image: url("../svg/switch_right_white.svg");
 }
