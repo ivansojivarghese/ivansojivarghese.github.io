@@ -1688,6 +1688,11 @@ a.no_inline {
     margin-bottom: 2rem;
 }
 
+#spotify_container .text {
+    display: inline-block;
+    padding: 0;
+}
+
 .spotify_img {
     background-image: url("../svg/spotify.svg");
 }
@@ -1695,6 +1700,7 @@ a.no_inline {
 .spotify_img.img_icon {
     width: 1.3rem;
     height: 1.3rem;
+    display: inline-block;
 }
 
 .pwa .navbar .button.swap .img {
