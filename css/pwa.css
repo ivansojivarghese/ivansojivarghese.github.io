@@ -1684,6 +1684,10 @@ a.no_inline {
     }
 }
 
+.spotify_img {
+    background-image: url("../svg/spotify.svg");
+}
+
 .pwa .navbar .button.swap .img {
     background-image: url("../svg/switch_right_white.svg");
 }

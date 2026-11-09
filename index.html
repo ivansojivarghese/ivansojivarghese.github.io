@@ -24,6 +24,7 @@
             // (heavy resource) pre-load
 
             var svg = {
+                    spotify: false,
                     upd : false,
                     pln : false,
                     bcy : false,
@@ -526,6 +527,7 @@
         <link rel="preload" fetchpriority="low" href="svg/commute.svg" as="image" type="image/svg+xml" onload="svg.commute = true;">
         <link rel="preload" fetchpriority="low" href="svg/commute_white.svg" as="image" type="image/svg+xml" onload="svg.commute_w = true;">
         <link rel="preload" fetchpriority="low" href="svg/update.svg" as="image" type="image/svg+xml" onload="svg.upd = true;">
+        <link rel="preload" fetchpriority="low" href="svg/spotify.svg" as="image" type="image/svg+xml" onload="svg.spotify = true;">
 
         <!-- 
         <link rel="preload" href="svg/scrolltop.svg" as="image" type="image/svg+xml" onload="svg.sct = true;">
@@ -1404,6 +1406,9 @@
                             <div id="openToWork_tile" class="open_to_work">
                                 <p class="info_text">open to work</p>
                             </div>
+                            <a id="spotify_container" href="">
+                                <div class="spotify_img"></div>
+                            </a>
                             <div class="divider"></div>
                             <div class="content">
                                 <div class="flexActive">
