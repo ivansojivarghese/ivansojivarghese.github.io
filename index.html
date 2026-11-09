@@ -2986,15 +2986,18 @@
         <script async src="ext/js/ham.js"></script>
         <script async src="ext/js/scr.js"></script> -->
         <script>
-            (async function updateSpotifyContainer() {
+            let spotifyUpdateInProgress = false;
+
+            async function updateSpotifyContainer() {
                 const container = document.getElementById("spotify_container");
                 const title = container?.querySelector("p.text:not(.artist)");
                 const artist = container?.querySelector("p.artist");
 
-                if (!container || !title || !artist) {
+                if (!container || !title || !artist || spotifyUpdateInProgress) {
                     return;
                 }
 
+                spotifyUpdateInProgress = true;
                 try {
                     const response = await fetch("https://spotify-web-api-five.vercel.app/api/spotify", {
                         headers: {
@@ -3016,14 +3019,23 @@
                         throw new Error("Spotify returned no current or recently played track");
                     }
                     const artists = track.artists?.map((item) => item.name).join(", ");
+                    const isApp = window.matchMedia("(display-mode: standalone)").matches
+                        || window.navigator.standalone === true;
+                    const spotifyWebUrl = track.external_urls?.spotify
+                        || `https://open.spotify.com/track/${track.id}`;
 
-                    container.href = track.uri || track.external_urls?.spotify || "#";
+                    container.href = isApp && track.uri ? track.uri : spotifyWebUrl;
                     title.textContent = `${isPlaying ? "Now Playing" : "Last Played"}: ${track.name}`;
                     artist.textContent = artists || "";
                 } catch (error) {
                     console.error("Unable to load Spotify playback:", error);
+                } finally {
+                    spotifyUpdateInProgress = false;
                 }
-            })();
+            }
+
+            updateSpotifyContainer();
+            setInterval(updateSpotifyContainer, 15000);
         </script>
     </body>
 </html>
