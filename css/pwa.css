@@ -1702,6 +1702,12 @@ a.no_inline {
     font-weight: bold;
 }
 
+@media (orientation: landscape) {
+    #spotify_container .text {
+        width: calc(90% - 2.8rem);
+    }
+}
+
 #spotify_container .text.artist {
     margin-left: 2.5em;
     font-size: 0.7rem;
