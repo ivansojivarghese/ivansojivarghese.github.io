@@ -1684,6 +1684,10 @@ a.no_inline {
     }
 }
 
+#spotify_container {
+    margin-bottom: 2rem;
+}
+
 .spotify_img {
     background-image: url("../svg/spotify.svg");
 }
