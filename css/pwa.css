@@ -1691,19 +1691,20 @@ a.no_inline {
 #spotify_container .text {
     display: inline-block;
     font-family: Raleway, sans-serif;
-    font-size: 1rem;
-    margin-left: 0.5rem;
+    font-size: 0.85rem;
+    margin-left: 0.25em;
     position: relative;
     text-overflow: ellipsis;
     width: calc(90% - 1.8rem);
     white-space: nowrap;
     overflow: hidden;
     padding: 0.2rem 0;
+    font-weight: bold;
 }
 
 #spotify_container .text.artist {
-    margin-left: 2.1rem;
-    font-size: 0.85rem;
+    margin-left: 2.5em;
+    font-size: 0.7rem;
 }
 
 .spotify_img {
