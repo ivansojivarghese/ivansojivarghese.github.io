@@ -1695,7 +1695,7 @@ a.no_inline {
     margin-left: 0.25em;
     position: relative;
     text-overflow: ellipsis;
-    width: calc(90% - 1.8rem);
+    width: calc(90vw - 2.8rem);
     white-space: nowrap;
     overflow: hidden;
     padding: 0.2rem 0;
