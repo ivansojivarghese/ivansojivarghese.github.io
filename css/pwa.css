@@ -1691,7 +1691,7 @@ a.no_inline {
 #spotify_container .text {
     display: inline-block;
     font-family: Raleway, sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     margin-left: 0.25em;
     position: relative;
     text-overflow: ellipsis;
@@ -1709,8 +1709,8 @@ a.no_inline {
 }
 
 #spotify_container .text.artist {
-    margin-left: 2.5em;
-    font-size: 0.7rem;
+    margin-left: 2.3em;
+    font-size: 0.8rem;
 }
 
 .spotify_img {
