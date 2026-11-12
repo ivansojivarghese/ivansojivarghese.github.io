@@ -468,6 +468,11 @@ h3.downsize {
 .pwa .info_text {
     text-align: left;
     padding-bottom: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 1rem;
+    font-weight: bold;
+    opacity: 0.75;
 }
 
 .pwa .open_to_work, .tile {
@@ -481,8 +486,8 @@ h3.downsize {
 }
 
 .tile.expertise_tile {
-    text-transform: none;
-    letter-spacing: normal;
+    text-transform: none !important;
+    letter-spacing: normal !important;
 }
 
 .tile {
@@ -1710,6 +1715,7 @@ a.no_inline {
     overflow: hidden;
     padding: 0.2rem 0;
     font-weight: bold;
+    opacity: 0.75;
 }
 
 @media (orientation: landscape) {
@@ -1728,7 +1734,8 @@ a.no_inline {
 }
 
 .spotify_img.img_icon {
-    width: 1.3rem;
+    /*width: 1.3rem;*/
+    width: 1.35rem;
     height: 1.3rem;
     display: inline-block;
 }

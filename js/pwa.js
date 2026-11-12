@@ -1775,8 +1775,8 @@ function showWorkExp() {
             <p class="paragraph_single">${exp.company}</p>
             <p class="paragraph_single mini">${durationToText(exp.duration)}</p>
             <p class="paragraph_single mini">${exp.location}</p>
-            <p class="paragraph_single inline"><span class="tile">${exp.commitment}</span></p>
-            <p class="paragraph_single inline"><span class="tile">${exp.type}</span></p>
+            <p class="paragraph_single inline"><span class="tile expertise_tile">${exp.commitment}</span></p>
+            <p class="paragraph_single inline"><span class="tile expertise_tile">${exp.type}</span></p>
             <p class="paragraph">${exp.description}</p>
         `;
         workExp.appendChild(expDiv);
