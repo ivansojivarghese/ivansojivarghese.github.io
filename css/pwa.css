@@ -460,6 +460,11 @@ h3.downsize {
     margin-bottom: 2rem;
 }
 
+.paragraph_single.inline {
+    display: inline-block;
+    padding-right: 0.5em;
+}
+
 .pwa .info_text {
     text-align: left;
     padding-bottom: 0;
@@ -473,6 +478,11 @@ h3.downsize {
     border-radius: 0.5rem;
     margin-bottom: 2rem;
     display: none;
+}
+
+.tile.expertise_tile {
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 .tile {
