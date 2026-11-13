@@ -17,7 +17,7 @@ var wH = window.outerHeight, // height
         lon : "103.689" // 103.689
         // 37.785222, -122.429722.
     },
-    time = {
+    time_z = {
         zone: "",
         value: "",
         abbreviation: ""
