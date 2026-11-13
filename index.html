@@ -3011,9 +3011,11 @@
                     }
 
                     const currentTrack = data.playback?.item;
-                    const recentTrack = data.recentlyPlayed?.items?.[0]?.track;
+                    const recentItem = data.recentlyPlayed?.items?.[0];
+                    const recentTrack = recentItem?.track;
                     const isPlaying = Boolean(currentTrack && data.playback.is_playing);
                     const track = isPlaying ? currentTrack : (recentTrack || currentTrack);
+                    const context = isPlaying ? data.playback?.context : recentItem?.context;
 
                     if (!track) {
                         throw new Error("Spotify returned no current or recently played track");
@@ -3021,8 +3023,13 @@
                     const artists = track.artists?.map((item) => item.name).join(", ");
                     const isApp = window.matchMedia("(display-mode: standalone)").matches
                         || window.navigator.standalone === true;
-                    const spotifyWebUrl = track.external_urls?.spotify
-                        || `https://open.spotify.com/track/${track.id}`;
+                    const playlistId = context?.type === "playlist"
+                        ? context.uri?.split(":").pop()
+                        : null;
+                    const spotifyWebUrl = playlistId
+                        ? `https://open.spotify.com/playlist/${playlistId}?highlight=spotify:track:${track.id}`
+                        : (track.external_urls?.spotify
+                            || `https://open.spotify.com/track/${track.id}`);
 
                     container.href = isApp && track.uri ? track.uri : spotifyWebUrl;
                     title.textContent = `${isPlaying ? "Now Playing" : "Last Played"}: ${track.name}`;
