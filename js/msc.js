@@ -20,7 +20,8 @@ var wH = window.outerHeight, // height
     time_z = {
         zone: "",
         value: "",
-        abbreviation: ""
+        abbreviation: "",
+        display: ""
     },
 
     /// REDUNDANT VARIABLES (NOT IN USE)
@@ -426,7 +427,15 @@ async function getLocationTime() {
             timeZoneName: "short"
         }).formatToParts(new Date(data.now.iso));
         const timezonePart = timezoneParts.find(part => part.type === "timeZoneName");
-        time.abbreviation = data.now.abbreviation || (timezonePart ? timezonePart.value : "");
+        time.abbreviation = data.now.abbreviation ||
+            (data.zone === "Asia/Singapore" ? "SGT" : timezonePart ? timezonePart.value : "");
+        const localTime = new Intl.DateTimeFormat("en-SG", {
+            timeZone: data.zone,
+            hour: "numeric",
+            minute: "2-digit"
+        }).format(new Date(data.now.iso));
+        time.display = `${gps.city} — ${localTime} ${time.abbreviation} (${data.now.utcOffset})`;
+        console.log(time.display);
     } catch (error) {
         console.error("Error fetching location time:", error);
     }
