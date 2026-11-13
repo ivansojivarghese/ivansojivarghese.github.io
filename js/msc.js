@@ -18,7 +18,7 @@ var wH = window.outerHeight, // height
         // 37.785222, -122.429722.
     },
     time_z = {
-        zone: "",
+        zone: "Asia/Singapore",
         value: "",
         abbreviation: "",
         display: ""
@@ -396,53 +396,26 @@ function isolateRegionBCP47(str) { // for BCP 47 language tags (https://www.tech
 
 // APIs
 
-async function getLocationTime() {
-    if (!navigator.onLine) {
-        console.error("Unable to fetch location time while offline.");
-        return;
-    }
+function getLocationTime() {
+    const now = new Date();
+    const timezoneParts = new Intl.DateTimeFormat("en-SG", {
+        timeZone: time_z.zone,
+        timeZoneName: "short"
+    }).formatToParts(now);
+    const timezonePart = timezoneParts.find(part => part.type === "timeZoneName");
 
-    try {
-        const response = await fetch(
-            "https://hourora.app/api/v1/lookup?lat=" +
-            encodeURIComponent(gps.lat) +
-            "&lng=" +
-            encodeURIComponent(gps.lon)
-        );
-
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (!data.zone || !data.now || !data.now.iso) {
-            throw new Error("Location time response is missing zone or now.iso.");
-        }
-
-        time.zone = data.zone;
-        time.value = data.now.iso;
-
-        const timezoneParts = new Intl.DateTimeFormat("en-SG", {
-            timeZone: data.zone,
-            timeZoneName: "short"
-        }).formatToParts(new Date(data.now.iso));
-        const timezonePart = timezoneParts.find(part => part.type === "timeZoneName");
-        time.abbreviation = data.now.abbreviation ||
-            (data.zone === "Asia/Singapore" ? "SGT" : timezonePart ? timezonePart.value : "");
-        const localTime = new Intl.DateTimeFormat("en-SG", {
-            timeZone: data.zone,
-            hour: "numeric",
-            minute: "2-digit"
-        }).format(new Date(data.now.iso));
-        const utcOffset = data.now.utcOffset || data.now.offset || "UTC";
-        time.display = `${gps.city} — ${localTime} ${time.abbreviation} (${utcOffset})`;
-        window.locationTime = time;
-        console.log("Location time:", time.display);
-        return time.display;
-    } catch (error) {
-        console.error("Error fetching location time:", error);
-        return "";
-    }
+    time_z.abbreviation = time_z.zone === "Asia/Singapore"
+        ? "SGT"
+        : timezonePart ? timezonePart.value : "";
+    time_z.value = new Intl.DateTimeFormat("en-SG", {
+        timeZone: time_z.zone,
+        dateStyle: "medium",
+        timeStyle: "medium"
+    }).format(now);
+    time_z.display = `${gps.city} — ${time_z.value} ${time_z.abbreviation}`;
+    window.locationTime = time_z;
+    console.log("Location time:", time_z.display);
+    return time_z.display;
 }
 
 getLocationTime();
