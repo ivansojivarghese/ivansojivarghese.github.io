@@ -1796,6 +1796,22 @@ function showWorkExp() {
     }
 }
 
+function showEduExp() {
+    const edu = document.querySelector('#edu');
+
+    for (const exp of dev.info.eduExp) {
+        const expDiv = document.createElement('div');
+        expDiv.classList.add('work-exp');
+        expDiv.innerHTML = `
+            <h5 class="paragraph_single">${exp.degree}</h5>
+            <p class="paragraph_single">${exp.institution}</p>
+            <p class="paragraph_single mini">${durationToText(exp.duration)}</p>
+            <p class="paragraph_single mini">${exp.location}</p>
+        `;
+        edu.appendChild(expDiv);
+    }
+}
+
 function showDescriptions() {
     const role_title = document.querySelector("#role_title");
     const edu_title = document.querySelector("#edu_title");
@@ -1847,6 +1863,10 @@ async function fetchPWAInfo() {
     // work exp
 
     showWorkExp();
+
+    // education
+
+    showEduExp();
 
     const swapToggle = document.querySelector('.pwa .swapToggle');
     var status = Number(localStorage.getItem('primarySegment'));

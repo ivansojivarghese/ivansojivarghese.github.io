@@ -98,6 +98,14 @@ var wH = window.outerHeight, // height
                     skills: ["Magento", "PHP", "MySQL"]
                 },
             ],
+            eduExp : [
+                {
+                    institution: "Nanyang Technological University (NTU)", // institution name
+                    duration: ["08-2022", "07-2026"], // start and end dates (MM-YYYY format)
+                    location: "Singapore", // geographic location/region/city/country/state
+                    degree: "Bachelor of Engineering (Honours) in Computer Science", // degree obtained
+                }
+            ],
 
             /// -- NOT IN USE BELOW
 
