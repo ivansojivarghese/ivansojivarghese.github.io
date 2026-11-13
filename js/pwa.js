@@ -1772,7 +1772,9 @@ function showWorkExp() {
 
     const roleCount = dev.info.workExp.length;
     expCount.textContent = `${roleCount} ${roleCount === 1 ? "role" : "roles"}`;
-    expStartYear.textContent = dev.info.workExp[0].duration[0].split("-")[1];
+    expStartYear.textContent = Math.min(
+        ...dev.info.workExp.map(exp => Number(exp.duration[0].split("-")[1]))
+    );
 
     for (const exp of dev.info.workExp) {
         const expDiv = document.createElement('div');
