@@ -403,9 +403,9 @@ async function getLocationTime() {
 
     try {
         const response = await fetch(
-            "https://timeapi.io/api/v1/time/current/coordinate?latitude=" +
+            "https://hourora.app/api/v1/lookup?lat=" +
             encodeURIComponent(gps.lat) +
-            "&longitude=" +
+            "&lng=" +
             encodeURIComponent(gps.lon)
         );
 
@@ -414,19 +414,19 @@ async function getLocationTime() {
         }
 
         const data = await response.json();
-        if (!data.timezone || !data.date_time) {
-            throw new Error("Location time response is missing timezone or date_time.");
+        if (!data.zone || !data.now || !data.now.iso) {
+            throw new Error("Location time response is missing zone or now.iso.");
         }
 
-        time.zone = data.timezone;
-        time.value = data.date_time;
+        time.zone = data.zone;
+        time.value = data.now.iso;
 
         const timezoneParts = new Intl.DateTimeFormat("en-SG", {
-            timeZone: data.timezone,
+            timeZone: data.zone,
             timeZoneName: "short"
-        }).formatToParts(new Date(data.date_time));
+        }).formatToParts(new Date(data.now.iso));
         const timezonePart = timezoneParts.find(part => part.type === "timeZoneName");
-        time.abbreviation = timezonePart ? timezonePart.value : "";
+        time.abbreviation = data.now.abbreviation || (timezonePart ? timezonePart.value : "");
     } catch (error) {
         console.error("Error fetching location time:", error);
     }
