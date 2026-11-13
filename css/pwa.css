@@ -1658,6 +1658,11 @@ a.no_inline {
     }
 }*/
 
+#display_time {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
 @media screen and (min-width: 1200px) and (orientation: landscape) {
     .pwa .home .flexActive {
         display: flex;

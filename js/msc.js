@@ -419,11 +419,11 @@ function getLocationTime() {
     if (displayTime) {
         displayTime.textContent = time_z.display;
     }
-    console.log("Location time:", time_z.display);
     return time_z.display;
 }
 
 getLocationTime();
+setInterval(getLocationTime, 1000);
 
 async function getGeolocationInfo() {
   try {
