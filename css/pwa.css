@@ -517,6 +517,14 @@ h3.downsize {
     margin-top: 3rem;
 }
 
+#edu .work-exp {
+    margin-top: 1rem;
+}
+
+#edu .edu-degree {
+    font-weight: bold;
+}
+
 .pwa .open_to_work .info_text {
     padding: 0;
     color: #FFF !important;
