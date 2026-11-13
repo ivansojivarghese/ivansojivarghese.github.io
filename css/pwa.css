@@ -470,7 +470,9 @@ h3.downsize {
 
 .paragraph_single.inline {
     display: inline-block;
-    padding-right: 0.5em;
+    /*padding-right: 0.5em;*/
+    padding-right: 0;
+    padding-bottom: 0;
 }
 
 .pwa .info_text {
@@ -481,6 +483,10 @@ h3.downsize {
     font-size: 1rem;
     font-weight: bold;
     opacity: 0.75;
+}
+
+#workExp .paragraph {
+    margin-top: 2rem;
 }
 
 .pwa .open_to_work, .tile {
@@ -715,6 +721,11 @@ h3.downsize {
 
 .pwa .paragraph.size {
     font-size: 1.5rem;
+}
+
+.tile.expertise_tile.inv {
+    background: #3D3D3D;
+    color: #FFF;
 }
 
 #footer {
