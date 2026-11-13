@@ -17,6 +17,11 @@ var wH = window.outerHeight, // height
         lon : "103.689" // 103.689
         // 37.785222, -122.429722.
     },
+    time = {
+        zone: "",
+        value: "",
+        abbreviation: ""
+    },
 
     /// REDUNDANT VARIABLES (NOT IN USE)
 
@@ -327,9 +332,9 @@ function getScreenRefreshRate(callback, runIndefinitely){
 // CODE REFERENCED FROM: https://javascript.plainenglish.io/how-to-automatically-reload-a-page-after-a-given-period-of-inactivity-in-javascript-991d632d1f80
 // BY John Au-Yeung, 2021
 
-let time = new Date().getTime(); // CHECKS FOR INACTIVITY, & RELOADS IF SO (1 DAY)
+let activityTime = new Date().getTime(); // CHECKS FOR INACTIVITY, & RELOADS IF SO (1 DAY)
 const setActivityTime = (e) => {
-    time = new Date().getTime();
+    activityTime = new Date().getTime();
 }
 document.body.addEventListener("mousemove", setActivityTime);
 document.body.addEventListener("keypress", setActivityTime);
@@ -337,7 +342,7 @@ document.body.addEventListener("scroll", setActivityTime);
 document.body.addEventListener("touchstart", setActivityTime);
 /*
 const refresh = () => {
-    if ((new Date().getTime() - time >= (dev.v * 24 * 60 * 60 * 1000)) && !op.pwa.s) { // max-duration limit in ms. (from days)
+    if ((new Date().getTime() - activityTime >= (dev.v * 24 * 60 * 60 * 1000)) && !op.pwa.s) { // max-duration limit in ms. (from days)
         reL(); // reload
     } else {
         setTimeout(refresh, 10000); // Check every 10s
@@ -389,6 +394,45 @@ function isolateRegionBCP47(str) { // for BCP 47 language tags (https://www.tech
 /////////////////////////////////////////////////////////
 
 // APIs
+
+async function getLocationTime() {
+    if (!navigator.onLine) {
+        console.error("Unable to fetch location time while offline.");
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            "https://timeapi.io/api/v1/time/current/coordinate?latitude=" +
+            encodeURIComponent(gps.lat) +
+            "&longitude=" +
+            encodeURIComponent(gps.lon)
+        );
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (!data.timezone || !data.date_time) {
+            throw new Error("Location time response is missing timezone or date_time.");
+        }
+
+        time.zone = data.timezone;
+        time.value = data.date_time;
+
+        const timezoneParts = new Intl.DateTimeFormat("en-SG", {
+            timeZone: data.timezone,
+            timeZoneName: "short"
+        }).formatToParts(new Date(data.date_time));
+        const timezonePart = timezoneParts.find(part => part.type === "timeZoneName");
+        time.abbreviation = timezonePart ? timezonePart.value : "";
+    } catch (error) {
+        console.error("Error fetching location time:", error);
+    }
+}
+
+getLocationTime();
 
 async function getGeolocationInfo() {
   try {
