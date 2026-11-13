@@ -64,7 +64,8 @@ var wH = window.outerHeight, // height
                     location: "Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
                     type: "onsite", // 'onsite', 'remote' or 'hybrid'
-                    description: "Worked under Prof. Cai Wentong & Dr. Philipp Andelfinger on integrating advanced gradient estimation techniques into ML frameworks to better handle discrete decision branches during training - within the Parallel and Distributed Computing Lab (PDCL) here at NTU." 
+                    description: "Worked under Prof. Cai Wentong & Dr. Philipp Andelfinger on integrating advanced gradient estimation techniques into ML frameworks to better handle discrete decision branches during training - within the Parallel and Distributed Computing Lab (PDCL) here at NTU.", 
+                    skills: ["PyTorch", "Autodiff", "Optimization"]
                 },
                 {
                     title: "Machine Learning Engineer", // designation
@@ -73,7 +74,8 @@ var wH = window.outerHeight, // height
                     location: "Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
                     type: "onsite", // 'onsite', 'remote' or 'hybrid'
-                    description: "Engineered models that predicted user preferences in head-to-head chatbot comparisons. Optimized for human-aligned responses by capturing key signals and minimizing bias in LLM outputs." 
+                    description: "Engineered models that predicted user preferences in head-to-head chatbot comparisons. Optimized for human-aligned responses by capturing key signals and minimizing bias in LLM outputs.",
+                    skills: ["LLMs", "Knowledge Distillation", "NLP", "LoRA/QLoRA", "Model Quantization"] 
                 },
                 {
                     title: "Software Engineer Intern / Forward Deployed Engineer Intern", // designation
@@ -81,8 +83,9 @@ var wH = window.outerHeight, // height
                     duration: ["05-2025", "06-2026"], // start and end dates (MM-YYYY format)
                     location: "Bengaluru & Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
-                    type: "onsite & remote", // 'onsite', 'remote' or 'hybrid'
-                    description: "Owned and developed custom internal Agentic tools/platforms that streamline code verifications and technical debt assessments by using Python/LangChain agents, LangGraph workflows + RAG pipelines." 
+                    type: "hybrid", // 'onsite', 'remote' or 'hybrid'
+                    description: "Owned and developed custom internal Agentic tools/platforms that streamline code verifications and technical debt assessments by using Python/LangChain agents, LangGraph workflows + RAG pipelines.",
+                    skills: ["Distributed Systems", "Agentic AI", "Observability"] 
                 },
                 {
                     title: "Software Engineer Intern", // designation
@@ -91,7 +94,8 @@ var wH = window.outerHeight, // height
                     location: "Singapore", // geographic location/region/city/country/state
                     commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
                     type: "onsite", // 'onsite', 'remote' or 'hybrid'
-                    description: "Built and maintained production‑grade features for Magento‑based platforms, debugging and optimizing backend PHP/MySQL components to improve system reliability and execution efficiency."
+                    description: "Built and maintained production‑grade features for Magento‑based platforms, debugging and optimizing backend PHP/MySQL components to improve system reliability and execution efficiency.",
+                    skills: ["Magento", "PHP", "MySQL"]
                 },
             ],
 

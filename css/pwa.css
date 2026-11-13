@@ -460,6 +460,14 @@ h3.downsize {
     margin-bottom: 2rem;
 }
 
+.work-exp .heading {
+    opacity: 0.75rem;
+}
+
+.work-exp p.heading {
+    margin-bottom: 2rem;
+}
+
 .paragraph_single.inline {
     display: inline-block;
     padding-right: 0.5em;

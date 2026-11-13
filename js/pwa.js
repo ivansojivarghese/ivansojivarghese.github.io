@@ -1767,9 +1767,19 @@ function durationToText(arr) {
 
 function showWorkExp() {
     const workExp = document.querySelector('#workExp');
+    const expCount = document.querySelector('#exp_count');
+    const expStartYear = document.querySelector('#exp_start_year');
+
+    const roleCount = dev.info.workExp.length;
+    expCount.textContent = `${roleCount} ${roleCount === 1 ? "role" : "roles"}`;
+    expStartYear.textContent = dev.info.workExp[0].duration[0].split("-")[1];
+
     for (const exp of dev.info.workExp) {
         const expDiv = document.createElement('div');
         expDiv.classList.add('work-exp');
+        const skills = exp.skills
+            .map(skill => `<p class="paragraph_single inline"><span class="tile expertise_tile inv">${skill}</span></p>`)
+            .join("");
         expDiv.innerHTML = `
             <h5 class="paragraph_single">${exp.title}</h5>
             <p class="paragraph_single">${exp.company}</p>
@@ -1777,6 +1787,7 @@ function showWorkExp() {
             <p class="paragraph_single mini">${exp.location}</p>
             <p class="paragraph_single inline"><span class="tile expertise_tile">${exp.commitment}</span></p>
             <p class="paragraph_single inline"><span class="tile expertise_tile">${exp.type}</span></p>
+            ${skills}
             <p class="paragraph">${exp.description}</p>
         `;
         workExp.appendChild(expDiv);
