@@ -434,10 +434,14 @@ async function getLocationTime() {
             hour: "numeric",
             minute: "2-digit"
         }).format(new Date(data.now.iso));
-        time.display = `${gps.city} — ${localTime} ${time.abbreviation} (${data.now.utcOffset})`;
-        console.log(time.display);
+        const utcOffset = data.now.utcOffset || data.now.offset || "UTC";
+        time.display = `${gps.city} — ${localTime} ${time.abbreviation} (${utcOffset})`;
+        window.locationTime = time;
+        console.log("Location time:", time.display);
+        return time.display;
     } catch (error) {
         console.error("Error fetching location time:", error);
+        return "";
     }
 }
 
