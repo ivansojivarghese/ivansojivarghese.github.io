@@ -413,11 +413,11 @@ function getLocationTime() {
         timeStyle: "medium"
     }).format(now);
     const city = gps.city.replace(/\b\w/g, character => character.toUpperCase());
-    time_z.display = `${city} — ${time_z.value} ${time_z.abbreviation}`;
+    time_z.display = `${city} —<br>${time_z.value} ${time_z.abbreviation}`;
     window.locationTime = time_z;
     const displayTime = document.querySelector("#display_time");
     if (displayTime) {
-        displayTime.textContent = time_z.display;
+        displayTime.innerHTML = time_z.display;
     }
     return time_z.display;
 }
