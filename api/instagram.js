@@ -12,16 +12,16 @@ const MEDIA_FIELDS = [
 ].join(",");
 
 export default async function handler(request, response) {
-    const allowedOrigins = new Set([
-        "https://ivansojivarghese.github.io",
-        "http://localhost:3000",
-        "http://localhost:5173"
-    ]);
-    const origin = request.headers.origin;
+    response.setHeader(
+        "Access-Control-Allow-Origin",
+        "https://ivansojivarghese.github.io"
+    );
+    response.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+    response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    response.setHeader("Vary", "Origin");
 
-    if (origin && allowedOrigins.has(origin)) {
-        response.setHeader("Access-Control-Allow-Origin", origin);
-        response.setHeader("Vary", "Origin");
+    if (request.method === "OPTIONS") {
+        return response.status(200).end();
     }
 
     if (request.method !== "GET") {

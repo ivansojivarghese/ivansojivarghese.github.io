@@ -1664,6 +1664,10 @@ a.no_inline {
     line-height: 1.5em;
 }
 
+.heading {
+    opacity: 0.75;
+}
+
 @media screen and (min-width: 1200px) and (orientation: landscape) {
     .pwa .home .flexActive {
         display: flex;
