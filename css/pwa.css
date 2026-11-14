@@ -825,6 +825,7 @@ h3.downsize {
 .pwa .navbar {
     position: fixed;
     bottom: 0;
+    z-index: 500;
     height: 4rem;
     display: flex;
     align-items: center;
