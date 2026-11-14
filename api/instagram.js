@@ -12,6 +12,18 @@ const MEDIA_FIELDS = [
 ].join(",");
 
 export default async function handler(request, response) {
+    const allowedOrigins = new Set([
+        "https://ivansojivarghese.github.io",
+        "http://localhost:3000",
+        "http://localhost:5173"
+    ]);
+    const origin = request.headers.origin;
+
+    if (origin && allowedOrigins.has(origin)) {
+        response.setHeader("Access-Control-Allow-Origin", origin);
+        response.setHeader("Vary", "Origin");
+    }
+
     if (request.method !== "GET") {
         response.setHeader("Allow", "GET");
         return response.status(405).json({ error: "Method not allowed" });
