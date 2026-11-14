@@ -7,7 +7,7 @@
 }
 
 .instagram-post {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
     background: #f3f3f3;
     border-radius: .5rem;
@@ -22,7 +22,7 @@
 }
 
 .instagram-skeleton {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     border-radius: .5rem;
     background: linear-gradient(110deg, #f3f3f3 30%, #e4e4e4 45%, #f3f3f3 60%);
     background-size: 200% 100%;
