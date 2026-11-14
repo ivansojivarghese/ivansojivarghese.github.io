@@ -292,8 +292,8 @@ p.repoTopics {
 /* */
 
 .pwa .reposCTA a {
-    padding: 1rem;
-    margin-left: 0;
+    padding: 1rem !important;
+    margin-left: 0 !important;
 }
 
 .pwa .popups {

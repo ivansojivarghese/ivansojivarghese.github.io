@@ -2,24 +2,36 @@ const INSTAGRAM_API_URL = "https://instagram-embed-api.vercel.app/api/instagram"
 
 function createInstagramPost(post) {
     const link = document.createElement("a");
-    link.className = "instagram-post hoverB trs";
+    link.className = "instagram-post is-loading hoverB trs";
     link.href = post.permalink;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
 
+    const skeleton = document.createElement("span");
+    skeleton.className = "instagram-skeleton";
+    link.appendChild(skeleton);
+
+    const markAsLoaded = () => {
+        link.classList.remove("is-loading");
+    };
+
     if (post.media_type === "VIDEO" && post.media_url) {
         const video = document.createElement("video");
+        video.className = "instagram-media";
         video.src = post.media_url;
         video.poster = post.thumbnail_url || "";
         video.controls = true;
         video.preload = "metadata";
         video.setAttribute("aria-label", post.caption || "Instagram video");
+        video.addEventListener("loadeddata", markAsLoaded, { once: true });
         link.appendChild(video);
     } else {
         const image = document.createElement("img");
+        image.className = "instagram-media";
         image.src = post.media_url || post.thumbnail_url;
         image.alt = post.caption || "Instagram post";
         image.loading = "lazy";
+        image.addEventListener("load", markAsLoaded, { once: true });
         link.appendChild(image);
     }
 
