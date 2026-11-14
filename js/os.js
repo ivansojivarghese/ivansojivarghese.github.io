@@ -278,7 +278,7 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                 c_css("#footer_sc .bC_mL", "background: #3D3D3D !important; z-index: 10 !important;", false, null, op, "darkMode");
                 c_css(
                     ".instagram-skeleton",
-                    "background: linear-gradient(110deg, #3D3D3D 30%, #666 45%, #3D3D3D 60%) !important; background-size: 200% 100% !important;",
+                    "background: linear-gradient(110deg, #3D3D3D 30%, #666 45%, #3D3D3D 60%); background-size: 200% 100%;",
                     false,
                     null,
                     op,
