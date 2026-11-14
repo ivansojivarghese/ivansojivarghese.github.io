@@ -276,6 +276,14 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                 c_css(".load_r", "border-top-color: #FFF;", false, null, op, "darkMode");
 
                 c_css("#footer_sc .bC_mL", "background: #3D3D3D !important; z-index: 10 !important;", false, null, op, "darkMode");
+                c_css(
+                    ".instagram-skeleton",
+                    "background: linear-gradient(110deg, #3D3D3D 30%, #666 45%, #3D3D3D 60%) !important; background-size: 200% 100% !important;",
+                    false,
+                    null,
+                    op,
+                    "darkMode"
+                );
 
                 // scrolltop_img.classList.remove("scrolltop_img");
 
