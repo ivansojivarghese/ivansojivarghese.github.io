@@ -21,6 +21,20 @@
     object-fit: cover;
 }
 
+.instagram-skeleton {
+    aspect-ratio: 1;
+    border-radius: .5rem;
+    background: linear-gradient(110deg, #f3f3f3 30%, #e4e4e4 45%, #f3f3f3 60%);
+    background-size: 200% 100%;
+    animation: instagram-skeleton-loading 1.5s linear infinite;
+}
+
+@keyframes instagram-skeleton-loading {
+    to {
+        background-position-x: -200%;
+    }
+}
+
 @media (max-width: 600px) {
     .instagram-feed {
         grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -43,12 +43,14 @@ async function loadInstagramFeed() {
         }
 
         const posts = Array.isArray(payload.data) ? payload.data : [];
+        feed.setAttribute("aria-busy", "false");
         feed.replaceChildren(...posts.map(createInstagramPost));
 
         if (!posts.length) {
             feed.textContent = "No Instagram posts available.";
         }
     } catch (error) {
+        feed.setAttribute("aria-busy", "false");
         feed.textContent = "Unable to load Instagram posts.";
         console.error("Unable to load Instagram feed:", error);
     }
