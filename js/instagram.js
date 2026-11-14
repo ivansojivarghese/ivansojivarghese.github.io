@@ -45,6 +45,7 @@ async function loadInstagramFeed() {
         const posts = Array.isArray(payload.data) ? payload.data : [];
         feed.setAttribute("aria-busy", "false");
         feed.replaceChildren(...posts.map(createInstagramPost));
+        window.attachHoverListeners?.();
 
         if (!posts.length) {
             feed.textContent = "No Instagram posts available.";

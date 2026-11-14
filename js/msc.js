@@ -4194,7 +4194,7 @@ window.addEventListener("touchend", function(event) {
 
 const cursorSmall = document.querySelector('.cursor.small');
 const cursorBig = document.querySelector('.cursor.big');
-const hoverBtns = document.querySelectorAll('a, .hoverB');
+const hoverListeners = new WeakSet();
 var cursorTempActive = false,
     cursorActive = false,
     touchActive = false,
@@ -4361,17 +4361,22 @@ function hoverMiddle(e) {
 
 window.addEventListener('mousemove', positionElement);
 
-for (i = 0; i <= hoverBtns.length - 1; i++) {
-    hoverBtns[i].addEventListener('mousemove', hoverInit);
+function attachHoverListeners() {
+    document.querySelectorAll('a, .hoverB').forEach((element) => {
+        if (hoverListeners.has(element)) {
+            return;
+        }
+
+        element.addEventListener('mousemove', hoverInit);
+        element.addEventListener('mouseleave', hoverEnd);
+        element.addEventListener('click', hoverMiddle);
+        hoverListeners.add(element);
+    });
 }
 
-for (i = 0; i <= hoverBtns.length - 1; i++) {
-    hoverBtns[i].addEventListener('mouseleave', hoverEnd);
-}
-
-for (i = 0; i <= hoverBtns.length - 1; i++) {
-    hoverBtns[i].addEventListener('click', hoverMiddle);
-}
+window.attachHoverListeners = attachHoverListeners;
+attachHoverListeners();
+window.addEventListener('load', attachHoverListeners);
 
 ////////////////////////////////////////////
 
