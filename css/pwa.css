@@ -261,7 +261,7 @@ p.repoTopics {
     margin-bottom: 1rem;
 }
 
-.pwa .code a {
+.pwa .code a, .pwa .clicks a.viewAll {
     font-family: Poppins,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
