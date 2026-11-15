@@ -1769,12 +1769,18 @@ function showWorkExp() {
     const workExp = document.querySelector('#workExp');
     const expCount = document.querySelector('#exp_count');
     const expStartYear = document.querySelector('#exp_start_year');
+    const expEndYear = document.querySelector('#exp_end_year');
 
     const roleCount = dev.info.workExp.length;
     expCount.textContent = `${roleCount} ${roleCount === 1 ? "role" : "roles"}`;
     expStartYear.textContent = Math.min(
         ...dev.info.workExp.map(exp => Number(exp.duration[0].split("-")[1]))
     );
+    const currentExperience = dev.info.workExp[0];
+    const endDate = currentExperience.duration[1];
+    expEndYear.textContent = !endDate || endDate.toLowerCase() === "present"
+        ? "present"
+        : endDate.split("-")[1];
 
     for (const exp of dev.info.workExp) {
         const expDiv = document.createElement('div');
