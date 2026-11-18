@@ -73,6 +73,7 @@ loadInstagramFeed();
 
 const topClicks = document.querySelectorAll("#top3_images .top-click");
 let topClicksFrame = 0;
+let topClicksOffsets = Array.from(topClicks, () => 0);
 
 topClicks.forEach((card) => {
     const image = card.querySelector("img");
@@ -99,6 +100,7 @@ function updateTopClicksParallax() {
         topClicks.forEach((card) => {
             card.style.transform = "";
         });
+        topClicksOffsets = Array.from(topClicks, () => 0);
         return;
     }
 
@@ -108,9 +110,32 @@ function updateTopClicksParallax() {
         const rect = card.getBoundingClientRect();
         const distanceFromCenter = rect.top + (rect.height / 2) - viewportCenter;
         const strength = [0.08, 0.12, 0.16][index] || 0.08;
-        const offset = Math.max(-48, Math.min(48, distanceFromCenter * -strength));
-        card.style.transform = `translateY(${offset.toFixed(2)}px)`;
+        const targetOffset = Math.max(-48, Math.min(48, distanceFromCenter * -strength));
+        topClicksOffsets[index] += (targetOffset - topClicksOffsets[index]) * 0.12;
+
+        if (Math.abs(targetOffset - topClicksOffsets[index]) < 0.05) {
+            topClicksOffsets[index] = targetOffset;
+        }
+
+        card.style.transform = `translateY(${topClicksOffsets[index].toFixed(2)}px)`;
     });
+
+    const isSettling = topClicksOffsets.some((offset, index) => {
+        const card = topClicks[index];
+        if (!card) {
+            return false;
+        }
+
+        const rect = card.getBoundingClientRect();
+        const distanceFromCenter = rect.top + (rect.height / 2) - viewportCenter;
+        const strength = [0.08, 0.12, 0.16][index] || 0.08;
+        const targetOffset = Math.max(-48, Math.min(48, distanceFromCenter * -strength));
+        return Math.abs(targetOffset - offset) > 0.05;
+    });
+
+    if (isSettling) {
+        topClicksFrame = window.requestAnimationFrame(updateTopClicksParallax);
+    }
 }
 
 function requestTopClicksParallax() {
