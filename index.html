@@ -164,7 +164,10 @@
                     jQuery : false,
                     canva : false,
                     vscode : false,
-                    pwa : false
+                    pwa : false,
+                    t1 : false,
+                    t2 : false,
+                    t3 : false
                 },
                 res_ar = [svg, img]; // array containing all objects (resource categories) above 
 
@@ -178,7 +181,7 @@
                 var aborted = false; // check if resource fails to fetch
                 var loadedImages = 0;
                 var timeout = 5000; // timeout for fetch requests in milliseconds
-                var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png", "logo/logo_hybrid_inverse.png", "logo/favicon_dark_512.png", "ext/png/signature.png", "ext/png/signature_white.png");
+                var imageArray = new Array("ext/jpg/ivan_profile.jpg", "logo/logo_hybrid.png", "logo/favicon_inverse_512.png", "logo/logo_hybrid_inverse.png", "logo/favicon_dark_512.png", "ext/png/signature.png", "ext/png/signature_white.png", "ext/jpg/top_1.jpg", "ext/jpg/top_2.jpg", "ext/jpg/top_3.jpg");
                 var allLoaded = false;
                 
                 async function preloadImages(e) { // pre-load heavy images
@@ -414,6 +417,9 @@
         <link rel="preload" fetchpriority="low" href="logo/favicon_inverse_512.png" as="image" type="image/png" onload="img.L_i = true;">
         <link rel="preload" fetchpriority="low" href="logo/logo_hybrid_inverse.png" as="image" type="image/png" onload="img.L_hi = true;">
         <link rel="preload" fetchpriority="low" href="logo/favicon_dark_512.png" as="image" type="image/png" onload="img.L_d = true;">
+        <link rel="preload" fetchpriority="low" href="ext/jpg/top_1.jpg" as="image" type="image/jpg" onload="img.t1 = true;">
+        <link rel="preload" fetchpriority="low" href="ext/jpg/top_2.jpg" as="image" type="image/jpg" onload="img.t2 = true;">
+        <link rel="preload" fetchpriority="low" href="ext/jpg/top_3.jpg" as="image" type="image/jpg" onload="img.t3 = true;">
         <!-- Images 2 -->
         <link rel="preload" fetchpriority="low" href="pwa/home.png" as="image" type="image/png" onload="img.hm = true;">
         <link rel="preload" fetchpriority="low" href="pwa/clicks.png" as="image" type="image/png" onload="img.ck = true;">
