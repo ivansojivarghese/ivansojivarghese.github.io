@@ -3,7 +3,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
     margin-top: 3rem;
-    padding-bottom: 4rem;
+    /*padding-bottom: 4rem;*/
 }
 
 .instagram-post {
