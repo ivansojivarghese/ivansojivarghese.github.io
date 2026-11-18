@@ -74,6 +74,24 @@ loadInstagramFeed();
 const topClicks = document.querySelectorAll("#top3_images .top-click");
 let topClicksFrame = 0;
 
+topClicks.forEach((card) => {
+    const image = card.querySelector("img");
+    if (!image) {
+        return;
+    }
+
+    const markTopClickLoaded = () => {
+        card.classList.remove("is-loading");
+    };
+
+    if (image.complete) {
+        markTopClickLoaded();
+    } else {
+        image.addEventListener("load", markTopClickLoaded, { once: true });
+        image.addEventListener("error", markTopClickLoaded, { once: true });
+    }
+});
+
 function updateTopClicksParallax() {
     topClicksFrame = 0;
 

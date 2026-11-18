@@ -34,9 +34,34 @@
 
 .top-click img {
     display: block;
+    position: relative;
+    z-index: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.top-click.is-loading::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: .5rem;
+    background: linear-gradient(110deg, #f3f3f3 30%, #e4e4e4 45%, #f3f3f3 60%);
+    background-size: 200% 100%;
+    animation: instagram-skeleton-loading 1.5s linear infinite;
+}
+
+.top-click:not(.is-loading) img {
+    opacity: 1;
+}
+
+.top-click:not(.is-loading)::before {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
 }
 
 .instagram-post {

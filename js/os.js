@@ -284,6 +284,14 @@ function toggleColorMode(e, init, b) { // light/dark modes toggling
                     op,
                     "darkMode"
                 );
+                c_css(
+                    ".top-click.is-loading::before",
+                    "background: linear-gradient(110deg, #3D3D3D 30%, #666 45%, #3D3D3D 60%); background-size: 200% 100%;",
+                    false,
+                    null,
+                    op,
+                    "darkMode"
+                );
 
                 // scrolltop_img.classList.remove("scrolltop_img");
 
