@@ -8,9 +8,10 @@
 
 #top3_images {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1.25fr 1fr .75fr;
+    align-items: end;
     gap: 1rem;
-    margin: 3rem 0;
+    margin: 2rem 0 10rem;
 }
 
 .top-click {
@@ -27,24 +28,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.top-click-rank {
-    position: absolute;
-    right: .75rem;
-    bottom: .75rem;
-    min-width: 3.5rem;
-    padding: .6rem .75rem;
-    border-radius: 2rem;
-    background: rgba(48, 48, 48, .78);
-    color: #fff;
-    font-family: Poppins, sans-serif;
-    font-size: .8rem;
-    font-weight: bold;
-    line-height: 1;
-    letter-spacing: .15em;
-    text-align: center;
-    backdrop-filter: blur(.4rem);
 }
 
 .instagram-post {
@@ -97,14 +80,29 @@
 }
 
 @media (max-width: 600px) {
-    #top3_images,
     .instagram-feed {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 600px) and (orientation: portrait) {
-    #top3_images,
+    #top3_images {
+        grid-template-columns: minmax(0, 1fr);
+        align-items: start;
+    }
+
+    .top-click-1 {
+        width: 100%;
+    }
+
+    .top-click-2 {
+        width: 80%;
+    }
+
+    .top-click-3 {
+        width: 60%;
+    }
+
     .instagram-feed {
         grid-template-columns: minmax(0, 1fr);
     }
