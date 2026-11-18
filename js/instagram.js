@@ -89,8 +89,8 @@ function updateTopClicksParallax() {
     topClicks.forEach((card, index) => {
         const rect = card.getBoundingClientRect();
         const distanceFromCenter = rect.top + (rect.height / 2) - viewportCenter;
-        const strength = [0.035, 0.055, 0.075][index] || 0.035;
-        const offset = Math.max(-24, Math.min(24, distanceFromCenter * -strength));
+        const strength = [0.08, 0.12, 0.16][index] || 0.08;
+        const offset = Math.max(-48, Math.min(48, distanceFromCenter * -strength));
         card.style.transform = `translateY(${offset.toFixed(2)}px)`;
     });
 }
