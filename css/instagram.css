@@ -21,6 +21,15 @@
     overflow: hidden;
     border-radius: .5rem;
     background: #f3f3f3;
+    will-change: transform;
+}
+
+.top-click-2 {
+    top: 3rem;
+}
+
+.top-click-3 {
+    top: 7rem;
 }
 
 .top-click img {
@@ -96,10 +105,12 @@
     }
 
     .top-click-2 {
+        top: 0;
         width: 80%;
     }
 
     .top-click-3 {
+        top: 0;
         width: 60%;
     }
 

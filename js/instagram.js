@@ -70,3 +70,41 @@ async function loadInstagramFeed() {
 }
 
 loadInstagramFeed();
+
+const topClicks = document.querySelectorAll("#top3_images .top-click");
+let topClicksFrame = 0;
+
+function updateTopClicksParallax() {
+    topClicksFrame = 0;
+
+    if (window.matchMedia("(max-width: 600px) and (orientation: portrait)").matches) {
+        topClicks.forEach((card) => {
+            card.style.transform = "";
+        });
+        return;
+    }
+
+    const viewportCenter = window.innerHeight / 2;
+
+    topClicks.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const distanceFromCenter = rect.top + (rect.height / 2) - viewportCenter;
+        const strength = [0.035, 0.055, 0.075][index] || 0.035;
+        const offset = Math.max(-24, Math.min(24, distanceFromCenter * -strength));
+        card.style.transform = `translateY(${offset.toFixed(2)}px)`;
+    });
+}
+
+function requestTopClicksParallax() {
+    if (!topClicksFrame) {
+        topClicksFrame = window.requestAnimationFrame(updateTopClicksParallax);
+    }
+}
+
+if (topClicks.length) {
+    const sections = document.querySelector(".sections");
+    sections?.addEventListener("scroll", requestTopClicksParallax, { passive: true });
+    window.addEventListener("scroll", requestTopClicksParallax, { passive: true });
+    window.addEventListener("resize", requestTopClicksParallax);
+    requestTopClicksParallax();
+}
