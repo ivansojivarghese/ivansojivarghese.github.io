@@ -586,7 +586,7 @@ h3.downsize {
 .pwa .publicationLink {
     display: inline-block;
     margin-top: 1rem;
-    margin-left: 0;
+    margin-left: 0 !important;
     color: #007bff;
     font-size: 0.8rem;
     font-weight: bold;
