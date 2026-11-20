@@ -175,6 +175,58 @@ body {
     margin-left: 1.5rem;
 }
 
+.pwa .githubStats {
+    margin: 2.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.pwa .githubStats .githubStat {
+    min-height: 7.5rem;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    background: #E4E4E4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pwa .githubStats .githubStat.shade {
+    background: #303030;
+}
+
+.pwa .githubStats .githubStat strong {
+    color: #303030;
+    font-family: Poppins, sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1;
+}
+
+.pwa .githubStats .githubStat.shade strong,
+.pwa .githubStats .githubStat.shade span {
+    color: #fff;
+}
+
+.pwa .githubStats .githubStat span {
+    margin-top: 0.75rem;
+    color: #303030;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+    .pwa .githubStats {
+        grid-template-columns: 1fr;
+    }
+
+    .pwa .githubStats .githubStat {
+        min-height: 6.25rem;
+    }
+}
+
 .pwa .reposContainer {
     margin-top: 3rem;
     display: grid;

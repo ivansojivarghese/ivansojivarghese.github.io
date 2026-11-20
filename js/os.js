@@ -671,6 +671,11 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
                 repoBtns[i].classList.add("shade");
             }
 
+            var githubStats = document.querySelectorAll('.pwa .githubStats .githubStat');
+            for (var i = 0; i < githubStats.length; i++) {
+                githubStats[i].classList.add("shade");
+            }
+
             hb_github.classList.add("shade");
             hb_linkedin.classList.add("shade");
 
@@ -889,6 +894,11 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             var repoBtns = document.querySelectorAll('.pwa .reposContainer .home_buttons');
             for (var i = 0; i < repoBtns.length; i++) {
                 repoBtns[i].classList.remove("shade");
+            }
+
+            var githubStats = document.querySelectorAll('.pwa .githubStats .githubStat');
+            for (var i = 0; i < githubStats.length; i++) {
+                githubStats[i].classList.remove("shade");
             }
 
             hb_github.classList.remove("shade");

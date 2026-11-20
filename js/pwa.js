@@ -2537,10 +2537,65 @@ function startLoadPWA() {
 }
 
 async function fetchRepos() {
-    const response = await fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc");
-    const repos = await response.json();
-    codeRepos = repos;
-    displayRepos(codeRepos);
+    try {
+        const response = await fetch("https://api.github.com/users/ivansojivarghese/repos?per_page=100&sort=pushed&direction=desc");
+        if (!response.ok) {
+            throw new Error("GitHub repositories could not be loaded");
+        }
+        const repos = await response.json();
+        codeRepos = repos;
+        displayRepos(codeRepos);
+        githubRepos.online = true;
+    } catch (error) {
+        githubRepos.online = false;
+        console.warn(error);
+    }
+
+    fetchGitHubStats();
+}
+
+async function fetchGitHubStats() {
+    const reposCount = document.querySelector('.pwa #githubReposCount');
+    const commitsYear = document.querySelector('.pwa #githubCommitsYear');
+    const followersCount = document.querySelector('.pwa #githubFollowersCount');
+
+    if (!reposCount || !commitsYear || !followersCount) {
+        return;
+    }
+
+    try {
+        const profileResponse = await fetch("https://api.github.com/users/ivansojivarghese");
+        if (!profileResponse.ok) {
+            throw new Error("GitHub profile could not be loaded");
+        }
+        const profile = await profileResponse.json();
+        reposCount.textContent = numberWithCommas(profile.public_repos || 0);
+        followersCount.textContent = numberWithCommas(profile.followers || 0);
+    } catch (error) {
+        console.warn(error);
+        reposCount.textContent = "—";
+        followersCount.textContent = "—";
+    }
+
+    try {
+        const oneYearAgo = new Date();
+        oneYearAgo.setUTCFullYear(oneYearAgo.getUTCFullYear() - 1);
+        const date = oneYearAgo.toISOString().slice(0, 10);
+        const commitResponse = await fetch(
+            "https://api.github.com/search/commits?q=" +
+            encodeURIComponent("author:ivansojivarghese committer-date:>=" + date) +
+            "&per_page=1",
+            { headers: { "Accept": "application/vnd.github+json" } }
+        );
+        if (!commitResponse.ok) {
+            throw new Error("GitHub commit count could not be loaded");
+        }
+        const commitData = await commitResponse.json();
+        commitsYear.textContent = numberWithCommas(commitData.total_count || 0);
+    } catch (error) {
+        console.warn(error);
+        commitsYear.textContent = "—";
+    }
 }
 
 function displayRepos(r) {
