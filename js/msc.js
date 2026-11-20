@@ -112,6 +112,28 @@ var wH = window.outerHeight, // height
                     degree: "Bachelor of Engineering (Honours) in Computer Science", // degree obtained
                 }
             ],
+            publications: [
+                {
+                    title: "Gradient estimation over discrete branches in machine learning libraries",
+                    source: "Nanyang Technological University",
+                    link: "https://dr.ntu.edu.sg/entities/publication/36df8d84-36e7-40c4-8aa8-bc93cfc5d0c3"
+                },
+                {
+                    title: "Chatbot Arena Preference Modeling",
+                    source: "ResearchGate",
+                    link: "https://www.researchgate.net/publication/403606527_Chatbot_Arena_Preference_Modeling"
+                },
+                {
+                    title: "Strategizing Federated Learning Systems for Data Sharing Across Major Industries",
+                    source: "Medium",
+                    link: "https://medium.com/@liam_47336/strategizing-federated-learning-systems-for-data-sharing-across-major-industries-e008990209df"
+                },
+                {
+                    title: "Transformer-Based Approaches for Sentiment Analysis in Low-Data, Cross-Domain Settings",
+                    source: "Ready Tensor",
+                    link: "https://app.readytensor.ai/publications/transformer-based-approaches-for-sentiment-analysis-in-low-data-cross-domain-settings-aEudf65vfQ6E"
+                }
+            ],
 
             /// -- NOT IN USE BELOW
 

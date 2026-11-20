@@ -1818,6 +1818,27 @@ function showEduExp() {
     }
 }
 
+function showPublications() {
+    const publicationsContainer = document.querySelector('.pwa .publicationsContainer');
+
+    if (!publicationsContainer) {
+        return;
+    }
+
+    publicationsContainer.replaceChildren();
+
+    for (const publication of dev.info.publications) {
+        const publicationDiv = document.createElement('div');
+        publicationDiv.classList.add('work-exp', 'publication');
+        publicationDiv.innerHTML = `
+            <h5 class="paragraph_single">${publication.title}</h5>
+            <p class="paragraph_single mini">${publication.source}</p>
+            <a class="publicationLink hoverB trs" href="${publication.link}" target="_blank" rel="noopener noreferrer">read publication</a>
+        `;
+        publicationsContainer.appendChild(publicationDiv);
+    }
+}
+
 function showDescriptions() {
     const role_title = document.querySelector("#role_title");
     const edu_title = document.querySelector("#edu_title");
@@ -1873,6 +1894,10 @@ async function fetchPWAInfo() {
     // education
 
     showEduExp();
+
+    // publications
+
+    showPublications();
 
     const swapToggle = document.querySelector('.pwa .swapToggle');
     var status = Number(localStorage.getItem('primarySegment'));

@@ -574,6 +574,29 @@ h3.downsize {
     font-weight: bold;
 }
 
+.pwa .publicationsContainer {
+    margin-top: 2rem;
+}
+
+.pwa .publication {
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem solid #E4E4E4;
+}
+
+.pwa .publication:last-child {
+    border-bottom: 0;
+}
+
+.pwa .publicationLink {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #007bff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
 .pwa .open_to_work .info_text {
     padding: 0;
     color: #FFF !important;
