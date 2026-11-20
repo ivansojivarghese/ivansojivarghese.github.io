@@ -186,7 +186,7 @@ body {
 
 .pwa .githubStats .githubStat {
     min-height: 7.5rem;
-    padding: 1.25rem;
+    padding: 1.25rem 0;
     border-radius: 0.75rem;
     background: #E4E4E4;
     display: flex;
@@ -203,6 +203,7 @@ body {
     font-family: Poppins, sans-serif;
     font-size: clamp(1.75rem, 4vw, 2.75rem);
     line-height: 1;
+    margin-left: 1rem;
 }
 
 .pwa .githubStats .githubStat.shade strong,
@@ -214,9 +215,10 @@ body {
     margin-top: 0.75rem;
     color: #303030;
     font-size: 0.8rem;
-    font-weight: bold;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    margin-left: 1rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .pwa .reposContainer {
