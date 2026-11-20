@@ -1833,9 +1833,12 @@ function showPublications() {
         publicationDiv.innerHTML = `
             <h5 class="paragraph_single">${publication.title}</h5>
             <p class="paragraph_single mini">${publication.source}</p>
-            <a class="publicationLink hoverB trs" href="${publication.link}" target="_blank" rel="noopener noreferrer">read</a>
+            <a class="publicationLink lightBackground hoverB trs" href="${publication.link}" target="_blank" rel="noopener noreferrer">read</a>
         `;
         const publicationLink = publicationDiv.querySelector(".publicationLink");
+        if (op.darkMode) {
+            publicationLink.classList.add("shade");
+        }
         publicationLink.addEventListener("mousemove", hoverInit);
         publicationLink.addEventListener("mouseleave", hoverEnd);
         publicationLink.addEventListener("click", hoverMiddle);

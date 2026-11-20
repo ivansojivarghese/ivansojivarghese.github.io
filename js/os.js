@@ -676,6 +676,11 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
                 githubStats[i].classList.add("shade");
             }
 
+            var publicationLinks = document.querySelectorAll('.pwa .publicationLink');
+            for (var i = 0; i < publicationLinks.length; i++) {
+                publicationLinks[i].classList.add("shade");
+            }
+
             hb_github.classList.add("shade");
             hb_linkedin.classList.add("shade");
 
@@ -899,6 +904,11 @@ function toggleColorMode_e(init) { // toggle between light and dark modes (page 
             var githubStats = document.querySelectorAll('.pwa .githubStats .githubStat');
             for (var i = 0; i < githubStats.length; i++) {
                 githubStats[i].classList.remove("shade");
+            }
+
+            var publicationLinks = document.querySelectorAll('.pwa .publicationLink');
+            for (var i = 0; i < publicationLinks.length; i++) {
+                publicationLinks[i].classList.remove("shade");
             }
 
             hb_github.classList.remove("shade");

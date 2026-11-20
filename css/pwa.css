@@ -194,10 +194,6 @@ body {
     justify-content: center;
 }
 
-.pwa .githubStats .githubStat.shade {
-    background: #303030;
-}
-
 .pwa .githubStats .githubStat strong {
     color: #303030;
     font-family: Poppins, sans-serif;
@@ -590,6 +586,7 @@ h3.downsize {
 .pwa .publicationLink {
     display: inline-block;
     margin-top: 1rem;
+    margin-left: 0;
     color: #007bff;
     font-size: 0.8rem;
     font-weight: bold;
