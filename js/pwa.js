@@ -2564,7 +2564,12 @@ async function fetchGitHubStats() {
         return;
     }
 
-    if (githubStats && githubStats.dataset.countObserved !== "true") {
+    const githubStatsAnimated = githubStatsAnimationPlayed();
+    if (githubStats && githubStatsAnimated) {
+        githubStats.dataset.countStarted = "true";
+        githubStats.dataset.countObserved = "true";
+        githubStats.dataset.countPersisted = "true";
+    } else if (githubStats && githubStats.dataset.countObserved !== "true") {
         githubStats.dataset.countObserved = "true";
 
         if ("IntersectionObserver" in window) {
@@ -2624,11 +2629,43 @@ function setGitHubStat(element, value) {
     const target = Math.max(0, parseInt(value, 10) || 0);
     element.dataset.target = target;
 
-    if (element.closest(".githubStats").dataset.countStarted === "true") {
+    const githubStats = element.closest(".githubStats");
+    if (githubStats && githubStats.dataset.countPersisted === "true") {
+        element.dataset.animated = "true";
+        element.textContent = numberWithCommas(target);
+    } else if (githubStats && githubStats.dataset.countStarted === "true") {
         animateGitHubNumber(element, target);
     } else {
         element.textContent = "0";
     }
+}
+
+function githubStatsAnimationPlayed() {
+    const storageKey = "githubStatsAnimationPlayed";
+
+    try {
+        if (localStorage.getItem(storageKey) === "true") {
+            return true;
+        }
+    } catch (error) {
+        // localStorage can be unavailable in privacy-restricted contexts.
+    }
+
+    return document.cookie.split(";").some(function(cookie) {
+        return cookie.trim() === storageKey + "=true";
+    });
+}
+
+function rememberGitHubStatsAnimation() {
+    const storageKey = "githubStatsAnimationPlayed";
+
+    try {
+        localStorage.setItem(storageKey, "true");
+    } catch (error) {
+        // Continue with the cookie fallback.
+    }
+
+    document.cookie = storageKey + "=true; max-age=31536000; path=/; SameSite=Lax";
 }
 
 function startGitHubNumberAnimations() {
@@ -2638,6 +2675,7 @@ function startGitHubNumberAnimations() {
     }
 
     githubStats.dataset.countStarted = "true";
+    rememberGitHubStatsAnimation();
     const numbers = githubStats.querySelectorAll("[data-target]");
     numbers.forEach(function(element, index) {
         animateGitHubNumber(element, parseInt(element.dataset.target, 10) || 0, 1200 + (index * 120));
