@@ -330,6 +330,7 @@ p.repoTopics {
     font-weight: bold;
     margin-bottom: 2rem;
     margin-top: auto;
+    margin-left: 1rem;
     align-self: start;
 }
 

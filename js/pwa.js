@@ -1835,6 +1835,10 @@ function showPublications() {
             <p class="paragraph_single mini">${publication.source}</p>
             <a class="publicationLink hoverB trs" href="${publication.link}" target="_blank" rel="noopener noreferrer">read</a>
         `;
+        const publicationLink = publicationDiv.querySelector(".publicationLink");
+        publicationLink.addEventListener("mousemove", hoverInit);
+        publicationLink.addEventListener("mouseleave", hoverEnd);
+        publicationLink.addEventListener("click", hoverMiddle);
         publicationsContainer.appendChild(publicationDiv);
     }
 }
