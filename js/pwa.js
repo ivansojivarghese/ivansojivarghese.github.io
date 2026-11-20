@@ -2558,9 +2558,31 @@ async function fetchGitHubStats() {
     const reposCount = document.querySelector('.pwa #githubReposCount');
     const commitsYear = document.querySelector('.pwa #githubCommitsYear');
     const followersCount = document.querySelector('.pwa #githubFollowersCount');
+    const githubStats = document.querySelector('.pwa .githubStats');
 
     if (!reposCount || !commitsYear || !followersCount) {
         return;
+    }
+
+    if (githubStats && githubStats.dataset.countObserved !== "true") {
+        githubStats.dataset.countObserved = "true";
+
+        if ("IntersectionObserver" in window) {
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    statsObserver.disconnect();
+                    startGitHubNumberAnimations();
+                });
+            }, { threshold: 0.35 });
+
+            statsObserver.observe(githubStats);
+        } else {
+            startGitHubNumberAnimations();
+        }
     }
 
     try {
@@ -2569,8 +2591,8 @@ async function fetchGitHubStats() {
             throw new Error("GitHub profile could not be loaded");
         }
         const profile = await profileResponse.json();
-        reposCount.textContent = numberWithCommas(profile.public_repos || 0);
-        followersCount.textContent = numberWithCommas(profile.followers || 0);
+        setGitHubStat(reposCount, profile.public_repos || 0);
+        setGitHubStat(followersCount, profile.followers || 0);
     } catch (error) {
         console.warn(error);
         reposCount.textContent = "—";
@@ -2591,11 +2613,67 @@ async function fetchGitHubStats() {
             throw new Error("GitHub commit count could not be loaded");
         }
         const commitData = await commitResponse.json();
-        commitsYear.textContent = numberWithCommas(commitData.total_count || 0);
+        setGitHubStat(commitsYear, commitData.total_count || 0);
     } catch (error) {
         console.warn(error);
         commitsYear.textContent = "—";
     }
+}
+
+function setGitHubStat(element, value) {
+    const target = Math.max(0, parseInt(value, 10) || 0);
+    element.dataset.target = target;
+
+    if (element.closest(".githubStats").dataset.countStarted === "true") {
+        animateGitHubNumber(element, target);
+    } else {
+        element.textContent = "0";
+    }
+}
+
+function startGitHubNumberAnimations() {
+    const githubStats = document.querySelector('.pwa .githubStats');
+    if (!githubStats || githubStats.dataset.countStarted === "true") {
+        return;
+    }
+
+    githubStats.dataset.countStarted = "true";
+    const numbers = githubStats.querySelectorAll("[data-target]");
+    numbers.forEach(function(element, index) {
+        animateGitHubNumber(element, parseInt(element.dataset.target, 10) || 0, 1200 + (index * 120));
+    });
+}
+
+function animateGitHubNumber(element, target, duration) {
+    if (element.dataset.animated === "true") {
+        element.textContent = numberWithCommas(target);
+        return;
+    }
+
+    element.dataset.animated = "true";
+    duration = duration || 1200;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        element.textContent = numberWithCommas(target);
+        return;
+    }
+
+    const startTime = performance.now();
+
+    function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.round(target * easedProgress);
+        element.textContent = numberWithCommas(currentValue);
+
+        if (progress < 1) {
+            window.requestAnimationFrame(updateNumber);
+        }
+    }
+
+    element.textContent = "0";
+    window.requestAnimationFrame(updateNumber);
 }
 
 function displayRepos(r) {

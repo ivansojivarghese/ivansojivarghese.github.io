@@ -203,6 +203,7 @@ body {
     font-family: Poppins, sans-serif;
     font-size: clamp(1.75rem, 4vw, 2.75rem);
     line-height: 1;
+    font-variant-numeric: tabular-nums;
     margin-left: 1rem;
 }
 
