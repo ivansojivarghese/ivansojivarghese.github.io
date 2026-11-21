@@ -64,6 +64,16 @@ var wH = window.outerHeight, // height
             },
             workExp: [ // Add work experience details here
                 {
+                    title: "Associate Application Developer", // designation
+                    company: "IBM", // organization
+                    duration: ["11-2026", "present"], // start and end dates (MM-YYYY format), end date can be "present" if ongoing
+                    location: "Singapore", // geographic location/region/city/country/state
+                    commitment: "full-time", // 'full-time', 'part-time', 'casual' or 'freelance'
+                    type: "hybrid", // 'onsite', 'remote' or 'hybrid'
+                    description: "", // brief description of work experience
+                    skills: [] // relevant skills (ensure comma separated)
+                },
+                {
                     title: "Undergraduate Student Researcher", // designation
                     company: "College of Computing & Data Science (CCDS), NTU", // organization
                     duration: ["08-2025", "05-2026"], // start and end dates (MM-YYYY format), end date can be "present" if ongoing
