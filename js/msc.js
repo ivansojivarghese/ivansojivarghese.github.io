@@ -49,7 +49,7 @@ var wH = window.outerHeight, // height
             // work: ["fullstack", "backend", "systems", "cloud", "ai/ml/data"], // work labels
 
             headline: "software, ai & ml engineering", // profile headline
-            headline_Secondary: "cs @ ntu", // profile headline secondary
+            headline_Secondary: "app dev @ ibm", // profile headline secondary
             openToWork: false, // open to work status
             work: ["i think", "we can", "do better.", "let's do this,", "cheers! :)"], // labels for typing effect
             desc1: "I'm a graduate with a Bachelor of Engineering (Honours) in Computer Science from <strong>Nanyang Technological University</strong>, with a strong interest in Artificial Intelligence.",
